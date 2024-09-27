@@ -420,10 +420,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.379 = private unnamed_addr constant [66 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.\00", align 1
 @.str.380 = private unnamed_addr constant [3 x i8] c" /\00", align 1
 @switch.table.ExplainNode = private unnamed_addr constant [4 x ptr] [ptr @.str.133, ptr @.str.135, ptr @.str.137, ptr @.str.139], align 8
-@switch.table.ExplainNode.13 = private unnamed_addr constant [4 x ptr] [ptr @.str.132, ptr @.str.134, ptr @.str.136, ptr @.str.138], align 8
-@switch.table.ExplainNode.14 = private unnamed_addr constant [4 x ptr] [ptr @.str.177, ptr @.str.178, ptr @.str.179, ptr @.str.180], align 8
-@switch.table.ExplainNode.15 = private unnamed_addr constant [4 x ptr] [ptr @.str.123, ptr @.str.122, ptr @.str.124, ptr @.str.296], align 8
-@switch.table.ExplainNode.16 = private unnamed_addr constant [4 x ptr] [ptr @.str.90, ptr @.str.89, ptr @.str.91, ptr @.str.92], align 8
+@switch.table.ExplainNode.14 = private unnamed_addr constant [4 x ptr] [ptr @.str.132, ptr @.str.134, ptr @.str.136, ptr @.str.138], align 8
+@switch.table.ExplainNode.15 = private unnamed_addr constant [4 x ptr] [ptr @.str.177, ptr @.str.178, ptr @.str.179, ptr @.str.180], align 8
+@switch.table.ExplainNode.16 = private unnamed_addr constant [4 x ptr] [ptr @.str.123, ptr @.str.122, ptr @.str.124, ptr @.str.296], align 8
+@switch.table.ExplainNode.17 = private unnamed_addr constant [4 x ptr] [ptr @.str.90, ptr @.str.89, ptr @.str.91, ptr @.str.92], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExplainQuery(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1840,8 +1840,8 @@ show_memory_counters.exit:                        ; preds = %206, %ExplainIndent
   %244 = getelementptr inbounds i8, ptr %243, i64 264
   %245 = load i32, ptr %244, align 8
   %246 = and i32 %245, 1
-  %.not.i89 = icmp eq i32 %246, 0
-  br i1 %.not.i89, label %ExplainPrintJITSummary.exit, label %247
+  %.not.i90 = icmp eq i32 %246, 0
+  br i1 %.not.i90, label %ExplainPrintJITSummary.exit, label %247
 
 247:                                              ; preds = %241
   %248 = getelementptr inbounds i8, ptr %243, i64 272
@@ -1852,11 +1852,11 @@ show_memory_counters.exit:                        ; preds = %206, %ExplainIndent
 250:                                              ; preds = %247
   %251 = getelementptr inbounds i8, ptr %249, i64 16
   call void @InstrJitAgg(ptr noundef nonnull %12, ptr noundef nonnull %251) #11
-  %.pre.i90 = load ptr, ptr %242, align 8
+  %.pre.i91 = load ptr, ptr %242, align 8
   br label %252
 
 252:                                              ; preds = %250, %247
-  %253 = phi ptr [ %.pre.i90, %250 ], [ %243, %247 ]
+  %253 = phi ptr [ %.pre.i91, %250 ], [ %243, %247 ]
   %254 = getelementptr inbounds i8, ptr %253, i64 280
   %255 = load ptr, ptr %254, align 8
   %.not9.i = icmp eq ptr %255, null
@@ -1903,10 +1903,10 @@ ExplainPrintJITSummary.exit:                      ; preds = %241, %257
   %272 = getelementptr inbounds i8, ptr %10, i64 8
   %273 = load i64, ptr %272, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %reass.add101 = sub i64 %271, %263
-  %reass.mul102 = mul i64 %reass.add101, 1000000000
+  %reass.add102 = sub i64 %271, %263
+  %reass.mul103 = mul i64 %reass.add102, 1000000000
   %274 = sub i64 %273, %265
-  %275 = add i64 %274, %reass.mul102
+  %275 = add i64 %274, %reass.mul103
   %276 = sitofp i64 %275 to double
   %277 = fdiv double %276, 1.000000e+09
   %278 = fadd double %.075, %277
@@ -3399,7 +3399,7 @@ switch.lookup:                                    ; preds = %118
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.ExplainNode, i64 0, i64 %122
   %switch.load = load ptr, ptr %switch.gep, align 8
   %123 = zext nneg i32 %120 to i64
-  %switch.gep1206 = getelementptr inbounds [4 x ptr], ptr @switch.table.ExplainNode.13, i64 0, i64 %123
+  %switch.gep1206 = getelementptr inbounds [4 x ptr], ptr @switch.table.ExplainNode.14, i64 0, i64 %123
   %switch.load1207 = load ptr, ptr %switch.gep1206, align 8
   br label %124
 
@@ -3820,7 +3820,7 @@ explain_get_index_name.exit:                      ; preds = %252, %.thread.i
 
 switch.lookup1208:                                ; preds = %290
   %294 = zext nneg i32 %292 to i64
-  %switch.gep1209 = getelementptr inbounds [4 x ptr], ptr @switch.table.ExplainNode.14, i64 0, i64 %294
+  %switch.gep1209 = getelementptr inbounds [4 x ptr], ptr @switch.table.ExplainNode.15, i64 0, i64 %294
   %switch.load1210 = load ptr, ptr %switch.gep1209, align 8
   br label %295
 
@@ -6615,10 +6615,10 @@ show_upper_qual.exit898:                          ; preds = %1707
 
 switch.lookup1211:                                ; preds = %1717
   %1722 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1212 = getelementptr inbounds [4 x ptr], ptr @switch.table.ExplainNode.15, i64 0, i64 %1722
+  %switch.gep1212 = getelementptr inbounds [4 x ptr], ptr @switch.table.ExplainNode.16, i64 0, i64 %1722
   %switch.load1213 = load ptr, ptr %switch.gep1212, align 8
   %1723 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1214 = getelementptr inbounds [4 x ptr], ptr @switch.table.ExplainNode.16, i64 0, i64 %1723
+  %switch.gep1214 = getelementptr inbounds [4 x ptr], ptr @switch.table.ExplainNode.17, i64 0, i64 %1723
   %switch.load1215 = load ptr, ptr %switch.gep1214, align 8
   br label %1724
 

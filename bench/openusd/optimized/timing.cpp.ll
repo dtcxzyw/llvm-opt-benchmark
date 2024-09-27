@@ -391,20 +391,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__18ArchGetTickQuantumEv.exit.i.i.i: ; preds 
 120:                                              ; preds = %115
   %121 = load i64, ptr %.pn18.i.i.i.i.i.i, align 8
   %122 = icmp ult i64 %116, %121
-  br i1 %122, label %.lr.ph.i.i.i.i48.i.i.i, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i
+  br i1 %122, label %.lr.ph.i.i.i.i53.i.i.i, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i48.i.i.i:                           ; preds = %120, %.lr.ph.i.i.i.i48.i.i.i
-  %123 = phi i64 [ %124, %.lr.ph.i.i.i.i48.i.i.i ], [ %121, %120 ]
-  %.013.i.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i48.i.i.i ], [ %.pn18.i.i.i.i.i.i, %120 ]
-  %.0912.i.i.i.i.i.i.i = phi ptr [ %.013.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i48.i.i.i ], [ %.019.i.ptr.i.i.i.i.i, %120 ]
+.lr.ph.i.i.i.i53.i.i.i:                           ; preds = %120, %.lr.ph.i.i.i.i53.i.i.i
+  %123 = phi i64 [ %124, %.lr.ph.i.i.i.i53.i.i.i ], [ %121, %120 ]
+  %.013.i.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i53.i.i.i ], [ %.pn18.i.i.i.i.i.i, %120 ]
+  %.0912.i.i.i.i.i.i.i = phi ptr [ %.013.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i53.i.i.i ], [ %.019.i.ptr.i.i.i.i.i, %120 ]
   store i64 %123, ptr %.0912.i.i.i.i.i.i.i, align 8
   %.0.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.013.i.i.i.i.i.i.i, i64 -8
   %124 = load i64, ptr %.0.i.i.i.i.i.i.i, align 8
   %125 = icmp ult i64 %116, %124
-  br i1 %125, label %.lr.ph.i.i.i.i48.i.i.i, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %125, label %.lr.ph.i.i.i.i53.i.i.i, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i, !llvm.loop !14
 
-_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i48.i.i.i, %120, %119
-  %.sink.i.i.i.i.i.i = phi ptr [ %2, %119 ], [ %.019.i.ptr.i.i.i.i.i, %120 ], [ %.013.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i48.i.i.i ]
+_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i53.i.i.i, %120, %119
+  %.sink.i.i.i.i.i.i = phi ptr [ %2, %119 ], [ %.019.i.ptr.i.i.i.i.i, %120 ], [ %.013.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i53.i.i.i ]
   store i64 %116, ptr %.sink.i.i.i.i.i.i, align 8
   %.019.i.add.i.i.i.i.i = add nuw nsw i64 %.019.i.idx.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.019.i.add.i.i.i.i.i, 128
@@ -453,7 +453,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit
   %141 = add i64 %.sroa.4.4.insert.insert.neg.i.i.i, %140
   %142 = add i64 %141, %139
   %.not35.i.i.i = icmp ult i64 %142, 10000000
-  br i1 %.not35.i.i.i, label %143, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47.i.i.i
+  br i1 %.not35.i.i.i, label %143, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52.i.i.i
 
 143:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit.i.i.i
   %144 = load i64, ptr %113, align 16
@@ -571,7 +571,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit
   %.not37.i.i.i = icmp eq i64 %indvars.iv.next99.i.i.i, 6
   br i1 %.not37.i.i.i, label %.loopexit.i.i.i, label %.preheader.i.i.i, !llvm.loop !18
 
-_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47.i.i.i
+_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52.i.i.i
   fence syncscope("singlethread") seq_cst
   %196 = call { i32, i32 } asm sideeffect "rdtscp\0A\09lfence", "={ax},={dx},~{rcx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   %197 = extractvalue { i32, i32 } %196, 0
@@ -582,10 +582,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit
   %202 = add i64 %.sroa.4.4.insert.insert.neg.i.i.i, %201
   %203 = add i64 %202, %200
   %204 = icmp ult i64 %203, 10000000
-  br i1 %204, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L37Arch_ComputeIntervalTimerTickOverheadEv.exit, !llvm.loop !19
+  br i1 %204, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L37Arch_ComputeIntervalTimerTickOverheadEv.exit, !llvm.loop !19
 
-_ZN32pxrInternal_v0_24__pxrReserved__L37Arch_ComputeIntervalTimerTickOverheadEv.exit: ; preds = %_ZSt6__sortIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47.i.i.i
-  %.027.in.sroa.speculated.i.i.i = phi i64 [ %.081.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47.i.i.i ], [ %132, %_ZSt6__sortIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__L37Arch_ComputeIntervalTimerTickOverheadEv.exit: ; preds = %_ZSt6__sortIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52.i.i.i
+  %.027.in.sroa.speculated.i.i.i = phi i64 [ %.081.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52.i.i.i ], [ %132, %_ZSt6__sortIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2)
   store atomic i64 %.027.in.sroa.speculated.i.i.i, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L30Arch_IntervalTimerTickOverheadE monotonic, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12GetAtomicVarIlEET_RSt6atomicIS1_EPFS1_vE.exit
@@ -870,20 +870,20 @@ _ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIDoFNSt6chrono10
 104:                                              ; preds = %99
   %105 = load i64, ptr %.pn18.i.i.i.i.i.i, align 8
   %106 = icmp ult i64 %100, %105
-  br i1 %106, label %.lr.ph.i.i.i.i48.i.i.i, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i
+  br i1 %106, label %.lr.ph.i.i.i.i53.i.i.i, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i48.i.i.i:                           ; preds = %104, %.lr.ph.i.i.i.i48.i.i.i
-  %107 = phi i64 [ %108, %.lr.ph.i.i.i.i48.i.i.i ], [ %105, %104 ]
-  %.013.i.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i48.i.i.i ], [ %.pn18.i.i.i.i.i.i, %104 ]
-  %.0912.i.i.i.i.i.i.i = phi ptr [ %.013.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i48.i.i.i ], [ %.019.i.ptr.i.i.i.i.i, %104 ]
+.lr.ph.i.i.i.i53.i.i.i:                           ; preds = %104, %.lr.ph.i.i.i.i53.i.i.i
+  %107 = phi i64 [ %108, %.lr.ph.i.i.i.i53.i.i.i ], [ %105, %104 ]
+  %.013.i.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i53.i.i.i ], [ %.pn18.i.i.i.i.i.i, %104 ]
+  %.0912.i.i.i.i.i.i.i = phi ptr [ %.013.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i53.i.i.i ], [ %.019.i.ptr.i.i.i.i.i, %104 ]
   store i64 %107, ptr %.0912.i.i.i.i.i.i.i, align 8
   %.0.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.013.i.i.i.i.i.i.i, i64 -8
   %108 = load i64, ptr %.0.i.i.i.i.i.i.i, align 8
   %109 = icmp ult i64 %100, %108
-  br i1 %109, label %.lr.ph.i.i.i.i48.i.i.i, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %109, label %.lr.ph.i.i.i.i53.i.i.i, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i, !llvm.loop !14
 
-_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i48.i.i.i, %104, %103
-  %.sink.i.i.i.i.i.i = phi ptr [ %3, %103 ], [ %.019.i.ptr.i.i.i.i.i, %104 ], [ %.013.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i48.i.i.i ]
+_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i53.i.i.i, %104, %103
+  %.sink.i.i.i.i.i.i = phi ptr [ %3, %103 ], [ %.019.i.ptr.i.i.i.i.i, %104 ], [ %.013.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i53.i.i.i ]
   store i64 %100, ptr %.sink.i.i.i.i.i.i, align 8
   %.019.i.add.i.i.i.i.i = add nuw nsw i64 %.019.i.idx.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.019.i.add.i.i.i.i.i, 128
@@ -932,7 +932,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit
   %125 = add i64 %.sroa.4.4.insert.insert.neg.i.i.i, %124
   %126 = add i64 %125, %123
   %.not35.i.i.i = icmp ult i64 %126, 10000000
-  br i1 %.not35.i.i.i, label %127, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47.i.i.i
+  br i1 %.not35.i.i.i, label %127, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52.i.i.i
 
 127:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit.i.i.i
   %128 = load i64, ptr %97, align 16
@@ -1016,7 +1016,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIDoFNSt6chrono10
   %.not37.i.i.i = icmp eq i64 %indvars.iv.next99.i.i.i, 6
   br i1 %.not37.i.i.i, label %.loopexit.i.i.i, label %.preheader.i.i.i, !llvm.loop !18
 
-_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47.i.i.i
+_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52.i.i.i
   fence syncscope("singlethread") seq_cst
   %160 = call { i32, i32 } asm sideeffect "rdtscp\0A\09lfence", "={ax},={dx},~{rcx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   %161 = extractvalue { i32, i32 } %160, 0
@@ -1027,10 +1027,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit
   %166 = add i64 %.sroa.4.4.insert.insert.neg.i.i.i, %165
   %167 = add i64 %166, %164
   %168 = icmp ult i64 %167, 10000000
-  br i1 %168, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47.i.i.i, label %.loopexit.i, !llvm.loop !19
+  br i1 %168, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52.i.i.i, label %.loopexit.i, !llvm.loop !19
 
-.loopexit.i:                                      ; preds = %_ZSt6__sortIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47.i.i.i
-  %.027.in.sroa.speculated.i.i.i = phi i64 [ %.081.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47.i.i.i ], [ %116, %_ZSt6__sortIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i ]
+.loopexit.i:                                      ; preds = %_ZSt6__sortIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52.i.i.i
+  %.027.in.sroa.speculated.i.i.i = phi i64 [ %.081.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52.i.i.i ], [ %116, %_ZSt6__sortIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3)
   %169 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #3
   fence syncscope("singlethread") seq_cst
@@ -1300,20 +1300,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__18ArchGetTickQuantumEv.exit: ; preds = %.lr
 75:                                               ; preds = %70
   %76 = load i64, ptr %.pn18.i.i.i, align 8
   %77 = icmp ult i64 %71, %76
-  br i1 %77, label %.lr.ph.i.i.i.i48, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i
+  br i1 %77, label %.lr.ph.i.i.i.i53, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i
 
-.lr.ph.i.i.i.i48:                                 ; preds = %75, %.lr.ph.i.i.i.i48
-  %78 = phi i64 [ %79, %.lr.ph.i.i.i.i48 ], [ %76, %75 ]
-  %.013.i.i.i.i = phi ptr [ %.0.i.i.i.i, %.lr.ph.i.i.i.i48 ], [ %.pn18.i.i.i, %75 ]
-  %.0912.i.i.i.i = phi ptr [ %.013.i.i.i.i, %.lr.ph.i.i.i.i48 ], [ %.019.i.ptr.i.i, %75 ]
+.lr.ph.i.i.i.i53:                                 ; preds = %75, %.lr.ph.i.i.i.i53
+  %78 = phi i64 [ %79, %.lr.ph.i.i.i.i53 ], [ %76, %75 ]
+  %.013.i.i.i.i = phi ptr [ %.0.i.i.i.i, %.lr.ph.i.i.i.i53 ], [ %.pn18.i.i.i, %75 ]
+  %.0912.i.i.i.i = phi ptr [ %.013.i.i.i.i, %.lr.ph.i.i.i.i53 ], [ %.019.i.ptr.i.i, %75 ]
   store i64 %78, ptr %.0912.i.i.i.i, align 8
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 -8
   %79 = load i64, ptr %.0.i.i.i.i, align 8
   %80 = icmp ult i64 %71, %79
-  br i1 %80, label %.lr.ph.i.i.i.i48, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, !llvm.loop !14
+  br i1 %80, label %.lr.ph.i.i.i.i53, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, !llvm.loop !14
 
-_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i48, %75, %74
-  %.sink.i.i.i = phi ptr [ %6, %74 ], [ %.019.i.ptr.i.i, %75 ], [ %.013.i.i.i.i, %.lr.ph.i.i.i.i48 ]
+_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i53, %75, %74
+  %.sink.i.i.i = phi ptr [ %6, %74 ], [ %.019.i.ptr.i.i, %75 ], [ %.013.i.i.i.i, %.lr.ph.i.i.i.i53 ]
   store i64 %71, ptr %.sink.i.i.i, align 8
   %.019.i.add.i.i = add nuw nsw i64 %.019.i.idx.i.i, 8
   %.not.i.i.i = icmp eq i64 %.019.i.add.i.i, 128
@@ -1366,7 +1366,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit
   %97 = add i64 %.sroa.4.4.insert.insert.neg, %96
   %98 = add i64 %97, %95
   %.not35 = icmp ult i64 %98, %spec.select
-  br i1 %.not35, label %99, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47
+  br i1 %.not35, label %99, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52
 
 99:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit
   %100 = load i64, ptr %68, align 16
@@ -1394,7 +1394,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit
   %.not37 = icmp eq i64 %indvars.iv.next99, 6
   br i1 %.not37, label %.loopexit, label %.preheader, !llvm.loop !18
 
-_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47
+_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52
   fence syncscope("singlethread") seq_cst
   %110 = call { i32, i32 } asm sideeffect "rdtscp\0A\09lfence", "={ax},={dx},~{rcx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   %111 = extractvalue { i32, i32 } %110, 0
@@ -1405,9 +1405,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit
   %116 = add i64 %.sroa.4.4.insert.insert.neg, %115
   %117 = add i64 %116, %114
   %118 = icmp ult i64 %117, %spec.select
-  br i1 %118, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47, label %119, !llvm.loop !19
+  br i1 %118, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52, label %119, !llvm.loop !19
 
-119:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit47
+119:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit52
   %.not38 = icmp eq ptr %1, null
   br i1 %.not38, label %120, label %.sink.split
 

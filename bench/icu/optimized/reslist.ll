@@ -3796,12 +3796,12 @@ entry.if.end_crit_edge:                           ; preds = %entry
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
+  %3 = ptrtoint ptr %keysInUse to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %3, align 8
-  %4 = ptrtoint ptr %keysInUse to i64
-  store i64 %4, ptr %agg.tmp, align 8
+  %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store i64 0, ptr %4, align 8
+  store i64 %3, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFviEZN7SRBRoot11compactKeysER10UErrorCodeE3$_0E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFviEZN7SRBRoot11compactKeysER10UErrorCodeE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %vtable = load ptr, ptr %2, align 8

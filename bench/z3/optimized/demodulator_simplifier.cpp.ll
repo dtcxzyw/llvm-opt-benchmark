@@ -972,11 +972,11 @@ if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.
   %.pre328.i.i = and i32 %14, 31
   %.pre329.i.i = shl nuw i32 1, %.pre328.i.i
   %arrayidx.i.i.i.i.i53.i.phi.trans.insert.i = getelementptr inbounds i32, ptr %.pre318.i.i, i64 %.pre327.i.i
-  %.pre77.i = load i32, ptr %arrayidx.i.i.i.i.i53.i.phi.trans.insert.i, align 4
+  %.pre76.i = load i32, ptr %arrayidx.i.i.i.i.i53.i.phi.trans.insert.i, align 4
   br label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58.i.i
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58.i.i: ; preds = %if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58_crit_edge.i.i, %invoke.cont32.i.i
-  %18 = phi i32 [ %.pre77.i, %if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58_crit_edge.i.i ], [ %17, %invoke.cont32.i.i ]
+  %18 = phi i32 [ %.pre76.i, %if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58_crit_edge.i.i ], [ %17, %invoke.cont32.i.i ]
   %shl.i.i.i.i.i55.pre-phi.i.i = phi i32 [ %.pre329.i.i, %if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58_crit_edge.i.i ], [ %shl.i.i.i.i42.i.i, %invoke.cont32.i.i ]
   %idxprom.i.i.i.i.i52.pre-phi.i.i = phi i64 [ %.pre327.i.i, %if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58_crit_edge.i.i ], [ %idxprom.i.i.i.i39.i.i, %invoke.cont32.i.i ]
   %19 = phi ptr [ %.pre318.i.i, %if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58_crit_edge.i.i ], [ %16, %invoke.cont32.i.i ]
@@ -1155,8 +1155,8 @@ while.end.i.i:                                    ; preds = %sw.bb16.i.i, %while
   br i1 %cmp.not.i144.i.i, label %sw.epilog102.i.i, label %land.lhs.true.i145.i.i
 
 land.lhs.true.i145.i.i:                           ; preds = %while.end.i.i
-  %m_kind.i.i.i97 = getelementptr inbounds i8, ptr %8, i64 4
-  %bf.load.i.i.i147.i.i = load i32, ptr %m_kind.i.i.i97, align 4
+  %m_kind.i.i.i98 = getelementptr inbounds i8, ptr %8, i64 4
+  %bf.load.i.i.i147.i.i = load i32, ptr %m_kind.i.i.i98, align 4
   %bf.clear.i.i.i148.i.i = and i32 %bf.load.i.i.i147.i.i, 65535
   %cmp.i.i149.i.i = icmp eq i32 %bf.clear.i.i.i148.i.i, 0
   br i1 %cmp.i.i149.i.i, label %land.rhs.i.i150.i.i, label %sw.epilog102.i.i
@@ -1549,11 +1549,11 @@ if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.
   %.pre385.i.i = and i32 %14, 31
   %.pre386.i.i = shl nuw i32 1, %.pre385.i.i
   %arrayidx.i.i.i.i.i53.i.phi.trans.insert.i = getelementptr inbounds i32, ptr %.pre375.i.i, i64 %.pre384.i.i
-  %.pre87.i = load i32, ptr %arrayidx.i.i.i.i.i53.i.phi.trans.insert.i, align 4
+  %.pre86.i = load i32, ptr %arrayidx.i.i.i.i.i53.i.phi.trans.insert.i, align 4
   br label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58.i.i
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58.i.i: ; preds = %if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58_crit_edge.i.i, %invoke.cont24.i.i
-  %18 = phi i32 [ %.pre87.i, %if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58_crit_edge.i.i ], [ %17, %invoke.cont24.i.i ]
+  %18 = phi i32 [ %.pre86.i, %if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58_crit_edge.i.i ], [ %17, %invoke.cont24.i.i ]
   %shl.i.i.i.i.i55.pre-phi.i.i = phi i32 [ %.pre386.i.i, %if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58_crit_edge.i.i ], [ %shl.i.i.i.i42.i.i, %invoke.cont24.i.i ]
   %idxprom.i.i.i.i.i52.pre-phi.i.i = phi i64 [ %.pre384.i.i, %if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58_crit_edge.i.i ], [ %idxprom.i.i.i.i39.i.i, %invoke.cont24.i.i ]
   %19 = phi ptr [ %.pre375.i.i, %if.then.i.i.i48._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit58_crit_edge.i.i ], [ %16, %invoke.cont24.i.i ]
@@ -1732,8 +1732,8 @@ while.end.i.i:                                    ; preds = %sw.bb11.i.i, %while
   br i1 %cmp.not.i147.i.i, label %sw.epilog85.i.i, label %land.lhs.true.i148.i.i
 
 land.lhs.true.i148.i.i:                           ; preds = %while.end.i.i
-  %m_kind.i.i.i109 = getelementptr inbounds i8, ptr %8, i64 4
-  %bf.load.i.i.i150.i.i = load i32, ptr %m_kind.i.i.i109, align 4
+  %m_kind.i.i.i110 = getelementptr inbounds i8, ptr %8, i64 4
+  %bf.load.i.i.i150.i.i = load i32, ptr %m_kind.i.i.i110, align 4
   %bf.clear.i.i.i151.i.i = and i32 %bf.load.i.i.i150.i.i, 65535
   %cmp.i.i152.i.i = icmp eq i32 %bf.clear.i.i.i151.i.i, 0
   br i1 %cmp.i.i152.i.i, label %land.rhs.i.i153.i.i, label %sw.epilog85.i.i

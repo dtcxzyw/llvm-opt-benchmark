@@ -1278,14 +1278,14 @@ cond.end:                                         ; preds = %entry, %cond.true
   %cur14 = getelementptr inbounds i8, ptr %ctx_sampling, i64 336
   %call15 = tail call ptr @llama_get_logits_ith(ptr noundef %ctx_main, i32 noundef %idx)
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ctx_sampling, i64 184
-  %it.sroa.0.085 = load ptr, ptr %_M_before_begin.i.i.i, align 8
-  %cmp.i.not86 = icmp eq ptr %it.sroa.0.085, null
-  br i1 %cmp.i.not86, label %for.end, label %for.body
+  %it.sroa.0.081 = load ptr, ptr %_M_before_begin.i.i.i, align 8
+  %cmp.i.not82 = icmp eq ptr %it.sroa.0.081, null
+  br i1 %cmp.i.not82, label %for.end, label %for.body
 
 for.body:                                         ; preds = %cond.end, %for.body
-  %it.sroa.0.087 = phi ptr [ %it.sroa.0.0, %for.body ], [ %it.sroa.0.085, %cond.end ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.087, i64 8
-  %second = getelementptr inbounds i8, ptr %it.sroa.0.087, i64 12
+  %it.sroa.0.083 = phi ptr [ %it.sroa.0.0, %for.body ], [ %it.sroa.0.081, %cond.end ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.083, i64 8
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.083, i64 12
   %10 = load float, ptr %second, align 4
   %11 = load i32, ptr %add.ptr.i, align 4
   %idxprom = sext i32 %11 to i64
@@ -1293,7 +1293,7 @@ for.body:                                         ; preds = %cond.end, %for.body
   %12 = load float, ptr %arrayidx, align 4
   %add = fadd float %10, %12
   store float %add, ptr %arrayidx, align 4
-  %it.sroa.0.0 = load ptr, ptr %it.sroa.0.087, align 8
+  %it.sroa.0.0 = load ptr, ptr %it.sroa.0.083, align 8
   %cmp.i.not = icmp eq ptr %it.sroa.0.0, null
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !9
 
@@ -1310,8 +1310,8 @@ invoke.cont.i.i:                                  ; preds = %for.end
 
 _ZNSt6vectorI16llama_token_dataSaIS0_EE5clearEv.exit: ; preds = %for.end, %invoke.cont.i.i
   %15 = phi ptr [ %14, %for.end ], [ %13, %invoke.cont.i.i ]
-  %cmp2988 = icmp sgt i32 %call2, 0
-  br i1 %cmp2988, label %for.body30.lr.ph, label %for.end36
+  %cmp2984 = icmp sgt i32 %call2, 0
+  br i1 %cmp2984, label %for.body30.lr.ph, label %for.end36
 
 for.body30.lr.ph:                                 ; preds = %_ZNSt6vectorI16llama_token_dataSaIS0_EE5clearEv.exit
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %ctx_sampling, i64 352
@@ -1454,14 +1454,14 @@ if.then41:                                        ; preds = %if.end
   %add.ptr48 = getelementptr inbounds i32, ptr %add.ptr, i64 %idx.neg
   call void @llama_sample_repetition_penalties(ptr noundef %ctx_main, ptr noundef nonnull %cur_p, ptr noundef %add.ptr48, i64 noundef %idx.ext, float noundef %3, float noundef %4, float noundef %5)
   %33 = load i64, ptr %size, align 8
-  %cmp5490 = icmp eq i64 %33, 0
-  %or.cond.not = select i1 %tobool, i1 true, i1 %cmp5490
+  %cmp5486 = icmp eq i64 %33, 0
+  %or.cond.not = select i1 %tobool, i1 true, i1 %cmp5486
   br i1 %or.cond.not, label %if.end71, label %for.body55
 
 for.body55:                                       ; preds = %if.then41, %for.inc67
-  %idx51.091 = phi i64 [ %inc68, %for.inc67 ], [ 0, %if.then41 ]
+  %idx51.087 = phi i64 [ %inc68, %for.inc67 ], [ 0, %if.then41 ]
   %34 = load ptr, ptr %cur_p, align 8
-  %arrayidx57 = getelementptr inbounds %struct.llama_token_data, ptr %34, i64 %idx51.091
+  %arrayidx57 = getelementptr inbounds %struct.llama_token_data, ptr %34, i64 %idx51.087
   %35 = load i32, ptr %arrayidx57, align 4
   %call59 = call ptr @llama_get_model(ptr noundef %ctx_main)
   %call60 = call i32 @llama_token_nl(ptr noundef %call59)
@@ -1470,12 +1470,12 @@ for.body55:                                       ; preds = %if.then41, %for.inc
 
 if.then62:                                        ; preds = %for.body55
   %36 = load ptr, ptr %cur_p, align 8
-  %logit65 = getelementptr inbounds %struct.llama_token_data, ptr %36, i64 %idx51.091, i32 1
+  %logit65 = getelementptr inbounds %struct.llama_token_data, ptr %36, i64 %idx51.087, i32 1
   store float %30, ptr %logit65, align 4
   br label %if.end71
 
 for.inc67:                                        ; preds = %for.body55
-  %inc68 = add nuw i64 %idx51.091, 1
+  %inc68 = add nuw i64 %idx51.087, 1
   %37 = load i64, ptr %size, align 8
   %cmp54 = icmp ult i64 %inc68, %37
   br i1 %cmp54, label %for.body55, label %if.end71, !llvm.loop !11
@@ -1549,12 +1549,12 @@ if.else95:                                        ; preds = %if.else86
   %samplers_sequence9.i = getelementptr inbounds i8, ptr %ctx_sampling, i64 64
   %call10.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %samplers_sequence9.i) #20
   %call11.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %samplers_sequence9.i) #20
-  %cmp.i.not26.i = icmp eq ptr %call10.i, %call11.i
-  br i1 %cmp.i.not26.i, label %_ZL13sampler_queueP13llama_contextRK21llama_sampling_paramsR22llama_token_data_arrayRm.exit, label %for.body.i
+  %cmp.i.not3.i = icmp eq ptr %call10.i, %call11.i
+  br i1 %cmp.i.not3.i, label %_ZL13sampler_queueP13llama_contextRK21llama_sampling_paramsR22llama_token_data_arrayRm.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.else95, %for.inc.i
-  %__begin1.sroa.0.027.i = phi ptr [ %incdec.ptr.i.i72, %for.inc.i ], [ %call10.i, %if.else95 ]
-  %48 = load i8, ptr %__begin1.sroa.0.027.i, align 1
+  %__begin1.sroa.0.04.i = phi ptr [ %incdec.ptr.i.i72, %for.inc.i ], [ %call10.i, %if.else95 ]
+  %48 = load i8, ptr %__begin1.sroa.0.04.i, align 1
   switch i8 %48, label %for.inc.i [
     i8 107, label %sw.bb.i
     i8 102, label %sw.bb15.i
@@ -1589,7 +1589,7 @@ sw.bb19.i:                                        ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.bb19.i, %sw.bb18.i, %sw.bb17.i, %sw.bb16.i, %sw.bb15.i, %sw.bb.i, %for.body.i
-  %incdec.ptr.i.i72 = getelementptr inbounds i8, ptr %__begin1.sroa.0.027.i, i64 1
+  %incdec.ptr.i.i72 = getelementptr inbounds i8, ptr %__begin1.sroa.0.04.i, i64 1
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i72, %call11.i
   br i1 %cmp.i.not.i, label %_ZL13sampler_queueP13llama_contextRK21llama_sampling_paramsR22llama_token_data_arrayRm.exit, label %for.body.i
 

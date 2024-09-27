@@ -2225,12 +2225,12 @@ entry:
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(168) %pool)
   %cmp = icmp ne i32 %call, 0
   tail call void @llvm.assume(i1 %cmp)
+  %1 = ptrtoint ptr %error to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %1, align 8
-  %2 = ptrtoint ptr %error to i64
-  store i64 %2, ptr %ref.tmp, align 8
+  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %2, align 8
+  store i64 %1, ptr %ref.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFbPN8facebook5velox6memory10MemoryPoolEEZNS2_15MemoryReclaimer5abortES4_RKNSt15__exception_ptr13exception_ptrEE3$_0E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbPN8facebook5velox6memory10MemoryPoolEEZNS2_15MemoryReclaimer5abortES4_RKNSt15__exception_ptr13exception_ptrEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %vtable3 = load ptr, ptr %pool, align 8

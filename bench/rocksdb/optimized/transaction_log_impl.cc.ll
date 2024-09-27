@@ -382,8 +382,8 @@ _ZN7rocksdb5DeferC2EOSt8functionIFvvEE.exit:
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7rocksdb26TransactionLogIteratorImpl19SeekToStartSequenceEmbE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %defer, i64 16
   store i64 %0, ptr %defer, align 8
-  %ref.tmp.sroa.3.0.defer.sroa_idx = getelementptr inbounds i8, ptr %defer, i64 8
-  store i64 0, ptr %ref.tmp.sroa.3.0.defer.sroa_idx, align 8
+  %ref.tmp.sroa.2.0.defer.sroa_idx = getelementptr inbounds i8, ptr %defer, i64 8
+  store i64 0, ptr %ref.tmp.sroa.2.0.defer.sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7rocksdb26TransactionLogIteratorImpl19SeekToStartSequenceEmbE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   %files_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %files_, align 8
@@ -946,8 +946,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 cleanup121:                                       ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i135, %cleanup
   store ptr null, ptr %state_.i133, align 8
-  %.pre149 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %73 = icmp eq ptr %.pre149, null
+  %.pre147 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %73 = icmp eq ptr %.pre147, null
   br i1 %73, label %if.then.i.i139, label %if.end.i.i
 
 if.then.i.i139:                                   ; preds = %cleanup121

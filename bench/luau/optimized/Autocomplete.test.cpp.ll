@@ -111758,19 +111758,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44.i: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #23
   store i8 0, ptr %19, align 1
-  %175 = getelementptr inbounds i8, ptr %21, i64 16
-  %176 = getelementptr inbounds i8, ptr %21, i64 24
-  %177 = getelementptr inbounds i8, ptr %21, i64 8
-  store i64 0, ptr %177, align 8
-  %178 = ptrtoint ptr %19 to i64
-  store i64 %178, ptr %21, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEES7_S0_IPKNS8_9ClassTypeEES0_IS7_EEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_SN_SO_E_E9_M_invokeERKSt9_Any_dataOS7_OSN_OSO_, ptr %176, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEES7_S0_IPKNS8_9ClassTypeEES0_IS7_EEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_SN_SO_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation, ptr %175, align 8
+  %175 = ptrtoint ptr %19 to i64
+  %176 = getelementptr inbounds i8, ptr %21, i64 16
+  %177 = getelementptr inbounds i8, ptr %21, i64 24
+  %178 = getelementptr inbounds i8, ptr %21, i64 8
+  store i64 0, ptr %178, align 8
+  store i64 %175, ptr %21, align 8
+  store ptr @_ZNSt17_Function_handlerIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEES7_S0_IPKNS8_9ClassTypeEES0_IS7_EEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_SN_SO_E_E9_M_invokeERKSt9_Any_dataOS7_OSN_OSO_, ptr %177, align 8
+  store ptr @_ZNSt17_Function_handlerIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEES7_S0_IPKNS8_9ClassTypeEES0_IS7_EEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8031fEvEUlS7_SN_SO_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation, ptr %176, align 8
   invoke void @_ZN13ACFixtureImplIN4Luau7FixtureEE12autocompleteEcSt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17AutocompleteEntryESt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SC_EEEESB_S4_IPKNS0_9ClassTypeEES4_ISB_EEE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::AutocompleteResult") align 8 %20, ptr noundef nonnull align 8 dereferenceable(2280) %27, i8 noundef signext 49, ptr noundef nonnull %21)
           to label %179 unwind label %203
 
 179:                                              ; preds = %174
-  %180 = load ptr, ptr %175, align 8
+  %180 = load ptr, ptr %176, align 8
   %.not.i.i.i = icmp eq ptr %180, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEES7_S0_IPKNS8_9ClassTypeEES0_IS7_EEED2Ev.exit.i, label %181
 
@@ -111855,7 +111855,7 @@ _ZNSt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11cha
 203:                                              ; preds = %174
   %204 = landingpad { ptr, i32 }
           cleanup
-  %205 = load ptr, ptr %175, align 8
+  %205 = load ptr, ptr %176, align 8
   %.not.i.i47.i = icmp eq ptr %205, null
   br i1 %.not.i.i47.i, label %_ZNSt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEES7_S0_IPKNS8_9ClassTypeEES0_IS7_EEED2Ev.exit48.i, label %206
 

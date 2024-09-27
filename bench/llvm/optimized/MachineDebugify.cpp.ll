@@ -239,16 +239,16 @@ _ZNK4llvm4Pass11getAnalysisINS_28MachineModuleInfoWrapperPassEEERT_v.exit: ; pre
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %26, align 8
-  %27 = ptrtoint ptr %20 to i64
-  store i64 %27, ptr %3, align 8
-  store ptr @_ZNSt17_Function_handlerIFbRN4llvm9DIBuilderERNS0_8FunctionEEZN12_GLOBAL__N_121DebugifyMachineModule11runOnModuleERNS0_6ModuleEEUlS2_S4_E_E9_M_invokeERKSt9_Any_dataS2_S4_, ptr %25, align 8
-  store ptr @_ZNSt17_Function_handlerIFbRN4llvm9DIBuilderERNS0_8FunctionEEZN12_GLOBAL__N_121DebugifyMachineModule11runOnModuleERNS0_6ModuleEEUlS2_S4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %24, align 8
+  %24 = ptrtoint ptr %20 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %27, align 8
+  store i64 %24, ptr %3, align 8
+  store ptr @_ZNSt17_Function_handlerIFbRN4llvm9DIBuilderERNS0_8FunctionEEZN12_GLOBAL__N_121DebugifyMachineModule11runOnModuleERNS0_6ModuleEEUlS2_S4_E_E9_M_invokeERKSt9_Any_dataS2_S4_, ptr %26, align 8
+  store ptr @_ZNSt17_Function_handlerIFbRN4llvm9DIBuilderERNS0_8FunctionEEZN12_GLOBAL__N_121DebugifyMachineModule11runOnModuleERNS0_6ModuleEEUlS2_S4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %25, align 8
   %28 = call noundef zeroext i1 @_ZN4llvm21applyDebugifyMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEENS_9StringRefESt8functionIFbRNS_9DIBuilderERS6_EE(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr %22, ptr nonnull %23, ptr nonnull @.str.2, i64 16, ptr noundef nonnull %3) #14
-  %29 = load ptr, ptr %24, align 8
+  %29 = load ptr, ptr %25, align 8
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbRN4llvm9DIBuilderERNS0_8FunctionEEED2Ev.exit, label %30
 

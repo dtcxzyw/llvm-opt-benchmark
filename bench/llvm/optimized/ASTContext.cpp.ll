@@ -1666,10 +1666,10 @@ $_ZZN4llvm10FoldingSetIN5clang23TemplateParamObjectDeclEE17getFoldingSetInfoEvE4
 @_ZZN4llvm10FoldingSetIN5clang23TemplateParamObjectDeclEE17getFoldingSetInfoEvE4Info = linkonce_odr constant %"struct.llvm::FoldingSetBase::FoldingSetInfo" { ptr @_ZN4llvm10FoldingSetIN5clang23TemplateParamObjectDeclEE14GetNodeProfileEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE, ptr @_ZN4llvm10FoldingSetIN5clang23TemplateParamObjectDeclEE10NodeEqualsEPKNS_14FoldingSetBaseEPNS4_4NodeERKNS_16FoldingSetNodeIDEjRS9_, ptr @_ZN4llvm10FoldingSetIN5clang23TemplateParamObjectDeclEE15ComputeNodeHashEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE }, comdat, align 8
 @.str.185 = private unnamed_addr constant [24 x i8] c"vector::_M_range_insert\00", align 1
 @switch.table._ZNK5clang10ASTContext17getSignedSizeTypeEv = private unnamed_addr constant [7 x i64] [i64 18504, i64 18504, i64 18512, i64 18504, i64 18520, i64 18504, i64 18528], align 8
-@switch.table._ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_.58 = private unnamed_addr constant [8 x i32] [i32 2, i32 3, i32 4, i32 5, i32 1, i32 0, i32 6, i32 7], align 4
+@switch.table._ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_.60 = private unnamed_addr constant [8 x i32] [i32 2, i32 3, i32 4, i32 5, i32 1, i32 0, i32 6, i32 7], align 4
 @switch.table._ZNK5clang10ASTContext23getCFConstantStringDeclEv = private unnamed_addr constant [9 x i64] [i64 18544, i64 18544, i64 18552, i64 18544, i64 18560, i64 18544, i64 18568, i64 18544, i64 18576], align 8
-@switch.table._ZNK5clang10ASTContext20getBuiltinVaListDeclEv.59 = private unnamed_addr constant [10 x i64] [i64 18496, i64 18544, i64 18504, i64 18552, i64 18512, i64 18560, i64 18520, i64 18568, i64 18528, i64 18576], align 8
-@switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.61 = private unnamed_addr constant [12 x i64] [i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 1, i64 2, i64 0], align 8
+@switch.table._ZNK5clang10ASTContext20getBuiltinVaListDeclEv.61 = private unnamed_addr constant [10 x i64] [i64 18496, i64 18544, i64 18504, i64 18552, i64 18512, i64 18560, i64 18520, i64 18568, i64 18528, i64 18576], align 8
+@switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.63 = private unnamed_addr constant [12 x i64] [i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 1, i64 2, i64 0], align 8
 @switch.table._ZNK5clang10ASTContext14GetBuiltinTypeEjRNS0_19GetBuiltinTypeErrorEPj = private unnamed_addr constant [4 x i32] [i32 30, i32 76, i32 31, i32 32], align 4
 @switch.table._ZL26basicGVALinkageForVariableRKN5clang10ASTContextEPKNS_7VarDeclE = private unnamed_addr constant [4 x i32] [i32 3, i32 2, i32 2, i32 4], align 4
 @switch.table._ZNK5clang10ASTContext36getCorrespondingSignedFixedPointTypeENS_8QualTypeE = private unnamed_addr constant [21 x i64] [i64 18632, i64 18640, i64 18648, i64 18632, i64 18632, i64 18632, i64 18680, i64 18688, i64 18696, i64 18632, i64 18632, i64 18632, i64 18728, i64 18736, i64 18744, i64 18632, i64 18632, i64 18632, i64 18776, i64 18784, i64 18792], align 8
@@ -35938,7 +35938,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %60 = trunc nuw nsw i64 %59 to i32
   %61 = and i32 %60, 15
   %62 = and i64 %59, 15
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.61, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.63, i64 0, i64 %62
   %switch.load = load i64, ptr %switch.gep, align 8
   %63 = lshr i64 %30, 59
   %64 = and i64 %63, 1
@@ -36012,7 +36012,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %102 = trunc nuw nsw i64 %101 to i32
   %103 = and i32 %102, 15
   %104 = and i64 %101, 15
-  %switch.gep9 = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.61, i64 0, i64 %104
+  %switch.gep9 = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.63, i64 0, i64 %104
   %switch.load10 = load i64, ptr %switch.gep9, align 8
   %105 = getelementptr inbounds i8, ptr %82, i64 8
   %106 = getelementptr inbounds %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %105, i64 %96
@@ -36035,7 +36035,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 switch.lookup:                                    ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i
   %120 = and i64 %101, 15
-  %switch.gep11 = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.61, i64 0, i64 %120
+  %switch.gep11 = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.63, i64 0, i64 %120
   %switch.load12 = load i64, ptr %switch.gep11, align 8
   %121 = getelementptr inbounds ptr, ptr %109, i64 %switch.load12
   %122 = getelementptr inbounds %"class.clang::FunctionType::ExtParameterInfo", ptr %121, i64 %111
@@ -77023,7 +77023,7 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread.i: ; preds = %9, %_ZN
   %23 = and i32 %22, 511
   %switch.tableidx = add nsw i32 %23, -473
   %24 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_.58, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_.60, i64 0, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %tailrecurse.i10
 
@@ -77076,7 +77076,7 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread.i14: ; preds = %30, %
   %44 = and i32 %43, 511
   %switch.tableidx54 = add nsw i32 %44, -473
   %45 = sext i32 %switch.tableidx54 to i64
-  %switch.gep55 = getelementptr inbounds [8 x i32], ptr @switch.table._ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_.58, i64 0, i64 %45
+  %switch.gep55 = getelementptr inbounds [8 x i32], ptr @switch.table._ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_.60, i64 0, i64 %45
   %switch.load56 = load i32, ptr %switch.gep55, align 4
   %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %switch.load, i32 %switch.load56)
   ret i32 %.0
@@ -84800,7 +84800,7 @@ switch.lookup:                                    ; preds = %19
   %268 = load i32, ptr %267, align 8
   %switch.tableidx = add nsw i32 %268, -1
   %269 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZNK5clang10ASTContext20getBuiltinVaListDeclEv.59, i64 0, i64 %269
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZNK5clang10ASTContext20getBuiltinVaListDeclEv.61, i64 0, i64 %269
   %switch.load = load i64, ptr %switch.gep, align 8
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %271 = load i64, ptr %270, align 8
@@ -85157,7 +85157,7 @@ switch.lookup1:                                   ; preds = %_ZN4llvm9StringRefC
   %456 = load i32, ptr %455, align 8
   %switch.tableidx2 = add nsw i32 %456, -1
   %457 = sext i32 %switch.tableidx2 to i64
-  %switch.gep3 = getelementptr inbounds [10 x i64], ptr @switch.table._ZNK5clang10ASTContext20getBuiltinVaListDeclEv.59, i64 0, i64 %457
+  %switch.gep3 = getelementptr inbounds [10 x i64], ptr @switch.table._ZNK5clang10ASTContext20getBuiltinVaListDeclEv.61, i64 0, i64 %457
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load4
   %459 = load i64, ptr %458, align 8
@@ -94474,7 +94474,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %30 = trunc nuw nsw i64 %29 to i32
   %31 = and i32 %30, 15
   %32 = and i64 %29, 15
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.61, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.63, i64 0, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = lshr i64 %3, 59
   %34 = and i64 %33, 1
@@ -94574,7 +94574,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %29 = trunc nuw nsw i64 %28 to i32
   %30 = and i32 %29, 15
   %31 = and i64 %28, 15
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.61, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.63, i64 0, i64 %31
   %switch.load = load i64, ptr %switch.gep, align 8
   %32 = getelementptr inbounds i8, ptr %17, i64 8
   %33 = getelementptr inbounds %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %32, i64 %23
@@ -94599,7 +94599,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 switch.lookup:                                    ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i
   %48 = and i64 %28, 15
-  %switch.gep13 = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.61, i64 0, i64 %48
+  %switch.gep13 = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.63, i64 0, i64 %48
   %switch.load14 = load i64, ptr %switch.gep13, align 8
   %49 = getelementptr inbounds ptr, ptr %36, i64 %switch.load14
   %50 = getelementptr inbounds %"class.clang::FunctionType::ExtParameterInfo", ptr %49, i64 %39
@@ -94878,7 +94878,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %47 = trunc nuw nsw i64 %46 to i32
   %48 = and i32 %47, 15
   %49 = and i64 %46, 15
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.61, i64 0, i64 %49
+  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.63, i64 0, i64 %49
   %switch.load = load i64, ptr %switch.gep, align 8
   %50 = lshr i64 %21, 59
   %51 = and i64 %50, 1
@@ -94944,7 +94944,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %87 = trunc nuw nsw i64 %86 to i32
   %88 = and i32 %87, 15
   %89 = and i64 %86, 15
-  %switch.gep92 = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.61, i64 0, i64 %89
+  %switch.gep92 = getelementptr inbounds [12 x i64], ptr @switch.table._ZN5clang10ASTContext21mergeExtParameterInfoEPKNS_17FunctionProtoTypeES3_RbS4_RN4llvm15SmallVectorImplINS_12FunctionType16ExtParameterInfoEEE.63, i64 0, i64 %89
   %switch.load93 = load i64, ptr %switch.gep92, align 8
   %90 = lshr i64 %61, 59
   %91 = and i64 %90, 1
@@ -110327,8 +110327,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN5clang13CXXRecordDeclElN
   br i1 %22, label %.lr.ph.i5.i, label %.split15.i.i.i, !llvm.loop !373
 
 .lr.ph.i5.i:                                      ; preds = %.split15.i.i.i, %.lr.ph.i5.i
-  %.07.i.i = phi ptr [ %23, %.lr.ph.i5.i ], [ %.0120, %.split15.i.i.i ]
-  %23 = getelementptr inbounds i8, ptr %.07.i.i, i64 -8
+  %.01.i.i = phi ptr [ %23, %.lr.ph.i5.i ], [ %.0120, %.split15.i.i.i ]
+  %23 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %0, align 8
   store ptr %25, ptr %23, align 8
@@ -113006,10 +113006,10 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN5clang13CXXRecordDeclElS2_N
   br i1 %34, label %.lr.ph.i, label %"_ZSt11__push_heapIPPN5clang13CXXRecordDeclElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %33, %39
-  %.01317.i = phi i64 [ %.018.i, %39 ], [ %.128, %33 ]
-  %.018.in.i = add nsw i64 %.01317.i, -1
-  %.018.i = sdiv i64 %.018.in.i, 2
-  %35 = getelementptr inbounds ptr, ptr %0, i64 %.018.i
+  %.0133.i = phi i64 [ %.04.i, %39 ], [ %.128, %33 ]
+  %.04.in.i = add nsw i64 %.0133.i, -1
+  %.04.i = sdiv i64 %.04.in.i, 2
+  %35 = getelementptr inbounds ptr, ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %35, align 8
   %36 = tail call i64 @_ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %.val.i)
   %37 = tail call i64 @_ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %3)
@@ -113018,13 +113018,13 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN5clang13CXXRecordDeclElS2_N
 
 39:                                               ; preds = %.lr.ph.i
   %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i
+  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i
   store ptr %40, ptr %41, align 8
-  %42 = icmp sgt i64 %.018.i, %1
+  %42 = icmp sgt i64 %.04.i, %1
   br i1 %42, label %.lr.ph.i, label %"_ZSt11__push_heapIPPN5clang13CXXRecordDeclElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !380
 
 "_ZSt11__push_heapIPPN5clang13CXXRecordDeclElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %.lr.ph.i, %39, %33
-  %.013.lcssa.i = phi i64 [ %.128, %33 ], [ %.01317.i, %.lr.ph.i ], [ %.018.i, %39 ]
+  %.013.lcssa.i = phi i64 [ %.128, %33 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %39 ]
   %43 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %43, align 8
   ret void

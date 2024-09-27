@@ -88,7 +88,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%class.anon.129 = type { ptr }
 %"class.fmt::v8::basic_memory_buffer" = type <{ %"class.fmt::v8::detail::buffer", [250 x i8], %"class.std::allocator.130", [5 x i8] }>
 %"class.fmt::v8::detail::buffer" = type { ptr, ptr, i64, i64 }
 %"class.std::allocator.130" = type { i8 }
@@ -2444,95 +2443,93 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8WasmEdge6Loader6Loader8loadTypeERNS_3AST12FunctionTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.64") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %class.anon.129, align 8
+  %4 = alloca %"class.cxx20::expected.64", align 4
   %5 = alloca %"class.cxx20::expected.64", align 4
-  %6 = alloca %"class.cxx20::expected.64", align 4
-  %7 = alloca %"class.cxx20::unexpected", align 4
-  %8 = alloca %"class.WasmEdge::ErrCode", align 4
-  store ptr %1, ptr %4, align 8
-  call fastcc void @"_ZN8WasmEdge6Loader6Loader7loadVecINS_3AST12FunctionTypeENS_7ValTypeERZNS1_8loadTypeERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERSt6vectorIT0_SaISE_EEOT1_"(ptr dead_on_unwind noalias writable align 4 %5, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %9 = load i8, ptr %5, align 4
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %15, label %11
+  %6 = alloca %"class.cxx20::unexpected", align 4
+  %7 = alloca %"class.WasmEdge::ErrCode", align 4
+  call fastcc void @"_ZN8WasmEdge6Loader6Loader7loadVecINS_3AST12FunctionTypeENS_7ValTypeERZNS1_8loadTypeERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERSt6vectorIT0_SaISE_EEOT1_"(ptr dead_on_unwind noalias writable align 4 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nonnull %1)
+  %8 = load i8, ptr %4, align 4
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %14, label %10
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %5, i64 4
-  %13 = load i32, ptr %12, align 4, !noalias !33
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  %12 = load i32, ptr %11, align 4, !noalias !33
   store i8 0, ptr %0, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %13, ptr %14, align 4
-  br label %46
+  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %12, ptr %13, align 4
+  br label %45
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
-  call fastcc void @"_ZN8WasmEdge6Loader6Loader7loadVecINS_3AST12FunctionTypeENS_7ValTypeERZNS1_8loadTypeERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERSt6vectorIT0_SaISE_EEOT1_"(ptr dead_on_unwind noalias writable align 4 %6, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %17 = load i8, ptr %6, align 4
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %.preheader, label %19
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  call fastcc void @"_ZN8WasmEdge6Loader6Loader7loadVecINS_3AST12FunctionTypeENS_7ValTypeERZNS1_8loadTypeERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERSt6vectorIT0_SaISE_EEOT1_"(ptr dead_on_unwind noalias writable align 4 %5, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull %1)
+  %16 = load i8, ptr %5, align 4
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %.preheader, label %18
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %6, i64 4
-  %21 = load i32, ptr %20, align 4, !noalias !36
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %5, i64 4
+  %20 = load i32, ptr %19, align 4, !noalias !36
   store i8 0, ptr %0, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %21, ptr %22, align 4
-  br label %46
+  %21 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %20, ptr %21, align 4
+  br label %45
 
-.preheader:                                       ; preds = %15, %.preheader
-  %23 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %1) #18
-  switch i32 %23, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit [
+.preheader:                                       ; preds = %14, %.preheader
+  %22 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %1) #18
+  switch i32 %22, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit [
     i32 11, label %.preheader
-    i32 35, label %24
+    i32 35, label %23
   ]
 
-24:                                               ; preds = %.preheader
+23:                                               ; preds = %.preheader
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #19
-          to label %.noexc.i unwind label %25
+          to label %.noexc.i unwind label %24
 
-.noexc.i:                                         ; preds = %24
+.noexc.i:                                         ; preds = %23
   unreachable
 
-25:                                               ; preds = %24
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %23
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #20
+  %26 = extractvalue { ptr, i32 } %25, 0
+  tail call void @__clang_call_terminate(ptr %26) #20
   unreachable
 
 _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %.preheader
-  %28 = getelementptr inbounds i8, ptr %1, i64 56
-  %29 = load i64, ptr %28, align 8
-  %30 = and i64 %29, 8
-  %.not = icmp eq i64 %30, 0
-  %31 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %1) #18
-  br i1 %.not, label %32, label %45
+  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %28 = load i64, ptr %27, align 8
+  %29 = and i64 %28, 8
+  %.not = icmp eq i64 %29, 0
+  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %1) #18
+  br i1 %.not, label %31, label %44
 
-32:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
-  %33 = getelementptr inbounds i8, ptr %2, i64 32
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %16, align 8
+31:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
+  %32 = getelementptr inbounds i8, ptr %2, i64 32
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %15, align 8
+  %35 = ptrtoint ptr %33 to i64
   %36 = ptrtoint ptr %34 to i64
-  %37 = ptrtoint ptr %35 to i64
-  %38 = sub i64 %36, %37
-  %39 = icmp ugt i64 %38, 8
-  br i1 %39, label %40, label %45
+  %37 = sub i64 %35, %36
+  %38 = icmp ugt i64 %37, 8
+  br i1 %38, label %39, label %44
 
-40:                                               ; preds = %32
-  store i32 273, ptr %8, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 176
-  %42 = load i64, ptr %41, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %7, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %8, i8 noundef zeroext 3, i64 noundef %42, i8 noundef zeroext 50) #18
+39:                                               ; preds = %31
+  store i32 273, ptr %7, align 4
+  %40 = getelementptr inbounds i8, ptr %1, i64 176
+  %41 = load i64, ptr %40, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %6, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %7, i8 noundef zeroext 3, i64 noundef %41, i8 noundef zeroext 50) #18
   store i8 0, ptr %0, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 4
-  %44 = load i32, ptr %7, align 4
-  store i32 %44, ptr %43, align 4
-  br label %46
+  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  %43 = load i32, ptr %6, align 4
+  store i32 %43, ptr %42, align 4
+  br label %45
 
-45:                                               ; preds = %32, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
+44:                                               ; preds = %31, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
   store i64 1, ptr %0, align 4
-  br label %46
+  br label %45
 
-46:                                               ; preds = %45, %40, %19, %11
+45:                                               ; preds = %44, %39, %18, %10
   ret void
 }
 
@@ -3016,123 +3013,122 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.i:             ; preds = %56, %54, %52, %50
 declare void @_ZN8WasmEdge7FileMgr8peekByteEv(ptr dead_on_unwind writable sret(%"class.cxx20::expected.38") align 4, ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN8WasmEdge6Loader6Loader7loadVecINS_3AST12FunctionTypeENS_7ValTypeERZNS1_8loadTypeERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERSt6vectorIT0_SaISE_EEOT1_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"struct.spdlog::source_loc", align 8
-  %6 = alloca %"class.cxx20::expected", align 4
-  %7 = alloca %"class.cxx20::expected.94", align 4
-  %8 = alloca %"class.cxx20::unexpected", align 4
-  %9 = alloca %"class.WasmEdge::ErrCode", align 4
-  %10 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %11 = getelementptr inbounds i8, ptr %1, i64 168
-  call void @_ZN8WasmEdge7FileMgr7readU32Ev(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.94") align 4 %7, ptr noundef nonnull align 8 dereferenceable(88) %11), !noalias !49
-  %12 = load i8, ptr %7, align 4, !noalias !49
-  %13 = trunc i8 %12 to i1
-  %14 = getelementptr inbounds i8, ptr %7, i64 4
-  %15 = load i32, ptr %14, align 4, !noalias !49
-  br i1 %13, label %16, label %43
+define internal fastcc void @"_ZN8WasmEdge6Loader6Loader7loadVecINS_3AST12FunctionTypeENS_7ValTypeERZNS1_8loadTypeERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERSt6vectorIT0_SaISE_EEOT1_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"struct.spdlog::source_loc", align 8
+  %5 = alloca %"class.cxx20::expected", align 4
+  %6 = alloca %"class.cxx20::expected.94", align 4
+  %7 = alloca %"class.cxx20::unexpected", align 4
+  %8 = alloca %"class.WasmEdge::ErrCode", align 4
+  %9 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  %10 = getelementptr inbounds i8, ptr %1, i64 168
+  call void @_ZN8WasmEdge7FileMgr7readU32Ev(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.94") align 4 %6, ptr noundef nonnull align 8 dereferenceable(88) %10), !noalias !49
+  %11 = load i8, ptr %6, align 4, !noalias !49
+  %12 = trunc i8 %11 to i1
+  %13 = getelementptr inbounds i8, ptr %6, i64 4
+  %14 = load i32, ptr %13, align 4, !noalias !49
+  br i1 %12, label %15, label %42
 
-16:                                               ; preds = %4
-  %17 = lshr i32 %15, 1
-  %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %1, i64 192
-  %20 = load i64, ptr %19, align 8, !noalias !49
-  %21 = getelementptr inbounds i8, ptr %1, i64 184
-  %22 = load i64, ptr %21, align 8, !noalias !49
-  %23 = sub i64 %20, %22
-  %24 = icmp ult i64 %23, %18
-  br i1 %24, label %43, label %25
+15:                                               ; preds = %3
+  %16 = lshr i32 %14, 1
+  %17 = zext nneg i32 %16 to i64
+  %18 = getelementptr inbounds i8, ptr %1, i64 192
+  %19 = load i64, ptr %18, align 8, !noalias !49
+  %20 = getelementptr inbounds i8, ptr %1, i64 184
+  %21 = load i64, ptr %20, align 8, !noalias !49
+  %22 = sub i64 %19, %21
+  %23 = icmp ult i64 %22, %17
+  br i1 %23, label %42, label %24
 
-25:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %26 = zext i32 %15 to i64
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %2, align 8
+24:                                               ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  %25 = zext i32 %14 to i64
+  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %2, align 8
+  %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %33 = ashr exact i64 %32, 3
-  %34 = icmp ult i64 %33, %26
-  br i1 %34, label %35, label %37
+  %31 = sub i64 %29, %30
+  %32 = ashr exact i64 %31, 3
+  %33 = icmp ult i64 %32, %25
+  br i1 %33, label %34, label %36
 
-35:                                               ; preds = %25
-  %36 = sub nuw nsw i64 %26, %33
-  call void @_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %36)
+34:                                               ; preds = %24
+  %35 = sub nuw nsw i64 %25, %32
+  call void @_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %35)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit
 
-37:                                               ; preds = %25
-  %38 = icmp ugt i64 %33, %26
-  br i1 %38, label %39, label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit
+36:                                               ; preds = %24
+  %37 = icmp ugt i64 %32, %25
+  br i1 %37, label %38, label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %29, i64 %26
-  %.not.i.i = icmp eq ptr %28, %40
-  br i1 %.not.i.i, label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit, label %41
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %28, i64 %25
+  %.not.i.i = icmp eq ptr %27, %39
+  br i1 %.not.i.i, label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit, label %40
 
-41:                                               ; preds = %39
-  store ptr %40, ptr %27, align 8
+40:                                               ; preds = %38
+  store ptr %39, ptr %26, align 8
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit
 
-_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit: ; preds = %35, %37, %39, %41
-  %.not = icmp eq i32 %15, 0
+_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit: ; preds = %34, %36, %38, %40
+  %.not = icmp eq i32 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit
-  %42 = getelementptr inbounds i8, ptr %6, i64 4
-  br label %48
+  %41 = getelementptr inbounds i8, ptr %5, i64 4
+  br label %47
 
-43:                                               ; preds = %16, %4
-  %.sroa.4.0.ph = phi i32 [ %15, %4 ], [ 278, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  store i32 %.sroa.4.0.ph, ptr %9, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 176
-  %45 = load i64, ptr %44, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %8, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %9, i64 noundef %45, i8 noundef zeroext 50) #18
+42:                                               ; preds = %15, %3
+  %.sroa.4.0.ph = phi i32 [ %14, %3 ], [ 278, %15 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  store i32 %.sroa.4.0.ph, ptr %8, align 4
+  %43 = getelementptr inbounds i8, ptr %1, i64 176
+  %44 = load i64, ptr %43, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %7, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %8, i64 noundef %44, i8 noundef zeroext 50) #18
   store i8 0, ptr %0, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 4
-  %47 = load i32, ptr %8, align 4
-  store i32 %47, ptr %46, align 4
-  br label %59
+  %45 = getelementptr inbounds i8, ptr %0, i64 4
+  %46 = load i32, ptr %7, align 4
+  store i32 %46, ptr %45, align 4
+  br label %58
 
-48:                                               ; preds = %.lr.ph, %56
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %49 = load ptr, ptr %2, align 8
-  %.val = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
-  call void @_ZN8WasmEdge6Loader6Loader11loadValTypeENS_11ASTNodeAttrEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %6, ptr noundef nonnull align 8 dereferenceable(360) %.val, i8 noundef zeroext 50, i1 noundef zeroext false), !noalias !52
-  %50 = load i8, ptr %6, align 4, !noalias !52
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %56, label %52
+47:                                               ; preds = %.lr.ph, %55
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
+  %48 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @_ZN8WasmEdge6Loader6Loader11loadValTypeENS_11ASTNodeAttrEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %5, ptr noundef nonnull align 8 dereferenceable(360) %.0.val, i8 noundef zeroext 50, i1 noundef zeroext false), !noalias !52
+  %49 = load i8, ptr %5, align 4, !noalias !52
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %55, label %51
 
-52:                                               ; preds = %48
-  %53 = load i32, ptr %42, align 4, !noalias !55
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
-  store i8 50, ptr %10, align 1
-  %54 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %54, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %5, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+51:                                               ; preds = %47
+  %52 = load i32, ptr %41, align 4, !noalias !55
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  store i8 50, ptr %9, align 1
+  %53 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %53, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %4, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   store i8 0, ptr %0, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %53, ptr %55, align 4
-  br label %59
+  %54 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %52, ptr %54, align 4
+  br label %58
 
-56:                                               ; preds = %48
-  %57 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %49, i64 %indvars.iv
-  %58 = load i64, ptr %42, align 4, !noalias !52
-  store i64 %58, ptr %57, align 4, !noalias !52
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
+55:                                               ; preds = %47
+  %56 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %48, i64 %indvars.iv
+  %57 = load i64, ptr %41, align 4, !noalias !52
+  store i64 %57, ptr %56, align 4, !noalias !52
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %26
-  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !58
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %25
+  br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !58
 
-._crit_edge:                                      ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit
+._crit_edge:                                      ; preds = %55, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit
   store i64 1, ptr %0, align 4
-  br label %59
+  br label %58
 
-59:                                               ; preds = %._crit_edge, %52, %43
+58:                                               ; preds = %._crit_edge, %51, %42
   ret void
 }
 

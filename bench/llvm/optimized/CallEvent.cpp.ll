@@ -3094,7 +3094,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17.i.loopexit.i: ; p
   br label %_ZN4llvm5ErrorD2Ev.exit.sink.split
 
 _ZN4llvm5ErrorD2Ev.exit.sink.split:               ; preds = %70, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17.i.loopexit.i, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i
-  %.sroa.04.1.i.ph = phi i1 [ true, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i ], [ true, %70 ], [ %103, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17.i.loopexit.i ]
+  %.sroa.02.1.i.ph = phi i1 [ true, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i ], [ true, %70 ], [ %103, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17.i.loopexit.i ]
   %104 = load ptr, ptr %64, align 8, !noalias !44
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8, !noalias !44
@@ -3102,11 +3102,11 @@ _ZN4llvm5ErrorD2Ev.exit.sink.split:               ; preds = %70, %_ZNKSt14defaul
   br label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm5ErrorD2Ev.exit.sink.split, %_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEE9takeErrorEv.exit
-  %.sroa.04.1.i = phi i1 [ true, %_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEE9takeErrorEv.exit ], [ %.sroa.04.1.i.ph, %_ZN4llvm5ErrorD2Ev.exit.sink.split ]
+  %.sroa.02.1.i = phi i1 [ true, %_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEE9takeErrorEv.exit ], [ %.sroa.02.1.i.ph, %_ZN4llvm5ErrorD2Ev.exit.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.assume(i1 %.sroa.04.1.i)
+  call void @llvm.assume(i1 %.sroa.02.1.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.pre = load i8, ptr %60, align 8
   br label %111

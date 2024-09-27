@@ -337,19 +337,19 @@ define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesC2ESt10shared_ptrINS_
   store ptr null, ptr %1, align 8
   %20 = load ptr, ptr %15, align 8
   %21 = load i64, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %24, align 8
-  %25 = ptrtoint ptr %0 to i64
-  store i64 %25, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEZN10cmDebugger19cmDebuggerVariablesC1ESt10shared_ptrINS9_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %23, align 8
-  store ptr @"_ZNSt17_Function_handlerIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEZN10cmDebugger19cmDebuggerVariablesC1ESt10shared_ptrINS9_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %22, align 8
+  %22 = ptrtoint ptr %0 to i64
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %25, align 8
+  store i64 %22, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEZN10cmDebugger19cmDebuggerVariablesC1ESt10shared_ptrINS9_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %24, align 8
+  store ptr @"_ZNSt17_Function_handlerIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEZN10cmDebugger19cmDebuggerVariablesC1ESt10shared_ptrINS9_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %23, align 8
   invoke void @_ZN10cmDebugger26cmDebuggerVariablesManager15RegisterHandlerElSt8functionIFSt6vectorIN3dap8VariableESaIS4_EERKNS3_16VariablesRequestEEE(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %21, ptr noundef nonnull %5)
           to label %26 unwind label %33
 
 26:                                               ; preds = %4
-  %27 = load ptr, ptr %22, align 8
+  %27 = load ptr, ptr %23, align 8
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %_ZNSt8functionIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEED2Ev.exit, label %28
 
@@ -370,7 +370,7 @@ _ZNSt8functionIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEED2Ev
 33:                                               ; preds = %4
   %34 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %22, align 8
+  %35 = load ptr, ptr %23, align 8
   %.not.i.i12 = icmp eq ptr %35, null
   br i1 %.not.i.i12, label %_ZNSt8functionIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEED2Ev.exit13, label %36
 
@@ -655,19 +655,19 @@ _ZNSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEEC2EO
   store ptr null, ptr %1, align 8
   %29 = load ptr, ptr %24, align 8
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
-  %32 = getelementptr inbounds i8, ptr %6, i64 24
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %33, align 8
-  %34 = ptrtoint ptr %0 to i64
-  store i64 %34, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEZN10cmDebugger19cmDebuggerVariablesC1ESt10shared_ptrINS9_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt8functionIFS0_INS9_23cmDebuggerVariableEntryESaISL_EEvEEE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %32, align 8
-  store ptr @"_ZNSt17_Function_handlerIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEZN10cmDebugger19cmDebuggerVariablesC1ESt10shared_ptrINS9_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt8functionIFS0_INS9_23cmDebuggerVariableEntryESaISL_EEvEEE3$_0E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation", ptr %31, align 8
+  %31 = ptrtoint ptr %0 to i64
+  %32 = getelementptr inbounds i8, ptr %6, i64 16
+  %33 = getelementptr inbounds i8, ptr %6, i64 24
+  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %34, align 8
+  store i64 %31, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEZN10cmDebugger19cmDebuggerVariablesC1ESt10shared_ptrINS9_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt8functionIFS0_INS9_23cmDebuggerVariableEntryESaISL_EEvEEE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %33, align 8
+  store ptr @"_ZNSt17_Function_handlerIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEZN10cmDebugger19cmDebuggerVariablesC1ESt10shared_ptrINS9_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt8functionIFS0_INS9_23cmDebuggerVariableEntryESaISL_EEvEEE3$_0E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation", ptr %32, align 8
   invoke void @_ZN10cmDebugger26cmDebuggerVariablesManager15RegisterHandlerElSt8functionIFSt6vectorIN3dap8VariableESaIS4_EERKNS3_16VariablesRequestEEE(ptr noundef nonnull align 8 dereferenceable(56) %29, i64 noundef %30, ptr noundef nonnull %6)
           to label %35 unwind label %42
 
 35:                                               ; preds = %_ZNSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEEC2EOS6_.exit
-  %36 = load ptr, ptr %31, align 8
+  %36 = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %_ZNSt8functionIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEED2Ev.exit, label %37
 
@@ -688,7 +688,7 @@ _ZNSt8functionIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEED2Ev
 42:                                               ; preds = %_ZNSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEEC2EOS6_.exit
   %43 = landingpad { ptr, i32 }
           cleanup
-  %44 = load ptr, ptr %31, align 8
+  %44 = load ptr, ptr %32, align 8
   %.not.i.i12 = icmp eq ptr %44, null
   br i1 %.not.i.i12, label %_ZNSt8functionIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEED2Ev.exit13, label %45
 

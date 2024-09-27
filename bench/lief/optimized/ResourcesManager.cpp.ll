@@ -909,13 +909,13 @@ define noundef ptr @_ZN4LIEF2PE16ResourcesManager13get_node_typeENS1_4TYPEE(ptr 
   %.sroa.7.0.i.i.i = phi i64 [ %19, %18 ], [ 0, %2 ]
   %14 = phi ptr [ %20, %18 ], [ %7, %2 ]
   %15 = getelementptr inbounds %"class.std::unique_ptr.1281", ptr %14, i64 %.sroa.7.0.i.i.i
-  %.val.val.i.i.i.i = load ptr, ptr %15, align 8, !noalias !5
-  %16 = call noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val.val.i.i.i.i), !noalias !5
+  %.val1.val.i.i.i.i = load ptr, ptr %15, align 8, !noalias !5
+  %16 = call noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val1.val.i.i.i.i), !noalias !5
   %17 = icmp eq i32 %16, %1
   br i1 %17, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, label %18
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %.pre8.pre.i.i.i.i = load ptr, ptr %6, align 8
+  %.pre9.pre.i.i.i.i = load ptr, ptr %6, align 8
   br label %.critedge.i.i.i.i
 
 18:                                               ; preds = %.lr.ph.i.i.i.i
@@ -926,7 +926,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
 
 .critedge.i.i.i.i:                                ; preds = %18, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, %2
   %21 = phi i64 [ 0, %2 ], [ %.sroa.7.0.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %13, %18 ]
-  %22 = phi ptr [ %7, %2 ], [ %.pre8.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %20, %18 ]
+  %22 = phi ptr [ %7, %2 ], [ %.pre9.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %20, %18 ]
   %23 = load ptr, ptr %3, align 8, !noalias !14
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 8
@@ -976,13 +976,13 @@ define noundef ptr @_ZNK4LIEF2PE16ResourcesManager13get_node_typeENS1_4TYPEE(ptr
   %.sroa.7.0.i.i = phi i64 [ %19, %18 ], [ 0, %2 ]
   %14 = phi ptr [ %20, %18 ], [ %7, %2 ]
   %15 = getelementptr inbounds %"class.std::unique_ptr.1281", ptr %14, i64 %.sroa.7.0.i.i
-  %.val.val.i.i.i = load ptr, ptr %15, align 8, !noalias !19
-  %16 = call noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val.val.i.i.i), !noalias !19
+  %.val1.val.i.i.i = load ptr, ptr %15, align 8, !noalias !19
+  %16 = call noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val1.val.i.i.i), !noalias !19
   %17 = icmp eq i32 %16, %1
   br i1 %17, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i, label %18
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i: ; preds = %.lr.ph.i.i.i
-  %.pre8.pre.i.i.i = load ptr, ptr %6, align 8
+  %.pre9.pre.i.i.i = load ptr, ptr %6, align 8
   br label %.critedge.i.i.i
 
 18:                                               ; preds = %.lr.ph.i.i.i
@@ -993,7 +993,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
 
 .critedge.i.i.i:                                  ; preds = %18, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i, %2
   %21 = phi i64 [ 0, %2 ], [ %.sroa.7.0.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i ], [ %13, %18 ]
-  %22 = phi ptr [ %7, %2 ], [ %.pre8.pre.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i ], [ %20, %18 ]
+  %22 = phi ptr [ %7, %2 ], [ %.pre9.pre.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i ], [ %20, %18 ]
   %23 = load ptr, ptr %3, align 8, !noalias !26
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 8
@@ -1279,13 +1279,13 @@ define void @_ZNK4LIEF2PE16ResourcesManager8manifestB5cxx11Ev(ptr dead_on_unwind
   %.sroa.7.0.i.i.i = phi i64 [ %31, %30 ], [ 0, %2 ]
   %26 = phi ptr [ %32, %30 ], [ %19, %2 ]
   %27 = getelementptr inbounds %"class.std::unique_ptr.1281", ptr %26, i64 %.sroa.7.0.i.i.i
-  %.val.val.i.i.i.i = load ptr, ptr %27, align 8, !noalias !35
-  %28 = call noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val.val.i.i.i.i), !noalias !35
+  %.val1.val.i.i.i.i = load ptr, ptr %27, align 8, !noalias !35
+  %28 = call noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val1.val.i.i.i.i), !noalias !35
   %29 = icmp eq i32 %28, 24
   br i1 %29, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, label %30
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %.pre8.pre.i.i.i.i = load ptr, ptr %18, align 8
+  %.pre9.pre.i.i.i.i = load ptr, ptr %18, align 8
   br label %.critedge.i.i.i.i
 
 30:                                               ; preds = %.lr.ph.i.i.i.i
@@ -1296,7 +1296,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
 
 .critedge.i.i.i.i:                                ; preds = %30, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, %2
   %33 = phi i64 [ 0, %2 ], [ %.sroa.7.0.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %25, %30 ]
-  %34 = phi ptr [ %19, %2 ], [ %.pre8.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %32, %30 ]
+  %34 = phi ptr [ %19, %2 ], [ %.pre9.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %32, %30 ]
   %35 = load ptr, ptr %6, align 8, !noalias !42
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %35, i64 8
@@ -1572,13 +1572,13 @@ define void @_ZN4LIEF2PE16ResourcesManager8manifestERKNSt7__cxx1112basic_stringI
   %.sroa.7.0.i.i.i.i = phi i64 [ %26, %25 ], [ 0, %2 ]
   %21 = phi ptr [ %27, %25 ], [ %14, %2 ]
   %22 = getelementptr inbounds %"class.std::unique_ptr.1281", ptr %21, i64 %.sroa.7.0.i.i.i.i
-  %.val.val.i.i.i.i.i = load ptr, ptr %22, align 8, !noalias !47
-  %23 = call noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val.val.i.i.i.i.i), !noalias !47
+  %.val1.val.i.i.i.i.i = load ptr, ptr %22, align 8, !noalias !47
+  %23 = call noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val1.val.i.i.i.i.i), !noalias !47
   %24 = icmp eq i32 %23, 24
   br i1 %24, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i.i, label %25
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %.pre8.pre.i.i.i.i.i = load ptr, ptr %13, align 8
+  %.pre9.pre.i.i.i.i.i = load ptr, ptr %13, align 8
   br label %.critedge.i.i.i.i.i
 
 25:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -1589,7 +1589,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
 
 .critedge.i.i.i.i.i:                              ; preds = %25, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i.i, %2
   %28 = phi i64 [ 0, %2 ], [ %.sroa.7.0.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i.i ], [ %20, %25 ]
-  %29 = phi ptr [ %14, %2 ], [ %.pre8.pre.i.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i.i ], [ %27, %25 ]
+  %29 = phi ptr [ %14, %2 ], [ %.pre9.pre.i.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i.i ], [ %27, %25 ]
   %30 = load ptr, ptr %7, align 8, !noalias !54
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %30, i64 8
@@ -1786,13 +1786,13 @@ define void @_ZNK4LIEF2PE16ResourcesManager7versionEv(ptr dead_on_unwind noalias
   %.sroa.7.0.i.i.i = phi i64 [ %24, %23 ], [ 0, %2 ]
   %19 = phi ptr [ %25, %23 ], [ %12, %2 ]
   %20 = getelementptr inbounds %"class.std::unique_ptr.1281", ptr %19, i64 %.sroa.7.0.i.i.i
-  %.val.val.i.i.i.i = load ptr, ptr %20, align 8, !noalias !59
-  %21 = call noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val.val.i.i.i.i), !noalias !59
+  %.val1.val.i.i.i.i = load ptr, ptr %20, align 8, !noalias !59
+  %21 = call noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val1.val.i.i.i.i), !noalias !59
   %22 = icmp eq i32 %21, 16
   br i1 %22, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, label %23
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %.pre8.pre.i.i.i.i = load ptr, ptr %11, align 8
+  %.pre9.pre.i.i.i.i = load ptr, ptr %11, align 8
   br label %.critedge.i.i.i.i
 
 23:                                               ; preds = %.lr.ph.i.i.i.i
@@ -1803,7 +1803,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
 
 .critedge.i.i.i.i:                                ; preds = %23, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, %2
   %26 = phi i64 [ 0, %2 ], [ %.sroa.7.0.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %18, %23 ]
-  %27 = phi ptr [ %12, %2 ], [ %.pre8.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %25, %23 ]
+  %27 = phi ptr [ %12, %2 ], [ %.pre9.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %25, %23 ]
   %28 = load ptr, ptr %3, align 8, !noalias !66
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %28, i64 8
@@ -2060,8 +2060,8 @@ define void @_ZNK4LIEF2PE16ResourcesManager5iconsEv(ptr dead_on_unwind noalias w
   %.sroa.7.0.i.i.i = phi i64 [ %53, %52 ], [ 0, %.noexc ]
   %48 = phi ptr [ %54, %52 ], [ %41, %.noexc ]
   %49 = getelementptr inbounds %"class.std::unique_ptr.1281", ptr %48, i64 %.sroa.7.0.i.i.i
-  %.val.val.i.i.i.i = load ptr, ptr %49, align 8, !noalias !71
-  %50 = invoke noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val.val.i.i.i.i)
+  %.val1.val.i.i.i.i = load ptr, ptr %49, align 8, !noalias !71
+  %50 = invoke noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val1.val.i.i.i.i)
           to label %.noexc39 unwind label %.loopexit.split-lp219.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc39:                                         ; preds = %.lr.ph.i.i.i.i
@@ -2069,7 +2069,7 @@ define void @_ZNK4LIEF2PE16ResourcesManager5iconsEv(ptr dead_on_unwind noalias w
   br i1 %51, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, label %52
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i: ; preds = %.noexc39
-  %.pre8.pre.i.i.i.i = load ptr, ptr %40, align 8
+  %.pre9.pre.i.i.i.i = load ptr, ptr %40, align 8
   br label %.critedge.i.i.i.i
 
 52:                                               ; preds = %.noexc39
@@ -2080,7 +2080,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
 
 .critedge.i.i.i.i:                                ; preds = %52, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, %.noexc
   %55 = phi i64 [ 0, %.noexc ], [ %.sroa.7.0.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %47, %52 ]
-  %56 = phi ptr [ %41, %.noexc ], [ %.pre8.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %54, %52 ]
+  %56 = phi ptr [ %41, %.noexc ], [ %.pre9.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %54, %52 ]
   %57 = load ptr, ptr %18, align 8, !noalias !78
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %57, i64 8
@@ -2127,8 +2127,8 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
   %.sroa.7.0.i.i.i42 = phi i64 [ %90, %89 ], [ 0, %.noexc55 ]
   %85 = phi ptr [ %91, %89 ], [ %78, %.noexc55 ]
   %86 = getelementptr inbounds %"class.std::unique_ptr.1281", ptr %85, i64 %.sroa.7.0.i.i.i42
-  %.val.val.i.i.i.i45 = load ptr, ptr %86, align 8, !noalias !83
-  %87 = invoke noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val.val.i.i.i.i45)
+  %.val1.val.i.i.i.i45 = load ptr, ptr %86, align 8, !noalias !83
+  %87 = invoke noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val1.val.i.i.i.i45)
           to label %.noexc56 unwind label %.loopexit.split-lp219.loopexit.split-lp.loopexit
 
 .noexc56:                                         ; preds = %.lr.ph.i.i.i.i41
@@ -2136,7 +2136,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
   br i1 %88, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i53, label %89
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i53: ; preds = %.noexc56
-  %.pre8.pre.i.i.i.i54 = load ptr, ptr %77, align 8
+  %.pre9.pre.i.i.i.i54 = load ptr, ptr %77, align 8
   br label %.critedge.i.i.i.i47
 
 89:                                               ; preds = %.noexc56
@@ -2147,7 +2147,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
 
 .critedge.i.i.i.i47:                              ; preds = %89, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i53, %.noexc55
   %92 = phi i64 [ 0, %.noexc55 ], [ %.sroa.7.0.i.i.i42, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i53 ], [ %84, %89 ]
-  %93 = phi ptr [ %78, %.noexc55 ], [ %.pre8.pre.i.i.i.i54, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i53 ], [ %91, %89 ]
+  %93 = phi ptr [ %78, %.noexc55 ], [ %.pre9.pre.i.i.i.i54, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i53 ], [ %91, %89 ]
   %94 = load ptr, ptr %17, align 8, !noalias !90
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %94, i64 8
@@ -2714,8 +2714,8 @@ _ZN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defau
   %.sroa.7.0.i.i = phi i64 [ %300, %299 ], [ 0, %284 ]
   %293 = phi ptr [ %301, %299 ], [ %286, %284 ]
   %294 = getelementptr inbounds %"class.std::unique_ptr.1281", ptr %293, i64 %.sroa.7.0.i.i
-  %.val.val.i.i.i = load ptr, ptr %294, align 8, !noalias !108
-  %295 = invoke noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val.val.i.i.i)
+  %.val1.val.i.i.i = load ptr, ptr %294, align 8, !noalias !108
+  %295 = invoke noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val1.val.i.i.i)
           to label %.noexc117 unwind label %.loopexit
 
 .noexc117:                                        ; preds = %_ZN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEC2ERKSI_.exit.i.i.i
@@ -2725,7 +2725,7 @@ _ZN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defau
   br i1 %298, label %_ZN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEC2ERKSI_.exit..critedge.loopexit_crit_edge.i.i.i, label %299
 
 _ZN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEC2ERKSI_.exit..critedge.loopexit_crit_edge.i.i.i: ; preds = %.noexc117
-  %.pre8.pre.i.i.i = load ptr, ptr %285, align 8
+  %.pre9.pre.i.i.i = load ptr, ptr %285, align 8
   br label %.critedge.i.i.i
 
 299:                                              ; preds = %.noexc117
@@ -2736,7 +2736,7 @@ _ZN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defau
 
 .critedge.i.i.i:                                  ; preds = %299, %_ZN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEC2ERKSI_.exit..critedge.loopexit_crit_edge.i.i.i, %284
   %302 = phi i64 [ 0, %284 ], [ %.sroa.7.0.i.i, %_ZN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEC2ERKSI_.exit..critedge.loopexit_crit_edge.i.i.i ], [ %292, %299 ]
-  %303 = phi ptr [ %286, %284 ], [ %.pre8.pre.i.i.i, %_ZN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEC2ERKSI_.exit..critedge.loopexit_crit_edge.i.i.i ], [ %301, %299 ]
+  %303 = phi ptr [ %286, %284 ], [ %.pre9.pre.i.i.i, %_ZN4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEC2ERKSI_.exit..critedge.loopexit_crit_edge.i.i.i ], [ %301, %299 ]
   %304 = load ptr, ptr %34, align 8, !noalias !116
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds i8, ptr %304, i64 8
@@ -4203,8 +4203,8 @@ define void @_ZNK4LIEF2PE16ResourcesManager7dialogsEv(ptr dead_on_unwind noalias
   %.sroa.7.0.i.i.i = phi i64 [ %32, %31 ], [ 0, %.noexc ]
   %27 = phi ptr [ %33, %31 ], [ %20, %.noexc ]
   %28 = getelementptr inbounds %"class.std::unique_ptr.1281", ptr %27, i64 %.sroa.7.0.i.i.i
-  %.val.val.i.i.i.i = load ptr, ptr %28, align 8, !noalias !172
-  %29 = invoke noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val.val.i.i.i.i)
+  %.val1.val.i.i.i.i = load ptr, ptr %28, align 8, !noalias !172
+  %29 = invoke noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val1.val.i.i.i.i)
           to label %.noexc15 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc15:                                         ; preds = %.lr.ph.i.i.i.i
@@ -4212,7 +4212,7 @@ define void @_ZNK4LIEF2PE16ResourcesManager7dialogsEv(ptr dead_on_unwind noalias
   br i1 %30, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, label %31
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i: ; preds = %.noexc15
-  %.pre8.pre.i.i.i.i = load ptr, ptr %19, align 8
+  %.pre9.pre.i.i.i.i = load ptr, ptr %19, align 8
   br label %.critedge.i.i.i.i
 
 31:                                               ; preds = %.noexc15
@@ -4223,7 +4223,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
 
 .critedge.i.i.i.i:                                ; preds = %31, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, %.noexc
   %34 = phi i64 [ 0, %.noexc ], [ %.sroa.7.0.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %26, %31 ]
-  %35 = phi ptr [ %20, %.noexc ], [ %.pre8.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %33, %31 ]
+  %35 = phi ptr [ %20, %.noexc ], [ %.pre9.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %33, %31 ]
   %36 = load ptr, ptr %7, align 8, !noalias !179
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %36, i64 8
@@ -4778,8 +4778,8 @@ define void @_ZNK4LIEF2PE16ResourcesManager12string_tableEv(ptr dead_on_unwind n
   %.sroa.7.0.i.i.i = phi i64 [ %38, %37 ], [ 0, %.noexc ]
   %33 = phi ptr [ %39, %37 ], [ %26, %.noexc ]
   %34 = getelementptr inbounds %"class.std::unique_ptr.1281", ptr %33, i64 %.sroa.7.0.i.i.i
-  %.val.val.i.i.i.i = load ptr, ptr %34, align 8, !noalias !187
-  %35 = invoke noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val.val.i.i.i.i)
+  %.val1.val.i.i.i.i = load ptr, ptr %34, align 8, !noalias !187
+  %35 = invoke noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val1.val.i.i.i.i)
           to label %.noexc28 unwind label %.loopexit.split-lp107.loopexit.split-lp.loopexit
 
 .noexc28:                                         ; preds = %.lr.ph.i.i.i.i
@@ -4787,7 +4787,7 @@ define void @_ZNK4LIEF2PE16ResourcesManager12string_tableEv(ptr dead_on_unwind n
   br i1 %36, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, label %37
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i: ; preds = %.noexc28
-  %.pre8.pre.i.i.i.i = load ptr, ptr %25, align 8
+  %.pre9.pre.i.i.i.i = load ptr, ptr %25, align 8
   br label %.critedge.i.i.i.i
 
 37:                                               ; preds = %.noexc28
@@ -4798,7 +4798,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
 
 .critedge.i.i.i.i:                                ; preds = %37, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, %.noexc
   %40 = phi i64 [ 0, %.noexc ], [ %.sroa.7.0.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %32, %37 ]
-  %41 = phi ptr [ %26, %.noexc ], [ %.pre8.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %39, %37 ]
+  %41 = phi ptr [ %26, %.noexc ], [ %.pre9.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %39, %37 ]
   %42 = load ptr, ptr %10, align 8, !noalias !194
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %42, i64 8
@@ -5468,13 +5468,13 @@ define void @_ZNK4LIEF2PE16ResourcesManager4htmlB5cxx11Ev(ptr dead_on_unwind noa
   %.sroa.7.0.i.i.i = phi i64 [ %27, %26 ], [ 0, %2 ]
   %22 = phi ptr [ %28, %26 ], [ %15, %2 ]
   %23 = getelementptr inbounds %"class.std::unique_ptr.1281", ptr %22, i64 %.sroa.7.0.i.i.i
-  %.val.val.i.i.i.i = load ptr, ptr %23, align 8, !noalias !207
-  %24 = call noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val.val.i.i.i.i), !noalias !207
+  %.val1.val.i.i.i.i = load ptr, ptr %23, align 8, !noalias !207
+  %24 = call noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val1.val.i.i.i.i), !noalias !207
   %25 = icmp eq i32 %24, 23
   br i1 %25, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, label %26
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %.pre8.pre.i.i.i.i = load ptr, ptr %14, align 8
+  %.pre9.pre.i.i.i.i = load ptr, ptr %14, align 8
   br label %.critedge.i.i.i.i
 
 26:                                               ; preds = %.lr.ph.i.i.i.i
@@ -5485,7 +5485,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
 
 .critedge.i.i.i.i:                                ; preds = %26, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, %2
   %29 = phi i64 [ 0, %2 ], [ %.sroa.7.0.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %21, %26 ]
-  %30 = phi ptr [ %15, %2 ], [ %.pre8.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %28, %26 ]
+  %30 = phi ptr [ %15, %2 ], [ %.pre9.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %28, %26 ]
   %31 = load ptr, ptr %6, align 8, !noalias !214
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %31, i64 8
@@ -5792,8 +5792,8 @@ define void @_ZNK4LIEF2PE16ResourcesManager11acceleratorEv(ptr dead_on_unwind no
   %.sroa.7.0.i.i.i = phi i64 [ %35, %34 ], [ 0, %.noexc ]
   %30 = phi ptr [ %36, %34 ], [ %23, %.noexc ]
   %31 = getelementptr inbounds %"class.std::unique_ptr.1281", ptr %30, i64 %.sroa.7.0.i.i.i
-  %.val.val.i.i.i.i = load ptr, ptr %31, align 8, !noalias !226
-  %32 = invoke noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val.val.i.i.i.i)
+  %.val1.val.i.i.i.i = load ptr, ptr %31, align 8, !noalias !226
+  %32 = invoke noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr noundef nonnull align 8 dereferenceable(76) %.val1.val.i.i.i.i)
           to label %.noexc22 unwind label %.loopexit.split-lp84.loopexit.split-lp.loopexit
 
 .noexc22:                                         ; preds = %.lr.ph.i.i.i.i
@@ -5801,7 +5801,7 @@ define void @_ZNK4LIEF2PE16ResourcesManager11acceleratorEv(ptr dead_on_unwind no
   br i1 %33, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, label %34
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i: ; preds = %.noexc22
-  %.pre8.pre.i.i.i.i = load ptr, ptr %22, align 8
+  %.pre9.pre.i.i.i.i = load ptr, ptr %22, align 8
   br label %.critedge.i.i.i.i
 
 34:                                               ; preds = %.noexc22
@@ -5812,7 +5812,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
 
 .critedge.i.i.i.i:                                ; preds = %34, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i, %.noexc
   %37 = phi i64 [ 0, %.noexc ], [ %.sroa.7.0.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %29, %34 ]
-  %38 = phi ptr [ %23, %.noexc ], [ %.pre8.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %36, %34 ]
+  %38 = phi ptr [ %23, %.noexc ], [ %.pre9.pre.i.i.i.i, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEC2ERKSG_.exit..critedge.loopexit_crit_edge.i.i.i.i ], [ %36, %34 ]
   %39 = load ptr, ptr %9, align 8, !noalias !233
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %39, i64 8

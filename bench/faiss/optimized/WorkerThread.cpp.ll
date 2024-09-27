@@ -230,10 +230,10 @@ _ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EEC2Ev.exit: ; preds = 
           to label %.noexc unwind label %75
 
 .noexc:                                           ; preds = %_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EEC2Ev.exit
+  %10 = ptrtoint ptr %0 to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5faiss12WorkerThread11startThreadEvE3$_0EEEEEE", i64 16), ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = ptrtoint ptr %0 to i64
-  store i64 %11, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %10, ptr %11, align 8
   store ptr %9, ptr %2, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %2, ptr noundef null)
           to label %12 unwind label %17
@@ -450,14 +450,14 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN5faiss12WorkerThread11startThreadEv(ptr noundef nonnull align 8 dereferenceable(184) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unique_ptr.18", align 8
   %3 = alloca %"class.std::thread", align 8
+  %4 = ptrtoint ptr %0 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %3, align 8
-  %4 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5faiss12WorkerThread11startThreadEvE3$_0EEEEEE", i64 16), ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = ptrtoint ptr %0 to i64
-  store i64 %6, ptr %5, align 8
-  store ptr %4, ptr %2, align 8
+  %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5faiss12WorkerThread11startThreadEvE3$_0EEEEEE", i64 16), ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %4, ptr %6, align 8
+  store ptr %5, ptr %2, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %2, ptr noundef null)
           to label %7 unwind label %12
 

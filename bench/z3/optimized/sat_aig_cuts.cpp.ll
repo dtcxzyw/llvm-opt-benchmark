@@ -9017,12 +9017,12 @@ invoke.cont:
   %val = alloca %"struct.sat::aig_cuts::validator", align 8
   %on_clause = alloca %"class.std::function", align 8
   call void @_ZN3sat8aig_cuts9validatorC2ERS0_(ptr noundef nonnull align 8 dereferenceable(4480) %val, ptr noundef nonnull align 8 dereferenceable(480) %this)
+  %0 = ptrtoint ptr %val to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %on_clause, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %on_clause, i64 24
-  %0 = getelementptr inbounds i8, ptr %on_clause, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %val to i64
-  store i64 %1, ptr %on_clause, align 8
+  %1 = getelementptr inbounds i8, ptr %on_clause, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %on_clause, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRK7svectorIN3sat7literalEjEEZNS1_8aig_cuts13validate_aig2ERKNS1_3cutESA_jRKNS7_4nodeESA_E3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRK7svectorIN3sat7literalEjEEZNS1_8aig_cuts13validate_aig2ERKNS1_3cutESA_jRKNS7_4nodeESA_E3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %m_literals.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -9431,12 +9431,12 @@ if.else:                                          ; preds = %if.then
 
 if.end16:                                         ; preds = %if.then3, %if.else, %entry
   call void @_ZN3sat8aig_cuts9validatorC2ERS0_(ptr noundef nonnull align 8 dereferenceable(4480) %val, ptr noundef nonnull align 8 dereferenceable(480) %this)
+  %0 = ptrtoint ptr %val to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %on_clause, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %on_clause, i64 24
-  %0 = getelementptr inbounds i8, ptr %on_clause, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %val to i64
-  store i64 %1, ptr %on_clause, align 8
+  %1 = getelementptr inbounds i8, ptr %on_clause, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %on_clause, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRK7svectorIN3sat7literalEjEEZNS1_8aig_cuts13validate_aigNEjRKNS7_4nodeERKNS1_3cutEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRK7svectorIN3sat7literalEjEEZNS1_8aig_cuts13validate_aigNEjRKNS7_4nodeERKNS1_3cutEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %m_size.i = getelementptr inbounds i8, ptr %n, i64 16

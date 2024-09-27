@@ -3671,12 +3671,12 @@ terminate.lpad:                                   ; preds = %entry
 define void @_ZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS_6paroptE(i64 noundef %begin, i64 noundef %end, i64 noundef %chunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function", align 8
+  %0 = ptrtoint ptr %task to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %task to i64
-  store i64 %1, ptr %ref.tmp, align 8
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %ref.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %begin, i64 noundef %end, i64 noundef %chunksize, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
@@ -4829,12 +4829,12 @@ if.end:                                           ; preds = %entry
   store ptr @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_023parallel_for_range_implIiEEvT_S3_OSt8functionIFvS3_S3_EENS1_6paroptEEUlllE_E9_M_invokeERKSt9_Any_dataOlSE_, ptr %_M_invoker.i5, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_023parallel_for_range_implIiEEvT_S3_OSt8functionIFvS3_S3_EENS1_6paroptEEUlllE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  %5 = ptrtoint ptr %ref.tmp to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %5, align 8
-  %6 = ptrtoint ptr %ref.tmp to i64
-  store i64 %6, ptr %ref.tmp.i, align 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %6, align 8
+  store i64 %5, ptr %ref.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %conv, i64 noundef %conv1, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
@@ -4966,12 +4966,12 @@ if.end:                                           ; preds = %entry
   store ptr @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_023parallel_for_range_implIjEEvT_S3_OSt8functionIFvS3_S3_EENS1_6paroptEEUlllE_E9_M_invokeERKSt9_Any_dataOlSE_, ptr %_M_invoker.i5, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_023parallel_for_range_implIjEEvT_S3_OSt8functionIFvS3_S3_EENS1_6paroptEEUlllE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  %5 = ptrtoint ptr %ref.tmp to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %5, align 8
-  %6 = ptrtoint ptr %ref.tmp to i64
-  store i64 %6, ptr %ref.tmp.i, align 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %6, align 8
+  store i64 %5, ptr %ref.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %conv, i64 noundef %conv1, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
@@ -5101,12 +5101,12 @@ if.end:                                           ; preds = %entry
   store ptr @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_023parallel_for_range_implIlEEvT_S3_OSt8functionIFvS3_S3_EENS1_6paroptEEUlllE_E9_M_invokeERKSt9_Any_dataOlSE_, ptr %_M_invoker.i5, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_023parallel_for_range_implIlEEvT_S3_OSt8functionIFvS3_S3_EENS1_6paroptEEUlllE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  %5 = ptrtoint ptr %ref.tmp to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %5, align 8
-  %6 = ptrtoint ptr %ref.tmp to i64
-  store i64 %6, ptr %ref.tmp.i, align 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %6, align 8
+  store i64 %5, ptr %ref.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %begin, i64 noundef %end, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
@@ -5236,12 +5236,12 @@ if.end:                                           ; preds = %entry
   store ptr @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_023parallel_for_range_implImEEvT_S3_OSt8functionIFvS3_S3_EENS1_6paroptEEUlllE_E9_M_invokeERKSt9_Any_dataOlSE_, ptr %_M_invoker.i5, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_023parallel_for_range_implImEEvT_S3_OSt8functionIFvS3_S3_EENS1_6paroptEEUlllE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  %5 = ptrtoint ptr %ref.tmp to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %5, align 8
-  %6 = ptrtoint ptr %ref.tmp to i64
-  store i64 %6, ptr %ref.tmp.i, align 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %6, align 8
+  store i64 %5, ptr %ref.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %begin, i64 noundef %end, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
@@ -5325,12 +5325,12 @@ _ZNSt8functionIFvllEED2Ev.exit14:                 ; preds = %lpad.body, %if.then
 define void @_ZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function", align 8
+  %0 = ptrtoint ptr %task to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %task to i64
-  store i64 %1, ptr %ref.tmp, align 8
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %ref.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %begin, i64 noundef %end, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
@@ -6327,12 +6327,12 @@ entry:
 define void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS_6paroptE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %xchunksize, i64 noundef %ybegin, i64 noundef %yend, i64 noundef %ychunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function.44", align 8
+  %0 = ptrtoint ptr %task to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %task to i64
-  store i64 %1, ptr %ref.tmp, align 8
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %ref.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillllEZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_SD_SD_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillllEZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN18OpenImageIO_v2_6_026parallel_for_chunked_2D_idEllllllOSt8functionIFvillllEENS_6paroptE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %xchunksize, i64 noundef %ybegin, i64 noundef %yend, i64 noundef %ychunksize, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
@@ -6383,12 +6383,12 @@ _ZNSt8functionIFvillllEED2Ev.exit7:               ; preds = %lpad, %if.then.i.i4
 define void @_ZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS_6paroptE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %ybegin, i64 noundef %yend, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function.44", align 8
+  %0 = ptrtoint ptr %task to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %task to i64
-  store i64 %1, ptr %ref.tmp, align 8
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %ref.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillllEZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_SD_SD_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillllEZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN18OpenImageIO_v2_6_026parallel_for_chunked_2D_idEllllllOSt8functionIFvillllEENS_6paroptE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef 0, i64 noundef %ybegin, i64 noundef %yend, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)

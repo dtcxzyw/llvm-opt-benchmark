@@ -360,7 +360,7 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_MachineFunction.cpp, ptr null }]
 @switch.table._ZNK4llvm25MachineFunctionProperties5printERNS_11raw_ostreamE = private unnamed_addr constant [11 x ptr] [ptr @.str.25, ptr @.str.27, ptr @.str.31, ptr @.str.28, ptr @.str.24, ptr @.str.26, ptr @.str.29, ptr @.str.30, ptr @.str.32, ptr @.str.33, ptr @.str.34], align 8
 @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv = private unnamed_addr constant [8 x i64] [i64 0, i64 2, i64 1, i64 2, i64 1, i64 2, i64 1, i64 3], align 8
-@switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv.14 = private unnamed_addr constant [8 x ptr] [ptr @.str.3, ptr @.str.40, ptr @.str.43, ptr @.str.40, ptr @.str.43, ptr @.str.41, ptr @.str.42, ptr @.str.44], align 8
+@switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv.15 = private unnamed_addr constant [8 x ptr] [ptr @.str.3, ptr @.str.40, ptr @.str.43, ptr @.str.40, ptr @.str.43, ptr @.str.41, ptr @.str.42, ptr @.str.44], align 8
 @switch.table._ZNK4llvm24MachineConstantPoolEntry14getSectionKindEPKNS_10DataLayoutE = private unnamed_addr constant [8 x i32] [i32 8, i32 9, i32 4, i32 10, i32 4, i32 4, i32 4, i32 11], align 4
 
 @_ZN4llvm19MachineFunctionInfoD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm19MachineFunctionInfoD2Ev
@@ -5542,7 +5542,7 @@ define dso_local noundef ptr @_ZNK4llvm15MachineFunction12getJTISymbolEjRNS_9MCC
 
 switch.lookup:                                    ; preds = %4
   %14 = sext i32 %11 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv.14, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv.15, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = sext i32 %11 to i64
   %switch.gep9 = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv, i64 0, i64 %15
@@ -5676,7 +5676,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = sext i32 %8 to i64
-  %switch.gep21 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv.14, i64 0, i64 %10
+  %switch.gep21 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv.15, i64 0, i64 %10
   %switch.load22 = load ptr, ptr %switch.gep21, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %12 = load i32, ptr %11, align 8

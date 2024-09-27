@@ -392,11 +392,11 @@ _ZNSt12_Vector_baseIN2cv7optflow18GPCPatchDescriptorESaIS2_EE13_M_deallocateEPS2
   store ptr %36, ptr %26, align 8
   %37 = getelementptr inbounds %"struct.cv::optflow::GPCPatchDescriptor", ptr %31, i64 %14
   store ptr %37, ptr %18, align 8
-  %.pre13 = ptrtoint ptr %31 to i64
+  %.pre12 = ptrtoint ptr %31 to i64
   br label %_ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE7reserveEm.exit
 
 _ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE7reserveEm.exit: ; preds = %17, %_ZNSt12_Vector_baseIN2cv7optflow18GPCPatchDescriptorESaIS2_EE13_M_deallocateEPS2_m.exit.i
-  %.pre-phi = phi i64 [ %.pre13, %_ZNSt12_Vector_baseIN2cv7optflow18GPCPatchDescriptorESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ %22, %17 ]
+  %.pre-phi = phi i64 [ %.pre12, %_ZNSt12_Vector_baseIN2cv7optflow18GPCPatchDescriptorESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ %22, %17 ]
   %38 = phi ptr [ %31, %_ZNSt12_Vector_baseIN2cv7optflow18GPCPatchDescriptorESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ %20, %17 ]
   %39 = phi ptr [ %36, %_ZNSt12_Vector_baseIN2cv7optflow18GPCPatchDescriptorESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ %27, %17 ]
   %40 = getelementptr inbounds i8, ptr %1, i64 8
@@ -409,9 +409,9 @@ _ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE7reserveEm.exit: ; preds =
 45:                                               ; preds = %_ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE7reserveEm.exit
   %46 = sub nuw nsw i64 %14, %43
   tail call void @_ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %46)
-  %.pre11 = load ptr, ptr %40, align 8
-  %.pre12 = load ptr, ptr %1, align 8
-  %.pre14 = ptrtoint ptr %.pre12 to i64
+  %.pre10 = load ptr, ptr %40, align 8
+  %.pre11 = load ptr, ptr %1, align 8
+  %.pre13 = ptrtoint ptr %.pre11 to i64
   br label %_ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE6resizeEm.exit
 
 47:                                               ; preds = %_ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE7reserveEm.exit
@@ -428,19 +428,19 @@ _ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE7reserveEm.exit: ; preds =
   br label %_ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE6resizeEm.exit
 
 _ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE6resizeEm.exit: ; preds = %45, %47, %49, %51
-  %.pre-phi15 = phi i64 [ %.pre14, %45 ], [ %.pre-phi, %47 ], [ %.pre-phi, %49 ], [ %.pre-phi, %51 ]
-  %52 = phi ptr [ %.pre11, %45 ], [ %39, %47 ], [ %39, %49 ], [ %50, %51 ]
+  %.pre-phi14 = phi i64 [ %.pre13, %45 ], [ %.pre-phi, %47 ], [ %.pre-phi, %49 ], [ %.pre-phi, %51 ]
+  %52 = phi ptr [ %.pre10, %45 ], [ %39, %47 ], [ %39, %49 ], [ %50, %51 ]
   %53 = ptrtoint ptr %52 to i64
-  %54 = sub i64 %53, %.pre-phi15
+  %54 = sub i64 %53, %.pre-phi14
   %55 = sdiv exact i64 %54, 144
   %56 = trunc i64 %55 to i32
   store i32 0, ptr %4, align 4
   %57 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %56, ptr %57, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow12_GLOBAL__N_117ParallelDCTFillerE, i64 16), ptr %5, align 8
-  %58 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.0.0.insert.ext = zext i32 %9 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow12_GLOBAL__N_117ParallelDCTFillerE, i64 16), ptr %5, align 8
+  %58 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.sroa.0.0.insert.insert, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %0, ptr %59, align 8
@@ -585,10 +585,10 @@ _ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE6resizeEm.exit: ; preds = 
   store i32 0, ptr %11, align 4
   %69 = getelementptr inbounds i8, ptr %11, i64 4
   store i32 %68, ptr %69, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow12_GLOBAL__N_117ParallelWHTFillerE, i64 16), ptr %12, align 8
-  %70 = getelementptr inbounds i8, ptr %12, i64 8
   %.sroa.0.0.insert.ext = zext i32 %16 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow12_GLOBAL__N_117ParallelWHTFillerE, i64 16), ptr %12, align 8
+  %70 = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %.sroa.0.0.insert.insert, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %4, ptr %71, align 8

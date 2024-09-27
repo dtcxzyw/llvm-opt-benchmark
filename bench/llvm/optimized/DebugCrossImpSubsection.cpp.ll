@@ -2625,8 +2625,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %20, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14StringMapEntryISt6vectorINS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESaIS9_EEEES4_ISE_SaISE_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8codeview33DebugCrossModuleImportsSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_SR_SR_T0_.exit"
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14StringMapEntryISt6vectorINS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESaIS9_EEEES4_ISE_SaISE_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8codeview33DebugCrossModuleImportsSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_SR_RT0_.exit.i.i", %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %21, %.lr.ph.i9.i ], [ %storemerge23.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14StringMapEntryISt6vectorINS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESaIS9_EEEES4_ISE_SaISE_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8codeview33DebugCrossModuleImportsSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_SR_RT0_.exit.i.i" ]
-  %21 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
+  %.sroa.0.03.i.i = phi ptr [ %21, %.lr.ph.i9.i ], [ %storemerge23.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14StringMapEntryISt6vectorINS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESaIS9_EEEES4_ISE_SaISE_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8codeview33DebugCrossModuleImportsSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_SR_RT0_.exit.i.i" ]
+  %21 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %0, align 8
   store ptr %23, ptr %21, align 8
@@ -2828,8 +2828,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
-  %.036 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %10 ]
-  %11 = shl i64 %.036, 1
+  %.037 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %10 ]
+  %11 = shl i64 %.037, 1
   %12 = add i64 %11, 2
   %13 = getelementptr inbounds ptr, ptr %0, i64 %12
   %14 = or disjoint i64 %11, 1
@@ -2848,7 +2848,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %spec.select = select i1 %25, i64 %14, i64 %12
   %26 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %.036
+  %28 = getelementptr inbounds ptr, ptr %0, i64 %.037
   store ptr %27, ptr %28, align 8
   %29 = icmp slt i64 %spec.select, %7
   br i1 %29, label %10, label %._crit_edge, !llvm.loop !51
@@ -2880,35 +2880,35 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %43, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14StringMapEntryISt6vectorINS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESaIS9_EEEES4_ISE_SaISE_EEEElSE_NS0_5__ops14_Iter_comp_valIZNKS2_8codeview33DebugCrossModuleImportsSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_T0_SS_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %3, i64 32
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %45 = getelementptr inbounds i8, ptr %3, i64 32
   br label %46
 
 46:                                               ; preds = %56, %.lr.ph.i
-  %.019.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0920.i, %56 ]
-  %.0920.in.i = add nsw i64 %.019.i, -1
-  %.0920.i = sdiv i64 %.0920.in.i, 2
-  %47 = getelementptr inbounds ptr, ptr %0, i64 %.0920.i
+  %.010.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0911.i, %56 ]
+  %.0911.in.i = add nsw i64 %.010.i, -1
+  %.0911.i = sdiv i64 %.0911.in.i, 2
+  %47 = getelementptr inbounds ptr, ptr %0, i64 %.0911.i
   %.val2.i.i = load ptr, ptr %47, align 8
-  %48 = load ptr, ptr %45, align 8
+  %48 = load ptr, ptr %44, align 8
   %49 = getelementptr inbounds i8, ptr %.val2.i.i, i64 32
   %50 = load i64, ptr %.val2.i.i, align 8
   %51 = tail call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection14getIdForStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(68) %48, ptr nonnull %49, i64 %50) #15
-  %52 = load ptr, ptr %45, align 8
+  %52 = load ptr, ptr %44, align 8
   %53 = load i64, ptr %3, align 8
-  %54 = tail call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection14getIdForStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(68) %52, ptr nonnull %44, i64 %53) #15
+  %54 = tail call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection14getIdForStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(68) %52, ptr nonnull %45, i64 %53) #15
   %55 = icmp ult i32 %51, %54
   br i1 %55, label %56, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14StringMapEntryISt6vectorINS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESaIS9_EEEES4_ISE_SaISE_EEEElSE_NS0_5__ops14_Iter_comp_valIZNKS2_8codeview33DebugCrossModuleImportsSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_T0_SS_T1_RT2_.exit"
 
 56:                                               ; preds = %46
   %57 = load ptr, ptr %47, align 8
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %.019.i
+  %58 = getelementptr inbounds ptr, ptr %0, i64 %.010.i
   store ptr %57, ptr %58, align 8
-  %59 = icmp sgt i64 %.0920.i, %1
+  %59 = icmp sgt i64 %.0911.i, %1
   br i1 %59, label %46, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14StringMapEntryISt6vectorINS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESaIS9_EEEES4_ISE_SaISE_EEEElSE_NS0_5__ops14_Iter_comp_valIZNKS2_8codeview33DebugCrossModuleImportsSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_T0_SS_T1_RT2_.exit", !llvm.loop !52
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14StringMapEntryISt6vectorINS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESaIS9_EEEES4_ISE_SaISE_EEEElSE_NS0_5__ops14_Iter_comp_valIZNKS2_8codeview33DebugCrossModuleImportsSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_T0_SS_T1_RT2_.exit": ; preds = %46, %56, %42
-  %.0.lcssa.i = phi i64 [ %.1, %42 ], [ %.019.i, %46 ], [ %.0920.i, %56 ]
+  %.0.lcssa.i = phi i64 [ %.1, %42 ], [ %.010.i, %46 ], [ %.0911.i, %56 ]
   %60 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %60, align 8
   ret void

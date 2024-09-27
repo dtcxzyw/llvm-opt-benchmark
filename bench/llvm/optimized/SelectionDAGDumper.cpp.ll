@@ -716,7 +716,7 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 @_ZTVN4llvm2cl11OptionValueIbEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZNK4llvm2cl15OptionValueCopyIbE7compareERKNS0_18GenericOptionValueE, ptr @_ZN4llvm2cl18GenericOptionValue6anchorEv] }, comdat, align 8
 @_ZTVN4llvm2cl6parserIbEE = external unnamed_addr constant { [6 x ptr] }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_SelectionDAGDumper.cpp, ptr null }]
-@switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.13 = private unnamed_addr constant [4 x ptr] [ptr @.str.517, ptr @.str.518, ptr @.str.519, ptr @.str.520], align 8
+@switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14 = private unnamed_addr constant [4 x ptr] [ptr @.str.517, ptr @.str.518, ptr @.str.519, ptr @.str.520], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
@@ -5187,7 +5187,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm6SDNode18getIndexedModeNameENS_3IS
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.13, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -6621,7 +6621,7 @@ default.unreachable:                              ; preds = %810, %749, %688, %6
 
 switch.lookup:                                    ; preds = %652
   %657 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.13, i64 0, i64 %657
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 0, i64 %657
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit
 
@@ -6674,7 +6674,7 @@ _ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit: ; preds = %sw
 
 switch.lookup852:                                 ; preds = %676
   %681 = zext nneg i16 %switch.tableidx853 to i64
-  %switch.gep854 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.13, i64 0, i64 %681
+  %switch.gep854 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 0, i64 %681
   %switch.load855 = load ptr, ptr %switch.gep854, align 8
   br label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit579
 
@@ -6740,7 +6740,7 @@ _ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit579: ; preds = 
 
 switch.lookup856:                                 ; preds = %703
   %708 = zext nneg i16 %switch.tableidx857 to i64
-  %switch.gep858 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.13, i64 0, i64 %708
+  %switch.gep858 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 0, i64 %708
   %switch.load859 = load ptr, ptr %switch.gep858, align 8
   br label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit587
 
@@ -6804,7 +6804,7 @@ _ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit587: ; preds = 
 
 switch.lookup860:                                 ; preds = %732
   %737 = zext nneg i16 %switch.tableidx861 to i64
-  %switch.gep862 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.13, i64 0, i64 %737
+  %switch.gep862 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 0, i64 %737
   %switch.load863 = load ptr, ptr %switch.gep862, align 8
   br label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit595
 
@@ -8070,7 +8070,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %60, %62
 .lr.ph:                                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit37
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %71
 
 71:                                               ; preds = %.lr.ph, %_ZN4llvm9PrintableD2Ev.exit
@@ -8139,7 +8139,7 @@ _ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit: ; preds = %97, %95
   %101 = ptrtoint ptr %100 to i64
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZL11PrintNodeIdRKNS0_6SDNodeEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %69, align 8, !alias.scope !28
   store i64 %101, ptr %3, align 8, !alias.scope !28
-  store i64 0, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !28
+  store i64 0, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !28
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZL11PrintNodeIdRKNS0_6SDNodeEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %70, align 8, !alias.scope !28
   %102 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i42, ptr noundef %100) #17
   %103 = getelementptr inbounds nuw i8, ptr %.0.i.i42, i64 32

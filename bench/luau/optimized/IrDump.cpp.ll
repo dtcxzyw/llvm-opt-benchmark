@@ -284,7 +284,7 @@ $_ZN4Luau7CodeGen9hasResultENS0_5IrCmdE = comdat any
 @.str.258 = private unnamed_addr constant [25 x i8] c"b%u -> b%u [weight=10];\0A\00", align 1
 @switch.table._ZN4Luau7CodeGen10getCmdNameENS0_5IrCmdE = private unnamed_addr constant [256 x ptr] [ptr @.str.128, ptr @.str.129, ptr @.str.130, ptr @.str.131, ptr @.str.132, ptr @.str.133, ptr @.str.134, ptr @.str.135, ptr @.str.136, ptr @.str.137, ptr @.str.138, ptr @.str.139, ptr @.str.140, ptr @.str.141, ptr @.str.142, ptr @.str.143, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.53, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.109, ptr @.str.110, ptr @.str.111, ptr @.str.112, ptr @.str.113, ptr @.str.114, ptr @.str.115, ptr @.str.116, ptr @.str.117, ptr @.str.118, ptr @.str.119, ptr @.str.120, ptr @.str.121, ptr @.str.122, ptr @.str.123, ptr @.str.124, ptr @.str.125, ptr @.str.126, ptr @.str.127], align 8
 @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_7IrConstE = private unnamed_addr constant [14 x ptr] [ptr @.str.233, ptr @.str.234, ptr @.str.235, ptr @.str.236, ptr @.str.237, ptr @.str.238, ptr @.str.239, ptr @.str.240, ptr @.str.241, ptr @.str.242, ptr @.str.243, ptr @.str.244, ptr @.str.245, ptr @.str.246], align 8
-@switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6 = private unnamed_addr constant [16 x ptr] [ptr @.str.166, ptr @.str.168, ptr @.str.170, ptr @.str.172, ptr @.str.174, ptr @.str.176, ptr @.str.178, ptr @.str.180, ptr @.str.182, ptr @.str.184, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @.str.186], align 8
+@switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.7 = private unnamed_addr constant [16 x ptr] [ptr @.str.166, ptr @.str.168, ptr @.str.170, ptr @.str.172, ptr @.str.174, ptr @.str.176, ptr @.str.178, ptr @.str.180, ptr @.str.182, ptr @.str.184, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @.str.186], align 8
 @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE = private unnamed_addr constant [5 x ptr] [ptr @.str.144, ptr @.str.145, ptr @.str.146, ptr @.str.147, ptr @.str.148], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -333,93 +333,93 @@ define dso_local void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_
 16:                                               ; preds = %9
   %17 = load ptr, ptr %0, align 8
   %18 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.151)
-  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.06.0.copyload)
+  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i32 %.sroa.06.0.copyload)
   br label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit"
 
 "_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit": ; preds = %9, %16
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.05.0.copyload = load i32, ptr %19, align 4
   %20 = and i32 %.sroa.05.0.copyload, 15
-  %.not.i20 = icmp eq i32 %20, 0
-  br i1 %.not.i20, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit21", label %21
+  %.not.i26 = icmp eq i32 %20, 0
+  br i1 %.not.i26, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit27", label %21
 
 21:                                               ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit"
   %22 = load ptr, ptr %0, align 8
   %23 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.152)
-  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.05.0.copyload)
-  br label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit21"
+  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i32 %.sroa.05.0.copyload)
+  br label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit27"
 
-"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit21": ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit", %21
+"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit27": ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit", %21
   %24 = getelementptr inbounds i8, ptr %1, i64 12
   %.sroa.04.0.copyload = load i32, ptr %24, align 4
   %25 = and i32 %.sroa.04.0.copyload, 15
-  %.not.i22 = icmp eq i32 %25, 0
-  br i1 %.not.i22, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit23", label %26
+  %.not.i28 = icmp eq i32 %25, 0
+  br i1 %.not.i28, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit29", label %26
 
-26:                                               ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit21"
+26:                                               ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit27"
   %27 = load ptr, ptr %0, align 8
   %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.152)
-  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.04.0.copyload)
-  br label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit23"
+  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i32 %.sroa.04.0.copyload)
+  br label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit29"
 
-"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit23": ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit21", %26
+"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit29": ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit27", %26
   %29 = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.03.0.copyload = load i32, ptr %29, align 4
   %30 = and i32 %.sroa.03.0.copyload, 15
-  %.not.i24 = icmp eq i32 %30, 0
-  br i1 %.not.i24, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit25", label %31
+  %.not.i30 = icmp eq i32 %30, 0
+  br i1 %.not.i30, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit31", label %31
 
-31:                                               ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit23"
+31:                                               ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit29"
   %32 = load ptr, ptr %0, align 8
   %33 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.152)
-  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.03.0.copyload)
-  br label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit25"
+  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i32 %.sroa.03.0.copyload)
+  br label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit31"
 
-"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit25": ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit23", %31
+"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit31": ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit29", %31
   %34 = getelementptr inbounds i8, ptr %1, i64 20
   %.sroa.02.0.copyload = load i32, ptr %34, align 4
   %35 = and i32 %.sroa.02.0.copyload, 15
-  %.not.i26 = icmp eq i32 %35, 0
-  br i1 %.not.i26, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit27", label %36
+  %.not.i32 = icmp eq i32 %35, 0
+  br i1 %.not.i32, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit33", label %36
 
-36:                                               ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit25"
+36:                                               ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit31"
   %37 = load ptr, ptr %0, align 8
   %38 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.152)
-  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.02.0.copyload)
-  br label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit27"
+  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i32 %.sroa.02.0.copyload)
+  br label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit33"
 
-"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit27": ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit25", %36
+"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit33": ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit31", %36
   %39 = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.01.0.copyload = load i32, ptr %39, align 4
   %40 = and i32 %.sroa.01.0.copyload, 15
-  %.not.i28 = icmp eq i32 %40, 0
-  br i1 %.not.i28, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit29", label %41
+  %.not.i34 = icmp eq i32 %40, 0
+  br i1 %.not.i34, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit35", label %41
 
-41:                                               ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit27"
+41:                                               ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit33"
   %42 = load ptr, ptr %0, align 8
   %43 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull @.str.152)
-  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.01.0.copyload)
-  br label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit29"
+  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i32 %.sroa.01.0.copyload)
+  br label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit35"
 
-"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit29": ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit27", %41
+"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit35": ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit33", %41
   %44 = load i8, ptr @_ZN5FFlag16LuauCodegenInstGE, align 8
   %45 = trunc i8 %44 to i1
-  br i1 %45, label %46, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit31"
+  br i1 %45, label %46, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit37"
 
-46:                                               ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit29"
+46:                                               ; preds = %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit35"
   %47 = getelementptr inbounds i8, ptr %1, i64 28
   %.sroa.0.0.copyload = load i32, ptr %47, align 4
   %48 = and i32 %.sroa.0.0.copyload, 15
-  %.not.i30 = icmp eq i32 %48, 0
-  br i1 %.not.i30, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit31", label %49
+  %.not.i36 = icmp eq i32 %48, 0
+  br i1 %.not.i36, label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit37", label %49
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %0, align 8
   %51 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull @.str.152)
-  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.0.0.copyload)
-  br label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit31"
+  tail call void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextENS0_4IrOpE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i32 %.sroa.0.0.copyload)
+  br label %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit37"
 
-"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit31": ; preds = %49, %46, %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit29"
+"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit37": ; preds = %49, %46, %"_ZZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_6IrInstEjENK3$_0clENS0_4IrOpEPKc.exit35"
   ret void
 }
 
@@ -782,7 +782,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc(i8 no
 
 switch.lookup:                                    ; preds = %10
   %13 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.7, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %14
 
@@ -1347,7 +1347,7 @@ define dso_local void @_ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt1
 
 switch.lookup:                                    ; preds = %12
   %15 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.7, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
 
@@ -1381,7 +1381,7 @@ _ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit: ; preds = %12, %switch.lookup
 
 switch.lookup36:                                  ; preds = %26
   %29 = zext nneg i8 %27 to i64
-  %switch.gep37 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %29
+  %switch.gep37 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.7, i64 0, i64 %29
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
 
@@ -1415,7 +1415,7 @@ _ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27: ; preds = %26, %switch.look
 
 switch.lookup39:                                  ; preds = %40
   %43 = zext nneg i8 %41 to i64
-  %switch.gep40 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %43
+  %switch.gep40 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.7, i64 0, i64 %43
   %switch.load41 = load ptr, ptr %switch.gep40, align 8
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
 
@@ -1454,7 +1454,7 @@ _ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31: ; preds = %40, %switch.look
 
 switch.lookup42:                                  ; preds = %56
   %59 = zext nneg i8 %57 to i64
-  %switch.gep43 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %59
+  %switch.gep43 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.7, i64 0, i64 %59
   %switch.load44 = load ptr, ptr %switch.gep43, align 8
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35
 

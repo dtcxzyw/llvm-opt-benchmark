@@ -2575,12 +2575,12 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx
   br i1 %1005, label %common.resume.sink.split.i.i.i.i.i.i.i.i, label %.body.i
 
 common.resume.sink.split.i.i.i.i.i.i.i.i:         ; preds = %1165, %1004
-  %.sink24.i.i.i.i.i.i.i.i = phi ptr [ %1156, %1165 ], [ %995, %1004 ]
+  %.sink13.i.i.i.i.i.i.i.i = phi ptr [ %1156, %1165 ], [ %995, %1004 ]
   %common.resume.op.ph.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i.i.i.i, %1165 ], [ %994, %1004 ]
-  %1006 = load ptr, ptr %.sink24.i.i.i.i.i.i.i.i, align 8, !noalias !78
+  %1006 = load ptr, ptr %.sink13.i.i.i.i.i.i.i.i, align 8, !noalias !78
   %1007 = getelementptr inbounds i8, ptr %1006, i64 24
   %1008 = load ptr, ptr %1007, align 8, !noalias !78
-  call void %1008(ptr noundef nonnull align 8 dereferenceable(16) %.sink24.i.i.i.i.i.i.i.i) #21, !noalias !78
+  call void %1008(ptr noundef nonnull align 8 dereferenceable(16) %.sink13.i.i.i.i.i.i.i.i) #21, !noalias !78
   br label %.body.i
 
 _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_13OutEdgeMapperEEEE8iteratordeEv.exit.i.i.i.i.i.i.i.i: ; preds = %989, %987, %977
@@ -2927,17 +2927,17 @@ _ZNK3ade13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpE
   br label %.body.i.i.i.i.i.i.i.i
 
 .loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i:      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10unique_ptrINS2_8Metadata18MetadataHolderBaseESt14default_deleteIS8_EEENS_10_Select1stESt8equal_toIS3_ENS7_6IdHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %lpad.loopexit12.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit1.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i.i.i
 
 .loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i: ; preds = %1105, %_ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE8metadataERKNS_6HandleINS_4NodeEEE.exit.i.i.i.i.i.i.i.i.i
-  %lpad.loopexit.split-lp13.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp2.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i.i.i
 
 .body.i.i.i.i.i.i.i.i:                            ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i, %1096, %1085, %common.resume.sink.split.i.i.i.i.i.i.i.i.i, %1049, %1038
-  %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %1039, %1049 ], [ %1039, %1038 ], [ %1086, %1096 ], [ %1086, %1085 ], [ %common.resume.op.ph.i.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit12.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp13.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %1039, %1049 ], [ %1039, %1038 ], [ %1086, %1096 ], [ %1086, %1085 ], [ %common.resume.op.ph.i.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit1.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp2.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   %1156 = load ptr, ptr %78, align 8, !noalias !78
   %.not.i.i.i.i8.i.i.i.i.i.i.i.i = icmp eq ptr %1156, null
   br i1 %.not.i.i.i.i8.i.i.i.i.i.i.i.i, label %.body.i, label %1157

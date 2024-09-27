@@ -145,8 +145,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.pbrt::FloatTexture" = type { %"class.pbrt::TaggedPointer.213" }
 %"class.pbrt::TaggedPointer.213" = type { i64 }
 %struct._Guard = type { ptr }
-%"struct.__gnu_cxx::__ops::_Iter_pred" = type { %class.anon.231 }
-%class.anon.231 = type { ptr }
 %"class.std::vector.232" = type { %"struct.std::_Vector_base.233" }
 %"struct.std::_Vector_base.233" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
@@ -20846,7 +20844,6 @@ entry:
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
   %ref.tmp28.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp29.i = alloca %"class.std::allocator", align 1
-  %__pred.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %materialName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp29 = alloca %"class.std::vector.232", align 8
   %ref.tmp31 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20923,96 +20920,94 @@ if.end:                                           ; preds = %for.body
 if.then9:                                         ; preds = %if.end
   %8 = load ptr, ptr %namedMaterials, align 8
   %9 = load ptr, ptr %_M_finish.i42, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__pred.i.i.i)
-  store ptr %add.ptr.i, ptr %__pred.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 176
   %shr.i.i.i = ashr i64 %sub.ptr.div.i.i.i.i, 2
-  %cmp29.i.i.i = icmp sgt i64 %shr.i.i.i, 0
-  br i1 %cmp29.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
+  %cmp35.i.i.i = icmp sgt i64 %shr.i.i.i, 0
+  br i1 %cmp35.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.then9, %if.end23.i.i.i
-  %__trip_count.031.i.i.i = phi i64 [ %dec.i.i.i, %if.end23.i.i.i ], [ %shr.i.i.i, %if.then9 ]
-  %__first.sroa.0.030.i.i.i = phi ptr [ %incdec.ptr.i11.i.i.i, %if.end23.i.i.i ], [ %8, %if.then9 ]
-  %call5.i.i.i43 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %__first.sroa.0.030.i.i.i)
+  %__trip_count.037.i.i.i = phi i64 [ %dec.i.i.i, %if.end23.i.i.i ], [ %shr.i.i.i, %if.then9 ]
+  %__first.sroa.0.036.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i, %if.end23.i.i.i ], [ %8, %if.then9 ]
+  %call5.i.i.i43 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr nonnull %add.ptr.i, ptr %__first.sroa.0.036.i.i.i)
           to label %call5.i.i.i.noexc unwind label %lpad.loopexit187
 
 call5.i.i.i.noexc:                                ; preds = %for.body.i.i.i
   br i1 %call5.i.i.i43, label %invoke.cont, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %call5.i.i.i.noexc
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.030.i.i.i, i64 176
-  %call9.i.i.i44 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %incdec.ptr.i.i.i.i)
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i, i64 176
+  %call9.i.i.i44 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr nonnull %add.ptr.i, ptr %incdec.ptr.i.i.i.i)
           to label %call9.i.i.i.noexc unwind label %lpad.loopexit187
 
 call9.i.i.i.noexc:                                ; preds = %if.end.i.i.i
   br i1 %call9.i.i.i44, label %invoke.cont, label %if.end11.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %call9.i.i.i.noexc
-  %incdec.ptr.i9.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.030.i.i.i, i64 352
-  %call15.i.i.i45 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %incdec.ptr.i9.i.i.i)
+  %incdec.ptr.i15.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i, i64 352
+  %call15.i.i.i45 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr nonnull %add.ptr.i, ptr %incdec.ptr.i15.i.i.i)
           to label %call15.i.i.i.noexc unwind label %lpad.loopexit187
 
 call15.i.i.i.noexc:                               ; preds = %if.end11.i.i.i
   br i1 %call15.i.i.i45, label %invoke.cont, label %if.end17.i.i.i
 
 if.end17.i.i.i:                                   ; preds = %call15.i.i.i.noexc
-  %incdec.ptr.i10.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.030.i.i.i, i64 528
-  %call21.i.i.i46 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %incdec.ptr.i10.i.i.i)
+  %incdec.ptr.i16.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i, i64 528
+  %call21.i.i.i46 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr nonnull %add.ptr.i, ptr %incdec.ptr.i16.i.i.i)
           to label %call21.i.i.i.noexc unwind label %lpad.loopexit187
 
 call21.i.i.i.noexc:                               ; preds = %if.end17.i.i.i
   br i1 %call21.i.i.i46, label %invoke.cont, label %if.end23.i.i.i
 
 if.end23.i.i.i:                                   ; preds = %call21.i.i.i.noexc
-  %incdec.ptr.i11.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.030.i.i.i, i64 704
-  %dec.i.i.i = add nsw i64 %__trip_count.031.i.i.i, -1
-  %cmp.i.i.i = icmp sgt i64 %__trip_count.031.i.i.i, 1
+  %incdec.ptr.i17.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i, i64 704
+  %dec.i.i.i = add nsw i64 %__trip_count.037.i.i.i, -1
+  %cmp.i.i.i = icmp sgt i64 %__trip_count.037.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !160
 
 for.end.loopexit.i.i.i:                           ; preds = %if.end23.i.i.i
-  %.pre.i.i.i = ptrtoint ptr %incdec.ptr.i11.i.i.i to i64
-  %.pre32.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %.pre.i.i.i
+  %.pre.i.i.i = ptrtoint ptr %incdec.ptr.i17.i.i.i to i64
+  %.pre38.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %.pre.i.i.i
   br label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %if.then9
-  %sub.ptr.sub.i14.pre-phi.i.i.i = phi i64 [ %.pre32.i.i.i, %for.end.loopexit.i.i.i ], [ %sub.ptr.sub.i.i.i.i, %if.then9 ]
-  %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %incdec.ptr.i11.i.i.i, %for.end.loopexit.i.i.i ], [ %8, %if.then9 ]
-  %sub.ptr.div.i15.i.i.i = sdiv exact i64 %sub.ptr.sub.i14.pre-phi.i.i.i, 176
-  switch i64 %sub.ptr.div.i15.i.i.i, label %invoke.cont [
+  %sub.ptr.sub.i20.pre-phi.i.i.i = phi i64 [ %.pre38.i.i.i, %for.end.loopexit.i.i.i ], [ %sub.ptr.sub.i.i.i.i, %if.then9 ]
+  %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i, %for.end.loopexit.i.i.i ], [ %8, %if.then9 ]
+  %sub.ptr.div.i21.i.i.i = sdiv exact i64 %sub.ptr.sub.i20.pre-phi.i.i.i, 176
+  switch i64 %sub.ptr.div.i21.i.i.i, label %invoke.cont [
     i64 3, label %sw.bb.i.i.i
     i64 2, label %sw.bb32.i.i.i
     i64 1, label %sw.bb39.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
-  %call28.i.i.i47 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %__first.sroa.0.0.lcssa.i.i.i)
+  %call28.i.i.i47 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr nonnull %add.ptr.i, ptr %__first.sroa.0.0.lcssa.i.i.i)
           to label %call28.i.i.i.noexc unwind label %lpad.loopexit.split-lp188.loopexit
 
 call28.i.i.i.noexc:                               ; preds = %sw.bb.i.i.i
   br i1 %call28.i.i.i47, label %invoke.cont, label %if.end30.i.i.i
 
 if.end30.i.i.i:                                   ; preds = %call28.i.i.i.noexc
-  %incdec.ptr.i16.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 176
+  %incdec.ptr.i22.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 176
   br label %sw.bb32.i.i.i
 
 sw.bb32.i.i.i:                                    ; preds = %if.end30.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i16.i.i.i, %if.end30.i.i.i ]
-  %call35.i.i.i48 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %__first.sroa.0.1.i.i.i)
+  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i22.i.i.i, %if.end30.i.i.i ]
+  %call35.i.i.i48 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr nonnull %add.ptr.i, ptr %__first.sroa.0.1.i.i.i)
           to label %call35.i.i.i.noexc unwind label %lpad.loopexit.split-lp188.loopexit
 
 call35.i.i.i.noexc:                               ; preds = %sw.bb32.i.i.i
   br i1 %call35.i.i.i48, label %invoke.cont, label %if.end37.i.i.i
 
 if.end37.i.i.i:                                   ; preds = %call35.i.i.i.noexc
-  %incdec.ptr.i17.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 176
+  %incdec.ptr.i23.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 176
   br label %sw.bb39.i.i.i
 
 sw.bb39.i.i.i:                                    ; preds = %if.end37.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i17.i.i.i, %if.end37.i.i.i ]
-  %call42.i.i.i49 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %__first.sroa.0.2.i.i.i)
+  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i23.i.i.i, %if.end37.i.i.i ]
+  %call42.i.i.i49 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr nonnull %add.ptr.i, ptr %__first.sroa.0.2.i.i.i)
           to label %call42.i.i.i.noexc unwind label %lpad.loopexit.split-lp188.loopexit
 
 call42.i.i.i.noexc:                               ; preds = %sw.bb39.i.i.i
@@ -21020,8 +21015,7 @@ call42.i.i.i.noexc:                               ; preds = %sw.bb39.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call21.i.i.i.noexc, %call15.i.i.i.noexc, %call9.i.i.i.noexc, %call5.i.i.i.noexc, %call42.i.i.i.noexc, %call35.i.i.i.noexc, %call28.i.i.i.noexc, %for.end.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %call28.i.i.i.noexc ], [ %__first.sroa.0.1.i.i.i, %call35.i.i.i.noexc ], [ %9, %for.end.i.i.i ], [ %spec.select.i.i.i, %call42.i.i.i.noexc ], [ %__first.sroa.0.030.i.i.i, %call5.i.i.i.noexc ], [ %incdec.ptr.i.i.i.i, %call9.i.i.i.noexc ], [ %incdec.ptr.i9.i.i.i, %call15.i.i.i.noexc ], [ %incdec.ptr.i10.i.i.i, %call21.i.i.i.noexc ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__pred.i.i.i)
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %call28.i.i.i.noexc ], [ %__first.sroa.0.1.i.i.i, %call35.i.i.i.noexc ], [ %9, %for.end.i.i.i ], [ %spec.select.i.i.i, %call42.i.i.i.noexc ], [ %__first.sroa.0.036.i.i.i, %call5.i.i.i.noexc ], [ %incdec.ptr.i.i.i.i, %call9.i.i.i.noexc ], [ %incdec.ptr.i15.i.i.i, %call15.i.i.i.noexc ], [ %incdec.ptr.i16.i.i.i, %call21.i.i.i.noexc ]
   %10 = load ptr, ptr %_M_finish.i42, align 8
   %cmp.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %10
   br i1 %cmp.i, label %if.then25, label %if.end28
@@ -51921,7 +51915,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nonnull %__it.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_0EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr %this.0.val, ptr nonnull %__it.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.std::pair.169", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %__it.coerce)
@@ -51940,8 +51934,7 @@ lpad.i:                                           ; preds = %entry
   resume { ptr, i32 } %0
 
 _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt11SceneEntityEEC2ERKS8_.exit: ; preds = %entry
-  %this.val = load ptr, ptr %this, align 8
-  %materialName.i = getelementptr inbounds i8, ptr %this.val, i64 168
+  %materialName.i = getelementptr inbounds i8, ptr %this.0.val, i64 168
   %call.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #28
   %call1.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %materialName.i) #28
   %cmp.i.i = icmp eq i64 %call.i.i, %call1.i.i

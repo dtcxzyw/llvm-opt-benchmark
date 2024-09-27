@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._MAD = type { i8, i8, i8, i8, i16, i8, i8, i64, i16, i16, i32 }
 %struct._RMPP = type { i8, i8, i8, i8, i32, i32 }
-%struct._SA_HEADER = type { i64, i16, i16, i64 }
 
 @proto_register_opa_mad.hf = internal global [1185 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_opa_reserved64, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_reserved32, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_reserved24, %struct._header_field_info { ptr @.str.4, ptr @.str.3, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_reserved16, %struct._header_field_info { ptr @.str.5, ptr @.str.3, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_reserved8, %struct._header_field_info { ptr @.str.6, ptr @.str.3, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_etype, %struct._header_field_info { ptr @.str.7, ptr @.str.8, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_etype_reserved16, %struct._header_field_info { ptr @.str.5, ptr @.str.9, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sm_lid, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sm_m_key, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sm_dr, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sm_dr_slid, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sm_dr_dlid, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sm_dr_initial_path, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 30, i32 11, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sm_dr_return_path, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 30, i32 11, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sm_dr_reserved64, %struct._header_field_info { ptr @.str, ptr @.str.24, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_sm_key, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_attribute_offset, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_component_mask, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_pm, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_pa, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_pa_sm_key, %struct._header_field_info { ptr @.str.27, ptr @.str.37, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_pa_attribute_offset, %struct._header_field_info { ptr @.str.29, ptr @.str.38, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_pa_component_mask, %struct._header_field_info { ptr @.str.31, ptr @.str.39, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_vendor, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_application, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_reservedmclass, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_unknown, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_base_version, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_mgmt_class, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 4, i32 514, ptr @MAD_mgmt_names_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_class_version, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_method, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 4, i32 2, ptr @Methods, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_status, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_status_DR_D, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 5, i32 2, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_status_DR_status, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 5, i32 2, ptr null, i64 32767, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_status_DR_Hop_Pointer, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_status_DR_Hop_Count, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_status_NM_ClassSpecific, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 5, i32 2, ptr null, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_status_NM_reserved1, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 5, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_status_NM_InvalidField, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 5, i32 2, ptr @MAD_Status_InvalidField, i64 28, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_status_NM_RedirectRqrd, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 2, i32 16, ptr @tfs_redirect_no_redirect, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_status_NM_Busy, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 2, i32 16, ptr @tfs_busy_not_busy, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_transaction_id, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_mad_attribute_id, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_A, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 2, i32 32, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_A2, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 2, i32 32, ptr null, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_A3, %struct._header_field_info { ptr @.str.82, ptr @.str.86, i32 2, i32 32, ptr null, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_A4, %struct._header_field_info { ptr @.str.82, ptr @.str.87, i32 2, i32 32, ptr null, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_A5, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 7, i32 2, ptr null, i64 2146959360, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_A6, %struct._header_field_info { ptr @.str.82, ptr @.str.90, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_B, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 7, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_B2, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 2, i32 32, ptr null, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_B3, %struct._header_field_info { ptr @.str.91, ptr @.str.95, i32 7, i32 1, ptr null, i64 262143, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_B4, %struct._header_field_info { ptr @.str.91, ptr @.str.96, i32 7, i32 1, ptr null, i64 1048575, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_B5, %struct._header_field_info { ptr @.str.91, ptr @.str.97, i32 7, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_E, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 7, i32 1, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_I, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 7, i32 1, ptr null, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_L, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 7, i32 1, ptr null, i64 516096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_NP, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 7, i32 1, ptr null, i64 4278190080, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_NB, %struct._header_field_info { ptr @.str.106, ptr @.str.105, i32 7, i32 1, ptr null, i64 4278190080, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_N2, %struct._header_field_info { ptr @.str.107, ptr @.str.105, i32 7, i32 1, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_P, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 7, i32 1, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_P2, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 7, i32 1, ptr null, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_P3, %struct._header_field_info { ptr @.str.110, ptr @.str.109, i32 7, i32 1, ptr null, i64 12582912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_S, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 7, i32 1, ptr @MADAttrModSectionVLarb, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_S2, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 32, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_attribute_modifier_Y, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 2, i32 32, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_version, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_type, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_r_resp_time, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 4, i32 2, ptr null, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_flags_last, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_flags_first, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_flags_active, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_status, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 4, i32 2, ptr @RMPP_Status, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_data1, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_data2, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_segment_number, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_payload_length32, %struct._header_field_info { ptr @.str.139, ptr @.str.140, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_new_window_last, %struct._header_field_info { ptr @.str.141, ptr @.str.142, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_fragments, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_fragment, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_fragment_overlap, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_fragment_overlap_conflicts, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_fragment_multiple_tails, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_fragment_too_long_fragment, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_fragment_error, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_fragment_count, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_reassembled_in, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_rmpp_reassembled_length, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_Lid, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_Port, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_EndportLID, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_PortNum, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_InputPortNum, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_OutputPortNum, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_reserved14, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 7, i32 2, ptr null, i64 4294705152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_BlockNum_18b, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 7, i32 2, ptr null, i64 262143, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_Position, %struct._header_field_info { ptr @.str.110, ptr @.str.179, i32 7, i32 2, ptr null, i64 3221225472, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_Position_16b, %struct._header_field_info { ptr @.str.110, ptr @.str.179, i32 5, i32 2, ptr null, i64 49152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_reserved9, %struct._header_field_info { ptr @.str.180, ptr @.str.176, i32 7, i32 2, ptr null, i64 1071644672, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_reserved9_16b, %struct._header_field_info { ptr @.str.180, ptr @.str.176, i32 5, i32 2, ptr null, i64 16352, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_BlockNum_21b, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 7, i32 2, ptr null, i64 2097151, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_BlockNum_8b, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_BlockNum_16b, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_BlockNum_5b, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 5, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_SubscriberLID, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_Enum, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_FromLID, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_FromPort, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_ServiceID, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_ServiceLID, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_ServiceP_Key, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_ServiceGID, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_MGID, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_sa_PortGID, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Notice, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Notice_IsGeneric, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Notice_Type, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 4, i32 2, ptr @NoticeType, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Notice_ProducerType, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Notice_TrapNumber, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Notice_VendorID, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Notice_DeviceID, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Notice_Toggle, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Notice_Count, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 5, i32 2, ptr null, i64 32767, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Notice_IssuerLID, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Notice_IssuerGID, %struct._header_field_info { ptr @.str.221, ptr @.str.222, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Notice_ClassDataDetails, %struct._header_field_info { ptr @.str.223, ptr @.str.224, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_GID, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_LID, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_PORTNO, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_CAPABILITYMASK, %struct._header_field_info { ptr @.str.233, ptr @.str.234, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_CAPABILITYMASK3, %struct._header_field_info { ptr @.str.235, ptr @.str.236, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_144_reserved, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_LinkWidthDowngradeEnabledChange, %struct._header_field_info { ptr @.str.239, ptr @.str.240, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_LinkSpeecEnabledChange, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_LinkWidthEnabledChange, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_NodeDescriptionChange, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_SystemImageGUID, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DRSLID, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_Method, %struct._header_field_info { ptr @.str.56, ptr @.str.251, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_AttributeID, %struct._header_field_info { ptr @.str.252, ptr @.str.253, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_AttributeModifier, %struct._header_field_info { ptr @.str.254, ptr @.str.255, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_MKey, %struct._header_field_info { ptr @.str.256, ptr @.str.257, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DRNotice, %struct._header_field_info { ptr @.str.258, ptr @.str.259, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DRPathTruncated, %struct._header_field_info { ptr @.str.260, ptr @.str.261, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DRHopCount, %struct._header_field_info { ptr @.str.262, ptr @.str.263, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DRNoticeReturnPath, %struct._header_field_info { ptr @.str.264, ptr @.str.265, i32 30, i32 11, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_Key, %struct._header_field_info { ptr @.str.266, ptr @.str.267, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_SL, %struct._header_field_info { ptr @.str.268, ptr @.str.269, i32 4, i32 2, ptr null, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_SL_reserved, %struct._header_field_info { ptr @.str.270, ptr @.str.271, i32 4, i32 2, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_QP, %struct._header_field_info { ptr @.str.272, ptr @.str.273, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DataValid, %struct._header_field_info { ptr @.str.274, ptr @.str.275, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DataValid_Lid1, %struct._header_field_info { ptr @.str.276, ptr @.str.277, i32 2, i32 16, ptr @tfs_valid_invalid, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DataValid_Lid2, %struct._header_field_info { ptr @.str.278, ptr @.str.279, i32 2, i32 16, ptr @tfs_valid_invalid, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DataValid_PKey, %struct._header_field_info { ptr @.str.280, ptr @.str.281, i32 2, i32 16, ptr @tfs_valid_invalid, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DataValid_SL, %struct._header_field_info { ptr @.str.268, ptr @.str.282, i32 2, i32 16, ptr @tfs_valid_invalid, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DataValid_QP1, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 2, i32 16, ptr @tfs_valid_invalid, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DataValid_QP2, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 2, i32 16, ptr @tfs_valid_invalid, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DataValid_Gid1, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 2, i32 16, ptr @tfs_valid_invalid, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DataValid_Gid2, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 2, i32 16, ptr @tfs_valid_invalid, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_DataValid_Reserved, %struct._header_field_info { ptr @.str.274, ptr @.str.291, i32 5, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Trap_PKey, %struct._header_field_info { ptr @.str.280, ptr @.str.292, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_BaseVersion, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_ClassVersion, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_CapMask, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_CapMask2, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 7, i32 2, ptr null, i64 4294967264, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_RespTimeValue, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 7, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Redirect_GID, %struct._header_field_info { ptr @.str.227, ptr @.str.305, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Redirect_TClass, %struct._header_field_info { ptr @.str.306, ptr @.str.307, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Redirect_reserved, %struct._header_field_info { ptr @.str.237, ptr @.str.308, i32 6, i32 2, ptr null, i64 15728640, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Redirect_FlowLabel, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 6, i32 2, ptr null, i64 1048575, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Redirect_LID, %struct._header_field_info { ptr @.str.163, ptr @.str.311, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Redirect_SL, %struct._header_field_info { ptr @.str.268, ptr @.str.312, i32 4, i32 2, ptr null, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Redirect_reserved2, %struct._header_field_info { ptr @.str.270, ptr @.str.308, i32 4, i32 2, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Redirect_QP, %struct._header_field_info { ptr @.str.272, ptr @.str.313, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Redirect_Q_Key, %struct._header_field_info { ptr @.str.314, ptr @.str.315, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Trap_GID, %struct._header_field_info { ptr @.str.227, ptr @.str.316, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Trap_TClass, %struct._header_field_info { ptr @.str.306, ptr @.str.317, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Trap_reserved, %struct._header_field_info { ptr @.str.237, ptr @.str.318, i32 6, i32 2, ptr null, i64 15728640, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Trap_FlowLabel, %struct._header_field_info { ptr @.str.309, ptr @.str.319, i32 6, i32 2, ptr null, i64 1048575, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Trap_LID, %struct._header_field_info { ptr @.str.163, ptr @.str.320, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Trap_HopLimit, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Trap_QP, %struct._header_field_info { ptr @.str.272, ptr @.str.323, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Trap_Q_Key, %struct._header_field_info { ptr @.str.314, ptr @.str.324, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Trap_P_Key, %struct._header_field_info { ptr @.str.325, ptr @.str.326, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Redirect_P_Key, %struct._header_field_info { ptr @.str.325, ptr @.str.327, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Trap_SL, %struct._header_field_info { ptr @.str.268, ptr @.str.328, i32 4, i32 2, ptr null, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClassPortInfo_Trap_reserved2, %struct._header_field_info { ptr @.str.270, ptr @.str.318, i32 4, i32 2, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeDescription, %struct._header_field_info { ptr @.str.329, ptr @.str.330, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeDescription_NodeString, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeInfo, %struct._header_field_info { ptr @.str.333, ptr @.str.334, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeInfo_BaseVersion, %struct._header_field_info { ptr @.str.50, ptr @.str.335, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeInfo_ClassVersion, %struct._header_field_info { ptr @.str.54, ptr @.str.336, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeInfo_NodeType, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 4, i32 2, ptr @NodeType, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeInfo_NumPorts, %struct._header_field_info { ptr @.str.339, ptr @.str.340, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeInfo_SystemImageGUID, %struct._header_field_info { ptr @.str.341, ptr @.str.342, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeInfo_NodeGUID, %struct._header_field_info { ptr @.str.343, ptr @.str.344, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeInfo_PortGUID, %struct._header_field_info { ptr @.str.345, ptr @.str.346, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeInfo_PartitionCap, %struct._header_field_info { ptr @.str.347, ptr @.str.348, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeInfo_DeviceID, %struct._header_field_info { ptr @.str.349, ptr @.str.350, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeInfo_Revision, %struct._header_field_info { ptr @.str.351, ptr @.str.352, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeInfo_LocalPortNum, %struct._header_field_info { ptr @.str.353, ptr @.str.354, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_NodeInfo_VendorID, %struct._header_field_info { ptr @.str.355, ptr @.str.356, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo, %struct._header_field_info { ptr @.str.357, ptr @.str.358, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_LinearFDBCap, %struct._header_field_info { ptr @.str.359, ptr @.str.360, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_MulticastFDBCap, %struct._header_field_info { ptr @.str.361, ptr @.str.362, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_LinearFDBTop, %struct._header_field_info { ptr @.str.363, ptr @.str.364, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_MulticastFDBTop, %struct._header_field_info { ptr @.str.365, ptr @.str.366, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_CollectiveCap, %struct._header_field_info { ptr @.str.367, ptr @.str.368, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_CollectiveTop, %struct._header_field_info { ptr @.str.369, ptr @.str.370, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_IPAddrIPv6, %struct._header_field_info { ptr @.str.371, ptr @.str.372, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_IPAddrIPv4, %struct._header_field_info { ptr @.str.373, ptr @.str.374, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_LifeTimeValue, %struct._header_field_info { ptr @.str.375, ptr @.str.376, i32 4, i32 2, ptr null, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_PortStateChange, %struct._header_field_info { ptr @.str.377, ptr @.str.378, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_reserved2, %struct._header_field_info { ptr @.str.379, ptr @.str.380, i32 4, i32 2, ptr null, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_PartitionEnforcementCap, %struct._header_field_info { ptr @.str.381, ptr @.str.382, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_PortGroupCap, %struct._header_field_info { ptr @.str.383, ptr @.str.384, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_PortGroupTop, %struct._header_field_info { ptr @.str.385, ptr @.str.386, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_SupportedRoutingMode, %struct._header_field_info { ptr @.str.387, ptr @.str.388, i32 4, i32 2, ptr @RoutingMode, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_EnabledRoutingMode, %struct._header_field_info { ptr @.str.389, ptr @.str.390, i32 4, i32 2, ptr @RoutingMode, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_reserved3, %struct._header_field_info { ptr @.str.237, ptr @.str.391, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_EnhancedPortZero, %struct._header_field_info { ptr @.str.392, ptr @.str.393, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_reserved4, %struct._header_field_info { ptr @.str.270, ptr @.str.394, i32 4, i32 2, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_reserved5, %struct._header_field_info { ptr @.str.379, ptr @.str.395, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_CollectiveMask, %struct._header_field_info { ptr @.str.396, ptr @.str.397, i32 4, i32 2, ptr null, i64 56, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_MulticastMask, %struct._header_field_info { ptr @.str.398, ptr @.str.399, i32 4, i32 2, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_AdaptiveRoutingEnable, %struct._header_field_info { ptr @.str.400, ptr @.str.401, i32 2, i32 16, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_AdaptiveRoutingPause, %struct._header_field_info { ptr @.str.402, ptr @.str.403, i32 2, i32 16, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_AdaptiveRoutingAlgorithm, %struct._header_field_info { ptr @.str.404, ptr @.str.405, i32 5, i32 2, ptr @AdaptiveRoutingAlgorithm, i64 14336, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_AdaptiveRoutingFrequency, %struct._header_field_info { ptr @.str.406, ptr @.str.407, i32 5, i32 6, ptr @cf_opa_mad_swinfo_ar_frequency, i64 1792, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_AdaptiveRoutingLostRoutesOnly, %struct._header_field_info { ptr @.str.408, ptr @.str.409, i32 2, i32 16, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_AdaptiveRoutingThreshold, %struct._header_field_info { ptr @.str.410, ptr @.str.411, i32 5, i32 2, ptr @AdaptiveRoutingThreshold, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_reserved6, %struct._header_field_info { ptr @.str.237, ptr @.str.412, i32 5, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_SwitchCapabilityMask, %struct._header_field_info { ptr @.str.413, ptr @.str.414, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_SwitchCapabilityMask_reserved, %struct._header_field_info { ptr @.str.415, ptr @.str.416, i32 5, i32 2, ptr null, i64 65528, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_SwitchCapabilityMask_IsAddrRangeConfigSupported, %struct._header_field_info { ptr @.str.417, ptr @.str.418, i32 2, i32 16, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_SwitchCapabilityMask_reserved2, %struct._header_field_info { ptr @.str.419, ptr @.str.416, i32 5, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_SwitchCapabilityMask_IsAdaptiveRoutingSupported, %struct._header_field_info { ptr @.str.420, ptr @.str.421, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchInfo_CapabilityMaskCollectives, %struct._header_field_info { ptr @.str.422, ptr @.str.423, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo, %struct._header_field_info { ptr @.str.424, ptr @.str.425, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LID, %struct._header_field_info { ptr @.str.163, ptr @.str.426, i32 7, i32 2, ptr null, i64 0, ptr @.str.427, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_FlowControlMask, %struct._header_field_info { ptr @.str.428, ptr @.str.429, i32 7, i32 6, ptr @cf_opa_mad_32b_mask, i64 0, ptr @.str.430, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_VL_PreemptCap, %struct._header_field_info { ptr @.str.431, ptr @.str.432, i32 4, i32 1, ptr null, i64 0, ptr @.str.433, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_VL_reserved, %struct._header_field_info { ptr @.str.270, ptr @.str.434, i32 4, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_VL_Cap, %struct._header_field_info { ptr @.str.435, ptr @.str.436, i32 4, i32 1, ptr null, i64 31, ptr @.str.437, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_VL_HighLimit, %struct._header_field_info { ptr @.str.438, ptr @.str.439, i32 5, i32 1, ptr null, i64 0, ptr @.str.440, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_VL_PreemptingLimit, %struct._header_field_info { ptr @.str.441, ptr @.str.442, i32 5, i32 1, ptr null, i64 0, ptr @.str.443, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_VL_ArbitrationHighCap, %struct._header_field_info { ptr @.str.444, ptr @.str.445, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_VL_ArbitrationLowCap, %struct._header_field_info { ptr @.str.446, ptr @.str.447, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortPhysConfig_reserved, %struct._header_field_info { ptr @.str.237, ptr @.str.448, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortPhysConfig_PortType, %struct._header_field_info { ptr @.str.449, ptr @.str.450, i32 4, i32 2, ptr @PortType, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_MultiCollectMask_reserved, %struct._header_field_info { ptr @.str.379, ptr @.str.451, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_MultiCollectMask_CollectiveMask, %struct._header_field_info { ptr @.str.452, ptr @.str.453, i32 4, i32 2, ptr null, i64 56, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_MultiCollectMask_MulticastMask, %struct._header_field_info { ptr @.str.454, ptr @.str.455, i32 4, i32 2, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_M_KeyProtectBits, %struct._header_field_info { ptr @.str.456, ptr @.str.457, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_S1_reserved, %struct._header_field_info { ptr @.str.379, ptr @.str.458, i32 4, i32 2, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LMC, %struct._header_field_info { ptr @.str.459, ptr @.str.460, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_S2_reserved, %struct._header_field_info { ptr @.str.270, ptr @.str.461, i32 4, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_MasterSMSL, %struct._header_field_info { ptr @.str.462, ptr @.str.463, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LinkInitReason, %struct._header_field_info { ptr @.str.464, ptr @.str.465, i32 4, i32 2, ptr @LinkInitReason, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PartitionEnforcementInbound, %struct._header_field_info { ptr @.str.466, ptr @.str.467, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PartitionEnforcementOutbound, %struct._header_field_info { ptr @.str.468, ptr @.str.469, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_S3_reserved2, %struct._header_field_info { ptr @.str.379, ptr @.str.470, i32 4, i32 2, ptr null, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_S4_reserved, %struct._header_field_info { ptr @.str.270, ptr @.str.471, i32 4, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_OperationalVL, %struct._header_field_info { ptr @.str.472, ptr @.str.473, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_P_Keys_P_Key_8B, %struct._header_field_info { ptr @.str.474, ptr @.str.475, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_P_Keys_P_Key_10B, %struct._header_field_info { ptr @.str.476, ptr @.str.477, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_M_KeyViolations, %struct._header_field_info { ptr @.str.478, ptr @.str.479, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_P_KeyViolations, %struct._header_field_info { ptr @.str.480, ptr @.str.481, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_Q_KeyViolations, %struct._header_field_info { ptr @.str.482, ptr @.str.483, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_TrapQueuePair_reserved, %struct._header_field_info { ptr @.str.484, ptr @.str.485, i32 7, i32 2, ptr null, i64 4278190080, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_TrapQueuePair, %struct._header_field_info { ptr @.str.486, ptr @.str.487, i32 7, i32 2, ptr null, i64 16777215, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_SAQueuePair_reserved, %struct._header_field_info { ptr @.str.488, ptr @.str.489, i32 7, i32 2, ptr null, i64 4278190080, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_SAQueuePair, %struct._header_field_info { ptr @.str.490, ptr @.str.491, i32 7, i32 2, ptr null, i64 16777215, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_NeighborPortNum, %struct._header_field_info { ptr @.str.492, ptr @.str.493, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LinkDownReason, %struct._header_field_info { ptr @.str.494, ptr @.str.495, i32 4, i32 2, ptr @LinkDownReason, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_NeighborLinkDownReason, %struct._header_field_info { ptr @.str.496, ptr @.str.497, i32 4, i32 2, ptr @LinkDownReason, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_ClientReregister, %struct._header_field_info { ptr @.str.498, ptr @.str.499, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_MulticastPKeyTrapSuppressEnabled, %struct._header_field_info { ptr @.str.500, ptr @.str.501, i32 4, i32 2, ptr null, i64 96, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_Timeout, %struct._header_field_info { ptr @.str.502, ptr @.str.503, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LinkSpeedSupported, %struct._header_field_info { ptr @.str.504, ptr @.str.505, i32 5, i32 6, ptr @cf_opa_mad_linkspeed, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LinkSpeedEnabled, %struct._header_field_info { ptr @.str.506, ptr @.str.507, i32 5, i32 6, ptr @cf_opa_mad_linkspeed, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LinkSpeedActive, %struct._header_field_info { ptr @.str.508, ptr @.str.509, i32 5, i32 6, ptr @cf_opa_mad_linkspeed, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LinkWidthSupported, %struct._header_field_info { ptr @.str.510, ptr @.str.511, i32 5, i32 6, ptr @cf_opa_mad_linkwidth, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LinkWidthEnabled, %struct._header_field_info { ptr @.str.512, ptr @.str.513, i32 5, i32 6, ptr @cf_opa_mad_linkwidth, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LinkWidthActive, %struct._header_field_info { ptr @.str.514, ptr @.str.515, i32 5, i32 6, ptr @cf_opa_mad_linkwidth, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LinkWidthDowngrade_Supported, %struct._header_field_info { ptr @.str.516, ptr @.str.517, i32 5, i32 6, ptr @cf_opa_mad_linkwidth, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LinkWidthDowngrade_Enabled, %struct._header_field_info { ptr @.str.518, ptr @.str.519, i32 5, i32 6, ptr @cf_opa_mad_linkwidth, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LinkWidthDowngrade_TxActive, %struct._header_field_info { ptr @.str.520, ptr @.str.521, i32 5, i32 6, ptr @cf_opa_mad_linkwidth, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LinkWidthDowngrade_RxActive, %struct._header_field_info { ptr @.str.522, ptr @.str.523, i32 5, i32 6, ptr @cf_opa_mad_linkwidth, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortLinkMode_reserved, %struct._header_field_info { ptr @.str.524, ptr @.str.525, i32 5, i32 2, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortLinkMode_Supported, %struct._header_field_info { ptr @.str.526, ptr @.str.527, i32 5, i32 6, ptr @cf_opa_mad_portlinkmode, i64 31744, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortLinkMode_Enabled, %struct._header_field_info { ptr @.str.528, ptr @.str.529, i32 5, i32 6, ptr @cf_opa_mad_portlinkmode, i64 992, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortLinkMode_Active, %struct._header_field_info { ptr @.str.530, ptr @.str.531, i32 5, i32 6, ptr @cf_opa_mad_portlinkmode, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortLTPCRCMode_reserved, %struct._header_field_info { ptr @.str.532, ptr @.str.533, i32 5, i32 2, ptr null, i64 61440, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortLTPCRCMode_Supported, %struct._header_field_info { ptr @.str.534, ptr @.str.535, i32 5, i32 6, ptr @cf_opa_mad_portltpcrcmode, i64 3840, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortLTPCRCMode_Enabled, %struct._header_field_info { ptr @.str.536, ptr @.str.537, i32 5, i32 6, ptr @cf_opa_mad_portltpcrcmode, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortLTPCRCMode_Active, %struct._header_field_info { ptr @.str.538, ptr @.str.539, i32 5, i32 6, ptr @cf_opa_mad_portltpcrcmode, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortMode, %struct._header_field_info { ptr @.str.540, ptr @.str.541, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortMode_reserved, %struct._header_field_info { ptr @.str.180, ptr @.str.542, i32 5, i32 2, ptr null, i64 65408, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortMode_IsActiveOptimizeEnabled, %struct._header_field_info { ptr @.str.543, ptr @.str.544, i32 2, i32 16, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortMode_IsPassThroughEnabled, %struct._header_field_info { ptr @.str.545, ptr @.str.546, i32 2, i32 16, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortMode_IsVLMarkerEnabled, %struct._header_field_info { ptr @.str.547, ptr @.str.548, i32 2, i32 16, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortMode_reserved2, %struct._header_field_info { ptr @.str.379, ptr @.str.549, i32 5, i32 2, ptr null, i64 12, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortMode_Is16BTrapQueryEnabled, %struct._header_field_info { ptr @.str.550, ptr @.str.551, i32 2, i32 16, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortMode_reserved3, %struct._header_field_info { ptr @.str.419, ptr @.str.552, i32 5, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortPacketFormats_Supported, %struct._header_field_info { ptr @.str.553, ptr @.str.554, i32 5, i32 6, ptr @cf_opa_mad_packetformat, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortPacketFormats_Enabled, %struct._header_field_info { ptr @.str.555, ptr @.str.556, i32 5, i32 6, ptr @cf_opa_mad_packetformat, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_FlitControl_Interleave_reserved, %struct._header_field_info { ptr @.str.557, ptr @.str.558, i32 5, i32 2, ptr null, i64 49152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_FlitControl_Interleave_DistanceSupported, %struct._header_field_info { ptr @.str.559, ptr @.str.560, i32 5, i32 2, ptr @PortFlitDistanceMode, i64 12288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_FlitControl_Interleave_DistanceEnabled, %struct._header_field_info { ptr @.str.561, ptr @.str.562, i32 5, i32 2, ptr @PortFlitDistanceMode, i64 3072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_FlitControl_Interleave_MaxNestLevelTxEnabled, %struct._header_field_info { ptr @.str.563, ptr @.str.564, i32 5, i32 2, ptr null, i64 992, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_FlitControl_Interleave_MaxNestLevelRxSupported, %struct._header_field_info { ptr @.str.565, ptr @.str.566, i32 5, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_FlitControl_Preemption_MinInitial, %struct._header_field_info { ptr @.str.567, ptr @.str.568, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_FlitControl_Preemption_MinTail, %struct._header_field_info { ptr @.str.569, ptr @.str.570, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_FlitControl_Preemption_LargePacketLimit, %struct._header_field_info { ptr @.str.571, ptr @.str.572, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_FlitControl_Preemption_SmallPacketLimit, %struct._header_field_info { ptr @.str.573, ptr @.str.574, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_FlitControl_Preemption_MaxSmallPacketLimit, %struct._header_field_info { ptr @.str.575, ptr @.str.576, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_FlitControl_Preemption_PreemptionLimit, %struct._header_field_info { ptr @.str.577, ptr @.str.578, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction, %struct._header_field_info { ptr @.str.579, ptr @.str.580, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_ExcessiveBufferOverrun, %struct._header_field_info { ptr @.str.581, ptr @.str.582, i32 2, i32 32, ptr null, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_reserved, %struct._header_field_info { ptr @.str.583, ptr @.str.584, i32 7, i32 2, ptr null, i64 2130706432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_FmConfigErrorExceedMulticastLimit, %struct._header_field_info { ptr @.str.585, ptr @.str.586, i32 2, i32 32, ptr null, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_FmConfigErrorBadControlFlit, %struct._header_field_info { ptr @.str.587, ptr @.str.588, i32 2, i32 32, ptr null, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_FmConfigErrorBadPreempt, %struct._header_field_info { ptr @.str.589, ptr @.str.590, i32 2, i32 32, ptr null, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_FmConfigErrorBadVLMarker, %struct._header_field_info { ptr @.str.591, ptr @.str.592, i32 2, i32 32, ptr null, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_FmConfigErrorBadCrdtAck, %struct._header_field_info { ptr @.str.593, ptr @.str.594, i32 2, i32 32, ptr null, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_FmConfigErrorBadCtrlDist, %struct._header_field_info { ptr @.str.595, ptr @.str.596, i32 2, i32 32, ptr null, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_FmConfigErrorBadTailDist, %struct._header_field_info { ptr @.str.597, ptr @.str.598, i32 2, i32 32, ptr null, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_FmConfigErrorBadHeadDist, %struct._header_field_info { ptr @.str.599, ptr @.str.600, i32 2, i32 32, ptr null, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_reserved2, %struct._header_field_info { ptr @.str.379, ptr @.str.601, i32 7, i32 2, ptr null, i64 49152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_PortRcvErrorBadVLMarker, %struct._header_field_info { ptr @.str.602, ptr @.str.603, i32 2, i32 32, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_PortRcvErrorPreemptVL15, %struct._header_field_info { ptr @.str.604, ptr @.str.605, i32 2, i32 32, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_PortRcvErrorPreemptError, %struct._header_field_info { ptr @.str.606, ptr @.str.607, i32 2, i32 32, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_reserved3, %struct._header_field_info { ptr @.str.419, ptr @.str.608, i32 7, i32 2, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_PortRcvErrorBadMidTail, %struct._header_field_info { ptr @.str.609, ptr @.str.610, i32 2, i32 32, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_PortRcvErrorReserved, %struct._header_field_info { ptr @.str.611, ptr @.str.612, i32 7, i32 2, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_PortRcvErrorBadSC, %struct._header_field_info { ptr @.str.613, ptr @.str.614, i32 2, i32 32, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_PortRcvErrorBadL2, %struct._header_field_info { ptr @.str.615, ptr @.str.616, i32 2, i32 32, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_PortRcvErrorBadDLID, %struct._header_field_info { ptr @.str.617, ptr @.str.618, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_PortRcvErrorBadSLID, %struct._header_field_info { ptr @.str.619, ptr @.str.620, i32 2, i32 32, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_PortRcvErrorPktLenTooShort, %struct._header_field_info { ptr @.str.621, ptr @.str.622, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_PortRcvErrorPktLenTooLong, %struct._header_field_info { ptr @.str.623, ptr @.str.624, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_PortRcvErrorBadPktLen, %struct._header_field_info { ptr @.str.625, ptr @.str.626, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortErrorAction_reserved4, %struct._header_field_info { ptr @.str.419, ptr @.str.627, i32 7, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PassThroughControl_EgressPort, %struct._header_field_info { ptr @.str.628, ptr @.str.629, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PassThroughControl_reserved, %struct._header_field_info { ptr @.str.630, ptr @.str.631, i32 4, i32 2, ptr null, i64 254, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PassThroughControl_DRControl, %struct._header_field_info { ptr @.str.632, ptr @.str.633, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_M_KeyLeasePeriod, %struct._header_field_info { ptr @.str.634, ptr @.str.635, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_BufferUnits_reserved, %struct._header_field_info { ptr @.str.636, ptr @.str.637, i32 7, i32 2, ptr null, i64 4286578688, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_BufferUnits_VL15Init, %struct._header_field_info { ptr @.str.638, ptr @.str.639, i32 7, i32 2, ptr null, i64 8386560, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_BufferUnits_VL15CreditRate, %struct._header_field_info { ptr @.str.640, ptr @.str.641, i32 7, i32 2, ptr null, i64 1984, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_BufferUnits_CreditAck, %struct._header_field_info { ptr @.str.642, ptr @.str.643, i32 7, i32 2, ptr null, i64 56, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_BufferUnits_BufferAlloc, %struct._header_field_info { ptr @.str.644, ptr @.str.645, i32 7, i32 2, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_MasterSMLID, %struct._header_field_info { ptr @.str.646, ptr @.str.647, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_M_Key, %struct._header_field_info { ptr @.str.256, ptr @.str.648, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_SubnetPrefix, %struct._header_field_info { ptr @.str.649, ptr @.str.650, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_VL1, %struct._header_field_info { ptr @.str.651, ptr @.str.652, i32 4, i32 2, ptr @MTU, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_VL2, %struct._header_field_info { ptr @.str.651, ptr @.str.653, i32 4, i32 2, ptr @MTU, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_XmitQ_VLStallCount, %struct._header_field_info { ptr @.str.654, ptr @.str.655, i32 4, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_XmitQ_HOQLife, %struct._header_field_info { ptr @.str.656, ptr @.str.657, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_IPAddrIPv6, %struct._header_field_info { ptr @.str.658, ptr @.str.659, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_IPAddrIPv4, %struct._header_field_info { ptr @.str.660, ptr @.str.661, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_NeighborNodeGUID, %struct._header_field_info { ptr @.str.662, ptr @.str.663, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask, %struct._header_field_info { ptr @.str.233, ptr @.str.664, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask_reserved, %struct._header_field_info { ptr @.str.180, ptr @.str.665, i32 7, i32 2, ptr null, i64 4286578688, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask_IsCapabilityMaskNoticeSupported, %struct._header_field_info { ptr @.str.666, ptr @.str.667, i32 2, i32 32, ptr null, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask_reserved2, %struct._header_field_info { ptr @.str.419, ptr @.str.668, i32 7, i32 2, ptr null, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask_IsVendorClassSupported, %struct._header_field_info { ptr @.str.669, ptr @.str.670, i32 2, i32 32, ptr null, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask_IsDeviceManagementSupported, %struct._header_field_info { ptr @.str.671, ptr @.str.672, i32 2, i32 32, ptr null, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask_reserved3, %struct._header_field_info { ptr @.str.379, ptr @.str.673, i32 7, i32 2, ptr null, i64 393216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask_IsConnectionManagementSupported, %struct._header_field_info { ptr @.str.674, ptr @.str.675, i32 2, i32 32, ptr null, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask_reserved4, %struct._header_field_info { ptr @.str.676, ptr @.str.677, i32 7, i32 2, ptr null, i64 65472, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask_IsAutomaticMigrationSupported, %struct._header_field_info { ptr @.str.678, ptr @.str.679, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask_reserved5, %struct._header_field_info { ptr @.str.270, ptr @.str.680, i32 7, i32 2, ptr null, i64 28, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask_IsSM, %struct._header_field_info { ptr @.str.681, ptr @.str.682, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask_reserved6, %struct._header_field_info { ptr @.str.419, ptr @.str.683, i32 7, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask3, %struct._header_field_info { ptr @.str.235, ptr @.str.684, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask3_reserved, %struct._header_field_info { ptr @.str.6, ptr @.str.685, i32 5, i32 2, ptr null, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask3_IsSnoopSupported, %struct._header_field_info { ptr @.str.686, ptr @.str.687, i32 2, i32 16, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask3_IsAsyncSCtoVLSupported, %struct._header_field_info { ptr @.str.688, ptr @.str.689, i32 2, i32 16, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask3_IsAddrRangeConfigSupported, %struct._header_field_info { ptr @.str.417, ptr @.str.690, i32 2, i32 16, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask3_IsPassThroughSupported, %struct._header_field_info { ptr @.str.691, ptr @.str.692, i32 2, i32 16, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask3_IsSharedSpaceSupported, %struct._header_field_info { ptr @.str.693, ptr @.str.694, i32 2, i32 16, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask3_reserved2, %struct._header_field_info { ptr @.str.695, ptr @.str.696, i32 2, i32 16, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask3_IsVLMarkerSupported, %struct._header_field_info { ptr @.str.695, ptr @.str.697, i32 2, i32 16, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_CapabilityMask3_IsVLrSupported, %struct._header_field_info { ptr @.str.698, ptr @.str.699, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_OverallBufferSpace, %struct._header_field_info { ptr @.str.700, ptr @.str.701, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_DiagCode, %struct._header_field_info { ptr @.str.702, ptr @.str.703, i32 5, i32 2, ptr @DiagCode, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_ReplayDepth_BufferDepth, %struct._header_field_info { ptr @.str.704, ptr @.str.705, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_ReplayDepth_WireDepth, %struct._header_field_info { ptr @.str.706, ptr @.str.707, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortNeighborMode_reserved, %struct._header_field_info { ptr @.str.708, ptr @.str.709, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortNeighborMode_MgmtAllowed, %struct._header_field_info { ptr @.str.710, ptr @.str.711, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortNeighborMode_NeighborFWAuthenBypass, %struct._header_field_info { ptr @.str.712, ptr @.str.713, i32 2, i32 8, ptr @tfs_NeighborFWAuthenBypass, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_PortNeighborMode_NeighborNodeType, %struct._header_field_info { ptr @.str.714, ptr @.str.715, i32 4, i32 2, ptr null, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_MTU_reserved, %struct._header_field_info { ptr @.str.716, ptr @.str.717, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_MTU_Cap, %struct._header_field_info { ptr @.str.718, ptr @.str.719, i32 4, i32 2, ptr @MTU, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_Resp_reserved, %struct._header_field_info { ptr @.str.720, ptr @.str.721, i32 4, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_Resp_TimeValue, %struct._header_field_info { ptr @.str.722, ptr @.str.723, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfo_LocalPortNum, %struct._header_field_info { ptr @.str.724, ptr @.str.725, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStates, %struct._header_field_info { ptr @.str.726, ptr @.str.727, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStates_reserved, %struct._header_field_info { ptr @.str.676, ptr @.str.728, i32 7, i32 2, ptr null, i64 4286578688, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStates_LEDEnabled, %struct._header_field_info { ptr @.str.729, ptr @.str.730, i32 2, i32 32, ptr null, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStates_IsSMConfigurationStarted, %struct._header_field_info { ptr @.str.731, ptr @.str.732, i32 2, i32 32, ptr null, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStates_NeighborNormal, %struct._header_field_info { ptr @.str.733, ptr @.str.734, i32 2, i32 32, ptr null, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStates_OfflineDisabledReason, %struct._header_field_info { ptr @.str.735, ptr @.str.736, i32 7, i32 2, ptr @OfflineDisabledReason, i64 983040, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStates_PortUnsleepState, %struct._header_field_info { ptr @.str.737, ptr @.str.738, i32 7, i32 2, ptr @PortPhysicalState, i64 61440, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStates_DownDefaultState, %struct._header_field_info { ptr @.str.739, ptr @.str.740, i32 7, i32 2, ptr @PortPhysicalState, i64 3840, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStates_PortPhysicalState, %struct._header_field_info { ptr @.str.741, ptr @.str.742, i32 7, i32 2, ptr @PortPhysicalState, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStates_PortState, %struct._header_field_info { ptr @.str.743, ptr @.str.744, i32 7, i32 2, ptr @PortState, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStates_LinkWidthDowngradeTxActive, %struct._header_field_info { ptr @.str.520, ptr @.str.745, i32 5, i32 6, ptr @cf_opa_mad_linkwidth, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStates_LinkWidthDowngradeRxActive, %struct._header_field_info { ptr @.str.522, ptr @.str.746, i32 5, i32 6, ptr @cf_opa_mad_linkwidth, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_P_KeyTable, %struct._header_field_info { ptr @.str.747, ptr @.str.748, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_P_KeyTable_MembershipType, %struct._header_field_info { ptr @.str.749, ptr @.str.750, i32 2, i32 16, ptr @tfs_PKeyMembershipType, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_P_KeyTable_P_KeyBase, %struct._header_field_info { ptr @.str.751, ptr @.str.752, i32 5, i32 2, ptr null, i64 32767, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SLtoSCMappingTable, %struct._header_field_info { ptr @.str.753, ptr @.str.754, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SLtoSCMappingTable_SLtoSC_HighBits, %struct._header_field_info { ptr @.str.270, ptr @.str.755, i32 4, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SLtoSCMappingTable_SLtoSC_LowBits, %struct._header_field_info { ptr @.str.756, ptr @.str.757, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SCtoSCMappingTable, %struct._header_field_info { ptr @.str.758, ptr @.str.759, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SCtoSCMappingTable_SCtoSC_HighBits, %struct._header_field_info { ptr @.str.270, ptr @.str.760, i32 4, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SCtoSCMappingTable_SCtoSC_LowBits, %struct._header_field_info { ptr @.str.756, ptr @.str.761, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SCtoSLMappingTable, %struct._header_field_info { ptr @.str.762, ptr @.str.763, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SCtoSLMappingTable_SCtoSL_HighBits, %struct._header_field_info { ptr @.str.270, ptr @.str.764, i32 4, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SCtoSLMappingTable_SCtoSL_LowBits, %struct._header_field_info { ptr @.str.268, ptr @.str.765, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SCtoVLxMappingTable, %struct._header_field_info { ptr @.str.766, ptr @.str.767, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SCtoVLxMappingTable_SCtoVLx_HighBits, %struct._header_field_info { ptr @.str.270, ptr @.str.768, i32 4, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SCtoVLxMappingTable_SCtoVLx_LowBits, %struct._header_field_info { ptr @.str.651, ptr @.str.769, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VLArbitrationTable, %struct._header_field_info { ptr @.str.770, ptr @.str.771, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VLArbitrationTable_reserved, %struct._header_field_info { ptr @.str.270, ptr @.str.772, i32 4, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VLArbitrationTable_VL, %struct._header_field_info { ptr @.str.651, ptr @.str.773, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VLArbitrationTable_Weight, %struct._header_field_info { ptr @.str.774, ptr @.str.775, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VLArbitrationTable_Matrix, %struct._header_field_info { ptr @.str.776, ptr @.str.777, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_LinearForwardingTable, %struct._header_field_info { ptr @.str.778, ptr @.str.779, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_LinearForwardingTable_Port, %struct._header_field_info { ptr @.str.165, ptr @.str.780, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MulticastForwardingTable, %struct._header_field_info { ptr @.str.781, ptr @.str.782, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MulticastForwardingTable_PortMask, %struct._header_field_info { ptr @.str.783, ptr @.str.784, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortGroupForwardingTable, %struct._header_field_info { ptr @.str.785, ptr @.str.786, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortGroupForwardingTable_Port, %struct._header_field_info { ptr @.str.165, ptr @.str.787, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortGroupTable, %struct._header_field_info { ptr @.str.788, ptr @.str.789, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortGroupTable_PortMask, %struct._header_field_info { ptr @.str.783, ptr @.str.790, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SMInfo, %struct._header_field_info { ptr @.str.791, ptr @.str.792, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SMInfo_GUID, %struct._header_field_info { ptr @.str.793, ptr @.str.794, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SMInfo_SM_Key, %struct._header_field_info { ptr @.str.795, ptr @.str.796, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SMInfo_ActCount, %struct._header_field_info { ptr @.str.797, ptr @.str.798, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SMInfo_ElapsedTime, %struct._header_field_info { ptr @.str.799, ptr @.str.800, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SMInfo_Priority, %struct._header_field_info { ptr @.str.801, ptr @.str.802, i32 5, i32 2, ptr null, i64 61440, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SMInfo_ElevatedPriority, %struct._header_field_info { ptr @.str.803, ptr @.str.804, i32 5, i32 2, ptr null, i64 3840, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SMInfo_InitialPriority, %struct._header_field_info { ptr @.str.805, ptr @.str.806, i32 5, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SMInfo_SMState, %struct._header_field_info { ptr @.str.807, ptr @.str.808, i32 5, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_LedInfo, %struct._header_field_info { ptr @.str.809, ptr @.str.810, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_LedInfo_LedMask, %struct._header_field_info { ptr @.str.811, ptr @.str.812, i32 2, i32 32, ptr null, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_LedInfo_reserved, %struct._header_field_info { ptr @.str.813, ptr @.str.814, i32 7, i32 2, ptr null, i64 2147483647, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CableInfo, %struct._header_field_info { ptr @.str.815, ptr @.str.816, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CableInfo_Data, %struct._header_field_info { ptr @.str.817, ptr @.str.818, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CableInfo_DataStream, %struct._header_field_info { ptr @.str.817, ptr @.str.819, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Aggregate, %struct._header_field_info { ptr @.str.820, ptr @.str.821, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Aggregate_AttributeID, %struct._header_field_info { ptr @.str.78, ptr @.str.822, i32 5, i32 2, ptr @SUBM_Attributes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Aggregate_Error, %struct._header_field_info { ptr @.str.823, ptr @.str.824, i32 2, i32 16, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_Aggregate_RequestLength, %struct._header_field_info { ptr @.str.825, ptr @.str.826, i32 5, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_BufferControlTable, %struct._header_field_info { ptr @.str.827, ptr @.str.828, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_BufferControlTable_TxOverallSharedLimit, %struct._header_field_info { ptr @.str.829, ptr @.str.830, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_BufferControlTable_TxDedicatedLimit, %struct._header_field_info { ptr @.str.831, ptr @.str.832, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_BufferControlTable_TxSharedLimit, %struct._header_field_info { ptr @.str.833, ptr @.str.834, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_FabricInfoRecord, %struct._header_field_info { ptr @.str.835, ptr @.str.836, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_FabricInfoRecord_NumHFIs, %struct._header_field_info { ptr @.str.837, ptr @.str.838, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_FabricInfoRecord_NumSwitches, %struct._header_field_info { ptr @.str.839, ptr @.str.840, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_FabricInfoRecord_NumInternalHFILinks, %struct._header_field_info { ptr @.str.841, ptr @.str.842, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_FabricInfoRecord_NumExternalHFILinks, %struct._header_field_info { ptr @.str.843, ptr @.str.844, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_FabricInfoRecord_NumInternalISLs, %struct._header_field_info { ptr @.str.845, ptr @.str.846, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_FabricInfoRecord_NumExternalISLs, %struct._header_field_info { ptr @.str.847, ptr @.str.848, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_FabricInfoRecord_NumDegradedHFILinks, %struct._header_field_info { ptr @.str.849, ptr @.str.850, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_FabricInfoRecord_NumDegradedISLs, %struct._header_field_info { ptr @.str.851, ptr @.str.852, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_FabricInfoRecord_NumOmittedHFILinks, %struct._header_field_info { ptr @.str.853, ptr @.str.854, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_FabricInfoRecord_NumOmittedISLs, %struct._header_field_info { ptr @.str.855, ptr @.str.856, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_FabricInfoRecord_Reserved, %struct._header_field_info { ptr @.str.857, ptr @.str.858, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CongestionInfo, %struct._header_field_info { ptr @.str.859, ptr @.str.860, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CongestionInfo_CongestionInfo, %struct._header_field_info { ptr @.str.859, ptr @.str.861, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CongestionInfo_ControlTableCap, %struct._header_field_info { ptr @.str.862, ptr @.str.863, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CongestionInfo_CongestionLogLength, %struct._header_field_info { ptr @.str.864, ptr @.str.865, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionLog, %struct._header_field_info { ptr @.str.866, ptr @.str.867, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionLog_LogType, %struct._header_field_info { ptr @.str.868, ptr @.str.869, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionLog_CongestionFlags, %struct._header_field_info { ptr @.str.870, ptr @.str.871, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionLog_LogEventsCounter, %struct._header_field_info { ptr @.str.872, ptr @.str.873, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionLog_CurrentTimeStamp, %struct._header_field_info { ptr @.str.874, ptr @.str.875, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionLog_PortMap, %struct._header_field_info { ptr @.str.876, ptr @.str.877, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionLog_SLID, %struct._header_field_info { ptr @.str.878, ptr @.str.879, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionLog_DLID, %struct._header_field_info { ptr @.str.880, ptr @.str.881, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionLog_SC, %struct._header_field_info { ptr @.str.756, ptr @.str.882, i32 4, i32 2, ptr null, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionLog_reserved, %struct._header_field_info { ptr @.str.270, ptr @.str.883, i32 4, i32 2, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionLog_TimeStamp, %struct._header_field_info { ptr @.str.884, ptr @.str.885, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionSetting, %struct._header_field_info { ptr @.str.886, ptr @.str.887, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionSetting_Control_Map, %struct._header_field_info { ptr @.str.888, ptr @.str.889, i32 7, i32 6, ptr @cf_opa_mad_swcongestionsetting_controlmap, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionSetting_Victim_Mask, %struct._header_field_info { ptr @.str.890, ptr @.str.891, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionSetting_Credit_Mask, %struct._header_field_info { ptr @.str.892, ptr @.str.893, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionSetting_Threshold, %struct._header_field_info { ptr @.str.894, ptr @.str.895, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionSetting_reserved1, %struct._header_field_info { ptr @.str.237, ptr @.str.896, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionSetting_Packet_Size, %struct._header_field_info { ptr @.str.897, ptr @.str.898, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionSetting_CS_Threshold, %struct._header_field_info { ptr @.str.899, ptr @.str.900, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionSetting_reserved2, %struct._header_field_info { ptr @.str.237, ptr @.str.901, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionSetting_CS_ReturnDelay, %struct._header_field_info { ptr @.str.902, ptr @.str.903, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchCongestionSetting_Marking_Rate, %struct._header_field_info { ptr @.str.904, ptr @.str.905, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchPortCongestionSetting, %struct._header_field_info { ptr @.str.906, ptr @.str.907, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchPortCongestionSetting_Valid, %struct._header_field_info { ptr @.str.908, ptr @.str.909, i32 2, i32 8, ptr @tfs_valid_invalid, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchPortCongestionSetting_Control_Type, %struct._header_field_info { ptr @.str.910, ptr @.str.911, i32 2, i32 8, ptr @tfs_SwPortCongSetting_CtrlType, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchPortCongestionSetting_reserved, %struct._header_field_info { ptr @.str.379, ptr @.str.912, i32 4, i32 2, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchPortCongestionSetting_Threshold, %struct._header_field_info { ptr @.str.894, ptr @.str.913, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchPortCongestionSetting_Packet_Size, %struct._header_field_info { ptr @.str.897, ptr @.str.914, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_SwitchPortCongestionSetting_Marking_Rate, %struct._header_field_info { ptr @.str.904, ptr @.str.915, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionLog, %struct._header_field_info { ptr @.str.916, ptr @.str.917, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionLog_LogType, %struct._header_field_info { ptr @.str.868, ptr @.str.918, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionLog_CongestionFlags, %struct._header_field_info { ptr @.str.870, ptr @.str.919, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionLog_ThresholdEventCounter, %struct._header_field_info { ptr @.str.920, ptr @.str.921, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionLog_CurrentTimeStamp, %struct._header_field_info { ptr @.str.874, ptr @.str.922, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionLog_ThresholdCongestionEventMap, %struct._header_field_info { ptr @.str.923, ptr @.str.924, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionLog_Local_QP_CN_Entry, %struct._header_field_info { ptr @.str.925, ptr @.str.926, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionLog_Remote_QP_Number_CN_Entry, %struct._header_field_info { ptr @.str.927, ptr @.str.928, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionLog_SL_CN_Entry, %struct._header_field_info { ptr @.str.923, ptr @.str.924, i32 4, i32 2, ptr null, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionLog_Service_Type_CN_Entry, %struct._header_field_info { ptr @.str.929, ptr @.str.930, i32 4, i32 2, ptr null, i64 14, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionLog_Remote_LID_CN_Entry, %struct._header_field_info { ptr @.str.931, ptr @.str.932, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionLog_TimeStamp_CN_Entry, %struct._header_field_info { ptr @.str.933, ptr @.str.934, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionSetting, %struct._header_field_info { ptr @.str.935, ptr @.str.936, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionSetting_Control_Map, %struct._header_field_info { ptr @.str.888, ptr @.str.937, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionSetting_Port_Control, %struct._header_field_info { ptr @.str.938, ptr @.str.939, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionSetting_CCTI_Increase, %struct._header_field_info { ptr @.str.940, ptr @.str.941, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionSetting_CCTI_Timer, %struct._header_field_info { ptr @.str.942, ptr @.str.943, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionSetting_TriggerThreshold, %struct._header_field_info { ptr @.str.944, ptr @.str.945, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionSetting_CCTI_Min, %struct._header_field_info { ptr @.str.946, ptr @.str.947, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionControlTable, %struct._header_field_info { ptr @.str.948, ptr @.str.949, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionControlTable_CCTI_Limit, %struct._header_field_info { ptr @.str.950, ptr @.str.951, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionControlTable_CCT_Shift, %struct._header_field_info { ptr @.str.952, ptr @.str.953, i32 5, i32 2, ptr null, i64 49152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_HFICongestionControlTable_CCT_Multiplier, %struct._header_field_info { ptr @.str.954, ptr @.str.955, i32 5, i32 2, ptr null, i64 16383, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfoRecord_LinkDownReason_NeighborLinkDownReason, %struct._header_field_info { ptr @.str.956, ptr @.str.957, i32 4, i32 2, ptr @LinkDownReason, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfoRecord_LinkDownReason_LinkDownReason, %struct._header_field_info { ptr @.str.958, ptr @.str.959, i32 4, i32 2, ptr @LinkDownReason, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortInfoRecord_LinkDownReason_Timestamp, %struct._header_field_info { ptr @.str.884, ptr @.str.960, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo, %struct._header_field_info { ptr @.str.961, ptr @.str.962, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo_GID, %struct._header_field_info { ptr @.str.227, ptr @.str.963, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo_LIDRangeBegin, %struct._header_field_info { ptr @.str.964, ptr @.str.965, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo_LIDRangeEnd, %struct._header_field_info { ptr @.str.966, ptr @.str.967, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo_IsGeneric, %struct._header_field_info { ptr @.str.968, ptr @.str.969, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo_Subscribe, %struct._header_field_info { ptr @.str.970, ptr @.str.971, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo_Type, %struct._header_field_info { ptr @.str.205, ptr @.str.972, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo_TrapNumber, %struct._header_field_info { ptr @.str.973, ptr @.str.974, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo_DeviceID, %struct._header_field_info { ptr @.str.349, ptr @.str.975, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo_QPN, %struct._header_field_info { ptr @.str.976, ptr @.str.977, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo_reserved, %struct._header_field_info { ptr @.str.270, ptr @.str.978, i32 4, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo_RespTimeValue, %struct._header_field_info { ptr @.str.979, ptr @.str.980, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo_ProducerType, %struct._header_field_info { ptr @.str.981, ptr @.str.982, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_InformInfo_VendorID, %struct._header_field_info { ptr @.str.355, ptr @.str.983, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_LinkRecord, %struct._header_field_info { ptr @.str.984, ptr @.str.985, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_LinkRecord_ToPort, %struct._header_field_info { ptr @.str.986, ptr @.str.987, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_LinkRecord_ToLID, %struct._header_field_info { ptr @.str.988, ptr @.str.989, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ServiceRecord, %struct._header_field_info { ptr @.str.990, ptr @.str.991, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ServiceRecord_ServiceLease, %struct._header_field_info { ptr @.str.992, ptr @.str.993, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ServiceRecord_ServiceKey, %struct._header_field_info { ptr @.str.994, ptr @.str.995, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ServiceRecord_ServiceName, %struct._header_field_info { ptr @.str.996, ptr @.str.997, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ServiceRecord_ServiceData, %struct._header_field_info { ptr @.str.998, ptr @.str.999, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ServiceAssociationRecord_ServiceKey, %struct._header_field_info { ptr @.str.994, ptr @.str.1000, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ServiceAssociationRecord_ServiceName, %struct._header_field_info { ptr @.str.996, ptr @.str.1001, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord, %struct._header_field_info { ptr @.str.1002, ptr @.str.1003, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_DGID, %struct._header_field_info { ptr @.str.1004, ptr @.str.1005, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_SGID, %struct._header_field_info { ptr @.str.1006, ptr @.str.1007, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_DLID, %struct._header_field_info { ptr @.str.880, ptr @.str.1008, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_SLID, %struct._header_field_info { ptr @.str.878, ptr @.str.1009, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_RawTraffic, %struct._header_field_info { ptr @.str.1010, ptr @.str.1011, i32 7, i32 2, ptr null, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_reserved, %struct._header_field_info { ptr @.str.270, ptr @.str.1012, i32 7, i32 2, ptr null, i64 1879048192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_FlowLabel, %struct._header_field_info { ptr @.str.1013, ptr @.str.1014, i32 7, i32 2, ptr null, i64 268435200, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_HopLimit, %struct._header_field_info { ptr @.str.1015, ptr @.str.1016, i32 7, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_TClass, %struct._header_field_info { ptr @.str.1017, ptr @.str.1018, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_Reversible, %struct._header_field_info { ptr @.str.1019, ptr @.str.1020, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_NumbPath, %struct._header_field_info { ptr @.str.1021, ptr @.str.1022, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_P_Key, %struct._header_field_info { ptr @.str.325, ptr @.str.1023, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_QosType, %struct._header_field_info { ptr @.str.1024, ptr @.str.1025, i32 5, i32 2, ptr null, i64 49152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_reserved2, %struct._header_field_info { ptr @.str.379, ptr @.str.1026, i32 5, i32 2, ptr null, i64 12288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_QosPriority, %struct._header_field_info { ptr @.str.1027, ptr @.str.1028, i32 5, i32 2, ptr null, i64 4080, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_SL, %struct._header_field_info { ptr @.str.268, ptr @.str.1029, i32 5, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_MTUSelector, %struct._header_field_info { ptr @.str.1030, ptr @.str.1031, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_MTU, %struct._header_field_info { ptr @.str.1032, ptr @.str.1033, i32 4, i32 2, ptr @MTU, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_RateSelector, %struct._header_field_info { ptr @.str.1034, ptr @.str.1035, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_Rate, %struct._header_field_info { ptr @.str.1036, ptr @.str.1037, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_PacketLifeTimeSelector, %struct._header_field_info { ptr @.str.1038, ptr @.str.1039, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_PacketLifeTime, %struct._header_field_info { ptr @.str.1040, ptr @.str.1041, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PathRecord_Preference, %struct._header_field_info { ptr @.str.1042, ptr @.str.1043, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord, %struct._header_field_info { ptr @.str.1044, ptr @.str.1045, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_Q_Key, %struct._header_field_info { ptr @.str.314, ptr @.str.1046, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_MLID, %struct._header_field_info { ptr @.str.1047, ptr @.str.1048, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_MTUSelector, %struct._header_field_info { ptr @.str.1030, ptr @.str.1049, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_MTU, %struct._header_field_info { ptr @.str.1032, ptr @.str.1050, i32 4, i32 2, ptr @MTU, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_TClass, %struct._header_field_info { ptr @.str.1017, ptr @.str.1051, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_P_Key, %struct._header_field_info { ptr @.str.325, ptr @.str.1052, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_RateSelector, %struct._header_field_info { ptr @.str.1034, ptr @.str.1053, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_Rate, %struct._header_field_info { ptr @.str.1036, ptr @.str.1054, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_PacketLifeTimeSelector, %struct._header_field_info { ptr @.str.1038, ptr @.str.1055, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_PacketLifeTime, %struct._header_field_info { ptr @.str.1040, ptr @.str.1056, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_SL, %struct._header_field_info { ptr @.str.268, ptr @.str.1057, i32 7, i32 2, ptr null, i64 4160749568, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_reserved, %struct._header_field_info { ptr @.str.1058, ptr @.str.1059, i32 7, i32 2, ptr null, i64 134217472, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_HopLimit, %struct._header_field_info { ptr @.str.1015, ptr @.str.1060, i32 7, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_Scope, %struct._header_field_info { ptr @.str.1061, ptr @.str.1062, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_reserved2, %struct._header_field_info { ptr @.str.419, ptr @.str.1063, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_JoinSendOnlyMember, %struct._header_field_info { ptr @.str.1064, ptr @.str.1065, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_JoinNonMember, %struct._header_field_info { ptr @.str.1066, ptr @.str.1067, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_JoinFullMember, %struct._header_field_info { ptr @.str.1068, ptr @.str.1069, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_ProxyJoin, %struct._header_field_info { ptr @.str.1070, ptr @.str.1071, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MCMemberRecord_reserved3, %struct._header_field_info { ptr @.str.583, ptr @.str.1072, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_TraceRecord, %struct._header_field_info { ptr @.str.1073, ptr @.str.1074, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_TraceRecord_IDGeneration, %struct._header_field_info { ptr @.str.1075, ptr @.str.1076, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_TraceRecord_NodeType, %struct._header_field_info { ptr @.str.337, ptr @.str.1077, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_TraceRecord_NodeID, %struct._header_field_info { ptr @.str.1078, ptr @.str.1079, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_TraceRecord_ChassisID, %struct._header_field_info { ptr @.str.1080, ptr @.str.1081, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_TraceRecord_EntryPortID, %struct._header_field_info { ptr @.str.1082, ptr @.str.1083, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_TraceRecord_ExitPortID, %struct._header_field_info { ptr @.str.1084, ptr @.str.1085, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_TraceRecord_EntryPort, %struct._header_field_info { ptr @.str.1086, ptr @.str.1087, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_TraceRecord_ExitPort, %struct._header_field_info { ptr @.str.1088, ptr @.str.1089, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord, %struct._header_field_info { ptr @.str.1090, ptr @.str.1091, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_reserved, %struct._header_field_info { ptr @.str.237, ptr @.str.1092, i32 7, i32 2, ptr null, i64 4026531840, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_FlowLabel, %struct._header_field_info { ptr @.str.1013, ptr @.str.1093, i32 7, i32 2, ptr null, i64 268435200, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_HopLimit, %struct._header_field_info { ptr @.str.1015, ptr @.str.1094, i32 7, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_TClass, %struct._header_field_info { ptr @.str.1017, ptr @.str.1095, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_Reversible, %struct._header_field_info { ptr @.str.1019, ptr @.str.1096, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_NumbPath, %struct._header_field_info { ptr @.str.1021, ptr @.str.1097, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_P_Key, %struct._header_field_info { ptr @.str.325, ptr @.str.1098, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_QoSType, %struct._header_field_info { ptr @.str.1099, ptr @.str.1100, i32 5, i32 2, ptr null, i64 49152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_QoSPriority, %struct._header_field_info { ptr @.str.1101, ptr @.str.1102, i32 5, i32 2, ptr null, i64 16320, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_reserved2, %struct._header_field_info { ptr @.str.419, ptr @.str.1103, i32 5, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_SL, %struct._header_field_info { ptr @.str.268, ptr @.str.1104, i32 5, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_MTUSelector, %struct._header_field_info { ptr @.str.1030, ptr @.str.1105, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_MTU, %struct._header_field_info { ptr @.str.1032, ptr @.str.1106, i32 4, i32 2, ptr @MTU, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_RateSelector, %struct._header_field_info { ptr @.str.1034, ptr @.str.1107, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_Rate, %struct._header_field_info { ptr @.str.1036, ptr @.str.1108, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_PacketLifeTimeSelector, %struct._header_field_info { ptr @.str.1038, ptr @.str.1109, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_PacketLifeTime, %struct._header_field_info { ptr @.str.1040, ptr @.str.1110, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_IndependenceSelector, %struct._header_field_info { ptr @.str.1111, ptr @.str.1112, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_SGIDScope, %struct._header_field_info { ptr @.str.1113, ptr @.str.1114, i32 4, i32 2, ptr null, i64 56, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_DGIDScope, %struct._header_field_info { ptr @.str.1115, ptr @.str.1116, i32 4, i32 2, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_SGIDCount, %struct._header_field_info { ptr @.str.1117, ptr @.str.1118, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_DGIDCount, %struct._header_field_info { ptr @.str.1119, ptr @.str.1120, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_SGID, %struct._header_field_info { ptr @.str.1121, ptr @.str.1122, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_DGID, %struct._header_field_info { ptr @.str.1123, ptr @.str.1124, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_L2_8B, %struct._header_field_info { ptr @.str.1125, ptr @.str.1126, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_L2_10B, %struct._header_field_info { ptr @.str.1127, ptr @.str.1128, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_L2_9B, %struct._header_field_info { ptr @.str.1129, ptr @.str.1130, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_L2_16B, %struct._header_field_info { ptr @.str.1131, ptr @.str.1132, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_reserved3, %struct._header_field_info { ptr @.str.237, ptr @.str.1133, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_ServiceID, %struct._header_field_info { ptr @.str.1134, ptr @.str.1135, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_SubnetPrefix, %struct._header_field_info { ptr @.str.649, ptr @.str.1136, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_SGUIDScope, %struct._header_field_info { ptr @.str.1137, ptr @.str.1138, i32 4, i32 2, ptr null, i64 56, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_DGUIDScope, %struct._header_field_info { ptr @.str.1139, ptr @.str.1140, i32 4, i32 2, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_SGUIDCount, %struct._header_field_info { ptr @.str.1141, ptr @.str.1142, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_DGUIDCount, %struct._header_field_info { ptr @.str.1143, ptr @.str.1144, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_SGUID, %struct._header_field_info { ptr @.str.1145, ptr @.str.1146, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_DGUID, %struct._header_field_info { ptr @.str.1147, ptr @.str.1148, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_SLIDCount, %struct._header_field_info { ptr @.str.1149, ptr @.str.1150, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_DLIDCount, %struct._header_field_info { ptr @.str.1151, ptr @.str.1152, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_SLID, %struct._header_field_info { ptr @.str.1153, ptr @.str.1154, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MultiPathRecord_DLID, %struct._header_field_info { ptr @.str.1155, ptr @.str.1156, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CableInfoRecord, %struct._header_field_info { ptr @.str.1157, ptr @.str.1158, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CableInfoRecord_Lid, %struct._header_field_info { ptr @.str.163, ptr @.str.1159, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CableInfoRecord_Port, %struct._header_field_info { ptr @.str.165, ptr @.str.1160, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CableInfoRecord_Length, %struct._header_field_info { ptr @.str.102, ptr @.str.1161, i32 4, i32 1, ptr null, i64 254, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CableInfoRecord_reserved, %struct._header_field_info { ptr @.str.419, ptr @.str.1162, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CableInfoRecord_Address, %struct._header_field_info { ptr @.str.1163, ptr @.str.1164, i32 5, i32 2, ptr null, i64 65520, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CableInfoRecord_PortType, %struct._header_field_info { ptr @.str.1165, ptr @.str.1166, i32 5, i32 2, ptr @PortType, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_CableInfoRecord_Data, %struct._header_field_info { ptr @.str.817, ptr @.str.1167, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus, %struct._header_field_info { ptr @.str.1168, ptr @.str.1169, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortNumber, %struct._header_field_info { ptr @.str.108, ptr @.str.1170, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_VLSelectMask, %struct._header_field_info { ptr @.str.1171, ptr @.str.1172, i32 7, i32 6, ptr @cf_opa_mad_32b_mask, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortXmitData, %struct._header_field_info { ptr @.str.1173, ptr @.str.1174, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortRcvData, %struct._header_field_info { ptr @.str.1175, ptr @.str.1176, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortXmitPkts, %struct._header_field_info { ptr @.str.1177, ptr @.str.1178, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortRcvPkts, %struct._header_field_info { ptr @.str.1179, ptr @.str.1180, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortMulticastXmitPkts, %struct._header_field_info { ptr @.str.1181, ptr @.str.1182, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortMulticastRcvPkts, %struct._header_field_info { ptr @.str.1183, ptr @.str.1184, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortXmitWait, %struct._header_field_info { ptr @.str.1185, ptr @.str.1186, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_SwPortCongestion, %struct._header_field_info { ptr @.str.1187, ptr @.str.1188, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortRcvFECN, %struct._header_field_info { ptr @.str.1189, ptr @.str.1190, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortRcvBECN, %struct._header_field_info { ptr @.str.1191, ptr @.str.1192, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortXmitTimeCong, %struct._header_field_info { ptr @.str.1193, ptr @.str.1194, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortXmitWastedBW, %struct._header_field_info { ptr @.str.1195, ptr @.str.1196, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortXmitWaitData, %struct._header_field_info { ptr @.str.1197, ptr @.str.1198, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortRcvBubble, %struct._header_field_info { ptr @.str.1199, ptr @.str.1200, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortMarkFECN, %struct._header_field_info { ptr @.str.1201, ptr @.str.1202, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortRcvConstraintErrors, %struct._header_field_info { ptr @.str.1203, ptr @.str.1204, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortRcvSwitchRelayErrors, %struct._header_field_info { ptr @.str.1205, ptr @.str.1206, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortXmitDiscards, %struct._header_field_info { ptr @.str.1207, ptr @.str.1208, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortXmitConstraintErrors, %struct._header_field_info { ptr @.str.1209, ptr @.str.1210, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortRcvRemotePhysicalErrors, %struct._header_field_info { ptr @.str.1211, ptr @.str.1212, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_LocalLinkIntegrityErrors, %struct._header_field_info { ptr @.str.1213, ptr @.str.1214, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortRcvErrors, %struct._header_field_info { ptr @.str.1215, ptr @.str.1216, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_ExcessiveBufferOverruns, %struct._header_field_info { ptr @.str.1217, ptr @.str.1218, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_FMConfigErrors, %struct._header_field_info { ptr @.str.1219, ptr @.str.1220, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_LinkErrorRecovery, %struct._header_field_info { ptr @.str.1221, ptr @.str.1222, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_LinkDowned, %struct._header_field_info { ptr @.str.1223, ptr @.str.1224, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_UncorrectableErrors, %struct._header_field_info { ptr @.str.1225, ptr @.str.1226, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_reserved, %struct._header_field_info { ptr @.str.1227, ptr @.str.1228, i32 4, i32 1, ptr null, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_LinkQualityIndicator, %struct._header_field_info { ptr @.str.1229, ptr @.str.1230, i32 4, i32 1, ptr @LinkQualityIndicator, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortVLXmitData, %struct._header_field_info { ptr @.str.1231, ptr @.str.1232, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortVLRcvData, %struct._header_field_info { ptr @.str.1233, ptr @.str.1234, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortVLXmitPkts, %struct._header_field_info { ptr @.str.1235, ptr @.str.1236, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortVLRcvPkts, %struct._header_field_info { ptr @.str.1237, ptr @.str.1238, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortVLXmitWait, %struct._header_field_info { ptr @.str.1239, ptr @.str.1240, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_SwPortVLCongestion, %struct._header_field_info { ptr @.str.1241, ptr @.str.1242, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortVLRcvFECN, %struct._header_field_info { ptr @.str.1243, ptr @.str.1244, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortVLRcvBECN, %struct._header_field_info { ptr @.str.1245, ptr @.str.1246, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortVLXmitTimeCong, %struct._header_field_info { ptr @.str.1247, ptr @.str.1248, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortVLXmitWastedBW, %struct._header_field_info { ptr @.str.1249, ptr @.str.1250, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortVLXmitWaitData, %struct._header_field_info { ptr @.str.1251, ptr @.str.1252, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortVLRcvBubble, %struct._header_field_info { ptr @.str.1253, ptr @.str.1254, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortVLMarkFECN, %struct._header_field_info { ptr @.str.1255, ptr @.str.1256, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PortStatus_PortVLXmitDiscards, %struct._header_field_info { ptr @.str.1257, ptr @.str.1258, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus, %struct._header_field_info { ptr @.str.1259, ptr @.str.1260, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortSelectMask, %struct._header_field_info { ptr @.str.1261, ptr @.str.1262, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_CounterSelectMask, %struct._header_field_info { ptr @.str.1263, ptr @.str.1264, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortXmitData, %struct._header_field_info { ptr @.str.1173, ptr @.str.1265, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortRcvData, %struct._header_field_info { ptr @.str.1175, ptr @.str.1266, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 1073741824, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortXmitPkts, %struct._header_field_info { ptr @.str.1177, ptr @.str.1267, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortRcvPkts, %struct._header_field_info { ptr @.str.1179, ptr @.str.1268, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortMulticastXmitPkts, %struct._header_field_info { ptr @.str.1181, ptr @.str.1269, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortMulticastRcvPkts, %struct._header_field_info { ptr @.str.1183, ptr @.str.1270, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortXmitWait, %struct._header_field_info { ptr @.str.1185, ptr @.str.1271, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_SwPortCongestion, %struct._header_field_info { ptr @.str.1187, ptr @.str.1272, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortRcvFECN, %struct._header_field_info { ptr @.str.1189, ptr @.str.1273, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortRcvBECN, %struct._header_field_info { ptr @.str.1191, ptr @.str.1274, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortXmitTimeCong, %struct._header_field_info { ptr @.str.1193, ptr @.str.1275, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortXmitWastedBW, %struct._header_field_info { ptr @.str.1195, ptr @.str.1276, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortXmitWaitData, %struct._header_field_info { ptr @.str.1197, ptr @.str.1277, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortRcvBubble, %struct._header_field_info { ptr @.str.1199, ptr @.str.1278, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortMarkFECN, %struct._header_field_info { ptr @.str.1201, ptr @.str.1279, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortRcvConstraintErrors, %struct._header_field_info { ptr @.str.1203, ptr @.str.1280, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortRcvSwitchRelayErrors, %struct._header_field_info { ptr @.str.1205, ptr @.str.1281, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortXmitDiscards, %struct._header_field_info { ptr @.str.1207, ptr @.str.1282, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortXmitConstraintErrors, %struct._header_field_info { ptr @.str.1209, ptr @.str.1283, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortRcvRemotePhysicalErrors, %struct._header_field_info { ptr @.str.1211, ptr @.str.1284, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_LocalLinkIntegrityErrors, %struct._header_field_info { ptr @.str.1213, ptr @.str.1285, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_PortRcvErrors, %struct._header_field_info { ptr @.str.1215, ptr @.str.1286, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_ExcessiveBufferOverruns, %struct._header_field_info { ptr @.str.1217, ptr @.str.1287, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_FMConfigErrors, %struct._header_field_info { ptr @.str.1219, ptr @.str.1288, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_LinkErrorRecovery, %struct._header_field_info { ptr @.str.1221, ptr @.str.1289, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_LinkDowned, %struct._header_field_info { ptr @.str.1223, ptr @.str.1290, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_UncorrectableErrors, %struct._header_field_info { ptr @.str.1225, ptr @.str.1291, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortStatus_reserved, %struct._header_field_info { ptr @.str.1292, ptr @.str.1293, i32 7, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters, %struct._header_field_info { ptr @.str.1294, ptr @.str.1295, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortSelectMask, %struct._header_field_info { ptr @.str.1261, ptr @.str.1296, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_VLSelectMask, %struct._header_field_info { ptr @.str.1171, ptr @.str.1297, i32 7, i32 6, ptr @cf_opa_mad_32b_mask, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_resolution_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.1298, i32 7, i32 2, ptr null, i64 4294967040, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_LocalLinkIntegrityResolution, %struct._header_field_info { ptr @.str.1299, ptr @.str.1300, i32 7, i32 1, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_LinkErrorRecoveryResolution, %struct._header_field_info { ptr @.str.1301, ptr @.str.1302, i32 7, i32 1, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortNumber, %struct._header_field_info { ptr @.str.1303, ptr @.str.1304, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_lqi_reserved, %struct._header_field_info { ptr @.str.1305, ptr @.str.1298, i32 7, i32 1, ptr null, i64 4294967288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_LinkQualityIndicator, %struct._header_field_info { ptr @.str.1229, ptr @.str.1306, i32 7, i32 1, ptr @LinkQualityIndicator, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortXmitData, %struct._header_field_info { ptr @.str.1173, ptr @.str.1307, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortRcvData, %struct._header_field_info { ptr @.str.1175, ptr @.str.1308, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortXmitPkts, %struct._header_field_info { ptr @.str.1177, ptr @.str.1309, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortRcvPkts, %struct._header_field_info { ptr @.str.1179, ptr @.str.1310, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortMulticastXmitPkts, %struct._header_field_info { ptr @.str.1181, ptr @.str.1311, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortMulticastRcvPkts, %struct._header_field_info { ptr @.str.1183, ptr @.str.1312, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortXmitWait, %struct._header_field_info { ptr @.str.1185, ptr @.str.1313, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_SwPortCongestion, %struct._header_field_info { ptr @.str.1187, ptr @.str.1314, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortRcvFECN, %struct._header_field_info { ptr @.str.1189, ptr @.str.1315, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortRcvBECN, %struct._header_field_info { ptr @.str.1191, ptr @.str.1316, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortXmitTimeCong, %struct._header_field_info { ptr @.str.1193, ptr @.str.1317, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortXmitWastedBW, %struct._header_field_info { ptr @.str.1195, ptr @.str.1318, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortXmitWaitData, %struct._header_field_info { ptr @.str.1197, ptr @.str.1319, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortRcvBubble, %struct._header_field_info { ptr @.str.1199, ptr @.str.1320, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortMarkFECN, %struct._header_field_info { ptr @.str.1201, ptr @.str.1321, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortErrorCounterSummary, %struct._header_field_info { ptr @.str.1322, ptr @.str.1323, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortVLXmitData, %struct._header_field_info { ptr @.str.1231, ptr @.str.1324, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortVLRcvData, %struct._header_field_info { ptr @.str.1233, ptr @.str.1325, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortVLXmitPkts, %struct._header_field_info { ptr @.str.1235, ptr @.str.1326, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortVLRcvPkts, %struct._header_field_info { ptr @.str.1237, ptr @.str.1327, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortVLXmitWait, %struct._header_field_info { ptr @.str.1239, ptr @.str.1328, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_SwPortVLCongestion, %struct._header_field_info { ptr @.str.1241, ptr @.str.1329, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortVLRcvFECN, %struct._header_field_info { ptr @.str.1243, ptr @.str.1330, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortVLRcvBECN, %struct._header_field_info { ptr @.str.1245, ptr @.str.1331, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortVLXmitTimeCong, %struct._header_field_info { ptr @.str.1247, ptr @.str.1332, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortVLXmitWastedBW, %struct._header_field_info { ptr @.str.1249, ptr @.str.1333, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortVLXmitWaitData, %struct._header_field_info { ptr @.str.1251, ptr @.str.1334, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortVLRcvBubble, %struct._header_field_info { ptr @.str.1253, ptr @.str.1335, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_DataPortCounters_PortVLMarkFECN, %struct._header_field_info { ptr @.str.1255, ptr @.str.1336, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters, %struct._header_field_info { ptr @.str.1337, ptr @.str.1338, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_PortSelectMask, %struct._header_field_info { ptr @.str.1261, ptr @.str.1339, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_VLSelectMask, %struct._header_field_info { ptr @.str.1171, ptr @.str.1340, i32 7, i32 6, ptr @cf_opa_mad_32b_mask, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_PortNumber, %struct._header_field_info { ptr @.str.1303, ptr @.str.1341, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_PortRcvConstraintErrors, %struct._header_field_info { ptr @.str.1203, ptr @.str.1342, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_PortRcvSwitchRelayErrors, %struct._header_field_info { ptr @.str.1205, ptr @.str.1343, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_PortXmitDiscards, %struct._header_field_info { ptr @.str.1207, ptr @.str.1344, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_PortXmitConstraintErrors, %struct._header_field_info { ptr @.str.1209, ptr @.str.1345, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_PortRcvRemotePhysicalErrors, %struct._header_field_info { ptr @.str.1211, ptr @.str.1346, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_LocalLinkIntegrityErrors, %struct._header_field_info { ptr @.str.1213, ptr @.str.1347, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_PortRcvErrors, %struct._header_field_info { ptr @.str.1215, ptr @.str.1348, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_ExcessiveBufferOverruns, %struct._header_field_info { ptr @.str.1217, ptr @.str.1349, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_FMConfigErrors, %struct._header_field_info { ptr @.str.1219, ptr @.str.1350, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_LinkErrorRecovery, %struct._header_field_info { ptr @.str.1221, ptr @.str.1351, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_LinkDowned, %struct._header_field_info { ptr @.str.1223, ptr @.str.1352, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_UncorrectableErrors, %struct._header_field_info { ptr @.str.1225, ptr @.str.1353, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortCounters_PortVLXmitDiscards, %struct._header_field_info { ptr @.str.1257, ptr @.str.1354, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo, %struct._header_field_info { ptr @.str.1355, ptr @.str.1356, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortSelectMask, %struct._header_field_info { ptr @.str.1261, ptr @.str.1357, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_ErrorInfoSelectMask_PortRcvErrorInfo, %struct._header_field_info { ptr @.str.1358, ptr @.str.1359, i32 2, i32 32, ptr null, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_ErrorInfoSelectMask_ExcessiveBufferOverrunInfo, %struct._header_field_info { ptr @.str.1360, ptr @.str.1361, i32 2, i32 32, ptr null, i64 1073741824, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_ErrorInfoSelectMask_PortXmitConstraintErrorInfo, %struct._header_field_info { ptr @.str.1362, ptr @.str.1363, i32 2, i32 32, ptr null, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_ErrorInfoSelectMask_PortRcvConstraintErrorInfo, %struct._header_field_info { ptr @.str.1364, ptr @.str.1365, i32 2, i32 32, ptr null, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_ErrorInfoSelectMask_PortRcvSwitchRelayErrorInfo, %struct._header_field_info { ptr @.str.1366, ptr @.str.1367, i32 2, i32 32, ptr null, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_ErrorInfoSelectMask_UncorrectableErrorInfo, %struct._header_field_info { ptr @.str.1368, ptr @.str.1369, i32 2, i32 32, ptr null, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_ErrorInfoSelectMask_FMConfigErrorInfo, %struct._header_field_info { ptr @.str.1370, ptr @.str.1371, i32 2, i32 32, ptr null, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_ErrorInfoSelectMask_reserved, %struct._header_field_info { ptr @.str.1372, ptr @.str.1373, i32 7, i32 2, ptr null, i64 33554431, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortNumber, %struct._header_field_info { ptr @.str.108, ptr @.str.1374, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvErrorInfo_Status, %struct._header_field_info { ptr @.str.58, ptr @.str.1375, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvErrorInfo_reserved, %struct._header_field_info { ptr @.str.1227, ptr @.str.1376, i32 4, i32 2, ptr null, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvErrorInfo_ErrorCode, %struct._header_field_info { ptr @.str.1377, ptr @.str.1378, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvErrorInfo_PacketFlit1, %struct._header_field_info { ptr @.str.1379, ptr @.str.1380, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvErrorInfo_PacketFlit2, %struct._header_field_info { ptr @.str.1381, ptr @.str.1382, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvErrorInfo_Flit1Bits, %struct._header_field_info { ptr @.str.1383, ptr @.str.1384, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvErrorInfo_Flit2Bits, %struct._header_field_info { ptr @.str.1385, ptr @.str.1386, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvErrorInfo_reserved2, %struct._header_field_info { ptr @.str.237, ptr @.str.1387, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvErrorInfo_PacketBytes, %struct._header_field_info { ptr @.str.1388, ptr @.str.1389, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvErrorInfo_FlitBits, %struct._header_field_info { ptr @.str.1390, ptr @.str.1391, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvErrorInfo_reserved3, %struct._header_field_info { ptr @.str.1392, ptr @.str.1393, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvErrorInfo_reserved4, %struct._header_field_info { ptr @.str.1394, ptr @.str.1395, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_ExcessiveBufferOverrunErrorInfo_Status, %struct._header_field_info { ptr @.str.58, ptr @.str.1396, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_ExcessiveBufferOverrunErrorInfo_SC, %struct._header_field_info { ptr @.str.756, ptr @.str.1397, i32 4, i32 2, ptr null, i64 124, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_ExcessiveBufferOverrunErrorInfo_reserved, %struct._header_field_info { ptr @.str.379, ptr @.str.1398, i32 4, i32 2, ptr null, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortXmitConstraintErrorInfo_Status, %struct._header_field_info { ptr @.str.58, ptr @.str.1399, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortXmitConstraintErrorInfo_reserved, %struct._header_field_info { ptr @.str.583, ptr @.str.1400, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortXmitConstraintErrorInfo_P_Key, %struct._header_field_info { ptr @.str.325, ptr @.str.1401, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortXmitConstraintErrorInfo_SLID, %struct._header_field_info { ptr @.str.878, ptr @.str.1402, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvConstraintErrorInfo_Status, %struct._header_field_info { ptr @.str.58, ptr @.str.1403, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvConstraintErrorInfo_reserved, %struct._header_field_info { ptr @.str.583, ptr @.str.1404, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvConstraintErrorInfo_P_Key, %struct._header_field_info { ptr @.str.325, ptr @.str.1405, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvConstraintErrorInfo_SLID, %struct._header_field_info { ptr @.str.878, ptr @.str.1406, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvSwitchRelayErrorInfo_Status, %struct._header_field_info { ptr @.str.58, ptr @.str.1407, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvSwitchRelayErrorInfo_reserved, %struct._header_field_info { ptr @.str.270, ptr @.str.1408, i32 4, i32 2, ptr null, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvSwitchRelayErrorInfo_ErrorCode, %struct._header_field_info { ptr @.str.1377, ptr @.str.1409, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvSwitchRelayErrorInfo_DLID, %struct._header_field_info { ptr @.str.880, ptr @.str.1410, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvSwitchRelayErrorInfo_EgressPortNum, %struct._header_field_info { ptr @.str.1411, ptr @.str.1412, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_PortRcvSwitchRelayErrorInfo_SC, %struct._header_field_info { ptr @.str.756, ptr @.str.1413, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_UncorrectableErrorInfo_Status, %struct._header_field_info { ptr @.str.58, ptr @.str.1414, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_UncorrectableErrorInfo_reserved, %struct._header_field_info { ptr @.str.270, ptr @.str.1415, i32 4, i32 2, ptr null, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_UncorrectableErrorInfo_ErrorCode, %struct._header_field_info { ptr @.str.1377, ptr @.str.1416, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_FMConfigErrorInfo_Status, %struct._header_field_info { ptr @.str.58, ptr @.str.1417, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_FMConfigErrorInfo_reserved, %struct._header_field_info { ptr @.str.270, ptr @.str.1418, i32 4, i32 2, ptr null, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_FMConfigErrorInfo_ErrorCode, %struct._header_field_info { ptr @.str.1377, ptr @.str.1419, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_FMConfigErrorInfo_VL, %struct._header_field_info { ptr @.str.651, ptr @.str.1420, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_FMConfigErrorInfo_Distance, %struct._header_field_info { ptr @.str.1421, ptr @.str.1422, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_FMConfigErrorInfo_BadFlitBits, %struct._header_field_info { ptr @.str.1423, ptr @.str.1424, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ErrorPortInfo_FMConfigErrorInfo_SC, %struct._header_field_info { ptr @.str.756, ptr @.str.1425, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ImageID_imageNumber, %struct._header_field_info { ptr @.str.1426, ptr @.str.1427, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ImageID_imageOffset, %struct._header_field_info { ptr @.str.1428, ptr @.str.1429, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupList, %struct._header_field_info { ptr @.str.1430, ptr @.str.1431, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupList_groupName, %struct._header_field_info { ptr @.str.1432, ptr @.str.1433, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo, %struct._header_field_info { ptr @.str.1434, ptr @.str.1435, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_groupName, %struct._header_field_info { ptr @.str.1432, ptr @.str.1436, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_numInternalPorts, %struct._header_field_info { ptr @.str.1437, ptr @.str.1438, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_numExternalPorts, %struct._header_field_info { ptr @.str.1439, ptr @.str.1440, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_totalMBps, %struct._header_field_info { ptr @.str.1441, ptr @.str.1442, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_totalKPps, %struct._header_field_info { ptr @.str.1443, ptr @.str.1444, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_avgMBps, %struct._header_field_info { ptr @.str.1445, ptr @.str.1446, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_minMBps, %struct._header_field_info { ptr @.str.1447, ptr @.str.1448, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_maxMBps, %struct._header_field_info { ptr @.str.1449, ptr @.str.1450, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_numBWBuckets, %struct._header_field_info { ptr @.str.1451, ptr @.str.1452, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_BWBuckets, %struct._header_field_info { ptr @.str.1453, ptr @.str.1454, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_avgKPps, %struct._header_field_info { ptr @.str.1455, ptr @.str.1456, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_minKPps, %struct._header_field_info { ptr @.str.1457, ptr @.str.1458, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_maxKPps, %struct._header_field_info { ptr @.str.1459, ptr @.str.1460, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_pmaFailedPorts, %struct._header_field_info { ptr @.str.1461, ptr @.str.1462, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_topoFailedPorts, %struct._header_field_info { ptr @.str.1463, ptr @.str.1464, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_integrityErrors, %struct._header_field_info { ptr @.str.1465, ptr @.str.1466, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_congestionErrors, %struct._header_field_info { ptr @.str.1467, ptr @.str.1468, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_smaCongestionErrors, %struct._header_field_info { ptr @.str.1469, ptr @.str.1470, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_bubbleErrors, %struct._header_field_info { ptr @.str.1471, ptr @.str.1472, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_securityErrors, %struct._header_field_info { ptr @.str.1473, ptr @.str.1474, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_routingErrors, %struct._header_field_info { ptr @.str.1475, ptr @.str.1476, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_utilizationPct10, %struct._header_field_info { ptr @.str.1477, ptr @.str.1478, i32 5, i32 6, ptr @cf_opa_mad_computed_pct10, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_discardsPct10, %struct._header_field_info { ptr @.str.1479, ptr @.str.1480, i32 5, i32 6, ptr @cf_opa_mad_computed_pct10, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_maxInternalRate, %struct._header_field_info { ptr @.str.1481, ptr @.str.1482, i32 4, i32 2, ptr @Rate, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_minInternalRate, %struct._header_field_info { ptr @.str.1483, ptr @.str.1484, i32 4, i32 2, ptr @Rate, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_maxExternalRate, %struct._header_field_info { ptr @.str.1485, ptr @.str.1486, i32 4, i32 2, ptr @Rate, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_minExternalRate, %struct._header_field_info { ptr @.str.1487, ptr @.str.1488, i32 4, i32 2, ptr @Rate, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_maxInternalMBps, %struct._header_field_info { ptr @.str.1489, ptr @.str.1490, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupInfo_maxExternalMBps, %struct._header_field_info { ptr @.str.1491, ptr @.str.1492, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupConfig, %struct._header_field_info { ptr @.str.1493, ptr @.str.1494, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupConfig_groupName, %struct._header_field_info { ptr @.str.1432, ptr @.str.1495, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupConfig_Port_NodeGUID, %struct._header_field_info { ptr @.str.1496, ptr @.str.1497, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupConfig_Port_nodeDesc, %struct._header_field_info { ptr @.str.1498, ptr @.str.1499, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupConfig_Port_NodeLID, %struct._header_field_info { ptr @.str.1500, ptr @.str.1501, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetGroupConfig_Port_PortNumber, %struct._header_field_info { ptr @.str.1303, ptr @.str.1502, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters, %struct._header_field_info { ptr @.str.1503, ptr @.str.1504, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_nodeLID, %struct._header_field_info { ptr @.str.1505, ptr @.str.1506, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortNumber, %struct._header_field_info { ptr @.str.1303, ptr @.str.1507, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_flags, %struct._header_field_info { ptr @.str.1508, ptr @.str.1509, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortXmitData, %struct._header_field_info { ptr @.str.1173, ptr @.str.1510, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortRcvData, %struct._header_field_info { ptr @.str.1175, ptr @.str.1511, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortXmitPkts, %struct._header_field_info { ptr @.str.1177, ptr @.str.1512, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortRcvPkts, %struct._header_field_info { ptr @.str.1179, ptr @.str.1513, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortMulticastXmitPkts, %struct._header_field_info { ptr @.str.1181, ptr @.str.1514, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortMulticastRcvPkts, %struct._header_field_info { ptr @.str.1183, ptr @.str.1515, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_LocalLinkIntegrityErrors, %struct._header_field_info { ptr @.str.1213, ptr @.str.1516, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_FMConfigErrors, %struct._header_field_info { ptr @.str.1219, ptr @.str.1517, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortRcvErrors, %struct._header_field_info { ptr @.str.1215, ptr @.str.1518, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_ExcessiveBufferOverruns, %struct._header_field_info { ptr @.str.1217, ptr @.str.1519, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortRcvConstraintErrors, %struct._header_field_info { ptr @.str.1203, ptr @.str.1520, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortRcvSwitchRelayErrors, %struct._header_field_info { ptr @.str.1205, ptr @.str.1521, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortXmitDiscards, %struct._header_field_info { ptr @.str.1207, ptr @.str.1522, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortXmitConstraintErrors, %struct._header_field_info { ptr @.str.1209, ptr @.str.1523, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortRcvRemotePhysicalErrors, %struct._header_field_info { ptr @.str.1211, ptr @.str.1524, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_SwPortCongestion, %struct._header_field_info { ptr @.str.1187, ptr @.str.1525, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortXmitWait, %struct._header_field_info { ptr @.str.1185, ptr @.str.1526, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortRcvFECN, %struct._header_field_info { ptr @.str.1189, ptr @.str.1527, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortRcvBECN, %struct._header_field_info { ptr @.str.1191, ptr @.str.1528, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortXmitTimeCong, %struct._header_field_info { ptr @.str.1193, ptr @.str.1529, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortXmitWastedBW, %struct._header_field_info { ptr @.str.1195, ptr @.str.1530, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortXmitWaitData, %struct._header_field_info { ptr @.str.1197, ptr @.str.1531, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortRcvBubble, %struct._header_field_info { ptr @.str.1199, ptr @.str.1532, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_PortMarkFECN, %struct._header_field_info { ptr @.str.1201, ptr @.str.1533, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_LinkErrorRecovery, %struct._header_field_info { ptr @.str.1221, ptr @.str.1534, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_LinkDowned, %struct._header_field_info { ptr @.str.1223, ptr @.str.1535, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_UncorrectableErrors, %struct._header_field_info { ptr @.str.1225, ptr @.str.1536, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_NumLanesDown, %struct._header_field_info { ptr @.str.1537, ptr @.str.1538, i32 4, i32 1, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_reserved, %struct._header_field_info { ptr @.str.1227, ptr @.str.1539, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetPortCounters_LinkQualityIndicator, %struct._header_field_info { ptr @.str.1229, ptr @.str.1540, i32 4, i32 1, ptr @LinkQualityIndicator, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters, %struct._header_field_info { ptr @.str.1541, ptr @.str.1542, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_nodeLID, %struct._header_field_info { ptr @.str.1505, ptr @.str.1543, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortNumber, %struct._header_field_info { ptr @.str.1303, ptr @.str.1544, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_CounterSelectMask, %struct._header_field_info { ptr @.str.1263, ptr @.str.1545, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortXmitData, %struct._header_field_info { ptr @.str.1173, ptr @.str.1546, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortRcvData, %struct._header_field_info { ptr @.str.1175, ptr @.str.1547, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 1073741824, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortXmitPkts, %struct._header_field_info { ptr @.str.1177, ptr @.str.1548, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortRcvPkts, %struct._header_field_info { ptr @.str.1179, ptr @.str.1549, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortMulticastXmitPkts, %struct._header_field_info { ptr @.str.1181, ptr @.str.1550, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortMulticastRcvPkts, %struct._header_field_info { ptr @.str.1183, ptr @.str.1551, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortXmitWait, %struct._header_field_info { ptr @.str.1185, ptr @.str.1552, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_SwPortCongestion, %struct._header_field_info { ptr @.str.1187, ptr @.str.1553, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortRcvFECN, %struct._header_field_info { ptr @.str.1189, ptr @.str.1554, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortRcvBECN, %struct._header_field_info { ptr @.str.1191, ptr @.str.1555, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortXmitTimeCong, %struct._header_field_info { ptr @.str.1193, ptr @.str.1556, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortXmitWastedBW, %struct._header_field_info { ptr @.str.1195, ptr @.str.1557, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortXmitWaitData, %struct._header_field_info { ptr @.str.1197, ptr @.str.1558, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortRcvBubble, %struct._header_field_info { ptr @.str.1199, ptr @.str.1559, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortMarkFECN, %struct._header_field_info { ptr @.str.1201, ptr @.str.1560, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortRcvConstraintErrors, %struct._header_field_info { ptr @.str.1203, ptr @.str.1561, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortRcvSwitchRelayErrors, %struct._header_field_info { ptr @.str.1205, ptr @.str.1562, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortXmitDiscards, %struct._header_field_info { ptr @.str.1207, ptr @.str.1563, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortXmitConstraintErrors, %struct._header_field_info { ptr @.str.1209, ptr @.str.1564, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortRcvRemotePhysicalErrors, %struct._header_field_info { ptr @.str.1211, ptr @.str.1565, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_LocalLinkIntegrityErrors, %struct._header_field_info { ptr @.str.1213, ptr @.str.1566, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_PortRcvErrors, %struct._header_field_info { ptr @.str.1215, ptr @.str.1567, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_ExcessiveBufferOverruns, %struct._header_field_info { ptr @.str.1217, ptr @.str.1568, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_FMConfigErrors, %struct._header_field_info { ptr @.str.1219, ptr @.str.1569, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_LinkErrorRecovery, %struct._header_field_info { ptr @.str.1221, ptr @.str.1570, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_LinkDowned, %struct._header_field_info { ptr @.str.1223, ptr @.str.1571, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_UncorrectableErrors, %struct._header_field_info { ptr @.str.1225, ptr @.str.1572, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearPortCounters_reserved, %struct._header_field_info { ptr @.str.1292, ptr @.str.1573, i32 7, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters, %struct._header_field_info { ptr @.str.1574, ptr @.str.1575, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_CounterSelectMask, %struct._header_field_info { ptr @.str.1263, ptr @.str.1576, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortXmitData, %struct._header_field_info { ptr @.str.1173, ptr @.str.1577, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortRcvData, %struct._header_field_info { ptr @.str.1175, ptr @.str.1578, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 1073741824, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortXmitPkts, %struct._header_field_info { ptr @.str.1177, ptr @.str.1579, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortRcvPkts, %struct._header_field_info { ptr @.str.1179, ptr @.str.1580, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortMulticastXmitPkts, %struct._header_field_info { ptr @.str.1181, ptr @.str.1581, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortMulticastRcvPkts, %struct._header_field_info { ptr @.str.1183, ptr @.str.1582, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortXmitWait, %struct._header_field_info { ptr @.str.1185, ptr @.str.1583, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_SwPortCongestion, %struct._header_field_info { ptr @.str.1187, ptr @.str.1584, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortRcvFECN, %struct._header_field_info { ptr @.str.1189, ptr @.str.1585, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortRcvBECN, %struct._header_field_info { ptr @.str.1191, ptr @.str.1586, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortXmitTimeCong, %struct._header_field_info { ptr @.str.1193, ptr @.str.1587, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortXmitWastedBW, %struct._header_field_info { ptr @.str.1195, ptr @.str.1588, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortXmitWaitData, %struct._header_field_info { ptr @.str.1197, ptr @.str.1589, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortRcvBubble, %struct._header_field_info { ptr @.str.1199, ptr @.str.1590, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortMarkFECN, %struct._header_field_info { ptr @.str.1201, ptr @.str.1591, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortRcvConstraintErrors, %struct._header_field_info { ptr @.str.1203, ptr @.str.1592, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortRcvSwitchRelayErrors, %struct._header_field_info { ptr @.str.1205, ptr @.str.1593, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortXmitDiscards, %struct._header_field_info { ptr @.str.1207, ptr @.str.1594, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortXmitConstraintErrors, %struct._header_field_info { ptr @.str.1209, ptr @.str.1595, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortRcvRemotePhysicalErrors, %struct._header_field_info { ptr @.str.1211, ptr @.str.1596, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_LocalLinkIntegrityErrors, %struct._header_field_info { ptr @.str.1213, ptr @.str.1597, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_PortRcvErrors, %struct._header_field_info { ptr @.str.1215, ptr @.str.1598, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_ExcessiveBufferOverruns, %struct._header_field_info { ptr @.str.1217, ptr @.str.1599, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_FMConfigErrors, %struct._header_field_info { ptr @.str.1219, ptr @.str.1600, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_LinkErrorRecovery, %struct._header_field_info { ptr @.str.1221, ptr @.str.1601, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_LinkDowned, %struct._header_field_info { ptr @.str.1223, ptr @.str.1602, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_UncorrectableErrors, %struct._header_field_info { ptr @.str.1225, ptr @.str.1603, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearAllPortCounters_reserved, %struct._header_field_info { ptr @.str.1292, ptr @.str.1604, i32 7, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig, %struct._header_field_info { ptr @.str.1605, ptr @.str.1606, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_sweepInterval, %struct._header_field_info { ptr @.str.1607, ptr @.str.1608, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_maxClients, %struct._header_field_info { ptr @.str.1609, ptr @.str.1610, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_sizeHistory, %struct._header_field_info { ptr @.str.1611, ptr @.str.1612, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_sizeFreeze, %struct._header_field_info { ptr @.str.1613, ptr @.str.1614, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_lease, %struct._header_field_info { ptr @.str.1615, ptr @.str.1616, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_pmFlags, %struct._header_field_info { ptr @.str.1617, ptr @.str.1618, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_PortXmitWait, %struct._header_field_info { ptr @.str.1185, ptr @.str.1619, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_SwPortCongestion, %struct._header_field_info { ptr @.str.1187, ptr @.str.1620, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_PortRcvFECN, %struct._header_field_info { ptr @.str.1189, ptr @.str.1621, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_PortRcvBECN, %struct._header_field_info { ptr @.str.1191, ptr @.str.1622, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_PortXmitTimeCong, %struct._header_field_info { ptr @.str.1193, ptr @.str.1623, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_PortMarkFECN, %struct._header_field_info { ptr @.str.1201, ptr @.str.1624, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_integrityErrors, %struct._header_field_info { ptr @.str.1465, ptr @.str.1625, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_congestionErrors, %struct._header_field_info { ptr @.str.1467, ptr @.str.1626, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_bubbleErrors, %struct._header_field_info { ptr @.str.1471, ptr @.str.1627, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_smaCongestionErrors, %struct._header_field_info { ptr @.str.1469, ptr @.str.1628, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_securityErrors, %struct._header_field_info { ptr @.str.1473, ptr @.str.1629, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_routingErrors, %struct._header_field_info { ptr @.str.1475, ptr @.str.1630, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_LocalLinkIntegrityErrors, %struct._header_field_info { ptr @.str.1213, ptr @.str.1631, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_PortRcvErrors, %struct._header_field_info { ptr @.str.1215, ptr @.str.1632, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_ExcessiveBufferOverrunErrors, %struct._header_field_info { ptr @.str.1633, ptr @.str.1634, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_LinkErrorRecovery, %struct._header_field_info { ptr @.str.1221, ptr @.str.1635, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_LinkDowned, %struct._header_field_info { ptr @.str.1223, ptr @.str.1636, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_UncorrectableErrors, %struct._header_field_info { ptr @.str.1225, ptr @.str.1637, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_FMConfigErrors, %struct._header_field_info { ptr @.str.1219, ptr @.str.1638, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_LinkQualityIndicator, %struct._header_field_info { ptr @.str.1229, ptr @.str.1639, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_LinkWidthDowngrade, %struct._header_field_info { ptr @.str.1640, ptr @.str.1641, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_memoryFootprint, %struct._header_field_info { ptr @.str.1642, ptr @.str.1643, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_maxAttempts, %struct._header_field_info { ptr @.str.1644, ptr @.str.1645, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_respTimeout, %struct._header_field_info { ptr @.str.1646, ptr @.str.1647, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_minRespTimeout, %struct._header_field_info { ptr @.str.1648, ptr @.str.1649, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_maxParallelNodes, %struct._header_field_info { ptr @.str.1650, ptr @.str.1651, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_pmaBatchSize, %struct._header_field_info { ptr @.str.1652, ptr @.str.1653, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_PMConfig_errorClear, %struct._header_field_info { ptr @.str.1654, ptr @.str.1655, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MoveFreezeFrame_old, %struct._header_field_info { ptr @.str.1656, ptr @.str.1657, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_MoveFreezeFrame_new, %struct._header_field_info { ptr @.str.1658, ptr @.str.1659, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts, %struct._header_field_info { ptr @.str.1660, ptr @.str.1661, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_groupName, %struct._header_field_info { ptr @.str.1432, ptr @.str.1662, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_select, %struct._header_field_info { ptr @.str.1663, ptr @.str.1664, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_start, %struct._header_field_info { ptr @.str.1665, ptr @.str.1666, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_range, %struct._header_field_info { ptr @.str.1667, ptr @.str.1668, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_nodeLID, %struct._header_field_info { ptr @.str.1505, ptr @.str.1669, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_portNumber, %struct._header_field_info { ptr @.str.1670, ptr @.str.1671, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_rate, %struct._header_field_info { ptr @.str.1672, ptr @.str.1673, i32 4, i32 2, ptr @Rate, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_mtu, %struct._header_field_info { ptr @.str.1674, ptr @.str.1675, i32 4, i32 2, ptr @MTU, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_localFlags, %struct._header_field_info { ptr @.str.1676, ptr @.str.1677, i32 4, i32 1, ptr @FocusPortFlags, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_neighborFlags, %struct._header_field_info { ptr @.str.1678, ptr @.str.1679, i32 4, i32 1, ptr @FocusPortFlags, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_value, %struct._header_field_info { ptr @.str.1680, ptr @.str.1681, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_nodeGUID, %struct._header_field_info { ptr @.str.1682, ptr @.str.1683, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_nodeDesc, %struct._header_field_info { ptr @.str.1498, ptr @.str.1684, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_neighborLid, %struct._header_field_info { ptr @.str.1685, ptr @.str.1686, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_neighborPortNumber, %struct._header_field_info { ptr @.str.1687, ptr @.str.1688, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_neighborValue, %struct._header_field_info { ptr @.str.1689, ptr @.str.1690, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_neighborGuid, %struct._header_field_info { ptr @.str.1691, ptr @.str.1692, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetFocusPorts_neighborNodeDesc, %struct._header_field_info { ptr @.str.1693, ptr @.str.1694, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo, %struct._header_field_info { ptr @.str.1695, ptr @.str.1696, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_sweepStart, %struct._header_field_info { ptr @.str.1697, ptr @.str.1698, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_sweepDuration, %struct._header_field_info { ptr @.str.1699, ptr @.str.1700, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_numHFIPorts, %struct._header_field_info { ptr @.str.1701, ptr @.str.1702, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_numSwitchNodes, %struct._header_field_info { ptr @.str.1703, ptr @.str.1704, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_numSwitchPorts, %struct._header_field_info { ptr @.str.1705, ptr @.str.1706, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_numLinks, %struct._header_field_info { ptr @.str.1707, ptr @.str.1708, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_numSMs, %struct._header_field_info { ptr @.str.1709, ptr @.str.1710, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_numFailedNodes, %struct._header_field_info { ptr @.str.1711, ptr @.str.1712, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_numFailedPorts, %struct._header_field_info { ptr @.str.1713, ptr @.str.1714, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_numSkippedNodes, %struct._header_field_info { ptr @.str.1715, ptr @.str.1716, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_numSkippedPorts, %struct._header_field_info { ptr @.str.1717, ptr @.str.1718, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_numUnexpectedClearPorts, %struct._header_field_info { ptr @.str.1719, ptr @.str.1720, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_imageInterval, %struct._header_field_info { ptr @.str.1721, ptr @.str.1722, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_lid, %struct._header_field_info { ptr @.str.1723, ptr @.str.1724, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_state, %struct._header_field_info { ptr @.str.1725, ptr @.str.1726, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_priority, %struct._header_field_info { ptr @.str.1727, ptr @.str.1728, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_portNumber, %struct._header_field_info { ptr @.str.1670, ptr @.str.1729, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_smPortGuid, %struct._header_field_info { ptr @.str.1730, ptr @.str.1731, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetImageInfo_smNodeDesc, %struct._header_field_info { ptr @.str.1498, ptr @.str.1732, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFList, %struct._header_field_info { ptr @.str.1733, ptr @.str.1734, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFList_vfName, %struct._header_field_info { ptr @.str.1735, ptr @.str.1736, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo, %struct._header_field_info { ptr @.str.1737, ptr @.str.1738, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_vfName, %struct._header_field_info { ptr @.str.1735, ptr @.str.1739, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_numPorts, %struct._header_field_info { ptr @.str.1740, ptr @.str.1741, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_totalMBps, %struct._header_field_info { ptr @.str.1441, ptr @.str.1742, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_totalKPps, %struct._header_field_info { ptr @.str.1443, ptr @.str.1743, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_avgMBps, %struct._header_field_info { ptr @.str.1445, ptr @.str.1744, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_minMBps, %struct._header_field_info { ptr @.str.1447, ptr @.str.1745, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_maxMBps, %struct._header_field_info { ptr @.str.1449, ptr @.str.1746, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_numBWBuckets, %struct._header_field_info { ptr @.str.1451, ptr @.str.1747, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_BWBuckets, %struct._header_field_info { ptr @.str.1453, ptr @.str.1748, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_avgKPps, %struct._header_field_info { ptr @.str.1455, ptr @.str.1749, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_minKPps, %struct._header_field_info { ptr @.str.1457, ptr @.str.1750, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_maxKPps, %struct._header_field_info { ptr @.str.1459, ptr @.str.1751, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_pmaFailedPorts, %struct._header_field_info { ptr @.str.1461, ptr @.str.1752, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_topoFailedPorts, %struct._header_field_info { ptr @.str.1463, ptr @.str.1753, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_integrityErrors, %struct._header_field_info { ptr @.str.1465, ptr @.str.1754, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_congestionErrors, %struct._header_field_info { ptr @.str.1467, ptr @.str.1755, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_smaCongestionErrors, %struct._header_field_info { ptr @.str.1469, ptr @.str.1756, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_bubbleErrors, %struct._header_field_info { ptr @.str.1471, ptr @.str.1757, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_securityErrors, %struct._header_field_info { ptr @.str.1473, ptr @.str.1758, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_routingErrors, %struct._header_field_info { ptr @.str.1475, ptr @.str.1759, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_utilizationPct10, %struct._header_field_info { ptr @.str.1477, ptr @.str.1760, i32 5, i32 6, ptr @cf_opa_mad_computed_pct10, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_discardsPct10, %struct._header_field_info { ptr @.str.1479, ptr @.str.1761, i32 5, i32 6, ptr @cf_opa_mad_computed_pct10, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_maxInternalRate, %struct._header_field_info { ptr @.str.1481, ptr @.str.1762, i32 4, i32 2, ptr @Rate, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_minInternalRate, %struct._header_field_info { ptr @.str.1483, ptr @.str.1763, i32 4, i32 2, ptr @Rate, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFInfo_maxInternalMBps, %struct._header_field_info { ptr @.str.1489, ptr @.str.1764, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFConfig, %struct._header_field_info { ptr @.str.1765, ptr @.str.1766, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFConfig_vfName, %struct._header_field_info { ptr @.str.1735, ptr @.str.1767, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFConfig_Port_NodeGUID, %struct._header_field_info { ptr @.str.1496, ptr @.str.1768, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFConfig_Port_nodeDesc, %struct._header_field_info { ptr @.str.1498, ptr @.str.1769, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFConfig_Port_NodeLID, %struct._header_field_info { ptr @.str.1500, ptr @.str.1770, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFConfig_Port_PortNumber, %struct._header_field_info { ptr @.str.1303, ptr @.str.1771, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters, %struct._header_field_info { ptr @.str.1772, ptr @.str.1773, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_vfName, %struct._header_field_info { ptr @.str.1735, ptr @.str.1774, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_nodeLID, %struct._header_field_info { ptr @.str.1505, ptr @.str.1775, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortNumber, %struct._header_field_info { ptr @.str.1303, ptr @.str.1776, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_flags, %struct._header_field_info { ptr @.str.1508, ptr @.str.1777, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortVFXmitData, %struct._header_field_info { ptr @.str.1778, ptr @.str.1779, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortVFRcvData, %struct._header_field_info { ptr @.str.1780, ptr @.str.1781, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortVFXmitPkts, %struct._header_field_info { ptr @.str.1782, ptr @.str.1783, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortVFRcvPkts, %struct._header_field_info { ptr @.str.1784, ptr @.str.1785, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortVFXmitDiscards, %struct._header_field_info { ptr @.str.1786, ptr @.str.1787, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_SwPortVFCongestion, %struct._header_field_info { ptr @.str.1187, ptr @.str.1788, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortVFXmitWait, %struct._header_field_info { ptr @.str.1789, ptr @.str.1790, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortVFRcvFECN, %struct._header_field_info { ptr @.str.1791, ptr @.str.1792, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortVFRcvBECN, %struct._header_field_info { ptr @.str.1793, ptr @.str.1794, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortVFXmitTimeCong, %struct._header_field_info { ptr @.str.1795, ptr @.str.1796, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortVFXmitWastedBW, %struct._header_field_info { ptr @.str.1797, ptr @.str.1798, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortVFXmitWaitData, %struct._header_field_info { ptr @.str.1799, ptr @.str.1800, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortVFRcvBubble, %struct._header_field_info { ptr @.str.1801, ptr @.str.1802, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFPortCounters_PortVFMarkFECN, %struct._header_field_info { ptr @.str.1803, ptr @.str.1804, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters, %struct._header_field_info { ptr @.str.1805, ptr @.str.1806, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_vfName, %struct._header_field_info { ptr @.str.1735, ptr @.str.1807, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_nodeLID, %struct._header_field_info { ptr @.str.1505, ptr @.str.1808, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortNumber, %struct._header_field_info { ptr @.str.1303, ptr @.str.1809, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_CounterSelectMask, %struct._header_field_info { ptr @.str.1263, ptr @.str.1810, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortVFXmitData, %struct._header_field_info { ptr @.str.1778, ptr @.str.1811, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortVFRcvData, %struct._header_field_info { ptr @.str.1780, ptr @.str.1812, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 1073741824, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortVFXmitPkts, %struct._header_field_info { ptr @.str.1782, ptr @.str.1813, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortVFRcvPkts, %struct._header_field_info { ptr @.str.1784, ptr @.str.1814, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortVFXmitDiscards, %struct._header_field_info { ptr @.str.1786, ptr @.str.1815, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_SwPortVFCongestion, %struct._header_field_info { ptr @.str.1816, ptr @.str.1817, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortVFXmitWait, %struct._header_field_info { ptr @.str.1789, ptr @.str.1818, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortVFRcvFECN, %struct._header_field_info { ptr @.str.1791, ptr @.str.1819, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortVFRcvBECN, %struct._header_field_info { ptr @.str.1793, ptr @.str.1820, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortVFXmitTimeCong, %struct._header_field_info { ptr @.str.1795, ptr @.str.1821, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortVFXmitWastedBW, %struct._header_field_info { ptr @.str.1797, ptr @.str.1822, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortVFXmitWaitData, %struct._header_field_info { ptr @.str.1799, ptr @.str.1823, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortVFRcvBubble, %struct._header_field_info { ptr @.str.1801, ptr @.str.1824, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_PortVFMarkFECN, %struct._header_field_info { ptr @.str.1803, ptr @.str.1825, i32 2, i32 32, ptr @tfs_clear_dont_clear, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_ClearVFPortCounters_reserved, %struct._header_field_info { ptr @.str.1227, ptr @.str.1826, i32 7, i32 2, ptr null, i64 262143, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts, %struct._header_field_info { ptr @.str.1827, ptr @.str.1828, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_vfName, %struct._header_field_info { ptr @.str.1735, ptr @.str.1829, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_select, %struct._header_field_info { ptr @.str.1663, ptr @.str.1830, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_start, %struct._header_field_info { ptr @.str.1665, ptr @.str.1831, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_range, %struct._header_field_info { ptr @.str.1667, ptr @.str.1832, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_nodeLID, %struct._header_field_info { ptr @.str.1505, ptr @.str.1833, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_portNumber, %struct._header_field_info { ptr @.str.1670, ptr @.str.1834, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_rate, %struct._header_field_info { ptr @.str.1672, ptr @.str.1835, i32 4, i32 2, ptr @Rate, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_mtu, %struct._header_field_info { ptr @.str.1674, ptr @.str.1836, i32 4, i32 2, ptr @MTU, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_localFlags, %struct._header_field_info { ptr @.str.1676, ptr @.str.1837, i32 4, i32 1, ptr @FocusPortFlags, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_neighborFlags, %struct._header_field_info { ptr @.str.1678, ptr @.str.1838, i32 4, i32 1, ptr @FocusPortFlags, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_value, %struct._header_field_info { ptr @.str.1680, ptr @.str.1839, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_nodeGUID, %struct._header_field_info { ptr @.str.1682, ptr @.str.1840, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_nodeDesc, %struct._header_field_info { ptr @.str.1498, ptr @.str.1841, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_neighborLid, %struct._header_field_info { ptr @.str.1685, ptr @.str.1842, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_neighborPortNumber, %struct._header_field_info { ptr @.str.1687, ptr @.str.1843, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_neighborValue, %struct._header_field_info { ptr @.str.1689, ptr @.str.1844, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_neighborGuid, %struct._header_field_info { ptr @.str.1691, ptr @.str.1845, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_GetVFFocusPorts_neighborNodeDesc, %struct._header_field_info { ptr @.str.1693, ptr @.str.1846, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord, %struct._header_field_info { ptr @.str.1847, ptr @.str.1848, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_vfIndex, %struct._header_field_info { ptr @.str.1849, ptr @.str.1850, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_pKey, %struct._header_field_info { ptr @.str.1851, ptr @.str.1852, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_vfName, %struct._header_field_info { ptr @.str.1735, ptr @.str.1853, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_MGID, %struct._header_field_info { ptr @.str.1854, ptr @.str.1855, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_SelectFlags, %struct._header_field_info { ptr @.str.1856, ptr @.str.1857, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_reserved, %struct._header_field_info { ptr @.str.419, ptr @.str.1858, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_SL, %struct._header_field_info { ptr @.str.268, ptr @.str.1859, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_MTUSpecified, %struct._header_field_info { ptr @.str.1860, ptr @.str.1861, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_reserved2, %struct._header_field_info { ptr @.str.419, ptr @.str.1862, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_MTU, %struct._header_field_info { ptr @.str.1032, ptr @.str.1863, i32 4, i32 2, ptr @MTU, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_RateSpecified, %struct._header_field_info { ptr @.str.1864, ptr @.str.1865, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_reserved4, %struct._header_field_info { ptr @.str.419, ptr @.str.1866, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_Rate, %struct._header_field_info { ptr @.str.1036, ptr @.str.1867, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_PktLifeSpecified, %struct._header_field_info { ptr @.str.1868, ptr @.str.1869, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_reserved5, %struct._header_field_info { ptr @.str.237, ptr @.str.1870, i32 4, i32 2, ptr null, i64 120, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_PktLifeTimeInc, %struct._header_field_info { ptr @.str.1040, ptr @.str.1871, i32 4, i32 2, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_OptionFlags, %struct._header_field_info { ptr @.str.1872, ptr @.str.1873, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_BandwidthPercent, %struct._header_field_info { ptr @.str.1874, ptr @.str.1875, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_reserved6, %struct._header_field_info { ptr @.str.583, ptr @.str.1876, i32 4, i32 2, ptr null, i64 254, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_Priority, %struct._header_field_info { ptr @.str.801, ptr @.str.1877, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_RoutingSLs, %struct._header_field_info { ptr @.str.1878, ptr @.str.1879, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_VFInfoRecord_reserved7, %struct._header_field_info { ptr @.str.1880, ptr @.str.1881, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_QuarantinedNodeRecord, %struct._header_field_info { ptr @.str.1882, ptr @.str.1883, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_QuarantinedNodeRecord_TrustedLid, %struct._header_field_info { ptr @.str.1884, ptr @.str.1885, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_QuarantinedNodeRecord_TrustedNodeGUID, %struct._header_field_info { ptr @.str.1886, ptr @.str.1887, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_QuarantinedNodeRecord_TrustedPortNum, %struct._header_field_info { ptr @.str.1888, ptr @.str.1889, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_QuarantinedNodeRecord_TrustedNeighborNodeGUID, %struct._header_field_info { ptr @.str.1890, ptr @.str.1891, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_QuarantinedNodeRecord_QuarantineReasons, %struct._header_field_info { ptr @.str.1892, ptr @.str.1893, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_QuarantinedNodeRecord_ExpectedNodeDesc, %struct._header_field_info { ptr @.str.1894, ptr @.str.1895, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_QuarantinedNodeRecord_ExpectedNodeGUID, %struct._header_field_info { ptr @.str.1896, ptr @.str.1897, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opa_QuarantinedNodeRecord_ExpectedPortGUID, %struct._header_field_info { ptr @.str.1898, ptr @.str.1899, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_opa_reserved64 = internal global i32 0, align 4
@@ -6419,151 +6418,145 @@ parse_NodeDescription.exit:                       ; preds = %.lr.ph5.i, %.lr.ph5
 define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct._MAD, align 8
   %6 = alloca %struct._RMPP, align 4
-  %7 = alloca %struct._SA_HEADER, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 360
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @proto_is_frame_protocol(ptr noundef %9, ptr noundef nonnull @.str.2248) #6
+  %7 = getelementptr inbounds i8, ptr %1, i64 360
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i32 @proto_is_frame_protocol(ptr noundef %8, ptr noundef nonnull @.str.2248) #6
   call fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
-  %11 = call fastcc i32 @parse_RMPP(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %6)
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %99, label %12
+  %10 = call fastcc i32 @parse_RMPP(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %6)
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %96, label %11
 
-12:                                               ; preds = %4
-  %13 = load i32, ptr %3, align 4
-  %14 = load i32, ptr @hf_opa_pa, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %2, i32 noundef %13, i32 noundef 20, i32 noundef 0) #6
-  %16 = load i32, ptr @ett_pa, align 4
-  %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #6
-  %18 = tail call i64 @tvb_get_ntoh64(ptr noundef %2, i32 noundef %13) #6
-  store i64 %18, ptr %7, align 8
-  %19 = load i32, ptr @hf_opa_pa_sm_key, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %19, ptr noundef %2, i32 noundef %13, i32 noundef 8, i32 noundef 0) #6
-  %21 = add i32 %13, 8
-  %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %21) #6
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
-  store i16 %22, ptr %23, align 8
-  %24 = load i32, ptr @hf_opa_pa_attribute_offset, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %24, ptr noundef %2, i32 noundef %21, i32 noundef 2, i32 noundef 0) #6
-  %26 = add i32 %13, 10
-  %27 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %26) #6
-  %28 = getelementptr inbounds i8, ptr %7, i64 10
-  store i16 %27, ptr %28, align 2
-  %29 = load i32, ptr @hf_opa_reserved16, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %29, ptr noundef %2, i32 noundef %26, i32 noundef 2, i32 noundef 0) #6
-  %31 = add i32 %13, 12
-  %32 = tail call i64 @tvb_get_ntoh64(ptr noundef %2, i32 noundef %31) #6
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
-  store i64 %32, ptr %33, align 8
-  %34 = load i32, ptr @hf_opa_pa_component_mask, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %34, ptr noundef %2, i32 noundef %31, i32 noundef 8, i32 noundef 0) #6
-  %36 = add i32 %13, 20
-  %37 = getelementptr inbounds i8, ptr %5, i64 3
-  %.val.i = load i8, ptr %37, align 1
-  %38 = zext i8 %.val.i to i32
-  %39 = tail call ptr @val_to_str_const(i32 noundef %38, ptr noundef nonnull @PA_Methods, ptr noundef nonnull @.str.2401) #6
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.2257, ptr noundef %39) #6
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
-  %41 = load ptr, ptr %40, align 8
-  tail call void @col_append_str(ptr noundef %41, i32 noundef 25, ptr noundef %39) #6
-  %42 = getelementptr inbounds i8, ptr %5, i64 16
-  %.val40.i = load i16, ptr %42, align 8
-  %43 = zext i16 %.val40.i to i32
-  %44 = tail call ptr @val_to_str_const(i32 noundef %43, ptr noundef nonnull @PA_Attributes, ptr noundef nonnull @.str.2407) #6
-  %45 = getelementptr i8, ptr %44, i64 11
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.2274, ptr noundef %45) #6
-  %46 = load ptr, ptr %40, align 8
-  tail call void @col_append_str(ptr noundef %46, i32 noundef 25, ptr noundef %45) #6
-  store i32 %36, ptr %3, align 4
-  %47 = load i32, ptr @pref_parse_on_mad_status_error, align 4
-  %48 = icmp eq i32 %47, 0
-  %49 = getelementptr inbounds i8, ptr %5, i64 4
-  %50 = load i16, ptr %49, align 4
-  %51 = icmp ne i16 %50, 0
-  %or.cond = select i1 %48, i1 %51, i1 false
-  %52 = getelementptr inbounds i8, ptr %6, i64 1
-  %53 = load i8, ptr %52, align 1
-  %54 = icmp eq i8 %53, 2
-  %or.cond7 = select i1 %or.cond, i1 true, i1 %54
-  br i1 %or.cond7, label %55, label %57
+11:                                               ; preds = %4
+  %12 = load i32, ptr %3, align 4
+  %13 = load i32, ptr @hf_opa_pa, align 4
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %13, ptr noundef %2, i32 noundef %12, i32 noundef 20, i32 noundef 0) #6
+  %15 = load i32, ptr @ett_pa, align 4
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #6
+  %17 = tail call i64 @tvb_get_ntoh64(ptr noundef %2, i32 noundef %12) #6
+  %18 = load i32, ptr @hf_opa_pa_sm_key, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %18, ptr noundef %2, i32 noundef %12, i32 noundef 8, i32 noundef 0) #6
+  %20 = add i32 %12, 8
+  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %20) #6
+  %22 = load i32, ptr @hf_opa_pa_attribute_offset, align 4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %22, ptr noundef %2, i32 noundef %20, i32 noundef 2, i32 noundef 0) #6
+  %24 = add i32 %12, 10
+  %25 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %24) #6
+  %26 = load i32, ptr @hf_opa_reserved16, align 4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %26, ptr noundef %2, i32 noundef %24, i32 noundef 2, i32 noundef 0) #6
+  %28 = add i32 %12, 12
+  %29 = tail call i64 @tvb_get_ntoh64(ptr noundef %2, i32 noundef %28) #6
+  %30 = load i32, ptr @hf_opa_pa_component_mask, align 4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %30, ptr noundef %2, i32 noundef %28, i32 noundef 8, i32 noundef 0) #6
+  %32 = add i32 %12, 20
+  %33 = getelementptr inbounds i8, ptr %5, i64 3
+  %.val.i = load i8, ptr %33, align 1
+  %34 = zext i8 %.val.i to i32
+  %35 = tail call ptr @val_to_str_const(i32 noundef %34, ptr noundef nonnull @PA_Methods, ptr noundef nonnull @.str.2401) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.2257, ptr noundef %35) #6
+  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8
+  tail call void @col_append_str(ptr noundef %37, i32 noundef 25, ptr noundef %35) #6
+  %38 = getelementptr inbounds i8, ptr %5, i64 16
+  %.val40.i = load i16, ptr %38, align 8
+  %39 = zext i16 %.val40.i to i32
+  %40 = tail call ptr @val_to_str_const(i32 noundef %39, ptr noundef nonnull @PA_Attributes, ptr noundef nonnull @.str.2407) #6
+  %41 = getelementptr i8, ptr %40, i64 11
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.2274, ptr noundef %41) #6
+  %42 = load ptr, ptr %36, align 8
+  tail call void @col_append_str(ptr noundef %42, i32 noundef 25, ptr noundef %41) #6
+  store i32 %32, ptr %3, align 4
+  %43 = load i32, ptr @pref_parse_on_mad_status_error, align 4
+  %44 = icmp eq i32 %43, 0
+  %45 = getelementptr inbounds i8, ptr %5, i64 4
+  %46 = load i16, ptr %45, align 4
+  %47 = icmp ne i16 %46, 0
+  %or.cond = select i1 %44, i1 %47, i1 false
+  %48 = getelementptr inbounds i8, ptr %6, i64 1
+  %49 = load i8, ptr %48, align 1
+  %50 = icmp eq i8 %49, 2
+  %or.cond7 = select i1 %or.cond, i1 true, i1 %50
+  br i1 %or.cond7, label %51, label %53
 
-55:                                               ; preds = %12
-  %56 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %36) #6
+51:                                               ; preds = %11
+  %52 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %32) #6
   br label %.sink.split
 
-57:                                               ; preds = %12
-  %58 = icmp eq i32 %10, 0
-  %59 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
-  %60 = icmp ne i32 %59, 0
-  %or.cond9 = select i1 %58, i1 %60, i1 false
-  br i1 %or.cond9, label %61, label %91
+53:                                               ; preds = %11
+  %54 = icmp eq i32 %9, 0
+  %55 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
+  %56 = icmp ne i32 %55, 0
+  %or.cond9 = select i1 %54, i1 %56, i1 false
+  br i1 %or.cond9, label %57, label %87
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %6, i64 2
-  %63 = load i8, ptr %62, align 2
-  %64 = zext i8 %63 to i32
-  %65 = and i32 %64, 1
-  %66 = icmp eq i32 %65, 0
-  %67 = icmp ne i8 %53, 1
-  %or.cond13.not61 = select i1 %66, i1 true, i1 %67
-  %68 = and i32 %64, 6
-  %or.cond57.not = icmp eq i32 %68, 6
-  %or.cond58 = or i1 %or.cond57.not, %or.cond13.not61
-  br i1 %or.cond58, label %91, label %69
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds i8, ptr %6, i64 2
+  %59 = load i8, ptr %58, align 2
+  %60 = zext i8 %59 to i32
+  %61 = and i32 %60, 1
+  %62 = icmp eq i32 %61, 0
+  %63 = icmp ne i8 %49, 1
+  %or.cond13.not63 = select i1 %62, i1 true, i1 %63
+  %64 = and i32 %60, 6
+  %or.cond57.not = icmp eq i32 %64, 6
+  %or.cond60 = or i1 %or.cond57.not, %or.cond13.not63
+  br i1 %or.cond60, label %87, label %65
 
-69:                                               ; preds = %61
-  %70 = getelementptr inbounds i8, ptr %5, i64 8
-  %71 = load i64, ptr %70, align 8
-  %72 = trunc i64 %71 to i32
-  %73 = getelementptr inbounds i8, ptr %6, i64 4
-  %74 = load i32, ptr %73, align 4
-  %75 = add i32 %74, -1
-  %76 = and i8 %63, 4
-  %.not54 = icmp eq i8 %76, 0
-  br i1 %.not54, label %81, label %77
+65:                                               ; preds = %57
+  %66 = getelementptr inbounds i8, ptr %5, i64 8
+  %67 = load i64, ptr %66, align 8
+  %68 = trunc i64 %67 to i32
+  %69 = getelementptr inbounds i8, ptr %6, i64 4
+  %70 = load i32, ptr %69, align 4
+  %71 = add i32 %70, -1
+  %72 = and i8 %59, 4
+  %.not54 = icmp eq i8 %72, 0
+  br i1 %.not54, label %77, label %73
 
-77:                                               ; preds = %69
-  %78 = getelementptr inbounds i8, ptr %6, i64 8
-  %79 = load i32, ptr %78, align 4
-  %80 = add i32 %79, -20
-  br label %83
+73:                                               ; preds = %65
+  %74 = getelementptr inbounds i8, ptr %6, i64 8
+  %75 = load i32, ptr %74, align 4
+  %76 = add i32 %75, -20
+  br label %79
 
-81:                                               ; preds = %69
-  %82 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %36) #6
-  br label %83
+77:                                               ; preds = %65
+  %78 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %32) #6
+  br label %79
 
-83:                                               ; preds = %81, %77
-  %84 = phi i32 [ %80, %77 ], [ %82, %81 ]
-  %85 = zext i1 %.not54 to i32
-  %86 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @opa_mad_rmpp_reassembly_table, ptr noundef %2, i32 noundef %36, ptr noundef nonnull %1, i32 noundef %72, ptr noundef null, i32 noundef %75, i32 noundef %84, i32 noundef %85) #6
-  %87 = load i32, ptr %3, align 4
-  %88 = tail call ptr @process_reassembled_data(ptr noundef %2, i32 noundef %87, ptr noundef nonnull %1, ptr noundef nonnull @.str.2338, ptr noundef %86, ptr noundef nonnull @opa_rmpp_frag_items, ptr noundef null, ptr noundef %0) #6
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %99, label %90
+79:                                               ; preds = %77, %73
+  %80 = phi i32 [ %76, %73 ], [ %78, %77 ]
+  %81 = zext i1 %.not54 to i32
+  %82 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @opa_mad_rmpp_reassembly_table, ptr noundef %2, i32 noundef %32, ptr noundef nonnull %1, i32 noundef %68, ptr noundef null, i32 noundef %71, i32 noundef %80, i32 noundef %81) #6
+  %83 = load i32, ptr %3, align 4
+  %84 = tail call ptr @process_reassembled_data(ptr noundef %2, i32 noundef %83, ptr noundef nonnull %1, ptr noundef nonnull @.str.2338, ptr noundef %82, ptr noundef nonnull @opa_rmpp_frag_items, ptr noundef null, ptr noundef %0) #6
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %96, label %86
 
-90:                                               ; preds = %83
+86:                                               ; preds = %79
   store i32 0, ptr %3, align 4
-  br label %91
+  br label %87
 
-91:                                               ; preds = %90, %61, %57
-  %.0 = phi ptr [ %88, %90 ], [ %2, %61 ], [ %2, %57 ]
-  %92 = call fastcc i32 @parse_PA_Attribute(ptr noundef %0, ptr noundef %.0, ptr noundef %3, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %.not56 = icmp eq i32 %92, 0
-  br i1 %.not56, label %93, label %99
+87:                                               ; preds = %86, %57, %53
+  %.0 = phi ptr [ %84, %86 ], [ %2, %57 ], [ %2, %53 ]
+  %88 = getelementptr inbounds i8, ptr %6, i64 4
+  %.val58 = load i32, ptr %88, align 4
+  %89 = call fastcc i32 @parse_PA_Attribute(ptr noundef %0, ptr noundef %.0, ptr noundef %3, ptr noundef %5, i8 %49, i32 %.val58, i16 %21)
+  %.not56 = icmp eq i32 %89, 0
+  br i1 %.not56, label %90, label %96
 
-93:                                               ; preds = %91
-  %94 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @ei_opa_mad_no_attribute_dissector, ptr noundef nonnull @.str.2251, i32 noundef %43) #6
-  %95 = load i32, ptr %3, align 4
-  %96 = tail call i32 @tvb_captured_length_remaining(ptr noundef %.0, i32 noundef %95) #6
+90:                                               ; preds = %87
+  %91 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @ei_opa_mad_no_attribute_dissector, ptr noundef nonnull @.str.2251, i32 noundef %39) #6
+  %92 = load i32, ptr %3, align 4
+  %93 = tail call i32 @tvb_captured_length_remaining(ptr noundef %.0, i32 noundef %92) #6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %55, %93
-  %.sink63 = phi i32 [ %96, %93 ], [ %56, %55 ]
-  %97 = load i32, ptr %3, align 4
-  %98 = add i32 %97, %.sink63
-  store i32 %98, ptr %3, align 4
-  br label %99
+.sink.split:                                      ; preds = %51, %90
+  %.sink65 = phi i32 [ %93, %90 ], [ %52, %51 ]
+  %94 = load i32, ptr %3, align 4
+  %95 = add i32 %94, %.sink65
+  store i32 %95, ptr %3, align 4
+  br label %96
 
-99:                                               ; preds = %.sink.split, %83, %4, %91
+96:                                               ; preds = %.sink.split, %79, %4, %87
   ret void
 }
 
@@ -10882,2176 +10875,2091 @@ define internal fastcc void @parse_InformInfo(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_PA_Attribute(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_PA_Attribute(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull readonly %3, i8 %.1.val, i32 %.4.val, i16 %.8.val) unnamed_addr #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = load i32, ptr %2, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
-  %12 = load i16, ptr %11, align 8
-  switch i16 %12, label %1624 [
-    i16 1, label %13
-    i16 160, label %15
-    i16 161, label %42
-    i16 162, label %407
-    i16 163, label %493
-    i16 164, label %629
-    i16 165, label %654
-    i16 166, label %664
-    i16 167, label %787
-    i16 168, label %798
-    i16 169, label %809
-    i16 170, label %820
-    i16 171, label %944
-    i16 172, label %1051
-    i16 173, label %1081
-    i16 174, label %1108
-    i16 175, label %1308
-    i16 176, label %1395
-    i16 177, label %1482
-    i16 178, label %1510
+  %8 = load i32, ptr %2, align 4
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = load i16, ptr %9, align 8
+  switch i16 %10, label %1551 [
+    i16 1, label %11
+    i16 160, label %13
+    i16 161, label %35
+    i16 162, label %392
+    i16 163, label %467
+    i16 164, label %603
+    i16 165, label %628
+    i16 166, label %638
+    i16 167, label %761
+    i16 168, label %772
+    i16 169, label %783
+    i16 170, label %794
+    i16 171, label %907
+    i16 172, label %1014
+    i16 173, label %1044
+    i16 174, label %1066
+    i16 175, label %1257
+    i16 176, label %1333
+    i16 177, label %1420
+    i16 178, label %1448
   ]
 
-13:                                               ; preds = %6
-  %14 = tail call fastcc i32 @parse_ClassPortInfo(ptr noundef %0, ptr noundef %1, i32 %10, ptr noundef %3)
+11:                                               ; preds = %4
+  %12 = tail call fastcc i32 @parse_ClassPortInfo(ptr noundef %0, ptr noundef %1, i32 %8, ptr noundef %3)
   br label %parse_GetGroupList.exit
 
-15:                                               ; preds = %6
-  %16 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %10) #6
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = load i16, ptr %17, align 8
-  %.not.i = icmp eq i16 %18, 0
-  br i1 %.not.i, label %23, label %19
+13:                                               ; preds = %4
+  %14 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %8) #6
+  %.not.i = icmp eq i16 %.8.val, 0
+  br i1 %.not.i, label %19, label %15
 
-19:                                               ; preds = %15
-  %20 = zext i16 %18 to i32
-  %21 = shl nuw nsw i32 %20, 3
-  %22 = udiv i32 %16, %21
-  br label %23
+15:                                               ; preds = %13
+  %16 = zext i16 %.8.val to i32
+  %17 = shl nuw nsw i32 %16, 3
+  %18 = udiv i32 %14, %17
+  br label %19
 
-23:                                               ; preds = %19, %15
-  %24 = phi i32 [ %22, %19 ], [ 0, %15 ]
-  %.not36.i = icmp eq ptr %0, null
-  br i1 %.not36.i, label %parse_GetGroupList.exit, label %25
+19:                                               ; preds = %15, %13
+  %20 = phi i32 [ %18, %15 ], [ 0, %13 ]
+  %.not36.i = icmp ne ptr %0, null
+  %.not37.i = icmp eq i8 %.1.val, 1
+  %or.cond = select i1 %.not36.i, i1 %.not37.i, i1 false
+  br i1 %or.cond, label %21, label %parse_GetGroupList.exit
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %4, i64 1
-  %27 = load i8, ptr %26, align 1
-  %.not37.i = icmp eq i8 %27, 1
-  br i1 %.not37.i, label %28, label %parse_GetGroupList.exit
-
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 3
-  %30 = load i8, ptr %29, align 1
-  switch i8 %30, label %parse_GetGroupList.exit [
-    i8 -127, label %31
-    i8 -110, label %31
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds i8, ptr %3, i64 3
+  %23 = load i8, ptr %22, align 1
+  switch i8 %23, label %parse_GetGroupList.exit [
+    i8 -127, label %24
+    i8 -110, label %24
   ]
 
-31:                                               ; preds = %28, %28
-  %32 = load i32, ptr @hf_opa_GetGroupList, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %32, ptr noundef %1, i32 noundef %10, i32 noundef %16, i32 noundef 0) #6
-  %34 = load i32, ptr @ett_getgrouplist, align 4
-  %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #6
-  %36 = load i32, ptr @hf_opa_GetGroupList, align 4
-  %37 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %35, i32 noundef %36, ptr noundef %1, i32 noundef %10, i32 noundef %16, ptr noundef nonnull @.str.2427, i32 noundef %24) #6
-  %.not42.i = icmp eq i32 %24, 0
+24:                                               ; preds = %21, %21
+  %25 = load i32, ptr @hf_opa_GetGroupList, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %25, ptr noundef %1, i32 noundef %8, i32 noundef %14, i32 noundef 0) #6
+  %27 = load i32, ptr @ett_getgrouplist, align 4
+  %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27) #6
+  %29 = load i32, ptr @hf_opa_GetGroupList, align 4
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %28, i32 noundef %29, ptr noundef %1, i32 noundef %8, i32 noundef %14, ptr noundef nonnull @.str.2427, i32 noundef %20) #6
+  %.not42.i = icmp eq i32 %20, 0
   br i1 %.not42.i, label %parse_GetGroupList.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %31, %.lr.ph.i
-  %.03141.i = phi i32 [ %40, %.lr.ph.i ], [ %10, %31 ]
-  %.03240.i = phi i32 [ %41, %.lr.ph.i ], [ 0, %31 ]
-  %38 = load i32, ptr @hf_opa_GetGroupList_groupName, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %38, ptr noundef %1, i32 noundef %.03141.i, i32 noundef 64, i32 noundef 0) #6
-  %40 = add i32 %.03141.i, 64
-  %41 = add nuw i32 %.03240.i, 1
-  tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %39, ptr noundef nonnull @.str.2303, i32 noundef %41) #6
-  %exitcond.not.i = icmp eq i32 %41, %24
+.lr.ph.i:                                         ; preds = %24, %.lr.ph.i
+  %.03141.i = phi i32 [ %33, %.lr.ph.i ], [ %8, %24 ]
+  %.03240.i = phi i32 [ %34, %.lr.ph.i ], [ 0, %24 ]
+  %31 = load i32, ptr @hf_opa_GetGroupList_groupName, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %31, ptr noundef %1, i32 noundef %.03141.i, i32 noundef 64, i32 noundef 0) #6
+  %33 = add i32 %.03141.i, 64
+  %34 = add nuw i32 %.03240.i, 1
+  tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %32, ptr noundef nonnull @.str.2303, i32 noundef %34) #6
+  %exitcond.not.i = icmp eq i32 %34, %20
   br i1 %exitcond.not.i, label %parse_GetGroupList.exit, label %.lr.ph.i, !llvm.loop !58
 
-42:                                               ; preds = %6
-  %43 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %10) #6
-  %44 = getelementptr inbounds i8, ptr %5, i64 8
-  %45 = load i16, ptr %44, align 8
-  %.not.i81 = icmp eq i16 %45, 0
-  br i1 %.not.i81, label %50, label %46
+35:                                               ; preds = %4
+  %36 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %8) #6
+  %.not.i81 = icmp eq i16 %.8.val, 0
+  br i1 %.not.i81, label %41, label %37
 
-46:                                               ; preds = %42
-  %47 = zext i16 %45 to i32
-  %48 = shl nuw nsw i32 %47, 3
-  %49 = udiv i32 %43, %48
-  br label %50
+37:                                               ; preds = %35
+  %38 = zext i16 %.8.val to i32
+  %39 = shl nuw nsw i32 %38, 3
+  %40 = udiv i32 %36, %39
+  br label %41
 
-50:                                               ; preds = %46, %42
-  %51 = phi i32 [ %49, %46 ], [ 0, %42 ]
+41:                                               ; preds = %37, %35
+  %42 = phi i32 [ %40, %37 ], [ 0, %35 ]
   %.not299.i = icmp eq ptr %0, null
-  br i1 %.not299.i, label %parse_GetGroupList.exit, label %52
+  br i1 %.not299.i, label %parse_GetGroupList.exit, label %43
 
-52:                                               ; preds = %50
-  %53 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
-  %.not300.i = icmp eq i32 %53, 0
-  br i1 %.not300.i, label %54, label %61
+43:                                               ; preds = %41
+  %44 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
+  %.not300.i = icmp ne i32 %44, 0
+  %45 = icmp ne i8 %.1.val, 1
+  %or.cond62.not80 = select i1 %.not300.i, i1 true, i1 %45
+  %.not301.i = icmp eq i32 %.4.val, 1
+  %or.cond63 = select i1 %or.cond62.not80, i1 true, i1 %.not301.i
+  br i1 %or.cond63, label %46, label %parse_GetGroupList.exit
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %4, i64 1
-  %56 = load i8, ptr %55, align 1
-  %57 = icmp eq i8 %56, 1
-  br i1 %57, label %58, label %61
-
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %4, i64 4
-  %60 = load i32, ptr %59, align 4
-  %.not301.i = icmp eq i32 %60, 1
-  br i1 %.not301.i, label %61, label %parse_GetGroupList.exit
-
-61:                                               ; preds = %58, %54, %52
-  %62 = getelementptr inbounds i8, ptr %3, i64 3
-  %63 = load i8, ptr %62, align 1
-  switch i8 %63, label %.preheader.i [
-    i8 1, label %64
-    i8 18, label %64
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %3, i64 3
+  %48 = load i8, ptr %47, align 1
+  switch i8 %48, label %.preheader.i [
+    i8 1, label %49
+    i8 18, label %49
   ]
 
-.preheader.i:                                     ; preds = %61
-  %.not439.i = icmp eq i32 %51, 0
+.preheader.i:                                     ; preds = %46
+  %.not439.i = icmp eq i32 %42, 0
   br i1 %.not439.i, label %parse_GetGroupList.exit, label %.lr.ph.i83
 
-64:                                               ; preds = %61, %61
-  %65 = load i32, ptr @hf_opa_GetGroupInfo, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %65, ptr noundef %1, i32 noundef %10, i32 noundef 80, i32 noundef 0) #6
-  %67 = tail call ptr @wmem_file_scope() #6
-  %68 = tail call ptr @tvb_get_string_enc(ptr noundef %67, ptr noundef %1, i32 noundef %10, i32 noundef 64, i32 noundef 0) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %66, ptr noundef nonnull @.str.2428, ptr noundef %68) #6
-  %69 = load i32, ptr @ett_getgroupinfo, align 4
-  %70 = tail call ptr @proto_item_add_subtree(ptr noundef %66, i32 noundef %69) #6
-  %71 = load i32, ptr @hf_opa_GetGroupInfo_groupName, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %71, ptr noundef %1, i32 noundef %10, i32 noundef 64, i32 noundef 0) #6
-  %73 = add i32 %10, 64
-  %.not.i.i = icmp eq ptr %70, null
-  br i1 %.not.i.i, label %parse_GetGroupList.exit, label %74
+49:                                               ; preds = %46, %46
+  %50 = load i32, ptr @hf_opa_GetGroupInfo, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %50, ptr noundef %1, i32 noundef %8, i32 noundef 80, i32 noundef 0) #6
+  %52 = tail call ptr @wmem_file_scope() #6
+  %53 = tail call ptr @tvb_get_string_enc(ptr noundef %52, ptr noundef %1, i32 noundef %8, i32 noundef 64, i32 noundef 0) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %51, ptr noundef nonnull @.str.2428, ptr noundef %53) #6
+  %54 = load i32, ptr @ett_getgroupinfo, align 4
+  %55 = tail call ptr @proto_item_add_subtree(ptr noundef %51, i32 noundef %54) #6
+  %56 = load i32, ptr @hf_opa_GetGroupInfo_groupName, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %1, i32 noundef %8, i32 noundef 64, i32 noundef 0) #6
+  %58 = add i32 %8, 64
+  %.not.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i, label %parse_GetGroupList.exit, label %59
 
-74:                                               ; preds = %64
-  %75 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %76 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %70, i32 noundef %75, ptr noundef %1, i32 noundef %73, i32 noundef 8, i32 noundef 0) #6
-  %77 = add i32 %10, 72
-  %78 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %70, i32 noundef %78, ptr noundef %1, i32 noundef %77, i32 noundef 4, i32 noundef 0) #6
-  %80 = add i32 %10, 76
-  %81 = load i32, ptr @hf_opa_reserved32, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %70, i32 noundef %81, ptr noundef %1, i32 noundef %80, i32 noundef 4, i32 noundef 0) #6
-  %83 = add i32 %10, 80
+59:                                               ; preds = %49
+  %60 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %55, i32 noundef %60, ptr noundef %1, i32 noundef %58, i32 noundef 8, i32 noundef 0) #6
+  %62 = add i32 %8, 72
+  %63 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %55, i32 noundef %63, ptr noundef %1, i32 noundef %62, i32 noundef 4, i32 noundef 0) #6
+  %65 = add i32 %8, 76
+  %66 = load i32, ptr @hf_opa_reserved32, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %55, i32 noundef %66, ptr noundef %1, i32 noundef %65, i32 noundef 4, i32 noundef 0) #6
+  %68 = add i32 %8, 80
   br label %parse_GetGroupList.exit
 
-.lr.ph.i83:                                       ; preds = %.preheader.i, %387
-  %.0294438.i = phi i32 [ %406, %387 ], [ 0, %.preheader.i ]
-  %.0422437.i = phi i32 [ %405, %387 ], [ %10, %.preheader.i ]
-  %84 = load i32, ptr @hf_opa_GetGroupInfo, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %84, ptr noundef %1, i32 noundef %.0422437.i, i32 noundef 80, i32 noundef 0) #6
-  %86 = tail call ptr @wmem_file_scope() #6
-  %87 = tail call ptr @tvb_get_string_enc(ptr noundef %86, ptr noundef %1, i32 noundef %.0422437.i, i32 noundef 64, i32 noundef 0) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %85, ptr noundef nonnull @.str.2428, ptr noundef %87) #6
-  %88 = load i32, ptr @ett_getgroupinfo, align 4
-  %89 = tail call ptr @proto_item_add_subtree(ptr noundef %85, i32 noundef %88) #6
-  %90 = load i32, ptr @hf_opa_GetGroupInfo_groupName, align 4
-  %91 = tail call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %90, ptr noundef %1, i32 noundef %.0422437.i, i32 noundef 64, i32 noundef 0) #6
-  %92 = add i32 %.0422437.i, 64
-  %.not.i303.i = icmp eq ptr %89, null
-  br i1 %.not.i303.i, label %parse_Image.exit305.i, label %93
+.lr.ph.i83:                                       ; preds = %.preheader.i, %372
+  %.0294438.i = phi i32 [ %391, %372 ], [ 0, %.preheader.i ]
+  %.0422437.i = phi i32 [ %390, %372 ], [ %8, %.preheader.i ]
+  %69 = load i32, ptr @hf_opa_GetGroupInfo, align 4
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %69, ptr noundef %1, i32 noundef %.0422437.i, i32 noundef 80, i32 noundef 0) #6
+  %71 = tail call ptr @wmem_file_scope() #6
+  %72 = tail call ptr @tvb_get_string_enc(ptr noundef %71, ptr noundef %1, i32 noundef %.0422437.i, i32 noundef 64, i32 noundef 0) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %70, ptr noundef nonnull @.str.2428, ptr noundef %72) #6
+  %73 = load i32, ptr @ett_getgroupinfo, align 4
+  %74 = tail call ptr @proto_item_add_subtree(ptr noundef %70, i32 noundef %73) #6
+  %75 = load i32, ptr @hf_opa_GetGroupInfo_groupName, align 4
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %1, i32 noundef %.0422437.i, i32 noundef 64, i32 noundef 0) #6
+  %77 = add i32 %.0422437.i, 64
+  %.not.i303.i = icmp eq ptr %74, null
+  br i1 %.not.i303.i, label %parse_Image.exit305.i, label %78
 
-93:                                               ; preds = %.lr.ph.i83
-  %94 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %95 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %89, i32 noundef %94, ptr noundef %1, i32 noundef %92, i32 noundef 8, i32 noundef 0) #6
-  %96 = add i32 %.0422437.i, 72
-  %97 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %89, i32 noundef %97, ptr noundef %1, i32 noundef %96, i32 noundef 4, i32 noundef 0) #6
-  %99 = add i32 %.0422437.i, 76
-  %100 = load i32, ptr @hf_opa_reserved32, align 4
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %89, i32 noundef %100, ptr noundef %1, i32 noundef %99, i32 noundef 4, i32 noundef 0) #6
-  %102 = add i32 %.0422437.i, 80
+78:                                               ; preds = %.lr.ph.i83
+  %79 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %74, i32 noundef %79, ptr noundef %1, i32 noundef %77, i32 noundef 8, i32 noundef 0) #6
+  %81 = add i32 %.0422437.i, 72
+  %82 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %74, i32 noundef %82, ptr noundef %1, i32 noundef %81, i32 noundef 4, i32 noundef 0) #6
+  %84 = add i32 %.0422437.i, 76
+  %85 = load i32, ptr @hf_opa_reserved32, align 4
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %74, i32 noundef %85, ptr noundef %1, i32 noundef %84, i32 noundef 4, i32 noundef 0) #6
+  %87 = add i32 %.0422437.i, 80
   br label %parse_Image.exit305.i
 
-parse_Image.exit305.i:                            ; preds = %93, %.lr.ph.i83
-  %.0.i304.i = phi i32 [ %102, %93 ], [ %92, %.lr.ph.i83 ]
-  %103 = load i32, ptr @hf_opa_GetGroupInfo_numInternalPorts, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %103, ptr noundef %1, i32 noundef %.0.i304.i, i32 noundef 4, i32 noundef 0) #6
-  %105 = add i32 %.0.i304.i, 4
-  %106 = load i32, ptr @hf_opa_GetGroupInfo_numExternalPorts, align 4
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %106, ptr noundef %1, i32 noundef %105, i32 noundef 4, i32 noundef 0) #6
-  %108 = add i32 %.0.i304.i, 8
-  %109 = load i32, ptr @ett_getgroupinfoutilstats, align 4
-  %110 = tail call ptr @proto_tree_add_subtree(ptr noundef %89, ptr noundef %1, i32 noundef %108, i32 noundef 88, i32 noundef %109, ptr noundef null, ptr noundef nonnull @.str.2429) #6
-  %111 = load i32, ptr @hf_opa_GetGroupInfo_totalMBps, align 4
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %111, ptr noundef %1, i32 noundef %108, i32 noundef 8, i32 noundef 0) #6
-  %113 = add i32 %.0.i304.i, 16
-  %114 = load i32, ptr @hf_opa_GetGroupInfo_totalKPps, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %114, ptr noundef %1, i32 noundef %113, i32 noundef 8, i32 noundef 0) #6
-  %116 = add i32 %.0.i304.i, 24
-  %117 = load i32, ptr @hf_opa_GetGroupInfo_avgMBps, align 4
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %117, ptr noundef %1, i32 noundef %116, i32 noundef 4, i32 noundef 0) #6
-  %119 = add i32 %.0.i304.i, 28
-  %120 = load i32, ptr @hf_opa_GetGroupInfo_minMBps, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %120, ptr noundef %1, i32 noundef %119, i32 noundef 4, i32 noundef 0) #6
-  %122 = add i32 %.0.i304.i, 32
-  %123 = load i32, ptr @hf_opa_GetGroupInfo_maxMBps, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %123, ptr noundef %1, i32 noundef %122, i32 noundef 4, i32 noundef 0) #6
-  %125 = add i32 %.0.i304.i, 36
-  %126 = load i32, ptr @hf_opa_GetGroupInfo_numBWBuckets, align 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %126, ptr noundef %1, i32 noundef %125, i32 noundef 4, i32 noundef 0) #6
-  %128 = add i32 %.0.i304.i, 40
-  %129 = load i32, ptr @ett_getgroupinfoutilbuckets, align 4
-  %130 = tail call ptr @proto_item_add_subtree(ptr noundef %127, i32 noundef %129) #6
-  br label %131
+parse_Image.exit305.i:                            ; preds = %78, %.lr.ph.i83
+  %.0.i304.i = phi i32 [ %87, %78 ], [ %77, %.lr.ph.i83 ]
+  %88 = load i32, ptr @hf_opa_GetGroupInfo_numInternalPorts, align 4
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %88, ptr noundef %1, i32 noundef %.0.i304.i, i32 noundef 4, i32 noundef 0) #6
+  %90 = add i32 %.0.i304.i, 4
+  %91 = load i32, ptr @hf_opa_GetGroupInfo_numExternalPorts, align 4
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %91, ptr noundef %1, i32 noundef %90, i32 noundef 4, i32 noundef 0) #6
+  %93 = add i32 %.0.i304.i, 8
+  %94 = load i32, ptr @ett_getgroupinfoutilstats, align 4
+  %95 = tail call ptr @proto_tree_add_subtree(ptr noundef %74, ptr noundef %1, i32 noundef %93, i32 noundef 88, i32 noundef %94, ptr noundef null, ptr noundef nonnull @.str.2429) #6
+  %96 = load i32, ptr @hf_opa_GetGroupInfo_totalMBps, align 4
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %96, ptr noundef %1, i32 noundef %93, i32 noundef 8, i32 noundef 0) #6
+  %98 = add i32 %.0.i304.i, 16
+  %99 = load i32, ptr @hf_opa_GetGroupInfo_totalKPps, align 4
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %99, ptr noundef %1, i32 noundef %98, i32 noundef 8, i32 noundef 0) #6
+  %101 = add i32 %.0.i304.i, 24
+  %102 = load i32, ptr @hf_opa_GetGroupInfo_avgMBps, align 4
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %102, ptr noundef %1, i32 noundef %101, i32 noundef 4, i32 noundef 0) #6
+  %104 = add i32 %.0.i304.i, 28
+  %105 = load i32, ptr @hf_opa_GetGroupInfo_minMBps, align 4
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %105, ptr noundef %1, i32 noundef %104, i32 noundef 4, i32 noundef 0) #6
+  %107 = add i32 %.0.i304.i, 32
+  %108 = load i32, ptr @hf_opa_GetGroupInfo_maxMBps, align 4
+  %109 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %108, ptr noundef %1, i32 noundef %107, i32 noundef 4, i32 noundef 0) #6
+  %110 = add i32 %.0.i304.i, 36
+  %111 = load i32, ptr @hf_opa_GetGroupInfo_numBWBuckets, align 4
+  %112 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %111, ptr noundef %1, i32 noundef %110, i32 noundef 4, i32 noundef 0) #6
+  %113 = add i32 %.0.i304.i, 40
+  %114 = load i32, ptr @ett_getgroupinfoutilbuckets, align 4
+  %115 = tail call ptr @proto_item_add_subtree(ptr noundef %112, i32 noundef %114) #6
+  br label %116
 
-131:                                              ; preds = %131, %parse_Image.exit305.i
-  %.0295428.i = phi i32 [ 0, %parse_Image.exit305.i ], [ %137, %131 ]
-  %.1423427.i = phi i32 [ %128, %parse_Image.exit305.i ], [ %136, %131 ]
-  %132 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %132, ptr noundef %1, i32 noundef %.1423427.i, i32 noundef 4, i32 noundef 0) #6
-  %134 = mul nuw nsw i32 %.0295428.i, 10
-  %135 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.1423427.i) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %133, ptr noundef nonnull @.str.2430, i32 noundef %.0295428.i, i32 noundef %134, i32 noundef %135) #6
-  %136 = add i32 %.1423427.i, 4
-  %137 = add nuw nsw i32 %.0295428.i, 1
-  %exitcond.not.i84 = icmp eq i32 %137, 10
-  br i1 %exitcond.not.i84, label %138, label %131, !llvm.loop !59
+116:                                              ; preds = %116, %parse_Image.exit305.i
+  %.0295428.i = phi i32 [ 0, %parse_Image.exit305.i ], [ %122, %116 ]
+  %.1423427.i = phi i32 [ %113, %parse_Image.exit305.i ], [ %121, %116 ]
+  %117 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %117, ptr noundef %1, i32 noundef %.1423427.i, i32 noundef 4, i32 noundef 0) #6
+  %119 = mul nuw nsw i32 %.0295428.i, 10
+  %120 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.1423427.i) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %118, ptr noundef nonnull @.str.2430, i32 noundef %.0295428.i, i32 noundef %119, i32 noundef %120) #6
+  %121 = add i32 %.1423427.i, 4
+  %122 = add nuw nsw i32 %.0295428.i, 1
+  %exitcond.not.i84 = icmp eq i32 %122, 10
+  br i1 %exitcond.not.i84, label %123, label %116, !llvm.loop !59
 
-138:                                              ; preds = %131
-  %139 = load i32, ptr @hf_opa_GetGroupInfo_avgKPps, align 4
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %139, ptr noundef %1, i32 noundef %136, i32 noundef 4, i32 noundef 0) #6
-  %141 = add i32 %.1423427.i, 8
-  %142 = load i32, ptr @hf_opa_GetGroupInfo_minKPps, align 4
-  %143 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %142, ptr noundef %1, i32 noundef %141, i32 noundef 4, i32 noundef 0) #6
-  %144 = add i32 %.1423427.i, 12
-  %145 = load i32, ptr @hf_opa_GetGroupInfo_maxKPps, align 4
-  %146 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %145, ptr noundef %1, i32 noundef %144, i32 noundef 4, i32 noundef 0) #6
-  %147 = add i32 %.1423427.i, 16
-  %148 = load i32, ptr @hf_opa_GetGroupInfo_pmaFailedPorts, align 4
-  %149 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %148, ptr noundef %1, i32 noundef %147, i32 noundef 2, i32 noundef 0) #6
-  %150 = add i32 %.1423427.i, 18
-  %151 = load i32, ptr @hf_opa_GetGroupInfo_topoFailedPorts, align 4
-  %152 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %151, ptr noundef %1, i32 noundef %150, i32 noundef 2, i32 noundef 0) #6
-  %153 = add i32 %.1423427.i, 20
-  %154 = load i32, ptr @ett_getgroupinfoutilstats, align 4
-  %155 = tail call ptr @proto_tree_add_subtree(ptr noundef %89, ptr noundef %1, i32 noundef %153, i32 noundef 88, i32 noundef %154, ptr noundef null, ptr noundef nonnull @.str.2431) #6
-  %156 = load i32, ptr @hf_opa_GetGroupInfo_totalMBps, align 4
-  %157 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %156, ptr noundef %1, i32 noundef %153, i32 noundef 8, i32 noundef 0) #6
-  %158 = add i32 %.1423427.i, 28
-  %159 = load i32, ptr @hf_opa_GetGroupInfo_totalKPps, align 4
-  %160 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %159, ptr noundef %1, i32 noundef %158, i32 noundef 8, i32 noundef 0) #6
-  %161 = add i32 %.1423427.i, 36
-  %162 = load i32, ptr @hf_opa_GetGroupInfo_avgMBps, align 4
-  %163 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %162, ptr noundef %1, i32 noundef %161, i32 noundef 4, i32 noundef 0) #6
-  %164 = add i32 %.1423427.i, 40
-  %165 = load i32, ptr @hf_opa_GetGroupInfo_minMBps, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %165, ptr noundef %1, i32 noundef %164, i32 noundef 4, i32 noundef 0) #6
-  %167 = add i32 %.1423427.i, 44
-  %168 = load i32, ptr @hf_opa_GetGroupInfo_maxMBps, align 4
-  %169 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %168, ptr noundef %1, i32 noundef %167, i32 noundef 4, i32 noundef 0) #6
-  %170 = add i32 %.1423427.i, 48
-  %171 = load i32, ptr @hf_opa_GetGroupInfo_numBWBuckets, align 4
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %171, ptr noundef %1, i32 noundef %170, i32 noundef 4, i32 noundef 0) #6
-  %173 = add i32 %.1423427.i, 52
-  %174 = load i32, ptr @ett_getgroupinfoutilbuckets, align 4
-  %175 = tail call ptr @proto_item_add_subtree(ptr noundef %172, i32 noundef %174) #6
-  br label %176
+123:                                              ; preds = %116
+  %124 = load i32, ptr @hf_opa_GetGroupInfo_avgKPps, align 4
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %124, ptr noundef %1, i32 noundef %121, i32 noundef 4, i32 noundef 0) #6
+  %126 = add i32 %.1423427.i, 8
+  %127 = load i32, ptr @hf_opa_GetGroupInfo_minKPps, align 4
+  %128 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %127, ptr noundef %1, i32 noundef %126, i32 noundef 4, i32 noundef 0) #6
+  %129 = add i32 %.1423427.i, 12
+  %130 = load i32, ptr @hf_opa_GetGroupInfo_maxKPps, align 4
+  %131 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %130, ptr noundef %1, i32 noundef %129, i32 noundef 4, i32 noundef 0) #6
+  %132 = add i32 %.1423427.i, 16
+  %133 = load i32, ptr @hf_opa_GetGroupInfo_pmaFailedPorts, align 4
+  %134 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %133, ptr noundef %1, i32 noundef %132, i32 noundef 2, i32 noundef 0) #6
+  %135 = add i32 %.1423427.i, 18
+  %136 = load i32, ptr @hf_opa_GetGroupInfo_topoFailedPorts, align 4
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %136, ptr noundef %1, i32 noundef %135, i32 noundef 2, i32 noundef 0) #6
+  %138 = add i32 %.1423427.i, 20
+  %139 = load i32, ptr @ett_getgroupinfoutilstats, align 4
+  %140 = tail call ptr @proto_tree_add_subtree(ptr noundef %74, ptr noundef %1, i32 noundef %138, i32 noundef 88, i32 noundef %139, ptr noundef null, ptr noundef nonnull @.str.2431) #6
+  %141 = load i32, ptr @hf_opa_GetGroupInfo_totalMBps, align 4
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %141, ptr noundef %1, i32 noundef %138, i32 noundef 8, i32 noundef 0) #6
+  %143 = add i32 %.1423427.i, 28
+  %144 = load i32, ptr @hf_opa_GetGroupInfo_totalKPps, align 4
+  %145 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %144, ptr noundef %1, i32 noundef %143, i32 noundef 8, i32 noundef 0) #6
+  %146 = add i32 %.1423427.i, 36
+  %147 = load i32, ptr @hf_opa_GetGroupInfo_avgMBps, align 4
+  %148 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %147, ptr noundef %1, i32 noundef %146, i32 noundef 4, i32 noundef 0) #6
+  %149 = add i32 %.1423427.i, 40
+  %150 = load i32, ptr @hf_opa_GetGroupInfo_minMBps, align 4
+  %151 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %150, ptr noundef %1, i32 noundef %149, i32 noundef 4, i32 noundef 0) #6
+  %152 = add i32 %.1423427.i, 44
+  %153 = load i32, ptr @hf_opa_GetGroupInfo_maxMBps, align 4
+  %154 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %153, ptr noundef %1, i32 noundef %152, i32 noundef 4, i32 noundef 0) #6
+  %155 = add i32 %.1423427.i, 48
+  %156 = load i32, ptr @hf_opa_GetGroupInfo_numBWBuckets, align 4
+  %157 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %156, ptr noundef %1, i32 noundef %155, i32 noundef 4, i32 noundef 0) #6
+  %158 = add i32 %.1423427.i, 52
+  %159 = load i32, ptr @ett_getgroupinfoutilbuckets, align 4
+  %160 = tail call ptr @proto_item_add_subtree(ptr noundef %157, i32 noundef %159) #6
+  br label %161
 
-176:                                              ; preds = %176, %138
-  %.1430.i = phi i32 [ 0, %138 ], [ %182, %176 ]
-  %.2424429.i = phi i32 [ %173, %138 ], [ %181, %176 ]
-  %177 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %177, ptr noundef %1, i32 noundef %.2424429.i, i32 noundef 4, i32 noundef 0) #6
-  %179 = mul nuw nsw i32 %.1430.i, 10
-  %180 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.2424429.i) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %178, ptr noundef nonnull @.str.2430, i32 noundef %.1430.i, i32 noundef %179, i32 noundef %180) #6
-  %181 = add i32 %.2424429.i, 4
-  %182 = add nuw nsw i32 %.1430.i, 1
-  %exitcond445.not.i = icmp eq i32 %182, 10
-  br i1 %exitcond445.not.i, label %183, label %176, !llvm.loop !60
+161:                                              ; preds = %161, %123
+  %.1430.i = phi i32 [ 0, %123 ], [ %167, %161 ]
+  %.2424429.i = phi i32 [ %158, %123 ], [ %166, %161 ]
+  %162 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %163 = tail call ptr @proto_tree_add_item(ptr noundef %160, i32 noundef %162, ptr noundef %1, i32 noundef %.2424429.i, i32 noundef 4, i32 noundef 0) #6
+  %164 = mul nuw nsw i32 %.1430.i, 10
+  %165 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.2424429.i) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %163, ptr noundef nonnull @.str.2430, i32 noundef %.1430.i, i32 noundef %164, i32 noundef %165) #6
+  %166 = add i32 %.2424429.i, 4
+  %167 = add nuw nsw i32 %.1430.i, 1
+  %exitcond445.not.i = icmp eq i32 %167, 10
+  br i1 %exitcond445.not.i, label %168, label %161, !llvm.loop !60
 
-183:                                              ; preds = %176
-  %184 = load i32, ptr @hf_opa_GetGroupInfo_avgKPps, align 4
-  %185 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %184, ptr noundef %1, i32 noundef %181, i32 noundef 4, i32 noundef 0) #6
-  %186 = add i32 %.2424429.i, 8
-  %187 = load i32, ptr @hf_opa_GetGroupInfo_minKPps, align 4
-  %188 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %187, ptr noundef %1, i32 noundef %186, i32 noundef 4, i32 noundef 0) #6
-  %189 = add i32 %.2424429.i, 12
-  %190 = load i32, ptr @hf_opa_GetGroupInfo_maxKPps, align 4
-  %191 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %190, ptr noundef %1, i32 noundef %189, i32 noundef 4, i32 noundef 0) #6
-  %192 = add i32 %.2424429.i, 16
-  %193 = load i32, ptr @hf_opa_GetGroupInfo_pmaFailedPorts, align 4
-  %194 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %193, ptr noundef %1, i32 noundef %192, i32 noundef 2, i32 noundef 0) #6
-  %195 = add i32 %.2424429.i, 18
-  %196 = load i32, ptr @hf_opa_GetGroupInfo_topoFailedPorts, align 4
-  %197 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %196, ptr noundef %1, i32 noundef %195, i32 noundef 2, i32 noundef 0) #6
-  %198 = add i32 %.2424429.i, 20
-  %199 = load i32, ptr @ett_getgroupinfoutilstats, align 4
-  %200 = tail call ptr @proto_tree_add_subtree(ptr noundef %89, ptr noundef %1, i32 noundef %198, i32 noundef 88, i32 noundef %199, ptr noundef null, ptr noundef nonnull @.str.2432) #6
-  %201 = load i32, ptr @hf_opa_GetGroupInfo_totalMBps, align 4
-  %202 = tail call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %201, ptr noundef %1, i32 noundef %198, i32 noundef 8, i32 noundef 0) #6
-  %203 = add i32 %.2424429.i, 28
-  %204 = load i32, ptr @hf_opa_GetGroupInfo_totalKPps, align 4
-  %205 = tail call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %204, ptr noundef %1, i32 noundef %203, i32 noundef 8, i32 noundef 0) #6
-  %206 = add i32 %.2424429.i, 36
-  %207 = load i32, ptr @hf_opa_GetGroupInfo_avgMBps, align 4
-  %208 = tail call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %207, ptr noundef %1, i32 noundef %206, i32 noundef 4, i32 noundef 0) #6
-  %209 = add i32 %.2424429.i, 40
-  %210 = load i32, ptr @hf_opa_GetGroupInfo_minMBps, align 4
-  %211 = tail call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %210, ptr noundef %1, i32 noundef %209, i32 noundef 4, i32 noundef 0) #6
-  %212 = add i32 %.2424429.i, 44
-  %213 = load i32, ptr @hf_opa_GetGroupInfo_maxMBps, align 4
-  %214 = tail call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %213, ptr noundef %1, i32 noundef %212, i32 noundef 4, i32 noundef 0) #6
-  %215 = add i32 %.2424429.i, 48
-  %216 = load i32, ptr @hf_opa_GetGroupInfo_numBWBuckets, align 4
-  %217 = tail call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %216, ptr noundef %1, i32 noundef %215, i32 noundef 4, i32 noundef 0) #6
-  %218 = add i32 %.2424429.i, 52
-  %219 = load i32, ptr @ett_getgroupinfoutilbuckets, align 4
-  %220 = tail call ptr @proto_item_add_subtree(ptr noundef %217, i32 noundef %219) #6
-  br label %221
+168:                                              ; preds = %161
+  %169 = load i32, ptr @hf_opa_GetGroupInfo_avgKPps, align 4
+  %170 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %169, ptr noundef %1, i32 noundef %166, i32 noundef 4, i32 noundef 0) #6
+  %171 = add i32 %.2424429.i, 8
+  %172 = load i32, ptr @hf_opa_GetGroupInfo_minKPps, align 4
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %172, ptr noundef %1, i32 noundef %171, i32 noundef 4, i32 noundef 0) #6
+  %174 = add i32 %.2424429.i, 12
+  %175 = load i32, ptr @hf_opa_GetGroupInfo_maxKPps, align 4
+  %176 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %175, ptr noundef %1, i32 noundef %174, i32 noundef 4, i32 noundef 0) #6
+  %177 = add i32 %.2424429.i, 16
+  %178 = load i32, ptr @hf_opa_GetGroupInfo_pmaFailedPorts, align 4
+  %179 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %178, ptr noundef %1, i32 noundef %177, i32 noundef 2, i32 noundef 0) #6
+  %180 = add i32 %.2424429.i, 18
+  %181 = load i32, ptr @hf_opa_GetGroupInfo_topoFailedPorts, align 4
+  %182 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %181, ptr noundef %1, i32 noundef %180, i32 noundef 2, i32 noundef 0) #6
+  %183 = add i32 %.2424429.i, 20
+  %184 = load i32, ptr @ett_getgroupinfoutilstats, align 4
+  %185 = tail call ptr @proto_tree_add_subtree(ptr noundef %74, ptr noundef %1, i32 noundef %183, i32 noundef 88, i32 noundef %184, ptr noundef null, ptr noundef nonnull @.str.2432) #6
+  %186 = load i32, ptr @hf_opa_GetGroupInfo_totalMBps, align 4
+  %187 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %186, ptr noundef %1, i32 noundef %183, i32 noundef 8, i32 noundef 0) #6
+  %188 = add i32 %.2424429.i, 28
+  %189 = load i32, ptr @hf_opa_GetGroupInfo_totalKPps, align 4
+  %190 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %189, ptr noundef %1, i32 noundef %188, i32 noundef 8, i32 noundef 0) #6
+  %191 = add i32 %.2424429.i, 36
+  %192 = load i32, ptr @hf_opa_GetGroupInfo_avgMBps, align 4
+  %193 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %192, ptr noundef %1, i32 noundef %191, i32 noundef 4, i32 noundef 0) #6
+  %194 = add i32 %.2424429.i, 40
+  %195 = load i32, ptr @hf_opa_GetGroupInfo_minMBps, align 4
+  %196 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %195, ptr noundef %1, i32 noundef %194, i32 noundef 4, i32 noundef 0) #6
+  %197 = add i32 %.2424429.i, 44
+  %198 = load i32, ptr @hf_opa_GetGroupInfo_maxMBps, align 4
+  %199 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %198, ptr noundef %1, i32 noundef %197, i32 noundef 4, i32 noundef 0) #6
+  %200 = add i32 %.2424429.i, 48
+  %201 = load i32, ptr @hf_opa_GetGroupInfo_numBWBuckets, align 4
+  %202 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %201, ptr noundef %1, i32 noundef %200, i32 noundef 4, i32 noundef 0) #6
+  %203 = add i32 %.2424429.i, 52
+  %204 = load i32, ptr @ett_getgroupinfoutilbuckets, align 4
+  %205 = tail call ptr @proto_item_add_subtree(ptr noundef %202, i32 noundef %204) #6
+  br label %206
 
-221:                                              ; preds = %221, %183
-  %.2432.i = phi i32 [ 0, %183 ], [ %227, %221 ]
-  %.3425431.i = phi i32 [ %218, %183 ], [ %226, %221 ]
-  %222 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %223 = tail call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %222, ptr noundef %1, i32 noundef %.3425431.i, i32 noundef 4, i32 noundef 0) #6
-  %224 = mul nuw nsw i32 %.2432.i, 10
-  %225 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.3425431.i) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %223, ptr noundef nonnull @.str.2430, i32 noundef %.2432.i, i32 noundef %224, i32 noundef %225) #6
-  %226 = add i32 %.3425431.i, 4
-  %227 = add nuw nsw i32 %.2432.i, 1
-  %exitcond446.not.i = icmp eq i32 %227, 10
-  br i1 %exitcond446.not.i, label %228, label %221, !llvm.loop !61
+206:                                              ; preds = %206, %168
+  %.2432.i = phi i32 [ 0, %168 ], [ %212, %206 ]
+  %.3425431.i = phi i32 [ %203, %168 ], [ %211, %206 ]
+  %207 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %208 = tail call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %207, ptr noundef %1, i32 noundef %.3425431.i, i32 noundef 4, i32 noundef 0) #6
+  %209 = mul nuw nsw i32 %.2432.i, 10
+  %210 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.3425431.i) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %208, ptr noundef nonnull @.str.2430, i32 noundef %.2432.i, i32 noundef %209, i32 noundef %210) #6
+  %211 = add i32 %.3425431.i, 4
+  %212 = add nuw nsw i32 %.2432.i, 1
+  %exitcond446.not.i = icmp eq i32 %212, 10
+  br i1 %exitcond446.not.i, label %213, label %206, !llvm.loop !61
 
-228:                                              ; preds = %221
-  %229 = load i32, ptr @hf_opa_GetGroupInfo_avgKPps, align 4
-  %230 = tail call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %229, ptr noundef %1, i32 noundef %226, i32 noundef 4, i32 noundef 0) #6
-  %231 = add i32 %.3425431.i, 8
-  %232 = load i32, ptr @hf_opa_GetGroupInfo_minKPps, align 4
-  %233 = tail call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %232, ptr noundef %1, i32 noundef %231, i32 noundef 4, i32 noundef 0) #6
-  %234 = add i32 %.3425431.i, 12
-  %235 = load i32, ptr @hf_opa_GetGroupInfo_maxKPps, align 4
-  %236 = tail call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %235, ptr noundef %1, i32 noundef %234, i32 noundef 4, i32 noundef 0) #6
-  %237 = add i32 %.3425431.i, 16
-  %238 = load i32, ptr @hf_opa_GetGroupInfo_pmaFailedPorts, align 4
-  %239 = tail call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %238, ptr noundef %1, i32 noundef %237, i32 noundef 2, i32 noundef 0) #6
-  %240 = add i32 %.3425431.i, 18
-  %241 = load i32, ptr @hf_opa_GetGroupInfo_topoFailedPorts, align 4
-  %242 = tail call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %241, ptr noundef %1, i32 noundef %240, i32 noundef 2, i32 noundef 0) #6
-  %243 = add i32 %.3425431.i, 20
-  %244 = load i32, ptr @ett_getgroupinfoerrorsummary, align 4
-  %245 = tail call ptr @proto_tree_add_subtree(ptr noundef %89, ptr noundef %1, i32 noundef %243, i32 noundef 160, i32 noundef %244, ptr noundef null, ptr noundef nonnull @.str.2433) #6
-  %246 = load i32, ptr @hf_opa_GetGroupInfo_integrityErrors, align 4
-  %247 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %246, ptr noundef %1, i32 noundef %243, i32 noundef 4, i32 noundef 0) #6
-  %248 = add i32 %.3425431.i, 24
-  %249 = load i32, ptr @hf_opa_GetGroupInfo_congestionErrors, align 4
-  %250 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %249, ptr noundef %1, i32 noundef %248, i32 noundef 4, i32 noundef 0) #6
-  %251 = add i32 %.3425431.i, 28
-  %252 = load i32, ptr @hf_opa_GetGroupInfo_smaCongestionErrors, align 4
-  %253 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %252, ptr noundef %1, i32 noundef %251, i32 noundef 4, i32 noundef 0) #6
-  %254 = add i32 %.3425431.i, 32
-  %255 = load i32, ptr @hf_opa_GetGroupInfo_bubbleErrors, align 4
-  %256 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %255, ptr noundef %1, i32 noundef %254, i32 noundef 4, i32 noundef 0) #6
-  %257 = add i32 %.3425431.i, 36
-  %258 = load i32, ptr @hf_opa_GetGroupInfo_securityErrors, align 4
-  %259 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %258, ptr noundef %1, i32 noundef %257, i32 noundef 4, i32 noundef 0) #6
-  %260 = add i32 %.3425431.i, 40
-  %261 = load i32, ptr @hf_opa_GetGroupInfo_routingErrors, align 4
-  %262 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %261, ptr noundef %1, i32 noundef %260, i32 noundef 4, i32 noundef 0) #6
-  %263 = add i32 %.3425431.i, 44
-  %264 = load i32, ptr @hf_opa_GetGroupInfo_utilizationPct10, align 4
-  %265 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %264, ptr noundef %1, i32 noundef %263, i32 noundef 2, i32 noundef 0) #6
-  %266 = add i32 %.3425431.i, 46
-  %267 = load i32, ptr @hf_opa_GetGroupInfo_discardsPct10, align 4
-  %268 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %267, ptr noundef %1, i32 noundef %266, i32 noundef 2, i32 noundef 0) #6
-  %269 = add i32 %.3425431.i, 48
-  %270 = load i32, ptr @hf_opa_reserved32, align 4
-  %271 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %270, ptr noundef %1, i32 noundef %269, i32 noundef 4, i32 noundef 0) #6
-  %272 = add i32 %.3425431.i, 52
-  %273 = load i32, ptr @hf_opa_reserved64, align 4
-  %274 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %273, ptr noundef %1, i32 noundef %272, i32 noundef 8, i32 noundef 0) #6
-  %275 = add i32 %.3425431.i, 60
-  %276 = load i32, ptr @ett_getgroupinfoerrintegritybucket, align 4
-  %277 = tail call ptr @proto_item_add_subtree(ptr noundef %247, i32 noundef %276) #6
-  %278 = load i32, ptr @ett_getgroupinfoerrcongestionbucket, align 4
-  %279 = tail call ptr @proto_item_add_subtree(ptr noundef %250, i32 noundef %278) #6
-  %280 = load i32, ptr @ett_getgroupinfoerrsmacongestionbucket, align 4
-  %281 = tail call ptr @proto_item_add_subtree(ptr noundef %253, i32 noundef %280) #6
-  %282 = load i32, ptr @ett_getgroupinfoerrbubblebucket, align 4
-  %283 = tail call ptr @proto_item_add_subtree(ptr noundef %256, i32 noundef %282) #6
-  %284 = load i32, ptr @ett_getgroupinfoerrsecuritybucket, align 4
-  %285 = tail call ptr @proto_item_add_subtree(ptr noundef %259, i32 noundef %284) #6
-  %286 = load i32, ptr @ett_getgroupinfoerrroutingbucket, align 4
-  %287 = tail call ptr @proto_item_add_subtree(ptr noundef %262, i32 noundef %286) #6
-  br label %288
+213:                                              ; preds = %206
+  %214 = load i32, ptr @hf_opa_GetGroupInfo_avgKPps, align 4
+  %215 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %214, ptr noundef %1, i32 noundef %211, i32 noundef 4, i32 noundef 0) #6
+  %216 = add i32 %.3425431.i, 8
+  %217 = load i32, ptr @hf_opa_GetGroupInfo_minKPps, align 4
+  %218 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %217, ptr noundef %1, i32 noundef %216, i32 noundef 4, i32 noundef 0) #6
+  %219 = add i32 %.3425431.i, 12
+  %220 = load i32, ptr @hf_opa_GetGroupInfo_maxKPps, align 4
+  %221 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %220, ptr noundef %1, i32 noundef %219, i32 noundef 4, i32 noundef 0) #6
+  %222 = add i32 %.3425431.i, 16
+  %223 = load i32, ptr @hf_opa_GetGroupInfo_pmaFailedPorts, align 4
+  %224 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %223, ptr noundef %1, i32 noundef %222, i32 noundef 2, i32 noundef 0) #6
+  %225 = add i32 %.3425431.i, 18
+  %226 = load i32, ptr @hf_opa_GetGroupInfo_topoFailedPorts, align 4
+  %227 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %226, ptr noundef %1, i32 noundef %225, i32 noundef 2, i32 noundef 0) #6
+  %228 = add i32 %.3425431.i, 20
+  %229 = load i32, ptr @ett_getgroupinfoerrorsummary, align 4
+  %230 = tail call ptr @proto_tree_add_subtree(ptr noundef %74, ptr noundef %1, i32 noundef %228, i32 noundef 160, i32 noundef %229, ptr noundef null, ptr noundef nonnull @.str.2433) #6
+  %231 = load i32, ptr @hf_opa_GetGroupInfo_integrityErrors, align 4
+  %232 = tail call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %231, ptr noundef %1, i32 noundef %228, i32 noundef 4, i32 noundef 0) #6
+  %233 = add i32 %.3425431.i, 24
+  %234 = load i32, ptr @hf_opa_GetGroupInfo_congestionErrors, align 4
+  %235 = tail call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %234, ptr noundef %1, i32 noundef %233, i32 noundef 4, i32 noundef 0) #6
+  %236 = add i32 %.3425431.i, 28
+  %237 = load i32, ptr @hf_opa_GetGroupInfo_smaCongestionErrors, align 4
+  %238 = tail call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %237, ptr noundef %1, i32 noundef %236, i32 noundef 4, i32 noundef 0) #6
+  %239 = add i32 %.3425431.i, 32
+  %240 = load i32, ptr @hf_opa_GetGroupInfo_bubbleErrors, align 4
+  %241 = tail call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %240, ptr noundef %1, i32 noundef %239, i32 noundef 4, i32 noundef 0) #6
+  %242 = add i32 %.3425431.i, 36
+  %243 = load i32, ptr @hf_opa_GetGroupInfo_securityErrors, align 4
+  %244 = tail call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %243, ptr noundef %1, i32 noundef %242, i32 noundef 4, i32 noundef 0) #6
+  %245 = add i32 %.3425431.i, 40
+  %246 = load i32, ptr @hf_opa_GetGroupInfo_routingErrors, align 4
+  %247 = tail call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %246, ptr noundef %1, i32 noundef %245, i32 noundef 4, i32 noundef 0) #6
+  %248 = add i32 %.3425431.i, 44
+  %249 = load i32, ptr @hf_opa_GetGroupInfo_utilizationPct10, align 4
+  %250 = tail call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %249, ptr noundef %1, i32 noundef %248, i32 noundef 2, i32 noundef 0) #6
+  %251 = add i32 %.3425431.i, 46
+  %252 = load i32, ptr @hf_opa_GetGroupInfo_discardsPct10, align 4
+  %253 = tail call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %252, ptr noundef %1, i32 noundef %251, i32 noundef 2, i32 noundef 0) #6
+  %254 = add i32 %.3425431.i, 48
+  %255 = load i32, ptr @hf_opa_reserved32, align 4
+  %256 = tail call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %255, ptr noundef %1, i32 noundef %254, i32 noundef 4, i32 noundef 0) #6
+  %257 = add i32 %.3425431.i, 52
+  %258 = load i32, ptr @hf_opa_reserved64, align 4
+  %259 = tail call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %258, ptr noundef %1, i32 noundef %257, i32 noundef 8, i32 noundef 0) #6
+  %260 = add i32 %.3425431.i, 60
+  %261 = load i32, ptr @ett_getgroupinfoerrintegritybucket, align 4
+  %262 = tail call ptr @proto_item_add_subtree(ptr noundef %232, i32 noundef %261) #6
+  %263 = load i32, ptr @ett_getgroupinfoerrcongestionbucket, align 4
+  %264 = tail call ptr @proto_item_add_subtree(ptr noundef %235, i32 noundef %263) #6
+  %265 = load i32, ptr @ett_getgroupinfoerrsmacongestionbucket, align 4
+  %266 = tail call ptr @proto_item_add_subtree(ptr noundef %238, i32 noundef %265) #6
+  %267 = load i32, ptr @ett_getgroupinfoerrbubblebucket, align 4
+  %268 = tail call ptr @proto_item_add_subtree(ptr noundef %241, i32 noundef %267) #6
+  %269 = load i32, ptr @ett_getgroupinfoerrsecuritybucket, align 4
+  %270 = tail call ptr @proto_item_add_subtree(ptr noundef %244, i32 noundef %269) #6
+  %271 = load i32, ptr @ett_getgroupinfoerrroutingbucket, align 4
+  %272 = tail call ptr @proto_item_add_subtree(ptr noundef %247, i32 noundef %271) #6
+  br label %273
 
-288:                                              ; preds = %288, %228
-  %.3434.i = phi i32 [ 0, %228 ], [ %314, %288 ]
-  %.4426433.i = phi i32 [ %275, %228 ], [ %313, %288 ]
-  %289 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %290 = tail call ptr @proto_tree_add_item(ptr noundef %277, i32 noundef %289, ptr noundef %1, i32 noundef %.4426433.i, i32 noundef 4, i32 noundef 0) #6
-  %291 = mul nuw nsw i32 %.3434.i, 25
-  %292 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.4426433.i) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %290, ptr noundef nonnull @.str.2430, i32 noundef %.3434.i, i32 noundef %291, i32 noundef %292) #6
-  %293 = add i32 %.4426433.i, 4
-  %294 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %295 = tail call ptr @proto_tree_add_item(ptr noundef %279, i32 noundef %294, ptr noundef %1, i32 noundef %293, i32 noundef 4, i32 noundef 0) #6
-  %296 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %293) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %295, ptr noundef nonnull @.str.2430, i32 noundef %.3434.i, i32 noundef %291, i32 noundef %296) #6
-  %297 = add i32 %.4426433.i, 8
-  %298 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %299 = tail call ptr @proto_tree_add_item(ptr noundef %281, i32 noundef %298, ptr noundef %1, i32 noundef %297, i32 noundef 4, i32 noundef 0) #6
-  %300 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %297) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %299, ptr noundef nonnull @.str.2430, i32 noundef %.3434.i, i32 noundef %291, i32 noundef %300) #6
-  %301 = add i32 %.4426433.i, 12
-  %302 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %303 = tail call ptr @proto_tree_add_item(ptr noundef %283, i32 noundef %302, ptr noundef %1, i32 noundef %301, i32 noundef 4, i32 noundef 0) #6
-  %304 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %301) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %303, ptr noundef nonnull @.str.2430, i32 noundef %.3434.i, i32 noundef %291, i32 noundef %304) #6
-  %305 = add i32 %.4426433.i, 16
-  %306 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %307 = tail call ptr @proto_tree_add_item(ptr noundef %285, i32 noundef %306, ptr noundef %1, i32 noundef %305, i32 noundef 4, i32 noundef 0) #6
-  %308 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %305) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %307, ptr noundef nonnull @.str.2430, i32 noundef %.3434.i, i32 noundef %291, i32 noundef %308) #6
-  %309 = add i32 %.4426433.i, 20
-  %310 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %311 = tail call ptr @proto_tree_add_item(ptr noundef %287, i32 noundef %310, ptr noundef %1, i32 noundef %309, i32 noundef 4, i32 noundef 0) #6
-  %312 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %309) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %311, ptr noundef nonnull @.str.2430, i32 noundef %.3434.i, i32 noundef %291, i32 noundef %312) #6
-  %313 = add i32 %.4426433.i, 24
-  %314 = add nuw nsw i32 %.3434.i, 1
-  %exitcond447.not.i = icmp eq i32 %314, 5
-  br i1 %exitcond447.not.i, label %315, label %288, !llvm.loop !62
+273:                                              ; preds = %273, %213
+  %.3434.i = phi i32 [ 0, %213 ], [ %299, %273 ]
+  %.4426433.i = phi i32 [ %260, %213 ], [ %298, %273 ]
+  %274 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %275 = tail call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %274, ptr noundef %1, i32 noundef %.4426433.i, i32 noundef 4, i32 noundef 0) #6
+  %276 = mul nuw nsw i32 %.3434.i, 25
+  %277 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.4426433.i) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %275, ptr noundef nonnull @.str.2430, i32 noundef %.3434.i, i32 noundef %276, i32 noundef %277) #6
+  %278 = add i32 %.4426433.i, 4
+  %279 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %280 = tail call ptr @proto_tree_add_item(ptr noundef %264, i32 noundef %279, ptr noundef %1, i32 noundef %278, i32 noundef 4, i32 noundef 0) #6
+  %281 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %278) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %280, ptr noundef nonnull @.str.2430, i32 noundef %.3434.i, i32 noundef %276, i32 noundef %281) #6
+  %282 = add i32 %.4426433.i, 8
+  %283 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %284 = tail call ptr @proto_tree_add_item(ptr noundef %266, i32 noundef %283, ptr noundef %1, i32 noundef %282, i32 noundef 4, i32 noundef 0) #6
+  %285 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %282) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %284, ptr noundef nonnull @.str.2430, i32 noundef %.3434.i, i32 noundef %276, i32 noundef %285) #6
+  %286 = add i32 %.4426433.i, 12
+  %287 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %288 = tail call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %287, ptr noundef %1, i32 noundef %286, i32 noundef 4, i32 noundef 0) #6
+  %289 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %286) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %288, ptr noundef nonnull @.str.2430, i32 noundef %.3434.i, i32 noundef %276, i32 noundef %289) #6
+  %290 = add i32 %.4426433.i, 16
+  %291 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %292 = tail call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %291, ptr noundef %1, i32 noundef %290, i32 noundef 4, i32 noundef 0) #6
+  %293 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %290) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %292, ptr noundef nonnull @.str.2430, i32 noundef %.3434.i, i32 noundef %276, i32 noundef %293) #6
+  %294 = add i32 %.4426433.i, 20
+  %295 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %296 = tail call ptr @proto_tree_add_item(ptr noundef %272, i32 noundef %295, ptr noundef %1, i32 noundef %294, i32 noundef 4, i32 noundef 0) #6
+  %297 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %294) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %296, ptr noundef nonnull @.str.2430, i32 noundef %.3434.i, i32 noundef %276, i32 noundef %297) #6
+  %298 = add i32 %.4426433.i, 24
+  %299 = add nuw nsw i32 %.3434.i, 1
+  %exitcond447.not.i = icmp eq i32 %299, 5
+  br i1 %exitcond447.not.i, label %300, label %273, !llvm.loop !62
 
-315:                                              ; preds = %288
-  %316 = load i32, ptr @ett_getgroupinfoerrorsummary, align 4
-  %317 = tail call ptr @proto_tree_add_subtree(ptr noundef %89, ptr noundef %1, i32 noundef %313, i32 noundef 160, i32 noundef %316, ptr noundef null, ptr noundef nonnull @.str.2434) #6
-  %318 = load i32, ptr @hf_opa_GetGroupInfo_integrityErrors, align 4
-  %319 = tail call ptr @proto_tree_add_item(ptr noundef %317, i32 noundef %318, ptr noundef %1, i32 noundef %313, i32 noundef 4, i32 noundef 0) #6
-  %320 = add i32 %.4426433.i, 28
-  %321 = load i32, ptr @hf_opa_GetGroupInfo_congestionErrors, align 4
-  %322 = tail call ptr @proto_tree_add_item(ptr noundef %317, i32 noundef %321, ptr noundef %1, i32 noundef %320, i32 noundef 4, i32 noundef 0) #6
-  %323 = add i32 %.4426433.i, 32
-  %324 = load i32, ptr @hf_opa_GetGroupInfo_smaCongestionErrors, align 4
-  %325 = tail call ptr @proto_tree_add_item(ptr noundef %317, i32 noundef %324, ptr noundef %1, i32 noundef %323, i32 noundef 4, i32 noundef 0) #6
-  %326 = add i32 %.4426433.i, 36
-  %327 = load i32, ptr @hf_opa_GetGroupInfo_bubbleErrors, align 4
-  %328 = tail call ptr @proto_tree_add_item(ptr noundef %317, i32 noundef %327, ptr noundef %1, i32 noundef %326, i32 noundef 4, i32 noundef 0) #6
-  %329 = add i32 %.4426433.i, 40
-  %330 = load i32, ptr @hf_opa_GetGroupInfo_securityErrors, align 4
-  %331 = tail call ptr @proto_tree_add_item(ptr noundef %317, i32 noundef %330, ptr noundef %1, i32 noundef %329, i32 noundef 4, i32 noundef 0) #6
-  %332 = add i32 %.4426433.i, 44
-  %333 = load i32, ptr @hf_opa_GetGroupInfo_routingErrors, align 4
-  %334 = tail call ptr @proto_tree_add_item(ptr noundef %317, i32 noundef %333, ptr noundef %1, i32 noundef %332, i32 noundef 4, i32 noundef 0) #6
-  %335 = add i32 %.4426433.i, 48
-  %336 = load i32, ptr @hf_opa_GetGroupInfo_utilizationPct10, align 4
-  %337 = tail call ptr @proto_tree_add_item(ptr noundef %317, i32 noundef %336, ptr noundef %1, i32 noundef %335, i32 noundef 2, i32 noundef 0) #6
-  %338 = add i32 %.4426433.i, 50
-  %339 = load i32, ptr @hf_opa_GetGroupInfo_discardsPct10, align 4
-  %340 = tail call ptr @proto_tree_add_item(ptr noundef %317, i32 noundef %339, ptr noundef %1, i32 noundef %338, i32 noundef 2, i32 noundef 0) #6
-  %341 = add i32 %.4426433.i, 52
-  %342 = load i32, ptr @hf_opa_reserved32, align 4
-  %343 = tail call ptr @proto_tree_add_item(ptr noundef %317, i32 noundef %342, ptr noundef %1, i32 noundef %341, i32 noundef 4, i32 noundef 0) #6
-  %344 = add i32 %.4426433.i, 56
-  %345 = load i32, ptr @hf_opa_reserved64, align 4
-  %346 = tail call ptr @proto_tree_add_item(ptr noundef %317, i32 noundef %345, ptr noundef %1, i32 noundef %344, i32 noundef 8, i32 noundef 0) #6
-  %347 = add i32 %.4426433.i, 64
-  %348 = load i32, ptr @ett_getgroupinfoerrintegritybucket, align 4
-  %349 = tail call ptr @proto_item_add_subtree(ptr noundef %319, i32 noundef %348) #6
-  %350 = load i32, ptr @ett_getgroupinfoerrcongestionbucket, align 4
-  %351 = tail call ptr @proto_item_add_subtree(ptr noundef %322, i32 noundef %350) #6
-  %352 = load i32, ptr @ett_getgroupinfoerrsmacongestionbucket, align 4
-  %353 = tail call ptr @proto_item_add_subtree(ptr noundef %325, i32 noundef %352) #6
-  %354 = load i32, ptr @ett_getgroupinfoerrbubblebucket, align 4
-  %355 = tail call ptr @proto_item_add_subtree(ptr noundef %328, i32 noundef %354) #6
-  %356 = load i32, ptr @ett_getgroupinfoerrsecuritybucket, align 4
-  %357 = tail call ptr @proto_item_add_subtree(ptr noundef %331, i32 noundef %356) #6
-  %358 = load i32, ptr @ett_getgroupinfoerrroutingbucket, align 4
-  %359 = tail call ptr @proto_item_add_subtree(ptr noundef %334, i32 noundef %358) #6
-  br label %360
+300:                                              ; preds = %273
+  %301 = load i32, ptr @ett_getgroupinfoerrorsummary, align 4
+  %302 = tail call ptr @proto_tree_add_subtree(ptr noundef %74, ptr noundef %1, i32 noundef %298, i32 noundef 160, i32 noundef %301, ptr noundef null, ptr noundef nonnull @.str.2434) #6
+  %303 = load i32, ptr @hf_opa_GetGroupInfo_integrityErrors, align 4
+  %304 = tail call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %303, ptr noundef %1, i32 noundef %298, i32 noundef 4, i32 noundef 0) #6
+  %305 = add i32 %.4426433.i, 28
+  %306 = load i32, ptr @hf_opa_GetGroupInfo_congestionErrors, align 4
+  %307 = tail call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %306, ptr noundef %1, i32 noundef %305, i32 noundef 4, i32 noundef 0) #6
+  %308 = add i32 %.4426433.i, 32
+  %309 = load i32, ptr @hf_opa_GetGroupInfo_smaCongestionErrors, align 4
+  %310 = tail call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %309, ptr noundef %1, i32 noundef %308, i32 noundef 4, i32 noundef 0) #6
+  %311 = add i32 %.4426433.i, 36
+  %312 = load i32, ptr @hf_opa_GetGroupInfo_bubbleErrors, align 4
+  %313 = tail call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %312, ptr noundef %1, i32 noundef %311, i32 noundef 4, i32 noundef 0) #6
+  %314 = add i32 %.4426433.i, 40
+  %315 = load i32, ptr @hf_opa_GetGroupInfo_securityErrors, align 4
+  %316 = tail call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %315, ptr noundef %1, i32 noundef %314, i32 noundef 4, i32 noundef 0) #6
+  %317 = add i32 %.4426433.i, 44
+  %318 = load i32, ptr @hf_opa_GetGroupInfo_routingErrors, align 4
+  %319 = tail call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %318, ptr noundef %1, i32 noundef %317, i32 noundef 4, i32 noundef 0) #6
+  %320 = add i32 %.4426433.i, 48
+  %321 = load i32, ptr @hf_opa_GetGroupInfo_utilizationPct10, align 4
+  %322 = tail call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %321, ptr noundef %1, i32 noundef %320, i32 noundef 2, i32 noundef 0) #6
+  %323 = add i32 %.4426433.i, 50
+  %324 = load i32, ptr @hf_opa_GetGroupInfo_discardsPct10, align 4
+  %325 = tail call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %324, ptr noundef %1, i32 noundef %323, i32 noundef 2, i32 noundef 0) #6
+  %326 = add i32 %.4426433.i, 52
+  %327 = load i32, ptr @hf_opa_reserved32, align 4
+  %328 = tail call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %327, ptr noundef %1, i32 noundef %326, i32 noundef 4, i32 noundef 0) #6
+  %329 = add i32 %.4426433.i, 56
+  %330 = load i32, ptr @hf_opa_reserved64, align 4
+  %331 = tail call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %330, ptr noundef %1, i32 noundef %329, i32 noundef 8, i32 noundef 0) #6
+  %332 = add i32 %.4426433.i, 64
+  %333 = load i32, ptr @ett_getgroupinfoerrintegritybucket, align 4
+  %334 = tail call ptr @proto_item_add_subtree(ptr noundef %304, i32 noundef %333) #6
+  %335 = load i32, ptr @ett_getgroupinfoerrcongestionbucket, align 4
+  %336 = tail call ptr @proto_item_add_subtree(ptr noundef %307, i32 noundef %335) #6
+  %337 = load i32, ptr @ett_getgroupinfoerrsmacongestionbucket, align 4
+  %338 = tail call ptr @proto_item_add_subtree(ptr noundef %310, i32 noundef %337) #6
+  %339 = load i32, ptr @ett_getgroupinfoerrbubblebucket, align 4
+  %340 = tail call ptr @proto_item_add_subtree(ptr noundef %313, i32 noundef %339) #6
+  %341 = load i32, ptr @ett_getgroupinfoerrsecuritybucket, align 4
+  %342 = tail call ptr @proto_item_add_subtree(ptr noundef %316, i32 noundef %341) #6
+  %343 = load i32, ptr @ett_getgroupinfoerrroutingbucket, align 4
+  %344 = tail call ptr @proto_item_add_subtree(ptr noundef %319, i32 noundef %343) #6
+  br label %345
 
-360:                                              ; preds = %360, %315
-  %.4436.i = phi i32 [ 0, %315 ], [ %386, %360 ]
-  %.5435.i = phi i32 [ %347, %315 ], [ %385, %360 ]
-  %361 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %362 = tail call ptr @proto_tree_add_item(ptr noundef %349, i32 noundef %361, ptr noundef %1, i32 noundef %.5435.i, i32 noundef 4, i32 noundef 0) #6
-  %363 = mul nuw nsw i32 %.4436.i, 25
-  %364 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.5435.i) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %362, ptr noundef nonnull @.str.2430, i32 noundef %.4436.i, i32 noundef %363, i32 noundef %364) #6
-  %365 = add i32 %.5435.i, 4
-  %366 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %367 = tail call ptr @proto_tree_add_item(ptr noundef %351, i32 noundef %366, ptr noundef %1, i32 noundef %365, i32 noundef 4, i32 noundef 0) #6
-  %368 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %365) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %367, ptr noundef nonnull @.str.2430, i32 noundef %.4436.i, i32 noundef %363, i32 noundef %368) #6
-  %369 = add i32 %.5435.i, 8
-  %370 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %371 = tail call ptr @proto_tree_add_item(ptr noundef %353, i32 noundef %370, ptr noundef %1, i32 noundef %369, i32 noundef 4, i32 noundef 0) #6
-  %372 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %369) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %371, ptr noundef nonnull @.str.2430, i32 noundef %.4436.i, i32 noundef %363, i32 noundef %372) #6
-  %373 = add i32 %.5435.i, 12
-  %374 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %375 = tail call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %374, ptr noundef %1, i32 noundef %373, i32 noundef 4, i32 noundef 0) #6
-  %376 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %373) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %375, ptr noundef nonnull @.str.2430, i32 noundef %.4436.i, i32 noundef %363, i32 noundef %376) #6
-  %377 = add i32 %.5435.i, 16
-  %378 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %379 = tail call ptr @proto_tree_add_item(ptr noundef %357, i32 noundef %378, ptr noundef %1, i32 noundef %377, i32 noundef 4, i32 noundef 0) #6
-  %380 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %377) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %379, ptr noundef nonnull @.str.2430, i32 noundef %.4436.i, i32 noundef %363, i32 noundef %380) #6
-  %381 = add i32 %.5435.i, 20
-  %382 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
-  %383 = tail call ptr @proto_tree_add_item(ptr noundef %359, i32 noundef %382, ptr noundef %1, i32 noundef %381, i32 noundef 4, i32 noundef 0) #6
-  %384 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %381) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %383, ptr noundef nonnull @.str.2430, i32 noundef %.4436.i, i32 noundef %363, i32 noundef %384) #6
-  %385 = add i32 %.5435.i, 24
-  %386 = add nuw nsw i32 %.4436.i, 1
-  %exitcond448.not.i = icmp eq i32 %386, 5
-  br i1 %exitcond448.not.i, label %387, label %360, !llvm.loop !63
+345:                                              ; preds = %345, %300
+  %.4436.i = phi i32 [ 0, %300 ], [ %371, %345 ]
+  %.5435.i = phi i32 [ %332, %300 ], [ %370, %345 ]
+  %346 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %347 = tail call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %346, ptr noundef %1, i32 noundef %.5435.i, i32 noundef 4, i32 noundef 0) #6
+  %348 = mul nuw nsw i32 %.4436.i, 25
+  %349 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.5435.i) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %347, ptr noundef nonnull @.str.2430, i32 noundef %.4436.i, i32 noundef %348, i32 noundef %349) #6
+  %350 = add i32 %.5435.i, 4
+  %351 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %352 = tail call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %351, ptr noundef %1, i32 noundef %350, i32 noundef 4, i32 noundef 0) #6
+  %353 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %350) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %352, ptr noundef nonnull @.str.2430, i32 noundef %.4436.i, i32 noundef %348, i32 noundef %353) #6
+  %354 = add i32 %.5435.i, 8
+  %355 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %356 = tail call ptr @proto_tree_add_item(ptr noundef %338, i32 noundef %355, ptr noundef %1, i32 noundef %354, i32 noundef 4, i32 noundef 0) #6
+  %357 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %354) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %356, ptr noundef nonnull @.str.2430, i32 noundef %.4436.i, i32 noundef %348, i32 noundef %357) #6
+  %358 = add i32 %.5435.i, 12
+  %359 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %360 = tail call ptr @proto_tree_add_item(ptr noundef %340, i32 noundef %359, ptr noundef %1, i32 noundef %358, i32 noundef 4, i32 noundef 0) #6
+  %361 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %358) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %360, ptr noundef nonnull @.str.2430, i32 noundef %.4436.i, i32 noundef %348, i32 noundef %361) #6
+  %362 = add i32 %.5435.i, 16
+  %363 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %364 = tail call ptr @proto_tree_add_item(ptr noundef %342, i32 noundef %363, ptr noundef %1, i32 noundef %362, i32 noundef 4, i32 noundef 0) #6
+  %365 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %362) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %364, ptr noundef nonnull @.str.2430, i32 noundef %.4436.i, i32 noundef %348, i32 noundef %365) #6
+  %366 = add i32 %.5435.i, 20
+  %367 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
+  %368 = tail call ptr @proto_tree_add_item(ptr noundef %344, i32 noundef %367, ptr noundef %1, i32 noundef %366, i32 noundef 4, i32 noundef 0) #6
+  %369 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %366) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %368, ptr noundef nonnull @.str.2430, i32 noundef %.4436.i, i32 noundef %348, i32 noundef %369) #6
+  %370 = add i32 %.5435.i, 24
+  %371 = add nuw nsw i32 %.4436.i, 1
+  %exitcond448.not.i = icmp eq i32 %371, 5
+  br i1 %exitcond448.not.i, label %372, label %345, !llvm.loop !63
 
-387:                                              ; preds = %360
-  %388 = load i32, ptr @hf_opa_GetGroupInfo_maxInternalRate, align 4
-  %389 = tail call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %388, ptr noundef %1, i32 noundef %385, i32 noundef 1, i32 noundef 0) #6
-  %390 = add i32 %.5435.i, 25
-  %391 = load i32, ptr @hf_opa_GetGroupInfo_minInternalRate, align 4
-  %392 = tail call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %391, ptr noundef %1, i32 noundef %390, i32 noundef 1, i32 noundef 0) #6
-  %393 = add i32 %.5435.i, 26
-  %394 = load i32, ptr @hf_opa_GetGroupInfo_maxExternalRate, align 4
-  %395 = tail call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %394, ptr noundef %1, i32 noundef %393, i32 noundef 1, i32 noundef 0) #6
-  %396 = add i32 %.5435.i, 27
-  %397 = load i32, ptr @hf_opa_GetGroupInfo_minExternalRate, align 4
-  %398 = tail call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %397, ptr noundef %1, i32 noundef %396, i32 noundef 1, i32 noundef 0) #6
-  %399 = add i32 %.5435.i, 28
-  %400 = load i32, ptr @hf_opa_GetGroupInfo_maxInternalMBps, align 4
-  %401 = tail call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %400, ptr noundef %1, i32 noundef %399, i32 noundef 4, i32 noundef 0) #6
-  %402 = add i32 %.5435.i, 32
-  %403 = load i32, ptr @hf_opa_GetGroupInfo_maxExternalMBps, align 4
-  %404 = tail call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %403, ptr noundef %1, i32 noundef %402, i32 noundef 4, i32 noundef 0) #6
-  %405 = add i32 %.5435.i, 36
-  %406 = add nuw i32 %.0294438.i, 1
-  %exitcond449.not.i = icmp eq i32 %406, %51
+372:                                              ; preds = %345
+  %373 = load i32, ptr @hf_opa_GetGroupInfo_maxInternalRate, align 4
+  %374 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %373, ptr noundef %1, i32 noundef %370, i32 noundef 1, i32 noundef 0) #6
+  %375 = add i32 %.5435.i, 25
+  %376 = load i32, ptr @hf_opa_GetGroupInfo_minInternalRate, align 4
+  %377 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %376, ptr noundef %1, i32 noundef %375, i32 noundef 1, i32 noundef 0) #6
+  %378 = add i32 %.5435.i, 26
+  %379 = load i32, ptr @hf_opa_GetGroupInfo_maxExternalRate, align 4
+  %380 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %379, ptr noundef %1, i32 noundef %378, i32 noundef 1, i32 noundef 0) #6
+  %381 = add i32 %.5435.i, 27
+  %382 = load i32, ptr @hf_opa_GetGroupInfo_minExternalRate, align 4
+  %383 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %382, ptr noundef %1, i32 noundef %381, i32 noundef 1, i32 noundef 0) #6
+  %384 = add i32 %.5435.i, 28
+  %385 = load i32, ptr @hf_opa_GetGroupInfo_maxInternalMBps, align 4
+  %386 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %385, ptr noundef %1, i32 noundef %384, i32 noundef 4, i32 noundef 0) #6
+  %387 = add i32 %.5435.i, 32
+  %388 = load i32, ptr @hf_opa_GetGroupInfo_maxExternalMBps, align 4
+  %389 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %388, ptr noundef %1, i32 noundef %387, i32 noundef 4, i32 noundef 0) #6
+  %390 = add i32 %.5435.i, 36
+  %391 = add nuw i32 %.0294438.i, 1
+  %exitcond449.not.i = icmp eq i32 %391, %42
   br i1 %exitcond449.not.i, label %parse_GetGroupList.exit, label %.lr.ph.i83, !llvm.loop !64
 
-407:                                              ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %408 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %10) #6
-  %409 = getelementptr inbounds i8, ptr %5, i64 8
-  %410 = load i16, ptr %409, align 8
-  %.not.i85 = icmp eq i16 %410, 0
-  br i1 %.not.i85, label %415, label %411
+392:                                              ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  %393 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %8) #6
+  %.not.i85 = icmp eq i16 %.8.val, 0
+  br i1 %.not.i85, label %398, label %394
 
-411:                                              ; preds = %407
-  %412 = zext i16 %410 to i32
-  %413 = shl nuw nsw i32 %412, 3
-  %414 = udiv i32 %408, %413
-  br label %415
+394:                                              ; preds = %392
+  %395 = zext i16 %.8.val to i32
+  %396 = shl nuw nsw i32 %395, 3
+  %397 = udiv i32 %393, %396
+  br label %398
 
-415:                                              ; preds = %411, %407
-  %416 = phi i32 [ %414, %411 ], [ 0, %407 ]
+398:                                              ; preds = %394, %392
+  %399 = phi i32 [ %397, %394 ], [ 0, %392 ]
   %.not53.i = icmp eq ptr %0, null
-  br i1 %.not53.i, label %parse_GetGroupConfig.exit, label %417
+  br i1 %.not53.i, label %parse_GetGroupConfig.exit, label %400
 
-417:                                              ; preds = %415
-  %418 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
-  %.not54.i = icmp eq i32 %418, 0
-  br i1 %.not54.i, label %419, label %426
+400:                                              ; preds = %398
+  %401 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
+  %.not54.i = icmp ne i32 %401, 0
+  %402 = icmp ne i8 %.1.val, 1
+  %or.cond64.not79 = select i1 %.not54.i, i1 true, i1 %402
+  %.not55.i = icmp eq i32 %.4.val, 1
+  %or.cond65 = select i1 %or.cond64.not79, i1 true, i1 %.not55.i
+  br i1 %or.cond65, label %403, label %parse_GetGroupConfig.exit
 
-419:                                              ; preds = %417
-  %420 = getelementptr inbounds i8, ptr %4, i64 1
-  %421 = load i8, ptr %420, align 1
-  %422 = icmp eq i8 %421, 1
-  br i1 %422, label %423, label %426
-
-423:                                              ; preds = %419
-  %424 = getelementptr inbounds i8, ptr %4, i64 4
-  %425 = load i32, ptr %424, align 4
-  %.not55.i = icmp eq i32 %425, 1
-  br i1 %.not55.i, label %426, label %parse_GetGroupConfig.exit
-
-426:                                              ; preds = %423, %419, %417
-  %427 = getelementptr inbounds i8, ptr %3, i64 3
-  %428 = load i8, ptr %427, align 1
-  switch i8 %428, label %parse_GetGroupConfig.exit [
-    i8 1, label %429
-    i8 18, label %429
-    i8 -127, label %449
-    i8 -110, label %449
+403:                                              ; preds = %400
+  %404 = getelementptr inbounds i8, ptr %3, i64 3
+  %405 = load i8, ptr %404, align 1
+  switch i8 %405, label %parse_GetGroupConfig.exit [
+    i8 1, label %406
+    i8 18, label %406
+    i8 -127, label %426
+    i8 -110, label %426
   ]
 
-429:                                              ; preds = %426, %426
-  %430 = load i32, ptr @hf_opa_GetGroupConfig, align 4
-  %431 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %430, ptr noundef %1, i32 noundef %10, i32 noundef 80, i32 noundef 0) #6
-  %432 = tail call ptr @wmem_file_scope() #6
-  %433 = tail call ptr @tvb_get_string_enc(ptr noundef %432, ptr noundef %1, i32 noundef %10, i32 noundef 64, i32 noundef 0) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %431, ptr noundef nonnull @.str.2435, ptr noundef %433) #6
-  %434 = load i32, ptr @ett_getgroupconfig, align 4
-  %435 = tail call ptr @proto_item_add_subtree(ptr noundef %431, i32 noundef %434) #6
-  %436 = load i32, ptr @hf_opa_GetGroupConfig_groupName, align 4
-  %437 = tail call ptr @proto_tree_add_item(ptr noundef %435, i32 noundef %436, ptr noundef %1, i32 noundef %10, i32 noundef 64, i32 noundef 0) #6
-  %438 = add i32 %10, 64
-  %.not.i.i89 = icmp eq ptr %435, null
-  br i1 %.not.i.i89, label %parse_GetGroupConfig.exit, label %439
+406:                                              ; preds = %403, %403
+  %407 = load i32, ptr @hf_opa_GetGroupConfig, align 4
+  %408 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %407, ptr noundef %1, i32 noundef %8, i32 noundef 80, i32 noundef 0) #6
+  %409 = tail call ptr @wmem_file_scope() #6
+  %410 = tail call ptr @tvb_get_string_enc(ptr noundef %409, ptr noundef %1, i32 noundef %8, i32 noundef 64, i32 noundef 0) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %408, ptr noundef nonnull @.str.2435, ptr noundef %410) #6
+  %411 = load i32, ptr @ett_getgroupconfig, align 4
+  %412 = tail call ptr @proto_item_add_subtree(ptr noundef %408, i32 noundef %411) #6
+  %413 = load i32, ptr @hf_opa_GetGroupConfig_groupName, align 4
+  %414 = tail call ptr @proto_tree_add_item(ptr noundef %412, i32 noundef %413, ptr noundef %1, i32 noundef %8, i32 noundef 64, i32 noundef 0) #6
+  %415 = add i32 %8, 64
+  %.not.i.i89 = icmp eq ptr %412, null
+  br i1 %.not.i.i89, label %parse_GetGroupConfig.exit, label %416
 
-439:                                              ; preds = %429
-  %440 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %441 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %435, i32 noundef %440, ptr noundef %1, i32 noundef %438, i32 noundef 8, i32 noundef 0) #6
-  %442 = add i32 %10, 72
-  %443 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %444 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %435, i32 noundef %443, ptr noundef %1, i32 noundef %442, i32 noundef 4, i32 noundef 0) #6
-  %445 = add i32 %10, 76
-  %446 = load i32, ptr @hf_opa_reserved32, align 4
-  %447 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %435, i32 noundef %446, ptr noundef %1, i32 noundef %445, i32 noundef 4, i32 noundef 0) #6
-  %448 = add i32 %10, 80
+416:                                              ; preds = %406
+  %417 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %418 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %412, i32 noundef %417, ptr noundef %1, i32 noundef %415, i32 noundef 8, i32 noundef 0) #6
+  %419 = add i32 %8, 72
+  %420 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %421 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %412, i32 noundef %420, ptr noundef %1, i32 noundef %419, i32 noundef 4, i32 noundef 0) #6
+  %422 = add i32 %8, 76
+  %423 = load i32, ptr @hf_opa_reserved32, align 4
+  %424 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %412, i32 noundef %423, ptr noundef %1, i32 noundef %422, i32 noundef 4, i32 noundef 0) #6
+  %425 = add i32 %8, 80
   br label %parse_GetGroupConfig.exit
 
-449:                                              ; preds = %426, %426
-  %450 = load i32, ptr @hf_opa_GetGroupConfig, align 4
-  %451 = zext i16 %410 to i32
-  %452 = shl nuw nsw i32 %451, 3
-  %453 = mul i32 %452, %416
-  %454 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %450, ptr noundef %1, i32 noundef %10, i32 noundef %453, i32 noundef 0) #6
-  %455 = load i32, ptr @ett_getgroupconfig, align 4
-  %456 = tail call ptr @proto_item_add_subtree(ptr noundef %454, i32 noundef %455) #6
-  %.not73.i = icmp eq i32 %416, 0
+426:                                              ; preds = %403, %403
+  %427 = load i32, ptr @hf_opa_GetGroupConfig, align 4
+  %428 = zext i16 %.8.val to i32
+  %429 = shl nuw nsw i32 %428, 3
+  %430 = mul i32 %399, %429
+  %431 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %427, ptr noundef %1, i32 noundef %8, i32 noundef %430, i32 noundef 0) #6
+  %432 = load i32, ptr @ett_getgroupconfig, align 4
+  %433 = tail call ptr @proto_item_add_subtree(ptr noundef %431, i32 noundef %432) #6
+  %.not73.i = icmp eq i32 %399, 0
   br i1 %.not73.i, label %parse_GetGroupConfig.exit, label %.lr.ph.i86
 
-.lr.ph.i86:                                       ; preds = %449, %parse_Image.exit59.i
-  %.04972.i = phi i32 [ %492, %parse_Image.exit59.i ], [ 0, %449 ]
-  %457 = phi i32 [ %491, %parse_Image.exit59.i ], [ %10, %449 ]
-  %458 = load i16, ptr %409, align 8
-  %459 = zext i16 %458 to i32
-  %460 = shl nuw nsw i32 %459, 3
-  %461 = load i32, ptr @ett_getgroupconfigport, align 4
-  %462 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %456, ptr noundef %1, i32 noundef %457, i32 noundef %460, i32 noundef %461, ptr noundef nonnull %9, ptr noundef nonnull @.str.2303, i32 noundef %.04972.i) #6
-  %.not.i57.i = icmp eq ptr %462, null
-  br i1 %.not.i57.i, label %parse_Image.exit59.i, label %463
+.lr.ph.i86:                                       ; preds = %426, %parse_Image.exit59.i
+  %.04972.i = phi i32 [ %466, %parse_Image.exit59.i ], [ 0, %426 ]
+  %434 = phi i32 [ %465, %parse_Image.exit59.i ], [ %8, %426 ]
+  %435 = load i32, ptr @ett_getgroupconfigport, align 4
+  %436 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %433, ptr noundef %1, i32 noundef %434, i32 noundef %429, i32 noundef %435, ptr noundef nonnull %7, ptr noundef nonnull @.str.2303, i32 noundef %.04972.i) #6
+  %.not.i57.i = icmp eq ptr %436, null
+  br i1 %.not.i57.i, label %parse_Image.exit59.i, label %437
 
-463:                                              ; preds = %.lr.ph.i86
-  %464 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %465 = call ptr @proto_tree_add_item(ptr noundef nonnull %462, i32 noundef %464, ptr noundef %1, i32 noundef %457, i32 noundef 8, i32 noundef 0) #6
-  %466 = add i32 %457, 8
-  %467 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %468 = call ptr @proto_tree_add_item(ptr noundef nonnull %462, i32 noundef %467, ptr noundef %1, i32 noundef %466, i32 noundef 4, i32 noundef 0) #6
-  %469 = add i32 %457, 12
-  %470 = load i32, ptr @hf_opa_reserved32, align 4
-  %471 = call ptr @proto_tree_add_item(ptr noundef nonnull %462, i32 noundef %470, ptr noundef %1, i32 noundef %469, i32 noundef 4, i32 noundef 0) #6
-  %472 = add i32 %457, 16
+437:                                              ; preds = %.lr.ph.i86
+  %438 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %439 = call ptr @proto_tree_add_item(ptr noundef nonnull %436, i32 noundef %438, ptr noundef %1, i32 noundef %434, i32 noundef 8, i32 noundef 0) #6
+  %440 = add i32 %434, 8
+  %441 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %442 = call ptr @proto_tree_add_item(ptr noundef nonnull %436, i32 noundef %441, ptr noundef %1, i32 noundef %440, i32 noundef 4, i32 noundef 0) #6
+  %443 = add i32 %434, 12
+  %444 = load i32, ptr @hf_opa_reserved32, align 4
+  %445 = call ptr @proto_tree_add_item(ptr noundef nonnull %436, i32 noundef %444, ptr noundef %1, i32 noundef %443, i32 noundef 4, i32 noundef 0) #6
+  %446 = add i32 %434, 16
   br label %parse_Image.exit59.i
 
-parse_Image.exit59.i:                             ; preds = %463, %.lr.ph.i86
-  %.0.i58.i = phi i32 [ %472, %463 ], [ %457, %.lr.ph.i86 ]
-  %473 = load i32, ptr @hf_opa_GetGroupConfig_Port_NodeGUID, align 4
-  %474 = call ptr @proto_tree_add_item(ptr noundef %462, i32 noundef %473, ptr noundef %1, i32 noundef %.0.i58.i, i32 noundef 8, i32 noundef 0) #6
-  %475 = add i32 %.0.i58.i, 8
-  %476 = load i32, ptr @hf_opa_GetGroupConfig_Port_nodeDesc, align 4
-  %477 = call ptr @proto_tree_add_item(ptr noundef %462, i32 noundef %476, ptr noundef %1, i32 noundef %475, i32 noundef 64, i32 noundef 0) #6
-  %478 = add i32 %.0.i58.i, 72
-  %479 = load ptr, ptr %9, align 8
-  %480 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %478) #6
-  %481 = add i32 %.0.i58.i, 76
-  %482 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %481) #6
-  %483 = zext i8 %482 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %479, ptr noundef nonnull @.str.2436, i32 noundef %480, i32 noundef %483) #6
-  %484 = load i32, ptr @hf_opa_GetGroupConfig_Port_NodeLID, align 4
-  %485 = call ptr @proto_tree_add_item(ptr noundef %462, i32 noundef %484, ptr noundef %1, i32 noundef %478, i32 noundef 4, i32 noundef 0) #6
-  %486 = load i32, ptr @hf_opa_GetGroupConfig_Port_PortNumber, align 4
-  %487 = call ptr @proto_tree_add_item(ptr noundef %462, i32 noundef %486, ptr noundef %1, i32 noundef %481, i32 noundef 1, i32 noundef 0) #6
-  %488 = add i32 %.0.i58.i, 77
-  %489 = load i32, ptr @hf_opa_reserved24, align 4
-  %490 = call ptr @proto_tree_add_item(ptr noundef %462, i32 noundef %489, ptr noundef %1, i32 noundef %488, i32 noundef 3, i32 noundef 0) #6
-  %491 = add i32 %.0.i58.i, 80
-  %492 = add nuw i32 %.04972.i, 1
-  %exitcond.not.i87 = icmp eq i32 %492, %416
+parse_Image.exit59.i:                             ; preds = %437, %.lr.ph.i86
+  %.0.i58.i = phi i32 [ %446, %437 ], [ %434, %.lr.ph.i86 ]
+  %447 = load i32, ptr @hf_opa_GetGroupConfig_Port_NodeGUID, align 4
+  %448 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %447, ptr noundef %1, i32 noundef %.0.i58.i, i32 noundef 8, i32 noundef 0) #6
+  %449 = add i32 %.0.i58.i, 8
+  %450 = load i32, ptr @hf_opa_GetGroupConfig_Port_nodeDesc, align 4
+  %451 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %450, ptr noundef %1, i32 noundef %449, i32 noundef 64, i32 noundef 0) #6
+  %452 = add i32 %.0.i58.i, 72
+  %453 = load ptr, ptr %7, align 8
+  %454 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %452) #6
+  %455 = add i32 %.0.i58.i, 76
+  %456 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %455) #6
+  %457 = zext i8 %456 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %453, ptr noundef nonnull @.str.2436, i32 noundef %454, i32 noundef %457) #6
+  %458 = load i32, ptr @hf_opa_GetGroupConfig_Port_NodeLID, align 4
+  %459 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %458, ptr noundef %1, i32 noundef %452, i32 noundef 4, i32 noundef 0) #6
+  %460 = load i32, ptr @hf_opa_GetGroupConfig_Port_PortNumber, align 4
+  %461 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %460, ptr noundef %1, i32 noundef %455, i32 noundef 1, i32 noundef 0) #6
+  %462 = add i32 %.0.i58.i, 77
+  %463 = load i32, ptr @hf_opa_reserved24, align 4
+  %464 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %463, ptr noundef %1, i32 noundef %462, i32 noundef 3, i32 noundef 0) #6
+  %465 = add i32 %.0.i58.i, 80
+  %466 = add nuw i32 %.04972.i, 1
+  %exitcond.not.i87 = icmp eq i32 %466, %399
   br i1 %exitcond.not.i87, label %parse_GetGroupConfig.exit, label %.lr.ph.i86, !llvm.loop !65
 
-parse_GetGroupConfig.exit:                        ; preds = %parse_Image.exit59.i, %429, %439, %449, %415, %423, %426
-  %.0.in.i.sroa.speculated = phi i32 [ %10, %423 ], [ %10, %415 ], [ %10, %426 ], [ %448, %439 ], [ %438, %429 ], [ %10, %449 ], [ %491, %parse_Image.exit59.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %parse_GetGroupList.exit
-
-493:                                              ; preds = %6
-  %.not.i90 = icmp eq ptr %0, null
-  br i1 %.not.i90, label %parse_GetGroupList.exit, label %494
-
-494:                                              ; preds = %493
-  %495 = load i32, ptr @hf_opa_GetPortCounters, align 4
-  %496 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %495, ptr noundef %1, i32 noundef %10, i32 noundef 248, i32 noundef 0) #6
-  %497 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %10) #6
-  %498 = add i32 %10, 4
-  %499 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %498) #6
-  %500 = zext i8 %499 to i32
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %496, ptr noundef nonnull @.str.2437, i32 noundef %497, i32 noundef %500) #6
-  %501 = load i32, ptr @ett_getportcounters, align 4
-  %502 = tail call ptr @proto_item_add_subtree(ptr noundef %496, i32 noundef %501) #6
-  %503 = load i32, ptr @hf_opa_GetPortCounters_nodeLID, align 4
-  %504 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %503, ptr noundef %1, i32 noundef %10, i32 noundef 4, i32 noundef 0) #6
-  %505 = load i32, ptr @hf_opa_GetPortCounters_PortNumber, align 4
-  %506 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %505, ptr noundef %1, i32 noundef %498, i32 noundef 1, i32 noundef 0) #6
-  %507 = add i32 %10, 5
-  %508 = load i32, ptr @hf_opa_reserved24, align 4
-  %509 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %508, ptr noundef %1, i32 noundef %507, i32 noundef 3, i32 noundef 0) #6
-  %510 = add i32 %10, 8
-  %511 = load i32, ptr @hf_opa_GetPortCounters_flags, align 4
-  %512 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %511, ptr noundef %1, i32 noundef %510, i32 noundef 4, i32 noundef 0) #6
-  %513 = add i32 %10, 12
-  %514 = load i32, ptr @hf_opa_reserved32, align 4
-  %515 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %514, ptr noundef %1, i32 noundef %513, i32 noundef 4, i32 noundef 0) #6
-  %516 = add i32 %10, 16
-  %517 = load i32, ptr @hf_opa_reserved64, align 4
-  %518 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %517, ptr noundef %1, i32 noundef %516, i32 noundef 8, i32 noundef 0) #6
-  %519 = add i32 %10, 24
-  %.not.i.i91 = icmp eq ptr %502, null
-  br i1 %.not.i.i91, label %parse_Image.exit.i, label %520
-
-520:                                              ; preds = %494
-  %521 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %522 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %502, i32 noundef %521, ptr noundef %1, i32 noundef %519, i32 noundef 8, i32 noundef 0) #6
-  %523 = add i32 %10, 32
-  %524 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %525 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %502, i32 noundef %524, ptr noundef %1, i32 noundef %523, i32 noundef 4, i32 noundef 0) #6
-  %526 = add i32 %10, 36
-  %527 = load i32, ptr @hf_opa_reserved32, align 4
-  %528 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %502, i32 noundef %527, ptr noundef %1, i32 noundef %526, i32 noundef 4, i32 noundef 0) #6
-  %529 = add i32 %10, 40
-  br label %parse_Image.exit.i
-
-parse_Image.exit.i:                               ; preds = %520, %494
-  %.0.i.i = phi i32 [ %529, %520 ], [ %519, %494 ]
-  %530 = getelementptr inbounds i8, ptr %3, i64 3
-  %531 = load i8, ptr %530, align 1
-  switch i8 %531, label %627 [
-    i8 -127, label %532
-    i8 -110, label %532
-  ]
-
-532:                                              ; preds = %parse_Image.exit.i, %parse_Image.exit.i
-  %533 = load i32, ptr @hf_opa_GetPortCounters_PortXmitData, align 4
-  %534 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %533, ptr noundef %1, i32 noundef %.0.i.i, i32 noundef 8, i32 noundef 0) #6
-  %535 = add i32 %.0.i.i, 8
-  %536 = load i32, ptr @hf_opa_GetPortCounters_PortRcvData, align 4
-  %537 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %536, ptr noundef %1, i32 noundef %535, i32 noundef 8, i32 noundef 0) #6
-  %538 = add i32 %.0.i.i, 16
-  %539 = load i32, ptr @hf_opa_GetPortCounters_PortXmitPkts, align 4
-  %540 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %539, ptr noundef %1, i32 noundef %538, i32 noundef 8, i32 noundef 0) #6
-  %541 = add i32 %.0.i.i, 24
-  %542 = load i32, ptr @hf_opa_GetPortCounters_PortRcvPkts, align 4
-  %543 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %542, ptr noundef %1, i32 noundef %541, i32 noundef 8, i32 noundef 0) #6
-  %544 = add i32 %.0.i.i, 32
-  %545 = load i32, ptr @hf_opa_GetPortCounters_PortMulticastXmitPkts, align 4
-  %546 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %545, ptr noundef %1, i32 noundef %544, i32 noundef 8, i32 noundef 0) #6
-  %547 = add i32 %.0.i.i, 40
-  %548 = load i32, ptr @hf_opa_GetPortCounters_PortMulticastRcvPkts, align 4
-  %549 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %548, ptr noundef %1, i32 noundef %547, i32 noundef 8, i32 noundef 0) #6
-  %550 = add i32 %.0.i.i, 48
-  %551 = load i32, ptr @hf_opa_GetPortCounters_LocalLinkIntegrityErrors, align 4
-  %552 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %551, ptr noundef %1, i32 noundef %550, i32 noundef 8, i32 noundef 0) #6
-  %553 = add i32 %.0.i.i, 56
-  %554 = load i32, ptr @hf_opa_GetPortCounters_FMConfigErrors, align 4
-  %555 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %554, ptr noundef %1, i32 noundef %553, i32 noundef 8, i32 noundef 0) #6
-  %556 = add i32 %.0.i.i, 64
-  %557 = load i32, ptr @hf_opa_GetPortCounters_PortRcvErrors, align 4
-  %558 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %557, ptr noundef %1, i32 noundef %556, i32 noundef 8, i32 noundef 0) #6
-  %559 = add i32 %.0.i.i, 72
-  %560 = load i32, ptr @hf_opa_GetPortCounters_ExcessiveBufferOverruns, align 4
-  %561 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %560, ptr noundef %1, i32 noundef %559, i32 noundef 8, i32 noundef 0) #6
-  %562 = add i32 %.0.i.i, 80
-  %563 = load i32, ptr @hf_opa_GetPortCounters_PortRcvConstraintErrors, align 4
-  %564 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %563, ptr noundef %1, i32 noundef %562, i32 noundef 8, i32 noundef 0) #6
-  %565 = add i32 %.0.i.i, 88
-  %566 = load i32, ptr @hf_opa_GetPortCounters_PortRcvSwitchRelayErrors, align 4
-  %567 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %566, ptr noundef %1, i32 noundef %565, i32 noundef 8, i32 noundef 0) #6
-  %568 = add i32 %.0.i.i, 96
-  %569 = load i32, ptr @hf_opa_GetPortCounters_PortXmitDiscards, align 4
-  %570 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %569, ptr noundef %1, i32 noundef %568, i32 noundef 8, i32 noundef 0) #6
-  %571 = add i32 %.0.i.i, 104
-  %572 = load i32, ptr @hf_opa_GetPortCounters_PortXmitConstraintErrors, align 4
-  %573 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %572, ptr noundef %1, i32 noundef %571, i32 noundef 8, i32 noundef 0) #6
-  %574 = add i32 %.0.i.i, 112
-  %575 = load i32, ptr @hf_opa_GetPortCounters_PortRcvRemotePhysicalErrors, align 4
-  %576 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %575, ptr noundef %1, i32 noundef %574, i32 noundef 8, i32 noundef 0) #6
-  %577 = add i32 %.0.i.i, 120
-  %578 = load i32, ptr @hf_opa_GetPortCounters_SwPortCongestion, align 4
-  %579 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %578, ptr noundef %1, i32 noundef %577, i32 noundef 8, i32 noundef 0) #6
-  %580 = add i32 %.0.i.i, 128
-  %581 = load i32, ptr @hf_opa_GetPortCounters_PortXmitWait, align 4
-  %582 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %581, ptr noundef %1, i32 noundef %580, i32 noundef 8, i32 noundef 0) #6
-  %583 = add i32 %.0.i.i, 136
-  %584 = load i32, ptr @hf_opa_GetPortCounters_PortRcvFECN, align 4
-  %585 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %584, ptr noundef %1, i32 noundef %583, i32 noundef 8, i32 noundef 0) #6
-  %586 = add i32 %.0.i.i, 144
-  %587 = load i32, ptr @hf_opa_GetPortCounters_PortRcvBECN, align 4
-  %588 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %587, ptr noundef %1, i32 noundef %586, i32 noundef 8, i32 noundef 0) #6
-  %589 = add i32 %.0.i.i, 152
-  %590 = load i32, ptr @hf_opa_GetPortCounters_PortXmitTimeCong, align 4
-  %591 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %590, ptr noundef %1, i32 noundef %589, i32 noundef 8, i32 noundef 0) #6
-  %592 = add i32 %.0.i.i, 160
-  %593 = load i32, ptr @hf_opa_GetPortCounters_PortXmitWastedBW, align 4
-  %594 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %593, ptr noundef %1, i32 noundef %592, i32 noundef 8, i32 noundef 0) #6
-  %595 = add i32 %.0.i.i, 168
-  %596 = load i32, ptr @hf_opa_GetPortCounters_PortXmitWaitData, align 4
-  %597 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %596, ptr noundef %1, i32 noundef %595, i32 noundef 8, i32 noundef 0) #6
-  %598 = add i32 %.0.i.i, 176
-  %599 = load i32, ptr @hf_opa_GetPortCounters_PortRcvBubble, align 4
-  %600 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %599, ptr noundef %1, i32 noundef %598, i32 noundef 8, i32 noundef 0) #6
-  %601 = add i32 %.0.i.i, 184
-  %602 = load i32, ptr @hf_opa_GetPortCounters_PortMarkFECN, align 4
-  %603 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %602, ptr noundef %1, i32 noundef %601, i32 noundef 8, i32 noundef 0) #6
-  %604 = add i32 %.0.i.i, 192
-  %605 = load i32, ptr @hf_opa_GetPortCounters_LinkErrorRecovery, align 4
-  %606 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %605, ptr noundef %1, i32 noundef %604, i32 noundef 4, i32 noundef 0) #6
-  %607 = add i32 %.0.i.i, 196
-  %608 = load i32, ptr @hf_opa_GetPortCounters_LinkDowned, align 4
-  %609 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %608, ptr noundef %1, i32 noundef %607, i32 noundef 4, i32 noundef 0) #6
-  %610 = add i32 %.0.i.i, 200
-  %611 = load i32, ptr @hf_opa_GetPortCounters_UncorrectableErrors, align 4
-  %612 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %611, ptr noundef %1, i32 noundef %610, i32 noundef 1, i32 noundef 0) #6
-  %613 = add i32 %.0.i.i, 201
-  %614 = load i32, ptr @hf_opa_GetPortCounters_NumLanesDown, align 4
-  %615 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %614, ptr noundef %1, i32 noundef %613, i32 noundef 1, i32 noundef 0) #6
-  %616 = load i32, ptr @hf_opa_GetPortCounters_reserved, align 4
-  %617 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %616, ptr noundef %1, i32 noundef %613, i32 noundef 1, i32 noundef 0) #6
-  %618 = load i32, ptr @hf_opa_GetPortCounters_LinkQualityIndicator, align 4
-  %619 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %618, ptr noundef %1, i32 noundef %613, i32 noundef 1, i32 noundef 0) #6
-  %620 = add i32 %.0.i.i, 202
-  %621 = load i32, ptr @hf_opa_reserved16, align 4
-  %622 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %621, ptr noundef %1, i32 noundef %620, i32 noundef 2, i32 noundef 0) #6
-  %623 = add i32 %.0.i.i, 204
-  %624 = load i32, ptr @hf_opa_reserved32, align 4
-  %625 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %624, ptr noundef %1, i32 noundef %623, i32 noundef 4, i32 noundef 0) #6
-  %626 = add i32 %.0.i.i, 208
-  br label %parse_GetGroupList.exit
-
-627:                                              ; preds = %parse_Image.exit.i
-  %628 = add i32 %.0.i.i, 208
-  br label %parse_GetGroupList.exit
-
-629:                                              ; preds = %6
-  %.not.i93 = icmp eq ptr %0, null
-  br i1 %.not.i93, label %parse_GetGroupList.exit, label %630
-
-630:                                              ; preds = %629
-  %631 = load i32, ptr @hf_opa_ClearPortCounters, align 4
-  %632 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %631, ptr noundef %1, i32 noundef %10, i32 noundef 20, i32 noundef 0) #6
-  %633 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %10) #6
-  %634 = add i32 %10, 4
-  %635 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %634) #6
-  %636 = zext i8 %635 to i32
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %632, ptr noundef nonnull @.str.2438, i32 noundef %633, i32 noundef %636) #6
-  %637 = load i32, ptr @ett_clearportcounters, align 4
-  %638 = tail call ptr @proto_item_add_subtree(ptr noundef %632, i32 noundef %637) #6
-  %639 = load i32, ptr @hf_opa_ClearPortCounters_nodeLID, align 4
-  %640 = tail call ptr @proto_tree_add_item(ptr noundef %638, i32 noundef %639, ptr noundef %1, i32 noundef %10, i32 noundef 4, i32 noundef 0) #6
-  %641 = load i32, ptr @hf_opa_ClearPortCounters_PortNumber, align 4
-  %642 = tail call ptr @proto_tree_add_item(ptr noundef %638, i32 noundef %641, ptr noundef %1, i32 noundef %634, i32 noundef 1, i32 noundef 0) #6
-  %643 = add i32 %10, 5
-  %644 = load i32, ptr @hf_opa_reserved24, align 4
-  %645 = tail call ptr @proto_tree_add_item(ptr noundef %638, i32 noundef %644, ptr noundef %1, i32 noundef %643, i32 noundef 3, i32 noundef 0) #6
-  %646 = add i32 %10, 8
-  %647 = load i32, ptr @hf_opa_reserved64, align 4
-  %648 = tail call ptr @proto_tree_add_item(ptr noundef %638, i32 noundef %647, ptr noundef %1, i32 noundef %646, i32 noundef 8, i32 noundef 0) #6
-  %649 = add i32 %10, 16
-  %650 = load i32, ptr @hf_opa_ClearPortCounters_CounterSelectMask, align 4
-  %651 = load i32, ptr @ett_clearportcounters_counterselectmask, align 4
-  %652 = tail call ptr @proto_tree_add_bitmask(ptr noundef %638, ptr noundef %1, i32 noundef %649, i32 noundef %650, i32 noundef %651, ptr noundef nonnull @_ClearPortCounters_CounterSelectMask, i32 noundef 0) #6
-  %653 = add i32 %10, 20
-  br label %parse_GetGroupList.exit
-
-654:                                              ; preds = %6
-  %.not.i95 = icmp eq ptr %0, null
-  br i1 %.not.i95, label %parse_GetGroupList.exit, label %655
-
-655:                                              ; preds = %654
-  %656 = load i32, ptr @hf_opa_ClearAllPortCounters, align 4
-  %657 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %656, ptr noundef %1, i32 noundef %10, i32 noundef 4, i32 noundef 0) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %657, ptr noundef nonnull @.str.1574) #6
-  %658 = load i32, ptr @ett_clearallportcounters, align 4
-  %659 = tail call ptr @proto_item_add_subtree(ptr noundef %657, i32 noundef %658) #6
-  %660 = load i32, ptr @hf_opa_ClearAllPortCounters_CounterSelectMask, align 4
-  %661 = load i32, ptr @ett_clearallportcounters_counterselectmask, align 4
-  %662 = tail call ptr @proto_tree_add_bitmask(ptr noundef %659, ptr noundef %1, i32 noundef %10, i32 noundef %660, i32 noundef %661, ptr noundef nonnull @_ClearAllPortCounters_CounterSelectMask, i32 noundef 0) #6
-  %663 = add i32 %10, 4
-  br label %parse_GetGroupList.exit
-
-664:                                              ; preds = %6
-  %.not.i97 = icmp eq ptr %0, null
-  br i1 %.not.i97, label %parse_GetGroupList.exit, label %665
-
-665:                                              ; preds = %664
-  %666 = load i32, ptr @hf_opa_PMConfig, align 4
-  %667 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %666, ptr noundef %1, i32 noundef %10, i32 noundef 104, i32 noundef 0) #6
-  %668 = load i32, ptr @ett_pmconfig, align 4
-  %669 = tail call ptr @proto_item_add_subtree(ptr noundef %667, i32 noundef %668) #6
-  %670 = load i32, ptr @hf_opa_PMConfig_sweepInterval, align 4
-  %671 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %670, ptr noundef %1, i32 noundef %10, i32 noundef 4, i32 noundef 0) #6
-  %672 = add i32 %10, 4
-  %673 = load i32, ptr @hf_opa_PMConfig_maxClients, align 4
-  %674 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %673, ptr noundef %1, i32 noundef %672, i32 noundef 4, i32 noundef 0) #6
-  %675 = add i32 %10, 8
-  %676 = load i32, ptr @hf_opa_PMConfig_sizeHistory, align 4
-  %677 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %676, ptr noundef %1, i32 noundef %675, i32 noundef 4, i32 noundef 0) #6
-  %678 = add i32 %10, 12
-  %679 = load i32, ptr @hf_opa_PMConfig_sizeFreeze, align 4
-  %680 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %679, ptr noundef %1, i32 noundef %678, i32 noundef 4, i32 noundef 0) #6
-  %681 = add i32 %10, 16
-  %682 = load i32, ptr @hf_opa_PMConfig_lease, align 4
-  %683 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %682, ptr noundef %1, i32 noundef %681, i32 noundef 4, i32 noundef 0) #6
-  %684 = add i32 %10, 20
-  %685 = load i32, ptr @hf_opa_PMConfig_pmFlags, align 4
-  %686 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %685, ptr noundef %1, i32 noundef %684, i32 noundef 4, i32 noundef 0) #6
-  %687 = add i32 %10, 24
-  %688 = load i32, ptr @hf_opa_PMConfig_PortXmitWait, align 4
-  %689 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %688, ptr noundef %1, i32 noundef %687, i32 noundef 1, i32 noundef 0) #6
-  %690 = add i32 %10, 25
-  %691 = load i32, ptr @hf_opa_PMConfig_SwPortCongestion, align 4
-  %692 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %691, ptr noundef %1, i32 noundef %690, i32 noundef 1, i32 noundef 0) #6
-  %693 = add i32 %10, 26
-  %694 = load i32, ptr @hf_opa_PMConfig_PortRcvFECN, align 4
-  %695 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %694, ptr noundef %1, i32 noundef %693, i32 noundef 1, i32 noundef 0) #6
-  %696 = add i32 %10, 27
-  %697 = load i32, ptr @hf_opa_PMConfig_PortRcvBECN, align 4
-  %698 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %697, ptr noundef %1, i32 noundef %696, i32 noundef 1, i32 noundef 0) #6
-  %699 = add i32 %10, 28
-  %700 = load i32, ptr @hf_opa_PMConfig_PortXmitTimeCong, align 4
-  %701 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %700, ptr noundef %1, i32 noundef %699, i32 noundef 1, i32 noundef 0) #6
-  %702 = add i32 %10, 29
-  %703 = load i32, ptr @hf_opa_PMConfig_PortMarkFECN, align 4
-  %704 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %703, ptr noundef %1, i32 noundef %702, i32 noundef 1, i32 noundef 0) #6
-  %705 = add i32 %10, 30
-  %706 = load i32, ptr @hf_opa_reserved16, align 4
-  %707 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %706, ptr noundef %1, i32 noundef %705, i32 noundef 2, i32 noundef 0) #6
-  %708 = add i32 %10, 32
-  %709 = load i32, ptr @hf_opa_PMConfig_integrityErrors, align 4
-  %710 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %709, ptr noundef %1, i32 noundef %708, i32 noundef 4, i32 noundef 0) #6
-  %711 = add i32 %10, 36
-  %712 = load i32, ptr @hf_opa_PMConfig_congestionErrors, align 4
-  %713 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %712, ptr noundef %1, i32 noundef %711, i32 noundef 4, i32 noundef 0) #6
-  %714 = add i32 %10, 40
-  %715 = load i32, ptr @hf_opa_PMConfig_smaCongestionErrors, align 4
-  %716 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %715, ptr noundef %1, i32 noundef %714, i32 noundef 4, i32 noundef 0) #6
-  %717 = add i32 %10, 44
-  %718 = load i32, ptr @hf_opa_PMConfig_bubbleErrors, align 4
-  %719 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %718, ptr noundef %1, i32 noundef %717, i32 noundef 4, i32 noundef 0) #6
-  %720 = add i32 %10, 48
-  %721 = load i32, ptr @hf_opa_PMConfig_securityErrors, align 4
-  %722 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %721, ptr noundef %1, i32 noundef %720, i32 noundef 4, i32 noundef 0) #6
-  %723 = add i32 %10, 52
-  %724 = load i32, ptr @hf_opa_PMConfig_routingErrors, align 4
-  %725 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %724, ptr noundef %1, i32 noundef %723, i32 noundef 4, i32 noundef 0) #6
-  %726 = add i32 %10, 56
-  %727 = load i32, ptr @hf_opa_PMConfig_LocalLinkIntegrityErrors, align 4
-  %728 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %727, ptr noundef %1, i32 noundef %726, i32 noundef 1, i32 noundef 0) #6
-  %729 = add i32 %10, 57
-  %730 = load i32, ptr @hf_opa_PMConfig_PortRcvErrors, align 4
-  %731 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %730, ptr noundef %1, i32 noundef %729, i32 noundef 1, i32 noundef 0) #6
-  %732 = add i32 %10, 58
-  %733 = load i32, ptr @hf_opa_PMConfig_ExcessiveBufferOverrunErrors, align 4
-  %734 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %733, ptr noundef %1, i32 noundef %732, i32 noundef 1, i32 noundef 0) #6
-  %735 = add i32 %10, 59
-  %736 = load i32, ptr @hf_opa_PMConfig_LinkErrorRecovery, align 4
-  %737 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %736, ptr noundef %1, i32 noundef %735, i32 noundef 1, i32 noundef 0) #6
-  %738 = add i32 %10, 60
-  %739 = load i32, ptr @hf_opa_PMConfig_LinkDowned, align 4
-  %740 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %739, ptr noundef %1, i32 noundef %738, i32 noundef 1, i32 noundef 0) #6
-  %741 = add i32 %10, 61
-  %742 = load i32, ptr @hf_opa_PMConfig_UncorrectableErrors, align 4
-  %743 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %742, ptr noundef %1, i32 noundef %741, i32 noundef 1, i32 noundef 0) #6
-  %744 = add i32 %10, 62
-  %745 = load i32, ptr @hf_opa_PMConfig_FMConfigErrors, align 4
-  %746 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %745, ptr noundef %1, i32 noundef %744, i32 noundef 1, i32 noundef 0) #6
-  %747 = add i32 %10, 63
-  %748 = load i32, ptr @hf_opa_PMConfig_LinkQualityIndicator, align 4
-  %749 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %748, ptr noundef %1, i32 noundef %747, i32 noundef 1, i32 noundef 0) #6
-  %750 = add i32 %10, 64
-  %751 = load i32, ptr @hf_opa_PMConfig_LinkWidthDowngrade, align 4
-  %752 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %751, ptr noundef %1, i32 noundef %750, i32 noundef 1, i32 noundef 0) #6
-  %753 = add i32 %10, 65
-  %754 = load i32, ptr @hf_opa_reserved8, align 4
-  %755 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %754, ptr noundef %1, i32 noundef %753, i32 noundef 1, i32 noundef 0) #6
-  %756 = add i32 %10, 66
-  %757 = load i32, ptr @hf_opa_reserved16, align 4
-  %758 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %757, ptr noundef %1, i32 noundef %756, i32 noundef 2, i32 noundef 0) #6
-  %759 = add i32 %10, 68
-  %760 = load i32, ptr @hf_opa_reserved32, align 4
-  %761 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %760, ptr noundef %1, i32 noundef %759, i32 noundef 4, i32 noundef 0) #6
-  %762 = add i32 %10, 72
-  %763 = load i32, ptr @hf_opa_PMConfig_memoryFootprint, align 4
-  %764 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %763, ptr noundef %1, i32 noundef %762, i32 noundef 8, i32 noundef 0) #6
-  %765 = add i32 %10, 80
-  %766 = load i32, ptr @hf_opa_PMConfig_maxAttempts, align 4
-  %767 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %766, ptr noundef %1, i32 noundef %765, i32 noundef 4, i32 noundef 0) #6
-  %768 = add i32 %10, 84
-  %769 = load i32, ptr @hf_opa_PMConfig_respTimeout, align 4
-  %770 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %769, ptr noundef %1, i32 noundef %768, i32 noundef 4, i32 noundef 0) #6
-  %771 = add i32 %10, 88
-  %772 = load i32, ptr @hf_opa_PMConfig_minRespTimeout, align 4
-  %773 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %772, ptr noundef %1, i32 noundef %771, i32 noundef 4, i32 noundef 0) #6
-  %774 = add i32 %10, 92
-  %775 = load i32, ptr @hf_opa_PMConfig_maxParallelNodes, align 4
-  %776 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %775, ptr noundef %1, i32 noundef %774, i32 noundef 4, i32 noundef 0) #6
-  %777 = add i32 %10, 96
-  %778 = load i32, ptr @hf_opa_PMConfig_pmaBatchSize, align 4
-  %779 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %778, ptr noundef %1, i32 noundef %777, i32 noundef 4, i32 noundef 0) #6
-  %780 = add i32 %10, 100
-  %781 = load i32, ptr @hf_opa_PMConfig_errorClear, align 4
-  %782 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %781, ptr noundef %1, i32 noundef %780, i32 noundef 1, i32 noundef 0) #6
-  %783 = add i32 %10, 101
-  %784 = load i32, ptr @hf_opa_reserved24, align 4
-  %785 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %784, ptr noundef %1, i32 noundef %783, i32 noundef 3, i32 noundef 0) #6
-  %786 = add i32 %10, 104
-  br label %parse_GetGroupList.exit
-
-787:                                              ; preds = %6
-  %.not.i99 = icmp eq ptr %0, null
-  br i1 %.not.i99, label %parse_GetGroupList.exit, label %788
-
-788:                                              ; preds = %787
-  %789 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %790 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %789, ptr noundef %1, i32 noundef %10, i32 noundef 8, i32 noundef 0) #6
-  %791 = add i32 %10, 8
-  %792 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %793 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %792, ptr noundef %1, i32 noundef %791, i32 noundef 4, i32 noundef 0) #6
-  %794 = add i32 %10, 12
-  %795 = load i32, ptr @hf_opa_reserved32, align 4
-  %796 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %795, ptr noundef %1, i32 noundef %794, i32 noundef 4, i32 noundef 0) #6
-  %797 = add i32 %10, 16
-  br label %parse_GetGroupList.exit
-
-798:                                              ; preds = %6
-  %.not.i101 = icmp eq ptr %0, null
-  br i1 %.not.i101, label %parse_GetGroupList.exit, label %799
-
-799:                                              ; preds = %798
-  %800 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %801 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %800, ptr noundef %1, i32 noundef %10, i32 noundef 8, i32 noundef 0) #6
-  %802 = add i32 %10, 8
-  %803 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %804 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %803, ptr noundef %1, i32 noundef %802, i32 noundef 4, i32 noundef 0) #6
-  %805 = add i32 %10, 12
-  %806 = load i32, ptr @hf_opa_reserved32, align 4
-  %807 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %806, ptr noundef %1, i32 noundef %805, i32 noundef 4, i32 noundef 0) #6
-  %808 = add i32 %10, 16
-  br label %parse_GetGroupList.exit
-
-809:                                              ; preds = %6
-  %.not.i104 = icmp eq ptr %0, null
-  br i1 %.not.i104, label %parse_GetGroupList.exit, label %810
-
-810:                                              ; preds = %809
-  %811 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %812 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %811, ptr noundef %1, i32 noundef %10, i32 noundef 8, i32 noundef 0) #6
-  %813 = add i32 %10, 8
-  %814 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %815 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %814, ptr noundef %1, i32 noundef %813, i32 noundef 4, i32 noundef 0) #6
-  %816 = add i32 %10, 12
-  %817 = load i32, ptr @hf_opa_reserved32, align 4
-  %818 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %817, ptr noundef %1, i32 noundef %816, i32 noundef 4, i32 noundef 0) #6
-  %819 = add i32 %10, 16
-  br label %parse_GetGroupList.exit
-
-820:                                              ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %821 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %10) #6
-  %822 = getelementptr inbounds i8, ptr %5, i64 8
-  %823 = load i16, ptr %822, align 8
-  %.not.i107 = icmp eq i16 %823, 0
-  br i1 %.not.i107, label %828, label %824
-
-824:                                              ; preds = %820
-  %825 = zext i16 %823 to i32
-  %826 = shl nuw nsw i32 %825, 3
-  %827 = udiv i32 %821, %826
-  br label %828
-
-828:                                              ; preds = %824, %820
-  %829 = phi i32 [ %827, %824 ], [ 0, %820 ]
-  %.not78.i = icmp eq ptr %0, null
-  br i1 %.not78.i, label %parse_GetFocusPorts.exit, label %830
-
-830:                                              ; preds = %828
-  %831 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
-  %.not79.i = icmp eq i32 %831, 0
-  br i1 %.not79.i, label %832, label %839
-
-832:                                              ; preds = %830
-  %833 = getelementptr inbounds i8, ptr %4, i64 1
-  %834 = load i8, ptr %833, align 1
-  %835 = icmp eq i8 %834, 1
-  br i1 %835, label %836, label %839
-
-836:                                              ; preds = %832
-  %837 = getelementptr inbounds i8, ptr %4, i64 4
-  %838 = load i32, ptr %837, align 4
-  %.not80.i = icmp eq i32 %838, 1
-  br i1 %.not80.i, label %839, label %parse_GetFocusPorts.exit
-
-839:                                              ; preds = %836, %832, %830
-  %840 = getelementptr inbounds i8, ptr %3, i64 3
-  %841 = load i8, ptr %840, align 1
-  switch i8 %841, label %parse_GetFocusPorts.exit [
-    i8 1, label %842
-    i8 18, label %842
-    i8 -127, label %871
-    i8 -110, label %871
-  ]
-
-842:                                              ; preds = %839, %839
-  %843 = load i32, ptr @hf_opa_GetFocusPorts, align 4
-  %844 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %843, ptr noundef %1, i32 noundef %10, i32 noundef 92, i32 noundef 0) #6
-  %845 = tail call ptr @wmem_file_scope() #6
-  %846 = tail call ptr @tvb_get_string_enc(ptr noundef %845, ptr noundef %1, i32 noundef %10, i32 noundef 64, i32 noundef 0) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %844, ptr noundef nonnull @.str.2439, ptr noundef %846) #6
-  %847 = load i32, ptr @ett_getfocusports, align 4
-  %848 = tail call ptr @proto_item_add_subtree(ptr noundef %844, i32 noundef %847) #6
-  %849 = load i32, ptr @hf_opa_GetFocusPorts_groupName, align 4
-  %850 = tail call ptr @proto_tree_add_item(ptr noundef %848, i32 noundef %849, ptr noundef %1, i32 noundef %10, i32 noundef 64, i32 noundef 0) #6
-  %851 = add i32 %10, 64
-  %.not.i.i114 = icmp eq ptr %848, null
-  br i1 %.not.i.i114, label %parse_Image.exit.i115, label %852
-
-852:                                              ; preds = %842
-  %853 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %854 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %848, i32 noundef %853, ptr noundef %1, i32 noundef %851, i32 noundef 8, i32 noundef 0) #6
-  %855 = add i32 %10, 72
-  %856 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %857 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %848, i32 noundef %856, ptr noundef %1, i32 noundef %855, i32 noundef 4, i32 noundef 0) #6
-  %858 = add i32 %10, 76
-  %859 = load i32, ptr @hf_opa_reserved32, align 4
-  %860 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %848, i32 noundef %859, ptr noundef %1, i32 noundef %858, i32 noundef 4, i32 noundef 0) #6
-  %861 = add i32 %10, 80
-  br label %parse_Image.exit.i115
-
-parse_Image.exit.i115:                            ; preds = %852, %842
-  %.0.i.i116 = phi i32 [ %861, %852 ], [ %851, %842 ]
-  %862 = load i32, ptr @hf_opa_GetFocusPorts_select, align 4
-  %863 = tail call ptr @proto_tree_add_item(ptr noundef %848, i32 noundef %862, ptr noundef %1, i32 noundef %.0.i.i116, i32 noundef 4, i32 noundef 0) #6
-  %864 = add i32 %.0.i.i116, 4
-  %865 = load i32, ptr @hf_opa_GetFocusPorts_start, align 4
-  %866 = tail call ptr @proto_tree_add_item(ptr noundef %848, i32 noundef %865, ptr noundef %1, i32 noundef %864, i32 noundef 4, i32 noundef 0) #6
-  %867 = add i32 %.0.i.i116, 8
-  %868 = load i32, ptr @hf_opa_GetFocusPorts_range, align 4
-  %869 = tail call ptr @proto_tree_add_item(ptr noundef %848, i32 noundef %868, ptr noundef %1, i32 noundef %867, i32 noundef 4, i32 noundef 0) #6
-  %870 = add i32 %.0.i.i116, 12
-  br label %parse_GetFocusPorts.exit
-
-871:                                              ; preds = %839, %839
-  %872 = load i32, ptr @hf_opa_GetFocusPorts, align 4
-  %873 = zext i16 %823 to i32
-  %874 = shl nuw nsw i32 %873, 3
-  %875 = mul i32 %874, %829
-  %876 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %872, ptr noundef %1, i32 noundef %10, i32 noundef %875, i32 noundef 0) #6
-  %877 = load i32, ptr @ett_getfocusports, align 4
-  %878 = tail call ptr @proto_item_add_subtree(ptr noundef %876, i32 noundef %877) #6
-  %.not111.i = icmp eq i32 %829, 0
-  br i1 %.not111.i, label %parse_GetFocusPorts.exit, label %.lr.ph.i108
-
-.lr.ph.i108:                                      ; preds = %871, %parse_Image.exit84.i
-  %.074110.i = phi i32 [ %943, %parse_Image.exit84.i ], [ 0, %871 ]
-  %879 = phi i32 [ %942, %parse_Image.exit84.i ], [ %10, %871 ]
-  %880 = load i16, ptr %822, align 8
-  %881 = zext i16 %880 to i32
-  %882 = shl nuw nsw i32 %881, 3
-  %883 = load i32, ptr @ett_getfocusportsport, align 4
-  %884 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %878, ptr noundef %1, i32 noundef %879, i32 noundef %882, i32 noundef %883, ptr noundef nonnull %8, ptr noundef nonnull @.str.2303, i32 noundef %.074110.i) #6
-  %.not.i82.i = icmp eq ptr %884, null
-  br i1 %.not.i82.i, label %parse_Image.exit84.i, label %885
-
-885:                                              ; preds = %.lr.ph.i108
-  %886 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %887 = call ptr @proto_tree_add_item(ptr noundef nonnull %884, i32 noundef %886, ptr noundef %1, i32 noundef %879, i32 noundef 8, i32 noundef 0) #6
-  %888 = add i32 %879, 8
-  %889 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %890 = call ptr @proto_tree_add_item(ptr noundef nonnull %884, i32 noundef %889, ptr noundef %1, i32 noundef %888, i32 noundef 4, i32 noundef 0) #6
-  %891 = add i32 %879, 12
-  %892 = load i32, ptr @hf_opa_reserved32, align 4
-  %893 = call ptr @proto_tree_add_item(ptr noundef nonnull %884, i32 noundef %892, ptr noundef %1, i32 noundef %891, i32 noundef 4, i32 noundef 0) #6
-  %894 = add i32 %879, 16
-  br label %parse_Image.exit84.i
-
-parse_Image.exit84.i:                             ; preds = %885, %.lr.ph.i108
-  %.0.i83.i = phi i32 [ %894, %885 ], [ %879, %.lr.ph.i108 ]
-  %895 = load ptr, ptr %8, align 8
-  %896 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.0.i83.i) #6
-  %897 = add i32 %.0.i83.i, 4
-  %898 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %897) #6
-  %899 = zext i8 %898 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %895, ptr noundef nonnull @.str.2440, i32 noundef %896, i32 noundef %899) #6
-  %900 = load i32, ptr @hf_opa_GetFocusPorts_nodeLID, align 4
-  %901 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %900, ptr noundef %1, i32 noundef %.0.i83.i, i32 noundef 4, i32 noundef 0) #6
-  %902 = load i32, ptr @hf_opa_GetFocusPorts_portNumber, align 4
-  %903 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %902, ptr noundef %1, i32 noundef %897, i32 noundef 1, i32 noundef 0) #6
-  %904 = add i32 %.0.i83.i, 5
-  %905 = load i32, ptr @hf_opa_GetFocusPorts_rate, align 4
-  %906 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %905, ptr noundef %1, i32 noundef %904, i32 noundef 1, i32 noundef 0) #6
-  %907 = add i32 %.0.i83.i, 6
-  %908 = load i32, ptr @hf_opa_GetFocusPorts_mtu, align 4
-  %909 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %908, ptr noundef %1, i32 noundef %907, i32 noundef 1, i32 noundef 0) #6
-  %910 = add i32 %.0.i83.i, 7
-  %911 = load i32, ptr @hf_opa_GetFocusPorts_localFlags, align 4
-  %912 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %911, ptr noundef %1, i32 noundef %910, i32 noundef 1, i32 noundef 0) #6
-  %913 = load i32, ptr @hf_opa_GetFocusPorts_neighborFlags, align 4
-  %914 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %913, ptr noundef %1, i32 noundef %910, i32 noundef 1, i32 noundef 0) #6
-  %915 = add i32 %.0.i83.i, 8
-  %916 = load i32, ptr @hf_opa_GetFocusPorts_value, align 4
-  %917 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %916, ptr noundef %1, i32 noundef %915, i32 noundef 8, i32 noundef 0) #6
-  %918 = add i32 %.0.i83.i, 16
-  %919 = load i32, ptr @hf_opa_GetFocusPorts_nodeGUID, align 4
-  %920 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %919, ptr noundef %1, i32 noundef %918, i32 noundef 8, i32 noundef 0) #6
-  %921 = add i32 %.0.i83.i, 24
-  %922 = load i32, ptr @hf_opa_GetFocusPorts_nodeDesc, align 4
-  %923 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %922, ptr noundef %1, i32 noundef %921, i32 noundef 64, i32 noundef 0) #6
-  %924 = add i32 %.0.i83.i, 88
-  %925 = load i32, ptr @hf_opa_GetFocusPorts_neighborLid, align 4
-  %926 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %925, ptr noundef %1, i32 noundef %924, i32 noundef 4, i32 noundef 0) #6
-  %927 = add i32 %.0.i83.i, 92
-  %928 = load i32, ptr @hf_opa_GetFocusPorts_neighborPortNumber, align 4
-  %929 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %928, ptr noundef %1, i32 noundef %927, i32 noundef 1, i32 noundef 0) #6
-  %930 = add i32 %.0.i83.i, 93
-  %931 = load i32, ptr @hf_opa_reserved24, align 4
-  %932 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %931, ptr noundef %1, i32 noundef %930, i32 noundef 3, i32 noundef 0) #6
-  %933 = add i32 %.0.i83.i, 96
-  %934 = load i32, ptr @hf_opa_GetFocusPorts_neighborValue, align 4
-  %935 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %934, ptr noundef %1, i32 noundef %933, i32 noundef 8, i32 noundef 0) #6
-  %936 = add i32 %.0.i83.i, 104
-  %937 = load i32, ptr @hf_opa_GetFocusPorts_neighborGuid, align 4
-  %938 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %937, ptr noundef %1, i32 noundef %936, i32 noundef 8, i32 noundef 0) #6
-  %939 = add i32 %.0.i83.i, 112
-  %940 = load i32, ptr @hf_opa_GetFocusPorts_neighborNodeDesc, align 4
-  %941 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %940, ptr noundef %1, i32 noundef %939, i32 noundef 64, i32 noundef 0) #6
-  %942 = add i32 %.0.i83.i, 176
-  %943 = add nuw i32 %.074110.i, 1
-  %exitcond.not.i109 = icmp eq i32 %943, %829
-  br i1 %exitcond.not.i109, label %parse_GetFocusPorts.exit, label %.lr.ph.i108, !llvm.loop !66
-
-parse_GetFocusPorts.exit:                         ; preds = %parse_Image.exit84.i, %parse_Image.exit.i115, %871, %828, %836, %839
-  %.0.in.i112.sroa.speculated = phi i32 [ %10, %836 ], [ %10, %828 ], [ %10, %839 ], [ %870, %parse_Image.exit.i115 ], [ %10, %871 ], [ %942, %parse_Image.exit84.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %parse_GetGroupList.exit
-
-944:                                              ; preds = %6
-  %.not.i117 = icmp eq ptr %0, null
-  br i1 %.not.i117, label %parse_GetGroupList.exit, label %945
-
-945:                                              ; preds = %944
-  %946 = load i32, ptr @hf_opa_GetImageInfo, align 4
-  %947 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %946, ptr noundef %1, i32 noundef %10, i32 noundef 216, i32 noundef 0) #6
-  %948 = load i32, ptr @ett_getimageinfo, align 4
-  %949 = tail call ptr @proto_item_add_subtree(ptr noundef %947, i32 noundef %948) #6
-  %.not.i.i118 = icmp eq ptr %949, null
-  br i1 %.not.i.i118, label %parse_Image.exit.i119, label %950
-
-950:                                              ; preds = %945
-  %951 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %952 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %949, i32 noundef %951, ptr noundef %1, i32 noundef %10, i32 noundef 8, i32 noundef 0) #6
-  %953 = add i32 %10, 8
-  %954 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %955 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %949, i32 noundef %954, ptr noundef %1, i32 noundef %953, i32 noundef 4, i32 noundef 0) #6
-  %956 = add i32 %10, 12
-  %957 = load i32, ptr @hf_opa_reserved32, align 4
-  %958 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %949, i32 noundef %957, ptr noundef %1, i32 noundef %956, i32 noundef 4, i32 noundef 0) #6
-  %959 = add i32 %10, 16
-  br label %parse_Image.exit.i119
-
-parse_Image.exit.i119:                            ; preds = %950, %945
-  %.0.i.i120 = phi i32 [ %959, %950 ], [ %10, %945 ]
-  %960 = load i32, ptr @hf_opa_GetImageInfo_sweepStart, align 4
-  %961 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %960, ptr noundef %1, i32 noundef %.0.i.i120, i32 noundef 8, i32 noundef 18) #6
-  %962 = add i32 %.0.i.i120, 8
-  %963 = load i32, ptr @hf_opa_GetImageInfo_sweepDuration, align 4
-  %964 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %963, ptr noundef %1, i32 noundef %962, i32 noundef 4, i32 noundef 0) #6
-  %965 = add i32 %.0.i.i120, 12
-  %966 = load i32, ptr @hf_opa_GetImageInfo_numHFIPorts, align 4
-  %967 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %966, ptr noundef %1, i32 noundef %965, i32 noundef 2, i32 noundef 0) #6
-  %968 = add i32 %.0.i.i120, 14
-  %969 = load i32, ptr @hf_opa_reserved32, align 4
-  %970 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %969, ptr noundef %1, i32 noundef %968, i32 noundef 4, i32 noundef 0) #6
-  %971 = add i32 %.0.i.i120, 18
-  %972 = load i32, ptr @hf_opa_GetImageInfo_numSwitchNodes, align 4
-  %973 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %972, ptr noundef %1, i32 noundef %971, i32 noundef 2, i32 noundef 0) #6
-  %974 = add i32 %.0.i.i120, 20
-  %975 = load i32, ptr @hf_opa_GetImageInfo_numSwitchPorts, align 4
-  %976 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %975, ptr noundef %1, i32 noundef %974, i32 noundef 4, i32 noundef 0) #6
-  %977 = add i32 %.0.i.i120, 24
-  %978 = load i32, ptr @hf_opa_GetImageInfo_numLinks, align 4
-  %979 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %978, ptr noundef %1, i32 noundef %977, i32 noundef 4, i32 noundef 0) #6
-  %980 = add i32 %.0.i.i120, 28
-  %981 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %980) #6
-  %982 = load i32, ptr @hf_opa_GetImageInfo_numSMs, align 4
-  %983 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %982, ptr noundef %1, i32 noundef %980, i32 noundef 4, i32 noundef 0) #6
-  %984 = add i32 %.0.i.i120, 32
-  %985 = load i32, ptr @hf_opa_GetImageInfo_numFailedNodes, align 4
-  %986 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %985, ptr noundef %1, i32 noundef %984, i32 noundef 4, i32 noundef 0) #6
-  %987 = add i32 %.0.i.i120, 36
-  %988 = load i32, ptr @hf_opa_GetImageInfo_numFailedPorts, align 4
-  %989 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %988, ptr noundef %1, i32 noundef %987, i32 noundef 4, i32 noundef 0) #6
-  %990 = add i32 %.0.i.i120, 40
-  %991 = load i32, ptr @hf_opa_GetImageInfo_numSkippedNodes, align 4
-  %992 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %991, ptr noundef %1, i32 noundef %990, i32 noundef 4, i32 noundef 0) #6
-  %993 = add i32 %.0.i.i120, 44
-  %994 = load i32, ptr @hf_opa_GetImageInfo_numSkippedPorts, align 4
-  %995 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %994, ptr noundef %1, i32 noundef %993, i32 noundef 4, i32 noundef 0) #6
-  %996 = add i32 %.0.i.i120, 48
-  %997 = load i32, ptr @hf_opa_GetImageInfo_numUnexpectedClearPorts, align 4
-  %998 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %997, ptr noundef %1, i32 noundef %996, i32 noundef 4, i32 noundef 0) #6
-  %999 = add i32 %.0.i.i120, 52
-  %1000 = load i32, ptr @hf_opa_GetImageInfo_imageInterval, align 4
-  %1001 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %1000, ptr noundef %1, i32 noundef %999, i32 noundef 4, i32 noundef 0) #6
-  %1002 = add i32 %.0.i.i120, 56
-  %1003 = load i32, ptr @ett_getimageinfosm, align 4
-  %1004 = tail call ptr @proto_tree_add_subtree(ptr noundef %949, ptr noundef %1, i32 noundef %1002, i32 noundef 80, i32 noundef %1003, ptr noundef null, ptr noundef nonnull @.str.2441) #6
-  %1005 = load i32, ptr @hf_opa_GetImageInfo_lid, align 4
-  %1006 = tail call ptr @proto_tree_add_item(ptr noundef %1004, i32 noundef %1005, ptr noundef %1, i32 noundef %1002, i32 noundef 4, i32 noundef 0) #6
-  %1007 = add i32 %.0.i.i120, 60
-  %1008 = load i32, ptr @hf_opa_GetImageInfo_state, align 4
-  %1009 = tail call ptr @proto_tree_add_item(ptr noundef %1004, i32 noundef %1008, ptr noundef %1, i32 noundef %1007, i32 noundef 1, i32 noundef 0) #6
-  %1010 = load i32, ptr @hf_opa_GetImageInfo_priority, align 4
-  %1011 = tail call ptr @proto_tree_add_item(ptr noundef %1004, i32 noundef %1010, ptr noundef %1, i32 noundef %1007, i32 noundef 1, i32 noundef 0) #6
-  %1012 = add i32 %.0.i.i120, 61
-  %1013 = load i32, ptr @hf_opa_GetImageInfo_portNumber, align 4
-  %1014 = tail call ptr @proto_tree_add_item(ptr noundef %1004, i32 noundef %1013, ptr noundef %1, i32 noundef %1012, i32 noundef 1, i32 noundef 0) #6
-  %1015 = add i32 %.0.i.i120, 62
-  %1016 = load i32, ptr @hf_opa_reserved16, align 4
-  %1017 = tail call ptr @proto_tree_add_item(ptr noundef %1004, i32 noundef %1016, ptr noundef %1, i32 noundef %1015, i32 noundef 2, i32 noundef 0) #6
-  %1018 = add i32 %.0.i.i120, 64
-  %1019 = load i32, ptr @hf_opa_GetImageInfo_smPortGuid, align 4
-  %1020 = tail call ptr @proto_tree_add_item(ptr noundef %1004, i32 noundef %1019, ptr noundef %1, i32 noundef %1018, i32 noundef 8, i32 noundef 0) #6
-  %1021 = add i32 %.0.i.i120, 72
-  %1022 = load i32, ptr @hf_opa_GetImageInfo_smNodeDesc, align 4
-  %1023 = tail call ptr @proto_tree_add_item(ptr noundef %1004, i32 noundef %1022, ptr noundef %1, i32 noundef %1021, i32 noundef 64, i32 noundef 0) #6
-  %1024 = add i32 %.0.i.i120, 136
-  %or.cond.not.i = icmp eq i32 %981, 1
-  %1025 = load i32, ptr @ett_getimageinfosm, align 4
-  br i1 %or.cond.not.i, label %1048, label %1026
-
-1026:                                             ; preds = %parse_Image.exit.i119
-  %1027 = tail call ptr @proto_tree_add_subtree(ptr noundef %949, ptr noundef %1, i32 noundef %1024, i32 noundef 80, i32 noundef %1025, ptr noundef null, ptr noundef nonnull @.str.2442) #6
-  %1028 = load i32, ptr @hf_opa_GetImageInfo_lid, align 4
-  %1029 = tail call ptr @proto_tree_add_item(ptr noundef %1027, i32 noundef %1028, ptr noundef %1, i32 noundef %1024, i32 noundef 4, i32 noundef 0) #6
-  %1030 = add i32 %.0.i.i120, 140
-  %1031 = load i32, ptr @hf_opa_GetImageInfo_state, align 4
-  %1032 = tail call ptr @proto_tree_add_item(ptr noundef %1027, i32 noundef %1031, ptr noundef %1, i32 noundef %1030, i32 noundef 1, i32 noundef 0) #6
-  %1033 = load i32, ptr @hf_opa_GetImageInfo_priority, align 4
-  %1034 = tail call ptr @proto_tree_add_item(ptr noundef %1027, i32 noundef %1033, ptr noundef %1, i32 noundef %1030, i32 noundef 1, i32 noundef 0) #6
-  %1035 = add i32 %.0.i.i120, 141
-  %1036 = load i32, ptr @hf_opa_GetImageInfo_portNumber, align 4
-  %1037 = tail call ptr @proto_tree_add_item(ptr noundef %1027, i32 noundef %1036, ptr noundef %1, i32 noundef %1035, i32 noundef 1, i32 noundef 0) #6
-  %1038 = add i32 %.0.i.i120, 142
-  %1039 = load i32, ptr @hf_opa_reserved16, align 4
-  %1040 = tail call ptr @proto_tree_add_item(ptr noundef %1027, i32 noundef %1039, ptr noundef %1, i32 noundef %1038, i32 noundef 2, i32 noundef 0) #6
-  %1041 = add i32 %.0.i.i120, 144
-  %1042 = load i32, ptr @hf_opa_GetImageInfo_smPortGuid, align 4
-  %1043 = tail call ptr @proto_tree_add_item(ptr noundef %1027, i32 noundef %1042, ptr noundef %1, i32 noundef %1041, i32 noundef 8, i32 noundef 0) #6
-  %1044 = add i32 %.0.i.i120, 152
-  %1045 = load i32, ptr @hf_opa_GetImageInfo_smNodeDesc, align 4
-  %1046 = tail call ptr @proto_tree_add_item(ptr noundef %1027, i32 noundef %1045, ptr noundef %1, i32 noundef %1044, i32 noundef 64, i32 noundef 0) #6
-  %1047 = add i32 %.0.i.i120, 216
-  br label %parse_GetGroupList.exit
-
-1048:                                             ; preds = %parse_Image.exit.i119
-  %1049 = tail call ptr @proto_tree_add_subtree(ptr noundef %949, ptr noundef %1, i32 noundef %1024, i32 noundef 80, i32 noundef %1025, ptr noundef null, ptr noundef nonnull @.str.2443) #6
-  %1050 = add i32 %.0.i.i120, 216
-  br label %parse_GetGroupList.exit
-
-1051:                                             ; preds = %6
-  %.not.i122 = icmp eq ptr %0, null
-  br i1 %.not.i122, label %parse_GetGroupList.exit, label %1052
-
-1052:                                             ; preds = %1051
-  %1053 = load i32, ptr @hf_opa_MoveFreezeFrame_old, align 4
-  %1054 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1053, ptr noundef %1, i32 noundef %10, i32 noundef 16, i32 noundef 0) #6
-  %1055 = load i32, ptr @ett_movefreezeframeold, align 4
-  %1056 = tail call ptr @proto_item_add_subtree(ptr noundef %1054, i32 noundef %1055) #6
-  %.not.i.i123 = icmp eq ptr %1056, null
-  br i1 %.not.i.i123, label %parse_Image.exit.i124, label %1057
-
-1057:                                             ; preds = %1052
-  %1058 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %1059 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1056, i32 noundef %1058, ptr noundef %1, i32 noundef %10, i32 noundef 8, i32 noundef 0) #6
-  %1060 = add i32 %10, 8
-  %1061 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %1062 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1056, i32 noundef %1061, ptr noundef %1, i32 noundef %1060, i32 noundef 4, i32 noundef 0) #6
-  %1063 = add i32 %10, 12
-  %1064 = load i32, ptr @hf_opa_reserved32, align 4
-  %1065 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1056, i32 noundef %1064, ptr noundef %1, i32 noundef %1063, i32 noundef 4, i32 noundef 0) #6
-  %1066 = add i32 %10, 16
-  br label %parse_Image.exit.i124
-
-parse_Image.exit.i124:                            ; preds = %1057, %1052
-  %.0.i.i125 = phi i32 [ %1066, %1057 ], [ %10, %1052 ]
-  %1067 = load i32, ptr @hf_opa_MoveFreezeFrame_new, align 4
-  %1068 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1067, ptr noundef %1, i32 noundef %.0.i.i125, i32 noundef 16, i32 noundef 0) #6
-  %1069 = load i32, ptr @ett_movefreezeframenew, align 4
-  %1070 = tail call ptr @proto_item_add_subtree(ptr noundef %1068, i32 noundef %1069) #6
-  %.not.i16.i = icmp eq ptr %1070, null
-  br i1 %.not.i16.i, label %parse_GetGroupList.exit, label %1071
-
-1071:                                             ; preds = %parse_Image.exit.i124
-  %1072 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %1073 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1070, i32 noundef %1072, ptr noundef %1, i32 noundef %.0.i.i125, i32 noundef 8, i32 noundef 0) #6
-  %1074 = add i32 %.0.i.i125, 8
-  %1075 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %1076 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1070, i32 noundef %1075, ptr noundef %1, i32 noundef %1074, i32 noundef 4, i32 noundef 0) #6
-  %1077 = add i32 %.0.i.i125, 12
-  %1078 = load i32, ptr @hf_opa_reserved32, align 4
-  %1079 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1070, i32 noundef %1078, ptr noundef %1, i32 noundef %1077, i32 noundef 4, i32 noundef 0) #6
-  %1080 = add i32 %.0.i.i125, 16
-  br label %parse_GetGroupList.exit
-
-1081:                                             ; preds = %6
-  %1082 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %10) #6
-  %1083 = getelementptr inbounds i8, ptr %5, i64 8
-  %1084 = load i16, ptr %1083, align 8
-  %.not.i127 = icmp eq i16 %1084, 0
-  br i1 %.not.i127, label %1089, label %1085
-
-1085:                                             ; preds = %1081
-  %1086 = zext i16 %1084 to i32
-  %1087 = shl nuw nsw i32 %1086, 3
-  %1088 = udiv i32 %1082, %1087
-  br label %1089
-
-1089:                                             ; preds = %1085, %1081
-  %1090 = phi i32 [ %1088, %1085 ], [ 0, %1081 ]
-  %.not36.i128 = icmp eq ptr %0, null
-  br i1 %.not36.i128, label %parse_GetGroupList.exit, label %1091
-
-1091:                                             ; preds = %1089
-  %1092 = getelementptr inbounds i8, ptr %4, i64 1
-  %1093 = load i8, ptr %1092, align 1
-  %.not37.i129 = icmp eq i8 %1093, 1
-  br i1 %.not37.i129, label %1094, label %parse_GetGroupList.exit
-
-1094:                                             ; preds = %1091
-  %1095 = getelementptr inbounds i8, ptr %3, i64 3
-  %1096 = load i8, ptr %1095, align 1
-  switch i8 %1096, label %parse_GetGroupList.exit [
-    i8 -127, label %1097
-    i8 -110, label %1097
-  ]
-
-1097:                                             ; preds = %1094, %1094
-  %1098 = load i32, ptr @hf_opa_GetVFList, align 4
-  %1099 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1098, ptr noundef %1, i32 noundef %10, i32 noundef %1082, i32 noundef 0) #6
-  %1100 = load i32, ptr @ett_getvflist, align 4
-  %1101 = tail call ptr @proto_item_add_subtree(ptr noundef %1099, i32 noundef %1100) #6
-  %1102 = load i32, ptr @hf_opa_GetVFList, align 4
-  %1103 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1101, i32 noundef %1102, ptr noundef %1, i32 noundef %10, i32 noundef %1082, ptr noundef nonnull @.str.2444, i32 noundef %1090) #6
-  %.not42.i131 = icmp eq i32 %1090, 0
-  br i1 %.not42.i131, label %parse_GetGroupList.exit, label %.lr.ph.i132
-
-.lr.ph.i132:                                      ; preds = %1097, %.lr.ph.i132
-  %.03141.i133 = phi i32 [ %1106, %.lr.ph.i132 ], [ %10, %1097 ]
-  %.03240.i134 = phi i32 [ %1107, %.lr.ph.i132 ], [ 0, %1097 ]
-  %1104 = load i32, ptr @hf_opa_GetVFList_vfName, align 4
-  %1105 = tail call ptr @proto_tree_add_item(ptr noundef %1101, i32 noundef %1104, ptr noundef %1, i32 noundef %.03141.i133, i32 noundef 64, i32 noundef 0) #6
-  %1106 = add i32 %.03141.i133, 64
-  %1107 = add nuw i32 %.03240.i134, 1
-  tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1105, ptr noundef nonnull @.str.2303, i32 noundef %1107) #6
-  %exitcond.not.i135 = icmp eq i32 %1107, %1090
-  br i1 %exitcond.not.i135, label %parse_GetGroupList.exit, label %.lr.ph.i132, !llvm.loop !67
-
-1108:                                             ; preds = %6
-  %1109 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %10) #6
-  %1110 = getelementptr inbounds i8, ptr %5, i64 8
-  %1111 = load i16, ptr %1110, align 8
-  %.not.i136 = icmp eq i16 %1111, 0
-  br i1 %.not.i136, label %1116, label %1112
-
-1112:                                             ; preds = %1108
-  %1113 = zext i16 %1111 to i32
-  %1114 = shl nuw nsw i32 %1113, 3
-  %1115 = udiv i32 %1109, %1114
-  br label %1116
-
-1116:                                             ; preds = %1112, %1108
-  %1117 = phi i32 [ %1115, %1112 ], [ 0, %1108 ]
-  %.not157.i = icmp eq ptr %0, null
-  br i1 %.not157.i, label %parse_GetGroupList.exit, label %1118
-
-1118:                                             ; preds = %1116
-  %1119 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
-  %.not158.i = icmp eq i32 %1119, 0
-  br i1 %.not158.i, label %1120, label %1127
-
-1120:                                             ; preds = %1118
-  %1121 = getelementptr inbounds i8, ptr %4, i64 1
-  %1122 = load i8, ptr %1121, align 1
-  %1123 = icmp eq i8 %1122, 1
-  br i1 %1123, label %1124, label %1127
-
-1124:                                             ; preds = %1120
-  %1125 = getelementptr inbounds i8, ptr %4, i64 4
-  %1126 = load i32, ptr %1125, align 4
-  %.not159.i = icmp eq i32 %1126, 1
-  br i1 %.not159.i, label %1127, label %parse_GetGroupList.exit
-
-1127:                                             ; preds = %1124, %1120, %1118
-  %1128 = getelementptr inbounds i8, ptr %3, i64 3
-  %1129 = load i8, ptr %1128, align 1
-  switch i8 %1129, label %.preheader.i140 [
-    i8 1, label %1131
-    i8 18, label %1131
-  ]
-
-.preheader.i140:                                  ; preds = %1127
-  %.not229.i = icmp eq i32 %1117, 0
-  br i1 %.not229.i, label %parse_GetGroupList.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.preheader.i140
-  %1130 = icmp ugt i32 %1117, 6
-  br label %.lr.ph.i141
-
-1131:                                             ; preds = %1127, %1127
-  %1132 = load i32, ptr @hf_opa_GetVFInfo, align 4
-  %1133 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1132, ptr noundef %1, i32 noundef %10, i32 noundef 88, i32 noundef 0) #6
-  %1134 = tail call ptr @wmem_file_scope() #6
-  %1135 = tail call ptr @tvb_get_string_enc(ptr noundef %1134, ptr noundef %1, i32 noundef %10, i32 noundef 64, i32 noundef 0) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1133, ptr noundef nonnull @.str.2445, ptr noundef %1135) #6
-  %1136 = load i32, ptr @ett_getvfinfo, align 4
-  %1137 = tail call ptr @proto_item_add_subtree(ptr noundef %1133, i32 noundef %1136) #6
-  %1138 = load i32, ptr @hf_opa_GetVFInfo_vfName, align 4
-  %1139 = tail call ptr @proto_tree_add_item(ptr noundef %1137, i32 noundef %1138, ptr noundef %1, i32 noundef %10, i32 noundef 64, i32 noundef 0) #6
-  %1140 = add i32 %10, 64
-  %1141 = load i32, ptr @hf_opa_reserved64, align 4
-  %1142 = tail call ptr @proto_tree_add_item(ptr noundef %1137, i32 noundef %1141, ptr noundef %1, i32 noundef %1140, i32 noundef 8, i32 noundef 0) #6
-  %1143 = add i32 %10, 72
-  %.not.i.i137 = icmp eq ptr %1137, null
-  br i1 %.not.i.i137, label %parse_GetGroupList.exit, label %1144
-
-1144:                                             ; preds = %1131
-  %1145 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %1146 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1137, i32 noundef %1145, ptr noundef %1, i32 noundef %1143, i32 noundef 8, i32 noundef 0) #6
-  %1147 = add i32 %10, 80
-  %1148 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %1149 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1137, i32 noundef %1148, ptr noundef %1, i32 noundef %1147, i32 noundef 4, i32 noundef 0) #6
-  %1150 = add i32 %10, 84
-  %1151 = load i32, ptr @hf_opa_reserved32, align 4
-  %1152 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1137, i32 noundef %1151, ptr noundef %1, i32 noundef %1150, i32 noundef 4, i32 noundef 0) #6
-  %1153 = add i32 %10, 88
-  br label %parse_GetGroupList.exit
-
-.lr.ph.i141:                                      ; preds = %1298, %.lr.ph.preheader.i
-  %.0221228.i = phi i32 [ %1307, %1298 ], [ %10, %.lr.ph.preheader.i ]
-  %1154 = load i32, ptr @hf_opa_GetVFInfo, align 4
-  %1155 = load i16, ptr %1110, align 8
-  %1156 = zext i16 %1155 to i32
-  %1157 = shl nuw nsw i32 %1156, 3
-  %1158 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1154, ptr noundef %1, i32 noundef %.0221228.i, i32 noundef %1157, i32 noundef 0) #6
-  %1159 = tail call ptr @wmem_file_scope() #6
-  %1160 = tail call ptr @tvb_get_string_enc(ptr noundef %1159, ptr noundef %1, i32 noundef %.0221228.i, i32 noundef 64, i32 noundef 0) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1158, ptr noundef nonnull @.str.2445, ptr noundef %1160) #6
-  %1161 = load i32, ptr @ett_getvfinfo, align 4
-  %1162 = tail call ptr @proto_item_add_subtree(ptr noundef %1158, i32 noundef %1161) #6
-  %1163 = load i32, ptr @hf_opa_GetVFInfo_vfName, align 4
-  %1164 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1163, ptr noundef %1, i32 noundef %.0221228.i, i32 noundef 64, i32 noundef 0) #6
-  %1165 = add i32 %.0221228.i, 64
-  %1166 = load i32, ptr @hf_opa_reserved64, align 4
-  %1167 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1166, ptr noundef %1, i32 noundef %1165, i32 noundef 8, i32 noundef 0) #6
-  %1168 = add i32 %.0221228.i, 72
-  %.not.i161.i = icmp eq ptr %1162, null
-  br i1 %.not.i161.i, label %parse_Image.exit163.i, label %1169
-
-1169:                                             ; preds = %.lr.ph.i141
-  %1170 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %1171 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1162, i32 noundef %1170, ptr noundef %1, i32 noundef %1168, i32 noundef 8, i32 noundef 0) #6
-  %1172 = add i32 %.0221228.i, 80
-  %1173 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %1174 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1162, i32 noundef %1173, ptr noundef %1, i32 noundef %1172, i32 noundef 4, i32 noundef 0) #6
-  %1175 = add i32 %.0221228.i, 84
-  %1176 = load i32, ptr @hf_opa_reserved32, align 4
-  %1177 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1162, i32 noundef %1176, ptr noundef %1, i32 noundef %1175, i32 noundef 4, i32 noundef 0) #6
-  %1178 = add i32 %.0221228.i, 88
-  br label %parse_Image.exit163.i
-
-parse_Image.exit163.i:                            ; preds = %1169, %.lr.ph.i141
-  %.0.i162.i = phi i32 [ %1178, %1169 ], [ %1168, %.lr.ph.i141 ]
-  %1179 = load i32, ptr @hf_opa_GetVFInfo_numPorts, align 4
-  %1180 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1179, ptr noundef %1, i32 noundef %.0.i162.i, i32 noundef 4, i32 noundef 0) #6
-  %1181 = add i32 %.0.i162.i, 4
-  %1182 = load i32, ptr @ett_getvfinfoutilstats, align 4
-  %1183 = tail call ptr @proto_tree_add_subtree(ptr noundef %1162, ptr noundef %1, i32 noundef %1181, i32 noundef 80, i32 noundef %1182, ptr noundef null, ptr noundef nonnull @.str.2429) #6
-  %1184 = load i32, ptr @hf_opa_GetVFInfo_totalMBps, align 4
-  %1185 = tail call ptr @proto_tree_add_item(ptr noundef %1183, i32 noundef %1184, ptr noundef %1, i32 noundef %1181, i32 noundef 8, i32 noundef 0) #6
-  %1186 = add i32 %.0.i162.i, 12
-  %1187 = load i32, ptr @hf_opa_GetVFInfo_totalKPps, align 4
-  %1188 = tail call ptr @proto_tree_add_item(ptr noundef %1183, i32 noundef %1187, ptr noundef %1, i32 noundef %1186, i32 noundef 8, i32 noundef 0) #6
-  %1189 = add i32 %.0.i162.i, 20
-  %1190 = load i32, ptr @hf_opa_GetVFInfo_avgMBps, align 4
-  %1191 = tail call ptr @proto_tree_add_item(ptr noundef %1183, i32 noundef %1190, ptr noundef %1, i32 noundef %1189, i32 noundef 4, i32 noundef 0) #6
-  %1192 = add i32 %.0.i162.i, 24
-  %1193 = load i32, ptr @hf_opa_GetVFInfo_minMBps, align 4
-  %1194 = tail call ptr @proto_tree_add_item(ptr noundef %1183, i32 noundef %1193, ptr noundef %1, i32 noundef %1192, i32 noundef 4, i32 noundef 0) #6
-  %1195 = add i32 %.0.i162.i, 28
-  %1196 = load i32, ptr @hf_opa_GetVFInfo_maxMBps, align 4
-  %1197 = tail call ptr @proto_tree_add_item(ptr noundef %1183, i32 noundef %1196, ptr noundef %1, i32 noundef %1195, i32 noundef 4, i32 noundef 0) #6
-  %1198 = add i32 %.0.i162.i, 32
-  %1199 = load i32, ptr @hf_opa_GetVFInfo_numBWBuckets, align 4
-  %1200 = tail call ptr @proto_tree_add_item(ptr noundef %1183, i32 noundef %1199, ptr noundef %1, i32 noundef %1198, i32 noundef 4, i32 noundef 0) #6
-  %1201 = add i32 %.0.i162.i, 36
-  %1202 = load i32, ptr @ett_getvfinfoutilbuckets, align 4
-  %1203 = tail call ptr @proto_item_add_subtree(ptr noundef %1200, i32 noundef %1202) #6
-  br label %1204
-
-1204:                                             ; preds = %1204, %parse_Image.exit163.i
-  %.1225.i = phi i32 [ 0, %parse_Image.exit163.i ], [ %1210, %1204 ]
-  %.1222224.i = phi i32 [ %1201, %parse_Image.exit163.i ], [ %1209, %1204 ]
-  %1205 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
-  %1206 = tail call ptr @proto_tree_add_item(ptr noundef %1203, i32 noundef %1205, ptr noundef %1, i32 noundef %.1222224.i, i32 noundef 4, i32 noundef 0) #6
-  %1207 = mul nuw nsw i32 %.1225.i, 10
-  %1208 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.1222224.i) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1206, ptr noundef nonnull @.str.2430, i32 noundef %.1225.i, i32 noundef %1207, i32 noundef %1208) #6
-  %1209 = add i32 %.1222224.i, 4
-  %1210 = add nuw nsw i32 %.1225.i, 1
-  %exitcond.not.i142 = icmp eq i32 %1210, 10
-  br i1 %exitcond.not.i142, label %1211, label %1204, !llvm.loop !68
-
-1211:                                             ; preds = %1204
-  %1212 = load i32, ptr @hf_opa_GetVFInfo_avgKPps, align 4
-  %1213 = tail call ptr @proto_tree_add_item(ptr noundef %1183, i32 noundef %1212, ptr noundef %1, i32 noundef %1209, i32 noundef 4, i32 noundef 0) #6
-  %1214 = add i32 %.1222224.i, 8
-  %1215 = load i32, ptr @hf_opa_GetVFInfo_minKPps, align 4
-  %1216 = tail call ptr @proto_tree_add_item(ptr noundef %1183, i32 noundef %1215, ptr noundef %1, i32 noundef %1214, i32 noundef 4, i32 noundef 0) #6
-  %1217 = add i32 %.1222224.i, 12
-  %1218 = load i32, ptr @hf_opa_GetVFInfo_maxKPps, align 4
-  %1219 = tail call ptr @proto_tree_add_item(ptr noundef %1183, i32 noundef %1218, ptr noundef %1, i32 noundef %1217, i32 noundef 4, i32 noundef 0) #6
-  %1220 = add i32 %.1222224.i, 16
-  %1221 = load i32, ptr @hf_opa_GetVFInfo_pmaFailedPorts, align 4
-  %1222 = tail call ptr @proto_tree_add_item(ptr noundef %1183, i32 noundef %1221, ptr noundef %1, i32 noundef %1220, i32 noundef 2, i32 noundef 0) #6
-  %1223 = add i32 %.1222224.i, 18
-  %1224 = load i32, ptr @hf_opa_GetVFInfo_topoFailedPorts, align 4
-  %1225 = tail call ptr @proto_tree_add_item(ptr noundef %1183, i32 noundef %1224, ptr noundef %1, i32 noundef %1223, i32 noundef 2, i32 noundef 0) #6
-  %1226 = add i32 %.1222224.i, 20
-  %1227 = load i32, ptr @ett_getvfinfoerrorsummary, align 4
-  %1228 = tail call ptr @proto_tree_add_subtree(ptr noundef %1162, ptr noundef %1, i32 noundef %1226, i32 noundef 160, i32 noundef %1227, ptr noundef null, ptr noundef nonnull @.str.2433) #6
-  %1229 = load i32, ptr @hf_opa_GetVFInfo_integrityErrors, align 4
-  %1230 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1229, ptr noundef %1, i32 noundef %1226, i32 noundef 4, i32 noundef 0) #6
-  %1231 = add i32 %.1222224.i, 24
-  %1232 = load i32, ptr @hf_opa_GetVFInfo_congestionErrors, align 4
-  %1233 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1232, ptr noundef %1, i32 noundef %1231, i32 noundef 4, i32 noundef 0) #6
-  %1234 = add i32 %.1222224.i, 28
-  %1235 = load i32, ptr @hf_opa_GetVFInfo_smaCongestionErrors, align 4
-  %1236 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1235, ptr noundef %1, i32 noundef %1234, i32 noundef 4, i32 noundef 0) #6
-  %1237 = add i32 %.1222224.i, 32
-  %1238 = load i32, ptr @hf_opa_GetVFInfo_bubbleErrors, align 4
-  %1239 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1238, ptr noundef %1, i32 noundef %1237, i32 noundef 4, i32 noundef 0) #6
-  %1240 = add i32 %.1222224.i, 36
-  %1241 = load i32, ptr @hf_opa_GetVFInfo_securityErrors, align 4
-  %1242 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1241, ptr noundef %1, i32 noundef %1240, i32 noundef 4, i32 noundef 0) #6
-  %1243 = add i32 %.1222224.i, 40
-  %1244 = load i32, ptr @hf_opa_GetVFInfo_routingErrors, align 4
-  %1245 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1244, ptr noundef %1, i32 noundef %1243, i32 noundef 4, i32 noundef 0) #6
-  %1246 = add i32 %.1222224.i, 44
-  %1247 = load i32, ptr @hf_opa_GetVFInfo_utilizationPct10, align 4
-  %1248 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1247, ptr noundef %1, i32 noundef %1246, i32 noundef 2, i32 noundef 0) #6
-  %1249 = add i32 %.1222224.i, 46
-  %1250 = load i32, ptr @hf_opa_GetVFInfo_discardsPct10, align 4
-  %1251 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1250, ptr noundef %1, i32 noundef %1249, i32 noundef 2, i32 noundef 0) #6
-  %1252 = add i32 %.1222224.i, 48
-  %1253 = load i32, ptr @hf_opa_reserved32, align 4
-  %1254 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1253, ptr noundef %1, i32 noundef %1252, i32 noundef 4, i32 noundef 0) #6
-  %1255 = add i32 %.1222224.i, 52
-  %1256 = load i32, ptr @hf_opa_reserved64, align 4
-  %1257 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1256, ptr noundef %1, i32 noundef %1255, i32 noundef 8, i32 noundef 0) #6
-  %1258 = add i32 %.1222224.i, 60
-  %1259 = load i32, ptr @ett_getvfinfoerrintegritybucket, align 4
-  %1260 = tail call ptr @proto_item_add_subtree(ptr noundef %1230, i32 noundef %1259) #6
-  %1261 = load i32, ptr @ett_getvfinfoerrcongestionbucket, align 4
-  %1262 = tail call ptr @proto_item_add_subtree(ptr noundef %1233, i32 noundef %1261) #6
-  %1263 = load i32, ptr @ett_getvfinfoerrsmacongestionbucket, align 4
-  %1264 = tail call ptr @proto_item_add_subtree(ptr noundef %1236, i32 noundef %1263) #6
-  %1265 = load i32, ptr @ett_getvfinfoerrbubblebucket, align 4
-  %1266 = tail call ptr @proto_item_add_subtree(ptr noundef %1239, i32 noundef %1265) #6
-  %1267 = load i32, ptr @ett_getvfinfoerrsecuritybucket, align 4
-  %1268 = tail call ptr @proto_item_add_subtree(ptr noundef %1242, i32 noundef %1267) #6
-  %1269 = load i32, ptr @ett_getvfinfoerrroutingbucket, align 4
-  %1270 = tail call ptr @proto_item_add_subtree(ptr noundef %1245, i32 noundef %1269) #6
-  br label %1271
-
-1271:                                             ; preds = %1271, %1211
-  %.2227.i = phi i32 [ 0, %1211 ], [ %1297, %1271 ]
-  %.2223226.i = phi i32 [ %1258, %1211 ], [ %1296, %1271 ]
-  %1272 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
-  %1273 = tail call ptr @proto_tree_add_item(ptr noundef %1260, i32 noundef %1272, ptr noundef %1, i32 noundef %.2223226.i, i32 noundef 4, i32 noundef 0) #6
-  %1274 = mul nuw nsw i32 %.2227.i, 25
-  %1275 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.2223226.i) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1273, ptr noundef nonnull @.str.2430, i32 noundef %.2227.i, i32 noundef %1274, i32 noundef %1275) #6
-  %1276 = add i32 %.2223226.i, 4
-  %1277 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
-  %1278 = tail call ptr @proto_tree_add_item(ptr noundef %1262, i32 noundef %1277, ptr noundef %1, i32 noundef %1276, i32 noundef 4, i32 noundef 0) #6
-  %1279 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1276) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1278, ptr noundef nonnull @.str.2430, i32 noundef %.2227.i, i32 noundef %1274, i32 noundef %1279) #6
-  %1280 = add i32 %.2223226.i, 8
-  %1281 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
-  %1282 = tail call ptr @proto_tree_add_item(ptr noundef %1264, i32 noundef %1281, ptr noundef %1, i32 noundef %1280, i32 noundef 4, i32 noundef 0) #6
-  %1283 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1280) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1282, ptr noundef nonnull @.str.2430, i32 noundef %.2227.i, i32 noundef %1274, i32 noundef %1283) #6
-  %1284 = add i32 %.2223226.i, 12
-  %1285 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
-  %1286 = tail call ptr @proto_tree_add_item(ptr noundef %1266, i32 noundef %1285, ptr noundef %1, i32 noundef %1284, i32 noundef 4, i32 noundef 0) #6
-  %1287 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1284) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1286, ptr noundef nonnull @.str.2430, i32 noundef %.2227.i, i32 noundef %1274, i32 noundef %1287) #6
-  %1288 = add i32 %.2223226.i, 16
-  %1289 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
-  %1290 = tail call ptr @proto_tree_add_item(ptr noundef %1268, i32 noundef %1289, ptr noundef %1, i32 noundef %1288, i32 noundef 4, i32 noundef 0) #6
-  %1291 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1288) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1290, ptr noundef nonnull @.str.2430, i32 noundef %.2227.i, i32 noundef %1274, i32 noundef %1291) #6
-  %1292 = add i32 %.2223226.i, 20
-  %1293 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
-  %1294 = tail call ptr @proto_tree_add_item(ptr noundef %1270, i32 noundef %1293, ptr noundef %1, i32 noundef %1292, i32 noundef 4, i32 noundef 0) #6
-  %1295 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1292) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1294, ptr noundef nonnull @.str.2430, i32 noundef %.2227.i, i32 noundef %1274, i32 noundef %1295) #6
-  %1296 = add i32 %.2223226.i, 24
-  %1297 = add nuw nsw i32 %.2227.i, 1
-  %exitcond232.not.i = icmp eq i32 %1297, 5
-  br i1 %exitcond232.not.i, label %1298, label %1271, !llvm.loop !69
-
-1298:                                             ; preds = %1271
-  %1299 = load i32, ptr @hf_opa_GetVFInfo_maxInternalRate, align 4
-  %1300 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1299, ptr noundef %1, i32 noundef %1296, i32 noundef 1, i32 noundef 0) #6
-  %1301 = add i32 %.2223226.i, 25
-  %1302 = load i32, ptr @hf_opa_GetVFInfo_minInternalRate, align 4
-  %1303 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1302, ptr noundef %1, i32 noundef %1301, i32 noundef 1, i32 noundef 0) #6
-  %1304 = add i32 %.2223226.i, 26
-  %1305 = load i32, ptr @hf_opa_GetVFInfo_maxInternalMBps, align 4
-  %1306 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1305, ptr noundef %1, i32 noundef %1304, i32 noundef 4, i32 noundef 0) #6
-  %1307 = add i32 %.2223226.i, 30
-  br i1 %1130, label %.lr.ph.i141, label %parse_GetGroupList.exit, !llvm.loop !70
-
-1308:                                             ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %1309 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %10) #6
-  %1310 = getelementptr inbounds i8, ptr %5, i64 8
-  %1311 = load i16, ptr %1310, align 8
-  %.not.i143 = icmp eq i16 %1311, 0
-  br i1 %.not.i143, label %1316, label %1312
-
-1312:                                             ; preds = %1308
-  %1313 = zext i16 %1311 to i32
-  %1314 = shl nuw nsw i32 %1313, 3
-  %1315 = udiv i32 %1309, %1314
-  br label %1316
-
-1316:                                             ; preds = %1312, %1308
-  %1317 = phi i32 [ %1315, %1312 ], [ 0, %1308 ]
-  %.not54.i144 = icmp eq ptr %0, null
-  br i1 %.not54.i144, label %parse_GetVFConfig.exit, label %1318
-
-1318:                                             ; preds = %1316
-  %1319 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
-  %.not55.i145 = icmp eq i32 %1319, 0
-  br i1 %.not55.i145, label %1320, label %1327
-
-1320:                                             ; preds = %1318
-  %1321 = getelementptr inbounds i8, ptr %4, i64 1
-  %1322 = load i8, ptr %1321, align 1
-  %1323 = icmp eq i8 %1322, 1
-  br i1 %1323, label %1324, label %1327
-
-1324:                                             ; preds = %1320
-  %1325 = getelementptr inbounds i8, ptr %4, i64 4
-  %1326 = load i32, ptr %1325, align 4
-  %.not56.i = icmp eq i32 %1326, 1
-  br i1 %.not56.i, label %1327, label %parse_GetVFConfig.exit
-
-1327:                                             ; preds = %1324, %1320, %1318
-  %1328 = getelementptr inbounds i8, ptr %3, i64 3
-  %1329 = load i8, ptr %1328, align 1
-  switch i8 %1329, label %parse_GetVFConfig.exit [
-    i8 1, label %1330
-    i8 18, label %1330
-    i8 -110, label %1351
-    i8 -127, label %1351
-  ]
-
-1330:                                             ; preds = %1327, %1327
-  %1331 = load i32, ptr @hf_opa_GetVFConfig, align 4
-  %1332 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1331, ptr noundef %1, i32 noundef %10, i32 noundef 88, i32 noundef 0) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1332, ptr noundef nonnull @.str.1765) #6
-  %1333 = load i32, ptr @ett_getvfconfig, align 4
-  %1334 = tail call ptr @proto_item_add_subtree(ptr noundef %1332, i32 noundef %1333) #6
-  %1335 = load i32, ptr @hf_opa_GetVFConfig_vfName, align 4
-  %1336 = tail call ptr @proto_tree_add_item(ptr noundef %1334, i32 noundef %1335, ptr noundef %1, i32 noundef %10, i32 noundef 64, i32 noundef 0) #6
-  %1337 = add i32 %10, 64
-  %1338 = load i32, ptr @hf_opa_reserved64, align 4
-  %1339 = tail call ptr @proto_tree_add_item(ptr noundef %1334, i32 noundef %1338, ptr noundef %1, i32 noundef %1337, i32 noundef 8, i32 noundef 0) #6
-  %1340 = add i32 %10, 72
-  %.not.i.i152 = icmp eq ptr %1334, null
-  br i1 %.not.i.i152, label %parse_GetVFConfig.exit, label %1341
-
-1341:                                             ; preds = %1330
-  %1342 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %1343 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1334, i32 noundef %1342, ptr noundef %1, i32 noundef %1340, i32 noundef 8, i32 noundef 0) #6
-  %1344 = add i32 %10, 80
-  %1345 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %1346 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1334, i32 noundef %1345, ptr noundef %1, i32 noundef %1344, i32 noundef 4, i32 noundef 0) #6
-  %1347 = add i32 %10, 84
-  %1348 = load i32, ptr @hf_opa_reserved32, align 4
-  %1349 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1334, i32 noundef %1348, ptr noundef %1, i32 noundef %1347, i32 noundef 4, i32 noundef 0) #6
-  %1350 = add i32 %10, 88
-  br label %parse_GetVFConfig.exit
-
-1351:                                             ; preds = %1327, %1327
-  %1352 = load i32, ptr @hf_opa_GetVFConfig, align 4
-  %1353 = zext i16 %1311 to i32
-  %1354 = shl nuw nsw i32 %1353, 3
-  %1355 = mul i32 %1354, %1317
-  %1356 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1352, ptr noundef %1, i32 noundef %10, i32 noundef %1355, i32 noundef 0) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1356, ptr noundef nonnull @.str.1765) #6
-  %1357 = load i32, ptr @ett_getvfconfig, align 4
-  %1358 = tail call ptr @proto_item_add_subtree(ptr noundef %1356, i32 noundef %1357) #6
-  %.not74.i = icmp eq i32 %1317, 0
-  br i1 %.not74.i, label %parse_GetVFConfig.exit, label %.lr.ph.i146
-
-.lr.ph.i146:                                      ; preds = %1351, %parse_Image.exit60.i
-  %.05073.i = phi i32 [ %1394, %parse_Image.exit60.i ], [ 0, %1351 ]
-  %1359 = phi i32 [ %1393, %parse_Image.exit60.i ], [ %10, %1351 ]
-  %1360 = load i16, ptr %1310, align 8
-  %1361 = zext i16 %1360 to i32
-  %1362 = shl nuw nsw i32 %1361, 3
-  %1363 = load i32, ptr @ett_getvfconfigport, align 4
-  %1364 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1358, ptr noundef %1, i32 noundef %1359, i32 noundef %1362, i32 noundef %1363, ptr noundef nonnull %7, ptr noundef nonnull @.str.2303, i32 noundef %.05073.i) #6
-  %.not.i58.i = icmp eq ptr %1364, null
-  br i1 %.not.i58.i, label %parse_Image.exit60.i, label %1365
-
-1365:                                             ; preds = %.lr.ph.i146
-  %1366 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %1367 = call ptr @proto_tree_add_item(ptr noundef nonnull %1364, i32 noundef %1366, ptr noundef %1, i32 noundef %1359, i32 noundef 8, i32 noundef 0) #6
-  %1368 = add i32 %1359, 8
-  %1369 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %1370 = call ptr @proto_tree_add_item(ptr noundef nonnull %1364, i32 noundef %1369, ptr noundef %1, i32 noundef %1368, i32 noundef 4, i32 noundef 0) #6
-  %1371 = add i32 %1359, 12
-  %1372 = load i32, ptr @hf_opa_reserved32, align 4
-  %1373 = call ptr @proto_tree_add_item(ptr noundef nonnull %1364, i32 noundef %1372, ptr noundef %1, i32 noundef %1371, i32 noundef 4, i32 noundef 0) #6
-  %1374 = add i32 %1359, 16
-  br label %parse_Image.exit60.i
-
-parse_Image.exit60.i:                             ; preds = %1365, %.lr.ph.i146
-  %.0.i59.i = phi i32 [ %1374, %1365 ], [ %1359, %.lr.ph.i146 ]
-  %1375 = load i32, ptr @hf_opa_GetVFConfig_Port_NodeGUID, align 4
-  %1376 = call ptr @proto_tree_add_item(ptr noundef %1364, i32 noundef %1375, ptr noundef %1, i32 noundef %.0.i59.i, i32 noundef 8, i32 noundef 0) #6
-  %1377 = add i32 %.0.i59.i, 8
-  %1378 = load i32, ptr @hf_opa_GetVFConfig_Port_nodeDesc, align 4
-  %1379 = call ptr @proto_tree_add_item(ptr noundef %1364, i32 noundef %1378, ptr noundef %1, i32 noundef %1377, i32 noundef 64, i32 noundef 0) #6
-  %1380 = add i32 %.0.i59.i, 72
-  %1381 = load ptr, ptr %7, align 8
-  %1382 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1380) #6
-  %1383 = add i32 %.0.i59.i, 76
-  %1384 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %1383) #6
-  %1385 = zext i8 %1384 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1381, ptr noundef nonnull @.str.2436, i32 noundef %1382, i32 noundef %1385) #6
-  %1386 = load i32, ptr @hf_opa_GetVFConfig_Port_NodeLID, align 4
-  %1387 = call ptr @proto_tree_add_item(ptr noundef %1364, i32 noundef %1386, ptr noundef %1, i32 noundef %1380, i32 noundef 4, i32 noundef 0) #6
-  %1388 = load i32, ptr @hf_opa_GetVFConfig_Port_PortNumber, align 4
-  %1389 = call ptr @proto_tree_add_item(ptr noundef %1364, i32 noundef %1388, ptr noundef %1, i32 noundef %1383, i32 noundef 1, i32 noundef 0) #6
-  %1390 = add i32 %.0.i59.i, 77
-  %1391 = load i32, ptr @hf_opa_reserved24, align 4
-  %1392 = call ptr @proto_tree_add_item(ptr noundef %1364, i32 noundef %1391, ptr noundef %1, i32 noundef %1390, i32 noundef 3, i32 noundef 0) #6
-  %1393 = add i32 %.0.i59.i, 80
-  %1394 = add nuw i32 %.05073.i, 1
-  %exitcond.not.i147 = icmp eq i32 %1394, %1317
-  br i1 %exitcond.not.i147, label %parse_GetVFConfig.exit, label %.lr.ph.i146, !llvm.loop !71
-
-parse_GetVFConfig.exit:                           ; preds = %parse_Image.exit60.i, %1330, %1341, %1351, %1316, %1324, %1327
-  %.0.in.i150.sroa.speculated = phi i32 [ %10, %1324 ], [ %10, %1316 ], [ %10, %1327 ], [ %1350, %1341 ], [ %1340, %1330 ], [ %10, %1351 ], [ %1393, %parse_Image.exit60.i ]
+parse_GetGroupConfig.exit:                        ; preds = %parse_Image.exit59.i, %400, %406, %416, %426, %398, %403
+  %.0.in.i.sroa.speculated = phi i32 [ %8, %398 ], [ %8, %403 ], [ %425, %416 ], [ %415, %406 ], [ %8, %426 ], [ %8, %400 ], [ %465, %parse_Image.exit59.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %parse_GetGroupList.exit
 
-1395:                                             ; preds = %6
+467:                                              ; preds = %4
+  %.not.i90 = icmp eq ptr %0, null
+  br i1 %.not.i90, label %parse_GetGroupList.exit, label %468
+
+468:                                              ; preds = %467
+  %469 = load i32, ptr @hf_opa_GetPortCounters, align 4
+  %470 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %469, ptr noundef %1, i32 noundef %8, i32 noundef 248, i32 noundef 0) #6
+  %471 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %8) #6
+  %472 = add i32 %8, 4
+  %473 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %472) #6
+  %474 = zext i8 %473 to i32
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %470, ptr noundef nonnull @.str.2437, i32 noundef %471, i32 noundef %474) #6
+  %475 = load i32, ptr @ett_getportcounters, align 4
+  %476 = tail call ptr @proto_item_add_subtree(ptr noundef %470, i32 noundef %475) #6
+  %477 = load i32, ptr @hf_opa_GetPortCounters_nodeLID, align 4
+  %478 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %477, ptr noundef %1, i32 noundef %8, i32 noundef 4, i32 noundef 0) #6
+  %479 = load i32, ptr @hf_opa_GetPortCounters_PortNumber, align 4
+  %480 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %479, ptr noundef %1, i32 noundef %472, i32 noundef 1, i32 noundef 0) #6
+  %481 = add i32 %8, 5
+  %482 = load i32, ptr @hf_opa_reserved24, align 4
+  %483 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %482, ptr noundef %1, i32 noundef %481, i32 noundef 3, i32 noundef 0) #6
+  %484 = add i32 %8, 8
+  %485 = load i32, ptr @hf_opa_GetPortCounters_flags, align 4
+  %486 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %485, ptr noundef %1, i32 noundef %484, i32 noundef 4, i32 noundef 0) #6
+  %487 = add i32 %8, 12
+  %488 = load i32, ptr @hf_opa_reserved32, align 4
+  %489 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %488, ptr noundef %1, i32 noundef %487, i32 noundef 4, i32 noundef 0) #6
+  %490 = add i32 %8, 16
+  %491 = load i32, ptr @hf_opa_reserved64, align 4
+  %492 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %491, ptr noundef %1, i32 noundef %490, i32 noundef 8, i32 noundef 0) #6
+  %493 = add i32 %8, 24
+  %.not.i.i91 = icmp eq ptr %476, null
+  br i1 %.not.i.i91, label %parse_Image.exit.i, label %494
+
+494:                                              ; preds = %468
+  %495 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %496 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %476, i32 noundef %495, ptr noundef %1, i32 noundef %493, i32 noundef 8, i32 noundef 0) #6
+  %497 = add i32 %8, 32
+  %498 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %499 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %476, i32 noundef %498, ptr noundef %1, i32 noundef %497, i32 noundef 4, i32 noundef 0) #6
+  %500 = add i32 %8, 36
+  %501 = load i32, ptr @hf_opa_reserved32, align 4
+  %502 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %476, i32 noundef %501, ptr noundef %1, i32 noundef %500, i32 noundef 4, i32 noundef 0) #6
+  %503 = add i32 %8, 40
+  br label %parse_Image.exit.i
+
+parse_Image.exit.i:                               ; preds = %494, %468
+  %.0.i.i = phi i32 [ %503, %494 ], [ %493, %468 ]
+  %504 = getelementptr inbounds i8, ptr %3, i64 3
+  %505 = load i8, ptr %504, align 1
+  switch i8 %505, label %601 [
+    i8 -127, label %506
+    i8 -110, label %506
+  ]
+
+506:                                              ; preds = %parse_Image.exit.i, %parse_Image.exit.i
+  %507 = load i32, ptr @hf_opa_GetPortCounters_PortXmitData, align 4
+  %508 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %507, ptr noundef %1, i32 noundef %.0.i.i, i32 noundef 8, i32 noundef 0) #6
+  %509 = add i32 %.0.i.i, 8
+  %510 = load i32, ptr @hf_opa_GetPortCounters_PortRcvData, align 4
+  %511 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %510, ptr noundef %1, i32 noundef %509, i32 noundef 8, i32 noundef 0) #6
+  %512 = add i32 %.0.i.i, 16
+  %513 = load i32, ptr @hf_opa_GetPortCounters_PortXmitPkts, align 4
+  %514 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %513, ptr noundef %1, i32 noundef %512, i32 noundef 8, i32 noundef 0) #6
+  %515 = add i32 %.0.i.i, 24
+  %516 = load i32, ptr @hf_opa_GetPortCounters_PortRcvPkts, align 4
+  %517 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %516, ptr noundef %1, i32 noundef %515, i32 noundef 8, i32 noundef 0) #6
+  %518 = add i32 %.0.i.i, 32
+  %519 = load i32, ptr @hf_opa_GetPortCounters_PortMulticastXmitPkts, align 4
+  %520 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %519, ptr noundef %1, i32 noundef %518, i32 noundef 8, i32 noundef 0) #6
+  %521 = add i32 %.0.i.i, 40
+  %522 = load i32, ptr @hf_opa_GetPortCounters_PortMulticastRcvPkts, align 4
+  %523 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %522, ptr noundef %1, i32 noundef %521, i32 noundef 8, i32 noundef 0) #6
+  %524 = add i32 %.0.i.i, 48
+  %525 = load i32, ptr @hf_opa_GetPortCounters_LocalLinkIntegrityErrors, align 4
+  %526 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %525, ptr noundef %1, i32 noundef %524, i32 noundef 8, i32 noundef 0) #6
+  %527 = add i32 %.0.i.i, 56
+  %528 = load i32, ptr @hf_opa_GetPortCounters_FMConfigErrors, align 4
+  %529 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %528, ptr noundef %1, i32 noundef %527, i32 noundef 8, i32 noundef 0) #6
+  %530 = add i32 %.0.i.i, 64
+  %531 = load i32, ptr @hf_opa_GetPortCounters_PortRcvErrors, align 4
+  %532 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %531, ptr noundef %1, i32 noundef %530, i32 noundef 8, i32 noundef 0) #6
+  %533 = add i32 %.0.i.i, 72
+  %534 = load i32, ptr @hf_opa_GetPortCounters_ExcessiveBufferOverruns, align 4
+  %535 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %534, ptr noundef %1, i32 noundef %533, i32 noundef 8, i32 noundef 0) #6
+  %536 = add i32 %.0.i.i, 80
+  %537 = load i32, ptr @hf_opa_GetPortCounters_PortRcvConstraintErrors, align 4
+  %538 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %537, ptr noundef %1, i32 noundef %536, i32 noundef 8, i32 noundef 0) #6
+  %539 = add i32 %.0.i.i, 88
+  %540 = load i32, ptr @hf_opa_GetPortCounters_PortRcvSwitchRelayErrors, align 4
+  %541 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %540, ptr noundef %1, i32 noundef %539, i32 noundef 8, i32 noundef 0) #6
+  %542 = add i32 %.0.i.i, 96
+  %543 = load i32, ptr @hf_opa_GetPortCounters_PortXmitDiscards, align 4
+  %544 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %543, ptr noundef %1, i32 noundef %542, i32 noundef 8, i32 noundef 0) #6
+  %545 = add i32 %.0.i.i, 104
+  %546 = load i32, ptr @hf_opa_GetPortCounters_PortXmitConstraintErrors, align 4
+  %547 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %546, ptr noundef %1, i32 noundef %545, i32 noundef 8, i32 noundef 0) #6
+  %548 = add i32 %.0.i.i, 112
+  %549 = load i32, ptr @hf_opa_GetPortCounters_PortRcvRemotePhysicalErrors, align 4
+  %550 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %549, ptr noundef %1, i32 noundef %548, i32 noundef 8, i32 noundef 0) #6
+  %551 = add i32 %.0.i.i, 120
+  %552 = load i32, ptr @hf_opa_GetPortCounters_SwPortCongestion, align 4
+  %553 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %552, ptr noundef %1, i32 noundef %551, i32 noundef 8, i32 noundef 0) #6
+  %554 = add i32 %.0.i.i, 128
+  %555 = load i32, ptr @hf_opa_GetPortCounters_PortXmitWait, align 4
+  %556 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %555, ptr noundef %1, i32 noundef %554, i32 noundef 8, i32 noundef 0) #6
+  %557 = add i32 %.0.i.i, 136
+  %558 = load i32, ptr @hf_opa_GetPortCounters_PortRcvFECN, align 4
+  %559 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %558, ptr noundef %1, i32 noundef %557, i32 noundef 8, i32 noundef 0) #6
+  %560 = add i32 %.0.i.i, 144
+  %561 = load i32, ptr @hf_opa_GetPortCounters_PortRcvBECN, align 4
+  %562 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %561, ptr noundef %1, i32 noundef %560, i32 noundef 8, i32 noundef 0) #6
+  %563 = add i32 %.0.i.i, 152
+  %564 = load i32, ptr @hf_opa_GetPortCounters_PortXmitTimeCong, align 4
+  %565 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %564, ptr noundef %1, i32 noundef %563, i32 noundef 8, i32 noundef 0) #6
+  %566 = add i32 %.0.i.i, 160
+  %567 = load i32, ptr @hf_opa_GetPortCounters_PortXmitWastedBW, align 4
+  %568 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %567, ptr noundef %1, i32 noundef %566, i32 noundef 8, i32 noundef 0) #6
+  %569 = add i32 %.0.i.i, 168
+  %570 = load i32, ptr @hf_opa_GetPortCounters_PortXmitWaitData, align 4
+  %571 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %570, ptr noundef %1, i32 noundef %569, i32 noundef 8, i32 noundef 0) #6
+  %572 = add i32 %.0.i.i, 176
+  %573 = load i32, ptr @hf_opa_GetPortCounters_PortRcvBubble, align 4
+  %574 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %573, ptr noundef %1, i32 noundef %572, i32 noundef 8, i32 noundef 0) #6
+  %575 = add i32 %.0.i.i, 184
+  %576 = load i32, ptr @hf_opa_GetPortCounters_PortMarkFECN, align 4
+  %577 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %576, ptr noundef %1, i32 noundef %575, i32 noundef 8, i32 noundef 0) #6
+  %578 = add i32 %.0.i.i, 192
+  %579 = load i32, ptr @hf_opa_GetPortCounters_LinkErrorRecovery, align 4
+  %580 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %579, ptr noundef %1, i32 noundef %578, i32 noundef 4, i32 noundef 0) #6
+  %581 = add i32 %.0.i.i, 196
+  %582 = load i32, ptr @hf_opa_GetPortCounters_LinkDowned, align 4
+  %583 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %582, ptr noundef %1, i32 noundef %581, i32 noundef 4, i32 noundef 0) #6
+  %584 = add i32 %.0.i.i, 200
+  %585 = load i32, ptr @hf_opa_GetPortCounters_UncorrectableErrors, align 4
+  %586 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %585, ptr noundef %1, i32 noundef %584, i32 noundef 1, i32 noundef 0) #6
+  %587 = add i32 %.0.i.i, 201
+  %588 = load i32, ptr @hf_opa_GetPortCounters_NumLanesDown, align 4
+  %589 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %588, ptr noundef %1, i32 noundef %587, i32 noundef 1, i32 noundef 0) #6
+  %590 = load i32, ptr @hf_opa_GetPortCounters_reserved, align 4
+  %591 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %590, ptr noundef %1, i32 noundef %587, i32 noundef 1, i32 noundef 0) #6
+  %592 = load i32, ptr @hf_opa_GetPortCounters_LinkQualityIndicator, align 4
+  %593 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %592, ptr noundef %1, i32 noundef %587, i32 noundef 1, i32 noundef 0) #6
+  %594 = add i32 %.0.i.i, 202
+  %595 = load i32, ptr @hf_opa_reserved16, align 4
+  %596 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %595, ptr noundef %1, i32 noundef %594, i32 noundef 2, i32 noundef 0) #6
+  %597 = add i32 %.0.i.i, 204
+  %598 = load i32, ptr @hf_opa_reserved32, align 4
+  %599 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %598, ptr noundef %1, i32 noundef %597, i32 noundef 4, i32 noundef 0) #6
+  %600 = add i32 %.0.i.i, 208
+  br label %parse_GetGroupList.exit
+
+601:                                              ; preds = %parse_Image.exit.i
+  %602 = add i32 %.0.i.i, 208
+  br label %parse_GetGroupList.exit
+
+603:                                              ; preds = %4
+  %.not.i93 = icmp eq ptr %0, null
+  br i1 %.not.i93, label %parse_GetGroupList.exit, label %604
+
+604:                                              ; preds = %603
+  %605 = load i32, ptr @hf_opa_ClearPortCounters, align 4
+  %606 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %605, ptr noundef %1, i32 noundef %8, i32 noundef 20, i32 noundef 0) #6
+  %607 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %8) #6
+  %608 = add i32 %8, 4
+  %609 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %608) #6
+  %610 = zext i8 %609 to i32
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %606, ptr noundef nonnull @.str.2438, i32 noundef %607, i32 noundef %610) #6
+  %611 = load i32, ptr @ett_clearportcounters, align 4
+  %612 = tail call ptr @proto_item_add_subtree(ptr noundef %606, i32 noundef %611) #6
+  %613 = load i32, ptr @hf_opa_ClearPortCounters_nodeLID, align 4
+  %614 = tail call ptr @proto_tree_add_item(ptr noundef %612, i32 noundef %613, ptr noundef %1, i32 noundef %8, i32 noundef 4, i32 noundef 0) #6
+  %615 = load i32, ptr @hf_opa_ClearPortCounters_PortNumber, align 4
+  %616 = tail call ptr @proto_tree_add_item(ptr noundef %612, i32 noundef %615, ptr noundef %1, i32 noundef %608, i32 noundef 1, i32 noundef 0) #6
+  %617 = add i32 %8, 5
+  %618 = load i32, ptr @hf_opa_reserved24, align 4
+  %619 = tail call ptr @proto_tree_add_item(ptr noundef %612, i32 noundef %618, ptr noundef %1, i32 noundef %617, i32 noundef 3, i32 noundef 0) #6
+  %620 = add i32 %8, 8
+  %621 = load i32, ptr @hf_opa_reserved64, align 4
+  %622 = tail call ptr @proto_tree_add_item(ptr noundef %612, i32 noundef %621, ptr noundef %1, i32 noundef %620, i32 noundef 8, i32 noundef 0) #6
+  %623 = add i32 %8, 16
+  %624 = load i32, ptr @hf_opa_ClearPortCounters_CounterSelectMask, align 4
+  %625 = load i32, ptr @ett_clearportcounters_counterselectmask, align 4
+  %626 = tail call ptr @proto_tree_add_bitmask(ptr noundef %612, ptr noundef %1, i32 noundef %623, i32 noundef %624, i32 noundef %625, ptr noundef nonnull @_ClearPortCounters_CounterSelectMask, i32 noundef 0) #6
+  %627 = add i32 %8, 20
+  br label %parse_GetGroupList.exit
+
+628:                                              ; preds = %4
+  %.not.i95 = icmp eq ptr %0, null
+  br i1 %.not.i95, label %parse_GetGroupList.exit, label %629
+
+629:                                              ; preds = %628
+  %630 = load i32, ptr @hf_opa_ClearAllPortCounters, align 4
+  %631 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %630, ptr noundef %1, i32 noundef %8, i32 noundef 4, i32 noundef 0) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %631, ptr noundef nonnull @.str.1574) #6
+  %632 = load i32, ptr @ett_clearallportcounters, align 4
+  %633 = tail call ptr @proto_item_add_subtree(ptr noundef %631, i32 noundef %632) #6
+  %634 = load i32, ptr @hf_opa_ClearAllPortCounters_CounterSelectMask, align 4
+  %635 = load i32, ptr @ett_clearallportcounters_counterselectmask, align 4
+  %636 = tail call ptr @proto_tree_add_bitmask(ptr noundef %633, ptr noundef %1, i32 noundef %8, i32 noundef %634, i32 noundef %635, ptr noundef nonnull @_ClearAllPortCounters_CounterSelectMask, i32 noundef 0) #6
+  %637 = add i32 %8, 4
+  br label %parse_GetGroupList.exit
+
+638:                                              ; preds = %4
+  %.not.i97 = icmp eq ptr %0, null
+  br i1 %.not.i97, label %parse_GetGroupList.exit, label %639
+
+639:                                              ; preds = %638
+  %640 = load i32, ptr @hf_opa_PMConfig, align 4
+  %641 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %640, ptr noundef %1, i32 noundef %8, i32 noundef 104, i32 noundef 0) #6
+  %642 = load i32, ptr @ett_pmconfig, align 4
+  %643 = tail call ptr @proto_item_add_subtree(ptr noundef %641, i32 noundef %642) #6
+  %644 = load i32, ptr @hf_opa_PMConfig_sweepInterval, align 4
+  %645 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %644, ptr noundef %1, i32 noundef %8, i32 noundef 4, i32 noundef 0) #6
+  %646 = add i32 %8, 4
+  %647 = load i32, ptr @hf_opa_PMConfig_maxClients, align 4
+  %648 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %647, ptr noundef %1, i32 noundef %646, i32 noundef 4, i32 noundef 0) #6
+  %649 = add i32 %8, 8
+  %650 = load i32, ptr @hf_opa_PMConfig_sizeHistory, align 4
+  %651 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %650, ptr noundef %1, i32 noundef %649, i32 noundef 4, i32 noundef 0) #6
+  %652 = add i32 %8, 12
+  %653 = load i32, ptr @hf_opa_PMConfig_sizeFreeze, align 4
+  %654 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %653, ptr noundef %1, i32 noundef %652, i32 noundef 4, i32 noundef 0) #6
+  %655 = add i32 %8, 16
+  %656 = load i32, ptr @hf_opa_PMConfig_lease, align 4
+  %657 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %656, ptr noundef %1, i32 noundef %655, i32 noundef 4, i32 noundef 0) #6
+  %658 = add i32 %8, 20
+  %659 = load i32, ptr @hf_opa_PMConfig_pmFlags, align 4
+  %660 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %659, ptr noundef %1, i32 noundef %658, i32 noundef 4, i32 noundef 0) #6
+  %661 = add i32 %8, 24
+  %662 = load i32, ptr @hf_opa_PMConfig_PortXmitWait, align 4
+  %663 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %662, ptr noundef %1, i32 noundef %661, i32 noundef 1, i32 noundef 0) #6
+  %664 = add i32 %8, 25
+  %665 = load i32, ptr @hf_opa_PMConfig_SwPortCongestion, align 4
+  %666 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %665, ptr noundef %1, i32 noundef %664, i32 noundef 1, i32 noundef 0) #6
+  %667 = add i32 %8, 26
+  %668 = load i32, ptr @hf_opa_PMConfig_PortRcvFECN, align 4
+  %669 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %668, ptr noundef %1, i32 noundef %667, i32 noundef 1, i32 noundef 0) #6
+  %670 = add i32 %8, 27
+  %671 = load i32, ptr @hf_opa_PMConfig_PortRcvBECN, align 4
+  %672 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %671, ptr noundef %1, i32 noundef %670, i32 noundef 1, i32 noundef 0) #6
+  %673 = add i32 %8, 28
+  %674 = load i32, ptr @hf_opa_PMConfig_PortXmitTimeCong, align 4
+  %675 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %674, ptr noundef %1, i32 noundef %673, i32 noundef 1, i32 noundef 0) #6
+  %676 = add i32 %8, 29
+  %677 = load i32, ptr @hf_opa_PMConfig_PortMarkFECN, align 4
+  %678 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %677, ptr noundef %1, i32 noundef %676, i32 noundef 1, i32 noundef 0) #6
+  %679 = add i32 %8, 30
+  %680 = load i32, ptr @hf_opa_reserved16, align 4
+  %681 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %680, ptr noundef %1, i32 noundef %679, i32 noundef 2, i32 noundef 0) #6
+  %682 = add i32 %8, 32
+  %683 = load i32, ptr @hf_opa_PMConfig_integrityErrors, align 4
+  %684 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %683, ptr noundef %1, i32 noundef %682, i32 noundef 4, i32 noundef 0) #6
+  %685 = add i32 %8, 36
+  %686 = load i32, ptr @hf_opa_PMConfig_congestionErrors, align 4
+  %687 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %686, ptr noundef %1, i32 noundef %685, i32 noundef 4, i32 noundef 0) #6
+  %688 = add i32 %8, 40
+  %689 = load i32, ptr @hf_opa_PMConfig_smaCongestionErrors, align 4
+  %690 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %689, ptr noundef %1, i32 noundef %688, i32 noundef 4, i32 noundef 0) #6
+  %691 = add i32 %8, 44
+  %692 = load i32, ptr @hf_opa_PMConfig_bubbleErrors, align 4
+  %693 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %692, ptr noundef %1, i32 noundef %691, i32 noundef 4, i32 noundef 0) #6
+  %694 = add i32 %8, 48
+  %695 = load i32, ptr @hf_opa_PMConfig_securityErrors, align 4
+  %696 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %695, ptr noundef %1, i32 noundef %694, i32 noundef 4, i32 noundef 0) #6
+  %697 = add i32 %8, 52
+  %698 = load i32, ptr @hf_opa_PMConfig_routingErrors, align 4
+  %699 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %698, ptr noundef %1, i32 noundef %697, i32 noundef 4, i32 noundef 0) #6
+  %700 = add i32 %8, 56
+  %701 = load i32, ptr @hf_opa_PMConfig_LocalLinkIntegrityErrors, align 4
+  %702 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %701, ptr noundef %1, i32 noundef %700, i32 noundef 1, i32 noundef 0) #6
+  %703 = add i32 %8, 57
+  %704 = load i32, ptr @hf_opa_PMConfig_PortRcvErrors, align 4
+  %705 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %704, ptr noundef %1, i32 noundef %703, i32 noundef 1, i32 noundef 0) #6
+  %706 = add i32 %8, 58
+  %707 = load i32, ptr @hf_opa_PMConfig_ExcessiveBufferOverrunErrors, align 4
+  %708 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %707, ptr noundef %1, i32 noundef %706, i32 noundef 1, i32 noundef 0) #6
+  %709 = add i32 %8, 59
+  %710 = load i32, ptr @hf_opa_PMConfig_LinkErrorRecovery, align 4
+  %711 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %710, ptr noundef %1, i32 noundef %709, i32 noundef 1, i32 noundef 0) #6
+  %712 = add i32 %8, 60
+  %713 = load i32, ptr @hf_opa_PMConfig_LinkDowned, align 4
+  %714 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %713, ptr noundef %1, i32 noundef %712, i32 noundef 1, i32 noundef 0) #6
+  %715 = add i32 %8, 61
+  %716 = load i32, ptr @hf_opa_PMConfig_UncorrectableErrors, align 4
+  %717 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %716, ptr noundef %1, i32 noundef %715, i32 noundef 1, i32 noundef 0) #6
+  %718 = add i32 %8, 62
+  %719 = load i32, ptr @hf_opa_PMConfig_FMConfigErrors, align 4
+  %720 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %719, ptr noundef %1, i32 noundef %718, i32 noundef 1, i32 noundef 0) #6
+  %721 = add i32 %8, 63
+  %722 = load i32, ptr @hf_opa_PMConfig_LinkQualityIndicator, align 4
+  %723 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %722, ptr noundef %1, i32 noundef %721, i32 noundef 1, i32 noundef 0) #6
+  %724 = add i32 %8, 64
+  %725 = load i32, ptr @hf_opa_PMConfig_LinkWidthDowngrade, align 4
+  %726 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %725, ptr noundef %1, i32 noundef %724, i32 noundef 1, i32 noundef 0) #6
+  %727 = add i32 %8, 65
+  %728 = load i32, ptr @hf_opa_reserved8, align 4
+  %729 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %728, ptr noundef %1, i32 noundef %727, i32 noundef 1, i32 noundef 0) #6
+  %730 = add i32 %8, 66
+  %731 = load i32, ptr @hf_opa_reserved16, align 4
+  %732 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %731, ptr noundef %1, i32 noundef %730, i32 noundef 2, i32 noundef 0) #6
+  %733 = add i32 %8, 68
+  %734 = load i32, ptr @hf_opa_reserved32, align 4
+  %735 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %734, ptr noundef %1, i32 noundef %733, i32 noundef 4, i32 noundef 0) #6
+  %736 = add i32 %8, 72
+  %737 = load i32, ptr @hf_opa_PMConfig_memoryFootprint, align 4
+  %738 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %737, ptr noundef %1, i32 noundef %736, i32 noundef 8, i32 noundef 0) #6
+  %739 = add i32 %8, 80
+  %740 = load i32, ptr @hf_opa_PMConfig_maxAttempts, align 4
+  %741 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %740, ptr noundef %1, i32 noundef %739, i32 noundef 4, i32 noundef 0) #6
+  %742 = add i32 %8, 84
+  %743 = load i32, ptr @hf_opa_PMConfig_respTimeout, align 4
+  %744 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %743, ptr noundef %1, i32 noundef %742, i32 noundef 4, i32 noundef 0) #6
+  %745 = add i32 %8, 88
+  %746 = load i32, ptr @hf_opa_PMConfig_minRespTimeout, align 4
+  %747 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %746, ptr noundef %1, i32 noundef %745, i32 noundef 4, i32 noundef 0) #6
+  %748 = add i32 %8, 92
+  %749 = load i32, ptr @hf_opa_PMConfig_maxParallelNodes, align 4
+  %750 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %749, ptr noundef %1, i32 noundef %748, i32 noundef 4, i32 noundef 0) #6
+  %751 = add i32 %8, 96
+  %752 = load i32, ptr @hf_opa_PMConfig_pmaBatchSize, align 4
+  %753 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %752, ptr noundef %1, i32 noundef %751, i32 noundef 4, i32 noundef 0) #6
+  %754 = add i32 %8, 100
+  %755 = load i32, ptr @hf_opa_PMConfig_errorClear, align 4
+  %756 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %755, ptr noundef %1, i32 noundef %754, i32 noundef 1, i32 noundef 0) #6
+  %757 = add i32 %8, 101
+  %758 = load i32, ptr @hf_opa_reserved24, align 4
+  %759 = tail call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %758, ptr noundef %1, i32 noundef %757, i32 noundef 3, i32 noundef 0) #6
+  %760 = add i32 %8, 104
+  br label %parse_GetGroupList.exit
+
+761:                                              ; preds = %4
+  %.not.i99 = icmp eq ptr %0, null
+  br i1 %.not.i99, label %parse_GetGroupList.exit, label %762
+
+762:                                              ; preds = %761
+  %763 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %764 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %763, ptr noundef %1, i32 noundef %8, i32 noundef 8, i32 noundef 0) #6
+  %765 = add i32 %8, 8
+  %766 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %767 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %766, ptr noundef %1, i32 noundef %765, i32 noundef 4, i32 noundef 0) #6
+  %768 = add i32 %8, 12
+  %769 = load i32, ptr @hf_opa_reserved32, align 4
+  %770 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %769, ptr noundef %1, i32 noundef %768, i32 noundef 4, i32 noundef 0) #6
+  %771 = add i32 %8, 16
+  br label %parse_GetGroupList.exit
+
+772:                                              ; preds = %4
+  %.not.i101 = icmp eq ptr %0, null
+  br i1 %.not.i101, label %parse_GetGroupList.exit, label %773
+
+773:                                              ; preds = %772
+  %774 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %775 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %774, ptr noundef %1, i32 noundef %8, i32 noundef 8, i32 noundef 0) #6
+  %776 = add i32 %8, 8
+  %777 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %778 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %777, ptr noundef %1, i32 noundef %776, i32 noundef 4, i32 noundef 0) #6
+  %779 = add i32 %8, 12
+  %780 = load i32, ptr @hf_opa_reserved32, align 4
+  %781 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %780, ptr noundef %1, i32 noundef %779, i32 noundef 4, i32 noundef 0) #6
+  %782 = add i32 %8, 16
+  br label %parse_GetGroupList.exit
+
+783:                                              ; preds = %4
+  %.not.i104 = icmp eq ptr %0, null
+  br i1 %.not.i104, label %parse_GetGroupList.exit, label %784
+
+784:                                              ; preds = %783
+  %785 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %786 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %785, ptr noundef %1, i32 noundef %8, i32 noundef 8, i32 noundef 0) #6
+  %787 = add i32 %8, 8
+  %788 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %789 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %788, ptr noundef %1, i32 noundef %787, i32 noundef 4, i32 noundef 0) #6
+  %790 = add i32 %8, 12
+  %791 = load i32, ptr @hf_opa_reserved32, align 4
+  %792 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %791, ptr noundef %1, i32 noundef %790, i32 noundef 4, i32 noundef 0) #6
+  %793 = add i32 %8, 16
+  br label %parse_GetGroupList.exit
+
+794:                                              ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  %795 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %8) #6
+  %.not.i107 = icmp eq i16 %.8.val, 0
+  br i1 %.not.i107, label %800, label %796
+
+796:                                              ; preds = %794
+  %797 = zext i16 %.8.val to i32
+  %798 = shl nuw nsw i32 %797, 3
+  %799 = udiv i32 %795, %798
+  br label %800
+
+800:                                              ; preds = %796, %794
+  %801 = phi i32 [ %799, %796 ], [ 0, %794 ]
+  %.not78.i = icmp eq ptr %0, null
+  br i1 %.not78.i, label %parse_GetFocusPorts.exit, label %802
+
+802:                                              ; preds = %800
+  %803 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
+  %.not79.i = icmp ne i32 %803, 0
+  %804 = icmp ne i8 %.1.val, 1
+  %or.cond66.not78 = select i1 %.not79.i, i1 true, i1 %804
+  %.not80.i = icmp eq i32 %.4.val, 1
+  %or.cond67 = select i1 %or.cond66.not78, i1 true, i1 %.not80.i
+  br i1 %or.cond67, label %805, label %parse_GetFocusPorts.exit
+
+805:                                              ; preds = %802
+  %806 = getelementptr inbounds i8, ptr %3, i64 3
+  %807 = load i8, ptr %806, align 1
+  switch i8 %807, label %parse_GetFocusPorts.exit [
+    i8 1, label %808
+    i8 18, label %808
+    i8 -127, label %837
+    i8 -110, label %837
+  ]
+
+808:                                              ; preds = %805, %805
+  %809 = load i32, ptr @hf_opa_GetFocusPorts, align 4
+  %810 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %809, ptr noundef %1, i32 noundef %8, i32 noundef 92, i32 noundef 0) #6
+  %811 = tail call ptr @wmem_file_scope() #6
+  %812 = tail call ptr @tvb_get_string_enc(ptr noundef %811, ptr noundef %1, i32 noundef %8, i32 noundef 64, i32 noundef 0) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %810, ptr noundef nonnull @.str.2439, ptr noundef %812) #6
+  %813 = load i32, ptr @ett_getfocusports, align 4
+  %814 = tail call ptr @proto_item_add_subtree(ptr noundef %810, i32 noundef %813) #6
+  %815 = load i32, ptr @hf_opa_GetFocusPorts_groupName, align 4
+  %816 = tail call ptr @proto_tree_add_item(ptr noundef %814, i32 noundef %815, ptr noundef %1, i32 noundef %8, i32 noundef 64, i32 noundef 0) #6
+  %817 = add i32 %8, 64
+  %.not.i.i114 = icmp eq ptr %814, null
+  br i1 %.not.i.i114, label %parse_Image.exit.i115, label %818
+
+818:                                              ; preds = %808
+  %819 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %820 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %814, i32 noundef %819, ptr noundef %1, i32 noundef %817, i32 noundef 8, i32 noundef 0) #6
+  %821 = add i32 %8, 72
+  %822 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %823 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %814, i32 noundef %822, ptr noundef %1, i32 noundef %821, i32 noundef 4, i32 noundef 0) #6
+  %824 = add i32 %8, 76
+  %825 = load i32, ptr @hf_opa_reserved32, align 4
+  %826 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %814, i32 noundef %825, ptr noundef %1, i32 noundef %824, i32 noundef 4, i32 noundef 0) #6
+  %827 = add i32 %8, 80
+  br label %parse_Image.exit.i115
+
+parse_Image.exit.i115:                            ; preds = %818, %808
+  %.0.i.i116 = phi i32 [ %827, %818 ], [ %817, %808 ]
+  %828 = load i32, ptr @hf_opa_GetFocusPorts_select, align 4
+  %829 = tail call ptr @proto_tree_add_item(ptr noundef %814, i32 noundef %828, ptr noundef %1, i32 noundef %.0.i.i116, i32 noundef 4, i32 noundef 0) #6
+  %830 = add i32 %.0.i.i116, 4
+  %831 = load i32, ptr @hf_opa_GetFocusPorts_start, align 4
+  %832 = tail call ptr @proto_tree_add_item(ptr noundef %814, i32 noundef %831, ptr noundef %1, i32 noundef %830, i32 noundef 4, i32 noundef 0) #6
+  %833 = add i32 %.0.i.i116, 8
+  %834 = load i32, ptr @hf_opa_GetFocusPorts_range, align 4
+  %835 = tail call ptr @proto_tree_add_item(ptr noundef %814, i32 noundef %834, ptr noundef %1, i32 noundef %833, i32 noundef 4, i32 noundef 0) #6
+  %836 = add i32 %.0.i.i116, 12
+  br label %parse_GetFocusPorts.exit
+
+837:                                              ; preds = %805, %805
+  %838 = load i32, ptr @hf_opa_GetFocusPorts, align 4
+  %839 = zext i16 %.8.val to i32
+  %840 = shl nuw nsw i32 %839, 3
+  %841 = mul i32 %801, %840
+  %842 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %838, ptr noundef %1, i32 noundef %8, i32 noundef %841, i32 noundef 0) #6
+  %843 = load i32, ptr @ett_getfocusports, align 4
+  %844 = tail call ptr @proto_item_add_subtree(ptr noundef %842, i32 noundef %843) #6
+  %.not111.i = icmp eq i32 %801, 0
+  br i1 %.not111.i, label %parse_GetFocusPorts.exit, label %.lr.ph.i108
+
+.lr.ph.i108:                                      ; preds = %837, %parse_Image.exit84.i
+  %.074110.i = phi i32 [ %906, %parse_Image.exit84.i ], [ 0, %837 ]
+  %845 = phi i32 [ %905, %parse_Image.exit84.i ], [ %8, %837 ]
+  %846 = load i32, ptr @ett_getfocusportsport, align 4
+  %847 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %844, ptr noundef %1, i32 noundef %845, i32 noundef %840, i32 noundef %846, ptr noundef nonnull %6, ptr noundef nonnull @.str.2303, i32 noundef %.074110.i) #6
+  %.not.i82.i = icmp eq ptr %847, null
+  br i1 %.not.i82.i, label %parse_Image.exit84.i, label %848
+
+848:                                              ; preds = %.lr.ph.i108
+  %849 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %850 = call ptr @proto_tree_add_item(ptr noundef nonnull %847, i32 noundef %849, ptr noundef %1, i32 noundef %845, i32 noundef 8, i32 noundef 0) #6
+  %851 = add i32 %845, 8
+  %852 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %853 = call ptr @proto_tree_add_item(ptr noundef nonnull %847, i32 noundef %852, ptr noundef %1, i32 noundef %851, i32 noundef 4, i32 noundef 0) #6
+  %854 = add i32 %845, 12
+  %855 = load i32, ptr @hf_opa_reserved32, align 4
+  %856 = call ptr @proto_tree_add_item(ptr noundef nonnull %847, i32 noundef %855, ptr noundef %1, i32 noundef %854, i32 noundef 4, i32 noundef 0) #6
+  %857 = add i32 %845, 16
+  br label %parse_Image.exit84.i
+
+parse_Image.exit84.i:                             ; preds = %848, %.lr.ph.i108
+  %.0.i83.i = phi i32 [ %857, %848 ], [ %845, %.lr.ph.i108 ]
+  %858 = load ptr, ptr %6, align 8
+  %859 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.0.i83.i) #6
+  %860 = add i32 %.0.i83.i, 4
+  %861 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %860) #6
+  %862 = zext i8 %861 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %858, ptr noundef nonnull @.str.2440, i32 noundef %859, i32 noundef %862) #6
+  %863 = load i32, ptr @hf_opa_GetFocusPorts_nodeLID, align 4
+  %864 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %863, ptr noundef %1, i32 noundef %.0.i83.i, i32 noundef 4, i32 noundef 0) #6
+  %865 = load i32, ptr @hf_opa_GetFocusPorts_portNumber, align 4
+  %866 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %865, ptr noundef %1, i32 noundef %860, i32 noundef 1, i32 noundef 0) #6
+  %867 = add i32 %.0.i83.i, 5
+  %868 = load i32, ptr @hf_opa_GetFocusPorts_rate, align 4
+  %869 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %868, ptr noundef %1, i32 noundef %867, i32 noundef 1, i32 noundef 0) #6
+  %870 = add i32 %.0.i83.i, 6
+  %871 = load i32, ptr @hf_opa_GetFocusPorts_mtu, align 4
+  %872 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %871, ptr noundef %1, i32 noundef %870, i32 noundef 1, i32 noundef 0) #6
+  %873 = add i32 %.0.i83.i, 7
+  %874 = load i32, ptr @hf_opa_GetFocusPorts_localFlags, align 4
+  %875 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %874, ptr noundef %1, i32 noundef %873, i32 noundef 1, i32 noundef 0) #6
+  %876 = load i32, ptr @hf_opa_GetFocusPorts_neighborFlags, align 4
+  %877 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %876, ptr noundef %1, i32 noundef %873, i32 noundef 1, i32 noundef 0) #6
+  %878 = add i32 %.0.i83.i, 8
+  %879 = load i32, ptr @hf_opa_GetFocusPorts_value, align 4
+  %880 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %879, ptr noundef %1, i32 noundef %878, i32 noundef 8, i32 noundef 0) #6
+  %881 = add i32 %.0.i83.i, 16
+  %882 = load i32, ptr @hf_opa_GetFocusPorts_nodeGUID, align 4
+  %883 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %882, ptr noundef %1, i32 noundef %881, i32 noundef 8, i32 noundef 0) #6
+  %884 = add i32 %.0.i83.i, 24
+  %885 = load i32, ptr @hf_opa_GetFocusPorts_nodeDesc, align 4
+  %886 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %885, ptr noundef %1, i32 noundef %884, i32 noundef 64, i32 noundef 0) #6
+  %887 = add i32 %.0.i83.i, 88
+  %888 = load i32, ptr @hf_opa_GetFocusPorts_neighborLid, align 4
+  %889 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %888, ptr noundef %1, i32 noundef %887, i32 noundef 4, i32 noundef 0) #6
+  %890 = add i32 %.0.i83.i, 92
+  %891 = load i32, ptr @hf_opa_GetFocusPorts_neighborPortNumber, align 4
+  %892 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %891, ptr noundef %1, i32 noundef %890, i32 noundef 1, i32 noundef 0) #6
+  %893 = add i32 %.0.i83.i, 93
+  %894 = load i32, ptr @hf_opa_reserved24, align 4
+  %895 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %894, ptr noundef %1, i32 noundef %893, i32 noundef 3, i32 noundef 0) #6
+  %896 = add i32 %.0.i83.i, 96
+  %897 = load i32, ptr @hf_opa_GetFocusPorts_neighborValue, align 4
+  %898 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %897, ptr noundef %1, i32 noundef %896, i32 noundef 8, i32 noundef 0) #6
+  %899 = add i32 %.0.i83.i, 104
+  %900 = load i32, ptr @hf_opa_GetFocusPorts_neighborGuid, align 4
+  %901 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %900, ptr noundef %1, i32 noundef %899, i32 noundef 8, i32 noundef 0) #6
+  %902 = add i32 %.0.i83.i, 112
+  %903 = load i32, ptr @hf_opa_GetFocusPorts_neighborNodeDesc, align 4
+  %904 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %903, ptr noundef %1, i32 noundef %902, i32 noundef 64, i32 noundef 0) #6
+  %905 = add i32 %.0.i83.i, 176
+  %906 = add nuw i32 %.074110.i, 1
+  %exitcond.not.i109 = icmp eq i32 %906, %801
+  br i1 %exitcond.not.i109, label %parse_GetFocusPorts.exit, label %.lr.ph.i108, !llvm.loop !66
+
+parse_GetFocusPorts.exit:                         ; preds = %parse_Image.exit84.i, %802, %parse_Image.exit.i115, %837, %800, %805
+  %.0.in.i112.sroa.speculated = phi i32 [ %8, %800 ], [ %8, %805 ], [ %836, %parse_Image.exit.i115 ], [ %8, %837 ], [ %8, %802 ], [ %905, %parse_Image.exit84.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  br label %parse_GetGroupList.exit
+
+907:                                              ; preds = %4
+  %.not.i117 = icmp eq ptr %0, null
+  br i1 %.not.i117, label %parse_GetGroupList.exit, label %908
+
+908:                                              ; preds = %907
+  %909 = load i32, ptr @hf_opa_GetImageInfo, align 4
+  %910 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %909, ptr noundef %1, i32 noundef %8, i32 noundef 216, i32 noundef 0) #6
+  %911 = load i32, ptr @ett_getimageinfo, align 4
+  %912 = tail call ptr @proto_item_add_subtree(ptr noundef %910, i32 noundef %911) #6
+  %.not.i.i118 = icmp eq ptr %912, null
+  br i1 %.not.i.i118, label %parse_Image.exit.i119, label %913
+
+913:                                              ; preds = %908
+  %914 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %915 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %912, i32 noundef %914, ptr noundef %1, i32 noundef %8, i32 noundef 8, i32 noundef 0) #6
+  %916 = add i32 %8, 8
+  %917 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %918 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %912, i32 noundef %917, ptr noundef %1, i32 noundef %916, i32 noundef 4, i32 noundef 0) #6
+  %919 = add i32 %8, 12
+  %920 = load i32, ptr @hf_opa_reserved32, align 4
+  %921 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %912, i32 noundef %920, ptr noundef %1, i32 noundef %919, i32 noundef 4, i32 noundef 0) #6
+  %922 = add i32 %8, 16
+  br label %parse_Image.exit.i119
+
+parse_Image.exit.i119:                            ; preds = %913, %908
+  %.0.i.i120 = phi i32 [ %922, %913 ], [ %8, %908 ]
+  %923 = load i32, ptr @hf_opa_GetImageInfo_sweepStart, align 4
+  %924 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %923, ptr noundef %1, i32 noundef %.0.i.i120, i32 noundef 8, i32 noundef 18) #6
+  %925 = add i32 %.0.i.i120, 8
+  %926 = load i32, ptr @hf_opa_GetImageInfo_sweepDuration, align 4
+  %927 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %926, ptr noundef %1, i32 noundef %925, i32 noundef 4, i32 noundef 0) #6
+  %928 = add i32 %.0.i.i120, 12
+  %929 = load i32, ptr @hf_opa_GetImageInfo_numHFIPorts, align 4
+  %930 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %929, ptr noundef %1, i32 noundef %928, i32 noundef 2, i32 noundef 0) #6
+  %931 = add i32 %.0.i.i120, 14
+  %932 = load i32, ptr @hf_opa_reserved32, align 4
+  %933 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %932, ptr noundef %1, i32 noundef %931, i32 noundef 4, i32 noundef 0) #6
+  %934 = add i32 %.0.i.i120, 18
+  %935 = load i32, ptr @hf_opa_GetImageInfo_numSwitchNodes, align 4
+  %936 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %935, ptr noundef %1, i32 noundef %934, i32 noundef 2, i32 noundef 0) #6
+  %937 = add i32 %.0.i.i120, 20
+  %938 = load i32, ptr @hf_opa_GetImageInfo_numSwitchPorts, align 4
+  %939 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %938, ptr noundef %1, i32 noundef %937, i32 noundef 4, i32 noundef 0) #6
+  %940 = add i32 %.0.i.i120, 24
+  %941 = load i32, ptr @hf_opa_GetImageInfo_numLinks, align 4
+  %942 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %941, ptr noundef %1, i32 noundef %940, i32 noundef 4, i32 noundef 0) #6
+  %943 = add i32 %.0.i.i120, 28
+  %944 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %943) #6
+  %945 = load i32, ptr @hf_opa_GetImageInfo_numSMs, align 4
+  %946 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %945, ptr noundef %1, i32 noundef %943, i32 noundef 4, i32 noundef 0) #6
+  %947 = add i32 %.0.i.i120, 32
+  %948 = load i32, ptr @hf_opa_GetImageInfo_numFailedNodes, align 4
+  %949 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %948, ptr noundef %1, i32 noundef %947, i32 noundef 4, i32 noundef 0) #6
+  %950 = add i32 %.0.i.i120, 36
+  %951 = load i32, ptr @hf_opa_GetImageInfo_numFailedPorts, align 4
+  %952 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %951, ptr noundef %1, i32 noundef %950, i32 noundef 4, i32 noundef 0) #6
+  %953 = add i32 %.0.i.i120, 40
+  %954 = load i32, ptr @hf_opa_GetImageInfo_numSkippedNodes, align 4
+  %955 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %954, ptr noundef %1, i32 noundef %953, i32 noundef 4, i32 noundef 0) #6
+  %956 = add i32 %.0.i.i120, 44
+  %957 = load i32, ptr @hf_opa_GetImageInfo_numSkippedPorts, align 4
+  %958 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %957, ptr noundef %1, i32 noundef %956, i32 noundef 4, i32 noundef 0) #6
+  %959 = add i32 %.0.i.i120, 48
+  %960 = load i32, ptr @hf_opa_GetImageInfo_numUnexpectedClearPorts, align 4
+  %961 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %960, ptr noundef %1, i32 noundef %959, i32 noundef 4, i32 noundef 0) #6
+  %962 = add i32 %.0.i.i120, 52
+  %963 = load i32, ptr @hf_opa_GetImageInfo_imageInterval, align 4
+  %964 = tail call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %963, ptr noundef %1, i32 noundef %962, i32 noundef 4, i32 noundef 0) #6
+  %965 = add i32 %.0.i.i120, 56
+  %966 = load i32, ptr @ett_getimageinfosm, align 4
+  %967 = tail call ptr @proto_tree_add_subtree(ptr noundef %912, ptr noundef %1, i32 noundef %965, i32 noundef 80, i32 noundef %966, ptr noundef null, ptr noundef nonnull @.str.2441) #6
+  %968 = load i32, ptr @hf_opa_GetImageInfo_lid, align 4
+  %969 = tail call ptr @proto_tree_add_item(ptr noundef %967, i32 noundef %968, ptr noundef %1, i32 noundef %965, i32 noundef 4, i32 noundef 0) #6
+  %970 = add i32 %.0.i.i120, 60
+  %971 = load i32, ptr @hf_opa_GetImageInfo_state, align 4
+  %972 = tail call ptr @proto_tree_add_item(ptr noundef %967, i32 noundef %971, ptr noundef %1, i32 noundef %970, i32 noundef 1, i32 noundef 0) #6
+  %973 = load i32, ptr @hf_opa_GetImageInfo_priority, align 4
+  %974 = tail call ptr @proto_tree_add_item(ptr noundef %967, i32 noundef %973, ptr noundef %1, i32 noundef %970, i32 noundef 1, i32 noundef 0) #6
+  %975 = add i32 %.0.i.i120, 61
+  %976 = load i32, ptr @hf_opa_GetImageInfo_portNumber, align 4
+  %977 = tail call ptr @proto_tree_add_item(ptr noundef %967, i32 noundef %976, ptr noundef %1, i32 noundef %975, i32 noundef 1, i32 noundef 0) #6
+  %978 = add i32 %.0.i.i120, 62
+  %979 = load i32, ptr @hf_opa_reserved16, align 4
+  %980 = tail call ptr @proto_tree_add_item(ptr noundef %967, i32 noundef %979, ptr noundef %1, i32 noundef %978, i32 noundef 2, i32 noundef 0) #6
+  %981 = add i32 %.0.i.i120, 64
+  %982 = load i32, ptr @hf_opa_GetImageInfo_smPortGuid, align 4
+  %983 = tail call ptr @proto_tree_add_item(ptr noundef %967, i32 noundef %982, ptr noundef %1, i32 noundef %981, i32 noundef 8, i32 noundef 0) #6
+  %984 = add i32 %.0.i.i120, 72
+  %985 = load i32, ptr @hf_opa_GetImageInfo_smNodeDesc, align 4
+  %986 = tail call ptr @proto_tree_add_item(ptr noundef %967, i32 noundef %985, ptr noundef %1, i32 noundef %984, i32 noundef 64, i32 noundef 0) #6
+  %987 = add i32 %.0.i.i120, 136
+  %or.cond.not.i = icmp eq i32 %944, 1
+  %988 = load i32, ptr @ett_getimageinfosm, align 4
+  br i1 %or.cond.not.i, label %1011, label %989
+
+989:                                              ; preds = %parse_Image.exit.i119
+  %990 = tail call ptr @proto_tree_add_subtree(ptr noundef %912, ptr noundef %1, i32 noundef %987, i32 noundef 80, i32 noundef %988, ptr noundef null, ptr noundef nonnull @.str.2442) #6
+  %991 = load i32, ptr @hf_opa_GetImageInfo_lid, align 4
+  %992 = tail call ptr @proto_tree_add_item(ptr noundef %990, i32 noundef %991, ptr noundef %1, i32 noundef %987, i32 noundef 4, i32 noundef 0) #6
+  %993 = add i32 %.0.i.i120, 140
+  %994 = load i32, ptr @hf_opa_GetImageInfo_state, align 4
+  %995 = tail call ptr @proto_tree_add_item(ptr noundef %990, i32 noundef %994, ptr noundef %1, i32 noundef %993, i32 noundef 1, i32 noundef 0) #6
+  %996 = load i32, ptr @hf_opa_GetImageInfo_priority, align 4
+  %997 = tail call ptr @proto_tree_add_item(ptr noundef %990, i32 noundef %996, ptr noundef %1, i32 noundef %993, i32 noundef 1, i32 noundef 0) #6
+  %998 = add i32 %.0.i.i120, 141
+  %999 = load i32, ptr @hf_opa_GetImageInfo_portNumber, align 4
+  %1000 = tail call ptr @proto_tree_add_item(ptr noundef %990, i32 noundef %999, ptr noundef %1, i32 noundef %998, i32 noundef 1, i32 noundef 0) #6
+  %1001 = add i32 %.0.i.i120, 142
+  %1002 = load i32, ptr @hf_opa_reserved16, align 4
+  %1003 = tail call ptr @proto_tree_add_item(ptr noundef %990, i32 noundef %1002, ptr noundef %1, i32 noundef %1001, i32 noundef 2, i32 noundef 0) #6
+  %1004 = add i32 %.0.i.i120, 144
+  %1005 = load i32, ptr @hf_opa_GetImageInfo_smPortGuid, align 4
+  %1006 = tail call ptr @proto_tree_add_item(ptr noundef %990, i32 noundef %1005, ptr noundef %1, i32 noundef %1004, i32 noundef 8, i32 noundef 0) #6
+  %1007 = add i32 %.0.i.i120, 152
+  %1008 = load i32, ptr @hf_opa_GetImageInfo_smNodeDesc, align 4
+  %1009 = tail call ptr @proto_tree_add_item(ptr noundef %990, i32 noundef %1008, ptr noundef %1, i32 noundef %1007, i32 noundef 64, i32 noundef 0) #6
+  %1010 = add i32 %.0.i.i120, 216
+  br label %parse_GetGroupList.exit
+
+1011:                                             ; preds = %parse_Image.exit.i119
+  %1012 = tail call ptr @proto_tree_add_subtree(ptr noundef %912, ptr noundef %1, i32 noundef %987, i32 noundef 80, i32 noundef %988, ptr noundef null, ptr noundef nonnull @.str.2443) #6
+  %1013 = add i32 %.0.i.i120, 216
+  br label %parse_GetGroupList.exit
+
+1014:                                             ; preds = %4
+  %.not.i122 = icmp eq ptr %0, null
+  br i1 %.not.i122, label %parse_GetGroupList.exit, label %1015
+
+1015:                                             ; preds = %1014
+  %1016 = load i32, ptr @hf_opa_MoveFreezeFrame_old, align 4
+  %1017 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1016, ptr noundef %1, i32 noundef %8, i32 noundef 16, i32 noundef 0) #6
+  %1018 = load i32, ptr @ett_movefreezeframeold, align 4
+  %1019 = tail call ptr @proto_item_add_subtree(ptr noundef %1017, i32 noundef %1018) #6
+  %.not.i.i123 = icmp eq ptr %1019, null
+  br i1 %.not.i.i123, label %parse_Image.exit.i124, label %1020
+
+1020:                                             ; preds = %1015
+  %1021 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %1022 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1019, i32 noundef %1021, ptr noundef %1, i32 noundef %8, i32 noundef 8, i32 noundef 0) #6
+  %1023 = add i32 %8, 8
+  %1024 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %1025 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1019, i32 noundef %1024, ptr noundef %1, i32 noundef %1023, i32 noundef 4, i32 noundef 0) #6
+  %1026 = add i32 %8, 12
+  %1027 = load i32, ptr @hf_opa_reserved32, align 4
+  %1028 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1019, i32 noundef %1027, ptr noundef %1, i32 noundef %1026, i32 noundef 4, i32 noundef 0) #6
+  %1029 = add i32 %8, 16
+  br label %parse_Image.exit.i124
+
+parse_Image.exit.i124:                            ; preds = %1020, %1015
+  %.0.i.i125 = phi i32 [ %1029, %1020 ], [ %8, %1015 ]
+  %1030 = load i32, ptr @hf_opa_MoveFreezeFrame_new, align 4
+  %1031 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1030, ptr noundef %1, i32 noundef %.0.i.i125, i32 noundef 16, i32 noundef 0) #6
+  %1032 = load i32, ptr @ett_movefreezeframenew, align 4
+  %1033 = tail call ptr @proto_item_add_subtree(ptr noundef %1031, i32 noundef %1032) #6
+  %.not.i16.i = icmp eq ptr %1033, null
+  br i1 %.not.i16.i, label %parse_GetGroupList.exit, label %1034
+
+1034:                                             ; preds = %parse_Image.exit.i124
+  %1035 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %1036 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1033, i32 noundef %1035, ptr noundef %1, i32 noundef %.0.i.i125, i32 noundef 8, i32 noundef 0) #6
+  %1037 = add i32 %.0.i.i125, 8
+  %1038 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %1039 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1033, i32 noundef %1038, ptr noundef %1, i32 noundef %1037, i32 noundef 4, i32 noundef 0) #6
+  %1040 = add i32 %.0.i.i125, 12
+  %1041 = load i32, ptr @hf_opa_reserved32, align 4
+  %1042 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1033, i32 noundef %1041, ptr noundef %1, i32 noundef %1040, i32 noundef 4, i32 noundef 0) #6
+  %1043 = add i32 %.0.i.i125, 16
+  br label %parse_GetGroupList.exit
+
+1044:                                             ; preds = %4
+  %1045 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %8) #6
+  %.not.i127 = icmp eq i16 %.8.val, 0
+  br i1 %.not.i127, label %1050, label %1046
+
+1046:                                             ; preds = %1044
+  %1047 = zext i16 %.8.val to i32
+  %1048 = shl nuw nsw i32 %1047, 3
+  %1049 = udiv i32 %1045, %1048
+  br label %1050
+
+1050:                                             ; preds = %1046, %1044
+  %1051 = phi i32 [ %1049, %1046 ], [ 0, %1044 ]
+  %.not36.i128 = icmp ne ptr %0, null
+  %.not37.i129 = icmp eq i8 %.1.val, 1
+  %or.cond68 = select i1 %.not36.i128, i1 %.not37.i129, i1 false
+  br i1 %or.cond68, label %1052, label %parse_GetGroupList.exit
+
+1052:                                             ; preds = %1050
+  %1053 = getelementptr inbounds i8, ptr %3, i64 3
+  %1054 = load i8, ptr %1053, align 1
+  switch i8 %1054, label %parse_GetGroupList.exit [
+    i8 -127, label %1055
+    i8 -110, label %1055
+  ]
+
+1055:                                             ; preds = %1052, %1052
+  %1056 = load i32, ptr @hf_opa_GetVFList, align 4
+  %1057 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1056, ptr noundef %1, i32 noundef %8, i32 noundef %1045, i32 noundef 0) #6
+  %1058 = load i32, ptr @ett_getvflist, align 4
+  %1059 = tail call ptr @proto_item_add_subtree(ptr noundef %1057, i32 noundef %1058) #6
+  %1060 = load i32, ptr @hf_opa_GetVFList, align 4
+  %1061 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1059, i32 noundef %1060, ptr noundef %1, i32 noundef %8, i32 noundef %1045, ptr noundef nonnull @.str.2444, i32 noundef %1051) #6
+  %.not42.i131 = icmp eq i32 %1051, 0
+  br i1 %.not42.i131, label %parse_GetGroupList.exit, label %.lr.ph.i132
+
+.lr.ph.i132:                                      ; preds = %1055, %.lr.ph.i132
+  %.03141.i133 = phi i32 [ %1064, %.lr.ph.i132 ], [ %8, %1055 ]
+  %.03240.i134 = phi i32 [ %1065, %.lr.ph.i132 ], [ 0, %1055 ]
+  %1062 = load i32, ptr @hf_opa_GetVFList_vfName, align 4
+  %1063 = tail call ptr @proto_tree_add_item(ptr noundef %1059, i32 noundef %1062, ptr noundef %1, i32 noundef %.03141.i133, i32 noundef 64, i32 noundef 0) #6
+  %1064 = add i32 %.03141.i133, 64
+  %1065 = add nuw i32 %.03240.i134, 1
+  tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1063, ptr noundef nonnull @.str.2303, i32 noundef %1065) #6
+  %exitcond.not.i135 = icmp eq i32 %1065, %1051
+  br i1 %exitcond.not.i135, label %parse_GetGroupList.exit, label %.lr.ph.i132, !llvm.loop !67
+
+1066:                                             ; preds = %4
+  %1067 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %8) #6
+  %.not.i136 = icmp eq i16 %.8.val, 0
+  br i1 %.not.i136, label %1072, label %1068
+
+1068:                                             ; preds = %1066
+  %1069 = zext i16 %.8.val to i32
+  %1070 = shl nuw nsw i32 %1069, 3
+  %1071 = udiv i32 %1067, %1070
+  br label %1072
+
+1072:                                             ; preds = %1068, %1066
+  %1073 = phi i32 [ %1071, %1068 ], [ 0, %1066 ]
+  %.not157.i = icmp eq ptr %0, null
+  br i1 %.not157.i, label %parse_GetGroupList.exit, label %1074
+
+1074:                                             ; preds = %1072
+  %1075 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
+  %.not158.i = icmp ne i32 %1075, 0
+  %1076 = icmp ne i8 %.1.val, 1
+  %or.cond69.not77 = select i1 %.not158.i, i1 true, i1 %1076
+  %.not159.i = icmp eq i32 %.4.val, 1
+  %or.cond70 = select i1 %or.cond69.not77, i1 true, i1 %.not159.i
+  br i1 %or.cond70, label %1077, label %parse_GetGroupList.exit
+
+1077:                                             ; preds = %1074
+  %1078 = getelementptr inbounds i8, ptr %3, i64 3
+  %1079 = load i8, ptr %1078, align 1
+  switch i8 %1079, label %.preheader.i140 [
+    i8 1, label %1083
+    i8 18, label %1083
+  ]
+
+.preheader.i140:                                  ; preds = %1077
+  %.not229.i = icmp eq i32 %1073, 0
+  br i1 %.not229.i, label %parse_GetGroupList.exit, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %.preheader.i140
+  %1080 = icmp ugt i32 %1073, 6
+  %1081 = zext i16 %.8.val to i32
+  %1082 = shl nuw nsw i32 %1081, 3
+  br label %.lr.ph.i141
+
+1083:                                             ; preds = %1077, %1077
+  %1084 = load i32, ptr @hf_opa_GetVFInfo, align 4
+  %1085 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1084, ptr noundef %1, i32 noundef %8, i32 noundef 88, i32 noundef 0) #6
+  %1086 = tail call ptr @wmem_file_scope() #6
+  %1087 = tail call ptr @tvb_get_string_enc(ptr noundef %1086, ptr noundef %1, i32 noundef %8, i32 noundef 64, i32 noundef 0) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1085, ptr noundef nonnull @.str.2445, ptr noundef %1087) #6
+  %1088 = load i32, ptr @ett_getvfinfo, align 4
+  %1089 = tail call ptr @proto_item_add_subtree(ptr noundef %1085, i32 noundef %1088) #6
+  %1090 = load i32, ptr @hf_opa_GetVFInfo_vfName, align 4
+  %1091 = tail call ptr @proto_tree_add_item(ptr noundef %1089, i32 noundef %1090, ptr noundef %1, i32 noundef %8, i32 noundef 64, i32 noundef 0) #6
+  %1092 = add i32 %8, 64
+  %1093 = load i32, ptr @hf_opa_reserved64, align 4
+  %1094 = tail call ptr @proto_tree_add_item(ptr noundef %1089, i32 noundef %1093, ptr noundef %1, i32 noundef %1092, i32 noundef 8, i32 noundef 0) #6
+  %1095 = add i32 %8, 72
+  %.not.i.i137 = icmp eq ptr %1089, null
+  br i1 %.not.i.i137, label %parse_GetGroupList.exit, label %1096
+
+1096:                                             ; preds = %1083
+  %1097 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %1098 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1089, i32 noundef %1097, ptr noundef %1, i32 noundef %1095, i32 noundef 8, i32 noundef 0) #6
+  %1099 = add i32 %8, 80
+  %1100 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %1101 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1089, i32 noundef %1100, ptr noundef %1, i32 noundef %1099, i32 noundef 4, i32 noundef 0) #6
+  %1102 = add i32 %8, 84
+  %1103 = load i32, ptr @hf_opa_reserved32, align 4
+  %1104 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1089, i32 noundef %1103, ptr noundef %1, i32 noundef %1102, i32 noundef 4, i32 noundef 0) #6
+  %1105 = add i32 %8, 88
+  br label %parse_GetGroupList.exit
+
+.lr.ph.i141:                                      ; preds = %1247, %.lr.ph.preheader.i
+  %.0221228.i = phi i32 [ %1256, %1247 ], [ %8, %.lr.ph.preheader.i ]
+  %1106 = load i32, ptr @hf_opa_GetVFInfo, align 4
+  %1107 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1106, ptr noundef %1, i32 noundef %.0221228.i, i32 noundef %1082, i32 noundef 0) #6
+  %1108 = tail call ptr @wmem_file_scope() #6
+  %1109 = tail call ptr @tvb_get_string_enc(ptr noundef %1108, ptr noundef %1, i32 noundef %.0221228.i, i32 noundef 64, i32 noundef 0) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1107, ptr noundef nonnull @.str.2445, ptr noundef %1109) #6
+  %1110 = load i32, ptr @ett_getvfinfo, align 4
+  %1111 = tail call ptr @proto_item_add_subtree(ptr noundef %1107, i32 noundef %1110) #6
+  %1112 = load i32, ptr @hf_opa_GetVFInfo_vfName, align 4
+  %1113 = tail call ptr @proto_tree_add_item(ptr noundef %1111, i32 noundef %1112, ptr noundef %1, i32 noundef %.0221228.i, i32 noundef 64, i32 noundef 0) #6
+  %1114 = add i32 %.0221228.i, 64
+  %1115 = load i32, ptr @hf_opa_reserved64, align 4
+  %1116 = tail call ptr @proto_tree_add_item(ptr noundef %1111, i32 noundef %1115, ptr noundef %1, i32 noundef %1114, i32 noundef 8, i32 noundef 0) #6
+  %1117 = add i32 %.0221228.i, 72
+  %.not.i161.i = icmp eq ptr %1111, null
+  br i1 %.not.i161.i, label %parse_Image.exit163.i, label %1118
+
+1118:                                             ; preds = %.lr.ph.i141
+  %1119 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %1120 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1111, i32 noundef %1119, ptr noundef %1, i32 noundef %1117, i32 noundef 8, i32 noundef 0) #6
+  %1121 = add i32 %.0221228.i, 80
+  %1122 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %1123 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1111, i32 noundef %1122, ptr noundef %1, i32 noundef %1121, i32 noundef 4, i32 noundef 0) #6
+  %1124 = add i32 %.0221228.i, 84
+  %1125 = load i32, ptr @hf_opa_reserved32, align 4
+  %1126 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1111, i32 noundef %1125, ptr noundef %1, i32 noundef %1124, i32 noundef 4, i32 noundef 0) #6
+  %1127 = add i32 %.0221228.i, 88
+  br label %parse_Image.exit163.i
+
+parse_Image.exit163.i:                            ; preds = %1118, %.lr.ph.i141
+  %.0.i162.i = phi i32 [ %1127, %1118 ], [ %1117, %.lr.ph.i141 ]
+  %1128 = load i32, ptr @hf_opa_GetVFInfo_numPorts, align 4
+  %1129 = tail call ptr @proto_tree_add_item(ptr noundef %1111, i32 noundef %1128, ptr noundef %1, i32 noundef %.0.i162.i, i32 noundef 4, i32 noundef 0) #6
+  %1130 = add i32 %.0.i162.i, 4
+  %1131 = load i32, ptr @ett_getvfinfoutilstats, align 4
+  %1132 = tail call ptr @proto_tree_add_subtree(ptr noundef %1111, ptr noundef %1, i32 noundef %1130, i32 noundef 80, i32 noundef %1131, ptr noundef null, ptr noundef nonnull @.str.2429) #6
+  %1133 = load i32, ptr @hf_opa_GetVFInfo_totalMBps, align 4
+  %1134 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1133, ptr noundef %1, i32 noundef %1130, i32 noundef 8, i32 noundef 0) #6
+  %1135 = add i32 %.0.i162.i, 12
+  %1136 = load i32, ptr @hf_opa_GetVFInfo_totalKPps, align 4
+  %1137 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1136, ptr noundef %1, i32 noundef %1135, i32 noundef 8, i32 noundef 0) #6
+  %1138 = add i32 %.0.i162.i, 20
+  %1139 = load i32, ptr @hf_opa_GetVFInfo_avgMBps, align 4
+  %1140 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1139, ptr noundef %1, i32 noundef %1138, i32 noundef 4, i32 noundef 0) #6
+  %1141 = add i32 %.0.i162.i, 24
+  %1142 = load i32, ptr @hf_opa_GetVFInfo_minMBps, align 4
+  %1143 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1142, ptr noundef %1, i32 noundef %1141, i32 noundef 4, i32 noundef 0) #6
+  %1144 = add i32 %.0.i162.i, 28
+  %1145 = load i32, ptr @hf_opa_GetVFInfo_maxMBps, align 4
+  %1146 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1145, ptr noundef %1, i32 noundef %1144, i32 noundef 4, i32 noundef 0) #6
+  %1147 = add i32 %.0.i162.i, 32
+  %1148 = load i32, ptr @hf_opa_GetVFInfo_numBWBuckets, align 4
+  %1149 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1148, ptr noundef %1, i32 noundef %1147, i32 noundef 4, i32 noundef 0) #6
+  %1150 = add i32 %.0.i162.i, 36
+  %1151 = load i32, ptr @ett_getvfinfoutilbuckets, align 4
+  %1152 = tail call ptr @proto_item_add_subtree(ptr noundef %1149, i32 noundef %1151) #6
+  br label %1153
+
+1153:                                             ; preds = %1153, %parse_Image.exit163.i
+  %.1225.i = phi i32 [ 0, %parse_Image.exit163.i ], [ %1159, %1153 ]
+  %.1222224.i = phi i32 [ %1150, %parse_Image.exit163.i ], [ %1158, %1153 ]
+  %1154 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
+  %1155 = tail call ptr @proto_tree_add_item(ptr noundef %1152, i32 noundef %1154, ptr noundef %1, i32 noundef %.1222224.i, i32 noundef 4, i32 noundef 0) #6
+  %1156 = mul nuw nsw i32 %.1225.i, 10
+  %1157 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.1222224.i) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1155, ptr noundef nonnull @.str.2430, i32 noundef %.1225.i, i32 noundef %1156, i32 noundef %1157) #6
+  %1158 = add i32 %.1222224.i, 4
+  %1159 = add nuw nsw i32 %.1225.i, 1
+  %exitcond.not.i142 = icmp eq i32 %1159, 10
+  br i1 %exitcond.not.i142, label %1160, label %1153, !llvm.loop !68
+
+1160:                                             ; preds = %1153
+  %1161 = load i32, ptr @hf_opa_GetVFInfo_avgKPps, align 4
+  %1162 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1161, ptr noundef %1, i32 noundef %1158, i32 noundef 4, i32 noundef 0) #6
+  %1163 = add i32 %.1222224.i, 8
+  %1164 = load i32, ptr @hf_opa_GetVFInfo_minKPps, align 4
+  %1165 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1164, ptr noundef %1, i32 noundef %1163, i32 noundef 4, i32 noundef 0) #6
+  %1166 = add i32 %.1222224.i, 12
+  %1167 = load i32, ptr @hf_opa_GetVFInfo_maxKPps, align 4
+  %1168 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1167, ptr noundef %1, i32 noundef %1166, i32 noundef 4, i32 noundef 0) #6
+  %1169 = add i32 %.1222224.i, 16
+  %1170 = load i32, ptr @hf_opa_GetVFInfo_pmaFailedPorts, align 4
+  %1171 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1170, ptr noundef %1, i32 noundef %1169, i32 noundef 2, i32 noundef 0) #6
+  %1172 = add i32 %.1222224.i, 18
+  %1173 = load i32, ptr @hf_opa_GetVFInfo_topoFailedPorts, align 4
+  %1174 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1173, ptr noundef %1, i32 noundef %1172, i32 noundef 2, i32 noundef 0) #6
+  %1175 = add i32 %.1222224.i, 20
+  %1176 = load i32, ptr @ett_getvfinfoerrorsummary, align 4
+  %1177 = tail call ptr @proto_tree_add_subtree(ptr noundef %1111, ptr noundef %1, i32 noundef %1175, i32 noundef 160, i32 noundef %1176, ptr noundef null, ptr noundef nonnull @.str.2433) #6
+  %1178 = load i32, ptr @hf_opa_GetVFInfo_integrityErrors, align 4
+  %1179 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1178, ptr noundef %1, i32 noundef %1175, i32 noundef 4, i32 noundef 0) #6
+  %1180 = add i32 %.1222224.i, 24
+  %1181 = load i32, ptr @hf_opa_GetVFInfo_congestionErrors, align 4
+  %1182 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1181, ptr noundef %1, i32 noundef %1180, i32 noundef 4, i32 noundef 0) #6
+  %1183 = add i32 %.1222224.i, 28
+  %1184 = load i32, ptr @hf_opa_GetVFInfo_smaCongestionErrors, align 4
+  %1185 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1184, ptr noundef %1, i32 noundef %1183, i32 noundef 4, i32 noundef 0) #6
+  %1186 = add i32 %.1222224.i, 32
+  %1187 = load i32, ptr @hf_opa_GetVFInfo_bubbleErrors, align 4
+  %1188 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1187, ptr noundef %1, i32 noundef %1186, i32 noundef 4, i32 noundef 0) #6
+  %1189 = add i32 %.1222224.i, 36
+  %1190 = load i32, ptr @hf_opa_GetVFInfo_securityErrors, align 4
+  %1191 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1190, ptr noundef %1, i32 noundef %1189, i32 noundef 4, i32 noundef 0) #6
+  %1192 = add i32 %.1222224.i, 40
+  %1193 = load i32, ptr @hf_opa_GetVFInfo_routingErrors, align 4
+  %1194 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1193, ptr noundef %1, i32 noundef %1192, i32 noundef 4, i32 noundef 0) #6
+  %1195 = add i32 %.1222224.i, 44
+  %1196 = load i32, ptr @hf_opa_GetVFInfo_utilizationPct10, align 4
+  %1197 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1196, ptr noundef %1, i32 noundef %1195, i32 noundef 2, i32 noundef 0) #6
+  %1198 = add i32 %.1222224.i, 46
+  %1199 = load i32, ptr @hf_opa_GetVFInfo_discardsPct10, align 4
+  %1200 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1199, ptr noundef %1, i32 noundef %1198, i32 noundef 2, i32 noundef 0) #6
+  %1201 = add i32 %.1222224.i, 48
+  %1202 = load i32, ptr @hf_opa_reserved32, align 4
+  %1203 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1202, ptr noundef %1, i32 noundef %1201, i32 noundef 4, i32 noundef 0) #6
+  %1204 = add i32 %.1222224.i, 52
+  %1205 = load i32, ptr @hf_opa_reserved64, align 4
+  %1206 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1205, ptr noundef %1, i32 noundef %1204, i32 noundef 8, i32 noundef 0) #6
+  %1207 = add i32 %.1222224.i, 60
+  %1208 = load i32, ptr @ett_getvfinfoerrintegritybucket, align 4
+  %1209 = tail call ptr @proto_item_add_subtree(ptr noundef %1179, i32 noundef %1208) #6
+  %1210 = load i32, ptr @ett_getvfinfoerrcongestionbucket, align 4
+  %1211 = tail call ptr @proto_item_add_subtree(ptr noundef %1182, i32 noundef %1210) #6
+  %1212 = load i32, ptr @ett_getvfinfoerrsmacongestionbucket, align 4
+  %1213 = tail call ptr @proto_item_add_subtree(ptr noundef %1185, i32 noundef %1212) #6
+  %1214 = load i32, ptr @ett_getvfinfoerrbubblebucket, align 4
+  %1215 = tail call ptr @proto_item_add_subtree(ptr noundef %1188, i32 noundef %1214) #6
+  %1216 = load i32, ptr @ett_getvfinfoerrsecuritybucket, align 4
+  %1217 = tail call ptr @proto_item_add_subtree(ptr noundef %1191, i32 noundef %1216) #6
+  %1218 = load i32, ptr @ett_getvfinfoerrroutingbucket, align 4
+  %1219 = tail call ptr @proto_item_add_subtree(ptr noundef %1194, i32 noundef %1218) #6
+  br label %1220
+
+1220:                                             ; preds = %1220, %1160
+  %.2227.i = phi i32 [ 0, %1160 ], [ %1246, %1220 ]
+  %.2223226.i = phi i32 [ %1207, %1160 ], [ %1245, %1220 ]
+  %1221 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
+  %1222 = tail call ptr @proto_tree_add_item(ptr noundef %1209, i32 noundef %1221, ptr noundef %1, i32 noundef %.2223226.i, i32 noundef 4, i32 noundef 0) #6
+  %1223 = mul nuw nsw i32 %.2227.i, 25
+  %1224 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.2223226.i) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1222, ptr noundef nonnull @.str.2430, i32 noundef %.2227.i, i32 noundef %1223, i32 noundef %1224) #6
+  %1225 = add i32 %.2223226.i, 4
+  %1226 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
+  %1227 = tail call ptr @proto_tree_add_item(ptr noundef %1211, i32 noundef %1226, ptr noundef %1, i32 noundef %1225, i32 noundef 4, i32 noundef 0) #6
+  %1228 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1225) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1227, ptr noundef nonnull @.str.2430, i32 noundef %.2227.i, i32 noundef %1223, i32 noundef %1228) #6
+  %1229 = add i32 %.2223226.i, 8
+  %1230 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
+  %1231 = tail call ptr @proto_tree_add_item(ptr noundef %1213, i32 noundef %1230, ptr noundef %1, i32 noundef %1229, i32 noundef 4, i32 noundef 0) #6
+  %1232 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1229) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1231, ptr noundef nonnull @.str.2430, i32 noundef %.2227.i, i32 noundef %1223, i32 noundef %1232) #6
+  %1233 = add i32 %.2223226.i, 12
+  %1234 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
+  %1235 = tail call ptr @proto_tree_add_item(ptr noundef %1215, i32 noundef %1234, ptr noundef %1, i32 noundef %1233, i32 noundef 4, i32 noundef 0) #6
+  %1236 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1233) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1235, ptr noundef nonnull @.str.2430, i32 noundef %.2227.i, i32 noundef %1223, i32 noundef %1236) #6
+  %1237 = add i32 %.2223226.i, 16
+  %1238 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
+  %1239 = tail call ptr @proto_tree_add_item(ptr noundef %1217, i32 noundef %1238, ptr noundef %1, i32 noundef %1237, i32 noundef 4, i32 noundef 0) #6
+  %1240 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1237) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1239, ptr noundef nonnull @.str.2430, i32 noundef %.2227.i, i32 noundef %1223, i32 noundef %1240) #6
+  %1241 = add i32 %.2223226.i, 20
+  %1242 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
+  %1243 = tail call ptr @proto_tree_add_item(ptr noundef %1219, i32 noundef %1242, ptr noundef %1, i32 noundef %1241, i32 noundef 4, i32 noundef 0) #6
+  %1244 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1241) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1243, ptr noundef nonnull @.str.2430, i32 noundef %.2227.i, i32 noundef %1223, i32 noundef %1244) #6
+  %1245 = add i32 %.2223226.i, 24
+  %1246 = add nuw nsw i32 %.2227.i, 1
+  %exitcond232.not.i = icmp eq i32 %1246, 5
+  br i1 %exitcond232.not.i, label %1247, label %1220, !llvm.loop !69
+
+1247:                                             ; preds = %1220
+  %1248 = load i32, ptr @hf_opa_GetVFInfo_maxInternalRate, align 4
+  %1249 = tail call ptr @proto_tree_add_item(ptr noundef %1111, i32 noundef %1248, ptr noundef %1, i32 noundef %1245, i32 noundef 1, i32 noundef 0) #6
+  %1250 = add i32 %.2223226.i, 25
+  %1251 = load i32, ptr @hf_opa_GetVFInfo_minInternalRate, align 4
+  %1252 = tail call ptr @proto_tree_add_item(ptr noundef %1111, i32 noundef %1251, ptr noundef %1, i32 noundef %1250, i32 noundef 1, i32 noundef 0) #6
+  %1253 = add i32 %.2223226.i, 26
+  %1254 = load i32, ptr @hf_opa_GetVFInfo_maxInternalMBps, align 4
+  %1255 = tail call ptr @proto_tree_add_item(ptr noundef %1111, i32 noundef %1254, ptr noundef %1, i32 noundef %1253, i32 noundef 4, i32 noundef 0) #6
+  %1256 = add i32 %.2223226.i, 30
+  br i1 %1080, label %.lr.ph.i141, label %parse_GetGroupList.exit, !llvm.loop !70
+
+1257:                                             ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  %1258 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %8) #6
+  %.not.i143 = icmp eq i16 %.8.val, 0
+  br i1 %.not.i143, label %1263, label %1259
+
+1259:                                             ; preds = %1257
+  %1260 = zext i16 %.8.val to i32
+  %1261 = shl nuw nsw i32 %1260, 3
+  %1262 = udiv i32 %1258, %1261
+  br label %1263
+
+1263:                                             ; preds = %1259, %1257
+  %1264 = phi i32 [ %1262, %1259 ], [ 0, %1257 ]
+  %.not54.i144 = icmp eq ptr %0, null
+  br i1 %.not54.i144, label %parse_GetVFConfig.exit, label %1265
+
+1265:                                             ; preds = %1263
+  %1266 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
+  %.not55.i145 = icmp ne i32 %1266, 0
+  %1267 = icmp ne i8 %.1.val, 1
+  %or.cond71.not76 = select i1 %.not55.i145, i1 true, i1 %1267
+  %.not56.i = icmp eq i32 %.4.val, 1
+  %or.cond72 = select i1 %or.cond71.not76, i1 true, i1 %.not56.i
+  br i1 %or.cond72, label %1268, label %parse_GetVFConfig.exit
+
+1268:                                             ; preds = %1265
+  %1269 = getelementptr inbounds i8, ptr %3, i64 3
+  %1270 = load i8, ptr %1269, align 1
+  switch i8 %1270, label %parse_GetVFConfig.exit [
+    i8 1, label %1271
+    i8 18, label %1271
+    i8 -110, label %1292
+    i8 -127, label %1292
+  ]
+
+1271:                                             ; preds = %1268, %1268
+  %1272 = load i32, ptr @hf_opa_GetVFConfig, align 4
+  %1273 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1272, ptr noundef %1, i32 noundef %8, i32 noundef 88, i32 noundef 0) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1273, ptr noundef nonnull @.str.1765) #6
+  %1274 = load i32, ptr @ett_getvfconfig, align 4
+  %1275 = tail call ptr @proto_item_add_subtree(ptr noundef %1273, i32 noundef %1274) #6
+  %1276 = load i32, ptr @hf_opa_GetVFConfig_vfName, align 4
+  %1277 = tail call ptr @proto_tree_add_item(ptr noundef %1275, i32 noundef %1276, ptr noundef %1, i32 noundef %8, i32 noundef 64, i32 noundef 0) #6
+  %1278 = add i32 %8, 64
+  %1279 = load i32, ptr @hf_opa_reserved64, align 4
+  %1280 = tail call ptr @proto_tree_add_item(ptr noundef %1275, i32 noundef %1279, ptr noundef %1, i32 noundef %1278, i32 noundef 8, i32 noundef 0) #6
+  %1281 = add i32 %8, 72
+  %.not.i.i152 = icmp eq ptr %1275, null
+  br i1 %.not.i.i152, label %parse_GetVFConfig.exit, label %1282
+
+1282:                                             ; preds = %1271
+  %1283 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %1284 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1275, i32 noundef %1283, ptr noundef %1, i32 noundef %1281, i32 noundef 8, i32 noundef 0) #6
+  %1285 = add i32 %8, 80
+  %1286 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %1287 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1275, i32 noundef %1286, ptr noundef %1, i32 noundef %1285, i32 noundef 4, i32 noundef 0) #6
+  %1288 = add i32 %8, 84
+  %1289 = load i32, ptr @hf_opa_reserved32, align 4
+  %1290 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1275, i32 noundef %1289, ptr noundef %1, i32 noundef %1288, i32 noundef 4, i32 noundef 0) #6
+  %1291 = add i32 %8, 88
+  br label %parse_GetVFConfig.exit
+
+1292:                                             ; preds = %1268, %1268
+  %1293 = load i32, ptr @hf_opa_GetVFConfig, align 4
+  %1294 = zext i16 %.8.val to i32
+  %1295 = shl nuw nsw i32 %1294, 3
+  %1296 = mul i32 %1264, %1295
+  %1297 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1293, ptr noundef %1, i32 noundef %8, i32 noundef %1296, i32 noundef 0) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1297, ptr noundef nonnull @.str.1765) #6
+  %1298 = load i32, ptr @ett_getvfconfig, align 4
+  %1299 = tail call ptr @proto_item_add_subtree(ptr noundef %1297, i32 noundef %1298) #6
+  %.not74.i = icmp eq i32 %1264, 0
+  br i1 %.not74.i, label %parse_GetVFConfig.exit, label %.lr.ph.i146
+
+.lr.ph.i146:                                      ; preds = %1292, %parse_Image.exit60.i
+  %.05073.i = phi i32 [ %1332, %parse_Image.exit60.i ], [ 0, %1292 ]
+  %1300 = phi i32 [ %1331, %parse_Image.exit60.i ], [ %8, %1292 ]
+  %1301 = load i32, ptr @ett_getvfconfigport, align 4
+  %1302 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1299, ptr noundef %1, i32 noundef %1300, i32 noundef %1295, i32 noundef %1301, ptr noundef nonnull %5, ptr noundef nonnull @.str.2303, i32 noundef %.05073.i) #6
+  %.not.i58.i = icmp eq ptr %1302, null
+  br i1 %.not.i58.i, label %parse_Image.exit60.i, label %1303
+
+1303:                                             ; preds = %.lr.ph.i146
+  %1304 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %1305 = call ptr @proto_tree_add_item(ptr noundef nonnull %1302, i32 noundef %1304, ptr noundef %1, i32 noundef %1300, i32 noundef 8, i32 noundef 0) #6
+  %1306 = add i32 %1300, 8
+  %1307 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %1308 = call ptr @proto_tree_add_item(ptr noundef nonnull %1302, i32 noundef %1307, ptr noundef %1, i32 noundef %1306, i32 noundef 4, i32 noundef 0) #6
+  %1309 = add i32 %1300, 12
+  %1310 = load i32, ptr @hf_opa_reserved32, align 4
+  %1311 = call ptr @proto_tree_add_item(ptr noundef nonnull %1302, i32 noundef %1310, ptr noundef %1, i32 noundef %1309, i32 noundef 4, i32 noundef 0) #6
+  %1312 = add i32 %1300, 16
+  br label %parse_Image.exit60.i
+
+parse_Image.exit60.i:                             ; preds = %1303, %.lr.ph.i146
+  %.0.i59.i = phi i32 [ %1312, %1303 ], [ %1300, %.lr.ph.i146 ]
+  %1313 = load i32, ptr @hf_opa_GetVFConfig_Port_NodeGUID, align 4
+  %1314 = call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1313, ptr noundef %1, i32 noundef %.0.i59.i, i32 noundef 8, i32 noundef 0) #6
+  %1315 = add i32 %.0.i59.i, 8
+  %1316 = load i32, ptr @hf_opa_GetVFConfig_Port_nodeDesc, align 4
+  %1317 = call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1316, ptr noundef %1, i32 noundef %1315, i32 noundef 64, i32 noundef 0) #6
+  %1318 = add i32 %.0.i59.i, 72
+  %1319 = load ptr, ptr %5, align 8
+  %1320 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1318) #6
+  %1321 = add i32 %.0.i59.i, 76
+  %1322 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %1321) #6
+  %1323 = zext i8 %1322 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1319, ptr noundef nonnull @.str.2436, i32 noundef %1320, i32 noundef %1323) #6
+  %1324 = load i32, ptr @hf_opa_GetVFConfig_Port_NodeLID, align 4
+  %1325 = call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1324, ptr noundef %1, i32 noundef %1318, i32 noundef 4, i32 noundef 0) #6
+  %1326 = load i32, ptr @hf_opa_GetVFConfig_Port_PortNumber, align 4
+  %1327 = call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1326, ptr noundef %1, i32 noundef %1321, i32 noundef 1, i32 noundef 0) #6
+  %1328 = add i32 %.0.i59.i, 77
+  %1329 = load i32, ptr @hf_opa_reserved24, align 4
+  %1330 = call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1329, ptr noundef %1, i32 noundef %1328, i32 noundef 3, i32 noundef 0) #6
+  %1331 = add i32 %.0.i59.i, 80
+  %1332 = add nuw i32 %.05073.i, 1
+  %exitcond.not.i147 = icmp eq i32 %1332, %1264
+  br i1 %exitcond.not.i147, label %parse_GetVFConfig.exit, label %.lr.ph.i146, !llvm.loop !71
+
+parse_GetVFConfig.exit:                           ; preds = %parse_Image.exit60.i, %1265, %1271, %1282, %1292, %1263, %1268
+  %.0.in.i150.sroa.speculated = phi i32 [ %8, %1263 ], [ %8, %1268 ], [ %1291, %1282 ], [ %1281, %1271 ], [ %8, %1292 ], [ %8, %1265 ], [ %1331, %parse_Image.exit60.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  br label %parse_GetGroupList.exit
+
+1333:                                             ; preds = %4
   %.not.i153 = icmp eq ptr %0, null
-  br i1 %.not.i153, label %parse_GetGroupList.exit, label %1396
+  br i1 %.not.i153, label %parse_GetGroupList.exit, label %1334
 
-1396:                                             ; preds = %1395
-  %1397 = load i32, ptr @hf_opa_GetVFPortCounters, align 4
-  %1398 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1397, ptr noundef %1, i32 noundef %10, i32 noundef 224, i32 noundef 0) #6
-  %1399 = load i32, ptr @ett_getvfportcounters, align 4
-  %1400 = tail call ptr @proto_item_add_subtree(ptr noundef %1398, i32 noundef %1399) #6
-  %1401 = load i32, ptr @hf_opa_GetVFPortCounters_nodeLID, align 4
-  %1402 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1401, ptr noundef %1, i32 noundef %10, i32 noundef 4, i32 noundef 0) #6
-  %1403 = add i32 %10, 4
-  %1404 = load i32, ptr @hf_opa_GetVFPortCounters_PortNumber, align 4
-  %1405 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1404, ptr noundef %1, i32 noundef %1403, i32 noundef 1, i32 noundef 0) #6
-  %1406 = add i32 %10, 5
-  %1407 = load i32, ptr @hf_opa_reserved24, align 4
-  %1408 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1407, ptr noundef %1, i32 noundef %1406, i32 noundef 3, i32 noundef 0) #6
-  %1409 = add i32 %10, 8
-  %1410 = load i32, ptr @hf_opa_GetVFPortCounters_flags, align 4
-  %1411 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1410, ptr noundef %1, i32 noundef %1409, i32 noundef 4, i32 noundef 0) #6
-  %1412 = add i32 %10, 12
-  %1413 = load i32, ptr @hf_opa_reserved32, align 4
-  %1414 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1413, ptr noundef %1, i32 noundef %1412, i32 noundef 4, i32 noundef 0) #6
-  %1415 = add i32 %10, 16
-  %1416 = load i32, ptr @hf_opa_reserved64, align 4
-  %1417 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1416, ptr noundef %1, i32 noundef %1415, i32 noundef 8, i32 noundef 0) #6
-  %1418 = add i32 %10, 24
-  %1419 = load i32, ptr @hf_opa_GetVFPortCounters_vfName, align 4
-  %1420 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1419, ptr noundef %1, i32 noundef %1418, i32 noundef 64, i32 noundef 0) #6
-  %1421 = add i32 %10, 88
-  %1422 = load i32, ptr @hf_opa_reserved64, align 4
-  %1423 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1422, ptr noundef %1, i32 noundef %1421, i32 noundef 8, i32 noundef 0) #6
-  %1424 = add i32 %10, 96
-  %.not.i.i154 = icmp eq ptr %1400, null
-  br i1 %.not.i.i154, label %parse_Image.exit.i155, label %1425
+1334:                                             ; preds = %1333
+  %1335 = load i32, ptr @hf_opa_GetVFPortCounters, align 4
+  %1336 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1335, ptr noundef %1, i32 noundef %8, i32 noundef 224, i32 noundef 0) #6
+  %1337 = load i32, ptr @ett_getvfportcounters, align 4
+  %1338 = tail call ptr @proto_item_add_subtree(ptr noundef %1336, i32 noundef %1337) #6
+  %1339 = load i32, ptr @hf_opa_GetVFPortCounters_nodeLID, align 4
+  %1340 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1339, ptr noundef %1, i32 noundef %8, i32 noundef 4, i32 noundef 0) #6
+  %1341 = add i32 %8, 4
+  %1342 = load i32, ptr @hf_opa_GetVFPortCounters_PortNumber, align 4
+  %1343 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1342, ptr noundef %1, i32 noundef %1341, i32 noundef 1, i32 noundef 0) #6
+  %1344 = add i32 %8, 5
+  %1345 = load i32, ptr @hf_opa_reserved24, align 4
+  %1346 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1345, ptr noundef %1, i32 noundef %1344, i32 noundef 3, i32 noundef 0) #6
+  %1347 = add i32 %8, 8
+  %1348 = load i32, ptr @hf_opa_GetVFPortCounters_flags, align 4
+  %1349 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1348, ptr noundef %1, i32 noundef %1347, i32 noundef 4, i32 noundef 0) #6
+  %1350 = add i32 %8, 12
+  %1351 = load i32, ptr @hf_opa_reserved32, align 4
+  %1352 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1351, ptr noundef %1, i32 noundef %1350, i32 noundef 4, i32 noundef 0) #6
+  %1353 = add i32 %8, 16
+  %1354 = load i32, ptr @hf_opa_reserved64, align 4
+  %1355 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1354, ptr noundef %1, i32 noundef %1353, i32 noundef 8, i32 noundef 0) #6
+  %1356 = add i32 %8, 24
+  %1357 = load i32, ptr @hf_opa_GetVFPortCounters_vfName, align 4
+  %1358 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1357, ptr noundef %1, i32 noundef %1356, i32 noundef 64, i32 noundef 0) #6
+  %1359 = add i32 %8, 88
+  %1360 = load i32, ptr @hf_opa_reserved64, align 4
+  %1361 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1360, ptr noundef %1, i32 noundef %1359, i32 noundef 8, i32 noundef 0) #6
+  %1362 = add i32 %8, 96
+  %.not.i.i154 = icmp eq ptr %1338, null
+  br i1 %.not.i.i154, label %parse_Image.exit.i155, label %1363
 
-1425:                                             ; preds = %1396
-  %1426 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %1427 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1400, i32 noundef %1426, ptr noundef %1, i32 noundef %1424, i32 noundef 8, i32 noundef 0) #6
-  %1428 = add i32 %10, 104
-  %1429 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %1430 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1400, i32 noundef %1429, ptr noundef %1, i32 noundef %1428, i32 noundef 4, i32 noundef 0) #6
-  %1431 = add i32 %10, 108
-  %1432 = load i32, ptr @hf_opa_reserved32, align 4
-  %1433 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1400, i32 noundef %1432, ptr noundef %1, i32 noundef %1431, i32 noundef 4, i32 noundef 0) #6
-  %1434 = add i32 %10, 112
+1363:                                             ; preds = %1334
+  %1364 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %1365 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1338, i32 noundef %1364, ptr noundef %1, i32 noundef %1362, i32 noundef 8, i32 noundef 0) #6
+  %1366 = add i32 %8, 104
+  %1367 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %1368 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1338, i32 noundef %1367, ptr noundef %1, i32 noundef %1366, i32 noundef 4, i32 noundef 0) #6
+  %1369 = add i32 %8, 108
+  %1370 = load i32, ptr @hf_opa_reserved32, align 4
+  %1371 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1338, i32 noundef %1370, ptr noundef %1, i32 noundef %1369, i32 noundef 4, i32 noundef 0) #6
+  %1372 = add i32 %8, 112
   br label %parse_Image.exit.i155
 
-parse_Image.exit.i155:                            ; preds = %1425, %1396
-  %.0.i.i156 = phi i32 [ %1434, %1425 ], [ %1424, %1396 ]
-  %1435 = getelementptr inbounds i8, ptr %3, i64 3
-  %1436 = load i8, ptr %1435, align 1
-  switch i8 %1436, label %1480 [
-    i8 -127, label %1437
-    i8 -110, label %1437
+parse_Image.exit.i155:                            ; preds = %1363, %1334
+  %.0.i.i156 = phi i32 [ %1372, %1363 ], [ %1362, %1334 ]
+  %1373 = getelementptr inbounds i8, ptr %3, i64 3
+  %1374 = load i8, ptr %1373, align 1
+  switch i8 %1374, label %1418 [
+    i8 -127, label %1375
+    i8 -110, label %1375
   ]
 
-1437:                                             ; preds = %parse_Image.exit.i155, %parse_Image.exit.i155
-  %1438 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitData, align 4
-  %1439 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1438, ptr noundef %1, i32 noundef %.0.i.i156, i32 noundef 8, i32 noundef 0) #6
-  %1440 = add i32 %.0.i.i156, 8
-  %1441 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFRcvData, align 4
-  %1442 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1441, ptr noundef %1, i32 noundef %1440, i32 noundef 8, i32 noundef 0) #6
-  %1443 = add i32 %.0.i.i156, 16
-  %1444 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitPkts, align 4
-  %1445 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1444, ptr noundef %1, i32 noundef %1443, i32 noundef 8, i32 noundef 0) #6
-  %1446 = add i32 %.0.i.i156, 24
-  %1447 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFRcvPkts, align 4
-  %1448 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1447, ptr noundef %1, i32 noundef %1446, i32 noundef 8, i32 noundef 0) #6
-  %1449 = add i32 %.0.i.i156, 32
-  %1450 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitDiscards, align 4
-  %1451 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1450, ptr noundef %1, i32 noundef %1449, i32 noundef 8, i32 noundef 0) #6
-  %1452 = add i32 %.0.i.i156, 40
-  %1453 = load i32, ptr @hf_opa_GetVFPortCounters_SwPortVFCongestion, align 4
-  %1454 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1453, ptr noundef %1, i32 noundef %1452, i32 noundef 8, i32 noundef 0) #6
-  %1455 = add i32 %.0.i.i156, 48
-  %1456 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitWait, align 4
-  %1457 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1456, ptr noundef %1, i32 noundef %1455, i32 noundef 8, i32 noundef 0) #6
-  %1458 = add i32 %.0.i.i156, 56
-  %1459 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFRcvFECN, align 4
-  %1460 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1459, ptr noundef %1, i32 noundef %1458, i32 noundef 8, i32 noundef 0) #6
-  %1461 = add i32 %.0.i.i156, 64
-  %1462 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFRcvBECN, align 4
-  %1463 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1462, ptr noundef %1, i32 noundef %1461, i32 noundef 8, i32 noundef 0) #6
-  %1464 = add i32 %.0.i.i156, 72
-  %1465 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitTimeCong, align 4
-  %1466 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1465, ptr noundef %1, i32 noundef %1464, i32 noundef 8, i32 noundef 0) #6
-  %1467 = add i32 %.0.i.i156, 80
-  %1468 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitWastedBW, align 4
-  %1469 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1468, ptr noundef %1, i32 noundef %1467, i32 noundef 8, i32 noundef 0) #6
-  %1470 = add i32 %.0.i.i156, 88
-  %1471 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitWaitData, align 4
-  %1472 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1471, ptr noundef %1, i32 noundef %1470, i32 noundef 8, i32 noundef 0) #6
-  %1473 = add i32 %.0.i.i156, 96
-  %1474 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFRcvBubble, align 4
-  %1475 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1474, ptr noundef %1, i32 noundef %1473, i32 noundef 8, i32 noundef 0) #6
-  %1476 = add i32 %.0.i.i156, 104
-  %1477 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFMarkFECN, align 4
-  %1478 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1477, ptr noundef %1, i32 noundef %1476, i32 noundef 8, i32 noundef 0) #6
-  %1479 = add i32 %.0.i.i156, 112
+1375:                                             ; preds = %parse_Image.exit.i155, %parse_Image.exit.i155
+  %1376 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitData, align 4
+  %1377 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1376, ptr noundef %1, i32 noundef %.0.i.i156, i32 noundef 8, i32 noundef 0) #6
+  %1378 = add i32 %.0.i.i156, 8
+  %1379 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFRcvData, align 4
+  %1380 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1379, ptr noundef %1, i32 noundef %1378, i32 noundef 8, i32 noundef 0) #6
+  %1381 = add i32 %.0.i.i156, 16
+  %1382 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitPkts, align 4
+  %1383 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1382, ptr noundef %1, i32 noundef %1381, i32 noundef 8, i32 noundef 0) #6
+  %1384 = add i32 %.0.i.i156, 24
+  %1385 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFRcvPkts, align 4
+  %1386 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1385, ptr noundef %1, i32 noundef %1384, i32 noundef 8, i32 noundef 0) #6
+  %1387 = add i32 %.0.i.i156, 32
+  %1388 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitDiscards, align 4
+  %1389 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1388, ptr noundef %1, i32 noundef %1387, i32 noundef 8, i32 noundef 0) #6
+  %1390 = add i32 %.0.i.i156, 40
+  %1391 = load i32, ptr @hf_opa_GetVFPortCounters_SwPortVFCongestion, align 4
+  %1392 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1391, ptr noundef %1, i32 noundef %1390, i32 noundef 8, i32 noundef 0) #6
+  %1393 = add i32 %.0.i.i156, 48
+  %1394 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitWait, align 4
+  %1395 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1394, ptr noundef %1, i32 noundef %1393, i32 noundef 8, i32 noundef 0) #6
+  %1396 = add i32 %.0.i.i156, 56
+  %1397 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFRcvFECN, align 4
+  %1398 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1397, ptr noundef %1, i32 noundef %1396, i32 noundef 8, i32 noundef 0) #6
+  %1399 = add i32 %.0.i.i156, 64
+  %1400 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFRcvBECN, align 4
+  %1401 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1400, ptr noundef %1, i32 noundef %1399, i32 noundef 8, i32 noundef 0) #6
+  %1402 = add i32 %.0.i.i156, 72
+  %1403 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitTimeCong, align 4
+  %1404 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1403, ptr noundef %1, i32 noundef %1402, i32 noundef 8, i32 noundef 0) #6
+  %1405 = add i32 %.0.i.i156, 80
+  %1406 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitWastedBW, align 4
+  %1407 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1406, ptr noundef %1, i32 noundef %1405, i32 noundef 8, i32 noundef 0) #6
+  %1408 = add i32 %.0.i.i156, 88
+  %1409 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitWaitData, align 4
+  %1410 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1409, ptr noundef %1, i32 noundef %1408, i32 noundef 8, i32 noundef 0) #6
+  %1411 = add i32 %.0.i.i156, 96
+  %1412 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFRcvBubble, align 4
+  %1413 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1412, ptr noundef %1, i32 noundef %1411, i32 noundef 8, i32 noundef 0) #6
+  %1414 = add i32 %.0.i.i156, 104
+  %1415 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFMarkFECN, align 4
+  %1416 = tail call ptr @proto_tree_add_item(ptr noundef %1338, i32 noundef %1415, ptr noundef %1, i32 noundef %1414, i32 noundef 8, i32 noundef 0) #6
+  %1417 = add i32 %.0.i.i156, 112
   br label %parse_GetGroupList.exit
 
-1480:                                             ; preds = %parse_Image.exit.i155
-  %1481 = add i32 %.0.i.i156, 112
+1418:                                             ; preds = %parse_Image.exit.i155
+  %1419 = add i32 %.0.i.i156, 112
   br label %parse_GetGroupList.exit
 
-1482:                                             ; preds = %6
+1420:                                             ; preds = %4
   %.not.i158 = icmp eq ptr %0, null
-  br i1 %.not.i158, label %parse_GetGroupList.exit, label %1483
+  br i1 %.not.i158, label %parse_GetGroupList.exit, label %1421
 
-1483:                                             ; preds = %1482
-  %1484 = load i32, ptr @hf_opa_ClearVFPortCounters, align 4
-  %1485 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1484, ptr noundef %1, i32 noundef %10, i32 noundef 92, i32 noundef 0) #6
-  %1486 = load i32, ptr @ett_clearvfportcounters, align 4
-  %1487 = tail call ptr @proto_item_add_subtree(ptr noundef %1485, i32 noundef %1486) #6
-  %1488 = load i32, ptr @hf_opa_ClearVFPortCounters_nodeLID, align 4
-  %1489 = tail call ptr @proto_tree_add_item(ptr noundef %1487, i32 noundef %1488, ptr noundef %1, i32 noundef %10, i32 noundef 4, i32 noundef 0) #6
-  %1490 = add i32 %10, 4
-  %1491 = load i32, ptr @hf_opa_ClearVFPortCounters_PortNumber, align 4
-  %1492 = tail call ptr @proto_tree_add_item(ptr noundef %1487, i32 noundef %1491, ptr noundef %1, i32 noundef %1490, i32 noundef 1, i32 noundef 0) #6
-  %1493 = add i32 %10, 5
-  %1494 = load i32, ptr @hf_opa_reserved24, align 4
-  %1495 = tail call ptr @proto_tree_add_item(ptr noundef %1487, i32 noundef %1494, ptr noundef %1, i32 noundef %1493, i32 noundef 3, i32 noundef 0) #6
-  %1496 = add i32 %10, 8
-  %1497 = load i32, ptr @hf_opa_reserved64, align 4
-  %1498 = tail call ptr @proto_tree_add_item(ptr noundef %1487, i32 noundef %1497, ptr noundef %1, i32 noundef %1496, i32 noundef 8, i32 noundef 0) #6
-  %1499 = add i32 %10, 16
-  %1500 = load i32, ptr @hf_opa_ClearVFPortCounters_vfName, align 4
-  %1501 = tail call ptr @proto_tree_add_item(ptr noundef %1487, i32 noundef %1500, ptr noundef %1, i32 noundef %1499, i32 noundef 64, i32 noundef 0) #6
-  %1502 = add i32 %10, 80
-  %1503 = load i32, ptr @hf_opa_reserved64, align 4
-  %1504 = tail call ptr @proto_tree_add_item(ptr noundef %1487, i32 noundef %1503, ptr noundef %1, i32 noundef %1502, i32 noundef 8, i32 noundef 0) #6
-  %1505 = add i32 %10, 88
-  %1506 = load i32, ptr @hf_opa_ClearVFPortCounters_CounterSelectMask, align 4
-  %1507 = load i32, ptr @ett_clearvfportcounters_counterselectmask, align 4
-  %1508 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1487, ptr noundef %1, i32 noundef %1505, i32 noundef %1506, i32 noundef %1507, ptr noundef nonnull @_ClearVFPortCounters_CounterSelectMask, i32 noundef 0) #6
-  %1509 = add i32 %10, 92
+1421:                                             ; preds = %1420
+  %1422 = load i32, ptr @hf_opa_ClearVFPortCounters, align 4
+  %1423 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1422, ptr noundef %1, i32 noundef %8, i32 noundef 92, i32 noundef 0) #6
+  %1424 = load i32, ptr @ett_clearvfportcounters, align 4
+  %1425 = tail call ptr @proto_item_add_subtree(ptr noundef %1423, i32 noundef %1424) #6
+  %1426 = load i32, ptr @hf_opa_ClearVFPortCounters_nodeLID, align 4
+  %1427 = tail call ptr @proto_tree_add_item(ptr noundef %1425, i32 noundef %1426, ptr noundef %1, i32 noundef %8, i32 noundef 4, i32 noundef 0) #6
+  %1428 = add i32 %8, 4
+  %1429 = load i32, ptr @hf_opa_ClearVFPortCounters_PortNumber, align 4
+  %1430 = tail call ptr @proto_tree_add_item(ptr noundef %1425, i32 noundef %1429, ptr noundef %1, i32 noundef %1428, i32 noundef 1, i32 noundef 0) #6
+  %1431 = add i32 %8, 5
+  %1432 = load i32, ptr @hf_opa_reserved24, align 4
+  %1433 = tail call ptr @proto_tree_add_item(ptr noundef %1425, i32 noundef %1432, ptr noundef %1, i32 noundef %1431, i32 noundef 3, i32 noundef 0) #6
+  %1434 = add i32 %8, 8
+  %1435 = load i32, ptr @hf_opa_reserved64, align 4
+  %1436 = tail call ptr @proto_tree_add_item(ptr noundef %1425, i32 noundef %1435, ptr noundef %1, i32 noundef %1434, i32 noundef 8, i32 noundef 0) #6
+  %1437 = add i32 %8, 16
+  %1438 = load i32, ptr @hf_opa_ClearVFPortCounters_vfName, align 4
+  %1439 = tail call ptr @proto_tree_add_item(ptr noundef %1425, i32 noundef %1438, ptr noundef %1, i32 noundef %1437, i32 noundef 64, i32 noundef 0) #6
+  %1440 = add i32 %8, 80
+  %1441 = load i32, ptr @hf_opa_reserved64, align 4
+  %1442 = tail call ptr @proto_tree_add_item(ptr noundef %1425, i32 noundef %1441, ptr noundef %1, i32 noundef %1440, i32 noundef 8, i32 noundef 0) #6
+  %1443 = add i32 %8, 88
+  %1444 = load i32, ptr @hf_opa_ClearVFPortCounters_CounterSelectMask, align 4
+  %1445 = load i32, ptr @ett_clearvfportcounters_counterselectmask, align 4
+  %1446 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1425, ptr noundef %1, i32 noundef %1443, i32 noundef %1444, i32 noundef %1445, ptr noundef nonnull @_ClearVFPortCounters_CounterSelectMask, i32 noundef 0) #6
+  %1447 = add i32 %8, 92
   br label %parse_GetGroupList.exit
 
-1510:                                             ; preds = %6
-  %1511 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %10) #6
-  %1512 = getelementptr inbounds i8, ptr %5, i64 8
-  %1513 = load i16, ptr %1512, align 8
-  %.not.i160 = icmp eq i16 %1513, 0
-  br i1 %.not.i160, label %1518, label %1514
+1448:                                             ; preds = %4
+  %1449 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %8) #6
+  %.not.i160 = icmp eq i16 %.8.val, 0
+  br i1 %.not.i160, label %1454, label %1450
 
-1514:                                             ; preds = %1510
-  %1515 = zext i16 %1513 to i32
-  %1516 = shl nuw nsw i32 %1515, 3
-  %1517 = udiv i32 %1511, %1516
-  br label %1518
+1450:                                             ; preds = %1448
+  %1451 = zext i16 %.8.val to i32
+  %1452 = shl nuw nsw i32 %1451, 3
+  %1453 = udiv i32 %1449, %1452
+  br label %1454
 
-1518:                                             ; preds = %1514, %1510
-  %1519 = phi i32 [ %1517, %1514 ], [ 0, %1510 ]
+1454:                                             ; preds = %1450, %1448
+  %1455 = phi i32 [ %1453, %1450 ], [ 0, %1448 ]
   %.not76.i = icmp eq ptr %0, null
-  br i1 %.not76.i, label %parse_GetGroupList.exit, label %1520
+  br i1 %.not76.i, label %parse_GetGroupList.exit, label %1456
 
-1520:                                             ; preds = %1518
-  %1521 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
-  %.not77.i = icmp eq i32 %1521, 0
-  br i1 %.not77.i, label %1522, label %1529
+1456:                                             ; preds = %1454
+  %1457 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
+  %.not77.i = icmp ne i32 %1457, 0
+  %1458 = icmp ne i8 %.1.val, 1
+  %or.cond73.not75 = select i1 %.not77.i, i1 true, i1 %1458
+  %.not78.i170 = icmp eq i32 %.4.val, 1
+  %or.cond74 = select i1 %or.cond73.not75, i1 true, i1 %.not78.i170
+  br i1 %or.cond74, label %1459, label %parse_GetGroupList.exit
 
-1522:                                             ; preds = %1520
-  %1523 = getelementptr inbounds i8, ptr %4, i64 1
-  %1524 = load i8, ptr %1523, align 1
-  %1525 = icmp eq i8 %1524, 1
-  br i1 %1525, label %1526, label %1529
-
-1526:                                             ; preds = %1522
-  %1527 = getelementptr inbounds i8, ptr %4, i64 4
-  %1528 = load i32, ptr %1527, align 4
-  %.not78.i170 = icmp eq i32 %1528, 1
-  br i1 %.not78.i170, label %1529, label %parse_GetGroupList.exit
-
-1529:                                             ; preds = %1526, %1522, %1520
-  %1530 = getelementptr inbounds i8, ptr %3, i64 3
-  %1531 = load i8, ptr %1530, align 1
-  switch i8 %1531, label %parse_GetGroupList.exit [
-    i8 1, label %1532
-    i8 18, label %1532
-    i8 -127, label %1562
-    i8 -110, label %1562
+1459:                                             ; preds = %1456
+  %1460 = getelementptr inbounds i8, ptr %3, i64 3
+  %1461 = load i8, ptr %1460, align 1
+  switch i8 %1461, label %parse_GetGroupList.exit [
+    i8 1, label %1462
+    i8 18, label %1462
+    i8 -127, label %1492
+    i8 -110, label %1492
   ]
 
-1532:                                             ; preds = %1529, %1529
-  %1533 = load i32, ptr @hf_opa_GetVFFocusPorts, align 4
-  %1534 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1533, ptr noundef %1, i32 noundef %10, i32 noundef 130, i32 noundef 0) #6
-  %1535 = load i32, ptr @ett_getvffocusports, align 4
-  %1536 = tail call ptr @proto_item_add_subtree(ptr noundef %1534, i32 noundef %1535) #6
-  %1537 = load i32, ptr @hf_opa_GetVFFocusPorts_vfName, align 4
-  %1538 = tail call ptr @proto_tree_add_item(ptr noundef %1536, i32 noundef %1537, ptr noundef %1, i32 noundef %10, i32 noundef 64, i32 noundef 0) #6
-  %1539 = add i32 %10, 64
-  %1540 = load i32, ptr @hf_opa_reserved64, align 4
-  %1541 = tail call ptr @proto_tree_add_item(ptr noundef %1536, i32 noundef %1540, ptr noundef %1, i32 noundef %1539, i32 noundef 8, i32 noundef 0) #6
-  %1542 = add i32 %10, 72
-  %.not.i.i167 = icmp eq ptr %1536, null
-  br i1 %.not.i.i167, label %parse_Image.exit.i168, label %1543
+1462:                                             ; preds = %1459, %1459
+  %1463 = load i32, ptr @hf_opa_GetVFFocusPorts, align 4
+  %1464 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1463, ptr noundef %1, i32 noundef %8, i32 noundef 130, i32 noundef 0) #6
+  %1465 = load i32, ptr @ett_getvffocusports, align 4
+  %1466 = tail call ptr @proto_item_add_subtree(ptr noundef %1464, i32 noundef %1465) #6
+  %1467 = load i32, ptr @hf_opa_GetVFFocusPorts_vfName, align 4
+  %1468 = tail call ptr @proto_tree_add_item(ptr noundef %1466, i32 noundef %1467, ptr noundef %1, i32 noundef %8, i32 noundef 64, i32 noundef 0) #6
+  %1469 = add i32 %8, 64
+  %1470 = load i32, ptr @hf_opa_reserved64, align 4
+  %1471 = tail call ptr @proto_tree_add_item(ptr noundef %1466, i32 noundef %1470, ptr noundef %1, i32 noundef %1469, i32 noundef 8, i32 noundef 0) #6
+  %1472 = add i32 %8, 72
+  %.not.i.i167 = icmp eq ptr %1466, null
+  br i1 %.not.i.i167, label %parse_Image.exit.i168, label %1473
 
-1543:                                             ; preds = %1532
-  %1544 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
-  %1545 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1536, i32 noundef %1544, ptr noundef %1, i32 noundef %1542, i32 noundef 8, i32 noundef 0) #6
-  %1546 = add i32 %10, 80
-  %1547 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
-  %1548 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1536, i32 noundef %1547, ptr noundef %1, i32 noundef %1546, i32 noundef 4, i32 noundef 0) #6
-  %1549 = add i32 %10, 84
-  %1550 = load i32, ptr @hf_opa_reserved32, align 4
-  %1551 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1536, i32 noundef %1550, ptr noundef %1, i32 noundef %1549, i32 noundef 4, i32 noundef 0) #6
-  %1552 = add i32 %10, 88
+1473:                                             ; preds = %1462
+  %1474 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
+  %1475 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1466, i32 noundef %1474, ptr noundef %1, i32 noundef %1472, i32 noundef 8, i32 noundef 0) #6
+  %1476 = add i32 %8, 80
+  %1477 = load i32, ptr @hf_opa_ImageID_imageOffset, align 4
+  %1478 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1466, i32 noundef %1477, ptr noundef %1, i32 noundef %1476, i32 noundef 4, i32 noundef 0) #6
+  %1479 = add i32 %8, 84
+  %1480 = load i32, ptr @hf_opa_reserved32, align 4
+  %1481 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1466, i32 noundef %1480, ptr noundef %1, i32 noundef %1479, i32 noundef 4, i32 noundef 0) #6
+  %1482 = add i32 %8, 88
   br label %parse_Image.exit.i168
 
-parse_Image.exit.i168:                            ; preds = %1543, %1532
-  %.0.i.i169 = phi i32 [ %1552, %1543 ], [ %1542, %1532 ]
-  %1553 = load i32, ptr @hf_opa_GetVFFocusPorts_select, align 4
-  %1554 = tail call ptr @proto_tree_add_item(ptr noundef %1536, i32 noundef %1553, ptr noundef %1, i32 noundef %.0.i.i169, i32 noundef 4, i32 noundef 0) #6
-  %1555 = add i32 %.0.i.i169, 4
-  %1556 = load i32, ptr @hf_opa_GetVFFocusPorts_start, align 4
-  %1557 = tail call ptr @proto_tree_add_item(ptr noundef %1536, i32 noundef %1556, ptr noundef %1, i32 noundef %1555, i32 noundef 4, i32 noundef 0) #6
-  %1558 = add i32 %.0.i.i169, 8
-  %1559 = load i32, ptr @hf_opa_GetVFFocusPorts_range, align 4
-  %1560 = tail call ptr @proto_tree_add_item(ptr noundef %1536, i32 noundef %1559, ptr noundef %1, i32 noundef %1558, i32 noundef 4, i32 noundef 0) #6
-  %1561 = add i32 %.0.i.i169, 12
+parse_Image.exit.i168:                            ; preds = %1473, %1462
+  %.0.i.i169 = phi i32 [ %1482, %1473 ], [ %1472, %1462 ]
+  %1483 = load i32, ptr @hf_opa_GetVFFocusPorts_select, align 4
+  %1484 = tail call ptr @proto_tree_add_item(ptr noundef %1466, i32 noundef %1483, ptr noundef %1, i32 noundef %.0.i.i169, i32 noundef 4, i32 noundef 0) #6
+  %1485 = add i32 %.0.i.i169, 4
+  %1486 = load i32, ptr @hf_opa_GetVFFocusPorts_start, align 4
+  %1487 = tail call ptr @proto_tree_add_item(ptr noundef %1466, i32 noundef %1486, ptr noundef %1, i32 noundef %1485, i32 noundef 4, i32 noundef 0) #6
+  %1488 = add i32 %.0.i.i169, 8
+  %1489 = load i32, ptr @hf_opa_GetVFFocusPorts_range, align 4
+  %1490 = tail call ptr @proto_tree_add_item(ptr noundef %1466, i32 noundef %1489, ptr noundef %1, i32 noundef %1488, i32 noundef 4, i32 noundef 0) #6
+  %1491 = add i32 %.0.i.i169, 12
   br label %parse_GetGroupList.exit
 
-1562:                                             ; preds = %1529, %1529
-  %1563 = load i32, ptr @hf_opa_GetVFFocusPorts, align 4
-  %1564 = zext i16 %1513 to i32
-  %1565 = shl nuw nsw i32 %1564, 3
-  %1566 = mul i32 %1565, %1519
-  %1567 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1563, ptr noundef %1, i32 noundef %10, i32 noundef %1566, i32 noundef 0) #6
-  %1568 = load i32, ptr @ett_getvffocusports, align 4
-  %1569 = tail call ptr @proto_item_add_subtree(ptr noundef %1567, i32 noundef %1568) #6
-  %.not105.i = icmp eq i32 %1519, 0
+1492:                                             ; preds = %1459, %1459
+  %1493 = load i32, ptr @hf_opa_GetVFFocusPorts, align 4
+  %1494 = zext i16 %.8.val to i32
+  %1495 = shl nuw nsw i32 %1494, 3
+  %1496 = mul i32 %1455, %1495
+  %1497 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1493, ptr noundef %1, i32 noundef %8, i32 noundef %1496, i32 noundef 0) #6
+  %1498 = load i32, ptr @ett_getvffocusports, align 4
+  %1499 = tail call ptr @proto_item_add_subtree(ptr noundef %1497, i32 noundef %1498) #6
+  %.not105.i = icmp eq i32 %1455, 0
   br i1 %.not105.i, label %parse_GetGroupList.exit, label %.lr.ph.i161
 
-.lr.ph.i161:                                      ; preds = %1562, %.lr.ph.i161
-  %.072104.i = phi i32 [ %1623, %.lr.ph.i161 ], [ 0, %1562 ]
-  %1570 = phi i32 [ %1622, %.lr.ph.i161 ], [ %10, %1562 ]
-  %1571 = load i16, ptr %1512, align 8
-  %1572 = zext i16 %1571 to i32
-  %1573 = shl nuw nsw i32 %1572, 3
-  %1574 = load i32, ptr @ett_getvffocusportsport, align 4
-  %1575 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1570) #6
-  %1576 = add i32 %1570, 4
-  %1577 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %1576) #6
-  %1578 = zext i8 %1577 to i32
-  %1579 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1569, ptr noundef %1, i32 noundef %1570, i32 noundef %1573, i32 noundef %1574, ptr noundef null, ptr noundef nonnull @.str.2446, i32 noundef %.072104.i, i32 noundef %1575, i32 noundef %1578) #6
-  %1580 = load i32, ptr @hf_opa_GetVFFocusPorts_nodeLID, align 4
-  %1581 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1580, ptr noundef %1, i32 noundef %1570, i32 noundef 4, i32 noundef 0) #6
-  %1582 = load i32, ptr @hf_opa_GetVFFocusPorts_portNumber, align 4
-  %1583 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1582, ptr noundef %1, i32 noundef %1576, i32 noundef 1, i32 noundef 0) #6
-  %1584 = add i32 %1570, 5
-  %1585 = load i32, ptr @hf_opa_GetVFFocusPorts_rate, align 4
-  %1586 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1585, ptr noundef %1, i32 noundef %1584, i32 noundef 1, i32 noundef 0) #6
-  %1587 = add i32 %1570, 6
-  %1588 = load i32, ptr @hf_opa_GetVFFocusPorts_mtu, align 4
-  %1589 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1588, ptr noundef %1, i32 noundef %1587, i32 noundef 1, i32 noundef 0) #6
-  %1590 = add i32 %1570, 7
-  %1591 = load i32, ptr @hf_opa_GetVFFocusPorts_localFlags, align 4
-  %1592 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1591, ptr noundef %1, i32 noundef %1590, i32 noundef 1, i32 noundef 0) #6
-  %1593 = load i32, ptr @hf_opa_GetVFFocusPorts_neighborFlags, align 4
-  %1594 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1593, ptr noundef %1, i32 noundef %1590, i32 noundef 1, i32 noundef 0) #6
-  %1595 = add i32 %1570, 8
-  %1596 = load i32, ptr @hf_opa_GetVFFocusPorts_value, align 4
-  %1597 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1596, ptr noundef %1, i32 noundef %1595, i32 noundef 8, i32 noundef 0) #6
-  %1598 = add i32 %1570, 16
-  %1599 = load i32, ptr @hf_opa_GetVFFocusPorts_nodeGUID, align 4
-  %1600 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1599, ptr noundef %1, i32 noundef %1598, i32 noundef 8, i32 noundef 0) #6
-  %1601 = add i32 %1570, 24
-  %1602 = load i32, ptr @hf_opa_GetVFFocusPorts_nodeDesc, align 4
-  %1603 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1602, ptr noundef %1, i32 noundef %1601, i32 noundef 64, i32 noundef 0) #6
-  %1604 = add i32 %1570, 88
-  %1605 = load i32, ptr @hf_opa_GetVFFocusPorts_neighborLid, align 4
-  %1606 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1605, ptr noundef %1, i32 noundef %1604, i32 noundef 4, i32 noundef 0) #6
-  %1607 = add i32 %1570, 92
-  %1608 = load i32, ptr @hf_opa_GetVFFocusPorts_neighborPortNumber, align 4
-  %1609 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1608, ptr noundef %1, i32 noundef %1607, i32 noundef 1, i32 noundef 0) #6
-  %1610 = add i32 %1570, 93
-  %1611 = load i32, ptr @hf_opa_reserved24, align 4
-  %1612 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1611, ptr noundef %1, i32 noundef %1610, i32 noundef 3, i32 noundef 0) #6
-  %1613 = add i32 %1570, 96
-  %1614 = load i32, ptr @hf_opa_GetVFFocusPorts_neighborValue, align 4
-  %1615 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1614, ptr noundef %1, i32 noundef %1613, i32 noundef 8, i32 noundef 0) #6
-  %1616 = add i32 %1570, 104
-  %1617 = load i32, ptr @hf_opa_GetVFFocusPorts_neighborGuid, align 4
-  %1618 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1617, ptr noundef %1, i32 noundef %1616, i32 noundef 8, i32 noundef 0) #6
-  %1619 = add i32 %1570, 112
-  %1620 = load i32, ptr @hf_opa_GetVFFocusPorts_neighborNodeDesc, align 4
-  %1621 = tail call ptr @proto_tree_add_item(ptr noundef %1579, i32 noundef %1620, ptr noundef %1, i32 noundef %1619, i32 noundef 64, i32 noundef 0) #6
-  %1622 = add i32 %1570, 176
-  %1623 = add nuw i32 %.072104.i, 1
-  %exitcond.not.i162 = icmp eq i32 %1623, %1519
+.lr.ph.i161:                                      ; preds = %1492, %.lr.ph.i161
+  %.072104.i = phi i32 [ %1550, %.lr.ph.i161 ], [ 0, %1492 ]
+  %1500 = phi i32 [ %1549, %.lr.ph.i161 ], [ %8, %1492 ]
+  %1501 = load i32, ptr @ett_getvffocusportsport, align 4
+  %1502 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %1500) #6
+  %1503 = add i32 %1500, 4
+  %1504 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %1503) #6
+  %1505 = zext i8 %1504 to i32
+  %1506 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1499, ptr noundef %1, i32 noundef %1500, i32 noundef %1495, i32 noundef %1501, ptr noundef null, ptr noundef nonnull @.str.2446, i32 noundef %.072104.i, i32 noundef %1502, i32 noundef %1505) #6
+  %1507 = load i32, ptr @hf_opa_GetVFFocusPorts_nodeLID, align 4
+  %1508 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1507, ptr noundef %1, i32 noundef %1500, i32 noundef 4, i32 noundef 0) #6
+  %1509 = load i32, ptr @hf_opa_GetVFFocusPorts_portNumber, align 4
+  %1510 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1509, ptr noundef %1, i32 noundef %1503, i32 noundef 1, i32 noundef 0) #6
+  %1511 = add i32 %1500, 5
+  %1512 = load i32, ptr @hf_opa_GetVFFocusPorts_rate, align 4
+  %1513 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1512, ptr noundef %1, i32 noundef %1511, i32 noundef 1, i32 noundef 0) #6
+  %1514 = add i32 %1500, 6
+  %1515 = load i32, ptr @hf_opa_GetVFFocusPorts_mtu, align 4
+  %1516 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1515, ptr noundef %1, i32 noundef %1514, i32 noundef 1, i32 noundef 0) #6
+  %1517 = add i32 %1500, 7
+  %1518 = load i32, ptr @hf_opa_GetVFFocusPorts_localFlags, align 4
+  %1519 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1518, ptr noundef %1, i32 noundef %1517, i32 noundef 1, i32 noundef 0) #6
+  %1520 = load i32, ptr @hf_opa_GetVFFocusPorts_neighborFlags, align 4
+  %1521 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1520, ptr noundef %1, i32 noundef %1517, i32 noundef 1, i32 noundef 0) #6
+  %1522 = add i32 %1500, 8
+  %1523 = load i32, ptr @hf_opa_GetVFFocusPorts_value, align 4
+  %1524 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1523, ptr noundef %1, i32 noundef %1522, i32 noundef 8, i32 noundef 0) #6
+  %1525 = add i32 %1500, 16
+  %1526 = load i32, ptr @hf_opa_GetVFFocusPorts_nodeGUID, align 4
+  %1527 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1526, ptr noundef %1, i32 noundef %1525, i32 noundef 8, i32 noundef 0) #6
+  %1528 = add i32 %1500, 24
+  %1529 = load i32, ptr @hf_opa_GetVFFocusPorts_nodeDesc, align 4
+  %1530 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1529, ptr noundef %1, i32 noundef %1528, i32 noundef 64, i32 noundef 0) #6
+  %1531 = add i32 %1500, 88
+  %1532 = load i32, ptr @hf_opa_GetVFFocusPorts_neighborLid, align 4
+  %1533 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1532, ptr noundef %1, i32 noundef %1531, i32 noundef 4, i32 noundef 0) #6
+  %1534 = add i32 %1500, 92
+  %1535 = load i32, ptr @hf_opa_GetVFFocusPorts_neighborPortNumber, align 4
+  %1536 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1535, ptr noundef %1, i32 noundef %1534, i32 noundef 1, i32 noundef 0) #6
+  %1537 = add i32 %1500, 93
+  %1538 = load i32, ptr @hf_opa_reserved24, align 4
+  %1539 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1538, ptr noundef %1, i32 noundef %1537, i32 noundef 3, i32 noundef 0) #6
+  %1540 = add i32 %1500, 96
+  %1541 = load i32, ptr @hf_opa_GetVFFocusPorts_neighborValue, align 4
+  %1542 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1541, ptr noundef %1, i32 noundef %1540, i32 noundef 8, i32 noundef 0) #6
+  %1543 = add i32 %1500, 104
+  %1544 = load i32, ptr @hf_opa_GetVFFocusPorts_neighborGuid, align 4
+  %1545 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1544, ptr noundef %1, i32 noundef %1543, i32 noundef 8, i32 noundef 0) #6
+  %1546 = add i32 %1500, 112
+  %1547 = load i32, ptr @hf_opa_GetVFFocusPorts_neighborNodeDesc, align 4
+  %1548 = tail call ptr @proto_tree_add_item(ptr noundef %1506, i32 noundef %1547, ptr noundef %1, i32 noundef %1546, i32 noundef 64, i32 noundef 0) #6
+  %1549 = add i32 %1500, 176
+  %1550 = add nuw i32 %.072104.i, 1
+  %exitcond.not.i162 = icmp eq i32 %1550, %1455
   br i1 %exitcond.not.i162, label %parse_GetGroupList.exit, label %.lr.ph.i161, !llvm.loop !72
 
-parse_GetGroupList.exit:                          ; preds = %.lr.ph.i161, %1298, %.lr.ph.i132, %387, %.lr.ph.i, %1529, %1526, %1518, %1562, %parse_Image.exit.i168, %1483, %1482, %1480, %1437, %1395, %1144, %1131, %.preheader.i140, %1124, %1116, %1097, %1094, %1091, %1089, %1071, %parse_Image.exit.i124, %1051, %1048, %1026, %944, %810, %809, %799, %798, %788, %787, %665, %664, %655, %654, %630, %629, %627, %532, %493, %74, %64, %.preheader.i, %58, %50, %31, %28, %25, %23, %parse_GetVFConfig.exit, %parse_GetFocusPorts.exit, %parse_GetGroupConfig.exit, %13
-  %.0231 = phi i32 [ %.0.in.i150.sroa.speculated, %parse_GetVFConfig.exit ], [ %.0.in.i112.sroa.speculated, %parse_GetFocusPorts.exit ], [ %.0.in.i.sroa.speculated, %parse_GetGroupConfig.exit ], [ %14, %13 ], [ %10, %31 ], [ %10, %28 ], [ %10, %25 ], [ %10, %23 ], [ %83, %74 ], [ %73, %64 ], [ %10, %.preheader.i ], [ %10, %58 ], [ %10, %50 ], [ %10, %493 ], [ %628, %627 ], [ %626, %532 ], [ %653, %630 ], [ %10, %629 ], [ %663, %655 ], [ %10, %654 ], [ %786, %665 ], [ %10, %664 ], [ %797, %788 ], [ %10, %787 ], [ %808, %799 ], [ %10, %798 ], [ %819, %810 ], [ %10, %809 ], [ %10, %944 ], [ %1050, %1048 ], [ %1047, %1026 ], [ %10, %1051 ], [ %1080, %1071 ], [ %.0.i.i125, %parse_Image.exit.i124 ], [ %10, %1097 ], [ %10, %1094 ], [ %10, %1091 ], [ %10, %1089 ], [ %1153, %1144 ], [ %1143, %1131 ], [ %10, %.preheader.i140 ], [ %10, %1124 ], [ %10, %1116 ], [ %10, %1395 ], [ %1481, %1480 ], [ %1479, %1437 ], [ %1509, %1483 ], [ %10, %1482 ], [ %10, %1526 ], [ %10, %1518 ], [ %10, %1529 ], [ %1561, %parse_Image.exit.i168 ], [ %10, %1562 ], [ %40, %.lr.ph.i ], [ %405, %387 ], [ %1106, %.lr.ph.i132 ], [ %1307, %1298 ], [ %1622, %.lr.ph.i161 ]
-  store i32 %.0231, ptr %2, align 4
-  br label %1624
+parse_GetGroupList.exit:                          ; preds = %.lr.ph.i161, %1247, %.lr.ph.i132, %372, %.lr.ph.i, %1456, %1074, %43, %1459, %1454, %1492, %parse_Image.exit.i168, %1421, %1420, %1418, %1375, %1333, %1096, %1083, %.preheader.i140, %1072, %1055, %1052, %1050, %1034, %parse_Image.exit.i124, %1014, %1011, %989, %907, %784, %783, %773, %772, %762, %761, %639, %638, %629, %628, %604, %603, %601, %506, %467, %59, %49, %.preheader.i, %41, %24, %21, %19, %parse_GetVFConfig.exit, %parse_GetFocusPorts.exit, %parse_GetGroupConfig.exit, %11
+  %.061 = phi i32 [ %.0.in.i150.sroa.speculated, %parse_GetVFConfig.exit ], [ %.0.in.i112.sroa.speculated, %parse_GetFocusPorts.exit ], [ %.0.in.i.sroa.speculated, %parse_GetGroupConfig.exit ], [ %12, %11 ], [ %8, %24 ], [ %8, %21 ], [ %8, %19 ], [ %68, %59 ], [ %58, %49 ], [ %8, %.preheader.i ], [ %8, %41 ], [ %8, %467 ], [ %602, %601 ], [ %600, %506 ], [ %627, %604 ], [ %8, %603 ], [ %637, %629 ], [ %8, %628 ], [ %760, %639 ], [ %8, %638 ], [ %771, %762 ], [ %8, %761 ], [ %782, %773 ], [ %8, %772 ], [ %793, %784 ], [ %8, %783 ], [ %8, %907 ], [ %1013, %1011 ], [ %1010, %989 ], [ %8, %1014 ], [ %1043, %1034 ], [ %.0.i.i125, %parse_Image.exit.i124 ], [ %8, %1055 ], [ %8, %1052 ], [ %8, %1050 ], [ %1105, %1096 ], [ %1095, %1083 ], [ %8, %.preheader.i140 ], [ %8, %1072 ], [ %8, %1333 ], [ %1419, %1418 ], [ %1417, %1375 ], [ %1447, %1421 ], [ %8, %1420 ], [ %8, %1454 ], [ %8, %1459 ], [ %1491, %parse_Image.exit.i168 ], [ %8, %1492 ], [ %8, %43 ], [ %8, %1074 ], [ %8, %1456 ], [ %33, %.lr.ph.i ], [ %390, %372 ], [ %1064, %.lr.ph.i132 ], [ %1256, %1247 ], [ %1549, %.lr.ph.i161 ]
+  store i32 %.061, ptr %2, align 4
+  br label %1551
 
-1624:                                             ; preds = %6, %parse_GetGroupList.exit
-  %.0 = phi i32 [ 1, %parse_GetGroupList.exit ], [ 0, %6 ]
+1551:                                             ; preds = %4, %parse_GetGroupList.exit
+  %.0 = phi i32 [ 1, %parse_GetGroupList.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 

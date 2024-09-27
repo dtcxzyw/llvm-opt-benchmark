@@ -304,12 +304,12 @@ define dso_local void @_ZN4llvm30FunctionImportGlobalProcessing15getPromotedName
   %20 = load ptr, ptr %4, align 8
   %21 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   %22 = getelementptr inbounds i8, ptr %20, i64 %21
-  %.not6.i = icmp eq i64 %21, 0
-  br i1 %.not6.i, label %"_ZSt10replace_ifIPcZN4llvm30FunctionImportGlobalProcessing15getPromotedNameB5cxx11EPKNS1_11GlobalValueEE3$_0cEvT_S7_T0_RKT1_.exit", label %.lr.ph.i
+  %.not1.i = icmp eq i64 %21, 0
+  br i1 %.not1.i, label %"_ZSt10replace_ifIPcZN4llvm30FunctionImportGlobalProcessing15getPromotedNameB5cxx11EPKNS1_11GlobalValueEE3$_0cEvT_S7_T0_RKT1_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %30
-  %.07.i = phi ptr [ %31, %30 ], [ %20, %13 ]
-  %23 = load i8, ptr %.07.i, align 1
+  %.02.i = phi ptr [ %31, %30 ], [ %20, %13 ]
+  %23 = load i8, ptr %.02.i, align 1
   %24 = and i8 %23, -33
   %25 = add i8 %24, -91
   %26 = icmp ult i8 %25, -26
@@ -319,11 +319,11 @@ define dso_local void @_ZN4llvm30FunctionImportGlobalProcessing15getPromotedName
   br i1 %.not2.i.i, label %29, label %30
 
 29:                                               ; preds = %.lr.ph.i
-  store i8 95, ptr %.07.i, align 1
+  store i8 95, ptr %.02.i, align 1
   br label %30
 
 30:                                               ; preds = %29, %.lr.ph.i
-  %31 = getelementptr inbounds i8, ptr %.07.i, i64 1
+  %31 = getelementptr inbounds i8, ptr %.02.i, i64 1
   %.not.i = icmp eq ptr %31, %22
   br i1 %.not.i, label %"_ZSt10replace_ifIPcZN4llvm30FunctionImportGlobalProcessing15getPromotedNameB5cxx11EPKNS1_11GlobalValueEE3$_0cEvT_S7_T0_RKT1_.exit", label %.lr.ph.i, !llvm.loop !6
 

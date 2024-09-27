@@ -17288,7 +17288,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction20EmitBuiltinAva
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %20, i64 noundef 8) #20
   %21 = load ptr, ptr %13, align 8
   %22 = getelementptr i8, ptr %21, i64 260
-  %.val.i = load i32, ptr %22, align 4
+  %.val21.i = load i32, ptr %22, align 4
   %23 = load i64, ptr %1, align 4
   %24 = lshr i64 %23, 32
   %25 = and i64 %24, 2147483647
@@ -17299,7 +17299,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction20EmitBuiltinAva
   %.not.i.i = icmp eq i64 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %30 = load ptr, ptr %29, align 8
-  switch i32 %.val.i, label %36 [
+  switch i32 %.val21.i, label %36 [
     i32 1, label %_ZL22getBaseMachOPlatformIDRKN4llvm6TripleE.exit.i.i
     i32 9, label %_ZL22getBaseMachOPlatformIDRKN4llvm6TripleE.exit.i.i
     i32 5, label %31
@@ -17508,9 +17508,9 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %18
   %132 = and i64 %131, 2147483647
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %134 = load i64, ptr %133, align 4
-  %.sroa.019.0.extract.trunc = and i64 %134, 2147483647
+  %.sroa.018.0.extract.trunc = and i64 %134, 2147483647
   %135 = and i64 %134, 2147483648
-  %.not35 = icmp eq i64 %135, 0
+  %.not34 = icmp eq i64 %135, 0
   %136 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %137 = load ptr, ptr %136, align 8
   %138 = and i64 %130, 4294967295
@@ -17520,15 +17520,15 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %18
   %141 = load ptr, ptr %11, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %143 = load ptr, ptr %142, align 8
-  %.not34.inv = icmp slt i64 %130, 0
-  %144 = select i1 %.not34.inv, i64 %132, i64 0
+  %.not33.inv = icmp slt i64 %130, 0
+  %144 = select i1 %.not33.inv, i64 %132, i64 0
   %145 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %143, i64 noundef %144, i1 noundef zeroext false) #20
   store ptr %145, ptr %140, align 8
   %146 = getelementptr inbounds i8, ptr %8, i64 16
   %147 = load ptr, ptr %11, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %149 = load ptr, ptr %148, align 8
-  %150 = select i1 %.not35, i64 0, i64 %.sroa.019.0.extract.trunc
+  %150 = select i1 %.not34, i64 0, i64 %.sroa.018.0.extract.trunc
   %151 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %149, i64 noundef %150, i1 noundef zeroext false) #20
   store ptr %151, ptr %146, align 16
   %152 = load ptr, ptr %11, align 8

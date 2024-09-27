@@ -30,7 +30,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.hermes::vm::GCBase::CumulativeHeapStats" = type { i32, %"class.hermes::StatsAccumulator", %"class.hermes::StatsAccumulator", i32, %"class.hermes::StatsAccumulator.6", %"class.hermes::StatsAccumulator.6" }
 %"class.hermes::StatsAccumulator" = type { i32, double, double, double, double }
 %"class.hermes::StatsAccumulator.6" = type { i32, i64, i32, i32, double }
-%class.anon.186 = type { ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -716,7 +715,6 @@ define hidden { i32, i64 } @_ZN6hermes2vm34hermesInternalGetRuntimePropertiesEPv
 entry:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %resultHandle = alloca %"class.hermes::vm::Handle.184", align 8
-  %addProperty = alloca %class.anon.186, align 8
   %buildMode = alloca [8 x i8], align 8
   %gcKind = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %runtime, ptr %gcScope, align 8
@@ -765,172 +763,164 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_
   %retval.0.i.i.i.i.i.i = phi ptr [ %4, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   store ptr %retval.0.i.i.i.i.i.i, ptr %resultHandle, align 8
   %6 = load ptr, ptr %topGCScope_.i, align 8
-  %next_.i.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %6, i64 192
-  %7 = load ptr, ptr %next_.i.i.i.i.i.i.i14, align 8
-  %curChunkEnd_.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %6, i64 200
-  %8 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i15, align 8
-  %cmp.i.i.i.i.i.i16 = icmp ult ptr %7, %8
-  br i1 %cmp.i.i.i.i.i.i16, label %if.then.i.i.i.i.i.i20, label %if.end.i.i.i.i.i.i17
+  %next_.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %6, i64 192
+  %7 = load ptr, ptr %next_.i.i.i.i.i.i.i27, align 8
+  %curChunkEnd_.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %6, i64 200
+  %8 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i28, align 8
+  %cmp.i.i.i.i.i.i29 = icmp ult ptr %7, %8
+  br i1 %cmp.i.i.i.i.i.i29, label %if.then.i.i.i.i.i.i33, label %if.end.i.i.i.i.i.i30
 
-if.then.i.i.i.i.i.i20:                            ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
-  %incdec.ptr.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %incdec.ptr.i.i.i.i.i.i21, ptr %next_.i.i.i.i.i.i.i14, align 8
+if.then.i.i.i.i.i.i33:                            ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
+  %incdec.ptr.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %incdec.ptr.i.i.i.i.i.i34, ptr %next_.i.i.i.i.i.i.i27, align 8
   store i64 -1688849860263936, ptr %7, align 8
   br label %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit
 
-if.end.i.i.i.i.i.i17:                             ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
-  %call7.i.i.i.i.i.i18 = call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %6, i64 -1688849860263936) #16
+if.end.i.i.i.i.i.i30:                             ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
+  %call7.i.i.i.i.i.i31 = call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %6, i64 -1688849860263936) #16
   br label %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit
 
-_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit: ; preds = %if.then.i.i.i.i.i.i20, %if.end.i.i.i.i.i.i17
-  %retval.0.i.i.i.i.i.i19 = phi ptr [ %7, %if.then.i.i.i.i.i.i20 ], [ %call7.i.i.i.i.i.i18, %if.end.i.i.i.i.i.i17 ]
-  store ptr %runtime, ptr %addProperty, align 8
-  %9 = getelementptr inbounds i8, ptr %addProperty, i64 8
-  store ptr %resultHandle, ptr %9, align 8
-  store i64 4636455816377925632, ptr %retval.0.i.i.i.i.i.i19, align 8
+_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit: ; preds = %if.then.i.i.i.i.i.i33, %if.end.i.i.i.i.i.i30
+  %retval.0.i.i.i.i.i.i32 = phi ptr [ %7, %if.then.i.i.i.i.i.i33 ], [ %call7.i.i.i.i.i.i31, %if.end.i.i.i.i.i.i30 ]
+  store i64 4636455816377925632, ptr %retval.0.i.i.i.i.i.i32, align 8
   %identifierTable_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 9264
   %call3.i.i.i = call ptr @_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIcEEj(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull @.str.13, i64 16, i32 noundef -124532858) #16
   %cmp.i.i.not.i = icmp eq ptr %call3.i.i.i, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i.not.i, label %cleanup116, label %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit"
 
 "_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit": ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit
-  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %resultHandle, align 8
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %call3.i.i.i, align 8
   %conv.i.i.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i to i32
-  %call25.i = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %conv.i.i.i.i.i, i16 14, ptr nonnull %retval.0.i.i.i.i.i.i19) #16
+  %call25.i = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %conv.i.i.i.i.i, i16 14, ptr nonnull %retval.0.i.i.i.i.i.i32) #16
   %cmp = icmp eq i32 %call25.i, 0
   br i1 %cmp, label %cleanup116, label %if.end
 
 if.end:                                           ; preds = %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit"
   %builtinsFrozen_.i = getelementptr inbounds i8, ptr %runtime, i64 9656
-  %10 = load i8, ptr %builtinsFrozen_.i, align 8
-  %11 = and i8 %10, 1
-  %conv.i = zext nneg i8 %11 to i64
+  %9 = load i8, ptr %builtinsFrozen_.i, align 8
+  %10 = and i8 %9, 1
+  %conv.i = zext nneg i8 %10 to i64
   %or.i.i = or disjoint i64 %conv.i, -1407374883553280
-  store i64 %or.i.i, ptr %retval.0.i.i.i.i.i.i19, align 8
-  %call3.i.i.i38 = call ptr @_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIcEEj(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull @.str.14, i64 15, i32 noundef -765896251) #16
-  %cmp.i.i.not.i39 = icmp eq ptr %call3.i.i.i38, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i.not.i39, label %cleanup116, label %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit46"
+  store i64 %or.i.i, ptr %retval.0.i.i.i.i.i.i32, align 8
+  %call3.i.i.i51 = call ptr @_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIcEEj(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull @.str.14, i64 15, i32 noundef -765896251) #16
+  %cmp.i.i.not.i52 = icmp eq ptr %call3.i.i.i51, inttoptr (i64 -1 to ptr)
+  br i1 %cmp.i.i.not.i52, label %cleanup116, label %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit59"
 
-"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit46": ; preds = %if.end
-  %agg.tmp.sroa.0.0.copyload.i41 = load ptr, ptr %resultHandle, align 8
-  %retval.sroa.0.0.copyload.i.i.i.i42 = load i64, ptr %call3.i.i.i38, align 8
-  %conv.i.i.i.i.i43 = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i42 to i32
-  %call25.i44 = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %agg.tmp.sroa.0.0.copyload.i41, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %conv.i.i.i.i.i43, i16 14, ptr nonnull %retval.0.i.i.i.i.i.i19) #16
-  %cmp26 = icmp eq i32 %call25.i44, 0
+"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit59": ; preds = %if.end
+  %retval.sroa.0.0.copyload.i.i.i.i55 = load i64, ptr %call3.i.i.i51, align 8
+  %conv.i.i.i.i.i56 = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i55 to i32
+  %call25.i57 = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %conv.i.i.i.i.i56, i16 14, ptr nonnull %retval.0.i.i.i.i.i.i32) #16
+  %cmp26 = icmp eq i32 %call25.i57, 0
   br i1 %cmp26, label %cleanup116, label %if.end28
 
-if.end28:                                         ; preds = %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit46"
+if.end28:                                         ; preds = %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit59"
   %vmExperimentFlags_.i = getelementptr inbounds i8, ptr %runtime, i64 9100
-  %12 = load i32, ptr %vmExperimentFlags_.i, align 4
-  %conv.i47 = uitofp i32 %12 to double
-  store double %conv.i47, ptr %retval.0.i.i.i.i.i.i19, align 8
-  %call3.i.i.i64 = call ptr @_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIcEEj(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull @.str.15, i64 14, i32 noundef -437944518) #16
-  %cmp.i.i.not.i65 = icmp eq ptr %call3.i.i.i64, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i.not.i65, label %cleanup116, label %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit72"
+  %11 = load i32, ptr %vmExperimentFlags_.i, align 4
+  %conv.i60 = uitofp i32 %11 to double
+  store double %conv.i60, ptr %retval.0.i.i.i.i.i.i32, align 8
+  %call3.i.i.i77 = call ptr @_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIcEEj(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull @.str.15, i64 14, i32 noundef -437944518) #16
+  %cmp.i.i.not.i78 = icmp eq ptr %call3.i.i.i77, inttoptr (i64 -1 to ptr)
+  br i1 %cmp.i.i.not.i78, label %cleanup116, label %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit85"
 
-"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit72": ; preds = %if.end28
-  %agg.tmp.sroa.0.0.copyload.i67 = load ptr, ptr %resultHandle, align 8
-  %retval.sroa.0.0.copyload.i.i.i.i68 = load i64, ptr %call3.i.i.i64, align 8
-  %conv.i.i.i.i.i69 = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i68 to i32
-  %call25.i70 = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %agg.tmp.sroa.0.0.copyload.i67, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %conv.i.i.i.i.i69, i16 14, ptr nonnull %retval.0.i.i.i.i.i.i19) #16
-  %cmp39 = icmp eq i32 %call25.i70, 0
+"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit85": ; preds = %if.end28
+  %retval.sroa.0.0.copyload.i.i.i.i81 = load i64, ptr %call3.i.i.i77, align 8
+  %conv.i.i.i.i.i82 = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i81 to i32
+  %call25.i83 = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %conv.i.i.i.i.i82, i16 14, ptr nonnull %retval.0.i.i.i.i.i.i32) #16
+  %cmp39 = icmp eq i32 %call25.i83, 0
   br i1 %cmp39, label %cleanup116, label %if.end41
 
-if.end41:                                         ; preds = %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit72"
+if.end41:                                         ; preds = %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit85"
   store i64 28555834798400850, ptr %buildMode, align 8
   %call43 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %buildMode, i64 7)
-  %13 = extractvalue { i32, i64 } %call43, 0
-  %cmp.i = icmp eq i32 %13, 0
+  %12 = extractvalue { i32, i64 } %call43, 0
+  %cmp.i = icmp eq i32 %12, 0
   br i1 %cmp.i, label %cleanup116, label %if.end46
 
 if.end46:                                         ; preds = %if.end41
-  %14 = extractvalue { i32, i64 } %call43, 1
-  store i64 %14, ptr %retval.0.i.i.i.i.i.i19, align 8
-  %call3.i.i.i89 = call ptr @_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIcEEj(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull @.str.16, i64 5, i32 noundef 712172318) #16
-  %cmp.i.i.not.i90 = icmp eq ptr %call3.i.i.i89, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i.not.i90, label %cleanup116, label %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit97"
+  %13 = extractvalue { i32, i64 } %call43, 1
+  store i64 %13, ptr %retval.0.i.i.i.i.i.i32, align 8
+  %call3.i.i.i102 = call ptr @_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIcEEj(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull @.str.16, i64 5, i32 noundef 712172318) #16
+  %cmp.i.i.not.i103 = icmp eq ptr %call3.i.i.i102, inttoptr (i64 -1 to ptr)
+  br i1 %cmp.i.i.not.i103, label %cleanup116, label %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit110"
 
-"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit97": ; preds = %if.end46
-  %agg.tmp.sroa.0.0.copyload.i92 = load ptr, ptr %resultHandle, align 8
-  %retval.sroa.0.0.copyload.i.i.i.i93 = load i64, ptr %call3.i.i.i89, align 8
-  %conv.i.i.i.i.i94 = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i93 to i32
-  %call25.i95 = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %agg.tmp.sroa.0.0.copyload.i92, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %conv.i.i.i.i.i94, i16 14, ptr nonnull %retval.0.i.i.i.i.i.i19) #16
-  %cmp55 = icmp eq i32 %call25.i95, 0
+"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit110": ; preds = %if.end46
+  %retval.sroa.0.0.copyload.i.i.i.i106 = load i64, ptr %call3.i.i.i102, align 8
+  %conv.i.i.i.i.i107 = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i106 to i32
+  %call25.i108 = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %conv.i.i.i.i.i107, i16 14, ptr nonnull %retval.0.i.i.i.i.i.i32) #16
+  %cmp55 = icmp eq i32 %call25.i108, 0
   br i1 %cmp55, label %cleanup116, label %if.end57
 
-if.end57:                                         ; preds = %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit97"
+if.end57:                                         ; preds = %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit110"
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
   call void @_ZNK6hermes2vm7HadesGC12getKindAsStrB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %gcKind, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i) #16
   %call60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %gcKind) #16
   %call61 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %gcKind) #16
   %call62 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %call60, i64 %call61)
-  %15 = extractvalue { i32, i64 } %call62, 0
-  %cmp.i99 = icmp eq i32 %15, 0
-  br i1 %cmp.i99, label %cleanup, label %if.end65
+  %14 = extractvalue { i32, i64 } %call62, 0
+  %cmp.i112 = icmp eq i32 %14, 0
+  br i1 %cmp.i112, label %cleanup, label %if.end65
 
 if.end65:                                         ; preds = %if.end57
-  %16 = extractvalue { i32, i64 } %call62, 1
-  store i64 %16, ptr %retval.0.i.i.i.i.i.i19, align 8
-  %call3.i.i.i117 = call ptr @_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIcEEj(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull @.str.17, i64 2, i32 noundef 74676104) #16
-  %cmp.i.i.not.i118 = icmp eq ptr %call3.i.i.i117, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i.not.i118, label %cleanup, label %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit125"
+  %15 = extractvalue { i32, i64 } %call62, 1
+  store i64 %15, ptr %retval.0.i.i.i.i.i.i32, align 8
+  %call3.i.i.i130 = call ptr @_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIcEEj(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull @.str.17, i64 2, i32 noundef 74676104) #16
+  %cmp.i.i.not.i131 = icmp eq ptr %call3.i.i.i130, inttoptr (i64 -1 to ptr)
+  br i1 %cmp.i.i.not.i131, label %cleanup, label %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit138"
 
-"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit125": ; preds = %if.end65
-  %agg.tmp.sroa.0.0.copyload.i120 = load ptr, ptr %resultHandle, align 8
-  %retval.sroa.0.0.copyload.i.i.i.i121 = load i64, ptr %call3.i.i.i117, align 8
-  %conv.i.i.i.i.i122 = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i121 to i32
-  %call25.i123 = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %agg.tmp.sroa.0.0.copyload.i120, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %conv.i.i.i.i.i122, i16 14, ptr nonnull %retval.0.i.i.i.i.i.i19) #16
-  %cmp74 = icmp eq i32 %call25.i123, 0
+"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit138": ; preds = %if.end65
+  %retval.sroa.0.0.copyload.i.i.i.i134 = load i64, ptr %call3.i.i.i130, align 8
+  %conv.i.i.i.i.i135 = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i134 to i32
+  %call25.i136 = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %conv.i.i.i.i.i135, i16 14, ptr nonnull %retval.0.i.i.i.i.i.i32) #16
+  %cmp74 = icmp eq i32 %call25.i136, 0
   br i1 %cmp74, label %cleanup, label %if.end76
 
-if.end76:                                         ; preds = %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit125"
+if.end76:                                         ; preds = %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit138"
   %call78 = call { ptr, i64 } @_ZN6hermes2vm14createASCIIRefEPKc(ptr noundef nonnull @.str.18) #16
-  %17 = extractvalue { ptr, i64 } %call78, 0
-  %18 = extractvalue { ptr, i64 } %call78, 1
-  %call79 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %17, i64 %18)
-  %19 = extractvalue { i32, i64 } %call79, 0
-  %cmp.i126 = icmp eq i32 %19, 0
-  br i1 %cmp.i126, label %cleanup, label %if.end82
+  %16 = extractvalue { ptr, i64 } %call78, 0
+  %17 = extractvalue { ptr, i64 } %call78, 1
+  %call79 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %16, i64 %17)
+  %18 = extractvalue { i32, i64 } %call79, 0
+  %cmp.i139 = icmp eq i32 %18, 0
+  br i1 %cmp.i139, label %cleanup, label %if.end82
 
 if.end82:                                         ; preds = %if.end76
-  %20 = extractvalue { i32, i64 } %call79, 1
-  store i64 %20, ptr %retval.0.i.i.i.i.i.i19, align 8
-  %call90 = call fastcc noundef i32 @"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc"(ptr noundef nonnull align 8 dereferenceable(16) %addProperty, ptr nonnull %retval.0.i.i.i.i.i.i19, ptr noundef nonnull @.str.19)
+  %19 = extractvalue { i32, i64 } %call79, 1
+  store i64 %19, ptr %retval.0.i.i.i.i.i.i32, align 8
+  %call90 = call fastcc noundef i32 @"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc"(ptr nonnull %runtime, ptr nonnull %resultHandle, ptr nonnull %retval.0.i.i.i.i.i.i32, ptr noundef nonnull @.str.19)
   %cmp91 = icmp eq i32 %call90, 0
   br i1 %cmp91, label %cleanup, label %if.end93
 
 if.end93:                                         ; preds = %if.end82
   %call94 = call fastcc noundef ptr @_ZN6hermes2vmL27getCJSModuleModeDescriptionERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
   %call96 = call { ptr, i64 } @_ZN6hermes2vm14createASCIIRefEPKc(ptr noundef nonnull %call94) #16
-  %21 = extractvalue { ptr, i64 } %call96, 0
-  %22 = extractvalue { ptr, i64 } %call96, 1
-  %call97 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %21, i64 %22)
-  %23 = extractvalue { i32, i64 } %call97, 0
-  %cmp.i128 = icmp eq i32 %23, 0
-  br i1 %cmp.i128, label %cleanup, label %if.end100
+  %20 = extractvalue { ptr, i64 } %call96, 0
+  %21 = extractvalue { ptr, i64 } %call96, 1
+  %call97 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %20, i64 %21)
+  %22 = extractvalue { i32, i64 } %call97, 0
+  %cmp.i141 = icmp eq i32 %22, 0
+  br i1 %cmp.i141, label %cleanup, label %if.end100
 
 if.end100:                                        ; preds = %if.end93
-  %24 = extractvalue { i32, i64 } %call97, 1
-  store i64 %24, ptr %retval.0.i.i.i.i.i.i19, align 8
-  %call108 = call fastcc noundef i32 @"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc"(ptr noundef nonnull align 8 dereferenceable(16) %addProperty, ptr nonnull %retval.0.i.i.i.i.i.i19, ptr noundef nonnull @.str.20)
+  %23 = extractvalue { i32, i64 } %call97, 1
+  store i64 %23, ptr %retval.0.i.i.i.i.i.i32, align 8
+  %call108 = call fastcc noundef i32 @"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc"(ptr nonnull %runtime, ptr nonnull %resultHandle, ptr nonnull %retval.0.i.i.i.i.i.i32, ptr noundef nonnull @.str.20)
   %cmp109 = icmp eq i32 %call108, 0
   br i1 %cmp109, label %cleanup, label %if.end111
 
 if.end111:                                        ; preds = %if.end100
-  %25 = load ptr, ptr %resultHandle, align 8
-  %retval.sroa.0.0.copyload.i = load i64, ptr %25, align 8
+  %24 = load ptr, ptr %resultHandle, align 8
+  %retval.sroa.0.0.copyload.i = load i64, ptr %24, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end65, %if.end100, %if.end93, %if.end82, %if.end76, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit125", %if.end57, %if.end111
-  %retval.sroa.0.1 = phi i32 [ 1, %if.end111 ], [ 0, %if.end57 ], [ 0, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit125" ], [ 0, %if.end76 ], [ 0, %if.end82 ], [ 0, %if.end93 ], [ 0, %if.end100 ], [ 0, %if.end65 ]
-  %retval.sroa.13.1 = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end111 ], [ undef, %if.end57 ], [ undef, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit125" ], [ undef, %if.end76 ], [ undef, %if.end82 ], [ undef, %if.end93 ], [ undef, %if.end100 ], [ undef, %if.end65 ]
+cleanup:                                          ; preds = %if.end65, %if.end100, %if.end93, %if.end82, %if.end76, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit138", %if.end57, %if.end111
+  %retval.sroa.0.1 = phi i32 [ 1, %if.end111 ], [ 0, %if.end57 ], [ 0, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit138" ], [ 0, %if.end76 ], [ 0, %if.end82 ], [ 0, %if.end93 ], [ 0, %if.end100 ], [ 0, %if.end65 ]
+  %retval.sroa.13.1 = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end111 ], [ undef, %if.end57 ], [ undef, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit138" ], [ undef, %if.end76 ], [ undef, %if.end82 ], [ undef, %if.end93 ], [ undef, %if.end100 ], [ undef, %if.end65 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gcKind) #16
   br label %cleanup116
 
-cleanup116:                                       ; preds = %if.end46, %if.end28, %if.end, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit97", %if.end41, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit72", %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit46", %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit", %cleanup
-  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.1, %cleanup ], [ 0, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit" ], [ 0, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit46" ], [ 0, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit72" ], [ 0, %if.end41 ], [ 0, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit97" ], [ 0, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ], [ 0, %if.end ], [ 0, %if.end28 ], [ 0, %if.end46 ]
-  %retval.sroa.13.0 = phi i64 [ %retval.sroa.13.1, %cleanup ], [ undef, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit" ], [ undef, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit46" ], [ undef, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit72" ], [ undef, %if.end41 ], [ undef, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit97" ], [ undef, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ], [ undef, %if.end ], [ undef, %if.end28 ], [ undef, %if.end46 ]
+cleanup116:                                       ; preds = %if.end46, %if.end28, %if.end, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit110", %if.end41, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit85", %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit59", %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit", %cleanup
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.1, %cleanup ], [ 0, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit" ], [ 0, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit59" ], [ 0, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit85" ], [ 0, %if.end41 ], [ 0, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit110" ], [ 0, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ], [ 0, %if.end ], [ 0, %if.end28 ], [ 0, %if.end46 ]
+  %retval.sroa.13.0 = phi i64 [ %retval.sroa.13.1, %cleanup ], [ undef, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit" ], [ undef, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit59" ], [ undef, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit85" ], [ undef, %if.end41 ], [ undef, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit110" ], [ undef, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ], [ undef, %if.end ], [ undef, %if.end28 ], [ undef, %if.end46 ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #16
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.13.0, 1
@@ -938,9 +928,8 @@ cleanup116:                                       ; preds = %if.end46, %if.end28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr %value.coerce, ptr noundef %key) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc"(ptr %this.0.val, ptr nocapture readonly %this.8.val, ptr %value.coerce, ptr noundef %key) unnamed_addr #0 align 2 {
 entry:
-  %0 = load ptr, ptr %this, align 8
   %call1.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #19
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %key, i64 %call1.i
   %cmp.not6.i.i.i = icmp eq i64 %call1.i, 0
@@ -949,8 +938,8 @@ entry:
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %hash.08.i.i.i = phi i32 [ %xor.i.i.i.i.i, %for.body.i.i.i ], [ 0, %entry ]
   %__begin0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %key, %entry ]
-  %1 = load i8, ptr %__begin0.07.i.i.i, align 1
-  %conv.i.i.i.i.i = sext i8 %1 to i32
+  %0 = load i8, ptr %__begin0.07.i.i.i, align 1
+  %conv.i.i.i.i.i = sext i8 %0 to i32
   %add.i.i.i.i.i = add i32 %hash.08.i.i.i, %conv.i.i.i.i.i
   %add.i1.i.i.i.i = mul i32 %add.i.i.i.i.i, 1025
   %shr.i.i.i.i.i = lshr i32 %add.i1.i.i.i.i, 6
@@ -961,19 +950,16 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
 
 _ZN6hermes2vmL13symbolForCStrERNS0_7RuntimeEPKc.exit: ; preds = %for.body.i.i.i, %entry
   %hash.0.lcssa.i.i.i = phi i32 [ 0, %entry ], [ %xor.i.i.i.i.i, %for.body.i.i.i ]
-  %identifierTable_.i.i = getelementptr inbounds i8, ptr %0, i64 9264
-  %call3.i.i = tail call ptr @_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIcEEj(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %0, ptr %key, i64 %call1.i, i32 noundef %hash.0.lcssa.i.i.i) #16
+  %identifierTable_.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 9264
+  %call3.i.i = tail call ptr @_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIcEEj(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %this.0.val, ptr %key, i64 %call1.i, i32 noundef %hash.0.lcssa.i.i.i) #16
   %cmp.i.i.not = icmp eq ptr %call3.i.i, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN6hermes2vmL13symbolForCStrERNS0_7RuntimeEPKc.exit
-  %2 = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load ptr, ptr %2, align 8
-  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %3, align 8
-  %4 = load ptr, ptr %this, align 8
+  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this.8.val, align 8
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %call3.i.i, align 8
   %conv.i.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i.i to i32
-  %call25 = tail call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(9832) %4, i32 %conv.i.i.i.i, i16 14, ptr %value.coerce) #16
+  %call25 = tail call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(9832) %this.0.val, i32 %conv.i.i.i.i, i16 14, ptr %value.coerce) #16
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vmL13symbolForCStrERNS0_7RuntimeEPKc.exit, %if.end

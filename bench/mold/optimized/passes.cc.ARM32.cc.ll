@@ -38516,12 +38516,12 @@ entry:
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
   %4 = load ptr, ptr %1, align 8
+  %5 = ptrtoint ptr %0 to i64
   %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i, i64 16
   %_M_invoker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i, i64 24
-  %5 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i, i64 8
-  store i64 0, ptr %5, align 8
-  %6 = ptrtoint ptr %0 to i64
-  store i64 %6, ptr %agg.tmp.i.i.i.i.i.i.i, align 8
+  %6 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i, i64 8
+  store i64 0, ptr %6, align 8
+  store i64 %5, ptr %agg.tmp.i.i.i.i.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN4mold3elf9InputFileINS1_5ARM32EEEEZZNS1_L17mark_live_objectsIS3_EEvRNS1_7ContextIT_EEENKUlS5_RN3tbb6detail2d16feederIS5_EEE_clES5_SH_EUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %_M_invoker.i.i.i.i.i.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN4mold3elf9InputFileINS1_5ARM32EEEEZZNS1_L17mark_live_objectsIS3_EEvRNS1_7ContextIT_EEENKUlS5_RN3tbb6detail2d16feederIS5_EEE_clES5_SH_EUlS5_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
@@ -38863,8 +38863,8 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZN3tbb6detail2d235
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.i.i.i
   %36 = load ptr, ptr %31, align 8
-  store i64 0, ptr %30, align 8
   %37 = ptrtoint ptr %33 to i64
+  store i64 0, ptr %30, align 8
   store i64 %37, ptr %agg.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN4mold3elf9InputFileINS1_5ARM32EEEEZZNS1_L17mark_live_objectsIS3_EEvRNS1_7ContextIT_EEENKUlS5_RN3tbb6detail2d16feederIS5_EEE_clES5_SH_EUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN4mold3elf9InputFileINS1_5ARM32EEEEZZNS1_L17mark_live_objectsIS3_EEvRNS1_7ContextIT_EEENKUlS5_RN3tbb6detail2d16feederIS5_EEE_clES5_SH_EUlS5_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -39091,8 +39091,8 @@ for.body.i.i.i.i.i.i38.i.i:                       ; preds = %if.end18.i.i, %_ZN3
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i46.i.i:            ; preds = %for.body.i.i.i.i.i.i38.i.i
   %74 = load ptr, ptr %69, align 8
-  store i64 0, ptr %40, align 8
   %75 = ptrtoint ptr %71 to i64
+  store i64 0, ptr %40, align 8
   store i64 %75, ptr %agg.tmp.i.i.i.i.i.i.i.i.i.i.i.i30.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN4mold3elf9InputFileINS1_5ARM32EEEEZZNS1_L17mark_live_objectsIS3_EEvRNS1_7ContextIT_EEENKUlS5_RN3tbb6detail2d16feederIS5_EEE_clES5_SH_EUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i37.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN4mold3elf9InputFileINS1_5ARM32EEEEZZNS1_L17mark_live_objectsIS3_EEvRNS1_7ContextIT_EEENKUlS5_RN3tbb6detail2d16feederIS5_EEE_clES5_SH_EUlS5_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i36.i.i, align 8
@@ -89118,36 +89118,36 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold3elf16shuffle_sectionsINS4_5ARM32EEEvRNS4_7ContextIT_EEEUlPNS4_5ChunkIS6_EEE_E4callIRSD_NS1_11feeder_implISE_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIS8_Efp0_EEcvv_EERKSE_OS8_PT0_.exit, label %for.cond.preheader.i.i.i.i.i.i.i
 
 for.cond.preheader.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i
-  %sub.ptr.lhs.cast.i21.i.i.i.i.i.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i22.i.i.i.i.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i23.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i21.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i22.i.i.i.i.i.i.i
-  %cmp26.not.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i23.i.i.i.i.i.i.i, 8
-  br i1 %cmp26.not.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold3elf16shuffle_sectionsINS4_5ARM32EEEvRNS4_7ContextIT_EEEUlPNS4_5ChunkIS6_EEE_E4callIRSD_NS1_11feeder_implISE_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIS8_Efp0_EEcvv_EERKSE_OS8_PT0_.exit, label %for.body.preheader.i.i.i.i.i.i.i
+  %sub.ptr.lhs.cast.i15.i.i.i.i.i.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i16.i.i.i.i.i.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.sub.i17.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i15.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i16.i.i.i.i.i.i.i
+  %cmp20.not.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i17.i.i.i.i.i.i.i, 8
+  br i1 %cmp20.not.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold3elf16shuffle_sectionsINS4_5ARM32EEEvRNS4_7ContextIT_EEEUlPNS4_5ChunkIS6_EEE_E4callIRSD_NS1_11feeder_implISE_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIS8_Efp0_EEcvv_EERKSE_OS8_PT0_.exit, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %for.cond.preheader.i.i.i.i.i.i.i
-  %sub.ptr.div.i24.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i23.i.i.i.i.i.i.i, 3
+  %sub.ptr.div.i18.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i17.i.i.i.i.i.i.i, 3
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i
-  %sub.ptr.div.i29.i.i.i.i.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %sub.ptr.div.i24.i.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i ]
+  %sub.ptr.div.i23.i.i.i.i.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %sub.ptr.div.i18.i.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i ]
   %12 = phi ptr [ %16, %for.body.i.i.i.i.i.i.i ], [ %10, %for.body.preheader.i.i.i.i.i.i.i ]
-  %i.028.i.i.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ 0, %for.body.preheader.i.i.i.i.i.i.i ]
-  %seed.addr.027.i.i.i.i.i.i.i = phi i64 [ %xor4.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %add.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i ]
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr ptr, ptr %12, i64 %i.028.i.i.i.i.i.i.i
-  %shl.i.i.i.i.i.i.i.i = shl i64 %seed.addr.027.i.i.i.i.i.i.i, 13
-  %xor.i.i.i.i.i.i.i.i = xor i64 %shl.i.i.i.i.i.i.i.i, %seed.addr.027.i.i.i.i.i.i.i
+  %i.022.i.i.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ 0, %for.body.preheader.i.i.i.i.i.i.i ]
+  %seed.addr.021.i.i.i.i.i.i.i = phi i64 [ %xor4.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %add.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr ptr, ptr %12, i64 %i.022.i.i.i.i.i.i.i
+  %shl.i.i.i.i.i.i.i.i = shl i64 %seed.addr.021.i.i.i.i.i.i.i, 13
+  %xor.i.i.i.i.i.i.i.i = xor i64 %shl.i.i.i.i.i.i.i.i, %seed.addr.021.i.i.i.i.i.i.i
   %shr.i.i.i.i.i.i.i.i = lshr i64 %xor.i.i.i.i.i.i.i.i, 7
   %xor2.i.i.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i.i, %xor.i.i.i.i.i.i.i.i
   %shl3.i.i.i.i.i.i.i.i = shl i64 %xor2.i.i.i.i.i.i.i.i, 17
   %xor4.i.i.i.i.i.i.i.i = xor i64 %shl3.i.i.i.i.i.i.i.i, %xor2.i.i.i.i.i.i.i.i
-  %sub5.i.i.i.i.i.i.i = sub i64 %sub.ptr.div.i29.i.i.i.i.i.i.i, %i.028.i.i.i.i.i.i.i
+  %sub5.i.i.i.i.i.i.i = sub i64 %sub.ptr.div.i23.i.i.i.i.i.i.i, %i.022.i.i.i.i.i.i.i
   %rem.i.i.i.i.i.i.i = urem i64 %xor4.i.i.i.i.i.i.i.i, %sub5.i.i.i.i.i.i.i
   %add.ptr.i14.i.i.i.i.i.i.i = getelementptr ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %rem.i.i.i.i.i.i.i
   %13 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %14 = load ptr, ptr %add.ptr.i14.i.i.i.i.i.i.i, align 8
   store ptr %14, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   store ptr %13, ptr %add.ptr.i14.i.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i.i = add nuw nsw i64 %i.028.i.i.i.i.i.i.i, 1
+  %inc.i.i.i.i.i.i.i = add nuw nsw i64 %i.022.i.i.i.i.i.i.i, 1
   %15 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i.i, align 8
   %16 = load ptr, ptr %members.i.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %15 to i64

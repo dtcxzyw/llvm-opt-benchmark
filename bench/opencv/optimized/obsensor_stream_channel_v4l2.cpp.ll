@@ -3829,18 +3829,18 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 256
   %13 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #22
   %14 = add nsw i64 %13, 1000000000
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = sdiv i64 %14, 1000000000
-  %.neg.i.i.i.i.i.i = mul nsw i64 %16, -1000000000
-  %17 = add i64 %.neg.i.i.i.i.i.i, %14
+  %15 = sdiv i64 %14, 1000000000
+  %.neg.i.i.i.i.i.i = mul nsw i64 %15, -1000000000
+  %16 = add i64 %.neg.i.i.i.i.i.i, %14
+  %17 = getelementptr inbounds i8, ptr %2, i64 8
   %.val.val.i.i.old = load i32, ptr %6, align 8
   %.old = icmp eq i32 %.val.val.i.i.old, 0
   br i1 %.old, label %"_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN2cv8obsensor17V4L2StreamChannel4stopEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit", label %.preheader
 
 .preheader:                                       ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %.noexc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  store i64 %16, ptr %2, align 8
-  store i64 %17, ptr %15, align 8
+  store i64 %15, ptr %2, align 8
+  store i64 %16, ptr %17, align 8
   %18 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %12, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %2)
           to label %.noexc unwind label %.loopexit
 

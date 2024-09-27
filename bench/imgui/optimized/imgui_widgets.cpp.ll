@@ -31266,13 +31266,11 @@ declare void @_ZN5ImGui10SetTooltipEPKcz(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ImGui9PlotLinesEPKcPKfiiS1_ff6ImVec2i(ptr noundef %label, ptr noundef %values, i32 noundef %values_count, i32 noundef %values_offset, ptr noundef %overlay_text, float noundef %scale_min, float noundef %scale_max, <2 x float> %graph_size.coerce, i32 noundef %stride) local_unnamed_addr #0 {
 entry:
-  %graph_size = alloca %struct.ImVec2, align 8
   %data = alloca %struct.ImGuiPlotArrayGetterData, align 8
-  store <2 x float> %graph_size.coerce, ptr %graph_size, align 8
   store ptr %values, ptr %data, align 8
   %Stride.i = getelementptr inbounds i8, ptr %data, i64 8
   store i32 %stride, ptr %Stride.i, align 8
-  call fastcc void @_ZN5ImGui6PlotExE13ImGuiPlotTypePKcPFfPviES3_iiS2_ffRK6ImVec2.specialized.1(i32 noundef 0, ptr noundef %label, ptr noundef nonnull %data, i32 noundef %values_count, i32 noundef %values_offset, ptr noundef %overlay_text, float noundef %scale_min, float noundef %scale_max, ptr noundef nonnull align 4 dereferenceable(8) %graph_size)
+  call fastcc void @_ZN5ImGui6PlotExE13ImGuiPlotTypePKcPFfPviES3_iiS2_ffRK6ImVec2.specialized.1(i32 noundef 0, ptr noundef %label, ptr noundef nonnull %data, i32 noundef %values_count, i32 noundef %values_offset, ptr noundef %overlay_text, float noundef %scale_min, float noundef %scale_max, <2 x float> %graph_size.coerce)
   ret void
 }
 
@@ -31288,13 +31286,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ImGui13PlotHistogramEPKcPKfiiS1_ff6ImVec2i(ptr noundef %label, ptr noundef %values, i32 noundef %values_count, i32 noundef %values_offset, ptr noundef %overlay_text, float noundef %scale_min, float noundef %scale_max, <2 x float> %graph_size.coerce, i32 noundef %stride) local_unnamed_addr #0 {
 entry:
-  %graph_size = alloca %struct.ImVec2, align 8
   %data = alloca %struct.ImGuiPlotArrayGetterData, align 8
-  store <2 x float> %graph_size.coerce, ptr %graph_size, align 8
   store ptr %values, ptr %data, align 8
   %Stride.i = getelementptr inbounds i8, ptr %data, i64 8
   store i32 %stride, ptr %Stride.i, align 8
-  call fastcc void @_ZN5ImGui6PlotExE13ImGuiPlotTypePKcPFfPviES3_iiS2_ffRK6ImVec2.specialized.1(i32 noundef 1, ptr noundef %label, ptr noundef nonnull %data, i32 noundef %values_count, i32 noundef %values_offset, ptr noundef %overlay_text, float noundef %scale_min, float noundef %scale_max, ptr noundef nonnull align 4 dereferenceable(8) %graph_size)
+  call fastcc void @_ZN5ImGui6PlotExE13ImGuiPlotTypePKcPFfPviES3_iiS2_ffRK6ImVec2.specialized.1(i32 noundef 1, ptr noundef %label, ptr noundef nonnull %data, i32 noundef %values_count, i32 noundef %values_offset, ptr noundef %overlay_text, float noundef %scale_min, float noundef %scale_max, <2 x float> %graph_size.coerce)
   ret void
 }
 
@@ -40513,7 +40509,7 @@ declare void @llvm.va_start.p0(ptr) #33
 declare void @llvm.va_end.p0(ptr) #33
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ImGui6PlotExE13ImGuiPlotTypePKcPFfPviES3_iiS2_ffRK6ImVec2.specialized.1(i32 noundef %plot_type, ptr noundef %label, ptr nocapture noundef readonly %data, i32 noundef %values_count, i32 noundef %values_offset, ptr noundef %overlay_text, float noundef %scale_min, float noundef %scale_max, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size_arg) unnamed_addr #0 {
+define internal fastcc void @_ZN5ImGui6PlotExE13ImGuiPlotTypePKcPFfPviES3_iiS2_ffRK6ImVec2.specialized.1(i32 noundef %plot_type, ptr noundef %label, ptr nocapture noundef readonly %data, i32 noundef %values_count, i32 noundef %values_offset, ptr noundef %overlay_text, float noundef %scale_min, float noundef %scale_max, <2 x float> %size_arg.0.val) unnamed_addr #0 {
 entry:
   %ref.tmp.i = alloca %struct.ImVec2, align 8
   %frame_bb = alloca %struct.ImRect, align 8
@@ -40536,14 +40532,13 @@ entry:
 if.end:                                           ; preds = %entry
   %call1 = tail call noundef i32 @_ZN11ImGuiWindow5GetIDEPKcS1_(ptr noundef nonnull align 8 dereferenceable(1013) %2, ptr noundef %label, ptr noundef null)
   %call2 = tail call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %label, ptr noundef null, i1 noundef zeroext true, float noundef -1.000000e+00)
-  %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %size_arg, align 4
   %call3 = tail call noundef float @_ZN5ImGui13CalcItemWidthEv()
   %label_size.sroa.0.4.vec.extract = extractelement <2 x float> %call2, i64 1
   %FramePadding = getelementptr inbounds i8, ptr %0, i64 14636
   %y4 = getelementptr i8, ptr %0, i64 14640
   %4 = load float, ptr %y4, align 4
   %5 = tail call float @llvm.fmuladd.f32(float %4, float 2.000000e+00, float %label_size.sroa.0.4.vec.extract)
-  %call5 = tail call <2 x float> @_ZN5ImGui12CalcItemSizeE6ImVec2ff(<2 x float> %agg.tmp.sroa.0.0.copyload, float noundef %call3, float noundef %5)
+  %call5 = tail call <2 x float> @_ZN5ImGui12CalcItemSizeE6ImVec2ff(<2 x float> %size_arg.0.val, float noundef %call3, float noundef %5)
   %DC = getelementptr inbounds i8, ptr %2, i64 272
   %DC.val = load float, ptr %DC, align 4
   %6 = getelementptr i8, ptr %2, i64 276

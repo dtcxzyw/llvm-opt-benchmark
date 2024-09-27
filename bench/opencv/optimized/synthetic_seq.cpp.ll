@@ -608,8 +608,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %40, %43
 46:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %47 = load i32, ptr %7, align 8
   %48 = and i32 %47, 16384
-  %.not64 = icmp eq i32 %48, 0
-  br i1 %.not64, label %51, label %59
+  %.not66 = icmp eq i32 %48, 0
+  br i1 %.not66, label %51, label %59
 
 49:                                               ; preds = %234, %231, %228, %.loopexit, %227
   %50 = landingpad { ptr, i32 }
@@ -855,8 +855,8 @@ _ZN2cv6bgsegm12_GLOBAL__N_114bilinearInterpEPhddjPPKh.exit.us.i: ; preds = %143
   %198 = call double @llvm.fmuladd.f64(double %196, double %197, double %195)
   %199 = fcmp uge double %198, 0.000000e+00
   %200 = fcmp ult double %198, %190
-  %or.cond66 = select i1 %199, i1 %200, i1 false
-  br i1 %or.cond66, label %201, label %207
+  %or.cond68 = select i1 %199, i1 %200, i1 false
+  br i1 %or.cond68, label %201, label %207
 
 201:                                              ; preds = %194
   %202 = load double, ptr %191, align 8
@@ -948,13 +948,13 @@ _ZN2cv6bgsegm12_GLOBAL__N_114bilinearInterpEPhddjPPKh.exit.us.i: ; preds = %143
   %249 = getelementptr inbounds i8, ptr %18, i64 12
   store i32 %172, ptr %249, align 4
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 4 dereferenceable(16) %18)
-          to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit54 unwind label %261
+          to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit56 unwind label %261
 
-_ZNK2cv3MatclERKNS_5Rect_IiEE.exit54:             ; preds = %241
+_ZNK2cv3MatclERKNS_5Rect_IiEE.exit56:             ; preds = %241
   %250 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %251 unwind label %265
 
-251:                                              ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit54
+251:                                              ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit56
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #16
   %252 = load double, ptr %188, align 8
   %.val = load double, ptr %187, align 8
@@ -984,7 +984,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit54:             ; preds = %241
           cleanup
   br label %267
 
-265:                                              ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit54
+265:                                              ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit56
   %266 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #16

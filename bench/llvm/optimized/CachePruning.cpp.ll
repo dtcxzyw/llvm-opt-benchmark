@@ -1198,17 +1198,17 @@ _ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.exit.i.i.i: ; preds = %238, %2
 
 245:                                              ; preds = %243, %._crit_edge.i.i.i
   %.026.lcssa34.i.i.i = phi ptr [ %.026.lcssa35.i.i.i, %243 ], [ %.02730.i.i.i, %._crit_edge.i.i.i ]
-  %.sroa.015.0.i.i.i = phi ptr [ %244, %243 ], [ %.02730.i.i.i, %._crit_edge.i.i.i ]
-  %246 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.i.i.i, i64 32
-  %247 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.i.i.i, i64 48
-  %248 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.i.i.i, i64 40
-  %.sroa.0.0.copyload.i.i.i.i.i.i12.i.i.i = load i64, ptr %246, align 8
-  %.sroa.0.0.copyload.i2.i.i.i.i.i13.i.i.i = load i64, ptr %25, align 8
-  %249 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i.i.i12.i.i.i, %.sroa.0.0.copyload.i2.i.i.i.i.i13.i.i.i
+  %.sroa.017.0.i.i.i = phi ptr [ %244, %243 ], [ %.02730.i.i.i, %._crit_edge.i.i.i ]
+  %246 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.i.i.i, i64 32
+  %247 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.i.i.i, i64 48
+  %248 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.i.i.i, i64 40
+  %.sroa.0.0.copyload.i.i.i.i.i.i14.i.i.i = load i64, ptr %246, align 8
+  %.sroa.0.0.copyload.i2.i.i.i.i.i15.i.i.i = load i64, ptr %25, align 8
+  %249 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i.i.i14.i.i.i, %.sroa.0.0.copyload.i2.i.i.i.i.i15.i.i.i
   br i1 %249, label %263, label %250
 
 250:                                              ; preds = %245
-  %251 = icmp slt i64 %.sroa.0.0.copyload.i2.i.i.i.i.i13.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i12.i.i.i
+  %251 = icmp slt i64 %.sroa.0.0.copyload.i2.i.i.i.i.i15.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i14.i.i.i
   br i1 %251, label %_ZNSt3setIN12_GLOBAL__N_18FileInfoESt4lessIS1_ESaIS1_EE6insertEOS1_.exit, label %252
 
 252:                                              ; preds = %250
@@ -1239,13 +1239,13 @@ _ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.exit.i.i.i: ; preds = %238, %2
   %266 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
   %267 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 40
   %268 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 48
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i7.i.i = load i64, ptr %25, align 8
-  %.sroa.0.0.copyload.i2.i.i.i.i.i.i8.i.i = load i64, ptr %266, align 8
-  %269 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i7.i.i, %.sroa.0.0.copyload.i2.i.i.i.i.i.i8.i.i
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i9.i.i = load i64, ptr %25, align 8
+  %.sroa.0.0.copyload.i2.i.i.i.i.i.i10.i.i = load i64, ptr %266, align 8
+  %269 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i9.i.i, %.sroa.0.0.copyload.i2.i.i.i.i.i.i10.i.i
   br i1 %269, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %270
 
 270:                                              ; preds = %265
-  %271 = icmp slt i64 %.sroa.0.0.copyload.i2.i.i.i.i.i.i8.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i.i7.i.i
+  %271 = icmp slt i64 %.sroa.0.0.copyload.i2.i.i.i.i.i.i10.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i.i9.i.i
   br i1 %271, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_18FileInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %272
 
 272:                                              ; preds = %270

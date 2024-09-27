@@ -5253,11 +5253,11 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
   br label %.split15.i.i
 
 .split15.i.i:                                     ; preds = %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit38.i.i", %.split15.lr.ph.i.i
-  %.044.i.i = phi i64 [ %154, %.split15.lr.ph.i.i ], [ %207, %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit38.i.i" ]
-  %207 = add nsw i64 %.044.i.i, -1
+  %.06.i.i = phi i64 [ %154, %.split15.lr.ph.i.i ], [ %207, %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit38.i.i" ]
+  %207 = add nsw i64 %.06.i.i, -1
   %208 = getelementptr inbounds i32, ptr %151, i64 %207
   %209 = load i32, ptr %208, align 4
-  %.not.i.i95 = icmp sgt i64 %.044.i.i, %158
+  %.not.i.i95 = icmp sgt i64 %.06.i.i, %158
   br i1 %.not.i.i95, label %._crit_edge.i18.i.i, label %.lr.ph.i30.i.i
 
 .lr.ph.i30.i.i:                                   ; preds = %.split15.i.i, %.lr.ph.i30.i.i
@@ -5291,8 +5291,8 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
 ._crit_edge.i18.i.i:                              ; preds = %.lr.ph.i30.i.i, %.split15.i.i
   %.0.lcssa.i19.i.i = phi i64 [ %207, %.split15.i.i ], [ %spec.select.i37.i.i, %.lr.ph.i30.i.i ]
   %227 = icmp eq i64 %.0.lcssa.i19.i.i, %179
-  %or.cond41.i.i = select i1 %178, i1 %227, i1 false
-  br i1 %or.cond41.i.i, label %228, label %230
+  %or.cond3.i.i = select i1 %178, i1 %227, i1 false
+  br i1 %or.cond3.i.i, label %228, label %230
 
 228:                                              ; preds = %._crit_edge.i18.i.i
   %229 = load i32, ptr %205, align 4
@@ -5301,8 +5301,8 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
 
 230:                                              ; preds = %228, %._crit_edge.i18.i.i
   %.128.i20.i.i = phi i64 [ %204, %228 ], [ %.0.lcssa.i19.i.i, %._crit_edge.i18.i.i ]
-  %.not42.i.i = icmp slt i64 %.128.i20.i.i, %.044.i.i
-  br i1 %.not42.i.i, label %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit38.i.i", label %.lr.ph.i.i22.i.i
+  %.not4.i.i = icmp slt i64 %.128.i20.i.i, %.06.i.i
+  br i1 %.not4.i.i, label %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit38.i.i", label %.lr.ph.i.i22.i.i
 
 .lr.ph.i.i22.i.i:                                 ; preds = %230
   %231 = zext i32 %209 to i64
@@ -5329,8 +5329,8 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
 241:                                              ; preds = %232
   %242 = getelementptr inbounds i32, ptr %151, i64 %.01319.i.i23.i.i
   store i32 %.val14.i.i26.i.i, ptr %242, align 4
-  %.not43.i.i = icmp slt i64 %.020.i.i25.i.i, %.044.i.i
-  br i1 %.not43.i.i, label %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit38.i.i", label %232, !llvm.loop !75
+  %.not5.i.i = icmp slt i64 %.020.i.i25.i.i, %.06.i.i
+  br i1 %.not5.i.i, label %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit38.i.i", label %232, !llvm.loop !75
 
 "_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit38.i.i": ; preds = %241, %232, %230
   %.013.lcssa.i.i21.i.i = phi i64 [ %.128.i20.i.i, %230 ], [ %.020.i.i25.i.i, %241 ], [ %.01319.i.i23.i.i, %232 ]
@@ -5470,10 +5470,10 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
   br label %317
 
 317:                                              ; preds = %326, %.lr.ph.i.i.i.i103
-  %.01319.i.i.i.i104 = phi i64 [ %.128.i.i.i101, %.lr.ph.i.i.i.i103 ], [ %.020.i.i78.i.i, %326 ]
+  %.01319.i.i.i.i104 = phi i64 [ %.128.i.i.i101, %.lr.ph.i.i.i.i103 ], [ %.020.i.i12.i.i, %326 ]
   %.020.in.i.i.i.i105 = add nsw i64 %.01319.i.i.i.i104, -1
-  %.020.i.i78.i.i = lshr i64 %.020.in.i.i.i.i105, 1
-  %318 = getelementptr inbounds i32, ptr %270, i64 %.020.i.i78.i.i
+  %.020.i.i12.i.i = lshr i64 %.020.in.i.i.i.i105, 1
+  %318 = getelementptr inbounds i32, ptr %270, i64 %.020.i.i12.i.i
   %.val14.i.i.i.i106 = load i32, ptr %318, align 4
   %.val.val.i.i.i.i107 = load ptr, ptr %3, align 8
   %319 = zext i32 %.val14.i.i.i.i106 to i64

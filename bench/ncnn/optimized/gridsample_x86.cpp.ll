@@ -11596,9 +11596,9 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %10 = load i32, ptr %9, align 8
   %11 = mul i32 %10, %8
   %12 = icmp sgt i32 %6, 0
-  br i1 %12, label %.lr.ph32, label %._crit_edge33
+  br i1 %12, label %.lr.ph22, label %._crit_edge23
 
-.lr.ph32:                                         ; preds = %3
+.lr.ph22:                                         ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -11607,23 +11607,23 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %18 = getelementptr inbounds i8, ptr %4, i64 16
   %19 = getelementptr inbounds i8, ptr %4, i64 32
   %20 = getelementptr inbounds i8, ptr %4, i64 48
-  br i1 %17, label %.lr.ph.us.preheader, label %._crit_edge33
+  br i1 %17, label %.lr.ph.us.preheader, label %._crit_edge23
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph32
+.lr.ph.us.preheader:                              ; preds = %.lr.ph22
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv37 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next38, %._crit_edge.us ]
+  %indvars.iv27 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next28, %._crit_edge.us ]
   %21 = load ptr, ptr %0, align 8
   %22 = load i64, ptr %13, align 8
-  %23 = mul i64 %22, %indvars.iv37
+  %23 = mul i64 %22, %indvars.iv27
   %24 = load i64, ptr %14, align 8
   %25 = mul i64 %23, %24
   %26 = getelementptr inbounds i8, ptr %21, i64 %25
   %27 = load ptr, ptr %1, align 8
   %28 = load i64, ptr %15, align 8
-  %29 = mul i64 %28, %indvars.iv37
+  %29 = mul i64 %28, %indvars.iv27
   %30 = load i64, ptr %16, align 8
   %31 = mul i64 %29, %30
   %32 = getelementptr inbounds i8, ptr %27, i64 %31
@@ -11631,10 +11631,10 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   br label %34
 
 34:                                               ; preds = %.lr.ph.us, %82
-  %.021029.us = phi i32 [ 0, %.lr.ph.us ], [ %99, %82 ]
-  %.021128.us = phi ptr [ %33, %.lr.ph.us ], [ %98, %82 ]
-  %.021227.us = phi ptr [ %32, %.lr.ph.us ], [ %97, %82 ]
-  %35 = load float, ptr %.021128.us, align 4
+  %.021019.us = phi i32 [ 0, %.lr.ph.us ], [ %99, %82 ]
+  %.021118.us = phi ptr [ %33, %.lr.ph.us ], [ %98, %82 ]
+  %.021217.us = phi ptr [ %32, %.lr.ph.us ], [ %97, %82 ]
+  %35 = load float, ptr %.021118.us, align 4
   %36 = insertelement <4 x float> poison, float %35, i64 0
   %37 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> zeroinitializer
   %38 = fadd fast <4 x float> %37, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
@@ -11657,9 +11657,9 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %54 = fmul fast <4 x float> %39, %39
   %55 = fmul fast <4 x float> %54, %53
   %56 = fadd fast <4 x float> %55, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %57 = fadd fast <4 x float> %56, %50
-  %58 = fadd fast <4 x float> %45, %57
-  %59 = getelementptr inbounds i8, ptr %.021128.us, i64 4
+  %57 = fadd fast <4 x float> %51, %55
+  %58 = fadd fast <4 x float> %57, %45
+  %59 = getelementptr inbounds i8, ptr %.021118.us, i64 4
   %60 = load float, ptr %59, align 4
   %61 = insertelement <4 x float> poison, float %60, i64 0
   %62 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> zeroinitializer
@@ -11672,45 +11672,45 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %69 = fmul fast <4 x float> %68, %63
   %70 = fmul fast <4 x float> %62, <float 1.250000e+00, float 1.250000e+00, float 1.250000e+00, float 1.250000e+00>
   %71 = fadd fast <4 x float> %70, <float -2.250000e+00, float -2.250000e+00, float -2.250000e+00, float -2.250000e+00>
-  %.scalar41 = fmul fast float %60, %60
-  %72 = insertelement <4 x float> poison, float %.scalar41, i64 0
+  %.scalar31 = fmul fast float %60, %60
+  %72 = insertelement <4 x float> poison, float %.scalar31, i64 0
   %73 = shufflevector <4 x float> %72, <4 x float> poison, <4 x i32> zeroinitializer
   %74 = fmul fast <4 x float> %71, %73
-  %75 = fmul fast <4 x float> %64, <float 1.250000e+00, float 1.250000e+00, float 1.250000e+00, float 1.250000e+00>
-  %76 = fadd fast <4 x float> %75, <float -2.250000e+00, float -2.250000e+00, float -2.250000e+00, float -2.250000e+00>
-  %77 = fmul fast <4 x float> %64, %64
-  %78 = fmul fast <4 x float> %77, %76
-  %79 = fadd fast <4 x float> %78, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %80 = fadd fast <4 x float> %79, %74
-  %81 = getelementptr inbounds i8, ptr %.021128.us, i64 8
+  %75 = fadd fast <4 x float> %74, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %76 = fmul fast <4 x float> %64, <float 1.250000e+00, float 1.250000e+00, float 1.250000e+00, float 1.250000e+00>
+  %77 = fadd fast <4 x float> %76, <float -2.250000e+00, float -2.250000e+00, float -2.250000e+00, float -2.250000e+00>
+  %78 = fmul fast <4 x float> %64, %64
+  %79 = fmul fast <4 x float> %78, %77
+  %80 = fadd fast <4 x float> %75, %79
+  %81 = getelementptr inbounds i8, ptr %.021118.us, i64 8
   br label %100
 
 82:                                               ; preds = %134
   %83 = fadd fast <4 x float> %69, <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>
-  %84 = fadd fast <4 x float> %74, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %85 = fadd fast <4 x float> %83, %80
+  %84 = fadd fast <4 x float> %79, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %85 = fadd fast <4 x float> %80, %83
   %86 = load <4 x float>, ptr %4, align 16
   %87 = fmul fast <4 x float> %86, %83
   %88 = load <4 x float>, ptr %18, align 16
-  %89 = fmul fast <4 x float> %88, %84
+  %89 = fmul fast <4 x float> %88, %75
   %90 = fadd fast <4 x float> %89, %87
   %91 = load <4 x float>, ptr %19, align 16
-  %92 = fmul fast <4 x float> %91, %79
+  %92 = fmul fast <4 x float> %91, %84
   %93 = fadd fast <4 x float> %90, %92
   %94 = load <4 x float>, ptr %20, align 16
   %95 = fmul fast <4 x float> %85, %94
   %96 = fsub fast <4 x float> %93, %95
-  store <4 x float> %96, ptr %.021227.us, align 1
-  %97 = getelementptr inbounds i8, ptr %.021227.us, i64 16
-  %98 = getelementptr inbounds i8, ptr %.021128.us, i64 72
-  %99 = add nuw nsw i32 %.021029.us, 1
-  %exitcond36.not = icmp eq i32 %99, %11
-  br i1 %exitcond36.not, label %._crit_edge.us, label %34, !llvm.loop !118
+  store <4 x float> %96, ptr %.021217.us, align 1
+  %97 = getelementptr inbounds i8, ptr %.021217.us, i64 16
+  %98 = getelementptr inbounds i8, ptr %.021118.us, i64 72
+  %99 = add nuw nsw i32 %.021019.us, 1
+  %exitcond26.not = icmp eq i32 %99, %11
+  br i1 %exitcond26.not, label %._crit_edge.us, label %34, !llvm.loop !118
 
 100:                                              ; preds = %134, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %134 ], [ 0, %34 ]
-  %.020925.us = phi ptr [ %144, %134 ], [ %81, %34 ]
-  %101 = load i32, ptr %.020925.us, align 4
+  %.020915.us = phi ptr [ %144, %134 ], [ %81, %34 ]
+  %101 = load i32, ptr %.020915.us, align 4
   %102 = icmp sgt i32 %101, -1
   br i1 %102, label %103, label %107
 
@@ -11722,7 +11722,7 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
 
 107:                                              ; preds = %103, %100
   %108 = phi fast <4 x float> [ %106, %103 ], [ zeroinitializer, %100 ]
-  %109 = getelementptr inbounds i8, ptr %.020925.us, i64 4
+  %109 = getelementptr inbounds i8, ptr %.020915.us, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = icmp sgt i32 %110, -1
   br i1 %111, label %112, label %116
@@ -11735,7 +11735,7 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
 
 116:                                              ; preds = %112, %107
   %117 = phi fast <4 x float> [ %115, %112 ], [ zeroinitializer, %107 ]
-  %118 = getelementptr inbounds i8, ptr %.020925.us, i64 8
+  %118 = getelementptr inbounds i8, ptr %.020915.us, i64 8
   %119 = load i32, ptr %118, align 4
   %120 = icmp sgt i32 %119, -1
   br i1 %120, label %121, label %125
@@ -11748,7 +11748,7 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
 
 125:                                              ; preds = %121, %116
   %126 = phi fast <4 x float> [ %124, %121 ], [ zeroinitializer, %116 ]
-  %127 = getelementptr inbounds i8, ptr %.020925.us, i64 12
+  %127 = getelementptr inbounds i8, ptr %.020915.us, i64 12
   %128 = load i32, ptr %127, align 4
   %129 = icmp sgt i32 %128, -1
   br i1 %129, label %130, label %134
@@ -11770,17 +11770,17 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %142 = fmul fast <4 x float> %58, %135
   %143 = fsub fast <4 x float> %141, %142
   store <4 x float> %143, ptr %137, align 16
-  %144 = getelementptr inbounds i8, ptr %.020925.us, i64 16
+  %144 = getelementptr inbounds i8, ptr %.020915.us, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %82, label %100, !llvm.loop !119
 
 ._crit_edge.us:                                   ; preds = %82
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %exitcond40.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count
-  br i1 %exitcond40.not, label %._crit_edge33, label %.lr.ph.us, !llvm.loop !120
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %exitcond30.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
+  br i1 %exitcond30.not, label %._crit_edge23, label %.lr.ph.us, !llvm.loop !120
 
-._crit_edge33:                                    ; preds = %._crit_edge.us, %.lr.ph32, %3
+._crit_edge23:                                    ; preds = %._crit_edge.us, %.lr.ph22, %3
   ret void
 }
 

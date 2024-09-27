@@ -631,9 +631,10 @@ for.end30.i:                                      ; preds = %for.end30.i.loopexi
   %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %nodesToProcess.i.i.i, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
   %call.i.i.i = call fastcc noundef ptr @_ZN6hermes10DomTreeDFS7VisitorINS_12_GLOBAL__N_115TDZDedupContextENS2_9StackNodeEE7newNodeEPKN4llvh15DomTreeNodeBaseINS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(120) %CCtx, ptr noundef %call.i17.i)
-  %44 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
-  %45 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
-  %cmp.not.i.i.i.i = icmp ult i32 %44, %45
+  %44 = ptrtoint ptr %call.i.i.i to i64
+  %45 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
+  %46 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
+  %cmp.not.i.i.i.i = icmp ult i32 %45, %46
   br i1 %cmp.not.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes12_GLOBAL__N_19StackNodeELb1EE9push_backERKS4_.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.end30.i
@@ -642,12 +643,11 @@ if.then.i.i.i.i:                                  ; preds = %for.end30.i
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes12_GLOBAL__N_19StackNodeELb1EE9push_backERKS4_.exit.i.i.i
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes12_GLOBAL__N_19StackNodeELb1EE9push_backERKS4_.exit.i.i.i: ; preds = %if.then.i.i.i.i, %for.end30.i
-  %46 = phi i32 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %44, %for.end30.i ]
-  %47 = load ptr, ptr %nodesToProcess.i.i.i, align 8
-  %conv.i3.i.i.i.i = zext i32 %46 to i64
-  %add.ptr.i.i.i.i18.i = getelementptr inbounds ptr, ptr %47, i64 %conv.i3.i.i.i.i
-  %48 = ptrtoint ptr %call.i.i.i to i64
-  store i64 %48, ptr %add.ptr.i.i.i.i18.i, align 1
+  %47 = phi i32 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %45, %for.end30.i ]
+  %48 = load ptr, ptr %nodesToProcess.i.i.i, align 8
+  %conv.i3.i.i.i.i = zext i32 %47 to i64
+  %add.ptr.i.i.i.i18.i = getelementptr inbounds ptr, ptr %48, i64 %conv.i3.i.i.i.i
+  store i64 %44, ptr %add.ptr.i.i.i.i18.i, align 1
   %49 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
   %add.i.i.i.i = add i32 %49, 1
   store i32 %add.i.i.i.i, ptr %Size.i.i.i.i.i.i.i.i, align 8
@@ -1292,9 +1292,10 @@ _ZN6hermes10DomTreeDFS9StackNodeINS_12_GLOBAL__N_115TDZDedupContextEE9nextChildE
 
 if.then11.i.i.i:                                  ; preds = %_ZN6hermes10DomTreeDFS9StackNodeINS_12_GLOBAL__N_115TDZDedupContextEE9nextChildEv.exit.i.i.i
   %call13.i.i.i = call fastcc noundef ptr @_ZN6hermes10DomTreeDFS7VisitorINS_12_GLOBAL__N_115TDZDedupContextENS2_9StackNodeEE7newNodeEPKN4llvh15DomTreeNodeBaseINS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(120) %CCtx, ptr noundef nonnull %136)
-  %137 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
-  %138 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
-  %cmp.not.i17.i.i.i = icmp ult i32 %137, %138
+  %137 = ptrtoint ptr %call13.i.i.i to i64
+  %138 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
+  %139 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
+  %cmp.not.i17.i.i.i = icmp ult i32 %138, %139
   br i1 %cmp.not.i17.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes12_GLOBAL__N_19StackNodeELb1EE9push_backERKS4_.exit24.i.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %if.then11.i.i.i
@@ -1303,12 +1304,11 @@ if.then.i18.i.i.i:                                ; preds = %if.then11.i.i.i
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes12_GLOBAL__N_19StackNodeELb1EE9push_backERKS4_.exit24.i.i.i
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes12_GLOBAL__N_19StackNodeELb1EE9push_backERKS4_.exit24.i.i.i: ; preds = %if.then.i18.i.i.i, %if.then11.i.i.i
-  %139 = phi i32 [ %.pre.i20.i.i.i, %if.then.i18.i.i.i ], [ %137, %if.then11.i.i.i ]
-  %140 = load ptr, ptr %nodesToProcess.i.i.i, align 8
-  %conv.i3.i21.i.i.i = zext i32 %139 to i64
-  %add.ptr.i.i22.i.i.i = getelementptr inbounds ptr, ptr %140, i64 %conv.i3.i21.i.i.i
-  %141 = ptrtoint ptr %call13.i.i.i to i64
-  store i64 %141, ptr %add.ptr.i.i22.i.i.i, align 1
+  %140 = phi i32 [ %.pre.i20.i.i.i, %if.then.i18.i.i.i ], [ %138, %if.then11.i.i.i ]
+  %141 = load ptr, ptr %nodesToProcess.i.i.i, align 8
+  %conv.i3.i21.i.i.i = zext i32 %140 to i64
+  %add.ptr.i.i22.i.i.i = getelementptr inbounds ptr, ptr %141, i64 %conv.i3.i21.i.i.i
+  store i64 %137, ptr %add.ptr.i.i22.i.i.i, align 1
   %142 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
   %add.i23.i.i.i = add i32 %142, 1
   store i32 %add.i23.i.i.i, ptr %Size.i.i.i.i.i.i.i.i, align 8

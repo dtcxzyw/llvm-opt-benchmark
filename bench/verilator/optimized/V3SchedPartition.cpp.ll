@@ -6423,18 +6423,18 @@ _ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sche
   br label %common.resume.i
 
 .loopexit22.loopexit.i.i.i.i.i:                   ; preds = %37
-  %.val25.pre.i.i.i.i.i = load ptr, ptr %32, align 8
+  %.val27.pre.i.i.i.i.i = load ptr, ptr %32, align 8
   br label %.loopexit22.i.i.i.i.i
 
 .loopexit22.i.i.i.i.i:                            ; preds = %.loopexit22.loopexit.i.i.i.i.i, %30
-  %.val25.i.i.i.i.i = phi ptr [ %.val25.pre.i.i.i.i.i, %.loopexit22.loopexit.i.i.i.i.i ], [ %1, %30 ]
-  %41 = invoke noundef i64 @_Z20V3HasherUncachedHashRK7AstNode(ptr noundef nonnull align 8 dereferenceable(152) %.val25.i.i.i.i.i)
+  %.val27.i.i.i.i.i = phi ptr [ %.val27.pre.i.i.i.i.i, %.loopexit22.loopexit.i.i.i.i.i ], [ %1, %30 ]
+  %41 = invoke noundef i64 @_Z20V3HasherUncachedHashRK7AstNode(ptr noundef nonnull align 8 dereferenceable(152) %.val27.i.i.i.i.i)
           to label %42 unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i
 
 42:                                               ; preds = %.loopexit22.i.i.i.i.i
   %43 = getelementptr inbounds i8, ptr %11, i64 64
-  %.val26.i.i.i.i.i = load i64, ptr %43, align 8
-  %44 = urem i64 %41, %.val26.i.i.i.i.i
+  %.val28.i.i.i.i.i = load i64, ptr %43, align 8
+  %44 = urem i64 %41, %.val28.i.i.i.i.i
   %.val15.i.i.i.i.i = load i64, ptr %34, align 8
   %.not21.i.i.i.i.i = icmp eq i64 %.val15.i.i.i.i.i, 0
   br i1 %.not21.i.i.i.i.i, label %_ZNKSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit.thread.i.i.i.i.i, label %45
@@ -6463,8 +6463,8 @@ _ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sche
 _ZNKSt8__detail15_Hashtable_baseI5VNRefI10AstSenItemESt4pairIKS3_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit.i.i.i.i.i.i.i: ; preds = %52
   %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i, i64 8
   %.val19.i.i.i.i.i.i.i = load ptr, ptr %54, align 8
-  %.val.i.i28.i.i.i.i.i = load ptr, ptr %32, align 8
-  %55 = invoke noundef zeroext i1 @_ZN7AstNode12sameTreeIterEPKS_S1_bb(ptr noundef nonnull %.val.i.i28.i.i.i.i.i, ptr noundef %.val19.i.i.i.i.i.i.i, i1 noundef zeroext true, i1 noundef zeroext false)
+  %.val.i.i31.i.i.i.i.i = load ptr, ptr %32, align 8
+  %55 = invoke noundef zeroext i1 @_ZN7AstNode12sameTreeIterEPKS_S1_bb(ptr noundef nonnull %.val.i.i31.i.i.i.i.i, ptr noundef %.val19.i.i.i.i.i.i.i, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i
 
 .noexc.i.i.i.i.i:                                 ; preds = %_ZNKSt8__detail15_Hashtable_baseI5VNRefI10AstSenItemESt4pairIKS3_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit.i.i.i.i.i.i.i
@@ -6495,19 +6495,19 @@ _ZNKSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sch
   %64 = load i64, ptr %43, align 8
   %65 = load i64, ptr %34, align 8
   %66 = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %61, i64 noundef %64, i64 noundef %65, i64 noundef 1)
-          to label %.noexc31.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i
+          to label %.noexc34.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i
 
-.noexc31.i.i.i.i.i:                               ; preds = %_ZNKSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit.thread.i.i.i.i.i
+.noexc34.i.i.i.i.i:                               ; preds = %_ZNKSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit.thread.i.i.i.i.i
   %67 = extractvalue { i8, i64 } %66, 0
   %68 = trunc i8 %67 to i1
-  br i1 %68, label %69, label %.noexc31._crit_edge.i.i.i.i.i
+  br i1 %68, label %69, label %.noexc34._crit_edge.i.i.i.i.i
 
-.noexc31._crit_edge.i.i.i.i.i:                    ; preds = %.noexc31.i.i.i.i.i
+.noexc34._crit_edge.i.i.i.i.i:                    ; preds = %.noexc34.i.i.i.i.i
   %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 56
   %.pre.i.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i.i, align 8
   br label %110
 
-69:                                               ; preds = %.noexc31.i.i.i.i.i
+69:                                               ; preds = %.noexc34.i.i.i.i.i
   %70 = extractvalue { i8, i64 } %66, 1
   %71 = icmp eq i64 %70, 1
   br i1 %71, label %72, label %74
@@ -6636,16 +6636,16 @@ _ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sche
   %109 = urem i64 %41, %70
   br label %110
 
-110:                                              ; preds = %_ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i.i, %.noexc31._crit_edge.i.i.i.i.i
-  %111 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %.noexc31._crit_edge.i.i.i.i.i ]
-  %.0.i29.i.i.i.i.i = phi i64 [ %109, %_ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i.i ], [ %44, %.noexc31._crit_edge.i.i.i.i.i ]
+110:                                              ; preds = %_ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i.i, %.noexc34._crit_edge.i.i.i.i.i
+  %111 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i, %_ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %.noexc34._crit_edge.i.i.i.i.i ]
+  %.0.i32.i.i.i.i.i = phi i64 [ %109, %_ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i.i ], [ %44, %.noexc34._crit_edge.i.i.i.i.i ]
   %112 = getelementptr inbounds i8, ptr %31, i64 24
   store i64 %41, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %11, i64 56
-  %114 = getelementptr inbounds ptr, ptr %111, i64 %.0.i29.i.i.i.i.i
+  %114 = getelementptr inbounds ptr, ptr %111, i64 %.0.i32.i.i.i.i.i
   %115 = load ptr, ptr %114, align 8
-  %.not.i.i30.i.i.i.i.i = icmp eq ptr %115, null
-  br i1 %.not.i.i30.i.i.i.i.i, label %119, label %116
+  %.not.i.i33.i.i.i.i.i = icmp eq ptr %115, null
+  br i1 %.not.i.i33.i.i.i.i.i, label %119, label %116
 
 116:                                              ; preds = %110
   %117 = load ptr, ptr %115, align 8
@@ -6674,7 +6674,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sche
 
 126:                                              ; preds = %122, %119
   %127 = phi ptr [ %.pre36.i.i.i.i.i, %122 ], [ %111, %119 ]
-  %128 = getelementptr inbounds ptr, ptr %127, i64 %.0.i29.i.i.i.i.i
+  %128 = getelementptr inbounds ptr, ptr %127, i64 %.0.i32.i.i.i.i.i
   store ptr %120, ptr %128, align 8
   br label %129
 

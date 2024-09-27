@@ -7430,13 +7430,13 @@ define internal noundef i32 @smb_eo_packet(ptr nocapture noundef readonly %0, pt
   %29 = load i32, ptr %28, align 8
   %30 = load ptr, ptr @GSL_active_files, align 8
   %31 = tail call i32 @g_slist_length(ptr noundef %30) #15
-  %.012.i = add i32 %31, -1
-  %32 = icmp sgt i32 %.012.i, -1
+  %.01.i = add i32 %31, -1
+  %32 = icmp sgt i32 %.01.i, -1
   br i1 %32, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %21, %40
-  %.013.i = phi i32 [ %.0.i, %40 ], [ %.012.i, %21 ]
-  %33 = tail call ptr @g_slist_nth_data(ptr noundef %30, i32 noundef %.013.i) #15
+  %.02.i = phi i32 [ %.0.i, %40 ], [ %.01.i, %21 ]
+  %33 = tail call ptr @g_slist_nth_data(ptr noundef %30, i32 noundef %.02.i) #15
   %34 = load i16, ptr %33, align 8
   %35 = icmp eq i16 %34, %24
   br i1 %35, label %36, label %40
@@ -7448,8 +7448,8 @@ define internal noundef i32 @smb_eo_packet(ptr nocapture noundef readonly %0, pt
   br i1 %39, label %find_incoming_file.exit, label %40
 
 40:                                               ; preds = %36, %.lr.ph.i
-  %.0.i = add nsw i32 %.013.i, -1
-  %41 = icmp sgt i32 %.013.i, 0
+  %.0.i = add nsw i32 %.02.i, -1
+  %41 = icmp sgt i32 %.02.i, 0
   br i1 %41, label %.lr.ph.i, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %40, %21
@@ -7506,11 +7506,11 @@ define internal noundef i32 @smb_eo_packet(ptr nocapture noundef readonly %0, pt
 .thread:                                          ; preds = %.loopexit, %64
   %72 = load i64, ptr %49, align 8
   %.not84 = icmp eq i64 %72, 0
-  %.pre90 = load i64, ptr %52, align 8
+  %.pre91 = load i64, ptr %52, align 8
   br i1 %.not84, label %78, label %73
 
 73:                                               ; preds = %.thread
-  %74 = mul i64 %.pre90, 100
+  %74 = mul i64 %.pre91, 100
   %75 = udiv i64 %74, %72
   %76 = uitofp i64 %75 to float
   %77 = fpext float %76 to double
@@ -7520,7 +7520,7 @@ define internal noundef i32 @smb_eo_packet(ptr nocapture noundef readonly %0, pt
   %.078 = phi double [ %77, %73 ], [ 0.000000e+00, %.thread ]
   %79 = zext nneg i8 %.080 to i32
   %80 = tail call ptr @try_val_to_str(i32 noundef %79, ptr noundef nonnull @smb_eo_contains_string) #15
-  %81 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2700, ptr noundef %.0, i64 noundef %.pre90, i64 noundef %72, ptr noundef %80, double noundef %.078) #15
+  %81 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2700, ptr noundef %.0, i64 noundef %.pre91, i64 noundef %72, ptr noundef %80, double noundef %.078) #15
   br label %82
 
 82:                                               ; preds = %78, %66
@@ -7541,7 +7541,7 @@ find_incoming_file.exit:                          ; preds = %36
 
 89:                                               ; preds = %find_incoming_file.exit
   %90 = load ptr, ptr @GSL_active_files, align 8
-  %91 = tail call ptr @g_slist_nth_data(ptr noundef %90, i32 noundef %.013.i) #15
+  %91 = tail call ptr @g_slist_nth_data(ptr noundef %90, i32 noundef %.02.i) #15
   %92 = getelementptr inbounds i8, ptr %91, i64 24
   %93 = load i8, ptr %92, align 8
   %94 = or i8 %93, %.080
@@ -7550,7 +7550,7 @@ find_incoming_file.exit:                          ; preds = %36
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %0, i64 16
   %98 = load ptr, ptr %97, align 8
-  %99 = tail call ptr %96(ptr noundef %98, i32 noundef %.013.i) #15
+  %99 = tail call ptr %96(ptr noundef %98, i32 noundef %.02.i) #15
   tail call fastcc void @insert_chunk(ptr noundef %91, ptr noundef %99, ptr noundef nonnull %3)
   %100 = getelementptr inbounds i8, ptr %91, i64 40
   %101 = load i32, ptr %100, align 8

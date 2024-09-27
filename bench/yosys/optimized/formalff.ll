@@ -86984,8 +86984,8 @@ _ZNK5Yosys7hashlib4dictIPNS_5RTLIL6ModuleESt6vectorIN12_GLOBAL__N_112ReplacedPor
 1048:                                             ; preds = %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL6ModuleESt6vectorIN12_GLOBAL__N_112ReplacedPortESaIS7_EENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread.i
   %1049 = load ptr, ptr %167, align 8, !noalias !676
   %1050 = load ptr, ptr %191, align 8, !noalias !676
-  %.not.i.i13.i = icmp eq ptr %1049, %1050
-  br i1 %.not.i.i13.i, label %1058, label %1051
+  %.not.i.i15.i = icmp eq ptr %1049, %1050
+  br i1 %.not.i.i15.i, label %1058, label %1051
 
 1051:                                             ; preds = %1048
   store ptr %908, ptr %1049, align 8, !noalias !676
@@ -87023,9 +87023,9 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112Replac
   call void @llvm.assume(i1 %.not.i.i.i.i.i)
   %1069 = mul nuw nsw i64 %1068, 40
   %1070 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1069) #25
-          to label %.noexc19.i unwind label %.loopexit1845, !noalias !676
+          to label %.noexc21.i unwind label %.loopexit1845, !noalias !676
 
-.noexc19.i:                                       ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE12_M_check_lenEmPKc.exit.i.i.i.i
+.noexc21.i:                                       ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %1071 = getelementptr inbounds i8, ptr %1070, i64 %1061
   store ptr %908, ptr %1071, align 8, !noalias !676
   %1072 = getelementptr inbounds i8, ptr %1071, i64 8
@@ -87039,9 +87039,9 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112Replac
   store i32 -1, ptr %1075, align 8, !noalias !676
   br i1 %1064, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit38.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.noexc19.i, %.lr.ph.i.i.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i.i.i = phi ptr [ %1090, %.lr.ph.i.i.i.i.i.i.i.i ], [ %1070, %.noexc19.i ]
-  %.092.i.i.i.i.i.i.i.i = phi ptr [ %1089, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val27.i.i.i.i, %.noexc19.i ]
+.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.noexc21.i, %.lr.ph.i.i.i.i.i.i.i.i
+  %.03.i.i.i.i.i.i.i.i = phi ptr [ %1090, %.lr.ph.i.i.i.i.i.i.i.i ], [ %1070, %.noexc21.i ]
+  %.092.i.i.i.i.i.i.i.i = phi ptr [ %1089, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val27.i.i.i.i, %.noexc21.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !683)
   call void @llvm.experimental.noalias.scope.decl(metadata !686)
   %1076 = load ptr, ptr %.092.i.i.i.i.i.i.i.i, align 8, !alias.scope !686, !noalias !688
@@ -87068,8 +87068,8 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112Replac
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %1089, %1049
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit38.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !690
 
-_ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit38.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.noexc19.i
-  %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %1070, %.noexc19.i ], [ %1090, %.lr.ph.i.i.i.i.i.i.i.i ]
+_ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit38.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.noexc21.i
+  %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %1070, %.noexc21.i ], [ %1090, %.lr.ph.i.i.i.i.i.i.i.i ]
   %1091 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 40
   %.not.i39.i.i.i.i = icmp eq ptr %.val27.i.i.i.i, null
   br i1 %.not.i39.i.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE17_M_realloc_insertIJSt4pairIS5_S9_EiEEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i.i.i, label %1092
@@ -87091,7 +87091,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112Replace
 
 1094:                                             ; preds = %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL6ModuleESt6vectorIN12_GLOBAL__N_112ReplacedPortESaIS7_EENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread.i
   %1095 = getelementptr inbounds i32, ptr %1043, i64 %.1.ph.i
-  %.val14.i12.i = load i32, ptr %1095, align 4, !noalias !676
+  %.val14.i14.i = load i32, ptr %1095, align 4, !noalias !676
   %1096 = load ptr, ptr %167, align 8, !noalias !676
   %1097 = load ptr, ptr %191, align 8, !noalias !676
   %.not.i15.i.i = icmp eq ptr %1096, %1097
@@ -87106,7 +87106,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112Replace
   %1101 = getelementptr inbounds i8, ptr %1096, i64 24
   store ptr %1046, ptr %1101, align 8, !noalias !676
   %1102 = getelementptr inbounds i8, ptr %1096, i64 32
-  store i32 %.val14.i12.i, ptr %1102, align 8, !noalias !676
+  store i32 %.val14.i14.i, ptr %1102, align 8, !noalias !676
   %1103 = load ptr, ptr %167, align 8, !noalias !676
   %1104 = getelementptr inbounds i8, ptr %1103, i64 40
   store ptr %1104, ptr %167, align 8, !noalias !676
@@ -87140,9 +87140,9 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112Replac
   call void @llvm.assume(i1 %.not.i.i.i18.i.i)
   %1116 = mul nuw nsw i64 %1115, 40
   %1117 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1116) #25
-          to label %.noexc22.i unwind label %.loopexit1845, !noalias !676
+          to label %.noexc24.i unwind label %.loopexit1845, !noalias !676
 
-.noexc22.i:                                       ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE12_M_check_lenEmPKc.exit.i.i16.i.i
+.noexc24.i:                                       ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE12_M_check_lenEmPKc.exit.i.i16.i.i
   %1118 = getelementptr inbounds i8, ptr %1117, i64 %1108
   store ptr %908, ptr %1118, align 8, !noalias !676
   %1119 = getelementptr inbounds i8, ptr %1118, i64 8
@@ -87152,12 +87152,12 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112Replac
   %1121 = getelementptr inbounds i8, ptr %1118, i64 24
   store ptr %1046, ptr %1121, align 8, !noalias !676
   %1122 = getelementptr inbounds i8, ptr %1118, i64 32
-  store i32 %.val14.i12.i, ptr %1122, align 8, !noalias !676
+  store i32 %.val14.i14.i, ptr %1122, align 8, !noalias !676
   br i1 %1111, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit38.i.i23.i.i, label %.lr.ph.i.i.i.i.i.i19.i.i
 
-.lr.ph.i.i.i.i.i.i19.i.i:                         ; preds = %.noexc22.i, %.lr.ph.i.i.i.i.i.i19.i.i
-  %.03.i.i.i.i.i.i20.i.i = phi ptr [ %1137, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %1117, %.noexc22.i ]
-  %.092.i.i.i.i.i.i21.i.i = phi ptr [ %1136, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %.val.i.i.i.i, %.noexc22.i ]
+.lr.ph.i.i.i.i.i.i19.i.i:                         ; preds = %.noexc24.i, %.lr.ph.i.i.i.i.i.i19.i.i
+  %.03.i.i.i.i.i.i20.i.i = phi ptr [ %1137, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %1117, %.noexc24.i ]
+  %.092.i.i.i.i.i.i21.i.i = phi ptr [ %1136, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %.val.i.i.i.i, %.noexc24.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !691)
   call void @llvm.experimental.noalias.scope.decl(metadata !694)
   %1123 = load ptr, ptr %.092.i.i.i.i.i.i21.i.i, align 8, !alias.scope !694, !noalias !696
@@ -87184,8 +87184,8 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112Replac
   %.not.i.i.i.i.i.i22.i.i = icmp eq ptr %1136, %1096
   br i1 %.not.i.i.i.i.i.i22.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit38.i.i23.i.i, label %.lr.ph.i.i.i.i.i.i19.i.i, !llvm.loop !690
 
-_ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit38.i.i23.i.i: ; preds = %.lr.ph.i.i.i.i.i.i19.i.i, %.noexc22.i
-  %.0.lcssa.i.i.i.i.i.i24.i.i = phi ptr [ %1117, %.noexc22.i ], [ %1137, %.lr.ph.i.i.i.i.i.i19.i.i ]
+_ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit38.i.i23.i.i: ; preds = %.lr.ph.i.i.i.i.i.i19.i.i, %.noexc24.i
+  %.0.lcssa.i.i.i.i.i.i24.i.i = phi ptr [ %1117, %.noexc24.i ], [ %1137, %.lr.ph.i.i.i.i.i.i19.i.i ]
   %1138 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i24.i.i, i64 40
   %.not.i39.i.i25.i.i = icmp eq ptr %.val.i.i.i.i, null
   br i1 %.not.i39.i.i25.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleES_IN12_GLOBAL__N_112ReplacedPortESaIS7_EENS1_8hash_opsIS5_EEE7entry_tESaISD_EE17_M_realloc_insertIJSt4pairIS5_S9_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i.i.i, label %1139
@@ -87243,9 +87243,9 @@ _ZNSt4pairIPN5Yosys5RTLIL6ModuleESt6vectorIN12_GLOBAL__N_112ReplacedPortESaIS6_E
 
 .loopexit1844:                                    ; preds = %1033, %_ZNSt4pairIPN5Yosys5RTLIL6ModuleESt6vectorIN12_GLOBAL__N_112ReplacedPortESaIS6_EEED2Ev.exit.i
   %.val5.val.i = phi ptr [ %.val9.i.i, %_ZNSt4pairIPN5Yosys5RTLIL6ModuleESt6vectorIN12_GLOBAL__N_112ReplacedPortESaIS6_EEED2Ev.exit.i ], [ %.val19.i.i1816, %1033 ]
-  %.sink42.i = phi i32 [ %1154, %_ZNSt4pairIPN5Yosys5RTLIL6ModuleESt6vectorIN12_GLOBAL__N_112ReplacedPortESaIS6_EEED2Ev.exit.i ], [ %.021.i.i1817, %1033 ]
+  %.sink44.i = phi i32 [ %1154, %_ZNSt4pairIPN5Yosys5RTLIL6ModuleESt6vectorIN12_GLOBAL__N_112ReplacedPortESaIS6_EEED2Ev.exit.i ], [ %.021.i.i1817, %1033 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %1156 = sext i32 %.sink42.i to i64
+  %1156 = sext i32 %.sink44.i to i64
   %1157 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::Module *, std::vector<(anonymous namespace)::ReplacedPort>>::entry_t", ptr %.val5.val.i, i64 %1156, i32 0, i32 1
   call fastcc void @_ZN12_GLOBAL__N_115PropagateWorkerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %22) #22
   br label %.noexc183.thread887

@@ -3324,19 +3324,19 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
           to label %_ZNSt3__18functionIFviEEC2ERKS2_.exit.i.i unwind label %643
 
 _ZNSt3__18functionIFviEEC2ERKS2_.exit.i.i:        ; preds = %.noexc794
-  %1068 = getelementptr inbounds i8, ptr %158, i64 32
+  %1068 = ptrtoint ptr %225 to i64
+  %1069 = getelementptr inbounds i8, ptr %158, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %158, align 16
-  %1069 = getelementptr inbounds i8, ptr %158, i64 8
-  %1070 = ptrtoint ptr %225 to i64
-  store i64 %1070, ptr %1069, align 8
-  store ptr %158, ptr %1068, align 16
+  %1070 = getelementptr inbounds i8, ptr %158, i64 8
+  store i64 %1068, ptr %1070, align 8
+  store ptr %158, ptr %1069, align 16
   %1071 = getelementptr inbounds i8, ptr %225, i64 288
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   %1072 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %5, ptr %1072, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %5, align 16
   %1073 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %1070, ptr %1073, align 8
+  store i64 %1068, ptr %1073, align 8
   call void @_ZNSt3__110__function12__value_funcIFviEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 16 dereferenceable(40) %1071) #19
   %1074 = load ptr, ptr %1072, align 16
   %1075 = icmp eq ptr %1074, %5
@@ -3356,7 +3356,7 @@ _ZNSt3__18functionIFviEEC2ERKS2_.exit.i.i:        ; preds = %.noexc794
 
 1080:                                             ; preds = %.sink.split.i.i.i.i797, %1076
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  %1081 = load ptr, ptr %1068, align 16
+  %1081 = load ptr, ptr %1069, align 16
   %1082 = icmp eq ptr %1081, %158
   br i1 %1082, label %.sink.split.i.i, label %1083
 

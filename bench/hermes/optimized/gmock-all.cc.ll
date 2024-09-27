@@ -7663,17 +7663,17 @@ land.lhs.true.i.i:                                ; preds = %if.then.i.i
   br i1 %cmp.i.i.i, label %if.then.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %if.then.i.i
-  %__x.09.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 16), align 8
-  %cmp.not10.i.i.i = icmp eq ptr %__x.09.i.i.i, null
-  br i1 %cmp.not10.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i8
+  %__x.07.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 16), align 8
+  %cmp.not8.i.i.i = icmp eq ptr %__x.07.i.i.i, null
+  br i1 %cmp.not8.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i8
 
 while.body.i.i.i8:                                ; preds = %if.else.i.i, %while.body.i.i.i8
-  %__x.011.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i8 ], [ %__x.09.i.i.i, %if.else.i.i ]
-  %_M_storage.i.i.i12.i.i = getelementptr inbounds i8, ptr %__x.011.i.i.i, i64 32
+  %__x.09.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i8 ], [ %__x.07.i.i.i, %if.else.i.i ]
+  %_M_storage.i.i.i12.i.i = getelementptr inbounds i8, ptr %__x.09.i.i.i, i64 32
   %6 = load ptr, ptr %_M_storage.i.i.i12.i.i, align 8
   %cmp.i.i.i.i9 = icmp ult ptr %call.val.i, %6
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i9, i64 16, i64 24
-  %cond.in.i.i.i = getelementptr i8, ptr %__x.011.i.i.i, i64 %cond.in.v.i.i.i
+  %cond.in.i.i.i = getelementptr i8, ptr %__x.09.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i10 = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i10, label %while.end.i.i.i, label %while.body.i.i.i8, !llvm.loop !76
@@ -7682,23 +7682,23 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i8
   br i1 %cmp.i.i.i.i9, label %if.then.i.i.i, label %if.end12.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i, %if.else.i.i
-  %__y.0.lcssa15.i.i.i = phi ptr [ %__x.011.i.i.i, %while.end.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 8), %if.else.i.i ]
+  %__y.0.lcssa13.i.i.i = phi ptr [ %__x.09.i.i.i, %while.end.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 8), %if.else.i.i ]
   %_ZN7testing12_GLOBAL__N_122g_mock_object_registryE.val4.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 24), align 8
-  %cmp.i6.i.i.i = icmp eq ptr %__y.0.lcssa15.i.i.i, %_ZN7testing12_GLOBAL__N_122g_mock_object_registryE.val4.i.i.i
-  br i1 %cmp.i6.i.i.i, label %if.then.i, label %if.else.i.i.i
+  %cmp.i7.i.i.i = icmp eq ptr %__y.0.lcssa13.i.i.i, %_ZN7testing12_GLOBAL__N_122g_mock_object_registryE.val4.i.i.i
+  br i1 %cmp.i7.i.i.i, label %if.then.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa15.i.i.i) #30
+  %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa13.i.i.i) #30
   %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %.pre18.i.i = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i, align 8
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %while.end.i.i.i
   %7 = phi ptr [ %.pre18.i.i, %if.else.i.i.i ], [ %6, %while.end.i.i.i ]
-  %__y.0.lcssa16.i.i.i = phi ptr [ %__y.0.lcssa15.i.i.i, %if.else.i.i.i ], [ %__x.011.i.i.i, %while.end.i.i.i ]
-  %__j.sroa.0.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.else.i.i.i ], [ %__x.011.i.i.i, %while.end.i.i.i ]
-  %cmp.i7.i.i.i = icmp ult ptr %7, %call.val.i
-  br i1 %cmp.i7.i.i.i, label %if.then.i, label %_ZNSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i
+  %__y.0.lcssa14.i.i.i = phi ptr [ %__y.0.lcssa13.i.i.i, %if.else.i.i.i ], [ %__x.09.i.i.i, %while.end.i.i.i ]
+  %__j.sroa.0.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.else.i.i.i ], [ %__x.09.i.i.i, %while.end.i.i.i ]
+  %cmp.i8.i.i.i = icmp ult ptr %7, %call.val.i
+  br i1 %cmp.i8.i.i.i, label %if.then.i, label %_ZNSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i
 
 if.else12.i.i:                                    ; preds = %if.then
   %_M_storage.i.i.i13.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i3, i64 32
@@ -7725,17 +7725,17 @@ if.then32.i.i:                                    ; preds = %if.else25.i.i
   br i1 %cmp35.i.i, label %if.then.i, label %cleanup.i
 
 if.else42.i.i:                                    ; preds = %if.else25.i.i
-  %__x.09.i20.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 16), align 8
-  %cmp.not10.i21.i.i = icmp eq ptr %__x.09.i20.i.i, null
-  br i1 %cmp.not10.i21.i.i, label %if.then.i42.i.i, label %while.body.i22.i.i
+  %__x.07.i20.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 16), align 8
+  %cmp.not8.i21.i.i = icmp eq ptr %__x.07.i20.i.i, null
+  br i1 %cmp.not8.i21.i.i, label %if.then.i42.i.i, label %while.body.i22.i.i
 
 while.body.i22.i.i:                               ; preds = %if.else42.i.i, %while.body.i22.i.i
-  %__x.011.i23.i.i = phi ptr [ %__x.0.i28.i.i, %while.body.i22.i.i ], [ %__x.09.i20.i.i, %if.else42.i.i ]
-  %_M_storage.i.i.i24.i.i = getelementptr inbounds i8, ptr %__x.011.i23.i.i, i64 32
+  %__x.09.i23.i.i = phi ptr [ %__x.0.i28.i.i, %while.body.i22.i.i ], [ %__x.07.i20.i.i, %if.else42.i.i ]
+  %_M_storage.i.i.i24.i.i = getelementptr inbounds i8, ptr %__x.09.i23.i.i, i64 32
   %12 = load ptr, ptr %_M_storage.i.i.i24.i.i, align 8
   %cmp.i.i25.i.i = icmp ult ptr %call.val.i, %12
   %cond.in.v.i26.i.i = select i1 %cmp.i.i25.i.i, i64 16, i64 24
-  %cond.in.i27.i.i = getelementptr i8, ptr %__x.011.i23.i.i, i64 %cond.in.v.i26.i.i
+  %cond.in.i27.i.i = getelementptr i8, ptr %__x.09.i23.i.i, i64 %cond.in.v.i26.i.i
   %__x.0.i28.i.i = load ptr, ptr %cond.in.i27.i.i, align 8
   %cmp.not.i29.i.i = icmp eq ptr %__x.0.i28.i.i, null
   br i1 %cmp.not.i29.i.i, label %while.end.i30.i.i, label %while.body.i22.i.i, !llvm.loop !76
@@ -7744,22 +7744,22 @@ while.end.i30.i.i:                                ; preds = %while.body.i22.i.i
   br i1 %cmp.i.i25.i.i, label %if.then.i42.i.i, label %if.end12.i31.i.i
 
 if.then.i42.i.i:                                  ; preds = %while.end.i30.i.i, %if.else42.i.i
-  %__y.0.lcssa15.i43.i.i = phi ptr [ %__x.011.i23.i.i, %while.end.i30.i.i ], [ getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 8), %if.else42.i.i ]
-  %cmp.i6.i45.i.i = icmp eq ptr %__y.0.lcssa15.i43.i.i, %9
-  br i1 %cmp.i6.i45.i.i, label %if.then.i, label %if.else.i46.i.i
+  %__y.0.lcssa13.i43.i.i = phi ptr [ %__x.09.i23.i.i, %while.end.i30.i.i ], [ getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 8), %if.else42.i.i ]
+  %cmp.i7.i45.i.i = icmp eq ptr %__y.0.lcssa13.i43.i.i, %9
+  br i1 %cmp.i7.i45.i.i, label %if.then.i, label %if.else.i46.i.i
 
 if.else.i46.i.i:                                  ; preds = %if.then.i42.i.i
-  %call.i.i47.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa15.i43.i.i) #30
+  %call.i.i47.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa13.i43.i.i) #30
   %_M_storage.i.i.i.i34.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i47.i.i, i64 32
   %.pre17.i.i = load ptr, ptr %_M_storage.i.i.i.i34.phi.trans.insert.i.i, align 8
   br label %if.end12.i31.i.i
 
 if.end12.i31.i.i:                                 ; preds = %if.else.i46.i.i, %while.end.i30.i.i
   %13 = phi ptr [ %.pre17.i.i, %if.else.i46.i.i ], [ %12, %while.end.i30.i.i ]
-  %__y.0.lcssa16.i32.i.i = phi ptr [ %__y.0.lcssa15.i43.i.i, %if.else.i46.i.i ], [ %__x.011.i23.i.i, %while.end.i30.i.i ]
-  %__j.sroa.0.0.i33.i.i = phi ptr [ %call.i.i47.i.i, %if.else.i46.i.i ], [ %__x.011.i23.i.i, %while.end.i30.i.i ]
-  %cmp.i7.i35.i.i = icmp ult ptr %13, %call.val.i
-  br i1 %cmp.i7.i35.i.i, label %if.then.i, label %_ZNSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i
+  %__y.0.lcssa14.i32.i.i = phi ptr [ %__y.0.lcssa13.i43.i.i, %if.else.i46.i.i ], [ %__x.09.i23.i.i, %while.end.i30.i.i ]
+  %__j.sroa.0.0.i33.i.i = phi ptr [ %call.i.i47.i.i, %if.else.i46.i.i ], [ %__x.09.i23.i.i, %while.end.i30.i.i ]
+  %cmp.i8.i35.i.i = icmp ult ptr %13, %call.val.i
+  br i1 %cmp.i8.i35.i.i, label %if.then.i, label %_ZNSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i
 
 if.else44.i.i:                                    ; preds = %if.else12.i.i
   %cmp.i50.i.i = icmp ult ptr %8, %call.val.i
@@ -7784,17 +7784,17 @@ if.then64.i.i:                                    ; preds = %if.else57.i.i
   br i1 %cmp67.i.i, label %if.then.i, label %cleanup.i
 
 if.else74.i.i:                                    ; preds = %if.else57.i.i
-  %__x.09.i57.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 16), align 8
-  %cmp.not10.i58.i.i = icmp eq ptr %__x.09.i57.i.i, null
-  br i1 %cmp.not10.i58.i.i, label %if.then.i79.i.i, label %while.body.i59.i.i
+  %__x.07.i57.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 16), align 8
+  %cmp.not8.i58.i.i = icmp eq ptr %__x.07.i57.i.i, null
+  br i1 %cmp.not8.i58.i.i, label %if.then.i79.i.i, label %while.body.i59.i.i
 
 while.body.i59.i.i:                               ; preds = %if.else74.i.i, %while.body.i59.i.i
-  %__x.011.i60.i.i = phi ptr [ %__x.0.i65.i.i, %while.body.i59.i.i ], [ %__x.09.i57.i.i, %if.else74.i.i ]
-  %_M_storage.i.i.i61.i.i = getelementptr inbounds i8, ptr %__x.011.i60.i.i, i64 32
+  %__x.09.i60.i.i = phi ptr [ %__x.0.i65.i.i, %while.body.i59.i.i ], [ %__x.07.i57.i.i, %if.else74.i.i ]
+  %_M_storage.i.i.i61.i.i = getelementptr inbounds i8, ptr %__x.09.i60.i.i, i64 32
   %17 = load ptr, ptr %_M_storage.i.i.i61.i.i, align 8
   %cmp.i.i62.i.i = icmp ult ptr %call.val.i, %17
   %cond.in.v.i63.i.i = select i1 %cmp.i.i62.i.i, i64 16, i64 24
-  %cond.in.i64.i.i = getelementptr i8, ptr %__x.011.i60.i.i, i64 %cond.in.v.i63.i.i
+  %cond.in.i64.i.i = getelementptr i8, ptr %__x.09.i60.i.i, i64 %cond.in.v.i63.i.i
   %__x.0.i65.i.i = load ptr, ptr %cond.in.i64.i.i, align 8
   %cmp.not.i66.i.i = icmp eq ptr %__x.0.i65.i.i, null
   br i1 %cmp.not.i66.i.i, label %while.end.i67.i.i, label %while.body.i59.i.i, !llvm.loop !76
@@ -7803,23 +7803,23 @@ while.end.i67.i.i:                                ; preds = %while.body.i59.i.i
   br i1 %cmp.i.i62.i.i, label %if.then.i79.i.i, label %if.end12.i68.i.i
 
 if.then.i79.i.i:                                  ; preds = %while.end.i67.i.i, %if.else74.i.i
-  %__y.0.lcssa15.i80.i.i = phi ptr [ %__x.011.i60.i.i, %while.end.i67.i.i ], [ getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 8), %if.else74.i.i ]
+  %__y.0.lcssa13.i80.i.i = phi ptr [ %__x.09.i60.i.i, %while.end.i67.i.i ], [ getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 8), %if.else74.i.i ]
   %_ZN7testing12_GLOBAL__N_122g_mock_object_registryE.val4.i81.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 24), align 8
-  %cmp.i6.i82.i.i = icmp eq ptr %__y.0.lcssa15.i80.i.i, %_ZN7testing12_GLOBAL__N_122g_mock_object_registryE.val4.i81.i.i
-  br i1 %cmp.i6.i82.i.i, label %if.then.i, label %if.else.i83.i.i
+  %cmp.i7.i82.i.i = icmp eq ptr %__y.0.lcssa13.i80.i.i, %_ZN7testing12_GLOBAL__N_122g_mock_object_registryE.val4.i81.i.i
+  br i1 %cmp.i7.i82.i.i, label %if.then.i, label %if.else.i83.i.i
 
 if.else.i83.i.i:                                  ; preds = %if.then.i79.i.i
-  %call.i.i84.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa15.i80.i.i) #30
+  %call.i.i84.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa13.i80.i.i) #30
   %_M_storage.i.i.i.i71.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i84.i.i, i64 32
   %.pre.i.i = load ptr, ptr %_M_storage.i.i.i.i71.phi.trans.insert.i.i, align 8
   br label %if.end12.i68.i.i
 
 if.end12.i68.i.i:                                 ; preds = %if.else.i83.i.i, %while.end.i67.i.i
   %18 = phi ptr [ %.pre.i.i, %if.else.i83.i.i ], [ %17, %while.end.i67.i.i ]
-  %__y.0.lcssa16.i69.i.i = phi ptr [ %__y.0.lcssa15.i80.i.i, %if.else.i83.i.i ], [ %__x.011.i60.i.i, %while.end.i67.i.i ]
-  %__j.sroa.0.0.i70.i.i = phi ptr [ %call.i.i84.i.i, %if.else.i83.i.i ], [ %__x.011.i60.i.i, %while.end.i67.i.i ]
-  %cmp.i7.i72.i.i = icmp ult ptr %18, %call.val.i
-  br i1 %cmp.i7.i72.i.i, label %if.then.i, label %_ZNSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i
+  %__y.0.lcssa14.i69.i.i = phi ptr [ %__y.0.lcssa13.i80.i.i, %if.else.i83.i.i ], [ %__x.09.i60.i.i, %while.end.i67.i.i ]
+  %__j.sroa.0.0.i70.i.i = phi ptr [ %call.i.i84.i.i, %if.else.i83.i.i ], [ %__x.09.i60.i.i, %while.end.i67.i.i ]
+  %cmp.i8.i72.i.i = icmp ult ptr %18, %call.val.i
+  br i1 %cmp.i8.i72.i.i, label %if.then.i, label %_ZNSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i
 
 invoke.cont7.i:                                   ; preds = %if.then50.i.i, %if.then18.i.i
   %retval.sroa.0.0.i.i = phi ptr [ %9, %if.then18.i.i ], [ null, %if.then50.i.i ]
@@ -7828,7 +7828,7 @@ invoke.cont7.i:                                   ; preds = %if.then50.i.i, %if.
   br i1 %tobool.not.i, label %_ZNSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then64.i.i, %invoke.cont7.i, %if.end12.i68.i.i, %if.then.i79.i.i, %if.end12.i31.i.i, %if.then.i42.i.i, %if.then32.i.i, %if.end12.i.i.i, %if.then.i.i.i, %land.lhs.true.i.i
-  %retval.sroa.12.0.i11.i = phi ptr [ %retval.sroa.12.0.i.i, %invoke.cont7.i ], [ %__y.0.lcssa15.i80.i.i, %if.then.i79.i.i ], [ %__y.0.lcssa15.i43.i.i, %if.then.i42.i.i ], [ %__y.0.lcssa15.i.i.i, %if.then.i.i.i ], [ %4, %land.lhs.true.i.i ], [ %call.i.i.i, %if.then32.i.i ], [ %__y.0.lcssa16.i.i.i, %if.end12.i.i.i ], [ %__y.0.lcssa16.i32.i.i, %if.end12.i31.i.i ], [ %__y.0.lcssa16.i69.i.i, %if.end12.i68.i.i ], [ %__y.addr.0.lcssa.i.i.i3, %if.then64.i.i ]
+  %retval.sroa.12.0.i11.i = phi ptr [ %retval.sroa.12.0.i.i, %invoke.cont7.i ], [ %__y.0.lcssa13.i80.i.i, %if.then.i79.i.i ], [ %__y.0.lcssa13.i43.i.i, %if.then.i42.i.i ], [ %__y.0.lcssa13.i.i.i, %if.then.i.i.i ], [ %4, %land.lhs.true.i.i ], [ %call.i.i.i, %if.then32.i.i ], [ %__y.0.lcssa14.i.i.i, %if.end12.i.i.i ], [ %__y.0.lcssa14.i32.i.i, %if.end12.i31.i.i ], [ %__y.0.lcssa14.i69.i.i, %if.end12.i68.i.i ], [ %__y.addr.0.lcssa.i.i.i3, %if.then64.i.i ]
   %retval.sroa.0.0.i10.i = phi ptr [ %retval.sroa.0.0.i.i, %invoke.cont7.i ], [ null, %if.then.i79.i.i ], [ null, %if.then.i42.i.i ], [ null, %if.then.i.i.i ], [ null, %land.lhs.true.i.i ], [ null, %if.then32.i.i ], [ null, %if.end12.i.i.i ], [ null, %if.end12.i31.i.i ], [ null, %if.end12.i68.i.i ], [ null, %if.then64.i.i ]
   %cmp.not.i.i5.i = icmp ne ptr %retval.sroa.0.0.i10.i, null
   %cmp2.i.i.i = icmp eq ptr %retval.sroa.12.0.i11.i, getelementptr inbounds (i8, ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 8)

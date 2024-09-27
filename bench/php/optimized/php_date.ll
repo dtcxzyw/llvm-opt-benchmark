@@ -7831,224 +7831,218 @@ define hidden void @zim_DateTimeImmutable_createFromTimestamp(ptr noundef %0, pt
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DateTime___set_state(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4
-  %cond = icmp eq i32 %5, 1
-  br i1 %cond, label %7, label %6
+  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = load i32, ptr %3, align 4
+  %cond = icmp eq i32 %4, 1
+  br i1 %cond, label %6, label %5
+
+5:                                                ; preds = %2
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #25
+  br label %10
 
 6:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #25
-  br label %11
+  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = load i8, ptr %8, align 8
+  %.not51 = icmp eq i8 %9, 7
+  br i1 %.not51, label %11, label %10
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = load i8, ptr %9, align 8
-  %.not51 = icmp eq i8 %10, 7
-  br i1 %.not51, label %12, label %11
-
-11:                                               ; preds = %6, %7
-  %.047.ph = phi ptr [ %8, %7 ], [ null, %6 ]
-  %.046.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
-  %.045.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
-  %.0.ph = phi i32 [ 9, %7 ], [ 1, %6 ]
+10:                                               ; preds = %5, %6
+  %.047.ph = phi ptr [ %7, %6 ], [ null, %5 ]
+  %.046.ph = phi i32 [ 6, %6 ], [ 0, %5 ]
+  %.045.ph = phi i32 [ 1, %6 ], [ 0, %5 ]
+  %.0.ph = phi i32 [ 9, %6 ], [ 1, %5 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.045.ph, ptr noundef null, i32 noundef %.046.ph, ptr noundef %.047.ph) #25
-  br label %22
+  br label %21
 
-12:                                               ; preds = %7
-  %13 = load ptr, ptr %8, align 8
-  %14 = load ptr, ptr @date_ce_date, align 8
-  %15 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %14) #25
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 -8
-  store ptr %17, ptr %3, align 8
-  %18 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef %3, ptr noundef %13)
-  br i1 %18, label %22, label %19
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr @date_ce_date, align 8
+  %14 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %13) #25
+  %15 = load ptr, ptr %1, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 -8
+  %17 = tail call fastcc zeroext i1 @php_date_initialize_from_hash(ptr nonnull %16, ptr noundef %12)
+  br i1 %17, label %21, label %18
 
-19:                                               ; preds = %12
+18:                                               ; preds = %11
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.41) #25
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %21 = icmp ne ptr %20, null
-  tail call void @llvm.assume(i1 %21)
-  br label %22
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %20 = icmp ne ptr %19, null
+  tail call void @llvm.assume(i1 %20)
+  br label %21
 
-22:                                               ; preds = %19, %12, %11
+21:                                               ; preds = %18, %11, %10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @php_date_initialize_from_hash(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = alloca %struct._zval_struct, align 8
-  %4 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str, i64 noundef 4) #25
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %70, label %5
+define internal fastcc noundef zeroext i1 @php_date_initialize_from_hash(ptr nocapture %.0.val, ptr noundef %0) unnamed_addr #0 {
+  %2 = alloca %struct._zval_struct, align 8
+  %3 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 4) #25
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %67, label %4
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = load i8, ptr %6, align 8
-  %.not46 = icmp eq i8 %7, 6
-  br i1 %.not46, label %8, label %70
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load i8, ptr %5, align 8
+  %.not46 = icmp eq i8 %6, 6
+  br i1 %.not46, label %7, label %67
 
-8:                                                ; preds = %5
-  %9 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.340, i64 noundef 13) #25
-  %.not47 = icmp eq ptr %9, null
-  br i1 %.not47, label %70, label %10
+7:                                                ; preds = %4
+  %8 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.340, i64 noundef 13) #25
+  %.not47 = icmp eq ptr %8, null
+  br i1 %.not47, label %67, label %9
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  %12 = load i8, ptr %11, align 8
-  %.not48 = icmp eq i8 %12, 4
-  br i1 %.not48, label %13, label %70
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = load i8, ptr %10, align 8
+  %.not48 = icmp eq i8 %11, 4
+  br i1 %.not48, label %12, label %67
 
-13:                                               ; preds = %10
-  %14 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.151, i64 noundef 8) #25
-  %.not49 = icmp eq ptr %14, null
-  br i1 %.not49, label %70, label %15
+12:                                               ; preds = %9
+  %13 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.151, i64 noundef 8) #25
+  %.not49 = icmp eq ptr %13, null
+  br i1 %.not49, label %67, label %14
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
-  %17 = load i8, ptr %16, align 8
-  %.not50 = icmp eq i8 %17, 6
-  br i1 %.not50, label %18, label %70
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = load i8, ptr %15, align 8
+  %.not50 = icmp eq i8 %16, 6
+  br i1 %.not50, label %17, label %67
 
-18:                                               ; preds = %15
-  %19 = load i64, ptr %9, align 8
-  switch i64 %19, label %70 [
-    i64 1, label %20
-    i64 2, label %20
-    i64 3, label %47
+17:                                               ; preds = %14
+  %18 = load i64, ptr %8, align 8
+  switch i64 %18, label %67 [
+    i64 1, label %19
+    i64 2, label %19
+    i64 3, label %45
   ]
 
-20:                                               ; preds = %18, %18
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
-  %24 = load i64, ptr %23, align 8
-  %25 = load ptr, ptr %14, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
-  %28 = load i64, ptr %27, align 8
-  %29 = tail call ptr @zend_string_concat3(ptr noundef nonnull %22, i64 noundef %24, ptr noundef nonnull @.str.386, i64 noundef 1, ptr noundef nonnull %26, i64 noundef %28) #25
-  %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 24
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = tail call zeroext i1 @php_date_initialize(ptr noundef %30, ptr noundef nonnull %31, i64 noundef %33, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %35 = getelementptr inbounds i8, ptr %29, i64 4
-  %36 = load i32, ptr %35, align 4
-  %37 = and i32 %36, 64
-  %.not52 = icmp eq i32 %37, 0
-  br i1 %.not52, label %38, label %70
+19:                                               ; preds = %17, %17
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = load i64, ptr %22, align 8
+  %24 = load ptr, ptr %13, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %26 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = tail call ptr @zend_string_concat3(ptr noundef nonnull %21, i64 noundef %23, ptr noundef nonnull @.str.386, i64 noundef 1, ptr noundef nonnull %25, i64 noundef %27) #25
+  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = load i64, ptr %30, align 8
+  %32 = tail call zeroext i1 @php_date_initialize(ptr noundef %.0.val, ptr noundef nonnull %29, i64 noundef %31, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %33 = getelementptr inbounds i8, ptr %28, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = and i32 %34, 64
+  %.not52 = icmp eq i32 %35, 0
+  br i1 %.not52, label %36, label %67
 
-38:                                               ; preds = %20
-  %39 = load i32, ptr %29, align 4
-  %40 = icmp ne i32 %39, 0
-  tail call void @llvm.assume(i1 %40)
-  %41 = add i32 %39, -1
-  store i32 %41, ptr %29, align 4
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %70
+36:                                               ; preds = %19
+  %37 = load i32, ptr %28, align 4
+  %38 = icmp ne i32 %37, 0
+  tail call void @llvm.assume(i1 %38)
+  %39 = add i32 %37, -1
+  store i32 %39, ptr %28, align 4
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %67
 
-43:                                               ; preds = %38
-  %44 = and i32 %36, 128
-  %.not53 = icmp eq i32 %44, 0
-  br i1 %.not53, label %46, label %45
+41:                                               ; preds = %36
+  %42 = and i32 %34, 128
+  %.not53 = icmp eq i32 %42, 0
+  br i1 %.not53, label %44, label %43
 
-45:                                               ; preds = %43
-  tail call void @free(ptr noundef nonnull %29) #25
-  br label %70
+43:                                               ; preds = %41
+  tail call void @free(ptr noundef nonnull %28) #25
+  br label %67
 
-46:                                               ; preds = %43
-  tail call void @_efree(ptr noundef nonnull %29) #25
-  br label %70
+44:                                               ; preds = %41
+  tail call void @_efree(ptr noundef nonnull %28) #25
+  br label %67
 
-47:                                               ; preds = %18
-  %48 = load ptr, ptr %14, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
-  %50 = load ptr, ptr @php_date_global_timezone_db, align 8
-  %.not51 = icmp eq ptr %50, null
-  br i1 %.not51, label %51, label %53
+45:                                               ; preds = %17
+  %46 = load ptr, ptr %13, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %48 = load ptr, ptr @php_date_global_timezone_db, align 8
+  %.not51 = icmp eq ptr %48, null
+  br i1 %.not51, label %49, label %51
 
-51:                                               ; preds = %47
-  %52 = tail call ptr @timelib_builtin_db() #25
-  br label %53
+49:                                               ; preds = %45
+  %50 = tail call ptr @timelib_builtin_db() #25
+  br label %51
 
-53:                                               ; preds = %47, %51
-  %54 = phi ptr [ %52, %51 ], [ %50, %47 ]
-  %55 = tail call fastcc ptr @php_date_parse_tzfile(ptr noundef nonnull %49, ptr noundef %54)
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %70, label %57
+51:                                               ; preds = %45, %49
+  %52 = phi ptr [ %50, %49 ], [ %48, %45 ]
+  %53 = tail call fastcc ptr @php_date_parse_tzfile(ptr noundef nonnull %47, ptr noundef %52)
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %67, label %55
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr @date_ce_timezone, align 8
-  %59 = call i32 @object_init_ex(ptr noundef nonnull %3, ptr noundef %58) #25
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 -32
-  %62 = getelementptr inbounds i8, ptr %60, i64 -28
-  store i32 3, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %60, i64 -24
-  store ptr %55, ptr %63, align 8
-  store i8 1, ptr %61, align 8
-  %64 = load ptr, ptr %0, align 8
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
-  %67 = getelementptr inbounds i8, ptr %65, i64 16
-  %68 = load i64, ptr %67, align 8
-  %69 = call zeroext i1 @php_date_initialize(ptr noundef %64, ptr noundef nonnull %66, i64 noundef %68, ptr noundef null, ptr noundef nonnull %3, i32 noundef 0)
-  call void @zval_ptr_dtor(ptr noundef nonnull %3) #25
-  br label %70
+55:                                               ; preds = %51
+  %56 = load ptr, ptr @date_ce_timezone, align 8
+  %57 = call i32 @object_init_ex(ptr noundef nonnull %2, ptr noundef %56) #25
+  %58 = load ptr, ptr %2, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 -32
+  %60 = getelementptr inbounds i8, ptr %58, i64 -28
+  store i32 3, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %58, i64 -24
+  store ptr %53, ptr %61, align 8
+  store i8 1, ptr %59, align 8
+  %62 = load ptr, ptr %3, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %64 = getelementptr inbounds i8, ptr %62, i64 16
+  %65 = load i64, ptr %64, align 8
+  %66 = call zeroext i1 @php_date_initialize(ptr noundef %.0.val, ptr noundef nonnull %63, i64 noundef %65, ptr noundef null, ptr noundef nonnull %2, i32 noundef 0)
+  call void @zval_ptr_dtor(ptr noundef nonnull %2) #25
+  br label %67
 
-70:                                               ; preds = %18, %53, %20, %45, %46, %38, %13, %15, %8, %10, %2, %5, %57
-  %.0 = phi i1 [ %69, %57 ], [ false, %5 ], [ false, %2 ], [ false, %10 ], [ false, %8 ], [ false, %15 ], [ false, %13 ], [ %34, %38 ], [ %34, %46 ], [ %34, %45 ], [ %34, %20 ], [ false, %53 ], [ false, %18 ]
+67:                                               ; preds = %17, %51, %19, %43, %44, %36, %12, %14, %7, %9, %1, %4, %55
+  %.0 = phi i1 [ %66, %55 ], [ false, %4 ], [ false, %1 ], [ false, %9 ], [ false, %7 ], [ false, %14 ], [ false, %12 ], [ %32, %36 ], [ %32, %44 ], [ %32, %43 ], [ %32, %19 ], [ false, %51 ], [ false, %17 ]
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DateTimeImmutable___set_state(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4
-  %cond = icmp eq i32 %5, 1
-  br i1 %cond, label %7, label %6
+  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = load i32, ptr %3, align 4
+  %cond = icmp eq i32 %4, 1
+  br i1 %cond, label %6, label %5
+
+5:                                                ; preds = %2
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #25
+  br label %10
 
 6:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #25
-  br label %11
+  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = load i8, ptr %8, align 8
+  %.not51 = icmp eq i8 %9, 7
+  br i1 %.not51, label %11, label %10
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = load i8, ptr %9, align 8
-  %.not51 = icmp eq i8 %10, 7
-  br i1 %.not51, label %12, label %11
-
-11:                                               ; preds = %6, %7
-  %.047.ph = phi ptr [ %8, %7 ], [ null, %6 ]
-  %.046.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
-  %.045.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
-  %.0.ph = phi i32 [ 9, %7 ], [ 1, %6 ]
+10:                                               ; preds = %5, %6
+  %.047.ph = phi ptr [ %7, %6 ], [ null, %5 ]
+  %.046.ph = phi i32 [ 6, %6 ], [ 0, %5 ]
+  %.045.ph = phi i32 [ 1, %6 ], [ 0, %5 ]
+  %.0.ph = phi i32 [ 9, %6 ], [ 1, %5 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.045.ph, ptr noundef null, i32 noundef %.046.ph, ptr noundef %.047.ph) #25
-  br label %22
+  br label %21
 
-12:                                               ; preds = %7
-  %13 = load ptr, ptr %8, align 8
-  %14 = load ptr, ptr @date_ce_immutable, align 8
-  %15 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %14) #25
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 -8
-  store ptr %17, ptr %3, align 8
-  %18 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef %3, ptr noundef %13)
-  br i1 %18, label %22, label %19
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr @date_ce_immutable, align 8
+  %14 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %13) #25
+  %15 = load ptr, ptr %1, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 -8
+  %17 = tail call fastcc zeroext i1 @php_date_initialize_from_hash(ptr nonnull %16, ptr noundef %12)
+  br i1 %17, label %21, label %18
 
-19:                                               ; preds = %12
+18:                                               ; preds = %11
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.42) #25
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %21 = icmp ne ptr %20, null
-  tail call void @llvm.assume(i1 %21)
-  br label %22
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %20 = icmp ne ptr %19, null
+  tail call void @llvm.assume(i1 %20)
+  br label %21
 
-22:                                               ; preds = %19, %12, %11
+21:                                               ; preds = %18, %11, %10
   ret void
 }
 
@@ -8456,52 +8450,50 @@ add_common_properties.exit:                       ; preds = %71, %39, %date_thro
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DateTime___unserialize(ptr noundef %0, ptr nocapture readnone %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
-  %6 = load i32, ptr %5, align 4
-  %cond = icmp eq i32 %6, 1
-  br i1 %cond, label %8, label %7
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = load i32, ptr %4, align 4
+  %cond = icmp eq i32 %5, 1
+  br i1 %cond, label %7, label %6
+
+6:                                                ; preds = %2
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #25
+  br label %11
 
 7:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #25
-  br label %12
+  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = load i8, ptr %9, align 8
+  %.not53 = icmp eq i8 %10, 7
+  br i1 %.not53, label %12, label %11
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = load i8, ptr %10, align 8
-  %.not53 = icmp eq i8 %11, 7
-  br i1 %.not53, label %13, label %12
-
-12:                                               ; preds = %7, %8
-  %.049.ph = phi ptr [ %9, %8 ], [ null, %7 ]
-  %.048.ph = phi i32 [ 6, %8 ], [ 0, %7 ]
-  %.047.ph = phi i32 [ 1, %8 ], [ 0, %7 ]
-  %.0.ph = phi i32 [ 9, %8 ], [ 1, %7 ]
+11:                                               ; preds = %6, %7
+  %.049.ph = phi ptr [ %8, %7 ], [ null, %6 ]
+  %.048.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
+  %.047.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
+  %.0.ph = phi i32 [ 9, %7 ], [ 1, %6 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.047.ph, ptr noundef null, i32 noundef %.048.ph, ptr noundef %.049.ph) #25
-  br label %22
+  br label %21
 
-13:                                               ; preds = %8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 -8
-  store ptr %15, ptr %3, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef %3, ptr noundef %16)
-  br i1 %17, label %21, label %18
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 -8
+  %15 = load ptr, ptr %8, align 8
+  %16 = tail call fastcc zeroext i1 @php_date_initialize_from_hash(ptr nonnull %14, ptr noundef %15)
+  br i1 %16, label %20, label %17
 
-18:                                               ; preds = %13
+17:                                               ; preds = %12
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.41) #25
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %20 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %20)
-  br label %22
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = icmp ne ptr %18, null
+  tail call void @llvm.assume(i1 %19)
+  br label %21
 
-21:                                               ; preds = %13
-  tail call fastcc void @restore_custom_datetime_properties(ptr noundef nonnull %4, ptr noundef %16)
-  br label %22
+20:                                               ; preds = %12
+  tail call fastcc void @restore_custom_datetime_properties(ptr noundef nonnull %3, ptr noundef %15)
+  br label %21
 
-22:                                               ; preds = %21, %18, %12
+21:                                               ; preds = %20, %17, %11
   ret void
 }
 
@@ -8579,118 +8571,112 @@ date_time_is_internal_property.exit.thread:       ; preds = %22, %24, %26, %15, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DateTimeImmutable___unserialize(ptr noundef %0, ptr nocapture readnone %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
-  %6 = load i32, ptr %5, align 4
-  %cond = icmp eq i32 %6, 1
-  br i1 %cond, label %8, label %7
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = load i32, ptr %4, align 4
+  %cond = icmp eq i32 %5, 1
+  br i1 %cond, label %7, label %6
+
+6:                                                ; preds = %2
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #25
+  br label %11
 
 7:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #25
-  br label %12
+  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = load i8, ptr %9, align 8
+  %.not53 = icmp eq i8 %10, 7
+  br i1 %.not53, label %12, label %11
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = load i8, ptr %10, align 8
-  %.not53 = icmp eq i8 %11, 7
-  br i1 %.not53, label %13, label %12
-
-12:                                               ; preds = %7, %8
-  %.049.ph = phi ptr [ %9, %8 ], [ null, %7 ]
-  %.048.ph = phi i32 [ 6, %8 ], [ 0, %7 ]
-  %.047.ph = phi i32 [ 1, %8 ], [ 0, %7 ]
-  %.0.ph = phi i32 [ 9, %8 ], [ 1, %7 ]
+11:                                               ; preds = %6, %7
+  %.049.ph = phi ptr [ %8, %7 ], [ null, %6 ]
+  %.048.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
+  %.047.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
+  %.0.ph = phi i32 [ 9, %7 ], [ 1, %6 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.047.ph, ptr noundef null, i32 noundef %.048.ph, ptr noundef %.049.ph) #25
-  br label %22
+  br label %21
 
-13:                                               ; preds = %8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 -8
-  store ptr %15, ptr %3, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef %3, ptr noundef %16)
-  br i1 %17, label %21, label %18
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 -8
+  %15 = load ptr, ptr %8, align 8
+  %16 = tail call fastcc zeroext i1 @php_date_initialize_from_hash(ptr nonnull %14, ptr noundef %15)
+  br i1 %16, label %20, label %17
 
-18:                                               ; preds = %13
+17:                                               ; preds = %12
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.42) #25
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %20 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %20)
-  br label %22
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = icmp ne ptr %18, null
+  tail call void @llvm.assume(i1 %19)
+  br label %21
 
-21:                                               ; preds = %13
-  tail call fastcc void @restore_custom_datetime_properties(ptr noundef nonnull %4, ptr noundef %16)
-  br label %22
+20:                                               ; preds = %12
+  tail call fastcc void @restore_custom_datetime_properties(ptr noundef nonnull %3, ptr noundef %15)
+  br label %21
 
-22:                                               ; preds = %21, %18, %12
+21:                                               ; preds = %20, %17, %11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DateTime___wakeup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %7, label %6
+  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = load i32, ptr %3, align 4
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %6, label %5
+
+5:                                                ; preds = %2
+  tail call void @zend_wrong_parameters_none_error() #25
+  br label %17
 
 6:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #25
-  br label %18
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 -8
+  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 104
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call ptr %13(ptr noundef %8) #25
+  %15 = tail call fastcc zeroext i1 @php_date_initialize_from_hash(ptr nonnull %9, ptr noundef %14)
+  br i1 %15, label %17, label %16
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 -8
-  store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 104
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr %14(ptr noundef %9) #25
-  %16 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef %3, ptr noundef %15)
-  br i1 %16, label %18, label %17
-
-17:                                               ; preds = %7
+16:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.41) #25
-  br label %18
+  br label %17
 
-18:                                               ; preds = %17, %7, %6
+17:                                               ; preds = %16, %6, %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DateTimeImmutable___wakeup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %7, label %6
+  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = load i32, ptr %3, align 4
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %6, label %5
+
+5:                                                ; preds = %2
+  tail call void @zend_wrong_parameters_none_error() #25
+  br label %17
 
 6:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #25
-  br label %18
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 -8
+  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 104
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call ptr %13(ptr noundef %8) #25
+  %15 = tail call fastcc zeroext i1 @php_date_initialize_from_hash(ptr nonnull %9, ptr noundef %14)
+  br i1 %15, label %17, label %16
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 -8
-  store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 104
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr %14(ptr noundef %9) #25
-  %16 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef %3, ptr noundef %15)
-  br i1 %16, label %18, label %17
-
-17:                                               ; preds = %7
+16:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.42) #25
-  br label %18
+  br label %17
 
-18:                                               ; preds = %17, %7, %6
+17:                                               ; preds = %16, %6, %5
   ret void
 }
 
@@ -14206,433 +14192,447 @@ date_interval_initialize.exit:                    ; preds = %34, %29, %33, %41, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DateInterval___set_state(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4
-  %cond = icmp eq i32 %5, 1
-  br i1 %cond, label %7, label %6
+  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = load i32, ptr %3, align 4
+  %cond = icmp eq i32 %4, 1
+  br i1 %cond, label %6, label %5
+
+5:                                                ; preds = %2
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #25
+  br label %10
 
 6:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #25
-  br label %11
+  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = load i8, ptr %8, align 8
+  %.not49 = icmp eq i8 %9, 7
+  br i1 %.not49, label %11, label %10
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = load i8, ptr %9, align 8
-  %.not49 = icmp eq i8 %10, 7
-  br i1 %.not49, label %12, label %11
-
-11:                                               ; preds = %6, %7
-  %.045.ph = phi ptr [ %8, %7 ], [ null, %6 ]
-  %.044.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
-  %.043.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
-  %.0.ph = phi i32 [ 9, %7 ], [ 1, %6 ]
+10:                                               ; preds = %5, %6
+  %.045.ph = phi ptr [ %7, %6 ], [ null, %5 ]
+  %.044.ph = phi i32 [ 6, %6 ], [ 0, %5 ]
+  %.043.ph = phi i32 [ 1, %6 ], [ 0, %5 ]
+  %.0.ph = phi i32 [ 9, %6 ], [ 1, %5 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.043.ph, ptr noundef null, i32 noundef %.044.ph, ptr noundef %.045.ph) #25
-  br label %18
+  br label %17
 
-12:                                               ; preds = %7
-  %13 = load ptr, ptr %8, align 8
-  %14 = load ptr, ptr @date_ce_interval, align 8
-  %15 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %14) #25
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 -32
-  store ptr %17, ptr %3, align 8
-  call fastcc void @php_date_interval_initialize_from_hash(ptr noundef %3, ptr noundef %13)
-  br label %18
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr @date_ce_interval, align 8
+  %14 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %13) #25
+  %15 = load ptr, ptr %1, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 -32
+  tail call fastcc void @php_date_interval_initialize_from_hash(ptr nonnull %16, ptr noundef %12)
+  br label %17
 
-18:                                               ; preds = %12, %11
+17:                                               ; preds = %11, %10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_date_interval_initialize_from_hash(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = alloca ptr, align 8
-  %4 = load ptr, ptr %0, align 8
-  %5 = load ptr, ptr %4, align 8
-  %.not = icmp eq ptr %5, null
-  br i1 %.not, label %7, label %6
+define internal fastcc void @php_date_interval_initialize_from_hash(ptr nocapture %.0.val, ptr noundef %0) unnamed_addr #0 {
+  %2 = alloca ptr, align 8
+  %3 = load ptr, ptr %.0.val, align 8
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %5, label %4
 
-6:                                                ; preds = %2
-  tail call void @timelib_rel_time_dtor(ptr noundef nonnull %5) #25
-  br label %7
+4:                                                ; preds = %1
+  tail call void @timelib_rel_time_dtor(ptr noundef nonnull %3) #25
+  br label %5
 
-7:                                                ; preds = %6, %2
-  %8 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.410, i64 noundef 11) #25
-  %.not287 = icmp eq ptr %8, null
-  br i1 %.not287, label %59, label %9
+5:                                                ; preds = %4, %1
+  %6 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.410, i64 noundef 11) #25
+  %.not287 = icmp eq ptr %6, null
+  br i1 %.not287, label %52, label %7
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
-  %11 = load i8, ptr %10, align 8
-  %12 = icmp eq i8 %11, 6
-  br i1 %12, label %13, label %59
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = load i8, ptr %8, align 8
+  %10 = icmp eq i8 %9, 6
+  br i1 %10, label %11, label %52
 
-13:                                               ; preds = %9
-  store ptr null, ptr %3, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
-  %17 = load i64, ptr %16, align 8
-  %18 = load ptr, ptr @php_date_global_timezone_db, align 8
-  %.not310 = icmp eq ptr %18, null
-  br i1 %.not310, label %19, label %21
+11:                                               ; preds = %7
+  store ptr null, ptr %2, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = load i64, ptr %14, align 8
+  %16 = load ptr, ptr @php_date_global_timezone_db, align 8
+  %.not310 = icmp eq ptr %16, null
+  br i1 %.not310, label %17, label %19
 
-19:                                               ; preds = %13
-  %20 = tail call ptr @timelib_builtin_db() #25
-  br label %21
+17:                                               ; preds = %11
+  %18 = tail call ptr @timelib_builtin_db() #25
+  br label %19
 
-21:                                               ; preds = %13, %19
-  %22 = phi ptr [ %20, %19 ], [ %18, %13 ]
-  %23 = call ptr @timelib_strtotime(ptr noundef nonnull %15, i64 noundef %17, ptr noundef nonnull %3, ptr noundef %22, ptr noundef nonnull @php_date_parse_tzfile_wrapper) #25
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %28, label %38
+19:                                               ; preds = %11, %17
+  %20 = phi ptr [ %18, %17 ], [ %16, %11 ]
+  %21 = call ptr @timelib_strtotime(ptr noundef nonnull %13, i64 noundef %15, ptr noundef nonnull %2, ptr noundef %20, ptr noundef nonnull @php_date_parse_tzfile_wrapper) #25
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %26, label %36
 
-28:                                               ; preds = %21
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
-  %31 = load ptr, ptr %24, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
-  %35 = load i8, ptr %34, align 8
-  %.not311 = icmp eq i8 %35, 0
-  %narrow = select i1 %.not311, i8 32, i8 %35
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %29 = load ptr, ptr %22, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %31 = load i32, ptr %30, align 4
+  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = load i8, ptr %32, align 8
+  %.not311 = icmp eq i8 %33, 0
+  %narrow = select i1 %.not311, i8 32, i8 %33
   %spec.select = sext i8 %narrow to i32
-  %36 = getelementptr inbounds i8, ptr %31, i64 16
-  %37 = load ptr, ptr %36, align 8
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.411, ptr noundef nonnull %30, i32 noundef %33, i32 noundef %spec.select, ptr noundef %37) #25
-  br label %38
+  %34 = getelementptr inbounds i8, ptr %29, i64 16
+  %35 = load ptr, ptr %34, align 8
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.411, ptr noundef nonnull %28, i32 noundef %31, i32 noundef %spec.select, ptr noundef %35) #25
+  br label %36
 
-38:                                               ; preds = %28, %21
-  %39 = getelementptr inbounds i8, ptr %23, i64 88
-  %40 = call ptr @timelib_rel_time_clone(ptr noundef nonnull %39) #25
-  %41 = load ptr, ptr %0, align 8
-  store ptr %40, ptr %41, align 8
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
-  store i8 1, ptr %43, align 8
-  %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
-  store i32 1, ptr %45, align 8
-  %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 12
-  store i8 1, ptr %47, align 4
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
-  %50 = load i32, ptr %49, align 4
-  %51 = and i32 %50, 64
-  %.not312 = icmp eq i32 %51, 0
-  br i1 %.not312, label %52, label %55
+36:                                               ; preds = %26, %19
+  %37 = getelementptr inbounds i8, ptr %21, i64 88
+  %38 = call ptr @timelib_rel_time_clone(ptr noundef nonnull %37) #25
+  store ptr %38, ptr %.0.val, align 8
+  %39 = getelementptr inbounds i8, ptr %.0.val, i64 24
+  store i8 1, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %.0.val, i64 8
+  store i32 1, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %.0.val, i64 12
+  store i8 1, ptr %41, align 4
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = and i32 %44, 64
+  %.not312 = icmp eq i32 %45, 0
+  br i1 %.not312, label %46, label %49
 
-52:                                               ; preds = %38
-  %53 = load i32, ptr %48, align 4
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %48, align 4
-  br label %55
+46:                                               ; preds = %36
+  %47 = load i32, ptr %42, align 4
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %42, align 4
+  br label %49
 
-55:                                               ; preds = %52, %38
-  %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
-  store ptr %48, ptr %57, align 8
-  call void @timelib_time_dtor(ptr noundef %23) #25
-  %58 = load ptr, ptr %3, align 8
-  call void @timelib_error_container_dtor(ptr noundef %58) #25
-  br label %400
+49:                                               ; preds = %46, %36
+  %50 = getelementptr inbounds i8, ptr %.0.val, i64 16
+  store ptr %42, ptr %50, align 8
+  call void @timelib_time_dtor(ptr noundef %21) #25
+  %51 = load ptr, ptr %2, align 8
+  call void @timelib_error_container_dtor(ptr noundef %51) #25
+  br label %369
 
-59:                                               ; preds = %9, %7
-  %60 = tail call ptr @timelib_rel_time_ctor() #25
-  %61 = load ptr, ptr %0, align 8
-  store ptr %60, ptr %61, align 8
-  %62 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.345, i64 noundef 1) #25
-  %.not288 = icmp eq ptr %62, null
-  br i1 %.not288, label %73, label %63
+52:                                               ; preds = %7, %5
+  %53 = tail call ptr @timelib_rel_time_ctor() #25
+  store ptr %53, ptr %.0.val, align 8
+  %54 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.345, i64 noundef 1) #25
+  %.not288 = icmp eq ptr %54, null
+  br i1 %.not288, label %65, label %55
+
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = load i8, ptr %56, align 8
+  %58 = icmp ult i8 %57, 7
+  br i1 %58, label %59, label %65
+
+59:                                               ; preds = %55
+  %60 = icmp eq i8 %57, 4
+  br i1 %60, label %61, label %63
+
+61:                                               ; preds = %59
+  %62 = load i64, ptr %54, align 8
+  br label %65
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %62, i64 8
-  %65 = load i8, ptr %64, align 8
-  %66 = icmp ult i8 %65, 7
-  br i1 %66, label %67, label %73
+  %64 = tail call i64 @zval_get_long_func(ptr noundef nonnull %54, i1 noundef zeroext false) #25
+  br label %65
 
-67:                                               ; preds = %63
-  %68 = icmp eq i8 %65, 4
-  br i1 %68, label %69, label %71
+65:                                               ; preds = %52, %55, %61, %63
+  %.sink = phi i64 [ %62, %61 ], [ %64, %63 ], [ -1, %55 ], [ -1, %52 ]
+  %66 = load ptr, ptr %.0.val, align 8
+  store i64 %.sink, ptr %66, align 8
+  %67 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.346, i64 noundef 1) #25
+  %.not289 = icmp eq ptr %67, null
+  br i1 %.not289, label %78, label %68
 
-69:                                               ; preds = %67
-  %70 = load i64, ptr %62, align 8
-  br label %73
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = load i8, ptr %69, align 8
+  %71 = icmp ult i8 %70, 7
+  br i1 %71, label %72, label %78
 
-71:                                               ; preds = %67
-  %72 = tail call i64 @zval_get_long_func(ptr noundef nonnull %62, i1 noundef zeroext false) #25
-  br label %73
+72:                                               ; preds = %68
+  %73 = icmp eq i8 %70, 4
+  br i1 %73, label %74, label %76
 
-73:                                               ; preds = %59, %63, %69, %71
-  %.sink = phi i64 [ %70, %69 ], [ %72, %71 ], [ -1, %63 ], [ -1, %59 ]
-  %74 = load ptr, ptr %0, align 8
-  %75 = load ptr, ptr %74, align 8
-  store i64 %.sink, ptr %75, align 8
-  %76 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.346, i64 noundef 1) #25
-  %.not289 = icmp eq ptr %76, null
-  br i1 %.not289, label %87, label %77
+74:                                               ; preds = %72
+  %75 = load i64, ptr %67, align 8
+  br label %78
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %76, i64 8
-  %79 = load i8, ptr %78, align 8
-  %80 = icmp ult i8 %79, 7
-  br i1 %80, label %81, label %87
+76:                                               ; preds = %72
+  %77 = tail call i64 @zval_get_long_func(ptr noundef nonnull %67, i1 noundef zeroext false) #25
+  br label %78
 
-81:                                               ; preds = %77
-  %82 = icmp eq i8 %79, 4
-  br i1 %82, label %83, label %85
+78:                                               ; preds = %65, %68, %74, %76
+  %.sink2 = phi i64 [ %75, %74 ], [ %77, %76 ], [ -1, %68 ], [ -1, %65 ]
+  %79 = load ptr, ptr %.0.val, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  store i64 %.sink2, ptr %80, align 8
+  %81 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.347, i64 noundef 1) #25
+  %.not290 = icmp eq ptr %81, null
+  br i1 %.not290, label %92, label %82
 
-83:                                               ; preds = %81
-  %84 = load i64, ptr %76, align 8
-  br label %87
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds i8, ptr %81, i64 8
+  %84 = load i8, ptr %83, align 8
+  %85 = icmp ult i8 %84, 7
+  br i1 %85, label %86, label %92
 
-85:                                               ; preds = %81
-  %86 = tail call i64 @zval_get_long_func(ptr noundef nonnull %76, i1 noundef zeroext false) #25
-  br label %87
+86:                                               ; preds = %82
+  %87 = icmp eq i8 %84, 4
+  br i1 %87, label %88, label %90
 
-87:                                               ; preds = %73, %77, %83, %85
-  %.sink3 = phi i64 [ %84, %83 ], [ %86, %85 ], [ -1, %77 ], [ -1, %73 ]
-  %88 = load ptr, ptr %0, align 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
-  store i64 %.sink3, ptr %90, align 8
-  %91 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.347, i64 noundef 1) #25
-  %.not290 = icmp eq ptr %91, null
-  br i1 %.not290, label %102, label %92
+88:                                               ; preds = %86
+  %89 = load i64, ptr %81, align 8
+  br label %92
 
-92:                                               ; preds = %87
-  %93 = getelementptr inbounds i8, ptr %91, i64 8
-  %94 = load i8, ptr %93, align 8
-  %95 = icmp ult i8 %94, 7
-  br i1 %95, label %96, label %102
+90:                                               ; preds = %86
+  %91 = tail call i64 @zval_get_long_func(ptr noundef nonnull %81, i1 noundef zeroext false) #25
+  br label %92
+
+92:                                               ; preds = %78, %82, %88, %90
+  %.sink5 = phi i64 [ %89, %88 ], [ %91, %90 ], [ -1, %82 ], [ -1, %78 ]
+  %93 = load ptr, ptr %.0.val, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  store i64 %.sink5, ptr %94, align 8
+  %95 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.348, i64 noundef 1) #25
+  %.not291 = icmp eq ptr %95, null
+  br i1 %.not291, label %106, label %96
 
 96:                                               ; preds = %92
-  %97 = icmp eq i8 %94, 4
-  br i1 %97, label %98, label %100
-
-98:                                               ; preds = %96
-  %99 = load i64, ptr %91, align 8
-  br label %102
+  %97 = getelementptr inbounds i8, ptr %95, i64 8
+  %98 = load i8, ptr %97, align 8
+  %99 = icmp ult i8 %98, 7
+  br i1 %99, label %100, label %106
 
 100:                                              ; preds = %96
-  %101 = tail call i64 @zval_get_long_func(ptr noundef nonnull %91, i1 noundef zeroext false) #25
-  br label %102
+  %101 = icmp eq i8 %98, 4
+  br i1 %101, label %102, label %104
 
-102:                                              ; preds = %87, %92, %98, %100
-  %.sink7 = phi i64 [ %99, %98 ], [ %101, %100 ], [ -1, %92 ], [ -1, %87 ]
-  %103 = load ptr, ptr %0, align 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
-  store i64 %.sink7, ptr %105, align 8
-  %106 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.348, i64 noundef 1) #25
-  %.not291 = icmp eq ptr %106, null
-  br i1 %.not291, label %117, label %107
+102:                                              ; preds = %100
+  %103 = load i64, ptr %95, align 8
+  br label %106
 
-107:                                              ; preds = %102
-  %108 = getelementptr inbounds i8, ptr %106, i64 8
-  %109 = load i8, ptr %108, align 8
-  %110 = icmp ult i8 %109, 7
-  br i1 %110, label %111, label %117
+104:                                              ; preds = %100
+  %105 = tail call i64 @zval_get_long_func(ptr noundef nonnull %95, i1 noundef zeroext false) #25
+  br label %106
 
-111:                                              ; preds = %107
-  %112 = icmp eq i8 %109, 4
-  br i1 %112, label %113, label %115
+106:                                              ; preds = %92, %96, %102, %104
+  %.sink8 = phi i64 [ %103, %102 ], [ %105, %104 ], [ -1, %96 ], [ -1, %92 ]
+  %107 = load ptr, ptr %.0.val, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 24
+  store i64 %.sink8, ptr %108, align 8
+  %109 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.349, i64 noundef 1) #25
+  %.not292 = icmp eq ptr %109, null
+  br i1 %.not292, label %120, label %110
 
-113:                                              ; preds = %111
-  %114 = load i64, ptr %106, align 8
-  br label %117
+110:                                              ; preds = %106
+  %111 = getelementptr inbounds i8, ptr %109, i64 8
+  %112 = load i8, ptr %111, align 8
+  %113 = icmp ult i8 %112, 7
+  br i1 %113, label %114, label %120
 
-115:                                              ; preds = %111
-  %116 = tail call i64 @zval_get_long_func(ptr noundef nonnull %106, i1 noundef zeroext false) #25
-  br label %117
+114:                                              ; preds = %110
+  %115 = icmp eq i8 %112, 4
+  br i1 %115, label %116, label %118
 
-117:                                              ; preds = %102, %107, %113, %115
-  %.sink11 = phi i64 [ %114, %113 ], [ %116, %115 ], [ -1, %107 ], [ -1, %102 ]
-  %118 = load ptr, ptr %0, align 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 24
-  store i64 %.sink11, ptr %120, align 8
-  %121 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.349, i64 noundef 1) #25
-  %.not292 = icmp eq ptr %121, null
-  br i1 %.not292, label %132, label %122
+116:                                              ; preds = %114
+  %117 = load i64, ptr %109, align 8
+  br label %120
 
-122:                                              ; preds = %117
-  %123 = getelementptr inbounds i8, ptr %121, i64 8
-  %124 = load i8, ptr %123, align 8
-  %125 = icmp ult i8 %124, 7
-  br i1 %125, label %126, label %132
+118:                                              ; preds = %114
+  %119 = tail call i64 @zval_get_long_func(ptr noundef nonnull %109, i1 noundef zeroext false) #25
+  br label %120
 
-126:                                              ; preds = %122
-  %127 = icmp eq i8 %124, 4
-  br i1 %127, label %128, label %130
+120:                                              ; preds = %106, %110, %116, %118
+  %.sink11 = phi i64 [ %117, %116 ], [ %119, %118 ], [ -1, %110 ], [ -1, %106 ]
+  %121 = load ptr, ptr %.0.val, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 32
+  store i64 %.sink11, ptr %122, align 8
+  %123 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.44, i64 noundef 1) #25
+  %.not293 = icmp eq ptr %123, null
+  br i1 %.not293, label %134, label %124
 
-128:                                              ; preds = %126
-  %129 = load i64, ptr %121, align 8
-  br label %132
+124:                                              ; preds = %120
+  %125 = getelementptr inbounds i8, ptr %123, i64 8
+  %126 = load i8, ptr %125, align 8
+  %127 = icmp ult i8 %126, 7
+  br i1 %127, label %128, label %134
 
-130:                                              ; preds = %126
-  %131 = tail call i64 @zval_get_long_func(ptr noundef nonnull %121, i1 noundef zeroext false) #25
-  br label %132
+128:                                              ; preds = %124
+  %129 = icmp eq i8 %126, 4
+  br i1 %129, label %130, label %132
 
-132:                                              ; preds = %117, %122, %128, %130
-  %.sink15 = phi i64 [ %129, %128 ], [ %131, %130 ], [ -1, %122 ], [ -1, %117 ]
-  %133 = load ptr, ptr %0, align 8
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 32
-  store i64 %.sink15, ptr %135, align 8
-  %136 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.44, i64 noundef 1) #25
-  %.not293 = icmp eq ptr %136, null
-  br i1 %.not293, label %147, label %137
+130:                                              ; preds = %128
+  %131 = load i64, ptr %123, align 8
+  br label %134
 
-137:                                              ; preds = %132
-  %138 = getelementptr inbounds i8, ptr %136, i64 8
-  %139 = load i8, ptr %138, align 8
-  %140 = icmp ult i8 %139, 7
-  br i1 %140, label %141, label %147
+132:                                              ; preds = %128
+  %133 = tail call i64 @zval_get_long_func(ptr noundef nonnull %123, i1 noundef zeroext false) #25
+  br label %134
 
-141:                                              ; preds = %137
-  %142 = icmp eq i8 %139, 4
-  br i1 %142, label %143, label %145
+134:                                              ; preds = %120, %124, %130, %132
+  %.sink14 = phi i64 [ %131, %130 ], [ %133, %132 ], [ -1, %124 ], [ -1, %120 ]
+  %135 = load ptr, ptr %.0.val, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 40
+  store i64 %.sink14, ptr %136, align 8
+  %137 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.350, i64 noundef 1) #25
+  %.not294 = icmp eq ptr %137, null
+  br i1 %.not294, label %161, label %138
 
-143:                                              ; preds = %141
-  %144 = load i64, ptr %136, align 8
-  br label %147
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds i8, ptr %137, i64 8
+  %140 = load i8, ptr %139, align 8
+  %141 = icmp eq i8 %140, 5
+  br i1 %141, label %142, label %144
 
-145:                                              ; preds = %141
-  %146 = tail call i64 @zval_get_long_func(ptr noundef nonnull %136, i1 noundef zeroext false) #25
-  br label %147
+142:                                              ; preds = %138
+  %143 = load double, ptr %137, align 8
+  br label %146
 
-147:                                              ; preds = %132, %137, %143, %145
-  %.sink19 = phi i64 [ %144, %143 ], [ %146, %145 ], [ -1, %137 ], [ -1, %132 ]
-  %148 = load ptr, ptr %0, align 8
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 40
-  store i64 %.sink19, ptr %150, align 8
-  %151 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.350, i64 noundef 1) #25
-  %.not294 = icmp eq ptr %151, null
-  br i1 %.not294, label %176, label %152
+144:                                              ; preds = %138
+  %145 = tail call double @zval_get_double_func(ptr noundef nonnull %137) #25
+  br label %146
 
-152:                                              ; preds = %147
-  %153 = getelementptr inbounds i8, ptr %151, i64 8
-  %154 = load i8, ptr %153, align 8
-  %155 = icmp eq i8 %154, 5
-  br i1 %155, label %156, label %158
+146:                                              ; preds = %144, %142
+  %147 = phi double [ %143, %142 ], [ %145, %144 ]
+  %148 = fmul double %147, 1.000000e+06
+  %149 = tail call double @llvm.fabs.f64(double %148)
+  %150 = fcmp ueq double %149, 0x7FF0000000000000
+  br i1 %150, label %158, label %151
 
-156:                                              ; preds = %152
-  %157 = load double, ptr %151, align 8
-  br label %160
+151:                                              ; preds = %146
+  %152 = fcmp oge double %148, 0x43E0000000000000
+  %153 = fcmp olt double %148, 0xC3E0000000000000
+  %or.cond = or i1 %152, %153
+  br i1 %or.cond, label %154, label %156
 
-158:                                              ; preds = %152
-  %159 = tail call double @zval_get_double_func(ptr noundef nonnull %151) #25
-  br label %160
+154:                                              ; preds = %151
+  %155 = tail call i64 @zend_dval_to_lval_slow(double noundef %148) #25
+  br label %158
 
-160:                                              ; preds = %158, %156
-  %161 = phi double [ %157, %156 ], [ %159, %158 ]
-  %162 = fmul double %161, 1.000000e+06
-  %163 = tail call double @llvm.fabs.f64(double %162)
-  %164 = fcmp ueq double %163, 0x7FF0000000000000
-  br i1 %164, label %172, label %165
+156:                                              ; preds = %151
+  %157 = fptosi double %148 to i64
+  br label %158
 
-165:                                              ; preds = %160
-  %166 = fcmp oge double %162, 0x43E0000000000000
-  %167 = fcmp olt double %162, 0xC3E0000000000000
-  %or.cond = or i1 %166, %167
-  br i1 %or.cond, label %168, label %170
+158:                                              ; preds = %146, %156, %154
+  %.0248 = phi i64 [ %155, %154 ], [ %157, %156 ], [ 0, %146 ]
+  %159 = load ptr, ptr %.0.val, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 48
+  store i64 %.0248, ptr %160, align 8
+  br label %161
 
-168:                                              ; preds = %165
-  %169 = tail call i64 @zend_dval_to_lval_slow(double noundef %162) #25
-  br label %172
+161:                                              ; preds = %134, %158
+  %162 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.35, i64 noundef 7) #25
+  %.not295 = icmp eq ptr %162, null
+  br i1 %.not295, label %176, label %163
 
-170:                                              ; preds = %165
-  %171 = fptosi double %162 to i64
-  br label %172
+163:                                              ; preds = %161
+  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %165 = load i8, ptr %164, align 8
+  %166 = icmp ult i8 %165, 7
+  br i1 %166, label %167, label %176
 
-172:                                              ; preds = %160, %170, %168
-  %.0248 = phi i64 [ %169, %168 ], [ %171, %170 ], [ 0, %160 ]
-  %173 = load ptr, ptr %0, align 8
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 48
-  store i64 %.0248, ptr %175, align 8
+167:                                              ; preds = %163
+  %168 = icmp eq i8 %165, 4
+  br i1 %168, label %169, label %171
+
+169:                                              ; preds = %167
+  %170 = load i64, ptr %162, align 8
+  br label %173
+
+171:                                              ; preds = %167
+  %172 = tail call i64 @zval_get_long_func(ptr noundef nonnull %162, i1 noundef zeroext false) #25
+  br label %173
+
+173:                                              ; preds = %171, %169
+  %174 = phi i64 [ %170, %169 ], [ %172, %171 ]
+  %175 = trunc i64 %174 to i32
   br label %176
 
-176:                                              ; preds = %147, %172
-  %177 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.35, i64 noundef 7) #25
-  %.not295 = icmp eq ptr %177, null
-  br i1 %.not295, label %191, label %178
+176:                                              ; preds = %161, %163, %173
+  %.sink17 = phi i32 [ %175, %173 ], [ -1, %163 ], [ -1, %161 ]
+  %177 = load ptr, ptr %.0.val, align 8
+  %178 = getelementptr inbounds i8, ptr %177, i64 56
+  store i32 %.sink17, ptr %178, align 8
+  %179 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.412, i64 noundef 16) #25
+  %.not296 = icmp eq ptr %179, null
+  br i1 %.not296, label %193, label %180
 
-178:                                              ; preds = %176
-  %179 = getelementptr inbounds i8, ptr %177, i64 8
-  %180 = load i8, ptr %179, align 8
-  %181 = icmp ult i8 %180, 7
-  br i1 %181, label %182, label %191
+180:                                              ; preds = %176
+  %181 = getelementptr inbounds i8, ptr %179, i64 8
+  %182 = load i8, ptr %181, align 8
+  %183 = icmp ult i8 %182, 7
+  br i1 %183, label %184, label %193
 
-182:                                              ; preds = %178
-  %183 = icmp eq i8 %180, 4
-  br i1 %183, label %184, label %186
+184:                                              ; preds = %180
+  %185 = icmp eq i8 %182, 4
+  br i1 %185, label %186, label %188
 
-184:                                              ; preds = %182
-  %185 = load i64, ptr %177, align 8
-  br label %188
+186:                                              ; preds = %184
+  %187 = load i64, ptr %179, align 8
+  br label %190
 
-186:                                              ; preds = %182
-  %187 = tail call i64 @zval_get_long_func(ptr noundef nonnull %177, i1 noundef zeroext false) #25
-  br label %188
+188:                                              ; preds = %184
+  %189 = tail call i64 @zval_get_long_func(ptr noundef nonnull %179, i1 noundef zeroext false) #25
+  br label %190
 
-188:                                              ; preds = %186, %184
-  %189 = phi i64 [ %185, %184 ], [ %187, %186 ]
-  %190 = trunc i64 %189 to i32
-  br label %191
+190:                                              ; preds = %188, %186
+  %191 = phi i64 [ %187, %186 ], [ %189, %188 ]
+  %192 = trunc i64 %191 to i32
+  br label %193
 
-191:                                              ; preds = %176, %178, %188
-  %.sink23 = phi i32 [ %190, %188 ], [ -1, %178 ], [ -1, %176 ]
-  %192 = load ptr, ptr %0, align 8
-  %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 56
-  store i32 %.sink23, ptr %194, align 8
-  %195 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.412, i64 noundef 16) #25
-  %.not296 = icmp eq ptr %195, null
-  br i1 %.not296, label %209, label %196
+193:                                              ; preds = %176, %180, %190
+  %.sink20 = phi i32 [ %192, %190 ], [ -1, %180 ], [ -1, %176 ]
+  %194 = load ptr, ptr %.0.val, align 8
+  %195 = getelementptr inbounds i8, ptr %194, i64 60
+  store i32 %.sink20, ptr %195, align 4
+  %196 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.413, i64 noundef 17) #25
+  %.not297 = icmp eq ptr %196, null
+  br i1 %.not297, label %210, label %197
 
-196:                                              ; preds = %191
-  %197 = getelementptr inbounds i8, ptr %195, i64 8
-  %198 = load i8, ptr %197, align 8
-  %199 = icmp ult i8 %198, 7
-  br i1 %199, label %200, label %209
+197:                                              ; preds = %193
+  %198 = getelementptr inbounds i8, ptr %196, i64 8
+  %199 = load i8, ptr %198, align 8
+  %200 = icmp ult i8 %199, 7
+  br i1 %200, label %201, label %210
 
-200:                                              ; preds = %196
-  %201 = icmp eq i8 %198, 4
-  br i1 %201, label %202, label %204
+201:                                              ; preds = %197
+  %202 = icmp eq i8 %199, 4
+  br i1 %202, label %203, label %205
 
-202:                                              ; preds = %200
-  %203 = load i64, ptr %195, align 8
-  br label %206
+203:                                              ; preds = %201
+  %204 = load i64, ptr %196, align 8
+  br label %207
 
-204:                                              ; preds = %200
-  %205 = tail call i64 @zval_get_long_func(ptr noundef nonnull %195, i1 noundef zeroext false) #25
-  br label %206
+205:                                              ; preds = %201
+  %206 = tail call i64 @zval_get_long_func(ptr noundef nonnull %196, i1 noundef zeroext false) #25
+  br label %207
 
-206:                                              ; preds = %204, %202
-  %207 = phi i64 [ %203, %202 ], [ %205, %204 ]
-  %208 = trunc i64 %207 to i32
-  br label %209
+207:                                              ; preds = %205, %203
+  %208 = phi i64 [ %204, %203 ], [ %206, %205 ]
+  %209 = trunc i64 %208 to i32
+  br label %210
 
-209:                                              ; preds = %191, %196, %206
-  %.sink27 = phi i32 [ %208, %206 ], [ -1, %196 ], [ -1, %191 ]
-  %210 = load ptr, ptr %0, align 8
-  %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 60
-  store i32 %.sink27, ptr %212, align 4
-  %213 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.413, i64 noundef 17) #25
-  %.not297 = icmp eq ptr %213, null
-  br i1 %.not297, label %227, label %214
+210:                                              ; preds = %193, %197, %207
+  %.sink23 = phi i32 [ %209, %207 ], [ -1, %197 ], [ -1, %193 ]
+  %211 = load ptr, ptr %.0.val, align 8
+  %212 = getelementptr inbounds i8, ptr %211, i64 64
+  store i32 %.sink23, ptr %212, align 8
+  %213 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.351, i64 noundef 6) #25
+  %.not298 = icmp eq ptr %213, null
+  br i1 %.not298, label %227, label %214
 
-214:                                              ; preds = %209
+214:                                              ; preds = %210
   %215 = getelementptr inbounds i8, ptr %213, i64 8
   %216 = load i8, ptr %215, align 8
   %217 = icmp ult i8 %216, 7
@@ -14655,329 +14655,283 @@ define internal fastcc void @php_date_interval_initialize_from_hash(ptr nocaptur
   %226 = trunc i64 %225 to i32
   br label %227
 
-227:                                              ; preds = %209, %214, %224
-  %.sink31 = phi i32 [ %226, %224 ], [ -1, %214 ], [ -1, %209 ]
-  %228 = load ptr, ptr %0, align 8
-  %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 64
-  store i32 %.sink31, ptr %230, align 8
-  %231 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.351, i64 noundef 6) #25
-  %.not298 = icmp eq ptr %231, null
-  br i1 %.not298, label %245, label %232
+227:                                              ; preds = %210, %214, %224
+  %.sink26 = phi i32 [ %226, %224 ], [ 0, %214 ], [ 0, %210 ]
+  %228 = load ptr, ptr %.0.val, align 8
+  %229 = getelementptr inbounds i8, ptr %228, i64 68
+  store i32 %.sink26, ptr %229, align 4
+  %230 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.352, i64 noundef 4) #25
+  %.not299 = icmp eq ptr %230, null
+  br i1 %.not299, label %.critedge, label %231
 
-232:                                              ; preds = %227
-  %233 = getelementptr inbounds i8, ptr %231, i64 8
-  %234 = load i8, ptr %233, align 8
-  %235 = icmp ult i8 %234, 7
-  br i1 %235, label %236, label %245
+231:                                              ; preds = %227
+  %232 = getelementptr inbounds i8, ptr %230, i64 8
+  %233 = load i8, ptr %232, align 8
+  %234 = icmp eq i8 %233, 2
+  br i1 %234, label %235, label %238
 
-236:                                              ; preds = %232
-  %237 = icmp eq i8 %234, 4
-  br i1 %237, label %238, label %240
+235:                                              ; preds = %231
+  %236 = load ptr, ptr %.0.val, align 8
+  %237 = getelementptr inbounds i8, ptr %236, i64 72
+  store i64 -9999999, ptr %237, align 8
+  br label %272
 
-238:                                              ; preds = %236
-  %239 = load i64, ptr %231, align 8
-  br label %242
+238:                                              ; preds = %231
+  %239 = icmp ult i8 %233, 7
+  br i1 %239, label %240, label %.critedge
 
-240:                                              ; preds = %236
-  %241 = tail call i64 @zval_get_long_func(ptr noundef nonnull %231, i1 noundef zeroext false) #25
-  br label %242
+240:                                              ; preds = %238
+  %241 = icmp eq i8 %233, 6
+  br i1 %241, label %242, label %250
 
-242:                                              ; preds = %240, %238
-  %243 = phi i64 [ %239, %238 ], [ %241, %240 ]
-  %244 = trunc i64 %243 to i32
-  br label %245
+242:                                              ; preds = %240
+  %243 = load ptr, ptr %230, align 8
+  %244 = getelementptr inbounds i8, ptr %243, i64 4
+  %245 = load i32, ptr %244, align 4
+  %246 = and i32 %245, 64
+  %.not300 = icmp eq i32 %246, 0
+  br i1 %.not300, label %247, label %252
 
-245:                                              ; preds = %227, %232, %242
-  %.sink35 = phi i32 [ %244, %242 ], [ 0, %232 ], [ 0, %227 ]
-  %246 = load ptr, ptr %0, align 8
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 68
-  store i32 %.sink35, ptr %248, align 4
-  %249 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.352, i64 noundef 4) #25
-  %.not299 = icmp eq ptr %249, null
-  br i1 %.not299, label %.critedge, label %250
+247:                                              ; preds = %242
+  %248 = load i32, ptr %243, align 4
+  %249 = add i32 %248, 1
+  store i32 %249, ptr %243, align 4
+  br label %252
 
-250:                                              ; preds = %245
-  %251 = getelementptr inbounds i8, ptr %249, i64 8
-  %252 = load i8, ptr %251, align 8
-  %253 = icmp eq i8 %252, 2
-  br i1 %253, label %254, label %258
+250:                                              ; preds = %240
+  %251 = tail call ptr @zval_get_string_func(ptr noundef nonnull %230) #25
+  br label %252
 
-254:                                              ; preds = %250
-  %255 = load ptr, ptr %0, align 8
-  %256 = load ptr, ptr %255, align 8
+252:                                              ; preds = %242, %247, %250
+  %253 = phi ptr [ %251, %250 ], [ %243, %247 ], [ %243, %242 ]
+  %254 = getelementptr inbounds i8, ptr %253, i64 24
+  %255 = tail call i64 @strtoll(ptr nocapture noundef nonnull %254, ptr noundef null, i32 noundef 10) #25
+  %256 = load ptr, ptr %.0.val, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 72
-  store i64 -9999999, ptr %257, align 8
-  br label %294
+  store i64 %255, ptr %257, align 8
+  %258 = getelementptr inbounds i8, ptr %253, i64 4
+  %259 = load i32, ptr %258, align 4
+  %260 = and i32 %259, 64
+  %.not301 = icmp eq i32 %260, 0
+  br i1 %.not301, label %261, label %272
 
-258:                                              ; preds = %250
-  %259 = icmp ult i8 %252, 7
-  br i1 %259, label %260, label %.critedge
+261:                                              ; preds = %252
+  %262 = load i32, ptr %253, align 4
+  %263 = icmp ne i32 %262, 0
+  tail call void @llvm.assume(i1 %263)
+  %264 = add i32 %262, -1
+  store i32 %264, ptr %253, align 4
+  %265 = icmp eq i32 %264, 0
+  br i1 %265, label %266, label %272
 
-260:                                              ; preds = %258
-  %261 = icmp eq i8 %252, 6
-  br i1 %261, label %262, label %270
+266:                                              ; preds = %261
+  %267 = and i32 %259, 128
+  %.not302 = icmp eq i32 %267, 0
+  br i1 %.not302, label %269, label %268
 
-262:                                              ; preds = %260
-  %263 = load ptr, ptr %249, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 4
-  %265 = load i32, ptr %264, align 4
-  %266 = and i32 %265, 64
-  %.not300 = icmp eq i32 %266, 0
-  br i1 %.not300, label %267, label %272
-
-267:                                              ; preds = %262
-  %268 = load i32, ptr %263, align 4
-  %269 = add i32 %268, 1
-  store i32 %269, ptr %263, align 4
+268:                                              ; preds = %266
+  tail call void @free(ptr noundef nonnull %253) #25
   br label %272
 
-270:                                              ; preds = %260
-  %271 = tail call ptr @zval_get_string_func(ptr noundef nonnull %249) #25
+269:                                              ; preds = %266
+  tail call void @_efree(ptr noundef nonnull %253) #25
   br label %272
 
-272:                                              ; preds = %262, %267, %270
-  %273 = phi ptr [ %271, %270 ], [ %263, %267 ], [ %263, %262 ]
-  %274 = getelementptr inbounds i8, ptr %273, i64 24
-  %275 = tail call i64 @strtoll(ptr nocapture noundef nonnull %274, ptr noundef null, i32 noundef 10) #25
-  %276 = load ptr, ptr %0, align 8
-  %277 = load ptr, ptr %276, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 72
-  store i64 %275, ptr %278, align 8
-  %279 = getelementptr inbounds i8, ptr %273, i64 4
-  %280 = load i32, ptr %279, align 4
-  %281 = and i32 %280, 64
-  %.not301 = icmp eq i32 %281, 0
-  br i1 %.not301, label %282, label %294
+.critedge:                                        ; preds = %227, %238
+  %270 = load ptr, ptr %.0.val, align 8
+  %271 = getelementptr inbounds i8, ptr %270, i64 72
+  store i64 -1, ptr %271, align 8
+  br label %272
 
-282:                                              ; preds = %272
-  %283 = load i32, ptr %273, align 4
-  %284 = icmp ne i32 %283, 0
-  tail call void @llvm.assume(i1 %284)
-  %285 = add i32 %283, -1
-  store i32 %285, ptr %273, align 4
-  %286 = icmp eq i32 %285, 0
-  br i1 %286, label %287, label %294
+272:                                              ; preds = %.critedge, %261, %269, %268, %252, %235
+  %273 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.414, i64 noundef 12) #25
+  %.not303 = icmp eq ptr %273, null
+  br i1 %.not303, label %287, label %274
 
-287:                                              ; preds = %282
-  %288 = and i32 %280, 128
-  %.not302 = icmp eq i32 %288, 0
-  br i1 %.not302, label %290, label %289
+274:                                              ; preds = %272
+  %275 = getelementptr inbounds i8, ptr %273, i64 8
+  %276 = load i8, ptr %275, align 8
+  %277 = icmp ult i8 %276, 7
+  br i1 %277, label %278, label %287
 
-289:                                              ; preds = %287
-  tail call void @free(ptr noundef nonnull %273) #25
-  br label %294
+278:                                              ; preds = %274
+  %279 = icmp eq i8 %276, 4
+  br i1 %279, label %280, label %282
 
-290:                                              ; preds = %287
-  tail call void @_efree(ptr noundef nonnull %273) #25
-  br label %294
+280:                                              ; preds = %278
+  %281 = load i64, ptr %273, align 8
+  br label %284
 
-.critedge:                                        ; preds = %245, %258
-  %291 = load ptr, ptr %0, align 8
-  %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds i8, ptr %292, i64 72
-  store i64 -1, ptr %293, align 8
-  br label %294
+282:                                              ; preds = %278
+  %283 = tail call i64 @zval_get_long_func(ptr noundef nonnull %273, i1 noundef zeroext false) #25
+  br label %284
 
-294:                                              ; preds = %.critedge, %282, %290, %289, %272, %254
-  %295 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.414, i64 noundef 12) #25
-  %.not303 = icmp eq ptr %295, null
-  br i1 %.not303, label %309, label %296
+284:                                              ; preds = %282, %280
+  %285 = phi i64 [ %281, %280 ], [ %283, %282 ]
+  %286 = trunc i64 %285 to i32
+  br label %287
 
-296:                                              ; preds = %294
-  %297 = getelementptr inbounds i8, ptr %295, i64 8
-  %298 = load i8, ptr %297, align 8
-  %299 = icmp ult i8 %298, 7
-  br i1 %299, label %300, label %309
+287:                                              ; preds = %272, %274, %284
+  %.sink29 = phi i32 [ %286, %284 ], [ 0, %274 ], [ 0, %272 ]
+  %288 = load ptr, ptr %.0.val, align 8
+  %289 = getelementptr inbounds i8, ptr %288, i64 80
+  store i32 %.sink29, ptr %289, align 8
+  %290 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.415, i64 noundef 14) #25
+  %.not304 = icmp eq ptr %290, null
+  br i1 %.not304, label %316, label %291
 
-300:                                              ; preds = %296
-  %301 = icmp eq i8 %298, 4
-  br i1 %301, label %302, label %304
+291:                                              ; preds = %287
+  %292 = getelementptr inbounds i8, ptr %290, i64 8
+  %293 = load i8, ptr %292, align 8
+  %294 = icmp ult i8 %293, 7
+  br i1 %294, label %295, label %316
 
-302:                                              ; preds = %300
-  %303 = load i64, ptr %295, align 8
-  br label %306
+295:                                              ; preds = %291
+  %296 = icmp eq i8 %293, 6
+  br i1 %296, label %297, label %299
 
-304:                                              ; preds = %300
-  %305 = tail call i64 @zval_get_long_func(ptr noundef nonnull %295, i1 noundef zeroext false) #25
-  br label %306
+297:                                              ; preds = %295
+  %298 = load ptr, ptr %290, align 8
+  br label %301
 
-306:                                              ; preds = %304, %302
-  %307 = phi i64 [ %303, %302 ], [ %305, %304 ]
-  %308 = trunc i64 %307 to i32
-  br label %309
+299:                                              ; preds = %295
+  %300 = tail call ptr @zval_get_string_func(ptr noundef nonnull %290) #25
+  br label %301
 
-309:                                              ; preds = %294, %296, %306
-  %.sink39 = phi i32 [ %308, %306 ], [ 0, %296 ], [ 0, %294 ]
-  %310 = load ptr, ptr %0, align 8
-  %311 = load ptr, ptr %310, align 8
-  %312 = getelementptr inbounds i8, ptr %311, i64 80
-  store i32 %.sink39, ptr %312, align 8
-  %313 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.415, i64 noundef 14) #25
-  %.not304 = icmp eq ptr %313, null
-  br i1 %.not304, label %340, label %314
-
-314:                                              ; preds = %309
-  %315 = getelementptr inbounds i8, ptr %313, i64 8
-  %316 = load i8, ptr %315, align 8
-  %317 = icmp ult i8 %316, 7
-  br i1 %317, label %318, label %340
-
-318:                                              ; preds = %314
-  %319 = icmp eq i8 %316, 6
-  br i1 %319, label %320, label %322
-
-320:                                              ; preds = %318
-  %321 = load ptr, ptr %313, align 8
-  br label %324
-
-322:                                              ; preds = %318
-  %323 = tail call ptr @zval_get_string_func(ptr noundef nonnull %313) #25
-  br label %324
-
-324:                                              ; preds = %322, %320
-  %.0249 = phi ptr [ null, %320 ], [ %323, %322 ]
-  %.0 = phi ptr [ %321, %320 ], [ %323, %322 ]
-  %325 = getelementptr inbounds i8, ptr %.0, i64 24
-  %326 = tail call i64 @strtoll(ptr nocapture noundef nonnull %325, ptr noundef null, i32 noundef 10) #25
-  %327 = load ptr, ptr %0, align 8
-  %328 = load ptr, ptr %327, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 88
-  store i64 %326, ptr %329, align 8
+301:                                              ; preds = %299, %297
+  %.0249 = phi ptr [ null, %297 ], [ %300, %299 ]
+  %.0 = phi ptr [ %298, %297 ], [ %300, %299 ]
+  %302 = getelementptr inbounds i8, ptr %.0, i64 24
+  %303 = tail call i64 @strtoll(ptr nocapture noundef nonnull %302, ptr noundef null, i32 noundef 10) #25
+  %304 = load ptr, ptr %.0.val, align 8
+  %305 = getelementptr inbounds i8, ptr %304, i64 88
+  store i64 %303, ptr %305, align 8
   %.not305 = icmp eq ptr %.0249, null
-  br i1 %.not305, label %344, label %330
+  br i1 %.not305, label %319, label %306
 
-330:                                              ; preds = %324
-  %331 = getelementptr inbounds i8, ptr %.0249, i64 4
-  %332 = load i32, ptr %331, align 4
-  %333 = and i32 %332, 64
-  %.not306 = icmp eq i32 %333, 0
-  br i1 %.not306, label %334, label %344
+306:                                              ; preds = %301
+  %307 = getelementptr inbounds i8, ptr %.0249, i64 4
+  %308 = load i32, ptr %307, align 4
+  %309 = and i32 %308, 64
+  %.not306 = icmp eq i32 %309, 0
+  br i1 %.not306, label %310, label %319
 
-334:                                              ; preds = %330
-  %335 = load i32, ptr %.0249, align 4
-  %336 = icmp ne i32 %335, 0
-  tail call void @llvm.assume(i1 %336)
-  %337 = add i32 %335, -1
-  store i32 %337, ptr %.0249, align 4
-  %338 = icmp eq i32 %337, 0
-  br i1 %338, label %339, label %344
+310:                                              ; preds = %306
+  %311 = load i32, ptr %.0249, align 4
+  %312 = icmp ne i32 %311, 0
+  tail call void @llvm.assume(i1 %312)
+  %313 = add i32 %311, -1
+  store i32 %313, ptr %.0249, align 4
+  %314 = icmp eq i32 %313, 0
+  br i1 %314, label %315, label %319
 
-339:                                              ; preds = %334
+315:                                              ; preds = %310
   tail call void @_efree(ptr noundef nonnull %.0249) #25
-  br label %344
+  br label %319
 
-340:                                              ; preds = %314, %309
-  %341 = load ptr, ptr %0, align 8
-  %342 = load ptr, ptr %341, align 8
-  %343 = getelementptr inbounds i8, ptr %342, i64 88
-  store i64 -1, ptr %343, align 8
-  br label %344
+316:                                              ; preds = %291, %287
+  %317 = load ptr, ptr %.0.val, align 8
+  %318 = getelementptr inbounds i8, ptr %317, i64 88
+  store i64 -1, ptr %318, align 8
+  br label %319
 
-344:                                              ; preds = %324, %334, %339, %330, %340
-  %345 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.416, i64 noundef 21) #25
-  %.not307 = icmp eq ptr %345, null
-  br i1 %.not307, label %359, label %346
+319:                                              ; preds = %301, %310, %315, %306, %316
+  %320 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.416, i64 noundef 21) #25
+  %.not307 = icmp eq ptr %320, null
+  br i1 %.not307, label %334, label %321
 
-346:                                              ; preds = %344
-  %347 = getelementptr inbounds i8, ptr %345, i64 8
-  %348 = load i8, ptr %347, align 8
-  %349 = icmp ult i8 %348, 7
-  br i1 %349, label %350, label %359
+321:                                              ; preds = %319
+  %322 = getelementptr inbounds i8, ptr %320, i64 8
+  %323 = load i8, ptr %322, align 8
+  %324 = icmp ult i8 %323, 7
+  br i1 %324, label %325, label %334
 
-350:                                              ; preds = %346
-  %351 = icmp eq i8 %348, 4
-  br i1 %351, label %352, label %354
+325:                                              ; preds = %321
+  %326 = icmp eq i8 %323, 4
+  br i1 %326, label %327, label %329
 
-352:                                              ; preds = %350
-  %353 = load i64, ptr %345, align 8
-  br label %356
+327:                                              ; preds = %325
+  %328 = load i64, ptr %320, align 8
+  br label %331
 
-354:                                              ; preds = %350
-  %355 = tail call i64 @zval_get_long_func(ptr noundef nonnull %345, i1 noundef zeroext false) #25
-  br label %356
+329:                                              ; preds = %325
+  %330 = tail call i64 @zval_get_long_func(ptr noundef nonnull %320, i1 noundef zeroext false) #25
+  br label %331
 
-356:                                              ; preds = %354, %352
-  %357 = phi i64 [ %353, %352 ], [ %355, %354 ]
-  %358 = trunc i64 %357 to i32
-  br label %359
+331:                                              ; preds = %329, %327
+  %332 = phi i64 [ %328, %327 ], [ %330, %329 ]
+  %333 = trunc i64 %332 to i32
+  br label %334
 
-359:                                              ; preds = %344, %346, %356
-  %.sink43 = phi i32 [ %358, %356 ], [ 0, %346 ], [ 0, %344 ]
-  %360 = load ptr, ptr %0, align 8
-  %361 = load ptr, ptr %360, align 8
-  %362 = getelementptr inbounds i8, ptr %361, i64 96
-  store i32 %.sink43, ptr %362, align 8
-  %363 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.417, i64 noundef 21) #25
-  %.not308 = icmp eq ptr %363, null
-  br i1 %.not308, label %377, label %364
+334:                                              ; preds = %319, %321, %331
+  %.sink32 = phi i32 [ %333, %331 ], [ 0, %321 ], [ 0, %319 ]
+  %335 = load ptr, ptr %.0.val, align 8
+  %336 = getelementptr inbounds i8, ptr %335, i64 96
+  store i32 %.sink32, ptr %336, align 8
+  %337 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.417, i64 noundef 21) #25
+  %.not308 = icmp eq ptr %337, null
+  br i1 %.not308, label %351, label %338
 
-364:                                              ; preds = %359
-  %365 = getelementptr inbounds i8, ptr %363, i64 8
-  %366 = load i8, ptr %365, align 8
-  %367 = icmp ult i8 %366, 7
-  br i1 %367, label %368, label %377
+338:                                              ; preds = %334
+  %339 = getelementptr inbounds i8, ptr %337, i64 8
+  %340 = load i8, ptr %339, align 8
+  %341 = icmp ult i8 %340, 7
+  br i1 %341, label %342, label %351
 
-368:                                              ; preds = %364
-  %369 = icmp eq i8 %366, 4
-  br i1 %369, label %370, label %372
+342:                                              ; preds = %338
+  %343 = icmp eq i8 %340, 4
+  br i1 %343, label %344, label %346
 
-370:                                              ; preds = %368
-  %371 = load i64, ptr %363, align 8
-  br label %374
+344:                                              ; preds = %342
+  %345 = load i64, ptr %337, align 8
+  br label %348
 
-372:                                              ; preds = %368
-  %373 = tail call i64 @zval_get_long_func(ptr noundef nonnull %363, i1 noundef zeroext false) #25
-  br label %374
+346:                                              ; preds = %342
+  %347 = tail call i64 @zval_get_long_func(ptr noundef nonnull %337, i1 noundef zeroext false) #25
+  br label %348
 
-374:                                              ; preds = %372, %370
-  %375 = phi i64 [ %371, %370 ], [ %373, %372 ]
-  %376 = trunc i64 %375 to i32
-  br label %377
+348:                                              ; preds = %346, %344
+  %349 = phi i64 [ %345, %344 ], [ %347, %346 ]
+  %350 = trunc i64 %349 to i32
+  br label %351
 
-377:                                              ; preds = %359, %364, %374
-  %.sink47 = phi i32 [ %376, %374 ], [ 0, %364 ], [ 0, %359 ]
-  %378 = load ptr, ptr %0, align 8
-  %379 = load ptr, ptr %378, align 8
-  %380 = getelementptr inbounds i8, ptr %379, i64 100
-  store i32 %.sink47, ptr %380, align 4
-  %381 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str.418, i64 noundef 13) #25
-  %382 = load ptr, ptr %0, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 8
-  store i32 1, ptr %383, align 8
-  %.not309 = icmp eq ptr %381, null
-  br i1 %.not309, label %397, label %384
+351:                                              ; preds = %334, %338, %348
+  %.sink35 = phi i32 [ %350, %348 ], [ 0, %338 ], [ 0, %334 ]
+  %352 = load ptr, ptr %.0.val, align 8
+  %353 = getelementptr inbounds i8, ptr %352, i64 100
+  store i32 %.sink35, ptr %353, align 4
+  %354 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str.418, i64 noundef 13) #25
+  %355 = getelementptr inbounds i8, ptr %.0.val, i64 8
+  store i32 1, ptr %355, align 8
+  %.not309 = icmp eq ptr %354, null
+  br i1 %.not309, label %367, label %356
 
-384:                                              ; preds = %377
-  %385 = getelementptr inbounds i8, ptr %381, i64 8
-  %386 = load i8, ptr %385, align 8
-  %387 = icmp eq i8 %386, 4
-  br i1 %387, label %388, label %390
+356:                                              ; preds = %351
+  %357 = getelementptr inbounds i8, ptr %354, i64 8
+  %358 = load i8, ptr %357, align 8
+  %359 = icmp eq i8 %358, 4
+  br i1 %359, label %360, label %362
 
-388:                                              ; preds = %384
-  %389 = load i64, ptr %381, align 8
-  br label %392
+360:                                              ; preds = %356
+  %361 = load i64, ptr %354, align 8
+  br label %364
 
-390:                                              ; preds = %384
-  %391 = tail call i64 @zval_get_long_func(ptr noundef nonnull %381, i1 noundef zeroext false) #25
-  br label %392
+362:                                              ; preds = %356
+  %363 = tail call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #25
+  br label %364
 
-392:                                              ; preds = %390, %388
-  %393 = phi i64 [ %389, %388 ], [ %391, %390 ]
-  %394 = trunc i64 %393 to i32
-  %395 = load ptr, ptr %0, align 8
-  %396 = getelementptr inbounds i8, ptr %395, i64 8
-  store i32 %394, ptr %396, align 8
-  br label %397
+364:                                              ; preds = %362, %360
+  %365 = phi i64 [ %361, %360 ], [ %363, %362 ]
+  %366 = trunc i64 %365 to i32
+  store i32 %366, ptr %355, align 8
+  br label %367
 
-397:                                              ; preds = %392, %377
-  %398 = load ptr, ptr %0, align 8
-  %399 = getelementptr inbounds i8, ptr %398, i64 24
-  store i8 1, ptr %399, align 8
-  br label %400
+367:                                              ; preds = %364, %351
+  %368 = getelementptr inbounds i8, ptr %.0.val, i64 24
+  store i8 1, ptr %368, align 8
+  br label %369
 
-400:                                              ; preds = %397, %55
+369:                                              ; preds = %367, %49
   ret void
 }
 
@@ -15236,91 +15190,89 @@ define internal fastcc void @date_interval_object_to_hash(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DateInterval___unserialize(ptr noundef %0, ptr nocapture readnone %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
-  %6 = load i32, ptr %5, align 4
-  %cond = icmp eq i32 %6, 1
-  br i1 %cond, label %8, label %7
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = load i32, ptr %4, align 4
+  %cond = icmp eq i32 %5, 1
+  br i1 %cond, label %7, label %6
+
+6:                                                ; preds = %2
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #25
+  br label %11
 
 7:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #25
-  br label %12
+  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = load i8, ptr %9, align 8
+  %.not51 = icmp eq i8 %10, 7
+  br i1 %.not51, label %12, label %11
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = load i8, ptr %10, align 8
-  %.not51 = icmp eq i8 %11, 7
-  br i1 %.not51, label %13, label %12
-
-12:                                               ; preds = %7, %8
-  %.047.ph = phi ptr [ %9, %8 ], [ null, %7 ]
-  %.046.ph = phi i32 [ 6, %8 ], [ 0, %7 ]
-  %.045.ph = phi i32 [ 1, %8 ], [ 0, %7 ]
-  %.0.ph = phi i32 [ 9, %8 ], [ 1, %7 ]
+11:                                               ; preds = %6, %7
+  %.047.ph = phi ptr [ %8, %7 ], [ null, %6 ]
+  %.046.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
+  %.045.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
+  %.0.ph = phi i32 [ 9, %7 ], [ 1, %6 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.045.ph, ptr noundef null, i32 noundef %.046.ph, ptr noundef %.047.ph) #25
   br label %restore_custom_dateinterval_properties.exit
 
-13:                                               ; preds = %8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 -32
-  store ptr %15, ptr %3, align 8
-  %16 = load ptr, ptr %9, align 8
-  call fastcc void @php_date_interval_initialize_from_hash(ptr noundef %3, ptr noundef %16)
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
-  %20 = load i32, ptr %19, align 8
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds %struct._Bucket, ptr %18, i64 %21
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
-  %24 = load i32, ptr %23, align 8
-  %25 = and i32 %24, 4
-  %.not.i = icmp eq i32 %25, 0
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 -32
+  %15 = load ptr, ptr %8, align 8
+  tail call fastcc void @php_date_interval_initialize_from_hash(ptr nonnull %14, ptr noundef %15)
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %15, i64 24
+  %19 = load i32, ptr %18, align 8
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr inbounds %struct._Bucket, ptr %17, i64 %20
+  %22 = getelementptr inbounds i8, ptr %15, i64 8
+  %23 = load i32, ptr %22, align 8
+  %24 = and i32 %23, 4
+  %.not.i = icmp eq i32 %24, 0
   tail call void @llvm.assume(i1 %.not.i)
-  %.not2225.i = icmp eq i32 %20, 0
+  %.not2225.i = icmp eq i32 %19, 0
   br i1 %.not2225.i, label %restore_custom_dateinterval_properties.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %13, %date_interval_is_internal_property.exit.thread.i
-  %.026.i = phi ptr [ %46, %date_interval_is_internal_property.exit.thread.i ], [ %18, %13 ]
-  %26 = getelementptr inbounds i8, ptr %.026.i, i64 8
-  %27 = load i8, ptr %26, align 8
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %date_interval_is_internal_property.exit.thread.i, label %29
+.lr.ph.i:                                         ; preds = %12, %date_interval_is_internal_property.exit.thread.i
+  %.026.i = phi ptr [ %45, %date_interval_is_internal_property.exit.thread.i ], [ %17, %12 ]
+  %25 = getelementptr inbounds i8, ptr %.026.i, i64 8
+  %26 = load i8, ptr %25, align 8
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %date_interval_is_internal_property.exit.thread.i, label %28
 
-29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds i8, ptr %.026.i, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %.not23.i = icmp eq ptr %31, null
-  %32 = icmp eq i8 %27, 10
-  %or.cond.i = or i1 %32, %.not23.i
-  br i1 %or.cond.i, label %date_interval_is_internal_property.exit.thread.i, label %33
+28:                                               ; preds = %.lr.ph.i
+  %29 = getelementptr inbounds i8, ptr %.026.i, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %.not23.i = icmp eq ptr %30, null
+  %31 = icmp eq i8 %26, 10
+  %or.cond.i = or i1 %31, %.not23.i
+  br i1 %or.cond.i, label %date_interval_is_internal_property.exit.thread.i, label %32
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
-  %35 = load i64, ptr %34, align 8
-  switch i64 %35, label %date_interval_is_internal_property.exit.i [
-    i64 11, label %36
-    i64 1, label %39
-    i64 6, label %41
-    i64 4, label %43
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds i8, ptr %30, i64 16
+  %34 = load i64, ptr %33, align 8
+  switch i64 %34, label %date_interval_is_internal_property.exit.i [
+    i64 11, label %35
+    i64 1, label %38
+    i64 6, label %40
+    i64 4, label %42
   ]
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %31, i64 24
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %37, ptr noundef nonnull dereferenceable(11) @.str.410, i64 11)
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %30, i64 24
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %36, ptr noundef nonnull dereferenceable(11) @.str.410, i64 11)
   %.not.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not.i.i, label %date_interval_is_internal_property.exit.thread.i, label %38
+  br i1 %.not.i.i, label %date_interval_is_internal_property.exit.thread.i, label %37
 
-38:                                               ; preds = %36
-  %bcmp86.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %37, ptr noundef nonnull dereferenceable(11) @.str.419, i64 11)
+37:                                               ; preds = %35
+  %bcmp86.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %36, ptr noundef nonnull dereferenceable(11) @.str.419, i64 11)
   %.not87.i.i = icmp eq i32 %bcmp86.i.i, 0
   br i1 %.not87.i.i, label %date_interval_is_internal_property.exit.thread.i, label %date_interval_is_internal_property.exit.i
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %31, i64 24
-  %lhsc.i.i = load i8, ptr %40, align 1
+38:                                               ; preds = %32
+  %39 = getelementptr inbounds i8, ptr %30, i64 24
+  %lhsc.i.i = load i8, ptr %39, align 1
   switch i8 %lhsc.i.i, label %date_interval_is_internal_property.exit.i [
     i8 121, label %date_interval_is_internal_property.exit.thread.i
     i8 109, label %date_interval_is_internal_property.exit.thread.i
@@ -15331,58 +15283,56 @@ define hidden void @zim_DateInterval___unserialize(ptr noundef %0, ptr nocapture
     i8 102, label %date_interval_is_internal_property.exit.thread.i
   ]
 
-41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %31, i64 24
-  %bcmp101.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %42, ptr noundef nonnull dereferenceable(6) @.str.351, i64 6)
+40:                                               ; preds = %32
+  %41 = getelementptr inbounds i8, ptr %30, i64 24
+  %bcmp101.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %41, ptr noundef nonnull dereferenceable(6) @.str.351, i64 6)
   %.not102.i.i = icmp eq i32 %bcmp101.i.i, 0
   br i1 %.not102.i.i, label %date_interval_is_internal_property.exit.thread.i, label %date_interval_is_internal_property.exit.i
 
-43:                                               ; preds = %33
-  %44 = getelementptr inbounds i8, ptr %31, i64 24
-  %bcmp103.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %44, ptr noundef nonnull dereferenceable(4) @.str.352, i64 4)
+42:                                               ; preds = %32
+  %43 = getelementptr inbounds i8, ptr %30, i64 24
+  %bcmp103.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %43, ptr noundef nonnull dereferenceable(4) @.str.352, i64 4)
   %.not104.i.i = icmp eq i32 %bcmp103.i.i, 0
   br i1 %.not104.i.i, label %date_interval_is_internal_property.exit.thread.i, label %date_interval_is_internal_property.exit.i
 
-date_interval_is_internal_property.exit.i:        ; preds = %43, %41, %39, %38, %33
-  %45 = load ptr, ptr %4, align 8
-  tail call fastcc void @update_property(ptr noundef %45, ptr noundef %31, ptr noundef nonnull %.026.i)
+date_interval_is_internal_property.exit.i:        ; preds = %42, %40, %38, %37, %32
+  %44 = load ptr, ptr %3, align 8
+  tail call fastcc void @update_property(ptr noundef %44, ptr noundef %30, ptr noundef nonnull %.026.i)
   br label %date_interval_is_internal_property.exit.thread.i
 
-date_interval_is_internal_property.exit.thread.i: ; preds = %date_interval_is_internal_property.exit.i, %43, %41, %39, %39, %39, %39, %39, %39, %39, %38, %36, %29, %.lr.ph.i
-  %46 = getelementptr inbounds i8, ptr %.026.i, i64 32
-  %.not22.i = icmp eq ptr %46, %22
+date_interval_is_internal_property.exit.thread.i: ; preds = %date_interval_is_internal_property.exit.i, %42, %40, %38, %38, %38, %38, %38, %38, %38, %37, %35, %28, %.lr.ph.i
+  %45 = getelementptr inbounds i8, ptr %.026.i, i64 32
+  %.not22.i = icmp eq ptr %45, %21
   br i1 %.not22.i, label %restore_custom_dateinterval_properties.exit, label %.lr.ph.i
 
-restore_custom_dateinterval_properties.exit:      ; preds = %date_interval_is_internal_property.exit.thread.i, %13, %12
+restore_custom_dateinterval_properties.exit:      ; preds = %date_interval_is_internal_property.exit.thread.i, %12, %11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DateInterval___wakeup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %7, label %6
+  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = load i32, ptr %3, align 4
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %6, label %5
+
+5:                                                ; preds = %2
+  tail call void @zend_wrong_parameters_none_error() #25
+  br label %15
 
 6:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #25
-  br label %16
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 -32
+  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 104
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call ptr %13(ptr noundef %8) #25
+  tail call fastcc void @php_date_interval_initialize_from_hash(ptr nonnull %9, ptr noundef %14)
+  br label %15
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 -32
-  store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 104
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr %14(ptr noundef %9) #25
-  call fastcc void @php_date_interval_initialize_from_hash(ptr noundef %3, ptr noundef %15)
-  br label %16
-
-16:                                               ; preds = %7, %6
+15:                                               ; preds = %6, %5
   ret void
 }
 

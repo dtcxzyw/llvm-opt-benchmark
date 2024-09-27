@@ -2458,7 +2458,7 @@ if.then4:                                         ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %if.end20
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end20 ]
   %4 = phi ptr [ %3, %for.body.lr.ph ], [ %17, %if.end20 ]
-  %payloadTotal.084 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %if.end20 ]
+  %payloadTotal.083 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %if.end20 ]
   %5 = load ptr, ptr %ssdPins, align 8
   %run_.i = getelementptr inbounds %"class.facebook::velox::cache::SsdPin", ptr %5, i64 %indvars.iv, i32 1
   %retval.sroa.0.0.copyload.i = load i64, ptr %run_.i, align 8
@@ -2481,7 +2481,7 @@ if.then19:                                        ; preds = %for.body
   unreachable
 
 if.end20:                                         ; preds = %for.body
-  %add = add nsw i32 %9, %payloadTotal.084
+  %add = add nsw i32 %9, %payloadTotal.083
   %shr.i = lshr i64 %retval.sroa.0.0.copyload.i, 49
   %conv.i.i = zext nneg i32 %conv.i to i64
   %11 = load ptr, ptr %tracker_.i, align 8
@@ -2512,20 +2512,20 @@ for.end:                                          ; preds = %if.end20
   %div = udiv i64 %conv36, %sub.ptr.div.i32
   %cmp38 = icmp ult i64 %div, 10000
   %cond = select i1 %cmp38, i32 25000, i32 50000
+  %18 = ptrtoint ptr %ssdPins to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %18 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %18, align 8
-  %19 = ptrtoint ptr %ssdPins to i64
-  store i64 %19, ptr %agg.tmp, align 8
+  %19 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store i64 0, ptr %19, align 8
+  store i64 %18, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFmiEZN8facebook5velox5cache7SsdFile4loadERKSt6vectorINS3_6SsdPinESaIS6_EERKS5_INS3_8CachePinESaISB_EEE3$_0E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFmiEZN8facebook5velox5cache7SsdFile4loadERKSt6vectorINS3_6SsdPinESaIS6_EERKS5_INS3_8CachePinESaISB_EEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i, align 8
+  %20 = ptrtoint ptr %this to i64
   %_M_manager.i.i45 = getelementptr inbounds i8, ptr %agg.tmp40, i64 16
   %_M_invoker.i46 = getelementptr inbounds i8, ptr %agg.tmp40, i64 24
-  %20 = getelementptr inbounds i8, ptr %agg.tmp40, i64 8
-  store i64 0, ptr %20, align 8
-  %21 = ptrtoint ptr %this to i64
-  store i64 %21, ptr %agg.tmp40, align 8
+  %21 = getelementptr inbounds i8, ptr %agg.tmp40, i64 8
+  store i64 0, ptr %21, align 8
+  store i64 %20, ptr %agg.tmp40, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEZNS3_7SsdFile4loadERKS0_INS3_6SsdPinESaISJ_EES8_E3$_1E9_M_invokeERKSt9_Any_dataS8_OiST_OmSG_", ptr %_M_invoker.i46, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEZNS3_7SsdFile4loadERKS0_INS3_6SsdPinESaISJ_EES8_E3$_1E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation", ptr %_M_manager.i.i45, align 8
   invoke void @_ZN8facebook5velox5cache8readPinsERKSt6vectorINS1_8CachePinESaIS3_EEiiSt8functionIFmiEES8_IFvS7_iimRKS2_IN5folly5RangeIPcEESaISE_EEEE(ptr sret(%"struct.facebook::velox::CoalesceIoStats") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %pins, i32 noundef %cond, i32 noundef 900, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp40)
@@ -2549,86 +2549,86 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 _ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
   %25 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i50 = icmp eq ptr %25, null
-  br i1 %tobool.not.i.i50, label %_ZNSt8functionIFmiEED2Ev.exit, label %if.then.i.i51
+  %tobool.not.i.i49 = icmp eq ptr %25, null
+  br i1 %tobool.not.i.i49, label %_ZNSt8functionIFmiEED2Ev.exit, label %if.then.i.i50
 
-if.then.i.i51:                                    ; preds = %_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit
-  %call.i.i52 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
-          to label %_ZNSt8functionIFmiEED2Ev.exit unwind label %terminate.lpad.i.i53
+if.then.i.i50:                                    ; preds = %_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit
+  %call.i.i51 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+          to label %_ZNSt8functionIFmiEED2Ev.exit unwind label %terminate.lpad.i.i52
 
-terminate.lpad.i.i53:                             ; preds = %if.then.i.i51
+terminate.lpad.i.i52:                             ; preds = %if.then.i.i50
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
   call void @__clang_call_terminate(ptr %27) #37
   unreachable
 
-_ZNSt8functionIFmiEED2Ev.exit:                    ; preds = %_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit, %if.then.i.i51
+_ZNSt8functionIFmiEED2Ev.exit:                    ; preds = %_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit, %if.then.i.i50
   %28 = load ptr, ptr %_M_finish.i, align 8
   %29 = load ptr, ptr %ssdPins, align 8
-  %cmp4691.not = icmp eq ptr %28, %29
-  br i1 %cmp4691.not, label %return, label %for.body47
+  %cmp4690.not = icmp eq ptr %28, %29
+  br i1 %cmp4690.not, label %return, label %for.body47
 
 for.body47:                                       ; preds = %_ZNSt8functionIFmiEED2Ev.exit, %for.body47
-  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %for.body47 ], [ 0, %_ZNSt8functionIFmiEED2Ev.exit ]
+  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %for.body47 ], [ 0, %_ZNSt8functionIFmiEED2Ev.exit ]
   %30 = phi ptr [ %34, %for.body47 ], [ %29, %_ZNSt8functionIFmiEED2Ev.exit ]
   %31 = load ptr, ptr %pins, align 8
-  %add.ptr.i59 = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %31, i64 %indvars.iv96
-  %32 = load ptr, ptr %add.ptr.i59, align 8
-  %run_.i61 = getelementptr inbounds %"class.facebook::velox::cache::SsdPin", ptr %30, i64 %indvars.iv96, i32 1
-  %retval.sroa.0.0.copyload.i62 = load i64, ptr %run_.i61, align 8
-  %shr.i63 = lshr i64 %retval.sroa.0.0.copyload.i62, 23
+  %add.ptr.i58 = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %31, i64 %indvars.iv95
+  %32 = load ptr, ptr %add.ptr.i58, align 8
+  %run_.i60 = getelementptr inbounds %"class.facebook::velox::cache::SsdPin", ptr %30, i64 %indvars.iv95, i32 1
+  %retval.sroa.0.0.copyload.i61 = load i64, ptr %run_.i60, align 8
+  %shr.i62 = lshr i64 %retval.sroa.0.0.copyload.i61, 23
   %ssdFile_.i = getelementptr inbounds i8, ptr %32, i64 152
   store ptr %this, ptr %ssdFile_.i, align 8
   %ssdOffset_.i = getelementptr inbounds i8, ptr %32, i64 160
-  store i64 %shr.i63, ptr %ssdOffset_.i, align 8
+  store i64 %shr.i62, ptr %ssdOffset_.i, align 8
   %ssdSaveable_.i = getelementptr inbounds i8, ptr %32, i64 168
   store atomic i8 0, ptr %ssdSaveable_.i seq_cst, align 1
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %33 = load ptr, ptr %_M_finish.i, align 8
   %34 = load ptr, ptr %ssdPins, align 8
-  %sub.ptr.lhs.cast.i55 = ptrtoint ptr %33 to i64
-  %sub.ptr.rhs.cast.i56 = ptrtoint ptr %34 to i64
-  %sub.ptr.sub.i57 = sub i64 %sub.ptr.lhs.cast.i55, %sub.ptr.rhs.cast.i56
-  %sub.ptr.div.i58 = ashr exact i64 %sub.ptr.sub.i57, 4
-  %cmp46 = icmp ugt i64 %sub.ptr.div.i58, %indvars.iv.next97
+  %sub.ptr.lhs.cast.i54 = ptrtoint ptr %33 to i64
+  %sub.ptr.rhs.cast.i55 = ptrtoint ptr %34 to i64
+  %sub.ptr.sub.i56 = sub i64 %sub.ptr.lhs.cast.i54, %sub.ptr.rhs.cast.i55
+  %sub.ptr.div.i57 = ashr exact i64 %sub.ptr.sub.i56, 4
+  %cmp46 = icmp ugt i64 %sub.ptr.div.i57, %indvars.iv.next96
   br i1 %cmp46, label %for.body47, label %return, !llvm.loop !19
 
 lpad:                                             ; preds = %for.end
   %35 = landingpad { ptr, i32 }
           cleanup
   %36 = load ptr, ptr %_M_manager.i.i45, align 8
-  %tobool.not.i.i65 = icmp eq ptr %36, null
-  br i1 %tobool.not.i.i65, label %_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit69, label %if.then.i.i66
+  %tobool.not.i.i64 = icmp eq ptr %36, null
+  br i1 %tobool.not.i.i64, label %_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit68, label %if.then.i.i65
 
-if.then.i.i66:                                    ; preds = %lpad
-  %call.i.i67 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp40, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp40, i32 noundef 3)
-          to label %_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit69 unwind label %terminate.lpad.i.i68
+if.then.i.i65:                                    ; preds = %lpad
+  %call.i.i66 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp40, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp40, i32 noundef 3)
+          to label %_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit68 unwind label %terminate.lpad.i.i67
 
-terminate.lpad.i.i68:                             ; preds = %if.then.i.i66
+terminate.lpad.i.i67:                             ; preds = %if.then.i.i65
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
   call void @__clang_call_terminate(ptr %38) #37
   unreachable
 
-_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit69: ; preds = %lpad, %if.then.i.i66
+_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit68: ; preds = %lpad, %if.then.i.i65
   %39 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i71 = icmp eq ptr %39, null
-  br i1 %tobool.not.i.i71, label %_ZNSt8functionIFmiEED2Ev.exit75, label %if.then.i.i72
+  %tobool.not.i.i70 = icmp eq ptr %39, null
+  br i1 %tobool.not.i.i70, label %_ZNSt8functionIFmiEED2Ev.exit74, label %if.then.i.i71
 
-if.then.i.i72:                                    ; preds = %_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit69
-  %call.i.i73 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
-          to label %_ZNSt8functionIFmiEED2Ev.exit75 unwind label %terminate.lpad.i.i74
+if.then.i.i71:                                    ; preds = %_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit68
+  %call.i.i72 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+          to label %_ZNSt8functionIFmiEED2Ev.exit74 unwind label %terminate.lpad.i.i73
 
-terminate.lpad.i.i74:                             ; preds = %if.then.i.i72
+terminate.lpad.i.i73:                             ; preds = %if.then.i.i71
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
   call void @__clang_call_terminate(ptr %41) #37
   unreachable
 
-_ZNSt8functionIFmiEED2Ev.exit75:                  ; preds = %_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit69, %if.then.i.i72
+_ZNSt8functionIFmiEED2Ev.exit74:                  ; preds = %_ZNSt8functionIFvRKSt6vectorIN8facebook5velox5cache8CachePinESaIS4_EEiimRKS0_IN5folly5RangeIPcEESaISC_EEEED2Ev.exit68, %if.then.i.i71
   resume { ptr, i32 } %35
 
 return:                                           ; preds = %for.body47, %_ZNSt8functionIFmiEED2Ev.exit, %if.then4

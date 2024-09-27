@@ -483,14 +483,14 @@ define dso_local void @_ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlS
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.std::function", align 8
   %7 = alloca %"class.std::optional", align 4
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %10, align 8
-  %11 = ptrtoint ptr %1 to i64
-  store i64 %11, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFivEZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFivEZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %8, align 8
+  %8 = ptrtoint ptr %1 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %11, align 8
+  store i64 %8, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFivEZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %10, align 8
+  store ptr @"_ZNSt17_Function_handlerIFivEZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i32, ptr %12, align 8
   store i32 %13, ptr %7, align 4
@@ -499,7 +499,7 @@ define dso_local void @_ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlS
   %15 = call fastcc { i32, ptr } @_ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(8) %7)
   %16 = extractvalue { i32, ptr } %15, 0
   %17 = extractvalue { i32, ptr } %15, 1
-  %18 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %_ZNSt8functionIFivEED2Ev.exit, label %19
 
@@ -884,20 +884,20 @@ _ZN4llvm8ExpectedIiED2Ev.exit:                    ; preds = %14, %9
 define dso_local noundef i64 @_ZN4llvm17raw_socket_stream4readEPcmRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::function", align 8
   %6 = alloca %"class.std::optional", align 4
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %9, align 8
-  %10 = ptrtoint ptr %0 to i64
-  store i64 %10, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFivEZN4llvm17raw_socket_stream4readEPcmRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFivEZN4llvm17raw_socket_stream4readEPcmRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %7, align 8
+  %7 = ptrtoint ptr %0 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %10, align 8
+  store i64 %7, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFivEZN4llvm17raw_socket_stream4readEPcmRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFivEZN4llvm17raw_socket_stream4readEPcmRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 0, ptr %11, align 4
   %12 = call fastcc { i32, ptr } @_ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(8) %6)
   %13 = extractvalue { i32, ptr } %12, 0
   %14 = extractvalue { i32, ptr } %12, 1
-  %15 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZNSt8functionIFivEED2Ev.exit, label %16
 

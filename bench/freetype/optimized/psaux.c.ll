@@ -19085,8 +19085,8 @@ define internal fastcc void @cf2_glyphpath_pushPrevElem(ptr noundef nonnull %0, 
   %19 = getelementptr inbounds i8, ptr %2, i64 8
   %20 = load i64, ptr %19, align 8
   %.not67 = icmp eq i64 %18, %20
-  %or.cond137 = select i1 %.not, i1 %.not67, i1 false
-  br i1 %or.cond137, label %cf2_glyphpath_computeIntersection.exit.thread, label %._crit_edge
+  %or.cond136 = select i1 %.not, i1 %.not67, i1 false
+  br i1 %or.cond136, label %cf2_glyphpath_computeIntersection.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6
   %21 = trunc i64 %15 to i32
@@ -19138,8 +19138,8 @@ define internal fastcc void @cf2_glyphpath_pushPrevElem(ptr noundef nonnull %0, 
   %reass.sub = sub i32 %42, %31
   %65 = add i32 %reass.sub, 16
   %66 = ashr i32 %65, 5
-  %reass.sub118.i = add i32 %36, 16
-  %67 = sub i32 %reass.sub118.i, %23
+  %reass.sub9.i = add i32 %36, 16
+  %67 = sub i32 %reass.sub9.i, %23
   %68 = ashr i32 %67, 5
   %69 = sext i32 %68 to i64
   %70 = mul nsw i64 %47, %69
@@ -19156,16 +19156,16 @@ define internal fastcc void @cf2_glyphpath_pushPrevElem(ptr noundef nonnull %0, 
   %81 = sub nsw i64 %74, %80
   %sext.i = shl i64 %81, 32
   %82 = ashr exact i64 %sext.i, 32
-  %sext110.i = shl i64 %64, 32
-  %83 = ashr exact i64 %sext110.i, 32
+  %sext1.i = shl i64 %64, 32
+  %83 = ashr exact i64 %sext1.i, 32
   %84 = tail call i64 @FT_DivFix(i64 noundef %82, i64 noundef %83) #20
   %85 = load i64, ptr %.065, align 8
   %86 = load i64, ptr %.064, align 8
   %87 = sub i64 %86, %85
-  %sext111.i = shl i64 %84, 32
-  %88 = ashr exact i64 %sext111.i, 32
-  %sext112.i = shl i64 %87, 32
-  %89 = ashr exact i64 %sext112.i, 32
+  %sext2.i = shl i64 %84, 32
+  %88 = ashr exact i64 %sext2.i, 32
+  %sext3.i = shl i64 %87, 32
+  %89 = ashr exact i64 %sext3.i, 32
   %90 = mul nsw i64 %89, %88
   %91 = ashr i64 %90, 63
   %92 = add nsw i64 %90, 32768
@@ -19177,8 +19177,8 @@ define internal fastcc void @cf2_glyphpath_pushPrevElem(ptr noundef nonnull %0, 
   %97 = load i64, ptr %29, align 8
   %98 = load i64, ptr %27, align 8
   %99 = sub i64 %98, %97
-  %sext113.i = shl i64 %99, 32
-  %100 = ashr exact i64 %sext113.i, 32
+  %sext4.i = shl i64 %99, 32
+  %100 = ashr exact i64 %sext4.i, 32
   %101 = mul nsw i64 %100, %88
   %102 = ashr i64 %101, 63
   %103 = add nsw i64 %101, 32768
@@ -19186,8 +19186,8 @@ define internal fastcc void @cf2_glyphpath_pushPrevElem(ptr noundef nonnull %0, 
   %105 = lshr i64 %104, 16
   %106 = trunc i64 %105 to i32
   %107 = add i64 %105, %97
-  %sext112 = shl i64 %107, 32
-  %108 = ashr exact i64 %sext112, 32
+  %sext111 = shl i64 %107, 32
+  %108 = ashr exact i64 %sext111, 32
   %109 = icmp eq i64 %85, %86
   br i1 %109, label %110, label %116
 
@@ -19210,11 +19210,11 @@ define internal fastcc void @cf2_glyphpath_pushPrevElem(ptr noundef nonnull %0, 
   %120 = getelementptr inbounds i8, ptr %0, i64 18716
   %121 = load i32, ptr %120, align 4
   %122 = icmp slt i32 %119, %121
-  %spec.select106 = select i1 %122, i64 %97, i64 %108
+  %spec.select105 = select i1 %122, i64 %97, i64 %108
   br label %123
 
 123:                                              ; preds = %118, %116
-  %.sroa.6.1 = phi i64 [ %108, %116 ], [ %spec.select106, %118 ]
+  %.sroa.6.1 = phi i64 [ %108, %116 ], [ %spec.select105, %118 ]
   %124 = load i64, ptr %2, align 8
   %125 = icmp eq i64 %124, %3
   br i1 %125, label %126, label %133
@@ -19226,11 +19226,11 @@ define internal fastcc void @cf2_glyphpath_pushPrevElem(ptr noundef nonnull %0, 
   %130 = getelementptr inbounds i8, ptr %0, i64 18716
   %131 = load i32, ptr %130, align 4
   %132 = icmp slt i32 %129, %131
-  %spec.select108 = select i1 %132, i64 %3, i64 %.sroa.0.1
+  %spec.select107 = select i1 %132, i64 %3, i64 %.sroa.0.1
   br label %133
 
 133:                                              ; preds = %126, %123
-  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %123 ], [ %spec.select108, %126 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %123 ], [ %spec.select107, %126 ]
   %134 = load i64, ptr %41, align 8
   %135 = icmp eq i64 %134, %4
   br i1 %135, label %136, label %143
@@ -19242,11 +19242,11 @@ define internal fastcc void @cf2_glyphpath_pushPrevElem(ptr noundef nonnull %0, 
   %140 = getelementptr inbounds i8, ptr %0, i64 18716
   %141 = load i32, ptr %140, align 4
   %142 = icmp slt i32 %139, %141
-  %spec.select110 = select i1 %142, i64 %4, i64 %.sroa.6.1
+  %spec.select109 = select i1 %142, i64 %4, i64 %.sroa.6.1
   br label %143
 
 143:                                              ; preds = %136, %133
-  %.sroa.6.2 = phi i64 [ %.sroa.6.1, %133 ], [ %spec.select110, %136 ]
+  %.sroa.6.2 = phi i64 [ %.sroa.6.1, %133 ], [ %spec.select109, %136 ]
   %144 = trunc i64 %86 to i32
   %145 = trunc i64 %124 to i32
   %146 = add i32 %145, %144
@@ -19274,8 +19274,8 @@ cf2_glyphpath_computeIntersection.exit:           ; preds = %143
   %.neg109.i = mul i64 %162, -4294967296
   %164 = ashr exact i64 %.neg109.i, 32
   %165 = select i1 %163, i64 %164, i64 %162
-  %.not113 = icmp sgt i64 %165, %155
-  br i1 %.not113, label %cf2_glyphpath_computeIntersection.exit.thread, label %166
+  %.not112 = icmp sgt i64 %165, %155
+  br i1 %.not112, label %cf2_glyphpath_computeIntersection.exit.thread, label %166
 
 166:                                              ; preds = %cf2_glyphpath_computeIntersection.exit
   store i64 %.sroa.0.2, ptr %.064, align 8
@@ -19307,8 +19307,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %177 = getelementptr inbounds i8, ptr %0, i64 18624
   %178 = load i32, ptr %177, align 8
   %179 = sext i32 %178 to i64
-  %sext122 = shl i64 %173, 32
-  %180 = ashr exact i64 %sext122, 32
+  %sext121 = shl i64 %173, 32
+  %180 = ashr exact i64 %sext121, 32
   %181 = mul nsw i64 %180, %179
   %182 = ashr i64 %181, 63
   %183 = add nsw i64 %181, 32768
@@ -19317,8 +19317,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %186 = getelementptr inbounds i8, ptr %0, i64 18628
   %187 = load i32, ptr %186, align 4
   %188 = sext i32 %187 to i64
-  %sext123 = shl i64 %175, 32
-  %189 = ashr exact i64 %sext123, 32
+  %sext122 = shl i64 %175, 32
+  %189 = ashr exact i64 %sext122, 32
   %190 = mul nsw i64 %189, %188
   %191 = ashr i64 %190, 63
   %192 = add nsw i64 %190, 32768
@@ -19330,8 +19330,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %198 = getelementptr inbounds i8, ptr %197, i64 68
   %199 = load i32, ptr %198, align 4
   %200 = sext i32 %199 to i64
-  %sext.i77 = shl i64 %195, 32
-  %201 = ashr exact i64 %sext.i77, 32
+  %sext.i78 = shl i64 %195, 32
+  %201 = ashr exact i64 %sext.i78, 32
   %202 = mul nsw i64 %201, %200
   %203 = ashr i64 %202, 63
   %204 = add nsw i64 %202, 32768
@@ -19372,19 +19372,19 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %239 = add i64 %238, %235
   %.in = shl i64 %239, 32
   %240 = ashr exact i64 %.in, 32
-  %.sink131.in = shl i64 %219, 32
-  %.sink131 = ashr exact i64 %.sink131.in, 32
+  %.sink130.in = shl i64 %219, 32
+  %.sink130 = ashr exact i64 %.sink130.in, 32
   %241 = getelementptr inbounds i8, ptr %7, i64 16
-  store i64 %.sink131, ptr %241, align 8
+  store i64 %.sink130, ptr %241, align 8
   %242 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 %240, ptr %242, align 8
   %243 = load i64, ptr %7, align 8
-  %.not70 = icmp eq i64 %243, %.sink131
+  %.not70 = icmp eq i64 %243, %.sink130
   %244 = getelementptr inbounds i8, ptr %7, i64 8
   %245 = load i64, ptr %244, align 8
   %.not71 = icmp eq i64 %245, %240
-  %or.cond210 = select i1 %.not70, i1 %.not71, i1 false
-  br i1 %or.cond210, label %457, label %.sink.split
+  %or.cond209 = select i1 %.not70, i1 %.not71, i1 false
+  br i1 %or.cond209, label %457, label %.sink.split
 
 246:                                              ; preds = %cf2_glyphpath_computeIntersection.exit.thread
   %247 = getelementptr inbounds i8, ptr %7, i64 64
@@ -19397,8 +19397,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %253 = getelementptr inbounds i8, ptr %0, i64 18624
   %254 = load i32, ptr %253, align 8
   %255 = sext i32 %254 to i64
-  %sext114 = shl i64 %249, 32
-  %256 = ashr exact i64 %sext114, 32
+  %sext113 = shl i64 %249, 32
+  %256 = ashr exact i64 %sext113, 32
   %257 = mul nsw i64 %256, %255
   %258 = ashr i64 %257, 63
   %259 = add nsw i64 %257, 32768
@@ -19407,8 +19407,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %262 = getelementptr inbounds i8, ptr %0, i64 18628
   %263 = load i32, ptr %262, align 4
   %264 = sext i32 %263 to i64
-  %sext115 = shl i64 %251, 32
-  %265 = ashr exact i64 %sext115, 32
+  %sext114 = shl i64 %251, 32
+  %265 = ashr exact i64 %sext114, 32
   %266 = mul nsw i64 %265, %264
   %267 = ashr i64 %266, 63
   %268 = add nsw i64 %266, 32768
@@ -19420,8 +19420,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %274 = getelementptr inbounds i8, ptr %273, i64 68
   %275 = load i32, ptr %274, align 4
   %276 = sext i32 %275 to i64
-  %sext.i80 = shl i64 %271, 32
-  %277 = ashr exact i64 %sext.i80, 32
+  %sext.i81 = shl i64 %271, 32
+  %277 = ashr exact i64 %sext.i81, 32
   %278 = mul nsw i64 %277, %276
   %279 = ashr i64 %278, 63
   %280 = add nsw i64 %278, 32768
@@ -19440,8 +19440,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %293 = load i64, ptr %292, align 8
   %294 = add i64 %291, %293
   %295 = add i64 %294, %282
-  %sext15.i81 = shl i64 %295, 32
-  %296 = ashr exact i64 %sext15.i81, 32
+  %sext15.i82 = shl i64 %295, 32
+  %296 = ashr exact i64 %sext15.i82, 32
   store i64 %296, ptr %248, align 8
   %297 = getelementptr inbounds i8, ptr %273, i64 72
   %298 = load i32, ptr %297, align 4
@@ -19463,8 +19463,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %314 = load i64, ptr %313, align 8
   %315 = add i64 %304, %314
   %316 = add i64 %315, %312
-  %sext16.i82 = shl i64 %316, 32
-  %317 = ashr exact i64 %sext16.i82, 32
+  %sext16.i83 = shl i64 %316, 32
+  %317 = ashr exact i64 %sext16.i83, 32
   %318 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 %317, ptr %318, align 8
   %319 = getelementptr inbounds i8, ptr %7, i64 32
@@ -19474,8 +19474,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %323 = trunc i64 %322 to i32
   %324 = load i32, ptr %253, align 8
   %325 = sext i32 %324 to i64
-  %sext116 = shl i64 %320, 32
-  %326 = ashr exact i64 %sext116, 32
+  %sext115 = shl i64 %320, 32
+  %326 = ashr exact i64 %sext115, 32
   %327 = mul nsw i64 %326, %325
   %328 = ashr i64 %327, 63
   %329 = add nsw i64 %327, 32768
@@ -19483,8 +19483,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %331 = lshr i64 %330, 16
   %332 = load i32, ptr %262, align 4
   %333 = sext i32 %332 to i64
-  %sext117 = shl i64 %322, 32
-  %334 = ashr exact i64 %sext117, 32
+  %sext116 = shl i64 %322, 32
+  %334 = ashr exact i64 %sext116, 32
   %335 = mul nsw i64 %334, %333
   %336 = ashr i64 %335, 63
   %337 = add nsw i64 %335, 32768
@@ -19496,8 +19496,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %343 = getelementptr inbounds i8, ptr %342, i64 68
   %344 = load i32, ptr %343, align 4
   %345 = sext i32 %344 to i64
-  %sext.i83 = shl i64 %340, 32
-  %346 = ashr exact i64 %sext.i83, 32
+  %sext.i84 = shl i64 %340, 32
+  %346 = ashr exact i64 %sext.i84, 32
   %347 = mul nsw i64 %346, %345
   %348 = ashr i64 %347, 63
   %349 = add nsw i64 %347, 32768
@@ -19515,8 +19515,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %361 = load i64, ptr %292, align 8
   %362 = add i64 %360, %361
   %363 = add i64 %362, %351
-  %sext15.i84 = shl i64 %363, 32
-  %364 = ashr exact i64 %sext15.i84, 32
+  %sext15.i85 = shl i64 %363, 32
+  %364 = ashr exact i64 %sext15.i85, 32
   store i64 %364, ptr %319, align 8
   %365 = getelementptr inbounds i8, ptr %342, i64 72
   %366 = load i32, ptr %365, align 4
@@ -19537,8 +19537,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %381 = load i64, ptr %313, align 8
   %382 = add i64 %372, %381
   %383 = add i64 %382, %380
-  %sext16.i85 = shl i64 %383, 32
-  %384 = ashr exact i64 %sext16.i85, 32
+  %sext16.i86 = shl i64 %383, 32
+  %384 = ashr exact i64 %sext16.i86, 32
   %385 = getelementptr inbounds i8, ptr %7, i64 40
   store i64 %384, ptr %385, align 8
   %386 = getelementptr inbounds i8, ptr %7, i64 48
@@ -19548,8 +19548,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %390 = trunc i64 %389 to i32
   %391 = load i32, ptr %253, align 8
   %392 = sext i32 %391 to i64
-  %sext118 = shl i64 %387, 32
-  %393 = ashr exact i64 %sext118, 32
+  %sext117 = shl i64 %387, 32
+  %393 = ashr exact i64 %sext117, 32
   %394 = mul nsw i64 %393, %392
   %395 = ashr i64 %394, 63
   %396 = add nsw i64 %394, 32768
@@ -19557,8 +19557,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %398 = lshr i64 %397, 16
   %399 = load i32, ptr %262, align 4
   %400 = sext i32 %399 to i64
-  %sext119 = shl i64 %389, 32
-  %401 = ashr exact i64 %sext119, 32
+  %sext118 = shl i64 %389, 32
+  %401 = ashr exact i64 %sext118, 32
   %402 = mul nsw i64 %401, %400
   %403 = ashr i64 %402, 63
   %404 = add nsw i64 %402, 32768
@@ -19570,8 +19570,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %410 = getelementptr inbounds i8, ptr %409, i64 68
   %411 = load i32, ptr %410, align 4
   %412 = sext i32 %411 to i64
-  %sext.i86 = shl i64 %407, 32
-  %413 = ashr exact i64 %sext.i86, 32
+  %sext.i87 = shl i64 %407, 32
+  %413 = ashr exact i64 %sext.i87, 32
   %414 = mul nsw i64 %413, %412
   %415 = ashr i64 %414, 63
   %416 = add nsw i64 %414, 32768
@@ -19589,8 +19589,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %428 = load i64, ptr %292, align 8
   %429 = add i64 %427, %428
   %430 = add i64 %429, %418
-  %sext15.i87 = shl i64 %430, 32
-  %431 = ashr exact i64 %sext15.i87, 32
+  %sext15.i88 = shl i64 %430, 32
+  %431 = ashr exact i64 %sext15.i88, 32
   store i64 %431, ptr %386, align 8
   %432 = getelementptr inbounds i8, ptr %409, i64 72
   %433 = load i32, ptr %432, align 4
@@ -19611,21 +19611,21 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %448 = load i64, ptr %313, align 8
   %449 = add i64 %439, %448
   %450 = add i64 %449, %447
-  %sext16.i88 = shl i64 %450, 32
-  %451 = ashr exact i64 %sext16.i88, 32
+  %sext16.i89 = shl i64 %450, 32
+  %451 = ashr exact i64 %sext16.i89, 32
   %452 = getelementptr inbounds i8, ptr %7, i64 56
   store i64 %451, ptr %452, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %170, %246
-  %.sink216 = phi i64 [ 24, %246 ], [ 8, %170 ]
-  %.sink211 = phi ptr [ %386, %246 ], [ %241, %170 ]
+  %.sink215 = phi i64 [ 24, %246 ], [ 8, %170 ]
+  %.sink210 = phi ptr [ %386, %246 ], [ %241, %170 ]
   %453 = getelementptr inbounds i8, ptr %0, i64 8
   %454 = load ptr, ptr %453, align 8
-  %455 = getelementptr inbounds i8, ptr %454, i64 %.sink216
+  %455 = getelementptr inbounds i8, ptr %454, i64 %.sink215
   %456 = load ptr, ptr %455, align 8
   call void %456(ptr noundef %454, ptr noundef nonnull %7) #20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull align 8 dereferenceable(16) %.sink211, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull align 8 dereferenceable(16) %.sink210, i64 16, i1 false)
   br label %457
 
 457:                                              ; preds = %.sink.split, %170, %cf2_glyphpath_computeIntersection.exit.thread
@@ -19636,7 +19636,7 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
 459:                                              ; preds = %457
   %.not72 = icmp eq i8 %5, 0
   %460 = getelementptr inbounds i8, ptr %0, i64 6200
-  %.sink270 = select i1 %.not72, ptr %1, ptr %460
+  %.sink269 = select i1 %.not72, ptr %1, ptr %460
   %461 = load i64, ptr %2, align 8
   %462 = getelementptr inbounds i8, ptr %2, i64 8
   %463 = load i64, ptr %462, align 8
@@ -19644,8 +19644,8 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %465 = getelementptr inbounds i8, ptr %0, i64 18624
   %466 = load i32, ptr %465, align 8
   %467 = sext i32 %466 to i64
-  %sext126 = shl i64 %461, 32
-  %468 = ashr exact i64 %sext126, 32
+  %sext125 = shl i64 %461, 32
+  %468 = ashr exact i64 %sext125, 32
   %469 = mul nsw i64 %468, %467
   %470 = ashr i64 %469, 63
   %471 = add nsw i64 %469, 32768
@@ -19654,21 +19654,21 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %474 = getelementptr inbounds i8, ptr %0, i64 18628
   %475 = load i32, ptr %474, align 4
   %476 = sext i32 %475 to i64
-  %sext127 = shl i64 %463, 32
-  %477 = ashr exact i64 %sext127, 32
+  %sext126 = shl i64 %463, 32
+  %477 = ashr exact i64 %sext126, 32
   %478 = mul nsw i64 %477, %476
   %479 = ashr i64 %478, 63
   %480 = add nsw i64 %478, 32768
   %481 = add nsw i64 %480, %479
   %482 = lshr i64 %481, 16
   %483 = add nuw nsw i64 %482, %473
-  %484 = call fastcc i32 @cf2_hintmap_map(ptr noundef nonnull %.sink270, i32 noundef %464)
+  %484 = call fastcc i32 @cf2_hintmap_map(ptr noundef nonnull %.sink269, i32 noundef %464)
   %485 = load ptr, ptr %0, align 8
   %486 = getelementptr inbounds i8, ptr %485, i64 68
   %487 = load i32, ptr %486, align 4
   %488 = sext i32 %487 to i64
-  %sext.i92 = shl i64 %483, 32
-  %489 = ashr exact i64 %sext.i92, 32
+  %sext.i93 = shl i64 %483, 32
+  %489 = ashr exact i64 %sext.i93, 32
   %490 = mul nsw i64 %489, %488
   %491 = ashr i64 %490, 63
   %492 = add nsw i64 %490, 32768
@@ -19707,16 +19707,16 @@ cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_ed
   %525 = load i64, ptr %524, align 8
   %526 = add i64 %515, %525
   %527 = add i64 %526, %523
-  %.in136 = shl i64 %527, 32
-  %528 = ashr exact i64 %.in136, 32
-  %.sink133.in = shl i64 %507, 32
-  %.sink133 = ashr exact i64 %.sink133.in, 32
+  %.in135 = shl i64 %527, 32
+  %528 = ashr exact i64 %.in135, 32
+  %.sink132.in = shl i64 %507, 32
+  %.sink132 = ashr exact i64 %.sink132.in, 32
   %529 = getelementptr inbounds i8, ptr %7, i64 16
-  store i64 %.sink133, ptr %529, align 8
+  store i64 %.sink132, ptr %529, align 8
   %530 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 %528, ptr %530, align 8
   %531 = load i64, ptr %168, align 8
-  %.not73 = icmp eq i64 %.sink133, %531
+  %.not73 = icmp eq i64 %.sink132, %531
   br i1 %.not73, label %532, label %535
 
 532:                                              ; preds = %459

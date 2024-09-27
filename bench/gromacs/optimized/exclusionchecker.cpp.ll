@@ -278,19 +278,19 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %11
   unreachable
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
-  %26 = getelementptr inbounds i8, ptr %5, i64 24
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %27, align 8
-  %28 = ptrtoint ptr %7 to i64
-  store i64 %28, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPNS1_25ObservablesReducerBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_OS8_", ptr %26, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPNS1_25ObservablesReducerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %25, align 8
+  %25 = ptrtoint ptr %7 to i64
+  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %27 = getelementptr inbounds i8, ptr %5, i64 24
+  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %28, align 8
+  store i64 %25, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPNS1_25ObservablesReducerBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_OS8_", ptr %27, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPNS1_25ObservablesReducerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %6, i64 16
   %30 = getelementptr inbounds i8, ptr %6, i64 24
   %31 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %31, align 8
-  store i64 %28, ptr %6, align 8
+  store i64 %25, ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1E9_M_invokeERKSt9_Any_dataOl", ptr %30, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %29, align 8
   invoke void @_ZN3gmx25ObservablesReducerBuilder13addSubscriberEiOSt8functionIFvOS1_IFNS_24ObservablesReducerStatusENS_20ReductionRequirementEEENS_8ArrayRefIdEEEEOS1_IFvlEE(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -313,7 +313,7 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %11
   unreachable
 
 _ZNSt8functionIFvlEED2Ev.exit:                    ; preds = %32, %34
-  %39 = load ptr, ptr %25, align 8
+  %39 = load ptr, ptr %26, align 8
   %.not.i.i11 = icmp eq ptr %39, null
   br i1 %.not.i.i11, label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit, label %40
 
@@ -350,7 +350,7 @@ _ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirement
   unreachable
 
 _ZNSt8functionIFvlEED2Ev.exit13:                  ; preds = %45, %48
-  %53 = load ptr, ptr %25, align 8
+  %53 = load ptr, ptr %26, align 8
   %.not.i.i14 = icmp eq ptr %53, null
   br i1 %.not.i.i14, label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit15, label %54
 

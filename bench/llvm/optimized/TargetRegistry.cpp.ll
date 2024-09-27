@@ -506,7 +506,7 @@ define dso_local noundef ptr @_ZN4llvm14TargetRegistry12lookupTargetENS_9StringR
   br i1 %27, label %.lr.ph.i.i.i.preheader, label %29
 
 .lr.ph.i.i.i.preheader:                           ; preds = %.lr.ph.i.i.i.i
-  br i1 %.not5.i.i.i, label %.loopexit, label %.lr.ph.i.i.i21
+  br i1 %.not5.i.i.i, label %.loopexit, label %.lr.ph.i.i.i22
 
 29:                                               ; preds = %.lr.ph.i.i.i.i
   br i1 %.not5.i.i.i, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !20
@@ -533,19 +533,19 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %29, %19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   br label %.loopexit
 
-.lr.ph.i.i.i21:                                   ; preds = %.lr.ph.i.i.i.preheader, %40
+.lr.ph.i.i.i22:                                   ; preds = %.lr.ph.i.i.i.preheader, %40
   %.sroa.03.06.i.i.i = phi ptr [ %41, %40 ], [ %28, %.lr.ph.i.i.i.preheader ]
   %38 = getelementptr i8, ptr %.sroa.03.06.i.i.i, i64 8
   %.val1.i.i.i.i = load ptr, ptr %38, align 8
   %39 = call noundef zeroext i1 %.val1.i.i.i.i(i32 noundef %24) #15
   br i1 %39, label %42, label %40
 
-40:                                               ; preds = %.lr.ph.i.i.i21
+40:                                               ; preds = %.lr.ph.i.i.i22
   %41 = load ptr, ptr %.sroa.03.06.i.i.i, align 8
-  %.not.i.i.i22 = icmp eq ptr %41, null
-  br i1 %.not.i.i.i22, label %.loopexit, label %.lr.ph.i.i.i21, !llvm.loop !20
+  %.not.i.i.i23 = icmp eq ptr %41, null
+  br i1 %.not.i.i.i23, label %.loopexit, label %.lr.ph.i.i.i22, !llvm.loop !20
 
-42:                                               ; preds = %.lr.ph.i.i.i21
+42:                                               ; preds = %.lr.ph.i.i.i22
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #15
   %43 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %14) #15

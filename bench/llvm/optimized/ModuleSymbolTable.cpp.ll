@@ -772,16 +772,16 @@ _ZNK4llvm6Target17createMCAsmParserERKNS_15MCSubtargetInfoERNS_11MCAsmParserERKN
   br i1 %.not106, label %_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit, label %86
 
 86:                                               ; preds = %_ZNK4llvm6Target17createMCAsmParserERKNS_15MCSubtargetInfoERNS_11MCAsmParserERKNS_11MCInstrInfoERKNS_15MCTargetOptionsE.exit
-  %87 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %88 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %89 = getelementptr inbounds i8, ptr %21, i64 8
-  store i64 0, ptr %89, align 8
-  %90 = ptrtoint ptr %0 to i64
-  store i64 %90, ptr %21, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEZL24initializeRecordStreamerRKNS0_6ModuleENS0_12function_refIFvRNS0_14RecordStreamerEEEEE3$_0E9_M_invokeERKSt9_Any_dataS3_ObS6_SD_", ptr %88, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEZL24initializeRecordStreamerRKNS0_6ModuleENS0_12function_refIFvRNS0_14RecordStreamerEEEEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %87, align 8
+  %87 = ptrtoint ptr %0 to i64
+  %88 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %90 = getelementptr inbounds i8, ptr %21, i64 8
+  store i64 0, ptr %90, align 8
+  store i64 %87, ptr %21, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEZL24initializeRecordStreamerRKNS0_6ModuleENS0_12function_refIFvRNS0_14RecordStreamerEEEEE3$_0E9_M_invokeERKSt9_Any_dataS3_ObS6_SD_", ptr %89, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEZL24initializeRecordStreamerRKNS0_6ModuleENS0_12function_refIFvRNS0_14RecordStreamerEEEEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %88, align 8
   call void @_ZN4llvm9MCContext20setDiagnosticHandlerESt8functionIFvRKNS_12SMDiagnosticEbRKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaISB_EEEE(ptr noundef nonnull align 8 dereferenceable(2432) %18, ptr noundef nonnull %21)
-  %91 = load ptr, ptr %87, align 8
+  %91 = load ptr, ptr %88, align 8
   %.not.i.i = icmp eq ptr %91, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEED2Ev.exit, label %92
 

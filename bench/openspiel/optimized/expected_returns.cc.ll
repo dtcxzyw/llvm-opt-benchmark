@@ -176,12 +176,12 @@ define void @_ZN10open_spiel10algorithms15ExpectedReturnsERKNS_5StateERKSt6vecto
   %22 = landingpad { ptr, i32 }
           cleanup
   %23 = load ptr, ptr %11, align 8
-  %.not.i.i12 = icmp eq ptr %23, null
-  br i1 %.not.i.i12, label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit13, label %24
+  %.not.i.i13 = icmp eq ptr %23, null
+  br i1 %.not.i.i13, label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit14, label %24
 
 24:                                               ; preds = %21
   %25 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit13 unwind label %26
+          to label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit14 unwind label %26
 
 26:                                               ; preds = %24
   %27 = landingpad { ptr, i32 }
@@ -222,11 +222,11 @@ define void @_ZN10open_spiel10algorithms15ExpectedReturnsERKNS_5StateERKSt6vecto
           cleanup
   %42 = load ptr, ptr %30, align 8
   %.not.i.i16 = icmp eq ptr %42, null
-  br i1 %.not.i.i16, label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit13, label %43
+  br i1 %.not.i.i16, label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit14, label %43
 
 43:                                               ; preds = %40
   %44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit13 unwind label %45
+          to label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit14 unwind label %45
 
 45:                                               ; preds = %43
   %46 = landingpad { ptr, i32 }
@@ -238,7 +238,7 @@ define void @_ZN10open_spiel10algorithms15ExpectedReturnsERKNS_5StateERKSt6vecto
 _ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit: ; preds = %35, %33, %16, %14
   ret void
 
-_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit13: ; preds = %43, %40, %24, %21
+_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit14: ; preds = %43, %40, %24, %21
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %22, %24 ], [ %41, %40 ], [ %41, %43 ]
   resume { ptr, i32 } %.pn
 }
@@ -2855,12 +2855,12 @@ define void @_ZN10open_spiel10algorithms15ExpectedReturnsERKNS_5StateERKNS_6Poli
   %22 = landingpad { ptr, i32 }
           cleanup
   %23 = load ptr, ptr %11, align 8
-  %.not.i.i12 = icmp eq ptr %23, null
-  br i1 %.not.i.i12, label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit13, label %24
+  %.not.i.i13 = icmp eq ptr %23, null
+  br i1 %.not.i.i13, label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit14, label %24
 
 24:                                               ; preds = %21
   %25 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit13 unwind label %26
+          to label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit14 unwind label %26
 
 26:                                               ; preds = %24
   %27 = landingpad { ptr, i32 }
@@ -2901,11 +2901,11 @@ define void @_ZN10open_spiel10algorithms15ExpectedReturnsERKNS_5StateERKNS_6Poli
           cleanup
   %42 = load ptr, ptr %30, align 8
   %.not.i.i16 = icmp eq ptr %42, null
-  br i1 %.not.i.i16, label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit13, label %43
+  br i1 %.not.i.i16, label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit14, label %43
 
 43:                                               ; preds = %40
   %44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit13 unwind label %45
+          to label %_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit14 unwind label %45
 
 45:                                               ; preds = %43
   %46 = landingpad { ptr, i32 }
@@ -2917,7 +2917,7 @@ define void @_ZN10open_spiel10algorithms15ExpectedReturnsERKNS_5StateERKNS_6Poli
 _ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit: ; preds = %35, %33, %16, %14
   ret void
 
-_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit13: ; preds = %43, %40, %24, %21
+_ZNSt8functionIFSt6vectorISt4pairIldESaIS2_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit14: ; preds = %43, %40, %24, %21
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %22, %24 ], [ %41, %40 ], [ %41, %43 ]
   resume { ptr, i32 } %.pn
 }

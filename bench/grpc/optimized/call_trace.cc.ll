@@ -586,9 +586,9 @@ invoke.cont16.thread:                             ; preds = %call7.i.i.i.i.i.i.i
   %arrayidx7.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %33, i64 %and6.i.i.i.i.i.i.i.i.i.i
   store i8 %conv.i.i.i, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !12
   %.val2.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 16), align 8, !noalias !12
-  %add.ptr.i3.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %.val2.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i
-  store ptr %filter, ptr %add.ptr.i3.i.i.i.i.i.i, align 8, !noalias !12
-  %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3.i.i.i.i.i.i, i64 8
+  %add.ptr.i4.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %.val2.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i
+  store ptr %filter, ptr %add.ptr.i4.i.i.i.i.i.i, align 8, !noalias !12
+  %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i4.i.i.i.i.i.i, i64 8
   store i64 %18, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !12
   %.val1.pre.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 16), align 8, !noalias !12
   %second1822 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %.val1.pre.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i, i32 0, i32 1

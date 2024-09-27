@@ -2434,8 +2434,8 @@ _ZN6google8protobuf12_GLOBAL__N_123GeneratedMessageFactory12RegisterFileEPKNS0_8
   %arrayidx7.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %35, i64 %and6.i.i.i.i.i.i.i.i.i.i.i
   store i8 %conv.i.i.i.i.i.i.i.i.i, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !42
   %.val2.i.i.i.i.i.i.i = load ptr, ptr %5, align 8, !noalias !42
-  %add.ptr.i3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %.val2.i.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i.i
-  store ptr %table, ptr %add.ptr.i3.i.i.i.i.i.i.i, align 8, !noalias !42
+  %add.ptr.i4.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %.val2.i.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i.i
+  store ptr %table, ptr %add.ptr.i4.i.i.i.i.i.i.i, align 8, !noalias !42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
   ret void
 }

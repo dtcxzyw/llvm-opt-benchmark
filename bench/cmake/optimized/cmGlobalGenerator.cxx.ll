@@ -40216,8 +40216,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %21, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_SG_SG_T0_.exit"
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_SG_RT0_.exit.i.i", %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %22, %.lr.ph.i9.i ], [ %storemerge99.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_SG_RT0_.exit.i.i" ]
-  %22 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
+  %.sroa.0.03.i.i = phi ptr [ %22, %.lr.ph.i9.i ], [ %storemerge99.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_SG_RT0_.exit.i.i" ]
+  %22 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %0, align 8
   store ptr %24, ptr %22, align 8
@@ -40796,8 +40796,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br label %11
 
 11:                                               ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPP17cmGeneratorTargetSt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit"
-  %.038 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPP17cmGeneratorTargetSt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit" ]
-  %12 = shl i64 %.038, 1
+  %.039 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPP17cmGeneratorTargetSt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit" ]
+  %12 = shl i64 %.039, 1
   %13 = add i64 %12, 2
   %14 = getelementptr inbounds ptr, ptr %0, i64 %13
   %15 = or disjoint i64 %12, 1
@@ -40874,7 +40874,7 @@ _ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS
   %spec.select = select i1 %41, i64 %15, i64 %13
   %42 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %.038
+  %44 = getelementptr inbounds ptr, ptr %0, i64 %.039
   store ptr %43, ptr %44, align 8
   %45 = icmp slt i64 %spec.select, %7
   br i1 %45, label %11, label %._crit_edge, !llvm.loop !890
@@ -40903,98 +40903,98 @@ _ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS
 58:                                               ; preds = %52, %48, %._crit_edge
   %.1 = phi i64 [ %54, %52 ], [ %.0.lcssa, %48 ], [ %.0.lcssa, %._crit_edge ]
   %59 = icmp sgt i64 %.1, %1
-  br i1 %59, label %.lr.ph.i.preheader, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_T0_SH_T1_RT2_.exit"
+  br i1 %59, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_T0_SH_T1_RT2_.exit"
 
-.lr.ph.i.preheader:                               ; preds = %58
+.lr.ph.i:                                         ; preds = %58
   %60 = getelementptr inbounds i8, ptr %4, i64 720
   %61 = getelementptr inbounds i8, ptr %4, i64 712
-  br label %.lr.ph.i
+  br label %62
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %87
-  %.021.i = phi i64 [ %.0922.i, %87 ], [ %.1, %.lr.ph.i.preheader ]
-  %.0922.in.i = add nsw i64 %.021.i, -1
-  %.0922.i = sdiv i64 %.0922.in.i, 2
-  %62 = getelementptr inbounds ptr, ptr %0, i64 %.0922.i
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %60, align 8
-  %.not10.i.i.i.i.i.i.i.i = icmp eq ptr %64, null
+62:                                               ; preds = %88, %.lr.ph.i
+  %.011.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0912.i, %88 ]
+  %.0912.in.i = add nsw i64 %.011.i, -1
+  %.0912.i = sdiv i64 %.0912.in.i, 2
+  %63 = getelementptr inbounds ptr, ptr %0, i64 %.0912.i
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %60, align 8
+  %.not10.i.i.i.i.i.i.i.i = icmp eq ptr %65, null
   br i1 %.not10.i.i.i.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i, %.lr.ph.i.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %64, %.lr.ph.i ]
-  %.0811.i.i.i.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %61, %.lr.ph.i ]
-  %65 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i.i, i64 32
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp ult ptr %66, %63
-  %.19.i.i.i.i.i.i.i.i = select i1 %67, ptr %.0811.i.i.i.i.i.i.i.i, ptr %.012.i.i.i.i.i.i.i.i
-  %.1.in.v.i.i.i.i.i.i.i.i = select i1 %67, i64 24, i64 16
+.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %62, %.lr.ph.i.i.i.i.i.i.i.i
+  %.012.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %65, %62 ]
+  %.0811.i.i.i.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %61, %62 ]
+  %66 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i.i, i64 32
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp ult ptr %67, %64
+  %.19.i.i.i.i.i.i.i.i = select i1 %68, ptr %.0811.i.i.i.i.i.i.i.i, ptr %.012.i.i.i.i.i.i.i.i
+  %.1.in.v.i.i.i.i.i.i.i.i = select i1 %68, i64 24, i64 16
   %.1.in.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i.i.i.i
   %.1.i.i.i.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !654
 
 _ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %68 = icmp eq ptr %.19.i.i.i.i.i.i.i.i, %61
-  br i1 %68, label %.critedge.i.i.i.i.i, label %69
+  %69 = icmp eq ptr %.19.i.i.i.i.i.i.i.i, %61
+  br i1 %69, label %.critedge.i.i.i.i.i, label %70
 
-69:                                               ; preds = %_ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i.i.i.i.i
-  %70 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i.i.i.i, i64 32
-  %71 = load ptr, ptr %70, align 8
-  %72 = icmp ult ptr %63, %71
-  br i1 %72, label %.critedge.i.i.i.i.i, label %.lr.ph.i.i.i.i2.i.i.i.i
+70:                                               ; preds = %_ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i.i.i.i.i
+  %71 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i.i.i.i, i64 32
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp ult ptr %64, %72
+  br i1 %73, label %.critedge.i.i.i.i.i, label %.lr.ph.i.i.i.i2.i.i.i.i
 
-.critedge.i.i.i.i.i:                              ; preds = %69, %_ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i.i.i.i.i, %.lr.ph.i
+.critedge.i.i.i.i.i:                              ; preds = %70, %_ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i.i.i.i.i, %62
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.300) #23
   unreachable
 
-.lr.ph.i.i.i.i2.i.i.i.i:                          ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i.i.i.i, i64 40
-  %74 = load i64, ptr %73, align 8
-  br label %75
+.lr.ph.i.i.i.i2.i.i.i.i:                          ; preds = %70
+  %74 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i.i.i.i, i64 40
+  %75 = load i64, ptr %74, align 8
+  br label %76
 
-75:                                               ; preds = %75, %.lr.ph.i.i.i.i2.i.i.i.i
-  %.012.i.i.i.i3.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i2.i.i.i.i ], [ %.1.i.i.i.i8.i.i.i.i, %75 ]
-  %.0811.i.i.i.i4.i.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i.i2.i.i.i.i ], [ %.19.i.i.i.i5.i.i.i.i, %75 ]
-  %76 = getelementptr inbounds i8, ptr %.012.i.i.i.i3.i.i.i.i, i64 32
-  %77 = load ptr, ptr %76, align 8
-  %78 = icmp ult ptr %77, %3
-  %.19.i.i.i.i5.i.i.i.i = select i1 %78, ptr %.0811.i.i.i.i4.i.i.i.i, ptr %.012.i.i.i.i3.i.i.i.i
-  %.1.in.v.i.i.i.i6.i.i.i.i = select i1 %78, i64 24, i64 16
+76:                                               ; preds = %76, %.lr.ph.i.i.i.i2.i.i.i.i
+  %.012.i.i.i.i3.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i2.i.i.i.i ], [ %.1.i.i.i.i8.i.i.i.i, %76 ]
+  %.0811.i.i.i.i4.i.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i.i2.i.i.i.i ], [ %.19.i.i.i.i5.i.i.i.i, %76 ]
+  %77 = getelementptr inbounds i8, ptr %.012.i.i.i.i3.i.i.i.i, i64 32
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp ult ptr %78, %3
+  %.19.i.i.i.i5.i.i.i.i = select i1 %79, ptr %.0811.i.i.i.i4.i.i.i.i, ptr %.012.i.i.i.i3.i.i.i.i
+  %.1.in.v.i.i.i.i6.i.i.i.i = select i1 %79, i64 24, i64 16
   %.1.in.i.i.i.i7.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i3.i.i.i.i, i64 %.1.in.v.i.i.i.i6.i.i.i.i
   %.1.i.i.i.i8.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i7.i.i.i.i, align 8
   %.not.i.i.i.i9.i.i.i.i = icmp eq ptr %.1.i.i.i.i8.i.i.i.i, null
-  br i1 %.not.i.i.i.i9.i.i.i.i, label %_ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i10.i.i.i.i, label %75, !llvm.loop !654
+  br i1 %.not.i.i.i.i9.i.i.i.i, label %_ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i10.i.i.i.i, label %76, !llvm.loop !654
 
-_ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i10.i.i.i.i: ; preds = %75
-  %79 = icmp eq ptr %.19.i.i.i.i5.i.i.i.i, %61
-  br i1 %79, label %.critedge.i11.i.i.i.i, label %80
+_ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i10.i.i.i.i: ; preds = %76
+  %80 = icmp eq ptr %.19.i.i.i.i5.i.i.i.i, %61
+  br i1 %80, label %.critedge.i11.i.i.i.i, label %81
 
-80:                                               ; preds = %_ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i10.i.i.i.i
-  %81 = getelementptr inbounds i8, ptr %.19.i.i.i.i5.i.i.i.i, i64 32
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp ult ptr %3, %82
-  br i1 %83, label %.critedge.i11.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPP17cmGeneratorTargetSt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i"
+81:                                               ; preds = %_ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i10.i.i.i.i
+  %82 = getelementptr inbounds i8, ptr %.19.i.i.i.i5.i.i.i.i, i64 32
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp ult ptr %3, %83
+  br i1 %84, label %.critedge.i11.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPP17cmGeneratorTargetSt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i"
 
-.critedge.i11.i.i.i.i:                            ; preds = %80, %_ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i10.i.i.i.i
+.critedge.i11.i.i.i.i:                            ; preds = %81, %_ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS6_.exit.i10.i.i.i.i
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.300) #23
   unreachable
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPP17cmGeneratorTargetSt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i": ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %.19.i.i.i.i5.i.i.i.i, i64 40
-  %85 = load i64, ptr %84, align 8
-  %86 = icmp ult i64 %74, %85
-  br i1 %86, label %87, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_T0_SH_T1_RT2_.exit"
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPP17cmGeneratorTargetSt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i": ; preds = %81
+  %85 = getelementptr inbounds i8, ptr %.19.i.i.i.i5.i.i.i.i, i64 40
+  %86 = load i64, ptr %85, align 8
+  %87 = icmp ult i64 %75, %86
+  br i1 %87, label %88, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_T0_SH_T1_RT2_.exit"
 
-87:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPP17cmGeneratorTargetSt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i"
-  %88 = getelementptr inbounds ptr, ptr %0, i64 %.021.i
-  store ptr %63, ptr %88, align 8
-  %89 = icmp sgt i64 %.0922.i, %1
-  br i1 %89, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_T0_SH_T1_RT2_.exit", !llvm.loop !891
+88:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPP17cmGeneratorTargetSt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i"
+  %89 = getelementptr inbounds ptr, ptr %0, i64 %.011.i
+  store ptr %64, ptr %89, align 8
+  %90 = icmp sgt i64 %.0912.i, %1
+  br i1 %90, label %62, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_T0_SH_T1_RT2_.exit", !llvm.loop !891
 
-"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_T0_SH_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPP17cmGeneratorTargetSt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i", %87, %58
-  %.0.lcssa.i = phi i64 [ %.1, %58 ], [ %.021.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPP17cmGeneratorTargetSt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i" ], [ %.0922.i, %87 ]
-  %90 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
-  store ptr %3, ptr %90, align 8
+"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_T0_SH_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPP17cmGeneratorTargetSt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i", %88, %58
+  %.0.lcssa.i = phi i64 [ %.1, %58 ], [ %.011.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPP17cmGeneratorTargetSt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i" ], [ %.0912.i, %88 ]
+  %91 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
+  store ptr %3, ptr %91, align 8
   ret void
 }
 

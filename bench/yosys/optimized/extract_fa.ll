@@ -4995,9 +4995,9 @@ _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_
   %1268 = phi ptr [ %.pre410.i, %1151 ], [ %1259, %.noexc213.i ], [ %1259, %1261 ]
   %.val.i.i.i.i.i = phi ptr [ %.val15.i.i.i, %1151 ], [ %.val19.i.i409.i, %.noexc213.i ], [ %.val19.i.i409.i, %1261 ]
   %1269 = phi ptr [ %.val6.i.i, %1151 ], [ %.val13.i.i.i, %.noexc213.i ], [ %.val13.i.i.i, %1261 ]
-  %.026.i.i = phi i32 [ %1157, %1151 ], [ 0, %.noexc213.i ], [ %1267, %1261 ]
+  %.027.i.i = phi i32 [ %1157, %1151 ], [ 0, %.noexc213.i ], [ %1267, %1261 ]
   %1270 = phi ptr [ %.val.i.i, %1151 ], [ %.val.i.i.i, %.noexc213.i ], [ %.val.i.i.i, %1261 ]
-  %1271 = zext nneg i32 %.026.i.i to i64
+  %1271 = zext nneg i32 %.027.i.i to i64
   %1272 = getelementptr inbounds i32, ptr %1270, i64 %1271
   %1273 = load i32, ptr %1272, align 4
   %1274 = icmp sgt i32 %1273, -1
@@ -5023,13 +5023,13 @@ _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_
 
 _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.thread.i.i: ; preds = %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i, %1149
   %1284 = phi ptr [ %1268, %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i ], [ %.pre410.i, %1149 ]
-  %.sroa.016.0.insert.ext17.i.i = zext nneg i32 %.1.i to i64
+  %.sroa.017.0.insert.ext18.i.i = zext nneg i32 %.1.i to i64
   %1285 = load ptr, ptr %152, align 8
   %.not.i.i.i212.i = icmp eq ptr %1284, %1285
   br i1 %.not.i.i.i212.i, label %1290, label %1286
 
 1286:                                             ; preds = %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.thread.i.i
-  store i64 %.sroa.016.0.insert.ext17.i.i, ptr %1284, align 4
+  store i64 %.sroa.017.0.insert.ext18.i.i, ptr %1284, align 4
   %1287 = getelementptr inbounds i8, ptr %1284, i64 8
   store i32 -1, ptr %1287, align 4
   %1288 = load ptr, ptr %151, align 8
@@ -5061,7 +5061,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_
 
 .noexc215.i:                                      ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS1_8hash_opsIiEEE7entry_tESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %1303 = getelementptr inbounds i8, ptr %1302, i64 %1293
-  store i64 %.sroa.016.0.insert.ext17.i.i, ptr %1303, align 4
+  store i64 %.sroa.017.0.insert.ext18.i.i, ptr %1303, align 4
   %1304 = getelementptr inbounds i8, ptr %1303, i64 8
   store i32 -1, ptr %1304, align 4
   br i1 %1296, label %_ZNSt6vectorIN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS1_8hash_opsIiEEE7entry_tESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit39.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -5314,13 +5314,13 @@ _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_
   br i1 %1405, label %.lr.ph.i.i, label %_ZN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE9do_insertEOSt4pairIiS4_ERi.exit.i.i, !llvm.loop !68
 
 1406:                                             ; preds = %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i
-  %.sroa.016.0.insert.ext.i.i = zext nneg i32 %.1.i to i64
+  %.sroa.017.0.insert.ext.i.i = zext nneg i32 %.1.i to i64
   %1407 = load ptr, ptr %152, align 8
   %.not.i17.i.i.i = icmp eq ptr %1268, %1407
   br i1 %.not.i17.i.i.i, label %1412, label %1408
 
 1408:                                             ; preds = %1406
-  store i64 %.sroa.016.0.insert.ext.i.i, ptr %1268, align 4
+  store i64 %.sroa.017.0.insert.ext.i.i, ptr %1268, align 4
   %1409 = getelementptr inbounds i8, ptr %1268, i64 8
   store i32 %1273, ptr %1409, align 4
   %1410 = load ptr, ptr %151, align 8
@@ -5352,7 +5352,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_
 
 .noexc218.i:                                      ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS1_8hash_opsIiEEE7entry_tESaIS9_EE12_M_check_lenEmPKc.exit.i.i18.i.i.i
   %1425 = getelementptr inbounds i8, ptr %1424, i64 %1415
-  store i64 %.sroa.016.0.insert.ext.i.i, ptr %1425, align 4
+  store i64 %.sroa.017.0.insert.ext.i.i, ptr %1425, align 4
   %1426 = getelementptr inbounds i8, ptr %1425, i64 8
   store i32 %1273, ptr %1426, align 4
   br i1 %1418, label %_ZNSt6vectorIN5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS1_8hash_opsIiEEE7entry_tESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit39.i.i25.i.i.i, label %.lr.ph.i.i.i.i.i.i21.i.i.i

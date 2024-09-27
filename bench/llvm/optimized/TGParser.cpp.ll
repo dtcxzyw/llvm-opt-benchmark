@@ -1770,16 +1770,16 @@ define dso_local noundef zeroext i1 @_ZN4llvm8TGParser11AddSubClassEPNS_6RecordE
   %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #17
   %.sroa.015.0.copyload = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  %34 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %36 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 0, ptr %36, align 8
-  %37 = ptrtoint ptr %10 to i64
-  store i64 %37, ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0E9_M_invokeERKSt9_Any_dataOS2_SJ_", ptr %35, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %34, align 8
+  %34 = ptrtoint ptr %10 to i64
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %37 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 0, ptr %37, align 8
+  store i64 %34, ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0E9_M_invokeERKSt9_Any_dataOS2_SJ_", ptr %36, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %35, align 8
   %38 = call noundef zeroext i1 @_ZN4llvm8TGParser16resolveArgumentsEPNS_6RecordENS_8ArrayRefIPNS_12ArgumentInitEEENS_5SMLocESt8functionIFvPNS_4InitESA_EE(ptr nonnull readnone align 8 poison, ptr noundef %16, ptr %32, i64 %33, ptr %.sroa.015.0.copyload, ptr noundef nonnull %9)
-  %39 = load ptr, ptr %34, align 8
+  %39 = load ptr, ptr %35, align 8
   %.not.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i, label %_ZN4llvm8TGParser23resolveArgumentsOfClassERNS_11MapResolverEPNS_6RecordENS_8ArrayRefIPNS_12ArgumentInitEEENS_5SMLocE.exit, label %40
 
@@ -2097,16 +2097,16 @@ _ZN4llvmplERKNS_5TwineES2_.exit92:                ; preds = %.lr.ph.i68
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm8TGParser23resolveArgumentsOfClassERNS_11MapResolverEPNS_6RecordENS_8ArrayRefIPNS_12ArgumentInitEEENS_5SMLocE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(394) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr %3, i64 %4, ptr %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::function", align 8
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 0, ptr %10, align 8
-  %11 = ptrtoint ptr %1 to i64
-  store i64 %11, ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0E9_M_invokeERKSt9_Any_dataOS2_SJ_", ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %8, align 8
+  %8 = ptrtoint ptr %1 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 0, ptr %11, align 8
+  store i64 %8, ptr %7, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0E9_M_invokeERKSt9_Any_dataOS2_SJ_", ptr %10, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %9, align 8
   %12 = call noundef zeroext i1 @_ZN4llvm8TGParser16resolveArgumentsEPNS_6RecordENS_8ArrayRefIPNS_12ArgumentInitEEENS_5SMLocESt8functionIFvPNS_4InitESA_EE(ptr nonnull align 8 poison, ptr noundef %2, ptr %3, i64 %4, ptr %5, ptr noundef nonnull %7)
-  %13 = load ptr, ptr %8, align 8
+  %13 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvPN4llvm4InitES2_EED2Ev.exit, label %14
 
@@ -2262,16 +2262,16 @@ _ZL27QualifiedNameOfImplicitNamePN4llvm10MultiClassE.exit: ; preds = %7, %28
   %.0.i.i.i = phi ptr [ %29, %28 ], [ %24, %7 ]
   store ptr %.0.i.i.i, ptr %9, align 8
   %30 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIPNS_4InitES3_EE12emplace_backIJS3_RS3_EEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %32 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %33 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 0, ptr %33, align 8
-  %34 = ptrtoint ptr %1 to i64
-  store i64 %34, ptr %10, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser28resolveArgumentsOfMultiClassERNS0_11SmallVectorISt4pairIS2_S2_ELj8EEEPNS0_10MultiClassENS0_8ArrayRefIPNS0_12ArgumentInitEEES2_NS0_5SMLocEE3$_0E9_M_invokeERKSt9_Any_dataOS2_SM_", ptr %32, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser28resolveArgumentsOfMultiClassERNS0_11SmallVectorISt4pairIS2_S2_ELj8EEEPNS0_10MultiClassENS0_8ArrayRefIPNS0_12ArgumentInitEEES2_NS0_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %31, align 8
+  %31 = ptrtoint ptr %1 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %34 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 0, ptr %34, align 8
+  store i64 %31, ptr %10, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser28resolveArgumentsOfMultiClassERNS0_11SmallVectorISt4pairIS2_S2_ELj8EEEPNS0_10MultiClassENS0_8ArrayRefIPNS0_12ArgumentInitEEES2_NS0_5SMLocEE3$_0E9_M_invokeERKSt9_Any_dataOS2_SM_", ptr %33, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser28resolveArgumentsOfMultiClassERNS0_11SmallVectorISt4pairIS2_S2_ELj8EEEPNS0_10MultiClassENS0_8ArrayRefIPNS0_12ArgumentInitEEES2_NS0_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %32, align 8
   %35 = call noundef zeroext i1 @_ZN4llvm8TGParser16resolveArgumentsEPNS_6RecordENS_8ArrayRefIPNS_12ArgumentInitEEENS_5SMLocESt8functionIFvPNS_4InitESA_EE(ptr nonnull align 8 poison, ptr noundef nonnull %2, ptr %3, i64 %4, ptr %11, ptr noundef nonnull %10)
-  %36 = load ptr, ptr %31, align 8
+  %36 = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvPN4llvm4InitES2_EED2Ev.exit, label %37
 

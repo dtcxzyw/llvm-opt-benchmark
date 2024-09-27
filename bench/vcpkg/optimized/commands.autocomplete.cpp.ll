@@ -1641,11 +1641,11 @@ define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_11Tri
   %28 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i.i, i64 64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(32) %28) #18
-  %.sroa.0.0.copyload.i.i16.i.i.i.i = load ptr, ptr %1, align 8
-  %.sroa.2.0.copyload.i.i18.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
+  %.sroa.0.0.copyload.i.i22.i.i.i.i = load ptr, ptr %1, align 8
+  %.sroa.2.0.copyload.i.i24.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
   %29 = load ptr, ptr %9, align 8
   %30 = load i64, ptr %20, align 8
-  %31 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %29, i64 %30, ptr %.sroa.0.0.copyload.i.i16.i.i.i.i, i64 %.sroa.2.0.copyload.i.i18.i.i.i.i)
+  %31 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %29, i64 %30, ptr %.sroa.0.0.copyload.i.i22.i.i.i.i, i64 %.sroa.2.0.copyload.i.i24.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br i1 %31, label %32, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11TripletFileESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_29command_autocomplete_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsEE3$_0EEET_SJ_SJ_T0_.exit.i.i"
 
@@ -1653,11 +1653,11 @@ define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_11Tri
   %33 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i.i, i64 128
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %33) #18
-  %.sroa.0.0.copyload.i.i19.i.i.i.i = load ptr, ptr %1, align 8
-  %.sroa.2.0.copyload.i.i21.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
+  %.sroa.0.0.copyload.i.i25.i.i.i.i = load ptr, ptr %1, align 8
+  %.sroa.2.0.copyload.i.i27.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
   %34 = load ptr, ptr %8, align 8
   %35 = load i64, ptr %21, align 8
-  %36 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %34, i64 %35, ptr %.sroa.0.0.copyload.i.i19.i.i.i.i, i64 %.sroa.2.0.copyload.i.i21.i.i.i.i)
+  %36 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %34, i64 %35, ptr %.sroa.0.0.copyload.i.i25.i.i.i.i, i64 %.sroa.2.0.copyload.i.i27.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %36, label %37, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11TripletFileESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_29command_autocomplete_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsEE3$_0EEET_SJ_SJ_T0_.exit.i.i"
 
@@ -1665,11 +1665,11 @@ define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_11Tri
   %38 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i.i, i64 192
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %38) #18
-  %.sroa.0.0.copyload.i.i22.i.i.i.i = load ptr, ptr %1, align 8
-  %.sroa.2.0.copyload.i.i24.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
+  %.sroa.0.0.copyload.i.i28.i.i.i.i = load ptr, ptr %1, align 8
+  %.sroa.2.0.copyload.i.i30.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
   %39 = load ptr, ptr %7, align 8
   %40 = load i64, ptr %22, align 8
-  %41 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %39, i64 %40, ptr %.sroa.0.0.copyload.i.i22.i.i.i.i, i64 %.sroa.2.0.copyload.i.i24.i.i.i.i)
+  %41 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %39, i64 %40, ptr %.sroa.0.0.copyload.i.i28.i.i.i.i, i64 %.sroa.2.0.copyload.i.i30.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br i1 %41, label %42, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11TripletFileESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_29command_autocomplete_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsEE3$_0EEET_SJ_SJ_T0_.exit.i.i"
 
@@ -1697,13 +1697,13 @@ define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_11Tri
 47:                                               ; preds = %._crit_edge.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.0.lcssa.i.i.i.i) #18
-  %.sroa.0.0.copyload.i.i25.i.i.i.i = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i.i26.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i27.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i26.i.i.i.i, align 8
+  %.sroa.0.0.copyload.i.i31.i.i.i.i = load ptr, ptr %1, align 8
+  %.sroa.2.0..sroa_idx.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0.copyload.i.i33.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i32.i.i.i.i, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds i8, ptr %6, i64 8
   %50 = load i64, ptr %49, align 8
-  %51 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %48, i64 %50, ptr %.sroa.0.0.copyload.i.i25.i.i.i.i, i64 %.sroa.2.0.copyload.i.i27.i.i.i.i)
+  %51 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %48, i64 %50, ptr %.sroa.0.0.copyload.i.i31.i.i.i.i, i64 %.sroa.2.0.copyload.i.i33.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br i1 %51, label %52, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11TripletFileESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_29command_autocomplete_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsEE3$_0EEET_SJ_SJ_T0_.exit.i.i"
 
@@ -1715,13 +1715,13 @@ define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_11Tri
   %.sroa.050.1.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %53, %52 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.1.i.i.i.i) #18
-  %.sroa.0.0.copyload.i.i28.i.i.i.i = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i.i29.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i30.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i29.i.i.i.i, align 8
+  %.sroa.0.0.copyload.i.i34.i.i.i.i = load ptr, ptr %1, align 8
+  %.sroa.2.0..sroa_idx.i.i35.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0.copyload.i.i36.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i35.i.i.i.i, align 8
   %55 = load ptr, ptr %5, align 8
   %56 = getelementptr inbounds i8, ptr %5, i64 8
   %57 = load i64, ptr %56, align 8
-  %58 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %55, i64 %57, ptr %.sroa.0.0.copyload.i.i28.i.i.i.i, i64 %.sroa.2.0.copyload.i.i30.i.i.i.i)
+  %58 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %55, i64 %57, ptr %.sroa.0.0.copyload.i.i34.i.i.i.i, i64 %.sroa.2.0.copyload.i.i36.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %58, label %59, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11TripletFileESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_29command_autocomplete_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsEE3$_0EEET_SJ_SJ_T0_.exit.i.i"
 
@@ -1733,13 +1733,13 @@ define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_11Tri
   %.sroa.050.2.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %60, %59 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.2.i.i.i.i) #18
-  %.sroa.0.0.copyload.i.i31.i.i.i.i = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i33.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i32.i.i.i.i, align 8
+  %.sroa.0.0.copyload.i.i37.i.i.i.i = load ptr, ptr %1, align 8
+  %.sroa.2.0..sroa_idx.i.i38.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0.copyload.i.i39.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i38.i.i.i.i, align 8
   %62 = load ptr, ptr %4, align 8
   %63 = getelementptr inbounds i8, ptr %4, i64 8
   %64 = load i64, ptr %63, align 8
-  %65 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %62, i64 %64, ptr %.sroa.0.0.copyload.i.i31.i.i.i.i, i64 %.sroa.2.0.copyload.i.i33.i.i.i.i)
+  %65 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %62, i64 %64, ptr %.sroa.0.0.copyload.i.i37.i.i.i.i, i64 %.sroa.2.0.copyload.i.i39.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %spec.select.i.i.i.i = select i1 %65, ptr %13, ptr %.sroa.050.2.i.i.i.i
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11TripletFileESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_29command_autocomplete_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsEE3$_0EEET_SJ_SJ_T0_.exit.i.i"
@@ -1834,44 +1834,44 @@ define internal fastcc void @_ZN12_GLOBAL__N_126combine_port_with_tripletsB5cxx1
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds %"struct.vcpkg::TripletFile", ptr %3, i64 %4
-  %.not15.i = icmp eq i64 %4, 0
-  br i1 %.not15.i, label %"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNS_11TripletFileEEEZN12_GLOBAL__N_126combine_port_with_tripletsB5cxx11ENS_10StringViewES5_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISH_EEOSE_OSC_.exit", label %.lr.ph.i
+  %.not3.i = icmp eq i64 %4, 0
+  br i1 %.not3.i, label %"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNS_11TripletFileEEEZN12_GLOBAL__N_126combine_port_with_tripletsB5cxx11ENS_10StringViewES5_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISH_EEOSE_OSC_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10
+  %12 = ptrtoint ptr %8 to i64
   %.sroa.234.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds i8, ptr %6, i64 16
   %.sroa.236.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = ptrtoint ptr %8 to i64
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
   br label %16
 
 16:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i, %.lr.ph.i
-  %.01216.i = phi ptr [ %3, %.lr.ph.i ], [ %27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i ]
+  %.0124.i = phi ptr [ %3, %.lr.ph.i ], [ %27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !16
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.01216.i) #18, !noalias !22
-  %18 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.01216.i) #18, !noalias !22
+  %17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0124.i) #18, !noalias !22
+  %18 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0124.i) #18, !noalias !22
   %19 = ptrtoint ptr %17 to i64
-  store i64 %15, ptr %6, align 16, !alias.scope !19, !noalias !25
+  store i64 %12, ptr %6, align 16, !alias.scope !19, !noalias !25
   store i64 ptrtoint (ptr @_ZN3fmt3v106detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN5vcpkg10StringViewENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcEERS5_ to i64), ptr %.sroa.234.0..sroa_idx.i.i.i, align 8, !alias.scope !19, !noalias !25
-  store i64 %19, ptr %12, align 16, !alias.scope !19, !noalias !25
+  store i64 %19, ptr %13, align 16, !alias.scope !19, !noalias !25
   store i64 %18, ptr %.sroa.236.0..sroa_idx.i.i.i, align 8, !alias.scope !19, !noalias !25
   invoke void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr nonnull @.str.9, i64 5, i64 223, ptr nonnull %6)
           to label %20 unwind label %.loopexit.i
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !16
-  %21 = load ptr, ptr %13, align 8, !alias.scope !16
-  %22 = load ptr, ptr %14, align 8, !alias.scope !16
+  %21 = load ptr, ptr %14, align 8, !alias.scope !16
+  %22 = load ptr, ptr %15, align 8, !alias.scope !16
   %.not.i.i = icmp eq ptr %21, %22
   br i1 %.not.i.i, label %26, label %23
 
 23:                                               ; preds = %20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %7) #18
-  %24 = load ptr, ptr %13, align 8, !alias.scope !16
+  %24 = load ptr, ptr %14, align 8, !alias.scope !16
   %25 = getelementptr inbounds i8, ptr %24, i64 32
-  store ptr %25, ptr %13, align 8, !alias.scope !16
+  store ptr %25, ptr %14, align 8, !alias.scope !16
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i
 
 26:                                               ; preds = %20
@@ -1880,7 +1880,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_126combine_port_with_tripletsB5cxx1
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i: ; preds = %26, %23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
-  %27 = getelementptr inbounds i8, ptr %.01216.i, i64 64
+  %27 = getelementptr inbounds i8, ptr %.0124.i, i64 64
   %.not.i = icmp eq ptr %27, %11
   br i1 %.not.i, label %"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNS_11TripletFileEEEZN12_GLOBAL__N_126combine_port_with_tripletsB5cxx11ENS_10StringViewES5_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISH_EEOSE_OSC_.exit", label %16
 
@@ -2061,11 +2061,11 @@ define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINSt7__cx
   %28 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i.i, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(32) %28) #18
-  %.sroa.0.0.copyload.i.i16.i.i.i.i = load ptr, ptr %1, align 8
-  %.sroa.2.0.copyload.i.i18.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
+  %.sroa.0.0.copyload.i.i22.i.i.i.i = load ptr, ptr %1, align 8
+  %.sroa.2.0.copyload.i.i24.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
   %29 = load ptr, ptr %9, align 8
   %30 = load i64, ptr %20, align 8
-  %31 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %29, i64 %30, ptr %.sroa.0.0.copyload.i.i16.i.i.i.i, i64 %.sroa.2.0.copyload.i.i18.i.i.i.i)
+  %31 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %29, i64 %30, ptr %.sroa.0.0.copyload.i.i22.i.i.i.i, i64 %.sroa.2.0.copyload.i.i24.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br i1 %31, label %32, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5vcpkg29command_autocomplete_and_exitERKNSF_17VcpkgCmdArgumentsERKNSF_10VcpkgPathsEE3$_1EEET_SO_SO_T0_.exit.i.i"
 
@@ -2073,11 +2073,11 @@ define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINSt7__cx
   %33 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i.i, i64 64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %33) #18
-  %.sroa.0.0.copyload.i.i19.i.i.i.i = load ptr, ptr %1, align 8
-  %.sroa.2.0.copyload.i.i21.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
+  %.sroa.0.0.copyload.i.i25.i.i.i.i = load ptr, ptr %1, align 8
+  %.sroa.2.0.copyload.i.i27.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
   %34 = load ptr, ptr %8, align 8
   %35 = load i64, ptr %21, align 8
-  %36 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %34, i64 %35, ptr %.sroa.0.0.copyload.i.i19.i.i.i.i, i64 %.sroa.2.0.copyload.i.i21.i.i.i.i)
+  %36 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %34, i64 %35, ptr %.sroa.0.0.copyload.i.i25.i.i.i.i, i64 %.sroa.2.0.copyload.i.i27.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %36, label %37, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5vcpkg29command_autocomplete_and_exitERKNSF_17VcpkgCmdArgumentsERKNSF_10VcpkgPathsEE3$_1EEET_SO_SO_T0_.exit.i.i"
 
@@ -2085,11 +2085,11 @@ define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINSt7__cx
   %38 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i.i, i64 96
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %38) #18
-  %.sroa.0.0.copyload.i.i22.i.i.i.i = load ptr, ptr %1, align 8
-  %.sroa.2.0.copyload.i.i24.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
+  %.sroa.0.0.copyload.i.i28.i.i.i.i = load ptr, ptr %1, align 8
+  %.sroa.2.0.copyload.i.i30.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
   %39 = load ptr, ptr %7, align 8
   %40 = load i64, ptr %22, align 8
-  %41 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %39, i64 %40, ptr %.sroa.0.0.copyload.i.i22.i.i.i.i, i64 %.sroa.2.0.copyload.i.i24.i.i.i.i)
+  %41 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %39, i64 %40, ptr %.sroa.0.0.copyload.i.i28.i.i.i.i, i64 %.sroa.2.0.copyload.i.i30.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br i1 %41, label %42, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5vcpkg29command_autocomplete_and_exitERKNSF_17VcpkgCmdArgumentsERKNSF_10VcpkgPathsEE3$_1EEET_SO_SO_T0_.exit.i.i"
 
@@ -2117,13 +2117,13 @@ define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINSt7__cx
 47:                                               ; preds = %._crit_edge.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.0.lcssa.i.i.i.i) #18
-  %.sroa.0.0.copyload.i.i25.i.i.i.i = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i.i26.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i27.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i26.i.i.i.i, align 8
+  %.sroa.0.0.copyload.i.i31.i.i.i.i = load ptr, ptr %1, align 8
+  %.sroa.2.0..sroa_idx.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0.copyload.i.i33.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i32.i.i.i.i, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds i8, ptr %6, i64 8
   %50 = load i64, ptr %49, align 8
-  %51 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %48, i64 %50, ptr %.sroa.0.0.copyload.i.i25.i.i.i.i, i64 %.sroa.2.0.copyload.i.i27.i.i.i.i)
+  %51 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %48, i64 %50, ptr %.sroa.0.0.copyload.i.i31.i.i.i.i, i64 %.sroa.2.0.copyload.i.i33.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br i1 %51, label %52, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5vcpkg29command_autocomplete_and_exitERKNSF_17VcpkgCmdArgumentsERKNSF_10VcpkgPathsEE3$_1EEET_SO_SO_T0_.exit.i.i"
 
@@ -2135,13 +2135,13 @@ define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINSt7__cx
   %.sroa.050.1.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %53, %52 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.1.i.i.i.i) #18
-  %.sroa.0.0.copyload.i.i28.i.i.i.i = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i.i29.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i30.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i29.i.i.i.i, align 8
+  %.sroa.0.0.copyload.i.i34.i.i.i.i = load ptr, ptr %1, align 8
+  %.sroa.2.0..sroa_idx.i.i35.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0.copyload.i.i36.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i35.i.i.i.i, align 8
   %55 = load ptr, ptr %5, align 8
   %56 = getelementptr inbounds i8, ptr %5, i64 8
   %57 = load i64, ptr %56, align 8
-  %58 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %55, i64 %57, ptr %.sroa.0.0.copyload.i.i28.i.i.i.i, i64 %.sroa.2.0.copyload.i.i30.i.i.i.i)
+  %58 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %55, i64 %57, ptr %.sroa.0.0.copyload.i.i34.i.i.i.i, i64 %.sroa.2.0.copyload.i.i36.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %58, label %59, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5vcpkg29command_autocomplete_and_exitERKNSF_17VcpkgCmdArgumentsERKNSF_10VcpkgPathsEE3$_1EEET_SO_SO_T0_.exit.i.i"
 
@@ -2153,13 +2153,13 @@ define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINSt7__cx
   %.sroa.050.2.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %60, %59 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.2.i.i.i.i) #18
-  %.sroa.0.0.copyload.i.i31.i.i.i.i = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i33.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i32.i.i.i.i, align 8
+  %.sroa.0.0.copyload.i.i37.i.i.i.i = load ptr, ptr %1, align 8
+  %.sroa.2.0..sroa_idx.i.i38.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0.copyload.i.i39.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i38.i.i.i.i, align 8
   %62 = load ptr, ptr %4, align 8
   %63 = getelementptr inbounds i8, ptr %4, i64 8
   %64 = load i64, ptr %63, align 8
-  %65 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %62, i64 %64, ptr %.sroa.0.0.copyload.i.i31.i.i.i.i, i64 %.sroa.2.0.copyload.i.i33.i.i.i.i)
+  %65 = call noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %62, i64 %64, ptr %.sroa.0.0.copyload.i.i37.i.i.i.i, i64 %.sroa.2.0.copyload.i.i39.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %spec.select.i.i.i.i = select i1 %65, ptr %13, ptr %.sroa.050.2.i.i.i.i
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5vcpkg29command_autocomplete_and_exitERKNSF_17VcpkgCmdArgumentsERKNSF_10VcpkgPathsEE3$_1EEET_SO_SO_T0_.exit.i.i"

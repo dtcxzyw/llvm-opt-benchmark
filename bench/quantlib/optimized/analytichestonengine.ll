@@ -5618,7 +5618,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define { double, double } @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha10findMinimaEddd(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, double noundef %lower, double noundef %upper, double noundef %strike) local_unnamed_addr #8 align 2 {
 entry:
-  %z.i82.i.i = alloca %"class.std::complex", align 8
+  %z.i85.i.i = alloca %"class.std::complex", align 8
   %z.i.i.i = alloca %"class.std::complex", align 8
   %fwd_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load double, ptr %fwd_, align 8, !tbaa !81
@@ -5646,7 +5646,7 @@ entry:
   %5 = tail call noundef double @llvm.fmuladd.f64(double %upper, double %call, double %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %z.i.i.i) #35
   %div5.i.i = fmul double %call2.i.i, 2.500000e-01
-  %_M_value.imagp.i.i87.i.i = getelementptr inbounds nuw i8, ptr %z.i82.i.i, i64 8
+  %_M_value.imagp.i.i90.i.i = getelementptr inbounds nuw i8, ptr %z.i85.i.i, i64 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.cond.i.i, %entry
@@ -5774,22 +5774,22 @@ cond.false76.i.i:                                 ; preds = %cond.false72.i.i
 cond.end80.i.i:                                   ; preds = %cond.false76.i.i, %cond.true74.i.i, %cond.true70.i.i
   %cond81.i.i = phi double [ %add71.i.i, %cond.true70.i.i ], [ %add75.i.i, %cond.true74.i.i ], [ %sub77.i.i, %cond.false76.i.i ]
   %18 = load i64, ptr %evaluations_.i.i.i, align 8, !tbaa !92
-  %inc.i84.i.i = add i64 %18, 1
-  store i64 %inc.i84.i.i, ptr %evaluations_.i.i.i, align 8, !tbaa !92
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %z.i82.i.i) #35
-  %add.i85.i.i = fadd double %cond81.i.i, 1.000000e+00
-  %fneg.i86.i.i = fneg double %add.i85.i.i
-  store double 0.000000e+00, ptr %z.i82.i.i, align 8
-  store double %fneg.i86.i.i, ptr %_M_value.imagp.i.i87.i.i, align 8
+  %inc.i87.i.i = add i64 %18, 1
+  store i64 %inc.i87.i.i, ptr %evaluations_.i.i.i, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %z.i85.i.i) #35
+  %add.i88.i.i = fadd double %cond81.i.i, 1.000000e+00
+  %fneg.i89.i.i = fneg double %add.i88.i.i
+  store double 0.000000e+00, ptr %z.i85.i.i, align 8
+  store double %fneg.i89.i.i, ptr %_M_value.imagp.i.i90.i.i, align 8
   %19 = load ptr, ptr %enginePtr_.i.i.i, align 8, !tbaa !91
   %20 = load double, ptr %this, align 8, !tbaa !61
-  %call.i89.i.i = call { double, double } @_ZNK8QuantLib20AnalyticHestonEngine5lnChFERKSt7complexIdEd(ptr noundef nonnull align 8 dereferenceable(400) %19, ptr noundef nonnull align 8 dereferenceable(16) %z.i82.i.i, double noundef %20)
-  %21 = extractvalue { double, double } %call.i89.i.i, 0
-  %mul.i90.i.i = fmul double %cond81.i.i, %add.i85.i.i
-  %call4.i91.i.i = tail call double @log(double noundef %mul.i90.i.i) #35, !tbaa !50
-  %sub.i92.i.i = fsub double %21, %call4.i91.i.i
-  %22 = tail call noundef double @llvm.fmuladd.f64(double %cond81.i.i, double %call, double %sub.i92.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %z.i82.i.i) #35
+  %call.i92.i.i = call { double, double } @_ZNK8QuantLib20AnalyticHestonEngine5lnChFERKSt7complexIdEd(ptr noundef nonnull align 8 dereferenceable(400) %19, ptr noundef nonnull align 8 dereferenceable(16) %z.i85.i.i, double noundef %20)
+  %21 = extractvalue { double, double } %call.i92.i.i, 0
+  %mul.i93.i.i = fmul double %cond81.i.i, %add.i88.i.i
+  %call4.i94.i.i = tail call double @log(double noundef %mul.i93.i.i) #35, !tbaa !50
+  %sub.i95.i.i = fsub double %21, %call4.i94.i.i
+  %22 = tail call noundef double @llvm.fmuladd.f64(double %cond81.i.i, double %call, double %sub.i95.i.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %z.i85.i.i) #35
   %cmp83.i.i = fcmp ugt double %22, %fx.0.i.i
   br i1 %cmp83.i.i, label %if.else89.i.i, label %if.then84.i.i
 
@@ -5805,8 +5805,8 @@ if.else89.i.i:                                    ; preds = %cond.end80.i.i
   %cond81.min.addr.0.i.i = select i1 %cmp90.i.i, double %cond81.i.i, double %min.addr.0.i.i
   %cmp94.i.i = fcmp ole double %22, %fw.0.i.i
   %cmp96.i.i = fcmp oeq double %w.0.i.i, %x.0.i.i
-  %or.cond111.i.i = select i1 %cmp94.i.i, i1 true, i1 %cmp96.i.i
-  br i1 %or.cond111.i.i, label %do.cond.i.i, label %if.else98.i.i
+  %or.cond112.i.i = select i1 %cmp94.i.i, i1 true, i1 %cmp96.i.i
+  br i1 %or.cond112.i.i, label %do.cond.i.i, label %if.else98.i.i
 
 if.else98.i.i:                                    ; preds = %if.else89.i.i
   %cmp99.i.i = fcmp ole double %22, %fv.0.i.i

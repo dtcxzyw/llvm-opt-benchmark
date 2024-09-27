@@ -2975,15 +2975,15 @@ define internal fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GL
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %18 = load ptr, ptr %17, align 8, !noalias !255
   %.not3334.i.i = icmp eq ptr %16, %18
-  br i1 %.not3334.i.i, label %_ZN4llvm5ErrorD2Ev.exit2.sink.split.i, label %.lr.ph.i.i.preheader
+  br i1 %.not3334.i.i, label %_ZN4llvm5ErrorD2Ev.exit2.sink.split.i, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.i.preheader:                             ; preds = %14
+.lr.ph.i.preheader.i:                             ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %_ZN4llvm5ErrorD2Ev.exit8.i.i
-  %20 = phi ptr [ %36, %_ZN4llvm5ErrorD2Ev.exit8.i.i ], [ null, %.lr.ph.i.i.preheader ]
-  %.sroa.023.035.i.i = phi ptr [ %49, %_ZN4llvm5ErrorD2Ev.exit8.i.i ], [ %16, %.lr.ph.i.i.preheader ]
+.lr.ph.i.i:                                       ; preds = %_ZN4llvm5ErrorD2Ev.exit8.i.i, %.lr.ph.i.preheader.i
+  %20 = phi ptr [ %36, %_ZN4llvm5ErrorD2Ev.exit8.i.i ], [ null, %.lr.ph.i.preheader.i ]
+  %.sroa.023.035.i.i = phi ptr [ %49, %_ZN4llvm5ErrorD2Ev.exit8.i.i ], [ %16, %.lr.ph.i.preheader.i ]
   store ptr %20, ptr %6, align 8, !noalias !255
   %21 = load i64, ptr %.sroa.023.035.i.i, align 8, !noalias !255
   %22 = inttoptr i64 %21 to ptr
@@ -3070,7 +3070,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17.i.loopexit.i: ; p
   br label %_ZN4llvm5ErrorD2Ev.exit2.sink.split.i
 
 _ZN4llvm5ErrorD2Ev.exit2.sink.split.i:            ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17.i.loopexit.i, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i, %14
-  %.sroa.04.1.ph.i = phi i1 [ true, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i ], [ true, %14 ], [ %61, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17.i.loopexit.i ]
+  %.sroa.02.1.ph.i = phi i1 [ true, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i ], [ true, %14 ], [ %61, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17.i.loopexit.i ]
   %62 = load ptr, ptr %8, align 8, !noalias !255
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !noalias !255
@@ -3078,11 +3078,11 @@ _ZN4llvm5ErrorD2Ev.exit2.sink.split.i:            ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm5ErrorD2Ev.exit2.sink.split.i, %2
-  %.sroa.04.1.i = phi i1 [ true, %2 ], [ %.sroa.04.1.ph.i, %_ZN4llvm5ErrorD2Ev.exit2.sink.split.i ]
+  %.sroa.02.1.i = phi i1 [ true, %2 ], [ %.sroa.02.1.ph.i, %_ZN4llvm5ErrorD2Ev.exit2.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.assume(i1 %.sroa.04.1.i)
+  call void @llvm.assume(i1 %.sroa.02.1.i)
   ret ptr %0
 }
 

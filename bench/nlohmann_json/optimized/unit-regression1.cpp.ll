@@ -47028,23 +47028,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %ref.tmp46 = alloca %"struct.doctest::detail::Expression_lhs.11", align 8
   %ref.tmp47 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   store double %number, ptr %number.addr, align 8
+  %0 = ptrtoint ptr %number.addr to i64
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_49)
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_7vENK3$_6clEdEUlPSoE_EE", i64 16), ptr %DOCTEST_CAPTURE_49, align 8, !alias.scope !581
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_49, i64 16
-  %0 = ptrtoint ptr %number.addr to i64
   store i64 %0, ptr %lambda_.i.i, align 8, !alias.scope !581
   %m_value.i.i = getelementptr inbounds i8, ptr %j, i64 8
   store i64 0, ptr %j, align 8
+  %1 = load double, ptr %number.addr, align 8
   store i8 7, ptr %j, align 8
-  store double %number, ptr %m_value.i.i, align 8
+  store double %1, ptr %m_value.i.i, align 8
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4, i32 noundef 10)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRddTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit
-  %1 = load i8, ptr %j, align 8
-  %cmp.i = icmp eq i8 %1, 7
-  %2 = load i32, ptr %ref.tmp4, align 4
-  %retval.sroa.21.0.insert.ext.i = zext i32 %2 to i64
+  %2 = load i8, ptr %j, align 8
+  %cmp.i = icmp eq i8 %2, 7
+  %3 = load i32, ptr %ref.tmp4, align 4
+  %retval.sroa.21.0.insert.ext.i = zext i32 %3 to i64
   %retval.sroa.21.0.insert.shift.i = shl nuw i64 %retval.sroa.21.0.insert.ext.i, 32
   %retval.sroa.0.0.insert.ext.i = zext i1 %cmp.i to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.21.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
@@ -47081,33 +47082,33 @@ invoke.cont19:                                    ; preds = %invoke.cont17
           to label %try.cont unwind label %lpad20
 
 lpad:                                             ; preds = %invoke.cont10, %invoke.cont6, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRddTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup60
 
 lpad9:                                            ; preds = %invoke.cont8
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   %m_decomp.i5 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i5) #27
   br label %ehcleanup60
 
 lpad13:                                           ; preds = %invoke.cont48, %invoke.cont52, %invoke.cont42, %invoke.cont38, %invoke.cont30, %do.body, %invoke.cont12
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup59
 
 lpad18:                                           ; preds = %invoke.cont17
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp16) #27
   br label %ehcleanup59
 
 lpad20:                                           ; preds = %invoke.cont19
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %8) #27
+  %9 = extractvalue { ptr, i32 } %8, 0
+  %10 = call ptr @__cxa_begin_catch(ptr %9) #27
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %DOCTEST_RB)
           to label %invoke.cont24 unwind label %lpad23
 
@@ -47127,13 +47128,13 @@ if.then:                                          ; preds = %invoke.cont28
   br label %if.end
 
 lpad23:                                           ; preds = %lpad20
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %ehcleanup unwind label %terminate.lpad
 
 lpad25:                                           ; preds = %if.end, %try.cont, %invoke.cont24
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -47152,10 +47153,10 @@ invoke.cont30:                                    ; preds = %if.end
           to label %invoke.cont38 unwind label %lpad13
 
 invoke.cont38:                                    ; preds = %invoke.cont30
-  %12 = load i8, ptr %j, align 8
-  %cmp.i6 = icmp eq i8 %12, 7
-  %13 = load i32, ptr %ref.tmp33, align 4
-  %retval.sroa.21.0.insert.ext.i8 = zext i32 %13 to i64
+  %13 = load i8, ptr %j, align 8
+  %cmp.i6 = icmp eq i8 %13, 7
+  %14 = load i32, ptr %ref.tmp33, align 4
+  %retval.sroa.21.0.insert.ext.i8 = zext i32 %14 to i64
   %retval.sroa.21.0.insert.shift.i9 = shl nuw i64 %retval.sroa.21.0.insert.ext.i8, 32
   %retval.sroa.0.0.insert.ext.i10 = zext i1 %cmp.i6 to i64
   %retval.sroa.0.0.insert.insert.i11 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9, %retval.sroa.0.0.insert.ext.i10
@@ -47180,12 +47181,12 @@ invoke.cont48:                                    ; preds = %invoke.cont42
           to label %invoke.cont52 unwind label %lpad13
 
 invoke.cont52:                                    ; preds = %invoke.cont48
-  %14 = load double, ptr %ret.i.i, align 8
+  %15 = load double, ptr %ret.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i)
-  %15 = load i32, ptr %ref.tmp47, align 4
-  store double %14, ptr %ref.tmp46, align 8
-  %16 = getelementptr inbounds i8, ptr %ref.tmp46, i64 8
-  store i32 %15, ptr %16, align 8
+  %16 = load i32, ptr %ref.tmp47, align 4
+  store double %15, ptr %ref.tmp46, align 8
+  %17 = getelementptr inbounds i8, ptr %ref.tmp46, i64 8
+  store i32 %16, ptr %17, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIdEeqIRdEEDTcmcvveqclL_ZNS0_7declvalIdEEOT_vEEclsr7doctest6detailE7declvalIS6_EEtlNS0_6ResultEEES7_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(8) %number.addr)
           to label %invoke.cont54 unwind label %lpad13
 
@@ -47197,22 +47198,22 @@ invoke.cont56:                                    ; preds = %invoke.cont54
   %m_decomp.i13 = getelementptr inbounds i8, ptr %ref.tmp45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i13) #27
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #27
-  %17 = load i8, ptr %j, align 8
-  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value.i.i, i8 noundef zeroext %17) #29
+  %18 = load i8, ptr %j, align 8
+  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value.i.i, i8 noundef zeroext %18) #29
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont56
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #28
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #28
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit: ; preds = %invoke.cont56
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_7vENK3$_6clEdEUlPSoE_EE", i64 16), ptr %DOCTEST_CAPTURE_49, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_49, i64 8
-  %20 = load i8, ptr %need_to_destroy.i, align 8
-  %tobool.i = trunc i8 %20 to i1
+  %21 = load i8, ptr %need_to_destroy.i, align 8
+  %tobool.i = trunc i8 %21 to i1
   br i1 %tobool.i, label %if.then.i, label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_7vENK3$_6clEdEUlPSoE_ED2Ev.exit"
 
 if.then.i:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit
@@ -47220,10 +47221,10 @@ if.then.i:                                        ; preds = %_ZN8nlohmann16json_
           to label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_7vENK3$_6clEdEUlPSoE_ED2Ev.exit" unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #28
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #28
   unreachable
 
 "_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_7vENK3$_6clEdEUlPSoE_ED2Ev.exit": ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit, %if.then.i
@@ -47231,40 +47232,40 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   ret void
 
 ehcleanup:                                        ; preds = %lpad23, %lpad25
-  %.pn = phi { ptr, i32 } [ %11, %lpad25 ], [ %10, %lpad23 ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad25 ], [ %11, %lpad23 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %DOCTEST_RB) #27
   br label %ehcleanup59
 
 lpad41:                                           ; preds = %invoke.cont40
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   %m_decomp.i15 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i15) #27
   br label %ehcleanup59
 
 lpad55:                                           ; preds = %invoke.cont54
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   %m_decomp.i16 = getelementptr inbounds i8, ptr %ref.tmp45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i16) #27
   br label %ehcleanup59
 
 ehcleanup59:                                      ; preds = %lpad55, %lpad41, %ehcleanup, %lpad18, %lpad13
-  %.pn2 = phi { ptr, i32 } [ %24, %lpad55 ], [ %5, %lpad13 ], [ %23, %lpad41 ], [ %.pn, %ehcleanup ], [ %6, %lpad18 ]
+  %.pn2 = phi { ptr, i32 } [ %25, %lpad55 ], [ %6, %lpad13 ], [ %24, %lpad41 ], [ %.pn, %ehcleanup ], [ %7, %lpad18 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #27
   br label %ehcleanup60
 
 ehcleanup60:                                      ; preds = %ehcleanup59, %lpad9, %lpad
-  %.pn2.pn = phi { ptr, i32 } [ %.pn2, %ehcleanup59 ], [ %3, %lpad ], [ %4, %lpad9 ]
+  %.pn2.pn = phi { ptr, i32 } [ %.pn2, %ehcleanup59 ], [ %4, %lpad ], [ %5, %lpad9 ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %j) #27
   call void @"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_7vENK3$_6clEdEUlPSoE_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_CAPTURE_49) #27
   resume { ptr, i32 } %.pn2.pn
 
 terminate.lpad:                                   ; preds = %lpad23
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #28
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #28
   unreachable
 }
 

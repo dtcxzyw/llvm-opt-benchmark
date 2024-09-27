@@ -642,7 +642,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   store ptr %177, ptr %175, align 8, !noalias !14
   %178 = getelementptr inbounds i8, ptr %143, i64 16
   %179 = getelementptr inbounds i8, ptr %143, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %143, i8 0, i64 16, i1 false), !noalias !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, i8 0, i64 16, i1 false), !noalias !14
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIfEEDaT_EUlSJ_T0_E_fEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %179, align 8, !noalias !14
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIfEEDaT_EUlSJ_T0_E_fEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %178, align 8, !noalias !14
   %180 = getelementptr inbounds i8, ptr %169, i64 24
@@ -711,7 +711,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   store ptr %208, ptr %206, align 8, !noalias !17
   %209 = getelementptr inbounds i8, ptr %141, i64 16
   %210 = getelementptr inbounds i8, ptr %141, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %141, i8 0, i64 16, i1 false), !noalias !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, i8 0, i64 16, i1 false), !noalias !17
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIfEEDaT_EUlSJ_T0_E0_fEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %210, align 8, !noalias !17
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIfEEDaT_EUlSJ_T0_E0_fEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %209, align 8, !noalias !17
   %211 = getelementptr inbounds i8, ptr %200, i64 24
@@ -776,7 +776,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   store ptr %239, ptr %237, align 8, !noalias !20
   %240 = getelementptr inbounds i8, ptr %139, i64 16
   %241 = getelementptr inbounds i8, ptr %139, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %139, i8 0, i64 16, i1 false), !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, i8 0, i64 16, i1 false), !noalias !20
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %241, align 8, !noalias !20
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %240, align 8, !noalias !20
   %242 = getelementptr inbounds i8, ptr %231, i64 24
@@ -961,7 +961,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   store ptr %300, ptr %298, align 8, !noalias !26
   %301 = getelementptr inbounds i8, ptr %132, i64 16
   %302 = getelementptr inbounds i8, ptr %132, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, i8 0, i64 16, i1 false), !noalias !26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, i8 0, i64 16, i1 false), !noalias !26
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIdEEDaT_EUlSJ_T0_E_dEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %302, align 8, !noalias !26
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIdEEDaT_EUlSJ_T0_E_dEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %301, align 8, !noalias !26
   %303 = getelementptr inbounds i8, ptr %292, i64 24
@@ -1026,7 +1026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   store ptr %331, ptr %329, align 8, !noalias !29
   %332 = getelementptr inbounds i8, ptr %130, i64 16
   %333 = getelementptr inbounds i8, ptr %130, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %130, i8 0, i64 16, i1 false), !noalias !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, i8 0, i64 16, i1 false), !noalias !29
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIdEEDaT_EUlSJ_T0_E0_dEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %333, align 8, !noalias !29
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIdEEDaT_EUlSJ_T0_E0_dEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %332, align 8, !noalias !29
   %334 = getelementptr inbounds i8, ptr %323, i64 24
@@ -1091,7 +1091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   store ptr %362, ptr %360, align 8, !noalias !32
   %363 = getelementptr inbounds i8, ptr %128, i64 16
   %364 = getelementptr inbounds i8, ptr %128, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, i8 0, i64 16, i1 false), !noalias !32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %128, i8 0, i64 16, i1 false), !noalias !32
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %364, align 8, !noalias !32
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %363, align 8, !noalias !32
   %365 = getelementptr inbounds i8, ptr %354, i64 24
@@ -1276,7 +1276,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   store ptr %423, ptr %421, align 8, !noalias !38
   %424 = getelementptr inbounds i8, ptr %121, i64 16
   %425 = getelementptr inbounds i8, ptr %121, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 16, i1 false), !noalias !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, i8 0, i64 16, i1 false), !noalias !38
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIeEEDaT_EUlSJ_T0_E_eEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %425, align 8, !noalias !38
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIeEEDaT_EUlSJ_T0_E_eEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %424, align 8, !noalias !38
   %426 = getelementptr inbounds i8, ptr %415, i64 24
@@ -1341,7 +1341,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   store ptr %454, ptr %452, align 8, !noalias !41
   %455 = getelementptr inbounds i8, ptr %119, i64 16
   %456 = getelementptr inbounds i8, ptr %119, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %119, i8 0, i64 16, i1 false), !noalias !41
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false), !noalias !41
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIeEEDaT_EUlSJ_T0_E0_eEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %456, align 8, !noalias !41
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIeEEDaT_EUlSJ_T0_E0_eEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %455, align 8, !noalias !41
   %457 = getelementptr inbounds i8, ptr %446, i64 24
@@ -1406,7 +1406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   store ptr %485, ptr %483, align 8, !noalias !44
   %486 = getelementptr inbounds i8, ptr %117, i64 16
   %487 = getelementptr inbounds i8, ptr %117, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, i8 0, i64 16, i1 false), !noalias !44
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, i8 0, i64 16, i1 false), !noalias !44
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %487, align 8, !noalias !44
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %486, align 8, !noalias !44
   %488 = getelementptr inbounds i8, ptr %477, i64 24
@@ -1588,7 +1588,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   store ptr %543, ptr %541, align 8, !noalias !50
   %544 = getelementptr inbounds i8, ptr %113, i64 16
   %545 = getelementptr inbounds i8, ptr %113, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, i8 0, i64 16, i1 false), !noalias !50
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, i8 0, i64 16, i1 false), !noalias !50
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIaEEDaT_EUlSJ_T0_E_aEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %545, align 8, !noalias !50
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIaEEDaT_EUlSJ_T0_E_aEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %544, align 8, !noalias !50
   %546 = getelementptr inbounds i8, ptr %.val2, i64 24
@@ -1651,7 +1651,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   store ptr %572, ptr %570, align 8, !noalias !53
   %573 = getelementptr inbounds i8, ptr %111, i64 16
   %574 = getelementptr inbounds i8, ptr %111, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %111, i8 0, i64 16, i1 false), !noalias !53
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false), !noalias !53
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIaEEDaT_EUlSJ_T0_E0_aEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %574, align 8, !noalias !53
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIaEEDaT_EUlSJ_T0_E0_aEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %573, align 8, !noalias !53
   %575 = getelementptr inbounds i8, ptr %.val2, i64 24
@@ -1714,7 +1714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   store ptr %601, ptr %599, align 8, !noalias !56
   %602 = getelementptr inbounds i8, ptr %109, i64 16
   %603 = getelementptr inbounds i8, ptr %109, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %109, i8 0, i64 16, i1 false), !noalias !56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false), !noalias !56
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %603, align 8, !noalias !56
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %602, align 8, !noalias !56
   %604 = getelementptr inbounds i8, ptr %.val2, i64 24
@@ -1777,7 +1777,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   store ptr %630, ptr %628, align 8, !noalias !59
   %631 = getelementptr inbounds i8, ptr %107, i64 16
   %632 = getelementptr inbounds i8, ptr %107, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, i8 0, i64 16, i1 false), !noalias !59
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, i8 0, i64 16, i1 false), !noalias !59
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %632, align 8, !noalias !59
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %631, align 8, !noalias !59
   %633 = getelementptr inbounds i8, ptr %.val2, i64 24
@@ -1840,7 +1840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   store ptr %659, ptr %657, align 8, !noalias !62
   %660 = getelementptr inbounds i8, ptr %105, i64 16
   %661 = getelementptr inbounds i8, ptr %105, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %105, i8 0, i64 16, i1 false), !noalias !62
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false), !noalias !62
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %661, align 8, !noalias !62
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %660, align 8, !noalias !62
   %662 = getelementptr inbounds i8, ptr %.val2, i64 24
@@ -1903,7 +1903,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   store ptr %688, ptr %686, align 8, !noalias !65
   %689 = getelementptr inbounds i8, ptr %103, i64 16
   %690 = getelementptr inbounds i8, ptr %103, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, i8 0, i64 16, i1 false), !noalias !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false), !noalias !65
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %690, align 8, !noalias !65
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %689, align 8, !noalias !65
   %691 = getelementptr inbounds i8, ptr %.val2, i64 24
@@ -2031,7 +2031,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   store ptr %728, ptr %726, align 8, !noalias !71
   %729 = getelementptr inbounds i8, ptr %99, i64 16
   %730 = getelementptr inbounds i8, ptr %99, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, i8 0, i64 16, i1 false), !noalias !71
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false), !noalias !71
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIsEEDaT_EUlSJ_T0_E_sEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %730, align 8, !noalias !71
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIsEEDaT_EUlSJ_T0_E_sEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %729, align 8, !noalias !71
   %731 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2094,7 +2094,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   store ptr %757, ptr %755, align 8, !noalias !74
   %758 = getelementptr inbounds i8, ptr %97, i64 16
   %759 = getelementptr inbounds i8, ptr %97, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, i8 0, i64 16, i1 false), !noalias !74
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false), !noalias !74
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIsEEDaT_EUlSJ_T0_E0_sEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %759, align 8, !noalias !74
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIsEEDaT_EUlSJ_T0_E0_sEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %758, align 8, !noalias !74
   %760 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2157,7 +2157,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   store ptr %786, ptr %784, align 8, !noalias !77
   %787 = getelementptr inbounds i8, ptr %95, i64 16
   %788 = getelementptr inbounds i8, ptr %95, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %95, i8 0, i64 16, i1 false), !noalias !77
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false), !noalias !77
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %788, align 8, !noalias !77
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %787, align 8, !noalias !77
   %789 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2220,7 +2220,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   store ptr %815, ptr %813, align 8, !noalias !80
   %816 = getelementptr inbounds i8, ptr %93, i64 16
   %817 = getelementptr inbounds i8, ptr %93, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 0, i64 16, i1 false), !noalias !80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false), !noalias !80
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %817, align 8, !noalias !80
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %816, align 8, !noalias !80
   %818 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2283,7 +2283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   store ptr %844, ptr %842, align 8, !noalias !83
   %845 = getelementptr inbounds i8, ptr %91, i64 16
   %846 = getelementptr inbounds i8, ptr %91, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 16, i1 false), !noalias !83
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false), !noalias !83
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %846, align 8, !noalias !83
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %845, align 8, !noalias !83
   %847 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2346,7 +2346,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   store ptr %873, ptr %871, align 8, !noalias !86
   %874 = getelementptr inbounds i8, ptr %89, i64 16
   %875 = getelementptr inbounds i8, ptr %89, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %89, i8 0, i64 16, i1 false), !noalias !86
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false), !noalias !86
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %875, align 8, !noalias !86
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %874, align 8, !noalias !86
   %876 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2474,7 +2474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   store ptr %913, ptr %911, align 8, !noalias !92
   %914 = getelementptr inbounds i8, ptr %85, i64 16
   %915 = getelementptr inbounds i8, ptr %85, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %85, i8 0, i64 16, i1 false), !noalias !92
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false), !noalias !92
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIiEEDaT_EUlSJ_T0_E_iEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %915, align 8, !noalias !92
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIiEEDaT_EUlSJ_T0_E_iEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %914, align 8, !noalias !92
   %916 = getelementptr inbounds i8, ptr %.val6, i64 24
@@ -2537,7 +2537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   store ptr %942, ptr %940, align 8, !noalias !95
   %943 = getelementptr inbounds i8, ptr %83, i64 16
   %944 = getelementptr inbounds i8, ptr %83, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, i8 0, i64 16, i1 false), !noalias !95
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false), !noalias !95
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIiEEDaT_EUlSJ_T0_E0_iEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %944, align 8, !noalias !95
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIiEEDaT_EUlSJ_T0_E0_iEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %943, align 8, !noalias !95
   %945 = getelementptr inbounds i8, ptr %.val6, i64 24
@@ -2600,7 +2600,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   store ptr %971, ptr %969, align 8, !noalias !98
   %972 = getelementptr inbounds i8, ptr %81, i64 16
   %973 = getelementptr inbounds i8, ptr %81, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, i8 0, i64 16, i1 false), !noalias !98
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false), !noalias !98
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %973, align 8, !noalias !98
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %972, align 8, !noalias !98
   %974 = getelementptr inbounds i8, ptr %.val6, i64 24
@@ -2663,7 +2663,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   store ptr %1000, ptr %998, align 8, !noalias !101
   %1001 = getelementptr inbounds i8, ptr %79, i64 16
   %1002 = getelementptr inbounds i8, ptr %79, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, i8 0, i64 16, i1 false), !noalias !101
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false), !noalias !101
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1002, align 8, !noalias !101
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1001, align 8, !noalias !101
   %1003 = getelementptr inbounds i8, ptr %.val6, i64 24
@@ -2726,7 +2726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   store ptr %1029, ptr %1027, align 8, !noalias !104
   %1030 = getelementptr inbounds i8, ptr %77, i64 16
   %1031 = getelementptr inbounds i8, ptr %77, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 0, i64 16, i1 false), !noalias !104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false), !noalias !104
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1031, align 8, !noalias !104
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1030, align 8, !noalias !104
   %1032 = getelementptr inbounds i8, ptr %.val6, i64 24
@@ -2789,7 +2789,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   store ptr %1058, ptr %1056, align 8, !noalias !107
   %1059 = getelementptr inbounds i8, ptr %75, i64 16
   %1060 = getelementptr inbounds i8, ptr %75, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 16, i1 false), !noalias !107
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false), !noalias !107
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1060, align 8, !noalias !107
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1059, align 8, !noalias !107
   %1061 = getelementptr inbounds i8, ptr %.val6, i64 24
@@ -2917,7 +2917,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   store ptr %1098, ptr %1096, align 8, !noalias !113
   %1099 = getelementptr inbounds i8, ptr %71, i64 16
   %1100 = getelementptr inbounds i8, ptr %71, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 16, i1 false), !noalias !113
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false), !noalias !113
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIlEEDaT_EUlSJ_T0_E_lEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1100, align 8, !noalias !113
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIlEEDaT_EUlSJ_T0_E_lEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1099, align 8, !noalias !113
   %1101 = getelementptr inbounds i8, ptr %.val8, i64 24
@@ -2980,7 +2980,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   store ptr %1127, ptr %1125, align 8, !noalias !116
   %1128 = getelementptr inbounds i8, ptr %69, i64 16
   %1129 = getelementptr inbounds i8, ptr %69, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 16, i1 false), !noalias !116
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false), !noalias !116
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIlEEDaT_EUlSJ_T0_E0_lEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1129, align 8, !noalias !116
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIlEEDaT_EUlSJ_T0_E0_lEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1128, align 8, !noalias !116
   %1130 = getelementptr inbounds i8, ptr %.val8, i64 24
@@ -3043,7 +3043,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   store ptr %1156, ptr %1154, align 8, !noalias !119
   %1157 = getelementptr inbounds i8, ptr %67, i64 16
   %1158 = getelementptr inbounds i8, ptr %67, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 16, i1 false), !noalias !119
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false), !noalias !119
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvElEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1158, align 8, !noalias !119
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvElEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1157, align 8, !noalias !119
   %1159 = getelementptr inbounds i8, ptr %.val8, i64 24
@@ -3106,7 +3106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   store ptr %1185, ptr %1183, align 8, !noalias !122
   %1186 = getelementptr inbounds i8, ptr %65, i64 16
   %1187 = getelementptr inbounds i8, ptr %65, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 16, i1 false), !noalias !122
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false), !noalias !122
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1187, align 8, !noalias !122
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1186, align 8, !noalias !122
   %1188 = getelementptr inbounds i8, ptr %.val8, i64 24
@@ -3169,7 +3169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   store ptr %1214, ptr %1212, align 8, !noalias !125
   %1215 = getelementptr inbounds i8, ptr %63, i64 16
   %1216 = getelementptr inbounds i8, ptr %63, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 16, i1 false), !noalias !125
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false), !noalias !125
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1216, align 8, !noalias !125
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1215, align 8, !noalias !125
   %1217 = getelementptr inbounds i8, ptr %.val8, i64 24
@@ -3232,7 +3232,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   store ptr %1243, ptr %1241, align 8, !noalias !128
   %1244 = getelementptr inbounds i8, ptr %61, i64 16
   %1245 = getelementptr inbounds i8, ptr %61, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 0, i64 16, i1 false), !noalias !128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false), !noalias !128
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1245, align 8, !noalias !128
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1244, align 8, !noalias !128
   %1246 = getelementptr inbounds i8, ptr %.val8, i64 24
@@ -3360,7 +3360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   store ptr %1283, ptr %1281, align 8, !noalias !134
   %1284 = getelementptr inbounds i8, ptr %57, i64 16
   %1285 = getelementptr inbounds i8, ptr %57, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 16, i1 false), !noalias !134
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false), !noalias !134
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIhEEDaT_EUlSJ_T0_E_hEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1285, align 8, !noalias !134
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIhEEDaT_EUlSJ_T0_E_hEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1284, align 8, !noalias !134
   %1286 = getelementptr inbounds i8, ptr %.val10, i64 24
@@ -3423,7 +3423,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   store ptr %1312, ptr %1310, align 8, !noalias !137
   %1313 = getelementptr inbounds i8, ptr %55, i64 16
   %1314 = getelementptr inbounds i8, ptr %55, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 16, i1 false), !noalias !137
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false), !noalias !137
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIhEEDaT_EUlSJ_T0_E0_hEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1314, align 8, !noalias !137
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIhEEDaT_EUlSJ_T0_E0_hEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1313, align 8, !noalias !137
   %1315 = getelementptr inbounds i8, ptr %.val10, i64 24
@@ -3486,7 +3486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   store ptr %1341, ptr %1339, align 8, !noalias !140
   %1342 = getelementptr inbounds i8, ptr %53, i64 16
   %1343 = getelementptr inbounds i8, ptr %53, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 16, i1 false), !noalias !140
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false), !noalias !140
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1343, align 8, !noalias !140
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1342, align 8, !noalias !140
   %1344 = getelementptr inbounds i8, ptr %.val10, i64 24
@@ -3549,7 +3549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   store ptr %1370, ptr %1368, align 8, !noalias !143
   %1371 = getelementptr inbounds i8, ptr %51, i64 16
   %1372 = getelementptr inbounds i8, ptr %51, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 16, i1 false), !noalias !143
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false), !noalias !143
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1372, align 8, !noalias !143
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1371, align 8, !noalias !143
   %1373 = getelementptr inbounds i8, ptr %.val10, i64 24
@@ -3612,7 +3612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   store ptr %1399, ptr %1397, align 8, !noalias !146
   %1400 = getelementptr inbounds i8, ptr %49, i64 16
   %1401 = getelementptr inbounds i8, ptr %49, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 16, i1 false), !noalias !146
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false), !noalias !146
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1401, align 8, !noalias !146
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1400, align 8, !noalias !146
   %1402 = getelementptr inbounds i8, ptr %.val10, i64 24
@@ -3675,7 +3675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   store ptr %1428, ptr %1426, align 8, !noalias !149
   %1429 = getelementptr inbounds i8, ptr %47, i64 16
   %1430 = getelementptr inbounds i8, ptr %47, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 16, i1 false), !noalias !149
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false), !noalias !149
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1430, align 8, !noalias !149
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1429, align 8, !noalias !149
   %1431 = getelementptr inbounds i8, ptr %.val10, i64 24
@@ -3803,7 +3803,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   store ptr %1468, ptr %1466, align 8, !noalias !155
   %1469 = getelementptr inbounds i8, ptr %43, i64 16
   %1470 = getelementptr inbounds i8, ptr %43, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 16, i1 false), !noalias !155
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false), !noalias !155
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clItEEDaT_EUlSJ_T0_E_tEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1470, align 8, !noalias !155
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clItEEDaT_EUlSJ_T0_E_tEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1469, align 8, !noalias !155
   %1471 = getelementptr inbounds i8, ptr %.val12, i64 24
@@ -3866,7 +3866,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   store ptr %1497, ptr %1495, align 8, !noalias !158
   %1498 = getelementptr inbounds i8, ptr %41, i64 16
   %1499 = getelementptr inbounds i8, ptr %41, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 16, i1 false), !noalias !158
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false), !noalias !158
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clItEEDaT_EUlSJ_T0_E0_tEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1499, align 8, !noalias !158
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clItEEDaT_EUlSJ_T0_E0_tEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1498, align 8, !noalias !158
   %1500 = getelementptr inbounds i8, ptr %.val12, i64 24
@@ -3929,7 +3929,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   store ptr %1526, ptr %1524, align 8, !noalias !161
   %1527 = getelementptr inbounds i8, ptr %39, i64 16
   %1528 = getelementptr inbounds i8, ptr %39, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 16, i1 false), !noalias !161
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !noalias !161
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1528, align 8, !noalias !161
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1527, align 8, !noalias !161
   %1529 = getelementptr inbounds i8, ptr %.val12, i64 24
@@ -3992,7 +3992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   store ptr %1555, ptr %1553, align 8, !noalias !164
   %1556 = getelementptr inbounds i8, ptr %37, i64 16
   %1557 = getelementptr inbounds i8, ptr %37, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 16, i1 false), !noalias !164
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false), !noalias !164
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1557, align 8, !noalias !164
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1556, align 8, !noalias !164
   %1558 = getelementptr inbounds i8, ptr %.val12, i64 24
@@ -4055,7 +4055,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   store ptr %1584, ptr %1582, align 8, !noalias !167
   %1585 = getelementptr inbounds i8, ptr %35, i64 16
   %1586 = getelementptr inbounds i8, ptr %35, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 16, i1 false), !noalias !167
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false), !noalias !167
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1586, align 8, !noalias !167
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1585, align 8, !noalias !167
   %1587 = getelementptr inbounds i8, ptr %.val12, i64 24
@@ -4118,7 +4118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   store ptr %1613, ptr %1611, align 8, !noalias !170
   %1614 = getelementptr inbounds i8, ptr %33, i64 16
   %1615 = getelementptr inbounds i8, ptr %33, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 16, i1 false), !noalias !170
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false), !noalias !170
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1615, align 8, !noalias !170
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1614, align 8, !noalias !170
   %1616 = getelementptr inbounds i8, ptr %.val12, i64 24
@@ -4246,7 +4246,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   store ptr %1653, ptr %1651, align 8, !noalias !176
   %1654 = getelementptr inbounds i8, ptr %29, i64 16
   %1655 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 16, i1 false), !noalias !176
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !noalias !176
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIjEEDaT_EUlSJ_T0_E_jEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1655, align 8, !noalias !176
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIjEEDaT_EUlSJ_T0_E_jEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1654, align 8, !noalias !176
   %1656 = getelementptr inbounds i8, ptr %.val14, i64 24
@@ -4309,7 +4309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   store ptr %1682, ptr %1680, align 8, !noalias !179
   %1683 = getelementptr inbounds i8, ptr %27, i64 16
   %1684 = getelementptr inbounds i8, ptr %27, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 16, i1 false), !noalias !179
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !noalias !179
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIjEEDaT_EUlSJ_T0_E0_jEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1684, align 8, !noalias !179
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIjEEDaT_EUlSJ_T0_E0_jEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1683, align 8, !noalias !179
   %1685 = getelementptr inbounds i8, ptr %.val14, i64 24
@@ -4372,7 +4372,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   store ptr %1711, ptr %1709, align 8, !noalias !182
   %1712 = getelementptr inbounds i8, ptr %25, i64 16
   %1713 = getelementptr inbounds i8, ptr %25, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 16, i1 false), !noalias !182
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false), !noalias !182
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1713, align 8, !noalias !182
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1712, align 8, !noalias !182
   %1714 = getelementptr inbounds i8, ptr %.val14, i64 24
@@ -4435,7 +4435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   store ptr %1740, ptr %1738, align 8, !noalias !185
   %1741 = getelementptr inbounds i8, ptr %23, i64 16
   %1742 = getelementptr inbounds i8, ptr %23, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 16, i1 false), !noalias !185
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false), !noalias !185
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1742, align 8, !noalias !185
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1741, align 8, !noalias !185
   %1743 = getelementptr inbounds i8, ptr %.val14, i64 24
@@ -4498,7 +4498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   store ptr %1769, ptr %1767, align 8, !noalias !188
   %1770 = getelementptr inbounds i8, ptr %21, i64 16
   %1771 = getelementptr inbounds i8, ptr %21, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 16, i1 false), !noalias !188
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !noalias !188
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1771, align 8, !noalias !188
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1770, align 8, !noalias !188
   %1772 = getelementptr inbounds i8, ptr %.val14, i64 24
@@ -4561,7 +4561,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   store ptr %1798, ptr %1796, align 8, !noalias !191
   %1799 = getelementptr inbounds i8, ptr %19, i64 16
   %1800 = getelementptr inbounds i8, ptr %19, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 16, i1 false), !noalias !191
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false), !noalias !191
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1800, align 8, !noalias !191
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1799, align 8, !noalias !191
   %1801 = getelementptr inbounds i8, ptr %.val14, i64 24
@@ -4689,7 +4689,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   store ptr %1838, ptr %1836, align 8, !noalias !197
   %1839 = getelementptr inbounds i8, ptr %15, i64 16
   %1840 = getelementptr inbounds i8, ptr %15, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 16, i1 false), !noalias !197
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !noalias !197
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clImEEDaT_EUlSJ_T0_E_mEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1840, align 8, !noalias !197
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clImEEDaT_EUlSJ_T0_E_mEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1839, align 8, !noalias !197
   %1841 = getelementptr inbounds i8, ptr %.val16, i64 24
@@ -4752,7 +4752,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   store ptr %1867, ptr %1865, align 8, !noalias !200
   %1868 = getelementptr inbounds i8, ptr %13, i64 16
   %1869 = getelementptr inbounds i8, ptr %13, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 16, i1 false), !noalias !200
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !noalias !200
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clImEEDaT_EUlSJ_T0_E0_mEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1869, align 8, !noalias !200
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clImEEDaT_EUlSJ_T0_E0_mEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1868, align 8, !noalias !200
   %1870 = getelementptr inbounds i8, ptr %.val16, i64 24
@@ -4815,7 +4815,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   store ptr %1896, ptr %1894, align 8, !noalias !203
   %1897 = getelementptr inbounds i8, ptr %11, i64 16
   %1898 = getelementptr inbounds i8, ptr %11, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 16, i1 false), !noalias !203
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !noalias !203
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1898, align 8, !noalias !203
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1897, align 8, !noalias !203
   %1899 = getelementptr inbounds i8, ptr %.val16, i64 24
@@ -4878,7 +4878,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   store ptr %1925, ptr %1923, align 8, !noalias !206
   %1926 = getelementptr inbounds i8, ptr %9, i64 16
   %1927 = getelementptr inbounds i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false), !noalias !206
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !noalias !206
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1927, align 8, !noalias !206
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1926, align 8, !noalias !206
   %1928 = getelementptr inbounds i8, ptr %.val16, i64 24
@@ -4941,7 +4941,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   store ptr %1954, ptr %1952, align 8, !noalias !209
   %1955 = getelementptr inbounds i8, ptr %7, i64 16
   %1956 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false), !noalias !209
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !noalias !209
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1956, align 8, !noalias !209
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1955, align 8, !noalias !209
   %1957 = getelementptr inbounds i8, ptr %.val16, i64 24
@@ -5004,7 +5004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   store ptr %1983, ptr %1981, align 8, !noalias !212
   %1984 = getelementptr inbounds i8, ptr %5, i64 16
   %1985 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false), !noalias !212
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !noalias !212
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1985, align 8, !noalias !212
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1984, align 8, !noalias !212
   %1986 = getelementptr inbounds i8, ptr %.val16, i64 24

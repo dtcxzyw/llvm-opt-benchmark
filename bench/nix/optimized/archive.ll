@@ -5823,14 +5823,14 @@ define void @_ZN3nix8copyPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %3 = alloca %"class.std::unique_ptr.47", align 8
   %4 = alloca %"class.std::function.55", align 8
   %5 = alloca %"class.std::function.58", align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %0 to i64
-  store i64 %9, ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_8copyPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_E3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_8copyPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_E3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %6, align 8
+  %6 = ptrtoint ptr %0 to i64
+  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %6, ptr %4, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_8copyPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_E3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_8copyPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_E3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %11 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -5856,7 +5856,7 @@ define void @_ZN3nix8copyPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %12, %14
-  %19 = load ptr, ptr %6, align 8
+  %19 = load ptr, ptr %7, align 8
   %.not.i.i5 = icmp eq ptr %19, null
   br i1 %.not.i.i5, label %_ZNSt8functionIFvRN3nix4SinkEEED2Ev.exit, label %20
 
@@ -5910,7 +5910,7 @@ _ZNSt10unique_ptrIN3nix6SourceESt14default_deleteIS1_EED2Ev.exit: ; preds = %26,
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit7:                   ; preds = %31, %34
-  %39 = load ptr, ptr %6, align 8
+  %39 = load ptr, ptr %7, align 8
   %.not.i.i8 = icmp eq ptr %39, null
   br i1 %.not.i.i8, label %_ZNSt8functionIFvRN3nix4SinkEEED2Ev.exit9, label %40
 

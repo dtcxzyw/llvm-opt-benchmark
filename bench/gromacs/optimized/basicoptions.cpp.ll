@@ -5718,19 +5718,19 @@ define void @_ZNK3gmx17EnumOptionStorage14normalizeValueERKi(ptr dead_on_unwind 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx17EnumOptionStorage13initConverterEPNS_26OptionValueConverterSimpleIiEE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function.22", align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %6, align 8
-  %7 = ptrtoint ptr %0 to i64
-  store i64 %7, ptr %3, align 8
-  store ptr @"_ZNSt17_Function_handlerIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZN3gmx17EnumOptionStorage13initConverterEPNS9_26OptionValueConverterSimpleIiEEE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZN3gmx17EnumOptionStorage13initConverterEPNS9_26OptionValueConverterSimpleIiEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %4, align 8
+  %4 = ptrtoint ptr %0 to i64
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %7, align 8
+  store i64 %4, ptr %3, align 8
+  store ptr @"_ZNSt17_Function_handlerIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZN3gmx17EnumOptionStorage13initConverterEPNS9_26OptionValueConverterSimpleIiEEE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZN3gmx17EnumOptionStorage13initConverterEPNS9_26OptionValueConverterSimpleIiEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %5, align 8
   invoke void @_ZN3gmx26OptionValueConverterSimpleIiE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFiRKT_EE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %3)
           to label %8 unwind label %15
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %_ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %10
 
@@ -5751,7 +5751,7 @@ _ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
 15:                                               ; preds = %2
   %16 = landingpad { ptr, i32 }
           cleanup
-  %17 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %5, align 8
   %.not.i.i3 = icmp eq ptr %17, null
   br i1 %.not.i.i3, label %_ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit4, label %18
 

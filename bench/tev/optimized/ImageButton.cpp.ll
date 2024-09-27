@@ -728,19 +728,19 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %21, %26
 
 _ZNSt3__18functionIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEC2ERKSA_.exit.i.i: ; preds = %35
   %41 = load ptr, ptr %33, align 16
-  %42 = getelementptr inbounds i8, ptr %6, i64 32
+  %42 = ptrtoint ptr %0 to i64
+  %43 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageButtonC1EPN7nanogui6WidgetERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEbE3$_0NSA_ISF_EEFbSE_EEE", i64 16), ptr %6, align 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
-  %44 = ptrtoint ptr %0 to i64
-  store i64 %44, ptr %43, align 8
-  store ptr %6, ptr %42, align 16
+  %44 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %42, ptr %44, align 8
+  store ptr %6, ptr %43, align 16
   %45 = getelementptr inbounds i8, ptr %41, i64 256
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   %46 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %5, ptr %46, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageButtonC1EPN7nanogui6WidgetERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEbE3$_0NSA_ISF_EEFbSE_EEE", i64 16), ptr %5, align 16
   %47 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %44, ptr %47, align 8
+  store i64 %42, ptr %47, align 8
   call void @_ZNSt3__110__function12__value_funcIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEE4swapB8ne190000ERSB_(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 16 dereferenceable(40) %45) #26
   %48 = load ptr, ptr %46, align 16
   %49 = icmp eq ptr %48, %5
@@ -760,7 +760,7 @@ _ZNSt3__18functionIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE
 
 54:                                               ; preds = %.sink.split.i.i.i.i, %50
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  %55 = load ptr, ptr %42, align 16
+  %55 = load ptr, ptr %43, align 16
   %56 = icmp eq ptr %55, %6
   br i1 %56, label %.sink.split.i.i, label %57
 

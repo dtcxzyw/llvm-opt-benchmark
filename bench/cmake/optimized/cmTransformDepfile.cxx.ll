@@ -240,14 +240,14 @@ _ZNSt8optionalISt6vectorI20cmGccStyleDependencySaIS1_EEED2Ev.exit: ; preds = %47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  %76 = getelementptr inbounds i8, ptr %8, i64 16
-  %77 = getelementptr inbounds i8, ptr %8, i64 24
-  %78 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 0, ptr %78, align 8
-  %79 = ptrtoint ptr %1 to i64
-  store i64 %79, ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EZN12_GLOBAL__N_112WriteDepfileE15cmDepfileFormatRSt14basic_ofstreamIcS3_ERK16cmLocalGeneratorRKSt6vectorI20cmGccStyleDependencySaISI_EEE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %77, align 8
-  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EZN12_GLOBAL__N_112WriteDepfileE15cmDepfileFormatRSt14basic_ofstreamIcS3_ERK16cmLocalGeneratorRKSt6vectorI20cmGccStyleDependencySaISI_EEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %76, align 8
+  %76 = ptrtoint ptr %1 to i64
+  %77 = getelementptr inbounds i8, ptr %8, i64 16
+  %78 = getelementptr inbounds i8, ptr %8, i64 24
+  %79 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 0, ptr %79, align 8
+  store i64 %76, ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EZN12_GLOBAL__N_112WriteDepfileE15cmDepfileFormatRSt14basic_ofstreamIcS3_ERK16cmLocalGeneratorRKSt6vectorI20cmGccStyleDependencySaISI_EEE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %78, align 8
+  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EZN12_GLOBAL__N_112WriteDepfileE15cmDepfileFormatRSt14basic_ofstreamIcS3_ERK16cmLocalGeneratorRKSt6vectorI20cmGccStyleDependencySaISI_EEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %77, align 8
   %80 = getelementptr inbounds i8, ptr %1, i64 136
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %81, align 8
@@ -268,12 +268,12 @@ _ZNSt8optionalISt6vectorI20cmGccStyleDependencySaIS1_EEED2Ev.exit: ; preds = %47
   %90 = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %91 = load ptr, ptr %76, align 8
+  %91 = load ptr, ptr %77, align 8
   store ptr %91, ptr %89, align 8
-  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EZN12_GLOBAL__N_112WriteDepfileE15cmDepfileFormatRSt14basic_ofstreamIcS3_ERK16cmLocalGeneratorRKSt6vectorI20cmGccStyleDependencySaISI_EEE3$_1E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %76, align 8
-  %92 = load ptr, ptr %77, align 8
+  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EZN12_GLOBAL__N_112WriteDepfileE15cmDepfileFormatRSt14basic_ofstreamIcS3_ERK16cmLocalGeneratorRKSt6vectorI20cmGccStyleDependencySaISI_EEE3$_1E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %77, align 8
+  %92 = load ptr, ptr %78, align 8
   store ptr %92, ptr %90, align 8
-  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EZN12_GLOBAL__N_112WriteDepfileE15cmDepfileFormatRSt14basic_ofstreamIcS3_ERK16cmLocalGeneratorRKSt6vectorI20cmGccStyleDependencySaISI_EEE3$_1E9_M_invokeERKSt9_Any_dataS7_", ptr %77, align 8
+  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EZN12_GLOBAL__N_112WriteDepfileE15cmDepfileFormatRSt14basic_ofstreamIcS3_ERK16cmLocalGeneratorRKSt6vectorI20cmGccStyleDependencySaISI_EEE3$_1E9_M_invokeERKSt9_Any_dataS7_", ptr %78, align 8
   %.not.i.i.i.i = icmp eq ptr %91, null
   br i1 %.not.i.i.i.i, label %"_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEaSIZN12_GLOBAL__N_112WriteDepfileE15cmDepfileFormatRSt14basic_ofstreamIcS3_ERK16cmLocalGeneratorRKSt6vectorI20cmGccStyleDependencySaISK_EEE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSQ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISS_E4typeEE4typeES9_EE5valueESt5decayISS_EE4type4typeESt15__invoke_resultIRS13_JS7_EEEE5valueERS9_E4typeEOSS_.exit.i", label %93
 
@@ -342,12 +342,12 @@ _ZNSt8optionalISt6vectorI20cmGccStyleDependencySaIS1_EEED2Ev.exit: ; preds = %47
           to label %107 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 107:                                              ; preds = %105, %.lr.ph.i
-  %108 = load ptr, ptr %76, align 8, !noalias !14
+  %108 = load ptr, ptr %77, align 8, !noalias !14
   %.not.i.i.i = icmp eq ptr %108, null
   br i1 %.not.i.i.i, label %.invoke.i, label %109
 
 109:                                              ; preds = %107
-  %110 = load ptr, ptr %77, align 8, !noalias !14
+  %110 = load ptr, ptr %78, align 8, !noalias !14
   invoke void %110(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.079.0101.i)
           to label %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEclES7_.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
@@ -412,12 +412,12 @@ _ZN12_GLOBAL__N_116WriteFilenameGccERSt14basic_ofstreamIcSt11char_traitsIcEERKNS
           to label %130 unwind label %.loopexit.split-lp.loopexit.i
 
 130:                                              ; preds = %.lr.ph106.i
-  %131 = load ptr, ptr %76, align 8, !noalias !17
+  %131 = load ptr, ptr %77, align 8, !noalias !17
   %.not.i.i40.i = icmp eq ptr %131, null
   br i1 %.not.i.i40.i, label %.invoke.i, label %132
 
 132:                                              ; preds = %130
-  %133 = load ptr, ptr %77, align 8, !noalias !17
+  %133 = load ptr, ptr %78, align 8, !noalias !17
   invoke void %133(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.075.0104.i)
           to label %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEclES7_.exit43.i unwind label %.loopexit.split-lp.loopexit.i
 
@@ -502,7 +502,7 @@ _ZN12_GLOBAL__N_116WriteFilenameGccERSt14basic_ofstreamIcSt11char_traitsIcEERKNS
           to label %160 unwind label %.loopexit.i
 
 160:                                              ; preds = %.lr.ph116.i
-  %161 = load ptr, ptr %76, align 8, !noalias !20
+  %161 = load ptr, ptr %77, align 8, !noalias !20
   %.not.i.i52.i = icmp eq ptr %161, null
   br i1 %.not.i.i52.i, label %.invoke.i, label %162
 
@@ -514,7 +514,7 @@ _ZN12_GLOBAL__N_116WriteFilenameGccERSt14basic_ofstreamIcSt11char_traitsIcEERKNS
   unreachable
 
 162:                                              ; preds = %160
-  %163 = load ptr, ptr %77, align 8, !noalias !20
+  %163 = load ptr, ptr %78, align 8, !noalias !20
   invoke void %163(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.067.0114.i)
           to label %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEclES7_.exit55.i unwind label %.loopexit.i
 
@@ -571,7 +571,7 @@ _ZN12_GLOBAL__N_116WriteFilenameGccERSt14basic_ofstreamIcSt11char_traitsIcEERKNS
   br i1 %.not87.i, label %.loopexit91.i, label %.lr.ph121.i
 
 .loopexit91.i:                                    ; preds = %._crit_edge117.i, %152, %._crit_edge112.i
-  %179 = load ptr, ptr %76, align 8
+  %179 = load ptr, ptr %77, align 8
   %.not.i.i64.i = icmp eq ptr %179, null
   br i1 %.not.i.i64.i, label %_ZN12_GLOBAL__N_112WriteDepfileE15cmDepfileFormatRSt14basic_ofstreamIcSt11char_traitsIcEERK16cmLocalGeneratorRKSt6vectorI20cmGccStyleDependencySaISA_EE.exit, label %180
 
@@ -588,7 +588,7 @@ _ZN12_GLOBAL__N_116WriteFilenameGccERSt14basic_ofstreamIcSt11char_traitsIcEERKNS
 
 .loopexit.split-lp.i:                             ; preds = %176, %144, %121, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
   %.pn.i = phi { ptr, i32 } [ %122, %121 ], [ %145, %144 ], [ %177, %176 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit92.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit95.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit97.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp98.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
-  %185 = load ptr, ptr %76, align 8
+  %185 = load ptr, ptr %77, align 8
   %.not.i.i65.i = icmp eq ptr %185, null
   br i1 %.not.i.i65.i, label %.body, label %186
 

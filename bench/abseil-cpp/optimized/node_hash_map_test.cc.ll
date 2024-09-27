@@ -14520,11 +14520,11 @@ call38.i.i.i.i.i.i.i.noexc:                       ; preds = %if.then.i.i.i.i.i.i
           to label %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad3.loopexit.split-lp
 
 call5.i.i2.i.i.i.i.i.i.i.i.i.i.i.noexc:           ; preds = %call38.i.i.i.i.i.i.i.noexc
-  %add.ptr.i3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i.i, i64 %call38.i.i.i.i.i.i.i133
+  %add.ptr.i4.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i.i, i64 %call38.i.i.i.i.i.i.i133
   store i32 7, ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i134, align 4, !noalias !259
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i134, i64 4
   store i32 -7, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !259
-  store ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i134, ptr %add.ptr.i3.i.i.i.i.i.i, align 8, !noalias !259
+  store ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i134, ptr %add.ptr.i4.i.i.i.i.i.i, align 8, !noalias !259
   %this.val6.i.i.i.i.i.i.i136.pre = load ptr, ptr %set1, align 8, !noalias !273
   %.pre1714 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8, !noalias !286
   %this.val7.i.i.i.i.i.i.i145.pre = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, align 8, !noalias !273
@@ -14589,11 +14589,11 @@ call38.i.i.i.i.i.i.i.noexc185:                    ; preds = %if.then.i.i.i.i.i.i
           to label %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i.noexc187 unwind label %lpad3.loopexit.split-lp
 
 call5.i.i2.i.i.i.i.i.i.i.i.i.i.i.noexc187:        ; preds = %call38.i.i.i.i.i.i.i.noexc185
-  %add.ptr.i3.i.i.i.i.i.i169 = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i.i168, i64 %call38.i.i.i.i.i.i.i186
+  %add.ptr.i4.i.i.i.i.i.i169 = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i.i168, i64 %call38.i.i.i.i.i.i.i186
   store i32 17, ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i188, align 4, !noalias !273
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i171 = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i188, i64 4
   store i32 -17, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i171, align 4, !noalias !273
-  store ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i188, ptr %add.ptr.i3.i.i.i.i.i.i169, align 8, !noalias !273
+  store ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i188, ptr %add.ptr.i4.i.i.i.i.i.i169, align 8, !noalias !273
   br label %invoke.cont16
 
 invoke.cont16:                                    ; preds = %for.body.i.i.i.i.i.i.i153, %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i.noexc187
@@ -14656,11 +14656,11 @@ call38.i.i.i.i.i.i.i.noexc240:                    ; preds = %if.then.i.i.i.i.i.i
           to label %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i.noexc242 unwind label %lpad3.loopexit.split-lp
 
 call5.i.i2.i.i.i.i.i.i.i.i.i.i.i.noexc242:        ; preds = %call38.i.i.i.i.i.i.i.noexc240
-  %add.ptr.i3.i.i.i.i.i.i224 = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i.i223, i64 %call38.i.i.i.i.i.i.i241
+  %add.ptr.i4.i.i.i.i.i.i224 = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i.i223, i64 %call38.i.i.i.i.i.i.i241
   store i32 7, ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i243, align 4, !noalias !289
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i226 = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i243, i64 4
   store i32 -70, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i226, align 4, !noalias !289
-  store ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i243, ptr %add.ptr.i3.i.i.i.i.i.i224, align 8, !noalias !289
+  store ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i243, ptr %add.ptr.i4.i.i.i.i.i.i224, align 8, !noalias !289
   %this.val6.i.i.i.i.i.i.i246.pre = load ptr, ptr %set2, align 8, !noalias !302
   %.pre1717 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i193, align 8, !noalias !315
   %this.val7.i.i.i.i.i.i.i255.pre = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i132, align 8, !noalias !302
@@ -14726,11 +14726,11 @@ call38.i.i.i.i.i.i.i.noexc295:                    ; preds = %if.then.i.i.i.i.i.i
           to label %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i.noexc297 unwind label %lpad3.loopexit.split-lp
 
 call5.i.i2.i.i.i.i.i.i.i.i.i.i.i.noexc297:        ; preds = %call38.i.i.i.i.i.i.i.noexc295
-  %add.ptr.i3.i.i.i.i.i.i279 = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i.i278, i64 %call38.i.i.i.i.i.i.i296
+  %add.ptr.i4.i.i.i.i.i.i279 = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i.i278, i64 %call38.i.i.i.i.i.i.i296
   store i32 19, ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i298, align 4, !noalias !302
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i281 = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i298, i64 4
   store i32 -190, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i281, align 4, !noalias !302
-  store ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i298, ptr %add.ptr.i3.i.i.i.i.i.i279, align 8, !noalias !302
+  store ptr %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i298, ptr %add.ptr.i4.i.i.i.i.i.i279, align 8, !noalias !302
   br label %invoke.cont32
 
 invoke.cont32:                                    ; preds = %for.body.i.i.i.i.i.i.i263, %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i.noexc297
@@ -15281,7 +15281,7 @@ _ZSt4nextIN4absl18container_internal12raw_hash_setINS1_17NodeHashMapPolicyINS1_1
   %__x.sroa.6.0.i.i = phi ptr [ %incdec.ptr4.i.i.i.i.i, %for.body.i ], [ %add.ptr6.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %__x.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i ], [ %add.ptr.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %.lcssa.i.i.i.i.i.i = phi i8 [ %98, %for.body.i ], [ %104, %while.body.i.i.i.i.i.i ]
-  %cmp.i.i.i.i.i9.i = icmp eq i8 %.lcssa.i.i.i.i.i.i, -1
+  %cmp.i.i.i.i.i10.i = icmp eq i8 %.lcssa.i.i.i.i.i.i, -1
   %call7.val.i = load ptr, ptr %it.sroa.5.023.i, align 8
   %call8.val.i = load i32, ptr %call7.val.i, align 4, !noalias !319
   %this.val6.i.i.i.i.i.i.i376 = load ptr, ptr %set1, align 8, !noalias !322
@@ -15305,8 +15305,8 @@ while.body.i.i.i.i.i.i.i385:                      ; preds = %if.end36.i.i.i.i.i.
   %seq.sroa.4.0.i.i.i.i.i.i.i388 = and i64 %xor.i.i.i.pn.i.i.i.i.i.i.i386, %105
   %add.ptr.i.i.i.i.i.i.i389 = getelementptr inbounds i8, ptr %this.val6.i.i.i.i.i.i.i376, i64 %seq.sroa.4.0.i.i.i.i.i.i.i388
   %108 = load <16 x i8>, ptr %add.ptr.i.i.i.i.i.i.i389, align 1, !noalias !322
-  %cmp.i.i.i.i.i.i.i.i13.i = icmp eq <16 x i8> %vecinit15.i.i.i.i.i.i.i.i.i383, %108
-  %109 = bitcast <16 x i1> %cmp.i.i.i.i.i.i.i.i13.i to i16
+  %cmp.i.i.i.i.i.i.i.i14.i = icmp eq <16 x i8> %vecinit15.i.i.i.i.i.i.i.i.i383, %108
+  %109 = bitcast <16 x i1> %cmp.i.i.i.i.i.i.i.i14.i to i16
   %cmp.i.not28.i.i.i.i.i.i.i390 = icmp eq i16 %109, 0
   br i1 %cmp.i.not28.i.i.i.i.i.i.i390, label %for.end.i.i.i.i.i.i.i402, label %for.body.i.i.i.i.i.i.i391
 
@@ -15345,14 +15345,14 @@ if.then.i:                                        ; preds = %for.end.i.i.i.i.i.i
 
 call38.i.i.i.i.i.i.i.noexc412:                    ; preds = %if.then.i
   %.val.i.i.i.i.i.i405 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, align 8, !noalias !322
-  %add.ptr.i.i.i.i.i14.i = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i.i405, i64 %call38.i.i.i.i.i.i.i413
+  %add.ptr.i.i.i.i.i15.i = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i.i405, i64 %call38.i.i.i.i.i.i.i413
   %.val1.i.i.i.i.i.i406 = load ptr, ptr %it.sroa.5.023.i, align 8, !noalias !322
-  store ptr %.val1.i.i.i.i.i.i406, ptr %add.ptr.i.i.i.i.i14.i, align 8, !noalias !322
+  store ptr %.val1.i.i.i.i.i.i406, ptr %add.ptr.i.i.i.i.i15.i, align 8, !noalias !322
   invoke void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEPNS0_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull %it.sroa.0.022.i, i64 noundef 8)
           to label %if.end.i unwind label %lpad3.loopexit
 
 if.end.i:                                         ; preds = %for.body.i.i.i.i.i.i.i391, %call38.i.i.i.i.i.i.i.noexc412
-  br i1 %cmp.i.i.i.i.i9.i, label %invoke.cont95, label %for.body.i, !llvm.loop !337
+  br i1 %cmp.i.i.i.i.i10.i, label %invoke.cont95, label %for.body.i, !llvm.loop !337
 
 invoke.cont95:                                    ; preds = %if.end.i, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS3_17NonMovableKeyHashENS3_15NonMovableKeyEqESaISt4pairIKS4_iEEE5beginEv.exit.i
   invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp99, i32 noundef 7, i32 noundef -7)

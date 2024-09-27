@@ -68676,19 +68676,19 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau11TypeChecker5mergeERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS5_ESaISt4pairIKS5_S8_EEERKSG_(ptr noundef nonnull align 8 dereferenceable(2016) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::function.750", align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %7, align 8
-  %8 = ptrtoint ptr %0 to i64
-  store i64 %8, ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_S3_EEERKSI_E3$_0E9_M_invokeERKSt9_Any_dataOS3_SR_", ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_S3_EEERKSI_E3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %5, align 8
+  %5 = ptrtoint ptr %0 to i64
+  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %8, align 8
+  store i64 %5, ptr %4, align 8
+  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_S3_EEERKSI_E3$_0E9_M_invokeERKSt9_Any_dataOS3_SR_", ptr %7, align 8
+  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_S3_EEERKSI_E3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %6, align 8
   invoke void @_ZN4Luau5mergeERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEERKSF_St8functionIFS7_S7_S7_EE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %4)
           to label %9 unwind label %16
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZNSt8functionIFPKN4Luau4TypeES3_S3_EED2Ev.exit, label %11
 
@@ -68709,7 +68709,7 @@ _ZNSt8functionIFPKN4Luau4TypeES3_S3_EED2Ev.exit:  ; preds = %9, %11
 16:                                               ; preds = %3
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %6, align 8
   %.not.i.i4 = icmp eq ptr %18, null
   br i1 %.not.i.i4, label %_ZNSt8functionIFPKN4Luau4TypeES3_S3_EED2Ev.exit5, label %19
 
@@ -79230,19 +79230,19 @@ _ZN4Luau11TypeChecker7resolveERKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_1
 
 _ZN4Luau11TypeChecker7resolveERKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISA_EERSt13unordered_mapINS2_IJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toISI_ESaISt4pairIKSI_SL_EEERKSt10shared_ptrINS_5ScopeEEbb.exit90: ; preds = %.noexc89, %_ZN4Luau11TypeChecker7resolveERKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISA_EERSt13unordered_mapINS2_IJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toISI_ESaISt4pairIKSI_SL_EEERKSt10shared_ptrINS_5ScopeEEbb.exit88
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %215 = getelementptr inbounds i8, ptr %7, i64 16
-  %216 = getelementptr inbounds i8, ptr %7, i64 24
-  %217 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 0, ptr %217, align 8
-  %218 = ptrtoint ptr %0 to i64
-  store i64 %218, ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_S3_EEERKSI_E3$_0E9_M_invokeERKSt9_Any_dataOS3_SR_", ptr %216, align 8
-  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_S3_EEERKSI_E3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %215, align 8
+  %215 = ptrtoint ptr %0 to i64
+  %216 = getelementptr inbounds i8, ptr %7, i64 16
+  %217 = getelementptr inbounds i8, ptr %7, i64 24
+  %218 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 0, ptr %218, align 8
+  store i64 %215, ptr %7, align 8
+  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_S3_EEERKSI_E3$_0E9_M_invokeERKSt9_Any_dataOS3_SR_", ptr %217, align 8
+  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_S3_EEERKSI_E3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %216, align 8
   invoke void @_ZN4Luau5mergeERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEERKSF_St8functionIFS7_S7_S7_EE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull %7)
           to label %219 unwind label %226
 
 219:                                              ; preds = %_ZN4Luau11TypeChecker7resolveERKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISA_EERSt13unordered_mapINS2_IJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toISI_ESaISt4pairIKSI_SL_EEERKSt10shared_ptrINS_5ScopeEEbb.exit90
-  %220 = load ptr, ptr %215, align 8
+  %220 = load ptr, ptr %216, align 8
   %.not.i.i.i91 = icmp eq ptr %220, null
   br i1 %.not.i.i.i91, label %234, label %221
 
@@ -79260,7 +79260,7 @@ _ZN4Luau11TypeChecker7resolveERKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_1
 226:                                              ; preds = %_ZN4Luau11TypeChecker7resolveERKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISA_EERSt13unordered_mapINS2_IJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toISI_ESaISt4pairIKSI_SL_EEERKSt10shared_ptrINS_5ScopeEEbb.exit90
   %227 = landingpad { ptr, i32 }
           cleanup
-  %228 = load ptr, ptr %215, align 8
+  %228 = load ptr, ptr %216, align 8
   %.not.i.i4.i = icmp eq ptr %228, null
   br i1 %.not.i.i4.i, label %.body92, label %229
 
@@ -79282,7 +79282,7 @@ _ZN4Luau11TypeChecker7resolveERKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_1
   %236 = getelementptr inbounds i8, ptr %6, i64 24
   %237 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %237, align 8
-  store i64 %218, ptr %6, align 8
+  store i64 %215, ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_S3_EEERKSI_E3$_0E9_M_invokeERKSt9_Any_dataOS3_SR_", ptr %236, align 8
   store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_S3_EEERKSI_E3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %235, align 8
   invoke void @_ZN4Luau5mergeERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEERKSF_St8functionIFS7_S7_S7_EE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull %6)

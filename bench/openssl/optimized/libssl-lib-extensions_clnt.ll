@@ -3805,19 +3805,19 @@ lor.lhs.false:                                    ; preds = %lor.lhs.false.i
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef 454) #10
   %cmp.i = icmp eq i64 %or.i.i.i, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tls13_cookie, i8 0, i64 16, i1 false)
-  br i1 %cmp.i, label %return, label %if.end.i3
+  br i1 %cmp.i, label %return, label %if.end.i4
 
-if.end.i3:                                        ; preds = %lor.lhs.false
+if.end.i4:                                        ; preds = %lor.lhs.false
   %call1.i = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %add.ptr.i2.i.i, i64 noundef %or.i.i.i, ptr noundef nonnull @.str.2, i32 noundef 463) #10
   store ptr %call1.i, ptr %tls13_cookie, align 8
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %if.then, label %if.end4.i
 
-if.end4.i:                                        ; preds = %if.end.i3
+if.end4.i:                                        ; preds = %if.end.i4
   store i64 %or.i.i.i, ptr %tls13_cookie_len, align 8
   br label %return
 
-if.then:                                          ; preds = %lor.lhs.false.i, %entry, %if.end.i3
+if.then:                                          ; preds = %lor.lhs.false.i, %entry, %if.end.i4
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1915, ptr noundef nonnull @__func__.tls_parse_stoc_cookie) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 50, i32 noundef 159, ptr noundef null) #10

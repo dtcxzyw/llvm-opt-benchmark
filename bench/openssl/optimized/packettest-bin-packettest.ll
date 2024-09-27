@@ -949,7 +949,7 @@ entry:
   br i1 %tobool.not, label %return, label %PACKET_copy_all.exit
 
 PACKET_copy_all.exit:                             ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(255) %tmp, ptr noundef nonnull align 16 dereferenceable(255) @smbuf, i64 255, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(255) %tmp, ptr noundef nonnull readonly align 16 dereferenceable(255) @smbuf, i64 255, i1 false)
   %call5 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 209, ptr noundef nonnull @.str.83, i32 noundef 1) #5
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %lor.lhs.false7
@@ -967,16 +967,16 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false7
 lor.lhs.false14:                                  ; preds = %lor.lhs.false10
   %call16 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 212, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.30, i64 noundef 255, i64 noundef 255) #5
   %tobool17.not = icmp eq i32 %call16, 0
-  br i1 %tobool17.not, label %return, label %PACKET_copy_all.exit6
+  br i1 %tobool17.not, label %return, label %PACKET_copy_all.exit9
 
-PACKET_copy_all.exit6:                            ; preds = %lor.lhs.false14
+PACKET_copy_all.exit9:                            ; preds = %lor.lhs.false14
   %call23 = call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 213, ptr noundef nonnull @.str.87, i32 noundef 0) #5
   %tobool24.not = icmp ne i32 %call23, 0
   %spec.select = zext i1 %tobool24.not to i32
   br label %return
 
-return:                                           ; preds = %PACKET_copy_all.exit6, %entry, %PACKET_copy_all.exit, %lor.lhs.false7, %lor.lhs.false10, %lor.lhs.false14
-  %retval.0 = phi i32 [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false7 ], [ 0, %PACKET_copy_all.exit ], [ 0, %entry ], [ %spec.select, %PACKET_copy_all.exit6 ]
+return:                                           ; preds = %PACKET_copy_all.exit9, %entry, %PACKET_copy_all.exit, %lor.lhs.false7, %lor.lhs.false10, %lor.lhs.false14
+  %retval.0 = phi i32 [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false7 ], [ 0, %PACKET_copy_all.exit ], [ 0, %entry ], [ %spec.select, %PACKET_copy_all.exit9 ]
   ret i32 %retval.0
 }
 
@@ -1080,27 +1080,27 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false13
 
 lor.lhs.false24:                                  ; preds = %lor.lhs.false17
   call void @CRYPTO_free(ptr noundef %call1.i, ptr noundef nonnull @.str.93, i32 noundef 483) #5
-  %call1.i3 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %buf2, i64 noundef 10, ptr noundef nonnull @.str.93, i32 noundef 486) #5
-  %cmp.i4 = icmp ne ptr %call1.i3, null
-  %conv.i5 = zext i1 %cmp.i4 to i32
-  %call28 = call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 257, ptr noundef nonnull @.str.95, i32 noundef %conv.i5) #5
+  %call1.i5 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %buf2, i64 noundef 10, ptr noundef nonnull @.str.93, i32 noundef 486) #5
+  %cmp.i6 = icmp ne ptr %call1.i5, null
+  %conv.i7 = zext i1 %cmp.i6 to i32
+  %call28 = call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 257, ptr noundef nonnull @.str.95, i32 noundef %conv.i7) #5
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %end, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false24
-  %call31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call1.i3) #6
+  %call31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call1.i5) #6
   %call32 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 258, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.100, i64 noundef %call31, i64 noundef 5) #5
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %end, label %lor.lhs.false34
 
 lor.lhs.false34:                                  ; preds = %lor.lhs.false30
-  %call36 = call i32 @test_str_eq(ptr noundef nonnull @.str.25, i32 noundef 259, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.101, ptr noundef %call1.i3, ptr noundef nonnull %buf2) #5
+  %call36 = call i32 @test_str_eq(ptr noundef nonnull @.str.25, i32 noundef 259, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.101, ptr noundef %call1.i5, ptr noundef nonnull %buf2) #5
   %tobool37.not = icmp ne i32 %call36, 0
   %spec.select = zext i1 %tobool37.not to i32
   br label %end
 
 end:                                              ; preds = %lor.lhs.false34, %entry, %lor.lhs.false, %lor.lhs.false9, %lor.lhs.false13, %lor.lhs.false17, %lor.lhs.false24, %lor.lhs.false30
-  %data.0 = phi ptr [ null, %entry ], [ %call1.i, %lor.lhs.false ], [ %call1.i, %lor.lhs.false9 ], [ %call1.i, %lor.lhs.false13 ], [ %call1.i, %lor.lhs.false17 ], [ %call1.i3, %lor.lhs.false24 ], [ %call1.i3, %lor.lhs.false30 ], [ %call1.i3, %lor.lhs.false34 ]
+  %data.0 = phi ptr [ null, %entry ], [ %call1.i, %lor.lhs.false ], [ %call1.i, %lor.lhs.false9 ], [ %call1.i, %lor.lhs.false13 ], [ %call1.i, %lor.lhs.false17 ], [ %call1.i5, %lor.lhs.false24 ], [ %call1.i5, %lor.lhs.false30 ], [ %call1.i5, %lor.lhs.false34 ]
   %result.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false13 ], [ 0, %lor.lhs.false17 ], [ 0, %lor.lhs.false24 ], [ 0, %lor.lhs.false30 ], [ %spec.select, %lor.lhs.false34 ]
   call void @CRYPTO_free(ptr noundef %data.0, ptr noundef nonnull @.str.25, i32 noundef 264) #5
   ret i32 %result.0

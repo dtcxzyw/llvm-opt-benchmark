@@ -6214,19 +6214,19 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %12, align 8
   %150 = load ptr, ptr %13, align 8
-  %151 = getelementptr inbounds i8, ptr %10, i64 16
-  %152 = getelementptr inbounds i8, ptr %10, i64 24
-  %153 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 0, ptr %153, align 8
-  %154 = ptrtoint ptr %0 to i64
-  store i64 %154, ptr %10, align 8
-  store ptr @"_ZNSt17_Function_handlerIFiiEZN8LightGBM17SerialTreeLearner5TrainEPKfS4_bE3$_0E9_M_invokeERKSt9_Any_dataOi", ptr %152, align 8
-  store ptr @"_ZNSt17_Function_handlerIFiiEZN8LightGBM17SerialTreeLearner5TrainEPKfS4_bE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %151, align 8
+  %151 = ptrtoint ptr %0 to i64
+  %152 = getelementptr inbounds i8, ptr %10, i64 16
+  %153 = getelementptr inbounds i8, ptr %10, i64 24
+  %154 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 0, ptr %154, align 8
+  store i64 %151, ptr %10, align 8
+  store ptr @"_ZNSt17_Function_handlerIFiiEZN8LightGBM17SerialTreeLearner5TrainEPKfS4_bE3$_0E9_M_invokeERKSt9_Any_dataOi", ptr %153, align 8
+  store ptr @"_ZNSt17_Function_handlerIFiiEZN8LightGBM17SerialTreeLearner5TrainEPKfS4_bE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %152, align 8
   invoke void @_ZN8LightGBM19GradientDiscretizer22RenewIntGradTreeOutputEPNS_4TreeEPKNS_6ConfigEPKNS_13DataPartitionEPKfSA_RKSt8functionIFiiEE(ptr noundef nonnull align 8 dereferenceable(5336) %146, ptr noundef nonnull %49, ptr noundef nonnull %136, ptr noundef %148, ptr noundef %149, ptr noundef %150, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %155 unwind label %162
 
 155:                                              ; preds = %144
-  %156 = load ptr, ptr %151, align 8
+  %156 = load ptr, ptr %152, align 8
   %.not.i.i = icmp eq ptr %156, null
   br i1 %.not.i.i, label %_ZNSt8functionIFiiEED2Ev.exit, label %157
 
@@ -6244,7 +6244,7 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
 162:                                              ; preds = %144
   %163 = landingpad { ptr, i32 }
           cleanup
-  %164 = load ptr, ptr %151, align 8
+  %164 = load ptr, ptr %152, align 8
   %.not.i.i27 = icmp eq ptr %164, null
   br i1 %.not.i.i27, label %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit31, label %165
 

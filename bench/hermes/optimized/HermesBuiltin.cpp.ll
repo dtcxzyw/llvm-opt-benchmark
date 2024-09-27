@@ -3999,90 +3999,90 @@ entry:
   %0 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %arrayidx.i.i = getelementptr inbounds i8, ptr %builtins.coerce0, i64 296
   store ptr %0, ptr %arrayidx.i.i, align 8
-  %call15.i2 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm30hermesBuiltinGetTemplateObjectEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 442, i32 noundef 0, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i3 = load i64, ptr %call15.i2, align 8
-  %and.i.i.i.i.i.i4 = and i64 %retval.sroa.0.0.copyload.i.i.i.i3, 281474976710655
-  %1 = inttoptr i64 %and.i.i.i.i.i.i4 to ptr
-  %arrayidx.i.i5 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 312
-  store ptr %1, ptr %arrayidx.i.i5, align 8
-  %call15.i7 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm25hermesBuiltinEnsureObjectEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 443, i32 noundef 2, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i8 = load i64, ptr %call15.i7, align 8
-  %and.i.i.i.i.i.i9 = and i64 %retval.sroa.0.0.copyload.i.i.i.i8, 281474976710655
-  %2 = inttoptr i64 %and.i.i.i.i.i.i9 to ptr
-  %arrayidx.i.i10 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 320
-  store ptr %2, ptr %arrayidx.i.i10, align 8
-  %call15.i12 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm22hermesBuiltinGetMethodEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 444, i32 noundef 2, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i13 = load i64, ptr %call15.i12, align 8
-  %and.i.i.i.i.i.i14 = and i64 %retval.sroa.0.0.copyload.i.i.i.i13, 281474976710655
-  %3 = inttoptr i64 %and.i.i.i.i.i.i14 to ptr
-  %arrayidx.i.i15 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 328
-  store ptr %3, ptr %arrayidx.i.i15, align 8
-  %call15.i17 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm27hermesBuiltinThrowTypeErrorEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 445, i32 noundef 1, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i18 = load i64, ptr %call15.i17, align 8
-  %and.i.i.i.i.i.i19 = and i64 %retval.sroa.0.0.copyload.i.i.i.i18, 281474976710655
-  %4 = inttoptr i64 %and.i.i.i.i.i.i19 to ptr
-  %arrayidx.i.i20 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 336
-  store ptr %4, ptr %arrayidx.i.i20, align 8
-  %call15.i22 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm34hermesBuiltinGeneratorSetDelegatedEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 446, i32 noundef 1, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i23 = load i64, ptr %call15.i22, align 8
-  %and.i.i.i.i.i.i24 = and i64 %retval.sroa.0.0.copyload.i.i.i.i23, 281474976710655
-  %5 = inttoptr i64 %and.i.i.i.i.i.i24 to ptr
-  %arrayidx.i.i25 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 344
-  store ptr %5, ptr %arrayidx.i.i25, align 8
-  %call15.i27 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm31hermesBuiltinCopyDataPropertiesEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 447, i32 noundef 3, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i28 = load i64, ptr %call15.i27, align 8
-  %and.i.i.i.i.i.i29 = and i64 %retval.sroa.0.0.copyload.i.i.i.i28, 281474976710655
-  %6 = inttoptr i64 %and.i.i.i.i.i.i29 to ptr
-  %arrayidx.i.i30 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 352
-  store ptr %6, ptr %arrayidx.i.i30, align 8
-  %call15.i32 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm25hermesBuiltinCopyRestArgsEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 448, i32 noundef 1, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i33 = load i64, ptr %call15.i32, align 8
-  %and.i.i.i.i.i.i34 = and i64 %retval.sroa.0.0.copyload.i.i.i.i33, 281474976710655
-  %7 = inttoptr i64 %and.i.i.i.i.i.i34 to ptr
-  %arrayidx.i.i35 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 360
-  store ptr %7, ptr %arrayidx.i.i35, align 8
-  %call15.i37 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm24hermesBuiltinArraySpreadEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 449, i32 noundef 2, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i38 = load i64, ptr %call15.i37, align 8
-  %and.i.i.i.i.i.i39 = and i64 %retval.sroa.0.0.copyload.i.i.i.i38, 281474976710655
-  %8 = inttoptr i64 %and.i.i.i.i.i.i39 to ptr
-  %arrayidx.i.i40 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 368
-  store ptr %8, ptr %arrayidx.i.i40, align 8
-  %call15.i42 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm18hermesBuiltinApplyEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 133, i32 noundef 2, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i43 = load i64, ptr %call15.i42, align 8
-  %and.i.i.i.i.i.i44 = and i64 %retval.sroa.0.0.copyload.i.i.i.i43, 281474976710655
-  %9 = inttoptr i64 %and.i.i.i.i.i.i44 to ptr
-  %arrayidx.i.i45 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 376
-  store ptr %9, ptr %arrayidx.i.i45, align 8
-  %call15.i47 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm22hermesBuiltinExportAllEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 450, i32 noundef 0, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i48 = load i64, ptr %call15.i47, align 8
-  %and.i.i.i.i.i.i49 = and i64 %retval.sroa.0.0.copyload.i.i.i.i48, 281474976710655
-  %10 = inttoptr i64 %and.i.i.i.i.i.i49 to ptr
-  %arrayidx.i.i50 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 384
-  store ptr %10, ptr %arrayidx.i.i50, align 8
-  %call15.i52 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm25hermesBuiltinExponentiateEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 451, i32 noundef 0, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i53 = load i64, ptr %call15.i52, align 8
-  %and.i.i.i.i.i.i54 = and i64 %retval.sroa.0.0.copyload.i.i.i.i53, 281474976710655
-  %11 = inttoptr i64 %and.i.i.i.i.i.i54 to ptr
-  %arrayidx.i.i55 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 392
-  store ptr %11, ptr %arrayidx.i.i55, align 8
-  %call15.i57 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm33hermesBuiltinInitRegexNamedGroupsEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 452, i32 noundef 0, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i58 = load i64, ptr %call15.i57, align 8
-  %and.i.i.i.i.i.i59 = and i64 %retval.sroa.0.0.copyload.i.i.i.i58, 281474976710655
-  %12 = inttoptr i64 %and.i.i.i.i.i.i59 to ptr
-  %arrayidx.i.i60 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 400
-  store ptr %12, ptr %arrayidx.i.i60, align 8
-  %call15.i62 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm46hermesBuiltinGetOriginalNativeErrorConstructorEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 454, i32 noundef 0, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i63 = load i64, ptr %call15.i62, align 8
-  %and.i.i.i.i.i.i64 = and i64 %retval.sroa.0.0.copyload.i.i.i.i63, 281474976710655
-  %13 = inttoptr i64 %and.i.i.i.i.i.i64 to ptr
-  %arrayidx.i.i65 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 408
-  store ptr %13, ptr %arrayidx.i.i65, align 8
-  %call15.i67 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm11requireFastEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 465, i32 noundef 1, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
-  %retval.sroa.0.0.copyload.i.i.i.i68 = load i64, ptr %call15.i67, align 8
-  %and.i.i.i.i.i.i69 = and i64 %retval.sroa.0.0.copyload.i.i.i.i68, 281474976710655
-  %14 = inttoptr i64 %and.i.i.i.i.i.i69 to ptr
-  %arrayidx.i.i70 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 304
-  store ptr %14, ptr %arrayidx.i.i70, align 8
+  %call15.i31 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm30hermesBuiltinGetTemplateObjectEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 442, i32 noundef 0, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i32 = load i64, ptr %call15.i31, align 8
+  %and.i.i.i.i.i.i33 = and i64 %retval.sroa.0.0.copyload.i.i.i.i32, 281474976710655
+  %1 = inttoptr i64 %and.i.i.i.i.i.i33 to ptr
+  %arrayidx.i.i34 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 312
+  store ptr %1, ptr %arrayidx.i.i34, align 8
+  %call15.i36 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm25hermesBuiltinEnsureObjectEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 443, i32 noundef 2, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i37 = load i64, ptr %call15.i36, align 8
+  %and.i.i.i.i.i.i38 = and i64 %retval.sroa.0.0.copyload.i.i.i.i37, 281474976710655
+  %2 = inttoptr i64 %and.i.i.i.i.i.i38 to ptr
+  %arrayidx.i.i39 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 320
+  store ptr %2, ptr %arrayidx.i.i39, align 8
+  %call15.i41 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm22hermesBuiltinGetMethodEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 444, i32 noundef 2, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i42 = load i64, ptr %call15.i41, align 8
+  %and.i.i.i.i.i.i43 = and i64 %retval.sroa.0.0.copyload.i.i.i.i42, 281474976710655
+  %3 = inttoptr i64 %and.i.i.i.i.i.i43 to ptr
+  %arrayidx.i.i44 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 328
+  store ptr %3, ptr %arrayidx.i.i44, align 8
+  %call15.i46 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm27hermesBuiltinThrowTypeErrorEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 445, i32 noundef 1, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i47 = load i64, ptr %call15.i46, align 8
+  %and.i.i.i.i.i.i48 = and i64 %retval.sroa.0.0.copyload.i.i.i.i47, 281474976710655
+  %4 = inttoptr i64 %and.i.i.i.i.i.i48 to ptr
+  %arrayidx.i.i49 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 336
+  store ptr %4, ptr %arrayidx.i.i49, align 8
+  %call15.i51 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm34hermesBuiltinGeneratorSetDelegatedEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 446, i32 noundef 1, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i52 = load i64, ptr %call15.i51, align 8
+  %and.i.i.i.i.i.i53 = and i64 %retval.sroa.0.0.copyload.i.i.i.i52, 281474976710655
+  %5 = inttoptr i64 %and.i.i.i.i.i.i53 to ptr
+  %arrayidx.i.i54 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 344
+  store ptr %5, ptr %arrayidx.i.i54, align 8
+  %call15.i56 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm31hermesBuiltinCopyDataPropertiesEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 447, i32 noundef 3, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i57 = load i64, ptr %call15.i56, align 8
+  %and.i.i.i.i.i.i58 = and i64 %retval.sroa.0.0.copyload.i.i.i.i57, 281474976710655
+  %6 = inttoptr i64 %and.i.i.i.i.i.i58 to ptr
+  %arrayidx.i.i59 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 352
+  store ptr %6, ptr %arrayidx.i.i59, align 8
+  %call15.i61 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm25hermesBuiltinCopyRestArgsEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 448, i32 noundef 1, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i62 = load i64, ptr %call15.i61, align 8
+  %and.i.i.i.i.i.i63 = and i64 %retval.sroa.0.0.copyload.i.i.i.i62, 281474976710655
+  %7 = inttoptr i64 %and.i.i.i.i.i.i63 to ptr
+  %arrayidx.i.i64 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 360
+  store ptr %7, ptr %arrayidx.i.i64, align 8
+  %call15.i66 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm24hermesBuiltinArraySpreadEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 449, i32 noundef 2, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i67 = load i64, ptr %call15.i66, align 8
+  %and.i.i.i.i.i.i68 = and i64 %retval.sroa.0.0.copyload.i.i.i.i67, 281474976710655
+  %8 = inttoptr i64 %and.i.i.i.i.i.i68 to ptr
+  %arrayidx.i.i69 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 368
+  store ptr %8, ptr %arrayidx.i.i69, align 8
+  %call15.i71 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm18hermesBuiltinApplyEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 133, i32 noundef 2, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i72 = load i64, ptr %call15.i71, align 8
+  %and.i.i.i.i.i.i73 = and i64 %retval.sroa.0.0.copyload.i.i.i.i72, 281474976710655
+  %9 = inttoptr i64 %and.i.i.i.i.i.i73 to ptr
+  %arrayidx.i.i74 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 376
+  store ptr %9, ptr %arrayidx.i.i74, align 8
+  %call15.i76 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm22hermesBuiltinExportAllEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 450, i32 noundef 0, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i77 = load i64, ptr %call15.i76, align 8
+  %and.i.i.i.i.i.i78 = and i64 %retval.sroa.0.0.copyload.i.i.i.i77, 281474976710655
+  %10 = inttoptr i64 %and.i.i.i.i.i.i78 to ptr
+  %arrayidx.i.i79 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 384
+  store ptr %10, ptr %arrayidx.i.i79, align 8
+  %call15.i81 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm25hermesBuiltinExponentiateEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 451, i32 noundef 0, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i82 = load i64, ptr %call15.i81, align 8
+  %and.i.i.i.i.i.i83 = and i64 %retval.sroa.0.0.copyload.i.i.i.i82, 281474976710655
+  %11 = inttoptr i64 %and.i.i.i.i.i.i83 to ptr
+  %arrayidx.i.i84 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 392
+  store ptr %11, ptr %arrayidx.i.i84, align 8
+  %call15.i86 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm33hermesBuiltinInitRegexNamedGroupsEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 452, i32 noundef 0, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i87 = load i64, ptr %call15.i86, align 8
+  %and.i.i.i.i.i.i88 = and i64 %retval.sroa.0.0.copyload.i.i.i.i87, 281474976710655
+  %12 = inttoptr i64 %and.i.i.i.i.i.i88 to ptr
+  %arrayidx.i.i89 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 400
+  store ptr %12, ptr %arrayidx.i.i89, align 8
+  %call15.i91 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm46hermesBuiltinGetOriginalNativeErrorConstructorEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 454, i32 noundef 0, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i92 = load i64, ptr %call15.i91, align 8
+  %and.i.i.i.i.i.i93 = and i64 %retval.sroa.0.0.copyload.i.i.i.i92, 281474976710655
+  %13 = inttoptr i64 %and.i.i.i.i.i.i93 to ptr
+  %arrayidx.i.i94 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 408
+  store ptr %13, ptr %arrayidx.i.i94, align 8
+  %call15.i96 = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm11requireFastEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 465, i32 noundef 1, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12
+  %retval.sroa.0.0.copyload.i.i.i.i97 = load i64, ptr %call15.i96, align 8
+  %and.i.i.i.i.i.i98 = and i64 %retval.sroa.0.0.copyload.i.i.i.i97, 281474976710655
+  %14 = inttoptr i64 %and.i.i.i.i.i.i98 to ptr
+  %arrayidx.i.i99 = getelementptr inbounds i8, ptr %builtins.coerce0, i64 304
+  store ptr %14, ptr %arrayidx.i.i99, align 8
   ret void
 }
 

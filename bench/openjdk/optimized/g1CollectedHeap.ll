@@ -884,9 +884,9 @@ $_ZTV17LogStreamImplBase = comdat any
 @llvm.global_ctors = appending global [17 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.92, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.93, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.94, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.95, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.96, ptr @_ZN21OopOopIterateDispatchI14G1CMOopClosureE6_tableE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.97, ptr @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClosureE6_tableE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.98, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.99, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.100, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.101, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.102, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_142ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.103, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.104, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.105, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_171ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.106, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.107, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.108, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }]
 @llvm.used = appending global [17 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_142ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_171ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN21OopOopIterateDispatchI14G1CMOopClosureE6_tableE, ptr @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClosureE6_tableE], section "llvm.metadata"
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv], align 8
-@switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.6 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv], align 8
+@switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.8 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv], align 8
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv], align 8
-@switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.7 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv], align 8
+@switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.9 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv], align 8
 
 @_ZN15G1CollectedHeapC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15G1CollectedHeapC2Ev
 @_ZN17G1HeapPrinterMarkC1EP15G1CollectedHeap = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN17G1HeapPrinterMarkC2EP15G1CollectedHeap
@@ -2076,12 +2076,12 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %3, %6
 
 15:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not24 = icmp eq ptr %16, null
-  br i1 %.not24, label %91, label %17
+  %.not25 = icmp eq ptr %16, null
+  br i1 %.not25, label %92, label %17
 
 17:                                               ; preds = %15
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %1, i64 noundef %14)
-  br label %91
+  br label %92
 
 18:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %19 = getelementptr inbounds i8, ptr %0, i64 520
@@ -2119,8 +2119,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %3, %6
 
 44:                                               ; preds = %38
   %45 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not25 = icmp eq ptr %45, null
-  br i1 %.not25, label %50, label %46
+  %.not26 = icmp eq ptr %45, null
+  br i1 %.not26, label %50, label %46
 
 46:                                               ; preds = %44
   %47 = load i64, ptr @_ZN12G1HeapRegion10GrainWordsE, align 8
@@ -2142,80 +2142,80 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %3, %6
   %60 = lshr i64 %59, %53
   %61 = getelementptr inbounds ptr, ptr %56, i64 %60
   %62 = load ptr, ptr %61, align 8
-  %.not16.i = icmp eq ptr %58, null
-  br i1 %.not16.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit", label %.lr.ph.i.preheader
+  %.not2.i = icmp eq ptr %58, null
+  br i1 %.not2.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit", label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %50
+.lr.ph.i:                                         ; preds = %50
   %63 = getelementptr inbounds i8, ptr %0, i64 168
   %64 = getelementptr inbounds i8, ptr %0, i64 176
-  br label %.lr.ph.i
+  br label %65
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i"
-  %.017.i = phi ptr [ %71, %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i" ], [ %58, %.lr.ph.i.preheader ]
-  %65 = icmp eq ptr %.017.i, %62
-  br i1 %65, label %70, label %66
+65:                                               ; preds = %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i", %.lr.ph.i
+  %.03.i = phi ptr [ %58, %.lr.ph.i ], [ %72, %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i" ]
+  %66 = icmp eq ptr %.03.i, %62
+  br i1 %66, label %71, label %67
 
-66:                                               ; preds = %.lr.ph.i
-  %67 = call noundef ptr @_ZNK19G1HeapRegionManager19next_region_in_heapEPK12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(232) %7, ptr noundef nonnull %.017.i) #23
-  %68 = getelementptr inbounds i8, ptr %.017.i, i64 8
-  %69 = load ptr, ptr %68, align 8
-  br label %70
+67:                                               ; preds = %65
+  %68 = call noundef ptr @_ZNK19G1HeapRegionManager19next_region_in_heapEPK12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(232) %7, ptr noundef nonnull %.03.i) #23
+  %69 = getelementptr inbounds i8, ptr %.03.i, i64 8
+  %70 = load ptr, ptr %69, align 8
+  br label %71
 
-70:                                               ; preds = %.lr.ph.i, %66
-  %71 = phi ptr [ %67, %66 ], [ null, %.lr.ph.i ]
-  %72 = phi ptr [ %69, %66 ], [ %33, %.lr.ph.i ]
-  %73 = getelementptr inbounds i8, ptr %.017.i, i64 16
-  store volatile ptr %72, ptr %73, align 8
-  call void @_ZN12G1HeapRegion7set_oldEv(ptr noundef nonnull align 8 dereferenceable(136) %.017.i) #23
-  %74 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i.i.i.i = icmp eq ptr %74, null
-  br i1 %.not.i.i.i.i, label %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i, label %75
+71:                                               ; preds = %65, %67
+  %72 = phi ptr [ %68, %67 ], [ null, %65 ]
+  %73 = phi ptr [ %70, %67 ], [ %33, %65 ]
+  %74 = getelementptr inbounds i8, ptr %.03.i, i64 16
+  store volatile ptr %73, ptr %74, align 8
+  call void @_ZN12G1HeapRegion7set_oldEv(ptr noundef nonnull align 8 dereferenceable(136) %.03.i) #23
+  %75 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i.i.i.i = icmp eq ptr %75, null
+  br i1 %.not.i.i.i.i, label %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i, label %76
 
-75:                                               ; preds = %70
-  %76 = getelementptr inbounds i8, ptr %.017.i, i64 52
-  %77 = call noundef ptr @_ZNK16G1HeapRegionType7get_strEv(ptr noundef nonnull align 4 dereferenceable(4) %76) #23
-  %78 = load ptr, ptr %.017.i, align 8
-  %79 = ptrtoint ptr %78 to i64
-  %80 = load volatile ptr, ptr %73, align 8
-  %81 = ptrtoint ptr %80 to i64
-  %82 = getelementptr inbounds i8, ptr %.017.i, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = ptrtoint ptr %83 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.109, ptr noundef %77, i64 noundef %79, i64 noundef %81, i64 noundef %84)
+76:                                               ; preds = %71
+  %77 = getelementptr inbounds i8, ptr %.03.i, i64 52
+  %78 = call noundef ptr @_ZNK16G1HeapRegionType7get_strEv(ptr noundef nonnull align 4 dereferenceable(4) %77) #23
+  %79 = load ptr, ptr %.03.i, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %81 = load volatile ptr, ptr %74, align 8
+  %82 = ptrtoint ptr %81 to i64
+  %83 = getelementptr inbounds i8, ptr %.03.i, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = ptrtoint ptr %84 to i64
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.109, ptr noundef %78, i64 noundef %80, i64 noundef %82, i64 noundef %85)
   br label %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i
 
-_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i: ; preds = %75, %70
-  %85 = load ptr, ptr %63, align 8
-  %.not.i.i7.i.i = icmp eq ptr %85, null
-  br i1 %.not.i.i7.i.i, label %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i", label %86
+_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i: ; preds = %76, %71
+  %86 = load ptr, ptr %63, align 8
+  %.not.i.i7.i.i = icmp eq ptr %86, null
+  br i1 %.not.i.i7.i.i, label %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i", label %87
 
-86:                                               ; preds = %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i
-  %87 = load ptr, ptr %85, align 8
-  %88 = load ptr, ptr %87, align 8
-  call void %88(ptr noundef nonnull align 8 dereferenceable(8) %85) #23
+87:                                               ; preds = %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i
+  %88 = load ptr, ptr %86, align 8
+  %89 = load ptr, ptr %88, align 8
+  call void %89(ptr noundef nonnull align 8 dereferenceable(8) %86) #23
   br label %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i"
 
-"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i": ; preds = %86, %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i
-  %89 = load i32, ptr %64, align 8
-  %90 = add i32 %89, 1
-  store i32 %90, ptr %64, align 8
-  %.not.i = icmp eq ptr %71, null
-  br i1 %.not.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit", label %.lr.ph.i, !llvm.loop !15
+"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i": ; preds = %87, %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i
+  %90 = load i32, ptr %64, align 8
+  %91 = add i32 %90, 1
+  store i32 %91, ptr %64, align 8
+  %.not.i = icmp eq ptr %72, null
+  br i1 %.not.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit", label %65, !llvm.loop !15
 
 "_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit": ; preds = %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i", %50, %18
   %.1 = phi ptr [ null, %18 ], [ %32, %50 ], [ %32, %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i" ]
   store i8 %24, ptr @AlwaysPreTouch, align 1
-  br label %91
+  br label %92
 
-91:                                               ; preds = %17, %15, %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit"
+92:                                               ; preds = %17, %15, %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit"
   %.0 = phi ptr [ %.1, %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit" ], [ null, %15 ], [ null, %17 ]
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %92
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %93
 
-92:                                               ; preds = %91
+93:                                               ; preds = %92
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #23
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %91, %92
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %92, %93
   ret ptr %.0
 }
 
@@ -2298,99 +2298,99 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %3, %6
   %20 = lshr i64 %19, %12
   %21 = getelementptr inbounds ptr, ptr %15, i64 %20
   %22 = load ptr, ptr %21, align 8
-  %.not11.i = icmp eq ptr %17, null
-  br i1 %.not11.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit.thread", label %.lr.ph.i.preheader
+  %.not3.i = icmp eq ptr %17, null
+  br i1 %.not3.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit.thread", label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+.lr.ph.i:                                         ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %23 = getelementptr inbounds i8, ptr %0, i64 168
   %24 = getelementptr inbounds i8, ptr %0, i64 176
-  br label %.lr.ph.i
+  br label %25
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %"_ZZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegionENK3$_0clEP12G1HeapRegionb.exit.i"
-  %.0 = phi i32 [ %48, %"_ZZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegionENK3$_0clEP12G1HeapRegionb.exit.i" ], [ 0, %.lr.ph.i.preheader ]
-  %.012.i = phi ptr [ %29, %"_ZZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegionENK3$_0clEP12G1HeapRegionb.exit.i" ], [ %17, %.lr.ph.i.preheader ]
-  %25 = icmp eq ptr %.012.i, %22
-  br i1 %25, label %28, label %26
+25:                                               ; preds = %"_ZZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegionENK3$_0clEP12G1HeapRegionb.exit.i", %.lr.ph.i
+  %.0 = phi i32 [ 0, %.lr.ph.i ], [ %49, %"_ZZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegionENK3$_0clEP12G1HeapRegionb.exit.i" ]
+  %.04.i = phi ptr [ %17, %.lr.ph.i ], [ %30, %"_ZZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegionENK3$_0clEP12G1HeapRegionb.exit.i" ]
+  %26 = icmp eq ptr %.04.i, %22
+  br i1 %26, label %29, label %27
 
-26:                                               ; preds = %.lr.ph.i
-  %27 = tail call noundef ptr @_ZNK19G1HeapRegionManager19next_region_in_heapEPK12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noundef nonnull %.012.i) #23
-  br label %28
+27:                                               ; preds = %25
+  %28 = tail call noundef ptr @_ZNK19G1HeapRegionManager19next_region_in_heapEPK12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noundef nonnull %.04.i) #23
+  br label %29
 
-28:                                               ; preds = %26, %.lr.ph.i
-  %29 = phi ptr [ %27, %26 ], [ null, %.lr.ph.i ]
-  %30 = getelementptr inbounds i8, ptr %.012.i, i64 52
-  %31 = load volatile i32, ptr %30, align 4
-  %32 = and i32 %31, 8
-  %.not.i.i3 = icmp eq i32 %32, 0
-  br i1 %.not.i.i3, label %33, label %37
+29:                                               ; preds = %27, %25
+  %30 = phi ptr [ %28, %27 ], [ null, %25 ]
+  %31 = getelementptr inbounds i8, ptr %.04.i, i64 52
+  %32 = load volatile i32, ptr %31, align 4
+  %33 = and i32 %32, 8
+  %.not.i.i4 = icmp eq i32 %33, 0
+  br i1 %.not.i.i4, label %34, label %38
 
-33:                                               ; preds = %28
-  %34 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %.012.i, i64 48
-  %36 = load i32, ptr %35, align 8
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.29, i32 noundef 563, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.138, i32 noundef %36) #24
+34:                                               ; preds = %29
+  %35 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %35, align 1
+  %36 = getelementptr inbounds i8, ptr %.04.i, i64 48
+  %37 = load i32, ptr %36, align 8
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.29, i32 noundef 563, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.138, i32 noundef %37) #24
   unreachable
 
-37:                                               ; preds = %28
-  %38 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i.i, label %"_ZZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegionENK3$_0clEP12G1HeapRegionb.exit.i", label %39
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %23, align 8
+  %.not.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i.i, label %"_ZZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegionENK3$_0clEP12G1HeapRegionb.exit.i", label %40
 
-39:                                               ; preds = %37
-  %40 = load ptr, ptr %38, align 8
-  %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(8) %38) #23
+40:                                               ; preds = %38
+  %41 = load ptr, ptr %39, align 8
+  %42 = load ptr, ptr %41, align 8
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   br label %"_ZZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegionENK3$_0clEP12G1HeapRegionb.exit.i"
 
-"_ZZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegionENK3$_0clEP12G1HeapRegionb.exit.i": ; preds = %39, %37
-  %42 = load i32, ptr %24, align 8
-  %43 = add i32 %42, -1
-  store i32 %43, ptr %24, align 8
-  tail call void @_ZN12G1HeapRegion8set_freeEv(ptr noundef nonnull align 8 dereferenceable(136) %.012.i) #23
-  %44 = load ptr, ptr %.012.i, align 8
-  %45 = getelementptr inbounds i8, ptr %.012.i, i64 16
-  store volatile ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %.012.i, i64 48
-  %47 = load i32, ptr %46, align 8
-  tail call void @_ZN19G1HeapRegionManager9shrink_atEjm(ptr noundef nonnull align 8 dereferenceable(232) %4, i32 noundef %47, i64 noundef 1) #23
-  %48 = add i32 %.0, 1
-  %.not.i = icmp eq ptr %29, null
-  br i1 %.not.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit", label %.lr.ph.i, !llvm.loop !17
+"_ZZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegionENK3$_0clEP12G1HeapRegionb.exit.i": ; preds = %40, %38
+  %43 = load i32, ptr %24, align 8
+  %44 = add i32 %43, -1
+  store i32 %44, ptr %24, align 8
+  tail call void @_ZN12G1HeapRegion8set_freeEv(ptr noundef nonnull align 8 dereferenceable(136) %.04.i) #23
+  %45 = load ptr, ptr %.04.i, align 8
+  %46 = getelementptr inbounds i8, ptr %.04.i, i64 16
+  store volatile ptr %45, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %.04.i, i64 48
+  %48 = load i32, ptr %47, align 8
+  tail call void @_ZN19G1HeapRegionManager9shrink_atEjm(ptr noundef nonnull align 8 dereferenceable(232) %4, i32 noundef %48, i64 noundef 1) #23
+  %49 = add i32 %.0, 1
+  %.not.i = icmp eq ptr %30, null
+  br i1 %.not.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit", label %25, !llvm.loop !17
 
 "_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit": ; preds = %"_ZZN15G1CollectedHeap23dealloc_archive_regionsE9MemRegionENK3$_0clEP12G1HeapRegionb.exit.i"
-  %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit.thread", label %49
+  %.not = icmp eq i32 %49, 0
+  br i1 %.not, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit.thread", label %50
 
-49:                                               ; preds = %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit"
-  %50 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not15 = icmp eq ptr %50, null
-  br i1 %.not15, label %56, label %51
+50:                                               ; preds = %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit"
+  %51 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not16 = icmp eq ptr %51, null
+  br i1 %.not16, label %57, label %52
 
-51:                                               ; preds = %49
-  %52 = load i64, ptr @_ZN12G1HeapRegion10GrainWordsE, align 8
-  %53 = zext i32 %48 to i64
-  %54 = shl nuw nsw i64 %53, 3
-  %55 = mul i64 %54, %52
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %55)
-  br label %56
+52:                                               ; preds = %50
+  %53 = load i64, ptr @_ZN12G1HeapRegion10GrainWordsE, align 8
+  %54 = zext i32 %49 to i64
+  %55 = shl nuw nsw i64 %54, 3
+  %56 = mul i64 %55, %53
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %56)
+  br label %57
 
-56:                                               ; preds = %49, %51
-  %57 = tail call noundef i32 @_ZN19G1HeapRegionManager25uncommit_inactive_regionsEj(ptr noundef nonnull align 8 dereferenceable(232) %4, i32 noundef %48) #23
+57:                                               ; preds = %50, %52
+  %58 = tail call noundef i32 @_ZN19G1HeapRegionManager25uncommit_inactive_regionsEj(ptr noundef nonnull align 8 dereferenceable(232) %4, i32 noundef %49) #23
   br label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit.thread"
 
-"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit.thread": ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %56, %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit"
-  %58 = getelementptr inbounds i8, ptr %0, i64 648
-  %59 = load volatile i64, ptr %58, align 8
-  %60 = sub i64 %59, %8
-  store volatile i64 %60, ptr %58, align 8
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %61
+"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit.thread": ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %57, %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit"
+  %59 = getelementptr inbounds i8, ptr %0, i64 648
+  %60 = load volatile i64, ptr %59, align 8
+  %61 = sub i64 %60, %8
+  store volatile i64 %61, ptr %59, align 8
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %62
 
-61:                                               ; preds = %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit.thread"
+62:                                               ; preds = %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit.thread"
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #23
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit.thread", %61
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_23dealloc_archive_regionsE9MemRegionE3$_0EEvS1_RKT_.exit.thread", %62
   ret void
 }
 
@@ -13195,9 +13195,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm3
   unreachable
 
 _ZN14AccessInternal15BarrierResolverILm331846EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
-  %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.6.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.6, %11 ]
+  %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.8.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.8, %11 ]
   %14 = sext i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.6.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.8.sink, i64 0, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #23
@@ -14229,9 +14229,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
   unreachable
 
 _ZN14AccessInternal15BarrierResolverILm299078EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
-  %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.7.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.7, %11 ]
+  %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.9.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.9, %11 ]
   %14 = sext i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.7.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.9.sink, i64 0, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #23

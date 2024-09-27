@@ -17709,16 +17709,16 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator18translateInlineAsmE
   br i1 %.not, label %_ZNSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEED2Ev.exit, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %16, align 8
-  %17 = ptrtoint ptr %0 to i64
-  store i64 %17, ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEZNS0_12IRTranslator18translateInlineAsmERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %15, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEZNS0_12IRTranslator18translateInlineAsmERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %14, align 8
+  %14 = ptrtoint ptr %0 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %17, align 8
+  store i64 %14, ptr %4, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEZNS0_12IRTranslator18translateInlineAsmERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %16, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEZNS0_12IRTranslator18translateInlineAsmERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %15, align 8
   %18 = call noundef zeroext i1 @_ZNK4llvm17InlineAsmLowering14lowerInlineAsmERNS_16MachineIRBuilderERKNS_8CallBaseESt8functionIFNS_8ArrayRefINS_8RegisterEEERKNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %4) #23
-  %19 = load ptr, ptr %14, align 8
+  %19 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %_ZNSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEED2Ev.exit, label %20
 
@@ -17956,16 +17956,16 @@ _ZN4llvm3isaINS_16GCStatepointInstENS_14GCRelocateInstEJNS_12GCResultInstEENS_4U
   br i1 %.not.i90, label %_ZN4llvm12IRTranslator18translateInlineAsmERKNS_8CallBaseERNS_16MachineIRBuilderE.exit, label %105
 
 105:                                              ; preds = %97
-  %106 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %107 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %108 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 0, ptr %108, align 8
-  %109 = ptrtoint ptr %0 to i64
-  store i64 %109, ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEZNS0_12IRTranslator18translateInlineAsmERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %107, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEZNS0_12IRTranslator18translateInlineAsmERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %106, align 8
+  %106 = ptrtoint ptr %0 to i64
+  %107 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %109 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 0, ptr %109, align 8
+  store i64 %106, ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEZNS0_12IRTranslator18translateInlineAsmERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %108, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEZNS0_12IRTranslator18translateInlineAsmERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %107, align 8
   %110 = call noundef zeroext i1 @_ZNK4llvm17InlineAsmLowering14lowerInlineAsmERNS_16MachineIRBuilderERKNS_8CallBaseESt8functionIFNS_8ArrayRefINS_8RegisterEEERKNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %9) #23
-  %111 = load ptr, ptr %106, align 8
+  %111 = load ptr, ptr %107, align 8
   %.not.i.i.i91 = icmp eq ptr %111, null
   br i1 %.not.i.i.i91, label %_ZN4llvm12IRTranslator18translateInlineAsmERKNS_8CallBaseERNS_16MachineIRBuilderE.exit, label %112
 
@@ -18988,16 +18988,16 @@ _ZN4llvm12IRTranslator18translateInlineAsmERKNS_8CallBaseERNS_16MachineIRBuilder
   br label %_ZNK4llvm8CallBase13hasDeoptStateEv.exit
 
 126:                                              ; preds = %118
-  %127 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %128 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %129 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %129, align 8
-  %130 = ptrtoint ptr %0 to i64
-  store i64 %130, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEZNS0_12IRTranslator18translateInlineAsmERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %128, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEZNS0_12IRTranslator18translateInlineAsmERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %127, align 8
+  %127 = ptrtoint ptr %0 to i64
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %130 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %130, align 8
+  store i64 %127, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEZNS0_12IRTranslator18translateInlineAsmERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %129, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEZNS0_12IRTranslator18translateInlineAsmERKNS0_8CallBaseERNS0_16MachineIRBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %128, align 8
   %131 = call noundef zeroext i1 @_ZNK4llvm17InlineAsmLowering14lowerInlineAsmERNS_16MachineIRBuilderERKNS_8CallBaseESt8functionIFNS_8ArrayRefINS_8RegisterEEERKNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %5) #23
-  %132 = load ptr, ptr %127, align 8
+  %132 = load ptr, ptr %128, align 8
   %.not.i.i.i87 = icmp eq ptr %132, null
   br i1 %.not.i.i.i87, label %_ZN4llvm12IRTranslator18translateInlineAsmERKNS_8CallBaseERNS_16MachineIRBuilderE.exit, label %133
 

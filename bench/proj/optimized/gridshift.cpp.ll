@@ -1546,304 +1546,300 @@ define internal fastcc void @_ZN12_GLOBAL__N_113gridshiftData5applyEP8PJconsts12
   %15 = getelementptr inbounds i8, ptr %1, i64 30
   %16 = getelementptr inbounds i8, ptr %1, i64 25
   %17 = getelementptr inbounds i8, ptr %1, i64 26
+  %.val35.pre = load double, ptr %14, align 8
   br label %18
 
-18:                                               ; preds = %48, %5
-  %.0 = phi i1 [ false, %5 ], [ %.1, %48 ]
+18:                                               ; preds = %42, %5
+  %.0 = phi i1 [ false, %5 ], [ %.1, %42 ]
   %.val = load ptr, ptr %1, align 8
   %.val33 = load ptr, ptr %13, align 8
-  %.not46.i = icmp eq ptr %.val, %.val33
-  br i1 %.not46.i, label %.loopexit98, label %.lr.ph.i
+  %.val34 = load double, ptr %4, align 8
+  %.not810.i = icmp eq ptr %.val, %.val33
+  br i1 %.not810.i, label %.loopexit104, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %18
-  %19 = load double, ptr %4, align 8
-  %20 = load double, ptr %14, align 8
-  br label %21
+.lr.ph.i:                                         ; preds = %18, %21
+  %.sroa.05.011.i = phi ptr [ %22, %21 ], [ %.val, %18 ]
+  %19 = load ptr, ptr %.sroa.05.011.i, align 8
+  %20 = tail call noundef ptr @_ZNK5osgeo4proj19GenericShiftGridSet6gridAtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdd(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(32) %12, double noundef %.val34, double noundef %.val35.pre)
+  %.not.i = icmp eq ptr %20, null
+  br i1 %.not.i, label %21, label %34
 
-21:                                               ; preds = %24, %.lr.ph.i
-  %.sroa.01.07.i = phi ptr [ %.val, %.lr.ph.i ], [ %25, %24 ]
-  %22 = load ptr, ptr %.sroa.01.07.i, align 8
-  %23 = tail call noundef ptr @_ZNK5osgeo4proj19GenericShiftGridSet6gridAtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdd(ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(32) %12, double noundef %19, double noundef %20)
-  %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %24, label %40
+21:                                               ; preds = %.lr.ph.i
+  %22 = getelementptr inbounds i8, ptr %.sroa.05.011.i, i64 8
+  %.not8.i = icmp eq ptr %22, %.val33
+  br i1 %.not8.i, label %.loopexit104, label %.lr.ph.i
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 8
-  %.not4.i = icmp eq ptr %25, %.val33
-  br i1 %.not4.i, label %.loopexit98, label %21
+.loopexit104:                                     ; preds = %21, %18
+  %23 = load i8, ptr %15, align 2
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %.sink.split
 
-.loopexit98:                                      ; preds = %24, %18
-  %26 = load i8, ptr %15, align 2
+25:                                               ; preds = %.loopexit104
+  %26 = load i8, ptr %16, align 1
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %.sink.split
 
-28:                                               ; preds = %.loopexit98
-  %29 = load i8, ptr %16, align 1
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %.sink.split
-
-31:                                               ; preds = %28
-  %32 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_118sHORIZONTAL_OFFSETB5cxx11E)
-  %.val34 = load ptr, ptr %1, align 8
-  %.val35 = load ptr, ptr %13, align 8
-  %.not46.i38 = icmp eq ptr %.val34, %.val35
-  br i1 %.not46.i38, label %.sink.split, label %.lr.ph.i39
-
-.lr.ph.i39:                                       ; preds = %31
-  %33 = load double, ptr %4, align 8
-  %34 = load double, ptr %14, align 8
-  br label %35
-
-35:                                               ; preds = %38, %.lr.ph.i39
-  %.sroa.01.07.i40 = phi ptr [ %.val34, %.lr.ph.i39 ], [ %39, %38 ]
-  %36 = load ptr, ptr %.sroa.01.07.i40, align 8
-  %37 = tail call noundef ptr @_ZNK5osgeo4proj19GenericShiftGridSet6gridAtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdd(ptr noundef nonnull align 8 dereferenceable(96) %36, ptr noundef nonnull align 8 dereferenceable(32) %12, double noundef %33, double noundef %34)
-  %.not.i41 = icmp eq ptr %37, null
-  br i1 %.not.i41, label %38, label %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit44
-
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %.sroa.01.07.i40, i64 8
-  %.not4.i43 = icmp eq ptr %39, %.val35
-  br i1 %.not4.i43, label %.sink.split, label %35
-
-40:                                               ; preds = %21
-  %41 = load i8, ptr %15, align 2
-  %42 = trunc i8 %41 to i1
-  %spec.select = select i1 %42, i1 true, i1 %.0
-  br label %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit44
-
-_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit44: ; preds = %35, %40
-  %.180.in = phi ptr [ %.sroa.01.07.i, %40 ], [ %.sroa.01.07.i40, %35 ]
-  %.127 = phi ptr [ %23, %40 ], [ %37, %35 ]
-  %.1 = phi i1 [ %spec.select, %40 ], [ %.0, %35 ]
-  %.180 = load ptr, ptr %.180.in, align 8
-  %43 = load ptr, ptr %.127, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(120) %.127)
-  br i1 %46, label %47, label %48
-
-47:                                               ; preds = %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  br label %.loopexit100
-
-48:                                               ; preds = %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit44
-  store i8 0, ptr %8, align 1
-  %49 = load ptr, ptr %2, align 8
-  %50 = load i8, ptr %17, align 2
-  %51 = trunc i8 %50 to i1
-  %52 = load i8, ptr %16, align 1
-  %53 = trunc i8 %52 to i1
-  %54 = select i1 %51, i1 true, i1 %53
-  %55 = xor i1 %54, true
-  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext %55, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %4, i32 noundef %3, ptr noundef %.127, ptr noundef %.180, ptr noundef nonnull align 1 dereferenceable(1) %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  %56 = load i8, ptr %8, align 1
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %18, label %.loopexit100, !llvm.loop !12
-
-.loopexit100:                                     ; preds = %48, %47
-  %58 = load double, ptr %0, align 8
-  %59 = fcmp oeq double %58, 0x7FF0000000000000
-  %60 = load double, ptr %10, align 8
-  %61 = fcmp oeq double %60, 0x7FF0000000000000
-  %or.cond = select i1 %59, i1 true, i1 %61
-  br i1 %or.cond, label %62, label %66
-
-62:                                               ; preds = %.loopexit100
-  %63 = load ptr, ptr %2, align 8
-  %64 = tail call i32 @proj_context_errno(ptr noundef %63)
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %.sink.split, label %150
-
-66:                                               ; preds = %.loopexit100
-  br i1 %.1, label %150, label %67
-
-67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %1, i64 64
-  %69 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %68) #20
-  br i1 %69, label %150, label %70
-
-70:                                               ; preds = %67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %71 = load double, ptr %4, align 8
-  %.fr120 = freeze double %71
-  %72 = load double, ptr %14, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
-  %73 = fcmp oeq double %.fr120, 0x7FF0000000000000
-  %74 = fadd double %.fr120, 0xC01921FB54442D18
-  %75 = fadd double %.fr120, 0x401921FB54442D18
-  br i1 %73, label %.split.us, label %.split
-
-.split.us:                                        ; preds = %70
-  %.val36.us = load ptr, ptr %1, align 8
-  %.val37.us = load ptr, ptr %13, align 8
-  %.not46.i45.us = icmp eq ptr %.val36.us, %.val37.us
-  br i1 %.not46.i45.us, label %.sink.split, label %.lr.ph.i46.us
-
-.lr.ph.i46.us:                                    ; preds = %.split.us, %83
-  %.sroa.01.07.i47.us = phi ptr [ %84, %83 ], [ %.val36.us, %.split.us ]
-  %76 = load ptr, ptr %.sroa.01.07.i47.us, align 8
-  %77 = tail call noundef ptr @_ZNK5osgeo4proj19GenericShiftGridSet6gridAtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdd(ptr noundef nonnull align 8 dereferenceable(96) %76, ptr noundef nonnull align 8 dereferenceable(32) %68, double noundef 0x7FF0000000000000, double noundef %72)
-  %.not.i48.us = icmp eq ptr %77, null
-  br i1 %.not.i48.us, label %83, label %78
-
-78:                                               ; preds = %.lr.ph.i46.us
-  %79 = load ptr, ptr %77, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(120) %77)
-  br i1 %82, label %.loopexit96, label %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread.loopexit.split.us
-
-_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread.loopexit.split.us: ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  br label %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread
-
-83:                                               ; preds = %.lr.ph.i46.us
-  %84 = getelementptr inbounds i8, ptr %.sroa.01.07.i47.us, i64 8
-  %.not4.i50.us = icmp eq ptr %84, %.val37.us
-  br i1 %.not4.i50.us, label %.sink.split, label %.lr.ph.i46.us
-
-.split:                                           ; preds = %70, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit
-  %85 = phi double [ 0x7FF0000000000000, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit ], [ %60, %70 ]
-  %86 = phi double [ 0x7FF0000000000000, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit ], [ %58, %70 ]
+28:                                               ; preds = %25
+  %29 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_118sHORIZONTAL_OFFSETB5cxx11E)
   %.val36 = load ptr, ptr %1, align 8
   %.val37 = load ptr, ptr %13, align 8
-  %.not46.i45 = icmp eq ptr %.val36, %.val37
-  br i1 %.not46.i45, label %.sink.split, label %.lr.ph.i46
+  %.not810.i44 = icmp eq ptr %.val36, %.val37
+  br i1 %.not810.i44, label %.sink.split, label %.lr.ph.i45
 
-.lr.ph.i46:                                       ; preds = %.split, %89
-  %.sroa.01.07.i47 = phi ptr [ %90, %89 ], [ %.val36, %.split ]
-  %87 = load ptr, ptr %.sroa.01.07.i47, align 8
-  %88 = tail call noundef ptr @_ZNK5osgeo4proj19GenericShiftGridSet6gridAtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdd(ptr noundef nonnull align 8 dereferenceable(96) %87, ptr noundef nonnull align 8 dereferenceable(32) %68, double noundef %.fr120, double noundef %72)
-  %.not.i48 = icmp eq ptr %88, null
-  br i1 %.not.i48, label %89, label %91
+.lr.ph.i45:                                       ; preds = %28, %32
+  %.sroa.05.011.i46 = phi ptr [ %33, %32 ], [ %.val36, %28 ]
+  %30 = load ptr, ptr %.sroa.05.011.i46, align 8
+  %31 = tail call noundef ptr @_ZNK5osgeo4proj19GenericShiftGridSet6gridAtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdd(ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 8 dereferenceable(32) %12, double noundef %.val34, double noundef %.val35.pre)
+  %.not.i47 = icmp eq ptr %31, null
+  br i1 %.not.i47, label %32, label %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit50
 
-89:                                               ; preds = %.lr.ph.i46
-  %90 = getelementptr inbounds i8, ptr %.sroa.01.07.i47, i64 8
-  %.not4.i50 = icmp eq ptr %90, %.val37
-  br i1 %.not4.i50, label %.sink.split, label %.lr.ph.i46
+32:                                               ; preds = %.lr.ph.i45
+  %33 = getelementptr inbounds i8, ptr %.sroa.05.011.i46, i64 8
+  %.not8.i49 = icmp eq ptr %33, %.val37
+  br i1 %.not8.i49, label %.sink.split, label %.lr.ph.i45
 
-91:                                               ; preds = %.lr.ph.i46
-  %92 = load ptr, ptr %.sroa.01.07.i47, align 8
-  %93 = load ptr, ptr %88, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 24
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(120) %88)
-  br i1 %96, label %.loopexit96, label %97
+34:                                               ; preds = %.lr.ph.i
+  %35 = load i8, ptr %15, align 2
+  %36 = trunc i8 %35 to i1
+  %spec.select = select i1 %36, i1 true, i1 %.0
+  br label %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit50
 
-97:                                               ; preds = %91
-  %98 = load ptr, ptr %2, align 8
+_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit50: ; preds = %.lr.ph.i45, %34
+  %.186.in = phi ptr [ %.sroa.05.011.i, %34 ], [ %.sroa.05.011.i46, %.lr.ph.i45 ]
+  %.127 = phi ptr [ %20, %34 ], [ %31, %.lr.ph.i45 ]
+  %.1 = phi i1 [ %spec.select, %34 ], [ %.0, %.lr.ph.i45 ]
+  %.186 = load ptr, ptr %.186.in, align 8
+  %37 = load ptr, ptr %.127, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(120) %.127)
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  br label %.loopexit106
+
+42:                                               ; preds = %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit50
+  store i8 0, ptr %8, align 1
+  %43 = load ptr, ptr %2, align 8
+  %44 = load i8, ptr %17, align 2
+  %45 = trunc i8 %44 to i1
+  %46 = load i8, ptr %16, align 1
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %45, i1 true, i1 %47
+  %49 = xor i1 %48, true
+  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext %49, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %4, i32 noundef %3, ptr noundef %.127, ptr noundef %.186, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  %50 = load i8, ptr %8, align 1
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %18, label %.loopexit106, !llvm.loop !12
+
+.loopexit106:                                     ; preds = %42, %41
+  %52 = load double, ptr %0, align 8
+  %53 = fcmp oeq double %52, 0x7FF0000000000000
+  %54 = load double, ptr %10, align 8
+  %55 = fcmp oeq double %54, 0x7FF0000000000000
+  %or.cond = select i1 %53, i1 true, i1 %55
+  br i1 %or.cond, label %56, label %60
+
+56:                                               ; preds = %.loopexit106
+  %57 = load ptr, ptr %2, align 8
+  %58 = tail call i32 @proj_context_errno(ptr noundef %57)
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %.sink.split, label %142
+
+60:                                               ; preds = %.loopexit106
+  br i1 %.1, label %142, label %61
+
+61:                                               ; preds = %60
+  %62 = getelementptr inbounds i8, ptr %1, i64 64
+  %63 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %62) #20
+  br i1 %63, label %142, label %64
+
+64:                                               ; preds = %61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  %.val42 = load double, ptr %4, align 8
+  %.val42.fr = freeze double %.val42
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
+  %65 = fcmp oeq double %.val42.fr, 0x7FF0000000000000
+  %66 = fadd double %.val42.fr, 0xC01921FB54442D18
+  %67 = fadd double %.val42.fr, 0x401921FB54442D18
+  br i1 %65, label %.split.us, label %.split.preheader
+
+.split.preheader:                                 ; preds = %64
+  %.val43.pre = load double, ptr %14, align 8
+  br label %.split
+
+.split.us:                                        ; preds = %64
+  %.val40.us = load ptr, ptr %1, align 8
+  %.val41.us = load ptr, ptr %13, align 8
+  %.val43.us = load double, ptr %14, align 8
+  %.not810.i51.us = icmp eq ptr %.val40.us, %.val41.us
+  br i1 %.not810.i51.us, label %.sink.split, label %.lr.ph.i52.us
+
+.lr.ph.i52.us:                                    ; preds = %.split.us, %75
+  %.sroa.05.011.i53.us = phi ptr [ %76, %75 ], [ %.val40.us, %.split.us ]
+  %68 = load ptr, ptr %.sroa.05.011.i53.us, align 8
+  %69 = tail call noundef ptr @_ZNK5osgeo4proj19GenericShiftGridSet6gridAtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdd(ptr noundef nonnull align 8 dereferenceable(96) %68, ptr noundef nonnull align 8 dereferenceable(32) %62, double noundef 0x7FF0000000000000, double noundef %.val43.us)
+  %.not.i54.us = icmp eq ptr %69, null
+  br i1 %.not.i54.us, label %75, label %70
+
+70:                                               ; preds = %.lr.ph.i52.us
+  %71 = load ptr, ptr %69, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 24
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(120) %69)
+  br i1 %74, label %.loopexit102, label %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread.loopexit.split.us
+
+_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread.loopexit.split.us: ; preds = %70
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %99 = getelementptr inbounds i8, ptr %88, i64 48
-  %100 = load i8, ptr %99, align 8, !noalias !13
-  %101 = trunc i8 %100 to i1
-  br i1 %101, label %102, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i
+  br label %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread
 
-102:                                              ; preds = %97
-  %103 = getelementptr inbounds i8, ptr %88, i64 88
-  %104 = load double, ptr %103, align 8, !noalias !13
-  %105 = getelementptr inbounds i8, ptr %88, i64 96
-  %106 = load double, ptr %105, align 8, !noalias !13
-  %107 = fadd double %104, %106
-  %108 = fmul double %107, 1.000000e-05
-  %109 = getelementptr inbounds i8, ptr %88, i64 56
-  %110 = load double, ptr %109, align 8, !noalias !13
-  %111 = fsub double %110, %108
-  %112 = fcmp olt double %.fr120, %111
-  br i1 %112, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i, label %113
+75:                                               ; preds = %.lr.ph.i52.us
+  %76 = getelementptr inbounds i8, ptr %.sroa.05.011.i53.us, i64 8
+  %.not8.i56.us = icmp eq ptr %76, %.val41.us
+  br i1 %.not8.i56.us, label %.sink.split, label %.lr.ph.i52.us
 
-113:                                              ; preds = %102
-  %114 = getelementptr inbounds i8, ptr %88, i64 72
-  %115 = load double, ptr %114, align 8, !noalias !13
-  %116 = fadd double %108, %115
-  %117 = fcmp ogt double %.fr120, %116
-  br i1 %117, label %118, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i
+.split:                                           ; preds = %.split.preheader, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit
+  %77 = phi double [ %54, %.split.preheader ], [ 0x7FF0000000000000, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit ]
+  %78 = phi double [ %52, %.split.preheader ], [ 0x7FF0000000000000, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit ]
+  %.val40 = load ptr, ptr %1, align 8
+  %.val41 = load ptr, ptr %13, align 8
+  %.not810.i51 = icmp eq ptr %.val40, %.val41
+  br i1 %.not810.i51, label %.sink.split, label %.lr.ph.i52
 
-118:                                              ; preds = %113
+.lr.ph.i52:                                       ; preds = %.split, %81
+  %.sroa.05.011.i53 = phi ptr [ %82, %81 ], [ %.val40, %.split ]
+  %79 = load ptr, ptr %.sroa.05.011.i53, align 8
+  %80 = tail call noundef ptr @_ZNK5osgeo4proj19GenericShiftGridSet6gridAtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdd(ptr noundef nonnull align 8 dereferenceable(96) %79, ptr noundef nonnull align 8 dereferenceable(32) %62, double noundef %.val42.fr, double noundef %.val43.pre)
+  %.not.i54 = icmp eq ptr %80, null
+  br i1 %.not.i54, label %81, label %83
+
+81:                                               ; preds = %.lr.ph.i52
+  %82 = getelementptr inbounds i8, ptr %.sroa.05.011.i53, i64 8
+  %.not8.i56 = icmp eq ptr %82, %.val41
+  br i1 %.not8.i56, label %.sink.split, label %.lr.ph.i52
+
+83:                                               ; preds = %.lr.ph.i52
+  %84 = load ptr, ptr %.sroa.05.011.i53, align 8
+  %85 = load ptr, ptr %80, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 24
+  %87 = load ptr, ptr %86, align 8
+  %88 = tail call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(120) %80)
+  br i1 %88, label %.loopexit102, label %89
+
+89:                                               ; preds = %83
+  %90 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  %91 = getelementptr inbounds i8, ptr %80, i64 48
+  %92 = load i8, ptr %91, align 8, !noalias !13
+  %93 = trunc i8 %92 to i1
+  br i1 %93, label %94, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i
+
+94:                                               ; preds = %89
+  %95 = getelementptr inbounds i8, ptr %80, i64 88
+  %96 = load double, ptr %95, align 8, !noalias !13
+  %97 = getelementptr inbounds i8, ptr %80, i64 96
+  %98 = load double, ptr %97, align 8, !noalias !13
+  %99 = fadd double %96, %98
+  %100 = fmul double %99, 1.000000e-05
+  %101 = getelementptr inbounds i8, ptr %80, i64 56
+  %102 = load double, ptr %101, align 8, !noalias !13
+  %103 = fsub double %102, %100
+  %104 = fcmp olt double %.val42.fr, %103
+  br i1 %104, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i, label %105
+
+105:                                              ; preds = %94
+  %106 = getelementptr inbounds i8, ptr %80, i64 72
+  %107 = load double, ptr %106, align 8, !noalias !13
+  %108 = fadd double %100, %107
+  %109 = fcmp ogt double %.val42.fr, %108
+  br i1 %109, label %110, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i
+
+110:                                              ; preds = %105
   br label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i
 
-_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i: ; preds = %102, %118, %113, %97
-  %.sroa.0.0.i.i = phi double [ %74, %118 ], [ %.fr120, %113 ], [ %.fr120, %97 ], [ %75, %102 ]
-  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %98, ptr noundef nonnull align 8 dereferenceable(32) %68, double %.sroa.0.0.i.i, double %72, ptr noundef %88, ptr noundef nonnull align 1 dereferenceable(1) %6), !noalias !13
-  %119 = load ptr, ptr %88, align 8, !noalias !13
-  %120 = getelementptr inbounds i8, ptr %119, i64 32
-  %121 = load ptr, ptr %120, align 8, !noalias !13
-  %122 = tail call noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(120) %88), !noalias !13
-  br i1 %122, label %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit, label %123
+_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i: ; preds = %94, %110, %105, %89
+  %.sroa.0.0.i.i = phi double [ %66, %110 ], [ %.val42.fr, %105 ], [ %.val42.fr, %89 ], [ %67, %94 ]
+  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %90, ptr noundef nonnull align 8 dereferenceable(32) %62, double %.sroa.0.0.i.i, double %.val43.pre, ptr noundef %80, ptr noundef nonnull align 1 dereferenceable(1) %6), !noalias !13
+  %111 = load ptr, ptr %80, align 8, !noalias !13
+  %112 = getelementptr inbounds i8, ptr %111, i64 32
+  %113 = load ptr, ptr %112, align 8, !noalias !13
+  %114 = tail call noundef zeroext i1 %113(ptr noundef nonnull align 8 dereferenceable(120) %80), !noalias !13
+  br i1 %114, label %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit, label %115
 
-123:                                              ; preds = %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i
-  %124 = load double, ptr %7, align 8
-  %125 = fcmp oeq double %124, 0x7FF0000000000000
-  br i1 %125, label %126, label %127
+115:                                              ; preds = %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i
+  %116 = load double, ptr %7, align 8
+  %117 = fcmp oeq double %116, 0x7FF0000000000000
+  br i1 %117, label %118, label %119
 
-126:                                              ; preds = %123
-  %.sroa.8.0..sroa_idx60 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.8.0.copyload61 = load double, ptr %.sroa.8.0..sroa_idx60, align 8
-  %.sroa.11.0..sroa_idx68 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.11.0.copyload69 = load double, ptr %.sroa.11.0..sroa_idx68, align 8
+118:                                              ; preds = %115
+  %.sroa.8.0..sroa_idx66 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.8.0.copyload67 = load double, ptr %.sroa.8.0..sroa_idx66, align 8
+  %.sroa.11.0..sroa_idx74 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.11.0.copyload75 = load double, ptr %.sroa.11.0..sroa_idx74, align 8
   br label %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread
 
-127:                                              ; preds = %123
-  %128 = icmp eq i32 %3, 1
-  br i1 %128, label %129, label %137
+119:                                              ; preds = %115
+  %120 = icmp eq i32 %3, 1
+  br i1 %120, label %121, label %129
 
-129:                                              ; preds = %127
-  %130 = fadd double %.fr120, %124
-  %131 = getelementptr inbounds i8, ptr %7, i64 8
-  %132 = load double, ptr %131, align 8, !noalias !13
-  %133 = fadd double %72, %132
-  %134 = getelementptr inbounds i8, ptr %7, i64 16
-  %135 = load double, ptr %134, align 8, !noalias !13
-  %136 = fadd double %.sroa.3.0.copyload, %135
+121:                                              ; preds = %119
+  %122 = fadd double %.val42.fr, %116
+  %123 = getelementptr inbounds i8, ptr %7, i64 8
+  %124 = load double, ptr %123, align 8, !noalias !13
+  %125 = fadd double %.val43.pre, %124
+  %126 = getelementptr inbounds i8, ptr %7, i64 16
+  %127 = load double, ptr %126, align 8, !noalias !13
+  %128 = fadd double %.sroa.3.0.copyload, %127
   br label %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread
 
-137:                                              ; preds = %127
-  %138 = getelementptr inbounds i8, ptr %7, i64 16
-  %139 = load double, ptr %138, align 8, !noalias !13
-  %140 = fsub double %.sroa.3.0.copyload, %139
+129:                                              ; preds = %119
+  %130 = getelementptr inbounds i8, ptr %7, i64 16
+  %131 = load double, ptr %130, align 8, !noalias !13
+  %132 = fsub double %.sroa.3.0.copyload, %131
   br label %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread
 
-_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread: ; preds = %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread.loopexit.split.us, %126, %129, %137
-  %.sroa.11.0.ph = phi double [ %140, %137 ], [ %136, %129 ], [ %.sroa.11.0.copyload69, %126 ], [ %.sroa.3.0.copyload, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread.loopexit.split.us ]
-  %.sroa.8.0.ph = phi double [ %72, %137 ], [ %133, %129 ], [ %.sroa.8.0.copyload61, %126 ], [ %72, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread.loopexit.split.us ]
-  %.sroa.0.0.ph = phi double [ %.fr120, %137 ], [ %130, %129 ], [ 0x7FF0000000000000, %126 ], [ 0x7FF0000000000000, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread.loopexit.split.us ]
+_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread: ; preds = %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread.loopexit.split.us, %118, %121, %129
+  %.sroa.11.0.ph = phi double [ %132, %129 ], [ %128, %121 ], [ %.sroa.11.0.copyload75, %118 ], [ %.sroa.3.0.copyload, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread.loopexit.split.us ]
+  %.sroa.8.0.ph = phi double [ %.val43.pre, %129 ], [ %125, %121 ], [ %.sroa.8.0.copyload67, %118 ], [ %.val43.us, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread.loopexit.split.us ]
+  %.sroa.0.0.ph = phi double [ %.val42.fr, %129 ], [ %122, %121 ], [ 0x7FF0000000000000, %118 ], [ 0x7FF0000000000000, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread.loopexit.split.us ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   store double %.sroa.0.0.ph, ptr %0, align 8
   store double %.sroa.8.0.ph, ptr %10, align 8
   store double %.sroa.11.0.ph, ptr %11, align 8
-  br label %.loopexit96
+  br label %.loopexit102
 
 _ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit: ; preds = %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i
-  %141 = load ptr, ptr %92, align 8, !noalias !13
-  %142 = getelementptr inbounds i8, ptr %141, i64 24
-  %143 = load ptr, ptr %142, align 8, !noalias !13
-  %144 = tail call noundef zeroext i1 %143(ptr noundef nonnull align 8 dereferenceable(96) %92, ptr noundef %98), !noalias !13
+  %133 = load ptr, ptr %84, align 8, !noalias !13
+  %134 = getelementptr inbounds i8, ptr %133, i64 24
+  %135 = load ptr, ptr %134, align 8, !noalias !13
+  %136 = tail call noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(96) %84, ptr noundef %90), !noalias !13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   store double 0x7FF0000000000000, ptr %0, align 8
   store double 0x7FF0000000000000, ptr %10, align 8
   store double 0x7FF0000000000000, ptr %11, align 8
-  br i1 %144, label %.split, label %.sink.split, !llvm.loop !16
+  br i1 %136, label %.split, label %.sink.split, !llvm.loop !16
 
-.loopexit96:                                      ; preds = %91, %78, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread
-  %145 = phi double [ %60, %78 ], [ %.sroa.8.0.ph, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread ], [ %85, %91 ]
-  %146 = phi double [ %58, %78 ], [ %.sroa.0.0.ph, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread ], [ %86, %91 ]
-  %147 = fcmp oeq double %146, 0x7FF0000000000000
-  %148 = fcmp oeq double %145, 0x7FF0000000000000
-  %or.cond5 = select i1 %147, i1 true, i1 %148
-  br i1 %or.cond5, label %.sink.split, label %150
+.loopexit102:                                     ; preds = %83, %70, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread
+  %137 = phi double [ %54, %70 ], [ %.sroa.8.0.ph, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread ], [ %77, %83 ]
+  %138 = phi double [ %52, %70 ], [ %.sroa.0.0.ph, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread ], [ %78, %83 ]
+  %139 = fcmp oeq double %138, 0x7FF0000000000000
+  %140 = fcmp oeq double %137, 0x7FF0000000000000
+  %or.cond5 = select i1 %139, i1 true, i1 %140
+  br i1 %or.cond5, label %.sink.split, label %142
 
-.sink.split:                                      ; preds = %31, %.loopexit98, %28, %38, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit, %.split, %89, %83, %.loopexit96, %.split.us, %62
-  %149 = load ptr, ptr %2, align 8
-  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %149, i32 noundef 2052)
-  br label %150
+.sink.split:                                      ; preds = %28, %.loopexit104, %25, %32, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit, %.split, %81, %75, %.loopexit102, %.split.us, %56
+  %141 = load ptr, ptr %2, align 8
+  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %141, i32 noundef 2052)
+  br label %142
 
-150:                                              ; preds = %.sink.split, %66, %67, %.loopexit96, %62
+142:                                              ; preds = %.sink.split, %60, %61, %.loopexit102, %56
   ret void
 }
 
@@ -1865,9 +1861,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_113gridshiftData19grid_apply_intern
   br label %171
 
 16:                                               ; preds = %10
-  %.sroa.271.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.271.0.copyload = load double, ptr %.sroa.271.0..sroa_idx, align 8
-  %.sroa.372.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.273.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.273.0.copyload = load double, ptr %.sroa.273.0..sroa_idx, align 8
+  %.sroa.374.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   %17 = getelementptr inbounds i8, ptr %7, i64 48
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
@@ -1904,7 +1900,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113gridshiftData19grid_apply_intern
 _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit: ; preds = %16, %31, %33, %38
   %.sroa.0.0.i = phi double [ %32, %31 ], [ %39, %38 ], [ %13, %33 ], [ %13, %16 ]
   store i8 0, ptr %11, align 1
-  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, double %.sroa.0.0.i, double %.sroa.271.0.copyload, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, double %.sroa.0.0.i, double %.sroa.273.0.copyload, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %11)
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
@@ -1974,7 +1970,7 @@ _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12E
   %79 = fsub double %.sroa.0.0.i, %53
   %80 = getelementptr inbounds i8, ptr %12, i64 8
   %81 = load double, ptr %80, align 8
-  %82 = fsub double %.sroa.271.0.copyload, %81
+  %82 = fsub double %.sroa.273.0.copyload, %81
   %83 = load i8, ptr %11, align 1
   %84 = trunc i8 %83 to i1
   br i1 %84, label %158, label %.preheader
@@ -1984,13 +1980,13 @@ _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12E
   br label %86
 
 86:                                               ; preds = %.preheader, %151
-  %.178 = phi ptr [ %.3, %151 ], [ %17, %.preheader ]
-  %.075 = phi ptr [ %.176, %151 ], [ %8, %.preheader ]
+  %.180 = phi ptr [ %.3, %151 ], [ %17, %.preheader ]
+  %.077 = phi ptr [ %.178, %151 ], [ %8, %.preheader ]
   %.052 = phi i32 [ %150, %151 ], [ 10, %.preheader ]
   %.sroa.013.1 = phi double [ %.sroa.013.3, %151 ], [ %79, %.preheader ]
   %.sroa.8.1 = phi double [ %.sroa.8.3, %151 ], [ %82, %.preheader ]
   %.sroa.023.0 = phi double [ %.sroa.023.1, %151 ], [ %.sroa.0.0.i, %.preheader ]
-  %.sroa.525.0 = phi double [ %.sroa.525.1, %151 ], [ %.sroa.271.0.copyload, %.preheader ]
+  %.sroa.525.0 = phi double [ %.sroa.525.1, %151 ], [ %.sroa.273.0.copyload, %.preheader ]
   %.0 = phi ptr [ %.1, %151 ], [ %7, %.preheader ]
   call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, double %.sroa.013.1, double %.sroa.8.1, ptr noundef %.0, ptr noundef nonnull align 1 dereferenceable(1) %11)
   %87 = load ptr, ptr %.0, align 8
@@ -2000,10 +1996,10 @@ _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12E
   br i1 %90, label %91, label %99
 
 91:                                               ; preds = %86
-  %92 = load ptr, ptr %.075, align 8
+  %92 = load ptr, ptr %.077, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 24
   %94 = load ptr, ptr %93, align 8
-  %95 = tail call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(96) %.075, ptr noundef %2)
+  %95 = tail call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(96) %.077, ptr noundef %2)
   %96 = zext i1 %95 to i8
   store i8 %96, ptr %9, align 1
   %97 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2021,23 +2017,23 @@ _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12E
 102:                                              ; preds = %99
   %.val = load ptr, ptr %1, align 8
   %.val59 = load ptr, ptr %85, align 8
-  %.not46.i = icmp eq ptr %.val, %.val59
-  br i1 %.not46.i, label %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread.thread, label %.lr.ph.i
+  %.not810.i = icmp eq ptr %.val, %.val59
+  br i1 %.not810.i, label %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %102, %105
-  %.sroa.01.07.i = phi ptr [ %106, %105 ], [ %.val, %102 ]
-  %103 = load ptr, ptr %.sroa.01.07.i, align 8
+  %.sroa.05.011.i = phi ptr [ %106, %105 ], [ %.val, %102 ]
+  %103 = load ptr, ptr %.sroa.05.011.i, align 8
   %104 = tail call noundef ptr @_ZNK5osgeo4proj19GenericShiftGridSet6gridAtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdd(ptr noundef nonnull align 8 dereferenceable(96) %103, ptr noundef nonnull align 8 dereferenceable(32) %3, double noundef %.sroa.013.1, double noundef %.sroa.8.1)
   %.not.i = icmp eq ptr %104, null
   br i1 %.not.i, label %105, label %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit
 
 105:                                              ; preds = %.lr.ph.i
-  %106 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 8
-  %.not4.i = icmp eq ptr %106, %.val59
-  br i1 %.not4.i, label %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread, label %.lr.ph.i
+  %106 = getelementptr inbounds i8, ptr %.sroa.05.011.i, i64 8
+  %.not8.i = icmp eq ptr %106, %.val59
+  br i1 %.not8.i, label %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread, label %.lr.ph.i
 
 _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit: ; preds = %.lr.ph.i
-  %107 = load ptr, ptr %.sroa.01.07.i, align 8
+  %107 = load ptr, ptr %.sroa.05.011.i, align 8
   %108 = icmp eq ptr %104, %.0
   br i1 %108, label %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread, label %109
 
@@ -2055,11 +2051,11 @@ _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char
   %118 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %117) #20
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %2, i32 noundef 3, ptr noundef nonnull @.str.21, ptr noundef %116, ptr noundef %118)
   %.sroa.0.0.copyload = load double, ptr %5, align 8
-  %.sroa.2.0.copyload = load double, ptr %.sroa.271.0..sroa_idx, align 8
+  %.sroa.2.0.copyload = load double, ptr %.sroa.273.0..sroa_idx, align 8
   %119 = getelementptr inbounds i8, ptr %104, i64 48
   %120 = load i8, ptr %119, align 8
   %121 = trunc i8 %120 to i1
-  br i1 %121, label %122, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit67
+  br i1 %121, label %122, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit69
 
 122:                                              ; preds = %114
   %123 = getelementptr inbounds i8, ptr %104, i64 88
@@ -2076,18 +2072,18 @@ _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char
 
 133:                                              ; preds = %122
   %134 = fadd double %.sroa.0.0.copyload, 0x401921FB54442D18
-  br label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit67
+  br label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit69
 
 135:                                              ; preds = %122
   %136 = getelementptr inbounds i8, ptr %104, i64 72
   %137 = load double, ptr %136, align 8
   %138 = fadd double %128, %137
   %139 = fcmp ogt double %.sroa.0.0.copyload, %138
-  br i1 %139, label %140, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit67
+  br i1 %139, label %140, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit69
 
 140:                                              ; preds = %135
   %141 = fadd double %.sroa.0.0.copyload, 0xC01921FB54442D18
-  br label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit67
+  br label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit69
 
 142:                                              ; preds = %99
   %143 = fadd double %.sroa.013.1, %100
@@ -2097,11 +2093,11 @@ _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char
   %147 = fsub double %146, %.sroa.525.0
   %148 = fsub double %.sroa.013.1, %144
   %149 = fsub double %.sroa.8.1, %147
-  br label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit67
+  br label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit69
 
-_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit67: ; preds = %140, %135, %133, %114, %142
-  %.3 = phi ptr [ %.178, %142 ], [ %119, %114 ], [ %119, %133 ], [ %119, %135 ], [ %119, %140 ]
-  %.176 = phi ptr [ %.075, %142 ], [ %107, %114 ], [ %107, %133 ], [ %107, %135 ], [ %107, %140 ]
+_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit69: ; preds = %140, %135, %133, %114, %142
+  %.3 = phi ptr [ %.180, %142 ], [ %119, %114 ], [ %119, %133 ], [ %119, %135 ], [ %119, %140 ]
+  %.178 = phi ptr [ %.077, %142 ], [ %107, %114 ], [ %107, %133 ], [ %107, %135 ], [ %107, %140 ]
   %.sroa.5.0 = phi double [ %147, %142 ], [ 0x7FEFFFFFFFFFFFFF, %114 ], [ 0x7FEFFFFFFFFFFFFF, %133 ], [ 0x7FEFFFFFFFFFFFFF, %135 ], [ 0x7FEFFFFFFFFFFFFF, %140 ]
   %.sroa.07.0 = phi double [ %144, %142 ], [ 0x7FEFFFFFFFFFFFFF, %114 ], [ 0x7FEFFFFFFFFFFFFF, %133 ], [ 0x7FEFFFFFFFFFFFFF, %135 ], [ 0x7FEFFFFFFFFFFFFF, %140 ]
   %.sroa.013.3 = phi double [ %148, %142 ], [ %.sroa.013.1, %114 ], [ %.sroa.013.1, %133 ], [ %.sroa.013.1, %135 ], [ %.sroa.013.1, %140 ]
@@ -2113,13 +2109,13 @@ _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12E
   %.not = icmp eq i32 %150, 0
   br i1 %.not, label %.critedge, label %151
 
-151:                                              ; preds = %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit67
+151:                                              ; preds = %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit69
   %152 = fmul double %.sroa.5.0, %.sroa.5.0
   %153 = tail call double @llvm.fmuladd.f64(double %.sroa.07.0, double %.sroa.07.0, double %152)
   %154 = fcmp ogt double %153, 0x3AF357C299A88EA7
   br i1 %154, label %86, label %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread, !llvm.loop !17
 
-.critedge:                                        ; preds = %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit67
+.critedge:                                        ; preds = %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit69
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %2, i32 noundef 3, ptr noundef nonnull @.str.22)
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %2, i32 noundef 2054)
   %155 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2131,23 +2127,23 @@ _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12E
 
 _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread: ; preds = %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit, %109, %151, %105
   %157 = phi i1 [ true, %105 ], [ %101, %151 ], [ true, %109 ], [ true, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit ]
-  %.279.ph = phi ptr [ %.178, %105 ], [ %.3, %151 ], [ %.178, %109 ], [ %.178, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit ]
+  %.281.ph = phi ptr [ %.180, %105 ], [ %.3, %151 ], [ %.180, %109 ], [ %.180, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit ]
   %.sroa.013.2.ph = phi double [ %.sroa.013.1, %105 ], [ %.sroa.013.3, %151 ], [ %.sroa.013.1, %109 ], [ %.sroa.013.1, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit ]
   %.sroa.8.2.ph = phi double [ %.sroa.8.1, %105 ], [ %.sroa.8.3, %151 ], [ %.sroa.8.1, %109 ], [ %.sroa.8.1, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit ]
   br i1 %157, label %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread.thread, label %158
 
 _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread.thread: ; preds = %102, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread
-  %.sroa.8.2.ph124 = phi double [ %.sroa.8.2.ph, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread ], [ %.sroa.8.1, %102 ]
-  %.sroa.013.2.ph123 = phi double [ %.sroa.013.2.ph, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread ], [ %.sroa.013.1, %102 ]
-  %.279.ph122 = phi ptr [ %.279.ph, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread ], [ %.178, %102 ]
+  %.sroa.8.2.ph126 = phi double [ %.sroa.8.2.ph, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread ], [ %.sroa.8.1, %102 ]
+  %.sroa.013.2.ph125 = phi double [ %.sroa.013.2.ph, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread ], [ %.sroa.013.1, %102 ]
+  %.281.ph124 = phi ptr [ %.281.ph, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread ], [ %.180, %102 ]
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %2, i32 noundef 3, ptr noundef nonnull @.str.23)
   br label %158
 
 158:                                              ; preds = %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread.thread, %78
-  %.077 = phi ptr [ %17, %78 ], [ %.279.ph122, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread.thread ], [ %.279.ph, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread ]
-  %.sroa.013.0 = phi double [ %79, %78 ], [ %.sroa.013.2.ph123, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread.thread ], [ %.sroa.013.2.ph, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread ]
-  %.sroa.8.0 = phi double [ %82, %78 ], [ %.sroa.8.2.ph124, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread.thread ], [ %.sroa.8.2.ph, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread ]
-  %159 = load i8, ptr %.077, align 8
+  %.079 = phi ptr [ %17, %78 ], [ %.281.ph124, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread.thread ], [ %.281.ph, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread ]
+  %.sroa.013.0 = phi double [ %79, %78 ], [ %.sroa.013.2.ph125, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread.thread ], [ %.sroa.013.2.ph, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread ]
+  %.sroa.8.0 = phi double [ %82, %78 ], [ %.sroa.8.2.ph126, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread.thread ], [ %.sroa.8.2.ph, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit.thread ]
+  %159 = load i8, ptr %.079, align 8
   %160 = trunc i8 %159 to i1
   br i1 %160, label %161, label %163
 
@@ -2160,7 +2156,7 @@ _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char
   store double %164, ptr %0, align 8
   %165 = getelementptr inbounds i8, ptr %0, i64 8
   store double %.sroa.8.0, ptr %165, align 8
-  %166 = load double, ptr %.sroa.372.0..sroa_idx, align 8
+  %166 = load double, ptr %.sroa.374.0..sroa_idx, align 8
   %167 = getelementptr inbounds i8, ptr %12, i64 16
   %168 = load double, ptr %167, align 8
   %169 = fsub double %166, %168
@@ -2715,46 +2711,46 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %_ZNKSt6vectorIfSaIf
   %239 = getelementptr inbounds i8, ptr %229, i64 112
   %240 = load i64, ptr %198, align 8
   store i64 %240, ptr %239, align 8
-  %.01315.i.i.i = load ptr, ptr %29, align 8
-  %.not16.i.i.i = icmp eq ptr %.01315.i.i.i, null
-  br i1 %.not16.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i334
+  %.01113.i.i.i = load ptr, ptr %29, align 8
+  %.not14.i.i.i = icmp eq ptr %.01113.i.i.i, null
+  br i1 %.not14.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i334
 
 .lr.ph.i.i.i334:                                  ; preds = %.noexc336, %.lr.ph.i.i.i334
-  %.01317.i.i.i = phi ptr [ %.013.i.i.i, %.lr.ph.i.i.i334 ], [ %.01315.i.i.i, %.noexc336 ]
-  %241 = getelementptr inbounds i8, ptr %.01317.i.i.i, i64 32
+  %.01115.i.i.i = phi ptr [ %.011.i.i.i, %.lr.ph.i.i.i334 ], [ %.01113.i.i.i, %.noexc336 ]
+  %241 = getelementptr inbounds i8, ptr %.01115.i.i.i, i64 32
   %242 = load ptr, ptr %241, align 8
   %243 = icmp ult ptr %6, %242
   %.in.v.i.i.i = select i1 %243, i64 16, i64 24
-  %.in.i.i.i = getelementptr i8, ptr %.01317.i.i.i, i64 %.in.v.i.i.i
-  %.013.i.i.i = load ptr, ptr %.in.i.i.i, align 8
-  %.not.i.i.i335 = icmp eq ptr %.013.i.i.i, null
+  %.in.i.i.i = getelementptr i8, ptr %.01115.i.i.i, i64 %.in.v.i.i.i
+  %.011.i.i.i = load ptr, ptr %.in.i.i.i, align 8
+  %.not.i.i.i335 = icmp eq ptr %.011.i.i.i, null
   br i1 %.not.i.i.i335, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i334, !llvm.loop !20
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i334
   br i1 %243, label %._crit_edge.thread.i.i.i, label %248
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %.noexc336
-  %.012.lcssa21.i.i.i = phi ptr [ %.01317.i.i.i, %._crit_edge.i.i.i ], [ %30, %.noexc336 ]
+  %.010.lcssa19.i.i.i = phi ptr [ %.01115.i.i.i, %._crit_edge.i.i.i ], [ %30, %.noexc336 ]
   %244 = getelementptr inbounds i8, ptr %1, i64 152
   %.val9.i.i.i = load ptr, ptr %244, align 8
-  %245 = icmp eq ptr %.012.lcssa21.i.i.i, %.val9.i.i.i
+  %245 = icmp eq ptr %.010.lcssa19.i.i.i, %.val9.i.i.i
   br i1 %245, label %select.unfold.i.i, label %246
 
 246:                                              ; preds = %._crit_edge.thread.i.i.i
-  %247 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.012.lcssa21.i.i.i) #23
+  %247 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i.i.i) #23
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %247, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %248
 
 248:                                              ; preds = %246, %._crit_edge.i.i.i
   %249 = phi ptr [ %.pre.i.i, %246 ], [ %242, %._crit_edge.i.i.i ]
-  %.012.lcssa22.i.i.i = phi ptr [ %.012.lcssa21.i.i.i, %246 ], [ %.01317.i.i.i, %._crit_edge.i.i.i ]
-  %.sroa.01.0.i.i.i = phi ptr [ %247, %246 ], [ %.01317.i.i.i, %._crit_edge.i.i.i ]
+  %.010.lcssa20.i.i.i = phi ptr [ %.010.lcssa19.i.i.i, %246 ], [ %.01115.i.i.i, %._crit_edge.i.i.i ]
+  %.sroa.01.0.i.i.i = phi ptr [ %247, %246 ], [ %.01115.i.i.i, %._crit_edge.i.i.i ]
   %250 = icmp ult ptr %249, %6
   br i1 %250, label %select.unfold.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i.i.i.i.i
 
 select.unfold.i.i:                                ; preds = %248, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.012.lcssa21.i.i.i, %._crit_edge.thread.i.i.i ], [ %.012.lcssa22.i.i.i, %248 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.010.lcssa19.i.i.i, %._crit_edge.thread.i.i.i ], [ %.010.lcssa20.i.i.i, %248 ]
   %251 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %30
   br i1 %251, label %257, label %252
 

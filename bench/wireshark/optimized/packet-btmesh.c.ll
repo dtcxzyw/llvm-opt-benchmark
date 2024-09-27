@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.reassembly_table = type { ptr, ptr, ptr, ptr, ptr }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.bt_sensor_cadence_dissector_t = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.bt_property_columns_raw_value_t = type { ptr, ptr }
 %struct.bt_property_raw_value_entry_t = type { ptr, ptr, ptr }
 %struct.bt_gatt_characteristic_t = type { i16, i16, ptr, i8 }
 %struct.btmesh_property_t = type { i16, i16 }
@@ -3376,9 +3375,7 @@ target triple = "x86_64-pc-linux-gnu"
 @sensor_cadence_set_unacknowledged_hfs = internal constant %struct.bt_sensor_cadence_dissector_t { ptr @hf_btmesh_sensor_cadence_set_unacknowledged_status_trigger_delta_down, ptr @hf_btmesh_sensor_cadence_set_unacknowledged_status_trigger_delta_up, ptr @hf_btmesh_sensor_cadence_set_unacknowledged_status_min_interval, ptr @hf_btmesh_sensor_cadence_set_unacknowledged_fast_cadence_low, ptr @hf_btmesh_sensor_cadence_set_unacknowledged_fast_cadence_high, ptr @hf_btmesh_sensor_cadence_set_unacknowledged_remainder_not_dissected }, align 8
 @sensor_cadence_status_hfs = internal constant %struct.bt_sensor_cadence_dissector_t { ptr @hf_btmesh_sensor_cadence_status_status_trigger_delta_down, ptr @hf_btmesh_sensor_cadence_status_status_trigger_delta_up, ptr @hf_btmesh_sensor_cadence_status_status_min_interval, ptr @hf_btmesh_sensor_cadence_status_fast_cadence_low, ptr @hf_btmesh_sensor_cadence_status_fast_cadence_high, ptr @hf_btmesh_sensor_cadence_status_remainder_not_dissected }, align 8
 @.str.2208 = private unnamed_addr constant [28 x i8] c"Sensor Setting Property IDs\00", align 1
-@sensor_column_get_hfs = internal constant %struct.bt_property_columns_raw_value_t { ptr @hf_btmesh_sensor_column_get_raw_value_a, ptr null }, align 8
 @sensor_column_status_hfs = internal constant %struct.bt_property_raw_value_entry_t { ptr @hf_btmesh_sensor_column_status_raw_value_a, ptr @hf_btmesh_sensor_column_status_raw_value_b, ptr @hf_btmesh_sensor_column_status_raw_value_c }, align 8
-@sensor_series_get_hfs = internal constant %struct.bt_property_columns_raw_value_t { ptr @hf_btmesh_sensor_series_get_raw_value_a1, ptr @hf_btmesh_sensor_series_get_raw_value_a2 }, align 8
 @sensor_series_status_hfs = internal constant %struct.bt_property_raw_value_entry_t { ptr @hf_btmesh_sensor_series_status_raw_value_a, ptr @hf_btmesh_sensor_series_status_raw_value_b, ptr @hf_btmesh_sensor_series_status_raw_value_c }, align 8
 @bt_gatt_characteristics = internal unnamed_addr constant [90 x %struct.bt_gatt_characteristic_t] [%struct.bt_gatt_characteristic_t { i16 -1, i16 2, ptr @hf_bt_phony_characteristic_percentage_change_16, i8 0 }, %struct.bt_gatt_characteristic_t { i16 -2, i16 2, ptr @hf_bt_phony_characteristic_index, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11215, i16 4, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11216, i16 3, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10867, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10866, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10753, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10976, i16 3, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10977, i16 3, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10978, i16 1, ptr @hf_bt_characteristic_boolean, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10979, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10980, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10982, i16 1, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10983, i16 1, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11217, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10984, i16 4, ptr @hf_bt_characteristic_coefficient, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10985, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11218, i16 1, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10986, i16 2, ptr @hf_bt_characteristic_count_16, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10987, i16 3, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10988, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10989, i16 3, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11026, i16 1, ptr @hf_bt_characteristic_time_decihour_8, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11219, i16 1, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10990, i16 2, ptr @hf_bt_characteristic_electric_current, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10991, i16 4, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10992, i16 6, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10993, i16 9, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10994, i16 3, ptr @hf_bt_characteristic_energy, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10995, i16 5, ptr null, i8 1 }, %struct.bt_gatt_characteristic_t { i16 11220, i16 4, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10996, i16 6, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10997, i16 16, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10998, i16 24, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10999, i16 36, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11221, i16 64, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11000, i16 8, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11001, i16 2, ptr @hf_bt_characteristic_generic_level, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11002, i16 6, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10868, i16 1, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10874, i16 1, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11222, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11223, i16 3, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10863, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11003, i16 3, ptr @hf_bt_characteristic_illuminance, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11224, i16 1, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11225, i16 3, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11226, i16 1, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11004, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11005, i16 3, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11006, i16 3, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11007, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11008, i16 4, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11009, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11227, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10912, i16 4, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10913, i16 6, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11228, i16 1, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11011, i16 2, ptr @hf_bt_characteristic_perceived_lightness, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11012, i16 1, ptr @hf_bt_characteristic_percentage_8, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10869, i16 3, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11013, i16 3, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11014, i16 9, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10861, i16 4, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10872, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11015, i16 5, ptr null, i8 1 }, %struct.bt_gatt_characteristic_t { i16 11016, i16 5, ptr null, i8 1 }, %struct.bt_gatt_characteristic_t { i16 11020, i16 5, ptr null, i8 1 }, %struct.bt_gatt_characteristic_t { i16 11017, i16 5, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11018, i16 7, ptr null, i8 1 }, %struct.bt_gatt_characteristic_t { i16 10862, i16 2, ptr @hf_bt_characteristic_temperature, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11021, i16 1, ptr @hf_bt_characteristic_temperature_8, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11022, i16 3, ptr null, i8 1 }, %struct.bt_gatt_characteristic_t { i16 11023, i16 5, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11024, i16 4, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11025, i16 9, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11028, i16 3, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11029, i16 3, ptr @hf_bt_characteristic_time_millisecond_24, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11030, i16 2, ptr @hf_bt_characteristic_time_second_16, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11230, i16 4, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10865, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10864, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10870, i16 1, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11231, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11032, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11232, i16 2, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11033, i16 6, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 11034, i16 9, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t { i16 10873, i16 1, ptr null, i8 0 }, %struct.bt_gatt_characteristic_t zeroinitializer], align 16
 @btmesh_properties = internal unnamed_addr constant [180 x %struct.btmesh_property_t] [%struct.btmesh_property_t { i16 -1, i16 -1 }, %struct.btmesh_property_t { i16 -2, i16 -2 }, %struct.btmesh_property_t { i16 128, i16 11220 }, %struct.btmesh_property_t { i16 129, i16 11013 }, %struct.btmesh_property_t { i16 130, i16 10861 }, %struct.btmesh_property_t { i16 131, i16 11215 }, %struct.btmesh_property_t { i16 132, i16 11216 }, %struct.btmesh_property_t { i16 133, i16 10867 }, %struct.btmesh_property_t { i16 134, i16 10866 }, %struct.btmesh_property_t { i16 1, i16 11022 }, %struct.btmesh_property_t { i16 2, i16 10976 }, %struct.btmesh_property_t { i16 3, i16 10977 }, %struct.btmesh_property_t { i16 4, i16 10976 }, %struct.btmesh_property_t { i16 5, i16 10977 }, %struct.btmesh_property_t { i16 6, i16 11009 }, %struct.btmesh_property_t { i16 7, i16 10982 }, %struct.btmesh_property_t { i16 8, i16 10983 }, %struct.btmesh_property_t { i16 9, i16 10983 }, %struct.btmesh_property_t { i16 113, i16 11021 }, %struct.btmesh_property_t { i16 10, i16 10753 }, %struct.btmesh_property_t { i16 11, i16 10988 }, %struct.btmesh_property_t { i16 12, i16 10989 }, %struct.btmesh_property_t { i16 13, i16 10994 }, %struct.btmesh_property_t { i16 14, i16 11000 }, %struct.btmesh_property_t { i16 15, i16 11002 }, %struct.btmesh_property_t { i16 16, i16 10997 }, %struct.btmesh_property_t { i16 17, i16 10999 }, %struct.btmesh_property_t { i16 18, i16 10998 }, %struct.btmesh_property_t { i16 19, i16 11024 }, %struct.btmesh_property_t { i16 20, i16 11025 }, %struct.btmesh_property_t { i16 21, i16 10996 }, %struct.btmesh_property_t { i16 22, i16 11014 }, %struct.btmesh_property_t { i16 23, i16 11028 }, %struct.btmesh_property_t { i16 24, i16 11028 }, %struct.btmesh_property_t { i16 25, i16 10997 }, %struct.btmesh_property_t { i16 26, i16 11000 }, %struct.btmesh_property_t { i16 27, i16 10996 }, %struct.btmesh_property_t { i16 135, i16 11219 }, %struct.btmesh_property_t { i16 136, i16 11223 }, %struct.btmesh_property_t { i16 137, i16 11232 }, %struct.btmesh_property_t { i16 138, i16 10868 }, %struct.btmesh_property_t { i16 139, i16 10874 }, %struct.btmesh_property_t { i16 28, i16 11023 }, %struct.btmesh_property_t { i16 29, i16 10980 }, %struct.btmesh_property_t { i16 30, i16 10985 }, %struct.btmesh_property_t { i16 31, i16 11007 }, %struct.btmesh_property_t { i16 32, i16 10979 }, %struct.btmesh_property_t { i16 33, i16 10992 }, %struct.btmesh_property_t { i16 34, i16 10993 }, %struct.btmesh_property_t { i16 35, i16 10996 }, %struct.btmesh_property_t { i16 36, i16 10996 }, %struct.btmesh_property_t { i16 37, i16 10996 }, %struct.btmesh_property_t { i16 38, i16 10996 }, %struct.btmesh_property_t { i16 39, i16 10996 }, %struct.btmesh_property_t { i16 40, i16 11033 }, %struct.btmesh_property_t { i16 41, i16 11012 }, %struct.btmesh_property_t { i16 42, i16 11034 }, %struct.btmesh_property_t { i16 43, i16 11003 }, %struct.btmesh_property_t { i16 44, i16 11003 }, %struct.btmesh_property_t { i16 45, i16 11003 }, %struct.btmesh_property_t { i16 46, i16 11011 }, %struct.btmesh_property_t { i16 47, i16 11011 }, %struct.btmesh_property_t { i16 48, i16 11011 }, %struct.btmesh_property_t { i16 49, i16 11012 }, %struct.btmesh_property_t { i16 50, i16 10984 }, %struct.btmesh_property_t { i16 51, i16 10984 }, %struct.btmesh_property_t { i16 52, i16 10984 }, %struct.btmesh_property_t { i16 53, i16 10984 }, %struct.btmesh_property_t { i16 54, i16 11029 }, %struct.btmesh_property_t { i16 55, i16 11029 }, %struct.btmesh_property_t { i16 56, i16 11029 }, %struct.btmesh_property_t { i16 57, i16 11029 }, %struct.btmesh_property_t { i16 58, i16 11029 }, %struct.btmesh_property_t { i16 59, i16 11029 }, %struct.btmesh_property_t { i16 60, i16 11029 }, %struct.btmesh_property_t { i16 140, i16 11224 }, %struct.btmesh_property_t { i16 141, i16 10976 }, %struct.btmesh_property_t { i16 142, i16 11230 }, %struct.btmesh_property_t { i16 143, i16 11230 }, %struct.btmesh_property_t { i16 144, i16 10996 }, %struct.btmesh_property_t { i16 145, i16 10996 }, %struct.btmesh_property_t { i16 146, i16 10996 }, %struct.btmesh_property_t { i16 147, i16 10987 }, %struct.btmesh_property_t { i16 148, i16 11222 }, %struct.btmesh_property_t { i16 149, i16 10996 }, %struct.btmesh_property_t { i16 150, i16 10996 }, %struct.btmesh_property_t { i16 151, i16 10987 }, %struct.btmesh_property_t { i16 179, i16 11226 }, %struct.btmesh_property_t { i16 152, i16 10977 }, %struct.btmesh_property_t { i16 61, i16 11012 }, %struct.btmesh_property_t { i16 153, i16 10998 }, %struct.btmesh_property_t { i16 154, i16 10998 }, %struct.btmesh_property_t { i16 180, i16 11221 }, %struct.btmesh_property_t { i16 155, i16 11002 }, %struct.btmesh_property_t { i16 156, i16 11013 }, %struct.btmesh_property_t { i16 157, i16 11032 }, %struct.btmesh_property_t { i16 158, i16 11032 }, %struct.btmesh_property_t { i16 159, i16 11013 }, %struct.btmesh_property_t { i16 160, i16 10989 }, %struct.btmesh_property_t { i16 62, i16 11004 }, %struct.btmesh_property_t { i16 63, i16 11005 }, %struct.btmesh_property_t { i16 64, i16 11006 }, %struct.btmesh_property_t { i16 65, i16 11008 }, %struct.btmesh_property_t { i16 161, i16 11227 }, %struct.btmesh_property_t { i16 162, i16 10912 }, %struct.btmesh_property_t { i16 163, i16 10913 }, %struct.btmesh_property_t { i16 66, i16 11012 }, %struct.btmesh_property_t { i16 67, i16 11012 }, %struct.btmesh_property_t { i16 164, i16 11225 }, %struct.btmesh_property_t { i16 68, i16 10996 }, %struct.btmesh_property_t { i16 69, i16 11023 }, %struct.btmesh_property_t { i16 183, i16 11012 }, %struct.btmesh_property_t { i16 70, i16 10991 }, %struct.btmesh_property_t { i16 71, i16 10993 }, %struct.btmesh_property_t { i16 181, i16 10996 }, %struct.btmesh_property_t { i16 72, i16 11012 }, %struct.btmesh_property_t { i16 73, i16 11033 }, %struct.btmesh_property_t { i16 74, i16 11034 }, %struct.btmesh_property_t { i16 75, i16 10996 }, %struct.btmesh_property_t { i16 165, i16 10996 }, %struct.btmesh_property_t { i16 76, i16 10986 }, %struct.btmesh_property_t { i16 166, i16 10869 }, %struct.btmesh_property_t { i16 115, i16 11218 }, %struct.btmesh_property_t { i16 117, i16 10862 }, %struct.btmesh_property_t { i16 114, i16 11220 }, %struct.btmesh_property_t { i16 77, i16 10978 }, %struct.btmesh_property_t { i16 119, i16 11217 }, %struct.btmesh_property_t { i16 78, i16 11003 }, %struct.btmesh_property_t { i16 121, i16 11228 }, %struct.btmesh_property_t { i16 118, i16 10863 }, %struct.btmesh_property_t { i16 79, i16 11021 }, %struct.btmesh_property_t { i16 120, i16 11231 }, %struct.btmesh_property_t { i16 80, i16 10980 }, %struct.btmesh_property_t { i16 81, i16 10985 }, %struct.btmesh_property_t { i16 82, i16 11013 }, %struct.btmesh_property_t { i16 83, i16 11012 }, %struct.btmesh_property_t { i16 84, i16 10862 }, %struct.btmesh_property_t { i16 85, i16 11003 }, %struct.btmesh_property_t { i16 86, i16 11021 }, %struct.btmesh_property_t { i16 167, i16 10863 }, %struct.btmesh_property_t { i16 87, i16 10990 }, %struct.btmesh_property_t { i16 88, i16 11012 }, %struct.btmesh_property_t { i16 89, i16 11032 }, %struct.btmesh_property_t { i16 90, i16 11007 }, %struct.btmesh_property_t { i16 91, i16 11021 }, %struct.btmesh_property_t { i16 168, i16 10863 }, %struct.btmesh_property_t { i16 92, i16 10990 }, %struct.btmesh_property_t { i16 93, i16 11032 }, %struct.btmesh_property_t { i16 94, i16 10979 }, %struct.btmesh_property_t { i16 95, i16 11012 }, %struct.btmesh_property_t { i16 169, i16 10861 }, %struct.btmesh_property_t { i16 170, i16 10872 }, %struct.btmesh_property_t { i16 171, i16 11028 }, %struct.btmesh_property_t { i16 172, i16 10987 }, %struct.btmesh_property_t { i16 173, i16 11222 }, %struct.btmesh_property_t { i16 96, i16 10995 }, %struct.btmesh_property_t { i16 97, i16 11016 }, %struct.btmesh_property_t { i16 98, i16 11018 }, %struct.btmesh_property_t { i16 99, i16 11005 }, %struct.btmesh_property_t { i16 100, i16 11020 }, %struct.btmesh_property_t { i16 101, i16 11015 }, %struct.btmesh_property_t { i16 102, i16 11017 }, %struct.btmesh_property_t { i16 116, i16 10984 }, %struct.btmesh_property_t { i16 103, i16 10996 }, %struct.btmesh_property_t { i16 182, i16 10996 }, %struct.btmesh_property_t { i16 104, i16 11030 }, %struct.btmesh_property_t { i16 105, i16 11030 }, %struct.btmesh_property_t { i16 106, i16 10994 }, %struct.btmesh_property_t { i16 107, i16 10987 }, %struct.btmesh_property_t { i16 108, i16 10987 }, %struct.btmesh_property_t { i16 109, i16 11028 }, %struct.btmesh_property_t { i16 110, i16 11028 }, %struct.btmesh_property_t { i16 174, i16 10987 }, %struct.btmesh_property_t { i16 111, i16 11028 }, %struct.btmesh_property_t { i16 112, i16 11005 }, %struct.btmesh_property_t { i16 175, i16 10865 }, %struct.btmesh_property_t { i16 176, i16 10864 }, %struct.btmesh_property_t { i16 177, i16 10870 }, %struct.btmesh_property_t { i16 178, i16 10873 }, %struct.btmesh_property_t zeroinitializer], align 16
@@ -7459,21 +7456,21 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
     i32 32769, label %254
     i32 32770, label %264
     i32 32771, label %307
-    i32 32772, label %.loopexit3981
+    i32 32772, label %.loopexit3983
     i32 32773, label %320
     i32 32774, label %324
     i32 32775, label %328
     i32 32776, label %332
-    i32 32777, label %.loopexit3981
+    i32 32777, label %.loopexit3983
     i32 32778, label %336
     i32 32779, label %340
-    i32 32780, label %.loopexit3981
+    i32 32780, label %.loopexit3983
     i32 32781, label %344
     i32 32782, label %348
-    i32 32783, label %.loopexit3981
+    i32 32783, label %.loopexit3983
     i32 32784, label %352
     i32 32785, label %356
-    i32 32786, label %.loopexit3981
+    i32 32786, label %.loopexit3983
     i32 32787, label %360
     i32 32788, label %364
     i32 32789, label %368
@@ -7490,10 +7487,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
     i32 32800, label %607
     i32 32801, label %624
     i32 32802, label %641
-    i32 32803, label %.loopexit3981
+    i32 32803, label %.loopexit3983
     i32 32804, label %658
     i32 32805, label %668
-    i32 32806, label %.loopexit3981
+    i32 32806, label %.loopexit3983
     i32 32807, label %678
     i32 32808, label %691
     i32 32809, label %704
@@ -7507,13 +7504,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
     i32 32817, label %777
     i32 32818, label %781
     i32 32819, label %788
-    i32 32820, label %.loopexit3981
+    i32 32820, label %.loopexit3983
     i32 32821, label %795
     i32 32822, label %799
     i32 32823, label %803
-    i32 32824, label %.loopexit3981
+    i32 32824, label %.loopexit3983
     i32 32825, label %807
-    i32 32826, label %.loopexit3981
+    i32 32826, label %.loopexit3983
     i32 32827, label %833
     i32 32828, label %843
     i32 32829, label %865
@@ -7521,15 +7518,15 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
     i32 32831, label %914
     i32 32832, label %937
     i32 32833, label %950
-    i32 32834, label %.loopexit3981
+    i32 32834, label %.loopexit3983
     i32 32835, label %960
     i32 32836, label %991
     i32 32837, label %1004
     i32 32838, label %1017
     i32 32839, label %1027
     i32 32840, label %1040
-    i32 32841, label %.loopexit3981
-    i32 32842, label %.loopexit3981
+    i32 32841, label %.loopexit3983
+    i32 32842, label %.loopexit3983
     i32 32843, label %1056
     i32 32844, label %1063
     i32 32845, label %1103
@@ -7537,11 +7534,11 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
     i32 64, label %1150
     i32 65, label %1160
     i32 66, label %1170
-    i32 33281, label %.loopexit3981
+    i32 33281, label %.loopexit3983
     i32 33282, label %1180
     i32 33283, label %1202
     i32 33284, label %1224
-    i32 33285, label %.loopexit3981
+    i32 33285, label %.loopexit3983
     i32 33286, label %1243
     i32 33287, label %1265
     i32 33288, label %1287
@@ -7549,40 +7546,40 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
     i32 33290, label %1328
     i32 33291, label %1350
     i32 33292, label %1372
-    i32 33293, label %.loopexit3981
+    i32 33293, label %.loopexit3983
     i32 33294, label %1394
     i32 33295, label %1404
     i32 33296, label %1414
-    i32 33297, label %.loopexit3981
+    i32 33297, label %.loopexit3983
     i32 33298, label %1424
     i32 33299, label %1428
     i32 33300, label %1432
-    i32 33301, label %.loopexit3981
+    i32 33301, label %.loopexit3983
     i32 33302, label %1436
     i32 33303, label %1458
     i32 33304, label %1480
-    i32 33305, label %.loopexit3981
+    i32 33305, label %.loopexit3983
     i32 33306, label %1499
-    i32 33307, label %.loopexit3981
+    i32 33307, label %.loopexit3983
     i32 33308, label %1503
-    i32 33309, label %.loopexit3981
+    i32 33309, label %.loopexit3983
     i32 33310, label %1507
     i32 33311, label %1517
     i32 33312, label %1521
     i32 33313, label %1525
     i32 33314, label %1532
-    i32 33315, label %.loopexit3981
+    i32 33315, label %.loopexit3983
     i32 33316, label %1539
-    i32 33317, label %.loopexit3981
-    i32 33318, label %.loopexit3981
+    i32 33317, label %.loopexit3983
+    i32 33318, label %.loopexit3983
     i32 33319, label %1558
     i32 33320, label %1580
     i32 33321, label %1602
     i32 94, label %1624
-    i32 33345, label %.loopexit3981
+    i32 33345, label %.loopexit3983
     i32 33346, label %1646
     i32 33347, label %1668
-    i32 33348, label %.loopexit3981
+    i32 33348, label %.loopexit3983
     i32 33349, label %1690
     i32 33350, label %1707
     i32 33351, label %1711
@@ -7593,118 +7590,118 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
     i32 95, label %1762
     i32 96, label %1837
     i32 97, label %1912
-    i32 33335, label %.loopexit3981
-    i32 33336, label %.loopexit3981
+    i32 33335, label %.loopexit3983
+    i32 33336, label %.loopexit3983
     i32 33337, label %1987
     i32 33338, label %1991
-    i32 33339, label %.loopexit3981
+    i32 33339, label %.loopexit3983
     i32 33340, label %1995
     i32 33341, label %2002
-    i32 33342, label %.loopexit3981
+    i32 33342, label %.loopexit3983
     i32 33343, label %2012
     i32 33344, label %2021
     i32 33352, label %2035
-    i32 33353, label %.loopexit3981
+    i32 33353, label %.loopexit3983
     i32 33354, label %2039
     i32 98, label %2077
     i32 99, label %2086
     i32 100, label %2095
-    i32 33355, label %.loopexit3981
+    i32 33355, label %.loopexit3983
     i32 33356, label %2104
     i32 33357, label %2126
     i32 33358, label %2148
-    i32 33359, label %.loopexit3981
+    i32 33359, label %.loopexit3983
     i32 33360, label %2167
     i32 33361, label %2189
     i32 33362, label %2211
-    i32 33363, label %.loopexit3981
+    i32 33363, label %.loopexit3983
     i32 33364, label %2230
-    i32 33365, label %.loopexit3981
+    i32 33365, label %.loopexit3983
     i32 33366, label %2234
-    i32 33367, label %.loopexit3981
+    i32 33367, label %.loopexit3983
     i32 33368, label %2238
     i32 33369, label %2248
     i32 33370, label %2252
     i32 33371, label %2256
     i32 33372, label %2263
-    i32 33373, label %.loopexit3981
+    i32 33373, label %.loopexit3983
     i32 33374, label %2270
     i32 33375, label %2298
     i32 33376, label %2326
-    i32 33377, label %.loopexit3981
-    i32 33378, label %.loopexit3981
+    i32 33377, label %.loopexit3983
+    i32 33378, label %.loopexit3983
     i32 33379, label %2351
     i32 33380, label %2361
     i32 33381, label %2386
     i32 33382, label %2411
-    i32 33383, label %.loopexit3981
+    i32 33383, label %.loopexit3983
     i32 33384, label %2436
     i32 33385, label %2446
     i32 33386, label %2456
     i32 33387, label %2466
     i32 33388, label %2473
-    i32 33389, label %.loopexit3981
-    i32 33390, label %.loopexit3981
+    i32 33389, label %.loopexit3983
+    i32 33390, label %.loopexit3983
     i32 33391, label %2480
     i32 33392, label %2502
     i32 33393, label %2524
-    i32 33394, label %.loopexit3981
+    i32 33394, label %.loopexit3983
     i32 33395, label %2543
     i32 33396, label %2565
     i32 33397, label %2587
     i32 33398, label %2606
     i32 33399, label %2634
     i32 33400, label %2662
-    i32 33401, label %.loopexit3981
+    i32 33401, label %.loopexit3983
     i32 33402, label %2684
-    i32 33403, label %.loopexit3981
+    i32 33403, label %.loopexit3983
     i32 33404, label %2706
-    i32 33405, label %.loopexit3981
+    i32 33405, label %.loopexit3983
     i32 33406, label %2716
     i32 33407, label %2732
     i32 33408, label %2742
     i32 33409, label %2752
     i32 33410, label %2765
-    i32 33411, label %.loopexit3981
+    i32 33411, label %.loopexit3983
     i32 33412, label %2778
     i32 33413, label %2806
     i32 33414, label %2834
-    i32 33415, label %.loopexit3981
+    i32 33415, label %.loopexit3983
     i32 33416, label %2856
-    i32 33417, label %.loopexit3981
+    i32 33417, label %.loopexit3983
     i32 33418, label %2878
-    i32 33419, label %.loopexit3981
+    i32 33419, label %.loopexit3983
     i32 33420, label %2888
     i32 33421, label %2904
     i32 33422, label %2914
     i32 33423, label %2924
     i32 33424, label %2937
-    i32 33425, label %.loopexit3981
+    i32 33425, label %.loopexit3983
     i32 33426, label %2950
     i32 33427, label %2954
     i32 33428, label %2958
-    i32 33429, label %.loopexit3981
+    i32 33429, label %.loopexit3983
     i32 33430, label %2962
     i32 33431, label %2966
     i32 33432, label %2970
-    i32 33433, label %.loopexit3981
+    i32 33433, label %.loopexit3983
     i32 33434, label %2974
     i32 33435, label %2996
     i32 33436, label %3018
     i32 33437, label %3037
-    i32 33322, label %.loopexit3981
+    i32 33322, label %.loopexit3983
     i32 67, label %3041
     i32 33323, label %3052
     i32 68, label %3056
     i32 69, label %3063
     i32 70, label %3070
-    i32 33324, label %.loopexit3981
+    i32 33324, label %.loopexit3983
     i32 71, label %3085
     i32 33325, label %3096
     i32 72, label %3100
     i32 73, label %3112
     i32 74, label %3124
-    i32 33326, label %.loopexit3981
+    i32 33326, label %.loopexit3983
     i32 75, label %3139
     i32 33327, label %3150
     i32 76, label %3154
@@ -7725,17 +7722,17 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
     i32 90, label %3323
     i32 91, label %3335
     i32 33329, label %3353
-    i32 82, label %.preheader3997
+    i32 82, label %.preheader3999
     i32 33330, label %3384
     i32 83, label %3391
     i32 33331, label %3398
     i32 84, label %3408
   ]
 
-.preheader3997:                                   ; preds = %42
+.preheader3999:                                   ; preds = %42
   %44 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.lr.ph4002, label %.loopexit3981
+  br i1 %45, label %.lr.ph4004, label %.loopexit3983
 
 46:                                               ; preds = %42
   %47 = load i32, ptr @hf_btmesh_config_appkey_add_netkeyindexandappkeyindex, align 4
@@ -7750,7 +7747,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %56 = load i32, ptr @hf_btmesh_config_appkey_add_appkey, align 4
   %57 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %56, ptr noundef nonnull %0, i32 noundef %55, i32 noundef 16, i32 noundef 0) #16
   %58 = add nuw nsw i32 %.03971, 19
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 59:                                               ; preds = %42
   %60 = load i32, ptr @hf_btmesh_config_appkey_update_netkeyindexandappkeyindex, align 4
@@ -7765,7 +7762,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %69 = load i32, ptr @hf_btmesh_config_appkey_update_appkey, align 4
   %70 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %69, ptr noundef nonnull %0, i32 noundef %68, i32 noundef 16, i32 noundef 0) #16
   %71 = add nuw nsw i32 %.03971, 19
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 72:                                               ; preds = %42
   %73 = load i32, ptr @hf_btmesh_config_composition_data_status_page, align 4
@@ -7789,15 +7786,15 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %91 = add nuw nsw i32 %.03971, 11
   %92 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %91) #16
   %93 = icmp sgt i32 %92, 2
-  br i1 %93, label %.lr.ph4055, label %.loopexit3981
+  br i1 %93, label %.lr.ph4057, label %.loopexit3983
 
-.lr.ph4055:                                       ; preds = %72, %.loopexit
-  %.039704054 = phi i32 [ %129, %.loopexit ], [ 1, %72 ]
-  %.24053 = phi i32 [ %.5, %.loopexit ], [ %91, %72 ]
-  %94 = add i32 %.24053, 2
+.lr.ph4057:                                       ; preds = %72, %.loopexit
+  %.039704056 = phi i32 [ %129, %.loopexit ], [ 1, %72 ]
+  %.24055 = phi i32 [ %.5, %.loopexit ], [ %91, %72 ]
+  %94 = add i32 %.24055, 2
   %95 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %94) #16
   %96 = zext i8 %95 to i32
-  %97 = add i32 %.24053, 3
+  %97 = add i32 %.24055, 3
   %98 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %97) #16
   %99 = zext i8 %98 to i32
   %100 = shl nuw nsw i32 %96, 1
@@ -7805,58 +7802,58 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %102 = shl nuw nsw i32 %99, 2
   %103 = add nuw nsw i32 %101, %102
   %104 = load i32, ptr @ett_btmesh_config_model_element, align 4
-  %105 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %.24053, i32 noundef %103, i32 noundef %104, ptr noundef null, ptr noundef nonnull @.str.2196, i32 noundef %.039704054) #16
+  %105 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %.24055, i32 noundef %103, i32 noundef %104, ptr noundef null, ptr noundef nonnull @.str.2196, i32 noundef %.039704056) #16
   %106 = load i32, ptr @hf_btmesh_config_composition_data_status_loc, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef nonnull %0, i32 noundef %.24053, i32 noundef 2, i32 noundef -2147483648) #16
+  %107 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef nonnull %0, i32 noundef %.24055, i32 noundef 2, i32 noundef -2147483648) #16
   %108 = load i32, ptr @hf_btmesh_config_composition_data_status_nums, align 4
   %109 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %108, ptr noundef nonnull %0, i32 noundef %94, i32 noundef 1, i32 noundef -2147483648) #16
   %110 = load i32, ptr @hf_btmesh_config_composition_data_status_numv, align 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %110, ptr noundef nonnull %0, i32 noundef %97, i32 noundef 1, i32 noundef -2147483648) #16
-  %112 = add i32 %.24053, 4
+  %112 = add i32 %.24055, 4
   %.not3976 = icmp eq i8 %95, 0
-  br i1 %.not3976, label %.loopexit3980, label %113
+  br i1 %.not3976, label %.loopexit3982, label %113
 
-113:                                              ; preds = %.lr.ph4055
+113:                                              ; preds = %.lr.ph4057
   %114 = load i32, ptr @ett_btmesh_config_model_model, align 4
   %115 = call ptr @proto_tree_add_subtree(ptr noundef %105, ptr noundef nonnull %0, i32 noundef %112, i32 noundef %100, i32 noundef %114, ptr noundef null, ptr noundef nonnull @.str.2197) #16
   br label %116
 
 116:                                              ; preds = %113, %116
-  %.04050 = phi i32 [ 0, %113 ], [ %120, %116 ]
-  %.44049 = phi i32 [ %112, %113 ], [ %119, %116 ]
+  %.04052 = phi i32 [ 0, %113 ], [ %120, %116 ]
+  %.44051 = phi i32 [ %112, %113 ], [ %119, %116 ]
   %117 = load i32, ptr @hf_btmesh_config_composition_data_status_sig_model, align 4
-  %118 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %117, ptr noundef nonnull %0, i32 noundef %.44049, i32 noundef 2, i32 noundef -2147483648) #16
-  %119 = add i32 %.44049, 2
-  %120 = add nuw nsw i32 %.04050, 1
+  %118 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %117, ptr noundef nonnull %0, i32 noundef %.44051, i32 noundef 2, i32 noundef -2147483648) #16
+  %119 = add i32 %.44051, 2
+  %120 = add nuw nsw i32 %.04052, 1
   %exitcond.not = icmp eq i32 %120, %96
-  br i1 %exitcond.not, label %.loopexit3980, label %116, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit3982, label %116, !llvm.loop !15
 
-.loopexit3980:                                    ; preds = %116, %.lr.ph4055
-  %.3 = phi i32 [ %112, %.lr.ph4055 ], [ %119, %116 ]
+.loopexit3982:                                    ; preds = %116, %.lr.ph4057
+  %.3 = phi i32 [ %112, %.lr.ph4057 ], [ %119, %116 ]
   %.not3977 = icmp eq i8 %98, 0
   br i1 %.not3977, label %.loopexit, label %121
 
-121:                                              ; preds = %.loopexit3980
+121:                                              ; preds = %.loopexit3982
   %122 = load i32, ptr @ett_btmesh_config_model_vendor, align 4
   %123 = call ptr @proto_tree_add_subtree(ptr noundef %105, ptr noundef nonnull %0, i32 noundef %.3, i32 noundef %102, i32 noundef %122, ptr noundef null, ptr noundef nonnull @.str.2198) #16
   br label %124
 
 124:                                              ; preds = %121, %124
-  %.14052 = phi i32 [ 0, %121 ], [ %128, %124 ]
-  %.64051 = phi i32 [ %.3, %121 ], [ %127, %124 ]
+  %.14054 = phi i32 [ 0, %121 ], [ %128, %124 ]
+  %.64053 = phi i32 [ %.3, %121 ], [ %127, %124 ]
   %125 = load i32, ptr @hf_btmesh_config_composition_data_status_vendor_model, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %125, ptr noundef nonnull %0, i32 noundef %.64051, i32 noundef 4, i32 noundef -2147483648) #16
-  %127 = add i32 %.64051, 4
-  %128 = add nuw nsw i32 %.14052, 1
-  %exitcond4088.not = icmp eq i32 %128, %99
-  br i1 %exitcond4088.not, label %.loopexit, label %124, !llvm.loop !16
+  %126 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %125, ptr noundef nonnull %0, i32 noundef %.64053, i32 noundef 4, i32 noundef -2147483648) #16
+  %127 = add i32 %.64053, 4
+  %128 = add nuw nsw i32 %.14054, 1
+  %exitcond4090.not = icmp eq i32 %128, %99
+  br i1 %exitcond4090.not, label %.loopexit, label %124, !llvm.loop !16
 
-.loopexit:                                        ; preds = %124, %.loopexit3980
-  %.5 = phi i32 [ %.3, %.loopexit3980 ], [ %127, %124 ]
-  %129 = add i32 %.039704054, 1
+.loopexit:                                        ; preds = %124, %.loopexit3982
+  %.5 = phi i32 [ %.3, %.loopexit3982 ], [ %127, %124 ]
+  %129 = add i32 %.039704056, 1
   %130 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.5) #16
   %131 = icmp sgt i32 %130, 2
-  br i1 %131, label %.lr.ph4055, label %.loopexit3981, !llvm.loop !17
+  br i1 %131, label %.lr.ph4057, label %.loopexit3983, !llvm.loop !17
 
 132:                                              ; preds = %42
   %133 = load i32, ptr @hf_btmesh_config_model_publication_set_elementaddress, align 4
@@ -7905,13 +7902,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %174 = load i32, ptr @hf_btmesh_config_model_publication_set_vendormodelidentifier, align 4
   %175 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %174, ptr noundef nonnull %0, i32 noundef %170, i32 noundef 4, i32 noundef -2147483648) #16
   %176 = add nuw nsw i32 %.03971, 13
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 177:                                              ; preds = %132
   %178 = load i32, ptr @hf_btmesh_config_model_publication_set_modelidentifier, align 4
   %179 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %178, ptr noundef nonnull %0, i32 noundef %170, i32 noundef 2, i32 noundef -2147483648) #16
   %180 = add nuw nsw i32 %.03971, 11
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 181:                                              ; preds = %42
   %182 = load i32, ptr @hf_btmesh_health_current_status_test_id, align 4
@@ -7925,16 +7922,16 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %190 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %187, i32 noundef %188, i32 noundef %189, ptr noundef null, ptr noundef nonnull @.str.2199) #16
   %191 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %187) #16
   %192 = icmp sgt i32 %191, 0
-  br i1 %192, label %.lr.ph4047, label %.loopexit3981
+  br i1 %192, label %.lr.ph4049, label %.loopexit3983
 
-.lr.ph4047:                                       ; preds = %181, %.lr.ph4047
-  %.74046 = phi i32 [ %195, %.lr.ph4047 ], [ %187, %181 ]
+.lr.ph4049:                                       ; preds = %181, %.lr.ph4049
+  %.74048 = phi i32 [ %195, %.lr.ph4049 ], [ %187, %181 ]
   %193 = load i32, ptr @hf_btmesh_health_current_status_fault, align 4
-  %194 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %193, ptr noundef nonnull %0, i32 noundef %.74046, i32 noundef 1, i32 noundef -2147483648) #16
-  %195 = add i32 %.74046, 1
+  %194 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %193, ptr noundef nonnull %0, i32 noundef %.74048, i32 noundef 1, i32 noundef -2147483648) #16
+  %195 = add i32 %.74048, 1
   %196 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %195) #16
   %197 = icmp sgt i32 %196, 0
-  br i1 %197, label %.lr.ph4047, label %.loopexit3981, !llvm.loop !18
+  br i1 %197, label %.lr.ph4049, label %.loopexit3983, !llvm.loop !18
 
 198:                                              ; preds = %42
   %199 = load i32, ptr @hf_btmesh_health_fault_status_test_id, align 4
@@ -7948,16 +7945,16 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %207 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %204, i32 noundef %205, i32 noundef %206, ptr noundef null, ptr noundef nonnull @.str.2199) #16
   %208 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %204) #16
   %209 = icmp sgt i32 %208, 0
-  br i1 %209, label %.lr.ph4044, label %.loopexit3981
+  br i1 %209, label %.lr.ph4046, label %.loopexit3983
 
-.lr.ph4044:                                       ; preds = %198, %.lr.ph4044
-  %.84043 = phi i32 [ %212, %.lr.ph4044 ], [ %204, %198 ]
+.lr.ph4046:                                       ; preds = %198, %.lr.ph4046
+  %.84045 = phi i32 [ %212, %.lr.ph4046 ], [ %204, %198 ]
   %210 = load i32, ptr @hf_btmesh_health_fault_status_fault, align 4
-  %211 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %210, ptr noundef nonnull %0, i32 noundef %.84043, i32 noundef 1, i32 noundef -2147483648) #16
-  %212 = add i32 %.84043, 1
+  %211 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %210, ptr noundef nonnull %0, i32 noundef %.84045, i32 noundef 1, i32 noundef -2147483648) #16
+  %212 = add i32 %.84045, 1
   %213 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %212) #16
   %214 = icmp sgt i32 %213, 0
-  br i1 %214, label %.lr.ph4044, label %.loopexit3981, !llvm.loop !19
+  br i1 %214, label %.lr.ph4046, label %.loopexit3983, !llvm.loop !19
 
 215:                                              ; preds = %42
   %216 = load i32, ptr @hf_btmesh_config_heartbeat_publication_status_status, align 4
@@ -7988,7 +7985,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %241 = load i32, ptr @hf_btmesh_config_heartbeat_publication_status_netkeyindex_rfu, align 4
   %242 = call ptr @proto_tree_add_item(ptr noundef %238, i32 noundef %241, ptr noundef nonnull %0, i32 noundef %234, i32 noundef 2, i32 noundef -2147483648) #16
   %243 = add nuw nsw i32 %.03971, 10
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 244:                                              ; preds = %42
   %245 = load i32, ptr @hf_btmesh_config_appkey_delete_netkeyindexandappkeyindex, align 4
@@ -8000,7 +7997,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %251 = load i32, ptr @hf_btmesh_config_appkey_delete_netkeyindexandappkeyindex_app, align 4
   %252 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %251, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
   %253 = add nuw nsw i32 %.03971, 3
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 254:                                              ; preds = %42
   %255 = load i32, ptr @hf_btmesh_config_appkey_get_netkeyindex, align 4
@@ -8012,7 +8009,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %261 = load i32, ptr @hf_btmesh_config_appkey_get_netkeyindex_rfu, align 4
   %262 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %261, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %263 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 264:                                              ; preds = %42
   %265 = load i32, ptr @hf_btmesh_config_appkey_list_status, align 4
@@ -8032,43 +8029,43 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %279 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %276, i32 noundef %277, i32 noundef %278, ptr noundef null, ptr noundef nonnull @.str.2200) #16
   %280 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %276) #16
   %281 = icmp sgt i32 %280, 1
-  br i1 %281, label %.lr.ph4041, label %.loopexit3981
+  br i1 %281, label %.lr.ph4043, label %.loopexit3983
 
-.lr.ph4041:                                       ; preds = %264, %303
-  %.94040 = phi i32 [ %304, %303 ], [ %276, %264 ]
-  %282 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.94040) #16
+.lr.ph4043:                                       ; preds = %264, %303
+  %.94042 = phi i32 [ %304, %303 ], [ %276, %264 ]
+  %282 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.94042) #16
   %283 = icmp sgt i32 %282, 2
   br i1 %283, label %284, label %294
 
-284:                                              ; preds = %.lr.ph4041
-  %285 = call i32 @tvb_get_guint24(ptr noundef nonnull %0, i32 noundef %.94040, i32 noundef -2147483648) #16
+284:                                              ; preds = %.lr.ph4043
+  %285 = call i32 @tvb_get_guint24(ptr noundef nonnull %0, i32 noundef %.94042, i32 noundef -2147483648) #16
   %286 = load i32, ptr @hf_btmesh_config_appkey_list_appkeyindex, align 4
   %287 = and i32 %285, 4095
-  %288 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %286, ptr noundef nonnull %0, i32 noundef %.94040, i32 noundef 2, i32 noundef %287) #16
+  %288 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %286, ptr noundef nonnull %0, i32 noundef %.94042, i32 noundef 2, i32 noundef %287) #16
   %289 = load i32, ptr @hf_btmesh_config_appkey_list_appkeyindex, align 4
-  %290 = add i32 %.94040, 1
+  %290 = add i32 %.94042, 1
   %291 = lshr i32 %285, 12
   %292 = and i32 %291, 4095
   %293 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %289, ptr noundef nonnull %0, i32 noundef %290, i32 noundef 2, i32 noundef %292) #16
   br label %303
 
-294:                                              ; preds = %.lr.ph4041
-  %295 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.94040, i32 noundef -2147483648) #16
+294:                                              ; preds = %.lr.ph4043
+  %295 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.94042, i32 noundef -2147483648) #16
   %296 = zext i16 %295 to i32
   %297 = load i32, ptr @hf_btmesh_config_appkey_list_appkeyindex, align 4
   %298 = and i32 %296, 4095
-  %299 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %297, ptr noundef nonnull %0, i32 noundef %.94040, i32 noundef 2, i32 noundef %298) #16
+  %299 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %297, ptr noundef nonnull %0, i32 noundef %.94042, i32 noundef 2, i32 noundef %298) #16
   %300 = load i32, ptr @hf_btmesh_config_appkey_list_appkeyindex_rfu, align 4
   %301 = lshr i32 %296, 12
-  %302 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %300, ptr noundef nonnull %0, i32 noundef %.94040, i32 noundef 2, i32 noundef %301) #16
+  %302 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %300, ptr noundef nonnull %0, i32 noundef %.94042, i32 noundef 2, i32 noundef %301) #16
   br label %303
 
 303:                                              ; preds = %294, %284
   %.sink = phi i32 [ 2, %294 ], [ 3, %284 ]
-  %304 = add i32 %.94040, %.sink
+  %304 = add i32 %.94042, %.sink
   %305 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %304) #16
   %306 = icmp sgt i32 %305, 1
-  br i1 %306, label %.lr.ph4041, label %.loopexit3981, !llvm.loop !20
+  br i1 %306, label %.lr.ph4043, label %.loopexit3983, !llvm.loop !20
 
 307:                                              ; preds = %42
   %308 = load i32, ptr @hf_btmesh_config_appkey_status_status, align 4
@@ -8083,79 +8080,79 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %317 = load i32, ptr @hf_btmesh_config_appkey_status_netkeyindexandappkeyindex_app, align 4
   %318 = call ptr @proto_tree_add_item(ptr noundef %314, i32 noundef %317, ptr noundef nonnull %0, i32 noundef %310, i32 noundef 3, i32 noundef -2147483648) #16
   %319 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 320:                                              ; preds = %42
   %321 = load i32, ptr @hf_btmesh_health_attention_set_attention, align 4
   %322 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %321, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %323 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 324:                                              ; preds = %42
   %325 = load i32, ptr @hf_btmesh_health_attention_set_unacknowledged_attention, align 4
   %326 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %325, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %327 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 328:                                              ; preds = %42
   %329 = load i32, ptr @hf_btmesh_health_attention_status_attention, align 4
   %330 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %329, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %331 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 332:                                              ; preds = %42
   %333 = load i32, ptr @hf_btmesh_config_composition_data_get_page, align 4
   %334 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %333, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %335 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 336:                                              ; preds = %42
   %337 = load i32, ptr @hf_btmesh_config_beacon_set_beacon, align 4
   %338 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %337, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %339 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 340:                                              ; preds = %42
   %341 = load i32, ptr @hf_btmesh_config_beacon_status_beacon, align 4
   %342 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %341, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %343 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 344:                                              ; preds = %42
   %345 = load i32, ptr @hf_btmesh_config_default_ttl_set_ttl, align 4
   %346 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %345, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %347 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 348:                                              ; preds = %42
   %349 = load i32, ptr @hf_btmesh_config_default_ttl_status_ttl, align 4
   %350 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %349, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %351 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 352:                                              ; preds = %42
   %353 = load i32, ptr @hf_btmesh_config_friend_set_friend, align 4
   %354 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %353, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %355 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 356:                                              ; preds = %42
   %357 = load i32, ptr @hf_btmesh_config_friend_status_friend, align 4
   %358 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %357, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %359 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 360:                                              ; preds = %42
   %361 = load i32, ptr @hf_btmesh_config_gatt_proxy_set_gattproxy, align 4
   %362 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %361, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %363 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 364:                                              ; preds = %42
   %365 = load i32, ptr @hf_btmesh_config_gatt_proxy_status_gattproxy, align 4
   %366 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %365, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %367 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 368:                                              ; preds = %42
   %369 = load i32, ptr @hf_btmesh_config_key_refresh_phase_get_netkeyindex, align 4
@@ -8167,7 +8164,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %375 = load i32, ptr @hf_btmesh_config_key_refresh_phase_get_netkeyindex_rfu, align 4
   %376 = call ptr @proto_tree_add_item(ptr noundef %372, i32 noundef %375, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %377 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 378:                                              ; preds = %42
   %379 = load i32, ptr @hf_btmesh_config_key_refresh_phase_set_netkeyindex, align 4
@@ -8182,7 +8179,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %388 = load i32, ptr @hf_btmesh_config_key_refresh_phase_set_transition, align 4
   %389 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %388, ptr noundef nonnull %0, i32 noundef %387, i32 noundef 1, i32 noundef -2147483648) #16
   %390 = add nuw nsw i32 %.03971, 3
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 391:                                              ; preds = %42
   %392 = load i32, ptr @hf_btmesh_config_key_refresh_phase_status_status, align 4
@@ -8200,7 +8197,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %404 = load i32, ptr @hf_btmesh_config_key_refresh_phase_status_phase, align 4
   %405 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %404, ptr noundef nonnull %0, i32 noundef %403, i32 noundef 1, i32 noundef -2147483648) #16
   %406 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 407:                                              ; preds = %42
   %408 = load i32, ptr @hf_btmesh_config_model_publication_get_elementaddress, align 4
@@ -8214,13 +8211,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %414 = load i32, ptr @hf_btmesh_config_model_publication_get_vendormodelidentifier, align 4
   %415 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %414, ptr noundef nonnull %0, i32 noundef %410, i32 noundef 4, i32 noundef -2147483648) #16
   %416 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 417:                                              ; preds = %407
   %418 = load i32, ptr @hf_btmesh_config_model_publication_get_modelidentifier, align 4
   %419 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %418, ptr noundef nonnull %0, i32 noundef %410, i32 noundef 2, i32 noundef -2147483648) #16
   %420 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 421:                                              ; preds = %42
   %422 = load i32, ptr @hf_btmesh_config_model_publication_status_status, align 4
@@ -8272,13 +8269,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %466 = load i32, ptr @hf_btmesh_config_model_publication_status_vendormodelidentifier, align 4
   %467 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %466, ptr noundef nonnull %0, i32 noundef %462, i32 noundef 4, i32 noundef -2147483648) #16
   %468 = add nuw nsw i32 %.03971, 14
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 469:                                              ; preds = %421
   %470 = load i32, ptr @hf_btmesh_config_model_publication_status_modelidentifier, align 4
   %471 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %470, ptr noundef nonnull %0, i32 noundef %462, i32 noundef 2, i32 noundef -2147483648) #16
   %472 = or disjoint i32 %.03971, 12
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 473:                                              ; preds = %42
   %474 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_elementaddress, align 4
@@ -8327,13 +8324,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %515 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_vendormodelidentifier, align 4
   %516 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %515, ptr noundef nonnull %0, i32 noundef %511, i32 noundef 4, i32 noundef -2147483648) #16
   %517 = add nuw nsw i32 %.03971, 27
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 518:                                              ; preds = %473
   %519 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_modelidentifier, align 4
   %520 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %519, ptr noundef nonnull %0, i32 noundef %511, i32 noundef 2, i32 noundef -2147483648) #16
   %521 = add nuw nsw i32 %.03971, 25
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 522:                                              ; preds = %42
   %523 = load i32, ptr @hf_btmesh_config_model_subscription_add_elementaddress, align 4
@@ -8350,13 +8347,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %532 = load i32, ptr @hf_btmesh_config_model_subscription_add_vendormodelidentifier, align 4
   %533 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %532, ptr noundef nonnull %0, i32 noundef %528, i32 noundef 4, i32 noundef -2147483648) #16
   %534 = or disjoint i32 %.03971, 8
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 535:                                              ; preds = %522
   %536 = load i32, ptr @hf_btmesh_config_model_subscription_add_modelidentifier, align 4
   %537 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %536, ptr noundef nonnull %0, i32 noundef %528, i32 noundef 2, i32 noundef -2147483648) #16
   %538 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 539:                                              ; preds = %42
   %540 = load i32, ptr @hf_btmesh_config_model_subscription_delete_elementaddress, align 4
@@ -8373,13 +8370,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %549 = load i32, ptr @hf_btmesh_config_model_subscription_delete_vendormodelidentifier, align 4
   %550 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %549, ptr noundef nonnull %0, i32 noundef %545, i32 noundef 4, i32 noundef -2147483648) #16
   %551 = or disjoint i32 %.03971, 8
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 552:                                              ; preds = %539
   %553 = load i32, ptr @hf_btmesh_config_model_subscription_delete_modelidentifier, align 4
   %554 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %553, ptr noundef nonnull %0, i32 noundef %545, i32 noundef 2, i32 noundef -2147483648) #16
   %555 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 556:                                              ; preds = %42
   %557 = load i32, ptr @hf_btmesh_config_model_subscription_delete_all_elementaddress, align 4
@@ -8393,13 +8390,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %563 = load i32, ptr @hf_btmesh_config_model_subscription_delete_all_vendormodelidentifier, align 4
   %564 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %563, ptr noundef nonnull %0, i32 noundef %559, i32 noundef 4, i32 noundef -2147483648) #16
   %565 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 566:                                              ; preds = %556
   %567 = load i32, ptr @hf_btmesh_config_model_subscription_delete_all_modelidentifier, align 4
   %568 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %567, ptr noundef nonnull %0, i32 noundef %559, i32 noundef 2, i32 noundef -2147483648) #16
   %569 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 570:                                              ; preds = %42
   %571 = load i32, ptr @hf_btmesh_config_model_subscription_overwrite_elementaddress, align 4
@@ -8416,13 +8413,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %580 = load i32, ptr @hf_btmesh_config_model_subscription_overwrite_vendormodelidentifier, align 4
   %581 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %580, ptr noundef nonnull %0, i32 noundef %576, i32 noundef 4, i32 noundef -2147483648) #16
   %582 = or disjoint i32 %.03971, 8
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 583:                                              ; preds = %570
   %584 = load i32, ptr @hf_btmesh_config_model_subscription_overwrite_modelidentifier, align 4
   %585 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %584, ptr noundef nonnull %0, i32 noundef %576, i32 noundef 2, i32 noundef -2147483648) #16
   %586 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 587:                                              ; preds = %42
   %588 = load i32, ptr @hf_btmesh_config_model_subscription_status_status, align 4
@@ -8442,13 +8439,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %600 = load i32, ptr @hf_btmesh_config_model_subscription_status_vendormodelidentifier, align 4
   %601 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %600, ptr noundef nonnull %0, i32 noundef %596, i32 noundef 4, i32 noundef -2147483648) #16
   %602 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 603:                                              ; preds = %587
   %604 = load i32, ptr @hf_btmesh_config_model_subscription_status_modelidentifier, align 4
   %605 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %604, ptr noundef nonnull %0, i32 noundef %596, i32 noundef 2, i32 noundef -2147483648) #16
   %606 = add nuw nsw i32 %.03971, 7
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 607:                                              ; preds = %42
   %608 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_add_elementaddress, align 4
@@ -8465,13 +8462,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %617 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_add_vendormodelidentifier, align 4
   %618 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %617, ptr noundef nonnull %0, i32 noundef %613, i32 noundef 4, i32 noundef -2147483648) #16
   %619 = add nuw nsw i32 %.03971, 22
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 620:                                              ; preds = %607
   %621 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_add_modelidentifier, align 4
   %622 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %621, ptr noundef nonnull %0, i32 noundef %613, i32 noundef 2, i32 noundef -2147483648) #16
   %623 = or disjoint i32 %.03971, 20
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 624:                                              ; preds = %42
   %625 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_delete_elementaddress, align 4
@@ -8488,13 +8485,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %634 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_delete_vendormodelidentifier, align 4
   %635 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %634, ptr noundef nonnull %0, i32 noundef %630, i32 noundef 4, i32 noundef -2147483648) #16
   %636 = add nuw nsw i32 %.03971, 22
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 637:                                              ; preds = %624
   %638 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_delete_modelidentifier, align 4
   %639 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %638, ptr noundef nonnull %0, i32 noundef %630, i32 noundef 2, i32 noundef -2147483648) #16
   %640 = or disjoint i32 %.03971, 20
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 641:                                              ; preds = %42
   %642 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_overwrite_elementaddress, align 4
@@ -8511,13 +8508,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %651 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_overwrite_vendormodelidentifier, align 4
   %652 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %651, ptr noundef nonnull %0, i32 noundef %647, i32 noundef 4, i32 noundef -2147483648) #16
   %653 = add nuw nsw i32 %.03971, 22
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 654:                                              ; preds = %641
   %655 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_overwrite_modelidentifier, align 4
   %656 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %655, ptr noundef nonnull %0, i32 noundef %647, i32 noundef 2, i32 noundef -2147483648) #16
   %657 = or disjoint i32 %.03971, 20
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 658:                                              ; preds = %42
   %659 = load i32, ptr @hf_btmesh_config_network_transmit_set_networktransmit, align 4
@@ -8529,7 +8526,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %665 = load i32, ptr @hf_btmesh_config_network_transmit_set_networktransmit_intervalsteps, align 4
   %666 = call ptr @proto_tree_add_item(ptr noundef %662, i32 noundef %665, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %667 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 668:                                              ; preds = %42
   %669 = load i32, ptr @hf_btmesh_config_network_transmit_status_networktransmit, align 4
@@ -8541,7 +8538,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %675 = load i32, ptr @hf_btmesh_config_network_transmit_status_networktransmit_intervalsteps, align 4
   %676 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %675, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %677 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 678:                                              ; preds = %42
   %679 = load i32, ptr @hf_btmesh_config_relay_set_relay, align 4
@@ -8556,7 +8553,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %688 = load i32, ptr @hf_btmesh_config_relay_set_relayretransmit_intervalsteps, align 4
   %689 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %688, ptr noundef nonnull %0, i32 noundef %681, i32 noundef 1, i32 noundef -2147483648) #16
   %690 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 691:                                              ; preds = %42
   %692 = load i32, ptr @hf_btmesh_config_relay_status_relay, align 4
@@ -8571,7 +8568,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %701 = load i32, ptr @hf_btmesh_config_relay_status_relayretransmit_intervalsteps, align 4
   %702 = call ptr @proto_tree_add_item(ptr noundef %698, i32 noundef %701, ptr noundef nonnull %0, i32 noundef %694, i32 noundef 1, i32 noundef -2147483648) #16
   %703 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 704:                                              ; preds = %42
   %705 = load i32, ptr @hf_btmesh_config_sig_model_subscription_get_elementaddress, align 4
@@ -8580,7 +8577,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %708 = load i32, ptr @hf_btmesh_config_sig_model_subscription_get_modelidentifier, align 4
   %709 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %708, ptr noundef nonnull %0, i32 noundef %707, i32 noundef 2, i32 noundef -2147483648) #16
   %710 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 711:                                              ; preds = %42
   %712 = load i32, ptr @hf_btmesh_config_sig_model_subscription_list_status, align 4
@@ -8597,16 +8594,16 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %723 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %720, i32 noundef %721, i32 noundef %722, ptr noundef null, ptr noundef nonnull @.str.2201) #16
   %724 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %720) #16
   %725 = icmp sgt i32 %724, 1
-  br i1 %725, label %.lr.ph4038, label %.loopexit3981
+  br i1 %725, label %.lr.ph4040, label %.loopexit3983
 
-.lr.ph4038:                                       ; preds = %711, %.lr.ph4038
-  %.114037 = phi i32 [ %728, %.lr.ph4038 ], [ %720, %711 ]
+.lr.ph4040:                                       ; preds = %711, %.lr.ph4040
+  %.114039 = phi i32 [ %728, %.lr.ph4040 ], [ %720, %711 ]
   %726 = load i32, ptr @hf_btmesh_config_sig_model_subscription_list_address, align 4
-  %727 = call ptr @proto_tree_add_item(ptr noundef %723, i32 noundef %726, ptr noundef nonnull %0, i32 noundef %.114037, i32 noundef 2, i32 noundef -2147483648) #16
-  %728 = add i32 %.114037, 2
+  %727 = call ptr @proto_tree_add_item(ptr noundef %723, i32 noundef %726, ptr noundef nonnull %0, i32 noundef %.114039, i32 noundef 2, i32 noundef -2147483648) #16
+  %728 = add i32 %.114039, 2
   %729 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %728) #16
   %730 = icmp sgt i32 %729, 1
-  br i1 %730, label %.lr.ph4038, label %.loopexit3981, !llvm.loop !21
+  br i1 %730, label %.lr.ph4040, label %.loopexit3983, !llvm.loop !21
 
 731:                                              ; preds = %42
   %732 = load i32, ptr @hf_btmesh_config_vendor_model_subscription_get_elementaddress, align 4
@@ -8615,7 +8612,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %735 = load i32, ptr @hf_btmesh_config_vendor_model_subscription_get_modelidentifier, align 4
   %736 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %735, ptr noundef nonnull %0, i32 noundef %734, i32 noundef 4, i32 noundef -2147483648) #16
   %737 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 738:                                              ; preds = %42
   %739 = load i32, ptr @hf_btmesh_config_vendor_model_subscription_list_status, align 4
@@ -8632,22 +8629,22 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %750 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %747, i32 noundef %748, i32 noundef %749, ptr noundef null, ptr noundef nonnull @.str.2201) #16
   %751 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %747) #16
   %752 = icmp sgt i32 %751, 1
-  br i1 %752, label %.lr.ph4035, label %.loopexit3981
+  br i1 %752, label %.lr.ph4037, label %.loopexit3983
 
-.lr.ph4035:                                       ; preds = %738, %.lr.ph4035
-  %.124034 = phi i32 [ %755, %.lr.ph4035 ], [ %747, %738 ]
+.lr.ph4037:                                       ; preds = %738, %.lr.ph4037
+  %.124036 = phi i32 [ %755, %.lr.ph4037 ], [ %747, %738 ]
   %753 = load i32, ptr @hf_btmesh_config_vendor_model_subscription_list_address, align 4
-  %754 = call ptr @proto_tree_add_item(ptr noundef %750, i32 noundef %753, ptr noundef nonnull %0, i32 noundef %.124034, i32 noundef 2, i32 noundef -2147483648) #16
-  %755 = add i32 %.124034, 2
+  %754 = call ptr @proto_tree_add_item(ptr noundef %750, i32 noundef %753, ptr noundef nonnull %0, i32 noundef %.124036, i32 noundef 2, i32 noundef -2147483648) #16
+  %755 = add i32 %.124036, 2
   %756 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %755) #16
   %757 = icmp sgt i32 %756, 1
-  br i1 %757, label %.lr.ph4035, label %.loopexit3981, !llvm.loop !22
+  br i1 %757, label %.lr.ph4037, label %.loopexit3983, !llvm.loop !22
 
 758:                                              ; preds = %42
   %759 = load i32, ptr @hf_btmesh_config_low_power_node_polltimeout_get_lpnaddress, align 4
   %760 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %759, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %761 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 762:                                              ; preds = %42
   %763 = load i32, ptr @hf_btmesh_config_low_power_node_polltimeout_status_lpnaddress, align 4
@@ -8656,25 +8653,25 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %766 = load i32, ptr @hf_btmesh_config_low_power_node_polltimeout_status_polltimeout, align 4
   %767 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %766, ptr noundef nonnull %0, i32 noundef %765, i32 noundef 3, i32 noundef -2147483648) #16
   %768 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 769:                                              ; preds = %42
   %770 = load i32, ptr @hf_btmesh_health_fault_clear_company_id, align 4
   %771 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %770, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %772 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 773:                                              ; preds = %42
   %774 = load i32, ptr @hf_btmesh_health_fault_clear_unacknowledged_company_id, align 4
   %775 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %774, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %776 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 777:                                              ; preds = %42
   %778 = load i32, ptr @hf_btmesh_health_fault_get_company_id, align 4
   %779 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %778, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %780 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 781:                                              ; preds = %42
   %782 = load i32, ptr @hf_btmesh_health_fault_test_test_id, align 4
@@ -8683,7 +8680,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %785 = load i32, ptr @hf_btmesh_health_fault_test_company_id, align 4
   %786 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %785, ptr noundef nonnull %0, i32 noundef %784, i32 noundef 2, i32 noundef -2147483648) #16
   %787 = add nuw nsw i32 %.03971, 3
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 788:                                              ; preds = %42
   %789 = load i32, ptr @hf_btmesh_health_fault_test_unacknowledged_test_id, align 4
@@ -8692,25 +8689,25 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %792 = load i32, ptr @hf_btmesh_health_fault_test_unacknowledged_company_id, align 4
   %793 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %792, ptr noundef nonnull %0, i32 noundef %791, i32 noundef 2, i32 noundef -2147483648) #16
   %794 = add nuw nsw i32 %.03971, 3
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 795:                                              ; preds = %42
   %796 = load i32, ptr @hf_btmesh_health_period_set_fast_period_divisor, align 4
   %797 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %796, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %798 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 799:                                              ; preds = %42
   %800 = load i32, ptr @hf_btmesh_health_period_set_unacknowledged_fast_period_divisor, align 4
   %801 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %800, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %802 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 803:                                              ; preds = %42
   %804 = load i32, ptr @hf_btmesh_health_period_status_fast_period_divisor, align 4
   %805 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %804, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %806 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 807:                                              ; preds = %42
   %808 = load i32, ptr @hf_btmesh_config_heartbeat_publication_set_destination, align 4
@@ -8738,7 +8735,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %830 = load i32, ptr @hf_btmesh_config_heartbeat_publication_set_netkeyindex_rfu, align 4
   %831 = call ptr @proto_tree_add_item(ptr noundef %827, i32 noundef %830, ptr noundef nonnull %0, i32 noundef %823, i32 noundef 2, i32 noundef -2147483648) #16
   %832 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 833:                                              ; preds = %42
   %834 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_set_source, align 4
@@ -8750,7 +8747,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %840 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_set_periodlog, align 4
   %841 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %840, ptr noundef nonnull %0, i32 noundef %839, i32 noundef 1, i32 noundef -2147483648) #16
   %842 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 843:                                              ; preds = %42
   %844 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_status_status, align 4
@@ -8774,7 +8771,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %862 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_status_maxhops, align 4
   %863 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %862, ptr noundef nonnull %0, i32 noundef %861, i32 noundef 1, i32 noundef -2147483648) #16
   %864 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 865:                                              ; preds = %42
   %866 = load i32, ptr @hf_btmesh_config_model_app_bind_elementaddress, align 4
@@ -8797,13 +8794,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %881 = load i32, ptr @hf_btmesh_config_model_app_bind_vendormodelidentifier, align 4
   %882 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %881, ptr noundef nonnull %0, i32 noundef %877, i32 noundef 4, i32 noundef -2147483648) #16
   %883 = or disjoint i32 %.03971, 8
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 884:                                              ; preds = %865
   %885 = load i32, ptr @hf_btmesh_config_model_app_bind_modelidentifier, align 4
   %886 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %885, ptr noundef nonnull %0, i32 noundef %877, i32 noundef 2, i32 noundef -2147483648) #16
   %887 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 888:                                              ; preds = %42
   %889 = load i32, ptr @hf_btmesh_config_model_app_status_status, align 4
@@ -8829,13 +8826,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %907 = load i32, ptr @hf_btmesh_config_model_app_status_vendormodelidentifier, align 4
   %908 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %907, ptr noundef nonnull %0, i32 noundef %903, i32 noundef 4, i32 noundef -2147483648) #16
   %909 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 910:                                              ; preds = %888
   %911 = load i32, ptr @hf_btmesh_config_model_app_status_modelidentifier, align 4
   %912 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %911, ptr noundef nonnull %0, i32 noundef %903, i32 noundef 2, i32 noundef -2147483648) #16
   %913 = add nuw nsw i32 %.03971, 7
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 914:                                              ; preds = %42
   %915 = load i32, ptr @hf_btmesh_config_model_app_unbind_elementaddress, align 4
@@ -8858,13 +8855,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %930 = load i32, ptr @hf_btmesh_config_model_app_unbind_vendormodelidentifier, align 4
   %931 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %930, ptr noundef nonnull %0, i32 noundef %926, i32 noundef 4, i32 noundef -2147483648) #16
   %932 = or disjoint i32 %.03971, 8
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 933:                                              ; preds = %914
   %934 = load i32, ptr @hf_btmesh_config_model_app_unbind_modelidentifier, align 4
   %935 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %934, ptr noundef nonnull %0, i32 noundef %926, i32 noundef 2, i32 noundef -2147483648) #16
   %936 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 937:                                              ; preds = %42
   %938 = load i32, ptr @hf_btmesh_config_netkey_add_netkeyindex, align 4
@@ -8879,7 +8876,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %947 = load i32, ptr @hf_btmesh_config_netkey_add_netkey, align 4
   %948 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %947, ptr noundef nonnull %0, i32 noundef %946, i32 noundef 16, i32 noundef 0) #16
   %949 = add nuw nsw i32 %.03971, 18
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 950:                                              ; preds = %42
   %951 = load i32, ptr @hf_btmesh_config_netkey_delete_netkeyindex, align 4
@@ -8891,7 +8888,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %957 = load i32, ptr @hf_btmesh_config_netkey_delete_netkeyindex_rfu, align 4
   %958 = call ptr @proto_tree_add_item(ptr noundef %954, i32 noundef %957, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %959 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 960:                                              ; preds = %42
   %961 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
@@ -8899,43 +8896,43 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %963 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef %961, i32 noundef %962, ptr noundef null, ptr noundef nonnull @.str.2202) #16
   %964 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %965 = icmp sgt i32 %964, 1
-  br i1 %965, label %.lr.ph4032, label %.loopexit3981
+  br i1 %965, label %.lr.ph4034, label %.loopexit3983
 
-.lr.ph4032:                                       ; preds = %960, %987
-  %.134031 = phi i32 [ %988, %987 ], [ %.03971, %960 ]
-  %966 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.134031) #16
+.lr.ph4034:                                       ; preds = %960, %987
+  %.134033 = phi i32 [ %988, %987 ], [ %.03971, %960 ]
+  %966 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.134033) #16
   %967 = icmp sgt i32 %966, 2
   br i1 %967, label %968, label %978
 
-968:                                              ; preds = %.lr.ph4032
-  %969 = call i32 @tvb_get_guint24(ptr noundef nonnull %0, i32 noundef %.134031, i32 noundef -2147483648) #16
+968:                                              ; preds = %.lr.ph4034
+  %969 = call i32 @tvb_get_guint24(ptr noundef nonnull %0, i32 noundef %.134033, i32 noundef -2147483648) #16
   %970 = load i32, ptr @hf_btmesh_config_netkey_list_netkeyindex, align 4
   %971 = and i32 %969, 4095
-  %972 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %970, ptr noundef nonnull %0, i32 noundef %.134031, i32 noundef 2, i32 noundef %971) #16
+  %972 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %970, ptr noundef nonnull %0, i32 noundef %.134033, i32 noundef 2, i32 noundef %971) #16
   %973 = load i32, ptr @hf_btmesh_config_netkey_list_netkeyindex, align 4
-  %974 = add i32 %.134031, 1
+  %974 = add i32 %.134033, 1
   %975 = lshr i32 %969, 12
   %976 = and i32 %975, 4095
   %977 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %973, ptr noundef nonnull %0, i32 noundef %974, i32 noundef 2, i32 noundef %976) #16
   br label %987
 
-978:                                              ; preds = %.lr.ph4032
-  %979 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.134031, i32 noundef -2147483648) #16
+978:                                              ; preds = %.lr.ph4034
+  %979 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.134033, i32 noundef -2147483648) #16
   %980 = zext i16 %979 to i32
   %981 = load i32, ptr @hf_btmesh_config_netkey_list_netkeyindex, align 4
   %982 = and i32 %980, 4095
-  %983 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %981, ptr noundef nonnull %0, i32 noundef %.134031, i32 noundef 2, i32 noundef %982) #16
+  %983 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %981, ptr noundef nonnull %0, i32 noundef %.134033, i32 noundef 2, i32 noundef %982) #16
   %984 = load i32, ptr @hf_btmesh_config_netkey_list_netkeyindex_rfu, align 4
   %985 = lshr i32 %980, 12
-  %986 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %984, ptr noundef nonnull %0, i32 noundef %.134031, i32 noundef 2, i32 noundef %985) #16
+  %986 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %984, ptr noundef nonnull %0, i32 noundef %.134033, i32 noundef 2, i32 noundef %985) #16
   br label %987
 
 987:                                              ; preds = %978, %968
-  %.sink4120 = phi i32 [ 2, %978 ], [ 3, %968 ]
-  %988 = add i32 %.134031, %.sink4120
+  %.sink4122 = phi i32 [ 2, %978 ], [ 3, %968 ]
+  %988 = add i32 %.134033, %.sink4122
   %989 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %988) #16
   %990 = icmp sgt i32 %989, 1
-  br i1 %990, label %.lr.ph4032, label %.loopexit3981, !llvm.loop !23
+  br i1 %990, label %.lr.ph4034, label %.loopexit3983, !llvm.loop !23
 
 991:                                              ; preds = %42
   %992 = load i32, ptr @hf_btmesh_config_netkey_status_status, align 4
@@ -8950,7 +8947,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1001 = load i32, ptr @hf_btmesh_config_netkey_status_netkeyindex_rfu, align 4
   %1002 = call ptr @proto_tree_add_item(ptr noundef %998, i32 noundef %1001, ptr noundef nonnull %0, i32 noundef %994, i32 noundef 2, i32 noundef -2147483648) #16
   %1003 = add nuw nsw i32 %.03971, 3
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1004:                                             ; preds = %42
   %1005 = load i32, ptr @hf_btmesh_config_netkey_update_netkeyindex, align 4
@@ -8965,7 +8962,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1014 = load i32, ptr @hf_btmesh_config_netkey_update_netkey, align 4
   %1015 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1014, ptr noundef nonnull %0, i32 noundef %1013, i32 noundef 16, i32 noundef 0) #16
   %1016 = add nuw nsw i32 %.03971, 18
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1017:                                             ; preds = %42
   %1018 = load i32, ptr @hf_btmesh_config_node_identity_get_netkeyindex, align 4
@@ -8977,7 +8974,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1024 = load i32, ptr @hf_btmesh_config_node_identity_get_netkeyindex_rfu, align 4
   %1025 = call ptr @proto_tree_add_item(ptr noundef %1021, i32 noundef %1024, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1026 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1027:                                             ; preds = %42
   %1028 = load i32, ptr @hf_btmesh_config_node_identity_set_netkeyindex, align 4
@@ -8992,7 +8989,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1037 = load i32, ptr @hf_btmesh_config_node_identity_set_identity, align 4
   %1038 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1037, ptr noundef nonnull %0, i32 noundef %1036, i32 noundef 1, i32 noundef -2147483648) #16
   %1039 = add nuw nsw i32 %.03971, 3
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1040:                                             ; preds = %42
   %1041 = load i32, ptr @hf_btmesh_config_node_identity_status_status, align 4
@@ -9010,7 +9007,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1053 = load i32, ptr @hf_btmesh_config_node_identity_status_identity, align 4
   %1054 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1053, ptr noundef nonnull %0, i32 noundef %1052, i32 noundef 1, i32 noundef -2147483648) #16
   %1055 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1056:                                             ; preds = %42
   %1057 = load i32, ptr @hf_btmesh_config_sig_model_app_get_elementaddress, align 4
@@ -9019,7 +9016,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1060 = load i32, ptr @hf_btmesh_config_sig_model_app_get_modelidentifier, align 4
   %1061 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1060, ptr noundef nonnull %0, i32 noundef %1059, i32 noundef 2, i32 noundef -2147483648) #16
   %1062 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1063:                                             ; preds = %42
   %1064 = load i32, ptr @hf_btmesh_config_sig_model_app_list_status, align 4
@@ -9036,43 +9033,43 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1075 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %1072, i32 noundef %1073, i32 noundef %1074, ptr noundef null, ptr noundef nonnull @.str.2200) #16
   %1076 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1072) #16
   %1077 = icmp sgt i32 %1076, 1
-  br i1 %1077, label %.lr.ph4029, label %.loopexit3981
+  br i1 %1077, label %.lr.ph4031, label %.loopexit3983
 
-.lr.ph4029:                                       ; preds = %1063, %1099
-  %.154028 = phi i32 [ %1100, %1099 ], [ %1072, %1063 ]
-  %1078 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.154028) #16
+.lr.ph4031:                                       ; preds = %1063, %1099
+  %.154030 = phi i32 [ %1100, %1099 ], [ %1072, %1063 ]
+  %1078 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.154030) #16
   %1079 = icmp sgt i32 %1078, 2
   br i1 %1079, label %1080, label %1090
 
-1080:                                             ; preds = %.lr.ph4029
-  %1081 = call i32 @tvb_get_guint24(ptr noundef nonnull %0, i32 noundef %.154028, i32 noundef -2147483648) #16
+1080:                                             ; preds = %.lr.ph4031
+  %1081 = call i32 @tvb_get_guint24(ptr noundef nonnull %0, i32 noundef %.154030, i32 noundef -2147483648) #16
   %1082 = load i32, ptr @hf_btmesh_config_sig_model_app_list_appkeyindex, align 4
   %1083 = and i32 %1081, 4095
-  %1084 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1082, ptr noundef nonnull %0, i32 noundef %.154028, i32 noundef 2, i32 noundef %1083) #16
+  %1084 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1082, ptr noundef nonnull %0, i32 noundef %.154030, i32 noundef 2, i32 noundef %1083) #16
   %1085 = load i32, ptr @hf_btmesh_config_sig_model_app_list_appkeyindex, align 4
-  %1086 = add i32 %.154028, 1
+  %1086 = add i32 %.154030, 1
   %1087 = lshr i32 %1081, 12
   %1088 = and i32 %1087, 4095
   %1089 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1085, ptr noundef nonnull %0, i32 noundef %1086, i32 noundef 2, i32 noundef %1088) #16
   br label %1099
 
-1090:                                             ; preds = %.lr.ph4029
-  %1091 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.154028, i32 noundef -2147483648) #16
+1090:                                             ; preds = %.lr.ph4031
+  %1091 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.154030, i32 noundef -2147483648) #16
   %1092 = zext i16 %1091 to i32
   %1093 = load i32, ptr @hf_btmesh_config_sig_model_app_list_appkeyindex, align 4
   %1094 = and i32 %1092, 4095
-  %1095 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1093, ptr noundef nonnull %0, i32 noundef %.154028, i32 noundef 2, i32 noundef %1094) #16
+  %1095 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1093, ptr noundef nonnull %0, i32 noundef %.154030, i32 noundef 2, i32 noundef %1094) #16
   %1096 = load i32, ptr @hf_btmesh_config_sig_model_app_list_appkeyindex_rfu, align 4
   %1097 = lshr i32 %1092, 12
-  %1098 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1096, ptr noundef nonnull %0, i32 noundef %.154028, i32 noundef 2, i32 noundef %1097) #16
+  %1098 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1096, ptr noundef nonnull %0, i32 noundef %.154030, i32 noundef 2, i32 noundef %1097) #16
   br label %1099
 
 1099:                                             ; preds = %1090, %1080
-  %.sink4121 = phi i32 [ 2, %1090 ], [ 3, %1080 ]
-  %1100 = add i32 %.154028, %.sink4121
+  %.sink4123 = phi i32 [ 2, %1090 ], [ 3, %1080 ]
+  %1100 = add i32 %.154030, %.sink4123
   %1101 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1100) #16
   %1102 = icmp sgt i32 %1101, 1
-  br i1 %1102, label %.lr.ph4029, label %.loopexit3981, !llvm.loop !24
+  br i1 %1102, label %.lr.ph4031, label %.loopexit3983, !llvm.loop !24
 
 1103:                                             ; preds = %42
   %1104 = load i32, ptr @hf_btmesh_config_vendor_model_app_get_elementaddress, align 4
@@ -9081,7 +9078,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1107 = load i32, ptr @hf_btmesh_config_vendor_model_app_get_modelidentifier, align 4
   %1108 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1107, ptr noundef nonnull %0, i32 noundef %1106, i32 noundef 2, i32 noundef -2147483648) #16
   %1109 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1110:                                             ; preds = %42
   %1111 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_status, align 4
@@ -9098,43 +9095,43 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1122 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %1119, i32 noundef %1120, i32 noundef %1121, ptr noundef null, ptr noundef nonnull @.str.2200) #16
   %1123 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1119) #16
   %1124 = icmp sgt i32 %1123, 1
-  br i1 %1124, label %.lr.ph4026, label %.loopexit3981
+  br i1 %1124, label %.lr.ph4028, label %.loopexit3983
 
-.lr.ph4026:                                       ; preds = %1110, %1146
-  %.174025 = phi i32 [ %1147, %1146 ], [ %1119, %1110 ]
-  %1125 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.174025) #16
+.lr.ph4028:                                       ; preds = %1110, %1146
+  %.174027 = phi i32 [ %1147, %1146 ], [ %1119, %1110 ]
+  %1125 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.174027) #16
   %1126 = icmp sgt i32 %1125, 2
   br i1 %1126, label %1127, label %1137
 
-1127:                                             ; preds = %.lr.ph4026
-  %1128 = call i32 @tvb_get_guint24(ptr noundef nonnull %0, i32 noundef %.174025, i32 noundef -2147483648) #16
+1127:                                             ; preds = %.lr.ph4028
+  %1128 = call i32 @tvb_get_guint24(ptr noundef nonnull %0, i32 noundef %.174027, i32 noundef -2147483648) #16
   %1129 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_appkeyindex, align 4
   %1130 = and i32 %1128, 4095
-  %1131 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1129, ptr noundef nonnull %0, i32 noundef %.174025, i32 noundef 2, i32 noundef %1130) #16
+  %1131 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1129, ptr noundef nonnull %0, i32 noundef %.174027, i32 noundef 2, i32 noundef %1130) #16
   %1132 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_appkeyindex, align 4
-  %1133 = add i32 %.174025, 1
+  %1133 = add i32 %.174027, 1
   %1134 = lshr i32 %1128, 12
   %1135 = and i32 %1134, 4095
   %1136 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1132, ptr noundef nonnull %0, i32 noundef %1133, i32 noundef 2, i32 noundef %1135) #16
   br label %1146
 
-1137:                                             ; preds = %.lr.ph4026
-  %1138 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.174025, i32 noundef -2147483648) #16
+1137:                                             ; preds = %.lr.ph4028
+  %1138 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.174027, i32 noundef -2147483648) #16
   %1139 = zext i16 %1138 to i32
   %1140 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_appkeyindex, align 4
   %1141 = and i32 %1139, 4095
-  %1142 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1140, ptr noundef nonnull %0, i32 noundef %.174025, i32 noundef 2, i32 noundef %1141) #16
+  %1142 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1140, ptr noundef nonnull %0, i32 noundef %.174027, i32 noundef 2, i32 noundef %1141) #16
   %1143 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_appkeyindex_rfu, align 4
   %1144 = lshr i32 %1139, 12
-  %1145 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1143, ptr noundef nonnull %0, i32 noundef %.174025, i32 noundef 2, i32 noundef %1144) #16
+  %1145 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1143, ptr noundef nonnull %0, i32 noundef %.174027, i32 noundef 2, i32 noundef %1144) #16
   br label %1146
 
 1146:                                             ; preds = %1137, %1127
-  %.sink4122 = phi i32 [ 2, %1137 ], [ 3, %1127 ]
-  %1147 = add i32 %.174025, %.sink4122
+  %.sink4124 = phi i32 [ 2, %1137 ], [ 3, %1127 ]
+  %1147 = add i32 %.174027, %.sink4124
   %1148 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1147) #16
   %1149 = icmp sgt i32 %1148, 1
-  br i1 %1149, label %.lr.ph4026, label %.loopexit3981, !llvm.loop !25
+  br i1 %1149, label %.lr.ph4028, label %.loopexit3983, !llvm.loop !25
 
 1150:                                             ; preds = %42
   %1151 = load i32, ptr @hf_btmesh_generic_location_global_status_global_latitude, align 4
@@ -9146,7 +9143,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1157 = load i32, ptr @hf_btmesh_generic_location_global_status_global_altitude, align 4
   %1158 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1157, ptr noundef nonnull %0, i32 noundef %1156, i32 noundef 2, i32 noundef -2147483648) #16
   %1159 = add nuw nsw i32 %.03971, 10
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1160:                                             ; preds = %42
   %1161 = load i32, ptr @hf_btmesh_generic_location_global_set_global_latitude, align 4
@@ -9158,7 +9155,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1167 = load i32, ptr @hf_btmesh_generic_location_global_set_global_altitude, align 4
   %1168 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1167, ptr noundef nonnull %0, i32 noundef %1166, i32 noundef 2, i32 noundef -2147483648) #16
   %1169 = add nuw nsw i32 %.03971, 10
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1170:                                             ; preds = %42
   %1171 = load i32, ptr @hf_btmesh_generic_location_global_set_unacknowledged_global_latitude, align 4
@@ -9170,7 +9167,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1177 = load i32, ptr @hf_btmesh_generic_location_global_set_unacknowledged_global_altitude, align 4
   %1178 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1177, ptr noundef nonnull %0, i32 noundef %1176, i32 noundef 2, i32 noundef -2147483648) #16
   %1179 = add nuw nsw i32 %.03971, 10
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1180:                                             ; preds = %42
   %1181 = load i32, ptr @hf_btmesh_generic_onoff_set_onoff, align 4
@@ -9181,7 +9178,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1186 = add nuw nsw i32 %.03971, 2
   %1187 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1186) #16
   %1188 = icmp sgt i32 %1187, 0
-  br i1 %1188, label %1189, label %.loopexit3981
+  br i1 %1188, label %1189, label %.loopexit3983
 
 1189:                                             ; preds = %1180
   %1190 = load i32, ptr @hf_btmesh_generic_onoff_set_transition_time, align 4
@@ -9196,7 +9193,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1199 = load i32, ptr @hf_btmesh_generic_onoff_set_delay, align 4
   %1200 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1199, ptr noundef nonnull %0, i32 noundef %1198, i32 noundef 1, i32 noundef -2147483648) #16
   %1201 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1202:                                             ; preds = %42
   %1203 = load i32, ptr @hf_btmesh_generic_onoff_set_unacknowledged_onoff, align 4
@@ -9207,7 +9204,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1208 = add nuw nsw i32 %.03971, 2
   %1209 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1208) #16
   %1210 = icmp sgt i32 %1209, 0
-  br i1 %1210, label %1211, label %.loopexit3981
+  br i1 %1210, label %1211, label %.loopexit3983
 
 1211:                                             ; preds = %1202
   %1212 = load i32, ptr @hf_btmesh_generic_onoff_set_unacknowledged_transition_time, align 4
@@ -9222,7 +9219,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1221 = load i32, ptr @hf_btmesh_generic_onoff_set_unacknowledged_delay, align 4
   %1222 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1221, ptr noundef nonnull %0, i32 noundef %1220, i32 noundef 1, i32 noundef -2147483648) #16
   %1223 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1224:                                             ; preds = %42
   %1225 = load i32, ptr @hf_btmesh_generic_onoff_status_present_onoff, align 4
@@ -9230,7 +9227,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1227 = add nuw nsw i32 %.03971, 1
   %1228 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1227) #16
   %1229 = icmp sgt i32 %1228, 0
-  br i1 %1229, label %1230, label %.loopexit3981
+  br i1 %1229, label %1230, label %.loopexit3983
 
 1230:                                             ; preds = %1224
   %1231 = load i32, ptr @hf_btmesh_generic_onoff_status_target_onoff, align 4
@@ -9245,7 +9242,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1240 = load i32, ptr @hf_btmesh_generic_onoff_status_remaining_time_resolution, align 4
   %1241 = call ptr @proto_tree_add_item(ptr noundef %1237, i32 noundef %1240, ptr noundef nonnull %0, i32 noundef %1233, i32 noundef 1, i32 noundef -2147483648) #16
   %1242 = add nuw nsw i32 %.03971, 3
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1243:                                             ; preds = %42
   %1244 = load i32, ptr @hf_btmesh_generic_level_set_level, align 4
@@ -9256,7 +9253,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1249 = add nuw nsw i32 %.03971, 3
   %1250 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1249) #16
   %1251 = icmp sgt i32 %1250, 0
-  br i1 %1251, label %1252, label %.loopexit3981
+  br i1 %1251, label %1252, label %.loopexit3983
 
 1252:                                             ; preds = %1243
   %1253 = load i32, ptr @hf_btmesh_generic_level_set_transition_time, align 4
@@ -9271,7 +9268,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1262 = load i32, ptr @hf_btmesh_generic_level_set_delay, align 4
   %1263 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1262, ptr noundef nonnull %0, i32 noundef %1261, i32 noundef 1, i32 noundef -2147483648) #16
   %1264 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1265:                                             ; preds = %42
   %1266 = load i32, ptr @hf_btmesh_generic_level_set_unacknowledged_level, align 4
@@ -9282,7 +9279,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1271 = add nuw nsw i32 %.03971, 3
   %1272 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1271) #16
   %1273 = icmp sgt i32 %1272, 0
-  br i1 %1273, label %1274, label %.loopexit3981
+  br i1 %1273, label %1274, label %.loopexit3983
 
 1274:                                             ; preds = %1265
   %1275 = load i32, ptr @hf_btmesh_generic_level_set_unacknowledged_transition_time, align 4
@@ -9297,7 +9294,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1284 = load i32, ptr @hf_btmesh_generic_level_set_unacknowledged_delay, align 4
   %1285 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1284, ptr noundef nonnull %0, i32 noundef %1283, i32 noundef 1, i32 noundef -2147483648) #16
   %1286 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1287:                                             ; preds = %42
   %1288 = load i32, ptr @hf_btmesh_generic_level_status_present_level, align 4
@@ -9305,7 +9302,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1290 = add nuw nsw i32 %.03971, 2
   %1291 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1290) #16
   %1292 = icmp sgt i32 %1291, 0
-  br i1 %1292, label %1293, label %.loopexit3981
+  br i1 %1292, label %1293, label %.loopexit3983
 
 1293:                                             ; preds = %1287
   %1294 = load i32, ptr @hf_btmesh_generic_level_status_target_level, align 4
@@ -9320,7 +9317,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1303 = load i32, ptr @hf_btmesh_generic_level_status_remaining_time_resolution, align 4
   %1304 = call ptr @proto_tree_add_item(ptr noundef %1300, i32 noundef %1303, ptr noundef nonnull %0, i32 noundef %1296, i32 noundef 1, i32 noundef -2147483648) #16
   %1305 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1306:                                             ; preds = %42
   %1307 = load i32, ptr @hf_btmesh_generic_delta_set_delta_level, align 4
@@ -9331,7 +9328,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1312 = add nuw nsw i32 %.03971, 5
   %1313 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1312) #16
   %1314 = icmp sgt i32 %1313, 0
-  br i1 %1314, label %1315, label %.loopexit3981
+  br i1 %1314, label %1315, label %.loopexit3983
 
 1315:                                             ; preds = %1306
   %1316 = load i32, ptr @hf_btmesh_generic_delta_set_transition_time, align 4
@@ -9346,7 +9343,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1325 = load i32, ptr @hf_btmesh_generic_delta_set_delay, align 4
   %1326 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1325, ptr noundef nonnull %0, i32 noundef %1324, i32 noundef 1, i32 noundef -2147483648) #16
   %1327 = add nuw nsw i32 %.03971, 7
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1328:                                             ; preds = %42
   %1329 = load i32, ptr @hf_btmesh_generic_delta_set_unacknowledged_delta_level, align 4
@@ -9357,7 +9354,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1334 = add nuw nsw i32 %.03971, 5
   %1335 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1334) #16
   %1336 = icmp sgt i32 %1335, 0
-  br i1 %1336, label %1337, label %.loopexit3981
+  br i1 %1336, label %1337, label %.loopexit3983
 
 1337:                                             ; preds = %1328
   %1338 = load i32, ptr @hf_btmesh_generic_delta_set_unacknowledged_transition_time, align 4
@@ -9372,7 +9369,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1347 = load i32, ptr @hf_btmesh_generic_delta_set_unacknowledged_delay, align 4
   %1348 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1347, ptr noundef nonnull %0, i32 noundef %1346, i32 noundef 1, i32 noundef -2147483648) #16
   %1349 = add nuw nsw i32 %.03971, 7
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1350:                                             ; preds = %42
   %1351 = load i32, ptr @hf_btmesh_generic_move_set_delta_level, align 4
@@ -9383,7 +9380,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1356 = add nuw nsw i32 %.03971, 3
   %1357 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1356) #16
   %1358 = icmp sgt i32 %1357, 0
-  br i1 %1358, label %1359, label %.loopexit3981
+  br i1 %1358, label %1359, label %.loopexit3983
 
 1359:                                             ; preds = %1350
   %1360 = load i32, ptr @hf_btmesh_generic_move_set_transition_time, align 4
@@ -9398,7 +9395,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1369 = load i32, ptr @hf_btmesh_generic_move_set_delay, align 4
   %1370 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1369, ptr noundef nonnull %0, i32 noundef %1368, i32 noundef 1, i32 noundef -2147483648) #16
   %1371 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1372:                                             ; preds = %42
   %1373 = load i32, ptr @hf_btmesh_generic_move_set_unacknowledged_delta_level, align 4
@@ -9409,7 +9406,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1378 = add nuw nsw i32 %.03971, 3
   %1379 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1378) #16
   %1380 = icmp sgt i32 %1379, 0
-  br i1 %1380, label %1381, label %.loopexit3981
+  br i1 %1380, label %1381, label %.loopexit3983
 
 1381:                                             ; preds = %1372
   %1382 = load i32, ptr @hf_btmesh_generic_move_set_unacknowledged_transition_time, align 4
@@ -9424,7 +9421,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1391 = load i32, ptr @hf_btmesh_generic_move_set_unacknowledged_delay, align 4
   %1392 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1391, ptr noundef nonnull %0, i32 noundef %1390, i32 noundef 1, i32 noundef -2147483648) #16
   %1393 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1394:                                             ; preds = %42
   %1395 = load i32, ptr @hf_btmesh_generic_default_transition_time_set_transition_time, align 4
@@ -9436,7 +9433,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1401 = load i32, ptr @hf_btmesh_generic_default_transition_time_set_transition_time_resolution, align 4
   %1402 = call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1401, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1403 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1404:                                             ; preds = %42
   %1405 = load i32, ptr @hf_btmesh_generic_default_transition_time_set_unacknowledged_transition_time, align 4
@@ -9448,7 +9445,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1411 = load i32, ptr @hf_btmesh_generic_default_transition_time_set_unacknowledged_transition_time_resolution, align 4
   %1412 = call ptr @proto_tree_add_item(ptr noundef %1408, i32 noundef %1411, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1413 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1414:                                             ; preds = %42
   %1415 = load i32, ptr @hf_btmesh_generic_default_transition_time_status_transition_time, align 4
@@ -9460,25 +9457,25 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1421 = load i32, ptr @hf_btmesh_generic_default_transition_time_status_transition_time_resolution, align 4
   %1422 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1421, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1423 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1424:                                             ; preds = %42
   %1425 = load i32, ptr @hf_btmesh_generic_onpowerup_status_onpowerup, align 4
   %1426 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1425, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1427 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1428:                                             ; preds = %42
   %1429 = load i32, ptr @hf_btmesh_generic_onpowerup_set_onpowerup, align 4
   %1430 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1429, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1431 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1432:                                             ; preds = %42
   %1433 = load i32, ptr @hf_btmesh_generic_onpowerup_set_unacknowledged_onpowerup, align 4
   %1434 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1433, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1435 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1436:                                             ; preds = %42
   %1437 = load i32, ptr @hf_btmesh_generic_power_level_set_power, align 4
@@ -9489,7 +9486,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1442 = add nuw nsw i32 %.03971, 3
   %1443 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1442) #16
   %1444 = icmp sgt i32 %1443, 0
-  br i1 %1444, label %1445, label %.loopexit3981
+  br i1 %1444, label %1445, label %.loopexit3983
 
 1445:                                             ; preds = %1436
   %1446 = load i32, ptr @hf_btmesh_generic_power_level_set_transition_time, align 4
@@ -9504,7 +9501,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1455 = load i32, ptr @hf_btmesh_generic_power_level_set_delay, align 4
   %1456 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1455, ptr noundef nonnull %0, i32 noundef %1454, i32 noundef 1, i32 noundef -2147483648) #16
   %1457 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1458:                                             ; preds = %42
   %1459 = load i32, ptr @hf_btmesh_generic_power_level_set_unacknowledged_power, align 4
@@ -9515,7 +9512,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1464 = add nuw nsw i32 %.03971, 3
   %1465 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1464) #16
   %1466 = icmp sgt i32 %1465, 0
-  br i1 %1466, label %1467, label %.loopexit3981
+  br i1 %1466, label %1467, label %.loopexit3983
 
 1467:                                             ; preds = %1458
   %1468 = load i32, ptr @hf_btmesh_generic_power_level_set_unacknowledged_transition_time, align 4
@@ -9530,7 +9527,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1477 = load i32, ptr @hf_btmesh_generic_power_level_set_unacknowledged_delay, align 4
   %1478 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1477, ptr noundef nonnull %0, i32 noundef %1476, i32 noundef 1, i32 noundef -2147483648) #16
   %1479 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1480:                                             ; preds = %42
   %1481 = load i32, ptr @hf_btmesh_generic_power_level_status_present_power, align 4
@@ -9538,7 +9535,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1483 = add nuw nsw i32 %.03971, 2
   %1484 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1483) #16
   %1485 = icmp sgt i32 %1484, 0
-  br i1 %1485, label %1486, label %.loopexit3981
+  br i1 %1485, label %1486, label %.loopexit3983
 
 1486:                                             ; preds = %1480
   %1487 = load i32, ptr @hf_btmesh_generic_power_level_status_target_power, align 4
@@ -9553,19 +9550,19 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1496 = load i32, ptr @hf_btmesh_generic_power_level_status_remaining_time_resolution, align 4
   %1497 = call ptr @proto_tree_add_item(ptr noundef %1493, i32 noundef %1496, ptr noundef nonnull %0, i32 noundef %1489, i32 noundef 1, i32 noundef -2147483648) #16
   %1498 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1499:                                             ; preds = %42
   %1500 = load i32, ptr @hf_btmesh_generic_power_last_status_power, align 4
   %1501 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1500, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1502 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1503:                                             ; preds = %42
   %1504 = load i32, ptr @hf_btmesh_generic_power_default_status_power, align 4
   %1505 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1504, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1506 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1507:                                             ; preds = %42
   %1508 = load i32, ptr @hf_btmesh_generic_power_range_status_status_code, align 4
@@ -9577,19 +9574,19 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1514 = load i32, ptr @hf_btmesh_generic_power_range_status_range_max, align 4
   %1515 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1514, ptr noundef nonnull %0, i32 noundef %1513, i32 noundef 2, i32 noundef -2147483648) #16
   %1516 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1517:                                             ; preds = %42
   %1518 = load i32, ptr @hf_btmesh_generic_power_default_set_power, align 4
   %1519 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1518, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1520 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1521:                                             ; preds = %42
   %1522 = load i32, ptr @hf_btmesh_generic_power_default_set_unacknowledged_power, align 4
   %1523 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1522, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1524 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1525:                                             ; preds = %42
   %1526 = load i32, ptr @hf_btmesh_generic_power_range_set_range_min, align 4
@@ -9598,7 +9595,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1529 = load i32, ptr @hf_btmesh_generic_power_range_set_range_max, align 4
   %1530 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1529, ptr noundef nonnull %0, i32 noundef %1528, i32 noundef 2, i32 noundef -2147483648) #16
   %1531 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1532:                                             ; preds = %42
   %1533 = load i32, ptr @hf_btmesh_generic_power_range_set_unacknowledged_range_min, align 4
@@ -9607,7 +9604,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1536 = load i32, ptr @hf_btmesh_generic_power_range_set_unacknowledged_range_max, align 4
   %1537 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1536, ptr noundef nonnull %0, i32 noundef %1535, i32 noundef 2, i32 noundef -2147483648) #16
   %1538 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1539:                                             ; preds = %42
   %1540 = load i32, ptr @hf_btmesh_generic_battery_status_battery_level, align 4
@@ -9628,7 +9625,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1555 = load i32, ptr @hf_btmesh_generic_battery_status_flags_serviceability, align 4
   %1556 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1555, ptr noundef nonnull %0, i32 noundef %1548, i32 noundef 1, i32 noundef -2147483648) #16
   %1557 = or disjoint i32 %.03971, 8
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1558:                                             ; preds = %42
   %1559 = load i32, ptr @hf_btmesh_generic_location_local_status_local_north, align 4
@@ -9652,7 +9649,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1577 = load i32, ptr @hf_btmesh_generic_location_local_status_uncertainty_precision, align 4
   %1578 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1577, ptr noundef nonnull %0, i32 noundef %1570, i32 noundef 2, i32 noundef -2147483648) #16
   %1579 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1580:                                             ; preds = %42
   %1581 = load i32, ptr @hf_btmesh_generic_location_local_set_local_north, align 4
@@ -9676,7 +9673,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1599 = load i32, ptr @hf_btmesh_generic_location_local_set_uncertainty_precision, align 4
   %1600 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1599, ptr noundef nonnull %0, i32 noundef %1592, i32 noundef 2, i32 noundef -2147483648) #16
   %1601 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1602:                                             ; preds = %42
   %1603 = load i32, ptr @hf_btmesh_generic_location_local_set_unacknowledged_local_north, align 4
@@ -9700,7 +9697,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1621 = load i32, ptr @hf_btmesh_generic_location_local_set_unacknowledged_uncertainty_precision, align 4
   %1622 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1621, ptr noundef nonnull %0, i32 noundef %1614, i32 noundef 2, i32 noundef -2147483648) #16
   %1623 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1624:                                             ; preds = %42
   %1625 = load i32, ptr @hf_btmesh_scene_status_status_code, align 4
@@ -9711,7 +9708,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1630 = add nuw nsw i32 %.03971, 3
   %1631 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1630) #16
   %1632 = icmp sgt i32 %1631, 0
-  br i1 %1632, label %1633, label %.loopexit3981
+  br i1 %1632, label %1633, label %.loopexit3983
 
 1633:                                             ; preds = %1624
   %1634 = load i32, ptr @hf_btmesh_scene_status_target_scene, align 4
@@ -9726,7 +9723,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1643 = load i32, ptr @hf_btmesh_scene_status_remaining_time_resolution, align 4
   %1644 = call ptr @proto_tree_add_item(ptr noundef %1640, i32 noundef %1643, ptr noundef nonnull %0, i32 noundef %1636, i32 noundef 1, i32 noundef -2147483648) #16
   %1645 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1646:                                             ; preds = %42
   %1647 = load i32, ptr @hf_btmesh_scene_recall_scene_number, align 4
@@ -9737,7 +9734,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1652 = add nuw nsw i32 %.03971, 3
   %1653 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1652) #16
   %1654 = icmp sgt i32 %1653, 0
-  br i1 %1654, label %1655, label %.loopexit3981
+  br i1 %1654, label %1655, label %.loopexit3983
 
 1655:                                             ; preds = %1646
   %1656 = load i32, ptr @hf_btmesh_scene_recall_transition_time, align 4
@@ -9752,7 +9749,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1665 = load i32, ptr @hf_btmesh_scene_recall_delay, align 4
   %1666 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1665, ptr noundef nonnull %0, i32 noundef %1664, i32 noundef 1, i32 noundef -2147483648) #16
   %1667 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1668:                                             ; preds = %42
   %1669 = load i32, ptr @hf_btmesh_scene_recall_unacknowledged_scene_number, align 4
@@ -9763,7 +9760,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1674 = add nuw nsw i32 %.03971, 3
   %1675 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1674) #16
   %1676 = icmp sgt i32 %1675, 0
-  br i1 %1676, label %1677, label %.loopexit3981
+  br i1 %1676, label %1677, label %.loopexit3983
 
 1677:                                             ; preds = %1668
   %1678 = load i32, ptr @hf_btmesh_scene_recall_unacknowledged_transition_time, align 4
@@ -9778,7 +9775,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1687 = load i32, ptr @hf_btmesh_scene_recall_unacknowledged_delay, align 4
   %1688 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1687, ptr noundef nonnull %0, i32 noundef %1686, i32 noundef 1, i32 noundef -2147483648) #16
   %1689 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1690:                                             ; preds = %42
   %1691 = load i32, ptr @hf_btmesh_scene_register_status_status_code, align 4
@@ -9792,40 +9789,40 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1699 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %1696, i32 noundef %1697, i32 noundef %1698, ptr noundef null, ptr noundef nonnull @.str.2203) #16
   %1700 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1696) #16
   %1701 = icmp sgt i32 %1700, 1
-  br i1 %1701, label %.lr.ph4023, label %.loopexit3981
+  br i1 %1701, label %.lr.ph4025, label %.loopexit3983
 
-.lr.ph4023:                                       ; preds = %1690, %.lr.ph4023
-  %.194022 = phi i32 [ %1704, %.lr.ph4023 ], [ %1696, %1690 ]
+.lr.ph4025:                                       ; preds = %1690, %.lr.ph4025
+  %.194024 = phi i32 [ %1704, %.lr.ph4025 ], [ %1696, %1690 ]
   %1702 = load i32, ptr @hf_btmesh_scene_register_status_scene, align 4
-  %1703 = call ptr @proto_tree_add_item(ptr noundef %1699, i32 noundef %1702, ptr noundef nonnull %0, i32 noundef %.194022, i32 noundef 2, i32 noundef -2147483648) #16
-  %1704 = add i32 %.194022, 2
+  %1703 = call ptr @proto_tree_add_item(ptr noundef %1699, i32 noundef %1702, ptr noundef nonnull %0, i32 noundef %.194024, i32 noundef 2, i32 noundef -2147483648) #16
+  %1704 = add i32 %.194024, 2
   %1705 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1704) #16
   %1706 = icmp sgt i32 %1705, 1
-  br i1 %1706, label %.lr.ph4023, label %.loopexit3981, !llvm.loop !26
+  br i1 %1706, label %.lr.ph4025, label %.loopexit3983, !llvm.loop !26
 
 1707:                                             ; preds = %42
   %1708 = load i32, ptr @hf_btmesh_scene_store_scene_number, align 4
   %1709 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1708, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1710 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1711:                                             ; preds = %42
   %1712 = load i32, ptr @hf_btmesh_scene_store_unacknowledged_scene_number, align 4
   %1713 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1712, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1714 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1715:                                             ; preds = %42
   %1716 = load i32, ptr @hf_btmesh_scene_delete_scene_number, align 4
   %1717 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1716, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1718 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1719:                                             ; preds = %42
   %1720 = load i32, ptr @hf_btmesh_scene_delete_unacknowledged_scene_number, align 4
   %1721 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1720, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1722 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1723:                                             ; preds = %42
   %1724 = load i32, ptr @hf_btmesh_time_set_tai_seconds, align 4
@@ -9845,7 +9842,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1738 = load i32, ptr @hf_btmesh_time_set_time_zone_offset, align 4
   %1739 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1738, ptr noundef nonnull %0, i32 noundef %1737, i32 noundef 1, i32 noundef -2147483648) #16
   %1740 = add nuw nsw i32 %.03971, 10
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1741:                                             ; preds = %42
   %1742 = load i32, ptr @hf_btmesh_time_status_tai_seconds, align 4
@@ -9853,7 +9850,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1744 = add nuw nsw i32 %.03971, 5
   %1745 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1744) #16
   %1746 = icmp sgt i32 %1745, 0
-  br i1 %1746, label %1747, label %.loopexit3981
+  br i1 %1746, label %1747, label %.loopexit3983
 
 1747:                                             ; preds = %1741
   %1748 = load i32, ptr @hf_btmesh_time_status_subsecond, align 4
@@ -9870,7 +9867,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1759 = load i32, ptr @hf_btmesh_time_status_time_zone_offset, align 4
   %1760 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1759, ptr noundef nonnull %0, i32 noundef %1758, i32 noundef 1, i32 noundef -2147483648) #16
   %1761 = add nuw nsw i32 %.03971, 10
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1762:                                             ; preds = %42
   %1763 = load i32, ptr @hf_btmesh_scheduler_action_status_index, align 4
@@ -9947,7 +9944,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1834 = load i32, ptr @hf_btmesh_scheduler_action_status_schedule_register_scene_number, align 4
   %1835 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1834, ptr noundef nonnull %0, i32 noundef %1833, i32 noundef 2, i32 noundef -2147483648) #16
   %1836 = add nuw nsw i32 %.03971, 10
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1837:                                             ; preds = %42
   %1838 = load i32, ptr @hf_btmesh_scheduler_action_set_index, align 4
@@ -10024,7 +10021,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1909 = load i32, ptr @hf_btmesh_scheduler_action_set_schedule_register_scene_number, align 4
   %1910 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1909, ptr noundef nonnull %0, i32 noundef %1908, i32 noundef 2, i32 noundef -2147483648) #16
   %1911 = add nuw nsw i32 %.03971, 10
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1912:                                             ; preds = %42
   %1913 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_index, align 4
@@ -10101,19 +10098,19 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1984 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_schedule_register_scene_number, align 4
   %1985 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1984, ptr noundef nonnull %0, i32 noundef %1983, i32 noundef 2, i32 noundef -2147483648) #16
   %1986 = add nuw nsw i32 %.03971, 10
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1987:                                             ; preds = %42
   %1988 = load i32, ptr @hf_btmesh_time_role_set_time_role, align 4
   %1989 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1988, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1990 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1991:                                             ; preds = %42
   %1992 = load i32, ptr @hf_btmesh_time_role_status_time_role, align 4
   %1993 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1992, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1994 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 1995:                                             ; preds = %42
   %1996 = load i32, ptr @hf_btmesh_time_zone_set_time_zone_offset_new, align 4
@@ -10122,7 +10119,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %1999 = load i32, ptr @hf_btmesh_time_zone_set_tai_of_zone_change, align 4
   %2000 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1999, ptr noundef nonnull %0, i32 noundef %1998, i32 noundef 5, i32 noundef -2147483648) #16
   %2001 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2002:                                             ; preds = %42
   %2003 = load i32, ptr @hf_btmesh_time_zone_status_time_zone_offset_current, align 4
@@ -10134,7 +10131,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2009 = load i32, ptr @hf_btmesh_time_zone_status_tai_of_zone_change, align 4
   %2010 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2009, ptr noundef nonnull %0, i32 noundef %2008, i32 noundef 5, i32 noundef -2147483648) #16
   %2011 = add nuw nsw i32 %.03971, 7
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2012:                                             ; preds = %42
   %2013 = load i32, ptr @hf_btmesh_tai_utc_delta_set_tai_utc_delta_new, align 4
@@ -10145,7 +10142,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2018 = load i32, ptr @hf_btmesh_tai_utc_delta_set_tai_of_delta_change, align 4
   %2019 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2018, ptr noundef nonnull %0, i32 noundef %2017, i32 noundef 5, i32 noundef -2147483648) #16
   %2020 = add nuw nsw i32 %.03971, 7
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2021:                                             ; preds = %42
   %2022 = load i32, ptr @hf_btmesh_tai_utc_delta_status_tai_utc_delta_current, align 4
@@ -10161,13 +10158,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2032 = load i32, ptr @hf_btmesh_tai_utc_delta_status_tai_of_delta_change, align 4
   %2033 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2032, ptr noundef nonnull %0, i32 noundef %2031, i32 noundef 5, i32 noundef -2147483648) #16
   %2034 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2035:                                             ; preds = %42
   %2036 = load i32, ptr @hf_btmesh_scheduler_action_get_index, align 4
   %2037 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2036, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2038 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2039:                                             ; preds = %42
   %2040 = load i32, ptr @hf_btmesh_scheduler_status_schedules, align 4
@@ -10207,7 +10204,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2074 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_15, align 4
   %2075 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2074, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2076 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2077:                                             ; preds = %42
   %2078 = load i32, ptr @hf_btmesh_light_lc_property_set_light_lc_property_id, align 4
@@ -10218,7 +10215,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2083 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %2082, ptr noundef %0, i32 noundef %2081, i16 noundef zeroext %2080, i32 noundef -1)
   %2084 = zext i16 %2083 to i32
   %2085 = add nuw nsw i32 %2081, %2084
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2086:                                             ; preds = %42
   %2087 = load i32, ptr @hf_btmesh_light_lc_property_set_unacknowledged_light_lc_property_id, align 4
@@ -10229,7 +10226,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2092 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %2091, ptr noundef %0, i32 noundef %2090, i16 noundef zeroext %2089, i32 noundef -1)
   %2093 = zext i16 %2092 to i32
   %2094 = add nuw nsw i32 %2090, %2093
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2095:                                             ; preds = %42
   %2096 = load i32, ptr @hf_btmesh_light_lc_property_status_light_lc_property_id, align 4
@@ -10240,7 +10237,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2101 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %2100, ptr noundef %0, i32 noundef %2099, i16 noundef zeroext %2098, i32 noundef -1)
   %2102 = zext i16 %2101 to i32
   %2103 = add nuw nsw i32 %2099, %2102
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2104:                                             ; preds = %42
   %2105 = load i32, ptr @hf_btmesh_light_lightness_set_lightness, align 4
@@ -10251,7 +10248,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2110 = add nuw nsw i32 %.03971, 3
   %2111 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2110) #16
   %2112 = icmp sgt i32 %2111, 0
-  br i1 %2112, label %2113, label %.loopexit3981
+  br i1 %2112, label %2113, label %.loopexit3983
 
 2113:                                             ; preds = %2104
   %2114 = load i32, ptr @hf_btmesh_light_lightness_set_transition_time, align 4
@@ -10266,7 +10263,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2123 = load i32, ptr @hf_btmesh_light_lightness_set_delay, align 4
   %2124 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2123, ptr noundef nonnull %0, i32 noundef %2122, i32 noundef 1, i32 noundef -2147483648) #16
   %2125 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2126:                                             ; preds = %42
   %2127 = load i32, ptr @hf_btmesh_light_lightness_set_unacknowledged_lightness, align 4
@@ -10277,7 +10274,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2132 = add nuw nsw i32 %.03971, 3
   %2133 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2132) #16
   %2134 = icmp sgt i32 %2133, 0
-  br i1 %2134, label %2135, label %.loopexit3981
+  br i1 %2134, label %2135, label %.loopexit3983
 
 2135:                                             ; preds = %2126
   %2136 = load i32, ptr @hf_btmesh_light_lightness_set_unacknowledged_transition_time, align 4
@@ -10292,7 +10289,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2145 = load i32, ptr @hf_btmesh_light_lightness_set_unacknowledged_delay, align 4
   %2146 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2145, ptr noundef nonnull %0, i32 noundef %2144, i32 noundef 1, i32 noundef -2147483648) #16
   %2147 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2148:                                             ; preds = %42
   %2149 = load i32, ptr @hf_btmesh_light_lightness_status_present_lightness, align 4
@@ -10300,7 +10297,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2151 = add nuw nsw i32 %.03971, 2
   %2152 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2151) #16
   %2153 = icmp sgt i32 %2152, 0
-  br i1 %2153, label %2154, label %.loopexit3981
+  br i1 %2153, label %2154, label %.loopexit3983
 
 2154:                                             ; preds = %2148
   %2155 = load i32, ptr @hf_btmesh_light_lightness_status_target_lightness, align 4
@@ -10315,7 +10312,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2164 = load i32, ptr @hf_btmesh_light_lightness_status_remaining_time_resolution, align 4
   %2165 = call ptr @proto_tree_add_item(ptr noundef %2161, i32 noundef %2164, ptr noundef nonnull %0, i32 noundef %2157, i32 noundef 1, i32 noundef -2147483648) #16
   %2166 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2167:                                             ; preds = %42
   %2168 = load i32, ptr @hf_btmesh_light_lightness_linear_set_lightness, align 4
@@ -10326,7 +10323,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2173 = add nuw nsw i32 %.03971, 3
   %2174 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2173) #16
   %2175 = icmp sgt i32 %2174, 0
-  br i1 %2175, label %2176, label %.loopexit3981
+  br i1 %2175, label %2176, label %.loopexit3983
 
 2176:                                             ; preds = %2167
   %2177 = load i32, ptr @hf_btmesh_light_lightness_linear_set_transition_time, align 4
@@ -10341,7 +10338,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2186 = load i32, ptr @hf_btmesh_light_lightness_linear_set_delay, align 4
   %2187 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2186, ptr noundef nonnull %0, i32 noundef %2185, i32 noundef 1, i32 noundef -2147483648) #16
   %2188 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2189:                                             ; preds = %42
   %2190 = load i32, ptr @hf_btmesh_light_lightness_linear_set_unacknowledged_lightness, align 4
@@ -10352,7 +10349,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2195 = add nuw nsw i32 %.03971, 3
   %2196 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2195) #16
   %2197 = icmp sgt i32 %2196, 0
-  br i1 %2197, label %2198, label %.loopexit3981
+  br i1 %2197, label %2198, label %.loopexit3983
 
 2198:                                             ; preds = %2189
   %2199 = load i32, ptr @hf_btmesh_light_lightness_linear_set_unacknowledged_transition_time, align 4
@@ -10367,7 +10364,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2208 = load i32, ptr @hf_btmesh_light_lightness_linear_set_unacknowledged_delay, align 4
   %2209 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2208, ptr noundef nonnull %0, i32 noundef %2207, i32 noundef 1, i32 noundef -2147483648) #16
   %2210 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2211:                                             ; preds = %42
   %2212 = load i32, ptr @hf_btmesh_light_lightness_linear_status_present_lightness, align 4
@@ -10375,7 +10372,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2214 = add nuw nsw i32 %.03971, 2
   %2215 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2214) #16
   %2216 = icmp sgt i32 %2215, 0
-  br i1 %2216, label %2217, label %.loopexit3981
+  br i1 %2216, label %2217, label %.loopexit3983
 
 2217:                                             ; preds = %2211
   %2218 = load i32, ptr @hf_btmesh_light_lightness_linear_status_target_lightness, align 4
@@ -10390,19 +10387,19 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2227 = load i32, ptr @hf_btmesh_light_lightness_linear_status_remaining_time_resolution, align 4
   %2228 = call ptr @proto_tree_add_item(ptr noundef %2224, i32 noundef %2227, ptr noundef nonnull %0, i32 noundef %2220, i32 noundef 1, i32 noundef -2147483648) #16
   %2229 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2230:                                             ; preds = %42
   %2231 = load i32, ptr @hf_btmesh_light_lightness_last_status_lightness, align 4
   %2232 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2231, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2233 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2234:                                             ; preds = %42
   %2235 = load i32, ptr @hf_btmesh_light_lightness_default_status_lightness, align 4
   %2236 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2235, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2237 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2238:                                             ; preds = %42
   %2239 = load i32, ptr @hf_btmesh_light_lightness_range_status_status_code, align 4
@@ -10414,19 +10411,19 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2245 = load i32, ptr @hf_btmesh_light_lightness_range_status_range_max, align 4
   %2246 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2245, ptr noundef nonnull %0, i32 noundef %2244, i32 noundef 2, i32 noundef -2147483648) #16
   %2247 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2248:                                             ; preds = %42
   %2249 = load i32, ptr @hf_btmesh_light_lightness_default_set_lightness, align 4
   %2250 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2249, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2251 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2252:                                             ; preds = %42
   %2253 = load i32, ptr @hf_btmesh_light_lightness_default_set_unacknowledged_lightness, align 4
   %2254 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2253, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2255 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2256:                                             ; preds = %42
   %2257 = load i32, ptr @hf_btmesh_light_lightness_range_set_range_min, align 4
@@ -10435,7 +10432,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2260 = load i32, ptr @hf_btmesh_light_lightness_range_set_range_max, align 4
   %2261 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2260, ptr noundef nonnull %0, i32 noundef %2259, i32 noundef 2, i32 noundef -2147483648) #16
   %2262 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2263:                                             ; preds = %42
   %2264 = load i32, ptr @hf_btmesh_light_lightness_range_set_unacknowledged_range_min, align 4
@@ -10444,7 +10441,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2267 = load i32, ptr @hf_btmesh_light_lightness_range_set_unacknowledged_range_max, align 4
   %2268 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2267, ptr noundef nonnull %0, i32 noundef %2266, i32 noundef 2, i32 noundef -2147483648) #16
   %2269 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2270:                                             ; preds = %42
   %2271 = load i32, ptr @hf_btmesh_light_ctl_set_ctl_lightness, align 4
@@ -10461,7 +10458,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2282 = add nuw nsw i32 %.03971, 7
   %2283 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2282) #16
   %2284 = icmp sgt i32 %2283, 0
-  br i1 %2284, label %2285, label %.loopexit3981
+  br i1 %2284, label %2285, label %.loopexit3983
 
 2285:                                             ; preds = %2270
   %2286 = load i32, ptr @hf_btmesh_light_ctl_set_transition_time, align 4
@@ -10476,7 +10473,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2295 = load i32, ptr @hf_btmesh_light_ctl_set_delay, align 4
   %2296 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2295, ptr noundef nonnull %0, i32 noundef %2294, i32 noundef 1, i32 noundef -2147483648) #16
   %2297 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2298:                                             ; preds = %42
   %2299 = load i32, ptr @hf_btmesh_light_ctl_set_unacknowledged_ctl_lightness, align 4
@@ -10493,7 +10490,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2310 = add nuw nsw i32 %.03971, 7
   %2311 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2310) #16
   %2312 = icmp sgt i32 %2311, 0
-  br i1 %2312, label %2313, label %.loopexit3981
+  br i1 %2312, label %2313, label %.loopexit3983
 
 2313:                                             ; preds = %2298
   %2314 = load i32, ptr @hf_btmesh_light_ctl_set_unacknowledged_transition_time, align 4
@@ -10508,7 +10505,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2323 = load i32, ptr @hf_btmesh_light_ctl_set_unacknowledged_delay, align 4
   %2324 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2323, ptr noundef nonnull %0, i32 noundef %2322, i32 noundef 1, i32 noundef -2147483648) #16
   %2325 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2326:                                             ; preds = %42
   %2327 = load i32, ptr @hf_btmesh_light_ctl_status_present_ctl_lightness, align 4
@@ -10519,7 +10516,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2332 = or disjoint i32 %.03971, 4
   %2333 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2332) #16
   %2334 = icmp sgt i32 %2333, 0
-  br i1 %2334, label %2335, label %.loopexit3981
+  br i1 %2334, label %2335, label %.loopexit3983
 
 2335:                                             ; preds = %2326
   %2336 = load i32, ptr @hf_btmesh_light_ctl_status_target_ctl_lightness, align 4
@@ -10537,7 +10534,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2348 = load i32, ptr @hf_btmesh_light_ctl_status_remaining_time_resolution, align 4
   %2349 = call ptr @proto_tree_add_item(ptr noundef %2345, i32 noundef %2348, ptr noundef nonnull %0, i32 noundef %2341, i32 noundef 1, i32 noundef -2147483648) #16
   %2350 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2351:                                             ; preds = %42
   %2352 = load i32, ptr @hf_btmesh_light_ctl_temperature_range_status_status_code, align 4
@@ -10549,7 +10546,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2358 = load i32, ptr @hf_btmesh_light_ctl_temperature_range_status_range_max, align 4
   %2359 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2358, ptr noundef nonnull %0, i32 noundef %2357, i32 noundef 2, i32 noundef -2147483648) #16
   %2360 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2361:                                             ; preds = %42
   %2362 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_ctl_temperature, align 4
@@ -10563,7 +10560,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2370 = add nuw nsw i32 %.03971, 5
   %2371 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2370) #16
   %2372 = icmp sgt i32 %2371, 0
-  br i1 %2372, label %2373, label %.loopexit3981
+  br i1 %2372, label %2373, label %.loopexit3983
 
 2373:                                             ; preds = %2361
   %2374 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_transition_time, align 4
@@ -10578,7 +10575,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2383 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_delay, align 4
   %2384 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2383, ptr noundef nonnull %0, i32 noundef %2382, i32 noundef 1, i32 noundef -2147483648) #16
   %2385 = add nuw nsw i32 %.03971, 7
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2386:                                             ; preds = %42
   %2387 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_unacknowledged_ctl_temperature, align 4
@@ -10592,7 +10589,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2395 = add nuw nsw i32 %.03971, 5
   %2396 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2395) #16
   %2397 = icmp sgt i32 %2396, 0
-  br i1 %2397, label %2398, label %.loopexit3981
+  br i1 %2397, label %2398, label %.loopexit3983
 
 2398:                                             ; preds = %2386
   %2399 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_unacknowledged_transition_time, align 4
@@ -10607,7 +10604,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2408 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_unacknowledged_delay, align 4
   %2409 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2408, ptr noundef nonnull %0, i32 noundef %2407, i32 noundef 1, i32 noundef -2147483648) #16
   %2410 = add nuw nsw i32 %.03971, 7
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2411:                                             ; preds = %42
   %2412 = load i32, ptr @hf_btmesh_light_ctl_temperature_status_present_ctl_temperature, align 4
@@ -10618,7 +10615,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2417 = or disjoint i32 %.03971, 4
   %2418 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2417) #16
   %2419 = icmp sgt i32 %2418, 0
-  br i1 %2419, label %2420, label %.loopexit3981
+  br i1 %2419, label %2420, label %.loopexit3983
 
 2420:                                             ; preds = %2411
   %2421 = load i32, ptr @hf_btmesh_light_ctl_temperature_status_target_ctl_temperature, align 4
@@ -10636,7 +10633,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2433 = load i32, ptr @hf_btmesh_light_ctl_temperature_status_remaining_time_resolution, align 4
   %2434 = call ptr @proto_tree_add_item(ptr noundef %2430, i32 noundef %2433, ptr noundef nonnull %0, i32 noundef %2426, i32 noundef 1, i32 noundef -2147483648) #16
   %2435 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2436:                                             ; preds = %42
   %2437 = load i32, ptr @hf_btmesh_light_ctl_default_status_lightness, align 4
@@ -10648,7 +10645,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2443 = load i32, ptr @hf_btmesh_light_ctl_default_status_delta_uv, align 4
   %2444 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2443, ptr noundef nonnull %0, i32 noundef %2442, i32 noundef 2, i32 noundef -2147483648) #16
   %2445 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2446:                                             ; preds = %42
   %2447 = load i32, ptr @hf_btmesh_light_ctl_default_set_lightness, align 4
@@ -10660,7 +10657,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2453 = load i32, ptr @hf_btmesh_light_ctl_default_set_delta_uv, align 4
   %2454 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2453, ptr noundef nonnull %0, i32 noundef %2452, i32 noundef 2, i32 noundef -2147483648) #16
   %2455 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2456:                                             ; preds = %42
   %2457 = load i32, ptr @hf_btmesh_light_ctl_default_set_unacknowledged_lightness, align 4
@@ -10672,7 +10669,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2463 = load i32, ptr @hf_btmesh_light_ctl_default_set_unacknowledged_delta_uv, align 4
   %2464 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2463, ptr noundef nonnull %0, i32 noundef %2462, i32 noundef 2, i32 noundef -2147483648) #16
   %2465 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2466:                                             ; preds = %42
   %2467 = load i32, ptr @hf_btmesh_light_ctl_temperature_range_set_range_min, align 4
@@ -10681,7 +10678,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2470 = load i32, ptr @hf_btmesh_light_ctl_temperature_range_set_range_max, align 4
   %2471 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2470, ptr noundef nonnull %0, i32 noundef %2469, i32 noundef 2, i32 noundef -2147483648) #16
   %2472 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2473:                                             ; preds = %42
   %2474 = load i32, ptr @hf_btmesh_light_ctl_temperature_range_set_unacknowledged_range_min, align 4
@@ -10690,7 +10687,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2477 = load i32, ptr @hf_btmesh_light_ctl_temperature_range_set_unacknowledged_range_max, align 4
   %2478 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2477, ptr noundef nonnull %0, i32 noundef %2476, i32 noundef 2, i32 noundef -2147483648) #16
   %2479 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2480:                                             ; preds = %42
   %2481 = load i32, ptr @hf_btmesh_light_hsl_hue_set_hue, align 4
@@ -10701,7 +10698,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2486 = add nuw nsw i32 %.03971, 3
   %2487 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2486) #16
   %2488 = icmp sgt i32 %2487, 0
-  br i1 %2488, label %2489, label %.loopexit3981
+  br i1 %2488, label %2489, label %.loopexit3983
 
 2489:                                             ; preds = %2480
   %2490 = load i32, ptr @hf_btmesh_light_hsl_hue_set_transition_time, align 4
@@ -10716,7 +10713,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2499 = load i32, ptr @hf_btmesh_light_hsl_hue_set_delay, align 4
   %2500 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2499, ptr noundef nonnull %0, i32 noundef %2498, i32 noundef 1, i32 noundef -2147483648) #16
   %2501 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2502:                                             ; preds = %42
   %2503 = load i32, ptr @hf_btmesh_light_hsl_hue_set_unacknowledged_hue, align 4
@@ -10727,7 +10724,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2508 = add nuw nsw i32 %.03971, 3
   %2509 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2508) #16
   %2510 = icmp sgt i32 %2509, 0
-  br i1 %2510, label %2511, label %.loopexit3981
+  br i1 %2510, label %2511, label %.loopexit3983
 
 2511:                                             ; preds = %2502
   %2512 = load i32, ptr @hf_btmesh_light_hsl_hue_set_unacknowledged_transition_time, align 4
@@ -10742,7 +10739,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2521 = load i32, ptr @hf_btmesh_light_hsl_hue_set_unacknowledged_delay, align 4
   %2522 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2521, ptr noundef nonnull %0, i32 noundef %2520, i32 noundef 1, i32 noundef -2147483648) #16
   %2523 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2524:                                             ; preds = %42
   %2525 = load i32, ptr @hf_btmesh_light_hsl_hue_status_present_hue, align 4
@@ -10750,7 +10747,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2527 = add nuw nsw i32 %.03971, 2
   %2528 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2527) #16
   %2529 = icmp sgt i32 %2528, 0
-  br i1 %2529, label %2530, label %.loopexit3981
+  br i1 %2529, label %2530, label %.loopexit3983
 
 2530:                                             ; preds = %2524
   %2531 = load i32, ptr @hf_btmesh_light_hsl_hue_status_target_hue, align 4
@@ -10765,7 +10762,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2540 = load i32, ptr @hf_btmesh_light_hsl_hue_status_remaining_time_resolution, align 4
   %2541 = call ptr @proto_tree_add_item(ptr noundef %2537, i32 noundef %2540, ptr noundef nonnull %0, i32 noundef %2533, i32 noundef 1, i32 noundef -2147483648) #16
   %2542 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2543:                                             ; preds = %42
   %2544 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_saturation, align 4
@@ -10776,7 +10773,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2549 = add nuw nsw i32 %.03971, 3
   %2550 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2549) #16
   %2551 = icmp sgt i32 %2550, 0
-  br i1 %2551, label %2552, label %.loopexit3981
+  br i1 %2551, label %2552, label %.loopexit3983
 
 2552:                                             ; preds = %2543
   %2553 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_transition_time, align 4
@@ -10791,7 +10788,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2562 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_delay, align 4
   %2563 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2562, ptr noundef nonnull %0, i32 noundef %2561, i32 noundef 1, i32 noundef -2147483648) #16
   %2564 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2565:                                             ; preds = %42
   %2566 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_unacknowledged_saturation, align 4
@@ -10802,7 +10799,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2571 = add nuw nsw i32 %.03971, 3
   %2572 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2571) #16
   %2573 = icmp sgt i32 %2572, 0
-  br i1 %2573, label %2574, label %.loopexit3981
+  br i1 %2573, label %2574, label %.loopexit3983
 
 2574:                                             ; preds = %2565
   %2575 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_unacknowledged_transition_time, align 4
@@ -10817,7 +10814,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2584 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_unacknowledged_delay, align 4
   %2585 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2584, ptr noundef nonnull %0, i32 noundef %2583, i32 noundef 1, i32 noundef -2147483648) #16
   %2586 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2587:                                             ; preds = %42
   %2588 = load i32, ptr @hf_btmesh_light_hsl_saturation_status_present_saturation, align 4
@@ -10825,7 +10822,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2590 = add nuw nsw i32 %.03971, 2
   %2591 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2590) #16
   %2592 = icmp sgt i32 %2591, 0
-  br i1 %2592, label %2593, label %.loopexit3981
+  br i1 %2592, label %2593, label %.loopexit3983
 
 2593:                                             ; preds = %2587
   %2594 = load i32, ptr @hf_btmesh_light_hsl_saturation_status_target_saturation, align 4
@@ -10840,7 +10837,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2603 = load i32, ptr @hf_btmesh_light_hsl_saturation_status_remaining_time_resolution, align 4
   %2604 = call ptr @proto_tree_add_item(ptr noundef %2600, i32 noundef %2603, ptr noundef nonnull %0, i32 noundef %2596, i32 noundef 1, i32 noundef -2147483648) #16
   %2605 = add nuw nsw i32 %.03971, 5
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2606:                                             ; preds = %42
   %2607 = load i32, ptr @hf_btmesh_light_hsl_set_hsl_lightness, align 4
@@ -10857,7 +10854,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2618 = add nuw nsw i32 %.03971, 7
   %2619 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2618) #16
   %2620 = icmp sgt i32 %2619, 0
-  br i1 %2620, label %2621, label %.loopexit3981
+  br i1 %2620, label %2621, label %.loopexit3983
 
 2621:                                             ; preds = %2606
   %2622 = load i32, ptr @hf_btmesh_light_hsl_set_transition_time, align 4
@@ -10872,7 +10869,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2631 = load i32, ptr @hf_btmesh_light_hsl_set_delay, align 4
   %2632 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2631, ptr noundef nonnull %0, i32 noundef %2630, i32 noundef 1, i32 noundef -2147483648) #16
   %2633 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2634:                                             ; preds = %42
   %2635 = load i32, ptr @hf_btmesh_light_hsl_set_unacknowledged_hsl_lightness, align 4
@@ -10889,7 +10886,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2646 = add nuw nsw i32 %.03971, 7
   %2647 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2646) #16
   %2648 = icmp sgt i32 %2647, 0
-  br i1 %2648, label %2649, label %.loopexit3981
+  br i1 %2648, label %2649, label %.loopexit3983
 
 2649:                                             ; preds = %2634
   %2650 = load i32, ptr @hf_btmesh_light_hsl_set_unacknowledged_transition_time, align 4
@@ -10904,7 +10901,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2659 = load i32, ptr @hf_btmesh_light_hsl_set_unacknowledged_delay, align 4
   %2660 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2659, ptr noundef nonnull %0, i32 noundef %2658, i32 noundef 1, i32 noundef -2147483648) #16
   %2661 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2662:                                             ; preds = %42
   %2663 = load i32, ptr @hf_btmesh_light_hsl_status_hsl_lightness, align 4
@@ -10918,7 +10915,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2671 = add nuw nsw i32 %.03971, 6
   %2672 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2671) #16
   %2673 = icmp sgt i32 %2672, 0
-  br i1 %2673, label %2674, label %.loopexit3981
+  br i1 %2673, label %2674, label %.loopexit3983
 
 2674:                                             ; preds = %2662
   %2675 = load i32, ptr @hf_btmesh_light_hsl_status_remaining_time, align 4
@@ -10930,7 +10927,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2681 = load i32, ptr @hf_btmesh_light_hsl_status_remaining_time_resolution, align 4
   %2682 = call ptr @proto_tree_add_item(ptr noundef %2678, i32 noundef %2681, ptr noundef nonnull %0, i32 noundef %2671, i32 noundef 1, i32 noundef -2147483648) #16
   %2683 = add nuw nsw i32 %.03971, 7
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2684:                                             ; preds = %42
   %2685 = load i32, ptr @hf_btmesh_light_hsl_target_status_hsl_lightness_target, align 4
@@ -10944,7 +10941,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2693 = add nuw nsw i32 %.03971, 6
   %2694 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2693) #16
   %2695 = icmp sgt i32 %2694, 0
-  br i1 %2695, label %2696, label %.loopexit3981
+  br i1 %2695, label %2696, label %.loopexit3983
 
 2696:                                             ; preds = %2684
   %2697 = load i32, ptr @hf_btmesh_light_hsl_target_status_remaining_time, align 4
@@ -10956,7 +10953,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2703 = load i32, ptr @hf_btmesh_light_hsl_target_status_remaining_time_resolution, align 4
   %2704 = call ptr @proto_tree_add_item(ptr noundef %2700, i32 noundef %2703, ptr noundef nonnull %0, i32 noundef %2693, i32 noundef 1, i32 noundef -2147483648) #16
   %2705 = add nuw nsw i32 %.03971, 7
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2706:                                             ; preds = %42
   %2707 = load i32, ptr @hf_btmesh_light_hsl_default_status_lightness, align 4
@@ -10968,7 +10965,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2713 = load i32, ptr @hf_btmesh_light_hsl_default_status_saturation, align 4
   %2714 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2713, ptr noundef nonnull %0, i32 noundef %2712, i32 noundef 2, i32 noundef -2147483648) #16
   %2715 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2716:                                             ; preds = %42
   %2717 = load i32, ptr @hf_btmesh_light_hsl_range_status_status_code, align 4
@@ -10986,7 +10983,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2729 = load i32, ptr @hf_btmesh_light_hsl_range_status_saturation_range_max, align 4
   %2730 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2729, ptr noundef nonnull %0, i32 noundef %2728, i32 noundef 2, i32 noundef -2147483648) #16
   %2731 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2732:                                             ; preds = %42
   %2733 = load i32, ptr @hf_btmesh_light_hsl_default_set_lightness, align 4
@@ -10998,7 +10995,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2739 = load i32, ptr @hf_btmesh_light_hsl_default_set_saturation, align 4
   %2740 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2739, ptr noundef nonnull %0, i32 noundef %2738, i32 noundef 2, i32 noundef -2147483648) #16
   %2741 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2742:                                             ; preds = %42
   %2743 = load i32, ptr @hf_btmesh_light_hsl_default_set_unacknowledged_lightness, align 4
@@ -11010,7 +11007,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2749 = load i32, ptr @hf_btmesh_light_hsl_default_set_unacknowledged_saturation, align 4
   %2750 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2749, ptr noundef nonnull %0, i32 noundef %2748, i32 noundef 2, i32 noundef -2147483648) #16
   %2751 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2752:                                             ; preds = %42
   %2753 = load i32, ptr @hf_btmesh_light_hsl_range_set_hue_range_min, align 4
@@ -11025,7 +11022,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2762 = load i32, ptr @hf_btmesh_light_hsl_range_set_saturation_range_max, align 4
   %2763 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2762, ptr noundef nonnull %0, i32 noundef %2761, i32 noundef 2, i32 noundef -2147483648) #16
   %2764 = or disjoint i32 %.03971, 8
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2765:                                             ; preds = %42
   %2766 = load i32, ptr @hf_btmesh_light_hsl_range_set_unacknowledged_hue_range_min, align 4
@@ -11040,7 +11037,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2775 = load i32, ptr @hf_btmesh_light_hsl_range_set_unacknowledged_saturation_range_max, align 4
   %2776 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2775, ptr noundef nonnull %0, i32 noundef %2774, i32 noundef 2, i32 noundef -2147483648) #16
   %2777 = or disjoint i32 %.03971, 8
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2778:                                             ; preds = %42
   %2779 = load i32, ptr @hf_btmesh_light_xyl_set_xyl_lightness, align 4
@@ -11057,7 +11054,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2790 = add nuw nsw i32 %.03971, 7
   %2791 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2790) #16
   %2792 = icmp sgt i32 %2791, 0
-  br i1 %2792, label %2793, label %.loopexit3981
+  br i1 %2792, label %2793, label %.loopexit3983
 
 2793:                                             ; preds = %2778
   %2794 = load i32, ptr @hf_btmesh_light_xyl_set_transition_time, align 4
@@ -11072,7 +11069,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2803 = load i32, ptr @hf_btmesh_light_xyl_set_delay, align 4
   %2804 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2803, ptr noundef nonnull %0, i32 noundef %2802, i32 noundef 1, i32 noundef -2147483648) #16
   %2805 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2806:                                             ; preds = %42
   %2807 = load i32, ptr @hf_btmesh_light_xyl_set_unacknowledged_xyl_lightness, align 4
@@ -11089,7 +11086,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2818 = add nuw nsw i32 %.03971, 7
   %2819 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2818) #16
   %2820 = icmp sgt i32 %2819, 0
-  br i1 %2820, label %2821, label %.loopexit3981
+  br i1 %2820, label %2821, label %.loopexit3983
 
 2821:                                             ; preds = %2806
   %2822 = load i32, ptr @hf_btmesh_light_xyl_set_unacknowledged_transition_time, align 4
@@ -11104,7 +11101,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2831 = load i32, ptr @hf_btmesh_light_xyl_set_unacknowledged_delay, align 4
   %2832 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2831, ptr noundef nonnull %0, i32 noundef %2830, i32 noundef 1, i32 noundef -2147483648) #16
   %2833 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2834:                                             ; preds = %42
   %2835 = load i32, ptr @hf_btmesh_light_xyl_status_xyl_lightness, align 4
@@ -11118,7 +11115,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2843 = add nuw nsw i32 %.03971, 6
   %2844 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2843) #16
   %2845 = icmp sgt i32 %2844, 0
-  br i1 %2845, label %2846, label %.loopexit3981
+  br i1 %2845, label %2846, label %.loopexit3983
 
 2846:                                             ; preds = %2834
   %2847 = load i32, ptr @hf_btmesh_light_xyl_status_remaining_time, align 4
@@ -11130,7 +11127,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2853 = load i32, ptr @hf_btmesh_light_xyl_status_remaining_time_resolution, align 4
   %2854 = call ptr @proto_tree_add_item(ptr noundef %2850, i32 noundef %2853, ptr noundef nonnull %0, i32 noundef %2843, i32 noundef 1, i32 noundef -2147483648) #16
   %2855 = add nuw nsw i32 %.03971, 7
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2856:                                             ; preds = %42
   %2857 = load i32, ptr @hf_btmesh_light_xyl_target_status_target_xyl_lightness, align 4
@@ -11144,7 +11141,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2865 = add nuw nsw i32 %.03971, 6
   %2866 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2865) #16
   %2867 = icmp sgt i32 %2866, 0
-  br i1 %2867, label %2868, label %.loopexit3981
+  br i1 %2867, label %2868, label %.loopexit3983
 
 2868:                                             ; preds = %2856
   %2869 = load i32, ptr @hf_btmesh_light_xyl_target_status_remaining_time, align 4
@@ -11156,7 +11153,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2875 = load i32, ptr @hf_btmesh_light_xyl_target_status_remaining_time_resolution, align 4
   %2876 = call ptr @proto_tree_add_item(ptr noundef %2872, i32 noundef %2875, ptr noundef nonnull %0, i32 noundef %2865, i32 noundef 1, i32 noundef -2147483648) #16
   %2877 = add nuw nsw i32 %.03971, 7
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2878:                                             ; preds = %42
   %2879 = load i32, ptr @hf_btmesh_light_xyl_default_status_lightness, align 4
@@ -11168,7 +11165,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2885 = load i32, ptr @hf_btmesh_light_xyl_default_status_xyl_y, align 4
   %2886 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2885, ptr noundef nonnull %0, i32 noundef %2884, i32 noundef 2, i32 noundef -2147483648) #16
   %2887 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2888:                                             ; preds = %42
   %2889 = load i32, ptr @hf_btmesh_light_xyl_range_status_status_code, align 4
@@ -11186,7 +11183,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2901 = load i32, ptr @hf_btmesh_light_xyl_range_status_xyl_y_range_max, align 4
   %2902 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2901, ptr noundef nonnull %0, i32 noundef %2900, i32 noundef 2, i32 noundef -2147483648) #16
   %2903 = add nuw nsw i32 %.03971, 9
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2904:                                             ; preds = %42
   %2905 = load i32, ptr @hf_btmesh_light_xyl_default_set_lightness, align 4
@@ -11198,7 +11195,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2911 = load i32, ptr @hf_btmesh_light_xyl_default_set_xyl_y, align 4
   %2912 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2911, ptr noundef nonnull %0, i32 noundef %2910, i32 noundef 2, i32 noundef -2147483648) #16
   %2913 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2914:                                             ; preds = %42
   %2915 = load i32, ptr @hf_btmesh_light_xyl_default_set_unacknowledged_lightness, align 4
@@ -11210,7 +11207,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2921 = load i32, ptr @hf_btmesh_light_xyl_default_set_unacknowledged_xyl_y, align 4
   %2922 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2921, ptr noundef nonnull %0, i32 noundef %2920, i32 noundef 2, i32 noundef -2147483648) #16
   %2923 = add nuw nsw i32 %.03971, 6
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2924:                                             ; preds = %42
   %2925 = load i32, ptr @hf_btmesh_light_xyl_range_set_xyl_x_range_min, align 4
@@ -11225,7 +11222,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2934 = load i32, ptr @hf_btmesh_light_xyl_range_set_xyl_y_range_max, align 4
   %2935 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2934, ptr noundef nonnull %0, i32 noundef %2933, i32 noundef 2, i32 noundef -2147483648) #16
   %2936 = or disjoint i32 %.03971, 8
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2937:                                             ; preds = %42
   %2938 = load i32, ptr @hf_btmesh_light_xyl_range_set_unacknowledged_xyl_x_range_min, align 4
@@ -11240,43 +11237,43 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2947 = load i32, ptr @hf_btmesh_light_xyl_range_set_unacknowledged_xyl_y_range_max, align 4
   %2948 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2947, ptr noundef nonnull %0, i32 noundef %2946, i32 noundef 2, i32 noundef -2147483648) #16
   %2949 = or disjoint i32 %.03971, 8
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2950:                                             ; preds = %42
   %2951 = load i32, ptr @hf_btmesh_light_lc_mode_set_mode, align 4
   %2952 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2951, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2953 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2954:                                             ; preds = %42
   %2955 = load i32, ptr @hf_btmesh_light_lc_mode_set_unacknowledged_mode, align 4
   %2956 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2955, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2957 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2958:                                             ; preds = %42
   %2959 = load i32, ptr @hf_btmesh_light_lc_mode_status_mode, align 4
   %2960 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2959, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2961 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2962:                                             ; preds = %42
   %2963 = load i32, ptr @hf_btmesh_light_lc_om_set_mode, align 4
   %2964 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2963, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2965 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2966:                                             ; preds = %42
   %2967 = load i32, ptr @hf_btmesh_light_lc_om_set_unacknowledged_mode, align 4
   %2968 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2967, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2969 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2970:                                             ; preds = %42
   %2971 = load i32, ptr @hf_btmesh_light_lc_om_status_mode, align 4
   %2972 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2971, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2973 = add nuw nsw i32 %.03971, 1
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2974:                                             ; preds = %42
   %2975 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_light_onoff, align 4
@@ -11287,7 +11284,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2980 = add nuw nsw i32 %.03971, 2
   %2981 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2980) #16
   %2982 = icmp sgt i32 %2981, 0
-  br i1 %2982, label %2983, label %.loopexit3981
+  br i1 %2982, label %2983, label %.loopexit3983
 
 2983:                                             ; preds = %2974
   %2984 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_transition_time, align 4
@@ -11302,7 +11299,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %2993 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_delay, align 4
   %2994 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2993, ptr noundef nonnull %0, i32 noundef %2992, i32 noundef 1, i32 noundef -2147483648) #16
   %2995 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 2996:                                             ; preds = %42
   %2997 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_unacknowledged_light_onoff, align 4
@@ -11313,7 +11310,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3002 = add nuw nsw i32 %.03971, 2
   %3003 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3002) #16
   %3004 = icmp sgt i32 %3003, 0
-  br i1 %3004, label %3005, label %.loopexit3981
+  br i1 %3004, label %3005, label %.loopexit3983
 
 3005:                                             ; preds = %2996
   %3006 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_unacknowledged_transition_time, align 4
@@ -11328,7 +11325,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3015 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_unacknowledged_delay, align 4
   %3016 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3015, ptr noundef nonnull %0, i32 noundef %3014, i32 noundef 1, i32 noundef -2147483648) #16
   %3017 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3018:                                             ; preds = %42
   %3019 = load i32, ptr @hf_btmesh_light_lc_light_onoff_status_present_light_onoff, align 4
@@ -11336,7 +11333,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3021 = add nuw nsw i32 %.03971, 1
   %3022 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3021) #16
   %3023 = icmp sgt i32 %3022, 0
-  br i1 %3023, label %3024, label %.loopexit3981
+  br i1 %3023, label %3024, label %.loopexit3983
 
 3024:                                             ; preds = %3018
   %3025 = load i32, ptr @hf_btmesh_light_lc_light_onoff_status_target_light_onoff, align 4
@@ -11351,13 +11348,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3034 = load i32, ptr @hf_btmesh_light_lc_light_onoff_status_remaining_time_resolution, align 4
   %3035 = call ptr @proto_tree_add_item(ptr noundef %3031, i32 noundef %3034, ptr noundef nonnull %0, i32 noundef %3027, i32 noundef 1, i32 noundef -2147483648) #16
   %3036 = add nuw nsw i32 %.03971, 3
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3037:                                             ; preds = %42
   %3038 = load i32, ptr @hf_btmesh_light_lc_property_get_light_lc_property_id, align 4
   %3039 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3038, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3040 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3041:                                             ; preds = %42
   %3042 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
@@ -11365,22 +11362,22 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3044 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef %3042, i32 noundef %3043, ptr noundef null, ptr noundef nonnull @.str.2204) #16
   %3045 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3046 = icmp sgt i32 %3045, 1
-  br i1 %3046, label %.lr.ph4020, label %.loopexit3981
+  br i1 %3046, label %.lr.ph4022, label %.loopexit3983
 
-.lr.ph4020:                                       ; preds = %3041, %.lr.ph4020
-  %.204019 = phi i32 [ %3049, %.lr.ph4020 ], [ %.03971, %3041 ]
+.lr.ph4022:                                       ; preds = %3041, %.lr.ph4022
+  %.204021 = phi i32 [ %3049, %.lr.ph4022 ], [ %.03971, %3041 ]
   %3047 = load i32, ptr @hf_btmesh_generic_manufacturer_properties_status_manufacturer_property_id, align 4
-  %3048 = call ptr @proto_tree_add_item(ptr noundef %3044, i32 noundef %3047, ptr noundef nonnull %0, i32 noundef %.204019, i32 noundef 2, i32 noundef -2147483648) #16
-  %3049 = add i32 %.204019, 2
+  %3048 = call ptr @proto_tree_add_item(ptr noundef %3044, i32 noundef %3047, ptr noundef nonnull %0, i32 noundef %.204021, i32 noundef 2, i32 noundef -2147483648) #16
+  %3049 = add i32 %.204021, 2
   %3050 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3049) #16
   %3051 = icmp sgt i32 %3050, 1
-  br i1 %3051, label %.lr.ph4020, label %.loopexit3981, !llvm.loop !27
+  br i1 %3051, label %.lr.ph4022, label %.loopexit3983, !llvm.loop !27
 
 3052:                                             ; preds = %42
   %3053 = load i32, ptr @hf_btmesh_generic_manufacturer_property_get_manufacturer_property_id, align 4
   %3054 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3053, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3055 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3056:                                             ; preds = %42
   %3057 = load i32, ptr @hf_btmesh_generic_manufacturer_property_set_manufacturer_property_id, align 4
@@ -11389,7 +11386,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3060 = load i32, ptr @hf_btmesh_generic_manufacturer_property_set_manufacturer_user_access, align 4
   %3061 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3060, ptr noundef nonnull %0, i32 noundef %3059, i32 noundef 1, i32 noundef -2147483648) #16
   %3062 = add nuw nsw i32 %.03971, 3
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3063:                                             ; preds = %42
   %3064 = load i32, ptr @hf_btmesh_generic_manufacturer_property_set_unacknowledged_manufacturer_property_id, align 4
@@ -11398,7 +11395,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3067 = load i32, ptr @hf_btmesh_generic_manufacturer_property_set_unacknowledged_manufacturer_user_access, align 4
   %3068 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3067, ptr noundef nonnull %0, i32 noundef %3066, i32 noundef 1, i32 noundef -2147483648) #16
   %3069 = add nuw nsw i32 %.03971, 3
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3070:                                             ; preds = %42
   %3071 = load i32, ptr @hf_btmesh_generic_manufacturer_property_status_manufacturer_property_id, align 4
@@ -11407,7 +11404,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3074 = add nuw nsw i32 %.03971, 2
   %3075 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3074) #16
   %3076 = icmp sgt i32 %3075, 0
-  br i1 %3076, label %3077, label %.loopexit3981
+  br i1 %3076, label %3077, label %.loopexit3983
 
 3077:                                             ; preds = %3070
   %3078 = load i32, ptr @hf_btmesh_generic_manufacturer_property_status_manufacturer_user_access, align 4
@@ -11417,7 +11414,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3082 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3081, ptr noundef %0, i32 noundef %3080, i16 noundef zeroext %3073, i32 noundef -1)
   %3083 = zext i16 %3082 to i32
   %3084 = add nuw nsw i32 %3080, %3083
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3085:                                             ; preds = %42
   %3086 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
@@ -11425,22 +11422,22 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3088 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef %3086, i32 noundef %3087, ptr noundef null, ptr noundef nonnull @.str.2205) #16
   %3089 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3090 = icmp sgt i32 %3089, 1
-  br i1 %3090, label %.lr.ph4017, label %.loopexit3981
+  br i1 %3090, label %.lr.ph4019, label %.loopexit3983
 
-.lr.ph4017:                                       ; preds = %3085, %.lr.ph4017
-  %.214016 = phi i32 [ %3093, %.lr.ph4017 ], [ %.03971, %3085 ]
+.lr.ph4019:                                       ; preds = %3085, %.lr.ph4019
+  %.214018 = phi i32 [ %3093, %.lr.ph4019 ], [ %.03971, %3085 ]
   %3091 = load i32, ptr @hf_btmesh_generic_admin_properties_status_admin_property_id, align 4
-  %3092 = call ptr @proto_tree_add_item(ptr noundef %3088, i32 noundef %3091, ptr noundef nonnull %0, i32 noundef %.214016, i32 noundef 2, i32 noundef -2147483648) #16
-  %3093 = add i32 %.214016, 2
+  %3092 = call ptr @proto_tree_add_item(ptr noundef %3088, i32 noundef %3091, ptr noundef nonnull %0, i32 noundef %.214018, i32 noundef 2, i32 noundef -2147483648) #16
+  %3093 = add i32 %.214018, 2
   %3094 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3093) #16
   %3095 = icmp sgt i32 %3094, 1
-  br i1 %3095, label %.lr.ph4017, label %.loopexit3981, !llvm.loop !28
+  br i1 %3095, label %.lr.ph4019, label %.loopexit3983, !llvm.loop !28
 
 3096:                                             ; preds = %42
   %3097 = load i32, ptr @hf_btmesh_generic_admin_property_get_admin_property_id, align 4
   %3098 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3097, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3099 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3100:                                             ; preds = %42
   %3101 = load i32, ptr @hf_btmesh_generic_admin_property_set_admin_property_id, align 4
@@ -11454,7 +11451,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3109 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3108, ptr noundef %0, i32 noundef %3107, i16 noundef zeroext %3103, i32 noundef -1)
   %3110 = zext i16 %3109 to i32
   %3111 = add nuw nsw i32 %3107, %3110
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3112:                                             ; preds = %42
   %3113 = load i32, ptr @hf_btmesh_generic_admin_property_set_unacknowledged_admin_property_id, align 4
@@ -11468,7 +11465,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3121 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3120, ptr noundef %0, i32 noundef %3119, i16 noundef zeroext %3115, i32 noundef -1)
   %3122 = zext i16 %3121 to i32
   %3123 = add nuw nsw i32 %3119, %3122
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3124:                                             ; preds = %42
   %3125 = load i32, ptr @hf_btmesh_generic_admin_property_status_admin_property_id, align 4
@@ -11477,7 +11474,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3128 = add nuw nsw i32 %.03971, 2
   %3129 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3128) #16
   %3130 = icmp sgt i32 %3129, 0
-  br i1 %3130, label %3131, label %.loopexit3981
+  br i1 %3130, label %3131, label %.loopexit3983
 
 3131:                                             ; preds = %3124
   %3132 = load i32, ptr @hf_btmesh_generic_admin_property_status_admin_user_access, align 4
@@ -11487,7 +11484,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3136 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3135, ptr noundef %0, i32 noundef %3134, i16 noundef zeroext %3127, i32 noundef -1)
   %3137 = zext i16 %3136 to i32
   %3138 = add nuw nsw i32 %3134, %3137
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3139:                                             ; preds = %42
   %3140 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
@@ -11495,22 +11492,22 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3142 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef %3140, i32 noundef %3141, ptr noundef null, ptr noundef nonnull @.str.2206) #16
   %3143 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3144 = icmp sgt i32 %3143, 1
-  br i1 %3144, label %.lr.ph4014, label %.loopexit3981
+  br i1 %3144, label %.lr.ph4016, label %.loopexit3983
 
-.lr.ph4014:                                       ; preds = %3139, %.lr.ph4014
-  %.224013 = phi i32 [ %3147, %.lr.ph4014 ], [ %.03971, %3139 ]
+.lr.ph4016:                                       ; preds = %3139, %.lr.ph4016
+  %.224015 = phi i32 [ %3147, %.lr.ph4016 ], [ %.03971, %3139 ]
   %3145 = load i32, ptr @hf_btmesh_generic_user_properties_status_user_property_id, align 4
-  %3146 = call ptr @proto_tree_add_item(ptr noundef %3142, i32 noundef %3145, ptr noundef nonnull %0, i32 noundef %.224013, i32 noundef 2, i32 noundef -2147483648) #16
-  %3147 = add i32 %.224013, 2
+  %3146 = call ptr @proto_tree_add_item(ptr noundef %3142, i32 noundef %3145, ptr noundef nonnull %0, i32 noundef %.224015, i32 noundef 2, i32 noundef -2147483648) #16
+  %3147 = add i32 %.224015, 2
   %3148 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3147) #16
   %3149 = icmp sgt i32 %3148, 1
-  br i1 %3149, label %.lr.ph4014, label %.loopexit3981, !llvm.loop !29
+  br i1 %3149, label %.lr.ph4016, label %.loopexit3983, !llvm.loop !29
 
 3150:                                             ; preds = %42
   %3151 = load i32, ptr @hf_btmesh_generic_user_property_get_user_property_id, align 4
   %3152 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3151, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3153 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3154:                                             ; preds = %42
   %3155 = load i32, ptr @hf_btmesh_generic_user_property_set_user_property_id, align 4
@@ -11521,7 +11518,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3160 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3159, ptr noundef %0, i32 noundef %3158, i16 noundef zeroext %3157, i32 noundef -1)
   %3161 = zext i16 %3160 to i32
   %3162 = add nuw nsw i32 %3158, %3161
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3163:                                             ; preds = %42
   %3164 = load i32, ptr @hf_btmesh_generic_user_property_set_unacknowledged_user_property_id, align 4
@@ -11532,7 +11529,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3169 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3168, ptr noundef %0, i32 noundef %3167, i16 noundef zeroext %3166, i32 noundef -1)
   %3170 = zext i16 %3169 to i32
   %3171 = add nuw nsw i32 %3167, %3170
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3172:                                             ; preds = %42
   %3173 = load i32, ptr @hf_btmesh_generic_user_property_status_user_property_id, align 4
@@ -11541,7 +11538,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3176 = add nuw nsw i32 %.03971, 2
   %3177 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3176) #16
   %3178 = icmp sgt i32 %3177, 0
-  br i1 %3178, label %3179, label %.loopexit3981
+  br i1 %3178, label %3179, label %.loopexit3983
 
 3179:                                             ; preds = %3172
   %3180 = load i32, ptr @hf_btmesh_generic_user_property_status_user_access, align 4
@@ -11551,13 +11548,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3184 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3183, ptr noundef %0, i32 noundef %3182, i16 noundef zeroext %3175, i32 noundef -1)
   %3185 = zext i16 %3184 to i32
   %3186 = add nuw nsw i32 %3182, %3185
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3187:                                             ; preds = %42
   %3188 = load i32, ptr @hf_btmesh_generic_client_properties_get_client_property_id, align 4
   %3189 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3188, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3190 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3191:                                             ; preds = %42
   %3192 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
@@ -11565,27 +11562,27 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3194 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef %3192, i32 noundef %3193, ptr noundef null, ptr noundef nonnull @.str.2207) #16
   %3195 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3196 = icmp sgt i32 %3195, 1
-  br i1 %3196, label %.lr.ph4011, label %.loopexit3981
+  br i1 %3196, label %.lr.ph4013, label %.loopexit3983
 
-.lr.ph4011:                                       ; preds = %3191, %.lr.ph4011
-  %.234010 = phi i32 [ %3199, %.lr.ph4011 ], [ %.03971, %3191 ]
+.lr.ph4013:                                       ; preds = %3191, %.lr.ph4013
+  %.234012 = phi i32 [ %3199, %.lr.ph4013 ], [ %.03971, %3191 ]
   %3197 = load i32, ptr @hf_btmesh_generic_client_properties_status_client_property_id, align 4
-  %3198 = call ptr @proto_tree_add_item(ptr noundef %3194, i32 noundef %3197, ptr noundef nonnull %0, i32 noundef %.234010, i32 noundef 2, i32 noundef -2147483648) #16
-  %3199 = add i32 %.234010, 2
+  %3198 = call ptr @proto_tree_add_item(ptr noundef %3194, i32 noundef %3197, ptr noundef nonnull %0, i32 noundef %.234012, i32 noundef 2, i32 noundef -2147483648) #16
+  %3199 = add i32 %.234012, 2
   %3200 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3199) #16
   %3201 = icmp sgt i32 %3200, 1
-  br i1 %3201, label %.lr.ph4011, label %.loopexit3981, !llvm.loop !30
+  br i1 %3201, label %.lr.ph4013, label %.loopexit3983, !llvm.loop !30
 
 3202:                                             ; preds = %42
   %3203 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3204 = icmp sgt i32 %3203, 1
-  br i1 %3204, label %3205, label %.loopexit3981
+  br i1 %3204, label %3205, label %.loopexit3983
 
 3205:                                             ; preds = %3202
   %3206 = load i32, ptr @hf_btmesh_sensor_descriptor_get_property_id, align 4
   %3207 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3206, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3208 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3209:                                             ; preds = %42
   %3210 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
@@ -11595,42 +11592,42 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
 .preheader:                                       ; preds = %3209
   %3212 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3213 = icmp sgt i32 %3212, 0
-  br i1 %3213, label %.lr.ph4008, label %.loopexit3981
+  br i1 %3213, label %.lr.ph4010, label %.loopexit3983
 
 3214:                                             ; preds = %3209
   %3215 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_property_id, align 4
   %3216 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3215, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3217 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
-.lr.ph4008:                                       ; preds = %.preheader, %.lr.ph4008
-  %.244007 = phi i32 [ %3234, %.lr.ph4008 ], [ %.03971, %.preheader ]
+.lr.ph4010:                                       ; preds = %.preheader, %.lr.ph4010
+  %.244009 = phi i32 [ %3234, %.lr.ph4010 ], [ %.03971, %.preheader ]
   %3218 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_property_id, align 4
-  %3219 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3218, ptr noundef nonnull %0, i32 noundef %.244007, i32 noundef 2, i32 noundef -2147483648) #16
-  %3220 = add i32 %.244007, 2
+  %3219 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3218, ptr noundef nonnull %0, i32 noundef %.244009, i32 noundef 2, i32 noundef -2147483648) #16
+  %3220 = add i32 %.244009, 2
   %3221 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_positive_tolerance, align 4
   %3222 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3221, ptr noundef nonnull %0, i32 noundef %3220, i32 noundef 3, i32 noundef -2147483648) #16
   %3223 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_negative_tolerance, align 4
   %3224 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3223, ptr noundef nonnull %0, i32 noundef %3220, i32 noundef 3, i32 noundef -2147483648) #16
-  %3225 = add i32 %.244007, 5
+  %3225 = add i32 %.244009, 5
   %3226 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_sampling_function, align 4
   %3227 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3226, ptr noundef nonnull %0, i32 noundef %3225, i32 noundef 1, i32 noundef -2147483648) #16
-  %3228 = add i32 %.244007, 6
+  %3228 = add i32 %.244009, 6
   %3229 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_measurement_period, align 4
   %3230 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3229, ptr noundef nonnull %0, i32 noundef %3228, i32 noundef 1, i32 noundef -2147483648) #16
-  %3231 = add i32 %.244007, 7
+  %3231 = add i32 %.244009, 7
   %3232 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_update_interval, align 4
   %3233 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3232, ptr noundef nonnull %0, i32 noundef %3231, i32 noundef 1, i32 noundef -2147483648) #16
-  %3234 = add i32 %.244007, 8
+  %3234 = add i32 %.244009, 8
   %3235 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3234) #16
   %3236 = icmp sgt i32 %3235, 0
-  br i1 %3236, label %.lr.ph4008, label %.loopexit3981, !llvm.loop !31
+  br i1 %3236, label %.lr.ph4010, label %.loopexit3983, !llvm.loop !31
 
 3237:                                             ; preds = %42
   %3238 = load i32, ptr @hf_btmesh_sensor_cadence_get_property_id, align 4
   %3239 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3238, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3240 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3241:                                             ; preds = %42
   %3242 = load i32, ptr @hf_btmesh_sensor_cadence_set_property_id, align 4
@@ -11646,7 +11643,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3252 = add nuw nsw i32 %.03971, 3
   %3253 = call fastcc i32 @dissect_sensor_cadence(ptr noundef %10, ptr noundef %0, i32 noundef %3252, i16 noundef zeroext %3244, i8 noundef zeroext %3251, ptr noundef nonnull @sensor_cadence_set_hfs)
   %3254 = add nsw i32 %3253, %3252
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3255:                                             ; preds = %42
   %3256 = load i32, ptr @hf_btmesh_sensor_cadence_set_unacknowledged_property_id, align 4
@@ -11662,7 +11659,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3266 = add nuw nsw i32 %.03971, 3
   %3267 = call fastcc i32 @dissect_sensor_cadence(ptr noundef %10, ptr noundef %0, i32 noundef %3266, i16 noundef zeroext %3258, i8 noundef zeroext %3265, ptr noundef nonnull @sensor_cadence_set_unacknowledged_hfs)
   %3268 = add nsw i32 %3267, %3266
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3269:                                             ; preds = %42
   %3270 = load i32, ptr @hf_btmesh_sensor_cadence_status_property_id, align 4
@@ -11678,13 +11675,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3280 = add nuw nsw i32 %.03971, 3
   %3281 = call fastcc i32 @dissect_sensor_cadence(ptr noundef %10, ptr noundef %0, i32 noundef %3280, i16 noundef zeroext %3272, i8 noundef zeroext %3279, ptr noundef nonnull @sensor_cadence_status_hfs)
   %3282 = add nsw i32 %3281, %3280
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3283:                                             ; preds = %42
   %3284 = load i32, ptr @hf_btmesh_sensor_settings_get_sensor_property_id, align 4
   %3285 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3284, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3286 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3287:                                             ; preds = %42
   %3288 = load i32, ptr @hf_btmesh_sensor_settings_status_sensor_property_id, align 4
@@ -11692,7 +11689,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3290 = add nuw nsw i32 %.03971, 2
   %3291 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3290) #16
   %3292 = icmp sgt i32 %3291, 0
-  br i1 %3292, label %3293, label %.loopexit3981
+  br i1 %3292, label %3293, label %.loopexit3983
 
 3293:                                             ; preds = %3287
   %3294 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3290) #16
@@ -11700,16 +11697,16 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3296 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %3290, i32 noundef %3294, i32 noundef %3295, ptr noundef null, ptr noundef nonnull @.str.2208) #16
   %3297 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3290) #16
   %3298 = icmp sgt i32 %3297, 1
-  br i1 %3298, label %.lr.ph4005, label %.loopexit3981
+  br i1 %3298, label %.lr.ph4007, label %.loopexit3983
 
-.lr.ph4005:                                       ; preds = %3293, %.lr.ph4005
-  %.254004 = phi i32 [ %3301, %.lr.ph4005 ], [ %3290, %3293 ]
+.lr.ph4007:                                       ; preds = %3293, %.lr.ph4007
+  %.254006 = phi i32 [ %3301, %.lr.ph4007 ], [ %3290, %3293 ]
   %3299 = load i32, ptr @hf_btmesh_sensor_settings_status_sensor_setting_property_id, align 4
-  %3300 = call ptr @proto_tree_add_item(ptr noundef %3296, i32 noundef %3299, ptr noundef nonnull %0, i32 noundef %.254004, i32 noundef 2, i32 noundef -2147483648) #16
-  %3301 = add i32 %.254004, 2
+  %3300 = call ptr @proto_tree_add_item(ptr noundef %3296, i32 noundef %3299, ptr noundef nonnull %0, i32 noundef %.254006, i32 noundef 2, i32 noundef -2147483648) #16
+  %3301 = add i32 %.254006, 2
   %3302 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3301) #16
   %3303 = icmp sgt i32 %3302, 1
-  br i1 %3303, label %.lr.ph4005, label %.loopexit3981, !llvm.loop !32
+  br i1 %3303, label %.lr.ph4007, label %.loopexit3983, !llvm.loop !32
 
 3304:                                             ; preds = %42
   %3305 = load i32, ptr @hf_btmesh_sensor_setting_get_sensor_property_id, align 4
@@ -11718,7 +11715,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3308 = load i32, ptr @hf_btmesh_sensor_setting_get_sensor_setting_property_id, align 4
   %3309 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3308, ptr noundef nonnull %0, i32 noundef %3307, i32 noundef 2, i32 noundef -2147483648) #16
   %3310 = or disjoint i32 %.03971, 4
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3311:                                             ; preds = %42
   %3312 = load i32, ptr @hf_btmesh_sensor_setting_set_sensor_property_id, align 4
@@ -11732,7 +11729,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3320 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3319, ptr noundef %0, i32 noundef %3318, i16 noundef zeroext %3317, i32 noundef -1)
   %3321 = zext i16 %3320 to i32
   %3322 = add nuw nsw i32 %3318, %3321
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3323:                                             ; preds = %42
   %3324 = load i32, ptr @hf_btmesh_sensor_setting_set_unacknowledged_sensor_property_id, align 4
@@ -11746,7 +11743,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3332 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3331, ptr noundef %0, i32 noundef %3330, i16 noundef zeroext %3329, i32 noundef -1)
   %3333 = zext i16 %3332 to i32
   %3334 = add nuw nsw i32 %3330, %3333
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3335:                                             ; preds = %42
   %3336 = load i32, ptr @hf_btmesh_sensor_setting_status_sensor_property_id, align 4
@@ -11758,7 +11755,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3342 = or disjoint i32 %.03971, 4
   %3343 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3342) #16
   %3344 = icmp sgt i32 %3343, 0
-  br i1 %3344, label %3345, label %.loopexit3981
+  br i1 %3344, label %3345, label %.loopexit3983
 
 3345:                                             ; preds = %3335
   %3346 = load i32, ptr @hf_btmesh_sensor_setting_status_sensor_setting_access, align 4
@@ -11768,45 +11765,45 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3350 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3349, ptr noundef %0, i32 noundef %3348, i16 noundef zeroext %3341, i32 noundef -1)
   %3351 = zext i16 %3350 to i32
   %3352 = add nuw nsw i32 %3348, %3351
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3353:                                             ; preds = %42
   %3354 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3355 = icmp sgt i32 %3354, 0
-  br i1 %3355, label %3356, label %.loopexit3981
+  br i1 %3355, label %3356, label %.loopexit3983
 
 3356:                                             ; preds = %3353
   %3357 = load i32, ptr @hf_btmesh_sensor_get_property_id, align 4
   %3358 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3357, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3359 = add nuw nsw i32 %.03971, 2
-  br label %.loopexit3981
+  br label %.loopexit3983
 
-.lr.ph4002:                                       ; preds = %.preheader3997, %3371
-  %.264001 = phi i32 [ %3381, %3371 ], [ %.03971, %.preheader3997 ]
+.lr.ph4004:                                       ; preds = %.preheader3999, %3371
+  %.264003 = phi i32 [ %3381, %3371 ], [ %.03971, %.preheader3999 ]
   %3360 = load i32, ptr @hf_btmesh_sensor_status_mpid_format, align 4
-  %3361 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3360, ptr noundef nonnull %0, i32 noundef %.264001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #16
+  %3361 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3360, ptr noundef nonnull %0, i32 noundef %.264003, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #16
   %3362 = load i32, ptr %5, align 4
   %3363 = icmp eq i32 %3362, 0
   br i1 %3363, label %3364, label %3367
 
-3364:                                             ; preds = %.lr.ph4002
+3364:                                             ; preds = %.lr.ph4004
   %3365 = load i32, ptr @hf_btmesh_sensor_status_mpid_format_a_length, align 4
-  %3366 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3365, ptr noundef nonnull %0, i32 noundef %.264001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #16
+  %3366 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3365, ptr noundef nonnull %0, i32 noundef %.264003, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #16
   br label %3371
 
-3367:                                             ; preds = %.lr.ph4002
+3367:                                             ; preds = %.lr.ph4004
   %3368 = load i32, ptr @hf_btmesh_sensor_status_mpid_format_b_length, align 4
-  %3369 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3368, ptr noundef nonnull %0, i32 noundef %.264001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #16
-  %3370 = add i32 %.264001, 1
+  %3369 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3368, ptr noundef nonnull %0, i32 noundef %.264003, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #16
+  %3370 = add i32 %.264003, 1
   br label %3371
 
 3371:                                             ; preds = %3367, %3364
   %hf_btmesh_sensor_status_mpid_format_b_property_id.sink = phi ptr [ @hf_btmesh_sensor_status_mpid_format_b_property_id, %3367 ], [ @hf_btmesh_sensor_status_mpid_format_a_property_id, %3364 ]
-  %.sink4125 = phi i32 [ %3370, %3367 ], [ %.264001, %3364 ]
-  %.sink4123 = phi i32 [ 3, %3367 ], [ 2, %3364 ]
+  %.sink4127 = phi i32 [ %3370, %3367 ], [ %.264003, %3364 ]
+  %.sink4125 = phi i32 [ 3, %3367 ], [ 2, %3364 ]
   %3372 = load i32, ptr %hf_btmesh_sensor_status_mpid_format_b_property_id.sink, align 4
-  %3373 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3372, ptr noundef nonnull %0, i32 noundef %.sink4125, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %6) #16
-  %3374 = add i32 %.264001, %.sink4123
+  %3373 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3372, ptr noundef nonnull %0, i32 noundef %.sink4127, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %6) #16
+  %3374 = add i32 %.264003, %.sink4125
   %3375 = load i32, ptr @hf_btmesh_sensor_status_raw_value, align 4
   %3376 = load i32, ptr %6, align 4
   %3377 = trunc i32 %3376 to i16
@@ -11816,16 +11813,16 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3381 = add i32 %3374, %3380
   %3382 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3381) #16
   %3383 = icmp sgt i32 %3382, 0
-  br i1 %3383, label %.lr.ph4002, label %.loopexit3981, !llvm.loop !33
+  br i1 %3383, label %.lr.ph4004, label %.loopexit3983, !llvm.loop !33
 
 3384:                                             ; preds = %42
   %3385 = load i32, ptr @hf_btmesh_sensor_column_get_property_id, align 4
   %3386 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3385, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3387 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3388 = add nuw nsw i32 %.03971, 2
-  %3389 = call fastcc i32 @dissect_columns_raw_value(ptr noundef %10, ptr noundef %0, i32 noundef %3388, i16 noundef zeroext %3387, ptr noundef nonnull @sensor_column_get_hfs)
+  %3389 = call fastcc i32 @dissect_columns_raw_value(ptr noundef %10, ptr noundef %0, i32 noundef %3388, i16 noundef zeroext %3387, ptr nonnull @hf_btmesh_sensor_column_get_raw_value_a, ptr null)
   %3390 = add i32 %3389, %3388
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3391:                                             ; preds = %42
   %3392 = load i32, ptr @hf_btmesh_sensor_column_status_property_id, align 4
@@ -11834,7 +11831,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3395 = add nuw nsw i32 %.03971, 2
   %3396 = call fastcc i32 @dissect_property_raw_value_entry(ptr noundef %10, ptr noundef %0, i32 noundef %3395, i16 noundef zeroext %3394, ptr noundef nonnull @sensor_column_status_hfs)
   %3397 = add i32 %3396, %3395
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3398:                                             ; preds = %42
   %3399 = load i32, ptr @hf_btmesh_sensor_series_get_property_id, align 4
@@ -11843,12 +11840,12 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3402 = add nuw nsw i32 %.03971, 2
   %3403 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3402) #16
   %3404 = icmp sgt i32 %3403, 0
-  br i1 %3404, label %3405, label %.loopexit3981
+  br i1 %3404, label %3405, label %.loopexit3983
 
 3405:                                             ; preds = %3398
-  %3406 = call fastcc i32 @dissect_columns_raw_value(ptr noundef %10, ptr noundef %0, i32 noundef %3402, i16 noundef zeroext %3401, ptr noundef nonnull @sensor_series_get_hfs)
+  %3406 = call fastcc i32 @dissect_columns_raw_value(ptr noundef %10, ptr noundef %0, i32 noundef %3402, i16 noundef zeroext %3401, ptr nonnull @hf_btmesh_sensor_series_get_raw_value_a1, ptr nonnull @hf_btmesh_sensor_series_get_raw_value_a2)
   %3407 = add i32 %3406, %3402
-  br label %.loopexit3981
+  br label %.loopexit3983
 
 3408:                                             ; preds = %42
   %3409 = load i32, ptr @hf_btmesh_sensor_series_status_property_id, align 4
@@ -11857,39 +11854,39 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %3412 = add nuw nsw i32 %.03971, 2
   %3413 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3412) #16
   %3414 = icmp sgt i32 %3413, 0
-  br i1 %3414, label %.lr.ph, label %.loopexit3981
+  br i1 %3414, label %.lr.ph, label %.loopexit3983
 
 .lr.ph:                                           ; preds = %3408, %.lr.ph
-  %.284000 = phi i32 [ %3416, %.lr.ph ], [ %3412, %3408 ]
-  %3415 = call fastcc i32 @dissect_property_raw_value_entry(ptr noundef %10, ptr noundef %0, i32 noundef %.284000, i16 noundef zeroext %3411, ptr noundef nonnull @sensor_series_status_hfs)
-  %3416 = add i32 %3415, %.284000
+  %.284002 = phi i32 [ %3416, %.lr.ph ], [ %3412, %3408 ]
+  %3415 = call fastcc i32 @dissect_property_raw_value_entry(ptr noundef %10, ptr noundef %0, i32 noundef %.284002, i16 noundef zeroext %3411, ptr noundef nonnull @sensor_series_status_hfs)
+  %3416 = add i32 %3415, %.284002
   %3417 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3416) #16
   %3418 = icmp sgt i32 %3417, 0
-  br i1 %3418, label %.lr.ph, label %.loopexit3981, !llvm.loop !34
+  br i1 %3418, label %.lr.ph, label %.loopexit3983, !llvm.loop !34
 
 3419:                                             ; preds = %42
   %3420 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %.not3978 = icmp eq i32 %3420, 0
-  br i1 %.not3978, label %.loopexit3981, label %3421
+  br i1 %.not3978, label %.loopexit3983, label %3421
 
 3421:                                             ; preds = %3419
   %3422 = load i32, ptr @hf_btmesh_model_layer_parameters, align 4
   %3423 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3422, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -1, i32 noundef 0) #16
   %3424 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3425 = add i32 %3424, %.03971
-  br label %.loopexit3981
+  br label %.loopexit3983
 
-.loopexit3981:                                    ; preds = %.lr.ph, %3371, %.lr.ph4005, %.lr.ph4008, %.lr.ph4011, %.lr.ph4014, %.lr.ph4017, %.lr.ph4020, %.lr.ph4023, %1146, %1099, %987, %.lr.ph4035, %.lr.ph4038, %303, %.lr.ph4044, %.lr.ph4047, %.loopexit, %3408, %.preheader3997, %3293, %.preheader, %3191, %3139, %3085, %3041, %1690, %1110, %1063, %960, %738, %711, %264, %198, %181, %72, %3419, %3421, %3398, %3405, %3353, %3356, %3335, %3345, %3287, %3214, %3202, %3205, %3172, %3179, %42, %3124, %3131, %42, %3070, %3077, %42, %3018, %3024, %2996, %3005, %2974, %2983, %42, %42, %42, %42, %42, %2856, %2868, %42, %2834, %2846, %2806, %2821, %2778, %2793, %42, %42, %42, %2684, %2696, %42, %2662, %2674, %2634, %2649, %2606, %2621, %2587, %2593, %2565, %2574, %2543, %2552, %42, %2524, %2530, %2502, %2511, %2480, %2489, %42, %42, %42, %2411, %2420, %2386, %2398, %2361, %2373, %42, %42, %2326, %2335, %2298, %2313, %2270, %2285, %42, %42, %42, %42, %2211, %2217, %2189, %2198, %2167, %2176, %42, %2148, %2154, %2126, %2135, %2104, %2113, %42, %42, %42, %42, %42, %42, %1741, %1747, %42, %1668, %1677, %1646, %1655, %42, %1624, %1633, %42, %42, %42, %42, %42, %42, %1480, %1486, %1458, %1467, %1436, %1445, %42, %42, %42, %1372, %1381, %1350, %1359, %1328, %1337, %1306, %1315, %1287, %1293, %1265, %1274, %1243, %1252, %42, %1224, %1230, %1202, %1211, %1180, %1189, %42, %42, %42, %42, %929, %933, %906, %910, %880, %884, %42, %42, %42, %42, %42, %650, %654, %633, %637, %616, %620, %599, %603, %579, %583, %562, %566, %548, %552, %531, %535, %514, %518, %465, %469, %413, %417, %42, %42, %42, %42, %42, %173, %177, %3391, %3384, %3323, %3311, %3304, %3283, %3269, %3255, %3241, %3237, %3187, %3163, %3154, %3150, %3112, %3100, %3096, %3063, %3056, %3052, %3037, %2970, %2966, %2962, %2958, %2954, %2950, %2937, %2924, %2914, %2904, %2888, %2878, %2765, %2752, %2742, %2732, %2716, %2706, %2473, %2466, %2456, %2446, %2436, %2351, %2263, %2256, %2252, %2248, %2238, %2234, %2230, %2095, %2086, %2077, %2039, %2035, %2021, %2012, %2002, %1995, %1991, %1987, %1912, %1837, %1762, %1723, %1719, %1715, %1711, %1707, %1602, %1580, %1558, %1539, %1532, %1525, %1521, %1517, %1507, %1503, %1499, %1432, %1428, %1424, %1414, %1404, %1394, %1170, %1160, %1150, %1103, %1056, %1040, %1027, %1017, %1004, %991, %950, %937, %843, %833, %807, %803, %799, %795, %788, %781, %777, %773, %769, %762, %758, %731, %704, %691, %678, %668, %658, %391, %378, %368, %364, %360, %356, %352, %348, %344, %340, %336, %332, %328, %324, %320, %307, %254, %244, %215, %59, %46
-  %.13972 = phi i32 [ %3425, %3421 ], [ %.03971, %3419 ], [ %3407, %3405 ], [ %3402, %3398 ], [ %3397, %3391 ], [ %3390, %3384 ], [ %3359, %3356 ], [ %.03971, %3353 ], [ %3352, %3345 ], [ %3342, %3335 ], [ %3334, %3323 ], [ %3322, %3311 ], [ %3310, %3304 ], [ %3290, %3287 ], [ %3286, %3283 ], [ %3282, %3269 ], [ %3268, %3255 ], [ %3254, %3241 ], [ %3240, %3237 ], [ %3217, %3214 ], [ %3208, %3205 ], [ %.03971, %3202 ], [ %3190, %3187 ], [ %3186, %3179 ], [ %3176, %3172 ], [ %3171, %3163 ], [ %3162, %3154 ], [ %3153, %3150 ], [ %3138, %3131 ], [ %3128, %3124 ], [ %3123, %3112 ], [ %3111, %3100 ], [ %3099, %3096 ], [ %3084, %3077 ], [ %3074, %3070 ], [ %3069, %3063 ], [ %3062, %3056 ], [ %3055, %3052 ], [ %3040, %3037 ], [ %3036, %3024 ], [ %3021, %3018 ], [ %3017, %3005 ], [ %3002, %2996 ], [ %2995, %2983 ], [ %2980, %2974 ], [ %2973, %2970 ], [ %2969, %2966 ], [ %2965, %2962 ], [ %2961, %2958 ], [ %2957, %2954 ], [ %2953, %2950 ], [ %2949, %2937 ], [ %2936, %2924 ], [ %2923, %2914 ], [ %2913, %2904 ], [ %2903, %2888 ], [ %2887, %2878 ], [ %2877, %2868 ], [ %2865, %2856 ], [ %2855, %2846 ], [ %2843, %2834 ], [ %2833, %2821 ], [ %2818, %2806 ], [ %2805, %2793 ], [ %2790, %2778 ], [ %2777, %2765 ], [ %2764, %2752 ], [ %2751, %2742 ], [ %2741, %2732 ], [ %2731, %2716 ], [ %2715, %2706 ], [ %2705, %2696 ], [ %2693, %2684 ], [ %2683, %2674 ], [ %2671, %2662 ], [ %2661, %2649 ], [ %2646, %2634 ], [ %2633, %2621 ], [ %2618, %2606 ], [ %2605, %2593 ], [ %2590, %2587 ], [ %2586, %2574 ], [ %2571, %2565 ], [ %2564, %2552 ], [ %2549, %2543 ], [ %2542, %2530 ], [ %2527, %2524 ], [ %2523, %2511 ], [ %2508, %2502 ], [ %2501, %2489 ], [ %2486, %2480 ], [ %2479, %2473 ], [ %2472, %2466 ], [ %2465, %2456 ], [ %2455, %2446 ], [ %2445, %2436 ], [ %2435, %2420 ], [ %2417, %2411 ], [ %2410, %2398 ], [ %2395, %2386 ], [ %2385, %2373 ], [ %2370, %2361 ], [ %2360, %2351 ], [ %2350, %2335 ], [ %2332, %2326 ], [ %2325, %2313 ], [ %2310, %2298 ], [ %2297, %2285 ], [ %2282, %2270 ], [ %2269, %2263 ], [ %2262, %2256 ], [ %2255, %2252 ], [ %2251, %2248 ], [ %2247, %2238 ], [ %2237, %2234 ], [ %2233, %2230 ], [ %2229, %2217 ], [ %2214, %2211 ], [ %2210, %2198 ], [ %2195, %2189 ], [ %2188, %2176 ], [ %2173, %2167 ], [ %2166, %2154 ], [ %2151, %2148 ], [ %2147, %2135 ], [ %2132, %2126 ], [ %2125, %2113 ], [ %2110, %2104 ], [ %2103, %2095 ], [ %2094, %2086 ], [ %2085, %2077 ], [ %2076, %2039 ], [ %2038, %2035 ], [ %2034, %2021 ], [ %2020, %2012 ], [ %2011, %2002 ], [ %2001, %1995 ], [ %1994, %1991 ], [ %1990, %1987 ], [ %1986, %1912 ], [ %1911, %1837 ], [ %1836, %1762 ], [ %1761, %1747 ], [ %1744, %1741 ], [ %1740, %1723 ], [ %1722, %1719 ], [ %1718, %1715 ], [ %1714, %1711 ], [ %1710, %1707 ], [ %1689, %1677 ], [ %1674, %1668 ], [ %1667, %1655 ], [ %1652, %1646 ], [ %1645, %1633 ], [ %1630, %1624 ], [ %1623, %1602 ], [ %1601, %1580 ], [ %1579, %1558 ], [ %1557, %1539 ], [ %1538, %1532 ], [ %1531, %1525 ], [ %1524, %1521 ], [ %1520, %1517 ], [ %1516, %1507 ], [ %1506, %1503 ], [ %1502, %1499 ], [ %1498, %1486 ], [ %1483, %1480 ], [ %1479, %1467 ], [ %1464, %1458 ], [ %1457, %1445 ], [ %1442, %1436 ], [ %1435, %1432 ], [ %1431, %1428 ], [ %1427, %1424 ], [ %1423, %1414 ], [ %1413, %1404 ], [ %1403, %1394 ], [ %1393, %1381 ], [ %1378, %1372 ], [ %1371, %1359 ], [ %1356, %1350 ], [ %1349, %1337 ], [ %1334, %1328 ], [ %1327, %1315 ], [ %1312, %1306 ], [ %1305, %1293 ], [ %1290, %1287 ], [ %1286, %1274 ], [ %1271, %1265 ], [ %1264, %1252 ], [ %1249, %1243 ], [ %1242, %1230 ], [ %1227, %1224 ], [ %1223, %1211 ], [ %1208, %1202 ], [ %1201, %1189 ], [ %1186, %1180 ], [ %1179, %1170 ], [ %1169, %1160 ], [ %1159, %1150 ], [ %1109, %1103 ], [ %1062, %1056 ], [ %1055, %1040 ], [ %1039, %1027 ], [ %1026, %1017 ], [ %1016, %1004 ], [ %1003, %991 ], [ %959, %950 ], [ %949, %937 ], [ %932, %929 ], [ %936, %933 ], [ %909, %906 ], [ %913, %910 ], [ %883, %880 ], [ %887, %884 ], [ %864, %843 ], [ %842, %833 ], [ %832, %807 ], [ %806, %803 ], [ %802, %799 ], [ %798, %795 ], [ %794, %788 ], [ %787, %781 ], [ %780, %777 ], [ %776, %773 ], [ %772, %769 ], [ %768, %762 ], [ %761, %758 ], [ %737, %731 ], [ %710, %704 ], [ %703, %691 ], [ %690, %678 ], [ %677, %668 ], [ %667, %658 ], [ %653, %650 ], [ %657, %654 ], [ %636, %633 ], [ %640, %637 ], [ %619, %616 ], [ %623, %620 ], [ %602, %599 ], [ %606, %603 ], [ %582, %579 ], [ %586, %583 ], [ %565, %562 ], [ %569, %566 ], [ %551, %548 ], [ %555, %552 ], [ %534, %531 ], [ %538, %535 ], [ %517, %514 ], [ %521, %518 ], [ %468, %465 ], [ %472, %469 ], [ %416, %413 ], [ %420, %417 ], [ %406, %391 ], [ %390, %378 ], [ %377, %368 ], [ %367, %364 ], [ %363, %360 ], [ %359, %356 ], [ %355, %352 ], [ %351, %348 ], [ %347, %344 ], [ %343, %340 ], [ %339, %336 ], [ %335, %332 ], [ %331, %328 ], [ %327, %324 ], [ %323, %320 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %319, %307 ], [ %263, %254 ], [ %253, %244 ], [ %243, %215 ], [ %176, %173 ], [ %180, %177 ], [ %71, %59 ], [ %58, %46 ], [ %91, %72 ], [ %187, %181 ], [ %204, %198 ], [ %276, %264 ], [ %720, %711 ], [ %747, %738 ], [ %.03971, %960 ], [ %1072, %1063 ], [ %1119, %1110 ], [ %1696, %1690 ], [ %.03971, %3041 ], [ %.03971, %3085 ], [ %.03971, %3139 ], [ %.03971, %3191 ], [ %.03971, %.preheader ], [ %3290, %3293 ], [ %.03971, %.preheader3997 ], [ %3412, %3408 ], [ %.5, %.loopexit ], [ %195, %.lr.ph4047 ], [ %212, %.lr.ph4044 ], [ %304, %303 ], [ %728, %.lr.ph4038 ], [ %755, %.lr.ph4035 ], [ %988, %987 ], [ %1100, %1099 ], [ %1147, %1146 ], [ %1704, %.lr.ph4023 ], [ %3049, %.lr.ph4020 ], [ %3093, %.lr.ph4017 ], [ %3147, %.lr.ph4014 ], [ %3199, %.lr.ph4011 ], [ %3234, %.lr.ph4008 ], [ %3301, %.lr.ph4005 ], [ %3381, %3371 ], [ %3416, %.lr.ph ]
+.loopexit3983:                                    ; preds = %.lr.ph, %3371, %.lr.ph4007, %.lr.ph4010, %.lr.ph4013, %.lr.ph4016, %.lr.ph4019, %.lr.ph4022, %.lr.ph4025, %1146, %1099, %987, %.lr.ph4037, %.lr.ph4040, %303, %.lr.ph4046, %.lr.ph4049, %.loopexit, %3408, %.preheader3999, %3293, %.preheader, %3191, %3139, %3085, %3041, %1690, %1110, %1063, %960, %738, %711, %264, %198, %181, %72, %3419, %3421, %3398, %3405, %3353, %3356, %3335, %3345, %3287, %3214, %3202, %3205, %3172, %3179, %42, %3124, %3131, %42, %3070, %3077, %42, %3018, %3024, %2996, %3005, %2974, %2983, %42, %42, %42, %42, %42, %2856, %2868, %42, %2834, %2846, %2806, %2821, %2778, %2793, %42, %42, %42, %2684, %2696, %42, %2662, %2674, %2634, %2649, %2606, %2621, %2587, %2593, %2565, %2574, %2543, %2552, %42, %2524, %2530, %2502, %2511, %2480, %2489, %42, %42, %42, %2411, %2420, %2386, %2398, %2361, %2373, %42, %42, %2326, %2335, %2298, %2313, %2270, %2285, %42, %42, %42, %42, %2211, %2217, %2189, %2198, %2167, %2176, %42, %2148, %2154, %2126, %2135, %2104, %2113, %42, %42, %42, %42, %42, %42, %1741, %1747, %42, %1668, %1677, %1646, %1655, %42, %1624, %1633, %42, %42, %42, %42, %42, %42, %1480, %1486, %1458, %1467, %1436, %1445, %42, %42, %42, %1372, %1381, %1350, %1359, %1328, %1337, %1306, %1315, %1287, %1293, %1265, %1274, %1243, %1252, %42, %1224, %1230, %1202, %1211, %1180, %1189, %42, %42, %42, %42, %929, %933, %906, %910, %880, %884, %42, %42, %42, %42, %42, %650, %654, %633, %637, %616, %620, %599, %603, %579, %583, %562, %566, %548, %552, %531, %535, %514, %518, %465, %469, %413, %417, %42, %42, %42, %42, %42, %173, %177, %3391, %3384, %3323, %3311, %3304, %3283, %3269, %3255, %3241, %3237, %3187, %3163, %3154, %3150, %3112, %3100, %3096, %3063, %3056, %3052, %3037, %2970, %2966, %2962, %2958, %2954, %2950, %2937, %2924, %2914, %2904, %2888, %2878, %2765, %2752, %2742, %2732, %2716, %2706, %2473, %2466, %2456, %2446, %2436, %2351, %2263, %2256, %2252, %2248, %2238, %2234, %2230, %2095, %2086, %2077, %2039, %2035, %2021, %2012, %2002, %1995, %1991, %1987, %1912, %1837, %1762, %1723, %1719, %1715, %1711, %1707, %1602, %1580, %1558, %1539, %1532, %1525, %1521, %1517, %1507, %1503, %1499, %1432, %1428, %1424, %1414, %1404, %1394, %1170, %1160, %1150, %1103, %1056, %1040, %1027, %1017, %1004, %991, %950, %937, %843, %833, %807, %803, %799, %795, %788, %781, %777, %773, %769, %762, %758, %731, %704, %691, %678, %668, %658, %391, %378, %368, %364, %360, %356, %352, %348, %344, %340, %336, %332, %328, %324, %320, %307, %254, %244, %215, %59, %46
+  %.13972 = phi i32 [ %3425, %3421 ], [ %.03971, %3419 ], [ %3407, %3405 ], [ %3402, %3398 ], [ %3397, %3391 ], [ %3390, %3384 ], [ %3359, %3356 ], [ %.03971, %3353 ], [ %3352, %3345 ], [ %3342, %3335 ], [ %3334, %3323 ], [ %3322, %3311 ], [ %3310, %3304 ], [ %3290, %3287 ], [ %3286, %3283 ], [ %3282, %3269 ], [ %3268, %3255 ], [ %3254, %3241 ], [ %3240, %3237 ], [ %3217, %3214 ], [ %3208, %3205 ], [ %.03971, %3202 ], [ %3190, %3187 ], [ %3186, %3179 ], [ %3176, %3172 ], [ %3171, %3163 ], [ %3162, %3154 ], [ %3153, %3150 ], [ %3138, %3131 ], [ %3128, %3124 ], [ %3123, %3112 ], [ %3111, %3100 ], [ %3099, %3096 ], [ %3084, %3077 ], [ %3074, %3070 ], [ %3069, %3063 ], [ %3062, %3056 ], [ %3055, %3052 ], [ %3040, %3037 ], [ %3036, %3024 ], [ %3021, %3018 ], [ %3017, %3005 ], [ %3002, %2996 ], [ %2995, %2983 ], [ %2980, %2974 ], [ %2973, %2970 ], [ %2969, %2966 ], [ %2965, %2962 ], [ %2961, %2958 ], [ %2957, %2954 ], [ %2953, %2950 ], [ %2949, %2937 ], [ %2936, %2924 ], [ %2923, %2914 ], [ %2913, %2904 ], [ %2903, %2888 ], [ %2887, %2878 ], [ %2877, %2868 ], [ %2865, %2856 ], [ %2855, %2846 ], [ %2843, %2834 ], [ %2833, %2821 ], [ %2818, %2806 ], [ %2805, %2793 ], [ %2790, %2778 ], [ %2777, %2765 ], [ %2764, %2752 ], [ %2751, %2742 ], [ %2741, %2732 ], [ %2731, %2716 ], [ %2715, %2706 ], [ %2705, %2696 ], [ %2693, %2684 ], [ %2683, %2674 ], [ %2671, %2662 ], [ %2661, %2649 ], [ %2646, %2634 ], [ %2633, %2621 ], [ %2618, %2606 ], [ %2605, %2593 ], [ %2590, %2587 ], [ %2586, %2574 ], [ %2571, %2565 ], [ %2564, %2552 ], [ %2549, %2543 ], [ %2542, %2530 ], [ %2527, %2524 ], [ %2523, %2511 ], [ %2508, %2502 ], [ %2501, %2489 ], [ %2486, %2480 ], [ %2479, %2473 ], [ %2472, %2466 ], [ %2465, %2456 ], [ %2455, %2446 ], [ %2445, %2436 ], [ %2435, %2420 ], [ %2417, %2411 ], [ %2410, %2398 ], [ %2395, %2386 ], [ %2385, %2373 ], [ %2370, %2361 ], [ %2360, %2351 ], [ %2350, %2335 ], [ %2332, %2326 ], [ %2325, %2313 ], [ %2310, %2298 ], [ %2297, %2285 ], [ %2282, %2270 ], [ %2269, %2263 ], [ %2262, %2256 ], [ %2255, %2252 ], [ %2251, %2248 ], [ %2247, %2238 ], [ %2237, %2234 ], [ %2233, %2230 ], [ %2229, %2217 ], [ %2214, %2211 ], [ %2210, %2198 ], [ %2195, %2189 ], [ %2188, %2176 ], [ %2173, %2167 ], [ %2166, %2154 ], [ %2151, %2148 ], [ %2147, %2135 ], [ %2132, %2126 ], [ %2125, %2113 ], [ %2110, %2104 ], [ %2103, %2095 ], [ %2094, %2086 ], [ %2085, %2077 ], [ %2076, %2039 ], [ %2038, %2035 ], [ %2034, %2021 ], [ %2020, %2012 ], [ %2011, %2002 ], [ %2001, %1995 ], [ %1994, %1991 ], [ %1990, %1987 ], [ %1986, %1912 ], [ %1911, %1837 ], [ %1836, %1762 ], [ %1761, %1747 ], [ %1744, %1741 ], [ %1740, %1723 ], [ %1722, %1719 ], [ %1718, %1715 ], [ %1714, %1711 ], [ %1710, %1707 ], [ %1689, %1677 ], [ %1674, %1668 ], [ %1667, %1655 ], [ %1652, %1646 ], [ %1645, %1633 ], [ %1630, %1624 ], [ %1623, %1602 ], [ %1601, %1580 ], [ %1579, %1558 ], [ %1557, %1539 ], [ %1538, %1532 ], [ %1531, %1525 ], [ %1524, %1521 ], [ %1520, %1517 ], [ %1516, %1507 ], [ %1506, %1503 ], [ %1502, %1499 ], [ %1498, %1486 ], [ %1483, %1480 ], [ %1479, %1467 ], [ %1464, %1458 ], [ %1457, %1445 ], [ %1442, %1436 ], [ %1435, %1432 ], [ %1431, %1428 ], [ %1427, %1424 ], [ %1423, %1414 ], [ %1413, %1404 ], [ %1403, %1394 ], [ %1393, %1381 ], [ %1378, %1372 ], [ %1371, %1359 ], [ %1356, %1350 ], [ %1349, %1337 ], [ %1334, %1328 ], [ %1327, %1315 ], [ %1312, %1306 ], [ %1305, %1293 ], [ %1290, %1287 ], [ %1286, %1274 ], [ %1271, %1265 ], [ %1264, %1252 ], [ %1249, %1243 ], [ %1242, %1230 ], [ %1227, %1224 ], [ %1223, %1211 ], [ %1208, %1202 ], [ %1201, %1189 ], [ %1186, %1180 ], [ %1179, %1170 ], [ %1169, %1160 ], [ %1159, %1150 ], [ %1109, %1103 ], [ %1062, %1056 ], [ %1055, %1040 ], [ %1039, %1027 ], [ %1026, %1017 ], [ %1016, %1004 ], [ %1003, %991 ], [ %959, %950 ], [ %949, %937 ], [ %932, %929 ], [ %936, %933 ], [ %909, %906 ], [ %913, %910 ], [ %883, %880 ], [ %887, %884 ], [ %864, %843 ], [ %842, %833 ], [ %832, %807 ], [ %806, %803 ], [ %802, %799 ], [ %798, %795 ], [ %794, %788 ], [ %787, %781 ], [ %780, %777 ], [ %776, %773 ], [ %772, %769 ], [ %768, %762 ], [ %761, %758 ], [ %737, %731 ], [ %710, %704 ], [ %703, %691 ], [ %690, %678 ], [ %677, %668 ], [ %667, %658 ], [ %653, %650 ], [ %657, %654 ], [ %636, %633 ], [ %640, %637 ], [ %619, %616 ], [ %623, %620 ], [ %602, %599 ], [ %606, %603 ], [ %582, %579 ], [ %586, %583 ], [ %565, %562 ], [ %569, %566 ], [ %551, %548 ], [ %555, %552 ], [ %534, %531 ], [ %538, %535 ], [ %517, %514 ], [ %521, %518 ], [ %468, %465 ], [ %472, %469 ], [ %416, %413 ], [ %420, %417 ], [ %406, %391 ], [ %390, %378 ], [ %377, %368 ], [ %367, %364 ], [ %363, %360 ], [ %359, %356 ], [ %355, %352 ], [ %351, %348 ], [ %347, %344 ], [ %343, %340 ], [ %339, %336 ], [ %335, %332 ], [ %331, %328 ], [ %327, %324 ], [ %323, %320 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %319, %307 ], [ %263, %254 ], [ %253, %244 ], [ %243, %215 ], [ %176, %173 ], [ %180, %177 ], [ %71, %59 ], [ %58, %46 ], [ %91, %72 ], [ %187, %181 ], [ %204, %198 ], [ %276, %264 ], [ %720, %711 ], [ %747, %738 ], [ %.03971, %960 ], [ %1072, %1063 ], [ %1119, %1110 ], [ %1696, %1690 ], [ %.03971, %3041 ], [ %.03971, %3085 ], [ %.03971, %3139 ], [ %.03971, %3191 ], [ %.03971, %.preheader ], [ %3290, %3293 ], [ %.03971, %.preheader3999 ], [ %3412, %3408 ], [ %.5, %.loopexit ], [ %195, %.lr.ph4049 ], [ %212, %.lr.ph4046 ], [ %304, %303 ], [ %728, %.lr.ph4040 ], [ %755, %.lr.ph4037 ], [ %988, %987 ], [ %1100, %1099 ], [ %1147, %1146 ], [ %1704, %.lr.ph4025 ], [ %3049, %.lr.ph4022 ], [ %3093, %.lr.ph4019 ], [ %3147, %.lr.ph4016 ], [ %3199, %.lr.ph4013 ], [ %3234, %.lr.ph4010 ], [ %3301, %.lr.ph4007 ], [ %3381, %3371 ], [ %3416, %.lr.ph ]
   %3426 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.13972) #16
   %.not3979 = icmp eq i32 %3426, 0
   br i1 %.not3979, label %3429, label %3427
 
-3427:                                             ; preds = %.loopexit3981
+3427:                                             ; preds = %.loopexit3983
   %3428 = call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_btmesh_unknown_payload, ptr noundef nonnull %0, i32 noundef %.13972, i32 noundef -1) #16
   br label %3429
 
-3429:                                             ; preds = %3427, %.loopexit3981
+3429:                                             ; preds = %3427, %.loopexit3983
   ret void
 }
 
@@ -12161,181 +12158,173 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_columns_raw_value(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 3, 6) %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
-  %6 = icmp eq i16 %3, -1
-  br i1 %6, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i
+define internal fastcc i32 @dissect_columns_raw_value(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 3, 6) %2, i16 noundef zeroext %3, ptr nocapture readonly %.0.val, ptr readonly %.8.val) unnamed_addr #0 {
+  %5 = icmp eq i16 %3, -1
+  br i1 %5, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %5, %12
-  %.067.i11.i = phi i32 [ %7, %12 ], [ 0, %5 ]
-  %7 = add i32 %.067.i11.i, 1
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr [180 x %struct.btmesh_property_t], ptr @btmesh_properties, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 2
-  %11 = load i16, ptr %10, align 2
-  %.not.i.i = icmp eq i16 %11, 0
-  br i1 %.not.i.i, label %find_btmesh_property_characteristic_idx.exit, label %12, !llvm.loop !35
+.lr.ph.i:                                         ; preds = %4, %11
+  %.067.i11.i = phi i32 [ %6, %11 ], [ 0, %4 ]
+  %6 = add i32 %.067.i11.i, 1
+  %7 = sext i32 %6 to i64
+  %8 = getelementptr [180 x %struct.btmesh_property_t], ptr @btmesh_properties, i64 0, i64 %7
+  %9 = getelementptr inbounds i8, ptr %8, i64 2
+  %10 = load i16, ptr %9, align 2
+  %.not.i.i = icmp eq i16 %10, 0
+  br i1 %.not.i.i, label %find_btmesh_property_characteristic_idx.exit, label %11, !llvm.loop !35
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = load i16, ptr %9, align 4
-  %14 = icmp eq i16 %13, %3
-  br i1 %14, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i, !llvm.loop !35
+11:                                               ; preds = %.lr.ph.i
+  %12 = load i16, ptr %8, align 4
+  %13 = icmp eq i16 %12, %3
+  br i1 %13, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i, !llvm.loop !35
 
-find_characteristic_id.exit.preheader.i:          ; preds = %12, %5
-  %.lcssa.i = phi i16 [ -1, %5 ], [ %11, %12 ]
+find_characteristic_id.exit.preheader.i:          ; preds = %11, %4
+  %.lcssa.i = phi i16 [ -1, %4 ], [ %10, %11 ]
   br label %find_characteristic_id.exit.i
 
-find_characteristic_id.exit.i:                    ; preds = %17, %find_characteristic_id.exit.preheader.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %17 ], [ 0, %find_characteristic_id.exit.preheader.i ]
-  %15 = phi i16 [ %19, %17 ], [ -1, %find_characteristic_id.exit.preheader.i ]
-  %16 = icmp eq i16 %15, %.lcssa.i
-  br i1 %16, label %.split.loop.exit.i.i, label %17
+find_characteristic_id.exit.i:                    ; preds = %16, %find_characteristic_id.exit.preheader.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %16 ], [ 0, %find_characteristic_id.exit.preheader.i ]
+  %14 = phi i16 [ %18, %16 ], [ -1, %find_characteristic_id.exit.preheader.i ]
+  %15 = icmp eq i16 %14, %.lcssa.i
+  br i1 %15, label %.split.loop.exit.i.i, label %16
 
-17:                                               ; preds = %find_characteristic_id.exit.i
+16:                                               ; preds = %find_characteristic_id.exit.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %18 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i.i
-  %19 = load i16, ptr %18, align 8
+  %17 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i.i
+  %18 = load i16, ptr %17, align 8
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 89
   br i1 %exitcond.i.i, label %find_btmesh_property_characteristic_idx.exit, label %find_characteristic_id.exit.i, !llvm.loop !36
 
 .split.loop.exit.i.i:                             ; preds = %find_characteristic_id.exit.i
-  %20 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %find_btmesh_property_characteristic_idx.exit
 
-find_btmesh_property_characteristic_idx.exit:     ; preds = %.lr.ph.i, %17, %.split.loop.exit.i.i
-  %.0.i = phi i32 [ %20, %.split.loop.exit.i.i ], [ -1, %17 ], [ -1, %.lr.ph.i ]
-  %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %2) #16
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp ne ptr %23, null
-  %25 = icmp sgt i32 %21, 1
-  %or.cond = select i1 %24, i1 %25, i1 false
-  %26 = zext i1 %or.cond to i32
-  %spec.select = lshr i32 %21, %26
+find_btmesh_property_characteristic_idx.exit:     ; preds = %.lr.ph.i, %16, %.split.loop.exit.i.i
+  %.0.i = phi i32 [ %19, %.split.loop.exit.i.i ], [ -1, %16 ], [ -1, %.lr.ph.i ]
+  %20 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %2) #16
+  %21 = icmp ne ptr %.8.val, null
+  %22 = icmp sgt i32 %20, 1
+  %or.cond = select i1 %21, i1 %22, i1 false
+  %23 = zext i1 %or.cond to i32
+  %spec.select = lshr i32 %20, %23
   %.not = icmp eq i32 %.0.i, -1
-  br i1 %.not, label %find_column_properties_idx.exit.thread, label %27
+  br i1 %.not, label %find_column_properties_idx.exit.thread, label %24
 
-27:                                               ; preds = %find_btmesh_property_characteristic_idx.exit
-  %28 = sext i32 %.0.i to i64
-  %29 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %28, i32 3
-  %30 = load i8, ptr %29, align 8
-  %31 = icmp eq i8 %30, 0
-  br i1 %31, label %32, label %44
+24:                                               ; preds = %find_btmesh_property_characteristic_idx.exit
+  %25 = sext i32 %.0.i to i64
+  %26 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %25, i32 3
+  %27 = load i8, ptr %26, align 8
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %29, label %39
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %4, align 8
-  %34 = load i32, ptr %33, align 4
-  %35 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %34, ptr noundef %1, i32 noundef %2, i16 noundef zeroext -2, i32 noundef 2)
-  %36 = zext i16 %35 to i32
-  %37 = add nuw nsw i32 %2, %36
-  %38 = load ptr, ptr %22, align 8
-  %.not85 = icmp eq ptr %38, null
-  br i1 %.not85, label %94, label %39
+29:                                               ; preds = %24
+  %30 = load i32, ptr %.0.val, align 4
+  %31 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %30, ptr noundef %1, i32 noundef %2, i16 noundef zeroext -2, i32 noundef 2)
+  %32 = zext i16 %31 to i32
+  %33 = add nuw nsw i32 %2, %32
+  %.not85 = icmp eq ptr %.8.val, null
+  br i1 %.not85, label %85, label %34
 
-39:                                               ; preds = %32
-  %40 = load i32, ptr %38, align 4
-  %41 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %40, ptr noundef %1, i32 noundef %37, i16 noundef zeroext -2, i32 noundef 2)
-  %42 = zext i16 %41 to i32
-  %43 = add nuw nsw i32 %37, %42
-  br label %94
+34:                                               ; preds = %29
+  %35 = load i32, ptr %.8.val, align 4
+  %36 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %35, ptr noundef %1, i32 noundef %33, i16 noundef zeroext -2, i32 noundef 2)
+  %37 = zext i16 %36 to i32
+  %38 = add nuw nsw i32 %33, %37
+  br label %85
 
-44:                                               ; preds = %27
-  %45 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %28
-  %46 = load i16, ptr %45, align 8
-  br label %47
+39:                                               ; preds = %24
+  %40 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %25
+  %41 = load i16, ptr %40, align 8
+  br label %42
 
-47:                                               ; preds = %50, %44
-  %indvars.iv.i = phi i64 [ 0, %44 ], [ %indvars.iv.next.i, %50 ]
-  %48 = phi i16 [ 11022, %44 ], [ %52, %50 ]
-  %49 = icmp eq i16 %48, %46
-  br i1 %49, label %find_column_properties_idx.exit, label %50
+42:                                               ; preds = %45, %39
+  %indvars.iv.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i, %45 ]
+  %43 = phi i16 [ 11022, %39 ], [ %47, %45 ]
+  %44 = icmp eq i16 %43, %41
+  br i1 %44, label %find_column_properties_idx.exit, label %45
 
-50:                                               ; preds = %47
+45:                                               ; preds = %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %51 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %indvars.iv.next.i
-  %52 = load i16, ptr %51, align 2
+  %46 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %indvars.iv.next.i
+  %47 = load i16, ptr %46, align 2
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.i, label %find_column_properties_idx.exit.thread, label %47, !llvm.loop !37
+  br i1 %exitcond.i, label %find_column_properties_idx.exit.thread, label %42, !llvm.loop !37
 
-find_column_properties_idx.exit:                  ; preds = %47
+find_column_properties_idx.exit:                  ; preds = %42
   %sext = shl i64 %indvars.iv.i, 32
-  %53 = ashr exact i64 %sext, 32
-  %54 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %53, i32 1
-  %55 = load i16, ptr %54, align 2
-  br label %56
+  %48 = ashr exact i64 %sext, 32
+  %49 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %48, i32 1
+  %50 = load i16, ptr %49, align 2
+  br label %51
 
-56:                                               ; preds = %59, %find_column_properties_idx.exit
-  %indvars.iv.i88 = phi i64 [ 0, %find_column_properties_idx.exit ], [ %indvars.iv.next.i89, %59 ]
-  %57 = phi i16 [ -1, %find_column_properties_idx.exit ], [ %61, %59 ]
-  %58 = icmp eq i16 %57, %55
-  br i1 %58, label %find_characteristic_idx.exit, label %59
+51:                                               ; preds = %54, %find_column_properties_idx.exit
+  %indvars.iv.i88 = phi i64 [ 0, %find_column_properties_idx.exit ], [ %indvars.iv.next.i89, %54 ]
+  %52 = phi i16 [ -1, %find_column_properties_idx.exit ], [ %56, %54 ]
+  %53 = icmp eq i16 %52, %50
+  br i1 %53, label %find_characteristic_idx.exit, label %54
 
-59:                                               ; preds = %56
+54:                                               ; preds = %51
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
-  %60 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i89
-  %61 = load i16, ptr %60, align 8
+  %55 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i89
+  %56 = load i16, ptr %55, align 8
   %exitcond.i90 = icmp eq i64 %indvars.iv.next.i89, 89
-  br i1 %exitcond.i90, label %find_column_properties_idx.exit.thread, label %56, !llvm.loop !36
+  br i1 %exitcond.i90, label %find_column_properties_idx.exit.thread, label %51, !llvm.loop !36
 
-find_characteristic_idx.exit:                     ; preds = %56
-  %62 = trunc nuw nsw i64 %indvars.iv.i88 to i32
-  %sext102 = shl i64 %indvars.iv.i88, 32
-  %63 = ashr exact i64 %sext102, 32
-  %64 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 2
-  %66 = load i16, ptr %65, align 2
-  %67 = zext i16 %66 to i32
-  %.not82 = icmp eq i16 %66, 0
-  br i1 %.not82, label %find_column_properties_idx.exit.thread, label %68
+find_characteristic_idx.exit:                     ; preds = %51
+  %57 = trunc nuw nsw i64 %indvars.iv.i88 to i32
+  %sext10 = shl i64 %indvars.iv.i88, 32
+  %58 = ashr exact i64 %sext10, 32
+  %59 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %58
+  %60 = getelementptr inbounds i8, ptr %59, i64 2
+  %61 = load i16, ptr %60, align 2
+  %62 = zext i16 %61 to i32
+  %.not82 = icmp eq i16 %61, 0
+  br i1 %.not82, label %find_column_properties_idx.exit.thread, label %63
 
-68:                                               ; preds = %find_characteristic_idx.exit
-  %69 = getelementptr inbounds i8, ptr %64, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %.not83 = icmp eq ptr %70, null
-  br i1 %.not83, label %find_column_properties_idx.exit.thread, label %71
+63:                                               ; preds = %find_characteristic_idx.exit
+  %64 = getelementptr inbounds i8, ptr %59, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %.not83 = icmp eq ptr %65, null
+  br i1 %.not83, label %find_column_properties_idx.exit.thread, label %66
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %64, i64 16
-  %73 = load i8, ptr %72, align 8
-  %74 = icmp eq i8 %73, 0
-  br i1 %74, label %75, label %find_column_properties_idx.exit.thread
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds i8, ptr %59, i64 16
+  %68 = load i8, ptr %67, align 8
+  %69 = icmp eq i8 %68, 0
+  br i1 %69, label %70, label %find_column_properties_idx.exit.thread
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %4, align 8
-  %77 = load i32, ptr %76, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %77, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %67, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %62)
-  %79 = add nuw nsw i32 %2, %67
-  %80 = load ptr, ptr %22, align 8
-  %.not84 = icmp eq ptr %80, null
-  br i1 %.not84, label %94, label %81
+70:                                               ; preds = %66
+  %71 = load i32, ptr %.0.val, align 4
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %71, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %62, i32 noundef 0) #16
+  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %57)
+  %73 = add nuw nsw i32 %2, %62
+  %.not84 = icmp eq ptr %.8.val, null
+  br i1 %.not84, label %85, label %74
 
-81:                                               ; preds = %75
-  %82 = load i32, ptr %80, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %82, ptr noundef nonnull %1, i32 noundef %79, i32 noundef %67, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %79, i32 noundef %62)
-  %84 = add nuw nsw i32 %79, %67
-  br label %94
+74:                                               ; preds = %70
+  %75 = load i32, ptr %.8.val, align 4
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %75, ptr noundef nonnull %1, i32 noundef %73, i32 noundef %62, i32 noundef 0) #16
+  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %57)
+  %77 = add nuw nsw i32 %73, %62
+  br label %85
 
-find_column_properties_idx.exit.thread:           ; preds = %50, %59, %find_characteristic_idx.exit, %find_btmesh_property_characteristic_idx.exit, %71, %68
-  %.171.ph = phi i32 [ %67, %68 ], [ %67, %71 ], [ %spec.select, %find_btmesh_property_characteristic_idx.exit ], [ %spec.select, %find_characteristic_idx.exit ], [ %spec.select, %59 ], [ %spec.select, %50 ]
-  %85 = load ptr, ptr %4, align 8
-  %86 = load i32, ptr %85, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %86, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %.171.ph, i32 noundef 0) #16
-  %88 = add i32 %.171.ph, %2
-  %89 = load ptr, ptr %22, align 8
-  %.not87 = icmp eq ptr %89, null
-  br i1 %.not87, label %94, label %90
+find_column_properties_idx.exit.thread:           ; preds = %45, %54, %find_characteristic_idx.exit, %find_btmesh_property_characteristic_idx.exit, %66, %63
+  %.171.ph = phi i32 [ %62, %63 ], [ %62, %66 ], [ %spec.select, %find_btmesh_property_characteristic_idx.exit ], [ %spec.select, %find_characteristic_idx.exit ], [ %spec.select, %54 ], [ %spec.select, %45 ]
+  %78 = load i32, ptr %.0.val, align 4
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %78, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %.171.ph, i32 noundef 0) #16
+  %80 = add i32 %.171.ph, %2
+  %.not87 = icmp eq ptr %.8.val, null
+  br i1 %.not87, label %85, label %81
 
-90:                                               ; preds = %find_column_properties_idx.exit.thread
-  %91 = load i32, ptr %89, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %1, i32 noundef %88, i32 noundef %.171.ph, i32 noundef 0) #16
-  %93 = add i32 %88, %.171.ph
-  br label %94
+81:                                               ; preds = %find_column_properties_idx.exit.thread
+  %82 = load i32, ptr %.8.val, align 4
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %82, ptr noundef nonnull %1, i32 noundef %80, i32 noundef %.171.ph, i32 noundef 0) #16
+  %84 = add i32 %80, %.171.ph
+  br label %85
 
-94:                                               ; preds = %75, %81, %32, %39, %find_column_properties_idx.exit.thread, %90
-  %.1 = phi i32 [ %93, %90 ], [ %88, %find_column_properties_idx.exit.thread ], [ %43, %39 ], [ %37, %32 ], [ %84, %81 ], [ %79, %75 ]
-  %95 = sub i32 %.1, %2
-  ret i32 %95
+85:                                               ; preds = %70, %74, %29, %34, %find_column_properties_idx.exit.thread, %81
+  %.1 = phi i32 [ %84, %81 ], [ %80, %find_column_properties_idx.exit.thread ], [ %38, %34 ], [ %33, %29 ], [ %77, %74 ], [ %73, %70 ]
+  %86 = sub i32 %.1, %2
+  ret i32 %86
 }
 
 ; Function Attrs: nounwind uwtable

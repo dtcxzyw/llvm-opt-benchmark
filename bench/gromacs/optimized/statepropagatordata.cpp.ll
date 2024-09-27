@@ -488,14 +488,14 @@ define void @_ZN3gmx19StatePropagatorData7Element12scheduleTaskEldRKSt8functionI
 
 13:                                               ; preds = %4
   store i8 0, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %16, align 8
-  %17 = ptrtoint ptr %0 to i64
-  store i64 %17, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx19StatePropagatorData7Element12scheduleTaskEldRKSt8functionIFvS4_IS0_EEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %15, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx19StatePropagatorData7Element12scheduleTaskEldRKSt8functionIFvS4_IS0_EEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %14, align 8
+  %14 = ptrtoint ptr %0 to i64
+  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %17, align 8
+  store i64 %14, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx19StatePropagatorData7Element12scheduleTaskEldRKSt8functionIFvS4_IS0_EEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %16, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx19StatePropagatorData7Element12scheduleTaskEldRKSt8functionIFvS4_IS0_EEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %15, align 8
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
@@ -515,9 +515,9 @@ define void @_ZN3gmx19StatePropagatorData7Element12scheduleTaskEldRKSt8functionI
           to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit unwind label %30
 
 _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %21
-  %24 = load ptr, ptr %14, align 8
-  %.not.i.i11 = icmp eq ptr %24, null
-  br i1 %.not.i.i11, label %_ZNSt8functionIFvvEED2Ev.exit, label %25
+  %24 = load ptr, ptr %15, align 8
+  %.not.i.i13 = icmp eq ptr %24, null
+  br i1 %.not.i.i13, label %_ZNSt8functionIFvvEED2Ev.exit, label %25
 
 25:                                               ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit
   %26 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
@@ -533,13 +533,13 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %21
 30:                                               ; preds = %21, %20
   %31 = landingpad { ptr, i32 }
           cleanup
-  %32 = load ptr, ptr %14, align 8
-  %.not.i.i12 = icmp eq ptr %32, null
-  br i1 %.not.i.i12, label %_ZNSt8functionIFvvEED2Ev.exit13, label %33
+  %32 = load ptr, ptr %15, align 8
+  %.not.i.i14 = icmp eq ptr %32, null
+  br i1 %.not.i.i14, label %_ZNSt8functionIFvvEED2Ev.exit15, label %33
 
 33:                                               ; preds = %30
   %34 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit13 unwind label %35
+          to label %_ZNSt8functionIFvvEED2Ev.exit15 unwind label %35
 
 35:                                               ; preds = %33
   %36 = landingpad { ptr, i32 }
@@ -549,7 +549,7 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %21
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %._ZNSt8functionIFvvEED2Ev.exit_crit_edge, %25, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit
-  %.pre-phi = phi i64 [ %.pre, %._ZNSt8functionIFvvEED2Ev.exit_crit_edge ], [ %17, %25 ], [ %17, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %._ZNSt8functionIFvvEED2Ev.exit_crit_edge ], [ %14, %25 ], [ %14, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit ]
   %38 = getelementptr inbounds i8, ptr %6, i64 16
   %39 = getelementptr inbounds i8, ptr %6, i64 24
   %40 = getelementptr inbounds i8, ptr %6, i64 8
@@ -559,30 +559,30 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %._ZNSt8functionIFvv
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx19StatePropagatorData7Element12scheduleTaskEldRKSt8functionIFvS4_IS0_EEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %38, align 8
   %41 = getelementptr inbounds i8, ptr %3, i64 16
   %42 = load ptr, ptr %41, align 8
-  %.not.i.i15 = icmp eq ptr %42, null
-  br i1 %.not.i.i15, label %43, label %44
+  %.not.i.i16 = icmp eq ptr %42, null
+  br i1 %.not.i.i16, label %43, label %44
 
 43:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   invoke void @_ZSt25__throw_bad_function_callv() #33
-          to label %.noexc16 unwind label %78
+          to label %.noexc17 unwind label %78
 
-.noexc16:                                         ; preds = %43
+.noexc17:                                         ; preds = %43
   unreachable
 
 44:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   %45 = getelementptr inbounds i8, ptr %3, i64 24
   %46 = load ptr, ptr %45, align 8
   invoke void %46(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit18 unwind label %78
+          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit19 unwind label %78
 
-_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit18:        ; preds = %44
+_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit19:        ; preds = %44
   %47 = load ptr, ptr %38, align 8
-  %.not.i.i19 = icmp eq ptr %47, null
-  br i1 %.not.i.i19, label %_ZNSt8functionIFvvEED2Ev.exit20, label %48
+  %.not.i.i20 = icmp eq ptr %47, null
+  br i1 %.not.i.i20, label %_ZNSt8functionIFvvEED2Ev.exit21, label %48
 
-48:                                               ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit18
+48:                                               ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit19
   %49 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit20 unwind label %50
+          to label %_ZNSt8functionIFvvEED2Ev.exit21 unwind label %50
 
 50:                                               ; preds = %48
   %51 = landingpad { ptr, i32 }
@@ -591,13 +591,13 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit18:        ; preds = %44
   call void @__clang_call_terminate(ptr %52) #34
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit20:                  ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit18, %48
+_ZNSt8functionIFvvEED2Ev.exit21:                  ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit19, %48
   %53 = getelementptr inbounds i8, ptr %0, i64 80
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %1, %54
   br i1 %55, label %64, label %56
 
-56:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit20
+56:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit21
   %57 = getelementptr inbounds i8, ptr %0, i64 184
   %58 = load i64, ptr %57, align 8
   %59 = icmp eq i64 %1, %58
@@ -609,7 +609,7 @@ _ZNSt8functionIFvvEED2Ev.exit20:                  ; preds = %_ZNKSt8functionIFvS
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %_ZNSt8functionIFvvEED2Ev.exit27
 
-64:                                               ; preds = %60, %_ZNSt8functionIFvvEED2Ev.exit20
+64:                                               ; preds = %60, %_ZNSt8functionIFvvEED2Ev.exit21
   %65 = getelementptr inbounds i8, ptr %7, i64 16
   %66 = getelementptr inbounds i8, ptr %7, i64 24
   %67 = getelementptr inbounds i8, ptr %7, i64 8
@@ -654,11 +654,11 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit25:        ; preds = %70
           cleanup
   %80 = load ptr, ptr %38, align 8
   %.not.i.i28 = icmp eq ptr %80, null
-  br i1 %.not.i.i28, label %_ZNSt8functionIFvvEED2Ev.exit13, label %81
+  br i1 %.not.i.i28, label %_ZNSt8functionIFvvEED2Ev.exit15, label %81
 
 81:                                               ; preds = %78
   %82 = invoke noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit13 unwind label %83
+          to label %_ZNSt8functionIFvvEED2Ev.exit15 unwind label %83
 
 83:                                               ; preds = %81
   %84 = landingpad { ptr, i32 }
@@ -672,11 +672,11 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit25:        ; preds = %70
           cleanup
   %88 = load ptr, ptr %65, align 8
   %.not.i.i30 = icmp eq ptr %88, null
-  br i1 %.not.i.i30, label %_ZNSt8functionIFvvEED2Ev.exit13, label %89
+  br i1 %.not.i.i30, label %_ZNSt8functionIFvvEED2Ev.exit15, label %89
 
 89:                                               ; preds = %86
   %90 = invoke noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit13 unwind label %91
+          to label %_ZNSt8functionIFvvEED2Ev.exit15 unwind label %91
 
 91:                                               ; preds = %89
   %92 = landingpad { ptr, i32 }
@@ -688,7 +688,7 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit25:        ; preds = %70
 _ZNSt8functionIFvvEED2Ev.exit27:                  ; preds = %73, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit25, %60, %56
   ret void
 
-_ZNSt8functionIFvvEED2Ev.exit13:                  ; preds = %89, %86, %81, %78, %33, %30
+_ZNSt8functionIFvvEED2Ev.exit15:                  ; preds = %89, %86, %81, %78, %33, %30
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %31, %33 ], [ %79, %78 ], [ %79, %81 ], [ %87, %86 ], [ %87, %89 ]
   resume { ptr, i32 } %.pn
 }
@@ -1193,14 +1193,14 @@ define void @_ZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCa
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %1 to i64
-  store i64 %9, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %6, align 8
+  %6 = ptrtoint ptr %1 to i64
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %6, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %7, align 8
   br label %10
 
 10:                                               ; preds = %3, %5
@@ -1216,14 +1216,14 @@ define void @_ZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallb
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %1 to i64
-  store i64 %9, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OlOdObSF_", ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %6, align 8
+  %6 = ptrtoint ptr %1 to i64
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %6, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OlOdObSF_", ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %7, align 8
   br label %10
 
 10:                                               ; preds = %3, %5
@@ -1235,14 +1235,14 @@ define void @_ZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx19StatePropagatorData7Element24registerLastStepCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(272) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8
-  %6 = ptrtoint ptr %1 to i64
-  store i64 %6, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %3, align 8
+  %3 = ptrtoint ptr %1 to i64
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %6, align 8
+  store i64 %3, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %7, align 8
   ret void
@@ -1684,14 +1684,14 @@ define void @_ZThn8_N3gmx19StatePropagatorData7Element32registerTrajectoryWriter
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 -8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %9, align 8, !alias.scope !6
-  %10 = ptrtoint ptr %6 to i64
-  store i64 %10, ptr %0, align 8, !alias.scope !6
-  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OlOdObSF_", ptr %8, align 8, !alias.scope !6
-  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %7, align 8, !alias.scope !6
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %10, align 8, !alias.scope !6
+  store i64 %7, ptr %0, align 8, !alias.scope !6
+  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OlOdObSF_", ptr %9, align 8, !alias.scope !6
+  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %8, align 8, !alias.scope !6
   br label %_ZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE.exit
 
 _ZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE.exit: ; preds = %3, %5
@@ -1758,14 +1758,14 @@ define void @_ZThn16_N3gmx19StatePropagatorData7Element35registerTrajectorySigna
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 -16
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %9, align 8, !alias.scope !9
-  %10 = ptrtoint ptr %6 to i64
-  store i64 %10, ptr %0, align 8, !alias.scope !9
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %8, align 8, !alias.scope !9
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %7, align 8, !alias.scope !9
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %10, align 8, !alias.scope !9
+  store i64 %7, ptr %0, align 8, !alias.scope !9
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %9, align 8, !alias.scope !9
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %8, align 8, !alias.scope !9
   br label %_ZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit
 
 _ZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit: ; preds = %3, %5
@@ -1898,14 +1898,14 @@ define linkonce_odr void @_ZThn32_N3gmx19StatePropagatorData7ElementD0Ev(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZThn32_N3gmx19StatePropagatorData7Element24registerLastStepCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -32
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %6, align 8, !alias.scope !12
-  %7 = ptrtoint ptr %3 to i64
-  store i64 %7, ptr %0, align 8, !alias.scope !12
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %5, align 8, !alias.scope !12
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %4, align 8, !alias.scope !12
+  %4 = ptrtoint ptr %3 to i64
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %7, align 8, !alias.scope !12
+  store i64 %4, ptr %0, align 8, !alias.scope !12
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8, !alias.scope !12
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData7Element24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %5, align 8, !alias.scope !12
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %8, align 8, !alias.scope !12
   ret void

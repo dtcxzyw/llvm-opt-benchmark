@@ -6149,12 +6149,12 @@ if.then15:                                        ; preds = %invoke.cont10
 
 invoke.cont18:                                    ; preds = %if.then15
   %7 = load ptr, ptr %cache_, align 8
+  %8 = ptrtoint ptr %working_stats_ to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 24
-  %8 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
-  store i64 0, ptr %8, align 8, !alias.scope !32
-  %9 = ptrtoint ptr %working_stats_ to i64
-  store i64 %9, ptr %ref.tmp20, align 8, !alias.scope !32
+  %9 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
+  store i64 0, ptr %9, align 8, !alias.scope !32
+  store i64 %8, ptr %ref.tmp20, align 8, !alias.scope !32
   store ptr @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataS3_OS4_OmOS8_", ptr %_M_invoker.i.i, align 8, !alias.scope !32
   store ptr @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8, !alias.scope !32
   store i64 256, ptr %ref.tmp22, align 8
@@ -6263,12 +6263,12 @@ ehcleanup:                                        ; preds = %if.then.i.i13, %lpa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7rocksdb13InternalStats19CacheEntryRoleStats16GetEntryCallbackEv(ptr noalias nocapture writeonly sret(%"class.std::function") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(316) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %0 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %this to i64
-  store i64 %1, ptr %agg.result, align 8
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %agg.result, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataS3_OS4_OmOS8_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   ret void

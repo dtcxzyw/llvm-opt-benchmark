@@ -36924,24 +36924,24 @@ _ZNK12_GLOBAL__N_125UncountedLocalVarsChecker17shouldSkipVarDeclEPKN5clang7VarDe
 29:                                               ; preds = %_ZNK12_GLOBAL__N_125UncountedLocalVarsChecker17shouldSkipVarDeclEPKN5clang7VarDeclE.exit.thread
   %30 = tail call i16 @_ZN5clang14isUncountedPtrEPKNS_4TypeE(ptr noundef nonnull %28) #22
   %31 = and i16 %30, 256
-  %.not9 = icmp eq i16 %31, 0
-  br i1 %.not9, label %309, label %32
+  %.not10 = icmp eq i16 %31, 0
+  br i1 %.not10, label %309, label %32
 
 32:                                               ; preds = %29
   %33 = trunc i16 %30 to i1
   br i1 %33, label %34, label %309
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %36 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %37 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 0, ptr %37, align 8
-  %38 = ptrtoint ptr %14 to i64
-  store i64 %38, ptr %15, align 8
-  store ptr @_ZNSt17_Function_handlerIFbPKN5clang4ExprEbEZNK12_GLOBAL__N_125UncountedLocalVarsChecker12visitVarDeclEPKNS0_7VarDeclES3_EUlS3_bE_E9_M_invokeERKSt9_Any_dataOS3_Ob, ptr %36, align 8
-  store ptr @_ZNSt17_Function_handlerIFbPKN5clang4ExprEbEZNK12_GLOBAL__N_125UncountedLocalVarsChecker12visitVarDeclEPKNS0_7VarDeclES3_EUlS3_bE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %35, align 8
+  %35 = ptrtoint ptr %14 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %38 = getelementptr inbounds i8, ptr %15, i64 8
+  store i64 0, ptr %38, align 8
+  store i64 %35, ptr %15, align 8
+  store ptr @_ZNSt17_Function_handlerIFbPKN5clang4ExprEbEZNK12_GLOBAL__N_125UncountedLocalVarsChecker12visitVarDeclEPKNS0_7VarDeclES3_EUlS3_bE_E9_M_invokeERKSt9_Any_dataOS3_Ob, ptr %37, align 8
+  store ptr @_ZNSt17_Function_handlerIFbPKN5clang4ExprEbEZNK12_GLOBAL__N_125UncountedLocalVarsChecker12visitVarDeclEPKNS0_7VarDeclES3_EUlS3_bE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %36, align 8
   %39 = call noundef zeroext i1 @_ZN5clang18tryToFindPtrOriginEPKNS_4ExprEbSt8functionIFbS2_bEE(ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull %15) #22
-  %40 = load ptr, ptr %35, align 8
+  %40 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbPKN5clang4ExprEbEED2Ev.exit, label %41
 
@@ -37138,8 +37138,8 @@ _ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i: ; preds = %127, %_ZN
   %137 = load ptr, ptr %136, align 8
   call void %137(ptr noundef nonnull align 8 dereferenceable(120) %134, ptr noundef nonnull %11) #22
   %138 = load ptr, ptr %11, align 8
-  %.not.i.i5 = icmp eq ptr %138, null
-  br i1 %.not.i.i5, label %_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.sink.split.i
+  %.not.i.i6 = icmp eq ptr %138, null
+  br i1 %.not.i.i6, label %_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.sink.split.i
 
 139:                                              ; preds = %43
   %140 = call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %44)

@@ -688,9 +688,10 @@ entry:
   %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %nodesToProcess.i.i.i, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4, !noalias !9
   %call.i.i.i = call fastcc noundef ptr @"_ZN6hermes10DomTreeDFS7VisitorIZL22orderBlocksByDominanceIZNS_16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS6_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS6_12DenseMapInfoIS9_EENS6_6detail12DenseMapPairIS9_SD_EEEERKNS_13DominanceInfoEE3$_0ENSA_IS9_Lj4EEESO_S9_OT_E18OrderBlocksContextNS0_9StackNodeIST_EEE7newNodeEPKNS6_15DomTreeNodeBaseIS8_EE"(ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp.i, ptr noundef %call.i.i), !noalias !9
-  %2 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !9
-  %3 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4, !noalias !9
-  %cmp.not.i.i.i.i = icmp ult i32 %2, %3
+  %2 = ptrtoint ptr %call.i.i.i to i64
+  %3 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !9
+  %4 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4, !noalias !9
+  %cmp.not.i.i.i.i = icmp ult i32 %3, %4
   br i1 %cmp.not.i.i.i.i, label %"_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10DomTreeDFS9StackNodeIZL22orderBlocksByDominanceIZNS1_16LowerAllocObject13collectStoresEPNS1_15AllocObjectInstERKNS_8DenseMapIPNS1_10BasicBlockENS_11SmallVectorIPNS1_23StoreNewOwnPropertyInstELj4EEENS_12DenseMapInfoISA_EENS_6detail12DenseMapPairISA_SE_EEEERKNS1_13DominanceInfoEE3$_0ENSB_ISA_Lj4EEESP_SA_OT_E18OrderBlocksContextEELb1EE9push_backERKSW_.exit.i.i.i", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
@@ -699,12 +700,11 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %"_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10DomTreeDFS9StackNodeIZL22orderBlocksByDominanceIZNS1_16LowerAllocObject13collectStoresEPNS1_15AllocObjectInstERKNS_8DenseMapIPNS1_10BasicBlockENS_11SmallVectorIPNS1_23StoreNewOwnPropertyInstELj4EEENS_12DenseMapInfoISA_EENS_6detail12DenseMapPairISA_SE_EEEERKNS1_13DominanceInfoEE3$_0ENSB_ISA_Lj4EEESP_SA_OT_E18OrderBlocksContextEELb1EE9push_backERKSW_.exit.i.i.i"
 
 "_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10DomTreeDFS9StackNodeIZL22orderBlocksByDominanceIZNS1_16LowerAllocObject13collectStoresEPNS1_15AllocObjectInstERKNS_8DenseMapIPNS1_10BasicBlockENS_11SmallVectorIPNS1_23StoreNewOwnPropertyInstELj4EEENS_12DenseMapInfoISA_EENS_6detail12DenseMapPairISA_SE_EEEERKNS1_13DominanceInfoEE3$_0ENSB_ISA_Lj4EEESP_SA_OT_E18OrderBlocksContextEELb1EE9push_backERKSW_.exit.i.i.i": ; preds = %if.then.i.i.i.i, %entry
-  %4 = phi i32 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %2, %entry ]
-  %5 = load ptr, ptr %nodesToProcess.i.i.i, align 8, !noalias !9
-  %conv.i3.i.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i.i.i.i
-  %6 = ptrtoint ptr %call.i.i.i to i64
-  store i64 %6, ptr %add.ptr.i.i.i.i.i, align 1, !noalias !9
+  %5 = phi i32 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %3, %entry ]
+  %6 = load ptr, ptr %nodesToProcess.i.i.i, align 8, !noalias !9
+  %conv.i3.i.i.i.i = zext i32 %5 to i64
+  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %conv.i3.i.i.i.i
+  store i64 %2, ptr %add.ptr.i.i.i.i.i, align 1, !noalias !9
   %7 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !9
   %add.i.i.i.i = add i32 %7, 1
   store i32 %add.i.i.i.i, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !9
@@ -857,9 +857,10 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
 
 if.then11.i.i.i:                                  ; preds = %"_ZN6hermes10DomTreeDFS9StackNodeIZL22orderBlocksByDominanceIZNS_16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS6_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS6_12DenseMapInfoIS9_EENS6_6detail12DenseMapPairIS9_SD_EEEERKNS_13DominanceInfoEE3$_0ENSA_IS9_Lj4EEESO_S9_OT_E18OrderBlocksContextE9nextChildEv.exit.i.i.i"
   %call13.i.i.i = call fastcc noundef ptr @"_ZN6hermes10DomTreeDFS7VisitorIZL22orderBlocksByDominanceIZNS_16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS6_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS6_12DenseMapInfoIS9_EENS6_6detail12DenseMapPairIS9_SD_EEEERKNS_13DominanceInfoEE3$_0ENSA_IS9_Lj4EEESO_S9_OT_E18OrderBlocksContextNS0_9StackNodeIST_EEE7newNodeEPKNS6_15DomTreeNodeBaseIS8_EE"(ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp.i, ptr noundef nonnull %31), !noalias !9
-  %32 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !9
-  %33 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4, !noalias !9
-  %cmp.not.i15.i.i.i = icmp ult i32 %32, %33
+  %32 = ptrtoint ptr %call13.i.i.i to i64
+  %33 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !9
+  %34 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4, !noalias !9
+  %cmp.not.i15.i.i.i = icmp ult i32 %33, %34
   br i1 %cmp.not.i15.i.i.i, label %"_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10DomTreeDFS9StackNodeIZL22orderBlocksByDominanceIZNS1_16LowerAllocObject13collectStoresEPNS1_15AllocObjectInstERKNS_8DenseMapIPNS1_10BasicBlockENS_11SmallVectorIPNS1_23StoreNewOwnPropertyInstELj4EEENS_12DenseMapInfoISA_EENS_6detail12DenseMapPairISA_SE_EEEERKNS1_13DominanceInfoEE3$_0ENSB_ISA_Lj4EEESP_SA_OT_E18OrderBlocksContextEELb1EE9push_backERKSW_.exit22.i.i.i", label %if.then.i16.i.i.i
 
 if.then.i16.i.i.i:                                ; preds = %if.then11.i.i.i
@@ -868,12 +869,11 @@ if.then.i16.i.i.i:                                ; preds = %if.then11.i.i.i
   br label %"_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10DomTreeDFS9StackNodeIZL22orderBlocksByDominanceIZNS1_16LowerAllocObject13collectStoresEPNS1_15AllocObjectInstERKNS_8DenseMapIPNS1_10BasicBlockENS_11SmallVectorIPNS1_23StoreNewOwnPropertyInstELj4EEENS_12DenseMapInfoISA_EENS_6detail12DenseMapPairISA_SE_EEEERKNS1_13DominanceInfoEE3$_0ENSB_ISA_Lj4EEESP_SA_OT_E18OrderBlocksContextEELb1EE9push_backERKSW_.exit22.i.i.i"
 
 "_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10DomTreeDFS9StackNodeIZL22orderBlocksByDominanceIZNS1_16LowerAllocObject13collectStoresEPNS1_15AllocObjectInstERKNS_8DenseMapIPNS1_10BasicBlockENS_11SmallVectorIPNS1_23StoreNewOwnPropertyInstELj4EEENS_12DenseMapInfoISA_EENS_6detail12DenseMapPairISA_SE_EEEERKNS1_13DominanceInfoEE3$_0ENSB_ISA_Lj4EEESP_SA_OT_E18OrderBlocksContextEELb1EE9push_backERKSW_.exit22.i.i.i": ; preds = %if.then.i16.i.i.i, %if.then11.i.i.i
-  %34 = phi i32 [ %.pre.i18.i.i.i, %if.then.i16.i.i.i ], [ %32, %if.then11.i.i.i ]
-  %35 = load ptr, ptr %nodesToProcess.i.i.i, align 8, !noalias !9
-  %conv.i3.i19.i.i.i = zext i32 %34 to i64
-  %add.ptr.i.i20.i.i.i = getelementptr inbounds ptr, ptr %35, i64 %conv.i3.i19.i.i.i
-  %36 = ptrtoint ptr %call13.i.i.i to i64
-  store i64 %36, ptr %add.ptr.i.i20.i.i.i, align 1, !noalias !9
+  %35 = phi i32 [ %.pre.i18.i.i.i, %if.then.i16.i.i.i ], [ %33, %if.then11.i.i.i ]
+  %36 = load ptr, ptr %nodesToProcess.i.i.i, align 8, !noalias !9
+  %conv.i3.i19.i.i.i = zext i32 %35 to i64
+  %add.ptr.i.i20.i.i.i = getelementptr inbounds ptr, ptr %36, i64 %conv.i3.i19.i.i.i
+  store i64 %32, ptr %add.ptr.i.i20.i.i.i, align 1, !noalias !9
   %37 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !9
   %add.i21.i.i.i = add i32 %37, 1
   store i32 %add.i21.i.i.i, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !9

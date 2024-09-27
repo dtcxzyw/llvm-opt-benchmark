@@ -5917,9 +5917,9 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %if.then19, %land.lhs.true.i, %if.then5.i
-  %cond287 = phi i1 [ %1, %land.lhs.true.i ], [ %1, %if.then5.i ], [ true, %if.then19 ]
+  %cond279 = phi i1 [ %1, %land.lhs.true.i ], [ %1, %if.then5.i ], [ true, %if.then19 ]
   %tobool29.not = icmp eq ptr %filename, null
-  %brmerge.not = select i1 %tobool29.not, i1 %cond287, i1 false
+  %brmerge.not = select i1 %tobool29.not, i1 %cond279, i1 false
   br i1 %brmerge.not, label %if.end33, label %if.then32
 
 if.then32:                                        ; preds = %qobject_unref_impl.exit
@@ -6185,25 +6185,25 @@ if.end10.i:                                       ; preds = %do.end.i115
   br i1 %.not.i, label %if.else13.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end10.i, %if.end7.i
-  %drv.046.i = phi ptr [ %drv1.06.i.i.i, %if.end7.i ], [ null, %if.end10.i ]
+  %drv.08.i = phi ptr [ %drv1.06.i.i.i, %if.end7.i ], [ null, %if.end10.i ]
   %20 = load i32, ptr %flags.addr, align 4
   %or.i = or i32 %20, 32768
   br label %if.end15.i
 
 if.else13.i:                                      ; preds = %if.end10.i, %if.end7.i
-  %drv.045.i = phi ptr [ %drv1.06.i.i.i, %if.end7.i ], [ null, %if.end10.i ]
+  %drv.07.i = phi ptr [ %drv1.06.i.i.i, %if.end7.i ], [ null, %if.end10.i ]
   %21 = load i32, ptr %flags.addr, align 4
   %and14.i = and i32 %21, -32769
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.else13.i, %if.then12.i
-  %drv.044.i = phi ptr [ %drv.045.i, %if.else13.i ], [ %drv.046.i, %if.then12.i ]
-  %protocol.041.i = phi i1 [ false, %if.else13.i ], [ true, %if.then12.i ]
+  %drv.06.i = phi ptr [ %drv.07.i, %if.else13.i ], [ %drv.08.i, %if.then12.i ]
+  %protocol.03.i = phi i1 [ false, %if.else13.i ], [ true, %if.then12.i ]
   %storemerge.i = phi i32 [ %and14.i, %if.else13.i ], [ %or.i, %if.then12.i ]
   store i32 %storemerge.i, ptr %flags.addr, align 4
   call fastcc void @update_options_from_flags(ptr noundef %options.addr.0, i32 noundef %storemerge.i)
   %tobool17.i = icmp ne ptr %filename.addr.0, null
-  %or.cond.i = and i1 %tobool17.i, %protocol.041.i
+  %or.cond.i = and i1 %tobool17.i, %protocol.03.i
   br i1 %or.cond.i, label %if.then18.i, label %if.end24.i
 
 if.then18.i:                                      ; preds = %if.end15.i
@@ -6221,7 +6221,7 @@ if.else22.i:                                      ; preds = %if.then18.i
 
 if.end24.i:                                       ; preds = %if.then21.i, %if.end15.i
   %call25.i = call ptr @qdict_get_try_str(ptr noundef %options.addr.0, ptr noundef nonnull @.str.5) #31
-  %brmerge.not.i = and i1 %tobool2.not.i117, %protocol.041.i
+  %brmerge.not.i = and i1 %tobool2.not.i117, %protocol.03.i
   br i1 %brmerge.not.i, label %if.then29.i, label %if.end39.i
 
 if.then29.i:                                      ; preds = %if.end24.i
@@ -6243,8 +6243,8 @@ if.else37.i:                                      ; preds = %if.then29.i
   br label %bdrv_fill_options.exit.thread
 
 if.end39.i:                                       ; preds = %if.end24.i
-  %tobool40.not.i = icmp eq ptr %drv.044.i, null
-  %brmerge37.not.i = and i1 %tobool40.not.i, %protocol.041.i
+  %tobool40.not.i = icmp eq ptr %drv.06.i, null
+  %brmerge37.not.i = and i1 %tobool40.not.i, %protocol.03.i
   br i1 %brmerge37.not.i, label %if.else43.i, label %if.end44.i
 
 if.else43.i:                                      ; preds = %if.end39.i
@@ -6255,8 +6255,8 @@ if.end44.i:                                       ; preds = %if.end39.i
   br i1 %tobool40.not.i, label %if.end64, label %land.lhs.true46.i
 
 land.lhs.true46.i:                                ; preds = %if.end44.i, %if.end39.thread.i
-  %drv.15153.i = phi ptr [ %call33.i, %if.end39.thread.i ], [ %drv.044.i, %if.end44.i ]
-  %bdrv_parse_filename.i = getelementptr inbounds i8, ptr %drv.15153.i, i64 96
+  %drv.11315.i = phi ptr [ %call33.i, %if.end39.thread.i ], [ %drv.06.i, %if.end44.i ]
+  %bdrv_parse_filename.i = getelementptr inbounds i8, ptr %drv.11315.i, i64 96
   %23 = load ptr, ptr %bdrv_parse_filename.i, align 8
   %tobool47.not.i = icmp ne ptr %23, null
   %brmerge38.not.i = and i1 %or.cond.i, %tobool47.not.i
@@ -6273,7 +6273,7 @@ if.then53.i:                                      ; preds = %if.then50.i
   br label %bdrv_fill_options.exit.thread
 
 if.end54.i:                                       ; preds = %if.then50.i
-  %bdrv_needs_filename.i = getelementptr inbounds i8, ptr %drv.15153.i, i64 16
+  %bdrv_needs_filename.i = getelementptr inbounds i8, ptr %drv.11315.i, i64 16
   %25 = load i8, ptr %bdrv_needs_filename.i, align 8
   %tobool55.i = trunc i8 %25 to i1
   br i1 %tobool55.i, label %if.end64, label %if.then56.i
@@ -6475,11 +6475,11 @@ bdrv_get_aio_context.exit:                        ; preds = %if.end119
   br i1 %tobool126.not, label %if.end131, label %fail
 
 if.end131.thread:                                 ; preds = %if.end119, %if.end111
-  %tobool132.not297 = icmp eq ptr %drv.1, null
-  %probed298 = getelementptr inbounds i8, ptr %call39, i64 6
-  %frombool135299 = zext i1 %tobool132.not297 to i8
-  store i8 %frombool135299, ptr %probed298, align 2
-  br i1 %tobool132.not297, label %if.then149, label %if.end151
+  %tobool132.not289 = icmp eq ptr %drv.1, null
+  %probed290 = getelementptr inbounds i8, ptr %call39, i64 6
+  %frombool135291 = zext i1 %tobool132.not289 to i8
+  store i8 %frombool135291, ptr %probed290, align 2
+  br i1 %tobool132.not289, label %if.then149, label %if.end151
 
 if.end131:                                        ; preds = %bdrv_get_aio_context.exit
   %node_name.i = getelementptr inbounds i8, ptr %call116, i64 16600
@@ -6579,15 +6579,15 @@ if.else147:                                       ; preds = %if.end131
   br i1 %tobool132.not, label %if.then149, label %if.end151
 
 if.then149:                                       ; preds = %if.end131.thread, %if.else147
-  %ctx.1303314 = phi ptr [ %call, %if.end131.thread ], [ %40, %if.else147 ]
-  %file.1305313 = phi ptr [ null, %if.end131.thread ], [ %call124, %if.else147 ]
+  %ctx.1295306 = phi ptr [ %call, %if.end131.thread ], [ %40, %if.else147 ]
+  %file.1297305 = phi ptr [ null, %if.end131.thread ], [ %call124, %if.else147 ]
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 4154, ptr noundef nonnull @__func__.bdrv_open_inherit, ptr noundef nonnull @.str.225) #31
   br label %fail
 
 if.end151:                                        ; preds = %if.end131.thread, %if.else147, %if.end144
-  %tobool138307 = phi i1 [ true, %if.end144 ], [ %tobool138, %if.else147 ], [ false, %if.end131.thread ]
-  %file.1304 = phi ptr [ %call124, %if.end144 ], [ %call124, %if.else147 ], [ null, %if.end131.thread ]
-  %ctx.1302 = phi ptr [ %40, %if.end144 ], [ %40, %if.else147 ], [ %call, %if.end131.thread ]
+  %tobool138299 = phi i1 [ true, %if.end144 ], [ %tobool138, %if.else147 ], [ false, %if.end131.thread ]
+  %file.1296 = phi ptr [ %call124, %if.end144 ], [ %call124, %if.else147 ], [ null, %if.end131.thread ]
+  %ctx.1294 = phi ptr [ %40, %if.end144 ], [ %40, %if.else147 ], [ %call, %if.end131.thread ]
   %drv.2 = phi ptr [ %drv.1.i.lcssa.sink.i.ph, %if.end144 ], [ %drv.1, %if.else147 ], [ %drv.1, %if.end131.thread ]
   %46 = load i32, ptr %flags.addr, align 4
   %and152 = and i32 %46, 32768
@@ -6605,7 +6605,7 @@ if.else166:                                       ; preds = %if.end151
 
 if.end167:                                        ; preds = %if.end151
   %tobool153 = icmp ne i32 %and152, 0
-  %or.cond2 = and i1 %tobool138307, %tobool153
+  %or.cond2 = and i1 %tobool138299, %tobool153
   br i1 %or.cond2, label %if.else173, label %if.end174
 
 if.else173:                                       ; preds = %if.end167
@@ -6710,15 +6710,15 @@ if.then27.i:                                      ; preds = %land.lhs.true24.i
   br label %bdrv_open_common.exit.thread
 
 if.end28.i:                                       ; preds = %land.lhs.true24.i, %if.end21.i
-  %cmp29.not.i = icmp eq ptr %file.1304, null
+  %cmp29.not.i = icmp eq ptr %file.1296, null
   br i1 %cmp29.not.i, label %if.else34.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %if.end28.i
   call void @bdrv_graph_rdlock_main_loop() #31
-  %call31.i = call ptr @blk_bs(ptr noundef nonnull %file.1304) #31
+  %call31.i = call ptr @blk_bs(ptr noundef nonnull %file.1296) #31
   call void @bdrv_refresh_filename(ptr noundef %call31.i)
   call void @bdrv_graph_rdunlock_main_loop() #31
-  %call32.i = call ptr @blk_bs(ptr noundef nonnull %file.1304) #31
+  %call32.i = call ptr @blk_bs(ptr noundef nonnull %file.1296) #31
   %filename33.i = getelementptr inbounds i8, ptr %call32.i, i64 49
   br label %if.end36.i
 
@@ -6944,11 +6944,11 @@ bdrv_open_common.exit:                            ; preds = %bdrv_open_flags.exi
 bdrv_get_aio_context.exit195:                     ; preds = %bdrv_open_common.exit
   %aio_context.i191 = getelementptr inbounds i8, ptr %call39, i64 32
   %77 = load ptr, ptr %aio_context.i191, align 8
-  br i1 %tobool138307, label %if.then182, label %if.end183
+  br i1 %tobool138299, label %if.then182, label %if.end183
 
 if.then182:                                       ; preds = %bdrv_get_aio_context.exit195
   call void @aio_context_acquire(ptr noundef %77) #31
-  call void @blk_unref(ptr noundef nonnull %file.1304) #31
+  call void @blk_unref(ptr noundef nonnull %file.1296) #31
   call void @aio_context_release(ptr noundef %77) #31
   br label %if.end183
 
@@ -6965,13 +6965,13 @@ if.then187:                                       ; preds = %if.end183
 
 if.end193:                                        ; preds = %if.then187, %if.end183
   %children = getelementptr inbounds i8, ptr %call39, i64 16824
-  %child.0320 = load ptr, ptr %children, align 8
-  %tobool194.not321 = icmp eq ptr %child.0320, null
-  br i1 %tobool194.not321, label %for.end, label %for.body
+  %child.0312 = load ptr, ptr %children, align 8
+  %tobool194.not313 = icmp eq ptr %child.0312, null
+  br i1 %tobool194.not313, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end193, %for.body
-  %child.0322 = phi ptr [ %child.0, %for.body ], [ %child.0320, %if.end193 ]
-  %name = getelementptr inbounds i8, ptr %child.0322, i64 8
+  %child.0314 = phi ptr [ %child.0, %for.body ], [ %child.0312, %if.end193 ]
+  %name = getelementptr inbounds i8, ptr %child.0314, i64 8
   %79 = load ptr, ptr %name, align 8
   %call195 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.76, ptr noundef %79) #31
   %80 = load ptr, ptr %explicit_options, align 8
@@ -6985,7 +6985,7 @@ for.body:                                         ; preds = %if.end193, %for.bod
   %85 = load ptr, ptr %name, align 8
   call void @qdict_del(ptr noundef %84, ptr noundef %85) #31
   call void @g_free(ptr noundef %call195) #31
-  %next = getelementptr inbounds i8, ptr %child.0322, i64 64
+  %next = getelementptr inbounds i8, ptr %child.0314, i64 64
   %child.0 = load ptr, ptr %next, align 8
   %tobool194.not = icmp eq ptr %child.0, null
   br i1 %tobool194.not, label %for.end, label %for.body, !llvm.loop !26
@@ -7032,9 +7032,9 @@ if.end232:                                        ; preds = %if.then228
 
 fail:                                             ; preds = %bdrv_open_common.exit.thread, %find_image_format.exit, %bdrv_fill_options.exit.thread, %bdrv_open_common.exit, %bdrv_get_aio_context.exit, %if.then115, %parse_json_protocol.exit, %if.then149, %if.then85
   %options.addr.1 = phi ptr [ %call79, %find_image_format.exit ], [ %call79, %bdrv_open_common.exit ], [ %call79, %if.then149 ], [ %call79, %bdrv_get_aio_context.exit ], [ %call79, %if.then115 ], [ %call79, %if.then85 ], [ %options.addr.0, %parse_json_protocol.exit ], [ %options.addr.0, %bdrv_fill_options.exit.thread ], [ %call79, %bdrv_open_common.exit.thread ]
-  %ctx.0 = phi ptr [ %40, %find_image_format.exit ], [ %ctx.1302, %bdrv_open_common.exit ], [ %ctx.1303314, %if.then149 ], [ %40, %bdrv_get_aio_context.exit ], [ %call, %if.then115 ], [ %call, %if.then85 ], [ %call, %parse_json_protocol.exit ], [ %call, %bdrv_fill_options.exit.thread ], [ %ctx.1302, %bdrv_open_common.exit.thread ]
+  %ctx.0 = phi ptr [ %40, %find_image_format.exit ], [ %ctx.1294, %bdrv_open_common.exit ], [ %ctx.1295306, %if.then149 ], [ %40, %bdrv_get_aio_context.exit ], [ %call, %if.then115 ], [ %call, %if.then85 ], [ %call, %parse_json_protocol.exit ], [ %call, %bdrv_fill_options.exit.thread ], [ %ctx.1294, %bdrv_open_common.exit.thread ]
   %snapshot_options.0 = phi ptr [ %snapshot_options.1, %find_image_format.exit ], [ %snapshot_options.1, %bdrv_open_common.exit ], [ %snapshot_options.1, %if.then149 ], [ %snapshot_options.1, %bdrv_get_aio_context.exit ], [ %snapshot_options.1, %if.then115 ], [ %snapshot_options.1, %if.then85 ], [ null, %parse_json_protocol.exit ], [ null, %bdrv_fill_options.exit.thread ], [ %snapshot_options.1, %bdrv_open_common.exit.thread ]
-  %file.0 = phi ptr [ %call124, %find_image_format.exit ], [ %file.1304, %bdrv_open_common.exit ], [ %file.1305313, %if.then149 ], [ %call124, %bdrv_get_aio_context.exit ], [ null, %if.then115 ], [ null, %if.then85 ], [ null, %parse_json_protocol.exit ], [ null, %bdrv_fill_options.exit.thread ], [ %file.1304, %bdrv_open_common.exit.thread ]
+  %file.0 = phi ptr [ %call124, %find_image_format.exit ], [ %file.1296, %bdrv_open_common.exit ], [ %file.1297305, %if.then149 ], [ %call124, %bdrv_get_aio_context.exit ], [ null, %if.then115 ], [ null, %if.then85 ], [ null, %parse_json_protocol.exit ], [ null, %bdrv_fill_options.exit.thread ], [ %file.1296, %bdrv_open_common.exit.thread ]
   call void @aio_context_acquire(ptr noundef %ctx.0) #31
   call void @blk_unref(ptr noundef %file.0) #31
   %tobool235.not = icmp eq ptr %snapshot_options.0, null

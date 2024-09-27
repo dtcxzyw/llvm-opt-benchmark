@@ -824,12 +824,12 @@ do.end:                                           ; preds = %entry
   %ADAPTIVERK_ERRCON.i = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 320
   store double 1.890000e-04, ptr %ADAPTIVERK_ERRCON.i, align 8, !tbaa !91
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp27) #23
+  %24 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp27, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp27, i64 24
-  %24 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
-  store i64 0, ptr %24, align 8
-  %25 = ptrtoint ptr %this to i64
-  store i64 %25, ptr %ref.tmp27, align 8, !tbaa !30
+  %25 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
+  store i64 0, ptr %25, align 8
+  store i64 %24, ptr %ref.tmp27, align 8, !tbaa !30
   store ptr @"_ZNSt17_Function_handlerIFSt6vectorIdSaIdEEdRKS2_EZN8QuantLib19MethodOfLinesScheme4stepERNS6_5ArrayEdE3$_0E9_M_invokeERKSt9_Any_dataOdS4_", ptr %_M_invoker.i, align 8, !tbaa !92
   store ptr @"_ZNSt17_Function_handlerIFSt6vectorIdSaIdEEdRKS2_EZN8QuantLib19MethodOfLinesScheme4stepERNS6_5ArrayEdE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp29) #23

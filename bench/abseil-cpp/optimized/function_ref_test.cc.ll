@@ -1920,25 +1920,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %b.addr.i.i.i.i.i = alloca ptr, align 8
   %gtest_ar.i.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp.i.i.i.i.i = alloca ptr, align 8
   %ref.tmp2.i.i.i.i.i = alloca %"class.testing::Message", align 8
   %ref.tmp3.i.i.i.i.i = alloca %"class.testing::internal::AssertHelper", align 8
   %d = alloca %struct.Derived, align 1
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp = alloca ptr, align 8
-  %ref.tmp2 = alloca ptr, align 8
   %ref.tmp4 = alloca %"class.testing::Message", align 8
   %ref.tmp5 = alloca %"class.testing::internal::AssertHelper", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %b.addr.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp3.i.i.i.i.i)
-  store ptr %d, ptr %b.addr.i.i.i.i.i, align 8
-  store ptr %d, ptr %ref.tmp.i.i.i.i.i, align 8
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS5_8TestBodyEvE4BaseTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias align 8 %gtest_ar.i.i.i.i.i, ptr noundef nonnull @.str.69, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %b.addr.i.i.i.i.i)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS5_8TestBodyEvE4BaseTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias align 8 %gtest_ar.i.i.i.i.i, ptr noundef nonnull @.str.69, ptr nonnull %d, ptr nonnull %d)
   %0 = load i8, ptr %gtest_ar.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %if.else.i.i.i.i.i
@@ -2034,14 +2026,10 @@ common.resume:                                    ; preds = %lpad, %_ZN7testing7
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4absl19functional_internal12InvokeObjectIZNS_12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE3$_0vJPZNS3_8TestBodyEvE7DerivedEEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE.exit": ; preds = %if.end.i.i.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %b.addr.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp3.i.i.i.i.i)
-  store ptr %d, ptr %ref.tmp, align 8
-  store ptr %d, ptr %ref.tmp2, align 8
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS5_8TestBodyEvE4BaseTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull @.str.68, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS5_8TestBodyEvE4BaseTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull @.str.68, ptr nonnull %d, ptr nonnull %d)
   %10 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %10 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -2135,15 +2123,13 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS5_8TestBodyEvE4BaseTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias nonnull align 8 %agg.result, ptr noundef %rhs_expression, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS5_8TestBodyEvE4BaseTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias nonnull align 8 %agg.result, ptr noundef %rhs_expression, ptr %lhs.0.val, ptr %rhs.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load ptr, ptr %lhs, align 8, !noalias !21
-  %1 = load ptr, ptr %rhs, align 8, !noalias !21
-  %cmp.i = icmp eq ptr %0, %1
+  %cmp.i = icmp eq ptr %lhs.0.val, %rhs.0.val
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -2156,8 +2142,7 @@ if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !24
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i), !noalias !31
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %ss.i.i.i.i.i, i64 16
-  %value.val.i.i.i.i.i = load ptr, ptr %lhs, align 8, !noalias !31
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %value.val.i.i.i.i.i, null
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %lhs.0.val, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i
@@ -2165,7 +2150,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i
           to label %invoke.cont.i.i.i.i.i unwind label %lpad.i.i.i.i.i, !noalias !31
 
 if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i
-  %call1.i.i.i.i.i.i2.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i.i.i, ptr noundef nonnull %value.val.i.i.i.i.i)
+  %call1.i.i.i.i.i.i2.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i.i.i, ptr noundef nonnull %lhs.0.val)
           to label %invoke.cont.i.i.i.i.i unwind label %lpad.i.i.i.i.i, !noalias !31
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -2173,11 +2158,11 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i
           to label %_ZN7testing8internal33FormatForComparisonFailureMessageIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS4_8TestBodyEvE4BaseEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !34
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
-  %common.resume.op.i.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %0, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  %2 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #17, !noalias !34
   br label %common.resume.i.i
@@ -2191,8 +2176,7 @@ _ZN7testing8internal33FormatForComparisonFailureMessageIPZN4absl12_GLOBAL__N_132
 
 .noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS4_8TestBodyEvE4BaseEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
-  %value.val.i.i.i6.i.i = load ptr, ptr %rhs, align 8, !noalias !40
-  %cmp.i.i.i.i.i.i.i.i.i7.i.i = icmp eq ptr %value.val.i.i.i6.i.i, null
+  %cmp.i.i.i.i.i.i.i.i.i7.i.i = icmp eq ptr %rhs.0.val, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i7.i.i, label %if.then.i.i.i.i.i.i.i.i.i12.i.i, label %if.else.i.i.i.i.i.i.i.i.i8.i.i
 
 if.then.i.i.i.i.i.i.i.i.i12.i.i:                  ; preds = %.noexc.i.i
@@ -2200,7 +2184,7 @@ if.then.i.i.i.i.i.i.i.i.i12.i.i:                  ; preds = %.noexc.i.i
           to label %invoke.cont.i.i.i11.i.i unwind label %lpad.i.i.i10.i.i, !noalias !40
 
 if.else.i.i.i.i.i.i.i.i.i8.i.i:                   ; preds = %.noexc.i.i
-  %call1.i.i.i.i.i.i2.i.i.i9.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, ptr noundef nonnull %value.val.i.i.i6.i.i)
+  %call1.i.i.i.i.i.i2.i.i.i9.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, ptr noundef nonnull %rhs.0.val)
           to label %invoke.cont.i.i.i11.i.i unwind label %lpad.i.i.i10.i.i, !noalias !40
 
 invoke.cont.i.i.i11.i.i:                          ; preds = %if.else.i.i.i.i.i.i.i.i.i8.i.i, %if.then.i.i.i.i.i.i.i.i.i12.i.i
@@ -2208,7 +2192,7 @@ invoke.cont.i.i.i11.i.i:                          ; preds = %if.else.i.i.i.i.i.i
           to label %invoke.cont.i.i unwind label %lpad.i.i.i10.i.i, !noalias !34
 
 lpad.i.i.i10.i.i:                                 ; preds = %invoke.cont.i.i.i11.i.i, %if.else.i.i.i.i.i.i.i.i.i8.i.i, %if.then.i.i.i.i.i.i.i.i.i12.i.i
-  %3 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #17, !noalias !34
   br label %ehcleanup.i.i
@@ -2220,18 +2204,18 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i11
           to label %_ZN7testing8internal18CmpHelperEQFailureIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS4_8TestBodyEvE4BaseEENS_15AssertionResultEPKcSB_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS4_8TestBodyEvE4BaseEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
 
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #17
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i, %lpad.i.i.i10.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %5, %lpad2.i.i ], [ %4, %lpad.i.i ], [ %3, %lpad.i.i.i10.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %3, %lpad2.i.i ], [ %2, %lpad.i.i ], [ %1, %lpad.i.i.i10.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   br label %common.resume.i.i
 

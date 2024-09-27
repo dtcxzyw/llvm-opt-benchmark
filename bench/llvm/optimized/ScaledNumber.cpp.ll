@@ -100,10 +100,10 @@ define dso_local { i64, i16 } @_ZN4llvm13ScaledNumbers10multiply64Emm(i64 nounde
   br label %_ZN4llvm13ScaledNumbers10getRoundedImEESt4pairIT_sES3_sb.exit
 
 _ZN4llvm13ScaledNumbers10getRoundedImEESt4pairIT_sES3_sb.exit: ; preds = %38, %26, %2
-  %.sroa.038.0 = phi i64 [ %19, %2 ], [ %.0, %26 ], [ %spec.select.i, %38 ]
-  %.sroa.3.0 = phi i16 [ 0, %2 ], [ %34, %26 ], [ %spec.select13.i, %38 ]
-  %.fca.0.insert = insertvalue { i64, i16 } poison, i64 %.sroa.038.0, 0
-  %.fca.1.insert = insertvalue { i64, i16 } %.fca.0.insert, i16 %.sroa.3.0, 1
+  %.sroa.037.0 = phi i64 [ %19, %2 ], [ %.0, %26 ], [ %spec.select.i, %38 ]
+  %.sroa.338.0 = phi i16 [ 0, %2 ], [ %34, %26 ], [ %spec.select13.i, %38 ]
+  %.fca.0.insert = insertvalue { i64, i16 } poison, i64 %.sroa.037.0, 0
+  %.fca.1.insert = insertvalue { i64, i16 } %.fca.0.insert, i16 %.sroa.338.0, 1
   ret { i64, i16 } %.fca.1.insert
 }
 

@@ -124,7 +124,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::compressed_pair.204" = type { %"class.eastl::compressed_pair_imp.205" }
 %"class.eastl::compressed_pair_imp.205" = type { ptr, %class.MallocAllocator }
 %class.MallocAllocator = type { i32, i32, i64 }
-%"struct.eastl::ContainerTemporary.280" = type { ptr, ptr }
 %"struct.eastl::ring_buffer_iterator.139" = type { ptr, %"struct.eastl::ListIterator.137" }
 %"struct.eastl::ListIterator.137" = type { ptr }
 %"struct.eastl::ring_buffer_iterator.138" = type { ptr, %"struct.eastl::ListIterator.137" }
@@ -45716,7 +45715,6 @@ return:                                           ; preds = %for.body, %for.end
 define dso_local noundef i32 @_Z14TestRingBufferv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %temp.i.i = alloca %struct.PaddedVector, align 8
-  %cTemp.i = alloca %"struct.eastl::ContainerTemporary.280", align 8
   %agg.tmp.i5979 = alloca %"struct.eastl::ring_buffer_iterator.139", align 8
   %tmp.i5980 = alloca %"struct.eastl::ring_buffer_iterator.138", align 8
   %agg.tmp.i = alloca %"struct.eastl::ring_buffer_iterator.139", align 8
@@ -60577,7 +60575,6 @@ for.end2723:                                      ; preds = %_ZN5eastl11ring_buf
   %2308 = load i32, ptr @_ZN15MallocAllocator14mAllocCountAllE, align 4
   %intBuffer2712.val = load i64, ptr %mSize.i8113, align 8
   %mul2725 = shl i64 %intBuffer2712.val, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cTemp.i)
   %2309 = load ptr, ptr %intBuffer2712, align 8
   %sub.ptr.lhs.cast.i.i8132 = ptrtoint ptr %2300 to i64
   %sub.ptr.rhs.cast.i.i8133 = ptrtoint ptr %2309 to i64
@@ -60589,25 +60586,22 @@ for.end2723:                                      ; preds = %_ZN5eastl11ring_buf
   br i1 %cmp.i8138, label %if.then.i8149, label %if.else.i8139
 
 if.then.i8149:                                    ; preds = %for.end2723
-  store ptr %mSecond.i.i.i.i.i.i.i, ptr %cTemp.i, align 8
   %call3.i.i8200 = invoke noundef ptr @_ZN15MallocAllocator8allocateEmi(ptr noundef nonnull align 8 dereferenceable(16) %mSecond.i.i.i.i.i.i.i, i64 noundef 4040, i32 noundef 0)
           to label %call3.i.i.noexc unwind label %lpad2719
 
 call3.i.i.noexc:                                  ; preds = %if.then.i8149
-  %mContainer.i.i = getelementptr inbounds i8, ptr %cTemp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call3.i.i8200, i8 0, i64 40, i1 false)
-  store ptr %call3.i.i8200, ptr %mContainer.i.i, align 8
   %add.i8150 = or disjoint i64 %mul2725, 1
-  %mpEnd.i9.i = getelementptr inbounds i8, ptr %call3.i.i8200, i64 8
+  %mpEnd.i13.i = getelementptr inbounds i8, ptr %call3.i.i8200, i64 8
   %mCapacityAllocator.i.i.i.i8152 = getelementptr inbounds i8, ptr %call3.i.i8200, i64 16
   %mSecond.i.i.i.i.i.i.i8153 = getelementptr inbounds i8, ptr %call3.i.i8200, i64 24
   %mul.i13.i.i.i8154 = shl i64 %add.i8150, 2
-  %call.i.i.i.i14.i = invoke noundef ptr @_ZN15MallocAllocator8allocateEmi(ptr noundef nonnull align 8 dereferenceable(16) %mSecond.i.i.i.i.i.i.i8153, i64 noundef %mul.i13.i.i.i8154, i32 noundef 0)
+  %call.i.i.i.i18.i = invoke noundef ptr @_ZN15MallocAllocator8allocateEmi(ptr noundef nonnull align 8 dereferenceable(16) %mSecond.i.i.i.i.i.i.i8153, i64 noundef %mul.i13.i.i.i8154, i32 noundef 0)
           to label %call.i.i.i.i.noexc.i8156 unwind label %lpad.i8155
 
 call.i.i.i.i.noexc.i8156:                         ; preds = %call3.i.i.noexc
   %.pre25.i.i.i8157 = load ptr, ptr %call3.i.i8200, align 8
-  %.pre26.i.i.i8158 = load ptr, ptr %mpEnd.i9.i, align 8
+  %.pre26.i.i.i8158 = load ptr, ptr %mpEnd.i13.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i8159 = icmp eq ptr %.pre25.i.i.i8157, %.pre26.i.i.i8158
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i8159, label %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i.i.i8163, label %if.end.i.i.i.i.i.i.i.i.i.i8160
 
@@ -60615,12 +60609,12 @@ if.end.i.i.i.i.i.i.i.i.i.i8160:                   ; preds = %call.i.i.i.i.noexc.
   %2310 = ptrtoint ptr %.pre26.i.i.i8158 to i64
   %2311 = ptrtoint ptr %.pre25.i.i.i8157 to i64
   %sub.i.i.i.i.i.i.i.i.i.i8161 = sub i64 %2310, %2311
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %call.i.i.i.i14.i, ptr align 4 %.pre25.i.i.i8157, i64 %sub.i.i.i.i.i.i.i.i.i.i8161, i1 false)
-  %add.ptr.i.i.i.i.i.i.i.i.i.i8162 = getelementptr inbounds i8, ptr %call.i.i.i.i14.i, i64 %sub.i.i.i.i.i.i.i.i.i.i8161
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %call.i.i.i.i18.i, ptr align 4 %.pre25.i.i.i8157, i64 %sub.i.i.i.i.i.i.i.i.i.i8161, i1 false)
+  %add.ptr.i.i.i.i.i.i.i.i.i.i8162 = getelementptr inbounds i8, ptr %call.i.i.i.i18.i, i64 %sub.i.i.i.i.i.i.i.i.i.i8161
   br label %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i.i.i8163
 
 _ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i.i.i8163: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i8160, %call.i.i.i.i.noexc.i8156
-  %retval.0.i.i.i.i.i.i.i.i.i.i8164 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i8162, %if.end.i.i.i.i.i.i.i.i.i.i8160 ], [ %call.i.i.i.i14.i, %call.i.i.i.i.noexc.i8156 ]
+  %retval.0.i.i.i.i.i.i.i.i.i.i8164 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i8162, %if.end.i.i.i.i.i.i.i.i.i.i8160 ], [ %call.i.i.i.i18.i, %call.i.i.i.i.noexc.i8156 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %retval.0.i.i.i.i.i.i.i.i.i.i8164, i8 0, i64 %mul.i13.i.i.i8154, i1 false)
   %add.ptr.i.i.i8165 = getelementptr inbounds i32, ptr %retval.0.i.i.i.i.i.i.i.i.i.i8164, i64 %add.i8150
   %2312 = load ptr, ptr %call3.i.i8200, align 8
@@ -60636,46 +60630,46 @@ if.then.i16.i.i.i8167:                            ; preds = %_ZN5eastl31uninitia
           to label %_ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i unwind label %lpad.i8155
 
 _ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i: ; preds = %if.then.i16.i.i.i8167, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i.i.i8163
-  store ptr %call.i.i.i.i14.i, ptr %call3.i.i8200, align 8
-  store ptr %add.ptr.i.i.i8165, ptr %mpEnd.i9.i, align 8
-  %add.ptr25.i.i.i8171 = getelementptr inbounds i32, ptr %call.i.i.i.i14.i, i64 %add.i8150
+  store ptr %call.i.i.i.i18.i, ptr %call3.i.i8200, align 8
+  store ptr %add.ptr.i.i.i8165, ptr %mpEnd.i13.i, align 8
+  %add.ptr25.i.i.i8171 = getelementptr inbounds i32, ptr %call.i.i.i.i18.i, i64 %add.i8150
   store ptr %add.ptr25.i.i.i8171, ptr %mCapacityAllocator.i.i.i.i8152, align 8
   %2314 = load ptr, ptr %mBegin.i8111, align 8, !noalias !3191
   %2315 = load ptr, ptr %mEnd.i8112, align 8, !noalias !3194
   %cmp.i.not1.i.i.i.i.i.i = icmp eq ptr %2314, %2315
   %.pre.i8175 = load ptr, ptr %intBuffer2712, align 8
-  %.pre32.i8176 = load ptr, ptr %mpEnd.i.i8106, align 8
-  br i1 %cmp.i.not1.i.i.i.i.i.i, label %invoke.cont9.i, label %for.body.i.i.i.i.i.i8177
+  %.pre35.i = load ptr, ptr %mpEnd.i.i8106, align 8
+  br i1 %cmp.i.not1.i.i.i.i.i.i, label %invoke.cont9.i, label %for.body.i.i.i.i.i.i8176
 
-for.body.i.i.i.i.i.i8177:                         ; preds = %_ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i, %for.body.i.i.i.i.i.i8177
-  %d.03.i.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i.i8178, %for.body.i.i.i.i.i.i8177 ], [ 0, %_ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i ]
-  %temp.sroa.2.02.i.i.i.i.i.i = phi ptr [ %spec.select.i8180, %for.body.i.i.i.i.i.i8177 ], [ %2314, %_ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i ]
-  %inc.i.i.i.i.i.i8178 = add nuw nsw i64 %d.03.i.i.i.i.i.i, 1
-  %incdec.ptr.i.i.i.i.i.i.i8179 = getelementptr inbounds i8, ptr %temp.sroa.2.02.i.i.i.i.i.i, i64 4
-  %cmp.i3.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i8179, %.pre32.i8176
-  %spec.select.i8180 = select i1 %cmp.i3.i.i.i.i.i.i, ptr %.pre.i8175, ptr %incdec.ptr.i.i.i.i.i.i.i8179
-  %cmp.i.not.i.i.i.i.i.i8181 = icmp eq ptr %spec.select.i8180, %2315
-  br i1 %cmp.i.not.i.i.i.i.i.i8181, label %for.body.i.i.i.i.i8182, label %for.body.i.i.i.i.i.i8177, !llvm.loop !3197
+for.body.i.i.i.i.i.i8176:                         ; preds = %_ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i, %for.body.i.i.i.i.i.i8176
+  %d.03.i.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i.i8177, %for.body.i.i.i.i.i.i8176 ], [ 0, %_ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i ]
+  %temp.sroa.2.02.i.i.i.i.i.i = phi ptr [ %spec.select.i8179, %for.body.i.i.i.i.i.i8176 ], [ %2314, %_ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i ]
+  %inc.i.i.i.i.i.i8177 = add nuw nsw i64 %d.03.i.i.i.i.i.i, 1
+  %incdec.ptr.i.i.i.i.i.i.i8178 = getelementptr inbounds i8, ptr %temp.sroa.2.02.i.i.i.i.i.i, i64 4
+  %cmp.i3.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i8178, %.pre35.i
+  %spec.select.i8179 = select i1 %cmp.i3.i.i.i.i.i.i, ptr %.pre.i8175, ptr %incdec.ptr.i.i.i.i.i.i.i8178
+  %cmp.i.not.i.i.i.i.i.i8180 = icmp eq ptr %spec.select.i8179, %2315
+  br i1 %cmp.i.not.i.i.i.i.i.i8180, label %for.body.i.i.i.i.i8181, label %for.body.i.i.i.i.i.i8176, !llvm.loop !3197
 
-for.body.i.i.i.i.i8182:                           ; preds = %for.body.i.i.i.i.i.i8177, %for.body.i.i.i.i.i8182
-  %agg.tmp.sroa.3.0.i.i.i.i8183 = phi ptr [ %spec.select28.i, %for.body.i.i.i.i.i8182 ], [ %2314, %for.body.i.i.i.i.i.i8177 ]
-  %n.03.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i8184, %for.body.i.i.i.i.i8182 ], [ %inc.i.i.i.i.i.i8178, %for.body.i.i.i.i.i.i8177 ]
-  %result.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i8187, %for.body.i.i.i.i.i8182 ], [ %call.i.i.i.i14.i, %for.body.i.i.i.i.i.i8177 ]
-  %2316 = load i32, ptr %agg.tmp.sroa.3.0.i.i.i.i8183, align 4
+for.body.i.i.i.i.i8181:                           ; preds = %for.body.i.i.i.i.i.i8176, %for.body.i.i.i.i.i8181
+  %agg.tmp.sroa.3.0.i.i.i.i8182 = phi ptr [ %spec.select31.i8186, %for.body.i.i.i.i.i8181 ], [ %2314, %for.body.i.i.i.i.i.i8176 ]
+  %n.03.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i8183, %for.body.i.i.i.i.i8181 ], [ %inc.i.i.i.i.i.i8177, %for.body.i.i.i.i.i.i8176 ]
+  %result.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i8187, %for.body.i.i.i.i.i8181 ], [ %call.i.i.i.i18.i, %for.body.i.i.i.i.i.i8176 ]
+  %2316 = load i32, ptr %agg.tmp.sroa.3.0.i.i.i.i8182, align 4
   store i32 %2316, ptr %result.addr.02.i.i.i.i.i, align 4
-  %dec.i.i.i.i.i8184 = add nsw i64 %n.03.i.i.i.i.i, -1
-  %incdec.ptr.i.i.i.i.i.i8185 = getelementptr inbounds i8, ptr %agg.tmp.sroa.3.0.i.i.i.i8183, i64 4
+  %dec.i.i.i.i.i8183 = add nsw i64 %n.03.i.i.i.i.i, -1
+  %incdec.ptr.i.i.i.i.i.i8184 = getelementptr inbounds i8, ptr %agg.tmp.sroa.3.0.i.i.i.i8182, i64 4
   %2317 = load ptr, ptr %mpEnd.i.i8106, align 8
-  %cmp.i.i.i.i.i.i8186 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i8185, %2317
+  %cmp.i.i.i.i.i.i8185 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i8184, %2317
   %2318 = load ptr, ptr %intBuffer2712, align 8
-  %spec.select28.i = select i1 %cmp.i.i.i.i.i.i8186, ptr %2318, ptr %incdec.ptr.i.i.i.i.i.i8185
+  %spec.select31.i8186 = select i1 %cmp.i.i.i.i.i.i8185, ptr %2318, ptr %incdec.ptr.i.i.i.i.i.i8184
   %incdec.ptr.i.i.i.i.i8187 = getelementptr inbounds i8, ptr %result.addr.02.i.i.i.i.i, i64 4
   %cmp.i.i.i.i.i8188 = icmp sgt i64 %n.03.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i8188, label %for.body.i.i.i.i.i8182, label %invoke.cont9.i, !llvm.loop !3198
+  br i1 %cmp.i.i.i.i.i8188, label %for.body.i.i.i.i.i8181, label %invoke.cont9.i, !llvm.loop !3198
 
-invoke.cont9.i:                                   ; preds = %for.body.i.i.i.i.i8182, %_ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i
-  %2319 = phi ptr [ %.pre32.i8176, %_ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i ], [ %2317, %for.body.i.i.i.i.i8182 ]
-  %2320 = phi ptr [ %.pre.i8175, %_ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i ], [ %2318, %for.body.i.i.i.i.i8182 ]
+invoke.cont9.i:                                   ; preds = %for.body.i.i.i.i.i8181, %_ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i
+  %2319 = phi ptr [ %.pre35.i, %_ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i ], [ %2317, %for.body.i.i.i.i.i8181 ]
+  %2320 = phi ptr [ %.pre.i8175, %_ZN5eastl10VectorBaseIi15MallocAllocatorE6DoFreeEPim.exit.i.i.i ], [ %2318, %for.body.i.i.i.i.i8181 ]
   call void @llvm.lifetime.start.p0(i64 4040, ptr nonnull %temp.i.i)
   %mSecond.i.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %temp.i.i, i64 24
   %2321 = load i32, ptr %mSecond.i.i.i.i.i.i.i, align 8
@@ -60700,17 +60694,17 @@ invoke.cont9.i:                                   ; preds = %for.body.i.i.i.i.i8
   %mPadding.i.i.i = getelementptr inbounds i8, ptr %temp.i.i, i64 40
   %mPadding2.i.i.i = getelementptr inbounds i8, ptr %intBuffer2712, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4000) %mPadding.i.i.i, ptr noundef nonnull align 8 dereferenceable(4000) %mPadding2.i.i.i, i64 4000, i1 false)
-  %cmp.not.i.i.i17.i = icmp eq ptr %intBuffer2712, %call3.i.i8200
-  br i1 %cmp.not.i.i.i17.i, label %invoke.cont.i.i8193, label %if.then.i.i.i.i8192
+  %cmp.not.i.i.i21.i = icmp eq ptr %intBuffer2712, %call3.i.i8200
+  br i1 %cmp.not.i.i.i21.i, label %invoke.cont.i.i8193, label %if.then.i.i.i.i8192
 
 if.then.i.i.i.i8192:                              ; preds = %invoke.cont9.i
   %2325 = load ptr, ptr %call3.i.i8200, align 8
   store ptr %2325, ptr %intBuffer2712, align 8
   store ptr null, ptr %call3.i.i8200, align 8
   %2326 = load ptr, ptr %mpEnd.i.i8106, align 8
-  %2327 = load ptr, ptr %mpEnd.i9.i, align 8
+  %2327 = load ptr, ptr %mpEnd.i13.i, align 8
   store ptr %2327, ptr %mpEnd.i.i8106, align 8
-  store ptr %2326, ptr %mpEnd.i9.i, align 8
+  store ptr %2326, ptr %mpEnd.i13.i, align 8
   %2328 = load ptr, ptr %mCapacityAllocator.i.i.i.i, align 8
   %2329 = load ptr, ptr %mCapacityAllocator.i.i.i.i8152, align 8
   store ptr %2329, ptr %mCapacityAllocator.i.i.i.i, align 8
@@ -60741,7 +60735,7 @@ if.then.i.i6.i.i:                                 ; preds = %invoke.cont.i.i8193
   %2336 = load ptr, ptr %call3.i.i8200, align 8
   store ptr %2320, ptr %call3.i.i8200, align 8
   store ptr %2336, ptr %temp.i.i, align 8
-  store ptr %2319, ptr %mpEnd.i9.i, align 8
+  store ptr %2319, ptr %mpEnd.i13.i, align 8
   store ptr %2336, ptr %mpEnd.i.i.i.i.i8189, align 8
   %2337 = load ptr, ptr %mCapacityAllocator.i.i.i.i8152, align 8
   store ptr %2324, ptr %mCapacityAllocator.i.i.i.i8152, align 8
@@ -60784,28 +60778,28 @@ invoke.cont19.i8198:                              ; preds = %if.then.i.i.i.i.i81
   call void @llvm.lifetime.end.p0(i64 4040, ptr nonnull %temp.i.i)
   %2345 = load ptr, ptr %intBuffer2712, align 8
   store ptr %2345, ptr %mBegin.i8111, align 8
-  %add.ptr.i.i18.i = getelementptr inbounds i32, ptr %2345, i64 %mul2725
-  store ptr %add.ptr.i.i18.i, ptr %mEnd.i8112, align 8
+  %add.ptr.i.i22.i = getelementptr inbounds i32, ptr %2345, i64 %mul2725
+  store ptr %add.ptr.i.i22.i, ptr %mEnd.i8112, align 8
   %2346 = load ptr, ptr %call3.i.i8200, align 8
-  %tobool.not.i.i.i.i20.i = icmp eq ptr %2346, null
-  br i1 %tobool.not.i.i.i.i20.i, label %_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit.i.i, label %if.then.i.i.i.i21.i
+  %tobool.not.i.i.i.i23.i = icmp eq ptr %2346, null
+  br i1 %tobool.not.i.i.i.i23.i, label %_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit.i.i, label %if.then.i.i.i.i24.i
 
-if.then.i.i.i.i21.i:                              ; preds = %invoke.cont19.i8198
+if.then.i.i.i.i24.i:                              ; preds = %invoke.cont19.i8198
   %2347 = load ptr, ptr %mCapacityAllocator.i.i.i.i8152, align 8
-  %sub.ptr.lhs.cast.i.i.i.i22.i = ptrtoint ptr %2347 to i64
-  %sub.ptr.rhs.cast.i.i.i.i23.i = ptrtoint ptr %2346 to i64
-  %sub.ptr.sub.i.i.i.i24.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i22.i, %sub.ptr.rhs.cast.i.i.i.i23.i
-  invoke void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %mSecond.i.i.i.i.i.i.i8153, ptr noundef nonnull %2346, i64 noundef %sub.ptr.sub.i.i.i.i24.i)
-          to label %_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i25.i
+  %sub.ptr.lhs.cast.i.i.i.i25.i = ptrtoint ptr %2347 to i64
+  %sub.ptr.rhs.cast.i.i.i.i26.i = ptrtoint ptr %2346 to i64
+  %sub.ptr.sub.i.i.i.i27.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i25.i, %sub.ptr.rhs.cast.i.i.i.i26.i
+  invoke void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %mSecond.i.i.i.i.i.i.i8153, ptr noundef nonnull %2346, i64 noundef %sub.ptr.sub.i.i.i.i27.i)
+          to label %_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i28.i
 
-terminate.lpad.i.i.i.i25.i:                       ; preds = %if.then.i.i.i.i21.i
+terminate.lpad.i.i.i.i28.i:                       ; preds = %if.then.i.i.i.i24.i
   %2348 = landingpad { ptr, i32 }
           catch ptr null
   %2349 = extractvalue { ptr, i32 } %2348, 0
   call void @__clang_call_terminate(ptr %2349) #17
   unreachable
 
-_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit.i.i: ; preds = %if.then.i.i.i.i21.i, %invoke.cont19.i8198
+_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit.i.i: ; preds = %if.then.i.i.i.i24.i, %invoke.cont19.i8198
   invoke void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %mSecond.i.i.i.i.i.i.i, ptr noundef nonnull %call3.i.i8200, i64 noundef 4040)
           to label %_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit.i.i.invoke.cont2726_crit_edge unwind label %terminate.lpad.i.i
 
@@ -60823,18 +60817,18 @@ terminate.lpad.i.i:                               ; preds = %_ZZ14TestRingBuffer
 lpad.i8155:                                       ; preds = %if.then.i16.i.i.i8167, %call3.i.i.noexc
   %2352 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN5eastl18ContainerTemporaryIZ14TestRingBuffervE12PaddedVectorLb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cTemp.i) #16
+  call fastcc void @_ZN5eastl18ContainerTemporaryIZ14TestRingBuffervE12PaddedVectorLb1EED2Ev(ptr nonnull %mSecond.i.i.i.i.i.i.i, ptr nonnull %call3.i.i8200) #16
   br label %lpad2719.body
 
 if.else.i8139:                                    ; preds = %for.end2723
-  %tobool.not29.i = icmp eq i64 %mul2725, 0
-  br i1 %tobool.not29.i, label %if.end31.loopexit.i8148, label %while.body.i8142
+  %tobool.not32.i = icmp eq i64 %mul2725, 0
+  br i1 %tobool.not32.i, label %if.end31.loopexit.i8148, label %while.body.i8142
 
 while.body.i8142:                                 ; preds = %if.else.i8139, %while.body.i8142
-  %n.addr.031.i = phi i64 [ %dec.i8143, %while.body.i8142 ], [ %mul2725, %if.else.i8139 ]
-  %storemerge30.i = phi ptr [ %spec.store.select.i8146, %while.body.i8142 ], [ %2306, %if.else.i8139 ]
-  %dec.i8143 = add i64 %n.addr.031.i, -1
-  %incdec.ptr.i8144 = getelementptr inbounds i8, ptr %storemerge30.i, i64 4
+  %n.addr.034.i = phi i64 [ %dec.i8143, %while.body.i8142 ], [ %mul2725, %if.else.i8139 ]
+  %storemerge33.i = phi ptr [ %spec.store.select.i8146, %while.body.i8142 ], [ %2306, %if.else.i8139 ]
+  %dec.i8143 = add i64 %n.addr.034.i, -1
+  %incdec.ptr.i8144 = getelementptr inbounds i8, ptr %storemerge33.i, i64 4
   %cmp25.i8145 = icmp eq ptr %incdec.ptr.i8144, %2300
   %spec.store.select.i8146 = select i1 %cmp25.i8145, ptr %2309, ptr %incdec.ptr.i8144
   %tobool.not.i8147 = icmp eq i64 %dec.i8143, 0
@@ -60847,7 +60841,6 @@ if.end31.loopexit.i8148:                          ; preds = %while.body.i8142, %
 
 invoke.cont2726:                                  ; preds = %_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit.i.i.invoke.cont2726_crit_edge, %if.end31.loopexit.i8148
   %2353 = phi i32 [ %.pre8846, %_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit.i.i.invoke.cont2726_crit_edge ], [ %2308, %if.end31.loopexit.i8148 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cTemp.i)
   %cmp2727 = icmp slt i32 %2308, %2353
   %call2729 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2727, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1174, ptr noundef nonnull @.str.158)
           to label %invoke.cont2728 unwind label %lpad2719
@@ -80285,49 +80278,41 @@ for.end:                                          ; preds = %_ZN5eastl20ring_buf
 declare noundef ptr @_ZN15MallocAllocator8allocateEmi(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5eastl18ContainerTemporaryIZ14TestRingBuffervE12PaddedVectorLb1EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5eastl18ContainerTemporaryIZ14TestRingBuffervE12PaddedVectorLb1EED2Ev(ptr %this.0.val, ptr %this.8.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mContainer = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %mContainer, align 8
-  %1 = load ptr, ptr %0, align 8
-  %tobool.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %this.8.val, align 8
+  %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %mSecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  %mCapacityAllocator.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %2 = load ptr, ptr %mCapacityAllocator.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
+  %mSecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 24
+  %mCapacityAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 16
+  %1 = load ptr, ptr %mCapacityAllocator.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  invoke void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %mSecond.i.i.i.i.i.i, ptr noundef nonnull %1, i64 noundef %sub.ptr.sub.i.i.i)
-          to label %if.then.i.i.i._ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit_crit_edge unwind label %terminate.lpad.i.i.i
-
-if.then.i.i.i._ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit_crit_edge: ; preds = %if.then.i.i.i
-  %.pre = load ptr, ptr %mContainer, align 8
-  br label %_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit
+  invoke void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %mSecond.i.i.i.i.i.i, ptr noundef nonnull %0, i64 noundef %sub.ptr.sub.i.i.i)
+          to label %_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #17
   unreachable
 
-_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit:    ; preds = %if.then.i.i.i._ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit_crit_edge, %entry
-  %5 = phi ptr [ %.pre, %if.then.i.i.i._ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit_crit_edge ], [ %0, %entry ]
-  %6 = load ptr, ptr %this, align 8
-  invoke void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %5, i64 noundef 4040)
+_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit:    ; preds = %entry, %if.then.i.i.i
+  invoke void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %this.0.val, ptr noundef nonnull %this.8.val, i64 noundef 4040)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit
   ret void
 
 terminate.lpad:                                   ; preds = %_ZZ14TestRingBuffervEN12PaddedVectorD2Ev.exit
-  %7 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #17
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #17
   unreachable
 }
 

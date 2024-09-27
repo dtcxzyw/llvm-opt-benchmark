@@ -6800,8 +6800,8 @@ define linkonce_odr hidden void @_ZN4llvm8CallInfo6insertEPNS_8CallInstERNS_7GVN
   %25 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #21
   %26 = add i64 %25, 1
   %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #21
-  %.not.i.i.i9 = icmp ugt i64 %26, %27
-  br i1 %.not.i.i.i9, label %28, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit
+  %.not.i.i.i15 = icmp ugt i64 %26, %27
+  br i1 %.not.i.i.i15, label %28, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds i8, ptr %23, i64 32
@@ -6818,8 +6818,8 @@ define linkonce_odr hidden void @_ZN4llvm8CallInfo6insertEPNS_8CallInstERNS_7GVN
   %35 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #21
   %36 = add i64 %35, 1
   %37 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #21
-  %.not.i.i.i11 = icmp ugt i64 %36, %37
-  br i1 %.not.i.i.i11, label %38, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit
+  %.not.i.i.i17 = icmp ugt i64 %36, %37
+  br i1 %.not.i.i.i17, label %38, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit
 
 38:                                               ; preds = %30
   %39 = getelementptr inbounds i8, ptr %33, i64 32
@@ -6827,15 +6827,15 @@ define linkonce_odr hidden void @_ZN4llvm8CallInfo6insertEPNS_8CallInstERNS_7GVN
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; preds = %38, %30, %28, %20, %16, %9
-  %.sink25 = phi ptr [ %12, %9 ], [ %12, %16 ], [ %24, %20 ], [ %24, %28 ], [ %34, %30 ], [ %34, %38 ]
-  %.sink23 = load ptr, ptr %.sink25, align 8
-  %40 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink25) #21
-  %41 = getelementptr inbounds ptr, ptr %.sink23, i64 %40
+  %.sink31 = phi ptr [ %12, %9 ], [ %12, %16 ], [ %24, %20 ], [ %24, %28 ], [ %34, %30 ], [ %34, %38 ]
+  %.sink29 = load ptr, ptr %.sink31, align 8
+  %40 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink31) #21
+  %41 = getelementptr inbounds ptr, ptr %.sink29, i64 %40
   %42 = ptrtoint ptr %1 to i64
   store i64 %42, ptr %41, align 1
-  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink25) #21
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink31) #21
   %44 = add i64 %43, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.sink25, i64 noundef %44) #21
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.sink31, i64 noundef %44) #21
   ret void
 }
 

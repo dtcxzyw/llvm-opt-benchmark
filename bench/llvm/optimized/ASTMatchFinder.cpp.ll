@@ -7201,8 +7201,8 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i
   %.023.lcssa33.i.i.i = phi ptr [ %.023.lcssa32.i.i.i, %40 ], [ %.02428.i.i.i, %._crit_edge.i.i.i ]
-  %.sroa.012.0.i.i.i = phi ptr [ %41, %40 ], [ %.02428.i.i.i, %._crit_edge.i.i.i ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.i.i.i, i64 32
+  %.sroa.014.0.i.i.i = phi ptr [ %41, %40 ], [ %.02428.i.i.i, %._crit_edge.i.i.i ]
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i.i.i, i64 32
   %44 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEclERKS4_S7_(ptr noundef nonnull align 8 dereferenceable(128) %43, ptr noundef nonnull align 8 dereferenceable(128) %13)
   br i1 %44, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread15.i
 
@@ -7259,8 +7259,8 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
 
 65:                                               ; preds = %63, %._crit_edge.i21.i.i
   %.023.lcssa33.i22.i.i = phi ptr [ %.023.lcssa32.i31.i.i, %63 ], [ %.02428.i16.i.i, %._crit_edge.i21.i.i ]
-  %.sroa.012.0.i23.i.i = phi ptr [ %64, %63 ], [ %.02428.i16.i.i, %._crit_edge.i21.i.i ]
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.i23.i.i, i64 32
+  %.sroa.014.0.i23.i.i = phi ptr [ %64, %63 ], [ %.02428.i16.i.i, %._crit_edge.i21.i.i ]
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i23.i.i, i64 32
   %67 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEclERKS4_S7_(ptr noundef nonnull align 8 dereferenceable(128) %66, ptr noundef nonnull align 8 dereferenceable(128) %13)
   br i1 %67, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread15.i
 
@@ -7317,8 +7317,8 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
 
 88:                                               ; preds = %86, %._crit_edge.i42.i.i
   %.023.lcssa33.i43.i.i = phi ptr [ %.023.lcssa32.i52.i.i, %86 ], [ %.02428.i37.i.i, %._crit_edge.i42.i.i ]
-  %.sroa.012.0.i44.i.i = phi ptr [ %87, %86 ], [ %.02428.i37.i.i, %._crit_edge.i42.i.i ]
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.i44.i.i, i64 32
+  %.sroa.014.0.i44.i.i = phi ptr [ %87, %86 ], [ %.02428.i37.i.i, %._crit_edge.i42.i.i ]
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i44.i.i, i64 32
   %90 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEclERKS4_S7_(ptr noundef nonnull align 8 dereferenceable(128) %89, ptr noundef nonnull align 8 dereferenceable(128) %13)
   br i1 %90, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread15.i
 
@@ -7351,7 +7351,7 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
   br label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS6_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_.exit
 
 _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread15.i: ; preds = %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i, %88, %68, %65, %42
-  %.sroa.01.0.ph.i = phi ptr [ %.sroa.075.0.i.i, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i ], [ %.sroa.012.0.i44.i.i, %88 ], [ %.sroa.012.0.i23.i.i, %65 ], [ %.sroa.012.0.i.i.i, %42 ], [ %.08.lcssa.i.i.i15, %68 ]
+  %.sroa.01.0.ph.i = phi ptr [ %.sroa.075.0.i.i, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i ], [ %.sroa.014.0.i44.i.i, %88 ], [ %.sroa.014.0.i23.i.i, %65 ], [ %.sroa.014.0.i.i.i, %42 ], [ %.08.lcssa.i.i.i15, %68 ]
   tail call fastcc void @_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E(ptr noundef %12) #23
   br label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS6_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_.exit
 

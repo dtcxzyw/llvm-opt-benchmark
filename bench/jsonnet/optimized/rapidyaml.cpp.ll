@@ -604,9 +604,9 @@ $_ZN2c46detail10digits0099E = comdat any
 @__const._ZN2c43yml7NodeRef8to_arenaINS_3fmt15base64_wrapper_IKcEEEENS_15basic_substringIS5_EERKT_.msg = private unnamed_addr constant [43 x i8] c"check failed: (m_id != NONE && !is_seed())\00", align 16
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 @switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE = private unnamed_addr constant [16 x i64] [i64 0, i64 5, i64 6, i64 7, i64 5, i64 5, i64 8, i64 6, i64 7, i64 5, i64 7, i64 6, i64 5, i64 11, i64 7, i64 6], align 8
-@switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE.3 = private unnamed_addr constant [16 x ptr] [ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69], align 8
+@switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE.5 = private unnamed_addr constant [16 x ptr] [ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69], align 8
 @switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE = private unnamed_addr constant [16 x i64] [i64 0, i64 23, i64 24, i64 25, i64 23, i64 23, i64 26, i64 24, i64 25, i64 23, i64 25, i64 24, i64 23, i64 29, i64 25, i64 24], align 8
-@switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE.4 = private unnamed_addr constant [16 x ptr] [ptr @.str.54, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53], align 8
+@switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE.6 = private unnamed_addr constant [16 x ptr] [ptr @.str.54, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53], align 8
 
 @_ZN2c43yml9CallbacksC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN2c43yml9CallbacksC2Ev
 @_ZN2c43yml9CallbacksC1EPvPFS2_mS2_S2_EPFvS2_mS2_EPFvPKcmNS0_8LocationES2_E = dso_local unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr), ptr @_ZN2c43yml9CallbacksC2EPvPFS2_mS2_S2_EPFvS2_mS2_EPFvPKcmNS0_8LocationES2_E
@@ -2529,7 +2529,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds [16 x i64], ptr @switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %0 to i64
-  %switch.gep1 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE.3, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE.5, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -2645,7 +2645,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds [16 x i64], ptr @switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %0 to i64
-  %switch.gep1 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE.4, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE.6, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -11941,8 +11941,8 @@ define dso_local noundef i64 @_ZNK2c43yml4Tree11resolve_tagENS_15basic_substring
   br label %28
 
 28:                                               ; preds = %6, %.critedge
-  %.0131311 = phi i64 [ 3, %6 ], [ %248, %.critedge ]
-  %29 = getelementptr inbounds [4 x %"struct.c4::yml::TagDirective"], ptr %27, i64 0, i64 %.0131311
+  %.0131307 = phi i64 [ 3, %6 ], [ %248, %.critedge ]
+  %29 = getelementptr inbounds [4 x %"struct.c4::yml::TagDirective"], ptr %27, i64 0, i64 %.0131307
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 0
@@ -11952,8 +11952,8 @@ define dso_local noundef i64 @_ZNK2c43yml4Tree11resolve_tagENS_15basic_substring
   %34 = load ptr, ptr %29, align 8
   %35 = icmp eq ptr %34, null
   %36 = icmp ult i64 %4, %31
-  %or.cond286 = select i1 %35, i1 true, i1 %36
-  br i1 %or.cond286, label %.critedge, label %.lr.ph.i
+  %or.cond282 = select i1 %35, i1 true, i1 %36
+  br i1 %or.cond282, label %.critedge, label %.lr.ph.i
 
 37:                                               ; preds = %.lr.ph.i
   %38 = add nuw i64 %.010.i, 1
@@ -11983,8 +11983,8 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit: ; preds = %37
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, 2
   %52 = add i64 %51, %47
-  %.not285 = icmp eq i64 %47, 0
-  br i1 %.not285, label %_ZNK2c415basic_substringIKcE5countEcm.exit.thread, label %.lr.ph.i.i.i
+  %.not281 = icmp eq i64 %47, 0
+  br i1 %.not281, label %_ZNK2c415basic_substringIKcE5countEcm.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %45, %56
   %.08.i.i.i = phi i64 [ %57, %56 ], [ 0, %45 ]
@@ -11999,10 +11999,10 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit: ; preds = %37
   br i1 %exitcond.not.i.i.i, label %_ZNK2c415basic_substringIKcE5countEcm.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !102
 
 _ZNK2c415basic_substringIKcE4findEcm.exit.i:      ; preds = %.lr.ph.i.i.i
-  %.not13.i172 = icmp eq i64 %.08.i.i.i, -1
-  br i1 %.not13.i172, label %_ZNK2c415basic_substringIKcE5countEcm.exit.thread, label %.lr.ph.i173
+  %.not13.i178 = icmp eq i64 %.08.i.i.i, -1
+  br i1 %.not13.i178, label %_ZNK2c415basic_substringIKcE5countEcm.exit.thread, label %.lr.ph.i179
 
-.lr.ph.i173:                                      ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit.i, %_ZNK2c415basic_substringIKcE4findEcm.exit12.i
+.lr.ph.i179:                                      ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit.i, %_ZNK2c415basic_substringIKcE4findEcm.exit12.i
   %.015.i = phi i64 [ %58, %_ZNK2c415basic_substringIKcE4findEcm.exit12.i ], [ 0, %_ZNK2c415basic_substringIKcE4findEcm.exit.i ]
   %.0714.i = phi i64 [ %.08.i.i10.i, %_ZNK2c415basic_substringIKcE4findEcm.exit12.i ], [ %.08.i.i.i, %_ZNK2c415basic_substringIKcE4findEcm.exit.i ]
   %58 = add i64 %.015.i, 1
@@ -12010,8 +12010,8 @@ _ZNK2c415basic_substringIKcE4findEcm.exit.i:      ; preds = %.lr.ph.i.i.i
   %60 = icmp ult i64 %59, %47
   br i1 %60, label %.lr.ph.i.i9.i, label %_ZNK2c415basic_substringIKcE5countEcm.exit
 
-.lr.ph.i.i9.i:                                    ; preds = %.lr.ph.i173, %64
-  %.08.i.i10.i = phi i64 [ %65, %64 ], [ %59, %.lr.ph.i173 ]
+.lr.ph.i.i9.i:                                    ; preds = %.lr.ph.i179, %64
+  %.08.i.i10.i = phi i64 [ %65, %64 ], [ %59, %.lr.ph.i179 ]
   %61 = getelementptr inbounds i8, ptr %46, i64 %.08.i.i10.i
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %62, 37
@@ -12023,10 +12023,10 @@ _ZNK2c415basic_substringIKcE4findEcm.exit.i:      ; preds = %.lr.ph.i.i.i
   br i1 %exitcond.not.i.i11.i, label %_ZNK2c415basic_substringIKcE5countEcm.exit, label %.lr.ph.i.i9.i, !llvm.loop !102
 
 _ZNK2c415basic_substringIKcE4findEcm.exit12.i:    ; preds = %.lr.ph.i.i9.i
-  %.not.i174 = icmp eq i64 %.08.i.i10.i, -1
-  br i1 %.not.i174, label %_ZNK2c415basic_substringIKcE5countEcm.exit, label %.lr.ph.i173, !llvm.loop !103
+  %.not.i180 = icmp eq i64 %.08.i.i10.i, -1
+  br i1 %.not.i180, label %_ZNK2c415basic_substringIKcE5countEcm.exit, label %.lr.ph.i179, !llvm.loop !103
 
-_ZNK2c415basic_substringIKcE5countEcm.exit:       ; preds = %.lr.ph.i173, %_ZNK2c415basic_substringIKcE4findEcm.exit12.i, %64
+_ZNK2c415basic_substringIKcE5countEcm.exit:       ; preds = %.lr.ph.i179, %_ZNK2c415basic_substringIKcE4findEcm.exit12.i, %64
   %66 = icmp eq i64 %58, 0
   br i1 %66, label %_ZNK2c415basic_substringIKcE5countEcm.exit.thread, label %.lr.ph.i.i
 
@@ -12085,8 +12085,8 @@ _ZNK2c415basic_substringIKcE4findEcm.exit.thread: ; preds = %80, %_ZNK2c415basic
   br label %90
 
 90:                                               ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit, %_ZNK2c415basic_substringIKcE4findEcm.exit.thread
-  %.07.i.i270 = phi i64 [ %.08.i.i, %_ZNK2c415basic_substringIKcE4findEcm.exit ], [ -1, %_ZNK2c415basic_substringIKcE4findEcm.exit.thread ]
-  %.07.i.i270.fr = freeze i64 %.07.i.i270
+  %.07.i.i266 = phi i64 [ %.08.i.i, %_ZNK2c415basic_substringIKcE4findEcm.exit ], [ -1, %_ZNK2c415basic_substringIKcE4findEcm.exit.thread ]
+  %.07.i.i266.fr = freeze i64 %.07.i.i266
   %91 = getelementptr inbounds i8, ptr %0, i64 64
   %92 = getelementptr inbounds i8, ptr %0, i64 88
   %93 = getelementptr inbounds i8, ptr %10, i64 8
@@ -12099,9 +12099,9 @@ _ZNK2c415basic_substringIKcE4findEcm.exit.thread: ; preds = %80, %_ZNK2c415basic
   %100 = getelementptr inbounds i8, ptr %12, i64 32
   br label %101
 
-101:                                              ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit180, %90
-  %.0134 = phi i64 [ %.07.i.i270.fr, %90 ], [ %.08.i.i178, %_ZNK2c415basic_substringIKcE4findEcm.exit180 ]
-  %.1 = phi i64 [ %52, %90 ], [ %127, %_ZNK2c415basic_substringIKcE4findEcm.exit180 ]
+101:                                              ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit186, %90
+  %.0134 = phi i64 [ %.07.i.i266.fr, %90 ], [ %.08.i.i184, %_ZNK2c415basic_substringIKcE4findEcm.exit186 ]
+  %.1 = phi i64 [ %52, %90 ], [ %127, %_ZNK2c415basic_substringIKcE4findEcm.exit186 ]
   %102 = add i64 %.0134, 1
   %103 = icmp ult i64 %102, %47
   br i1 %103, label %.preheader.us.i, label %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit.thread
@@ -12114,8 +12114,8 @@ _ZNK2c415basic_substringIKcE4findEcm.exit.thread: ; preds = %80, %_ZNK2c415basic
 
 106:                                              ; preds = %108
   %107 = add nuw nsw i64 %.016.us.i, 1
-  %exitcond.not.i175 = icmp eq i64 %107, 22
-  br i1 %exitcond.not.i175, label %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit, label %108, !llvm.loop !100
+  %exitcond.not.i181 = icmp eq i64 %107, 22
+  br i1 %exitcond.not.i181, label %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit, label %108, !llvm.loop !100
 
 108:                                              ; preds = %106, %.preheader.us.i
   %.016.us.i = phi i64 [ 0, %.preheader.us.i ], [ %107, %106 ]
@@ -12173,54 +12173,54 @@ _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit.thread: ; preds = %112, %10
 126:                                              ; preds = %121, %123
   %.neg = sub i64 %102, %116
   %127 = add i64 %.neg, %.1
-  br i1 %103, label %.lr.ph.i.i177, label %_ZNK2c415basic_substringIKcE4findEcm.exit180.thread
+  br i1 %103, label %.lr.ph.i.i183, label %_ZNK2c415basic_substringIKcE4findEcm.exit186.thread
 
-.lr.ph.i.i177:                                    ; preds = %126, %131
-  %.08.i.i178 = phi i64 [ %132, %131 ], [ %102, %126 ]
-  %128 = getelementptr inbounds i8, ptr %46, i64 %.08.i.i178
+.lr.ph.i.i183:                                    ; preds = %126, %131
+  %.08.i.i184 = phi i64 [ %132, %131 ], [ %102, %126 ]
+  %128 = getelementptr inbounds i8, ptr %46, i64 %.08.i.i184
   %129 = load i8, ptr %128, align 1
   %130 = icmp eq i8 %129, 37
-  br i1 %130, label %_ZNK2c415basic_substringIKcE4findEcm.exit180, label %131
+  br i1 %130, label %_ZNK2c415basic_substringIKcE4findEcm.exit186, label %131
 
-131:                                              ; preds = %.lr.ph.i.i177
-  %132 = add i64 %.08.i.i178, 1
-  %exitcond.not.i.i179 = icmp eq i64 %132, %47
-  br i1 %exitcond.not.i.i179, label %_ZNK2c415basic_substringIKcE4findEcm.exit180.thread, label %.lr.ph.i.i177, !llvm.loop !102
+131:                                              ; preds = %.lr.ph.i.i183
+  %132 = add i64 %.08.i.i184, 1
+  %exitcond.not.i.i185 = icmp eq i64 %132, %47
+  br i1 %exitcond.not.i.i185, label %_ZNK2c415basic_substringIKcE4findEcm.exit186.thread, label %.lr.ph.i.i183, !llvm.loop !102
 
-_ZNK2c415basic_substringIKcE4findEcm.exit180:     ; preds = %.lr.ph.i.i177
-  %.not155 = icmp eq i64 %.08.i.i178, -1
-  br i1 %.not155, label %_ZNK2c415basic_substringIKcE4findEcm.exit180.thread, label %101, !llvm.loop !104
+_ZNK2c415basic_substringIKcE4findEcm.exit186:     ; preds = %.lr.ph.i.i183
+  %.not155 = icmp eq i64 %.08.i.i184, -1
+  br i1 %.not155, label %_ZNK2c415basic_substringIKcE4findEcm.exit186.thread, label %101, !llvm.loop !104
 
-_ZNK2c415basic_substringIKcE4findEcm.exit180.thread: ; preds = %126, %_ZNK2c415basic_substringIKcE4findEcm.exit180, %131
+_ZNK2c415basic_substringIKcE4findEcm.exit186.thread: ; preds = %126, %_ZNK2c415basic_substringIKcE4findEcm.exit186, %131
   %.not156 = icmp ugt i64 %127, %2
   br i1 %.not156, label %.loopexit, label %133
 
-133:                                              ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit180.thread
+133:                                              ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit186.thread
   store i8 60, ptr %1, align 1
   %.sroa.017.0.copyload = load ptr, ptr %48, align 8
   %.sroa.218.0.copyload = load i64, ptr %49, align 8
   %134 = getelementptr inbounds i8, ptr %1, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %134, ptr readonly align 1 %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload, i1 false)
   %135 = add i64 %.sroa.218.0.copyload, 1
-  br label %.lr.ph.i.i182
+  br label %.lr.ph.i.i188
 
-.lr.ph.i.i182:                                    ; preds = %133, %139
-  %.08.i.i183 = phi i64 [ %140, %139 ], [ 0, %133 ]
-  %136 = getelementptr inbounds i8, ptr %46, i64 %.08.i.i183
+.lr.ph.i.i188:                                    ; preds = %133, %139
+  %.08.i.i189 = phi i64 [ %140, %139 ], [ 0, %133 ]
+  %136 = getelementptr inbounds i8, ptr %46, i64 %.08.i.i189
   %137 = load i8, ptr %136, align 1
   %138 = icmp eq i8 %137, 37
-  br i1 %138, label %_ZNK2c415basic_substringIKcE4findEcm.exit185, label %139
+  br i1 %138, label %_ZNK2c415basic_substringIKcE4findEcm.exit191, label %139
 
-139:                                              ; preds = %.lr.ph.i.i182
-  %140 = add i64 %.08.i.i183, 1
-  %exitcond.not.i.i184 = icmp eq i64 %140, %47
-  br i1 %exitcond.not.i.i184, label %_ZNK2c415basic_substringIKcE4findEcm.exit185.thread, label %.lr.ph.i.i182, !llvm.loop !102
+139:                                              ; preds = %.lr.ph.i.i188
+  %140 = add i64 %.08.i.i189, 1
+  %exitcond.not.i.i190 = icmp eq i64 %140, %47
+  br i1 %exitcond.not.i.i190, label %_ZNK2c415basic_substringIKcE4findEcm.exit191.thread, label %.lr.ph.i.i188, !llvm.loop !102
 
-_ZNK2c415basic_substringIKcE4findEcm.exit185:     ; preds = %.lr.ph.i.i182
-  %.not157 = icmp eq i64 %.08.i.i183, -1
-  br i1 %.not157, label %_ZNK2c415basic_substringIKcE4findEcm.exit185.thread, label %147
+_ZNK2c415basic_substringIKcE4findEcm.exit191:     ; preds = %.lr.ph.i.i188
+  %.not157 = icmp eq i64 %.08.i.i189, -1
+  br i1 %.not157, label %_ZNK2c415basic_substringIKcE4findEcm.exit191.thread, label %147
 
-_ZNK2c415basic_substringIKcE4findEcm.exit185.thread: ; preds = %139, %_ZNK2c415basic_substringIKcE4findEcm.exit185
+_ZNK2c415basic_substringIKcE4findEcm.exit191.thread: ; preds = %139, %_ZNK2c415basic_substringIKcE4findEcm.exit191
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %13, ptr noundef nonnull align 16 dereferenceable(28) @__const._ZNK2c43yml4Tree11resolve_tagENS_15basic_substringIcEENS2_IKcEEm.msg.184, i64 28, i1 false)
   %141 = load ptr, ptr %92, align 8
   store i64 0, ptr %14, align 8
@@ -12236,9 +12236,9 @@ _ZNK2c415basic_substringIKcE4findEcm.exit185.thread: ; preds = %139, %_ZNK2c415b
   call void %141(ptr noundef nonnull %13, i64 noundef 28, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %14, ptr noundef %146)
   br label %147
 
-147:                                              ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit185, %_ZNK2c415basic_substringIKcE4findEcm.exit185.thread
-  %.07.i.i181278 = phi i64 [ %.08.i.i183, %_ZNK2c415basic_substringIKcE4findEcm.exit185 ], [ -1, %_ZNK2c415basic_substringIKcE4findEcm.exit185.thread ]
-  %.07.i.i181278.fr = freeze i64 %.07.i.i181278
+147:                                              ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit191, %_ZNK2c415basic_substringIKcE4findEcm.exit191.thread
+  %.07.i.i187274 = phi i64 [ %.08.i.i189, %_ZNK2c415basic_substringIKcE4findEcm.exit191 ], [ -1, %_ZNK2c415basic_substringIKcE4findEcm.exit191.thread ]
+  %.07.i.i187274.fr = freeze i64 %.07.i.i187274
   %148 = getelementptr inbounds i8, ptr %16, i64 8
   %149 = getelementptr inbounds i8, ptr %16, i64 16
   %150 = getelementptr inbounds i8, ptr %16, i64 24
@@ -12253,46 +12253,46 @@ _ZNK2c415basic_substringIKcE4findEcm.exit185.thread: ; preds = %139, %_ZNK2c415b
   %159 = getelementptr inbounds i8, ptr %20, i64 32
   br label %160
 
-160:                                              ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit199, %147
-  %.0 = phi i64 [ %135, %147 ], [ %211, %_ZNK2c415basic_substringIKcE4findEcm.exit199 ]
-  %.1135 = phi i64 [ %.07.i.i181278.fr, %147 ], [ %.08.i.i197, %_ZNK2c415basic_substringIKcE4findEcm.exit199 ]
-  %.0133 = phi i64 [ 0, %147 ], [ %175, %_ZNK2c415basic_substringIKcE4findEcm.exit199 ]
+160:                                              ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit205, %147
+  %.0 = phi i64 [ %135, %147 ], [ %211, %_ZNK2c415basic_substringIKcE4findEcm.exit205 ]
+  %.1135 = phi i64 [ %.07.i.i187274.fr, %147 ], [ %.08.i.i203, %_ZNK2c415basic_substringIKcE4findEcm.exit205 ]
+  %.0133 = phi i64 [ 0, %147 ], [ %175, %_ZNK2c415basic_substringIKcE4findEcm.exit205 ]
   %161 = add i64 %.1135, 1
   %162 = icmp ult i64 %161, %47
-  br i1 %162, label %.preheader.us.i189, label %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194.thread
+  br i1 %162, label %.preheader.us.i195, label %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit200.thread
 
-.preheader.us.i189:                               ; preds = %160, %171
-  %.01118.us.i190 = phi i64 [ %172, %171 ], [ %161, %160 ]
-  %163 = getelementptr inbounds i8, ptr %46, i64 %.01118.us.i190
+.preheader.us.i195:                               ; preds = %160, %171
+  %.01118.us.i196 = phi i64 [ %172, %171 ], [ %161, %160 ]
+  %163 = getelementptr inbounds i8, ptr %46, i64 %.01118.us.i196
   %164 = load i8, ptr %163, align 1
   br label %167
 
 165:                                              ; preds = %167
-  %166 = add nuw nsw i64 %.016.us.i191, 1
-  %exitcond.not.i192 = icmp eq i64 %166, 22
-  br i1 %exitcond.not.i192, label %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194, label %167, !llvm.loop !100
+  %166 = add nuw nsw i64 %.016.us.i197, 1
+  %exitcond.not.i198 = icmp eq i64 %166, 22
+  br i1 %exitcond.not.i198, label %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit200, label %167, !llvm.loop !100
 
-167:                                              ; preds = %165, %.preheader.us.i189
-  %.016.us.i191 = phi i64 [ 0, %.preheader.us.i189 ], [ %166, %165 ]
-  %168 = getelementptr inbounds i8, ptr @.str.181, i64 %.016.us.i191
+167:                                              ; preds = %165, %.preheader.us.i195
+  %.016.us.i197 = phi i64 [ 0, %.preheader.us.i195 ], [ %166, %165 ]
+  %168 = getelementptr inbounds i8, ptr @.str.181, i64 %.016.us.i197
   %169 = load i8, ptr %168, align 1
   %170 = icmp eq i8 %164, %169
   br i1 %170, label %171, label %165
 
 171:                                              ; preds = %167
-  %172 = add i64 %.01118.us.i190, 1
-  %exitcond21.not.i193 = icmp eq i64 %172, %47
-  br i1 %exitcond21.not.i193, label %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194.thread, label %.preheader.us.i189, !llvm.loop !101
+  %172 = add i64 %.01118.us.i196, 1
+  %exitcond21.not.i199 = icmp eq i64 %172, %47
+  br i1 %exitcond21.not.i199, label %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit200.thread, label %.preheader.us.i195, !llvm.loop !101
 
-_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194: ; preds = %165
-  %173 = icmp eq i64 %.01118.us.i190, -1
-  br i1 %173, label %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194.thread, label %174
+_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit200: ; preds = %165
+  %173 = icmp eq i64 %.01118.us.i196, -1
+  br i1 %173, label %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit200.thread, label %174
 
-_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194.thread: ; preds = %171, %160, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194
+_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit200.thread: ; preds = %171, %160, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit200
   br label %174
 
-174:                                              ; preds = %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194.thread
-  %175 = phi i64 [ %47, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194.thread ], [ %.01118.us.i190, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194 ]
+174:                                              ; preds = %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit200, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit200.thread
+  %175 = phi i64 [ %47, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit200.thread ], [ %.01118.us.i196, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit200 ]
   %176 = icmp ult i64 %161, %175
   br i1 %176, label %180, label %177
 
@@ -12329,17 +12329,17 @@ _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194.thread: ; preds = %171, 
   %.not159 = icmp eq i64 %175, -1
   %186 = select i1 %.not159, i64 %47, i64 %175
   %187 = getelementptr inbounds i8, ptr %46, i64 %186
-  %.not160.not312 = icmp eq i64 %161, %186
-  br i1 %.not160.not312, label %._crit_edge.thread, label %.lr.ph.preheader
+  %.not160.not308 = icmp eq i64 %161, %186
+  br i1 %.not160.not308, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %185
   %188 = getelementptr inbounds i8, ptr %46, i64 %161
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %199
-  %.0127314 = phi ptr [ %202, %199 ], [ %188, %.lr.ph.preheader ]
-  %.0140313 = phi i8 [ %201, %199 ], [ 0, %.lr.ph.preheader ]
-  %189 = load i8, ptr %.0127314, align 1
+  %.0127310 = phi ptr [ %202, %199 ], [ %188, %.lr.ph.preheader ]
+  %.0140309 = phi i8 [ %201, %199 ], [ 0, %.lr.ph.preheader ]
+  %189 = load i8, ptr %.0127310, align 1
   %190 = add i8 %189, -48
   %or.cond = icmp ult i8 %190, 10
   br i1 %or.cond, label %199, label %191
@@ -12364,9 +12364,9 @@ _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194.thread: ; preds = %171, 
 
 199:                                              ; preds = %.lr.ph, %193, %197
   %.0128 = phi i8 [ %194, %193 ], [ %198, %197 ], [ %190, %.lr.ph ]
-  %200 = shl i8 %.0140313, 4
+  %200 = shl i8 %.0140309, 4
   %201 = add nuw i8 %.0128, %200
-  %202 = getelementptr inbounds i8, ptr %.0127314, i64 1
+  %202 = getelementptr inbounds i8, ptr %.0127310, i64 1
   %.not160.not = icmp eq ptr %202, %187
   br i1 %.not160.not, label %._crit_edge, label %.lr.ph
 
@@ -12375,7 +12375,7 @@ _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194.thread: ; preds = %171, 
   br i1 %203, label %.thread, label %._crit_edge.thread
 
 .thread:                                          ; preds = %195, %._crit_edge
-  %.0140293 = phi i8 [ %201, %._crit_edge ], [ %.0140313, %195 ]
+  %.0140289 = phi i8 [ %201, %._crit_edge ], [ %.0140309, %195 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %19, ptr noundef nonnull align 16 dereferenceable(22) @__const._ZNK2c43yml4Tree11resolve_tagENS_15basic_substringIcEENS2_IKcEEm.msg.187, i64 22, i1 false)
   %204 = load ptr, ptr %92, align 8
   store i64 0, ptr %20, align 8
@@ -12388,7 +12388,7 @@ _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194.thread: ; preds = %171, 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %185, %.thread, %._crit_edge
-  %.0140292 = phi i8 [ %.0140293, %.thread ], [ %201, %._crit_edge ], [ 0, %185 ]
+  %.0140288 = phi i8 [ %.0140289, %.thread ], [ %201, %._crit_edge ], [ 0, %185 ]
   %.not161 = icmp eq i64 %.1135, -1
   %206 = select i1 %.not161, i64 %47, i64 %.1135
   %207 = getelementptr inbounds i8, ptr %46, i64 %.0133
@@ -12398,30 +12398,30 @@ _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194.thread: ; preds = %171, 
   %210 = add i64 %208, %.0
   %211 = add i64 %210, 1
   %212 = getelementptr inbounds i8, ptr %1, i64 %210
-  store i8 %.0140292, ptr %212, align 1
-  br i1 %162, label %.lr.ph.i.i196, label %_ZNK2c415basic_substringIKcE4findEcm.exit199.thread
+  store i8 %.0140288, ptr %212, align 1
+  br i1 %162, label %.lr.ph.i.i202, label %_ZNK2c415basic_substringIKcE4findEcm.exit205.thread
 
-.lr.ph.i.i196:                                    ; preds = %._crit_edge.thread, %216
-  %.08.i.i197 = phi i64 [ %217, %216 ], [ %161, %._crit_edge.thread ]
-  %213 = getelementptr inbounds i8, ptr %46, i64 %.08.i.i197
+.lr.ph.i.i202:                                    ; preds = %._crit_edge.thread, %216
+  %.08.i.i203 = phi i64 [ %217, %216 ], [ %161, %._crit_edge.thread ]
+  %213 = getelementptr inbounds i8, ptr %46, i64 %.08.i.i203
   %214 = load i8, ptr %213, align 1
   %215 = icmp eq i8 %214, 37
-  br i1 %215, label %_ZNK2c415basic_substringIKcE4findEcm.exit199, label %216
+  br i1 %215, label %_ZNK2c415basic_substringIKcE4findEcm.exit205, label %216
 
-216:                                              ; preds = %.lr.ph.i.i196
-  %217 = add i64 %.08.i.i197, 1
-  %exitcond.not.i.i198 = icmp eq i64 %217, %47
-  br i1 %exitcond.not.i.i198, label %_ZNK2c415basic_substringIKcE4findEcm.exit199.thread, label %.lr.ph.i.i196, !llvm.loop !102
+216:                                              ; preds = %.lr.ph.i.i202
+  %217 = add i64 %.08.i.i203, 1
+  %exitcond.not.i.i204 = icmp eq i64 %217, %47
+  br i1 %exitcond.not.i.i204, label %_ZNK2c415basic_substringIKcE4findEcm.exit205.thread, label %.lr.ph.i.i202, !llvm.loop !102
 
-_ZNK2c415basic_substringIKcE4findEcm.exit199:     ; preds = %.lr.ph.i.i196
-  %.not162 = icmp eq i64 %.08.i.i197, -1
-  br i1 %.not162, label %_ZNK2c415basic_substringIKcE4findEcm.exit199.thread, label %160, !llvm.loop !105
+_ZNK2c415basic_substringIKcE4findEcm.exit205:     ; preds = %.lr.ph.i.i202
+  %.not162 = icmp eq i64 %.08.i.i203, -1
+  br i1 %.not162, label %_ZNK2c415basic_substringIKcE4findEcm.exit205.thread, label %160, !llvm.loop !105
 
-_ZNK2c415basic_substringIKcE4findEcm.exit199.thread: ; preds = %._crit_edge.thread, %_ZNK2c415basic_substringIKcE4findEcm.exit199, %216
+_ZNK2c415basic_substringIKcE4findEcm.exit205.thread: ; preds = %._crit_edge.thread, %_ZNK2c415basic_substringIKcE4findEcm.exit205, %216
   %.not163 = icmp eq i64 %175, 0
   br i1 %.not163, label %218, label %225
 
-218:                                              ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit199.thread
+218:                                              ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit205.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %21, ptr noundef nonnull align 16 dereferenceable(25) @__const._ZNK2c43yml4Tree11resolve_tagENS_15basic_substringIcEENS2_IKcEEm.msg.189, i64 25, i1 false)
   %219 = load ptr, ptr %92, align 8
   store i64 0, ptr %22, align 8
@@ -12437,7 +12437,7 @@ _ZNK2c415basic_substringIKcE4findEcm.exit199.thread: ; preds = %._crit_edge.thre
   call void %219(ptr noundef nonnull %21, i64 noundef 25, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %22, ptr noundef %224)
   br label %225
 
-225:                                              ; preds = %218, %_ZNK2c415basic_substringIKcE4findEcm.exit199.thread
+225:                                              ; preds = %218, %_ZNK2c415basic_substringIKcE4findEcm.exit205.thread
   %.not164 = icmp ult i64 %47, %175
   br i1 %.not164, label %226, label %233
 
@@ -12486,12 +12486,12 @@ _ZNK2c415basic_substringIKcE4findEcm.exit199.thread: ; preds = %._crit_edge.thre
   br label %.loopexit
 
 .critedge:                                        ; preds = %.lr.ph.i, %28, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit, %33
-  %248 = add nsw i64 %.0131311, -1
-  %.not = icmp eq i64 %.0131311, 0
+  %248 = add nsw i64 %.0131307, -1
+  %.not = icmp eq i64 %.0131307, 0
   br i1 %.not, label %.loopexit, label %28, !llvm.loop !106
 
-.loopexit:                                        ; preds = %.critedge, %67, %_ZNK2c415basic_substringIKcE5countEcm.exit.thread, %241, %233, %_ZNK2c415basic_substringIKcE4findEcm.exit180.thread
-  %.0129 = phi i64 [ %52, %67 ], [ %52, %_ZNK2c415basic_substringIKcE5countEcm.exit.thread ], [ %127, %233 ], [ %127, %241 ], [ %127, %_ZNK2c415basic_substringIKcE4findEcm.exit180.thread ], [ 0, %.critedge ]
+.loopexit:                                        ; preds = %.critedge, %67, %_ZNK2c415basic_substringIKcE5countEcm.exit.thread, %241, %233, %_ZNK2c415basic_substringIKcE4findEcm.exit186.thread
+  %.0129 = phi i64 [ %52, %67 ], [ %52, %_ZNK2c415basic_substringIKcE5countEcm.exit.thread ], [ %127, %233 ], [ %127, %241 ], [ %127, %_ZNK2c415basic_substringIKcE4findEcm.exit186.thread ], [ 0, %.critedge ]
   ret i64 %.0129
 }
 

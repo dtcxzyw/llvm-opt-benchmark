@@ -608,14 +608,14 @@ native_cond_timeout.exit:                         ; preds = %rb_hrtime_now.exit.
   %.0.i4.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i2.i.sink.i, i64 %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
-  %23 = udiv i64 %.0.i4.i, 1000000000
-  %24 = urem i64 %.0.i4.i, 1000000000
+  %22 = udiv i64 %.0.i4.i, 1000000000
+  %23 = urem i64 %.0.i4.i, 1000000000
+  %24 = getelementptr inbounds i8, ptr %4, i64 8
   br label %25
 
 25:                                               ; preds = %25, %native_cond_timeout.exit
-  store i64 %23, ptr %4, align 8
-  store i64 %24, ptr %22, align 8
+  store i64 %22, ptr %4, align 8
+  store i64 %23, ptr %24, align 8
   %26 = call i32 @pthread_cond_timedwait(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4) #19
   switch i32 %26, label %27 [
     i32 4, label %25
@@ -16233,14 +16233,14 @@ native_cond_timeout.exit:                         ; preds = %rb_hrtime_now.exit.
   %.0.i4.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i2.i.sink.i, i64 %41)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %56 = getelementptr inbounds i8, ptr %3, i64 8
-  %57 = udiv i64 %.0.i4.i, 1000000000
-  %58 = urem i64 %.0.i4.i, 1000000000
+  %56 = udiv i64 %.0.i4.i, 1000000000
+  %57 = urem i64 %.0.i4.i, 1000000000
+  %58 = getelementptr inbounds i8, ptr %3, i64 8
   br label %59
 
 59:                                               ; preds = %59, %native_cond_timeout.exit
-  store i64 %57, ptr %3, align 8
-  store i64 %58, ptr %56, align 8
+  store i64 %56, ptr %3, align 8
+  store i64 %57, ptr %58, align 8
   %60 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %3) #19
   switch i32 %60, label %61 [
     i32 4, label %59

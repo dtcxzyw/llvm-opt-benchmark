@@ -4096,12 +4096,12 @@ lpad234:                                          ; preds = %if.then.i.i131, %in
 if.end235:                                        ; preds = %invoke.cont226
   %traceEnabled = getelementptr inbounds i8, ptr %options, i64 216
   store i8 1, ptr %traceEnabled, align 8
+  %40 = ptrtoint ptr %os to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp236, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp236, i64 24
-  %40 = getelementptr inbounds i8, ptr %ref.tmp236, i64 8
-  store i64 0, ptr %40, align 8
-  %41 = ptrtoint ptr %os to i64
-  store i64 %41, ptr %ref.tmp236, align 8
+  %41 = getelementptr inbounds i8, ptr %ref.tmp236, i64 8
+  store i64 0, ptr %41, align 8
+  store i64 %40, ptr %ref.tmp236, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigEEZ4mainE3$_0E9_M_invokeERKSt9_Any_dataSB_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigEEZ4mainE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN8facebook6hermes7tracing16TraceInterpreter15execWithRuntimeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS8_SaIS8_EERKNS2_14ExecuteOptionsERKSt8functionIFSt10unique_ptrINS_3jsi7RuntimeESt14default_deleteISM_EERKN6hermes2vm13RuntimeConfigEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN2clL9TraceFileB5cxx11E, i64 152), ptr noundef nonnull align 8 dereferenceable(24) %bytecodeFiles, ptr noundef nonnull align 8 dereferenceable(316) %options, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp236)

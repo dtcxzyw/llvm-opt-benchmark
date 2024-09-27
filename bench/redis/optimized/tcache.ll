@@ -3112,8 +3112,8 @@ entry:
   %cmp.i = icmp ne ptr %tsd, null
   tail call void @llvm.assume(i1 %cmp.i)
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds i8, ptr %tsd, i64 448
-  %cmp1.i87.not = icmp eq i64 %nflush, 0
-  br i1 %cmp1.i87.not, label %emap_edata_lookup_batch.exit, label %for.body.i.lr.ph
+  %cmp1.i88.not = icmp eq i64 %nflush, 0
+  br i1 %cmp1.i88.not, label %emap_edata_lookup_batch.exit, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %entry
   %0 = getelementptr i8, ptr %arr, i64 8
@@ -3122,10 +3122,10 @@ for.body.i.lr.ph:                                 ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %rtree_leaf_elm_lookup.exit.i
-  %i.i.088 = phi i64 [ 0, %for.body.i.lr.ph ], [ %inc.i, %rtree_leaf_elm_lookup.exit.i ]
+  %i.i.089 = phi i64 [ 0, %for.body.i.lr.ph ], [ %inc.i, %rtree_leaf_elm_lookup.exit.i ]
   %arr.val = load ptr, ptr %0, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %arr.val, i64 %i.i.088
-  %1 = load ptr, ptr %arrayidx.i82, align 8
+  %arrayidx.i83 = getelementptr inbounds ptr, ptr %arr.val, i64 %i.i.089
+  %1 = load ptr, ptr %arrayidx.i83, align 8
   %2 = ptrtoint ptr %1 to i64
   %shr.i.i = lshr i64 %2, 30
   %and.i.i = and i64 %shr.i.i, 15
@@ -3201,15 +3201,15 @@ for.end.i.i:                                      ; preds = %if.end137.i.i
 
 rtree_leaf_elm_lookup.exit.i:                     ; preds = %for.end.i.i, %if.then71.i.i, %if.then27.i.i, %if.then.i.i
   %retval.i.i.0 = phi ptr [ %arrayidx15.i.i, %if.then.i.i ], [ %arrayidx54.i.i, %if.then27.i.i ], [ %arrayidx136.i.i, %if.then71.i.i ], [ %call141.i.i, %for.end.i.i ]
-  %arrayidx.i = getelementptr inbounds %union.emap_batch_lookup_result_u, ptr %edatas, i64 %i.i.088
+  %arrayidx.i = getelementptr inbounds %union.emap_batch_lookup_result_u, ptr %edatas, i64 %i.i.089
   store ptr %retval.i.i.0, ptr %arrayidx.i, align 8
-  %inc.i = add nuw nsw i64 %i.i.088, 1
-  %exitcond94.not = icmp eq i64 %inc.i, %nflush
-  br i1 %exitcond94.not, label %for.body8.i, label %for.body.i, !llvm.loop !20
+  %inc.i = add nuw nsw i64 %i.i.089, 1
+  %exitcond95.not = icmp eq i64 %inc.i, %nflush
+  br i1 %exitcond95.not, label %for.body8.i, label %for.body.i, !llvm.loop !20
 
 for.body8.i:                                      ; preds = %rtree_leaf_elm_lookup.exit.i, %for.body8.i
-  %i5.i.090 = phi i64 [ %inc19.i, %for.body8.i ], [ 0, %rtree_leaf_elm_lookup.exit.i ]
-  %arrayidx9.i = getelementptr inbounds %union.emap_batch_lookup_result_u, ptr %edatas, i64 %i5.i.090
+  %i5.i.091 = phi i64 [ %inc19.i, %for.body8.i ], [ 0, %rtree_leaf_elm_lookup.exit.i ]
+  %arrayidx9.i = getelementptr inbounds %union.emap_batch_lookup_result_u, ptr %edatas, i64 %i5.i.091
   %13 = load ptr, ptr %arrayidx9.i, align 8
   %14 = load atomic i64, ptr %13 monotonic, align 8, !noalias !21
   %shl.i100.i = shl i64 %14, 16
@@ -3221,9 +3221,9 @@ for.body8.i:                                      ; preds = %rtree_leaf_elm_look
   %add.i.i.c = or disjoint i64 %and11.i.i, 64
   %16 = inttoptr i64 %add.i.i.c to ptr
   tail call void @llvm.prefetch.p0(ptr nonnull %16, i32 1, i32 3, i32 1)
-  %inc19.i = add nuw nsw i64 %i5.i.090, 1
-  %exitcond95.not = icmp eq i64 %inc19.i, %nflush
-  br i1 %exitcond95.not, label %emap_edata_lookup_batch.exit, label %for.body8.i, !llvm.loop !24
+  %inc19.i = add nuw nsw i64 %i5.i.091, 1
+  %exitcond96.not = icmp eq i64 %inc19.i, %nflush
+  br i1 %exitcond96.not, label %emap_edata_lookup_batch.exit, label %for.body8.i, !llvm.loop !24
 
 emap_edata_lookup_batch.exit:                     ; preds = %for.body8.i, %entry
   ret void

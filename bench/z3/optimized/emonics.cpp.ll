@@ -5376,12 +5376,12 @@ _ZNK6vectorIN3nla5monicELb1EjE4sizeEv.exit:       ; preds = %for.end, %if.end.i2
   br i1 %cmp5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %_ZNK6vectorIN3nla5monicELb1EjE4sizeEv.exit
+  %6 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %find_index, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %find_index, i64 24
-  %6 = getelementptr inbounds i8, ptr %find_index, i64 8
-  store i64 0, ptr %6, align 8
-  %7 = ptrtoint ptr %this to i64
-  store i64 %7, ptr %find_index, align 8
+  %7 = getelementptr inbounds i8, ptr %find_index, i64 8
+  store i64 0, ptr %7, align 8
+  store i64 %6, ptr %find_index, align 8
   store ptr @"_ZNSt17_Function_handlerIFbjjEZNK3nla7emonics9invariantEvE3$_0E9_M_invokeERKSt9_Any_dataOjS8_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbjjEZNK3nla7emonics9invariantEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   br i1 %cmp.i28, label %for.end73, label %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit

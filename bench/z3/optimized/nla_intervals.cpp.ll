@@ -1458,12 +1458,12 @@ entry:
   store i8 -1, ptr %m_lower_open.i.i, align 8
   %m_lower_dep.i.i = getelementptr inbounds i8, ptr %i, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_lower_dep.i.i, i8 0, i64 16, i1 false)
+  %2 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %f, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %f, i64 24
-  %2 = getelementptr inbounds i8, ptr %f, i64 8
-  store i64 0, ptr %2, align 8
-  %3 = ptrtoint ptr %this to i64
-  store i64 %3, ptr %f, align 8
+  %3 = getelementptr inbounds i8, ptr %f, i64 8
+  store i64 0, ptr %3, align 8
+  store i64 %2, ptr %f, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2lp11explanationEEZN3nla9intervals9check_nexEPKNS5_3nexEPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2lp11explanationEEZN3nla9intervals9check_nexEPKNS5_3nexEPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %call4 = invoke noundef zeroext i1 @_ZN3nla9intervals16interval_of_exprILN13dep_intervals11with_deps_tE1EN2lp11explanationEEEbPKNS_3nexEjR16_scoped_intervalIS2_ERKSt8functionIFvRKT0_EE(ptr noundef nonnull align 8 dereferenceable(1432) %this, ptr noundef %n, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(96) %i, ptr noundef nonnull align 8 dereferenceable(32) %f)

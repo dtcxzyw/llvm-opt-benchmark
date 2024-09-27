@@ -34162,19 +34162,19 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_857Ev() #5 personalit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %15, align 8
-  %16 = ptrtoint ptr %12 to i64
-  store i64 %16, ptr %2, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8561fEvEUlS3_S5_E_E9_M_invokeERKSt9_Any_dataOS3_OS5_, ptr %14, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8561fEvEUlS3_S5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %13, align 8
+  %13 = ptrtoint ptr %12 to i64
+  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %16, align 8
+  store i64 %13, ptr %2, align 8
+  store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8561fEvEUlS3_S5_E_E9_M_invokeERKSt9_Any_dataOS3_OS5_, ptr %15, align 8
+  store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8561fEvEUlS3_S5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %14, align 8
   %17 = invoke noundef ptr @_ZN14SubtypeFixture11cyclicTableEOSt8functionIFvPKN4Luau4TypeEPNS1_9TableTypeEEE(ptr noundef nonnull align 8 dereferenceable(5104) %12, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %18 unwind label %47
 
 18:                                               ; preds = %0
-  %19 = load ptr, ptr %13, align 8
+  %19 = load ptr, ptr %14, align 8
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvPKN4Luau4TypeEPNS0_9TableTypeEEED2Ev.exit.i, label %20
 
@@ -34195,7 +34195,7 @@ _ZNSt8functionIFvPKN4Luau4TypeEPNS0_9TableTypeEEED2Ev.exit.i: ; preds = %20, %18
   %26 = getelementptr inbounds i8, ptr %4, i64 24
   %27 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 0, ptr %27, align 8
-  store i64 %16, ptr %4, align 8
+  store i64 %13, ptr %4, align 8
   store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8561fEvEUlS3_S5_E0_E9_M_invokeERKSt9_Any_dataOS3_OS5_, ptr %26, align 8
   store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8561fEvEUlS3_S5_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %25, align 8
   %28 = invoke noundef ptr @_ZN14SubtypeFixture11cyclicTableEOSt8functionIFvPKN4Luau4TypeEPNS1_9TableTypeEEE(ptr noundef nonnull align 8 dereferenceable(5104) %12, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -34265,7 +34265,7 @@ _ZNSt8functionIFvPKN4Luau4TypeEPNS0_9TableTypeEEED2Ev.exit18.i: ; preds = %31, %
 47:                                               ; preds = %0
   %48 = landingpad { ptr, i32 }
           cleanup
-  %49 = load ptr, ptr %13, align 8
+  %49 = load ptr, ptr %14, align 8
   %.not.i.i19.i = icmp eq ptr %49, null
   br i1 %.not.i.i19.i, label %.body, label %50
 
@@ -34463,19 +34463,19 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_863Ev() #5 personalit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %15, align 8
-  %16 = ptrtoint ptr %12 to i64
-  store i64 %16, ptr %2, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8621fEvEUlS3_S5_E_E9_M_invokeERKSt9_Any_dataOS3_OS5_, ptr %14, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8621fEvEUlS3_S5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %13, align 8
+  %13 = ptrtoint ptr %12 to i64
+  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %16, align 8
+  store i64 %13, ptr %2, align 8
+  store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8621fEvEUlS3_S5_E_E9_M_invokeERKSt9_Any_dataOS3_OS5_, ptr %15, align 8
+  store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8621fEvEUlS3_S5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %14, align 8
   %17 = invoke noundef ptr @_ZN14SubtypeFixture11cyclicTableEOSt8functionIFvPKN4Luau4TypeEPNS1_9TableTypeEEE(ptr noundef nonnull align 8 dereferenceable(5104) %12, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %18 unwind label %49
 
 18:                                               ; preds = %0
-  %19 = load ptr, ptr %13, align 8
+  %19 = load ptr, ptr %14, align 8
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvPKN4Luau4TypeEPNS0_9TableTypeEEED2Ev.exit.i, label %20
 
@@ -34496,7 +34496,7 @@ _ZNSt8functionIFvPKN4Luau4TypeEPNS0_9TableTypeEEED2Ev.exit.i: ; preds = %20, %18
   %26 = getelementptr inbounds i8, ptr %4, i64 24
   %27 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 0, ptr %27, align 8
-  store i64 %16, ptr %4, align 8
+  store i64 %13, ptr %4, align 8
   store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8621fEvEUlS3_S5_E0_E9_M_invokeERKSt9_Any_dataOS3_OS5_, ptr %26, align 8
   store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8621fEvEUlS3_S5_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %25, align 8
   %28 = invoke noundef ptr @_ZN14SubtypeFixture11cyclicTableEOSt8functionIFvPKN4Luau4TypeEPNS1_9TableTypeEEE(ptr noundef nonnull align 8 dereferenceable(5104) %12, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -34571,7 +34571,7 @@ _ZNSt8functionIFvPKN4Luau4TypeEPNS0_9TableTypeEEED2Ev.exit18.i: ; preds = %31, %
 49:                                               ; preds = %0
   %50 = landingpad { ptr, i32 }
           cleanup
-  %51 = load ptr, ptr %13, align 8
+  %51 = load ptr, ptr %14, align 8
   %.not.i.i19.i = icmp eq ptr %51, null
   br i1 %.not.i.i19.i, label %.body, label %52
 
@@ -34769,19 +34769,19 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_869Ev() #5 personalit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %15, align 8
-  %16 = ptrtoint ptr %12 to i64
-  store i64 %16, ptr %2, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8681fEvEUlS3_S5_E_E9_M_invokeERKSt9_Any_dataOS3_OS5_, ptr %14, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8681fEvEUlS3_S5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %13, align 8
+  %13 = ptrtoint ptr %12 to i64
+  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %16, align 8
+  store i64 %13, ptr %2, align 8
+  store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8681fEvEUlS3_S5_E_E9_M_invokeERKSt9_Any_dataOS3_OS5_, ptr %15, align 8
+  store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8681fEvEUlS3_S5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %14, align 8
   %17 = invoke noundef ptr @_ZN14SubtypeFixture11cyclicTableEOSt8functionIFvPKN4Luau4TypeEPNS1_9TableTypeEEE(ptr noundef nonnull align 8 dereferenceable(5104) %12, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %18 unwind label %49
 
 18:                                               ; preds = %0
-  %19 = load ptr, ptr %13, align 8
+  %19 = load ptr, ptr %14, align 8
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvPKN4Luau4TypeEPNS0_9TableTypeEEED2Ev.exit.i, label %20
 
@@ -34802,7 +34802,7 @@ _ZNSt8functionIFvPKN4Luau4TypeEPNS0_9TableTypeEEED2Ev.exit.i: ; preds = %20, %18
   %26 = getelementptr inbounds i8, ptr %4, i64 24
   %27 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 0, ptr %27, align 8
-  store i64 %16, ptr %4, align 8
+  store i64 %13, ptr %4, align 8
   store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8681fEvEUlS3_S5_E0_E9_M_invokeERKSt9_Any_dataOS3_OS5_, ptr %26, align 8
   store ptr @_ZNSt17_Function_handlerIFvPKN4Luau4TypeEPNS0_9TableTypeEEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_8681fEvEUlS3_S5_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %25, align 8
   %28 = invoke noundef ptr @_ZN14SubtypeFixture11cyclicTableEOSt8functionIFvPKN4Luau4TypeEPNS1_9TableTypeEEE(ptr noundef nonnull align 8 dereferenceable(5104) %12, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -34877,7 +34877,7 @@ _ZNSt8functionIFvPKN4Luau4TypeEPNS0_9TableTypeEEED2Ev.exit18.i: ; preds = %31, %
 49:                                               ; preds = %0
   %50 = landingpad { ptr, i32 }
           cleanup
-  %51 = load ptr, ptr %13, align 8
+  %51 = load ptr, ptr %14, align 8
   %.not.i.i19.i = icmp eq ptr %51, null
   br i1 %.not.i.i19.i, label %.body, label %52
 

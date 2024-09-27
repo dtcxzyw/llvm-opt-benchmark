@@ -1029,12 +1029,12 @@ define dso_local void @_ZN5clang12HeaderSearch22indexInitialHeaderMapsEv(ptr nou
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i32, ptr %71, align 4
   %73 = call noundef i32 @_ZNK5clang13HeaderMapImpl21getEndianAdjustedWordEj(ptr noundef nonnull align 8 dereferenceable(40) %69, i32 noundef %72) #22
-  %.not10.i = icmp eq i32 %73, 0
-  br i1 %.not10.i, label %"_ZNK5clang13HeaderMapImpl10forEachKeyIZNS_12HeaderSearch22indexInitialHeaderMapsEvE3$_0EEvT_.exit", label %.lr.ph.i
+  %.not11.i = icmp eq i32 %73, 0
+  br i1 %.not11.i, label %"_ZNK5clang13HeaderMapImpl10forEachKeyIZNS_12HeaderSearch22indexInitialHeaderMapsEvE3$_0EEvT_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %68, %112
-  %.09.i = phi i32 [ %113, %112 ], [ 0, %68 ]
-  %74 = call { i64, i32 } @_ZNK5clang13HeaderMapImpl9getBucketEj(ptr noundef nonnull align 8 dereferenceable(40) %69, i32 noundef %.09.i) #22
+  %.010.i = phi i32 [ %113, %112 ], [ 0, %68 ]
+  %74 = call { i64, i32 } @_ZNK5clang13HeaderMapImpl9getBucketEj(ptr noundef nonnull align 8 dereferenceable(40) %69, i32 noundef %.010.i) #22
   %.fca.0.extract.i = extractvalue { i64, i32 } %74, 0
   %.sroa.03.0.extract.trunc.i = trunc i64 %.fca.0.extract.i to i32
   %.not.i = icmp eq i32 %.sroa.03.0.extract.trunc.i, 0
@@ -1131,7 +1131,7 @@ _ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096
   br label %112
 
 112:                                              ; preds = %_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJRjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit, %75, %.lr.ph.i
-  %113 = add nuw i32 %.09.i, 1
+  %113 = add nuw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %113, %73
   br i1 %exitcond.not.i, label %"_ZNK5clang13HeaderMapImpl10forEachKeyIZNS_12HeaderSearch22indexInitialHeaderMapsEvE3$_0EEvT_.exit", label %.lr.ph.i, !llvm.loop !6
 

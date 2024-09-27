@@ -18,7 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.hermes::vm::GCHermesValueBase" = type { %"class.hermes::vm::HermesValue" }
 %"class.hermes::vm::TwineChar16" = type { %"union.hermes::vm::TwineChar16::Node", i32, %"union.hermes::vm::TwineChar16::Node", i32, i64, i64 }
 %"union.hermes::vm::TwineChar16::Node" = type { ptr }
-%class.anon = type { ptr }
 %"class.llvh::SmallString" = type { %"class.llvh::SmallVector.209" }
 %"class.llvh::SmallVector.209" = type { %"class.llvh::SmallVectorImpl.210", %"struct.llvh::SmallVectorStorage.213" }
 %"class.llvh::SmallVectorImpl.210" = type { %"class.llvh::SmallVectorTemplateBase.211" }
@@ -579,7 +578,6 @@ declare noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i32, i64 } @_ZN6hermes2vm7requireEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr nocapture noundef readnone %0, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) local_unnamed_addr #0 {
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEPS5_.exit:
-  %appendToCanonical.i = alloca %class.anon, align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %canonicalPath = alloca %"class.llvh::SmallString", align 8
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
@@ -668,7 +666,6 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT
   %agg.tmp.sroa.0.0.copyload.i.i.i43 = phi i64 [ %or.i.i.i.i.i33, %if.then.i.i.i.i.i.i41 ], [ %agg.tmp.sroa.0.0.copyload.i.i.i43.pre, %if.end.i.i.i.i.i.i38 ]
   %retval.0.i.i.i.i.i.i40 = phi ptr [ %10, %if.then.i.i.i.i.i.i41 ], [ %call7.i.i.i.i.i.i39, %if.end.i.i.i.i.i.i38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %appendToCanonical.i)
   %12 = getelementptr inbounds i8, ptr %canonicalPath, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 32, i1 false), !alias.scope !12
   store ptr %12, ptr %canonicalPath, align 8, !alias.scope !12
@@ -676,7 +673,6 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !12
   %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %canonicalPath, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !alias.scope !12
-  store ptr %canonicalPath, ptr %appendToCanonical.i, align 8, !noalias !12
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i43, 281474976710655
   %13 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %lengthAndUniquedFlag_.i.i = getelementptr inbounds i8, ptr %13, i64 4
@@ -773,14 +769,13 @@ _ZNK6hermes2vm15StringPrimitive2atEj.exit.i:      ; preds = %_ZNK6hermes2vm15Str
   br i1 %cmp7.i, label %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZNK6hermes2vm15StringPrimitive2atEj.exit.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
-  call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr noundef nonnull align 8 dereferenceable(8) %appendToCanonical.i, ptr nonnull readonly %incdec.ptr.i.i.i.i.i.i, i32 noundef 0)
+  call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr nonnull %canonicalPath, ptr nonnull readonly %incdec.ptr.i.i.i.i.i.i, i32 noundef 0)
   br label %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit
 
 _ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit: ; preds = %_ZNK6hermes2vm15StringPrimitive2atEj.exit.i, %if.else.i
   %.sink.i = phi i32 [ 0, %if.else.i ], [ 1, %_ZNK6hermes2vm15StringPrimitive2atEj.exit.i ]
-  call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr noundef nonnull align 8 dereferenceable(8) %appendToCanonical.i, ptr nonnull readonly %retval.0.i.i.i.i.i.i40, i32 noundef %.sink.i)
+  call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr nonnull %canonicalPath, ptr nonnull readonly %retval.0.i.i.i.i.i.i40, i32 noundef %.sink.i)
   %call16.i = call noundef zeroext i1 @_ZN4llvh3sys4path11remove_dotsERNS_15SmallVectorImplIcEEbNS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(16) %canonicalPath, i1 noundef zeroext true, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %appendToCanonical.i)
   %22 = load ptr, ptr %canonicalPath, align 8
   %23 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
   %conv.i.i45 = zext i32 %23 to i64
@@ -1037,7 +1032,7 @@ declare void @_ZN6hermes2vm7HadesGC18weakRefReadBarrierEPNS0_6GCCellE(ptr nounde
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture readonly %strPrim.coerce, i32 noundef range(i32 0, 2) %start) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr %this.0.val, ptr nocapture readonly %strPrim.coerce, i32 noundef range(i32 0, 2) %start) unnamed_addr #0 align 2 {
 entry:
   %u16String = alloca %"class.hermes::vm::SmallXString", align 8
   %str = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1063,7 +1058,6 @@ entry:
   %sub.i = sub nsw i64 %conv.i.i, %conv
   %add.ptr.i.i = getelementptr inbounds i16, ptr %1, i64 %conv
   %call4 = call noundef zeroext i1 @_ZN6hermes34convertUTF16ToUTF8WithReplacementsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvh8ArrayRefIDsEEm(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr %add.ptr.i.i, i64 %sub.i, i64 noundef 0) #8
-  %3 = load ptr, ptr %this, align 8
   %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   store i8 4, ptr %LHSKind.i, align 8
   %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 17
@@ -1075,14 +1069,14 @@ entry:
   %LHSKind.i5 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
   store i16 257, ptr %LHSKind.i3, align 8
   store i16 257, ptr %LHSKind.i5, align 8
-  call void @_ZN4llvh3sys4path6appendERNS_15SmallVectorImplIcEENS1_5StyleERKNS_5TwineES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp8) #8
+  call void @_ZN4llvh3sys4path6appendERNS_15SmallVectorImplIcEENS1_5StyleERKNS_5TwineES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %this.0.val, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp8) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str) #8
-  %4 = load ptr, ptr %u16String, align 8
-  %cmp.i.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i.i.i.i
+  %3 = load ptr, ptr %u16String, align 8
+  %cmp.i.i.i.i = icmp eq ptr %3, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  call void @free(ptr noundef %4) #8
+  call void @free(ptr noundef %3) #8
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit
 
 _ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit:    ; preds = %entry, %if.then.i.i.i

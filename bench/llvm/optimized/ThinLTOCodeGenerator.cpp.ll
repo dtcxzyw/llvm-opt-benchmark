@@ -17486,16 +17486,16 @@ _ZNSt10unique_ptrIN4llvm13TargetMachineESt14default_deleteIS1_EED2Ev.exit.i.i.i.
 348:                                              ; preds = %_ZNSt10unique_ptrIN4llvm13TargetMachineESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i
   %349 = load ptr, ptr %30, align 8
   %350 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #25
-  %351 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %352 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %353 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %353, align 8
-  %354 = ptrtoint ptr %346 to i64
-  store i64 %354, ptr %3, align 8
-  store ptr @_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostreamEEZN12_GLOBAL__N_116ModuleCacheEntry5writeERKNS0_12MemoryBufferEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %352, align 8
-  store ptr @_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostreamEEZN12_GLOBAL__N_116ModuleCacheEntry5writeERKNS0_12MemoryBufferEEUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %351, align 8
+  %351 = ptrtoint ptr %346 to i64
+  %352 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %353 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %354 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %354, align 8
+  store i64 %351, ptr %3, align 8
+  store ptr @_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostreamEEZN12_GLOBAL__N_116ModuleCacheEntry5writeERKNS0_12MemoryBufferEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %353, align 8
+  store ptr @_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostreamEEZN12_GLOBAL__N_116ModuleCacheEntry5writeERKNS0_12MemoryBufferEEUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %352, align 8
   call void @_ZN4llvm13writeToOutputENS_9StringRefESt8functionIFNS_5ErrorERNS_11raw_ostreamEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %2, ptr %349, i64 %350, ptr noundef nonnull %3) #25
-  %355 = load ptr, ptr %351, align 8
+  %355 = load ptr, ptr %352, align 8
   %.not.i.i.i38.i.i.i.i.i.i.i = icmp eq ptr %355, null
   br i1 %.not.i.i.i38.i.i.i.i.i.i.i, label %_ZNSt8functionIFN4llvm5ErrorERNS0_11raw_ostreamEEED2Ev.exit.i.i.i.i.i.i.i.i, label %356
 

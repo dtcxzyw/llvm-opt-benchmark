@@ -1212,22 +1212,22 @@ define dso_local noundef zeroext i1 @_ZN5clang8Rewriter21overwriteChangedFilesEv
 
 .lr.ph:                                           ; preds = %1
   %19 = getelementptr inbounds i8, ptr %4, i64 24
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %22 = ptrtoint ptr %3 to i64
-  %23 = getelementptr inbounds nuw i8, ptr %12, i64 368
-  %24 = getelementptr inbounds nuw i8, ptr %12, i64 372
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 336
-  %26 = getelementptr inbounds nuw i8, ptr %12, i64 376
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 25
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 792
-  %32 = getelementptr inbounds nuw i8, ptr %12, i64 800
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 904
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 912
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = ptrtoint ptr %3 to i64
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 368
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 372
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 336
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 376
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 25
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 792
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 800
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 904
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 912
   br label %36
 
 36:                                               ; preds = %.lr.ph, %_ZN4llvm11SmallStringILj128EED2Ev.exit
@@ -1296,12 +1296,12 @@ _ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %53
   %64 = call noundef zeroext i1 @_ZNK5clang11FileManager16makeAbsolutePathERN4llvm15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(808) %63, ptr noundef nonnull align 8 dereferenceable(24) %4) #15
   %65 = load ptr, ptr %4, align 8
   %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
-  store i64 0, ptr %35, align 8
-  store i64 %22, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostreamEEZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %21, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostreamEEZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %20, align 8
+  store i64 0, ptr %23, align 8
+  store i64 %20, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostreamEEZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %22, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostreamEEZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %21, align 8
   call void @_ZN4llvm13writeToOutputENS_9StringRefESt8functionIFNS_5ErrorERNS_11raw_ostreamEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %5, ptr %65, i64 %66, ptr noundef nonnull %6) #15
-  %67 = load ptr, ptr %20, align 8
+  %67 = load ptr, ptr %21, align 8
   %.not.i.i9 = icmp eq ptr %67, null
   br i1 %.not.i.i9, label %_ZNSt8functionIFN4llvm5ErrorERNS0_11raw_ostreamEEED2Ev.exit, label %68
 
@@ -1317,19 +1317,19 @@ _ZNSt8functionIFN4llvm5ErrorERNS0_11raw_ostreamEEED2Ev.exit: ; preds = %_ZNK5cla
 71:                                               ; preds = %_ZNSt8functionIFN4llvm5ErrorERNS0_11raw_ostreamEEED2Ev.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  store i32 0, ptr %23, align 8, !noalias !31
-  store i32 %15, ptr %24, align 4, !noalias !31
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #15, !noalias !31
-  store ptr %26, ptr %7, align 8, !alias.scope !31
-  store ptr null, ptr %27, align 8, !alias.scope !31
-  store ptr %12, ptr %28, align 8, !alias.scope !31
-  store i8 1, ptr %29, align 8, !alias.scope !31
-  store i8 0, ptr %30, align 1, !alias.scope !31
-  store i8 0, ptr %26, align 8, !noalias !31
-  %72 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #15, !noalias !31
-  store i32 0, ptr %32, align 8, !noalias !31
-  %73 = load ptr, ptr %33, align 8, !noalias !31
-  %74 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #15, !noalias !31
+  store i32 0, ptr %24, align 8, !noalias !31
+  store i32 %15, ptr %25, align 4, !noalias !31
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #15, !noalias !31
+  store ptr %27, ptr %7, align 8, !alias.scope !31
+  store ptr null, ptr %28, align 8, !alias.scope !31
+  store ptr %12, ptr %29, align 8, !alias.scope !31
+  store i8 1, ptr %30, align 8, !alias.scope !31
+  store i8 0, ptr %31, align 1, !alias.scope !31
+  store i8 0, ptr %27, align 8, !noalias !31
+  %72 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #15, !noalias !31
+  store i32 0, ptr %33, align 8, !noalias !31
+  %73 = load ptr, ptr %34, align 8, !noalias !31
+  %74 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #15, !noalias !31
   %.not4.i.i.i.i.i = icmp eq i64 %74, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN5clang17DiagnosticsEngine6ReportEj.exit, label %.lr.ph.i.preheader.i.i.i.i
 
@@ -1346,7 +1346,7 @@ _ZNSt8functionIFN4llvm5ErrorERNS0_11raw_ostreamEEED2Ev.exit: ; preds = %_ZNK5cla
   br i1 %.not.i.i.i.i.i, label %_ZN5clang17DiagnosticsEngine6ReportEj.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !32
 
 _ZN5clang17DiagnosticsEngine6ReportEj.exit:       ; preds = %.lr.ph.i.i.i.i.i, %71
-  store i32 0, ptr %34, align 8, !noalias !31
+  store i32 0, ptr %35, align 8, !noalias !31
   br label %78
 
 78:                                               ; preds = %78, %_ZN5clang17DiagnosticsEngine6ReportEj.exit
@@ -1385,18 +1385,18 @@ _ZNK5clang12FileEntryRef7getNameEv.exit17:        ; preds = %78
   br label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK5clang12FileEntryRef7getNameEv.exit17, %90
-  %94 = load i8, ptr %29, align 8
+  %94 = load i8, ptr %30, align 8
   %95 = trunc i8 %94 to i1
   br i1 %95, label %96, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
 
 96:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %97 = load ptr, ptr %28, align 8
-  %98 = load i8, ptr %30, align 1
+  %97 = load ptr, ptr %29, align 8
+  %98 = load i8, ptr %31, align 1
   %99 = trunc i8 %98 to i1
   %100 = call noundef zeroext i1 @_ZN5clang17DiagnosticsEngine21EmitCurrentDiagnosticEb(ptr noundef nonnull align 8 dereferenceable(1304) %97, i1 noundef zeroext %99) #15
-  store ptr null, ptr %28, align 8
-  store i8 0, ptr %29, align 8
-  store i8 0, ptr %30, align 1
+  store ptr null, ptr %29, align 8
+  store i8 0, ptr %30, align 8
+  store i8 0, ptr %31, align 1
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %96, %_ZN4llvm5ErrorD2Ev.exit
@@ -1405,7 +1405,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %96, %_ZN4llvm5Error
   br i1 %.not.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %102
 
 102:                                              ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
-  %103 = load ptr, ptr %27, align 8
+  %103 = load ptr, ptr %28, align 8
   %.not.i.i.i.i = icmp eq ptr %103, null
   br i1 %.not.i.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %104
 

@@ -1422,9 +1422,10 @@ iconv_open_cached.exit.thread:                    ; preds = %81, %47, %68
 iconv_open_cached.exit:                           ; preds = %60, %84
   %.0.i36.in = phi ptr [ %67, %60 ], [ %92, %84 ]
   %.0.i36 = load ptr, ptr %.0.i36.in, align 8
+  %.0.val.fr.i = freeze ptr %.0.i36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %93 = icmp eq ptr %.0.i36, inttoptr (i64 -1 to ptr)
+  %93 = icmp eq ptr %.0.val.fr.i, inttoptr (i64 -1 to ptr)
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %iconv_open_cached.exit.thread, %iconv_open_cached.exit
@@ -1463,43 +1464,43 @@ iconv_open_cached.exit:                           ; preds = %60, %84
   %109 = and i64 %107, -4
   store i64 %109, ptr %5, align 8
   %.not33.i38 = icmp eq i64 %108, 0
-  br i1 %.not33.i38, label %.outer.i.preheader, label %110
+  br i1 %.not33.i38, label %.outer.split.i.preheader, label %110
 
 110:                                              ; preds = %106
   store i32 0, ptr %4, align 4
   %111 = getelementptr inbounds i8, ptr %101, i64 %109
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4, ptr align 1 %111, i64 %108, i1 false)
   %112 = icmp eq i64 %109, 0
-  br i1 %112, label %113, label %.outer.i.preheader
+  br i1 %112, label %113, label %.outer.split.i.preheader
 
 113:                                              ; preds = %110
   store i64 4, ptr %5, align 8
   store ptr %4, ptr %6, align 8
-  br label %.outer.i.preheader
+  br label %.outer.split.i.preheader
 
-.outer.i.preheader:                               ; preds = %113, %110, %106
-  %.ph = phi i64 [ %109, %106 ], [ %109, %110 ], [ 4, %113 ]
-  %.not35.i.ph = phi i1 [ true, %106 ], [ false, %110 ], [ true, %113 ]
-  %.ph57 = phi i1 [ false, %106 ], [ true, %110 ], [ false, %113 ]
-  br label %.outer.i
+.outer.split.i.preheader:                         ; preds = %106, %110, %113
+  %.ph = phi i64 [ 4, %113 ], [ %109, %110 ], [ %109, %106 ]
+  %.not35.i.ph = phi i1 [ true, %113 ], [ false, %110 ], [ true, %106 ]
+  %.ph58 = phi i1 [ false, %113 ], [ true, %110 ], [ false, %106 ]
+  br label %.outer.split.i
 
-.outer.i:                                         ; preds = %.outer.i.preheader, %.outer.backedge.i
-  %.pre.i = phi i64 [ %.pre.pre.i, %.outer.backedge.i ], [ %spec.select.i, %.outer.i.preheader ]
-  %114 = phi i64 [ 4, %.outer.backedge.i ], [ %.ph, %.outer.i.preheader ]
-  %.not35.i = phi i1 [ true, %.outer.backedge.i ], [ %.not35.i.ph, %.outer.i.preheader ]
-  %115 = phi i1 [ false, %.outer.backedge.i ], [ %.ph57, %.outer.i.preheader ]
+.outer.split.i:                                   ; preds = %.outer.split.i.preheader, %.outer.backedge.i
+  %.pre.i = phi i64 [ %.pre.i.pre, %.outer.backedge.i ], [ %spec.select.i, %.outer.split.i.preheader ]
+  %114 = phi i64 [ 4, %.outer.backedge.i ], [ %.ph, %.outer.split.i.preheader ]
+  %.not35.i = phi i1 [ true, %.outer.backedge.i ], [ %.not35.i.ph, %.outer.split.i.preheader ]
+  %115 = phi i1 [ false, %.outer.backedge.i ], [ %.ph58, %.outer.split.i.preheader ]
   br label %116
 
-116:                                              ; preds = %135, %.outer.i
-  %117 = phi i64 [ %.pre.i, %.outer.i ], [ %136, %135 ]
-  %118 = phi i64 [ %114, %.outer.i ], [ %132, %135 ]
+116:                                              ; preds = %135, %.outer.split.i
+  %117 = phi i64 [ %.pre.i, %.outer.split.i ], [ %136, %135 ]
+  %118 = phi i64 [ %114, %.outer.split.i ], [ %132, %135 ]
   %119 = icmp ne i64 %118, 0
   %120 = icmp ugt i64 %117, 1
   %121 = select i1 %119, i1 %120, i1 false
   br i1 %121, label %122, label %.loopexit.i
 
 122:                                              ; preds = %116
-  %123 = call i64 @iconv(ptr noundef %.0.i36, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %7) #17
+  %123 = call i64 @iconv(ptr noundef %.0.val.fr.i, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %7) #17
   %124 = icmp eq i64 %123, -1
   br i1 %124, label %125, label %131
 
@@ -1510,7 +1511,7 @@ iconv_open_cached.exit:                           ; preds = %60, %84
   %129 = load i64, ptr %7, align 8
   %130 = icmp ult i64 %129, 2
   %or.cond3.i = select i1 %128, i1 true, i1 %130
-  br i1 %or.cond3.i, label %.loopexit.loopexit38.i, label %139
+  br i1 %or.cond3.i, label %.loopexit.loopexit3.i, label %139
 
 131:                                              ; preds = %122
   %132 = load i64, ptr %5, align 8
@@ -1519,7 +1520,7 @@ iconv_open_cached.exit:                           ; preds = %60, %84
 
 134:                                              ; preds = %131
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.805) #17
-  br i1 %.not35.i, label %.loopexit.loopexit38.i, label %.outer.backedge.i
+  br i1 %.not35.i, label %.loopexit.loopexit3.i, label %.outer.backedge.i
 
 135:                                              ; preds = %131
   %136 = load i64, ptr %7, align 8
@@ -1530,7 +1531,7 @@ iconv_open_cached.exit:                           ; preds = %60, %84
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.806) #17
   %.old.i = load i64, ptr %7, align 8
   %.old2.i = icmp ult i64 %.old.i, 2
-  br i1 %.old2.i, label %.loopexit.loopexit38.i, label %139
+  br i1 %.old2.i, label %.loopexit.loopexit3.i, label %139
 
 139:                                              ; preds = %138, %125
   %140 = phi i64 [ %129, %125 ], [ %.old.i, %138 ]
@@ -1553,20 +1554,20 @@ iconv_open_cached.exit:                           ; preds = %60, %84
   store i64 %150, ptr %5, align 8
   %151 = icmp eq i64 %150, 0
   %or.cond.i = and i1 %115, %151
-  br i1 %or.cond.i, label %.outer.backedge.i, label %.loopexit.loopexit38.i
+  br i1 %or.cond.i, label %.outer.backedge.i, label %.loopexit.loopexit3.i
 
 .outer.backedge.i:                                ; preds = %139, %134
   store i64 4, ptr %5, align 8
   store ptr %4, ptr %6, align 8
-  %.pre.pre.i = load i64, ptr %7, align 8
-  br label %.outer.i
+  %.pre.i.pre = load i64, ptr %7, align 8
+  br label %.outer.split.i
 
-.loopexit.loopexit38.i:                           ; preds = %139, %138, %134, %125
-  %.pre39.i = load i64, ptr %5, align 8
+.loopexit.loopexit3.i:                            ; preds = %139, %138, %134, %125
+  %.pre5.i = load i64, ptr %5, align 8
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %116, %.loopexit.loopexit38.i
-  %152 = phi i64 [ %.pre39.i, %.loopexit.loopexit38.i ], [ %118, %116 ]
+.loopexit.i:                                      ; preds = %116, %.loopexit.loopexit3.i
+  %152 = phi i64 [ %.pre5.i, %.loopexit.loopexit3.i ], [ %118, %116 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.807, i64 noundef %152) #17
   %153 = load i64, ptr %102, align 8
   %154 = icmp sgt i64 %153, -1

@@ -779,7 +779,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN5arrow9ArrayDataESaIvELN9__gnu_cxx12_Lock_poli
 @.str.120 = private unnamed_addr constant [59 x i8] c"Attempt to read from a reader that has already been closed\00", align 1
 @.str.121 = private unnamed_addr constant [30 x i8] c"ReadNext with custom metadata\00", align 1
 @switch.table._ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114SchemaExporterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_ = private unnamed_addr constant [4 x ptr] [ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29], align 8
-@switch.table._ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114SchemaExporterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.331 = private unnamed_addr constant [4 x ptr] [ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36], align 8
+@switch.table._ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114SchemaExporterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.332 = private unnamed_addr constant [4 x ptr] [ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36], align 8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow10ExportTypeERKNS_8DataTypeEP11ArrowSchema(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -15252,7 +15252,7 @@ sw.default.i298:                                  ; preds = %sw.bb46
 
 switch.lookup702:                                 ; preds = %sw.bb46
   %92 = zext nneg i32 %90 to i64
-  %switch.gep703 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114SchemaExporterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.331, i64 0, i64 %92
+  %switch.gep703 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114SchemaExporterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.332, i64 0, i64 %92
   %switch.load704 = load ptr, ptr %switch.gep703, align 8
   %call14.i295 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull %switch.load704), !noalias !622
   %timezone_.i.i = getelementptr inbounds i8, ptr %type, i64 80

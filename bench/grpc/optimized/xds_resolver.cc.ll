@@ -17965,20 +17965,20 @@ call5.i.i.i.i.i.i.i.noexc.i:                      ; preds = %invoke.cont16.i
   store ptr %15, ptr %14, align 8, !noalias !259
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i33.i, i64 48
   store ptr %call.i10.i, ptr %second.i.i.i.i.i.i.i.i.i, align 8, !noalias !259
-  %__x.09.i.i.i.i = load ptr, ptr %2, align 8, !noalias !259
-  %cmp.not10.i.i.i.i = icmp eq ptr %__x.09.i.i.i.i, null
-  br i1 %cmp.not10.i.i.i.i, label %if.then.i.i.i26.i, label %while.body.i.i.i14.i
+  %__x.07.i.i.i.i = load ptr, ptr %2, align 8, !noalias !259
+  %cmp.not8.i.i.i.i = icmp eq ptr %__x.07.i.i.i.i, null
+  br i1 %cmp.not8.i.i.i.i, label %if.then.i.i.i26.i, label %while.body.i.i.i14.i
 
 while.body.i.i.i14.i:                             ; preds = %call5.i.i.i.i.i.i.i.noexc.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i21.i
-  %__x.011.i.i.i.i = phi ptr [ %__x.0.i.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i21.i ], [ %__x.09.i.i.i.i, %call5.i.i.i.i.i.i.i.noexc.i ]
-  %_M_storage.i.i.i4.i.i15.i = getelementptr inbounds i8, ptr %__x.011.i.i.i.i, i64 32
+  %__x.09.i.i.i.i = phi ptr [ %__x.0.i.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i21.i ], [ %__x.07.i.i.i.i, %call5.i.i.i.i.i.i.i.noexc.i ]
+  %_M_storage.i.i.i4.i.i15.i = getelementptr inbounds i8, ptr %__x.09.i.i.i.i, i64 32
   %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %_M_storage.i.i.i4.i.i15.i, align 8, !noalias !259
   %.sroa.speculated.i.i.i.i.i.i16.i = call i64 @llvm.umin.i64(i64 %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i, i64 %13)
   %cmp.i2.i.i.i.i.i.i17.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i16.i, 0
   br i1 %cmp.i2.i.i.i.i.i.i17.i, label %if.then.i.i.i.i.i.i28.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i18.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i18.i: ; preds = %while.body.i.i.i14.i
-  %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.011.i.i.i.i, i64 40
+  %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.09.i.i.i.i, i64 40
   %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !noalias !259
   %call.i.i.i.i.i.i.i19.i = call i32 @memcmp(ptr noundef readonly %15, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i16.i) #31
   %cmp.i.i.i.i.i.i20.i = icmp eq i32 %call.i.i.i.i.i.i.i19.i, 0
@@ -17995,7 +17995,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i21.
   %__ret.0.i.i.i.i.i.i22.i = phi i32 [ %retval.0.i3.i.i.i.i.i.i32.i, %if.then.i.i.i.i.i.i28.i ], [ %call.i.i.i.i.i.i.i19.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i18.i ]
   %cmp.i.i.i.i.i23.i = icmp slt i32 %__ret.0.i.i.i.i.i.i22.i, 0
   %cond.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i23.i, i64 16, i64 24
-  %cond.in.i.i.i.i = getelementptr i8, ptr %__x.011.i.i.i.i, i64 %cond.in.v.i.i.i.i
+  %cond.in.i.i.i.i = getelementptr i8, ptr %__x.09.i.i.i.i, i64 %cond.in.v.i.i.i.i
   %__x.0.i.i.i.i = load ptr, ptr %cond.in.i.i.i.i, align 8, !noalias !259
   %cmp.not.i.i.i24.i = icmp eq ptr %__x.0.i.i.i.i, null
   br i1 %cmp.not.i.i.i24.i, label %while.end.i.i.i.i, label %while.body.i.i.i14.i, !llvm.loop !272
@@ -18004,48 +18004,48 @@ while.end.i.i.i.i:                                ; preds = %_ZNKSt4lessISt17bas
   br i1 %cmp.i.i.i.i.i23.i, label %if.then.i.i.i26.i, label %if.end12.i.i.i.i
 
 if.then.i.i.i26.i:                                ; preds = %while.end.i.i.i.i, %call5.i.i.i.i.i.i.i.noexc.i
-  %__y.0.lcssa15.i.i.i.i = phi ptr [ %__x.011.i.i.i.i, %while.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %call5.i.i.i.i.i.i.i.noexc.i ]
+  %__y.0.lcssa13.i.i.i.i = phi ptr [ %__x.09.i.i.i.i, %while.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %call5.i.i.i.i.i.i.i.noexc.i ]
   %16 = getelementptr inbounds i8, ptr %1, i64 448
   %this.val4.i.i.i.i = load ptr, ptr %16, align 8, !noalias !259
-  %cmp.i.i.i.i27.i = icmp eq ptr %__y.0.lcssa15.i.i.i.i, %this.val4.i.i.i.i
+  %cmp.i.i.i.i27.i = icmp eq ptr %__y.0.lcssa13.i.i.i.i, %this.val4.i.i.i.i
   br i1 %cmp.i.i.i.i27.i, label %if.then.i.i25.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i26.i
-  %call.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa15.i.i.i.i) #35, !noalias !259
+  %call.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa13.i.i.i.i) #35, !noalias !259
   %_M_storage.i.i.i.i5.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
-  %agg.tmp.sroa.0.0.copyload.i6.i.pre.i.i.i = load i64, ptr %_M_storage.i.i.i.i5.phi.trans.insert.i.i.i, align 8, !noalias !259
-  %.pre.i.i.i = call i64 @llvm.umin.i64(i64 %13, i64 %agg.tmp.sroa.0.0.copyload.i6.i.pre.i.i.i)
+  %agg.tmp.sroa.0.0.copyload.i7.i.pre.i.i.i = load i64, ptr %_M_storage.i.i.i.i5.phi.trans.insert.i.i.i, align 8, !noalias !259
+  %.pre.i.i.i = call i64 @llvm.umin.i64(i64 %13, i64 %agg.tmp.sroa.0.0.copyload.i7.i.pre.i.i.i)
   br label %if.end12.i.i.i.i
 
 if.end12.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %while.end.i.i.i.i
-  %.sroa.speculated.i.i.i8.i.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %if.else.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i.i16.i, %while.end.i.i.i.i ]
-  %agg.tmp.sroa.0.0.copyload.i6.i.i.i.i = phi i64 [ %agg.tmp.sroa.0.0.copyload.i6.i.pre.i.i.i, %if.else.i.i.i.i ], [ %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i, %while.end.i.i.i.i ]
-  %__y.0.lcssa16.i.i.i.i = phi ptr [ %__y.0.lcssa15.i.i.i.i, %if.else.i.i.i.i ], [ %__x.011.i.i.i.i, %while.end.i.i.i.i ]
-  %__j.sroa.0.0.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.else.i.i.i.i ], [ %__x.011.i.i.i.i, %while.end.i.i.i.i ]
-  %cmp.i2.i.i.i9.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i8.i.pre-phi.i.i.i, 0
-  br i1 %cmp.i2.i.i.i9.i.i.i.i, label %if.then.i.i.i19.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i10.i.i.i.i
+  %.sroa.speculated.i.i.i9.i.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %if.else.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i.i16.i, %while.end.i.i.i.i ]
+  %agg.tmp.sroa.0.0.copyload.i7.i.i.i.i = phi i64 [ %agg.tmp.sroa.0.0.copyload.i7.i.pre.i.i.i, %if.else.i.i.i.i ], [ %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i, %while.end.i.i.i.i ]
+  %__y.0.lcssa14.i.i.i.i = phi ptr [ %__y.0.lcssa13.i.i.i.i, %if.else.i.i.i.i ], [ %__x.09.i.i.i.i, %while.end.i.i.i.i ]
+  %__j.sroa.0.0.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.else.i.i.i.i ], [ %__x.09.i.i.i.i, %while.end.i.i.i.i ]
+  %cmp.i2.i.i.i10.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i9.i.pre-phi.i.i.i, 0
+  br i1 %cmp.i2.i.i.i10.i.i.i.i, label %if.then.i.i.i20.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11.i.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i10.i.i.i.i: ; preds = %if.end12.i.i.i.i
-  %agg.tmp.sroa.2.0..sroa_idx.i13.i.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i.i, i64 40
-  %agg.tmp.sroa.2.0.copyload.i14.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i13.i.i.i.i, align 8, !noalias !259
-  %call.i.i.i.i15.i.i.i.i = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i14.i.i.i.i, ptr noundef readonly %15, i64 noundef %.sroa.speculated.i.i.i8.i.pre-phi.i.i.i) #31
-  %cmp.i.i.i16.i.i.i.i = icmp eq i32 %call.i.i.i.i15.i.i.i.i, 0
-  br i1 %cmp.i.i.i16.i.i.i.i, label %if.then.i.i.i19.i.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i.i
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11.i.i.i.i: ; preds = %if.end12.i.i.i.i
+  %agg.tmp.sroa.2.0..sroa_idx.i14.i.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i.i, i64 40
+  %agg.tmp.sroa.2.0.copyload.i15.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i14.i.i.i.i, align 8, !noalias !259
+  %call.i.i.i.i16.i.i.i.i = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i15.i.i.i.i, ptr noundef readonly %15, i64 noundef %.sroa.speculated.i.i.i9.i.pre-phi.i.i.i) #31
+  %cmp.i.i.i17.i.i.i.i = icmp eq i32 %call.i.i.i.i16.i.i.i.i, 0
+  br i1 %cmp.i.i.i17.i.i.i.i, label %if.then.i.i.i20.i.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit25.i.i.i.i
 
-if.then.i.i.i19.i.i.i.i:                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i10.i.i.i.i, %if.end12.i.i.i.i
-  %sub.i.i.i.i20.i.i.i.i = sub i64 %agg.tmp.sroa.0.0.copyload.i6.i.i.i.i, %13
-  %spec.select3.i.i.i.i21.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i20.i.i.i.i, i64 -2147483648)
-  %retval.04.i.i.i.i22.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i21.i.i.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i23.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i22.i.i.i.i to i32
-  br label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i.i
+if.then.i.i.i20.i.i.i.i:                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11.i.i.i.i, %if.end12.i.i.i.i
+  %sub.i.i.i.i21.i.i.i.i = sub i64 %agg.tmp.sroa.0.0.copyload.i7.i.i.i.i, %13
+  %spec.select3.i.i.i.i22.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i21.i.i.i.i, i64 -2147483648)
+  %retval.04.i.i.i.i23.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i22.i.i.i.i, i64 2147483647)
+  %retval.0.i3.i.i.i24.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i23.i.i.i.i to i32
+  br label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit25.i.i.i.i
 
-_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i.i: ; preds = %if.then.i.i.i19.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i10.i.i.i.i
-  %__ret.0.i.i.i17.i.i.i.i = phi i32 [ %retval.0.i3.i.i.i23.i.i.i.i, %if.then.i.i.i19.i.i.i.i ], [ %call.i.i.i.i15.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i10.i.i.i.i ]
-  %cmp.i.i18.i.i.i.i = icmp slt i32 %__ret.0.i.i.i17.i.i.i.i, 0
-  br i1 %cmp.i.i18.i.i.i.i, label %if.then.i.i25.i, label %if.then.i.i.i.i.i.i.i.i.i.i
+_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit25.i.i.i.i: ; preds = %if.then.i.i.i20.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11.i.i.i.i
+  %__ret.0.i.i.i18.i.i.i.i = phi i32 [ %retval.0.i3.i.i.i24.i.i.i.i, %if.then.i.i.i20.i.i.i.i ], [ %call.i.i.i.i16.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11.i.i.i.i ]
+  %cmp.i.i19.i.i.i.i = icmp slt i32 %__ret.0.i.i.i18.i.i.i.i, 0
+  br i1 %cmp.i.i19.i.i.i.i, label %if.then.i.i25.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
-if.then.i.i25.i:                                  ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i.i, %if.then.i.i.i26.i
-  %retval.sroa.4.0.i.ph.i.i.i = phi ptr [ %__y.0.lcssa15.i.i.i.i, %if.then.i.i.i26.i ], [ %__y.0.lcssa16.i.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i.i ]
+if.then.i.i25.i:                                  ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit25.i.i.i.i, %if.then.i.i.i26.i
+  %retval.sroa.4.0.i.ph.i.i.i = phi ptr [ %__y.0.lcssa13.i.i.i.i, %if.then.i.i.i26.i ], [ %__y.0.lcssa14.i.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit25.i.i.i.i ]
   %cmp2.i.i.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %cleanup.thread.i.i.i, label %lor.rhs.i.i.i.i.i
 
@@ -18084,7 +18084,7 @@ cleanup.thread.i.i.i:                             ; preds = %_ZNKSt4lessISt17bas
   store i64 %inc.i.i.i.i.i, ptr %_M_node_count.i.i.i.i.i, align 8, !noalias !259
   br label %_ZN9grpc_core12_GLOBAL__N_111XdsResolver21GetOrCreateClusterRefESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i.i
+if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit25.i.i.i.i
   %19 = atomicrmw sub ptr %refs_.i.i.i.i, i64 1 acq_rel, align 8, !noalias !259
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %19, 1
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N9grpc_core17WeakRefCountedPtrINS6_12_GLOBAL__N_111XdsResolver10ClusterRefEEEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit.i.i.i.i
@@ -18396,15 +18396,15 @@ invoke.cont5.sink.split.i.i.i:                    ; preds = %_ZNKSt4lessISt17bas
   br i1 %cmp.not1.i.i.i.i20, label %if.then.i2.i.i, label %while.body.i.i.i49
 
 while.body.i.i.i49:                               ; preds = %invoke.cont5.sink.split.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i58
-  %__x.011.i.i.i = phi ptr [ %__x.0.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i58 ], [ %this.val.i.i.i18, %invoke.cont5.sink.split.i.i.i ]
-  %_M_storage.i.i.i.i.i50 = getelementptr inbounds i8, ptr %__x.011.i.i.i, i64 32
+  %__x.09.i.i.i = phi ptr [ %__x.0.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i58 ], [ %this.val.i.i.i18, %invoke.cont5.sink.split.i.i.i ]
+  %_M_storage.i.i.i.i.i50 = getelementptr inbounds i8, ptr %__x.09.i.i.i, i64 32
   %agg.tmp2.sroa.0.0.copyload.i.i.i.i51 = load i64, ptr %_M_storage.i.i.i.i.i50, align 8
   %.sroa.speculated.i.i.i.i.i.i52 = call i64 @llvm.umin.i64(i64 %agg.tmp2.sroa.0.0.copyload.i.i.i.i51, i64 %28)
   %cmp.i2.i.i.i.i.i.i53 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i52, 0
   br i1 %cmp.i2.i.i.i.i.i.i53, label %if.then.i.i.i.i.i.i83, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i54
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i54: ; preds = %while.body.i.i.i49
-  %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i55 = getelementptr inbounds i8, ptr %__x.011.i.i.i, i64 40
+  %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i55 = getelementptr inbounds i8, ptr %__x.09.i.i.i, i64 40
   %agg.tmp2.sroa.2.0.copyload.i.i.i.i56 = load ptr, ptr %agg.tmp2.sroa.2.0..sroa_idx.i.i.i.i55, align 8
   %call.i.i.i.i.i.i.i57 = call i32 @memcmp(ptr noundef readonly %29, ptr noundef %agg.tmp2.sroa.2.0.copyload.i.i.i.i56, i64 noundef %.sroa.speculated.i.i.i.i.i.i52) #31
   %cmp.i.i.i.i1.i.i = icmp eq i32 %call.i.i.i.i.i.i.i57, 0
@@ -18421,7 +18421,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i58:
   %__ret.0.i.i.i.i.i.i59 = phi i32 [ %retval.0.i3.i.i.i.i.i.i87, %if.then.i.i.i.i.i.i83 ], [ %call.i.i.i.i.i.i.i57, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i54 ]
   %cmp.i.i.i.i.i60 = icmp slt i32 %__ret.0.i.i.i.i.i.i59, 0
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i.i60, i64 16, i64 24
-  %cond.in.i.i.i = getelementptr i8, ptr %__x.011.i.i.i, i64 %cond.in.v.i.i.i
+  %cond.in.i.i.i = getelementptr i8, ptr %__x.09.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i61 = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i61, label %while.end.i.i.i, label %while.body.i.i.i49, !llvm.loop !276
@@ -18430,45 +18430,45 @@ while.end.i.i.i:                                  ; preds = %_ZNKSt4lessISt17bas
   br i1 %cmp.i.i.i.i.i60, label %if.then.i2.i.i, label %if.end12.i.i.i
 
 if.then.i2.i.i:                                   ; preds = %while.end.i.i.i, %invoke.cont5.sink.split.i.i.i
-  %__y.0.lcssa15.i.i.i = phi ptr [ %__x.011.i.i.i, %while.end.i.i.i ], [ %add.ptr.i.i.i, %invoke.cont5.sink.split.i.i.i ]
+  %__y.0.lcssa13.i.i.i = phi ptr [ %__x.09.i.i.i, %while.end.i.i.i ], [ %add.ptr.i.i.i, %invoke.cont5.sink.split.i.i.i ]
   %36 = getelementptr inbounds i8, ptr %this.0.val, i64 40
   %this.val4.i.i.i = load ptr, ptr %36, align 8
-  %cmp.i.i3.i.i = icmp eq ptr %__y.0.lcssa15.i.i.i, %this.val4.i.i.i
+  %cmp.i.i3.i.i = icmp eq ptr %__y.0.lcssa13.i.i.i, %this.val4.i.i.i
   br i1 %cmp.i.i3.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i2.i.i
-  %call.i.i.i.i82 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa15.i.i.i) #35
+  %call.i.i.i.i82 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa13.i.i.i) #35
   %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i82, i64 32
-  %agg.tmp.sroa.0.0.copyload.i6.i.pre.i.i = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i, align 8
-  %.pre.i.i = call i64 @llvm.umin.i64(i64 %28, i64 %agg.tmp.sroa.0.0.copyload.i6.i.pre.i.i)
+  %agg.tmp.sroa.0.0.copyload.i7.i.pre.i.i = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i, align 8
+  %.pre.i.i = call i64 @llvm.umin.i64(i64 %28, i64 %agg.tmp.sroa.0.0.copyload.i7.i.pre.i.i)
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %while.end.i.i.i
-  %.sroa.speculated.i.i.i8.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %if.else.i.i.i ], [ %.sroa.speculated.i.i.i.i.i.i52, %while.end.i.i.i ]
-  %agg.tmp.sroa.0.0.copyload.i6.i.i.i = phi i64 [ %agg.tmp.sroa.0.0.copyload.i6.i.pre.i.i, %if.else.i.i.i ], [ %agg.tmp2.sroa.0.0.copyload.i.i.i.i51, %while.end.i.i.i ]
-  %__y.0.lcssa16.i.i.i = phi ptr [ %__y.0.lcssa15.i.i.i, %if.else.i.i.i ], [ %__x.011.i.i.i, %while.end.i.i.i ]
-  %__j.sroa.0.0.i.i.i = phi ptr [ %call.i.i.i.i82, %if.else.i.i.i ], [ %__x.011.i.i.i, %while.end.i.i.i ]
-  %cmp.i2.i.i.i9.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i8.i.pre-phi.i.i, 0
-  br i1 %cmp.i2.i.i.i9.i.i.i, label %if.then.i.i.i19.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i10.i.i.i
+  %.sroa.speculated.i.i.i9.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %if.else.i.i.i ], [ %.sroa.speculated.i.i.i.i.i.i52, %while.end.i.i.i ]
+  %agg.tmp.sroa.0.0.copyload.i7.i.i.i = phi i64 [ %agg.tmp.sroa.0.0.copyload.i7.i.pre.i.i, %if.else.i.i.i ], [ %agg.tmp2.sroa.0.0.copyload.i.i.i.i51, %while.end.i.i.i ]
+  %__y.0.lcssa14.i.i.i = phi ptr [ %__y.0.lcssa13.i.i.i, %if.else.i.i.i ], [ %__x.09.i.i.i, %while.end.i.i.i ]
+  %__j.sroa.0.0.i.i.i = phi ptr [ %call.i.i.i.i82, %if.else.i.i.i ], [ %__x.09.i.i.i, %while.end.i.i.i ]
+  %cmp.i2.i.i.i10.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i9.i.pre-phi.i.i, 0
+  br i1 %cmp.i2.i.i.i10.i.i.i, label %if.then.i.i.i20.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i10.i.i.i: ; preds = %if.end12.i.i.i
-  %agg.tmp.sroa.2.0..sroa_idx.i13.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i, i64 40
-  %agg.tmp.sroa.2.0.copyload.i14.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i13.i.i.i, align 8
-  %call.i.i.i.i15.i.i.i = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i14.i.i.i, ptr noundef readonly %29, i64 noundef %.sroa.speculated.i.i.i8.i.pre-phi.i.i) #31
-  %cmp.i.i.i16.i.i.i = icmp eq i32 %call.i.i.i.i15.i.i.i, 0
-  br i1 %cmp.i.i.i16.i.i.i, label %if.then.i.i.i19.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11.i.i.i: ; preds = %if.end12.i.i.i
+  %agg.tmp.sroa.2.0..sroa_idx.i14.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i, i64 40
+  %agg.tmp.sroa.2.0.copyload.i15.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i14.i.i.i, align 8
+  %call.i.i.i.i16.i.i.i = call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i15.i.i.i, ptr noundef readonly %29, i64 noundef %.sroa.speculated.i.i.i9.i.pre-phi.i.i) #31
+  %cmp.i.i.i17.i.i.i = icmp eq i32 %call.i.i.i.i16.i.i.i, 0
+  br i1 %cmp.i.i.i17.i.i.i, label %if.then.i.i.i20.i.i.i, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit25.i.i.i
 
-if.then.i.i.i19.i.i.i:                            ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i10.i.i.i, %if.end12.i.i.i
-  %sub.i.i.i.i20.i.i.i = sub i64 %agg.tmp.sroa.0.0.copyload.i6.i.i.i, %28
-  %spec.select3.i.i.i.i21.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i20.i.i.i, i64 -2147483648)
-  %retval.04.i.i.i.i22.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i21.i.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i23.i.i.i = trunc nsw i64 %retval.04.i.i.i.i22.i.i.i to i32
-  br label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i
+if.then.i.i.i20.i.i.i:                            ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11.i.i.i, %if.end12.i.i.i
+  %sub.i.i.i.i21.i.i.i = sub i64 %agg.tmp.sroa.0.0.copyload.i7.i.i.i, %28
+  %spec.select3.i.i.i.i22.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i21.i.i.i, i64 -2147483648)
+  %retval.04.i.i.i.i23.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i22.i.i.i, i64 2147483647)
+  %retval.0.i3.i.i.i24.i.i.i = trunc nsw i64 %retval.04.i.i.i.i23.i.i.i to i32
+  br label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit25.i.i.i
 
-_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i: ; preds = %if.then.i.i.i19.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i10.i.i.i
-  %__ret.0.i.i.i17.i.i.i = phi i32 [ %retval.0.i3.i.i.i23.i.i.i, %if.then.i.i.i19.i.i.i ], [ %call.i.i.i.i15.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i10.i.i.i ]
-  %cmp.i.i18.i.i.i = icmp slt i32 %__ret.0.i.i.i17.i.i.i, 0
-  br i1 %cmp.i.i18.i.i.i, label %if.then.i.i.i, label %if.then.i8.i.i.i
+_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit25.i.i.i: ; preds = %if.then.i.i.i20.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11.i.i.i
+  %__ret.0.i.i.i18.i.i.i = phi i32 [ %retval.0.i3.i.i.i24.i.i.i, %if.then.i.i.i20.i.i.i ], [ %call.i.i.i.i16.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11.i.i.i ]
+  %cmp.i.i19.i.i.i = icmp slt i32 %__ret.0.i.i.i18.i.i.i, 0
+  br i1 %cmp.i.i19.i.i.i, label %if.then.i.i.i, label %if.then.i8.i.i.i
 
 invoke.cont5.i.i.i:                               ; preds = %if.then50.i.i.i.i, %if.then18.i.i.i.i
   %retval.sroa.0.0.i.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i36.i, %if.then18.i.i.i.i ], [ null, %if.then50.i.i.i.i ]
@@ -18476,9 +18476,9 @@ invoke.cont5.i.i.i:                               ; preds = %if.then50.i.i.i.i, 
   %tobool.not.i.i.i = icmp eq ptr %retval.sroa.12.0.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %if.then.i8.i.i.i, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %invoke.cont5.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i, %if.then.i2.i.i, %if.then64.i.i.i.i, %if.then32.i.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i22.i
-  %retval.sroa.12.0.i15.i.i.i = phi ptr [ %retval.sroa.12.0.i.i.i.i, %invoke.cont5.i.i.i ], [ %spec.select25.i.i.i.i, %if.then64.i.i.i.i ], [ %spec.select23.i.i.i.i, %if.then32.i.i.i.i ], [ %31, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i22.i ], [ %__y.0.lcssa15.i.i.i, %if.then.i2.i.i ], [ %__y.0.lcssa16.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i ]
-  %retval.sroa.0.0.i14.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %invoke.cont5.i.i.i ], [ %spec.select24.i.i.i.i, %if.then64.i.i.i.i ], [ %spec.select.i.i.i.i, %if.then32.i.i.i.i ], [ null, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i22.i ], [ null, %if.then.i2.i.i ], [ null, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i ]
+if.then.i.i.i:                                    ; preds = %invoke.cont5.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit25.i.i.i, %if.then.i2.i.i, %if.then64.i.i.i.i, %if.then32.i.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i22.i
+  %retval.sroa.12.0.i15.i.i.i = phi ptr [ %retval.sroa.12.0.i.i.i.i, %invoke.cont5.i.i.i ], [ %spec.select25.i.i.i.i, %if.then64.i.i.i.i ], [ %spec.select23.i.i.i.i, %if.then32.i.i.i.i ], [ %31, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i22.i ], [ %__y.0.lcssa13.i.i.i, %if.then.i2.i.i ], [ %__y.0.lcssa14.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit25.i.i.i ]
+  %retval.sroa.0.0.i14.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %invoke.cont5.i.i.i ], [ %spec.select24.i.i.i.i, %if.then64.i.i.i.i ], [ %spec.select.i.i.i.i, %if.then32.i.i.i.i ], [ null, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i22.i ], [ null, %if.then.i2.i.i ], [ null, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit25.i.i.i ]
   %cmp.not.i.i.i.i.i = icmp ne ptr %retval.sroa.0.0.i14.i.i.i, null
   %cmp2.i.i.i.i.i62 = icmp eq ptr %retval.sroa.12.0.i15.i.i.i, %add.ptr.i.i.i
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i.i62
@@ -18519,7 +18519,7 @@ cleanup.i.i.i:                                    ; preds = %_ZNKSt4lessISt17bas
   store i64 %inc.i.i.i.i.i76, ptr %_M_node_count.i.i.i.i.i75, align 8
   br label %return
 
-if.then.i8.i.i.i:                                 ; preds = %invoke.cont5.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit24.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit80.i.i.i.i
+if.then.i8.i.i.i:                                 ; preds = %invoke.cont5.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit25.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit80.i.i.i.i
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %cluster_state.sroa.0.0, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N9grpc_core13RefCountedPtrINS6_12_GLOBAL__N_111XdsResolver10ClusterRefEEEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i47
 

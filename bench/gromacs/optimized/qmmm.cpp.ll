@@ -5697,14 +5697,14 @@ define internal void @_ZN3gmx12_GLOBAL__N_14QMMM39subscribeToSimulationSetupNoti
   br i1 %11, label %12, label %_ZNSt8functionIFvPN3gmx25SeparatePmeRanksPermittedEEED2Ev.exit
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %15, align 8
-  %16 = ptrtoint ptr %0 to i64
-  store i64 %16, ptr %3, align 8
-  store ptr @_ZNSt17_Function_handlerIFvRKN3gmx18KeyValueTreeObjectEEZNS0_12_GLOBAL__N_14QMMM39subscribeToSimulationSetupNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %14, align 8
-  store ptr @_ZNSt17_Function_handlerIFvRKN3gmx18KeyValueTreeObjectEEZNS0_12_GLOBAL__N_14QMMM39subscribeToSimulationSetupNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %13, align 8
+  %13 = ptrtoint ptr %0 to i64
+  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %16, align 8
+  store i64 %13, ptr %3, align 8
+  store ptr @_ZNSt17_Function_handlerIFvRKN3gmx18KeyValueTreeObjectEEZNS0_12_GLOBAL__N_14QMMM39subscribeToSimulationSetupNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %15, align 8
+  store ptr @_ZNSt17_Function_handlerIFvRKN3gmx18KeyValueTreeObjectEEZNS0_12_GLOBAL__N_14QMMM39subscribeToSimulationSetupNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %14, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 584
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 592
@@ -5717,10 +5717,10 @@ _ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18KeyValueTreeObjectEEEEE9constr
   %22 = getelementptr inbounds i8, ptr %18, i64 24
   %23 = getelementptr inbounds i8, ptr %18, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 24, i1 false)
-  store i64 %16, ptr %18, align 8
-  %24 = load ptr, ptr %14, align 8
+  store i64 %13, ptr %18, align 8
+  %24 = load ptr, ptr %15, align 8
   store ptr %24, ptr %22, align 8
-  %25 = load ptr, ptr %13, align 8
+  %25 = load ptr, ptr %14, align 8
   store ptr %25, ptr %21, align 8
   %26 = load ptr, ptr %17, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 32
@@ -5733,13 +5733,13 @@ _ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18KeyValueTreeObjectEEEEE9constr
           to label %._ZN3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge unwind label %.body
 
 ._ZN3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge: ; preds = %28
-  %.pre = load ptr, ptr %13, align 8
+  %.pre = load ptr, ptr %14, align 8
   br label %_ZN3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit
 
 _ZN3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit: ; preds = %._ZN3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge, %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18KeyValueTreeObjectEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i
   %30 = phi ptr [ %.pre, %._ZN3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge ], [ %25, %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18KeyValueTreeObjectEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i ]
-  %.not.i.i11 = icmp eq ptr %30, null
-  br i1 %.not.i.i11, label %_ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit, label %31
+  %.not.i.i15 = icmp eq ptr %30, null
+  br i1 %.not.i.i15, label %_ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit, label %31
 
 31:                                               ; preds = %_ZN3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit
   %32 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
@@ -5757,23 +5757,23 @@ _ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit: ; preds = %_ZN3gmx17MD
   %37 = getelementptr inbounds i8, ptr %4, i64 24
   %38 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 0, ptr %38, align 8
-  store i64 %16, ptr %4, align 8
+  store i64 %13, ptr %4, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx18MdRunInputFilenameEEZNS0_12_GLOBAL__N_14QMMM39subscribeToSimulationSetupNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %37, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx18MdRunInputFilenameEEZNS0_12_GLOBAL__N_14QMMM39subscribeToSimulationSetupNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %36, align 8
   %39 = getelementptr inbounds i8, ptr %1, i64 320
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %1, i64 328
   %42 = load ptr, ptr %41, align 8
-  %.not.i.i13 = icmp eq ptr %40, %42
-  br i1 %.not.i.i13, label %63, label %43
+  %.not.i.i16 = icmp eq ptr %40, %42
+  br i1 %.not.i.i16, label %63, label %43
 
 43:                                               ; preds = %_ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit
   %44 = getelementptr inbounds i8, ptr %40, i64 16
   %45 = getelementptr inbounds i8, ptr %40, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   %46 = load ptr, ptr %36, align 8
-  %.not.i.i.not.i.i.i.i.i14 = icmp eq ptr %46, null
-  br i1 %.not.i.i.not.i.i.i.i.i14, label %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18MdRunInputFilenameEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i, label %47
+  %.not.i.i.not.i.i.i.i.i17 = icmp eq ptr %46, null
+  br i1 %.not.i.i.not.i.i.i.i.i17, label %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18MdRunInputFilenameEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i, label %47
 
 47:                                               ; preds = %43
   %48 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
@@ -5790,12 +5790,12 @@ _ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit: ; preds = %_ZN3gmx17MD
   %53 = landingpad { ptr, i32 }
           cleanup
   %54 = load ptr, ptr %44, align 8
-  %.not.i.i.i.i.i.i15 = icmp eq ptr %54, null
-  br i1 %.not.i.i.i.i.i.i15, label %.body17, label %55
+  %.not.i.i.i.i.i.i18 = icmp eq ptr %54, null
+  br i1 %.not.i.i.i.i.i.i18, label %.body20, label %55
 
 55:                                               ; preds = %52
   %56 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef 3)
-          to label %.body17 unwind label %57
+          to label %.body20 unwind label %57
 
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
@@ -5822,8 +5822,8 @@ _ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18MdRunInputFilenameEEEEE9constr
 
 _ZN3gmx17MDModulesNotifierIRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEE9subscribeESt8functionIFvS3_EE.exit: ; preds = %._ZN3gmx17MDModulesNotifierIRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge, %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18MdRunInputFilenameEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i
   %65 = phi ptr [ %.pre82, %._ZN3gmx17MDModulesNotifierIRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge ], [ %60, %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18MdRunInputFilenameEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i ]
-  %.not.i.i20 = icmp eq ptr %65, null
-  br i1 %.not.i.i20, label %_ZNSt8functionIFvRKN3gmx18MdRunInputFilenameEEED2Ev.exit, label %66
+  %.not.i.i23 = icmp eq ptr %65, null
+  br i1 %.not.i.i23, label %_ZNSt8functionIFvRKN3gmx18MdRunInputFilenameEEED2Ev.exit, label %66
 
 66:                                               ; preds = %_ZN3gmx17MDModulesNotifierIRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEE9subscribeESt8functionIFvS3_EE.exit
   %67 = invoke noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
@@ -5841,23 +5841,23 @@ _ZNSt8functionIFvRKN3gmx18MdRunInputFilenameEEED2Ev.exit: ; preds = %_ZN3gmx17MD
   %72 = getelementptr inbounds i8, ptr %5, i64 24
   %73 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 0, ptr %73, align 8
-  store i64 %16, ptr %5, align 8
+  store i64 %13, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN3gmx19LocalAtomSetManagerEEZNS0_12_GLOBAL__N_14QMMM39subscribeToSimulationSetupNotificationsEPNS0_18MDModulesNotifiersEEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_, ptr %72, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN3gmx19LocalAtomSetManagerEEZNS0_12_GLOBAL__N_14QMMM39subscribeToSimulationSetupNotificationsEPNS0_18MDModulesNotifiersEEUlS2_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %71, align 8
   %74 = getelementptr inbounds i8, ptr %1, i64 560
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %1, i64 568
   %77 = load ptr, ptr %76, align 8
-  %.not.i.i22 = icmp eq ptr %75, %77
-  br i1 %.not.i.i22, label %98, label %78
+  %.not.i.i24 = icmp eq ptr %75, %77
+  br i1 %.not.i.i24, label %98, label %78
 
 78:                                               ; preds = %_ZNSt8functionIFvRKN3gmx18MdRunInputFilenameEEED2Ev.exit
   %79 = getelementptr inbounds i8, ptr %75, i64 16
   %80 = getelementptr inbounds i8, ptr %75, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false)
   %81 = load ptr, ptr %71, align 8
-  %.not.i.i.not.i.i.i.i.i23 = icmp eq ptr %81, null
-  br i1 %.not.i.i.not.i.i.i.i.i23, label %_ZNSt16allocator_traitsISaISt8functionIFvPN3gmx19LocalAtomSetManagerEEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit.i.i, label %82
+  %.not.i.i.not.i.i.i.i.i25 = icmp eq ptr %81, null
+  br i1 %.not.i.i.not.i.i.i.i.i25, label %_ZNSt16allocator_traitsISaISt8functionIFvPN3gmx19LocalAtomSetManagerEEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit.i.i, label %82
 
 82:                                               ; preds = %78
   %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 2)
@@ -5874,12 +5874,12 @@ _ZNSt8functionIFvRKN3gmx18MdRunInputFilenameEEED2Ev.exit: ; preds = %_ZN3gmx17MD
   %88 = landingpad { ptr, i32 }
           cleanup
   %89 = load ptr, ptr %79, align 8
-  %.not.i.i.i.i.i.i24 = icmp eq ptr %89, null
-  br i1 %.not.i.i.i.i.i.i24, label %.body26, label %90
+  %.not.i.i.i.i.i.i26 = icmp eq ptr %89, null
+  br i1 %.not.i.i.i.i.i.i26, label %.body28, label %90
 
 90:                                               ; preds = %87
   %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %75, i32 noundef 3)
-          to label %.body26 unwind label %92
+          to label %.body28 unwind label %92
 
 92:                                               ; preds = %90
   %93 = landingpad { ptr, i32 }
@@ -5906,8 +5906,8 @@ _ZNSt16allocator_traitsISaISt8functionIFvPN3gmx19LocalAtomSetManagerEEEEE9constr
 
 _ZN3gmx17MDModulesNotifierIPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit: ; preds = %._ZN3gmx17MDModulesNotifierIPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit_crit_edge, %_ZNSt16allocator_traitsISaISt8functionIFvPN3gmx19LocalAtomSetManagerEEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit.i.i
   %100 = phi ptr [ %.pre83, %._ZN3gmx17MDModulesNotifierIPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit_crit_edge ], [ %95, %_ZNSt16allocator_traitsISaISt8functionIFvPN3gmx19LocalAtomSetManagerEEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit.i.i ]
-  %.not.i.i29 = icmp eq ptr %100, null
-  br i1 %.not.i.i29, label %_ZNSt8functionIFvPN3gmx19LocalAtomSetManagerEEED2Ev.exit, label %101
+  %.not.i.i31 = icmp eq ptr %100, null
+  br i1 %.not.i.i31, label %_ZNSt8functionIFvPN3gmx19LocalAtomSetManagerEEED2Ev.exit, label %101
 
 101:                                              ; preds = %_ZN3gmx17MDModulesNotifierIPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit
   %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
@@ -5925,23 +5925,23 @@ _ZNSt8functionIFvPN3gmx19LocalAtomSetManagerEEED2Ev.exit: ; preds = %_ZN3gmx17MD
   %107 = getelementptr inbounds i8, ptr %6, i64 24
   %108 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %108, align 8
-  store i64 %16, ptr %6, align 8
+  store i64 %13, ptr %6, align 8
   store ptr @_ZNSt17_Function_handlerIFvRK7PbcTypeEZN3gmx12_GLOBAL__N_14QMMM39subscribeToSimulationSetupNotificationsEPNS4_18MDModulesNotifiersEEUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %107, align 8
   store ptr @_ZNSt17_Function_handlerIFvRK7PbcTypeEZN3gmx12_GLOBAL__N_14QMMM39subscribeToSimulationSetupNotificationsEPNS4_18MDModulesNotifiersEEUlS2_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %106, align 8
   %109 = getelementptr inbounds i8, ptr %1, i64 392
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %1, i64 400
   %112 = load ptr, ptr %111, align 8
-  %.not.i.i31 = icmp eq ptr %110, %112
-  br i1 %.not.i.i31, label %133, label %113
+  %.not.i.i32 = icmp eq ptr %110, %112
+  br i1 %.not.i.i32, label %133, label %113
 
 113:                                              ; preds = %_ZNSt8functionIFvPN3gmx19LocalAtomSetManagerEEED2Ev.exit
   %114 = getelementptr inbounds i8, ptr %110, i64 16
   %115 = getelementptr inbounds i8, ptr %110, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, i8 0, i64 32, i1 false)
   %116 = load ptr, ptr %106, align 8
-  %.not.i.i.not.i.i.i.i.i32 = icmp eq ptr %116, null
-  br i1 %.not.i.i.not.i.i.i.i.i32, label %_ZNSt16allocator_traitsISaISt8functionIFvRK7PbcTypeEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit.i.i, label %117
+  %.not.i.i.not.i.i.i.i.i33 = icmp eq ptr %116, null
+  br i1 %.not.i.i.not.i.i.i.i.i33, label %_ZNSt16allocator_traitsISaISt8functionIFvRK7PbcTypeEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit.i.i, label %117
 
 117:                                              ; preds = %113
   %118 = invoke noundef zeroext i1 %116(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2)
@@ -5958,12 +5958,12 @@ _ZNSt8functionIFvPN3gmx19LocalAtomSetManagerEEED2Ev.exit: ; preds = %_ZN3gmx17MD
   %123 = landingpad { ptr, i32 }
           cleanup
   %124 = load ptr, ptr %114, align 8
-  %.not.i.i.i.i.i.i33 = icmp eq ptr %124, null
-  br i1 %.not.i.i.i.i.i.i33, label %.body35, label %125
+  %.not.i.i.i.i.i.i34 = icmp eq ptr %124, null
+  br i1 %.not.i.i.i.i.i.i34, label %.body36, label %125
 
 125:                                              ; preds = %122
   %126 = invoke noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %110, i32 noundef 3)
-          to label %.body35 unwind label %127
+          to label %.body36 unwind label %127
 
 127:                                              ; preds = %125
   %128 = landingpad { ptr, i32 }
@@ -5990,8 +5990,8 @@ _ZNSt16allocator_traitsISaISt8functionIFvRK7PbcTypeEEEE9constructIS5_JRS5_EEEvRS
 
 _ZN3gmx17MDModulesNotifierIRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit: ; preds = %._ZN3gmx17MDModulesNotifierIRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge, %_ZNSt16allocator_traitsISaISt8functionIFvRK7PbcTypeEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit.i.i
   %135 = phi ptr [ %.pre84, %._ZN3gmx17MDModulesNotifierIRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge ], [ %130, %_ZNSt16allocator_traitsISaISt8functionIFvRK7PbcTypeEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit.i.i ]
-  %.not.i.i38 = icmp eq ptr %135, null
-  br i1 %.not.i.i38, label %_ZNSt8functionIFvRK7PbcTypeEED2Ev.exit, label %136
+  %.not.i.i39 = icmp eq ptr %135, null
+  br i1 %.not.i.i39, label %_ZNSt8functionIFvRK7PbcTypeEED2Ev.exit, label %136
 
 136:                                              ; preds = %_ZN3gmx17MDModulesNotifierIRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit
   %137 = invoke noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
@@ -6009,7 +6009,7 @@ _ZNSt8functionIFvRK7PbcTypeEED2Ev.exit:           ; preds = %_ZN3gmx17MDModulesN
   %142 = getelementptr inbounds i8, ptr %7, i64 24
   %143 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 0, ptr %143, align 8
-  store i64 %16, ptr %7, align 8
+  store i64 %13, ptr %7, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx8MDLoggerEEZNS0_12_GLOBAL__N_14QMMM39subscribeToSimulationSetupNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %142, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx8MDLoggerEEZNS0_12_GLOBAL__N_14QMMM39subscribeToSimulationSetupNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %141, align 8
   %144 = getelementptr inbounds i8, ptr %1, i64 536
@@ -6186,7 +6186,7 @@ _ZNSt8functionIFvPN3gmx25SeparatePmeRanksPermittedEEED2Ev.exit: ; preds = %206, 
 .body:                                            ; preds = %28
   %212 = landingpad { ptr, i32 }
           cleanup
-  %213 = load ptr, ptr %13, align 8
+  %213 = load ptr, ptr %14, align 8
   %.not.i.i64 = icmp eq ptr %213, null
   br i1 %.not.i.i64, label %_ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit65, label %214
 
@@ -6204,15 +6204,15 @@ _ZNSt8functionIFvPN3gmx25SeparatePmeRanksPermittedEEED2Ev.exit: ; preds = %206, 
 219:                                              ; preds = %63
   %220 = landingpad { ptr, i32 }
           cleanup
-  br label %.body17
+  br label %.body20
 
-.body17:                                          ; preds = %52, %55, %219
-  %eh.lpad-body18 = phi { ptr, i32 } [ %220, %219 ], [ %53, %55 ], [ %53, %52 ]
+.body20:                                          ; preds = %52, %55, %219
+  %eh.lpad-body21 = phi { ptr, i32 } [ %220, %219 ], [ %53, %55 ], [ %53, %52 ]
   %221 = load ptr, ptr %36, align 8
   %.not.i.i66 = icmp eq ptr %221, null
   br i1 %.not.i.i66, label %_ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit65, label %222
 
-222:                                              ; preds = %.body17
+222:                                              ; preds = %.body20
   %223 = invoke noundef zeroext i1 %221(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit65 unwind label %224
 
@@ -6226,15 +6226,15 @@ _ZNSt8functionIFvPN3gmx25SeparatePmeRanksPermittedEEED2Ev.exit: ; preds = %206, 
 227:                                              ; preds = %98
   %228 = landingpad { ptr, i32 }
           cleanup
-  br label %.body26
+  br label %.body28
 
-.body26:                                          ; preds = %87, %90, %227
-  %eh.lpad-body27 = phi { ptr, i32 } [ %228, %227 ], [ %88, %90 ], [ %88, %87 ]
+.body28:                                          ; preds = %87, %90, %227
+  %eh.lpad-body29 = phi { ptr, i32 } [ %228, %227 ], [ %88, %90 ], [ %88, %87 ]
   %229 = load ptr, ptr %71, align 8
   %.not.i.i68 = icmp eq ptr %229, null
   br i1 %.not.i.i68, label %_ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit65, label %230
 
-230:                                              ; preds = %.body26
+230:                                              ; preds = %.body28
   %231 = invoke noundef zeroext i1 %229(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit65 unwind label %232
 
@@ -6248,15 +6248,15 @@ _ZNSt8functionIFvPN3gmx25SeparatePmeRanksPermittedEEED2Ev.exit: ; preds = %206, 
 235:                                              ; preds = %133
   %236 = landingpad { ptr, i32 }
           cleanup
-  br label %.body35
+  br label %.body36
 
-.body35:                                          ; preds = %122, %125, %235
-  %eh.lpad-body36 = phi { ptr, i32 } [ %236, %235 ], [ %123, %125 ], [ %123, %122 ]
+.body36:                                          ; preds = %122, %125, %235
+  %eh.lpad-body37 = phi { ptr, i32 } [ %236, %235 ], [ %123, %125 ], [ %123, %122 ]
   %237 = load ptr, ptr %106, align 8
   %.not.i.i70 = icmp eq ptr %237, null
   br i1 %.not.i.i70, label %_ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit65, label %238
 
-238:                                              ; preds = %.body35
+238:                                              ; preds = %.body36
   %239 = invoke noundef zeroext i1 %237(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit65 unwind label %240
 
@@ -6325,8 +6325,8 @@ _ZNSt8functionIFvPN3gmx25SeparatePmeRanksPermittedEEED2Ev.exit: ; preds = %206, 
   call void @__clang_call_terminate(ptr %264) #24
   unreachable
 
-_ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit65: ; preds = %260, %.body60, %253, %.body52, %246, %.body44, %238, %.body35, %230, %.body26, %222, %.body17, %214, %.body
-  %.pn = phi { ptr, i32 } [ %212, %.body ], [ %212, %214 ], [ %eh.lpad-body18, %.body17 ], [ %eh.lpad-body18, %222 ], [ %eh.lpad-body27, %.body26 ], [ %eh.lpad-body27, %230 ], [ %eh.lpad-body36, %.body35 ], [ %eh.lpad-body36, %238 ], [ %eh.lpad-body45, %.body44 ], [ %eh.lpad-body45, %246 ], [ %251, %.body52 ], [ %251, %253 ], [ %258, %.body60 ], [ %258, %260 ]
+_ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit65: ; preds = %260, %.body60, %253, %.body52, %246, %.body44, %238, %.body36, %230, %.body28, %222, %.body20, %214, %.body
+  %.pn = phi { ptr, i32 } [ %212, %.body ], [ %212, %214 ], [ %eh.lpad-body21, %.body20 ], [ %eh.lpad-body21, %222 ], [ %eh.lpad-body29, %.body28 ], [ %eh.lpad-body29, %230 ], [ %eh.lpad-body37, %.body36 ], [ %eh.lpad-body37, %238 ], [ %eh.lpad-body45, %.body44 ], [ %eh.lpad-body45, %246 ], [ %251, %.body52 ], [ %251, %253 ], [ %258, %.body60 ], [ %258, %260 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -6344,14 +6344,14 @@ define internal void @_ZN3gmx12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotifi
   br i1 %11, label %12, label %_ZNSt8functionIFvRKN3gmx15QMInputFileNameEEED2Ev.exit
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %15, align 8
-  %16 = ptrtoint ptr %0 to i64
-  store i64 %16, ptr %3, align 8
-  store ptr @_ZNSt17_Function_handlerIFvN3gmx25KeyValueTreeObjectBuilderEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %14, align 8
-  store ptr @_ZNSt17_Function_handlerIFvN3gmx25KeyValueTreeObjectBuilderEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %13, align 8
+  %13 = ptrtoint ptr %0 to i64
+  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %16, align 8
+  store i64 %13, ptr %3, align 8
+  store ptr @_ZNSt17_Function_handlerIFvN3gmx25KeyValueTreeObjectBuilderEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %15, align 8
+  store ptr @_ZNSt17_Function_handlerIFvN3gmx25KeyValueTreeObjectBuilderEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %14, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 64
@@ -6364,10 +6364,10 @@ _ZNSt16allocator_traitsISaISt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEEEE9c
   %22 = getelementptr inbounds i8, ptr %18, i64 24
   %23 = getelementptr inbounds i8, ptr %18, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 24, i1 false)
-  store i64 %16, ptr %18, align 8
-  %24 = load ptr, ptr %14, align 8
+  store i64 %13, ptr %18, align 8
+  %24 = load ptr, ptr %15, align 8
   store ptr %24, ptr %22, align 8
-  %25 = load ptr, ptr %13, align 8
+  %25 = load ptr, ptr %14, align 8
   store ptr %25, ptr %21, align 8
   %26 = load ptr, ptr %17, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 32
@@ -6380,13 +6380,13 @@ _ZNSt16allocator_traitsISaISt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEEEE9c
           to label %._ZN3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE9subscribeESt8functionIFvS1_EE.exit_crit_edge unwind label %.body
 
 ._ZN3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE9subscribeESt8functionIFvS1_EE.exit_crit_edge: ; preds = %28
-  %.pre = load ptr, ptr %13, align 8
+  %.pre = load ptr, ptr %14, align 8
   br label %_ZN3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE9subscribeESt8functionIFvS1_EE.exit
 
 _ZN3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE9subscribeESt8functionIFvS1_EE.exit: ; preds = %._ZN3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE9subscribeESt8functionIFvS1_EE.exit_crit_edge, %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEEEE9constructIS4_JRS4_EEEvRS5_PT_DpOT0_.exit.i.i
   %30 = phi ptr [ %.pre, %._ZN3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE9subscribeESt8functionIFvS1_EE.exit_crit_edge ], [ %25, %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEEEE9constructIS4_JRS4_EEEvRS5_PT_DpOT0_.exit.i.i ]
-  %.not.i.i11 = icmp eq ptr %30, null
-  br i1 %.not.i.i11, label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit, label %31
+  %.not.i.i17 = icmp eq ptr %30, null
+  br i1 %.not.i.i17, label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit, label %31
 
 31:                                               ; preds = %_ZN3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE9subscribeESt8functionIFvS1_EE.exit
   %32 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
@@ -6404,23 +6404,23 @@ _ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit: ; preds = %_ZN3gm
   %37 = getelementptr inbounds i8, ptr %4, i64 24
   %38 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 0, ptr %38, align 8
-  store i64 %16, ptr %4, align 8
+  store i64 %13, ptr %4, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx19IndexGroupsAndNamesEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %37, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx19IndexGroupsAndNamesEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %36, align 8
   %39 = getelementptr inbounds i8, ptr %1, i64 80
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %1, i64 88
   %42 = load ptr, ptr %41, align 8
-  %.not.i.i13 = icmp eq ptr %40, %42
-  br i1 %.not.i.i13, label %63, label %43
+  %.not.i.i18 = icmp eq ptr %40, %42
+  br i1 %.not.i.i18, label %63, label %43
 
 43:                                               ; preds = %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit
   %44 = getelementptr inbounds i8, ptr %40, i64 16
   %45 = getelementptr inbounds i8, ptr %40, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   %46 = load ptr, ptr %36, align 8
-  %.not.i.i.not.i.i.i.i.i14 = icmp eq ptr %46, null
-  br i1 %.not.i.i.not.i.i.i.i.i14, label %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx19IndexGroupsAndNamesEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i, label %47
+  %.not.i.i.not.i.i.i.i.i19 = icmp eq ptr %46, null
+  br i1 %.not.i.i.not.i.i.i.i.i19, label %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx19IndexGroupsAndNamesEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i, label %47
 
 47:                                               ; preds = %43
   %48 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
@@ -6437,12 +6437,12 @@ _ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit: ; preds = %_ZN3gm
   %53 = landingpad { ptr, i32 }
           cleanup
   %54 = load ptr, ptr %44, align 8
-  %.not.i.i.i.i.i.i15 = icmp eq ptr %54, null
-  br i1 %.not.i.i.i.i.i.i15, label %.body17, label %55
+  %.not.i.i.i.i.i.i20 = icmp eq ptr %54, null
+  br i1 %.not.i.i.i.i.i.i20, label %.body22, label %55
 
 55:                                               ; preds = %52
   %56 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef 3)
-          to label %.body17 unwind label %57
+          to label %.body22 unwind label %57
 
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
@@ -6469,8 +6469,8 @@ _ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx19IndexGroupsAndNamesEEEEE9const
 
 _ZN3gmx17MDModulesNotifierIRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEE9subscribeESt8functionIFvS3_EE.exit: ; preds = %._ZN3gmx17MDModulesNotifierIRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge, %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx19IndexGroupsAndNamesEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i
   %65 = phi ptr [ %.pre86, %._ZN3gmx17MDModulesNotifierIRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge ], [ %60, %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx19IndexGroupsAndNamesEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i ]
-  %.not.i.i20 = icmp eq ptr %65, null
-  br i1 %.not.i.i20, label %_ZNSt8functionIFvRKN3gmx19IndexGroupsAndNamesEEED2Ev.exit, label %66
+  %.not.i.i25 = icmp eq ptr %65, null
+  br i1 %.not.i.i25, label %_ZNSt8functionIFvRKN3gmx19IndexGroupsAndNamesEEED2Ev.exit, label %66
 
 66:                                               ; preds = %_ZN3gmx17MDModulesNotifierIRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEE9subscribeESt8functionIFvS3_EE.exit
   %67 = invoke noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
@@ -6488,23 +6488,23 @@ _ZNSt8functionIFvRKN3gmx19IndexGroupsAndNamesEEED2Ev.exit: ; preds = %_ZN3gmx17M
   %72 = getelementptr inbounds i8, ptr %5, i64 24
   %73 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 0, ptr %73, align 8
-  store i64 %16, ptr %5, align 8
+  store i64 %13, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx8MDLoggerEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %72, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx8MDLoggerEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %71, align 8
   %74 = getelementptr inbounds i8, ptr %1, i64 176
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %1, i64 184
   %77 = load ptr, ptr %76, align 8
-  %.not.i.i22 = icmp eq ptr %75, %77
-  br i1 %.not.i.i22, label %98, label %78
+  %.not.i.i26 = icmp eq ptr %75, %77
+  br i1 %.not.i.i26, label %98, label %78
 
 78:                                               ; preds = %_ZNSt8functionIFvRKN3gmx19IndexGroupsAndNamesEEED2Ev.exit
   %79 = getelementptr inbounds i8, ptr %75, i64 16
   %80 = getelementptr inbounds i8, ptr %75, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false)
   %81 = load ptr, ptr %71, align 8
-  %.not.i.i.not.i.i.i.i.i23 = icmp eq ptr %81, null
-  br i1 %.not.i.i.not.i.i.i.i.i23, label %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx8MDLoggerEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i, label %82
+  %.not.i.i.not.i.i.i.i.i27 = icmp eq ptr %81, null
+  br i1 %.not.i.i.not.i.i.i.i.i27, label %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx8MDLoggerEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i, label %82
 
 82:                                               ; preds = %78
   %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 2)
@@ -6521,12 +6521,12 @@ _ZNSt8functionIFvRKN3gmx19IndexGroupsAndNamesEEED2Ev.exit: ; preds = %_ZN3gmx17M
   %88 = landingpad { ptr, i32 }
           cleanup
   %89 = load ptr, ptr %79, align 8
-  %.not.i.i.i.i.i.i24 = icmp eq ptr %89, null
-  br i1 %.not.i.i.i.i.i.i24, label %.body26, label %90
+  %.not.i.i.i.i.i.i28 = icmp eq ptr %89, null
+  br i1 %.not.i.i.i.i.i.i28, label %.body30, label %90
 
 90:                                               ; preds = %87
   %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %75, i32 noundef 3)
-          to label %.body26 unwind label %92
+          to label %.body30 unwind label %92
 
 92:                                               ; preds = %90
   %93 = landingpad { ptr, i32 }
@@ -6553,8 +6553,8 @@ _ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx8MDLoggerEEEEE9constructIS6_JRS6
 
 _ZN3gmx17MDModulesNotifierIRKNS_8MDLoggerENS0_IP14WarningHandlerNS0_IPNS_32EnergyCalculationFrequencyErrorsENS0_IP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit: ; preds = %._ZN3gmx17MDModulesNotifierIRKNS_8MDLoggerENS0_IP14WarningHandlerNS0_IPNS_32EnergyCalculationFrequencyErrorsENS0_IP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge, %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx8MDLoggerEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i
   %100 = phi ptr [ %.pre87, %._ZN3gmx17MDModulesNotifierIRKNS_8MDLoggerENS0_IP14WarningHandlerNS0_IPNS_32EnergyCalculationFrequencyErrorsENS0_IP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge ], [ %95, %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx8MDLoggerEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i ]
-  %.not.i.i29 = icmp eq ptr %100, null
-  br i1 %.not.i.i29, label %_ZNSt8functionIFvRKN3gmx8MDLoggerEEED2Ev.exit, label %101
+  %.not.i.i33 = icmp eq ptr %100, null
+  br i1 %.not.i.i33, label %_ZNSt8functionIFvRKN3gmx8MDLoggerEEED2Ev.exit, label %101
 
 101:                                              ; preds = %_ZN3gmx17MDModulesNotifierIRKNS_8MDLoggerENS0_IP14WarningHandlerNS0_IPNS_32EnergyCalculationFrequencyErrorsENS0_IP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit
   %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
@@ -6572,23 +6572,23 @@ _ZNSt8functionIFvRKN3gmx8MDLoggerEEED2Ev.exit:    ; preds = %_ZN3gmx17MDModulesN
   %107 = getelementptr inbounds i8, ptr %6, i64 24
   %108 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %108, align 8
-  store i64 %16, ptr %6, align 8
+  store i64 %13, ptr %6, align 8
   store ptr @_ZNSt17_Function_handlerIFvP14WarningHandlerEZN3gmx12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS3_18MDModulesNotifiersEEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %107, align 8
   store ptr @_ZNSt17_Function_handlerIFvP14WarningHandlerEZN3gmx12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS3_18MDModulesNotifiersEEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %106, align 8
   %109 = getelementptr inbounds i8, ptr %1, i64 152
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %1, i64 160
   %112 = load ptr, ptr %111, align 8
-  %.not.i.i31 = icmp eq ptr %110, %112
-  br i1 %.not.i.i31, label %133, label %113
+  %.not.i.i34 = icmp eq ptr %110, %112
+  br i1 %.not.i.i34, label %133, label %113
 
 113:                                              ; preds = %_ZNSt8functionIFvRKN3gmx8MDLoggerEEED2Ev.exit
   %114 = getelementptr inbounds i8, ptr %110, i64 16
   %115 = getelementptr inbounds i8, ptr %110, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, i8 0, i64 32, i1 false)
   %116 = load ptr, ptr %106, align 8
-  %.not.i.i.not.i.i.i.i.i32 = icmp eq ptr %116, null
-  br i1 %.not.i.i.not.i.i.i.i.i32, label %_ZNSt16allocator_traitsISaISt8functionIFvP14WarningHandlerEEEE9constructIS4_JRS4_EEEvRS5_PT_DpOT0_.exit.i.i, label %117
+  %.not.i.i.not.i.i.i.i.i35 = icmp eq ptr %116, null
+  br i1 %.not.i.i.not.i.i.i.i.i35, label %_ZNSt16allocator_traitsISaISt8functionIFvP14WarningHandlerEEEE9constructIS4_JRS4_EEEvRS5_PT_DpOT0_.exit.i.i, label %117
 
 117:                                              ; preds = %113
   %118 = invoke noundef zeroext i1 %116(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2)
@@ -6605,12 +6605,12 @@ _ZNSt8functionIFvRKN3gmx8MDLoggerEEED2Ev.exit:    ; preds = %_ZN3gmx17MDModulesN
   %123 = landingpad { ptr, i32 }
           cleanup
   %124 = load ptr, ptr %114, align 8
-  %.not.i.i.i.i.i.i33 = icmp eq ptr %124, null
-  br i1 %.not.i.i.i.i.i.i33, label %.body35, label %125
+  %.not.i.i.i.i.i.i36 = icmp eq ptr %124, null
+  br i1 %.not.i.i.i.i.i.i36, label %.body38, label %125
 
 125:                                              ; preds = %122
   %126 = invoke noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %110, i32 noundef 3)
-          to label %.body35 unwind label %127
+          to label %.body38 unwind label %127
 
 127:                                              ; preds = %125
   %128 = landingpad { ptr, i32 }
@@ -6637,8 +6637,8 @@ _ZNSt16allocator_traitsISaISt8functionIFvP14WarningHandlerEEEE9constructIS4_JRS4
 
 _ZN3gmx17MDModulesNotifierIP14WarningHandlerNS0_IPNS_32EnergyCalculationFrequencyErrorsENS0_IP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit: ; preds = %._ZN3gmx17MDModulesNotifierIP14WarningHandlerNS0_IPNS_32EnergyCalculationFrequencyErrorsENS0_IP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit_crit_edge, %_ZNSt16allocator_traitsISaISt8functionIFvP14WarningHandlerEEEE9constructIS4_JRS4_EEEvRS5_PT_DpOT0_.exit.i.i
   %135 = phi ptr [ %.pre88, %._ZN3gmx17MDModulesNotifierIP14WarningHandlerNS0_IPNS_32EnergyCalculationFrequencyErrorsENS0_IP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit_crit_edge ], [ %130, %_ZNSt16allocator_traitsISaISt8functionIFvP14WarningHandlerEEEE9constructIS4_JRS4_EEEvRS5_PT_DpOT0_.exit.i.i ]
-  %.not.i.i38 = icmp eq ptr %135, null
-  br i1 %.not.i.i38, label %_ZNSt8functionIFvP14WarningHandlerEED2Ev.exit, label %136
+  %.not.i.i41 = icmp eq ptr %135, null
+  br i1 %.not.i.i41, label %_ZNSt8functionIFvP14WarningHandlerEED2Ev.exit, label %136
 
 136:                                              ; preds = %_ZN3gmx17MDModulesNotifierIP14WarningHandlerNS0_IPNS_32EnergyCalculationFrequencyErrorsENS0_IP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit
   %137 = invoke noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
@@ -6656,23 +6656,23 @@ _ZNSt8functionIFvP14WarningHandlerEED2Ev.exit:    ; preds = %_ZN3gmx17MDModulesN
   %142 = getelementptr inbounds i8, ptr %7, i64 24
   %143 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 0, ptr %143, align 8
-  store i64 %16, ptr %7, align 8
+  store i64 %13, ptr %7, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %142, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %141, align 8
   %144 = getelementptr inbounds i8, ptr %1, i64 200
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds i8, ptr %1, i64 208
   %147 = load ptr, ptr %146, align 8
-  %.not.i.i40 = icmp eq ptr %145, %147
-  br i1 %.not.i.i40, label %168, label %148
+  %.not.i.i42 = icmp eq ptr %145, %147
+  br i1 %.not.i.i42, label %168, label %148
 
 148:                                              ; preds = %_ZNSt8functionIFvP14WarningHandlerEED2Ev.exit
   %149 = getelementptr inbounds i8, ptr %145, i64 16
   %150 = getelementptr inbounds i8, ptr %145, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %145, i8 0, i64 32, i1 false)
   %151 = load ptr, ptr %141, align 8
-  %.not.i.i.not.i.i.i.i.i41 = icmp eq ptr %151, null
-  br i1 %.not.i.i.not.i.i.i.i.i41, label %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i, label %152
+  %.not.i.i.not.i.i.i.i.i43 = icmp eq ptr %151, null
+  br i1 %.not.i.i.not.i.i.i.i.i43, label %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i, label %152
 
 152:                                              ; preds = %148
   %153 = invoke noundef zeroext i1 %151(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2)
@@ -6689,12 +6689,12 @@ _ZNSt8functionIFvP14WarningHandlerEED2Ev.exit:    ; preds = %_ZN3gmx17MDModulesN
   %158 = landingpad { ptr, i32 }
           cleanup
   %159 = load ptr, ptr %149, align 8
-  %.not.i.i.i.i.i.i42 = icmp eq ptr %159, null
-  br i1 %.not.i.i.i.i.i.i42, label %.body44, label %160
+  %.not.i.i.i.i.i.i44 = icmp eq ptr %159, null
+  br i1 %.not.i.i.i.i.i.i44, label %.body46, label %160
 
 160:                                              ; preds = %157
   %161 = invoke noundef zeroext i1 %159(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull align 8 dereferenceable(16) %145, i32 noundef 3)
-          to label %.body44 unwind label %162
+          to label %.body46 unwind label %162
 
 162:                                              ; preds = %160
   %163 = landingpad { ptr, i32 }
@@ -6721,8 +6721,8 @@ _ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedE
 
 _ZN3gmx17MDModulesNotifierIRKNS_29CoordinatesAndBoxPreprocessedENS0_IRKNS_8MDLoggerENS0_IP14WarningHandlerNS0_IPNS_32EnergyCalculationFrequencyErrorsENS0_IP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit: ; preds = %._ZN3gmx17MDModulesNotifierIRKNS_29CoordinatesAndBoxPreprocessedENS0_IRKNS_8MDLoggerENS0_IP14WarningHandlerNS0_IPNS_32EnergyCalculationFrequencyErrorsENS0_IP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge, %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i
   %170 = phi ptr [ %.pre89, %._ZN3gmx17MDModulesNotifierIRKNS_29CoordinatesAndBoxPreprocessedENS0_IRKNS_8MDLoggerENS0_IP14WarningHandlerNS0_IPNS_32EnergyCalculationFrequencyErrorsENS0_IP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge ], [ %165, %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i ]
-  %.not.i.i47 = icmp eq ptr %170, null
-  br i1 %.not.i.i47, label %_ZNSt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEED2Ev.exit, label %171
+  %.not.i.i49 = icmp eq ptr %170, null
+  br i1 %.not.i.i49, label %_ZNSt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEED2Ev.exit, label %171
 
 171:                                              ; preds = %_ZN3gmx17MDModulesNotifierIRKNS_29CoordinatesAndBoxPreprocessedENS0_IRKNS_8MDLoggerENS0_IP14WarningHandlerNS0_IPNS_32EnergyCalculationFrequencyErrorsENS0_IP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit
   %172 = invoke noundef zeroext i1 %170(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
@@ -6740,22 +6740,22 @@ _ZNSt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEED2Ev.exit: ; preds = %
   %177 = getelementptr inbounds i8, ptr %8, i64 24
   %178 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 0, ptr %178, align 8
-  store i64 %16, ptr %8, align 8
+  store i64 %13, ptr %8, align 8
   store ptr @_ZNSt17_Function_handlerIFvP10gmx_mtop_tEZN3gmx12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS3_18MDModulesNotifiersEEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %177, align 8
   store ptr @_ZNSt17_Function_handlerIFvP10gmx_mtop_tEZN3gmx12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS3_18MDModulesNotifiersEEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %176, align 8
   %179 = getelementptr inbounds i8, ptr %1, i64 104
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds i8, ptr %1, i64 112
   %182 = load ptr, ptr %181, align 8
-  %.not.i.i49 = icmp eq ptr %180, %182
-  br i1 %.not.i.i49, label %188, label %_ZN3gmx17MDModulesNotifierIP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit.thread
+  %.not.i.i50 = icmp eq ptr %180, %182
+  br i1 %.not.i.i50, label %188, label %_ZN3gmx17MDModulesNotifierIP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit.thread
 
 _ZN3gmx17MDModulesNotifierIP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit.thread: ; preds = %_ZNSt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEED2Ev.exit
   %183 = getelementptr inbounds i8, ptr %180, i64 16
   %184 = getelementptr inbounds i8, ptr %180, i64 24
   %185 = getelementptr inbounds i8, ptr %180, i64 8
   store i64 0, ptr %185, align 8
-  store i64 %16, ptr %180, align 8
+  store i64 %13, ptr %180, align 8
   store ptr @_ZNSt17_Function_handlerIFvP10gmx_mtop_tEZN3gmx12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS3_18MDModulesNotifiersEEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %184, align 8
   store ptr @_ZNSt17_Function_handlerIFvP10gmx_mtop_tEZN3gmx12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS3_18MDModulesNotifiersEEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %183, align 8
   %186 = load ptr, ptr %179, align 8
@@ -6766,12 +6766,12 @@ _ZN3gmx17MDModulesNotifierIP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_
 188:                                              ; preds = %_ZNSt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEED2Ev.exit
   %189 = getelementptr inbounds i8, ptr %1, i64 96
   invoke void @_ZNSt6vectorISt8functionIFvP10gmx_mtop_tEESaIS4_EE17_M_realloc_insertIJRS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %189, ptr %180, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %_ZN3gmx17MDModulesNotifierIP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit unwind label %.body53
+          to label %_ZN3gmx17MDModulesNotifierIP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit unwind label %.body54
 
 _ZN3gmx17MDModulesNotifierIP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit: ; preds = %188
   %.pre90 = load ptr, ptr %176, align 8
-  %.not.i.i56 = icmp eq ptr %.pre90, null
-  br i1 %.not.i.i56, label %_ZNSt8functionIFvP10gmx_mtop_tEED2Ev.exit, label %190
+  %.not.i.i57 = icmp eq ptr %.pre90, null
+  br i1 %.not.i.i57, label %_ZNSt8functionIFvP10gmx_mtop_tEED2Ev.exit, label %190
 
 190:                                              ; preds = %_ZN3gmx17MDModulesNotifierIP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit.thread, %_ZN3gmx17MDModulesNotifierIP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit
   %191 = phi ptr [ @_ZNSt17_Function_handlerIFvP10gmx_mtop_tEZN3gmx12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS3_18MDModulesNotifiersEEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, %_ZN3gmx17MDModulesNotifierIP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit.thread ], [ %.pre90, %_ZN3gmx17MDModulesNotifierIP10gmx_mtop_tNS0_IRKNS_19IndexGroupsAndNamesENS0_INS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEE9subscribeESt8functionIFvS2_EE.exit ]
@@ -6790,7 +6790,7 @@ _ZNSt8functionIFvP10gmx_mtop_tEED2Ev.exit:        ; preds = %_ZN3gmx17MDModulesN
   %197 = getelementptr inbounds i8, ptr %9, i64 24
   %198 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 0, ptr %198, align 8
-  store i64 %16, ptr %9, align 8
+  store i64 %13, ptr %9, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx15QMInputFileNameEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %197, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx15QMInputFileNameEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %196, align 8
   %199 = getelementptr inbounds i8, ptr %1, i64 32
@@ -6805,7 +6805,7 @@ _ZN3gmx17MDModulesNotifierIRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatur
   %204 = getelementptr inbounds i8, ptr %200, i64 24
   %205 = getelementptr inbounds i8, ptr %200, i64 8
   store i64 0, ptr %205, align 8
-  store i64 %16, ptr %200, align 8
+  store i64 %13, ptr %200, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx15QMInputFileNameEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %204, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN3gmx15QMInputFileNameEEZNS0_12_GLOBAL__N_14QMMM37subscribeToPreProcessingNotificationsEPNS0_18MDModulesNotifiersEEUlS3_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %203, align 8
   %206 = load ptr, ptr %199, align 8
@@ -6841,7 +6841,7 @@ _ZNSt8functionIFvRKN3gmx15QMInputFileNameEEED2Ev.exit: ; preds = %210, %_ZN3gmx1
 .body:                                            ; preds = %28
   %216 = landingpad { ptr, i32 }
           cleanup
-  %217 = load ptr, ptr %13, align 8
+  %217 = load ptr, ptr %14, align 8
   %.not.i.i66 = icmp eq ptr %217, null
   br i1 %.not.i.i66, label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit67, label %218
 
@@ -6859,15 +6859,15 @@ _ZNSt8functionIFvRKN3gmx15QMInputFileNameEEED2Ev.exit: ; preds = %210, %_ZN3gmx1
 223:                                              ; preds = %63
   %224 = landingpad { ptr, i32 }
           cleanup
-  br label %.body17
+  br label %.body22
 
-.body17:                                          ; preds = %52, %55, %223
-  %eh.lpad-body18 = phi { ptr, i32 } [ %224, %223 ], [ %53, %55 ], [ %53, %52 ]
+.body22:                                          ; preds = %52, %55, %223
+  %eh.lpad-body23 = phi { ptr, i32 } [ %224, %223 ], [ %53, %55 ], [ %53, %52 ]
   %225 = load ptr, ptr %36, align 8
   %.not.i.i68 = icmp eq ptr %225, null
   br i1 %.not.i.i68, label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit67, label %226
 
-226:                                              ; preds = %.body17
+226:                                              ; preds = %.body22
   %227 = invoke noundef zeroext i1 %225(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit67 unwind label %228
 
@@ -6881,15 +6881,15 @@ _ZNSt8functionIFvRKN3gmx15QMInputFileNameEEED2Ev.exit: ; preds = %210, %_ZN3gmx1
 231:                                              ; preds = %98
   %232 = landingpad { ptr, i32 }
           cleanup
-  br label %.body26
+  br label %.body30
 
-.body26:                                          ; preds = %87, %90, %231
-  %eh.lpad-body27 = phi { ptr, i32 } [ %232, %231 ], [ %88, %90 ], [ %88, %87 ]
+.body30:                                          ; preds = %87, %90, %231
+  %eh.lpad-body31 = phi { ptr, i32 } [ %232, %231 ], [ %88, %90 ], [ %88, %87 ]
   %233 = load ptr, ptr %71, align 8
   %.not.i.i70 = icmp eq ptr %233, null
   br i1 %.not.i.i70, label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit67, label %234
 
-234:                                              ; preds = %.body26
+234:                                              ; preds = %.body30
   %235 = invoke noundef zeroext i1 %233(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit67 unwind label %236
 
@@ -6903,15 +6903,15 @@ _ZNSt8functionIFvRKN3gmx15QMInputFileNameEEED2Ev.exit: ; preds = %210, %_ZN3gmx1
 239:                                              ; preds = %133
   %240 = landingpad { ptr, i32 }
           cleanup
-  br label %.body35
+  br label %.body38
 
-.body35:                                          ; preds = %122, %125, %239
-  %eh.lpad-body36 = phi { ptr, i32 } [ %240, %239 ], [ %123, %125 ], [ %123, %122 ]
+.body38:                                          ; preds = %122, %125, %239
+  %eh.lpad-body39 = phi { ptr, i32 } [ %240, %239 ], [ %123, %125 ], [ %123, %122 ]
   %241 = load ptr, ptr %106, align 8
   %.not.i.i72 = icmp eq ptr %241, null
   br i1 %.not.i.i72, label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit67, label %242
 
-242:                                              ; preds = %.body35
+242:                                              ; preds = %.body38
   %243 = invoke noundef zeroext i1 %241(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit67 unwind label %244
 
@@ -6925,15 +6925,15 @@ _ZNSt8functionIFvRKN3gmx15QMInputFileNameEEED2Ev.exit: ; preds = %210, %_ZN3gmx1
 247:                                              ; preds = %168
   %248 = landingpad { ptr, i32 }
           cleanup
-  br label %.body44
+  br label %.body46
 
-.body44:                                          ; preds = %157, %160, %247
-  %eh.lpad-body45 = phi { ptr, i32 } [ %248, %247 ], [ %158, %160 ], [ %158, %157 ]
+.body46:                                          ; preds = %157, %160, %247
+  %eh.lpad-body47 = phi { ptr, i32 } [ %248, %247 ], [ %158, %160 ], [ %158, %157 ]
   %249 = load ptr, ptr %141, align 8
   %.not.i.i74 = icmp eq ptr %249, null
   br i1 %.not.i.i74, label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit67, label %250
 
-250:                                              ; preds = %.body44
+250:                                              ; preds = %.body46
   %251 = invoke noundef zeroext i1 %249(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit67 unwind label %252
 
@@ -6944,14 +6944,14 @@ _ZNSt8functionIFvRKN3gmx15QMInputFileNameEEED2Ev.exit: ; preds = %210, %_ZN3gmx1
   call void @__clang_call_terminate(ptr %254) #24
   unreachable
 
-.body53:                                          ; preds = %188
+.body54:                                          ; preds = %188
   %255 = landingpad { ptr, i32 }
           cleanup
   %256 = load ptr, ptr %176, align 8
   %.not.i.i76 = icmp eq ptr %256, null
   br i1 %.not.i.i76, label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit67, label %257
 
-257:                                              ; preds = %.body53
+257:                                              ; preds = %.body54
   %258 = invoke noundef zeroext i1 %256(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit67 unwind label %259
 
@@ -6980,8 +6980,8 @@ _ZNSt8functionIFvRKN3gmx15QMInputFileNameEEED2Ev.exit: ; preds = %210, %_ZN3gmx1
   call void @__clang_call_terminate(ptr %268) #24
   unreachable
 
-_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit67: ; preds = %264, %.body62, %257, %.body53, %250, %.body44, %242, %.body35, %234, %.body26, %226, %.body17, %218, %.body
-  %.pn = phi { ptr, i32 } [ %216, %.body ], [ %216, %218 ], [ %eh.lpad-body18, %.body17 ], [ %eh.lpad-body18, %226 ], [ %eh.lpad-body27, %.body26 ], [ %eh.lpad-body27, %234 ], [ %eh.lpad-body36, %.body35 ], [ %eh.lpad-body36, %242 ], [ %eh.lpad-body45, %.body44 ], [ %eh.lpad-body45, %250 ], [ %255, %.body53 ], [ %255, %257 ], [ %262, %.body62 ], [ %262, %264 ]
+_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit67: ; preds = %264, %.body62, %257, %.body54, %250, %.body46, %242, %.body38, %234, %.body30, %226, %.body22, %218, %.body
+  %.pn = phi { ptr, i32 } [ %216, %.body ], [ %216, %218 ], [ %eh.lpad-body23, %.body22 ], [ %eh.lpad-body23, %226 ], [ %eh.lpad-body31, %.body30 ], [ %eh.lpad-body31, %234 ], [ %eh.lpad-body39, %.body38 ], [ %eh.lpad-body39, %242 ], [ %eh.lpad-body47, %.body46 ], [ %eh.lpad-body47, %250 ], [ %255, %.body54 ], [ %255, %257 ], [ %262, %.body62 ], [ %262, %264 ]
   resume { ptr, i32 } %.pn
 }
 

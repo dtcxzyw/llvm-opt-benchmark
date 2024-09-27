@@ -2899,17 +2899,17 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i: ; preds = %_ZN4llvm1
 
 .sink.split.i:                                    ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_.exit.i, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i, %25, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i.i
   %.sink = phi ptr [ %29, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i.i ], [ %26, %25 ], [ %85, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i ], [ %82, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_.exit.i ]
-  %.sink28.in.i = phi ptr [ %21, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i.i ], [ %21, %25 ], [ %81, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i ], [ %81, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_.exit.i ]
+  %.sink18.in.i = phi ptr [ %21, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i.i ], [ %21, %25 ], [ %81, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i ], [ %81, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_.exit.i ]
   %86 = getelementptr inbounds nuw i8, ptr %.sink, i64 1
   %87 = load i8, ptr %.sink, align 8
   %88 = zext i8 %87 to i64
   %89 = getelementptr inbounds [10 x i8], ptr %86, i64 0, i64 %88
   store i8 2, ptr %89, align 1
-  %.sink28.i = load ptr, ptr %.sink28.in.i, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %.sink28.i, i64 16
-  %91 = load i8, ptr %.sink28.i, align 8
+  %.sink18.i = load ptr, ptr %.sink18.in.i, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %.sink18.i, i64 16
+  %91 = load i8, ptr %.sink18.i, align 8
   %92 = add i8 %91, 1
-  store i8 %92, ptr %.sink28.i, align 8
+  store i8 %92, ptr %.sink18.i, align 8
   %93 = zext i8 %91 to i64
   %94 = getelementptr inbounds [10 x i64], ptr %90, i64 0, i64 %93
   store i64 %.0.ph, ptr %94, align 8
@@ -2927,8 +2927,8 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i: ; preds = %_ZN4llvm1
   br label %100
 
 100:                                              ; preds = %16, %"_ZN5clanglsIZL31checkExprMemoryConstraintCompatRNS_4SemaEPNS_4ExprERNS_10TargetInfo14ConstraintInfoEbE3$_0EERKNS_8SemaBase21SemaDiagnosticBuilderESC_RKT_.exit"
-  %.not13 = phi i1 [ true, %"_ZN5clanglsIZL31checkExprMemoryConstraintCompatRNS_4SemaEPNS_4ExprERNS_10TargetInfo14ConstraintInfoEbE3$_0EERKNS_8SemaBase21SemaDiagnosticBuilderESC_RKT_.exit" ], [ false, %16 ]
-  ret i1 %.not13
+  %.not12 = phi i1 [ true, %"_ZN5clanglsIZL31checkExprMemoryConstraintCompatRNS_4SemaEPNS_4ExprERNS_10TargetInfo14ConstraintInfoEbE3$_0EERKNS_8SemaBase21SemaDiagnosticBuilderESC_RKT_.exit" ], [ false, %16 ]
+  ret i1 %.not12
 }
 
 declare void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8, ptr noundef nonnull align 8 dereferenceable(8), i32, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1

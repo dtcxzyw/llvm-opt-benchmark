@@ -2276,88 +2276,88 @@ switch.early.test:                                ; preds = %.thread, %11
   %82 = getelementptr inbounds i16, ptr %80, i64 %81
   %83 = load i16, ptr %82, align 2
   %84 = and i16 %83, 2048
-  %.not5873.i = icmp eq i16 %84, 0
-  br i1 %.not5873.i, label %_cpu_freq_next_cpu.exit.thread47, label %.lr.ph77.i
+  %.not5815.i = icmp eq i16 %84, 0
+  br i1 %.not5815.i, label %_cpu_freq_next_cpu.exit.thread47, label %.lr.ph19.i
 
-.lr.ph77.i:                                       ; preds = %77, %.lr.ph77.i
-  %85 = phi i8 [ %91, %.lr.ph77.i ], [ %78, %77 ]
-  %.175.i = phi ptr [ %90, %.lr.ph77.i ], [ %.0.i, %77 ]
-  %.04574.i = phi i16 [ %89, %.lr.ph77.i ], [ 0, %77 ]
+.lr.ph19.i:                                       ; preds = %77, %.lr.ph19.i
+  %85 = phi i8 [ %91, %.lr.ph19.i ], [ %78, %77 ]
+  %.117.i = phi ptr [ %90, %.lr.ph19.i ], [ %.0.i, %77 ]
+  %.04516.i = phi i16 [ %89, %.lr.ph19.i ], [ 0, %77 ]
   %86 = sext i8 %85 to i16
-  %87 = mul i16 %.04574.i, 10
+  %87 = mul i16 %.04516.i, 10
   %88 = add nsw i16 %86, -48
   %89 = add i16 %88, %87
-  %90 = getelementptr inbounds i8, ptr %.175.i, i64 1
+  %90 = getelementptr inbounds i8, ptr %.117.i, i64 1
   %91 = load i8, ptr %90, align 1
   %92 = sext i8 %91 to i64
   %93 = getelementptr inbounds i16, ptr %80, i64 %92
   %94 = load i16, ptr %93, align 2
   %95 = and i16 %94, 2048
   %.not58.i = icmp eq i16 %95, 0
-  br i1 %.not58.i, label %_cpu_freq_next_cpu.exit, label %.lr.ph77.i, !llvm.loop !22
+  br i1 %.not58.i, label %_cpu_freq_next_cpu.exit, label %.lr.ph19.i, !llvm.loop !22
 
 96:                                               ; preds = %.preheader
   %97 = icmp eq i16 %.035, -1
-  br i1 %97, label %98, label %._crit_edge70.i
+  br i1 %97, label %98, label %._crit_edge12.i
 
 98:                                               ; preds = %96
   %99 = load i8, ptr %.0, align 1
-  switch i8 %99, label %._crit_edge70.i [
+  switch i8 %99, label %._crit_edge12.i [
     i8 45, label %.preheader.i
-    i8 44, label %.preheader59.i
+    i8 44, label %.preheader1.i
     i8 0, label %_cpu_freq_next_cpu.exit.thread
   ]
 
-.preheader59.i:                                   ; preds = %98
+.preheader1.i:                                    ; preds = %98
   %100 = tail call ptr @__ctype_b_loc() #13
   %101 = load ptr, ptr %100, align 8
-  %.360.i = getelementptr inbounds i8, ptr %.0, i64 1
-  %102 = load i8, ptr %.360.i, align 1
+  %.32.i = getelementptr inbounds i8, ptr %.0, i64 1
+  %102 = load i8, ptr %.32.i, align 1
   %103 = sext i8 %102 to i64
   %104 = getelementptr inbounds i16, ptr %101, i64 %103
   %105 = load i16, ptr %104, align 2
   %106 = and i16 %105, 2048
-  %.not61.i = icmp eq i16 %106, 0
-  br i1 %.not61.i, label %_cpu_freq_next_cpu.exit.thread47, label %.lr.ph.i
+  %.not3.i = icmp eq i16 %106, 0
+  br i1 %.not3.i, label %_cpu_freq_next_cpu.exit.thread47, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %98
   %107 = tail call ptr @__ctype_b_loc() #13
   %108 = load ptr, ptr %107, align 8
-  %.265.i = getelementptr inbounds i8, ptr %.0, i64 1
-  %109 = load i8, ptr %.265.i, align 1
+  %.27.i = getelementptr inbounds i8, ptr %.0, i64 1
+  %109 = load i8, ptr %.27.i, align 1
   %110 = sext i8 %109 to i64
   %111 = getelementptr inbounds i16, ptr %108, i64 %110
   %112 = load i16, ptr %111, align 2
   %113 = and i16 %112, 2048
-  %.not5666.i = icmp eq i16 %113, 0
-  br i1 %.not5666.i, label %._crit_edge70.i, label %.lr.ph69.i
+  %.not568.i = icmp eq i16 %113, 0
+  br i1 %.not568.i, label %._crit_edge12.i, label %.lr.ph11.i
 
-.lr.ph69.i:                                       ; preds = %.preheader.i, %.lr.ph69.i
-  %114 = phi i8 [ %119, %.lr.ph69.i ], [ %109, %.preheader.i ]
-  %.268.i = phi ptr [ %.2.i, %.lr.ph69.i ], [ %.265.i, %.preheader.i ]
-  %.14667.i = phi i16 [ %118, %.lr.ph69.i ], [ 0, %.preheader.i ]
+.lr.ph11.i:                                       ; preds = %.preheader.i, %.lr.ph11.i
+  %114 = phi i8 [ %119, %.lr.ph11.i ], [ %109, %.preheader.i ]
+  %.210.i = phi ptr [ %.2.i, %.lr.ph11.i ], [ %.27.i, %.preheader.i ]
+  %.1469.i = phi i16 [ %118, %.lr.ph11.i ], [ 0, %.preheader.i ]
   %115 = sext i8 %114 to i16
-  %116 = mul i16 %.14667.i, 10
+  %116 = mul i16 %.1469.i, 10
   %117 = add nsw i16 %115, -48
   %118 = add i16 %117, %116
-  %.2.i = getelementptr inbounds i8, ptr %.268.i, i64 1
+  %.2.i = getelementptr inbounds i8, ptr %.210.i, i64 1
   %119 = load i8, ptr %.2.i, align 1
   %120 = sext i8 %119 to i64
   %121 = getelementptr inbounds i16, ptr %108, i64 %120
   %122 = load i16, ptr %121, align 2
   %123 = and i16 %122, 2048
   %.not56.i = icmp eq i16 %123, 0
-  br i1 %.not56.i, label %._crit_edge70.i, label %.lr.ph69.i, !llvm.loop !23
+  br i1 %.not56.i, label %._crit_edge12.i, label %.lr.ph11.i, !llvm.loop !23
 
-.lr.ph.i:                                         ; preds = %.preheader59.i, %.lr.ph.i
-  %124 = phi i8 [ %129, %.lr.ph.i ], [ %102, %.preheader59.i ]
-  %.363.i = phi ptr [ %.3.i, %.lr.ph.i ], [ %.360.i, %.preheader59.i ]
-  %.24762.i = phi i16 [ %128, %.lr.ph.i ], [ 0, %.preheader59.i ]
+.lr.ph.i:                                         ; preds = %.preheader1.i, %.lr.ph.i
+  %124 = phi i8 [ %129, %.lr.ph.i ], [ %102, %.preheader1.i ]
+  %.35.i = phi ptr [ %.3.i, %.lr.ph.i ], [ %.32.i, %.preheader1.i ]
+  %.2474.i = phi i16 [ %128, %.lr.ph.i ], [ 0, %.preheader1.i ]
   %125 = sext i8 %124 to i16
-  %126 = mul i16 %.24762.i, 10
+  %126 = mul i16 %.2474.i, 10
   %127 = add nsw i16 %125, -48
   %128 = add i16 %127, %126
-  %.3.i = getelementptr inbounds i8, ptr %.363.i, i64 1
+  %.3.i = getelementptr inbounds i8, ptr %.35.i, i64 1
   %129 = load i8, ptr %.3.i, align 1
   %130 = sext i8 %129 to i64
   %131 = getelementptr inbounds i16, ptr %101, i64 %130
@@ -2366,14 +2366,14 @@ switch.early.test:                                ; preds = %.thread, %11
   %.not.i = icmp eq i16 %133, 0
   br i1 %.not.i, label %_cpu_freq_next_cpu.exit, label %.lr.ph.i, !llvm.loop !24
 
-._crit_edge70.i:                                  ; preds = %.lr.ph69.i, %.preheader.i, %98, %96
-  %.136 = phi i16 [ -1, %98 ], [ %.035, %96 ], [ 0, %.preheader.i ], [ %118, %.lr.ph69.i ]
-  %.1 = phi ptr [ %.0, %98 ], [ %.0, %96 ], [ %.265.i, %.preheader.i ], [ %.2.i, %.lr.ph69.i ]
+._crit_edge12.i:                                  ; preds = %.lr.ph11.i, %.preheader.i, %98, %96
+  %.136 = phi i16 [ -1, %98 ], [ %.035, %96 ], [ 0, %.preheader.i ], [ %118, %.lr.ph11.i ]
+  %.1 = phi ptr [ %.0, %98 ], [ %.0, %96 ], [ %.27.i, %.preheader.i ], [ %.2.i, %.lr.ph11.i ]
   %134 = zext i16 %.034 to i32
   %135 = icmp ult i16 %.034, %.136
   br i1 %135, label %136, label %141
 
-136:                                              ; preds = %._crit_edge70.i
+136:                                              ; preds = %._crit_edge12.i
   %137 = zext i16 %.136 to i32
   %138 = add nuw nsw i32 %134, 1
   %139 = icmp eq i32 %138, %137
@@ -2382,28 +2382,28 @@ switch.early.test:                                ; preds = %.thread, %11
 140:                                              ; preds = %136
   br label %141
 
-141:                                              ; preds = %140, %136, %._crit_edge70.i
-  %.139 = phi i16 [ -1, %140 ], [ %.038, %136 ], [ %.038, %._crit_edge70.i ]
-  %.237 = phi i16 [ -1, %140 ], [ %.136, %136 ], [ %.136, %._crit_edge70.i ]
-  %.348.i = phi i32 [ %137, %140 ], [ %138, %136 ], [ %134, %._crit_edge70.i ]
+141:                                              ; preds = %140, %136, %._crit_edge12.i
+  %.139 = phi i16 [ -1, %140 ], [ %.038, %136 ], [ %.038, %._crit_edge12.i ]
+  %.237 = phi i16 [ -1, %140 ], [ %.136, %136 ], [ %.136, %._crit_edge12.i ]
+  %.348.i = phi i32 [ %137, %140 ], [ %138, %136 ], [ %134, %._crit_edge12.i ]
   %142 = trunc nuw i32 %.348.i to i16
   br label %_cpu_freq_next_cpu.exit
 
-_cpu_freq_next_cpu.exit:                          ; preds = %.lr.ph.i, %.lr.ph77.i, %141
-  %.240 = phi i16 [ %.139, %141 ], [ %89, %.lr.ph77.i ], [ %128, %.lr.ph.i ]
-  %.3 = phi i16 [ %.237, %141 ], [ %.035, %.lr.ph77.i ], [ -1, %.lr.ph.i ]
-  %.2 = phi ptr [ %.1, %141 ], [ %90, %.lr.ph77.i ], [ %.3.i, %.lr.ph.i ]
-  %.049.i = phi i16 [ %142, %141 ], [ %89, %.lr.ph77.i ], [ %128, %.lr.ph.i ]
+_cpu_freq_next_cpu.exit:                          ; preds = %.lr.ph.i, %.lr.ph19.i, %141
+  %.240 = phi i16 [ %.139, %141 ], [ %89, %.lr.ph19.i ], [ %128, %.lr.ph.i ]
+  %.3 = phi i16 [ %.237, %141 ], [ %.035, %.lr.ph19.i ], [ -1, %.lr.ph.i ]
+  %.2 = phi ptr [ %.1, %141 ], [ %90, %.lr.ph19.i ], [ %.3.i, %.lr.ph.i ]
+  %.049.i = phi i16 [ %142, %141 ], [ %89, %.lr.ph19.i ], [ %128, %.lr.ph.i ]
   %143 = zext i16 %.049.i to i32
   %.not28 = icmp eq i16 %.049.i, -1
   br i1 %.not28, label %_cpu_freq_next_cpu.exit.thread, label %_cpu_freq_next_cpu.exit.thread47
 
-_cpu_freq_next_cpu.exit.thread47:                 ; preds = %.preheader59.i, %77, %_cpu_freq_next_cpu.exit
-  %144 = phi i32 [ %143, %_cpu_freq_next_cpu.exit ], [ 0, %77 ], [ 0, %.preheader59.i ]
-  %.049.i56 = phi i16 [ %.049.i, %_cpu_freq_next_cpu.exit ], [ 0, %77 ], [ 0, %.preheader59.i ]
-  %.255 = phi ptr [ %.2, %_cpu_freq_next_cpu.exit ], [ %.0.i, %77 ], [ %.360.i, %.preheader59.i ]
-  %.354 = phi i16 [ %.3, %_cpu_freq_next_cpu.exit ], [ %.035, %77 ], [ -1, %.preheader59.i ]
-  %.24053 = phi i16 [ %.240, %_cpu_freq_next_cpu.exit ], [ 0, %77 ], [ 0, %.preheader59.i ]
+_cpu_freq_next_cpu.exit.thread47:                 ; preds = %.preheader1.i, %77, %_cpu_freq_next_cpu.exit
+  %144 = phi i32 [ %143, %_cpu_freq_next_cpu.exit ], [ 0, %77 ], [ 0, %.preheader1.i ]
+  %.049.i56 = phi i16 [ %.049.i, %_cpu_freq_next_cpu.exit ], [ 0, %77 ], [ 0, %.preheader1.i ]
+  %.255 = phi ptr [ %.2, %_cpu_freq_next_cpu.exit ], [ %.0.i, %77 ], [ %.32.i, %.preheader1.i ]
+  %.354 = phi i16 [ %.3, %_cpu_freq_next_cpu.exit ], [ %.035, %77 ], [ -1, %.preheader1.i ]
+  %.24053 = phi i16 [ %.240, %_cpu_freq_next_cpu.exit ], [ 0, %77 ], [ 0, %.preheader1.i ]
   %145 = load i16, ptr @cpu_freq_count, align 2
   %.not29 = icmp ult i16 %.049.i56, %145
   br i1 %.not29, label %149, label %146

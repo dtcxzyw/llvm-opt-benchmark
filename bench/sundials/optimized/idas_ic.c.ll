@@ -1371,41 +1371,41 @@ thread-pre-split.i:                               ; preds = %933
   br label %774
 
 774:                                              ; preds = %768, %._crit_edge.i.i295
-  %.051.i.i = phi double [ %773, %768 ], [ %765, %._crit_edge.i.i295 ]
+  %.050.i.i = phi double [ %773, %768 ], [ %765, %._crit_edge.i.i295 ]
   %775 = load double, ptr %122, align 8
-  %776 = fcmp ugt double %.051.i.i, %775
-  br i1 %776, label %.preheader59.i.i, label %IDASensNlsIC.exit.thread334
+  %776 = fcmp ugt double %.050.i.i, %775
+  br i1 %776, label %.preheader58.i.i, label %IDASensNlsIC.exit.thread334
 
-.preheader59.i.i:                                 ; preds = %774
+.preheader58.i.i:                                 ; preds = %774
   %777 = load i32, ptr %177, align 8
   %778 = icmp sgt i32 %777, 0
-  br i1 %778, label %.lr.ph79.i.i, label %IDASensNewtonIC.exit.i
+  br i1 %778, label %.lr.ph78.i.i, label %IDASensNewtonIC.exit.i
 
-.lr.ph79.i.i:                                     ; preds = %.preheader59.i.i, %._crit_edge76.i.i
-  %.04078.i.i = phi i32 [ %901, %._crit_edge76.i.i ], [ 0, %.preheader59.i.i ]
-  %.15277.i.i = phi double [ %.148.i.i.i, %._crit_edge76.i.i ], [ %.051.i.i, %.preheader59.i.i ]
+.lr.ph78.i.i:                                     ; preds = %.preheader58.i.i, %._crit_edge75.i.i
+  %.04077.i.i = phi i32 [ %901, %._crit_edge75.i.i ], [ 0, %.preheader58.i.i ]
+  %.15176.i.i = phi double [ %.13.i.i.i, %._crit_edge75.i.i ], [ %.050.i.i, %.preheader58.i.i ]
   %779 = load i64, ptr %689, align 8
   %780 = add nsw i64 %779, 1
   store i64 %780, ptr %689, align 8
   %781 = load ptr, ptr %179, align 8
   store ptr %781, ptr %180, align 8
-  %782 = fmul double %.15277.i.i, %.15277.i.i
+  %782 = fmul double %.15176.i.i, %.15176.i.i
   %783 = fmul double %782, 5.000000e-01
   %784 = load double, ptr %186, align 8
-  %785 = fdiv double %784, %.15277.i.i
+  %785 = fdiv double %784, %.15176.i.i
   %786 = load i32, ptr %188, align 4
   %787 = icmp eq i32 %786, 0
   br i1 %787, label %.loopexit, label %.lr.ph.i.i.i297
 
-.lr.ph.i.i.i297:                                  ; preds = %.lr.ph79.i.i
+.lr.ph.i.i.i297:                                  ; preds = %.lr.ph78.i.i
   %788 = fmul double %783, -2.000000e+00
   %789 = fmul double %788, 1.000000e-04
   br label %790
 
 790:                                              ; preds = %857, %.lr.ph.i.i.i297
-  %.04161.i.i.i = phi double [ 1.000000e+00, %.lr.ph.i.i.i297 ], [ %858, %857 ]
-  %.04360.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i297 ], [ %861, %857 ]
-  tail call fastcc void @IDASensNewyyp(ptr noundef %0, double noundef %.04161.i.i.i)
+  %.04116.i.i.i = phi double [ 1.000000e+00, %.lr.ph.i.i.i297 ], [ %858, %857 ]
+  %.04315.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i297 ], [ %861, %857 ]
+  tail call fastcc void @IDASensNewyyp(ptr noundef %0, double noundef %.04116.i.i.i)
   %791 = load ptr, ptr %160, align 8
   %792 = load i32, ptr %161, align 8
   %793 = load double, ptr %57, align 8
@@ -1498,28 +1498,28 @@ thread-pre-split.i:                               ; preds = %933
   br label %IDASensfnorm.exit.i.i.i
 
 IDASensfnorm.exit.i.i.i:                          ; preds = %843, %._crit_edge.i.i.i.i299
-  %.148.i.i.i = phi double [ %848, %843 ], [ %840, %._crit_edge.i.i.i.i299 ]
+  %.13.i.i.i = phi double [ %848, %843 ], [ %840, %._crit_edge.i.i.i.i299 ]
   %849 = load i32, ptr %191, align 4
   %.not45.i.i.i = icmp eq i32 %849, 0
   br i1 %.not45.i.i.i, label %850, label %864
 
 850:                                              ; preds = %IDASensfnorm.exit.i.i.i
-  %851 = fmul double %.148.i.i.i, %.148.i.i.i
+  %851 = fmul double %.13.i.i.i, %.13.i.i.i
   %852 = fmul double %851, 5.000000e-01
-  %853 = tail call double @llvm.fmuladd.f64(double %789, double %.04161.i.i.i, double %783)
+  %853 = tail call double @llvm.fmuladd.f64(double %789, double %.04116.i.i.i, double %783)
   %854 = fcmp ugt double %852, %853
   br i1 %854, label %855, label %864
 
 855:                                              ; preds = %850
-  %856 = fcmp olt double %.04161.i.i.i, %785
+  %856 = fcmp olt double %.04116.i.i.i, %785
   br i1 %856, label %.loopexit, label %857
 
 857:                                              ; preds = %855
-  %858 = fmul double %.04161.i.i.i, 5.000000e-01
+  %858 = fmul double %.04116.i.i.i, 5.000000e-01
   %859 = load i32, ptr %124, align 4
   %860 = add nsw i32 %859, 1
   store i32 %860, ptr %124, align 4
-  %861 = add nuw nsw i32 %.04360.i.i.i, 1
+  %861 = add nuw nsw i32 %.04315.i.i.i, 1
   %862 = load i32, ptr %188, align 4
   %863 = icmp eq i32 %861, %862
   br i1 %863, label %.loopexit, label %790
@@ -1527,10 +1527,10 @@ IDASensfnorm.exit.i.i.i:                          ; preds = %843, %._crit_edge.i
 864:                                              ; preds = %850, %IDASensfnorm.exit.i.i.i
   %865 = load i32, ptr %161, align 8
   %866 = icmp sgt i32 %865, 0
-  br i1 %866, label %.lr.ph69.i.i.i, label %IDASensLineSrch.exit.i.i
+  br i1 %866, label %.lr.ph24.i.i.i, label %IDASensLineSrch.exit.i.i
 
-.lr.ph69.i.i.i:                                   ; preds = %864, %.lr.ph69.i.i.i
-  %indvars.iv.i.i.i302 = phi i64 [ %indvars.iv.next.i.i.i303, %.lr.ph69.i.i.i ], [ 0, %864 ]
+.lr.ph24.i.i.i:                                   ; preds = %864, %.lr.ph24.i.i.i
+  %indvars.iv.i.i.i302 = phi i64 [ %indvars.iv.next.i.i.i303, %.lr.ph24.i.i.i ], [ 0, %864 ]
   %867 = load ptr, ptr %189, align 8
   %868 = getelementptr inbounds ptr, ptr %867, i64 %indvars.iv.i.i.i302
   %869 = load ptr, ptr %868, align 8
@@ -1542,70 +1542,70 @@ IDASensfnorm.exit.i.i.i:                          ; preds = %843, %._crit_edge.i
   %873 = load i32, ptr %161, align 8
   %874 = sext i32 %873 to i64
   %875 = icmp slt i64 %indvars.iv.next.i.i.i303, %874
-  br i1 %875, label %.lr.ph69.i.i.i, label %._crit_edge.i.i.i
+  br i1 %875, label %.lr.ph24.i.i.i, label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph69.i.i.i
+._crit_edge.i.i.i:                                ; preds = %.lr.ph24.i.i.i
   %876 = icmp slt i32 %873, 1
   %877 = load i32, ptr %18, align 8
   %878 = icmp ne i32 %877, 1
   %brmerge.i.i.i = or i1 %876, %878
-  br i1 %brmerge.i.i.i, label %IDASensLineSrch.exit.i.i, label %.lr.ph71.i.i.i
+  br i1 %brmerge.i.i.i, label %IDASensLineSrch.exit.i.i, label %.lr.ph26.i.i.i
 
-.lr.ph71.i.i.i:                                   ; preds = %._crit_edge.i.i.i, %.lr.ph71.i.i.i
-  %indvars.iv75.i.i.i = phi i64 [ %indvars.iv.next76.i.i.i, %.lr.ph71.i.i.i ], [ 0, %._crit_edge.i.i.i ]
+.lr.ph26.i.i.i:                                   ; preds = %._crit_edge.i.i.i, %.lr.ph26.i.i.i
+  %indvars.iv30.i.i.i = phi i64 [ %indvars.iv.next31.i.i.i, %.lr.ph26.i.i.i ], [ 0, %._crit_edge.i.i.i ]
   %879 = load ptr, ptr %187, align 8
-  %880 = getelementptr inbounds ptr, ptr %879, i64 %indvars.iv75.i.i.i
+  %880 = getelementptr inbounds ptr, ptr %879, i64 %indvars.iv30.i.i.i
   %881 = load ptr, ptr %880, align 8
   %882 = load ptr, ptr %163, align 8
-  %883 = getelementptr inbounds ptr, ptr %882, i64 %indvars.iv75.i.i.i
+  %883 = getelementptr inbounds ptr, ptr %882, i64 %indvars.iv30.i.i.i
   %884 = load ptr, ptr %883, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %881, ptr noundef %884) #3
-  %indvars.iv.next76.i.i.i = add nuw nsw i64 %indvars.iv75.i.i.i, 1
+  %indvars.iv.next31.i.i.i = add nuw nsw i64 %indvars.iv30.i.i.i, 1
   %885 = load i32, ptr %161, align 8
   %886 = sext i32 %885 to i64
-  %887 = icmp slt i64 %indvars.iv.next76.i.i.i, %886
-  br i1 %887, label %.lr.ph71.i.i.i, label %IDASensLineSrch.exit.i.i
+  %887 = icmp slt i64 %indvars.iv.next31.i.i.i, %886
+  br i1 %887, label %.lr.ph26.i.i.i, label %IDASensLineSrch.exit.i.i
 
-IDASensLineSrch.exit.i.i:                         ; preds = %.lr.ph71.i.i.i, %._crit_edge.i.i.i, %864
-  %888 = phi i32 [ %873, %._crit_edge.i.i.i ], [ %865, %864 ], [ %885, %.lr.ph71.i.i.i ]
+IDASensLineSrch.exit.i.i:                         ; preds = %.lr.ph26.i.i.i, %._crit_edge.i.i.i, %864
+  %888 = phi i32 [ %873, %._crit_edge.i.i.i ], [ %865, %864 ], [ %885, %.lr.ph26.i.i.i ]
   %889 = load double, ptr %122, align 8
-  %890 = fcmp ugt double %.148.i.i.i, %889
+  %890 = fcmp ugt double %.13.i.i.i, %889
   br i1 %890, label %.preheader.i.i300, label %IDASensNlsIC.exit.thread334
 
 .preheader.i.i300:                                ; preds = %IDASensLineSrch.exit.i.i
   %891 = icmp sgt i32 %888, 0
-  br i1 %891, label %.lr.ph75.i.i, label %._crit_edge76.i.i
+  br i1 %891, label %.lr.ph74.i.i, label %._crit_edge75.i.i
 
-.lr.ph75.i.i:                                     ; preds = %.preheader.i.i300, %.lr.ph75.i.i
-  %indvars.iv93.i.i = phi i64 [ %indvars.iv.next94.i.i, %.lr.ph75.i.i ], [ 0, %.preheader.i.i300 ]
+.lr.ph74.i.i:                                     ; preds = %.preheader.i.i300, %.lr.ph74.i.i
+  %indvars.iv92.i.i = phi i64 [ %indvars.iv.next93.i.i, %.lr.ph74.i.i ], [ 0, %.preheader.i.i300 ]
   %892 = load ptr, ptr %190, align 8
-  %893 = getelementptr inbounds ptr, ptr %892, i64 %indvars.iv93.i.i
+  %893 = getelementptr inbounds ptr, ptr %892, i64 %indvars.iv92.i.i
   %894 = load ptr, ptr %893, align 8
   %895 = load ptr, ptr %164, align 8
-  %896 = getelementptr inbounds ptr, ptr %895, i64 %indvars.iv93.i.i
+  %896 = getelementptr inbounds ptr, ptr %895, i64 %indvars.iv92.i.i
   %897 = load ptr, ptr %896, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %894, ptr noundef %897) #3
-  %indvars.iv.next94.i.i = add nuw nsw i64 %indvars.iv93.i.i, 1
+  %indvars.iv.next93.i.i = add nuw nsw i64 %indvars.iv92.i.i, 1
   %898 = load i32, ptr %161, align 8
   %899 = sext i32 %898 to i64
-  %900 = icmp slt i64 %indvars.iv.next94.i.i, %899
-  br i1 %900, label %.lr.ph75.i.i, label %._crit_edge76.i.i
+  %900 = icmp slt i64 %indvars.iv.next93.i.i, %899
+  br i1 %900, label %.lr.ph74.i.i, label %._crit_edge75.i.i
 
-._crit_edge76.i.i:                                ; preds = %.lr.ph75.i.i, %.preheader.i.i300
-  %901 = add nuw nsw i32 %.04078.i.i, 1
+._crit_edge75.i.i:                                ; preds = %.lr.ph74.i.i, %.preheader.i.i300
+  %901 = add nuw nsw i32 %.04077.i.i, 1
   %902 = load i32, ptr %177, align 8
   %903 = icmp slt i32 %901, %902
-  br i1 %903, label %.lr.ph79.i.i, label %904
+  br i1 %903, label %.lr.ph78.i.i, label %904
 
-904:                                              ; preds = %._crit_edge76.i.i
-  %905 = fdiv double %.148.i.i.i, %.15277.i.i
+904:                                              ; preds = %._crit_edge75.i.i
+  %905 = fdiv double %.13.i.i.i, %.15176.i.i
   %906 = fcmp ole double %905, 9.000000e-01
-  %907 = fmul double %.051.i.i, 1.000000e-01
-  %908 = fcmp olt double %.148.i.i.i, %907
+  %907 = fmul double %.050.i.i, 1.000000e-01
+  %908 = fcmp olt double %.13.i.i.i, %907
   %or.cond.i.i301 = or i1 %908, %906
   br i1 %or.cond.i.i301, label %IDASensNewtonIC.exit.i, label %.loopexit
 
-IDASensNewtonIC.exit.i:                           ; preds = %904, %.preheader59.i.i
+IDASensNewtonIC.exit.i:                           ; preds = %904, %.preheader58.i.i
   %909 = load ptr, ptr %172, align 8
   %910 = icmp ne ptr %909, null
   %or.cond.i = and i1 %744, %910
@@ -1661,8 +1661,8 @@ IDASensNewtonIC.exit.i:                           ; preds = %904, %.preheader59.
   store i64 %935, ptr %691, align 8
   br label %IDASensNlsIC.exit.thread338
 
-.loopexit:                                        ; preds = %904, %933, %762, %.lr.ph79.i.i, %857, %855, %808, %837
-  %.051.i.ph = phi i32 [ 1, %837 ], [ 1, %808 ], [ 3, %855 ], [ 3, %857 ], [ 3, %.lr.ph79.i.i ], [ 1, %762 ], [ 4, %904 ], [ 1, %933 ]
+.loopexit:                                        ; preds = %904, %933, %762, %.lr.ph78.i.i, %857, %855, %808, %837
+  %.051.i.ph = phi i32 [ 1, %837 ], [ 1, %808 ], [ 3, %855 ], [ 3, %857 ], [ 3, %.lr.ph78.i.i ], [ 1, %762 ], [ 4, %904 ], [ 1, %933 ]
   %936 = load i64, ptr %691, align 8
   %937 = add nsw i64 %936, 1
   store i64 %937, ptr %691, align 8

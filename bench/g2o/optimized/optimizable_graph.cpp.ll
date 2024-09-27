@@ -2355,7 +2355,7 @@ define void @_ZN3g2o16OptimizableGraph8setFixedERSt3setIPNS_10HyperGraph6VertexE
   %6 = zext i1 %2 to i8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i8 %6, ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_8setFixedERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEbE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_8setFixedERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEbE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %7, align 8

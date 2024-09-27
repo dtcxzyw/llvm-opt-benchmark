@@ -713,9 +713,9 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.e
   br i1 %.not5.i, label %"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEEZN8WasmEdge4Host4WASI6VINode14canonicalGuestB5cxx11ES5_E3$_1ET0_T_SH_SG_.exit", label %.lr.ph.i35
 
 .lr.ph.i35:                                       ; preds = %77, %.noexc39
-  %.sroa.04.08.i = phi ptr [ %80, %.noexc39 ], [ %.sroa.053.5, %77 ]
-  %.sroa.0.0.copyload.i36 = load i64, ptr %.sroa.04.08.i, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 8
+  %.sroa.03.07.i = phi ptr [ %80, %.noexc39 ], [ %.sroa.053.5, %77 ]
+  %.sroa.0.0.copyload.i36 = load i64, ptr %.sroa.03.07.i, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %78 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.sroa.2.0.copyload.i, i64 noundef %.sroa.0.0.copyload.i36)
           to label %.noexc38 unwind label %.loopexit
@@ -725,7 +725,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.e
           to label %.noexc39 unwind label %.loopexit
 
 .noexc39:                                         ; preds = %.noexc38
-  %80 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 16
+  %80 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 16
   %.not.i37 = icmp eq ptr %80, %.sroa.13.3
   br i1 %.not.i37, label %"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEEZN8WasmEdge4Host4WASI6VINode14canonicalGuestB5cxx11ES5_E3$_1ET0_T_SH_SG_.exit", label %.lr.ph.i35, !llvm.loop !14
 

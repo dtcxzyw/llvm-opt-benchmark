@@ -100,14 +100,14 @@ _ZN3gmx14TopologyHolderD2Ev.exit:                 ; preds = %1, %4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx14TopologyHolder22registerDomDecCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8
-  %6 = ptrtoint ptr %1 to i64
-  store i64 %6, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %3, align 8
+  %3 = ptrtoint ptr %1 to i64
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %6, align 8
+  store i64 %3, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %4, align 8
   ret void
 }
 

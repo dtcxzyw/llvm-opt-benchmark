@@ -313,52 +313,52 @@ _ZN7rocksdb10autovectorINS_11FileIndexer10IndexLevelELm8EE6resizeEm.exit: ; pred
   %level_rb_ = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %call, ptr %level_rb_, align 8
   %12 = load i64, ptr %this, align 8
-  %cmp9231.not = icmp eq i64 %12, 0
-  br i1 %cmp9231.not, label %for.body14.lr.ph, label %for.body
+  %cmp9228.not = icmp eq i64 %12, 0
+  br i1 %cmp9228.not, label %for.body14.lr.ph, label %for.body
 
 for.cond11.preheader:                             ; preds = %for.body
-  %sub233 = add i64 %19, -1
-  %cmp13234 = icmp ugt i64 %sub233, 1
-  br i1 %cmp13234, label %for.body14.lr.ph, label %for.end57
+  %sub230 = add i64 %19, -1
+  %cmp13231 = icmp ugt i64 %sub230, 1
+  br i1 %cmp13231, label %for.body14.lr.ph, label %for.end57
 
 for.body14.lr.ph:                                 ; preds = %_ZN7rocksdb10autovectorINS_11FileIndexer10IndexLevelELm8EE6resizeEm.exit, %for.cond11.preheader
   %values_.i39 = getelementptr inbounds i8, ptr %this, i64 152
+  %13 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %13 = ptrtoint ptr %this to i64
+  %14 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_manager.i.i42 = getelementptr inbounds i8, ptr %agg.tmp35, i64 16
   %_M_invoker.i43 = getelementptr inbounds i8, ptr %agg.tmp35, i64 24
   %_M_manager.i.i50 = getelementptr inbounds i8, ptr %agg.tmp37, i64 16
   %_M_invoker.i51 = getelementptr inbounds i8, ptr %agg.tmp37, i64 24
-  %_M_manager.i.i53 = getelementptr inbounds i8, ptr %agg.tmp39, i64 16
-  %_M_invoker.i54 = getelementptr inbounds i8, ptr %agg.tmp39, i64 24
-  %_M_manager.i.i67 = getelementptr inbounds i8, ptr %agg.tmp43, i64 16
-  %_M_invoker.i68 = getelementptr inbounds i8, ptr %agg.tmp43, i64 24
-  %_M_manager.i.i70 = getelementptr inbounds i8, ptr %agg.tmp45, i64 16
-  %_M_invoker.i71 = getelementptr inbounds i8, ptr %agg.tmp45, i64 24
-  %_M_manager.i.i84 = getelementptr inbounds i8, ptr %agg.tmp49, i64 16
-  %_M_invoker.i85 = getelementptr inbounds i8, ptr %agg.tmp49, i64 24
-  %_M_manager.i.i87 = getelementptr inbounds i8, ptr %agg.tmp51, i64 16
-  %_M_invoker.i88 = getelementptr inbounds i8, ptr %agg.tmp51, i64 24
-  %14 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %15 = getelementptr inbounds i8, ptr %agg.tmp37, i64 8
+  %_M_manager.i.i52 = getelementptr inbounds i8, ptr %agg.tmp39, i64 16
+  %_M_invoker.i53 = getelementptr inbounds i8, ptr %agg.tmp39, i64 24
+  %_M_manager.i.i66 = getelementptr inbounds i8, ptr %agg.tmp43, i64 16
+  %_M_invoker.i67 = getelementptr inbounds i8, ptr %agg.tmp43, i64 24
   %16 = getelementptr inbounds i8, ptr %agg.tmp43, i64 8
+  %_M_manager.i.i68 = getelementptr inbounds i8, ptr %agg.tmp45, i64 16
+  %_M_invoker.i69 = getelementptr inbounds i8, ptr %agg.tmp45, i64 24
+  %_M_manager.i.i82 = getelementptr inbounds i8, ptr %agg.tmp49, i64 16
+  %_M_invoker.i83 = getelementptr inbounds i8, ptr %agg.tmp49, i64 24
   %17 = getelementptr inbounds i8, ptr %agg.tmp49, i64 8
+  %_M_manager.i.i84 = getelementptr inbounds i8, ptr %agg.tmp51, i64 16
+  %_M_invoker.i85 = getelementptr inbounds i8, ptr %agg.tmp51, i64 24
   br label %for.body14
 
 for.body:                                         ; preds = %_ZN7rocksdb10autovectorINS_11FileIndexer10IndexLevelELm8EE6resizeEm.exit, %for.body
-  %i.0232 = phi i64 [ %inc, %for.body ], [ 0, %_ZN7rocksdb10autovectorINS_11FileIndexer10IndexLevelELm8EE6resizeEm.exit ]
+  %i.0229 = phi i64 [ %inc, %for.body ], [ 0, %_ZN7rocksdb10autovectorINS_11FileIndexer10IndexLevelELm8EE6resizeEm.exit ]
   %18 = load ptr, ptr %level_rb_, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %18, i64 %i.0232
+  %arrayidx = getelementptr inbounds i32, ptr %18, i64 %i.0229
   store i32 -1, ptr %arrayidx, align 4
-  %inc = add nuw i64 %i.0232, 1
+  %inc = add nuw i64 %i.0229, 1
   %19 = load i64, ptr %this, align 8
   %cmp9 = icmp ult i64 %inc, %19
   br i1 %cmp9, label %for.body, label %for.cond11.preheader, !llvm.loop !7
 
 for.body14:                                       ; preds = %for.body14.lr.ph, %for.inc55
-  %level.0235 = phi i64 [ 1, %for.body14.lr.ph ], [ %add, %for.inc55 ]
-  %arrayidx15 = getelementptr inbounds %"class.std::vector.14", ptr %files, i64 %level.0235
+  %level.0232 = phi i64 [ 1, %for.body14.lr.ph ], [ %add, %for.inc55 ]
+  %arrayidx15 = getelementptr inbounds %"class.std::vector.14", ptr %files, i64 %level.0232
   %_M_finish.i = getelementptr inbounds i8, ptr %arrayidx15, i64 8
   %20 = load ptr, ptr %_M_finish.i, align 8
   %21 = load ptr, ptr %arrayidx15, align 8
@@ -366,23 +366,23 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
   %sub.ptr.rhs.cast.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
-  %add = add nuw i64 %level.0235, 1
+  %add = add nuw i64 %level.0232, 1
   %arrayidx17 = getelementptr inbounds %"class.std::vector.14", ptr %files, i64 %add
   %conv19 = trunc i64 %sub.ptr.div.i to i32
   %sub20 = add nsw i32 %conv19, -1
   %22 = load ptr, ptr %level_rb_, align 8
-  %arrayidx22 = getelementptr inbounds i32, ptr %22, i64 %level.0235
+  %arrayidx22 = getelementptr inbounds i32, ptr %22, i64 %level.0232
   store i32 %sub20, ptr %arrayidx22, align 4
   %23 = and i64 %sub.ptr.sub.i, 34359738360
   %cmp23 = icmp eq i64 %23, 0
   br i1 %cmp23, label %for.inc55, label %if.end25
 
 if.end25:                                         ; preds = %for.body14
-  %cmp.i38 = icmp ult i64 %level.0235, 8
+  %cmp.i38 = icmp ult i64 %level.0232, 8
   %24 = load ptr, ptr %values_.i39, align 8
-  %arrayidx.i40 = getelementptr inbounds %"struct.rocksdb::FileIndexer::IndexLevel", ptr %24, i64 %level.0235
+  %arrayidx.i40 = getelementptr inbounds %"struct.rocksdb::FileIndexer::IndexLevel", ptr %24, i64 %level.0232
   %25 = load ptr, ptr %vect_.i, align 8
-  %26 = getelementptr %"struct.rocksdb::FileIndexer::IndexLevel", ptr %25, i64 %level.0235
+  %26 = getelementptr %"struct.rocksdb::FileIndexer::IndexLevel", ptr %25, i64 %level.0232
   %add.ptr.i.i = getelementptr i8, ptr %26, i64 -128
   %retval.0.i = select i1 %cmp.i38, ptr %arrayidx.i40, ptr %add.ptr.i.i
   %sext = shl i64 %sub.ptr.sub.i, 29
@@ -460,130 +460,130 @@ _ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit: ; preds = %_ZNSt8func
   store ptr @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDataES3_EZNS0_11FileIndexer11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPS1_SaIS9_EEE3$_2E9_M_invokeERKSt9_Any_dataOS3_SI_", ptr %_M_invoker.i51, align 8
   store ptr @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDataES3_EZNS0_11FileIndexer11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPS1_SaIS9_EEE3$_2E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i50, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp39, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFvPN7rocksdb11FileIndexer9IndexUnitEiEZNS1_11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPNS0_12FileMetaDataESaIS9_EEE3$_3E9_M_invokeERKSt9_Any_dataOS3_Oi", ptr %_M_invoker.i54, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN7rocksdb11FileIndexer9IndexUnitEiEZNS1_11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPNS0_12FileMetaDataESaIS9_EEE3$_3E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i53, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN7rocksdb11FileIndexer9IndexUnitEiEZNS1_11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPNS0_12FileMetaDataESaIS9_EEE3$_3E9_M_invokeERKSt9_Any_dataOS3_Oi", ptr %_M_invoker.i53, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN7rocksdb11FileIndexer9IndexUnitEiEZNS1_11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPNS0_12FileMetaDataESaIS9_EEE3$_3E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i52, align 8
   invoke void @_ZN7rocksdb11FileIndexer11CalculateLBERKSt6vectorIPNS_12FileMetaDataESaIS3_EES7_PNS0_10IndexLevelESt8functionIFiPKS2_SC_EESA_IFvPNS0_9IndexUnitEiEE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx15, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx17, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %agg.tmp37, ptr noundef nonnull %agg.tmp39)
           to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit
-  %34 = load ptr, ptr %_M_manager.i.i53, align 8
-  %tobool.not.i.i56 = icmp eq ptr %34, null
-  br i1 %tobool.not.i.i56, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit60, label %if.then.i.i57
+  %34 = load ptr, ptr %_M_manager.i.i52, align 8
+  %tobool.not.i.i55 = icmp eq ptr %34, null
+  br i1 %tobool.not.i.i55, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit59, label %if.then.i.i56
 
-if.then.i.i57:                                    ; preds = %invoke.cont42
-  %call.i.i58 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp39, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp39, i32 noundef 3)
-          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit60 unwind label %terminate.lpad.i.i59
+if.then.i.i56:                                    ; preds = %invoke.cont42
+  %call.i.i57 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp39, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp39, i32 noundef 3)
+          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit59 unwind label %terminate.lpad.i.i58
 
-terminate.lpad.i.i59:                             ; preds = %if.then.i.i57
+terminate.lpad.i.i58:                             ; preds = %if.then.i.i56
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
   call void @__clang_call_terminate(ptr %36) #22
   unreachable
 
-_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit60: ; preds = %invoke.cont42, %if.then.i.i57
+_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit59: ; preds = %invoke.cont42, %if.then.i.i56
   %37 = load ptr, ptr %_M_manager.i.i50, align 8
-  %tobool.not.i.i62 = icmp eq ptr %37, null
-  br i1 %tobool.not.i.i62, label %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit66, label %if.then.i.i63
+  %tobool.not.i.i61 = icmp eq ptr %37, null
+  br i1 %tobool.not.i.i61, label %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit65, label %if.then.i.i62
 
-if.then.i.i63:                                    ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit60
-  %call.i.i64 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp37, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp37, i32 noundef 3)
-          to label %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit66 unwind label %terminate.lpad.i.i65
+if.then.i.i62:                                    ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit59
+  %call.i.i63 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp37, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp37, i32 noundef 3)
+          to label %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit65 unwind label %terminate.lpad.i.i64
 
-terminate.lpad.i.i65:                             ; preds = %if.then.i.i63
+terminate.lpad.i.i64:                             ; preds = %if.then.i.i62
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
   call void @__clang_call_terminate(ptr %39) #22
   unreachable
 
-_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit66: ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit60, %if.then.i.i63
+_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit65: ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit59, %if.then.i.i62
   store i64 0, ptr %16, align 8
   store i64 %13, ptr %agg.tmp43, align 8
-  store ptr @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDataES3_EZNS0_11FileIndexer11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPS1_SaIS9_EEE3$_4E9_M_invokeERKSt9_Any_dataOS3_SI_", ptr %_M_invoker.i68, align 8
-  store ptr @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDataES3_EZNS0_11FileIndexer11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPS1_SaIS9_EEE3$_4E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i67, align 8
+  store ptr @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDataES3_EZNS0_11FileIndexer11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPS1_SaIS9_EEE3$_4E9_M_invokeERKSt9_Any_dataOS3_SI_", ptr %_M_invoker.i67, align 8
+  store ptr @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDataES3_EZNS0_11FileIndexer11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPS1_SaIS9_EEE3$_4E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i66, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp45, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFvPN7rocksdb11FileIndexer9IndexUnitEiEZNS1_11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPNS0_12FileMetaDataESaIS9_EEE3$_5E9_M_invokeERKSt9_Any_dataOS3_Oi", ptr %_M_invoker.i71, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN7rocksdb11FileIndexer9IndexUnitEiEZNS1_11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPNS0_12FileMetaDataESaIS9_EEE3$_5E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i70, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN7rocksdb11FileIndexer9IndexUnitEiEZNS1_11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPNS0_12FileMetaDataESaIS9_EEE3$_5E9_M_invokeERKSt9_Any_dataOS3_Oi", ptr %_M_invoker.i69, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN7rocksdb11FileIndexer9IndexUnitEiEZNS1_11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPNS0_12FileMetaDataESaIS9_EEE3$_5E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i68, align 8
   invoke void @_ZN7rocksdb11FileIndexer11CalculateRBERKSt6vectorIPNS_12FileMetaDataESaIS3_EES7_PNS0_10IndexLevelESt8functionIFiPKS2_SC_EESA_IFvPNS0_9IndexUnitEiEE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx15, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx17, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %agg.tmp43, ptr noundef nonnull %agg.tmp45)
           to label %invoke.cont48 unwind label %lpad47
 
-invoke.cont48:                                    ; preds = %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit66
-  %40 = load ptr, ptr %_M_manager.i.i70, align 8
-  %tobool.not.i.i73 = icmp eq ptr %40, null
-  br i1 %tobool.not.i.i73, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit77, label %if.then.i.i74
+invoke.cont48:                                    ; preds = %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit65
+  %40 = load ptr, ptr %_M_manager.i.i68, align 8
+  %tobool.not.i.i71 = icmp eq ptr %40, null
+  br i1 %tobool.not.i.i71, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit75, label %if.then.i.i72
 
-if.then.i.i74:                                    ; preds = %invoke.cont48
-  %call.i.i75 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp45, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp45, i32 noundef 3)
-          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit77 unwind label %terminate.lpad.i.i76
+if.then.i.i72:                                    ; preds = %invoke.cont48
+  %call.i.i73 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp45, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp45, i32 noundef 3)
+          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit75 unwind label %terminate.lpad.i.i74
 
-terminate.lpad.i.i76:                             ; preds = %if.then.i.i74
+terminate.lpad.i.i74:                             ; preds = %if.then.i.i72
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
   call void @__clang_call_terminate(ptr %42) #22
   unreachable
 
-_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit77: ; preds = %invoke.cont48, %if.then.i.i74
-  %43 = load ptr, ptr %_M_manager.i.i67, align 8
-  %tobool.not.i.i79 = icmp eq ptr %43, null
-  br i1 %tobool.not.i.i79, label %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit83, label %if.then.i.i80
+_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit75: ; preds = %invoke.cont48, %if.then.i.i72
+  %43 = load ptr, ptr %_M_manager.i.i66, align 8
+  %tobool.not.i.i77 = icmp eq ptr %43, null
+  br i1 %tobool.not.i.i77, label %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit81, label %if.then.i.i78
 
-if.then.i.i80:                                    ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit77
-  %call.i.i81 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, i32 noundef 3)
-          to label %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit83 unwind label %terminate.lpad.i.i82
+if.then.i.i78:                                    ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit75
+  %call.i.i79 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, i32 noundef 3)
+          to label %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit81 unwind label %terminate.lpad.i.i80
 
-terminate.lpad.i.i82:                             ; preds = %if.then.i.i80
+terminate.lpad.i.i80:                             ; preds = %if.then.i.i78
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
   call void @__clang_call_terminate(ptr %45) #22
   unreachable
 
-_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit83: ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit77, %if.then.i.i80
+_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit81: ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit75, %if.then.i.i78
   store i64 0, ptr %17, align 8
   store i64 %13, ptr %agg.tmp49, align 8
-  store ptr @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDataES3_EZNS0_11FileIndexer11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPS1_SaIS9_EEE3$_6E9_M_invokeERKSt9_Any_dataOS3_SI_", ptr %_M_invoker.i85, align 8
-  store ptr @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDataES3_EZNS0_11FileIndexer11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPS1_SaIS9_EEE3$_6E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i84, align 8
+  store ptr @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDataES3_EZNS0_11FileIndexer11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPS1_SaIS9_EEE3$_6E9_M_invokeERKSt9_Any_dataOS3_SI_", ptr %_M_invoker.i83, align 8
+  store ptr @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDataES3_EZNS0_11FileIndexer11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPS1_SaIS9_EEE3$_6E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i82, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp51, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFvPN7rocksdb11FileIndexer9IndexUnitEiEZNS1_11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPNS0_12FileMetaDataESaIS9_EEE3$_7E9_M_invokeERKSt9_Any_dataOS3_Oi", ptr %_M_invoker.i88, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN7rocksdb11FileIndexer9IndexUnitEiEZNS1_11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPNS0_12FileMetaDataESaIS9_EEE3$_7E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i87, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN7rocksdb11FileIndexer9IndexUnitEiEZNS1_11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPNS0_12FileMetaDataESaIS9_EEE3$_7E9_M_invokeERKSt9_Any_dataOS3_Oi", ptr %_M_invoker.i85, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN7rocksdb11FileIndexer9IndexUnitEiEZNS1_11UpdateIndexEPNS0_5ArenaEmPSt6vectorIPNS0_12FileMetaDataESaIS9_EEE3$_7E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i84, align 8
   invoke void @_ZN7rocksdb11FileIndexer11CalculateRBERKSt6vectorIPNS_12FileMetaDataESaIS3_EES7_PNS0_10IndexLevelESt8functionIFiPKS2_SC_EESA_IFvPNS0_9IndexUnitEiEE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx15, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx17, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %agg.tmp49, ptr noundef nonnull %agg.tmp51)
           to label %invoke.cont54 unwind label %lpad53
 
-invoke.cont54:                                    ; preds = %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit83
-  %46 = load ptr, ptr %_M_manager.i.i87, align 8
-  %tobool.not.i.i90 = icmp eq ptr %46, null
-  br i1 %tobool.not.i.i90, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit94, label %if.then.i.i91
+invoke.cont54:                                    ; preds = %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit81
+  %46 = load ptr, ptr %_M_manager.i.i84, align 8
+  %tobool.not.i.i87 = icmp eq ptr %46, null
+  br i1 %tobool.not.i.i87, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit91, label %if.then.i.i88
 
-if.then.i.i91:                                    ; preds = %invoke.cont54
-  %call.i.i92 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp51, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp51, i32 noundef 3)
-          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit94 unwind label %terminate.lpad.i.i93
+if.then.i.i88:                                    ; preds = %invoke.cont54
+  %call.i.i89 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp51, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp51, i32 noundef 3)
+          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit91 unwind label %terminate.lpad.i.i90
 
-terminate.lpad.i.i93:                             ; preds = %if.then.i.i91
+terminate.lpad.i.i90:                             ; preds = %if.then.i.i88
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
   call void @__clang_call_terminate(ptr %48) #22
   unreachable
 
-_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit94: ; preds = %invoke.cont54, %if.then.i.i91
-  %49 = load ptr, ptr %_M_manager.i.i84, align 8
-  %tobool.not.i.i96 = icmp eq ptr %49, null
-  br i1 %tobool.not.i.i96, label %for.inc55, label %if.then.i.i97
+_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit91: ; preds = %invoke.cont54, %if.then.i.i88
+  %49 = load ptr, ptr %_M_manager.i.i82, align 8
+  %tobool.not.i.i93 = icmp eq ptr %49, null
+  br i1 %tobool.not.i.i93, label %for.inc55, label %if.then.i.i94
 
-if.then.i.i97:                                    ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit94
-  %call.i.i98 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp49, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp49, i32 noundef 3)
-          to label %for.inc55 unwind label %terminate.lpad.i.i99
+if.then.i.i94:                                    ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit91
+  %call.i.i95 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp49, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp49, i32 noundef 3)
+          to label %for.inc55 unwind label %terminate.lpad.i.i96
 
-terminate.lpad.i.i99:                             ; preds = %if.then.i.i97
+terminate.lpad.i.i96:                             ; preds = %if.then.i.i94
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
   call void @__clang_call_terminate(ptr %51) #22
   unreachable
 
-for.inc55:                                        ; preds = %if.then.i.i97, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit94, %for.body14
+for.inc55:                                        ; preds = %if.then.i.i94, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit91, %for.body14
   %52 = load i64, ptr %this, align 8
   %sub = add i64 %52, -1
   %cmp13 = icmp ult i64 %add, %sub
@@ -593,30 +593,30 @@ lpad:                                             ; preds = %arrayctor.cont
   %53 = landingpad { ptr, i32 }
           cleanup
   %54 = load ptr, ptr %_M_manager.i.i42, align 8
-  %tobool.not.i.i102 = icmp eq ptr %54, null
-  br i1 %tobool.not.i.i102, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit106, label %if.then.i.i103
+  %tobool.not.i.i99 = icmp eq ptr %54, null
+  br i1 %tobool.not.i.i99, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit103, label %if.then.i.i100
 
-if.then.i.i103:                                   ; preds = %lpad
-  %call.i.i104 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp35, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp35, i32 noundef 3)
-          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit106 unwind label %terminate.lpad.i.i105
+if.then.i.i100:                                   ; preds = %lpad
+  %call.i.i101 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp35, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp35, i32 noundef 3)
+          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit103 unwind label %terminate.lpad.i.i102
 
-terminate.lpad.i.i105:                            ; preds = %if.then.i.i103
+terminate.lpad.i.i102:                            ; preds = %if.then.i.i100
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
   call void @__clang_call_terminate(ptr %56) #22
   unreachable
 
-_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit106: ; preds = %lpad, %if.then.i.i103
+_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit103: ; preds = %lpad, %if.then.i.i100
   %57 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i108 = icmp eq ptr %57, null
-  br i1 %tobool.not.i.i108, label %eh.resume, label %if.then.i.i109
+  %tobool.not.i.i105 = icmp eq ptr %57, null
+  br i1 %tobool.not.i.i105, label %eh.resume, label %if.then.i.i106
 
-if.then.i.i109:                                   ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit106
-  %call.i.i110 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
-          to label %eh.resume unwind label %terminate.lpad.i.i111
+if.then.i.i106:                                   ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit103
+  %call.i.i107 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+          to label %eh.resume unwind label %terminate.lpad.i.i108
 
-terminate.lpad.i.i111:                            ; preds = %if.then.i.i109
+terminate.lpad.i.i108:                            ; preds = %if.then.i.i106
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
@@ -626,99 +626,99 @@ terminate.lpad.i.i111:                            ; preds = %if.then.i.i109
 lpad41:                                           ; preds = %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit
   %60 = landingpad { ptr, i32 }
           cleanup
-  %61 = load ptr, ptr %_M_manager.i.i53, align 8
-  %tobool.not.i.i114 = icmp eq ptr %61, null
-  br i1 %tobool.not.i.i114, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit118, label %if.then.i.i115
+  %61 = load ptr, ptr %_M_manager.i.i52, align 8
+  %tobool.not.i.i111 = icmp eq ptr %61, null
+  br i1 %tobool.not.i.i111, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit115, label %if.then.i.i112
 
-if.then.i.i115:                                   ; preds = %lpad41
-  %call.i.i116 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp39, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp39, i32 noundef 3)
-          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit118 unwind label %terminate.lpad.i.i117
+if.then.i.i112:                                   ; preds = %lpad41
+  %call.i.i113 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp39, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp39, i32 noundef 3)
+          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit115 unwind label %terminate.lpad.i.i114
 
-terminate.lpad.i.i117:                            ; preds = %if.then.i.i115
+terminate.lpad.i.i114:                            ; preds = %if.then.i.i112
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
   call void @__clang_call_terminate(ptr %63) #22
   unreachable
 
-_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit118: ; preds = %lpad41, %if.then.i.i115
+_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit115: ; preds = %lpad41, %if.then.i.i112
   %64 = load ptr, ptr %_M_manager.i.i50, align 8
-  %tobool.not.i.i120 = icmp eq ptr %64, null
-  br i1 %tobool.not.i.i120, label %eh.resume, label %if.then.i.i121
+  %tobool.not.i.i117 = icmp eq ptr %64, null
+  br i1 %tobool.not.i.i117, label %eh.resume, label %if.then.i.i118
 
-if.then.i.i121:                                   ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit118
-  %call.i.i122 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp37, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp37, i32 noundef 3)
-          to label %eh.resume unwind label %terminate.lpad.i.i123
+if.then.i.i118:                                   ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit115
+  %call.i.i119 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp37, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp37, i32 noundef 3)
+          to label %eh.resume unwind label %terminate.lpad.i.i120
 
-terminate.lpad.i.i123:                            ; preds = %if.then.i.i121
+terminate.lpad.i.i120:                            ; preds = %if.then.i.i118
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
   call void @__clang_call_terminate(ptr %66) #22
   unreachable
 
-lpad47:                                           ; preds = %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit66
+lpad47:                                           ; preds = %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit65
   %67 = landingpad { ptr, i32 }
           cleanup
-  %68 = load ptr, ptr %_M_manager.i.i70, align 8
-  %tobool.not.i.i126 = icmp eq ptr %68, null
-  br i1 %tobool.not.i.i126, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit130, label %if.then.i.i127
+  %68 = load ptr, ptr %_M_manager.i.i68, align 8
+  %tobool.not.i.i123 = icmp eq ptr %68, null
+  br i1 %tobool.not.i.i123, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit127, label %if.then.i.i124
 
-if.then.i.i127:                                   ; preds = %lpad47
-  %call.i.i128 = invoke noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp45, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp45, i32 noundef 3)
-          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit130 unwind label %terminate.lpad.i.i129
+if.then.i.i124:                                   ; preds = %lpad47
+  %call.i.i125 = invoke noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp45, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp45, i32 noundef 3)
+          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit127 unwind label %terminate.lpad.i.i126
 
-terminate.lpad.i.i129:                            ; preds = %if.then.i.i127
+terminate.lpad.i.i126:                            ; preds = %if.then.i.i124
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
   call void @__clang_call_terminate(ptr %70) #22
   unreachable
 
-_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit130: ; preds = %lpad47, %if.then.i.i127
-  %71 = load ptr, ptr %_M_manager.i.i67, align 8
-  %tobool.not.i.i132 = icmp eq ptr %71, null
-  br i1 %tobool.not.i.i132, label %eh.resume, label %if.then.i.i133
+_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit127: ; preds = %lpad47, %if.then.i.i124
+  %71 = load ptr, ptr %_M_manager.i.i66, align 8
+  %tobool.not.i.i129 = icmp eq ptr %71, null
+  br i1 %tobool.not.i.i129, label %eh.resume, label %if.then.i.i130
 
-if.then.i.i133:                                   ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit130
-  %call.i.i134 = invoke noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, i32 noundef 3)
-          to label %eh.resume unwind label %terminate.lpad.i.i135
+if.then.i.i130:                                   ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit127
+  %call.i.i131 = invoke noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, i32 noundef 3)
+          to label %eh.resume unwind label %terminate.lpad.i.i132
 
-terminate.lpad.i.i135:                            ; preds = %if.then.i.i133
+terminate.lpad.i.i132:                            ; preds = %if.then.i.i130
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
   call void @__clang_call_terminate(ptr %73) #22
   unreachable
 
-lpad53:                                           ; preds = %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit83
+lpad53:                                           ; preds = %_ZNSt8functionIFiPKN7rocksdb12FileMetaDataES3_EED2Ev.exit81
   %74 = landingpad { ptr, i32 }
           cleanup
-  %75 = load ptr, ptr %_M_manager.i.i87, align 8
-  %tobool.not.i.i138 = icmp eq ptr %75, null
-  br i1 %tobool.not.i.i138, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit142, label %if.then.i.i139
+  %75 = load ptr, ptr %_M_manager.i.i84, align 8
+  %tobool.not.i.i135 = icmp eq ptr %75, null
+  br i1 %tobool.not.i.i135, label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit139, label %if.then.i.i136
 
-if.then.i.i139:                                   ; preds = %lpad53
-  %call.i.i140 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp51, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp51, i32 noundef 3)
-          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit142 unwind label %terminate.lpad.i.i141
+if.then.i.i136:                                   ; preds = %lpad53
+  %call.i.i137 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp51, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp51, i32 noundef 3)
+          to label %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit139 unwind label %terminate.lpad.i.i138
 
-terminate.lpad.i.i141:                            ; preds = %if.then.i.i139
+terminate.lpad.i.i138:                            ; preds = %if.then.i.i136
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
   call void @__clang_call_terminate(ptr %77) #22
   unreachable
 
-_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit142: ; preds = %lpad53, %if.then.i.i139
-  %78 = load ptr, ptr %_M_manager.i.i84, align 8
-  %tobool.not.i.i144 = icmp eq ptr %78, null
-  br i1 %tobool.not.i.i144, label %eh.resume, label %if.then.i.i145
+_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit139: ; preds = %lpad53, %if.then.i.i136
+  %78 = load ptr, ptr %_M_manager.i.i82, align 8
+  %tobool.not.i.i141 = icmp eq ptr %78, null
+  br i1 %tobool.not.i.i141, label %eh.resume, label %if.then.i.i142
 
-if.then.i.i145:                                   ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit142
-  %call.i.i146 = invoke noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp49, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp49, i32 noundef 3)
-          to label %eh.resume unwind label %terminate.lpad.i.i147
+if.then.i.i142:                                   ; preds = %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit139
+  %call.i.i143 = invoke noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp49, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp49, i32 noundef 3)
+          to label %eh.resume unwind label %terminate.lpad.i.i144
 
-terminate.lpad.i.i147:                            ; preds = %if.then.i.i145
+terminate.lpad.i.i144:                            ; preds = %if.then.i.i142
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
@@ -727,16 +727,16 @@ terminate.lpad.i.i147:                            ; preds = %if.then.i.i145
 
 for.end57:                                        ; preds = %for.inc55, %for.cond11.preheader
   %.lcssa = phi i64 [ %19, %for.cond11.preheader ], [ %52, %for.inc55 ]
-  %sub.lcssa = phi i64 [ %sub233, %for.cond11.preheader ], [ %sub, %for.inc55 ]
+  %sub.lcssa = phi i64 [ %sub230, %for.cond11.preheader ], [ %sub, %for.inc55 ]
   %arrayidx60 = getelementptr inbounds %"class.std::vector.14", ptr %files, i64 %sub.lcssa
-  %_M_finish.i149 = getelementptr inbounds i8, ptr %arrayidx60, i64 8
-  %81 = load ptr, ptr %_M_finish.i149, align 8
+  %_M_finish.i146 = getelementptr inbounds i8, ptr %arrayidx60, i64 8
+  %81 = load ptr, ptr %_M_finish.i146, align 8
   %82 = load ptr, ptr %arrayidx60, align 8
-  %sub.ptr.lhs.cast.i150 = ptrtoint ptr %81 to i64
-  %sub.ptr.rhs.cast.i151 = ptrtoint ptr %82 to i64
-  %sub.ptr.sub.i152 = sub i64 %sub.ptr.lhs.cast.i150, %sub.ptr.rhs.cast.i151
-  %sub.ptr.div.i153 = lshr exact i64 %sub.ptr.sub.i152, 3
-  %conv62 = trunc i64 %sub.ptr.div.i153 to i32
+  %sub.ptr.lhs.cast.i147 = ptrtoint ptr %81 to i64
+  %sub.ptr.rhs.cast.i148 = ptrtoint ptr %82 to i64
+  %sub.ptr.sub.i149 = sub i64 %sub.ptr.lhs.cast.i147, %sub.ptr.rhs.cast.i148
+  %sub.ptr.div.i150 = lshr exact i64 %sub.ptr.sub.i149, 3
+  %conv62 = trunc i64 %sub.ptr.div.i150 to i32
   %sub63 = add nsw i32 %conv62, -1
   %83 = load ptr, ptr %level_rb_, align 8
   %84 = getelementptr i32, ptr %83, i64 %.lcssa
@@ -747,8 +747,8 @@ for.end57:                                        ; preds = %for.inc55, %for.con
 return:                                           ; preds = %entry, %for.end57, %if.then3
   ret void
 
-eh.resume:                                        ; preds = %if.then.i.i145, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit142, %if.then.i.i133, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit130, %if.then.i.i121, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit118, %if.then.i.i109, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit106
-  %.pn = phi { ptr, i32 } [ %53, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit106 ], [ %53, %if.then.i.i109 ], [ %60, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit118 ], [ %60, %if.then.i.i121 ], [ %67, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit130 ], [ %67, %if.then.i.i133 ], [ %74, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit142 ], [ %74, %if.then.i.i145 ]
+eh.resume:                                        ; preds = %if.then.i.i142, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit139, %if.then.i.i130, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit127, %if.then.i.i118, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit115, %if.then.i.i106, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit103
+  %.pn = phi { ptr, i32 } [ %53, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit103 ], [ %53, %if.then.i.i106 ], [ %60, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit115 ], [ %60, %if.then.i.i118 ], [ %67, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit127 ], [ %67, %if.then.i.i130 ], [ %74, %_ZNSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEED2Ev.exit139 ], [ %74, %if.then.i.i142 ]
   resume { ptr, i32 } %.pn
 }
 

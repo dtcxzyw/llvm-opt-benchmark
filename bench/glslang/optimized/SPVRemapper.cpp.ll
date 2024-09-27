@@ -163,7 +163,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.30 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_SPVRemapper.cpp, ptr null }]
 @switch.table._ZNK3spv10spirvbin_t9typeRangeENS_2OpE = private unnamed_addr constant [16 x i64] [i64 2, i64 2, i64 0, i64 2, i64 0, i64 2, i64 2, i64 2, i64 0, i64 3, i64 2, i64 0, i64 0, i64 0, i64 0, i64 2], align 8
-@switch.table._ZNK3spv10spirvbin_t9typeRangeENS_2OpE.205 = private unnamed_addr constant [16 x i64] [i64 12884901888, i64 12884901888, i64 0, i64 12884901888, i64 0, i64 12884901888, i64 12884901888, i64 4611686018427387904, i64 0, i64 17179869184, i64 4611686018427387904, i64 0, i64 0, i64 0, i64 0, i64 12884901888], align 8
+@switch.table._ZNK3spv10spirvbin_t9typeRangeENS_2OpE.215 = private unnamed_addr constant [16 x i64] [i64 12884901888, i64 12884901888, i64 0, i64 12884901888, i64 0, i64 12884901888, i64 12884901888, i64 4611686018427387904, i64 0, i64 17179869184, i64 4611686018427387904, i64 0, i64 0, i64 0, i64 0, i64 12884901888], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
@@ -305,7 +305,7 @@ switch.lookup:                                    ; preds = %4
   %switch.gep = getelementptr inbounds [16 x i64], ptr @switch.table._ZNK3spv10spirvbin_t9typeRangeENS_2OpE, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds [16 x i64], ptr @switch.table._ZNK3spv10spirvbin_t9typeRangeENS_2OpE.205, i64 0, i64 %7
+  %switch.gep10 = getelementptr inbounds [16 x i64], ptr @switch.table._ZNK3spv10spirvbin_t9typeRangeENS_2OpE.215, i64 0, i64 %7
   %switch.load11 = load i64, ptr %switch.gep10, align 8
   br label %8
 
@@ -774,16 +774,16 @@ define void @_ZN3spv10spirvbin_t8applyMapEv(ptr noundef nonnull align 8 derefere
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjENS0_3$_2EE9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjENS0_3$_2EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %14, align 8
-  %15 = ptrtoint ptr %0 to i64
-  store i64 %15, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t8applyMapEvE3$_0E9_M_invokeERKSt9_Any_dataS0_", ptr %13, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t8applyMapEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %12, align 8
+  %12 = ptrtoint ptr %0 to i64
+  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %15, align 8
+  store i64 %12, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t8applyMapEvE3$_0E9_M_invokeERKSt9_Any_dataS0_", ptr %14, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t8applyMapEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %13, align 8
   %16 = call noundef nonnull align 8 dereferenceable(473) ptr @_ZN3spv10spirvbin_t7processESt8functionIFbNS_2OpEjEES1_IFvRjEEjj(ptr noundef nonnull align 8 dereferenceable(473) %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0)
-  %17 = load ptr, ptr %12, align 8
+  %17 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRjEED2Ev.exit, label %18
 
@@ -1684,14 +1684,14 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %45, %55
 define void @_ZN3spv10spirvbin_t10stripDebugEv(ptr noundef nonnull align 8 dereferenceable(473) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::function.79", align 8
   %3 = alloca %"class.std::function.82", align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %6, align 8
-  %7 = ptrtoint ptr %0 to i64
-  store i64 %7, ptr %2, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t10stripDebugEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %4, align 8
+  %4 = ptrtoint ptr %0 to i64
+  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %7, align 8
+  store i64 %4, ptr %2, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t10stripDebugEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -1707,7 +1707,7 @@ define void @_ZN3spv10spirvbin_t10stripDebugEv(ptr noundef nonnull align 8 deref
   br label %_ZNSt8functionIFvRjEED2Ev.exit
 
 _ZNSt8functionIFvRjEED2Ev.exit:                   ; preds = %1, %12
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
   %.not.i.i1 = icmp eq ptr %14, null
   br i1 %.not.i.i1, label %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit, label %15
 
@@ -1723,14 +1723,14 @@ _ZNSt8functionIFbN3spv2OpEjEED2Ev.exit:           ; preds = %_ZNSt8functionIFvRj
 define void @_ZN3spv10spirvbin_t13stripDeadRefsEv(ptr noundef nonnull align 8 dereferenceable(473) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::function.79", align 8
   %3 = alloca %"class.std::function.82", align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %6, align 8
-  %7 = ptrtoint ptr %0 to i64
-  store i64 %7, ptr %2, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t13stripDeadRefsEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t13stripDeadRefsEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %4, align 8
+  %4 = ptrtoint ptr %0 to i64
+  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %7, align 8
+  store i64 %4, ptr %2, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t13stripDeadRefsEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t13stripDeadRefsEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -1746,7 +1746,7 @@ define void @_ZN3spv10spirvbin_t13stripDeadRefsEv(ptr noundef nonnull align 8 de
   br label %_ZNSt8functionIFvRjEED2Ev.exit
 
 _ZNSt8functionIFvRjEED2Ev.exit:                   ; preds = %1, %12
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
   %.not.i.i1 = icmp eq ptr %14, null
   br i1 %.not.i.i1, label %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit, label %15
 
@@ -2070,16 +2070,16 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %67, %69, %71, %73
   store ptr %77, ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t14buildLocalMapsEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %75, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t14buildLocalMapsEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %74, align 8
-  %78 = getelementptr inbounds i8, ptr %7, i64 16
-  %79 = getelementptr inbounds i8, ptr %7, i64 24
-  %80 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 0, ptr %80, align 8
-  %81 = ptrtoint ptr %0 to i64
-  store i64 %81, ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E9_M_invokeERKSt9_Any_dataS0_", ptr %79, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %78, align 8
+  %78 = ptrtoint ptr %0 to i64
+  %79 = getelementptr inbounds i8, ptr %7, i64 16
+  %80 = getelementptr inbounds i8, ptr %7, i64 24
+  %81 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 0, ptr %81, align 8
+  store i64 %78, ptr %7, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E9_M_invokeERKSt9_Any_dataS0_", ptr %80, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t14buildLocalMapsEvE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %79, align 8
   %82 = call noundef nonnull align 8 dereferenceable(473) ptr @_ZN3spv10spirvbin_t7processESt8functionIFbNS_2OpEjEES1_IFvRjEEjj(ptr noundef nonnull align 8 dereferenceable(473) %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 0)
-  %83 = load ptr, ptr %78, align 8
+  %83 = load ptr, ptr %79, align 8
   %.not.i.i12 = icmp eq ptr %83, null
   br i1 %.not.i.i12, label %_ZNSt8functionIFvRjEED2Ev.exit, label %84
 
@@ -2757,14 +2757,14 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %1
   br label %_ZNSt6vectorIjSaIjEE7reserveEm.exit
 
 _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %1, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %27, align 8
-  %28 = ptrtoint ptr %3 to i64
-  store i64 %28, ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t11mapFnBodiesEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %26, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t11mapFnBodiesEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %25, align 8
+  %25 = ptrtoint ptr %3 to i64
+  %26 = getelementptr inbounds i8, ptr %4, i64 16
+  %27 = getelementptr inbounds i8, ptr %4, i64 24
+  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %28, align 8
+  store i64 %25, ptr %4, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t11mapFnBodiesEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %27, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t11mapFnBodiesEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %5, i64 16
   %30 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -2780,7 +2780,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %1, %_ZNSt12_Vector_
   br label %_ZNSt8functionIFvRjEED2Ev.exit
 
 _ZNSt8functionIFvRjEED2Ev.exit:                   ; preds = %_ZNSt6vectorIjSaIjEE7reserveEm.exit, %33
-  %35 = load ptr, ptr %25, align 8
+  %35 = load ptr, ptr %26, align 8
   %.not.i.i33 = icmp eq ptr %35, null
   br i1 %.not.i.i33, label %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit, label %36
 
@@ -3162,16 +3162,16 @@ define void @_ZN3spv10spirvbin_t17forwardLoadStoresEv(ptr noundef nonnull align 
   store ptr %23, ptr %4, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t17forwardLoadStoresEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %21, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t17forwardLoadStoresEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
-  %25 = getelementptr inbounds i8, ptr %5, i64 24
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %26, align 8
-  %27 = ptrtoint ptr %3 to i64
-  store i64 %27, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E9_M_invokeERKSt9_Any_dataS0_", ptr %25, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %24, align 8
+  %24 = ptrtoint ptr %3 to i64
+  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds i8, ptr %5, i64 24
+  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %27, align 8
+  store i64 %24, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E9_M_invokeERKSt9_Any_dataS0_", ptr %26, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forwardLoadStoresEvE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %25, align 8
   %28 = call noundef nonnull align 8 dereferenceable(473) ptr @_ZN3spv10spirvbin_t7processESt8functionIFbNS_2OpEjEES1_IFvRjEEjj(ptr noundef nonnull align 8 dereferenceable(473) %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0)
-  %29 = load ptr, ptr %24, align 8
+  %29 = load ptr, ptr %25, align 8
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRjEED2Ev.exit, label %30
 
@@ -3181,8 +3181,8 @@ define void @_ZN3spv10spirvbin_t17forwardLoadStoresEv(ptr noundef nonnull align 
 
 _ZNSt8functionIFvRjEED2Ev.exit:                   ; preds = %1, %30
   %32 = load ptr, ptr %20, align 8
-  %.not.i.i1 = icmp eq ptr %32, null
-  br i1 %.not.i.i1, label %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit, label %33
+  %.not.i.i2 = icmp eq ptr %32, null
+  br i1 %.not.i.i2, label %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit, label %33
 
 33:                                               ; preds = %_ZNSt8functionIFvRjEED2Ev.exit
   %34 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3) #24
@@ -3213,17 +3213,17 @@ _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5clearEv.exit: ; preds = %.l
   call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 %43, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %44 = load ptr, ptr %17, align 8
-  %.not5.i.i.i2 = icmp eq ptr %44, null
-  br i1 %.not5.i.i.i2, label %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE5clearEv.exit, label %.lr.ph.i.i.i3
+  %.not5.i.i.i3 = icmp eq ptr %44, null
+  br i1 %.not5.i.i.i3, label %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE5clearEv.exit, label %.lr.ph.i.i.i4
 
-.lr.ph.i.i.i3:                                    ; preds = %_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5clearEv.exit, %.lr.ph.i.i.i3
-  %.06.i.i.i4 = phi ptr [ %45, %.lr.ph.i.i.i3 ], [ %44, %_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5clearEv.exit ]
-  %45 = load ptr, ptr %.06.i.i.i4, align 8
-  call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i4, i64 noundef 16) #26
-  %.not.i.i.i5 = icmp eq ptr %45, null
-  br i1 %.not.i.i.i5, label %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE5clearEv.exit, label %.lr.ph.i.i.i3, !llvm.loop !69
+.lr.ph.i.i.i4:                                    ; preds = %_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5clearEv.exit, %.lr.ph.i.i.i4
+  %.06.i.i.i5 = phi ptr [ %45, %.lr.ph.i.i.i4 ], [ %44, %_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5clearEv.exit ]
+  %45 = load ptr, ptr %.06.i.i.i5, align 8
+  call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i5, i64 noundef 16) #26
+  %.not.i.i.i6 = icmp eq ptr %45, null
+  br i1 %.not.i.i.i6, label %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE5clearEv.exit, label %.lr.ph.i.i.i4, !llvm.loop !69
 
-_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE5clearEv.exit: ; preds = %.lr.ph.i.i.i3, %_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5clearEv.exit
+_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE5clearEv.exit: ; preds = %.lr.ph.i.i.i4, %_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5clearEv.exit
   %46 = load ptr, ptr %3, align 8
   %47 = load i64, ptr %16, align 8
   %48 = shl i64 %47, 3
@@ -3249,28 +3249,28 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE5clearEv.exit: ;
   store ptr @"_ZNSt17_Function_handlerIFvRjEN3spv3$_5EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %53, align 8
   %55 = call noundef nonnull align 8 dereferenceable(473) ptr @_ZN3spv10spirvbin_t7processESt8functionIFbNS_2OpEjEES1_IFvRjEEjj(ptr noundef nonnull align 8 dereferenceable(473) %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 0)
   %56 = load ptr, ptr %53, align 8
-  %.not.i.i6 = icmp eq ptr %56, null
-  br i1 %.not.i.i6, label %_ZNSt8functionIFvRjEED2Ev.exit7, label %57
+  %.not.i.i7 = icmp eq ptr %56, null
+  br i1 %.not.i.i7, label %_ZNSt8functionIFvRjEED2Ev.exit8, label %57
 
 57:                                               ; preds = %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE5clearEv.exit
   %58 = call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3) #24
-  br label %_ZNSt8functionIFvRjEED2Ev.exit7
+  br label %_ZNSt8functionIFvRjEED2Ev.exit8
 
-_ZNSt8functionIFvRjEED2Ev.exit7:                  ; preds = %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE5clearEv.exit, %57
+_ZNSt8functionIFvRjEED2Ev.exit8:                  ; preds = %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE5clearEv.exit, %57
   %59 = load ptr, ptr %49, align 8
-  %.not.i.i8 = icmp eq ptr %59, null
-  br i1 %.not.i.i8, label %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit9, label %60
+  %.not.i.i9 = icmp eq ptr %59, null
+  br i1 %.not.i.i9, label %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit10, label %60
 
-60:                                               ; preds = %_ZNSt8functionIFvRjEED2Ev.exit7
+60:                                               ; preds = %_ZNSt8functionIFvRjEED2Ev.exit8
   %61 = call noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3) #24
-  br label %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit9
+  br label %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit10
 
-_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit9:          ; preds = %_ZNSt8functionIFvRjEED2Ev.exit7, %60
+_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit10:         ; preds = %_ZNSt8functionIFvRjEED2Ev.exit8, %60
   %62 = load i8, ptr %35, align 8
   %63 = trunc i8 %62 to i1
   br i1 %63, label %80, label %64
 
-64:                                               ; preds = %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit9
+64:                                               ; preds = %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit10
   %65 = getelementptr inbounds i8, ptr %8, i64 16
   %66 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -3280,7 +3280,7 @@ _ZNSt8functionIFbN3spv2OpEjEED2Ev.exit9:          ; preds = %_ZNSt8functionIFvRj
   %68 = getelementptr inbounds i8, ptr %9, i64 24
   %69 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 0, ptr %69, align 8
-  store i64 %27, ptr %9, align 8
+  store i64 %24, ptr %9, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3E9_M_invokeERKSt9_Any_dataS0_", ptr %68, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t17forwardLoadStoresEvE3$_3E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %67, align 8
   %70 = call noundef nonnull align 8 dereferenceable(473) ptr @_ZN3spv10spirvbin_t7processESt8functionIFbNS_2OpEjEES1_IFvRjEEjj(ptr noundef nonnull align 8 dereferenceable(473) %0, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0)
@@ -3310,7 +3310,7 @@ _ZNSt8functionIFbN3spv2OpEjEED2Ev.exit14:         ; preds = %_ZNSt8functionIFvRj
   call void @_ZN3spv10spirvbin_t5stripEv(ptr noundef nonnull align 8 dereferenceable(473) %0)
   br label %80
 
-80:                                               ; preds = %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit14, %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit9, %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit, %79
+80:                                               ; preds = %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit14, %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit10, %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit, %79
   %81 = load ptr, ptr %17, align 8
   %.not5.i.i.i.i = icmp eq ptr %81, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
@@ -3788,16 +3788,16 @@ _ZNSt8__detail9_Map_baseIjSt4pairIKjjESaIS3_ENS_10_Select1stESt8equal_toIjESt4ha
   store ptr %0, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t12optLoadStoreEvE3$_3E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %173, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t12optLoadStoreEvE3$_3E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %11, i64 16
-  %175 = getelementptr inbounds i8, ptr %11, i64 24
-  %176 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 0, ptr %176, align 8
-  %177 = ptrtoint ptr %3 to i64
-  store i64 %177, ptr %11, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t12optLoadStoreEvE3$_4E9_M_invokeERKSt9_Any_dataS0_", ptr %175, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t12optLoadStoreEvE3$_4E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %174, align 8
+  %174 = ptrtoint ptr %3 to i64
+  %175 = getelementptr inbounds i8, ptr %11, i64 16
+  %176 = getelementptr inbounds i8, ptr %11, i64 24
+  %177 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 0, ptr %177, align 8
+  store i64 %174, ptr %11, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t12optLoadStoreEvE3$_4E9_M_invokeERKSt9_Any_dataS0_", ptr %176, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t12optLoadStoreEvE3$_4E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %175, align 8
   %178 = call noundef nonnull align 8 dereferenceable(473) ptr @_ZN3spv10spirvbin_t7processESt8functionIFbNS_2OpEjEES1_IFvRjEEjj(ptr noundef nonnull align 8 dereferenceable(473) %0, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 0)
-  %179 = load ptr, ptr %174, align 8
+  %179 = load ptr, ptr %175, align 8
   %.not.i.i11 = icmp eq ptr %179, null
   br i1 %.not.i.i11, label %_ZNSt8functionIFvRjEED2Ev.exit12, label %180
 
@@ -3938,21 +3938,18 @@ define void @_ZN3spv10spirvbin_t8dceFuncsEv(ptr noundef nonnull align 8 derefere
   %16 = getelementptr inbounds i8, ptr %0, i64 448
   %17 = getelementptr inbounds i8, ptr %0, i64 456
   %18 = getelementptr inbounds i8, ptr %0, i64 440
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
-  %21 = ptrtoint ptr %0 to i64
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
-  %23 = getelementptr inbounds i8, ptr %4, i64 24
-  %24 = getelementptr inbounds i8, ptr %0, i64 472
-  %25 = getelementptr inbounds i8, ptr %0, i64 144
-  %26 = getelementptr inbounds i8, ptr %0, i64 160
-  %27 = load ptr, ptr %10, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit, label %.critedge20.split.preheader
-
-.critedge20.split.preheader:                      ; preds = %.critedge20
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
-  br label %.lr.ph
+  %19 = ptrtoint ptr %0 to i64
+  %20 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds i8, ptr %3, i64 24
+  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = getelementptr inbounds i8, ptr %4, i64 24
+  %25 = getelementptr inbounds i8, ptr %0, i64 472
+  %26 = getelementptr inbounds i8, ptr %0, i64 144
+  %27 = getelementptr inbounds i8, ptr %0, i64 160
+  %28 = load ptr, ptr %10, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %.loopexit, label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %35, %.outer
   %.1.ph.lcssa29 = phi i1 [ %.2, %.outer ], [ %.1.ph35, %35 ]
@@ -3961,9 +3958,9 @@ define void @_ZN3spv10spirvbin_t8dceFuncsEv(ptr noundef nonnull align 8 derefere
   %or.cond.not = select i1 %.1.ph.lcssa29, i1 %.not3033, i1 false
   br i1 %or.cond.not, label %.lr.ph.backedge, label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph.backedge, %.critedge20.split.preheader
-  %.1.ph35 = phi i1 [ false, %.critedge20.split.preheader ], [ %.1.ph35.be, %.lr.ph.backedge ]
-  %.sroa.010.0.ph34 = phi ptr [ %27, %.critedge20.split.preheader ], [ %.sroa.010.0.ph34.be, %.lr.ph.backedge ]
+.lr.ph:                                           ; preds = %.critedge20, %.lr.ph.backedge
+  %.1.ph35 = phi i1 [ %.1.ph35.be, %.lr.ph.backedge ], [ false, %.critedge20 ]
+  %.sroa.010.0.ph34 = phi ptr [ %.sroa.010.0.ph34.be, %.lr.ph.backedge ], [ %28, %.critedge20 ]
   %30 = load i32, ptr %11, align 8
   br label %31
 
@@ -4059,18 +4056,18 @@ _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit:
   br label %_ZNSt6vectorISt4pairIjjESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorISt4pairIjjESaIS1_EE9push_backERKS1_.exit: ; preds = %70, %74
-  store i64 0, ptr %29, align 8
-  store i64 %21, ptr %3, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t8dceFuncsEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %20, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t8dceFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %19, align 8
+  store i64 0, ptr %22, align 8
+  store i64 %19, ptr %3, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t8dceFuncsEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %21, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t8dceFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %20, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFvRjEN3spv3$_5EE9_M_invokeERKSt9_Any_dataS0_", ptr %23, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRjEN3spv3$_5EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %22, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRjEN3spv3$_5EE9_M_invokeERKSt9_Any_dataS0_", ptr %24, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRjEN3spv3$_5EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %23, align 8
   %75 = load i32, ptr %67, align 4
   %76 = getelementptr inbounds i8, ptr %.sroa.010.031, i64 16
   %77 = load i32, ptr %76, align 4
   %78 = call noundef nonnull align 8 dereferenceable(473) ptr @_ZN3spv10spirvbin_t7processESt8functionIFbNS_2OpEjEES1_IFvRjEEjj(ptr noundef nonnull align 8 dereferenceable(473) %0, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %75, i32 noundef %77)
-  %79 = load ptr, ptr %22, align 8
+  %79 = load ptr, ptr %23, align 8
   %.not.i.i2 = icmp eq ptr %79, null
   br i1 %.not.i.i2, label %_ZNSt8functionIFvRjEED2Ev.exit, label %80
 
@@ -4079,7 +4076,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE9push_backERKS1_.exit: ; preds = %70, %74
   br label %_ZNSt8functionIFvRjEED2Ev.exit
 
 _ZNSt8functionIFvRjEED2Ev.exit:                   ; preds = %_ZNSt6vectorISt4pairIjjESaIS1_EE9push_backERKS1_.exit, %80
-  %82 = load ptr, ptr %19, align 8
+  %82 = load ptr, ptr %20, align 8
   %.not.i.i3 = icmp eq ptr %82, null
   br i1 %.not.i.i3, label %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit, label %83
 
@@ -4088,12 +4085,12 @@ _ZNSt8functionIFvRjEED2Ev.exit:                   ; preds = %_ZNSt6vectorISt4pai
   br label %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit
 
 _ZNSt8functionIFbN3spv2OpEjEED2Ev.exit:           ; preds = %_ZNSt8functionIFvRjEED2Ev.exit, %83
-  %85 = load i8, ptr %24, align 8
+  %85 = load i8, ptr %25, align 8
   %86 = trunc i8 %85 to i1
   br i1 %86, label %.loopexit, label %87
 
 87:                                               ; preds = %_ZNSt8functionIFbN3spv2OpEjEED2Ev.exit
-  %88 = load i64, ptr %25, align 8
+  %88 = load i64, ptr %26, align 8
   %89 = load i32, ptr %38, align 4
   %90 = zext i32 %89 to i64
   %91 = urem i64 %90, %88
@@ -4168,9 +4165,9 @@ _ZNSt13unordered_mapIjSt4pairIjjESt4hashIjESt8equal_toIjESaIS0_IKjS1_EEE5eraseEN
   %121 = load ptr, ptr %.sroa.010.031, align 8
   store ptr %121, ptr %.0.i.i.i.i, align 8
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.010.031, i64 noundef 24) #26
-  %122 = load i64, ptr %26, align 8
+  %122 = load i64, ptr %27, align 8
   %123 = add i64 %122, -1
-  store i64 %123, ptr %26, align 8
+  store i64 %123, ptr %27, align 8
   br label %.outer
 
 124:                                              ; preds = %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit
@@ -4228,16 +4225,16 @@ define void @_ZN3spv10spirvbin_t7dceVarsEv(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %.sroa.28.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t7dceVarsEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %19, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t7dceVarsEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 24
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %22, align 8
-  %23 = ptrtoint ptr %4 to i64
-  store i64 %23, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t7dceVarsEvE3$_1E9_M_invokeERKSt9_Any_dataS0_", ptr %21, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t7dceVarsEvE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %20, align 8
+  %20 = ptrtoint ptr %4 to i64
+  %21 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds i8, ptr %6, i64 24
+  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %23, align 8
+  store i64 %20, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t7dceVarsEvE3$_1E9_M_invokeERKSt9_Any_dataS0_", ptr %22, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRjEZN3spv10spirvbin_t7dceVarsEvE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %21, align 8
   %24 = call noundef nonnull align 8 dereferenceable(473) ptr @_ZN3spv10spirvbin_t7processESt8functionIFbNS_2OpEjEES1_IFvRjEEjj(ptr noundef nonnull align 8 dereferenceable(473) %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0)
-  %25 = load ptr, ptr %20, align 8
+  %25 = load ptr, ptr %21, align 8
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRjEED2Ev.exit, label %26
 
@@ -5623,14 +5620,14 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 31:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %32 = getelementptr inbounds i8, ptr %3, i64 16
-  %33 = getelementptr inbounds i8, ptr %3, i64 24
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %34, align 8
-  %35 = ptrtoint ptr %0 to i64
-  store i64 %35, ptr %3, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t10stripDebugEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %33, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %32, align 8
+  %32 = ptrtoint ptr %0 to i64
+  %33 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds i8, ptr %3, i64 24
+  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %35, align 8
+  store i64 %32, ptr %3, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t10stripDebugEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oj", ptr %34, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_10spirvbin_t10stripDebugEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %33, align 8
   %36 = getelementptr inbounds i8, ptr %4, i64 16
   %37 = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -5646,7 +5643,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   br label %_ZNSt8functionIFvRjEED2Ev.exit.i
 
 _ZNSt8functionIFvRjEED2Ev.exit.i:                 ; preds = %40, %31
-  %42 = load ptr, ptr %32, align 8
+  %42 = load ptr, ptr %33, align 8
   %.not.i.i1.i = icmp eq ptr %42, null
   br i1 %.not.i.i1.i, label %_ZN3spv10spirvbin_t10stripDebugEv.exit, label %43
 

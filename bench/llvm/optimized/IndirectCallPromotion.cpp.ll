@@ -1018,25 +1018,25 @@ _ZN4llvm13SmallDenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119VirtualCallSiteInfoELj4E
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_8FunctionEJEEENS_6ModuleEJEE6Result10getManagerEv(ptr noundef nonnull align 8 dereferenceable(8) %84) #23
   %86 = load ptr, ptr %79, align 8
-  %.not5372.i.i = icmp eq ptr %86, null
-  br i1 %.not5372.i.i, label %_ZL33computeVirtualCallSiteTypeInfoMapRN4llvm6ModuleERNS_15AnalysisManagerIS0_JEEERNS_13SmallDenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119VirtualCallSiteInfoELj4ENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEE.exit.i, label %.lr.ph75.i.i
+  %.not5473.i.i = icmp eq ptr %86, null
+  br i1 %.not5473.i.i, label %_ZL33computeVirtualCallSiteTypeInfoMapRN4llvm6ModuleERNS_15AnalysisManagerIS0_JEEERNS_13SmallDenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119VirtualCallSiteInfoELj4ENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEE.exit.i, label %.lr.ph76.i.i
 
-.lr.ph75.i.i:                                     ; preds = %82
+.lr.ph76.i.i:                                     ; preds = %82
   %87 = getelementptr inbounds i8, ptr %5, i64 16
   %88 = getelementptr inbounds i8, ptr %6, i64 16
   %89 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %90 = getelementptr inbounds i8, ptr %15, i64 16
   br label %91
 
-91:                                               ; preds = %_ZN4llvm11SmallVectorINS_14DevirtCallSiteELj1EED2Ev.exit.i.i, %.lr.ph75.i.i
-  %.sroa.046.073.i.i = phi ptr [ %86, %.lr.ph75.i.i ], [ %93, %_ZN4llvm11SmallVectorINS_14DevirtCallSiteELj1EED2Ev.exit.i.i ]
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.046.073.i.i, i64 8
+91:                                               ; preds = %_ZN4llvm11SmallVectorINS_14DevirtCallSiteELj1EED2Ev.exit.i.i, %.lr.ph76.i.i
+  %.sroa.047.074.i.i = phi ptr [ %86, %.lr.ph76.i.i ], [ %93, %_ZN4llvm11SmallVectorINS_14DevirtCallSiteELj1EED2Ev.exit.i.i ]
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.047.074.i.i, i64 8
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.046.073.i.i, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.047.074.i.i, i64 24
   %95 = load ptr, ptr %94, align 8
   %96 = load i8, ptr %95, align 8
-  %.not55.i.i = icmp eq i8 %96, 85
-  br i1 %.not55.i.i, label %97, label %_ZN4llvm11SmallVectorINS_14DevirtCallSiteELj1EED2Ev.exit.i.i
+  %.not56.i.i = icmp eq i8 %96, 85
+  br i1 %.not56.i.i, label %97, label %_ZN4llvm11SmallVectorINS_14DevirtCallSiteELj1EED2Ev.exit.i.i
 
 97:                                               ; preds = %91
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 4
@@ -1054,8 +1054,8 @@ _ZN4llvm13SmallDenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119VirtualCallSiteInfoELj4E
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %108 = load ptr, ptr %107, align 8
   %109 = load i8, ptr %108, align 4
-  %.not57.i.i = icmp eq i8 %109, 0
-  br i1 %.not57.i.i, label %110, label %_ZN4llvm11SmallVectorINS_14DevirtCallSiteELj1EED2Ev.exit.i.i
+  %.not58.i.i = icmp eq i8 %109, 0
+  br i1 %.not58.i.i, label %110, label %_ZN4llvm11SmallVectorINS_14DevirtCallSiteELj1EED2Ev.exit.i.i
 
 110:                                              ; preds = %106
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %87, i64 noundef 1) #23
@@ -1067,12 +1067,12 @@ _ZN4llvm13SmallDenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119VirtualCallSiteInfoELj4E
   %114 = load ptr, ptr %5, align 8
   %115 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   %116 = getelementptr inbounds %"struct.llvm::DevirtCallSite", ptr %114, i64 %115
-  %.not4270.i.i = icmp eq i64 %115, 0
-  br i1 %.not4270.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not4271.i.i = icmp eq i64 %115, 0
+  br i1 %.not4271.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %110, %_ZN4llvm22PGOIndirectCallVisitor23tryGetVTableInstructionEPNS_8CallBaseE.exit.thread.i.i
-  %.071.i.i = phi ptr [ %244, %_ZN4llvm22PGOIndirectCallVisitor23tryGetVTableInstructionEPNS_8CallBaseE.exit.thread.i.i ], [ %114, %110 ]
-  %117 = getelementptr inbounds nuw i8, ptr %.071.i.i, i64 8
+  %.072.i.i = phi ptr [ %244, %_ZN4llvm22PGOIndirectCallVisitor23tryGetVTableInstructionEPNS_8CallBaseE.exit.thread.i.i ], [ %114, %110 ]
+  %117 = getelementptr inbounds nuw i8, ptr %.072.i.i, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = call noundef zeroext i1 @_ZNK4llvm8CallBase14isIndirectCallEv(ptr noundef nonnull align 8 dereferenceable(88) %118) #23
   br i1 %119, label %120, label %_ZN4llvm22PGOIndirectCallVisitor23tryGetVTableInstructionEPNS_8CallBaseE.exit.thread.i.i
@@ -1097,7 +1097,7 @@ _ZN4llvm13SmallDenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119VirtualCallSiteInfoELj4E
   br i1 %130, label %_ZN4llvm22PGOIndirectCallVisitor23tryGetVTableInstructionEPNS_8CallBaseE.exit.i.i, label %_ZN4llvm22PGOIndirectCallVisitor23tryGetVTableInstructionEPNS_8CallBaseE.exit.thread.i.i
 
 _ZN4llvm22PGOIndirectCallVisitor23tryGetVTableInstructionEPNS_8CallBaseE.exit.i.i: ; preds = %128
-  %131 = load i64, ptr %.071.i.i, align 8
+  %131 = load i64, ptr %.072.i.i, align 8
   %132 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %108) #23
   %133 = extractvalue { ptr, i64 } %132, 0
   %134 = extractvalue { ptr, i64 } %132, 1
@@ -1317,7 +1317,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119Virtua
   br label %_ZN4llvm22PGOIndirectCallVisitor23tryGetVTableInstructionEPNS_8CallBaseE.exit.thread.i.i
 
 _ZN4llvm22PGOIndirectCallVisitor23tryGetVTableInstructionEPNS_8CallBaseE.exit.thread.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119VirtualCallSiteInfoELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixEOS4_.exit.i.i, %128, %124, %120, %.lr.ph.i.i
-  %244 = getelementptr inbounds i8, ptr %.071.i.i, i64 16
+  %244 = getelementptr inbounds i8, ptr %.072.i.i, i64 16
   %.not42.i.i = icmp eq ptr %244, %116
   br i1 %.not42.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -1342,8 +1342,8 @@ _ZN4llvm11SmallVectorIPNS_8CallInstELj1EED2Ev.exit.i.i: ; preds = %248, %._crit_
   br label %_ZN4llvm11SmallVectorINS_14DevirtCallSiteELj1EED2Ev.exit.i.i
 
 _ZN4llvm11SmallVectorINS_14DevirtCallSiteELj1EED2Ev.exit.i.i: ; preds = %252, %_ZN4llvm11SmallVectorIPNS_8CallInstELj1EED2Ev.exit.i.i, %106, %97, %91
-  %.not53.i.i = icmp eq ptr %93, null
-  br i1 %.not53.i.i, label %_ZL33computeVirtualCallSiteTypeInfoMapRN4llvm6ModuleERNS_15AnalysisManagerIS0_JEEERNS_13SmallDenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119VirtualCallSiteInfoELj4ENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEE.exit.i, label %91
+  %.not54.i.i = icmp eq ptr %93, null
+  br i1 %.not54.i.i, label %_ZL33computeVirtualCallSiteTypeInfoMapRN4llvm6ModuleERNS_15AnalysisManagerIS0_JEEERNS_13SmallDenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119VirtualCallSiteInfoELj4ENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEE.exit.i, label %91
 
 _ZL33computeVirtualCallSiteTypeInfoMapRN4llvm6ModuleERNS_15AnalysisManagerIS0_JEEERNS_13SmallDenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119VirtualCallSiteInfoELj4ENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEE.exit.i: ; preds = %_ZN4llvm11SmallVectorINS_14DevirtCallSiteELj1EED2Ev.exit.i.i, %82, %78, %73
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)

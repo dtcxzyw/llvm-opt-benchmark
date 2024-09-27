@@ -1712,12 +1712,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #12
   %72 = getelementptr inbounds ptr, ptr %70, i64 %71
-  %.not19.i = icmp eq i64 %71, 0
-  br i1 %.not19.i, label %"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit", label %.lr.ph.i
+  %.not5.i = icmp eq i64 %71, 0
+  br i1 %.not5.i, label %"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %68, %.lr.ph.i
-  %.020.i = phi ptr [ %85, %.lr.ph.i ], [ %70, %68 ]
-  %73 = load ptr, ptr %.020.i, align 8
+  %.06.i = phi ptr [ %85, %.lr.ph.i ], [ %70, %68 ]
+  %73 = load ptr, ptr %.06.i, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load i32, ptr %74, align 8
   %76 = lshr i32 %75, 6
@@ -1730,7 +1730,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9
   %83 = load i64, ptr %79, align 8
   %84 = or i64 %82, %83
   store i64 %84, ptr %79, align 8
-  %85 = getelementptr inbounds i8, ptr %.020.i, i64 8
+  %85 = getelementptr inbounds i8, ptr %.06.i, i64 8
   %.not.i = icmp eq ptr %85, %72
   br i1 %.not.i, label %"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit", label %.lr.ph.i
 
@@ -1842,12 +1842,12 @@ _ZN4llvm11upper_boundIRNS_9LiveRangeENS_9SlotIndexEEEDaOT_OT0_.exit: ; preds = %
   %158 = load ptr, ptr %157, align 8
   %159 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %157) #12
   %160 = getelementptr inbounds ptr, ptr %158, i64 %159
-  %.not19.i102 = icmp eq i64 %159, 0
-  br i1 %.not19.i102, label %"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit", label %.lr.ph.i103
+  %.not5.i107 = icmp eq i64 %159, 0
+  br i1 %.not5.i107, label %"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit", label %.lr.ph.i108
 
-.lr.ph.i103:                                      ; preds = %156, %.lr.ph.i103
-  %.020.i104 = phi ptr [ %173, %.lr.ph.i103 ], [ %158, %156 ]
-  %161 = load ptr, ptr %.020.i104, align 8
+.lr.ph.i108:                                      ; preds = %156, %.lr.ph.i108
+  %.06.i109 = phi ptr [ %173, %.lr.ph.i108 ], [ %158, %156 ]
+  %161 = load ptr, ptr %.06.i109, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 24
   %163 = load i32, ptr %162, align 8
   %164 = lshr i32 %163, 6
@@ -1860,9 +1860,9 @@ _ZN4llvm11upper_boundIRNS_9LiveRangeENS_9SlotIndexEEEDaOT_OT0_.exit: ; preds = %
   %171 = load i64, ptr %167, align 8
   %172 = or i64 %170, %171
   store i64 %172, ptr %167, align 8
-  %173 = getelementptr inbounds i8, ptr %.020.i104, i64 8
-  %.not.i105 = icmp eq ptr %173, %160
-  br i1 %.not.i105, label %"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit", label %.lr.ph.i103
+  %173 = getelementptr inbounds i8, ptr %.06.i109, i64 8
+  %.not.i110 = icmp eq ptr %173, %160
+  br i1 %.not.i110, label %"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit", label %.lr.ph.i108
 
 174:                                              ; preds = %135, %_ZN4llvm11upper_boundIRNS_9LiveRangeENS_9SlotIndexEEEDaOT_OT0_.exit
   %175 = load ptr, ptr %6, align 8
@@ -1904,12 +1904,12 @@ _ZN4llvm11upper_boundIRNS_9LiveRangeENS_9SlotIndexEEEDaOT_OT0_.exit: ; preds = %
   %192 = load ptr, ptr %191, align 8
   %193 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %191) #12
   %194 = getelementptr inbounds ptr, ptr %192, i64 %193
-  %.not19.i113 = icmp eq i64 %193, 0
-  br i1 %.not19.i113, label %"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit", label %.lr.ph.i114
+  %.not5.i118 = icmp eq i64 %193, 0
+  br i1 %.not5.i118, label %"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit", label %.lr.ph.i119
 
-.lr.ph.i114:                                      ; preds = %190, %.lr.ph.i114
-  %.020.i115 = phi ptr [ %207, %.lr.ph.i114 ], [ %192, %190 ]
-  %195 = load ptr, ptr %.020.i115, align 8
+.lr.ph.i119:                                      ; preds = %190, %.lr.ph.i119
+  %.06.i120 = phi ptr [ %207, %.lr.ph.i119 ], [ %192, %190 ]
+  %195 = load ptr, ptr %.06.i120, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
   %197 = load i32, ptr %196, align 8
   %198 = lshr i32 %197, 6
@@ -1922,9 +1922,9 @@ _ZN4llvm11upper_boundIRNS_9LiveRangeENS_9SlotIndexEEEDaOT_OT0_.exit: ; preds = %
   %205 = load i64, ptr %201, align 8
   %206 = or i64 %204, %205
   store i64 %206, ptr %201, align 8
-  %207 = getelementptr inbounds i8, ptr %.020.i115, i64 8
-  %.not.i116 = icmp eq ptr %207, %194
-  br i1 %.not.i116, label %"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit", label %.lr.ph.i114
+  %207 = getelementptr inbounds i8, ptr %.06.i120, i64 8
+  %.not.i121 = icmp eq ptr %207, %194
+  br i1 %.not.i121, label %"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit", label %.lr.ph.i119
 
 208:                                              ; preds = %185
   %209 = getelementptr inbounds nuw i8, ptr %54, i64 64
@@ -1952,9 +1952,9 @@ _ZN4llvm11upper_boundIRNS_9LiveRangeENS_9SlotIndexEEEDaOT_OT0_.exit: ; preds = %
   %.not93.not = icmp eq i64 %220, %219
   br i1 %.not93.not, label %"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit", label %44, !llvm.loop !22
 
-"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit": ; preds = %.loopexit, %.lr.ph.i, %.lr.ph.i103, %.lr.ph.i114, %.preheader, %190, %156, %68
-  %.sink = phi ptr [ %5, %68 ], [ %5, %156 ], [ %5, %190 ], [ %6, %.preheader ], [ %5, %.lr.ph.i114 ], [ %5, %.lr.ph.i103 ], [ %5, %.lr.ph.i ], [ %6, %.loopexit ]
-  %.not93163 = phi i1 [ true, %68 ], [ true, %156 ], [ true, %190 ], [ false, %.preheader ], [ true, %.lr.ph.i114 ], [ true, %.lr.ph.i103 ], [ true, %.lr.ph.i ], [ false, %.loopexit ]
+"_ZZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_ENK3$_0clES7_.exit": ; preds = %.loopexit, %.lr.ph.i, %.lr.ph.i108, %.lr.ph.i119, %.preheader, %190, %156, %68
+  %.sink = phi ptr [ %5, %68 ], [ %5, %156 ], [ %5, %190 ], [ %6, %.preheader ], [ %5, %.lr.ph.i119 ], [ %5, %.lr.ph.i108 ], [ %5, %.lr.ph.i ], [ %6, %.loopexit ]
+  %.not93163 = phi i1 [ true, %68 ], [ true, %156 ], [ true, %190 ], [ false, %.preheader ], [ true, %.lr.ph.i119 ], [ true, %.lr.ph.i108 ], [ true, %.lr.ph.i ], [ false, %.loopexit ]
   %221 = load ptr, ptr %.sink, align 8
   %222 = getelementptr inbounds i64, ptr %221, i64 %14
   %223 = load i64, ptr %222, align 8

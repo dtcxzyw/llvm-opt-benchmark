@@ -3070,7 +3070,7 @@ define hidden void @_ZN11opencv_test22Conv_3x3S1D1_conv_Test12PerfTestBodyEv(ptr
   %17 = and i8 %16, 1
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   %19 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i8 %17, ptr %3, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN2cv3dnn14dnn4_v202405213NetEEZN11opencv_test22Conv_3x3S1D1_conv_Test12PerfTestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %19, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN2cv3dnn14dnn4_v202405213NetEEZN11opencv_test22Conv_3x3S1D1_conv_Test12PerfTestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %18, align 8

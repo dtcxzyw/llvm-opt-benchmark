@@ -723,8 +723,8 @@ if.end:                                           ; preds = %while.end.i.i.i.i.i
   %arrayidx7.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %31, i64 %and6.i.i.i.i.i.i.i.i.i.i
   store i8 %conv.i.i.i.i.i.i.i.i, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !21
   %.val2.i.i.i.i.i.i = load ptr, ptr %8, align 8, !noalias !21
-  %add.ptr.i3.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %.val2.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i3.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %info, i64 48, i1 false), !noalias !21
+  %add.ptr.i4.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %.val2.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i4.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %info, i64 48, i1 false), !noalias !21
   ret void
 }
 

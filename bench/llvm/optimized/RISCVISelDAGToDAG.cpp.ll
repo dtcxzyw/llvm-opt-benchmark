@@ -307,13 +307,13 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_RISCVISelDAGToDAG.cpp, ptr null }]
 @switch.table._ZN4llvm17RISCVDAGToDAGISel20tryShrinkShlLogicImmEPNS_6SDNodeE = private unnamed_addr constant [3 x i32] [i32 12069, i32 12861, i32 13805], align 4
 @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE = private unnamed_addr constant [3 x i32] [i32 12713, i32 12715, i32 12710], align 4
-@switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.77 = private unnamed_addr constant [3 x i32] [i32 12626, i32 12627, i32 12625], align 4
-@switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.78 = private unnamed_addr constant [8 x i32] [i32 6856, i32 6857, i32 6858, i32 6859, i32 6862, i32 6862, i32 6861, i32 6860], align 4
-@switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.79 = private unnamed_addr constant [8 x i32] [i32 6453, i32 6454, i32 6455, i32 6456, i32 6459, i32 6459, i32 6458, i32 6457], align 4
-@switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.80 = private unnamed_addr constant [8 x i32] [i32 7372, i32 7373, i32 7374, i32 7375, i32 7378, i32 7378, i32 7377, i32 7376], align 4
+@switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.78 = private unnamed_addr constant [3 x i32] [i32 12626, i32 12627, i32 12625], align 4
+@switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.79 = private unnamed_addr constant [8 x i32] [i32 6856, i32 6857, i32 6858, i32 6859, i32 6862, i32 6862, i32 6861, i32 6860], align 4
+@switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.80 = private unnamed_addr constant [8 x i32] [i32 6453, i32 6454, i32 6455, i32 6456, i32 6459, i32 6459, i32 6458, i32 6457], align 4
+@switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.81 = private unnamed_addr constant [8 x i32] [i32 7372, i32 7373, i32 7374, i32 7375, i32 7378, i32 7378, i32 7377, i32 7376], align 4
 @switch.table._ZL12getSegInstNFj = private unnamed_addr constant [307 x i32] [i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7, i32 8, i32 8, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 3, i32 3, i32 4, i32 4, i32 4, i32 4, i32 5, i32 5, i32 5, i32 5, i32 6, i32 6, i32 6, i32 6, i32 7, i32 7, i32 7, i32 7, i32 8, i32 8, i32 8, i32 8, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7, i32 8, i32 8, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7, i32 8, i32 8, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7, i32 8, i32 8, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7, i32 8, i32 8, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7, i32 8, i32 8, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7, i32 8, i32 8], align 4
 @switch.table._ZN4llvm9InlineAsm20getMemConstraintNameENS0_14ConstraintCodeE = private unnamed_addr constant [28 x i64] [i64 2, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 1, i64 1, i64 2, i64 2, i64 2, i64 1, i64 2, i64 2, i64 2, i64 2], align 8
-@switch.table._ZN4llvm9InlineAsm20getMemConstraintNameENS0_14ConstraintCodeE.81 = private unnamed_addr constant [28 x ptr] [ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38], align 8
+@switch.table._ZN4llvm9InlineAsm20getMemConstraintNameENS0_14ConstraintCodeE.82 = private unnamed_addr constant [28 x ptr] [ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38], align 8
 @switch.table._ZN4llvm17RISCVDAGToDAGISel14RunSDNodeXFormENS_7SDValueEj = private unnamed_addr constant [12 x i64] [i64 5, i64 4, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 3, i64 2, i64 0, i64 1], align 8
 
 @_ZN4llvm23RISCVDAGToDAGISelLegacyC1ERNS_18RISCVTargetMachineENS_15CodeGenOptLevelE = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN4llvm23RISCVDAGToDAGISelLegacyC2ERNS_18RISCVTargetMachineENS_15CodeGenOptLevelE
@@ -5847,7 +5847,7 @@ switch.lookup:                                    ; preds = %242
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE, i64 0, i64 %251
   %switch.load = load i32, ptr %switch.gep, align 4
   %252 = sext i16 %switch.tableidx to i64
-  %switch.gep2628 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.77, i64 0, i64 %252
+  %switch.gep2628 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.78, i64 0, i64 %252
   %switch.load2629 = load i32, ptr %switch.gep2628, align 4
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %254 = load ptr, ptr %253, align 8
@@ -8452,13 +8452,13 @@ switch.lookup2630:                                ; preds = %1545, %1542, %1539,
   %.01354 = phi i32 [ %1546, %1545 ], [ %1543, %1542 ], [ %1540, %1539 ], [ %1537, %1536 ], [ %1534, %1533 ], [ %1531, %1530 ], [ %1528, %1527 ]
   %1548 = call noundef zeroext i8 @_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE(i16 %.sroa.0.0.copyload.i.i) #25
   %1549 = sext i8 %1548 to i64
-  %switch.gep2631 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.78, i64 0, i64 %1549
+  %switch.gep2631 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.79, i64 0, i64 %1549
   %switch.load2632 = load i32, ptr %switch.gep2631, align 4
   %1550 = sext i8 %1548 to i64
-  %switch.gep2633 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.79, i64 0, i64 %1550
+  %switch.gep2633 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.80, i64 0, i64 %1550
   %switch.load2634 = load i32, ptr %switch.gep2633, align 4
   %1551 = sext i8 %1548 to i64
-  %switch.gep2635 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.80, i64 0, i64 %1551
+  %switch.gep2635 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeE.81, i64 0, i64 %1551
   %switch.load2636 = load i32, ptr %switch.gep2635, align 4
   %1552 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1553 = load ptr, ptr %1552, align 8
@@ -11235,7 +11235,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds [28 x i64], ptr @switch.table._ZN4llvm9InlineAsm20getMemConstraintNameENS0_14ConstraintCodeE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds [28 x ptr], ptr @switch.table._ZN4llvm9InlineAsm20getMemConstraintNameENS0_14ConstraintCodeE.81, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds [28 x ptr], ptr @switch.table._ZN4llvm9InlineAsm20getMemConstraintNameENS0_14ConstraintCodeE.82, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -14852,7 +14852,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel16selectVSplatUi
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 %3, ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %12, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %11, align 8
@@ -23088,7 +23088,7 @@ _ZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS_7SDValueERS1_.exit: ; preds = 
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i32 5, ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %75, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %74, align 8
@@ -23194,7 +23194,7 @@ _ZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS_7SDValueERS1_.exit
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %132 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store i32 6, ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %132, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %131, align 8

@@ -46254,59 +46254,59 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS_11SmallVectorIPNS2_9NamedDe
 
 59:                                               ; preds = %54
   %60 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %53) #26
-  %.not3133.i = icmp eq ptr %60, null
-  br i1 %.not3133.i, label %"_ZN5clang13serialization26numberAnonymousDeclsWithinIZNS_13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjE3$_0EEvPKS5_T_.exit", label %.lr.ph.i
+  %.not2931.i = icmp eq ptr %60, null
+  br i1 %.not2931.i, label %"_ZN5clang13serialization26numberAnonymousDeclsWithinIZNS_13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjE3$_0EEvPKS5_T_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %59
   %61 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   br label %62
 
 62:                                               ; preds = %"_ZZN5clang13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjENK3$_0clEPNS_9NamedDeclEj.exit.i", %.lr.ph.i
-  %.035.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %"_ZZN5clang13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjENK3$_0clEPNS_9NamedDeclEj.exit.i" ]
-  %.sroa.0.034.i = phi ptr [ %60, %.lr.ph.i ], [ %100, %"_ZZN5clang13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjENK3$_0clEPNS_9NamedDeclEj.exit.i" ]
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 28
+  %.033.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %"_ZZN5clang13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjENK3$_0clEPNS_9NamedDeclEj.exit.i" ]
+  %.sroa.0.032.i = phi ptr [ %60, %.lr.ph.i ], [ %100, %"_ZZN5clang13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjENK3$_0clEPNS_9NamedDeclEj.exit.i" ]
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.i, i64 28
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 127
   %.not.i = icmp eq i32 %65, 82
-  br i1 %.not.i, label %66, label %.thread24.i
+  br i1 %.not.i, label %66, label %.thread22.i
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.i, i64 40
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %67, align 8
   %68 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 4
   %69 = icmp ne i64 %68, 0
   %70 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
   %.not.i.i.i = icmp eq i64 %70, 0
   %or.cond.i = or i1 %69, %.not.i.i.i
-  br i1 %or.cond.i, label %"_ZZN5clang13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjENK3$_0clEPNS_9NamedDeclEj.exit.i", label %..thread24_crit_edge.i
+  br i1 %or.cond.i, label %"_ZZN5clang13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjENK3$_0clEPNS_9NamedDeclEj.exit.i", label %..thread22_crit_edge.i
 
-..thread24_crit_edge.i:                           ; preds = %66
+..thread22_crit_edge.i:                           ; preds = %66
   %71 = inttoptr i64 %70 to ptr
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %71, i64 28
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %.pre36.i = and i32 %.pre.i, 127
-  br label %.thread24.i
+  %.pre34.i = and i32 %.pre.i, 127
+  br label %.thread22.i
 
-.thread24.i:                                      ; preds = %..thread24_crit_edge.i, %62
-  %.pre-phi.i = phi i32 [ %.pre36.i, %..thread24_crit_edge.i ], [ %65, %62 ]
-  %.01227.i = phi ptr [ %71, %..thread24_crit_edge.i ], [ %.sroa.0.034.i, %62 ]
+.thread22.i:                                      ; preds = %..thread22_crit_edge.i, %62
+  %.pre-phi.i = phi i32 [ %.pre34.i, %..thread22_crit_edge.i ], [ %65, %62 ]
+  %.01225.i = phi ptr [ %71, %..thread22_crit_edge.i ], [ %.sroa.0.032.i, %62 ]
   %72 = add nsw i32 %.pre-phi.i, -15
   %73 = icmp ult i32 %72, 63
   br i1 %73, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i, label %"_ZZN5clang13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjENK3$_0clEPNS_9NamedDeclEj.exit.i"
 
-_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i: ; preds = %.thread24.i
-  %74 = call noundef zeroext i1 @_ZN5clang13serialization31needsAnonymousDeclarationNumberEPKNS_9NamedDeclE(ptr noundef nonnull %.01227.i) #26
+_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i: ; preds = %.thread22.i
+  %74 = call noundef zeroext i1 @_ZN5clang13serialization31needsAnonymousDeclarationNumberEPKNS_9NamedDeclE(ptr noundef nonnull %.01225.i) #26
   br i1 %74, label %75, label %"_ZZN5clang13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjENK3$_0clEPNS_9NamedDeclEj.exit.i"
 
 75:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i
-  %76 = add i32 %.035.i, 1
+  %76 = add i32 %.033.i, 1
   %77 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %44) #26
-  %78 = zext i32 %.035.i to i64
+  %78 = zext i32 %.033.i to i64
   %79 = icmp eq i64 %77, %78
-  %80 = load ptr, ptr %.01227.i, align 8
+  %80 = load ptr, ptr %.01225.i, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 32
   %82 = load ptr, ptr %81, align 8
-  %83 = call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(33) %.01227.i) #26
+  %83 = call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(33) %.01225.i) #26
   br i1 %79, label %84, label %95
 
 84:                                               ; preds = %75
@@ -46337,14 +46337,14 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit.i.
   store ptr %83, ptr %97, align 8
   br label %"_ZZN5clang13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjENK3$_0clEPNS_9NamedDeclEj.exit.i"
 
-"_ZZN5clang13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjENK3$_0clEPNS_9NamedDeclEj.exit.i": ; preds = %95, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i, %.thread24.i, %66
-  %.1.i = phi i32 [ %.035.i, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i ], [ %76, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit.i.i ], [ %76, %95 ], [ %.035.i, %.thread24.i ], [ %.035.i, %66 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 8
+"_ZZN5clang13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjENK3$_0clEPNS_9NamedDeclEj.exit.i": ; preds = %95, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i, %.thread22.i, %66
+  %.1.i = phi i32 [ %.033.i, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i ], [ %76, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit.i.i ], [ %76, %95 ], [ %.033.i, %.thread22.i ], [ %.033.i, %66 ]
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.i, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %98, align 8
   %99 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %100 = inttoptr i64 %99 to ptr
-  %.not31.i = icmp eq i64 %99, 0
-  br i1 %.not31.i, label %"_ZN5clang13serialization26numberAnonymousDeclsWithinIZNS_13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjE3$_0EEvPKS5_T_.exit", label %62
+  %.not29.i = icmp eq i64 %99, 0
+  br i1 %.not29.i, label %"_ZN5clang13serialization26numberAnonymousDeclsWithinIZNS_13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjE3$_0EEvPKS5_T_.exit", label %62
 
 "_ZN5clang13serialization26numberAnonymousDeclsWithinIZNS_13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjE3$_0EEvPKS5_T_.exit": ; preds = %"_ZZN5clang13ASTDeclReader26getAnonymousDeclForMergingERNS_9ASTReaderEPNS_11DeclContextEjENK3$_0clEPNS_9NamedDeclEj.exit.i", %59, %54, %52
   %101 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %44) #26

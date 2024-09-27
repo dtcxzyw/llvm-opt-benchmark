@@ -2321,8 +2321,8 @@ _ZN4llvm13AllocatorListINS_4yaml5TokenENS_20BumpPtrAllocatorImplINS_15MallocAllo
   %48 = load ptr, ptr %4, align 8
   %.val.i = load ptr, ptr %5, align 8
   %49 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
-  %.idx6.i = mul nsw i64 %49, 24
-  %50 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx6.i
+  %.idx1.i = mul nsw i64 %49, 24
+  %50 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx1.i
   %51 = ashr i64 %49, 2
   %52 = icmp sgt i64 %51, 0
   br i1 %52, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
@@ -2364,7 +2364,7 @@ _ZN4llvm13AllocatorListINS_4yaml5TokenENS_20BumpPtrAllocatorImplINS_15MallocAllo
   br i1 %68, label %54, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !40
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %65
-  %gepdiff.i = sub i64 %.idx6.i, %53
+  %gepdiff.i = sub i64 %.idx1.i, %53
   %69 = sdiv exact i64 %gepdiff.i, 24
   br label %._crit_edge.i.i.i.i
 
@@ -11037,16 +11037,16 @@ define dso_local { ptr, i64 } @_ZNK4llvm4yaml10ScalarNode8getValueERNS_15SmallVe
   %13 = getelementptr inbounds i8, ptr %8, i64 %.sroa.speculated5.i.i
   %14 = sub i64 %.sroa.2.0.copyload, %.sroa.speculated5.i.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %11)
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %17, align 8
-  %18 = ptrtoint ptr %0 to i64
-  store i64 %18, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm9StringRefES1_RNS0_15SmallVectorImplIcEEEZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_S4_E3$_0E9_M_invokeERKSt9_Any_dataOS1_S4_", ptr %16, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm9StringRefES1_RNS0_15SmallVectorImplIcEEEZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_S4_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %15, align 8
+  %15 = ptrtoint ptr %0 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %18, align 8
+  store i64 %15, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm9StringRefES1_RNS0_15SmallVectorImplIcEEEZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_S4_E3$_0E9_M_invokeERKSt9_Any_dataOS1_S4_", ptr %17, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm9StringRefES1_RNS0_15SmallVectorImplIcEEEZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_S4_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %16, align 8
   %19 = call fastcc { ptr, i64 } @_ZL16parseScalarValueN4llvm9StringRefERNS_15SmallVectorImplIcEES0_St8functionIFS0_S0_S3_EE(ptr nonnull %13, i64 %.sroa.speculated.i.i, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.74, i64 3, ptr noundef %6)
-  %20 = load ptr, ptr %15, align 8
+  %20 = load ptr, ptr %16, align 8
   %.not.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i, label %_ZNK4llvm4yaml10ScalarNode20getDoubleQuotedValueENS_9StringRefERNS_15SmallVectorImplIcEE.exit, label %21
 
@@ -11129,16 +11129,16 @@ define dso_local { ptr, i64 } @_ZNK4llvm4yaml10ScalarNode20getDoubleQuotedValueE
   %8 = getelementptr inbounds i8, ptr %1, i64 %.sroa.speculated5.i
   %9 = sub i64 %2, %.sroa.speculated5.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %6)
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %12, align 8
-  %13 = ptrtoint ptr %0 to i64
-  store i64 %13, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm9StringRefES1_RNS0_15SmallVectorImplIcEEEZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_S4_E3$_0E9_M_invokeERKSt9_Any_dataOS1_S4_", ptr %11, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm9StringRefES1_RNS0_15SmallVectorImplIcEEEZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_S4_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %10, align 8
+  %10 = ptrtoint ptr %0 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %13, align 8
+  store i64 %10, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm9StringRefES1_RNS0_15SmallVectorImplIcEEEZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_S4_E3$_0E9_M_invokeERKSt9_Any_dataOS1_S4_", ptr %12, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm9StringRefES1_RNS0_15SmallVectorImplIcEEEZNKS0_4yaml10ScalarNode20getDoubleQuotedValueES1_S4_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %11, align 8
   %14 = call fastcc { ptr, i64 } @_ZL16parseScalarValueN4llvm9StringRefERNS_15SmallVectorImplIcEES0_St8functionIFS0_S0_S3_EE(ptr %8, i64 %.sroa.speculated.i, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull @.str.74, i64 3, ptr noundef %5)
-  %15 = load ptr, ptr %10, align 8
+  %15 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZNSt8functionIFN4llvm9StringRefES1_RNS0_15SmallVectorImplIcEEEED2Ev.exit, label %16
 

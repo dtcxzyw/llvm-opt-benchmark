@@ -568,8 +568,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit95.i:      ; preds = %118, %115
   br i1 %cond.i, label %263, label %157
 
 157:                                              ; preds = %156
-  %.not6.i.i.i = icmp eq ptr %.pre246.i, %.pre244.i
-  br i1 %.not6.i.i.i, label %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIP19gmx_file_position_tSt6vectorIS2_SaIS2_EEEEZN3gmx12_GLOBAL__N_122chooseStartingBehaviorENS8_17AppendingBehaviorEiP8t_filenmE3$_0ENSt15iterator_traitsIT_E15difference_typeESF_SF_T0_.exit.thread.i", label %.lr.ph.i.i.i
+  %.not7.i.i.i = icmp eq ptr %.pre246.i, %.pre244.i
+  br i1 %.not7.i.i.i, label %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIP19gmx_file_position_tSt6vectorIS2_SaIS2_EEEEZN3gmx12_GLOBAL__N_122chooseStartingBehaviorENS8_17AppendingBehaviorEiP8t_filenmE3$_0ENSt15iterator_traitsIT_E15difference_typeESF_SF_T0_.exit.thread.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %157
   %158 = getelementptr inbounds i8, ptr %54, i64 32
@@ -579,10 +579,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit95.i:      ; preds = %118, %115
   br label %161
 
 161:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmx12_GLOBAL__N_122chooseStartingBehaviorENS2_17AppendingBehaviorEiP8t_filenmE3$_0EclINS_17__normal_iteratorIP19gmx_file_position_tSt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i", %.lr.ph.i.i.i
-  %.08.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmx12_GLOBAL__N_122chooseStartingBehaviorENS2_17AppendingBehaviorEiP8t_filenmE3$_0EclINS_17__normal_iteratorIP19gmx_file_position_tSt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i" ]
-  %.sroa.03.07.i.i.i = phi ptr [ %.pre246.i, %.lr.ph.i.i.i ], [ %178, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmx12_GLOBAL__N_122chooseStartingBehaviorENS2_17AppendingBehaviorEiP8t_filenmE3$_0EclINS_17__normal_iteratorIP19gmx_file_position_tSt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i" ]
+  %.09.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmx12_GLOBAL__N_122chooseStartingBehaviorENS2_17AppendingBehaviorEiP8t_filenmE3$_0EclINS_17__normal_iteratorIP19gmx_file_position_tSt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i" ]
+  %.sroa.04.08.i.i.i = phi ptr [ %.pre246.i, %.lr.ph.i.i.i ], [ %178, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmx12_GLOBAL__N_122chooseStartingBehaviorENS2_17AppendingBehaviorEiP8t_filenmE3$_0EclINS_17__normal_iteratorIP19gmx_file_position_tSt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %54), !noalias !5
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IA4096_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 1 dereferenceable(4096) %.sroa.03.07.i.i.i, i8 noundef zeroext 2)
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA4096_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 1 dereferenceable(4096) %.sroa.04.08.i.i.i, i8 noundef zeroext 2)
           to label %.noexc98.i unwind label %.loopexit.i, !noalias !5
 
 .noexc98.i:                                       ; preds = %161
@@ -663,8 +663,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit95.i:      ; preds = %118, %115
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #21, !noalias !5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %54), !noalias !5
   %177 = zext i1 %176 to i64
-  %spec.select.i.i.i = add nuw nsw i64 %.08.i.i.i, %177
-  %178 = getelementptr inbounds i8, ptr %.sroa.03.07.i.i.i, i64 4128
+  %spec.select.i.i.i = add nuw nsw i64 %.09.i.i.i, %177
+  %178 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i, i64 4128
   %.not.i.i.i = icmp eq ptr %178, %.pre244.i
   br i1 %.not.i.i.i, label %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIP19gmx_file_position_tSt6vectorIS2_SaIS2_EEEEZN3gmx12_GLOBAL__N_122chooseStartingBehaviorENS8_17AppendingBehaviorEiP8t_filenmE3$_0ENSt15iterator_traitsIT_E15difference_typeESF_SF_T0_.exit.i", label %161, !llvm.loop !10
 

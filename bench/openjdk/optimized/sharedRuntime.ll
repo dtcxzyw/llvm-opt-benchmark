@@ -8890,37 +8890,37 @@ define hidden noundef zeroext i1 @_ZN21AdapterHandlerLibrary8containsEPK8CodeBlo
 
 .preheader.i:                                     ; preds = %1, %._crit_edge.i
   %.0 = phi i1 [ %.1, %._crit_edge.i ], [ false, %1 ]
-  %.0.idx20.i = phi i64 [ %.0.add.i, %._crit_edge.i ], [ 0, %1 ]
-  %.01219.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %4, %1 ]
-  %.0.ptr21.i = getelementptr inbounds i8, ptr %2, i64 %.0.idx20.i
-  %.01115.i = load ptr, ptr %.0.ptr21.i, align 8
-  %.not16.i = icmp eq ptr %.01115.i, null
-  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
+  %.0.idx22.i = phi i64 [ %.0.add.i, %._crit_edge.i ], [ 0, %1 ]
+  %.01221.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %4, %1 ]
+  %.0.ptr23.i = getelementptr inbounds i8, ptr %2, i64 %.0.idx22.i
+  %.01117.i = load ptr, ptr %.0.ptr23.i, align 8
+  %.not18.i = icmp eq ptr %.01117.i, null
+  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %11
-  %.01118.i = phi ptr [ %.011.i, %11 ], [ %.01115.i, %.preheader.i ]
-  %.117.i = phi i32 [ %13, %11 ], [ %.01219.i, %.preheader.i ]
-  %6 = getelementptr inbounds i8, ptr %.01118.i, i64 16
+  %.01120.i = phi ptr [ %.011.i, %11 ], [ %.01117.i, %.preheader.i ]
+  %.119.i = phi i32 [ %13, %11 ], [ %.01221.i, %.preheader.i ]
+  %6 = getelementptr inbounds i8, ptr %.01120.i, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 8
-  %.val.i = load ptr, ptr %8, align 8
-  %9 = tail call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %.val.i) #18
+  %.val14.i = load ptr, ptr %8, align 8
+  %9 = tail call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %.val14.i) #18
   %10 = icmp eq ptr %0, %9
   br i1 %10, label %11, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit"
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = getelementptr inbounds i8, ptr %.01118.i, i64 24
-  %13 = add nsw i32 %.117.i, -1
+  %12 = getelementptr inbounds i8, ptr %.01120.i, i64 24
+  %13 = add nsw i32 %.119.i, -1
   %.011.i = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %.011.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !88
 
 ._crit_edge.i:                                    ; preds = %11, %.preheader.i
   %.1 = phi i1 [ %.0, %.preheader.i ], [ true, %11 ]
-  %.1.lcssa.i = phi i32 [ %.01219.i, %.preheader.i ], [ %13, %11 ]
-  %.0.add.i = add nuw nsw i64 %.0.idx20.i, 8
+  %.1.lcssa.i = phi i32 [ %.01221.i, %.preheader.i ], [ %13, %11 ]
+  %.0.add.i = add nuw nsw i64 %.0.idx22.i, 8
   %14 = icmp sgt i32 %.1.lcssa.i, 0
-  %15 = icmp ult i64 %.0.idx20.i, 2336
+  %15 = icmp ult i64 %.0.idx22.i, 2336
   %or.cond.i = and i1 %15, %14
   br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit", !llvm.loop !89
 

@@ -5704,7 +5704,7 @@ define internal i32 @tc_del_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
 58:                                               ; preds = %54
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_del_tfilter.__msg.30) #14
   %59 = icmp eq ptr %2, null
-  br i1 %59, label %.thread31.thread, label %.thread31.thread.sink.split
+  br i1 %59, label %.thread33.thread, label %.thread33.thread.sink.split
 
 60:                                               ; preds = %57, %54
   br i1 %31, label %88, label %61
@@ -5781,7 +5781,7 @@ define internal i32 @tc_del_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
 108:                                              ; preds = %99
   call void @do_trace_netlink_extack(ptr noundef nonnull @__tcf_qdisc_cl_find.__msg) #14
   %109 = icmp eq ptr %2, null
-  br i1 %109, label %.thread31.thread, label %.thread31.thread.sink.split
+  br i1 %109, label %.thread33.thread, label %.thread33.thread.sink.split
 
 110:                                              ; preds = %._crit_edge, %89
   %111 = phi i32 [ %.pre, %._crit_edge ], [ %94, %89 ]
@@ -5789,59 +5789,59 @@ define internal i32 @tc_del_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
   %112 = load i32, ptr %29, align 4
   %113 = call fastcc ptr @__tcf_block_find(ptr noundef %13, ptr noundef %92, i64 noundef %.ph, i32 noundef %111, i32 noundef %112, ptr noundef %2)
   %114 = icmp ugt ptr %113, inttoptr (i64 -4096 to ptr)
-  br i1 %114, label %.thread31.thread46, label %117
+  br i1 %114, label %.thread33.thread48, label %117
 
-.thread31.thread46:                               ; preds = %110
+.thread33.thread48:                               ; preds = %110
   %115 = ptrtoint ptr %113 to i64
   %116 = trunc i64 %115 to i32
-  br label %199
+  br label %200
 
 117:                                              ; preds = %110
   %118 = getelementptr inbounds i8, ptr %4, i64 88
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
-  br i1 %120, label %.thread26, label %121
+  br i1 %120, label %.thread28, label %121
 
 121:                                              ; preds = %117
   %122 = getelementptr i8, ptr %119, i64 4
   %123 = load i32, ptr %122, align 4
   %124 = icmp ugt i32 %123, 268435455
-  br i1 %124, label %125, label %.thread26
+  br i1 %124, label %125, label %.thread28
 
 125:                                              ; preds = %121
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_del_tfilter.__msg.31) #14
   %126 = icmp eq ptr %2, null
-  br i1 %126, label %.thread31, label %127
+  br i1 %126, label %.thread33, label %127
 
 127:                                              ; preds = %125
   store ptr @tc_del_tfilter.__msg.31, ptr %2, align 8
-  br label %.thread31
+  br label %.thread33
 
-.thread26:                                        ; preds = %117, %121
+.thread28:                                        ; preds = %117, %121
   %128 = phi i32 [ %123, %121 ], [ 0, %117 ]
   %129 = call fastcc ptr @__tcf_chain_get(ptr noundef %113, i32 noundef %128, i1 noundef zeroext false, i1 noundef zeroext false)
   %130 = icmp eq ptr %129, null
   br i1 %130, label %131, label %135
 
-131:                                              ; preds = %.thread26
-  br i1 %31, label %.thread31, label %132
+131:                                              ; preds = %.thread28
+  br i1 %31, label %.thread33, label %132
 
 132:                                              ; preds = %131
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_del_tfilter.__msg.32) #14
   %133 = icmp eq ptr %2, null
-  br i1 %133, label %.thread31, label %134
+  br i1 %133, label %.thread33, label %134
 
 134:                                              ; preds = %132
   store ptr @tc_del_tfilter.__msg.32, ptr %2, align 8
-  br label %.thread31
+  br label %.thread33
 
-135:                                              ; preds = %.thread26
-  br i1 %31, label %.thread32, label %136
+135:                                              ; preds = %.thread28
+  br i1 %31, label %.thread34, label %136
 
-.thread32:                                        ; preds = %135
+.thread34:                                        ; preds = %135
   call fastcc void @tfilter_notify_chain(ptr noundef %13, ptr noundef %0, ptr noundef %113, ptr noundef %92, i32 noundef %93, ptr noundef %1, ptr noundef nonnull %129, ptr noundef %2)
   call fastcc void @tcf_chain_flush(ptr noundef nonnull %129, i1 noundef zeroext %90)
-  br label %.thread34
+  br label %.thread36
 
 136:                                              ; preds = %135
   call void @mutex_lock(ptr noundef nonnull %129) #14
@@ -5854,18 +5854,18 @@ define internal i32 @tc_del_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
 141:                                              ; preds = %136
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_del_tfilter.__msg.33) #14
   %142 = icmp eq ptr %2, null
-  br i1 %142, label %.thread45, label %143
+  br i1 %142, label %.thread47, label %143
 
 143:                                              ; preds = %141
   store ptr @tc_del_tfilter.__msg.33, ptr %2, align 8
-  br label %.thread45
+  br label %.thread47
 
-.thread45:                                        ; preds = %143, %141
+.thread47:                                        ; preds = %143, %141
   %144 = ptrtoint ptr %137 to i64
   %145 = trunc i64 %144 to i32
-  %.ph44 = select i1 %138, i32 -2, i32 %145
+  %.ph46 = select i1 %138, i32 -2, i32 %145
   call void @mutex_unlock(ptr noundef nonnull %129) #14
-  br label %.thread34
+  br label %.thread36
 
 146:                                              ; preds = %136
   %147 = load ptr, ptr %51, align 8
@@ -5883,153 +5883,156 @@ define internal i32 @tc_del_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
 155:                                              ; preds = %149
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_del_tfilter.__msg.34) #14
   %156 = icmp eq ptr %2, null
-  br i1 %156, label %183, label %157
+  br i1 %156, label %184, label %157
 
 157:                                              ; preds = %155
   store ptr @tc_del_tfilter.__msg.34, ptr %2, align 8
-  br label %183
+  br label %184
 
 158:                                              ; preds = %149, %146
   %159 = getelementptr i8, ptr %1, i64 24
   %160 = load i32, ptr %159, align 4
   %161 = icmp eq i32 %160, 0
-  br i1 %161, label %162, label %165
+  br i1 %161, label %162, label %166
 
 162:                                              ; preds = %158
   %163 = getelementptr i8, ptr %129, i64 56
   %.val = load ptr, ptr %163, align 8
   call fastcc void @tcf_proto_signal_destroying(ptr %.val, ptr noundef nonnull %137)
-  call fastcc void @tcf_chain_tp_remove(ptr noundef nonnull %129, ptr noundef nonnull %8, ptr noundef nonnull %137)
+  %.val24 = load ptr, ptr %8, align 8
+  %164 = getelementptr inbounds i8, ptr %8, i64 8
+  %.val25 = load ptr, ptr %164, align 8
+  call fastcc void @tcf_chain_tp_remove(ptr noundef nonnull %129, ptr %.val24, ptr %.val25, ptr noundef nonnull %137)
   call void @mutex_unlock(ptr noundef nonnull %129) #14
   call fastcc void @tcf_proto_put(ptr noundef nonnull %137, i1 noundef zeroext %90)
-  %164 = call fastcc i32 @tfilter_notify(ptr noundef %13, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %137, ptr noundef %113, ptr noundef %92, i32 noundef %93, ptr noundef null, i32 noundef 45, i1 noundef zeroext false, i1 noundef zeroext %90, ptr noundef %2)
-  br label %.thread42
+  %165 = call fastcc i32 @tfilter_notify(ptr noundef %13, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %137, ptr noundef %113, ptr noundef %92, i32 noundef %93, ptr noundef null, i32 noundef 45, i1 noundef zeroext false, i1 noundef zeroext %90, ptr noundef %2)
+  br label %.thread44
 
-165:                                              ; preds = %158
+166:                                              ; preds = %158
   call void @mutex_unlock(ptr noundef nonnull %129) #14
-  %166 = getelementptr inbounds i8, ptr %137, i64 40
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 56
-  %169 = load ptr, ptr %168, align 8
-  %170 = load i32, ptr %159, align 4
-  %171 = call ptr %169(ptr noundef nonnull %137, i32 noundef %170) #14
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %173, label %176
+  %167 = getelementptr inbounds i8, ptr %137, i64 40
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds i8, ptr %168, i64 56
+  %170 = load ptr, ptr %169, align 8
+  %171 = load i32, ptr %159, align 4
+  %172 = call ptr %170(ptr noundef nonnull %137, i32 noundef %171) #14
+  %173 = icmp eq ptr %172, null
+  br i1 %173, label %174, label %177
 
-173:                                              ; preds = %165
+174:                                              ; preds = %166
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_del_tfilter.__msg.35) #14
-  %174 = icmp eq ptr %2, null
-  br i1 %174, label %.thread42, label %175
+  %175 = icmp eq ptr %2, null
+  br i1 %175, label %.thread44, label %176
 
-175:                                              ; preds = %173
+176:                                              ; preds = %174
   store ptr @tc_del_tfilter.__msg.35, ptr %2, align 8
-  br label %.thread42
+  br label %.thread44
 
-176:                                              ; preds = %165
+177:                                              ; preds = %166
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #14
   store i8 0, ptr %9, align 1, !annotation !63
-  %177 = call fastcc i32 @tfilter_del_notify(ptr noundef %13, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %137, ptr noundef %113, ptr noundef %92, i32 noundef %93, ptr noundef nonnull %171, ptr noundef nonnull %9, i1 noundef zeroext %90, ptr noundef %2)
-  %178 = icmp ne i32 %177, 0
-  %179 = load i8, ptr %9, align 1, !range !17
-  %180 = icmp eq i8 %179, 0
-  %or.cond = select i1 %178, i1 true, i1 %180
-  br i1 %or.cond, label %182, label %181
+  %178 = call fastcc i32 @tfilter_del_notify(ptr noundef %13, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %137, ptr noundef %113, ptr noundef %92, i32 noundef %93, ptr noundef nonnull %172, ptr noundef nonnull %9, i1 noundef zeroext %90, ptr noundef %2)
+  %179 = icmp ne i32 %178, 0
+  %180 = load i8, ptr %9, align 1, !range !17
+  %181 = icmp eq i8 %180, 0
+  %or.cond = select i1 %179, i1 true, i1 %181
+  br i1 %or.cond, label %183, label %182
 
-181:                                              ; preds = %176
+182:                                              ; preds = %177
   call fastcc void @tcf_chain_tp_delete_empty(ptr noundef nonnull %129, ptr noundef nonnull %137, i1 noundef zeroext %90, ptr noundef %2)
-  br label %182
+  br label %183
 
-182:                                              ; preds = %181, %176
+183:                                              ; preds = %182, %177
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
-  br label %.thread42
+  br label %.thread44
 
-183:                                              ; preds = %155, %157
+184:                                              ; preds = %155, %157
   call void @mutex_unlock(ptr noundef nonnull %129) #14
-  br label %.thread42
+  br label %.thread44
 
-.thread42:                                        ; preds = %182, %175, %173, %162, %183
-  %184 = phi i32 [ -22, %183 ], [ -2, %173 ], [ -2, %175 ], [ %177, %182 ], [ 0, %162 ]
-  %185 = getelementptr inbounds i8, ptr %137, i64 64
-  %186 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %185, i32 -1, ptr elementtype(i32) %185) #14, !srcloc !20
-  %187 = icmp eq i32 %186, 1
-  br i1 %187, label %191, label %188
+.thread44:                                        ; preds = %183, %176, %174, %162, %184
+  %185 = phi i32 [ -22, %184 ], [ -2, %174 ], [ -2, %176 ], [ %178, %183 ], [ 0, %162 ]
+  %186 = getelementptr inbounds i8, ptr %137, i64 64
+  %187 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %186, i32 -1, ptr elementtype(i32) %186) #14, !srcloc !20
+  %188 = icmp eq i32 %187, 1
+  br i1 %188, label %192, label %189
 
-188:                                              ; preds = %.thread42
-  %189 = icmp sgt i32 %186, 0
-  br i1 %189, label %.thread34, label %190, !prof !21
+189:                                              ; preds = %.thread44
+  %190 = icmp sgt i32 %187, 0
+  br i1 %190, label %.thread36, label %191, !prof !21
 
-190:                                              ; preds = %188
-  call void @refcount_warn_saturate(ptr noundef %185, i32 noundef 3) #14
-  br label %.thread34
+191:                                              ; preds = %189
+  call void @refcount_warn_saturate(ptr noundef %186, i32 noundef 3) #14
+  br label %.thread36
 
-191:                                              ; preds = %.thread42
+192:                                              ; preds = %.thread44
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
   call fastcc void @tcf_proto_destroy(ptr noundef nonnull %137, i1 noundef zeroext %90, ptr noundef null)
-  br label %.thread34
+  br label %.thread36
 
-.thread34:                                        ; preds = %.thread45, %188, %190, %.thread32, %191
-  %192 = phi i32 [ 0, %.thread32 ], [ %184, %191 ], [ %184, %190 ], [ %184, %188 ], [ %.ph44, %.thread45 ]
+.thread36:                                        ; preds = %.thread47, %189, %191, %.thread34, %192
+  %193 = phi i32 [ 0, %.thread34 ], [ %185, %192 ], [ %185, %191 ], [ %185, %189 ], [ %.ph46, %.thread47 ]
   call fastcc void @__tcf_chain_put(ptr noundef nonnull %129, i1 noundef zeroext false, i1 noundef zeroext false)
-  %.pre40 = load ptr, ptr %7, align 8
-  br label %.thread31
+  %.pre42 = load ptr, ptr %7, align 8
+  br label %.thread33
 
-.thread31.thread.sink.split:                      ; preds = %108, %58
+.thread33.thread.sink.split:                      ; preds = %108, %58
   %__tcf_qdisc_cl_find.__msg.sink = phi ptr [ @tc_del_tfilter.__msg.30, %58 ], [ @__tcf_qdisc_cl_find.__msg, %108 ]
-  %.ph37.ph = phi i8 [ 0, %58 ], [ %91, %108 ]
-  %.ph38.ph = phi i32 [ -22, %58 ], [ -2, %108 ]
+  %.ph39.ph = phi i8 [ 0, %58 ], [ %91, %108 ]
+  %.ph40.ph = phi i32 [ -22, %58 ], [ -2, %108 ]
   store ptr %__tcf_qdisc_cl_find.__msg.sink, ptr %2, align 8
-  br label %.thread31.thread
+  br label %.thread33.thread
 
-.thread31.thread:                                 ; preds = %.thread31.thread.sink.split, %108, %58
-  %.ph37 = phi i8 [ 0, %58 ], [ %91, %108 ], [ %.ph37.ph, %.thread31.thread.sink.split ]
-  %.ph38 = phi i32 [ -22, %58 ], [ -2, %108 ], [ %.ph38.ph, %.thread31.thread.sink.split ]
-  %193 = load ptr, ptr %7, align 8
-  %194 = icmp ne i8 %.ph37, 0
-  br label %199
+.thread33.thread:                                 ; preds = %.thread33.thread.sink.split, %108, %58
+  %.ph39 = phi i8 [ 0, %58 ], [ %91, %108 ], [ %.ph39.ph, %.thread33.thread.sink.split ]
+  %.ph40 = phi i32 [ -22, %58 ], [ -2, %108 ], [ %.ph40.ph, %.thread33.thread.sink.split ]
+  %194 = load ptr, ptr %7, align 8
+  %195 = icmp ne i8 %.ph39, 0
+  br label %200
 
-.thread31:                                        ; preds = %132, %134, %131, %125, %127, %.thread34
-  %195 = phi ptr [ %.pre40, %.thread34 ], [ %92, %132 ], [ %92, %134 ], [ %92, %131 ], [ %92, %125 ], [ %92, %127 ]
-  %196 = phi i32 [ %192, %.thread34 ], [ -2, %132 ], [ -2, %134 ], [ 0, %131 ], [ -22, %125 ], [ -22, %127 ]
-  %197 = icmp eq ptr %113, null
-  br i1 %197, label %199, label %198
+.thread33:                                        ; preds = %132, %134, %131, %125, %127, %.thread36
+  %196 = phi ptr [ %.pre42, %.thread36 ], [ %92, %132 ], [ %92, %134 ], [ %92, %131 ], [ %92, %125 ], [ %92, %127 ]
+  %197 = phi i32 [ %193, %.thread36 ], [ -2, %132 ], [ -2, %134 ], [ 0, %131 ], [ -22, %125 ], [ -22, %127 ]
+  %198 = icmp eq ptr %113, null
+  br i1 %198, label %200, label %199
 
-198:                                              ; preds = %.thread31
+199:                                              ; preds = %.thread33
   call fastcc void @__tcf_block_put(ptr noundef nonnull %113, ptr noundef null, ptr noundef null, i1 noundef zeroext %90)
-  br label %199
+  br label %200
 
-199:                                              ; preds = %.thread31.thread46, %.thread31.thread, %198, %.thread31
-  %200 = phi i1 [ %194, %.thread31.thread ], [ %90, %198 ], [ %90, %.thread31 ], [ %90, %.thread31.thread46 ]
-  %201 = phi ptr [ %193, %.thread31.thread ], [ %195, %198 ], [ %195, %.thread31 ], [ %92, %.thread31.thread46 ]
-  %202 = phi i32 [ %.ph38, %.thread31.thread ], [ %196, %198 ], [ %196, %.thread31 ], [ %116, %.thread31.thread46 ]
-  %203 = icmp eq ptr %201, null
-  br i1 %203, label %205, label %204
+200:                                              ; preds = %.thread33.thread48, %.thread33.thread, %199, %.thread33
+  %201 = phi i1 [ %195, %.thread33.thread ], [ %90, %199 ], [ %90, %.thread33 ], [ %90, %.thread33.thread48 ]
+  %202 = phi ptr [ %194, %.thread33.thread ], [ %196, %199 ], [ %196, %.thread33 ], [ %92, %.thread33.thread48 ]
+  %203 = phi i32 [ %.ph40, %.thread33.thread ], [ %197, %199 ], [ %197, %.thread33 ], [ %116, %.thread33.thread48 ]
+  %204 = icmp eq ptr %202, null
+  br i1 %204, label %206, label %205
 
-204:                                              ; preds = %199
-  br i1 %200, label %.thread35, label %.thread36
+205:                                              ; preds = %200
+  br i1 %201, label %.thread37, label %.thread38
 
-.thread35:                                        ; preds = %204
-  call void @qdisc_put(ptr noundef nonnull %201) #14
-  br label %206
+.thread37:                                        ; preds = %205
+  call void @qdisc_put(ptr noundef nonnull %202) #14
+  br label %207
 
-.thread36:                                        ; preds = %204
-  call void @qdisc_put_unlocked(ptr noundef nonnull %201) #14
+.thread38:                                        ; preds = %205
+  call void @qdisc_put_unlocked(ptr noundef nonnull %202) #14
   br label %.thread
 
-205:                                              ; preds = %199
-  br i1 %200, label %206, label %.thread
+206:                                              ; preds = %200
+  br i1 %201, label %207, label %.thread
 
-206:                                              ; preds = %.thread35, %205
+207:                                              ; preds = %.thread37, %206
   call void @rtnl_unlock() #14
   br label %.thread
 
-.thread:                                          ; preds = %16, %18, %.thread36, %206, %205, %45, %44, %42, %19
-  %207 = phi i32 [ %22, %19 ], [ -2, %44 ], [ -2, %42 ], [ %48, %45 ], [ %202, %206 ], [ %202, %205 ], [ %202, %.thread36 ], [ -22, %18 ], [ -22, %16 ]
+.thread:                                          ; preds = %16, %18, %.thread38, %207, %206, %45, %44, %42, %19
+  %208 = phi i32 [ %22, %19 ], [ -2, %44 ], [ -2, %42 ], [ %48, %45 ], [ %203, %207 ], [ %203, %206 ], [ %203, %.thread38 ], [ -22, %18 ], [ -22, %16 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #14
-  ret i32 %207
+  ret i32 %208
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -9029,60 +9032,57 @@ tcf_proto_destroy.exit:                           ; preds = %20, %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcf_chain_tp_remove(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 56
-  tail call void @_raw_spin_lock(ptr noundef %6) #14
-  %7 = getelementptr inbounds i8, ptr %2, i64 60
-  store i8 1, ptr %7, align 4
-  tail call void @_raw_spin_unlock(ptr noundef %6) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %2
-  br i1 %10, label %11, label %32
+define internal fastcc void @tcf_chain_tp_remove(ptr nocapture noundef nonnull readonly %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
+  %3 = getelementptr inbounds i8, ptr %1, i64 56
+  tail call void @_raw_spin_lock(ptr noundef %3) #14
+  %4 = getelementptr inbounds i8, ptr %1, i64 60
+  store i8 1, ptr %4, align 4
+  tail call void @_raw_spin_unlock(ptr noundef %3) #14
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, %1
+  br i1 %7, label %8, label %29
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %32
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %29
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  tail call void @mutex_lock(ptr noundef %15) #14
+  %16 = getelementptr inbounds i8, ptr %14, i64 192
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
-  tail call void @mutex_lock(ptr noundef %18) #14
-  %19 = getelementptr inbounds i8, ptr %17, i64 192
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, %19
-  br i1 %21, label %.loopexit, label %.preheader
+  %18 = icmp eq ptr %17, %16
+  br i1 %18, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %15, %29
-  %22 = phi ptr [ %30, %29 ], [ %20, %15 ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %29, label %26
+.preheader:                                       ; preds = %12, %26
+  %19 = phi ptr [ %27, %26 ], [ %17, %12 ]
+  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %26, label %23
 
-26:                                               ; preds = %.preheader
-  %27 = getelementptr inbounds i8, ptr %22, i64 24
-  %28 = load ptr, ptr %27, align 8
-  tail call void %24(ptr noundef %5, ptr noundef %28) #14
+23:                                               ; preds = %.preheader
+  %24 = getelementptr inbounds i8, ptr %19, i64 24
+  %25 = load ptr, ptr %24, align 8
+  tail call void %21(ptr noundef %.8.val, ptr noundef %25) #14
+  br label %26
+
+26:                                               ; preds = %23, %.preheader
+  %27 = load ptr, ptr %19, align 8
+  %28 = icmp eq ptr %27, %16
+  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !80
+
+.loopexit:                                        ; preds = %26, %12
+  tail call void @mutex_unlock(ptr noundef %15) #14
   br label %29
 
-29:                                               ; preds = %26, %.preheader
-  %30 = load ptr, ptr %22, align 8
-  %31 = icmp eq ptr %30, %19
-  br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !80
-
-.loopexit:                                        ; preds = %29, %15
-  tail call void @mutex_unlock(ptr noundef %18) #14
-  br label %32
-
-32:                                               ; preds = %.loopexit, %11, %3
-  %33 = load ptr, ptr %1, align 8
-  store volatile ptr %5, ptr %33, align 8
+29:                                               ; preds = %.loopexit, %8, %2
+  store volatile ptr %.8.val, ptr %.0.val, align 8
   ret void
 }
 

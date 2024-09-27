@@ -12986,7 +12986,7 @@ define dso_local void @_ZN4llvm16SelectionDAGISel12UpdateChainsEPNS_6SDNodeENS_7
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %21 = and i64 %12, 4294967295
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
   br label %22
 
 22:                                               ; preds = %.lr.ph, %112
@@ -13021,7 +13021,7 @@ _ZN4llvm12SelectionDAG22DAGNodeDeletedListenerC2ERS0_St8functionIFvPNS_6SDNodeES
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm12SelectionDAG22DAGNodeDeletedListenerE, i64 16), ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm6SDNodeES2_EZNS0_16SelectionDAGISel12UpdateChainsES2_NS0_7SDValueERNS0_15SmallVectorImplIS2_EEbE3$_0E9_M_invokeERKSt9_Any_dataOS2_SE_", ptr %19, align 8
   store i64 %15, ptr %18, align 8
-  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm6SDNodeES2_EZNS0_16SelectionDAGISel12UpdateChainsES2_NS0_7SDValueERNS0_15SmallVectorImplIS2_EEbE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %20, align 8
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %40 = load i32, ptr %39, align 8
@@ -13077,13 +13077,13 @@ _ZN4llvm12SelectionDAG22DAGNodeDeletedListenerC2ERS0_St8functionIFvPNS_6SDNodeES
   %64 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, %25
-  br i1 %66, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit61, label %67
+  br i1 %66, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit59, label %67
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, %25
-  br i1 %70, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit63, label %71
+  br i1 %70, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit61, label %71
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 32
@@ -13136,16 +13136,16 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.l
   %88 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit61: ; preds = %63
+_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit59: ; preds = %63
   %89 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit63: ; preds = %67
+_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit61: ; preds = %67
   %90 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit: ; preds = %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit61, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit63, %76, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %87
-  %.028.i.i.i.i = phi ptr [ %52, %87 ], [ %.029.lcssa.i.i.i.i, %76 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %88, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %89, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit61 ], [ %90, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit63 ], [ %.02946.i.i.i.i, %56 ]
+_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit: ; preds = %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit59, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit61, %76, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %87
+  %.028.i.i.i.i = phi ptr [ %52, %87 ], [ %.029.lcssa.i.i.i.i, %76 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %88, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %89, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit59 ], [ %90, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit61 ], [ %.02946.i.i.i.i, %56 ]
   %91 = load ptr, ptr %7, align 8
   %92 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   %93 = getelementptr inbounds ptr, ptr %91, i64 %92

@@ -25114,26 +25114,26 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit: ; preds 
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %select.unfold.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
-  %storemerge26.i.i.in.in.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %110, %.lr.ph.i.i.preheader.i.i.i ]
-  %storemerge26.i.i.in.i.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i, 1
-  %storemerge26.i.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i.i, 1
-  %111 = mul nuw nsw i64 %storemerge26.i.i.i.i.i, 20
+  %storemerge28.i.i.in.in.i.i.i = phi i64 [ %storemerge28.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %110, %.lr.ph.i.i.preheader.i.i.i ]
+  %storemerge28.i.i.in.i.i.i = add nuw nsw i64 %storemerge28.i.i.in.in.i.i.i, 1
+  %storemerge28.i.i.i.i.i = lshr i64 %storemerge28.i.i.in.i.i.i, 1
+  %111 = mul nuw nsw i64 %storemerge28.i.i.i.i.i, 20
   %112 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %111, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #28
   %.not.i.i.i.i.i = icmp eq ptr %112, null
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %113
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
-  br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1155
+  %.not12.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i, 3
+  br i1 %.not12.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1155
 
 113:                                              ; preds = %.lr.ph.i.i.i.i.i
   %114 = getelementptr inbounds i8, ptr %112, i64 %111
-  %115 = icmp eq i64 %storemerge26.i.i.in.in.i.i.i, 0
+  %115 = icmp eq i64 %storemerge28.i.i.in.in.i.i.i, 0
   br i1 %115, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread26.i.i.i, label %116
 
 116:                                              ; preds = %113
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %112, ptr noundef nonnull readonly align 4 dereferenceable(20) %.sroa.083.0, i64 20, i1 false)
-  %.not18.i.i.i.i.i.i = icmp eq i64 %storemerge26.i.i.i.i.i, 1
+  %.not18.i.i.i.i.i.i = icmp eq i64 %storemerge28.i.i.i.i.i, 1
   br i1 %.not18.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread26.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %116
@@ -25158,7 +25158,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86Fra
   br label %_ZN4llvm11stable_sortIRSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS3_EENS2_25X86FrameSortingComparatorEEEvOT_T0_.exit
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread26.i.i.i: ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i.i.i, %116, %113
-  tail call fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterINS2_25X86FrameSortingComparatorEEEEvT_SD_T0_T1_T2_(ptr %.sroa.083.0, ptr %.0.lcssa.i.i.i.i.i, ptr noundef nonnull %112, i64 noundef %storemerge26.i.i.i.i.i)
+  tail call fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterINS2_25X86FrameSortingComparatorEEEEvT_SD_T0_T1_T2_(ptr %.sroa.083.0, ptr %.0.lcssa.i.i.i.i.i, ptr noundef nonnull %112, i64 noundef %storemerge28.i.i.i.i.i)
   br label %_ZN4llvm11stable_sortIRSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS3_EENS2_25X86FrameSortingComparatorEEEvOT_T0_.exit
 
 _ZN4llvm11stable_sortIRSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS3_EENS2_25X86FrameSortingComparatorEEEvOT_T0_.exit: ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread26.i.i.i

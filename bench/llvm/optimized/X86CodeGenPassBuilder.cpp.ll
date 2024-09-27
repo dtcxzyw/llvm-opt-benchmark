@@ -1852,17 +1852,17 @@ _ZNSt8functionIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15Analysi
   br label %_ZNSt8functionIFbN4llvm9StringRefERNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEED2Ev.exit
 
 _ZNSt8functionIFbN4llvm9StringRefERNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEED2Ev.exit: ; preds = %_ZNSt8functionIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEED2Ev.exit22, %71
-  %73 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %74 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %75 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 0, ptr %75, align 8
-  %76 = ptrtoint ptr %0 to i64
-  store i64 %76, ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_5E9_M_invokeERKSt9_Any_dataOS1_S7_OSB_", ptr %74, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_5E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %73, align 8
+  %73 = ptrtoint ptr %0 to i64
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %76 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 0, ptr %76, align 8
+  store i64 %73, ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_5E9_M_invokeERKSt9_Any_dataOS1_S7_OSB_", ptr %75, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_5E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %74, align 8
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 2048
   call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE9push_backERKSE_(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  %78 = load ptr, ptr %73, align 8
+  %78 = load ptr, ptr %74, align 8
   %.not.i.i24 = icmp eq ptr %78, null
   br i1 %.not.i.i24, label %_ZNSt8functionIFbN4llvm9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEED2Ev.exit, label %79
 

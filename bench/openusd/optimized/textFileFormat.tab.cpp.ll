@@ -26365,7 +26365,7 @@ define internal fastcc void @_ZL11_SetDefaultRKN32pxrInternal_v0_24__pxrReserved
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread24, label %16
+  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread25, label %16
 
 16:                                               ; preds = %3
   %17 = and i64 %15, -8
@@ -26389,11 +26389,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.
 _ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i, %23
   %27 = and i64 %15, 4
   %.not.i.i = icmp eq i64 %27, 0
-  br i1 %.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread22.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit
+  br i1 %.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread23.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i
   %28 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11_TypeIsImplERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionE)
-  br i1 %28, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread22
+  br i1 %28, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread23
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread: ; preds = %16, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %12)
@@ -26464,8 +26464,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionE
   %60 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionaSEOS0_(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %10) #25
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %10) #25
   %61 = load i32, ptr %11, align 4
-  %.not.i.i.i.i4 = icmp eq i32 %61, 0
-  br i1 %.not.i.i.i.i4, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_17SdfPathExpressionEZL11_SetDefaultRKNS_7SdfPathES0_PNS_21Sdf_TextParserContextEEUlRS2_E_EENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredISB_E4TypeEEE5valueEvE4typeEOT0_.exit, label %62
+  %.not.i.i.i.i5 = icmp eq i32 %61, 0
+  br i1 %.not.i.i.i.i5, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_17SdfPathExpressionEZL11_SetDefaultRKNS_7SdfPathES0_PNS_21Sdf_TextParserContextEEUlRS2_E_EENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredISB_E4TypeEEE5valueEvE4typeEOT0_.exit, label %62
 
 62:                                               ; preds = %59
   %63 = and i32 %61, 255
@@ -26508,8 +26508,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionE
           cleanup
   br label %.body.i
 
-common.resume:                                    ; preds = %192, %.body.i10, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i11, %.body.i10 ], [ %193, %192 ]
+common.resume:                                    ; preds = %192, %.body.i11, %.body.i
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i12, %.body.i11 ], [ %193, %192 ]
   resume { ptr, i32 } %common.resume.op
 
 .body.i:                                          ; preds = %81, %.body.i.i
@@ -26523,17 +26523,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_17SdfPathExpre
   %83 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionaSEOS0_(ptr noundef nonnull align 8 dereferenceable(104) %29, ptr noundef nonnull align 8 dereferenceable(104) %12) #25
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %12) #25
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %12)
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread24
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread25
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread22: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread23: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit
   %.pr.pre = load ptr, ptr %13, align 8
   %.pre = ptrtoint ptr %.pr.pre to i64
   %84 = icmp eq ptr %.pr.pre, null
-  br i1 %84, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread24, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread22.thread
+  br i1 %84, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread25, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread23.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread22.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread22
-  %.pre-phi29 = phi i64 [ %.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread22 ], [ %15, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i ]
-  %85 = and i64 %.pre-phi29, -8
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread23.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread23
+  %.pre-phi30 = phi i64 [ %.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread23 ], [ %15, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i ]
+  %85 = and i64 %.pre-phi30, -8
   %86 = inttoptr i64 %85 to ptr
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -26541,26 +26541,26 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionE
   %90 = icmp eq ptr %89, @_ZTSN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEE
   br i1 %90, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread, label %91
 
-91:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread22.thread
+91:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread23.thread
   %92 = load i8, ptr %89, align 1
-  %.not.i.i.i.i6 = icmp eq i8 %92, 42
-  br i1 %.not.i.i.i.i6, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i7
+  %.not.i.i.i.i7 = icmp eq i8 %92, 42
+  br i1 %.not.i.i.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i9, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i8
 
-_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i7: ; preds = %91
+_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i8: ; preds = %91
   %93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(70) @_ZTSN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEE) #25
   %94 = icmp eq i32 %93, 0
-  br i1 %94, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i8
+  br i1 %94, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i9
 
-_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i8: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i7, %91
-  %95 = and i64 %.pre-phi29, 4
-  %.not.i.i9 = icmp eq i64 %95, 0
-  br i1 %.not.i.i9, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread24, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit
+_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i9: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i8, %91
+  %95 = and i64 %.pre-phi30, 4
+  %.not.i.i10 = icmp eq i64 %95, 0
+  br i1 %.not.i.i10, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread25, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i8
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i9
   %96 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11_TypeIsImplERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEE)
-  br i1 %96, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread24
+  br i1 %96, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread25
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread22.thread, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i7, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread23.thread, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i8, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %97 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue11_GetMutableINS_7VtArrayINS_17SdfPathExpressionEEEEENSt9enable_ifIXntsr14VtIsValueProxyIT_EE5valueERS6_E4typeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %97, i64 32, i1 false)
@@ -26573,19 +26573,19 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPat
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE18_DetachIfNotUniqueEv(ptr noundef nonnull align 8 dereferenceable(40) %8)
-          to label %.noexc.i12 unwind label %.loopexit.split-lp.i
+          to label %.noexc.i13 unwind label %.loopexit.split-lp.i
 
-.noexc.i12:                                       ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread
+.noexc.i13:                                       ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread
   %101 = load ptr, ptr %98, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE18_DetachIfNotUniqueEv(ptr noundef nonnull align 8 dereferenceable(40) %8)
           to label %.noexc5.i unwind label %.loopexit.split-lp.i
 
-.noexc5.i:                                        ; preds = %.noexc.i12
+.noexc5.i:                                        ; preds = %.noexc.i13
   %102 = load ptr, ptr %98, align 8
   %103 = load i64, ptr %8, align 8
   %104 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %102, i64 %103
   %.not11.i.i = icmp eq ptr %101, %104
-  br i1 %.not11.i.i, label %.loopexit21.i, label %.lr.ph.i.i
+  br i1 %.not11.i.i, label %.loopexit2.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc5.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i
   %.012.i.i = phi ptr [ %127, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i ], [ %101, %.noexc5.i ]
@@ -26595,26 +26595,26 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPat
 .noexc6.i:                                        ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(104) %.012.i.i)
-          to label %.noexc.i.i15 unwind label %128
+          to label %.noexc.i.i16 unwind label %128
 
-.noexc.i.i15:                                     ; preds = %.noexc6.i
+.noexc.i.i16:                                     ; preds = %.noexc6.i
   invoke void @_ZNO32pxrInternal_v0_24__pxrReserved__17SdfPathExpression12MakeAbsoluteERKNS_7SdfPathE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression") align 8 %6, ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 4 dereferenceable(8) %7)
           to label %107 unwind label %105
 
-105:                                              ; preds = %.noexc.i.i15
+105:                                              ; preds = %.noexc.i.i16
   %106 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #25
-  br label %.body.i.i13
+  br label %.body.i.i14
 
-107:                                              ; preds = %.noexc.i.i15
+107:                                              ; preds = %.noexc.i.i16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #25
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
   %108 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionaSEOS0_(ptr noundef nonnull align 8 dereferenceable(104) %.012.i.i, ptr noundef nonnull align 8 dereferenceable(104) %6) #25
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %6) #25
   %109 = load i32, ptr %7, align 4
-  %.not.i.i.i.i16 = icmp eq i32 %109, 0
-  br i1 %.not.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i, label %110
+  %.not.i.i.i.i17 = icmp eq i32 %109, 0
+  br i1 %.not.i.i.i.i17, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i, label %110
 
 110:                                              ; preds = %107
   %111 = and i32 %109, 255
@@ -26644,26 +26644,26 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPat
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i: ; preds = %123, %110, %107
   %127 = getelementptr inbounds i8, ptr %.012.i.i, i64 104
-  %.not.i.i17 = icmp eq ptr %127, %104
-  br i1 %.not.i.i17, label %.loopexit21.i, label %.lr.ph.i.i
+  %.not.i.i18 = icmp eq ptr %127, %104
+  br i1 %.not.i.i18, label %.loopexit2.i, label %.lr.ph.i.i
 
 128:                                              ; preds = %.noexc6.i
   %129 = landingpad { ptr, i32 }
           cleanup
-  br label %.body.i.i13
+  br label %.body.i.i14
 
-.body.i.i13:                                      ; preds = %128, %105
-  %eh.lpad-body.i.i14 = phi { ptr, i32 } [ %129, %128 ], [ %106, %105 ]
+.body.i.i14:                                      ; preds = %128, %105
+  %eh.lpad-body.i.i15 = phi { ptr, i32 } [ %129, %128 ], [ %106, %105 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %7) #25
-  br label %.body.i10
+  br label %.body.i11
 
-.loopexit21.i:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i, %.noexc5.i
+.loopexit2.i:                                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i, %.noexc5.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %130 = icmp eq ptr %97, %8
   br i1 %130, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.exit.i, label %131
 
-131:                                              ; preds = %.loopexit21.i
+131:                                              ; preds = %.loopexit2.i
   %132 = load ptr, ptr %99, align 8
   %.not.i.i.i = icmp eq ptr %132, null
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.exit.thread.i, label %133
@@ -26732,7 +26732,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.ex
   store ptr %155, ptr %99, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_7VtArrayINS_17SdfPathExpressionEEEZL11_SetDefaultRKNS_7SdfPathES0_PNS_21Sdf_TextParserContextEEUlRS4_E_EENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredISD_E4TypeEEE5valueEvE4typeEOT0_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.exit.i: ; preds = %.loopexit21.i
+_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.exit.i: ; preds = %.loopexit2.i
   %.pr.i = load ptr, ptr %98, align 8
   %.not.i.i9.i = icmp eq ptr %.pr.i, null
   br i1 %.not.i.i9.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_7VtArrayINS_17SdfPathExpressionEEEZL11_SetDefaultRKNS_7SdfPathES0_PNS_21Sdf_TextParserContextEEUlRS4_E_EENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredISD_E4TypeEEE5valueEvE4typeEOT0_.exit, label %156
@@ -26801,30 +26801,30 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.ex
 .loopexit.i:                                      ; preds = %.lr.ph.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %.body.i10
+  br label %.body.i11
 
-.loopexit.split-lp.i:                             ; preds = %154, %.noexc.i12, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread
+.loopexit.split-lp.i:                             ; preds = %154, %.noexc.i13, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %.body.i10
+  br label %.body.i11
 
-.body.i10:                                        ; preds = %.loopexit.split-lp.i, %.loopexit.i, %.body.i.i13
-  %eh.lpad-body.i11 = phi { ptr, i32 } [ %eh.lpad-body.i.i14, %.body.i.i13 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+.body.i11:                                        ; preds = %.loopexit.split-lp.i, %.loopexit.i, %.body.i.i14
+  %eh.lpad-body.i12 = phi { ptr, i32 } [ %eh.lpad-body.i.i15, %.body.i.i14 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #25
   br label %common.resume
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_7VtArrayINS_17SdfPathExpressionEEEZL11_SetDefaultRKNS_7SdfPathES0_PNS_21Sdf_TextParserContextEEUlRS4_E_EENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredISD_E4TypeEEE5valueEvE4typeEOT0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.exit.i, %159, %._crit_edge.i.i19.i, %170, %173, %177
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread24
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread25
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread24: ; preds = %3, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i8, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread22, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_7VtArrayINS_17SdfPathExpressionEEEZL11_SetDefaultRKNS_7SdfPathES0_PNS_21Sdf_TextParserContextEEUlRS4_E_EENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredISD_E4TypeEEE5valueEvE4typeEOT0_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_17SdfPathExpressionEZL11_SetDefaultRKNS_7SdfPathES0_PNS_21Sdf_TextParserContextEEUlRS2_E_EENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredISB_E4TypeEEE5valueEvE4typeEOT0_.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread25: ; preds = %3, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i9, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_17SdfPathExpressionEEEbv.exit.thread23, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_7VtArrayINS_17SdfPathExpressionEEEZL11_SetDefaultRKNS_7SdfPathES0_PNS_21Sdf_TextParserContextEEUlRS4_E_EENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredISD_E4TypeEEE5valueEvE4typeEOT0_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_17SdfPathExpressionEZL11_SetDefaultRKNS_7SdfPathES0_PNS_21Sdf_TextParserContextEEUlRS2_E_EENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredISB_E4TypeEEE5valueEvE4typeEOT0_.exit
   %181 = getelementptr inbounds nuw i8, ptr %2, i64 888
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %182 = load ptr, ptr %181, align 8
-  %.not.i18 = icmp eq ptr %182, null
-  br i1 %.not.i18, label %183, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_7SdfDataEEptEv.exit
+  %.not.i19 = icmp eq ptr %182, null
+  br i1 %.not.i19, label %183, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_7SdfDataEEptEv.exit
 
-183:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread24
+183:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread25
   store ptr @.str.34, ptr %4, align 8
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_7SdfDataEEptEv, ptr %184, align 8
@@ -26837,12 +26837,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPat
   call void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_7SdfDataEEE) #27
   unreachable
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_7SdfDataEEptEv.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread24
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_7SdfDataEEptEv.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_17SdfPathExpressionEEEEEbv.exit.thread25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %188 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12SdfFieldKeysE seq_cst, align 8
   %189 = inttoptr i64 %188 to ptr
-  %.not.i.i19 = icmp eq i64 %188, 0
-  br i1 %.not.i.i19, label %190, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
+  %.not.i.i20 = icmp eq i64 %188, 0
+  br i1 %.not.i.i20, label %190, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
 
 190:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_7SdfDataEEptEv.exit
   %191 = call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #23

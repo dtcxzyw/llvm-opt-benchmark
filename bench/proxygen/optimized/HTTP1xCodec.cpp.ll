@@ -7136,26 +7136,26 @@ cleanup.done:                                     ; preds = %if.then
   %4 = load i64, ptr %capacity_.i.i, align 8
   %mul.i.i.i = mul i64 %4, 40
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %mul.i.i.i
-  %mul.i.i6.i = shl i64 %4, 5
-  %add.ptr.i.i7.i = getelementptr inbounds i8, ptr %3, i64 %mul.i.i6.i
+  %mul.i.i7.i = shl i64 %4, 5
+  %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %3, i64 %mul.i.i7.i
   %length_.i = getelementptr inbounds i8, ptr %trailers, i64 8
   %5 = load i64, ptr %length_.i, align 8
-  %cmp14.not.i = icmp eq i64 %5, 0
-  br i1 %cmp14.not.i, label %if.end, label %for.body.i
+  %cmp9.not.i = icmp eq i64 %5, 0
+  br i1 %cmp9.not.i, label %if.end, label %for.body.i
 
 for.body.i:                                       ; preds = %cleanup.done, %for.inc.i
   %len.1 = phi i64 [ %len.2, %for.inc.i ], [ 3, %cleanup.done ]
   %6 = phi i64 [ %9, %for.inc.i ], [ %5, %cleanup.done ]
-  %i.015.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %cleanup.done ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %i.015.i
+  %i.010.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %cleanup.done ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %i.010.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %cmp4.not.i = icmp eq i8 %7, 0
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %arrayidx5.i = getelementptr inbounds ptr, ptr %add.ptr.i.i7.i, i64 %i.015.i
+  %arrayidx5.i = getelementptr inbounds ptr, ptr %add.ptr.i.i8.i, i64 %i.010.i
   %8 = load ptr, ptr %arrayidx5.i, align 8
-  %arrayidx6.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 %i.015.i
+  %arrayidx6.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 %i.010.i
   %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   %call3.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   tail call void @_ZN5folly10IOBufQueue6appendEPKvm(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef %call.i.i.i, i64 noundef %call3.i.i.i)
@@ -7173,7 +7173,7 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %len.2 = phi i64 [ %len.1, %for.body.i ], [ %add3.i.i, %if.then.i ]
   %9 = phi i64 [ %6, %for.body.i ], [ %.pre.i, %if.then.i ]
-  %inc.i = add nuw i64 %i.015.i, 1
+  %inc.i = add nuw i64 %i.010.i, 1
   %cmp.i = icmp ult i64 %inc.i, %9
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !57
 

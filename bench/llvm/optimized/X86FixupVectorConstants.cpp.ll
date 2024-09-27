@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%class.anon.189 = type { ptr }
 %"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
 %"class.llvm::TypeSize" = type { %"class.llvm::details::FixedOrScalableQuantity.base", [7 x i8] }
 %"class.llvm::details::FixedOrScalableQuantity.base" = type <{ i64, i8 }>
@@ -308,895 +307,894 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_127X86FixupVectorConstantsPa
   %50 = alloca [18 x %struct.FixupEntry], align 16
   %51 = alloca [17 x %struct.FixupEntry], align 16
   %52 = alloca [18 x %struct.FixupEntry], align 16
-  %53 = alloca %class.anon.189, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 608
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 184
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %.sroa.096.0170 = load ptr, ptr %62, align 8
-  %.not171 = icmp eq ptr %.sroa.096.0170, %63
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %54, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 608
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %56, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 184
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %59, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %.sroa.096.0170 = load ptr, ptr %61, align 8
+  %.not171 = icmp eq ptr %.sroa.096.0170, %62
   br i1 %.not171, label %._crit_edge176, label %.lr.ph175
 
 .lr.ph175:                                        ; preds = %2
-  %64 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %66 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %67 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %68 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %69 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %70 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %71 = getelementptr inbounds i8, ptr %52, i64 24
-  %72 = getelementptr inbounds i8, ptr %52, i64 48
-  %73 = getelementptr inbounds i8, ptr %52, i64 52
-  %74 = getelementptr inbounds i8, ptr %52, i64 56
-  %75 = getelementptr inbounds i8, ptr %52, i64 64
-  %76 = getelementptr inbounds i8, ptr %52, i64 80
-  %77 = getelementptr inbounds i8, ptr %52, i64 88
-  %78 = getelementptr inbounds i8, ptr %52, i64 72
-  %79 = getelementptr inbounds i8, ptr %52, i64 96
-  %80 = getelementptr inbounds i8, ptr %52, i64 100
-  %81 = getelementptr inbounds i8, ptr %52, i64 104
-  %82 = getelementptr inbounds i8, ptr %52, i64 112
-  %83 = getelementptr inbounds i8, ptr %52, i64 128
-  %84 = getelementptr inbounds i8, ptr %52, i64 136
-  %85 = getelementptr inbounds i8, ptr %52, i64 120
-  %86 = getelementptr inbounds i8, ptr %52, i64 144
-  %87 = getelementptr inbounds i8, ptr %52, i64 148
-  %88 = getelementptr inbounds i8, ptr %52, i64 152
-  %89 = getelementptr inbounds i8, ptr %52, i64 160
-  %90 = getelementptr inbounds i8, ptr %52, i64 176
-  %91 = getelementptr inbounds i8, ptr %52, i64 184
-  %92 = getelementptr inbounds i8, ptr %52, i64 168
-  %93 = getelementptr inbounds i8, ptr %52, i64 192
-  %94 = getelementptr inbounds i8, ptr %52, i64 196
-  %95 = getelementptr inbounds i8, ptr %52, i64 200
-  %96 = getelementptr inbounds i8, ptr %52, i64 208
-  %97 = getelementptr inbounds i8, ptr %52, i64 224
-  %98 = getelementptr inbounds i8, ptr %52, i64 232
-  %99 = getelementptr inbounds i8, ptr %52, i64 216
-  %100 = getelementptr inbounds i8, ptr %52, i64 240
-  %101 = getelementptr inbounds i8, ptr %52, i64 244
-  %102 = getelementptr inbounds i8, ptr %52, i64 248
-  %103 = getelementptr inbounds i8, ptr %52, i64 256
-  %104 = getelementptr inbounds i8, ptr %52, i64 272
-  %105 = getelementptr inbounds i8, ptr %52, i64 280
-  %106 = getelementptr inbounds i8, ptr %52, i64 264
-  %107 = getelementptr inbounds i8, ptr %52, i64 288
-  %108 = getelementptr inbounds i8, ptr %52, i64 292
-  %109 = getelementptr inbounds i8, ptr %52, i64 296
-  %110 = getelementptr inbounds i8, ptr %52, i64 304
-  %111 = getelementptr inbounds i8, ptr %52, i64 320
-  %112 = getelementptr inbounds i8, ptr %52, i64 328
-  %113 = getelementptr inbounds i8, ptr %52, i64 312
-  %114 = getelementptr inbounds i8, ptr %52, i64 336
-  %115 = getelementptr inbounds i8, ptr %52, i64 340
-  %116 = getelementptr inbounds i8, ptr %52, i64 344
-  %117 = getelementptr inbounds i8, ptr %52, i64 352
-  %118 = getelementptr inbounds i8, ptr %52, i64 368
-  %119 = getelementptr inbounds i8, ptr %52, i64 376
-  %120 = getelementptr inbounds i8, ptr %52, i64 360
-  %121 = getelementptr inbounds i8, ptr %52, i64 384
-  %122 = getelementptr inbounds i8, ptr %52, i64 388
-  %123 = getelementptr inbounds i8, ptr %52, i64 392
-  %124 = getelementptr inbounds i8, ptr %52, i64 400
-  %125 = getelementptr inbounds i8, ptr %52, i64 416
-  %126 = getelementptr inbounds i8, ptr %52, i64 424
-  %127 = getelementptr inbounds i8, ptr %52, i64 408
-  %128 = getelementptr inbounds i8, ptr %52, i64 432
-  %129 = getelementptr inbounds i8, ptr %52, i64 436
-  %130 = getelementptr inbounds i8, ptr %52, i64 440
-  %131 = getelementptr inbounds i8, ptr %52, i64 448
-  %132 = getelementptr inbounds i8, ptr %52, i64 464
-  %133 = getelementptr inbounds i8, ptr %52, i64 472
-  %134 = getelementptr inbounds i8, ptr %52, i64 456
-  %135 = getelementptr inbounds i8, ptr %52, i64 480
-  %136 = getelementptr inbounds i8, ptr %52, i64 484
-  %137 = getelementptr inbounds i8, ptr %52, i64 488
-  %138 = getelementptr inbounds i8, ptr %52, i64 496
-  %139 = getelementptr inbounds i8, ptr %52, i64 512
-  %140 = getelementptr inbounds i8, ptr %52, i64 520
-  %141 = getelementptr inbounds i8, ptr %52, i64 504
-  %142 = getelementptr inbounds i8, ptr %52, i64 528
-  %143 = getelementptr inbounds i8, ptr %52, i64 532
-  %144 = getelementptr inbounds i8, ptr %52, i64 536
-  %145 = getelementptr inbounds i8, ptr %52, i64 544
-  %146 = getelementptr inbounds i8, ptr %52, i64 560
-  %147 = getelementptr inbounds i8, ptr %52, i64 568
-  %148 = getelementptr inbounds i8, ptr %52, i64 552
-  %149 = getelementptr inbounds i8, ptr %52, i64 576
-  %150 = getelementptr inbounds i8, ptr %52, i64 580
-  %151 = getelementptr inbounds i8, ptr %52, i64 584
-  %152 = getelementptr inbounds i8, ptr %52, i64 592
-  %153 = getelementptr inbounds i8, ptr %52, i64 608
-  %154 = getelementptr inbounds i8, ptr %52, i64 616
-  %155 = getelementptr inbounds i8, ptr %52, i64 600
-  %156 = getelementptr inbounds i8, ptr %52, i64 624
-  %157 = getelementptr inbounds i8, ptr %52, i64 628
-  %158 = getelementptr inbounds i8, ptr %52, i64 632
-  %159 = getelementptr inbounds i8, ptr %52, i64 640
-  %160 = getelementptr inbounds i8, ptr %52, i64 656
-  %161 = getelementptr inbounds i8, ptr %52, i64 664
-  %162 = getelementptr inbounds i8, ptr %52, i64 648
-  %163 = getelementptr inbounds i8, ptr %52, i64 672
-  %164 = getelementptr inbounds i8, ptr %52, i64 676
-  %165 = getelementptr inbounds i8, ptr %52, i64 680
-  %166 = getelementptr inbounds i8, ptr %52, i64 688
-  %167 = getelementptr inbounds i8, ptr %52, i64 704
-  %168 = getelementptr inbounds i8, ptr %52, i64 712
-  %169 = getelementptr inbounds i8, ptr %52, i64 696
-  %170 = getelementptr inbounds i8, ptr %52, i64 720
-  %171 = getelementptr inbounds i8, ptr %52, i64 724
-  %172 = getelementptr inbounds i8, ptr %52, i64 728
-  %173 = getelementptr inbounds i8, ptr %52, i64 736
-  %174 = getelementptr inbounds i8, ptr %52, i64 752
-  %175 = getelementptr inbounds i8, ptr %52, i64 760
-  %176 = getelementptr inbounds i8, ptr %52, i64 744
-  %177 = getelementptr inbounds i8, ptr %52, i64 768
-  %178 = getelementptr inbounds i8, ptr %52, i64 772
-  %179 = getelementptr inbounds i8, ptr %52, i64 776
-  %180 = getelementptr inbounds i8, ptr %52, i64 784
-  %181 = getelementptr inbounds i8, ptr %52, i64 800
-  %182 = getelementptr inbounds i8, ptr %52, i64 808
-  %183 = getelementptr inbounds i8, ptr %52, i64 792
-  %184 = getelementptr inbounds i8, ptr %52, i64 816
-  %185 = getelementptr inbounds i8, ptr %52, i64 820
-  %186 = getelementptr inbounds i8, ptr %52, i64 824
-  %187 = getelementptr inbounds i8, ptr %52, i64 832
-  %188 = getelementptr inbounds i8, ptr %52, i64 848
-  %189 = getelementptr inbounds i8, ptr %52, i64 856
-  %190 = getelementptr inbounds i8, ptr %52, i64 840
-  %191 = getelementptr inbounds i8, ptr %52, i64 864
-  %192 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %193 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %194 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %195 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %196 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %197 = getelementptr inbounds i8, ptr %51, i64 24
-  %198 = getelementptr inbounds i8, ptr %51, i64 48
-  %199 = getelementptr inbounds i8, ptr %51, i64 52
-  %200 = getelementptr inbounds i8, ptr %51, i64 56
-  %201 = getelementptr inbounds i8, ptr %51, i64 64
-  %202 = getelementptr inbounds i8, ptr %51, i64 80
-  %203 = getelementptr inbounds i8, ptr %51, i64 88
-  %204 = getelementptr inbounds i8, ptr %51, i64 72
-  %205 = getelementptr inbounds i8, ptr %51, i64 96
-  %206 = getelementptr inbounds i8, ptr %51, i64 100
-  %207 = getelementptr inbounds i8, ptr %51, i64 104
-  %208 = getelementptr inbounds i8, ptr %51, i64 112
-  %209 = getelementptr inbounds i8, ptr %51, i64 128
-  %210 = getelementptr inbounds i8, ptr %51, i64 136
-  %211 = getelementptr inbounds i8, ptr %51, i64 120
-  %212 = getelementptr inbounds i8, ptr %51, i64 144
-  %213 = getelementptr inbounds i8, ptr %51, i64 148
-  %214 = getelementptr inbounds i8, ptr %51, i64 152
-  %215 = getelementptr inbounds i8, ptr %51, i64 160
-  %216 = getelementptr inbounds i8, ptr %51, i64 176
-  %217 = getelementptr inbounds i8, ptr %51, i64 184
-  %218 = getelementptr inbounds i8, ptr %51, i64 168
-  %219 = getelementptr inbounds i8, ptr %51, i64 192
-  %220 = getelementptr inbounds i8, ptr %51, i64 196
-  %221 = getelementptr inbounds i8, ptr %51, i64 200
-  %222 = getelementptr inbounds i8, ptr %51, i64 208
-  %223 = getelementptr inbounds i8, ptr %51, i64 224
-  %224 = getelementptr inbounds i8, ptr %51, i64 232
-  %225 = getelementptr inbounds i8, ptr %51, i64 216
-  %226 = getelementptr inbounds i8, ptr %51, i64 240
-  %227 = getelementptr inbounds i8, ptr %51, i64 244
-  %228 = getelementptr inbounds i8, ptr %51, i64 248
-  %229 = getelementptr inbounds i8, ptr %51, i64 256
-  %230 = getelementptr inbounds i8, ptr %51, i64 272
-  %231 = getelementptr inbounds i8, ptr %51, i64 280
-  %232 = getelementptr inbounds i8, ptr %51, i64 264
-  %233 = getelementptr inbounds i8, ptr %51, i64 288
-  %234 = getelementptr inbounds i8, ptr %51, i64 292
-  %235 = getelementptr inbounds i8, ptr %51, i64 296
-  %236 = getelementptr inbounds i8, ptr %51, i64 304
-  %237 = getelementptr inbounds i8, ptr %51, i64 320
-  %238 = getelementptr inbounds i8, ptr %51, i64 328
-  %239 = getelementptr inbounds i8, ptr %51, i64 312
-  %240 = getelementptr inbounds i8, ptr %51, i64 336
-  %241 = getelementptr inbounds i8, ptr %51, i64 340
-  %242 = getelementptr inbounds i8, ptr %51, i64 344
-  %243 = getelementptr inbounds i8, ptr %51, i64 352
-  %244 = getelementptr inbounds i8, ptr %51, i64 368
-  %245 = getelementptr inbounds i8, ptr %51, i64 376
-  %246 = getelementptr inbounds i8, ptr %51, i64 360
-  %247 = getelementptr inbounds i8, ptr %51, i64 384
-  %248 = getelementptr inbounds i8, ptr %51, i64 388
-  %249 = getelementptr inbounds i8, ptr %51, i64 392
-  %250 = getelementptr inbounds i8, ptr %51, i64 400
-  %251 = getelementptr inbounds i8, ptr %51, i64 416
-  %252 = getelementptr inbounds i8, ptr %51, i64 424
-  %253 = getelementptr inbounds i8, ptr %51, i64 408
-  %254 = getelementptr inbounds i8, ptr %51, i64 432
-  %255 = getelementptr inbounds i8, ptr %51, i64 436
-  %256 = getelementptr inbounds i8, ptr %51, i64 440
-  %257 = getelementptr inbounds i8, ptr %51, i64 448
-  %258 = getelementptr inbounds i8, ptr %51, i64 464
-  %259 = getelementptr inbounds i8, ptr %51, i64 472
-  %260 = getelementptr inbounds i8, ptr %51, i64 456
-  %261 = getelementptr inbounds i8, ptr %51, i64 480
-  %262 = getelementptr inbounds i8, ptr %51, i64 484
-  %263 = getelementptr inbounds i8, ptr %51, i64 488
-  %264 = getelementptr inbounds i8, ptr %51, i64 496
-  %265 = getelementptr inbounds i8, ptr %51, i64 512
-  %266 = getelementptr inbounds i8, ptr %51, i64 520
-  %267 = getelementptr inbounds i8, ptr %51, i64 504
-  %268 = getelementptr inbounds i8, ptr %51, i64 528
-  %269 = getelementptr inbounds i8, ptr %51, i64 532
-  %270 = getelementptr inbounds i8, ptr %51, i64 536
-  %271 = getelementptr inbounds i8, ptr %51, i64 544
-  %272 = getelementptr inbounds i8, ptr %51, i64 560
-  %273 = getelementptr inbounds i8, ptr %51, i64 568
-  %274 = getelementptr inbounds i8, ptr %51, i64 552
-  %275 = getelementptr inbounds i8, ptr %51, i64 576
-  %276 = getelementptr inbounds i8, ptr %51, i64 580
-  %277 = getelementptr inbounds i8, ptr %51, i64 584
-  %278 = getelementptr inbounds i8, ptr %51, i64 592
-  %279 = getelementptr inbounds i8, ptr %51, i64 608
-  %280 = getelementptr inbounds i8, ptr %51, i64 616
-  %281 = getelementptr inbounds i8, ptr %51, i64 600
-  %282 = getelementptr inbounds i8, ptr %51, i64 624
-  %283 = getelementptr inbounds i8, ptr %51, i64 628
-  %284 = getelementptr inbounds i8, ptr %51, i64 632
-  %285 = getelementptr inbounds i8, ptr %51, i64 640
-  %286 = getelementptr inbounds i8, ptr %51, i64 656
-  %287 = getelementptr inbounds i8, ptr %51, i64 664
-  %288 = getelementptr inbounds i8, ptr %51, i64 648
-  %289 = getelementptr inbounds i8, ptr %51, i64 672
-  %290 = getelementptr inbounds i8, ptr %51, i64 676
-  %291 = getelementptr inbounds i8, ptr %51, i64 680
-  %292 = getelementptr inbounds i8, ptr %51, i64 688
-  %293 = getelementptr inbounds i8, ptr %51, i64 704
-  %294 = getelementptr inbounds i8, ptr %51, i64 712
-  %295 = getelementptr inbounds i8, ptr %51, i64 696
-  %296 = getelementptr inbounds i8, ptr %51, i64 720
-  %297 = getelementptr inbounds i8, ptr %51, i64 724
-  %298 = getelementptr inbounds i8, ptr %51, i64 728
-  %299 = getelementptr inbounds i8, ptr %51, i64 736
-  %300 = getelementptr inbounds i8, ptr %51, i64 752
-  %301 = getelementptr inbounds i8, ptr %51, i64 760
-  %302 = getelementptr inbounds i8, ptr %51, i64 744
-  %303 = getelementptr inbounds i8, ptr %51, i64 768
-  %304 = getelementptr inbounds i8, ptr %51, i64 772
-  %305 = getelementptr inbounds i8, ptr %51, i64 776
-  %306 = getelementptr inbounds i8, ptr %51, i64 784
-  %307 = getelementptr inbounds i8, ptr %51, i64 800
-  %308 = getelementptr inbounds i8, ptr %51, i64 808
-  %309 = getelementptr inbounds i8, ptr %51, i64 792
-  %310 = getelementptr inbounds i8, ptr %51, i64 816
-  %311 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %312 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %313 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %314 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %315 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  %316 = getelementptr inbounds i8, ptr %50, i64 24
-  %317 = getelementptr inbounds i8, ptr %50, i64 48
-  %318 = getelementptr inbounds i8, ptr %50, i64 52
-  %319 = getelementptr inbounds i8, ptr %50, i64 56
-  %320 = getelementptr inbounds i8, ptr %50, i64 64
-  %321 = getelementptr inbounds i8, ptr %50, i64 80
-  %322 = getelementptr inbounds i8, ptr %50, i64 88
-  %323 = getelementptr inbounds i8, ptr %50, i64 72
-  %324 = getelementptr inbounds i8, ptr %50, i64 96
-  %325 = getelementptr inbounds i8, ptr %50, i64 100
-  %326 = getelementptr inbounds i8, ptr %50, i64 104
-  %327 = getelementptr inbounds i8, ptr %50, i64 112
-  %328 = getelementptr inbounds i8, ptr %50, i64 128
-  %329 = getelementptr inbounds i8, ptr %50, i64 136
-  %330 = getelementptr inbounds i8, ptr %50, i64 120
-  %331 = getelementptr inbounds i8, ptr %50, i64 144
-  %332 = getelementptr inbounds i8, ptr %50, i64 148
-  %333 = getelementptr inbounds i8, ptr %50, i64 152
-  %334 = getelementptr inbounds i8, ptr %50, i64 160
-  %335 = getelementptr inbounds i8, ptr %50, i64 176
-  %336 = getelementptr inbounds i8, ptr %50, i64 184
-  %337 = getelementptr inbounds i8, ptr %50, i64 168
-  %338 = getelementptr inbounds i8, ptr %50, i64 192
-  %339 = getelementptr inbounds i8, ptr %50, i64 196
-  %340 = getelementptr inbounds i8, ptr %50, i64 200
-  %341 = getelementptr inbounds i8, ptr %50, i64 208
-  %342 = getelementptr inbounds i8, ptr %50, i64 224
-  %343 = getelementptr inbounds i8, ptr %50, i64 232
-  %344 = getelementptr inbounds i8, ptr %50, i64 216
-  %345 = getelementptr inbounds i8, ptr %50, i64 240
-  %346 = getelementptr inbounds i8, ptr %50, i64 244
-  %347 = getelementptr inbounds i8, ptr %50, i64 248
-  %348 = getelementptr inbounds i8, ptr %50, i64 256
-  %349 = getelementptr inbounds i8, ptr %50, i64 272
-  %350 = getelementptr inbounds i8, ptr %50, i64 280
-  %351 = getelementptr inbounds i8, ptr %50, i64 264
-  %352 = getelementptr inbounds i8, ptr %50, i64 288
-  %353 = getelementptr inbounds i8, ptr %50, i64 292
-  %354 = getelementptr inbounds i8, ptr %50, i64 296
-  %355 = getelementptr inbounds i8, ptr %50, i64 304
-  %356 = getelementptr inbounds i8, ptr %50, i64 320
-  %357 = getelementptr inbounds i8, ptr %50, i64 328
-  %358 = getelementptr inbounds i8, ptr %50, i64 312
-  %359 = getelementptr inbounds i8, ptr %50, i64 336
-  %360 = getelementptr inbounds i8, ptr %50, i64 340
-  %361 = getelementptr inbounds i8, ptr %50, i64 344
-  %362 = getelementptr inbounds i8, ptr %50, i64 352
-  %363 = getelementptr inbounds i8, ptr %50, i64 368
-  %364 = getelementptr inbounds i8, ptr %50, i64 376
-  %365 = getelementptr inbounds i8, ptr %50, i64 360
-  %366 = getelementptr inbounds i8, ptr %50, i64 384
-  %367 = getelementptr inbounds i8, ptr %50, i64 388
-  %368 = getelementptr inbounds i8, ptr %50, i64 392
-  %369 = getelementptr inbounds i8, ptr %50, i64 400
-  %370 = getelementptr inbounds i8, ptr %50, i64 416
-  %371 = getelementptr inbounds i8, ptr %50, i64 424
-  %372 = getelementptr inbounds i8, ptr %50, i64 408
-  %373 = getelementptr inbounds i8, ptr %50, i64 432
-  %374 = getelementptr inbounds i8, ptr %50, i64 436
-  %375 = getelementptr inbounds i8, ptr %50, i64 440
-  %376 = getelementptr inbounds i8, ptr %50, i64 448
-  %377 = getelementptr inbounds i8, ptr %50, i64 464
-  %378 = getelementptr inbounds i8, ptr %50, i64 472
-  %379 = getelementptr inbounds i8, ptr %50, i64 456
-  %380 = getelementptr inbounds i8, ptr %50, i64 480
-  %381 = getelementptr inbounds i8, ptr %50, i64 484
-  %382 = getelementptr inbounds i8, ptr %50, i64 488
-  %383 = getelementptr inbounds i8, ptr %50, i64 496
-  %384 = getelementptr inbounds i8, ptr %50, i64 512
-  %385 = getelementptr inbounds i8, ptr %50, i64 520
-  %386 = getelementptr inbounds i8, ptr %50, i64 504
-  %387 = getelementptr inbounds i8, ptr %50, i64 528
-  %388 = getelementptr inbounds i8, ptr %50, i64 532
-  %389 = getelementptr inbounds i8, ptr %50, i64 536
-  %390 = getelementptr inbounds i8, ptr %50, i64 544
-  %391 = getelementptr inbounds i8, ptr %50, i64 560
-  %392 = getelementptr inbounds i8, ptr %50, i64 568
-  %393 = getelementptr inbounds i8, ptr %50, i64 552
-  %394 = getelementptr inbounds i8, ptr %50, i64 576
-  %395 = getelementptr inbounds i8, ptr %50, i64 580
-  %396 = getelementptr inbounds i8, ptr %50, i64 584
-  %397 = getelementptr inbounds i8, ptr %50, i64 592
-  %398 = getelementptr inbounds i8, ptr %50, i64 608
-  %399 = getelementptr inbounds i8, ptr %50, i64 616
-  %400 = getelementptr inbounds i8, ptr %50, i64 600
-  %401 = getelementptr inbounds i8, ptr %50, i64 624
-  %402 = getelementptr inbounds i8, ptr %50, i64 628
-  %403 = getelementptr inbounds i8, ptr %50, i64 632
-  %404 = getelementptr inbounds i8, ptr %50, i64 640
-  %405 = getelementptr inbounds i8, ptr %50, i64 656
-  %406 = getelementptr inbounds i8, ptr %50, i64 664
-  %407 = getelementptr inbounds i8, ptr %50, i64 648
-  %408 = getelementptr inbounds i8, ptr %50, i64 672
-  %409 = getelementptr inbounds i8, ptr %50, i64 676
-  %410 = getelementptr inbounds i8, ptr %50, i64 680
-  %411 = getelementptr inbounds i8, ptr %50, i64 688
-  %412 = getelementptr inbounds i8, ptr %50, i64 704
-  %413 = getelementptr inbounds i8, ptr %50, i64 712
-  %414 = getelementptr inbounds i8, ptr %50, i64 696
-  %415 = getelementptr inbounds i8, ptr %50, i64 720
-  %416 = getelementptr inbounds i8, ptr %50, i64 724
-  %417 = getelementptr inbounds i8, ptr %50, i64 728
-  %418 = getelementptr inbounds i8, ptr %50, i64 736
-  %419 = getelementptr inbounds i8, ptr %50, i64 752
-  %420 = getelementptr inbounds i8, ptr %50, i64 760
-  %421 = getelementptr inbounds i8, ptr %50, i64 744
-  %422 = getelementptr inbounds i8, ptr %50, i64 768
-  %423 = getelementptr inbounds i8, ptr %50, i64 772
-  %424 = getelementptr inbounds i8, ptr %50, i64 776
-  %425 = getelementptr inbounds i8, ptr %50, i64 784
-  %426 = getelementptr inbounds i8, ptr %50, i64 800
-  %427 = getelementptr inbounds i8, ptr %50, i64 808
-  %428 = getelementptr inbounds i8, ptr %50, i64 792
-  %429 = getelementptr inbounds i8, ptr %50, i64 816
-  %430 = getelementptr inbounds i8, ptr %50, i64 820
-  %431 = getelementptr inbounds i8, ptr %50, i64 824
-  %432 = getelementptr inbounds i8, ptr %50, i64 832
-  %433 = getelementptr inbounds i8, ptr %50, i64 848
-  %434 = getelementptr inbounds i8, ptr %50, i64 856
-  %435 = getelementptr inbounds i8, ptr %50, i64 840
-  %436 = getelementptr inbounds i8, ptr %50, i64 864
-  %437 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %438 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %439 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %440 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %441 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  %442 = getelementptr inbounds i8, ptr %49, i64 24
-  %443 = getelementptr inbounds i8, ptr %49, i64 48
-  %444 = getelementptr inbounds i8, ptr %49, i64 52
-  %445 = getelementptr inbounds i8, ptr %49, i64 56
-  %446 = getelementptr inbounds i8, ptr %49, i64 64
-  %447 = getelementptr inbounds i8, ptr %49, i64 80
-  %448 = getelementptr inbounds i8, ptr %49, i64 88
-  %449 = getelementptr inbounds i8, ptr %49, i64 72
-  %450 = getelementptr inbounds i8, ptr %49, i64 96
-  %451 = getelementptr inbounds i8, ptr %49, i64 100
-  %452 = getelementptr inbounds i8, ptr %49, i64 104
-  %453 = getelementptr inbounds i8, ptr %49, i64 112
-  %454 = getelementptr inbounds i8, ptr %49, i64 128
-  %455 = getelementptr inbounds i8, ptr %49, i64 136
-  %456 = getelementptr inbounds i8, ptr %49, i64 120
-  %457 = getelementptr inbounds i8, ptr %49, i64 144
-  %458 = getelementptr inbounds i8, ptr %49, i64 148
-  %459 = getelementptr inbounds i8, ptr %49, i64 152
-  %460 = getelementptr inbounds i8, ptr %49, i64 160
-  %461 = getelementptr inbounds i8, ptr %49, i64 176
-  %462 = getelementptr inbounds i8, ptr %49, i64 184
-  %463 = getelementptr inbounds i8, ptr %49, i64 168
-  %464 = getelementptr inbounds i8, ptr %49, i64 192
-  %465 = getelementptr inbounds i8, ptr %49, i64 196
-  %466 = getelementptr inbounds i8, ptr %49, i64 200
-  %467 = getelementptr inbounds i8, ptr %49, i64 208
-  %468 = getelementptr inbounds i8, ptr %49, i64 224
-  %469 = getelementptr inbounds i8, ptr %49, i64 232
-  %470 = getelementptr inbounds i8, ptr %49, i64 216
-  %471 = getelementptr inbounds i8, ptr %49, i64 240
-  %472 = getelementptr inbounds i8, ptr %49, i64 244
-  %473 = getelementptr inbounds i8, ptr %49, i64 248
-  %474 = getelementptr inbounds i8, ptr %49, i64 256
-  %475 = getelementptr inbounds i8, ptr %49, i64 272
-  %476 = getelementptr inbounds i8, ptr %49, i64 280
-  %477 = getelementptr inbounds i8, ptr %49, i64 264
-  %478 = getelementptr inbounds i8, ptr %49, i64 288
-  %479 = getelementptr inbounds i8, ptr %49, i64 292
-  %480 = getelementptr inbounds i8, ptr %49, i64 296
-  %481 = getelementptr inbounds i8, ptr %49, i64 304
-  %482 = getelementptr inbounds i8, ptr %49, i64 320
-  %483 = getelementptr inbounds i8, ptr %49, i64 328
-  %484 = getelementptr inbounds i8, ptr %49, i64 312
-  %485 = getelementptr inbounds i8, ptr %49, i64 336
-  %486 = getelementptr inbounds i8, ptr %49, i64 340
-  %487 = getelementptr inbounds i8, ptr %49, i64 344
-  %488 = getelementptr inbounds i8, ptr %49, i64 352
-  %489 = getelementptr inbounds i8, ptr %49, i64 368
-  %490 = getelementptr inbounds i8, ptr %49, i64 376
-  %491 = getelementptr inbounds i8, ptr %49, i64 360
-  %492 = getelementptr inbounds i8, ptr %49, i64 384
-  %493 = getelementptr inbounds i8, ptr %49, i64 388
-  %494 = getelementptr inbounds i8, ptr %49, i64 392
-  %495 = getelementptr inbounds i8, ptr %49, i64 400
-  %496 = getelementptr inbounds i8, ptr %49, i64 416
-  %497 = getelementptr inbounds i8, ptr %49, i64 424
-  %498 = getelementptr inbounds i8, ptr %49, i64 408
-  %499 = getelementptr inbounds i8, ptr %49, i64 432
-  %500 = getelementptr inbounds i8, ptr %49, i64 436
-  %501 = getelementptr inbounds i8, ptr %49, i64 440
-  %502 = getelementptr inbounds i8, ptr %49, i64 448
-  %503 = getelementptr inbounds i8, ptr %49, i64 464
-  %504 = getelementptr inbounds i8, ptr %49, i64 472
-  %505 = getelementptr inbounds i8, ptr %49, i64 456
-  %506 = getelementptr inbounds i8, ptr %49, i64 480
-  %507 = getelementptr inbounds i8, ptr %49, i64 484
-  %508 = getelementptr inbounds i8, ptr %49, i64 488
-  %509 = getelementptr inbounds i8, ptr %49, i64 496
-  %510 = getelementptr inbounds i8, ptr %49, i64 512
-  %511 = getelementptr inbounds i8, ptr %49, i64 520
-  %512 = getelementptr inbounds i8, ptr %49, i64 504
-  %513 = getelementptr inbounds i8, ptr %49, i64 528
-  %514 = getelementptr inbounds i8, ptr %49, i64 532
-  %515 = getelementptr inbounds i8, ptr %49, i64 536
-  %516 = getelementptr inbounds i8, ptr %49, i64 544
-  %517 = getelementptr inbounds i8, ptr %49, i64 560
-  %518 = getelementptr inbounds i8, ptr %49, i64 568
-  %519 = getelementptr inbounds i8, ptr %49, i64 552
-  %520 = getelementptr inbounds i8, ptr %49, i64 576
-  %521 = getelementptr inbounds i8, ptr %49, i64 580
-  %522 = getelementptr inbounds i8, ptr %49, i64 584
-  %523 = getelementptr inbounds i8, ptr %49, i64 592
-  %524 = getelementptr inbounds i8, ptr %49, i64 608
-  %525 = getelementptr inbounds i8, ptr %49, i64 616
-  %526 = getelementptr inbounds i8, ptr %49, i64 600
-  %527 = getelementptr inbounds i8, ptr %49, i64 624
-  %528 = getelementptr inbounds i8, ptr %49, i64 628
-  %529 = getelementptr inbounds i8, ptr %49, i64 632
-  %530 = getelementptr inbounds i8, ptr %49, i64 640
-  %531 = getelementptr inbounds i8, ptr %49, i64 656
-  %532 = getelementptr inbounds i8, ptr %49, i64 664
-  %533 = getelementptr inbounds i8, ptr %49, i64 648
-  %534 = getelementptr inbounds i8, ptr %49, i64 672
-  %535 = getelementptr inbounds i8, ptr %49, i64 676
-  %536 = getelementptr inbounds i8, ptr %49, i64 680
-  %537 = getelementptr inbounds i8, ptr %49, i64 688
-  %538 = getelementptr inbounds i8, ptr %49, i64 704
-  %539 = getelementptr inbounds i8, ptr %49, i64 712
-  %540 = getelementptr inbounds i8, ptr %49, i64 696
-  %541 = getelementptr inbounds i8, ptr %49, i64 720
-  %542 = getelementptr inbounds i8, ptr %49, i64 724
-  %543 = getelementptr inbounds i8, ptr %49, i64 728
-  %544 = getelementptr inbounds i8, ptr %49, i64 736
-  %545 = getelementptr inbounds i8, ptr %49, i64 752
-  %546 = getelementptr inbounds i8, ptr %49, i64 760
-  %547 = getelementptr inbounds i8, ptr %49, i64 744
-  %548 = getelementptr inbounds i8, ptr %49, i64 768
-  %549 = getelementptr inbounds i8, ptr %49, i64 772
-  %550 = getelementptr inbounds i8, ptr %49, i64 776
-  %551 = getelementptr inbounds i8, ptr %49, i64 784
-  %552 = getelementptr inbounds i8, ptr %49, i64 800
-  %553 = getelementptr inbounds i8, ptr %49, i64 808
-  %554 = getelementptr inbounds i8, ptr %49, i64 792
-  %555 = getelementptr inbounds i8, ptr %49, i64 816
-  %556 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %557 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %558 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %559 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %560 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %561 = getelementptr inbounds i8, ptr %48, i64 24
-  %562 = getelementptr inbounds i8, ptr %48, i64 48
-  %563 = getelementptr inbounds i8, ptr %48, i64 52
-  %564 = getelementptr inbounds i8, ptr %48, i64 56
-  %565 = getelementptr inbounds i8, ptr %48, i64 64
-  %566 = getelementptr inbounds i8, ptr %48, i64 80
-  %567 = getelementptr inbounds i8, ptr %48, i64 88
-  %568 = getelementptr inbounds i8, ptr %48, i64 72
-  %569 = getelementptr inbounds i8, ptr %48, i64 96
-  %570 = getelementptr inbounds i8, ptr %48, i64 100
-  %571 = getelementptr inbounds i8, ptr %48, i64 104
-  %572 = getelementptr inbounds i8, ptr %48, i64 112
-  %573 = getelementptr inbounds i8, ptr %48, i64 128
-  %574 = getelementptr inbounds i8, ptr %48, i64 136
-  %575 = getelementptr inbounds i8, ptr %48, i64 120
-  %576 = getelementptr inbounds i8, ptr %48, i64 144
-  %577 = getelementptr inbounds i8, ptr %48, i64 148
-  %578 = getelementptr inbounds i8, ptr %48, i64 152
-  %579 = getelementptr inbounds i8, ptr %48, i64 160
-  %580 = getelementptr inbounds i8, ptr %48, i64 176
-  %581 = getelementptr inbounds i8, ptr %48, i64 184
-  %582 = getelementptr inbounds i8, ptr %48, i64 168
-  %583 = getelementptr inbounds i8, ptr %48, i64 192
-  %584 = getelementptr inbounds i8, ptr %48, i64 196
-  %585 = getelementptr inbounds i8, ptr %48, i64 200
-  %586 = getelementptr inbounds i8, ptr %48, i64 208
-  %587 = getelementptr inbounds i8, ptr %48, i64 224
-  %588 = getelementptr inbounds i8, ptr %48, i64 232
-  %589 = getelementptr inbounds i8, ptr %48, i64 216
-  %590 = getelementptr inbounds i8, ptr %48, i64 240
-  %591 = getelementptr inbounds i8, ptr %48, i64 244
-  %592 = getelementptr inbounds i8, ptr %48, i64 248
-  %593 = getelementptr inbounds i8, ptr %48, i64 256
-  %594 = getelementptr inbounds i8, ptr %48, i64 272
-  %595 = getelementptr inbounds i8, ptr %48, i64 280
-  %596 = getelementptr inbounds i8, ptr %48, i64 264
-  %597 = getelementptr inbounds i8, ptr %48, i64 288
-  %598 = getelementptr inbounds i8, ptr %48, i64 292
-  %599 = getelementptr inbounds i8, ptr %48, i64 296
-  %600 = getelementptr inbounds i8, ptr %48, i64 304
-  %601 = getelementptr inbounds i8, ptr %48, i64 320
-  %602 = getelementptr inbounds i8, ptr %48, i64 328
-  %603 = getelementptr inbounds i8, ptr %48, i64 312
-  %604 = getelementptr inbounds i8, ptr %48, i64 336
-  %605 = getelementptr inbounds i8, ptr %48, i64 340
-  %606 = getelementptr inbounds i8, ptr %48, i64 344
-  %607 = getelementptr inbounds i8, ptr %48, i64 352
-  %608 = getelementptr inbounds i8, ptr %48, i64 368
-  %609 = getelementptr inbounds i8, ptr %48, i64 376
-  %610 = getelementptr inbounds i8, ptr %48, i64 360
-  %611 = getelementptr inbounds i8, ptr %48, i64 384
-  %612 = getelementptr inbounds i8, ptr %48, i64 388
-  %613 = getelementptr inbounds i8, ptr %48, i64 392
-  %614 = getelementptr inbounds i8, ptr %48, i64 400
-  %615 = getelementptr inbounds i8, ptr %48, i64 416
-  %616 = getelementptr inbounds i8, ptr %48, i64 424
-  %617 = getelementptr inbounds i8, ptr %48, i64 408
-  %618 = getelementptr inbounds i8, ptr %48, i64 432
-  %619 = getelementptr inbounds i8, ptr %48, i64 436
-  %620 = getelementptr inbounds i8, ptr %48, i64 440
-  %621 = getelementptr inbounds i8, ptr %48, i64 448
-  %622 = getelementptr inbounds i8, ptr %48, i64 464
-  %623 = getelementptr inbounds i8, ptr %48, i64 472
-  %624 = getelementptr inbounds i8, ptr %48, i64 456
-  %625 = getelementptr inbounds i8, ptr %48, i64 480
-  %626 = getelementptr inbounds i8, ptr %48, i64 484
-  %627 = getelementptr inbounds i8, ptr %48, i64 488
-  %628 = getelementptr inbounds i8, ptr %48, i64 496
-  %629 = getelementptr inbounds i8, ptr %48, i64 512
-  %630 = getelementptr inbounds i8, ptr %48, i64 520
-  %631 = getelementptr inbounds i8, ptr %48, i64 504
-  %632 = getelementptr inbounds i8, ptr %48, i64 528
-  %633 = getelementptr inbounds i8, ptr %48, i64 532
-  %634 = getelementptr inbounds i8, ptr %48, i64 536
-  %635 = getelementptr inbounds i8, ptr %48, i64 544
-  %636 = getelementptr inbounds i8, ptr %48, i64 560
-  %637 = getelementptr inbounds i8, ptr %48, i64 568
-  %638 = getelementptr inbounds i8, ptr %48, i64 552
-  %639 = getelementptr inbounds i8, ptr %48, i64 576
-  %640 = getelementptr inbounds i8, ptr %48, i64 580
-  %641 = getelementptr inbounds i8, ptr %48, i64 584
-  %642 = getelementptr inbounds i8, ptr %48, i64 592
-  %643 = getelementptr inbounds i8, ptr %48, i64 608
-  %644 = getelementptr inbounds i8, ptr %48, i64 616
-  %645 = getelementptr inbounds i8, ptr %48, i64 600
-  %646 = getelementptr inbounds i8, ptr %48, i64 624
-  %647 = getelementptr inbounds i8, ptr %48, i64 628
-  %648 = getelementptr inbounds i8, ptr %48, i64 632
-  %649 = getelementptr inbounds i8, ptr %48, i64 640
-  %650 = getelementptr inbounds i8, ptr %48, i64 656
-  %651 = getelementptr inbounds i8, ptr %48, i64 664
-  %652 = getelementptr inbounds i8, ptr %48, i64 648
-  %653 = getelementptr inbounds i8, ptr %48, i64 672
-  %654 = getelementptr inbounds i8, ptr %48, i64 676
-  %655 = getelementptr inbounds i8, ptr %48, i64 680
-  %656 = getelementptr inbounds i8, ptr %48, i64 688
-  %657 = getelementptr inbounds i8, ptr %48, i64 704
-  %658 = getelementptr inbounds i8, ptr %48, i64 712
-  %659 = getelementptr inbounds i8, ptr %48, i64 696
-  %660 = getelementptr inbounds i8, ptr %48, i64 720
-  %661 = getelementptr inbounds i8, ptr %48, i64 724
-  %662 = getelementptr inbounds i8, ptr %48, i64 728
-  %663 = getelementptr inbounds i8, ptr %48, i64 736
-  %664 = getelementptr inbounds i8, ptr %48, i64 752
-  %665 = getelementptr inbounds i8, ptr %48, i64 760
-  %666 = getelementptr inbounds i8, ptr %48, i64 744
-  %667 = getelementptr inbounds i8, ptr %48, i64 768
-  %668 = getelementptr inbounds i8, ptr %48, i64 772
-  %669 = getelementptr inbounds i8, ptr %48, i64 776
-  %670 = getelementptr inbounds i8, ptr %48, i64 784
-  %671 = getelementptr inbounds i8, ptr %48, i64 800
-  %672 = getelementptr inbounds i8, ptr %48, i64 808
-  %673 = getelementptr inbounds i8, ptr %48, i64 792
-  %674 = getelementptr inbounds i8, ptr %48, i64 816
-  %675 = getelementptr inbounds i8, ptr %48, i64 820
-  %676 = getelementptr inbounds i8, ptr %48, i64 824
-  %677 = getelementptr inbounds i8, ptr %48, i64 832
-  %678 = getelementptr inbounds i8, ptr %48, i64 848
-  %679 = getelementptr inbounds i8, ptr %48, i64 856
-  %680 = getelementptr inbounds i8, ptr %48, i64 840
-  %681 = getelementptr inbounds i8, ptr %48, i64 864
-  %682 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %683 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %684 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %685 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %686 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %687 = getelementptr inbounds i8, ptr %47, i64 24
-  %688 = getelementptr inbounds i8, ptr %47, i64 48
-  %689 = getelementptr inbounds i8, ptr %47, i64 52
-  %690 = getelementptr inbounds i8, ptr %47, i64 56
-  %691 = getelementptr inbounds i8, ptr %47, i64 64
-  %692 = getelementptr inbounds i8, ptr %47, i64 80
-  %693 = getelementptr inbounds i8, ptr %47, i64 88
-  %694 = getelementptr inbounds i8, ptr %47, i64 72
-  %695 = getelementptr inbounds i8, ptr %47, i64 96
-  %696 = getelementptr inbounds i8, ptr %47, i64 100
-  %697 = getelementptr inbounds i8, ptr %47, i64 104
-  %698 = getelementptr inbounds i8, ptr %47, i64 112
-  %699 = getelementptr inbounds i8, ptr %47, i64 128
-  %700 = getelementptr inbounds i8, ptr %47, i64 136
-  %701 = getelementptr inbounds i8, ptr %47, i64 120
-  %702 = getelementptr inbounds i8, ptr %47, i64 144
-  %703 = getelementptr inbounds i8, ptr %47, i64 148
-  %704 = getelementptr inbounds i8, ptr %47, i64 152
-  %705 = getelementptr inbounds i8, ptr %47, i64 160
-  %706 = getelementptr inbounds i8, ptr %47, i64 176
-  %707 = getelementptr inbounds i8, ptr %47, i64 184
-  %708 = getelementptr inbounds i8, ptr %47, i64 168
-  %709 = getelementptr inbounds i8, ptr %47, i64 192
-  %710 = getelementptr inbounds i8, ptr %47, i64 196
-  %711 = getelementptr inbounds i8, ptr %47, i64 200
-  %712 = getelementptr inbounds i8, ptr %47, i64 208
-  %713 = getelementptr inbounds i8, ptr %47, i64 224
-  %714 = getelementptr inbounds i8, ptr %47, i64 232
-  %715 = getelementptr inbounds i8, ptr %47, i64 216
-  %716 = getelementptr inbounds i8, ptr %47, i64 240
-  %717 = getelementptr inbounds i8, ptr %47, i64 244
-  %718 = getelementptr inbounds i8, ptr %47, i64 248
-  %719 = getelementptr inbounds i8, ptr %47, i64 256
-  %720 = getelementptr inbounds i8, ptr %47, i64 272
-  %721 = getelementptr inbounds i8, ptr %47, i64 280
-  %722 = getelementptr inbounds i8, ptr %47, i64 264
-  %723 = getelementptr inbounds i8, ptr %47, i64 288
-  %724 = getelementptr inbounds i8, ptr %47, i64 292
-  %725 = getelementptr inbounds i8, ptr %47, i64 296
-  %726 = getelementptr inbounds i8, ptr %47, i64 304
-  %727 = getelementptr inbounds i8, ptr %47, i64 320
-  %728 = getelementptr inbounds i8, ptr %47, i64 328
-  %729 = getelementptr inbounds i8, ptr %47, i64 312
-  %730 = getelementptr inbounds i8, ptr %47, i64 336
-  %731 = getelementptr inbounds i8, ptr %47, i64 340
-  %732 = getelementptr inbounds i8, ptr %47, i64 344
-  %733 = getelementptr inbounds i8, ptr %47, i64 352
-  %734 = getelementptr inbounds i8, ptr %47, i64 368
-  %735 = getelementptr inbounds i8, ptr %47, i64 376
-  %736 = getelementptr inbounds i8, ptr %47, i64 360
-  %737 = getelementptr inbounds i8, ptr %47, i64 384
-  %738 = getelementptr inbounds i8, ptr %47, i64 388
-  %739 = getelementptr inbounds i8, ptr %47, i64 392
-  %740 = getelementptr inbounds i8, ptr %47, i64 400
-  %741 = getelementptr inbounds i8, ptr %47, i64 416
-  %742 = getelementptr inbounds i8, ptr %47, i64 424
-  %743 = getelementptr inbounds i8, ptr %47, i64 408
-  %744 = getelementptr inbounds i8, ptr %47, i64 432
-  %745 = getelementptr inbounds i8, ptr %47, i64 436
-  %746 = getelementptr inbounds i8, ptr %47, i64 440
-  %747 = getelementptr inbounds i8, ptr %47, i64 448
-  %748 = getelementptr inbounds i8, ptr %47, i64 464
-  %749 = getelementptr inbounds i8, ptr %47, i64 472
-  %750 = getelementptr inbounds i8, ptr %47, i64 456
-  %751 = getelementptr inbounds i8, ptr %47, i64 480
-  %752 = getelementptr inbounds i8, ptr %47, i64 484
-  %753 = getelementptr inbounds i8, ptr %47, i64 488
-  %754 = getelementptr inbounds i8, ptr %47, i64 496
-  %755 = getelementptr inbounds i8, ptr %47, i64 512
-  %756 = getelementptr inbounds i8, ptr %47, i64 520
-  %757 = getelementptr inbounds i8, ptr %47, i64 504
-  %758 = getelementptr inbounds i8, ptr %47, i64 528
-  %759 = getelementptr inbounds i8, ptr %47, i64 532
-  %760 = getelementptr inbounds i8, ptr %47, i64 536
-  %761 = getelementptr inbounds i8, ptr %47, i64 544
-  %762 = getelementptr inbounds i8, ptr %47, i64 560
-  %763 = getelementptr inbounds i8, ptr %47, i64 568
-  %764 = getelementptr inbounds i8, ptr %47, i64 552
-  %765 = getelementptr inbounds i8, ptr %47, i64 576
-  %766 = getelementptr inbounds i8, ptr %47, i64 580
-  %767 = getelementptr inbounds i8, ptr %47, i64 584
-  %768 = getelementptr inbounds i8, ptr %47, i64 592
-  %769 = getelementptr inbounds i8, ptr %47, i64 608
-  %770 = getelementptr inbounds i8, ptr %47, i64 616
-  %771 = getelementptr inbounds i8, ptr %47, i64 600
-  %772 = getelementptr inbounds i8, ptr %47, i64 624
-  %773 = getelementptr inbounds i8, ptr %47, i64 628
-  %774 = getelementptr inbounds i8, ptr %47, i64 632
-  %775 = getelementptr inbounds i8, ptr %47, i64 640
-  %776 = getelementptr inbounds i8, ptr %47, i64 656
-  %777 = getelementptr inbounds i8, ptr %47, i64 664
-  %778 = getelementptr inbounds i8, ptr %47, i64 648
-  %779 = getelementptr inbounds i8, ptr %47, i64 672
-  %780 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %781 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %782 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %783 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %784 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %785 = getelementptr inbounds i8, ptr %46, i64 24
-  %786 = getelementptr inbounds i8, ptr %46, i64 48
-  %787 = getelementptr inbounds i8, ptr %46, i64 52
-  %788 = getelementptr inbounds i8, ptr %46, i64 56
-  %789 = getelementptr inbounds i8, ptr %46, i64 64
-  %790 = getelementptr inbounds i8, ptr %46, i64 80
-  %791 = getelementptr inbounds i8, ptr %46, i64 88
-  %792 = getelementptr inbounds i8, ptr %46, i64 72
-  %793 = getelementptr inbounds i8, ptr %46, i64 96
-  %794 = getelementptr inbounds i8, ptr %46, i64 100
-  %795 = getelementptr inbounds i8, ptr %46, i64 104
-  %796 = getelementptr inbounds i8, ptr %46, i64 112
-  %797 = getelementptr inbounds i8, ptr %46, i64 128
-  %798 = getelementptr inbounds i8, ptr %46, i64 136
-  %799 = getelementptr inbounds i8, ptr %46, i64 120
-  %800 = getelementptr inbounds i8, ptr %46, i64 144
-  %801 = getelementptr inbounds i8, ptr %46, i64 148
-  %802 = getelementptr inbounds i8, ptr %46, i64 152
-  %803 = getelementptr inbounds i8, ptr %46, i64 160
-  %804 = getelementptr inbounds i8, ptr %46, i64 176
-  %805 = getelementptr inbounds i8, ptr %46, i64 184
-  %806 = getelementptr inbounds i8, ptr %46, i64 168
-  %807 = getelementptr inbounds i8, ptr %46, i64 192
-  %808 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %809 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %810 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %811 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %812 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %813 = getelementptr inbounds i8, ptr %45, i64 24
-  %814 = getelementptr inbounds i8, ptr %45, i64 48
-  %815 = getelementptr inbounds i8, ptr %45, i64 52
-  %816 = getelementptr inbounds i8, ptr %45, i64 56
-  %817 = getelementptr inbounds i8, ptr %45, i64 64
-  %818 = getelementptr inbounds i8, ptr %45, i64 80
-  %819 = getelementptr inbounds i8, ptr %45, i64 88
-  %820 = getelementptr inbounds i8, ptr %45, i64 72
-  %821 = getelementptr inbounds i8, ptr %45, i64 96
-  %822 = getelementptr inbounds i8, ptr %45, i64 100
-  %823 = getelementptr inbounds i8, ptr %45, i64 104
-  %824 = getelementptr inbounds i8, ptr %45, i64 112
-  %825 = getelementptr inbounds i8, ptr %45, i64 128
-  %826 = getelementptr inbounds i8, ptr %45, i64 136
-  %827 = getelementptr inbounds i8, ptr %45, i64 120
-  %828 = getelementptr inbounds i8, ptr %45, i64 144
-  %829 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %830 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %831 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %832 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %833 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %834 = getelementptr inbounds i8, ptr %44, i64 24
-  %835 = getelementptr inbounds i8, ptr %44, i64 48
-  %836 = getelementptr inbounds i8, ptr %44, i64 52
-  %837 = getelementptr inbounds i8, ptr %44, i64 56
-  %838 = getelementptr inbounds i8, ptr %44, i64 64
-  %839 = getelementptr inbounds i8, ptr %44, i64 80
-  %840 = getelementptr inbounds i8, ptr %44, i64 88
-  %841 = getelementptr inbounds i8, ptr %44, i64 72
-  %842 = getelementptr inbounds i8, ptr %44, i64 96
-  %843 = getelementptr inbounds i8, ptr %44, i64 100
-  %844 = getelementptr inbounds i8, ptr %44, i64 104
-  %845 = getelementptr inbounds i8, ptr %44, i64 112
-  %846 = getelementptr inbounds i8, ptr %44, i64 128
-  %847 = getelementptr inbounds i8, ptr %44, i64 136
-  %848 = getelementptr inbounds i8, ptr %44, i64 120
-  %849 = getelementptr inbounds i8, ptr %44, i64 144
-  %850 = getelementptr inbounds i8, ptr %44, i64 148
-  %851 = getelementptr inbounds i8, ptr %44, i64 152
-  %852 = getelementptr inbounds i8, ptr %44, i64 160
-  %853 = getelementptr inbounds i8, ptr %44, i64 176
-  %854 = getelementptr inbounds i8, ptr %44, i64 184
-  %855 = getelementptr inbounds i8, ptr %44, i64 168
-  %856 = getelementptr inbounds i8, ptr %44, i64 192
-  %857 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %858 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %859 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %860 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %861 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %862 = getelementptr inbounds i8, ptr %43, i64 24
-  %863 = getelementptr inbounds i8, ptr %43, i64 48
-  %864 = getelementptr inbounds i8, ptr %43, i64 52
-  %865 = getelementptr inbounds i8, ptr %43, i64 56
-  %866 = getelementptr inbounds i8, ptr %43, i64 64
-  %867 = getelementptr inbounds i8, ptr %43, i64 80
-  %868 = getelementptr inbounds i8, ptr %43, i64 88
-  %869 = getelementptr inbounds i8, ptr %43, i64 72
-  %870 = getelementptr inbounds i8, ptr %43, i64 96
-  %871 = getelementptr inbounds i8, ptr %43, i64 100
-  %872 = getelementptr inbounds i8, ptr %43, i64 104
-  %873 = getelementptr inbounds i8, ptr %43, i64 112
-  %874 = getelementptr inbounds i8, ptr %43, i64 128
-  %875 = getelementptr inbounds i8, ptr %43, i64 136
-  %876 = getelementptr inbounds i8, ptr %43, i64 120
-  %877 = getelementptr inbounds i8, ptr %43, i64 144
-  %878 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %879 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %880 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %881 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %882 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %883 = getelementptr inbounds i8, ptr %42, i64 24
-  %884 = getelementptr inbounds i8, ptr %42, i64 48
-  %885 = getelementptr inbounds i8, ptr %42, i64 52
-  %886 = getelementptr inbounds i8, ptr %42, i64 56
-  %887 = getelementptr inbounds i8, ptr %42, i64 64
-  %888 = getelementptr inbounds i8, ptr %42, i64 80
-  %889 = getelementptr inbounds i8, ptr %42, i64 88
-  %890 = getelementptr inbounds i8, ptr %42, i64 72
-  %891 = getelementptr inbounds i8, ptr %42, i64 96
-  %892 = getelementptr inbounds i8, ptr %42, i64 100
-  %893 = getelementptr inbounds i8, ptr %42, i64 104
-  %894 = getelementptr inbounds i8, ptr %42, i64 112
-  %895 = getelementptr inbounds i8, ptr %42, i64 128
-  %896 = getelementptr inbounds i8, ptr %42, i64 136
-  %897 = getelementptr inbounds i8, ptr %42, i64 120
-  %898 = getelementptr inbounds i8, ptr %42, i64 144
-  %899 = getelementptr inbounds i8, ptr %42, i64 148
-  %900 = getelementptr inbounds i8, ptr %42, i64 152
-  %901 = getelementptr inbounds i8, ptr %42, i64 160
-  %902 = getelementptr inbounds i8, ptr %42, i64 176
-  %903 = getelementptr inbounds i8, ptr %42, i64 184
-  %904 = getelementptr inbounds i8, ptr %42, i64 168
-  %905 = getelementptr inbounds i8, ptr %42, i64 192
-  %906 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %907 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %908 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %909 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %910 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %911 = getelementptr inbounds i8, ptr %41, i64 24
-  %912 = getelementptr inbounds i8, ptr %41, i64 48
-  %913 = getelementptr inbounds i8, ptr %41, i64 52
-  %914 = getelementptr inbounds i8, ptr %41, i64 56
-  %915 = getelementptr inbounds i8, ptr %41, i64 64
-  %916 = getelementptr inbounds i8, ptr %41, i64 80
-  %917 = getelementptr inbounds i8, ptr %41, i64 88
-  %918 = getelementptr inbounds i8, ptr %41, i64 72
-  %919 = getelementptr inbounds i8, ptr %41, i64 96
-  br label %920
+  %63 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %52, i64 40
+  %70 = getelementptr inbounds i8, ptr %52, i64 24
+  %71 = getelementptr inbounds i8, ptr %52, i64 48
+  %72 = getelementptr inbounds i8, ptr %52, i64 52
+  %73 = getelementptr inbounds i8, ptr %52, i64 56
+  %74 = getelementptr inbounds i8, ptr %52, i64 64
+  %75 = getelementptr inbounds i8, ptr %52, i64 80
+  %76 = getelementptr inbounds i8, ptr %52, i64 88
+  %77 = getelementptr inbounds i8, ptr %52, i64 72
+  %78 = getelementptr inbounds i8, ptr %52, i64 96
+  %79 = getelementptr inbounds i8, ptr %52, i64 100
+  %80 = getelementptr inbounds i8, ptr %52, i64 104
+  %81 = getelementptr inbounds i8, ptr %52, i64 112
+  %82 = getelementptr inbounds i8, ptr %52, i64 128
+  %83 = getelementptr inbounds i8, ptr %52, i64 136
+  %84 = getelementptr inbounds i8, ptr %52, i64 120
+  %85 = getelementptr inbounds i8, ptr %52, i64 144
+  %86 = getelementptr inbounds i8, ptr %52, i64 148
+  %87 = getelementptr inbounds i8, ptr %52, i64 152
+  %88 = getelementptr inbounds i8, ptr %52, i64 160
+  %89 = getelementptr inbounds i8, ptr %52, i64 176
+  %90 = getelementptr inbounds i8, ptr %52, i64 184
+  %91 = getelementptr inbounds i8, ptr %52, i64 168
+  %92 = getelementptr inbounds i8, ptr %52, i64 192
+  %93 = getelementptr inbounds i8, ptr %52, i64 196
+  %94 = getelementptr inbounds i8, ptr %52, i64 200
+  %95 = getelementptr inbounds i8, ptr %52, i64 208
+  %96 = getelementptr inbounds i8, ptr %52, i64 224
+  %97 = getelementptr inbounds i8, ptr %52, i64 232
+  %98 = getelementptr inbounds i8, ptr %52, i64 216
+  %99 = getelementptr inbounds i8, ptr %52, i64 240
+  %100 = getelementptr inbounds i8, ptr %52, i64 244
+  %101 = getelementptr inbounds i8, ptr %52, i64 248
+  %102 = getelementptr inbounds i8, ptr %52, i64 256
+  %103 = getelementptr inbounds i8, ptr %52, i64 272
+  %104 = getelementptr inbounds i8, ptr %52, i64 280
+  %105 = getelementptr inbounds i8, ptr %52, i64 264
+  %106 = getelementptr inbounds i8, ptr %52, i64 288
+  %107 = getelementptr inbounds i8, ptr %52, i64 292
+  %108 = getelementptr inbounds i8, ptr %52, i64 296
+  %109 = getelementptr inbounds i8, ptr %52, i64 304
+  %110 = getelementptr inbounds i8, ptr %52, i64 320
+  %111 = getelementptr inbounds i8, ptr %52, i64 328
+  %112 = getelementptr inbounds i8, ptr %52, i64 312
+  %113 = getelementptr inbounds i8, ptr %52, i64 336
+  %114 = getelementptr inbounds i8, ptr %52, i64 340
+  %115 = getelementptr inbounds i8, ptr %52, i64 344
+  %116 = getelementptr inbounds i8, ptr %52, i64 352
+  %117 = getelementptr inbounds i8, ptr %52, i64 368
+  %118 = getelementptr inbounds i8, ptr %52, i64 376
+  %119 = getelementptr inbounds i8, ptr %52, i64 360
+  %120 = getelementptr inbounds i8, ptr %52, i64 384
+  %121 = getelementptr inbounds i8, ptr %52, i64 388
+  %122 = getelementptr inbounds i8, ptr %52, i64 392
+  %123 = getelementptr inbounds i8, ptr %52, i64 400
+  %124 = getelementptr inbounds i8, ptr %52, i64 416
+  %125 = getelementptr inbounds i8, ptr %52, i64 424
+  %126 = getelementptr inbounds i8, ptr %52, i64 408
+  %127 = getelementptr inbounds i8, ptr %52, i64 432
+  %128 = getelementptr inbounds i8, ptr %52, i64 436
+  %129 = getelementptr inbounds i8, ptr %52, i64 440
+  %130 = getelementptr inbounds i8, ptr %52, i64 448
+  %131 = getelementptr inbounds i8, ptr %52, i64 464
+  %132 = getelementptr inbounds i8, ptr %52, i64 472
+  %133 = getelementptr inbounds i8, ptr %52, i64 456
+  %134 = getelementptr inbounds i8, ptr %52, i64 480
+  %135 = getelementptr inbounds i8, ptr %52, i64 484
+  %136 = getelementptr inbounds i8, ptr %52, i64 488
+  %137 = getelementptr inbounds i8, ptr %52, i64 496
+  %138 = getelementptr inbounds i8, ptr %52, i64 512
+  %139 = getelementptr inbounds i8, ptr %52, i64 520
+  %140 = getelementptr inbounds i8, ptr %52, i64 504
+  %141 = getelementptr inbounds i8, ptr %52, i64 528
+  %142 = getelementptr inbounds i8, ptr %52, i64 532
+  %143 = getelementptr inbounds i8, ptr %52, i64 536
+  %144 = getelementptr inbounds i8, ptr %52, i64 544
+  %145 = getelementptr inbounds i8, ptr %52, i64 560
+  %146 = getelementptr inbounds i8, ptr %52, i64 568
+  %147 = getelementptr inbounds i8, ptr %52, i64 552
+  %148 = getelementptr inbounds i8, ptr %52, i64 576
+  %149 = getelementptr inbounds i8, ptr %52, i64 580
+  %150 = getelementptr inbounds i8, ptr %52, i64 584
+  %151 = getelementptr inbounds i8, ptr %52, i64 592
+  %152 = getelementptr inbounds i8, ptr %52, i64 608
+  %153 = getelementptr inbounds i8, ptr %52, i64 616
+  %154 = getelementptr inbounds i8, ptr %52, i64 600
+  %155 = getelementptr inbounds i8, ptr %52, i64 624
+  %156 = getelementptr inbounds i8, ptr %52, i64 628
+  %157 = getelementptr inbounds i8, ptr %52, i64 632
+  %158 = getelementptr inbounds i8, ptr %52, i64 640
+  %159 = getelementptr inbounds i8, ptr %52, i64 656
+  %160 = getelementptr inbounds i8, ptr %52, i64 664
+  %161 = getelementptr inbounds i8, ptr %52, i64 648
+  %162 = getelementptr inbounds i8, ptr %52, i64 672
+  %163 = getelementptr inbounds i8, ptr %52, i64 676
+  %164 = getelementptr inbounds i8, ptr %52, i64 680
+  %165 = getelementptr inbounds i8, ptr %52, i64 688
+  %166 = getelementptr inbounds i8, ptr %52, i64 704
+  %167 = getelementptr inbounds i8, ptr %52, i64 712
+  %168 = getelementptr inbounds i8, ptr %52, i64 696
+  %169 = getelementptr inbounds i8, ptr %52, i64 720
+  %170 = getelementptr inbounds i8, ptr %52, i64 724
+  %171 = getelementptr inbounds i8, ptr %52, i64 728
+  %172 = getelementptr inbounds i8, ptr %52, i64 736
+  %173 = getelementptr inbounds i8, ptr %52, i64 752
+  %174 = getelementptr inbounds i8, ptr %52, i64 760
+  %175 = getelementptr inbounds i8, ptr %52, i64 744
+  %176 = getelementptr inbounds i8, ptr %52, i64 768
+  %177 = getelementptr inbounds i8, ptr %52, i64 772
+  %178 = getelementptr inbounds i8, ptr %52, i64 776
+  %179 = getelementptr inbounds i8, ptr %52, i64 784
+  %180 = getelementptr inbounds i8, ptr %52, i64 800
+  %181 = getelementptr inbounds i8, ptr %52, i64 808
+  %182 = getelementptr inbounds i8, ptr %52, i64 792
+  %183 = getelementptr inbounds i8, ptr %52, i64 816
+  %184 = getelementptr inbounds i8, ptr %52, i64 820
+  %185 = getelementptr inbounds i8, ptr %52, i64 824
+  %186 = getelementptr inbounds i8, ptr %52, i64 832
+  %187 = getelementptr inbounds i8, ptr %52, i64 848
+  %188 = getelementptr inbounds i8, ptr %52, i64 856
+  %189 = getelementptr inbounds i8, ptr %52, i64 840
+  %190 = getelementptr inbounds i8, ptr %52, i64 864
+  %191 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %195 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  %196 = getelementptr inbounds i8, ptr %51, i64 24
+  %197 = getelementptr inbounds i8, ptr %51, i64 48
+  %198 = getelementptr inbounds i8, ptr %51, i64 52
+  %199 = getelementptr inbounds i8, ptr %51, i64 56
+  %200 = getelementptr inbounds i8, ptr %51, i64 64
+  %201 = getelementptr inbounds i8, ptr %51, i64 80
+  %202 = getelementptr inbounds i8, ptr %51, i64 88
+  %203 = getelementptr inbounds i8, ptr %51, i64 72
+  %204 = getelementptr inbounds i8, ptr %51, i64 96
+  %205 = getelementptr inbounds i8, ptr %51, i64 100
+  %206 = getelementptr inbounds i8, ptr %51, i64 104
+  %207 = getelementptr inbounds i8, ptr %51, i64 112
+  %208 = getelementptr inbounds i8, ptr %51, i64 128
+  %209 = getelementptr inbounds i8, ptr %51, i64 136
+  %210 = getelementptr inbounds i8, ptr %51, i64 120
+  %211 = getelementptr inbounds i8, ptr %51, i64 144
+  %212 = getelementptr inbounds i8, ptr %51, i64 148
+  %213 = getelementptr inbounds i8, ptr %51, i64 152
+  %214 = getelementptr inbounds i8, ptr %51, i64 160
+  %215 = getelementptr inbounds i8, ptr %51, i64 176
+  %216 = getelementptr inbounds i8, ptr %51, i64 184
+  %217 = getelementptr inbounds i8, ptr %51, i64 168
+  %218 = getelementptr inbounds i8, ptr %51, i64 192
+  %219 = getelementptr inbounds i8, ptr %51, i64 196
+  %220 = getelementptr inbounds i8, ptr %51, i64 200
+  %221 = getelementptr inbounds i8, ptr %51, i64 208
+  %222 = getelementptr inbounds i8, ptr %51, i64 224
+  %223 = getelementptr inbounds i8, ptr %51, i64 232
+  %224 = getelementptr inbounds i8, ptr %51, i64 216
+  %225 = getelementptr inbounds i8, ptr %51, i64 240
+  %226 = getelementptr inbounds i8, ptr %51, i64 244
+  %227 = getelementptr inbounds i8, ptr %51, i64 248
+  %228 = getelementptr inbounds i8, ptr %51, i64 256
+  %229 = getelementptr inbounds i8, ptr %51, i64 272
+  %230 = getelementptr inbounds i8, ptr %51, i64 280
+  %231 = getelementptr inbounds i8, ptr %51, i64 264
+  %232 = getelementptr inbounds i8, ptr %51, i64 288
+  %233 = getelementptr inbounds i8, ptr %51, i64 292
+  %234 = getelementptr inbounds i8, ptr %51, i64 296
+  %235 = getelementptr inbounds i8, ptr %51, i64 304
+  %236 = getelementptr inbounds i8, ptr %51, i64 320
+  %237 = getelementptr inbounds i8, ptr %51, i64 328
+  %238 = getelementptr inbounds i8, ptr %51, i64 312
+  %239 = getelementptr inbounds i8, ptr %51, i64 336
+  %240 = getelementptr inbounds i8, ptr %51, i64 340
+  %241 = getelementptr inbounds i8, ptr %51, i64 344
+  %242 = getelementptr inbounds i8, ptr %51, i64 352
+  %243 = getelementptr inbounds i8, ptr %51, i64 368
+  %244 = getelementptr inbounds i8, ptr %51, i64 376
+  %245 = getelementptr inbounds i8, ptr %51, i64 360
+  %246 = getelementptr inbounds i8, ptr %51, i64 384
+  %247 = getelementptr inbounds i8, ptr %51, i64 388
+  %248 = getelementptr inbounds i8, ptr %51, i64 392
+  %249 = getelementptr inbounds i8, ptr %51, i64 400
+  %250 = getelementptr inbounds i8, ptr %51, i64 416
+  %251 = getelementptr inbounds i8, ptr %51, i64 424
+  %252 = getelementptr inbounds i8, ptr %51, i64 408
+  %253 = getelementptr inbounds i8, ptr %51, i64 432
+  %254 = getelementptr inbounds i8, ptr %51, i64 436
+  %255 = getelementptr inbounds i8, ptr %51, i64 440
+  %256 = getelementptr inbounds i8, ptr %51, i64 448
+  %257 = getelementptr inbounds i8, ptr %51, i64 464
+  %258 = getelementptr inbounds i8, ptr %51, i64 472
+  %259 = getelementptr inbounds i8, ptr %51, i64 456
+  %260 = getelementptr inbounds i8, ptr %51, i64 480
+  %261 = getelementptr inbounds i8, ptr %51, i64 484
+  %262 = getelementptr inbounds i8, ptr %51, i64 488
+  %263 = getelementptr inbounds i8, ptr %51, i64 496
+  %264 = getelementptr inbounds i8, ptr %51, i64 512
+  %265 = getelementptr inbounds i8, ptr %51, i64 520
+  %266 = getelementptr inbounds i8, ptr %51, i64 504
+  %267 = getelementptr inbounds i8, ptr %51, i64 528
+  %268 = getelementptr inbounds i8, ptr %51, i64 532
+  %269 = getelementptr inbounds i8, ptr %51, i64 536
+  %270 = getelementptr inbounds i8, ptr %51, i64 544
+  %271 = getelementptr inbounds i8, ptr %51, i64 560
+  %272 = getelementptr inbounds i8, ptr %51, i64 568
+  %273 = getelementptr inbounds i8, ptr %51, i64 552
+  %274 = getelementptr inbounds i8, ptr %51, i64 576
+  %275 = getelementptr inbounds i8, ptr %51, i64 580
+  %276 = getelementptr inbounds i8, ptr %51, i64 584
+  %277 = getelementptr inbounds i8, ptr %51, i64 592
+  %278 = getelementptr inbounds i8, ptr %51, i64 608
+  %279 = getelementptr inbounds i8, ptr %51, i64 616
+  %280 = getelementptr inbounds i8, ptr %51, i64 600
+  %281 = getelementptr inbounds i8, ptr %51, i64 624
+  %282 = getelementptr inbounds i8, ptr %51, i64 628
+  %283 = getelementptr inbounds i8, ptr %51, i64 632
+  %284 = getelementptr inbounds i8, ptr %51, i64 640
+  %285 = getelementptr inbounds i8, ptr %51, i64 656
+  %286 = getelementptr inbounds i8, ptr %51, i64 664
+  %287 = getelementptr inbounds i8, ptr %51, i64 648
+  %288 = getelementptr inbounds i8, ptr %51, i64 672
+  %289 = getelementptr inbounds i8, ptr %51, i64 676
+  %290 = getelementptr inbounds i8, ptr %51, i64 680
+  %291 = getelementptr inbounds i8, ptr %51, i64 688
+  %292 = getelementptr inbounds i8, ptr %51, i64 704
+  %293 = getelementptr inbounds i8, ptr %51, i64 712
+  %294 = getelementptr inbounds i8, ptr %51, i64 696
+  %295 = getelementptr inbounds i8, ptr %51, i64 720
+  %296 = getelementptr inbounds i8, ptr %51, i64 724
+  %297 = getelementptr inbounds i8, ptr %51, i64 728
+  %298 = getelementptr inbounds i8, ptr %51, i64 736
+  %299 = getelementptr inbounds i8, ptr %51, i64 752
+  %300 = getelementptr inbounds i8, ptr %51, i64 760
+  %301 = getelementptr inbounds i8, ptr %51, i64 744
+  %302 = getelementptr inbounds i8, ptr %51, i64 768
+  %303 = getelementptr inbounds i8, ptr %51, i64 772
+  %304 = getelementptr inbounds i8, ptr %51, i64 776
+  %305 = getelementptr inbounds i8, ptr %51, i64 784
+  %306 = getelementptr inbounds i8, ptr %51, i64 800
+  %307 = getelementptr inbounds i8, ptr %51, i64 808
+  %308 = getelementptr inbounds i8, ptr %51, i64 792
+  %309 = getelementptr inbounds i8, ptr %51, i64 816
+  %310 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %311 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %313 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %314 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %315 = getelementptr inbounds i8, ptr %50, i64 24
+  %316 = getelementptr inbounds i8, ptr %50, i64 48
+  %317 = getelementptr inbounds i8, ptr %50, i64 52
+  %318 = getelementptr inbounds i8, ptr %50, i64 56
+  %319 = getelementptr inbounds i8, ptr %50, i64 64
+  %320 = getelementptr inbounds i8, ptr %50, i64 80
+  %321 = getelementptr inbounds i8, ptr %50, i64 88
+  %322 = getelementptr inbounds i8, ptr %50, i64 72
+  %323 = getelementptr inbounds i8, ptr %50, i64 96
+  %324 = getelementptr inbounds i8, ptr %50, i64 100
+  %325 = getelementptr inbounds i8, ptr %50, i64 104
+  %326 = getelementptr inbounds i8, ptr %50, i64 112
+  %327 = getelementptr inbounds i8, ptr %50, i64 128
+  %328 = getelementptr inbounds i8, ptr %50, i64 136
+  %329 = getelementptr inbounds i8, ptr %50, i64 120
+  %330 = getelementptr inbounds i8, ptr %50, i64 144
+  %331 = getelementptr inbounds i8, ptr %50, i64 148
+  %332 = getelementptr inbounds i8, ptr %50, i64 152
+  %333 = getelementptr inbounds i8, ptr %50, i64 160
+  %334 = getelementptr inbounds i8, ptr %50, i64 176
+  %335 = getelementptr inbounds i8, ptr %50, i64 184
+  %336 = getelementptr inbounds i8, ptr %50, i64 168
+  %337 = getelementptr inbounds i8, ptr %50, i64 192
+  %338 = getelementptr inbounds i8, ptr %50, i64 196
+  %339 = getelementptr inbounds i8, ptr %50, i64 200
+  %340 = getelementptr inbounds i8, ptr %50, i64 208
+  %341 = getelementptr inbounds i8, ptr %50, i64 224
+  %342 = getelementptr inbounds i8, ptr %50, i64 232
+  %343 = getelementptr inbounds i8, ptr %50, i64 216
+  %344 = getelementptr inbounds i8, ptr %50, i64 240
+  %345 = getelementptr inbounds i8, ptr %50, i64 244
+  %346 = getelementptr inbounds i8, ptr %50, i64 248
+  %347 = getelementptr inbounds i8, ptr %50, i64 256
+  %348 = getelementptr inbounds i8, ptr %50, i64 272
+  %349 = getelementptr inbounds i8, ptr %50, i64 280
+  %350 = getelementptr inbounds i8, ptr %50, i64 264
+  %351 = getelementptr inbounds i8, ptr %50, i64 288
+  %352 = getelementptr inbounds i8, ptr %50, i64 292
+  %353 = getelementptr inbounds i8, ptr %50, i64 296
+  %354 = getelementptr inbounds i8, ptr %50, i64 304
+  %355 = getelementptr inbounds i8, ptr %50, i64 320
+  %356 = getelementptr inbounds i8, ptr %50, i64 328
+  %357 = getelementptr inbounds i8, ptr %50, i64 312
+  %358 = getelementptr inbounds i8, ptr %50, i64 336
+  %359 = getelementptr inbounds i8, ptr %50, i64 340
+  %360 = getelementptr inbounds i8, ptr %50, i64 344
+  %361 = getelementptr inbounds i8, ptr %50, i64 352
+  %362 = getelementptr inbounds i8, ptr %50, i64 368
+  %363 = getelementptr inbounds i8, ptr %50, i64 376
+  %364 = getelementptr inbounds i8, ptr %50, i64 360
+  %365 = getelementptr inbounds i8, ptr %50, i64 384
+  %366 = getelementptr inbounds i8, ptr %50, i64 388
+  %367 = getelementptr inbounds i8, ptr %50, i64 392
+  %368 = getelementptr inbounds i8, ptr %50, i64 400
+  %369 = getelementptr inbounds i8, ptr %50, i64 416
+  %370 = getelementptr inbounds i8, ptr %50, i64 424
+  %371 = getelementptr inbounds i8, ptr %50, i64 408
+  %372 = getelementptr inbounds i8, ptr %50, i64 432
+  %373 = getelementptr inbounds i8, ptr %50, i64 436
+  %374 = getelementptr inbounds i8, ptr %50, i64 440
+  %375 = getelementptr inbounds i8, ptr %50, i64 448
+  %376 = getelementptr inbounds i8, ptr %50, i64 464
+  %377 = getelementptr inbounds i8, ptr %50, i64 472
+  %378 = getelementptr inbounds i8, ptr %50, i64 456
+  %379 = getelementptr inbounds i8, ptr %50, i64 480
+  %380 = getelementptr inbounds i8, ptr %50, i64 484
+  %381 = getelementptr inbounds i8, ptr %50, i64 488
+  %382 = getelementptr inbounds i8, ptr %50, i64 496
+  %383 = getelementptr inbounds i8, ptr %50, i64 512
+  %384 = getelementptr inbounds i8, ptr %50, i64 520
+  %385 = getelementptr inbounds i8, ptr %50, i64 504
+  %386 = getelementptr inbounds i8, ptr %50, i64 528
+  %387 = getelementptr inbounds i8, ptr %50, i64 532
+  %388 = getelementptr inbounds i8, ptr %50, i64 536
+  %389 = getelementptr inbounds i8, ptr %50, i64 544
+  %390 = getelementptr inbounds i8, ptr %50, i64 560
+  %391 = getelementptr inbounds i8, ptr %50, i64 568
+  %392 = getelementptr inbounds i8, ptr %50, i64 552
+  %393 = getelementptr inbounds i8, ptr %50, i64 576
+  %394 = getelementptr inbounds i8, ptr %50, i64 580
+  %395 = getelementptr inbounds i8, ptr %50, i64 584
+  %396 = getelementptr inbounds i8, ptr %50, i64 592
+  %397 = getelementptr inbounds i8, ptr %50, i64 608
+  %398 = getelementptr inbounds i8, ptr %50, i64 616
+  %399 = getelementptr inbounds i8, ptr %50, i64 600
+  %400 = getelementptr inbounds i8, ptr %50, i64 624
+  %401 = getelementptr inbounds i8, ptr %50, i64 628
+  %402 = getelementptr inbounds i8, ptr %50, i64 632
+  %403 = getelementptr inbounds i8, ptr %50, i64 640
+  %404 = getelementptr inbounds i8, ptr %50, i64 656
+  %405 = getelementptr inbounds i8, ptr %50, i64 664
+  %406 = getelementptr inbounds i8, ptr %50, i64 648
+  %407 = getelementptr inbounds i8, ptr %50, i64 672
+  %408 = getelementptr inbounds i8, ptr %50, i64 676
+  %409 = getelementptr inbounds i8, ptr %50, i64 680
+  %410 = getelementptr inbounds i8, ptr %50, i64 688
+  %411 = getelementptr inbounds i8, ptr %50, i64 704
+  %412 = getelementptr inbounds i8, ptr %50, i64 712
+  %413 = getelementptr inbounds i8, ptr %50, i64 696
+  %414 = getelementptr inbounds i8, ptr %50, i64 720
+  %415 = getelementptr inbounds i8, ptr %50, i64 724
+  %416 = getelementptr inbounds i8, ptr %50, i64 728
+  %417 = getelementptr inbounds i8, ptr %50, i64 736
+  %418 = getelementptr inbounds i8, ptr %50, i64 752
+  %419 = getelementptr inbounds i8, ptr %50, i64 760
+  %420 = getelementptr inbounds i8, ptr %50, i64 744
+  %421 = getelementptr inbounds i8, ptr %50, i64 768
+  %422 = getelementptr inbounds i8, ptr %50, i64 772
+  %423 = getelementptr inbounds i8, ptr %50, i64 776
+  %424 = getelementptr inbounds i8, ptr %50, i64 784
+  %425 = getelementptr inbounds i8, ptr %50, i64 800
+  %426 = getelementptr inbounds i8, ptr %50, i64 808
+  %427 = getelementptr inbounds i8, ptr %50, i64 792
+  %428 = getelementptr inbounds i8, ptr %50, i64 816
+  %429 = getelementptr inbounds i8, ptr %50, i64 820
+  %430 = getelementptr inbounds i8, ptr %50, i64 824
+  %431 = getelementptr inbounds i8, ptr %50, i64 832
+  %432 = getelementptr inbounds i8, ptr %50, i64 848
+  %433 = getelementptr inbounds i8, ptr %50, i64 856
+  %434 = getelementptr inbounds i8, ptr %50, i64 840
+  %435 = getelementptr inbounds i8, ptr %50, i64 864
+  %436 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %437 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %438 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %439 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  %440 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  %441 = getelementptr inbounds i8, ptr %49, i64 24
+  %442 = getelementptr inbounds i8, ptr %49, i64 48
+  %443 = getelementptr inbounds i8, ptr %49, i64 52
+  %444 = getelementptr inbounds i8, ptr %49, i64 56
+  %445 = getelementptr inbounds i8, ptr %49, i64 64
+  %446 = getelementptr inbounds i8, ptr %49, i64 80
+  %447 = getelementptr inbounds i8, ptr %49, i64 88
+  %448 = getelementptr inbounds i8, ptr %49, i64 72
+  %449 = getelementptr inbounds i8, ptr %49, i64 96
+  %450 = getelementptr inbounds i8, ptr %49, i64 100
+  %451 = getelementptr inbounds i8, ptr %49, i64 104
+  %452 = getelementptr inbounds i8, ptr %49, i64 112
+  %453 = getelementptr inbounds i8, ptr %49, i64 128
+  %454 = getelementptr inbounds i8, ptr %49, i64 136
+  %455 = getelementptr inbounds i8, ptr %49, i64 120
+  %456 = getelementptr inbounds i8, ptr %49, i64 144
+  %457 = getelementptr inbounds i8, ptr %49, i64 148
+  %458 = getelementptr inbounds i8, ptr %49, i64 152
+  %459 = getelementptr inbounds i8, ptr %49, i64 160
+  %460 = getelementptr inbounds i8, ptr %49, i64 176
+  %461 = getelementptr inbounds i8, ptr %49, i64 184
+  %462 = getelementptr inbounds i8, ptr %49, i64 168
+  %463 = getelementptr inbounds i8, ptr %49, i64 192
+  %464 = getelementptr inbounds i8, ptr %49, i64 196
+  %465 = getelementptr inbounds i8, ptr %49, i64 200
+  %466 = getelementptr inbounds i8, ptr %49, i64 208
+  %467 = getelementptr inbounds i8, ptr %49, i64 224
+  %468 = getelementptr inbounds i8, ptr %49, i64 232
+  %469 = getelementptr inbounds i8, ptr %49, i64 216
+  %470 = getelementptr inbounds i8, ptr %49, i64 240
+  %471 = getelementptr inbounds i8, ptr %49, i64 244
+  %472 = getelementptr inbounds i8, ptr %49, i64 248
+  %473 = getelementptr inbounds i8, ptr %49, i64 256
+  %474 = getelementptr inbounds i8, ptr %49, i64 272
+  %475 = getelementptr inbounds i8, ptr %49, i64 280
+  %476 = getelementptr inbounds i8, ptr %49, i64 264
+  %477 = getelementptr inbounds i8, ptr %49, i64 288
+  %478 = getelementptr inbounds i8, ptr %49, i64 292
+  %479 = getelementptr inbounds i8, ptr %49, i64 296
+  %480 = getelementptr inbounds i8, ptr %49, i64 304
+  %481 = getelementptr inbounds i8, ptr %49, i64 320
+  %482 = getelementptr inbounds i8, ptr %49, i64 328
+  %483 = getelementptr inbounds i8, ptr %49, i64 312
+  %484 = getelementptr inbounds i8, ptr %49, i64 336
+  %485 = getelementptr inbounds i8, ptr %49, i64 340
+  %486 = getelementptr inbounds i8, ptr %49, i64 344
+  %487 = getelementptr inbounds i8, ptr %49, i64 352
+  %488 = getelementptr inbounds i8, ptr %49, i64 368
+  %489 = getelementptr inbounds i8, ptr %49, i64 376
+  %490 = getelementptr inbounds i8, ptr %49, i64 360
+  %491 = getelementptr inbounds i8, ptr %49, i64 384
+  %492 = getelementptr inbounds i8, ptr %49, i64 388
+  %493 = getelementptr inbounds i8, ptr %49, i64 392
+  %494 = getelementptr inbounds i8, ptr %49, i64 400
+  %495 = getelementptr inbounds i8, ptr %49, i64 416
+  %496 = getelementptr inbounds i8, ptr %49, i64 424
+  %497 = getelementptr inbounds i8, ptr %49, i64 408
+  %498 = getelementptr inbounds i8, ptr %49, i64 432
+  %499 = getelementptr inbounds i8, ptr %49, i64 436
+  %500 = getelementptr inbounds i8, ptr %49, i64 440
+  %501 = getelementptr inbounds i8, ptr %49, i64 448
+  %502 = getelementptr inbounds i8, ptr %49, i64 464
+  %503 = getelementptr inbounds i8, ptr %49, i64 472
+  %504 = getelementptr inbounds i8, ptr %49, i64 456
+  %505 = getelementptr inbounds i8, ptr %49, i64 480
+  %506 = getelementptr inbounds i8, ptr %49, i64 484
+  %507 = getelementptr inbounds i8, ptr %49, i64 488
+  %508 = getelementptr inbounds i8, ptr %49, i64 496
+  %509 = getelementptr inbounds i8, ptr %49, i64 512
+  %510 = getelementptr inbounds i8, ptr %49, i64 520
+  %511 = getelementptr inbounds i8, ptr %49, i64 504
+  %512 = getelementptr inbounds i8, ptr %49, i64 528
+  %513 = getelementptr inbounds i8, ptr %49, i64 532
+  %514 = getelementptr inbounds i8, ptr %49, i64 536
+  %515 = getelementptr inbounds i8, ptr %49, i64 544
+  %516 = getelementptr inbounds i8, ptr %49, i64 560
+  %517 = getelementptr inbounds i8, ptr %49, i64 568
+  %518 = getelementptr inbounds i8, ptr %49, i64 552
+  %519 = getelementptr inbounds i8, ptr %49, i64 576
+  %520 = getelementptr inbounds i8, ptr %49, i64 580
+  %521 = getelementptr inbounds i8, ptr %49, i64 584
+  %522 = getelementptr inbounds i8, ptr %49, i64 592
+  %523 = getelementptr inbounds i8, ptr %49, i64 608
+  %524 = getelementptr inbounds i8, ptr %49, i64 616
+  %525 = getelementptr inbounds i8, ptr %49, i64 600
+  %526 = getelementptr inbounds i8, ptr %49, i64 624
+  %527 = getelementptr inbounds i8, ptr %49, i64 628
+  %528 = getelementptr inbounds i8, ptr %49, i64 632
+  %529 = getelementptr inbounds i8, ptr %49, i64 640
+  %530 = getelementptr inbounds i8, ptr %49, i64 656
+  %531 = getelementptr inbounds i8, ptr %49, i64 664
+  %532 = getelementptr inbounds i8, ptr %49, i64 648
+  %533 = getelementptr inbounds i8, ptr %49, i64 672
+  %534 = getelementptr inbounds i8, ptr %49, i64 676
+  %535 = getelementptr inbounds i8, ptr %49, i64 680
+  %536 = getelementptr inbounds i8, ptr %49, i64 688
+  %537 = getelementptr inbounds i8, ptr %49, i64 704
+  %538 = getelementptr inbounds i8, ptr %49, i64 712
+  %539 = getelementptr inbounds i8, ptr %49, i64 696
+  %540 = getelementptr inbounds i8, ptr %49, i64 720
+  %541 = getelementptr inbounds i8, ptr %49, i64 724
+  %542 = getelementptr inbounds i8, ptr %49, i64 728
+  %543 = getelementptr inbounds i8, ptr %49, i64 736
+  %544 = getelementptr inbounds i8, ptr %49, i64 752
+  %545 = getelementptr inbounds i8, ptr %49, i64 760
+  %546 = getelementptr inbounds i8, ptr %49, i64 744
+  %547 = getelementptr inbounds i8, ptr %49, i64 768
+  %548 = getelementptr inbounds i8, ptr %49, i64 772
+  %549 = getelementptr inbounds i8, ptr %49, i64 776
+  %550 = getelementptr inbounds i8, ptr %49, i64 784
+  %551 = getelementptr inbounds i8, ptr %49, i64 800
+  %552 = getelementptr inbounds i8, ptr %49, i64 808
+  %553 = getelementptr inbounds i8, ptr %49, i64 792
+  %554 = getelementptr inbounds i8, ptr %49, i64 816
+  %555 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %556 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %557 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %558 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %559 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  %560 = getelementptr inbounds i8, ptr %48, i64 24
+  %561 = getelementptr inbounds i8, ptr %48, i64 48
+  %562 = getelementptr inbounds i8, ptr %48, i64 52
+  %563 = getelementptr inbounds i8, ptr %48, i64 56
+  %564 = getelementptr inbounds i8, ptr %48, i64 64
+  %565 = getelementptr inbounds i8, ptr %48, i64 80
+  %566 = getelementptr inbounds i8, ptr %48, i64 88
+  %567 = getelementptr inbounds i8, ptr %48, i64 72
+  %568 = getelementptr inbounds i8, ptr %48, i64 96
+  %569 = getelementptr inbounds i8, ptr %48, i64 100
+  %570 = getelementptr inbounds i8, ptr %48, i64 104
+  %571 = getelementptr inbounds i8, ptr %48, i64 112
+  %572 = getelementptr inbounds i8, ptr %48, i64 128
+  %573 = getelementptr inbounds i8, ptr %48, i64 136
+  %574 = getelementptr inbounds i8, ptr %48, i64 120
+  %575 = getelementptr inbounds i8, ptr %48, i64 144
+  %576 = getelementptr inbounds i8, ptr %48, i64 148
+  %577 = getelementptr inbounds i8, ptr %48, i64 152
+  %578 = getelementptr inbounds i8, ptr %48, i64 160
+  %579 = getelementptr inbounds i8, ptr %48, i64 176
+  %580 = getelementptr inbounds i8, ptr %48, i64 184
+  %581 = getelementptr inbounds i8, ptr %48, i64 168
+  %582 = getelementptr inbounds i8, ptr %48, i64 192
+  %583 = getelementptr inbounds i8, ptr %48, i64 196
+  %584 = getelementptr inbounds i8, ptr %48, i64 200
+  %585 = getelementptr inbounds i8, ptr %48, i64 208
+  %586 = getelementptr inbounds i8, ptr %48, i64 224
+  %587 = getelementptr inbounds i8, ptr %48, i64 232
+  %588 = getelementptr inbounds i8, ptr %48, i64 216
+  %589 = getelementptr inbounds i8, ptr %48, i64 240
+  %590 = getelementptr inbounds i8, ptr %48, i64 244
+  %591 = getelementptr inbounds i8, ptr %48, i64 248
+  %592 = getelementptr inbounds i8, ptr %48, i64 256
+  %593 = getelementptr inbounds i8, ptr %48, i64 272
+  %594 = getelementptr inbounds i8, ptr %48, i64 280
+  %595 = getelementptr inbounds i8, ptr %48, i64 264
+  %596 = getelementptr inbounds i8, ptr %48, i64 288
+  %597 = getelementptr inbounds i8, ptr %48, i64 292
+  %598 = getelementptr inbounds i8, ptr %48, i64 296
+  %599 = getelementptr inbounds i8, ptr %48, i64 304
+  %600 = getelementptr inbounds i8, ptr %48, i64 320
+  %601 = getelementptr inbounds i8, ptr %48, i64 328
+  %602 = getelementptr inbounds i8, ptr %48, i64 312
+  %603 = getelementptr inbounds i8, ptr %48, i64 336
+  %604 = getelementptr inbounds i8, ptr %48, i64 340
+  %605 = getelementptr inbounds i8, ptr %48, i64 344
+  %606 = getelementptr inbounds i8, ptr %48, i64 352
+  %607 = getelementptr inbounds i8, ptr %48, i64 368
+  %608 = getelementptr inbounds i8, ptr %48, i64 376
+  %609 = getelementptr inbounds i8, ptr %48, i64 360
+  %610 = getelementptr inbounds i8, ptr %48, i64 384
+  %611 = getelementptr inbounds i8, ptr %48, i64 388
+  %612 = getelementptr inbounds i8, ptr %48, i64 392
+  %613 = getelementptr inbounds i8, ptr %48, i64 400
+  %614 = getelementptr inbounds i8, ptr %48, i64 416
+  %615 = getelementptr inbounds i8, ptr %48, i64 424
+  %616 = getelementptr inbounds i8, ptr %48, i64 408
+  %617 = getelementptr inbounds i8, ptr %48, i64 432
+  %618 = getelementptr inbounds i8, ptr %48, i64 436
+  %619 = getelementptr inbounds i8, ptr %48, i64 440
+  %620 = getelementptr inbounds i8, ptr %48, i64 448
+  %621 = getelementptr inbounds i8, ptr %48, i64 464
+  %622 = getelementptr inbounds i8, ptr %48, i64 472
+  %623 = getelementptr inbounds i8, ptr %48, i64 456
+  %624 = getelementptr inbounds i8, ptr %48, i64 480
+  %625 = getelementptr inbounds i8, ptr %48, i64 484
+  %626 = getelementptr inbounds i8, ptr %48, i64 488
+  %627 = getelementptr inbounds i8, ptr %48, i64 496
+  %628 = getelementptr inbounds i8, ptr %48, i64 512
+  %629 = getelementptr inbounds i8, ptr %48, i64 520
+  %630 = getelementptr inbounds i8, ptr %48, i64 504
+  %631 = getelementptr inbounds i8, ptr %48, i64 528
+  %632 = getelementptr inbounds i8, ptr %48, i64 532
+  %633 = getelementptr inbounds i8, ptr %48, i64 536
+  %634 = getelementptr inbounds i8, ptr %48, i64 544
+  %635 = getelementptr inbounds i8, ptr %48, i64 560
+  %636 = getelementptr inbounds i8, ptr %48, i64 568
+  %637 = getelementptr inbounds i8, ptr %48, i64 552
+  %638 = getelementptr inbounds i8, ptr %48, i64 576
+  %639 = getelementptr inbounds i8, ptr %48, i64 580
+  %640 = getelementptr inbounds i8, ptr %48, i64 584
+  %641 = getelementptr inbounds i8, ptr %48, i64 592
+  %642 = getelementptr inbounds i8, ptr %48, i64 608
+  %643 = getelementptr inbounds i8, ptr %48, i64 616
+  %644 = getelementptr inbounds i8, ptr %48, i64 600
+  %645 = getelementptr inbounds i8, ptr %48, i64 624
+  %646 = getelementptr inbounds i8, ptr %48, i64 628
+  %647 = getelementptr inbounds i8, ptr %48, i64 632
+  %648 = getelementptr inbounds i8, ptr %48, i64 640
+  %649 = getelementptr inbounds i8, ptr %48, i64 656
+  %650 = getelementptr inbounds i8, ptr %48, i64 664
+  %651 = getelementptr inbounds i8, ptr %48, i64 648
+  %652 = getelementptr inbounds i8, ptr %48, i64 672
+  %653 = getelementptr inbounds i8, ptr %48, i64 676
+  %654 = getelementptr inbounds i8, ptr %48, i64 680
+  %655 = getelementptr inbounds i8, ptr %48, i64 688
+  %656 = getelementptr inbounds i8, ptr %48, i64 704
+  %657 = getelementptr inbounds i8, ptr %48, i64 712
+  %658 = getelementptr inbounds i8, ptr %48, i64 696
+  %659 = getelementptr inbounds i8, ptr %48, i64 720
+  %660 = getelementptr inbounds i8, ptr %48, i64 724
+  %661 = getelementptr inbounds i8, ptr %48, i64 728
+  %662 = getelementptr inbounds i8, ptr %48, i64 736
+  %663 = getelementptr inbounds i8, ptr %48, i64 752
+  %664 = getelementptr inbounds i8, ptr %48, i64 760
+  %665 = getelementptr inbounds i8, ptr %48, i64 744
+  %666 = getelementptr inbounds i8, ptr %48, i64 768
+  %667 = getelementptr inbounds i8, ptr %48, i64 772
+  %668 = getelementptr inbounds i8, ptr %48, i64 776
+  %669 = getelementptr inbounds i8, ptr %48, i64 784
+  %670 = getelementptr inbounds i8, ptr %48, i64 800
+  %671 = getelementptr inbounds i8, ptr %48, i64 808
+  %672 = getelementptr inbounds i8, ptr %48, i64 792
+  %673 = getelementptr inbounds i8, ptr %48, i64 816
+  %674 = getelementptr inbounds i8, ptr %48, i64 820
+  %675 = getelementptr inbounds i8, ptr %48, i64 824
+  %676 = getelementptr inbounds i8, ptr %48, i64 832
+  %677 = getelementptr inbounds i8, ptr %48, i64 848
+  %678 = getelementptr inbounds i8, ptr %48, i64 856
+  %679 = getelementptr inbounds i8, ptr %48, i64 840
+  %680 = getelementptr inbounds i8, ptr %48, i64 864
+  %681 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %682 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %683 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %684 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %685 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  %686 = getelementptr inbounds i8, ptr %47, i64 24
+  %687 = getelementptr inbounds i8, ptr %47, i64 48
+  %688 = getelementptr inbounds i8, ptr %47, i64 52
+  %689 = getelementptr inbounds i8, ptr %47, i64 56
+  %690 = getelementptr inbounds i8, ptr %47, i64 64
+  %691 = getelementptr inbounds i8, ptr %47, i64 80
+  %692 = getelementptr inbounds i8, ptr %47, i64 88
+  %693 = getelementptr inbounds i8, ptr %47, i64 72
+  %694 = getelementptr inbounds i8, ptr %47, i64 96
+  %695 = getelementptr inbounds i8, ptr %47, i64 100
+  %696 = getelementptr inbounds i8, ptr %47, i64 104
+  %697 = getelementptr inbounds i8, ptr %47, i64 112
+  %698 = getelementptr inbounds i8, ptr %47, i64 128
+  %699 = getelementptr inbounds i8, ptr %47, i64 136
+  %700 = getelementptr inbounds i8, ptr %47, i64 120
+  %701 = getelementptr inbounds i8, ptr %47, i64 144
+  %702 = getelementptr inbounds i8, ptr %47, i64 148
+  %703 = getelementptr inbounds i8, ptr %47, i64 152
+  %704 = getelementptr inbounds i8, ptr %47, i64 160
+  %705 = getelementptr inbounds i8, ptr %47, i64 176
+  %706 = getelementptr inbounds i8, ptr %47, i64 184
+  %707 = getelementptr inbounds i8, ptr %47, i64 168
+  %708 = getelementptr inbounds i8, ptr %47, i64 192
+  %709 = getelementptr inbounds i8, ptr %47, i64 196
+  %710 = getelementptr inbounds i8, ptr %47, i64 200
+  %711 = getelementptr inbounds i8, ptr %47, i64 208
+  %712 = getelementptr inbounds i8, ptr %47, i64 224
+  %713 = getelementptr inbounds i8, ptr %47, i64 232
+  %714 = getelementptr inbounds i8, ptr %47, i64 216
+  %715 = getelementptr inbounds i8, ptr %47, i64 240
+  %716 = getelementptr inbounds i8, ptr %47, i64 244
+  %717 = getelementptr inbounds i8, ptr %47, i64 248
+  %718 = getelementptr inbounds i8, ptr %47, i64 256
+  %719 = getelementptr inbounds i8, ptr %47, i64 272
+  %720 = getelementptr inbounds i8, ptr %47, i64 280
+  %721 = getelementptr inbounds i8, ptr %47, i64 264
+  %722 = getelementptr inbounds i8, ptr %47, i64 288
+  %723 = getelementptr inbounds i8, ptr %47, i64 292
+  %724 = getelementptr inbounds i8, ptr %47, i64 296
+  %725 = getelementptr inbounds i8, ptr %47, i64 304
+  %726 = getelementptr inbounds i8, ptr %47, i64 320
+  %727 = getelementptr inbounds i8, ptr %47, i64 328
+  %728 = getelementptr inbounds i8, ptr %47, i64 312
+  %729 = getelementptr inbounds i8, ptr %47, i64 336
+  %730 = getelementptr inbounds i8, ptr %47, i64 340
+  %731 = getelementptr inbounds i8, ptr %47, i64 344
+  %732 = getelementptr inbounds i8, ptr %47, i64 352
+  %733 = getelementptr inbounds i8, ptr %47, i64 368
+  %734 = getelementptr inbounds i8, ptr %47, i64 376
+  %735 = getelementptr inbounds i8, ptr %47, i64 360
+  %736 = getelementptr inbounds i8, ptr %47, i64 384
+  %737 = getelementptr inbounds i8, ptr %47, i64 388
+  %738 = getelementptr inbounds i8, ptr %47, i64 392
+  %739 = getelementptr inbounds i8, ptr %47, i64 400
+  %740 = getelementptr inbounds i8, ptr %47, i64 416
+  %741 = getelementptr inbounds i8, ptr %47, i64 424
+  %742 = getelementptr inbounds i8, ptr %47, i64 408
+  %743 = getelementptr inbounds i8, ptr %47, i64 432
+  %744 = getelementptr inbounds i8, ptr %47, i64 436
+  %745 = getelementptr inbounds i8, ptr %47, i64 440
+  %746 = getelementptr inbounds i8, ptr %47, i64 448
+  %747 = getelementptr inbounds i8, ptr %47, i64 464
+  %748 = getelementptr inbounds i8, ptr %47, i64 472
+  %749 = getelementptr inbounds i8, ptr %47, i64 456
+  %750 = getelementptr inbounds i8, ptr %47, i64 480
+  %751 = getelementptr inbounds i8, ptr %47, i64 484
+  %752 = getelementptr inbounds i8, ptr %47, i64 488
+  %753 = getelementptr inbounds i8, ptr %47, i64 496
+  %754 = getelementptr inbounds i8, ptr %47, i64 512
+  %755 = getelementptr inbounds i8, ptr %47, i64 520
+  %756 = getelementptr inbounds i8, ptr %47, i64 504
+  %757 = getelementptr inbounds i8, ptr %47, i64 528
+  %758 = getelementptr inbounds i8, ptr %47, i64 532
+  %759 = getelementptr inbounds i8, ptr %47, i64 536
+  %760 = getelementptr inbounds i8, ptr %47, i64 544
+  %761 = getelementptr inbounds i8, ptr %47, i64 560
+  %762 = getelementptr inbounds i8, ptr %47, i64 568
+  %763 = getelementptr inbounds i8, ptr %47, i64 552
+  %764 = getelementptr inbounds i8, ptr %47, i64 576
+  %765 = getelementptr inbounds i8, ptr %47, i64 580
+  %766 = getelementptr inbounds i8, ptr %47, i64 584
+  %767 = getelementptr inbounds i8, ptr %47, i64 592
+  %768 = getelementptr inbounds i8, ptr %47, i64 608
+  %769 = getelementptr inbounds i8, ptr %47, i64 616
+  %770 = getelementptr inbounds i8, ptr %47, i64 600
+  %771 = getelementptr inbounds i8, ptr %47, i64 624
+  %772 = getelementptr inbounds i8, ptr %47, i64 628
+  %773 = getelementptr inbounds i8, ptr %47, i64 632
+  %774 = getelementptr inbounds i8, ptr %47, i64 640
+  %775 = getelementptr inbounds i8, ptr %47, i64 656
+  %776 = getelementptr inbounds i8, ptr %47, i64 664
+  %777 = getelementptr inbounds i8, ptr %47, i64 648
+  %778 = getelementptr inbounds i8, ptr %47, i64 672
+  %779 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %780 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %781 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %782 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %783 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %784 = getelementptr inbounds i8, ptr %46, i64 24
+  %785 = getelementptr inbounds i8, ptr %46, i64 48
+  %786 = getelementptr inbounds i8, ptr %46, i64 52
+  %787 = getelementptr inbounds i8, ptr %46, i64 56
+  %788 = getelementptr inbounds i8, ptr %46, i64 64
+  %789 = getelementptr inbounds i8, ptr %46, i64 80
+  %790 = getelementptr inbounds i8, ptr %46, i64 88
+  %791 = getelementptr inbounds i8, ptr %46, i64 72
+  %792 = getelementptr inbounds i8, ptr %46, i64 96
+  %793 = getelementptr inbounds i8, ptr %46, i64 100
+  %794 = getelementptr inbounds i8, ptr %46, i64 104
+  %795 = getelementptr inbounds i8, ptr %46, i64 112
+  %796 = getelementptr inbounds i8, ptr %46, i64 128
+  %797 = getelementptr inbounds i8, ptr %46, i64 136
+  %798 = getelementptr inbounds i8, ptr %46, i64 120
+  %799 = getelementptr inbounds i8, ptr %46, i64 144
+  %800 = getelementptr inbounds i8, ptr %46, i64 148
+  %801 = getelementptr inbounds i8, ptr %46, i64 152
+  %802 = getelementptr inbounds i8, ptr %46, i64 160
+  %803 = getelementptr inbounds i8, ptr %46, i64 176
+  %804 = getelementptr inbounds i8, ptr %46, i64 184
+  %805 = getelementptr inbounds i8, ptr %46, i64 168
+  %806 = getelementptr inbounds i8, ptr %46, i64 192
+  %807 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %808 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %809 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %810 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %811 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %812 = getelementptr inbounds i8, ptr %45, i64 24
+  %813 = getelementptr inbounds i8, ptr %45, i64 48
+  %814 = getelementptr inbounds i8, ptr %45, i64 52
+  %815 = getelementptr inbounds i8, ptr %45, i64 56
+  %816 = getelementptr inbounds i8, ptr %45, i64 64
+  %817 = getelementptr inbounds i8, ptr %45, i64 80
+  %818 = getelementptr inbounds i8, ptr %45, i64 88
+  %819 = getelementptr inbounds i8, ptr %45, i64 72
+  %820 = getelementptr inbounds i8, ptr %45, i64 96
+  %821 = getelementptr inbounds i8, ptr %45, i64 100
+  %822 = getelementptr inbounds i8, ptr %45, i64 104
+  %823 = getelementptr inbounds i8, ptr %45, i64 112
+  %824 = getelementptr inbounds i8, ptr %45, i64 128
+  %825 = getelementptr inbounds i8, ptr %45, i64 136
+  %826 = getelementptr inbounds i8, ptr %45, i64 120
+  %827 = getelementptr inbounds i8, ptr %45, i64 144
+  %828 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %829 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %830 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %831 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %832 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %833 = getelementptr inbounds i8, ptr %44, i64 24
+  %834 = getelementptr inbounds i8, ptr %44, i64 48
+  %835 = getelementptr inbounds i8, ptr %44, i64 52
+  %836 = getelementptr inbounds i8, ptr %44, i64 56
+  %837 = getelementptr inbounds i8, ptr %44, i64 64
+  %838 = getelementptr inbounds i8, ptr %44, i64 80
+  %839 = getelementptr inbounds i8, ptr %44, i64 88
+  %840 = getelementptr inbounds i8, ptr %44, i64 72
+  %841 = getelementptr inbounds i8, ptr %44, i64 96
+  %842 = getelementptr inbounds i8, ptr %44, i64 100
+  %843 = getelementptr inbounds i8, ptr %44, i64 104
+  %844 = getelementptr inbounds i8, ptr %44, i64 112
+  %845 = getelementptr inbounds i8, ptr %44, i64 128
+  %846 = getelementptr inbounds i8, ptr %44, i64 136
+  %847 = getelementptr inbounds i8, ptr %44, i64 120
+  %848 = getelementptr inbounds i8, ptr %44, i64 144
+  %849 = getelementptr inbounds i8, ptr %44, i64 148
+  %850 = getelementptr inbounds i8, ptr %44, i64 152
+  %851 = getelementptr inbounds i8, ptr %44, i64 160
+  %852 = getelementptr inbounds i8, ptr %44, i64 176
+  %853 = getelementptr inbounds i8, ptr %44, i64 184
+  %854 = getelementptr inbounds i8, ptr %44, i64 168
+  %855 = getelementptr inbounds i8, ptr %44, i64 192
+  %856 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %857 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %858 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %859 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %860 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %861 = getelementptr inbounds i8, ptr %43, i64 24
+  %862 = getelementptr inbounds i8, ptr %43, i64 48
+  %863 = getelementptr inbounds i8, ptr %43, i64 52
+  %864 = getelementptr inbounds i8, ptr %43, i64 56
+  %865 = getelementptr inbounds i8, ptr %43, i64 64
+  %866 = getelementptr inbounds i8, ptr %43, i64 80
+  %867 = getelementptr inbounds i8, ptr %43, i64 88
+  %868 = getelementptr inbounds i8, ptr %43, i64 72
+  %869 = getelementptr inbounds i8, ptr %43, i64 96
+  %870 = getelementptr inbounds i8, ptr %43, i64 100
+  %871 = getelementptr inbounds i8, ptr %43, i64 104
+  %872 = getelementptr inbounds i8, ptr %43, i64 112
+  %873 = getelementptr inbounds i8, ptr %43, i64 128
+  %874 = getelementptr inbounds i8, ptr %43, i64 136
+  %875 = getelementptr inbounds i8, ptr %43, i64 120
+  %876 = getelementptr inbounds i8, ptr %43, i64 144
+  %877 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %878 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %879 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %880 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %881 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  %882 = getelementptr inbounds i8, ptr %42, i64 24
+  %883 = getelementptr inbounds i8, ptr %42, i64 48
+  %884 = getelementptr inbounds i8, ptr %42, i64 52
+  %885 = getelementptr inbounds i8, ptr %42, i64 56
+  %886 = getelementptr inbounds i8, ptr %42, i64 64
+  %887 = getelementptr inbounds i8, ptr %42, i64 80
+  %888 = getelementptr inbounds i8, ptr %42, i64 88
+  %889 = getelementptr inbounds i8, ptr %42, i64 72
+  %890 = getelementptr inbounds i8, ptr %42, i64 96
+  %891 = getelementptr inbounds i8, ptr %42, i64 100
+  %892 = getelementptr inbounds i8, ptr %42, i64 104
+  %893 = getelementptr inbounds i8, ptr %42, i64 112
+  %894 = getelementptr inbounds i8, ptr %42, i64 128
+  %895 = getelementptr inbounds i8, ptr %42, i64 136
+  %896 = getelementptr inbounds i8, ptr %42, i64 120
+  %897 = getelementptr inbounds i8, ptr %42, i64 144
+  %898 = getelementptr inbounds i8, ptr %42, i64 148
+  %899 = getelementptr inbounds i8, ptr %42, i64 152
+  %900 = getelementptr inbounds i8, ptr %42, i64 160
+  %901 = getelementptr inbounds i8, ptr %42, i64 176
+  %902 = getelementptr inbounds i8, ptr %42, i64 184
+  %903 = getelementptr inbounds i8, ptr %42, i64 168
+  %904 = getelementptr inbounds i8, ptr %42, i64 192
+  %905 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %906 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %907 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %908 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %909 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %910 = getelementptr inbounds i8, ptr %41, i64 24
+  %911 = getelementptr inbounds i8, ptr %41, i64 48
+  %912 = getelementptr inbounds i8, ptr %41, i64 52
+  %913 = getelementptr inbounds i8, ptr %41, i64 56
+  %914 = getelementptr inbounds i8, ptr %41, i64 64
+  %915 = getelementptr inbounds i8, ptr %41, i64 80
+  %916 = getelementptr inbounds i8, ptr %41, i64 88
+  %917 = getelementptr inbounds i8, ptr %41, i64 72
+  %918 = getelementptr inbounds i8, ptr %41, i64 96
+  br label %919
 
-920:                                              ; preds = %.lr.ph175, %._crit_edge
+919:                                              ; preds = %.lr.ph175, %._crit_edge
   %.sroa.096.0173 = phi ptr [ %.sroa.096.0170, %.lr.ph175 ], [ %.sroa.096.0, %._crit_edge ]
   %.0172 = phi i1 [ false, %.lr.ph175 ], [ %.1.lcssa, %._crit_edge ]
-  %921 = getelementptr inbounds i8, ptr %.sroa.096.0173, i64 56
-  %922 = getelementptr inbounds i8, ptr %.sroa.096.0173, i64 48
-  %.sroa.093.0166 = load ptr, ptr %921, align 8
-  %.not100167 = icmp eq ptr %.sroa.093.0166, %922
+  %920 = getelementptr inbounds i8, ptr %.sroa.096.0173, i64 56
+  %921 = getelementptr inbounds i8, ptr %.sroa.096.0173, i64 48
+  %.sroa.093.0166 = load ptr, ptr %920, align 8
+  %.not100167 = icmp eq ptr %.sroa.093.0166, %921
   br i1 %.not100167, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %920, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
-  %.sroa.093.0169 = phi ptr [ %.sroa.093.0, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ %.sroa.093.0166, %920 ]
-  %.1168 = phi i1 [ %.2, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ %.0172, %920 ]
+.lr.ph:                                           ; preds = %919, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
+  %922 = phi ptr [ %.sroa.093.0, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ %.sroa.093.0166, %919 ]
+  %.1168 = phi i1 [ %.2, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ %.0172, %919 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %41)
@@ -1211,18 +1209,17 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_127X86FixupVectorConstantsPa
   call void @llvm.lifetime.start.p0(i64 864, ptr nonnull %50)
   call void @llvm.lifetime.start.p0(i64 816, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 864, ptr nonnull %52)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53)
-  %923 = getelementptr inbounds nuw i8, ptr %.sroa.093.0169, i64 68
+  %923 = getelementptr inbounds nuw i8, ptr %922, i64 68
   %924 = load i16, ptr %923, align 4
   %925 = zext i16 %924 to i32
-  %926 = getelementptr inbounds nuw i8, ptr %.sroa.093.0169, i64 24
+  %926 = getelementptr inbounds nuw i8, ptr %922, i64 24
   %927 = load ptr, ptr %926, align 8
   %928 = getelementptr inbounds nuw i8, ptr %927, i64 32
   %929 = load ptr, ptr %928, align 8
   %930 = getelementptr inbounds nuw i8, ptr %929, i64 56
   %931 = load ptr, ptr %930, align 8
   store ptr %931, ptr %39, align 8
-  %932 = load ptr, ptr %56, align 8
+  %932 = load ptr, ptr %55, align 8
   %933 = getelementptr inbounds nuw i8, ptr %932, i64 304
   %934 = load i32, ptr %933, align 8
   %935 = icmp sgt i32 %934, 7
@@ -1235,79 +1232,79 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_127X86FixupVectorConstantsPa
   %942 = getelementptr inbounds nuw i8, ptr %932, i64 436
   %943 = load i8, ptr %942, align 4
   %944 = trunc i8 %943 to i1
-  store ptr %.sroa.093.0169, ptr %40, align 8
-  store ptr %39, ptr %64, align 8
-  store ptr %0, ptr %65, align 8
-  switch i16 %924, label %1465 [
+  store ptr %922, ptr %40, align 8
+  store ptr %39, ptr %63, align 8
+  store ptr %0, ptr %64, align 8
+  switch i16 %924, label %1441 [
     i16 2570, label %945
     i16 2574, label %945
     i16 2686, label %945
     i16 2690, label %945
-    i16 13474, label %993
-    i16 13515, label %993
-    i16 13952, label %993
-    i16 13993, label %993
-    i16 13437, label %1041
-    i16 13478, label %1041
-    i16 13915, label %1041
-    i16 13956, label %1041
-    i16 13442, label %1089
-    i16 13483, label %1089
-    i16 13920, label %1089
-    i16 13961, label %1089
-    i16 13453, label %1137
-    i16 13494, label %1137
-    i16 13931, label %1137
-    i16 13972, label %1137
-    i16 13464, label %1185
-    i16 13505, label %1185
-    i16 13942, label %1185
-    i16 13983, label %1185
-    i16 2610, label %1233
-    i16 2614, label %1233
-    i16 13617, label %1257
-    i16 13757, label %1257
-    i16 13613, label %1272
-    i16 13753, label %1272
-    i16 13548, label %1300
-    i16 13581, label %1300
-    i16 13655, label %1300
-    i16 13688, label %1300
-    i16 13559, label %1355
-    i16 13592, label %1355
-    i16 13666, label %1355
-    i16 13699, label %1355
-    i16 13570, label %1410
-    i16 13603, label %1410
-    i16 13677, label %1410
-    i16 13710, label %1410
+    i16 13474, label %990
+    i16 13515, label %990
+    i16 13952, label %990
+    i16 13993, label %990
+    i16 13437, label %1035
+    i16 13478, label %1035
+    i16 13915, label %1035
+    i16 13956, label %1035
+    i16 13442, label %1080
+    i16 13483, label %1080
+    i16 13920, label %1080
+    i16 13961, label %1080
+    i16 13453, label %1125
+    i16 13494, label %1125
+    i16 13931, label %1125
+    i16 13972, label %1125
+    i16 13464, label %1170
+    i16 13505, label %1170
+    i16 13942, label %1170
+    i16 13983, label %1170
+    i16 2610, label %1215
+    i16 2614, label %1215
+    i16 13617, label %1239
+    i16 13757, label %1239
+    i16 13613, label %1254
+    i16 13753, label %1254
+    i16 13548, label %1282
+    i16 13581, label %1282
+    i16 13655, label %1282
+    i16 13688, label %1282
+    i16 13559, label %1335
+    i16 13592, label %1335
+    i16 13666, label %1335
+    i16 13699, label %1335
+    i16 13570, label %1388
+    i16 13603, label %1388
+    i16 13677, label %1388
+    i16 13710, label %1388
   ]
 
 945:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   store i32 2660, ptr %41, align 8
-  store i32 1, ptr %906, align 4
-  store i32 32, ptr %907, align 8
-  store i64 0, ptr %911, align 8
-  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %908, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %910, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %909, align 8
-  store i32 2647, ptr %912, align 8
-  store i32 1, ptr %913, align 4
-  store i32 64, ptr %914, align 8
-  store i64 0, ptr %918, align 8
-  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %915, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %917, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %916, align 8
-  %946 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.093.0169, i32 noundef 1) #16
+  store i32 1, ptr %905, align 4
+  store i32 32, ptr %906, align 8
+  store i64 0, ptr %910, align 8
+  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %907, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %909, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %908, align 8
+  store i32 2647, ptr %911, align 8
+  store i32 1, ptr %912, align 4
+  store i32 64, ptr %913, align 8
+  store i64 0, ptr %917, align 8
+  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %914, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %916, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %915, align 8
+  %946 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %922, i32 noundef 1) #16
   %.not.i83 = icmp eq ptr %946, null
   br i1 %.not.i83, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit92", label %.lr.ph.i84
 
-.lr.ph.i84:                                       ; preds = %945, %983
-  %.02440.i85.idx = phi i64 [ %.02440.i85.add, %983 ], [ 0, %945 ]
+.lr.ph.i84:                                       ; preds = %945, %980
+  %.02440.i85.idx = phi i64 [ %.02440.i85.add, %980 ], [ 0, %945 ]
   %.02440.i85.ptr = getelementptr inbounds i8, ptr %41, i64 %.02440.i85.idx
   %947 = load i32, ptr %.02440.i85.ptr, align 8
   %.not30.i86 = icmp eq i32 %947, 0
-  br i1 %.not30.i86, label %983, label %948
+  br i1 %.not30.i86, label %980, label %948
 
 948:                                              ; preds = %.lr.ph.i84
   %949 = getelementptr inbounds nuw i8, ptr %.02440.i85.ptr, i64 4
@@ -1341,1823 +1338,1798 @@ _ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i88: ; preds = %948
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %.not31.i89 = icmp eq ptr %959, null
-  br i1 %.not31.i89, label %983, label %960
+  br i1 %.not31.i89, label %980, label %960
 
 960:                                              ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i88
   %961 = getelementptr inbounds nuw i8, ptr %.02440.i85.ptr, i64 8
-  %962 = load ptr, ptr %64, align 8
-  %963 = load ptr, ptr %962, align 8
-  %964 = load i32, ptr %961, align 8
-  %965 = sdiv i32 %964, 8
-  %966 = sext i32 %965 to i64
-  %967 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %966, i1 false)
-  %968 = trunc nuw nsw i64 %967 to i8
-  %969 = sub nsw i8 63, %968
-  %970 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %963, ptr noundef nonnull %959, i8 %969) #16
-  %971 = load ptr, ptr %40, align 8
-  %972 = load ptr, ptr %58, align 8
-  %973 = getelementptr inbounds i8, ptr %972, i64 8
-  %974 = load i32, ptr %.02440.i85.ptr, align 8
-  %975 = load ptr, ptr %973, align 8
-  %976 = zext i32 %974 to i64
-  %977 = sub nsw i64 0, %976
-  %978 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %975, i64 %977
-  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %971, ptr noundef nonnull align 8 dereferenceable(32) %978) #16
-  %979 = load ptr, ptr %40, align 8
-  %980 = getelementptr inbounds nuw i8, ptr %979, i64 32
-  %981 = load ptr, ptr %980, align 8
-  %982 = getelementptr inbounds i8, ptr %981, i64 144
-  store i32 %970, ptr %982, align 8
+  %962 = load ptr, ptr %39, align 8
+  %963 = load i32, ptr %961, align 8
+  %964 = sdiv i32 %963, 8
+  %965 = sext i32 %964 to i64
+  %966 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %965, i1 false)
+  %967 = trunc nuw nsw i64 %966 to i8
+  %968 = sub nsw i8 63, %967
+  %969 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %962, ptr noundef nonnull %959, i8 %968) #16
+  %970 = load ptr, ptr %57, align 8
+  %971 = getelementptr inbounds i8, ptr %970, i64 8
+  %972 = load i32, ptr %.02440.i85.ptr, align 8
+  %973 = load ptr, ptr %971, align 8
+  %974 = zext i32 %972 to i64
+  %975 = sub nsw i64 0, %974
+  %976 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %973, i64 %975
+  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %922, ptr noundef nonnull align 8 dereferenceable(32) %976) #16
+  %977 = getelementptr inbounds nuw i8, ptr %922, i64 32
+  %978 = load ptr, ptr %977, align 8
+  %979 = getelementptr inbounds i8, ptr %978, i64 144
+  store i32 %969, ptr %979, align 8
   br label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit92"
 
-983:                                              ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i88, %.lr.ph.i84
+980:                                              ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i88, %.lr.ph.i84
   %.02440.i85.add = add nuw nsw i64 %.02440.i85.idx, 48
   %.not29.i91 = icmp eq i64 %.02440.i85.add, 96
   br i1 %.not29.i91, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit92", label %.lr.ph.i84
 
-"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit92": ; preds = %983, %945, %960
-  %.0.i90 = phi i1 [ true, %960 ], [ false, %945 ], [ false, %983 ]
-  br label %984
+"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit92": ; preds = %980, %945, %960
+  %.0.i90 = phi i1 [ true, %960 ], [ false, %945 ], [ false, %980 ]
+  br label %981
 
-984:                                              ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit92"
-  %985 = phi ptr [ %919, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit92" ], [ %986, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit.i ]
-  %986 = getelementptr inbounds i8, ptr %985, i64 -48
-  %987 = getelementptr inbounds i8, ptr %985, i64 -16
-  %988 = load ptr, ptr %987, align 8
-  %.not.i.i.i.i = icmp eq ptr %988, null
-  br i1 %.not.i.i.i.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit.i, label %989
+981:                                              ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit92"
+  %982 = phi ptr [ %918, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit92" ], [ %983, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit.i ]
+  %983 = getelementptr inbounds i8, ptr %982, i64 -48
+  %984 = getelementptr inbounds i8, ptr %982, i64 -16
+  %985 = load ptr, ptr %984, align 8
+  %.not.i.i.i.i = icmp eq ptr %985, null
+  br i1 %.not.i.i.i.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit.i, label %986
 
-989:                                              ; preds = %984
-  %990 = getelementptr inbounds i8, ptr %985, i64 -32
-  %991 = call noundef zeroext i1 %988(ptr noundef nonnull align 8 dereferenceable(16) %990, ptr noundef nonnull align 8 dereferenceable(16) %990, i32 noundef 3) #16
+986:                                              ; preds = %981
+  %987 = getelementptr inbounds i8, ptr %982, i64 -32
+  %988 = call noundef zeroext i1 %985(ptr noundef nonnull align 8 dereferenceable(16) %987, ptr noundef nonnull align 8 dereferenceable(16) %987, i32 noundef 3) #16
   br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit.i
 
-_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit.i: ; preds = %989, %984
-  %992 = icmp eq ptr %986, %41
-  br i1 %992, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %984
+_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit.i: ; preds = %986, %981
+  %989 = icmp eq ptr %983, %41
+  br i1 %989, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %981
 
-993:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+990:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   store i32 13910, ptr %42, align 8
-  store i32 1, ptr %878, align 4
-  store i32 32, ptr %879, align 8
-  store i64 0, ptr %883, align 8
-  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %880, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %882, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %881, align 8
-  store i32 5587, ptr %884, align 8
-  store i32 1, ptr %885, align 4
-  store i32 32, ptr %886, align 8
-  store i64 0, ptr %890, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %887, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %889, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %888, align 8
-  store i32 13831, ptr %891, align 8
-  store i32 1, ptr %892, align 4
-  store i32 64, ptr %893, align 8
-  store i64 0, ptr %897, align 8
-  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %894, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %896, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %895, align 8
-  store i32 13538, ptr %898, align 8
-  store i32 1, ptr %899, align 4
-  store i32 64, ptr %900, align 8
-  store i64 0, ptr %904, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %901, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %903, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %902, align 8
-  %994 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.093.0169, i32 noundef 1) #16
-  %.not.i73 = icmp eq ptr %994, null
+  store i32 1, ptr %877, align 4
+  store i32 32, ptr %878, align 8
+  store i64 0, ptr %882, align 8
+  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %879, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %881, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %880, align 8
+  store i32 5587, ptr %883, align 8
+  store i32 1, ptr %884, align 4
+  store i32 32, ptr %885, align 8
+  store i64 0, ptr %889, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %886, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %888, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %887, align 8
+  store i32 13831, ptr %890, align 8
+  store i32 1, ptr %891, align 4
+  store i32 64, ptr %892, align 8
+  store i64 0, ptr %896, align 8
+  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %893, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %895, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %894, align 8
+  store i32 13538, ptr %897, align 8
+  store i32 1, ptr %898, align 4
+  store i32 64, ptr %899, align 8
+  store i64 0, ptr %903, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %900, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %902, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %901, align 8
+  %991 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %922, i32 noundef 1) #16
+  %.not.i73 = icmp eq ptr %991, null
   br i1 %.not.i73, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit82", label %.lr.ph.i74
 
-.lr.ph.i74:                                       ; preds = %993, %1031
-  %.02440.i75.idx = phi i64 [ %.02440.i75.add, %1031 ], [ 0, %993 ]
+.lr.ph.i74:                                       ; preds = %990, %1025
+  %.02440.i75.idx = phi i64 [ %.02440.i75.add, %1025 ], [ 0, %990 ]
   %.02440.i75.ptr = getelementptr inbounds i8, ptr %42, i64 %.02440.i75.idx
-  %995 = load i32, ptr %.02440.i75.ptr, align 8
-  %.not30.i76 = icmp eq i32 %995, 0
-  br i1 %.not30.i76, label %1031, label %996
+  %992 = load i32, ptr %.02440.i75.ptr, align 8
+  %.not30.i76 = icmp eq i32 %992, 0
+  br i1 %.not30.i76, label %1025, label %993
 
-996:                                              ; preds = %.lr.ph.i74
-  %997 = getelementptr inbounds nuw i8, ptr %.02440.i75.ptr, i64 4
-  %998 = load i32, ptr %997, align 4
-  %999 = getelementptr inbounds nuw i8, ptr %.02440.i75.ptr, i64 8
-  %1000 = load i32, ptr %999, align 8
+993:                                              ; preds = %.lr.ph.i74
+  %994 = getelementptr inbounds nuw i8, ptr %.02440.i75.ptr, i64 4
+  %995 = load i32, ptr %994, align 4
+  %996 = getelementptr inbounds nuw i8, ptr %.02440.i75.ptr, i64 8
+  %997 = load i32, ptr %996, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  store ptr %994, ptr %7, align 8
+  store ptr %991, ptr %7, align 8
   store i32 128, ptr %8, align 4
-  store i32 %998, ptr %9, align 4
-  store i32 %1000, ptr %10, align 4
-  %1001 = getelementptr inbounds nuw i8, ptr %.02440.i75.ptr, i64 32
-  %1002 = load ptr, ptr %1001, align 8
-  %.not.i.i.i77 = icmp eq ptr %1002, null
-  br i1 %.not.i.i.i77, label %1003, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i78
+  store i32 %995, ptr %9, align 4
+  store i32 %997, ptr %10, align 4
+  %998 = getelementptr inbounds nuw i8, ptr %.02440.i75.ptr, i64 32
+  %999 = load ptr, ptr %998, align 8
+  %.not.i.i.i77 = icmp eq ptr %999, null
+  br i1 %.not.i.i.i77, label %1000, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i78
 
-1003:                                             ; preds = %996
+1000:                                             ; preds = %993
   call void @_ZSt25__throw_bad_function_callv() #17
   unreachable
 
-_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i78: ; preds = %996
-  %1004 = getelementptr inbounds nuw i8, ptr %.02440.i75.ptr, i64 16
-  %1005 = getelementptr inbounds nuw i8, ptr %.02440.i75.ptr, i64 40
-  %1006 = load ptr, ptr %1005, align 8
-  %1007 = call noundef ptr %1006(ptr noundef nonnull align 8 dereferenceable(16) %1004, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10) #16
+_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i78: ; preds = %993
+  %1001 = getelementptr inbounds nuw i8, ptr %.02440.i75.ptr, i64 16
+  %1002 = getelementptr inbounds nuw i8, ptr %.02440.i75.ptr, i64 40
+  %1003 = load ptr, ptr %1002, align 8
+  %1004 = call noundef ptr %1003(ptr noundef nonnull align 8 dereferenceable(16) %1001, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %.not31.i79 = icmp eq ptr %1007, null
-  br i1 %.not31.i79, label %1031, label %1008
+  %.not31.i79 = icmp eq ptr %1004, null
+  br i1 %.not31.i79, label %1025, label %1005
 
-1008:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i78
-  %1009 = getelementptr inbounds nuw i8, ptr %.02440.i75.ptr, i64 8
-  %1010 = load ptr, ptr %64, align 8
-  %1011 = load ptr, ptr %1010, align 8
-  %1012 = load i32, ptr %1009, align 8
-  %1013 = sdiv i32 %1012, 8
-  %1014 = sext i32 %1013 to i64
-  %1015 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1014, i1 false)
-  %1016 = trunc nuw nsw i64 %1015 to i8
-  %1017 = sub nsw i8 63, %1016
-  %1018 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1011, ptr noundef nonnull %1007, i8 %1017) #16
-  %1019 = load ptr, ptr %40, align 8
-  %1020 = load ptr, ptr %58, align 8
-  %1021 = getelementptr inbounds i8, ptr %1020, i64 8
-  %1022 = load i32, ptr %.02440.i75.ptr, align 8
-  %1023 = load ptr, ptr %1021, align 8
-  %1024 = zext i32 %1022 to i64
-  %1025 = sub nsw i64 0, %1024
-  %1026 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1023, i64 %1025
-  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1019, ptr noundef nonnull align 8 dereferenceable(32) %1026) #16
-  %1027 = load ptr, ptr %40, align 8
-  %1028 = getelementptr inbounds nuw i8, ptr %1027, i64 32
-  %1029 = load ptr, ptr %1028, align 8
-  %1030 = getelementptr inbounds i8, ptr %1029, i64 144
-  store i32 %1018, ptr %1030, align 8
+1005:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i78
+  %1006 = getelementptr inbounds nuw i8, ptr %.02440.i75.ptr, i64 8
+  %1007 = load ptr, ptr %39, align 8
+  %1008 = load i32, ptr %1006, align 8
+  %1009 = sdiv i32 %1008, 8
+  %1010 = sext i32 %1009 to i64
+  %1011 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1010, i1 false)
+  %1012 = trunc nuw nsw i64 %1011 to i8
+  %1013 = sub nsw i8 63, %1012
+  %1014 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1007, ptr noundef nonnull %1004, i8 %1013) #16
+  %1015 = load ptr, ptr %57, align 8
+  %1016 = getelementptr inbounds i8, ptr %1015, i64 8
+  %1017 = load i32, ptr %.02440.i75.ptr, align 8
+  %1018 = load ptr, ptr %1016, align 8
+  %1019 = zext i32 %1017 to i64
+  %1020 = sub nsw i64 0, %1019
+  %1021 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1018, i64 %1020
+  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %922, ptr noundef nonnull align 8 dereferenceable(32) %1021) #16
+  %1022 = getelementptr inbounds nuw i8, ptr %922, i64 32
+  %1023 = load ptr, ptr %1022, align 8
+  %1024 = getelementptr inbounds i8, ptr %1023, i64 144
+  store i32 %1014, ptr %1024, align 8
   br label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit82"
 
-1031:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i78, %.lr.ph.i74
+1025:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i78, %.lr.ph.i74
   %.02440.i75.add = add nuw nsw i64 %.02440.i75.idx, 48
   %.not29.i81 = icmp eq i64 %.02440.i75.add, 192
   br i1 %.not29.i81, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit82", label %.lr.ph.i74
 
-"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit82": ; preds = %1031, %993, %1008
-  %.0.i80 = phi i1 [ true, %1008 ], [ false, %993 ], [ false, %1031 ]
-  br label %1032
+"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit82": ; preds = %1025, %990, %1005
+  %.0.i80 = phi i1 [ true, %1005 ], [ false, %990 ], [ false, %1025 ]
+  br label %1026
 
-1032:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit68.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit82"
-  %1033 = phi ptr [ %905, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit82" ], [ %1034, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit68.i ]
-  %1034 = getelementptr inbounds i8, ptr %1033, i64 -48
-  %1035 = getelementptr inbounds i8, ptr %1033, i64 -16
-  %1036 = load ptr, ptr %1035, align 8
-  %.not.i.i.i67.i = icmp eq ptr %1036, null
-  br i1 %.not.i.i.i67.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit68.i, label %1037
+1026:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit78.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit82"
+  %1027 = phi ptr [ %904, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit82" ], [ %1028, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit78.i ]
+  %1028 = getelementptr inbounds i8, ptr %1027, i64 -48
+  %1029 = getelementptr inbounds i8, ptr %1027, i64 -16
+  %1030 = load ptr, ptr %1029, align 8
+  %.not.i.i.i77.i = icmp eq ptr %1030, null
+  br i1 %.not.i.i.i77.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit78.i, label %1031
 
-1037:                                             ; preds = %1032
-  %1038 = getelementptr inbounds i8, ptr %1033, i64 -32
-  %1039 = call noundef zeroext i1 %1036(ptr noundef nonnull align 8 dereferenceable(16) %1038, ptr noundef nonnull align 8 dereferenceable(16) %1038, i32 noundef 3) #16
-  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit68.i
+1031:                                             ; preds = %1026
+  %1032 = getelementptr inbounds i8, ptr %1027, i64 -32
+  %1033 = call noundef zeroext i1 %1030(ptr noundef nonnull align 8 dereferenceable(16) %1032, ptr noundef nonnull align 8 dereferenceable(16) %1032, i32 noundef 3) #16
+  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit78.i
 
-_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit68.i: ; preds = %1037, %1032
-  %1040 = icmp eq ptr %1034, %42
-  br i1 %1040, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1032
+_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit78.i: ; preds = %1031, %1026
+  %1034 = icmp eq ptr %1028, %42
+  br i1 %1034, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1026
 
-1041:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+1035:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   store i32 5567, ptr %43, align 8
-  store i32 1, ptr %857, align 4
-  store i32 32, ptr %858, align 8
-  store i64 0, ptr %862, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %859, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %861, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %860, align 8
-  store i32 5553, ptr %863, align 8
-  store i32 1, ptr %864, align 4
-  store i32 64, ptr %865, align 8
-  store i64 0, ptr %869, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %866, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %868, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %867, align 8
-  store i32 5485, ptr %870, align 8
-  store i32 1, ptr %871, align 4
-  store i32 128, ptr %872, align 8
-  store i64 0, ptr %876, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %873, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %875, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %874, align 8
-  %1042 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.093.0169, i32 noundef 1) #16
-  %.not.i63 = icmp eq ptr %1042, null
+  store i32 1, ptr %856, align 4
+  store i32 32, ptr %857, align 8
+  store i64 0, ptr %861, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %858, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %860, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %859, align 8
+  store i32 5553, ptr %862, align 8
+  store i32 1, ptr %863, align 4
+  store i32 64, ptr %864, align 8
+  store i64 0, ptr %868, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %865, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %867, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %866, align 8
+  store i32 5485, ptr %869, align 8
+  store i32 1, ptr %870, align 4
+  store i32 128, ptr %871, align 8
+  store i64 0, ptr %875, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %872, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %874, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %873, align 8
+  %1036 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %922, i32 noundef 1) #16
+  %.not.i63 = icmp eq ptr %1036, null
   br i1 %.not.i63, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit72", label %.lr.ph.i64
 
-.lr.ph.i64:                                       ; preds = %1041, %1079
-  %.02440.i65.idx = phi i64 [ %.02440.i65.add, %1079 ], [ 0, %1041 ]
+.lr.ph.i64:                                       ; preds = %1035, %1070
+  %.02440.i65.idx = phi i64 [ %.02440.i65.add, %1070 ], [ 0, %1035 ]
   %.02440.i65.ptr = getelementptr inbounds i8, ptr %43, i64 %.02440.i65.idx
-  %1043 = load i32, ptr %.02440.i65.ptr, align 8
-  %.not30.i66 = icmp eq i32 %1043, 0
-  br i1 %.not30.i66, label %1079, label %1044
+  %1037 = load i32, ptr %.02440.i65.ptr, align 8
+  %.not30.i66 = icmp eq i32 %1037, 0
+  br i1 %.not30.i66, label %1070, label %1038
 
-1044:                                             ; preds = %.lr.ph.i64
-  %1045 = getelementptr inbounds nuw i8, ptr %.02440.i65.ptr, i64 4
-  %1046 = load i32, ptr %1045, align 4
-  %1047 = getelementptr inbounds nuw i8, ptr %.02440.i65.ptr, i64 8
-  %1048 = load i32, ptr %1047, align 8
+1038:                                             ; preds = %.lr.ph.i64
+  %1039 = getelementptr inbounds nuw i8, ptr %.02440.i65.ptr, i64 4
+  %1040 = load i32, ptr %1039, align 4
+  %1041 = getelementptr inbounds nuw i8, ptr %.02440.i65.ptr, i64 8
+  %1042 = load i32, ptr %1041, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  store ptr %1042, ptr %11, align 8
+  store ptr %1036, ptr %11, align 8
   store i32 256, ptr %12, align 4
-  store i32 %1046, ptr %13, align 4
-  store i32 %1048, ptr %14, align 4
-  %1049 = getelementptr inbounds nuw i8, ptr %.02440.i65.ptr, i64 32
-  %1050 = load ptr, ptr %1049, align 8
-  %.not.i.i.i67 = icmp eq ptr %1050, null
-  br i1 %.not.i.i.i67, label %1051, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i68
+  store i32 %1040, ptr %13, align 4
+  store i32 %1042, ptr %14, align 4
+  %1043 = getelementptr inbounds nuw i8, ptr %.02440.i65.ptr, i64 32
+  %1044 = load ptr, ptr %1043, align 8
+  %.not.i.i.i67 = icmp eq ptr %1044, null
+  br i1 %.not.i.i.i67, label %1045, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i68
 
-1051:                                             ; preds = %1044
+1045:                                             ; preds = %1038
   call void @_ZSt25__throw_bad_function_callv() #17
   unreachable
 
-_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i68: ; preds = %1044
-  %1052 = getelementptr inbounds nuw i8, ptr %.02440.i65.ptr, i64 16
-  %1053 = getelementptr inbounds nuw i8, ptr %.02440.i65.ptr, i64 40
-  %1054 = load ptr, ptr %1053, align 8
-  %1055 = call noundef ptr %1054(ptr noundef nonnull align 8 dereferenceable(16) %1052, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14) #16
+_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i68: ; preds = %1038
+  %1046 = getelementptr inbounds nuw i8, ptr %.02440.i65.ptr, i64 16
+  %1047 = getelementptr inbounds nuw i8, ptr %.02440.i65.ptr, i64 40
+  %1048 = load ptr, ptr %1047, align 8
+  %1049 = call noundef ptr %1048(ptr noundef nonnull align 8 dereferenceable(16) %1046, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  %.not31.i69 = icmp eq ptr %1055, null
-  br i1 %.not31.i69, label %1079, label %1056
+  %.not31.i69 = icmp eq ptr %1049, null
+  br i1 %.not31.i69, label %1070, label %1050
 
-1056:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i68
-  %1057 = getelementptr inbounds nuw i8, ptr %.02440.i65.ptr, i64 8
-  %1058 = load ptr, ptr %64, align 8
-  %1059 = load ptr, ptr %1058, align 8
-  %1060 = load i32, ptr %1057, align 8
-  %1061 = sdiv i32 %1060, 8
-  %1062 = sext i32 %1061 to i64
-  %1063 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1062, i1 false)
-  %1064 = trunc nuw nsw i64 %1063 to i8
-  %1065 = sub nsw i8 63, %1064
-  %1066 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1059, ptr noundef nonnull %1055, i8 %1065) #16
-  %1067 = load ptr, ptr %40, align 8
-  %1068 = load ptr, ptr %58, align 8
-  %1069 = getelementptr inbounds i8, ptr %1068, i64 8
-  %1070 = load i32, ptr %.02440.i65.ptr, align 8
-  %1071 = load ptr, ptr %1069, align 8
-  %1072 = zext i32 %1070 to i64
-  %1073 = sub nsw i64 0, %1072
-  %1074 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1071, i64 %1073
-  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1067, ptr noundef nonnull align 8 dereferenceable(32) %1074) #16
-  %1075 = load ptr, ptr %40, align 8
-  %1076 = getelementptr inbounds nuw i8, ptr %1075, i64 32
-  %1077 = load ptr, ptr %1076, align 8
-  %1078 = getelementptr inbounds i8, ptr %1077, i64 144
-  store i32 %1066, ptr %1078, align 8
+1050:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i68
+  %1051 = getelementptr inbounds nuw i8, ptr %.02440.i65.ptr, i64 8
+  %1052 = load ptr, ptr %39, align 8
+  %1053 = load i32, ptr %1051, align 8
+  %1054 = sdiv i32 %1053, 8
+  %1055 = sext i32 %1054 to i64
+  %1056 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1055, i1 false)
+  %1057 = trunc nuw nsw i64 %1056 to i8
+  %1058 = sub nsw i8 63, %1057
+  %1059 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1052, ptr noundef nonnull %1049, i8 %1058) #16
+  %1060 = load ptr, ptr %57, align 8
+  %1061 = getelementptr inbounds i8, ptr %1060, i64 8
+  %1062 = load i32, ptr %.02440.i65.ptr, align 8
+  %1063 = load ptr, ptr %1061, align 8
+  %1064 = zext i32 %1062 to i64
+  %1065 = sub nsw i64 0, %1064
+  %1066 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1063, i64 %1065
+  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %922, ptr noundef nonnull align 8 dereferenceable(32) %1066) #16
+  %1067 = getelementptr inbounds nuw i8, ptr %922, i64 32
+  %1068 = load ptr, ptr %1067, align 8
+  %1069 = getelementptr inbounds i8, ptr %1068, i64 144
+  store i32 %1059, ptr %1069, align 8
   br label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit72"
 
-1079:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i68, %.lr.ph.i64
+1070:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i68, %.lr.ph.i64
   %.02440.i65.add = add nuw nsw i64 %.02440.i65.idx, 48
   %.not29.i71 = icmp eq i64 %.02440.i65.add, 144
   br i1 %.not29.i71, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit72", label %.lr.ph.i64
 
-"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit72": ; preds = %1079, %1041, %1056
-  %.0.i70 = phi i1 [ true, %1056 ], [ false, %1041 ], [ false, %1079 ]
-  br label %1080
+"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit72": ; preds = %1070, %1035, %1050
+  %.0.i70 = phi i1 [ true, %1050 ], [ false, %1035 ], [ false, %1070 ]
+  br label %1071
 
-1080:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit74.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit72"
-  %1081 = phi ptr [ %877, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit72" ], [ %1082, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit74.i ]
-  %1082 = getelementptr inbounds i8, ptr %1081, i64 -48
-  %1083 = getelementptr inbounds i8, ptr %1081, i64 -16
-  %1084 = load ptr, ptr %1083, align 8
-  %.not.i.i.i73.i = icmp eq ptr %1084, null
-  br i1 %.not.i.i.i73.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit74.i, label %1085
+1071:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit81.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit72"
+  %1072 = phi ptr [ %876, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit72" ], [ %1073, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit81.i ]
+  %1073 = getelementptr inbounds i8, ptr %1072, i64 -48
+  %1074 = getelementptr inbounds i8, ptr %1072, i64 -16
+  %1075 = load ptr, ptr %1074, align 8
+  %.not.i.i.i80.i = icmp eq ptr %1075, null
+  br i1 %.not.i.i.i80.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit81.i, label %1076
 
-1085:                                             ; preds = %1080
-  %1086 = getelementptr inbounds i8, ptr %1081, i64 -32
-  %1087 = call noundef zeroext i1 %1084(ptr noundef nonnull align 8 dereferenceable(16) %1086, ptr noundef nonnull align 8 dereferenceable(16) %1086, i32 noundef 3) #16
-  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit74.i
+1076:                                             ; preds = %1071
+  %1077 = getelementptr inbounds i8, ptr %1072, i64 -32
+  %1078 = call noundef zeroext i1 %1075(ptr noundef nonnull align 8 dereferenceable(16) %1077, ptr noundef nonnull align 8 dereferenceable(16) %1077, i32 noundef 3) #16
+  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit81.i
 
-_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit74.i: ; preds = %1085, %1080
-  %1088 = icmp eq ptr %1082, %43
-  br i1 %1088, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1080
+_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit81.i: ; preds = %1076, %1071
+  %1079 = icmp eq ptr %1073, %43
+  br i1 %1079, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1071
 
-1089:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+1080:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   store i32 13899, ptr %44, align 8
-  store i32 1, ptr %829, align 4
-  store i32 32, ptr %830, align 8
-  store i64 0, ptr %834, align 8
-  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %831, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %833, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %832, align 8
-  store i32 5569, ptr %835, align 8
-  store i32 1, ptr %836, align 4
-  store i32 32, ptr %837, align 8
-  store i64 0, ptr %841, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %838, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %840, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %839, align 8
-  store i32 13820, ptr %842, align 8
-  store i32 1, ptr %843, align 4
-  store i32 64, ptr %844, align 8
-  store i64 0, ptr %848, align 8
-  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %845, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %847, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %846, align 8
-  store i32 13520, ptr %849, align 8
-  store i32 1, ptr %850, align 4
-  store i32 64, ptr %851, align 8
-  store i64 0, ptr %855, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %852, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %854, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %853, align 8
-  %1090 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.093.0169, i32 noundef 1) #16
-  %.not.i53 = icmp eq ptr %1090, null
+  store i32 1, ptr %828, align 4
+  store i32 32, ptr %829, align 8
+  store i64 0, ptr %833, align 8
+  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %830, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %832, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %831, align 8
+  store i32 5569, ptr %834, align 8
+  store i32 1, ptr %835, align 4
+  store i32 32, ptr %836, align 8
+  store i64 0, ptr %840, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %837, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %839, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %838, align 8
+  store i32 13820, ptr %841, align 8
+  store i32 1, ptr %842, align 4
+  store i32 64, ptr %843, align 8
+  store i64 0, ptr %847, align 8
+  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %844, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %846, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %845, align 8
+  store i32 13520, ptr %848, align 8
+  store i32 1, ptr %849, align 4
+  store i32 64, ptr %850, align 8
+  store i64 0, ptr %854, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %851, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %853, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %852, align 8
+  %1081 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %922, i32 noundef 1) #16
+  %.not.i53 = icmp eq ptr %1081, null
   br i1 %.not.i53, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit62", label %.lr.ph.i54
 
-.lr.ph.i54:                                       ; preds = %1089, %1127
-  %.02440.i55.idx = phi i64 [ %.02440.i55.add, %1127 ], [ 0, %1089 ]
+.lr.ph.i54:                                       ; preds = %1080, %1115
+  %.02440.i55.idx = phi i64 [ %.02440.i55.add, %1115 ], [ 0, %1080 ]
   %.02440.i55.ptr = getelementptr inbounds i8, ptr %44, i64 %.02440.i55.idx
-  %1091 = load i32, ptr %.02440.i55.ptr, align 8
-  %.not30.i56 = icmp eq i32 %1091, 0
-  br i1 %.not30.i56, label %1127, label %1092
+  %1082 = load i32, ptr %.02440.i55.ptr, align 8
+  %.not30.i56 = icmp eq i32 %1082, 0
+  br i1 %.not30.i56, label %1115, label %1083
 
-1092:                                             ; preds = %.lr.ph.i54
-  %1093 = getelementptr inbounds nuw i8, ptr %.02440.i55.ptr, i64 4
-  %1094 = load i32, ptr %1093, align 4
-  %1095 = getelementptr inbounds nuw i8, ptr %.02440.i55.ptr, i64 8
-  %1096 = load i32, ptr %1095, align 8
+1083:                                             ; preds = %.lr.ph.i54
+  %1084 = getelementptr inbounds nuw i8, ptr %.02440.i55.ptr, i64 4
+  %1085 = load i32, ptr %1084, align 4
+  %1086 = getelementptr inbounds nuw i8, ptr %.02440.i55.ptr, i64 8
+  %1087 = load i32, ptr %1086, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
-  store ptr %1090, ptr %15, align 8
+  store ptr %1081, ptr %15, align 8
   store i32 128, ptr %16, align 4
-  store i32 %1094, ptr %17, align 4
-  store i32 %1096, ptr %18, align 4
-  %1097 = getelementptr inbounds nuw i8, ptr %.02440.i55.ptr, i64 32
-  %1098 = load ptr, ptr %1097, align 8
-  %.not.i.i.i57 = icmp eq ptr %1098, null
-  br i1 %.not.i.i.i57, label %1099, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i58
+  store i32 %1085, ptr %17, align 4
+  store i32 %1087, ptr %18, align 4
+  %1088 = getelementptr inbounds nuw i8, ptr %.02440.i55.ptr, i64 32
+  %1089 = load ptr, ptr %1088, align 8
+  %.not.i.i.i57 = icmp eq ptr %1089, null
+  br i1 %.not.i.i.i57, label %1090, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i58
 
-1099:                                             ; preds = %1092
+1090:                                             ; preds = %1083
   call void @_ZSt25__throw_bad_function_callv() #17
   unreachable
 
-_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i58: ; preds = %1092
-  %1100 = getelementptr inbounds nuw i8, ptr %.02440.i55.ptr, i64 16
-  %1101 = getelementptr inbounds nuw i8, ptr %.02440.i55.ptr, i64 40
-  %1102 = load ptr, ptr %1101, align 8
-  %1103 = call noundef ptr %1102(ptr noundef nonnull align 8 dereferenceable(16) %1100, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18) #16
+_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i58: ; preds = %1083
+  %1091 = getelementptr inbounds nuw i8, ptr %.02440.i55.ptr, i64 16
+  %1092 = getelementptr inbounds nuw i8, ptr %.02440.i55.ptr, i64 40
+  %1093 = load ptr, ptr %1092, align 8
+  %1094 = call noundef ptr %1093(ptr noundef nonnull align 8 dereferenceable(16) %1091, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  %.not31.i59 = icmp eq ptr %1103, null
-  br i1 %.not31.i59, label %1127, label %1104
+  %.not31.i59 = icmp eq ptr %1094, null
+  br i1 %.not31.i59, label %1115, label %1095
 
-1104:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i58
-  %1105 = getelementptr inbounds nuw i8, ptr %.02440.i55.ptr, i64 8
-  %1106 = load ptr, ptr %64, align 8
-  %1107 = load ptr, ptr %1106, align 8
-  %1108 = load i32, ptr %1105, align 8
-  %1109 = sdiv i32 %1108, 8
-  %1110 = sext i32 %1109 to i64
-  %1111 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1110, i1 false)
-  %1112 = trunc nuw nsw i64 %1111 to i8
-  %1113 = sub nsw i8 63, %1112
-  %1114 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1107, ptr noundef nonnull %1103, i8 %1113) #16
-  %1115 = load ptr, ptr %40, align 8
-  %1116 = load ptr, ptr %58, align 8
-  %1117 = getelementptr inbounds i8, ptr %1116, i64 8
-  %1118 = load i32, ptr %.02440.i55.ptr, align 8
-  %1119 = load ptr, ptr %1117, align 8
-  %1120 = zext i32 %1118 to i64
-  %1121 = sub nsw i64 0, %1120
-  %1122 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1119, i64 %1121
-  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1115, ptr noundef nonnull align 8 dereferenceable(32) %1122) #16
-  %1123 = load ptr, ptr %40, align 8
-  %1124 = getelementptr inbounds nuw i8, ptr %1123, i64 32
-  %1125 = load ptr, ptr %1124, align 8
-  %1126 = getelementptr inbounds i8, ptr %1125, i64 144
-  store i32 %1114, ptr %1126, align 8
+1095:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i58
+  %1096 = getelementptr inbounds nuw i8, ptr %.02440.i55.ptr, i64 8
+  %1097 = load ptr, ptr %39, align 8
+  %1098 = load i32, ptr %1096, align 8
+  %1099 = sdiv i32 %1098, 8
+  %1100 = sext i32 %1099 to i64
+  %1101 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1100, i1 false)
+  %1102 = trunc nuw nsw i64 %1101 to i8
+  %1103 = sub nsw i8 63, %1102
+  %1104 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1097, ptr noundef nonnull %1094, i8 %1103) #16
+  %1105 = load ptr, ptr %57, align 8
+  %1106 = getelementptr inbounds i8, ptr %1105, i64 8
+  %1107 = load i32, ptr %.02440.i55.ptr, align 8
+  %1108 = load ptr, ptr %1106, align 8
+  %1109 = zext i32 %1107 to i64
+  %1110 = sub nsw i64 0, %1109
+  %1111 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1108, i64 %1110
+  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %922, ptr noundef nonnull align 8 dereferenceable(32) %1111) #16
+  %1112 = getelementptr inbounds nuw i8, ptr %922, i64 32
+  %1113 = load ptr, ptr %1112, align 8
+  %1114 = getelementptr inbounds i8, ptr %1113, i64 144
+  store i32 %1104, ptr %1114, align 8
   br label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit62"
 
-1127:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i58, %.lr.ph.i54
+1115:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i58, %.lr.ph.i54
   %.02440.i55.add = add nuw nsw i64 %.02440.i55.idx, 48
   %.not29.i61 = icmp eq i64 %.02440.i55.add, 192
   br i1 %.not29.i61, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit62", label %.lr.ph.i54
 
-"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit62": ; preds = %1127, %1089, %1104
-  %.0.i60 = phi i1 [ true, %1104 ], [ false, %1089 ], [ false, %1127 ]
-  br label %1128
+"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit62": ; preds = %1115, %1080, %1095
+  %.0.i60 = phi i1 [ true, %1095 ], [ false, %1080 ], [ false, %1115 ]
+  br label %1116
 
-1128:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit80.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit62"
-  %1129 = phi ptr [ %856, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit62" ], [ %1130, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit80.i ]
-  %1130 = getelementptr inbounds i8, ptr %1129, i64 -48
-  %1131 = getelementptr inbounds i8, ptr %1129, i64 -16
-  %1132 = load ptr, ptr %1131, align 8
-  %.not.i.i.i79.i = icmp eq ptr %1132, null
-  br i1 %.not.i.i.i79.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit80.i, label %1133
+1116:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit84.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit62"
+  %1117 = phi ptr [ %855, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit62" ], [ %1118, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit84.i ]
+  %1118 = getelementptr inbounds i8, ptr %1117, i64 -48
+  %1119 = getelementptr inbounds i8, ptr %1117, i64 -16
+  %1120 = load ptr, ptr %1119, align 8
+  %.not.i.i.i83.i = icmp eq ptr %1120, null
+  br i1 %.not.i.i.i83.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit84.i, label %1121
 
-1133:                                             ; preds = %1128
-  %1134 = getelementptr inbounds i8, ptr %1129, i64 -32
-  %1135 = call noundef zeroext i1 %1132(ptr noundef nonnull align 8 dereferenceable(16) %1134, ptr noundef nonnull align 8 dereferenceable(16) %1134, i32 noundef 3) #16
-  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit80.i
+1121:                                             ; preds = %1116
+  %1122 = getelementptr inbounds i8, ptr %1117, i64 -32
+  %1123 = call noundef zeroext i1 %1120(ptr noundef nonnull align 8 dereferenceable(16) %1122, ptr noundef nonnull align 8 dereferenceable(16) %1122, i32 noundef 3) #16
+  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit84.i
 
-_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit80.i: ; preds = %1133, %1128
-  %1136 = icmp eq ptr %1130, %44
-  br i1 %1136, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1128
+_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit84.i: ; preds = %1121, %1116
+  %1124 = icmp eq ptr %1118, %44
+  br i1 %1124, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1116
 
-1137:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+1125:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   store i32 5575, ptr %45, align 8
-  store i32 1, ptr %808, align 4
-  store i32 32, ptr %809, align 8
-  store i64 0, ptr %813, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %810, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %812, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %811, align 8
-  store i32 5555, ptr %814, align 8
-  store i32 1, ptr %815, align 4
-  store i32 64, ptr %816, align 8
-  store i64 0, ptr %820, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %817, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %819, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %818, align 8
-  store i32 5498, ptr %821, align 8
-  store i32 1, ptr %822, align 4
-  store i32 128, ptr %823, align 8
-  store i64 0, ptr %827, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %824, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %826, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %825, align 8
-  %1138 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.093.0169, i32 noundef 1) #16
-  %.not.i43 = icmp eq ptr %1138, null
+  store i32 1, ptr %807, align 4
+  store i32 32, ptr %808, align 8
+  store i64 0, ptr %812, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %809, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %811, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %810, align 8
+  store i32 5555, ptr %813, align 8
+  store i32 1, ptr %814, align 4
+  store i32 64, ptr %815, align 8
+  store i64 0, ptr %819, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %816, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %818, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %817, align 8
+  store i32 5498, ptr %820, align 8
+  store i32 1, ptr %821, align 4
+  store i32 128, ptr %822, align 8
+  store i64 0, ptr %826, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %823, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %825, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %824, align 8
+  %1126 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %922, i32 noundef 1) #16
+  %.not.i43 = icmp eq ptr %1126, null
   br i1 %.not.i43, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit52", label %.lr.ph.i44
 
-.lr.ph.i44:                                       ; preds = %1137, %1175
-  %.02440.i45.idx = phi i64 [ %.02440.i45.add, %1175 ], [ 0, %1137 ]
+.lr.ph.i44:                                       ; preds = %1125, %1160
+  %.02440.i45.idx = phi i64 [ %.02440.i45.add, %1160 ], [ 0, %1125 ]
   %.02440.i45.ptr = getelementptr inbounds i8, ptr %45, i64 %.02440.i45.idx
-  %1139 = load i32, ptr %.02440.i45.ptr, align 8
-  %.not30.i46 = icmp eq i32 %1139, 0
-  br i1 %.not30.i46, label %1175, label %1140
+  %1127 = load i32, ptr %.02440.i45.ptr, align 8
+  %.not30.i46 = icmp eq i32 %1127, 0
+  br i1 %.not30.i46, label %1160, label %1128
 
-1140:                                             ; preds = %.lr.ph.i44
-  %1141 = getelementptr inbounds nuw i8, ptr %.02440.i45.ptr, i64 4
-  %1142 = load i32, ptr %1141, align 4
-  %1143 = getelementptr inbounds nuw i8, ptr %.02440.i45.ptr, i64 8
-  %1144 = load i32, ptr %1143, align 8
+1128:                                             ; preds = %.lr.ph.i44
+  %1129 = getelementptr inbounds nuw i8, ptr %.02440.i45.ptr, i64 4
+  %1130 = load i32, ptr %1129, align 4
+  %1131 = getelementptr inbounds nuw i8, ptr %.02440.i45.ptr, i64 8
+  %1132 = load i32, ptr %1131, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
-  store ptr %1138, ptr %19, align 8
+  store ptr %1126, ptr %19, align 8
   store i32 256, ptr %20, align 4
-  store i32 %1142, ptr %21, align 4
-  store i32 %1144, ptr %22, align 4
-  %1145 = getelementptr inbounds nuw i8, ptr %.02440.i45.ptr, i64 32
-  %1146 = load ptr, ptr %1145, align 8
-  %.not.i.i.i47 = icmp eq ptr %1146, null
-  br i1 %.not.i.i.i47, label %1147, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i48
+  store i32 %1130, ptr %21, align 4
+  store i32 %1132, ptr %22, align 4
+  %1133 = getelementptr inbounds nuw i8, ptr %.02440.i45.ptr, i64 32
+  %1134 = load ptr, ptr %1133, align 8
+  %.not.i.i.i47 = icmp eq ptr %1134, null
+  br i1 %.not.i.i.i47, label %1135, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i48
 
-1147:                                             ; preds = %1140
+1135:                                             ; preds = %1128
   call void @_ZSt25__throw_bad_function_callv() #17
   unreachable
 
-_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i48: ; preds = %1140
-  %1148 = getelementptr inbounds nuw i8, ptr %.02440.i45.ptr, i64 16
-  %1149 = getelementptr inbounds nuw i8, ptr %.02440.i45.ptr, i64 40
-  %1150 = load ptr, ptr %1149, align 8
-  %1151 = call noundef ptr %1150(ptr noundef nonnull align 8 dereferenceable(16) %1148, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(4) %22) #16
+_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i48: ; preds = %1128
+  %1136 = getelementptr inbounds nuw i8, ptr %.02440.i45.ptr, i64 16
+  %1137 = getelementptr inbounds nuw i8, ptr %.02440.i45.ptr, i64 40
+  %1138 = load ptr, ptr %1137, align 8
+  %1139 = call noundef ptr %1138(ptr noundef nonnull align 8 dereferenceable(16) %1136, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(4) %22) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  %.not31.i49 = icmp eq ptr %1151, null
-  br i1 %.not31.i49, label %1175, label %1152
+  %.not31.i49 = icmp eq ptr %1139, null
+  br i1 %.not31.i49, label %1160, label %1140
 
-1152:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i48
-  %1153 = getelementptr inbounds nuw i8, ptr %.02440.i45.ptr, i64 8
-  %1154 = load ptr, ptr %64, align 8
-  %1155 = load ptr, ptr %1154, align 8
-  %1156 = load i32, ptr %1153, align 8
-  %1157 = sdiv i32 %1156, 8
-  %1158 = sext i32 %1157 to i64
-  %1159 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1158, i1 false)
-  %1160 = trunc nuw nsw i64 %1159 to i8
-  %1161 = sub nsw i8 63, %1160
-  %1162 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1155, ptr noundef nonnull %1151, i8 %1161) #16
-  %1163 = load ptr, ptr %40, align 8
-  %1164 = load ptr, ptr %58, align 8
-  %1165 = getelementptr inbounds i8, ptr %1164, i64 8
-  %1166 = load i32, ptr %.02440.i45.ptr, align 8
-  %1167 = load ptr, ptr %1165, align 8
-  %1168 = zext i32 %1166 to i64
-  %1169 = sub nsw i64 0, %1168
-  %1170 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1167, i64 %1169
-  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1163, ptr noundef nonnull align 8 dereferenceable(32) %1170) #16
-  %1171 = load ptr, ptr %40, align 8
-  %1172 = getelementptr inbounds nuw i8, ptr %1171, i64 32
-  %1173 = load ptr, ptr %1172, align 8
-  %1174 = getelementptr inbounds i8, ptr %1173, i64 144
-  store i32 %1162, ptr %1174, align 8
+1140:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i48
+  %1141 = getelementptr inbounds nuw i8, ptr %.02440.i45.ptr, i64 8
+  %1142 = load ptr, ptr %39, align 8
+  %1143 = load i32, ptr %1141, align 8
+  %1144 = sdiv i32 %1143, 8
+  %1145 = sext i32 %1144 to i64
+  %1146 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1145, i1 false)
+  %1147 = trunc nuw nsw i64 %1146 to i8
+  %1148 = sub nsw i8 63, %1147
+  %1149 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1142, ptr noundef nonnull %1139, i8 %1148) #16
+  %1150 = load ptr, ptr %57, align 8
+  %1151 = getelementptr inbounds i8, ptr %1150, i64 8
+  %1152 = load i32, ptr %.02440.i45.ptr, align 8
+  %1153 = load ptr, ptr %1151, align 8
+  %1154 = zext i32 %1152 to i64
+  %1155 = sub nsw i64 0, %1154
+  %1156 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1153, i64 %1155
+  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %922, ptr noundef nonnull align 8 dereferenceable(32) %1156) #16
+  %1157 = getelementptr inbounds nuw i8, ptr %922, i64 32
+  %1158 = load ptr, ptr %1157, align 8
+  %1159 = getelementptr inbounds i8, ptr %1158, i64 144
+  store i32 %1149, ptr %1159, align 8
   br label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit52"
 
-1175:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i48, %.lr.ph.i44
+1160:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i48, %.lr.ph.i44
   %.02440.i45.add = add nuw nsw i64 %.02440.i45.idx, 48
   %.not29.i51 = icmp eq i64 %.02440.i45.add, 144
   br i1 %.not29.i51, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit52", label %.lr.ph.i44
 
-"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit52": ; preds = %1175, %1137, %1152
-  %.0.i50 = phi i1 [ true, %1152 ], [ false, %1137 ], [ false, %1175 ]
-  br label %1176
+"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit52": ; preds = %1160, %1125, %1140
+  %.0.i50 = phi i1 [ true, %1140 ], [ false, %1125 ], [ false, %1160 ]
+  br label %1161
 
-1176:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit86.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit52"
-  %1177 = phi ptr [ %828, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit52" ], [ %1178, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit86.i ]
-  %1178 = getelementptr inbounds i8, ptr %1177, i64 -48
-  %1179 = getelementptr inbounds i8, ptr %1177, i64 -16
-  %1180 = load ptr, ptr %1179, align 8
-  %.not.i.i.i85.i = icmp eq ptr %1180, null
-  br i1 %.not.i.i.i85.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit86.i, label %1181
+1161:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit87.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit52"
+  %1162 = phi ptr [ %827, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit52" ], [ %1163, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit87.i ]
+  %1163 = getelementptr inbounds i8, ptr %1162, i64 -48
+  %1164 = getelementptr inbounds i8, ptr %1162, i64 -16
+  %1165 = load ptr, ptr %1164, align 8
+  %.not.i.i.i86.i = icmp eq ptr %1165, null
+  br i1 %.not.i.i.i86.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit87.i, label %1166
 
-1181:                                             ; preds = %1176
-  %1182 = getelementptr inbounds i8, ptr %1177, i64 -32
-  %1183 = call noundef zeroext i1 %1180(ptr noundef nonnull align 8 dereferenceable(16) %1182, ptr noundef nonnull align 8 dereferenceable(16) %1182, i32 noundef 3) #16
-  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit86.i
+1166:                                             ; preds = %1161
+  %1167 = getelementptr inbounds i8, ptr %1162, i64 -32
+  %1168 = call noundef zeroext i1 %1165(ptr noundef nonnull align 8 dereferenceable(16) %1167, ptr noundef nonnull align 8 dereferenceable(16) %1167, i32 noundef 3) #16
+  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit87.i
 
-_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit86.i: ; preds = %1181, %1176
-  %1184 = icmp eq ptr %1178, %45
-  br i1 %1184, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1176
+_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit87.i: ; preds = %1166, %1161
+  %1169 = icmp eq ptr %1163, %45
+  br i1 %1169, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1161
 
-1185:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+1170:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   store i32 5581, ptr %46, align 8
-  store i32 1, ptr %780, align 4
-  store i32 32, ptr %781, align 8
-  store i64 0, ptr %785, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %782, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %784, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %783, align 8
-  store i32 5561, ptr %786, align 8
-  store i32 1, ptr %787, align 4
-  store i32 64, ptr %788, align 8
-  store i64 0, ptr %792, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %789, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %791, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %790, align 8
-  store i32 5501, ptr %793, align 8
-  store i32 1, ptr %794, align 4
-  store i32 128, ptr %795, align 8
-  store i64 0, ptr %799, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %796, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %798, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %797, align 8
-  store i32 5513, ptr %800, align 8
-  store i32 1, ptr %801, align 4
-  store i32 256, ptr %802, align 8
-  store i64 0, ptr %806, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %803, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %805, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %804, align 8
-  %1186 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.093.0169, i32 noundef 1) #16
-  %.not.i33 = icmp eq ptr %1186, null
+  store i32 1, ptr %779, align 4
+  store i32 32, ptr %780, align 8
+  store i64 0, ptr %784, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %781, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %783, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %782, align 8
+  store i32 5561, ptr %785, align 8
+  store i32 1, ptr %786, align 4
+  store i32 64, ptr %787, align 8
+  store i64 0, ptr %791, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %788, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %790, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %789, align 8
+  store i32 5501, ptr %792, align 8
+  store i32 1, ptr %793, align 4
+  store i32 128, ptr %794, align 8
+  store i64 0, ptr %798, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %795, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %797, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %796, align 8
+  store i32 5513, ptr %799, align 8
+  store i32 1, ptr %800, align 4
+  store i32 256, ptr %801, align 8
+  store i64 0, ptr %805, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %802, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %804, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %803, align 8
+  %1171 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %922, i32 noundef 1) #16
+  %.not.i33 = icmp eq ptr %1171, null
   br i1 %.not.i33, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit42", label %.lr.ph.i34
 
-.lr.ph.i34:                                       ; preds = %1185, %1223
-  %.02440.i35.idx = phi i64 [ %.02440.i35.add, %1223 ], [ 0, %1185 ]
+.lr.ph.i34:                                       ; preds = %1170, %1205
+  %.02440.i35.idx = phi i64 [ %.02440.i35.add, %1205 ], [ 0, %1170 ]
   %.02440.i35.ptr = getelementptr inbounds i8, ptr %46, i64 %.02440.i35.idx
-  %1187 = load i32, ptr %.02440.i35.ptr, align 8
-  %.not30.i36 = icmp eq i32 %1187, 0
-  br i1 %.not30.i36, label %1223, label %1188
+  %1172 = load i32, ptr %.02440.i35.ptr, align 8
+  %.not30.i36 = icmp eq i32 %1172, 0
+  br i1 %.not30.i36, label %1205, label %1173
 
-1188:                                             ; preds = %.lr.ph.i34
-  %1189 = getelementptr inbounds nuw i8, ptr %.02440.i35.ptr, i64 4
-  %1190 = load i32, ptr %1189, align 4
-  %1191 = getelementptr inbounds nuw i8, ptr %.02440.i35.ptr, i64 8
-  %1192 = load i32, ptr %1191, align 8
+1173:                                             ; preds = %.lr.ph.i34
+  %1174 = getelementptr inbounds nuw i8, ptr %.02440.i35.ptr, i64 4
+  %1175 = load i32, ptr %1174, align 4
+  %1176 = getelementptr inbounds nuw i8, ptr %.02440.i35.ptr, i64 8
+  %1177 = load i32, ptr %1176, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
-  store ptr %1186, ptr %23, align 8
+  store ptr %1171, ptr %23, align 8
   store i32 512, ptr %24, align 4
-  store i32 %1190, ptr %25, align 4
-  store i32 %1192, ptr %26, align 4
-  %1193 = getelementptr inbounds nuw i8, ptr %.02440.i35.ptr, i64 32
-  %1194 = load ptr, ptr %1193, align 8
-  %.not.i.i.i37 = icmp eq ptr %1194, null
-  br i1 %.not.i.i.i37, label %1195, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i38
+  store i32 %1175, ptr %25, align 4
+  store i32 %1177, ptr %26, align 4
+  %1178 = getelementptr inbounds nuw i8, ptr %.02440.i35.ptr, i64 32
+  %1179 = load ptr, ptr %1178, align 8
+  %.not.i.i.i37 = icmp eq ptr %1179, null
+  br i1 %.not.i.i.i37, label %1180, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i38
 
-1195:                                             ; preds = %1188
+1180:                                             ; preds = %1173
   call void @_ZSt25__throw_bad_function_callv() #17
   unreachable
 
-_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i38: ; preds = %1188
-  %1196 = getelementptr inbounds nuw i8, ptr %.02440.i35.ptr, i64 16
-  %1197 = getelementptr inbounds nuw i8, ptr %.02440.i35.ptr, i64 40
-  %1198 = load ptr, ptr %1197, align 8
-  %1199 = call noundef ptr %1198(ptr noundef nonnull align 8 dereferenceable(16) %1196, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26) #16
+_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i38: ; preds = %1173
+  %1181 = getelementptr inbounds nuw i8, ptr %.02440.i35.ptr, i64 16
+  %1182 = getelementptr inbounds nuw i8, ptr %.02440.i35.ptr, i64 40
+  %1183 = load ptr, ptr %1182, align 8
+  %1184 = call noundef ptr %1183(ptr noundef nonnull align 8 dereferenceable(16) %1181, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
-  %.not31.i39 = icmp eq ptr %1199, null
-  br i1 %.not31.i39, label %1223, label %1200
+  %.not31.i39 = icmp eq ptr %1184, null
+  br i1 %.not31.i39, label %1205, label %1185
 
-1200:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i38
-  %1201 = getelementptr inbounds nuw i8, ptr %.02440.i35.ptr, i64 8
-  %1202 = load ptr, ptr %64, align 8
+1185:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i38
+  %1186 = getelementptr inbounds nuw i8, ptr %.02440.i35.ptr, i64 8
+  %1187 = load ptr, ptr %39, align 8
+  %1188 = load i32, ptr %1186, align 8
+  %1189 = sdiv i32 %1188, 8
+  %1190 = sext i32 %1189 to i64
+  %1191 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1190, i1 false)
+  %1192 = trunc nuw nsw i64 %1191 to i8
+  %1193 = sub nsw i8 63, %1192
+  %1194 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1187, ptr noundef nonnull %1184, i8 %1193) #16
+  %1195 = load ptr, ptr %57, align 8
+  %1196 = getelementptr inbounds i8, ptr %1195, i64 8
+  %1197 = load i32, ptr %.02440.i35.ptr, align 8
+  %1198 = load ptr, ptr %1196, align 8
+  %1199 = zext i32 %1197 to i64
+  %1200 = sub nsw i64 0, %1199
+  %1201 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1198, i64 %1200
+  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %922, ptr noundef nonnull align 8 dereferenceable(32) %1201) #16
+  %1202 = getelementptr inbounds nuw i8, ptr %922, i64 32
   %1203 = load ptr, ptr %1202, align 8
-  %1204 = load i32, ptr %1201, align 8
-  %1205 = sdiv i32 %1204, 8
-  %1206 = sext i32 %1205 to i64
-  %1207 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1206, i1 false)
-  %1208 = trunc nuw nsw i64 %1207 to i8
-  %1209 = sub nsw i8 63, %1208
-  %1210 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1203, ptr noundef nonnull %1199, i8 %1209) #16
-  %1211 = load ptr, ptr %40, align 8
-  %1212 = load ptr, ptr %58, align 8
-  %1213 = getelementptr inbounds i8, ptr %1212, i64 8
-  %1214 = load i32, ptr %.02440.i35.ptr, align 8
-  %1215 = load ptr, ptr %1213, align 8
-  %1216 = zext i32 %1214 to i64
-  %1217 = sub nsw i64 0, %1216
-  %1218 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1215, i64 %1217
-  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1211, ptr noundef nonnull align 8 dereferenceable(32) %1218) #16
-  %1219 = load ptr, ptr %40, align 8
-  %1220 = getelementptr inbounds nuw i8, ptr %1219, i64 32
-  %1221 = load ptr, ptr %1220, align 8
-  %1222 = getelementptr inbounds i8, ptr %1221, i64 144
-  store i32 %1210, ptr %1222, align 8
+  %1204 = getelementptr inbounds i8, ptr %1203, i64 144
+  store i32 %1194, ptr %1204, align 8
   br label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit42"
 
-1223:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i38, %.lr.ph.i34
+1205:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i38, %.lr.ph.i34
   %.02440.i35.add = add nuw nsw i64 %.02440.i35.idx, 48
   %.not29.i41 = icmp eq i64 %.02440.i35.add, 192
   br i1 %.not29.i41, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit42", label %.lr.ph.i34
 
-"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit42": ; preds = %1223, %1185, %1200
-  %.0.i40 = phi i1 [ true, %1200 ], [ false, %1185 ], [ false, %1223 ]
-  br label %1224
+"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit42": ; preds = %1205, %1170, %1185
+  %.0.i40 = phi i1 [ true, %1185 ], [ false, %1170 ], [ false, %1205 ]
+  br label %1206
 
-1224:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit92.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit42"
-  %1225 = phi ptr [ %807, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit42" ], [ %1226, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit92.i ]
-  %1226 = getelementptr inbounds i8, ptr %1225, i64 -48
-  %1227 = getelementptr inbounds i8, ptr %1225, i64 -16
-  %1228 = load ptr, ptr %1227, align 8
-  %.not.i.i.i91.i = icmp eq ptr %1228, null
-  br i1 %.not.i.i.i91.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit92.i, label %1229
+1206:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit90.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit42"
+  %1207 = phi ptr [ %806, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit42" ], [ %1208, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit90.i ]
+  %1208 = getelementptr inbounds i8, ptr %1207, i64 -48
+  %1209 = getelementptr inbounds i8, ptr %1207, i64 -16
+  %1210 = load ptr, ptr %1209, align 8
+  %.not.i.i.i89.i = icmp eq ptr %1210, null
+  br i1 %.not.i.i.i89.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit90.i, label %1211
 
-1229:                                             ; preds = %1224
-  %1230 = getelementptr inbounds i8, ptr %1225, i64 -32
-  %1231 = call noundef zeroext i1 %1228(ptr noundef nonnull align 8 dereferenceable(16) %1230, ptr noundef nonnull align 8 dereferenceable(16) %1230, i32 noundef 3) #16
+1211:                                             ; preds = %1206
+  %1212 = getelementptr inbounds i8, ptr %1207, i64 -32
+  %1213 = call noundef zeroext i1 %1210(ptr noundef nonnull align 8 dereferenceable(16) %1212, ptr noundef nonnull align 8 dereferenceable(16) %1212, i32 noundef 3) #16
+  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit90.i
+
+_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit90.i: ; preds = %1211, %1206
+  %1214 = icmp eq ptr %1208, %46
+  br i1 %1214, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1206
+
+1215:                                             ; preds = %.lr.ph, %.lr.ph
+  %1216 = icmp sgt i32 %934, 4
+  %1217 = select i1 %1216, i32 3217, i32 0
+  store i32 %1217, ptr %47, align 16
+  store i32 2, ptr %681, align 4
+  store i32 8, ptr %682, align 8
+  store i64 0, ptr %686, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %683, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %685, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %684, align 16
+  %1218 = select i1 %1216, i32 3229, i32 0
+  store i32 %1218, ptr %687, align 16
+  store i32 2, ptr %688, align 4
+  store i32 8, ptr %689, align 8
+  store i64 0, ptr %693, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %690, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %692, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %691, align 16
+  store i32 2597, ptr %694, align 16
+  store i32 1, ptr %695, align 4
+  store i32 32, ptr %696, align 8
+  store i64 0, ptr %700, align 8
+  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %697, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %699, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %698, align 16
+  %1219 = select i1 %1216, i32 3215, i32 0
+  store i32 %1219, ptr %701, align 16
+  store i32 4, ptr %702, align 4
+  store i32 8, ptr %703, align 8
+  store i64 0, ptr %707, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %704, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %706, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %705, align 16
+  %1220 = select i1 %1216, i32 3227, i32 0
+  store i32 %1220, ptr %708, align 16
+  store i32 4, ptr %709, align 4
+  store i32 8, ptr %710, align 8
+  store i64 0, ptr %714, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %711, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %713, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %712, align 16
+  %1221 = select i1 %1216, i32 3225, i32 0
+  store i32 %1221, ptr %715, align 16
+  store i32 2, ptr %716, align 4
+  store i32 16, ptr %717, align 8
+  store i64 0, ptr %721, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %718, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %720, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %719, align 16
+  %1222 = select i1 %1216, i32 3237, i32 0
+  store i32 %1222, ptr %722, align 16
+  store i32 2, ptr %723, align 4
+  store i32 16, ptr %724, align 8
+  store i64 0, ptr %728, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %725, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %727, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %726, align 16
+  store i32 2644, ptr %729, align 16
+  store i32 1, ptr %730, align 4
+  store i32 64, ptr %731, align 8
+  store i64 0, ptr %735, align 8
+  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %732, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %734, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %733, align 16
+  %1223 = select i1 %1216, i32 3219, i32 0
+  store i32 %1223, ptr %736, align 16
+  store i32 8, ptr %737, align 4
+  store i32 8, ptr %738, align 8
+  store i64 0, ptr %742, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %739, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %741, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %740, align 16
+  %1224 = select i1 %1216, i32 3231, i32 0
+  store i32 %1224, ptr %743, align 16
+  store i32 8, ptr %744, align 4
+  store i32 8, ptr %745, align 8
+  store i64 0, ptr %749, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %746, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %748, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %747, align 16
+  %1225 = select i1 %1216, i32 3223, i32 0
+  store i32 %1225, ptr %750, align 16
+  store i32 4, ptr %751, align 4
+  store i32 16, ptr %752, align 8
+  store i64 0, ptr %756, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %753, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %755, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %754, align 16
+  %1226 = select i1 %1216, i32 3235, i32 0
+  store i32 %1226, ptr %757, align 16
+  store i32 4, ptr %758, align 4
+  store i32 16, ptr %759, align 8
+  store i64 0, ptr %763, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %760, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %762, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %761, align 16
+  %1227 = select i1 %1216, i32 3221, i32 0
+  store i32 %1227, ptr %764, align 16
+  store i32 2, ptr %765, align 4
+  store i32 32, ptr %766, align 8
+  store i64 0, ptr %770, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %767, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %769, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %768, align 16
+  %1228 = select i1 %1216, i32 3233, i32 0
+  store i32 %1228, ptr %771, align 16
+  store i32 2, ptr %772, align 4
+  store i32 32, ptr %773, align 8
+  store i64 0, ptr %777, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %774, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %776, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %775, align 16
+  %1229 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj"(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr nonnull %47, i64 14, i32 noundef 128, i32 noundef 1)
+  br label %1230
+
+1230:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit92.i, %1215
+  %1231 = phi ptr [ %778, %1215 ], [ %1232, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit92.i ]
+  %1232 = getelementptr inbounds i8, ptr %1231, i64 -48
+  %1233 = getelementptr inbounds i8, ptr %1231, i64 -16
+  %1234 = load ptr, ptr %1233, align 8
+  %.not.i.i.i91.i = icmp eq ptr %1234, null
+  br i1 %.not.i.i.i91.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit92.i, label %1235
+
+1235:                                             ; preds = %1230
+  %1236 = getelementptr inbounds i8, ptr %1231, i64 -32
+  %1237 = call noundef zeroext i1 %1234(ptr noundef nonnull align 8 dereferenceable(16) %1236, ptr noundef nonnull align 8 dereferenceable(16) %1236, i32 noundef 3) #16
   br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit92.i
 
-_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit92.i: ; preds = %1229, %1224
-  %1232 = icmp eq ptr %1226, %46
-  br i1 %1232, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1224
+_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit92.i: ; preds = %1235, %1230
+  %1238 = icmp eq ptr %1232, %47
+  br i1 %1238, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1230
 
-1233:                                             ; preds = %.lr.ph, %.lr.ph
-  %1234 = icmp sgt i32 %934, 4
-  %1235 = select i1 %1234, i32 3217, i32 0
-  store i32 %1235, ptr %47, align 16
-  store i32 2, ptr %682, align 4
-  store i32 8, ptr %683, align 8
-  store i64 0, ptr %687, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %684, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %686, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %685, align 16
-  %1236 = select i1 %1234, i32 3229, i32 0
-  store i32 %1236, ptr %688, align 16
-  store i32 2, ptr %689, align 4
-  store i32 8, ptr %690, align 8
-  store i64 0, ptr %694, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %691, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %693, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %692, align 16
-  store i32 2597, ptr %695, align 16
-  store i32 1, ptr %696, align 4
-  store i32 32, ptr %697, align 8
-  store i64 0, ptr %701, align 8
-  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %698, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %700, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %699, align 16
-  %1237 = select i1 %1234, i32 3215, i32 0
-  store i32 %1237, ptr %702, align 16
-  store i32 4, ptr %703, align 4
-  store i32 8, ptr %704, align 8
-  store i64 0, ptr %708, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %705, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %707, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %706, align 16
-  %1238 = select i1 %1234, i32 3227, i32 0
-  store i32 %1238, ptr %709, align 16
-  store i32 4, ptr %710, align 4
-  store i32 8, ptr %711, align 8
-  store i64 0, ptr %715, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %712, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %714, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %713, align 16
-  %1239 = select i1 %1234, i32 3225, i32 0
-  store i32 %1239, ptr %716, align 16
-  store i32 2, ptr %717, align 4
-  store i32 16, ptr %718, align 8
-  store i64 0, ptr %722, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %719, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %721, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %720, align 16
-  %1240 = select i1 %1234, i32 3237, i32 0
-  store i32 %1240, ptr %723, align 16
-  store i32 2, ptr %724, align 4
-  store i32 16, ptr %725, align 8
-  store i64 0, ptr %729, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %726, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %728, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %727, align 16
-  store i32 2644, ptr %730, align 16
-  store i32 1, ptr %731, align 4
-  store i32 64, ptr %732, align 8
-  store i64 0, ptr %736, align 8
-  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %733, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %735, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %734, align 16
-  %1241 = select i1 %1234, i32 3219, i32 0
-  store i32 %1241, ptr %737, align 16
-  store i32 8, ptr %738, align 4
-  store i32 8, ptr %739, align 8
-  store i64 0, ptr %743, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %740, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %742, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %741, align 16
-  %1242 = select i1 %1234, i32 3231, i32 0
-  store i32 %1242, ptr %744, align 16
-  store i32 8, ptr %745, align 4
-  store i32 8, ptr %746, align 8
-  store i64 0, ptr %750, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %747, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %749, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %748, align 16
-  %1243 = select i1 %1234, i32 3223, i32 0
-  store i32 %1243, ptr %751, align 16
-  store i32 4, ptr %752, align 4
-  store i32 16, ptr %753, align 8
-  store i64 0, ptr %757, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %754, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %756, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %755, align 16
-  %1244 = select i1 %1234, i32 3235, i32 0
-  store i32 %1244, ptr %758, align 16
-  store i32 4, ptr %759, align 4
-  store i32 16, ptr %760, align 8
-  store i64 0, ptr %764, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %761, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %763, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %762, align 16
-  %1245 = select i1 %1234, i32 3221, i32 0
-  store i32 %1245, ptr %765, align 16
-  store i32 2, ptr %766, align 4
-  store i32 32, ptr %767, align 8
-  store i64 0, ptr %771, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %768, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %770, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %769, align 16
-  %1246 = select i1 %1234, i32 3233, i32 0
-  store i32 %1246, ptr %772, align 16
-  store i32 2, ptr %773, align 4
-  store i32 32, ptr %774, align 8
-  store i64 0, ptr %778, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %775, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %777, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %776, align 16
-  %1247 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj"(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr nonnull %47, i64 14, i32 noundef 128, i32 noundef 1)
-  br label %1248
+1239:                                             ; preds = %.lr.ph, %.lr.ph
+  %1240 = select i1 %935, i32 15017, i32 0
+  store i32 %1240, ptr %48, align 16
+  store i32 1, ptr %555, align 4
+  store i32 8, ptr %556, align 8
+  store i64 0, ptr %560, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %557, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %559, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %558, align 16
+  %1241 = select i1 %935, i32 15116, i32 0
+  store i32 %1241, ptr %561, align 16
+  store i32 1, ptr %562, align 4
+  store i32 16, ptr %563, align 8
+  store i64 0, ptr %567, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %564, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %566, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %565, align 16
+  store i32 17638, ptr %568, align 16
+  store i32 2, ptr %569, align 4
+  store i32 8, ptr %570, align 8
+  store i64 0, ptr %574, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %571, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %573, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %572, align 16
+  store i32 17878, ptr %575, align 16
+  store i32 2, ptr %576, align 4
+  store i32 8, ptr %577, align 8
+  store i64 0, ptr %581, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %578, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %580, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %579, align 16
+  store i32 13542, ptr %582, align 16
+  store i32 1, ptr %583, align 4
+  store i32 32, ptr %584, align 8
+  store i64 0, ptr %588, align 8
+  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %585, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %587, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %586, align 16
+  %1242 = select i1 %935, i32 15048, i32 5587
+  store i32 %1242, ptr %589, align 16
+  store i32 1, ptr %590, align 4
+  store i32 32, ptr %591, align 8
+  store i64 0, ptr %595, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %592, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %594, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %593, align 16
+  store i32 17616, ptr %596, align 16
+  store i32 4, ptr %597, align 4
+  store i32 8, ptr %598, align 8
+  store i64 0, ptr %602, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %599, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %601, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %600, align 16
+  store i32 17856, ptr %603, align 16
+  store i32 4, ptr %604, align 4
+  store i32 8, ptr %605, align 8
+  store i64 0, ptr %609, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %606, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %608, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %607, align 16
+  store i32 17726, ptr %610, align 16
+  store i32 2, ptr %611, align 4
+  store i32 16, ptr %612, align 8
+  store i64 0, ptr %616, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %613, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %615, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %614, align 16
+  store i32 17966, ptr %617, align 16
+  store i32 2, ptr %618, align 4
+  store i32 16, ptr %619, align 8
+  store i64 0, ptr %623, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %620, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %622, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %621, align 16
+  store i32 13817, ptr %624, align 16
+  store i32 1, ptr %625, align 4
+  store i32 64, ptr %626, align 8
+  store i64 0, ptr %630, align 8
+  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %627, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %629, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %628, align 16
+  %1243 = select i1 %935, i32 15085, i32 13538
+  store i32 %1243, ptr %631, align 16
+  store i32 1, ptr %632, align 4
+  store i32 64, ptr %633, align 8
+  store i64 0, ptr %637, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %634, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %636, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %635, align 16
+  store i32 17660, ptr %638, align 16
+  store i32 8, ptr %639, align 4
+  store i32 8, ptr %640, align 8
+  store i64 0, ptr %644, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %641, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %643, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %642, align 16
+  store i32 17900, ptr %645, align 16
+  store i32 8, ptr %646, align 4
+  store i32 8, ptr %647, align 8
+  store i64 0, ptr %651, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %648, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %650, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %649, align 16
+  store i32 17704, ptr %652, align 16
+  store i32 4, ptr %653, align 4
+  store i32 16, ptr %654, align 8
+  store i64 0, ptr %658, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %655, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %657, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %656, align 16
+  store i32 17944, ptr %659, align 16
+  store i32 4, ptr %660, align 4
+  store i32 16, ptr %661, align 8
+  store i64 0, ptr %665, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %662, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %664, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %663, align 16
+  store i32 17682, ptr %666, align 16
+  store i32 2, ptr %667, align 4
+  store i32 32, ptr %668, align 8
+  store i64 0, ptr %672, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %669, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %671, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %670, align 16
+  store i32 17922, ptr %673, align 16
+  store i32 2, ptr %674, align 4
+  store i32 32, ptr %675, align 8
+  store i64 0, ptr %679, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %676, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %678, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %677, align 16
+  %1244 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj"(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr nonnull %48, i64 18, i32 noundef 128, i32 noundef 1)
+  br label %1245
 
-1248:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit94.i, %1233
-  %1249 = phi ptr [ %779, %1233 ], [ %1250, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit94.i ]
-  %1250 = getelementptr inbounds i8, ptr %1249, i64 -48
-  %1251 = getelementptr inbounds i8, ptr %1249, i64 -16
-  %1252 = load ptr, ptr %1251, align 8
-  %.not.i.i.i93.i = icmp eq ptr %1252, null
-  br i1 %.not.i.i.i93.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit94.i, label %1253
+1245:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit94.i, %1239
+  %1246 = phi ptr [ %680, %1239 ], [ %1247, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit94.i ]
+  %1247 = getelementptr inbounds i8, ptr %1246, i64 -48
+  %1248 = getelementptr inbounds i8, ptr %1246, i64 -16
+  %1249 = load ptr, ptr %1248, align 8
+  %.not.i.i.i93.i = icmp eq ptr %1249, null
+  br i1 %.not.i.i.i93.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit94.i, label %1250
 
-1253:                                             ; preds = %1248
-  %1254 = getelementptr inbounds i8, ptr %1249, i64 -32
-  %1255 = call noundef zeroext i1 %1252(ptr noundef nonnull align 8 dereferenceable(16) %1254, ptr noundef nonnull align 8 dereferenceable(16) %1254, i32 noundef 3) #16
+1250:                                             ; preds = %1245
+  %1251 = getelementptr inbounds i8, ptr %1246, i64 -32
+  %1252 = call noundef zeroext i1 %1249(ptr noundef nonnull align 8 dereferenceable(16) %1251, ptr noundef nonnull align 8 dereferenceable(16) %1251, i32 noundef 3) #16
   br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit94.i
 
-_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit94.i: ; preds = %1253, %1248
-  %1256 = icmp eq ptr %1250, %47
-  br i1 %1256, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1248
+_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit94.i: ; preds = %1250, %1245
+  %1253 = icmp eq ptr %1247, %48
+  br i1 %1253, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1245
 
-1257:                                             ; preds = %.lr.ph, %.lr.ph
-  %1258 = select i1 %935, i32 15017, i32 0
-  store i32 %1258, ptr %48, align 16
-  store i32 1, ptr %556, align 4
-  store i32 8, ptr %557, align 8
-  store i64 0, ptr %561, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %558, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %560, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %559, align 16
-  %1259 = select i1 %935, i32 15116, i32 0
-  store i32 %1259, ptr %562, align 16
-  store i32 1, ptr %563, align 4
-  store i32 16, ptr %564, align 8
-  store i64 0, ptr %568, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %565, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %567, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %566, align 16
-  store i32 17638, ptr %569, align 16
-  store i32 2, ptr %570, align 4
-  store i32 8, ptr %571, align 8
-  store i64 0, ptr %575, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %572, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %574, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %573, align 16
-  store i32 17878, ptr %576, align 16
-  store i32 2, ptr %577, align 4
-  store i32 8, ptr %578, align 8
-  store i64 0, ptr %582, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %579, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %581, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %580, align 16
-  store i32 13542, ptr %583, align 16
-  store i32 1, ptr %584, align 4
-  store i32 32, ptr %585, align 8
-  store i64 0, ptr %589, align 8
-  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %586, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %588, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %587, align 16
-  %1260 = select i1 %935, i32 15048, i32 5587
-  store i32 %1260, ptr %590, align 16
-  store i32 1, ptr %591, align 4
-  store i32 32, ptr %592, align 8
-  store i64 0, ptr %596, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %593, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %595, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %594, align 16
-  store i32 17616, ptr %597, align 16
-  store i32 4, ptr %598, align 4
-  store i32 8, ptr %599, align 8
-  store i64 0, ptr %603, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %600, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %602, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %601, align 16
-  store i32 17856, ptr %604, align 16
-  store i32 4, ptr %605, align 4
-  store i32 8, ptr %606, align 8
-  store i64 0, ptr %610, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %607, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %609, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %608, align 16
-  store i32 17726, ptr %611, align 16
-  store i32 2, ptr %612, align 4
-  store i32 16, ptr %613, align 8
-  store i64 0, ptr %617, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %614, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %616, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %615, align 16
-  store i32 17966, ptr %618, align 16
-  store i32 2, ptr %619, align 4
-  store i32 16, ptr %620, align 8
-  store i64 0, ptr %624, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %621, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %623, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %622, align 16
-  store i32 13817, ptr %625, align 16
-  store i32 1, ptr %626, align 4
-  store i32 64, ptr %627, align 8
-  store i64 0, ptr %631, align 8
-  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %628, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %630, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %629, align 16
-  %1261 = select i1 %935, i32 15085, i32 13538
-  store i32 %1261, ptr %632, align 16
-  store i32 1, ptr %633, align 4
-  store i32 64, ptr %634, align 8
-  store i64 0, ptr %638, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %635, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %637, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %636, align 16
-  store i32 17660, ptr %639, align 16
-  store i32 8, ptr %640, align 4
-  store i32 8, ptr %641, align 8
-  store i64 0, ptr %645, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %642, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %644, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %643, align 16
-  store i32 17900, ptr %646, align 16
-  store i32 8, ptr %647, align 4
-  store i32 8, ptr %648, align 8
-  store i64 0, ptr %652, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %649, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %651, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %650, align 16
-  store i32 17704, ptr %653, align 16
-  store i32 4, ptr %654, align 4
-  store i32 16, ptr %655, align 8
-  store i64 0, ptr %659, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %656, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %658, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %657, align 16
-  store i32 17944, ptr %660, align 16
-  store i32 4, ptr %661, align 4
-  store i32 16, ptr %662, align 8
-  store i64 0, ptr %666, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %663, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %665, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %664, align 16
-  store i32 17682, ptr %667, align 16
-  store i32 2, ptr %668, align 4
-  store i32 32, ptr %669, align 8
-  store i64 0, ptr %673, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %670, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %672, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %671, align 16
-  store i32 17922, ptr %674, align 16
-  store i32 2, ptr %675, align 4
-  store i32 32, ptr %676, align 8
-  store i64 0, ptr %680, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %677, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %679, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %678, align 16
-  %1262 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj"(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr nonnull %48, i64 18, i32 noundef 128, i32 noundef 1)
-  br label %1263
+1254:                                             ; preds = %.lr.ph, %.lr.ph
+  %1255 = select i1 %935, i32 14988, i32 0
+  store i32 %1255, ptr %49, align 16
+  store i32 1, ptr %436, align 4
+  store i32 8, ptr %437, align 8
+  store i64 0, ptr %441, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %438, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %440, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %439, align 16
+  %1256 = select i1 %935, i32 15087, i32 0
+  store i32 %1256, ptr %442, align 16
+  store i32 1, ptr %443, align 4
+  store i32 16, ptr %444, align 8
+  store i64 0, ptr %448, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %445, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %447, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %446, align 16
+  %1257 = select i1 %935, i32 15019, i32 5567
+  store i32 %1257, ptr %449, align 16
+  store i32 1, ptr %450, align 4
+  store i32 32, ptr %451, align 8
+  store i64 0, ptr %455, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %452, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %454, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %453, align 16
+  %1258 = select i1 %935, i32 17618, i32 0
+  store i32 %1258, ptr %456, align 16
+  store i32 4, ptr %457, align 4
+  store i32 8, ptr %458, align 8
+  store i64 0, ptr %462, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %459, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %461, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %460, align 16
+  %1259 = select i1 %935, i32 17858, i32 0
+  store i32 %1259, ptr %463, align 16
+  store i32 4, ptr %464, align 4
+  store i32 8, ptr %465, align 8
+  store i64 0, ptr %469, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %466, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %468, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %467, align 16
+  %1260 = select i1 %935, i32 15056, i32 5553
+  store i32 %1260, ptr %470, align 16
+  store i32 1, ptr %471, align 4
+  store i32 64, ptr %472, align 8
+  store i64 0, ptr %476, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %473, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %475, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %474, align 16
+  %1261 = select i1 %935, i32 17596, i32 0
+  store i32 %1261, ptr %477, align 16
+  store i32 8, ptr %478, align 4
+  store i32 8, ptr %479, align 8
+  store i64 0, ptr %483, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %480, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %482, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %481, align 16
+  %1262 = select i1 %935, i32 17836, i32 0
+  store i32 %1262, ptr %484, align 16
+  store i32 8, ptr %485, align 4
+  store i32 8, ptr %486, align 8
+  store i64 0, ptr %490, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %487, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %489, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %488, align 16
+  %1263 = select i1 %935, i32 17706, i32 0
+  store i32 %1263, ptr %491, align 16
+  store i32 4, ptr %492, align 4
+  store i32 16, ptr %493, align 8
+  store i64 0, ptr %497, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %494, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %496, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %495, align 16
+  %1264 = select i1 %935, i32 17946, i32 0
+  store i32 %1264, ptr %498, align 16
+  store i32 4, ptr %499, align 4
+  store i32 16, ptr %500, align 8
+  store i64 0, ptr %504, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %501, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %503, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %502, align 16
+  %1265 = select i1 %935, i32 5516, i32 5485
+  store i32 %1265, ptr %505, align 16
+  store i32 1, ptr %506, align 4
+  store i32 128, ptr %507, align 8
+  store i64 0, ptr %511, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %508, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %510, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %509, align 16
+  %1266 = select i1 %935, i32 17640, i32 0
+  store i32 %1266, ptr %512, align 16
+  store i32 16, ptr %513, align 4
+  store i32 8, ptr %514, align 8
+  store i64 0, ptr %518, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %515, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %517, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %516, align 16
+  %1267 = select i1 %935, i32 17880, i32 0
+  store i32 %1267, ptr %519, align 16
+  store i32 16, ptr %520, align 4
+  store i32 8, ptr %521, align 8
+  store i64 0, ptr %525, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %522, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %524, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %523, align 16
+  %1268 = select i1 %935, i32 17684, i32 0
+  store i32 %1268, ptr %526, align 16
+  store i32 8, ptr %527, align 4
+  store i32 16, ptr %528, align 8
+  store i64 0, ptr %532, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %529, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %531, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %530, align 16
+  %1269 = select i1 %935, i32 17924, i32 0
+  store i32 %1269, ptr %533, align 16
+  store i32 8, ptr %534, align 4
+  store i32 16, ptr %535, align 8
+  store i64 0, ptr %539, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %536, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %538, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %537, align 16
+  %1270 = select i1 %935, i32 17662, i32 0
+  store i32 %1270, ptr %540, align 16
+  store i32 4, ptr %541, align 4
+  store i32 32, ptr %542, align 8
+  store i64 0, ptr %546, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %543, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %545, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %544, align 16
+  %1271 = select i1 %935, i32 17902, i32 0
+  store i32 %1271, ptr %547, align 16
+  store i32 4, ptr %548, align 4
+  store i32 32, ptr %549, align 8
+  store i64 0, ptr %553, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %550, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %552, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %551, align 16
+  %1272 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj"(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr nonnull %49, i64 17, i32 noundef 256, i32 noundef 1)
+  br label %1273
 
-1263:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit96.i, %1257
-  %1264 = phi ptr [ %681, %1257 ], [ %1265, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit96.i ]
-  %1265 = getelementptr inbounds i8, ptr %1264, i64 -48
-  %1266 = getelementptr inbounds i8, ptr %1264, i64 -16
-  %1267 = load ptr, ptr %1266, align 8
-  %.not.i.i.i95.i = icmp eq ptr %1267, null
-  br i1 %.not.i.i.i95.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit96.i, label %1268
+1273:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit96.i, %1254
+  %1274 = phi ptr [ %554, %1254 ], [ %1275, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit96.i ]
+  %1275 = getelementptr inbounds i8, ptr %1274, i64 -48
+  %1276 = getelementptr inbounds i8, ptr %1274, i64 -16
+  %1277 = load ptr, ptr %1276, align 8
+  %.not.i.i.i95.i = icmp eq ptr %1277, null
+  br i1 %.not.i.i.i95.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit96.i, label %1278
 
-1268:                                             ; preds = %1263
-  %1269 = getelementptr inbounds i8, ptr %1264, i64 -32
-  %1270 = call noundef zeroext i1 %1267(ptr noundef nonnull align 8 dereferenceable(16) %1269, ptr noundef nonnull align 8 dereferenceable(16) %1269, i32 noundef 3) #16
+1278:                                             ; preds = %1273
+  %1279 = getelementptr inbounds i8, ptr %1274, i64 -32
+  %1280 = call noundef zeroext i1 %1277(ptr noundef nonnull align 8 dereferenceable(16) %1279, ptr noundef nonnull align 8 dereferenceable(16) %1279, i32 noundef 3) #16
   br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit96.i
 
-_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit96.i: ; preds = %1268, %1263
-  %1271 = icmp eq ptr %1265, %48
-  br i1 %1271, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1263
+_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit96.i: ; preds = %1278, %1273
+  %1281 = icmp eq ptr %1275, %49
+  br i1 %1281, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1273
 
-1272:                                             ; preds = %.lr.ph, %.lr.ph
-  %1273 = select i1 %935, i32 14988, i32 0
-  store i32 %1273, ptr %49, align 16
-  store i32 1, ptr %437, align 4
-  store i32 8, ptr %438, align 8
-  store i64 0, ptr %442, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %439, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %441, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %440, align 16
-  %1274 = select i1 %935, i32 15087, i32 0
-  store i32 %1274, ptr %443, align 16
-  store i32 1, ptr %444, align 4
-  store i32 16, ptr %445, align 8
-  store i64 0, ptr %449, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %446, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %448, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %447, align 16
-  %1275 = select i1 %935, i32 15019, i32 5567
-  store i32 %1275, ptr %450, align 16
-  store i32 1, ptr %451, align 4
-  store i32 32, ptr %452, align 8
-  store i64 0, ptr %456, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %453, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %455, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %454, align 16
-  %1276 = select i1 %935, i32 17618, i32 0
-  store i32 %1276, ptr %457, align 16
-  store i32 4, ptr %458, align 4
-  store i32 8, ptr %459, align 8
-  store i64 0, ptr %463, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %460, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %462, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %461, align 16
-  %1277 = select i1 %935, i32 17858, i32 0
-  store i32 %1277, ptr %464, align 16
-  store i32 4, ptr %465, align 4
-  store i32 8, ptr %466, align 8
-  store i64 0, ptr %470, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %467, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %469, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %468, align 16
-  %1278 = select i1 %935, i32 15056, i32 5553
-  store i32 %1278, ptr %471, align 16
-  store i32 1, ptr %472, align 4
-  store i32 64, ptr %473, align 8
-  store i64 0, ptr %477, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %474, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %476, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %475, align 16
-  %1279 = select i1 %935, i32 17596, i32 0
-  store i32 %1279, ptr %478, align 16
-  store i32 8, ptr %479, align 4
-  store i32 8, ptr %480, align 8
-  store i64 0, ptr %484, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %481, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %483, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %482, align 16
-  %1280 = select i1 %935, i32 17836, i32 0
-  store i32 %1280, ptr %485, align 16
-  store i32 8, ptr %486, align 4
-  store i32 8, ptr %487, align 8
-  store i64 0, ptr %491, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %488, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %490, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %489, align 16
-  %1281 = select i1 %935, i32 17706, i32 0
-  store i32 %1281, ptr %492, align 16
-  store i32 4, ptr %493, align 4
-  store i32 16, ptr %494, align 8
-  store i64 0, ptr %498, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %495, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %497, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %496, align 16
-  %1282 = select i1 %935, i32 17946, i32 0
-  store i32 %1282, ptr %499, align 16
-  store i32 4, ptr %500, align 4
-  store i32 16, ptr %501, align 8
-  store i64 0, ptr %505, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %502, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %504, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %503, align 16
-  %1283 = select i1 %935, i32 5516, i32 5485
-  store i32 %1283, ptr %506, align 16
-  store i32 1, ptr %507, align 4
-  store i32 128, ptr %508, align 8
-  store i64 0, ptr %512, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %509, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %511, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %510, align 16
-  %1284 = select i1 %935, i32 17640, i32 0
-  store i32 %1284, ptr %513, align 16
-  store i32 16, ptr %514, align 4
-  store i32 8, ptr %515, align 8
-  store i64 0, ptr %519, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %516, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %518, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %517, align 16
-  %1285 = select i1 %935, i32 17880, i32 0
-  store i32 %1285, ptr %520, align 16
-  store i32 16, ptr %521, align 4
-  store i32 8, ptr %522, align 8
-  store i64 0, ptr %526, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %523, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %525, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %524, align 16
-  %1286 = select i1 %935, i32 17684, i32 0
-  store i32 %1286, ptr %527, align 16
-  store i32 8, ptr %528, align 4
-  store i32 16, ptr %529, align 8
-  store i64 0, ptr %533, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %530, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %532, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %531, align 16
-  %1287 = select i1 %935, i32 17924, i32 0
-  store i32 %1287, ptr %534, align 16
-  store i32 8, ptr %535, align 4
-  store i32 16, ptr %536, align 8
-  store i64 0, ptr %540, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %537, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %539, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %538, align 16
-  %1288 = select i1 %935, i32 17662, i32 0
-  store i32 %1288, ptr %541, align 16
-  store i32 4, ptr %542, align 4
-  store i32 32, ptr %543, align 8
-  store i64 0, ptr %547, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %544, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %546, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %545, align 16
-  %1289 = select i1 %935, i32 17902, i32 0
-  store i32 %1289, ptr %548, align 16
-  store i32 4, ptr %549, align 4
-  store i32 32, ptr %550, align 8
-  store i64 0, ptr %554, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %551, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %553, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %552, align 16
-  %1290 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj"(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr nonnull %49, i64 17, i32 noundef 256, i32 noundef 1)
-  br label %1291
-
-1291:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i, %1272
-  %1292 = phi ptr [ %555, %1272 ], [ %1293, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i ]
-  %1293 = getelementptr inbounds i8, ptr %1292, i64 -48
-  %1294 = getelementptr inbounds i8, ptr %1292, i64 -16
-  %1295 = load ptr, ptr %1294, align 8
-  %.not.i.i.i97.i = icmp eq ptr %1295, null
-  br i1 %.not.i.i.i97.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i, label %1296
-
-1296:                                             ; preds = %1291
-  %1297 = getelementptr inbounds i8, ptr %1292, i64 -32
-  %1298 = call noundef zeroext i1 %1295(ptr noundef nonnull align 8 dereferenceable(16) %1297, ptr noundef nonnull align 8 dereferenceable(16) %1297, i32 noundef 3) #16
-  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i
-
-_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i: ; preds = %1296, %1291
-  %1299 = icmp eq ptr %1293, %49
-  br i1 %1299, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1291
-
-1300:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %1301 = select i1 %941, i32 14990, i32 0
-  store i32 %1301, ptr %50, align 16
-  store i32 1, ptr %311, align 4
-  store i32 8, ptr %312, align 8
-  store i64 0, ptr %316, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %313, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %315, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %314, align 16
-  %1302 = select i1 %941, i32 15089, i32 0
-  store i32 %1302, ptr %317, align 16
-  store i32 1, ptr %318, align 4
-  store i32 16, ptr %319, align 8
-  store i64 0, ptr %323, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %320, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %322, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %321, align 16
-  store i32 17620, ptr %324, align 16
-  store i32 2, ptr %325, align 4
-  store i32 8, ptr %326, align 8
-  store i64 0, ptr %330, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %327, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %329, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %328, align 16
-  store i32 17860, ptr %331, align 16
-  store i32 2, ptr %332, align 4
-  store i32 8, ptr %333, align 8
-  store i64 0, ptr %337, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %334, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %336, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %335, align 16
-  store i32 13540, ptr %338, align 16
-  store i32 1, ptr %339, align 4
-  store i32 32, ptr %340, align 8
-  store i64 0, ptr %344, align 8
-  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %341, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %343, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %342, align 16
-  store i32 15021, ptr %345, align 16
-  store i32 1, ptr %346, align 4
-  store i32 32, ptr %347, align 8
-  store i64 0, ptr %351, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %348, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %350, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %349, align 16
-  store i32 17598, ptr %352, align 16
-  store i32 4, ptr %353, align 4
-  store i32 8, ptr %354, align 8
-  store i64 0, ptr %358, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %355, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %357, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %356, align 16
-  store i32 17838, ptr %359, align 16
-  store i32 4, ptr %360, align 4
-  store i32 8, ptr %361, align 8
-  store i64 0, ptr %365, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %362, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %364, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %363, align 16
-  store i32 17708, ptr %366, align 16
-  store i32 2, ptr %367, align 4
-  store i32 16, ptr %368, align 8
-  store i64 0, ptr %372, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %369, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %371, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %370, align 16
-  store i32 17948, ptr %373, align 16
-  store i32 2, ptr %374, align 4
-  store i32 16, ptr %375, align 8
-  store i64 0, ptr %379, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %376, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %378, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %377, align 16
-  store i32 13816, ptr %380, align 16
-  store i32 1, ptr %381, align 4
-  store i32 64, ptr %382, align 8
-  store i64 0, ptr %386, align 8
-  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %383, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %385, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %384, align 16
-  store i32 15058, ptr %387, align 16
-  store i32 1, ptr %388, align 4
-  store i32 64, ptr %389, align 8
-  store i64 0, ptr %393, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %390, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %392, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %391, align 16
-  %1303 = select i1 %941, i32 17642, i32 0
-  store i32 %1303, ptr %394, align 16
-  store i32 8, ptr %395, align 4
-  store i32 8, ptr %396, align 8
-  store i64 0, ptr %400, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %397, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %399, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %398, align 16
-  %1304 = select i1 %941, i32 17882, i32 0
-  store i32 %1304, ptr %401, align 16
-  store i32 8, ptr %402, align 4
-  store i32 8, ptr %403, align 8
-  store i64 0, ptr %407, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %404, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %406, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %405, align 16
-  store i32 17686, ptr %408, align 16
-  store i32 4, ptr %409, align 4
-  store i32 16, ptr %410, align 8
-  store i64 0, ptr %414, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %411, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %413, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %412, align 16
-  store i32 17926, ptr %415, align 16
-  store i32 4, ptr %416, align 4
-  store i32 16, ptr %417, align 8
-  store i64 0, ptr %421, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %418, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %420, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %419, align 16
-  store i32 17664, ptr %422, align 16
-  store i32 2, ptr %423, align 4
-  store i32 32, ptr %424, align 8
-  store i64 0, ptr %428, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %425, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %427, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %426, align 16
-  store i32 17904, ptr %429, align 16
-  store i32 2, ptr %430, align 4
-  store i32 32, ptr %431, align 8
-  store i64 0, ptr %435, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %432, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %434, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %433, align 16
-  %1305 = load ptr, ptr %65, align 8
-  %1306 = load ptr, ptr %40, align 8
-  %1307 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %1306, i32 noundef 1) #16
-  %.not.i23 = icmp eq ptr %1307, null
+1282:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %1283 = select i1 %941, i32 14990, i32 0
+  store i32 %1283, ptr %50, align 16
+  store i32 1, ptr %310, align 4
+  store i32 8, ptr %311, align 8
+  store i64 0, ptr %315, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %312, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %314, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %313, align 16
+  %1284 = select i1 %941, i32 15089, i32 0
+  store i32 %1284, ptr %316, align 16
+  store i32 1, ptr %317, align 4
+  store i32 16, ptr %318, align 8
+  store i64 0, ptr %322, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %319, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %321, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %320, align 16
+  store i32 17620, ptr %323, align 16
+  store i32 2, ptr %324, align 4
+  store i32 8, ptr %325, align 8
+  store i64 0, ptr %329, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %326, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %328, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %327, align 16
+  store i32 17860, ptr %330, align 16
+  store i32 2, ptr %331, align 4
+  store i32 8, ptr %332, align 8
+  store i64 0, ptr %336, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %333, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %335, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %334, align 16
+  store i32 13540, ptr %337, align 16
+  store i32 1, ptr %338, align 4
+  store i32 32, ptr %339, align 8
+  store i64 0, ptr %343, align 8
+  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %340, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %342, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %341, align 16
+  store i32 15021, ptr %344, align 16
+  store i32 1, ptr %345, align 4
+  store i32 32, ptr %346, align 8
+  store i64 0, ptr %350, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %347, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %349, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %348, align 16
+  store i32 17598, ptr %351, align 16
+  store i32 4, ptr %352, align 4
+  store i32 8, ptr %353, align 8
+  store i64 0, ptr %357, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %354, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %356, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %355, align 16
+  store i32 17838, ptr %358, align 16
+  store i32 4, ptr %359, align 4
+  store i32 8, ptr %360, align 8
+  store i64 0, ptr %364, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %361, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %363, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %362, align 16
+  store i32 17708, ptr %365, align 16
+  store i32 2, ptr %366, align 4
+  store i32 16, ptr %367, align 8
+  store i64 0, ptr %371, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %368, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %370, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %369, align 16
+  store i32 17948, ptr %372, align 16
+  store i32 2, ptr %373, align 4
+  store i32 16, ptr %374, align 8
+  store i64 0, ptr %378, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %375, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %377, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %376, align 16
+  store i32 13816, ptr %379, align 16
+  store i32 1, ptr %380, align 4
+  store i32 64, ptr %381, align 8
+  store i64 0, ptr %385, align 8
+  store ptr @_ZL19rebuildZeroUpperCstPKN4llvm8ConstantEjjj, ptr %382, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %384, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %383, align 16
+  store i32 15058, ptr %386, align 16
+  store i32 1, ptr %387, align 4
+  store i32 64, ptr %388, align 8
+  store i64 0, ptr %392, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %389, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %391, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %390, align 16
+  %1285 = select i1 %941, i32 17642, i32 0
+  store i32 %1285, ptr %393, align 16
+  store i32 8, ptr %394, align 4
+  store i32 8, ptr %395, align 8
+  store i64 0, ptr %399, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %396, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %398, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %397, align 16
+  %1286 = select i1 %941, i32 17882, i32 0
+  store i32 %1286, ptr %400, align 16
+  store i32 8, ptr %401, align 4
+  store i32 8, ptr %402, align 8
+  store i64 0, ptr %406, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %403, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %405, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %404, align 16
+  store i32 17686, ptr %407, align 16
+  store i32 4, ptr %408, align 4
+  store i32 16, ptr %409, align 8
+  store i64 0, ptr %413, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %410, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %412, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %411, align 16
+  store i32 17926, ptr %414, align 16
+  store i32 4, ptr %415, align 4
+  store i32 16, ptr %416, align 8
+  store i64 0, ptr %420, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %417, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %419, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %418, align 16
+  store i32 17664, ptr %421, align 16
+  store i32 2, ptr %422, align 4
+  store i32 32, ptr %423, align 8
+  store i64 0, ptr %427, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %424, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %426, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %425, align 16
+  store i32 17904, ptr %428, align 16
+  store i32 2, ptr %429, align 4
+  store i32 32, ptr %430, align 8
+  store i64 0, ptr %434, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %431, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %433, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %432, align 16
+  %1287 = load ptr, ptr %64, align 8
+  %1288 = load ptr, ptr %40, align 8
+  %1289 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %1288, i32 noundef 1) #16
+  %.not.i23 = icmp eq ptr %1289, null
   br i1 %.not.i23, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit32", label %.lr.ph.i24
 
-.lr.ph.i24:                                       ; preds = %1300, %1345
-  %.02440.i25.idx = phi i64 [ %.02440.i25.add, %1345 ], [ 0, %1300 ]
+.lr.ph.i24:                                       ; preds = %1282, %1325
+  %.02440.i25.idx = phi i64 [ %.02440.i25.add, %1325 ], [ 0, %1282 ]
   %.02440.i25.ptr = getelementptr inbounds i8, ptr %50, i64 %.02440.i25.idx
-  %1308 = load i32, ptr %.02440.i25.ptr, align 16
-  %.not30.i26 = icmp eq i32 %1308, 0
-  br i1 %.not30.i26, label %1345, label %1309
+  %1290 = load i32, ptr %.02440.i25.ptr, align 16
+  %.not30.i26 = icmp eq i32 %1290, 0
+  br i1 %.not30.i26, label %1325, label %1291
 
-1309:                                             ; preds = %.lr.ph.i24
-  %1310 = getelementptr inbounds nuw i8, ptr %.02440.i25.ptr, i64 4
-  %1311 = load i32, ptr %1310, align 4
-  %1312 = getelementptr inbounds nuw i8, ptr %.02440.i25.ptr, i64 8
-  %1313 = load i32, ptr %1312, align 8
+1291:                                             ; preds = %.lr.ph.i24
+  %1292 = getelementptr inbounds nuw i8, ptr %.02440.i25.ptr, i64 4
+  %1293 = load i32, ptr %1292, align 4
+  %1294 = getelementptr inbounds nuw i8, ptr %.02440.i25.ptr, i64 8
+  %1295 = load i32, ptr %1294, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
-  store ptr %1307, ptr %27, align 8
+  store ptr %1289, ptr %27, align 8
   store i32 128, ptr %28, align 4
-  store i32 %1311, ptr %29, align 4
-  store i32 %1313, ptr %30, align 4
-  %1314 = getelementptr inbounds nuw i8, ptr %.02440.i25.ptr, i64 32
-  %1315 = load ptr, ptr %1314, align 16
-  %.not.i.i.i27 = icmp eq ptr %1315, null
-  br i1 %.not.i.i.i27, label %1316, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i28
+  store i32 %1293, ptr %29, align 4
+  store i32 %1295, ptr %30, align 4
+  %1296 = getelementptr inbounds nuw i8, ptr %.02440.i25.ptr, i64 32
+  %1297 = load ptr, ptr %1296, align 16
+  %.not.i.i.i27 = icmp eq ptr %1297, null
+  br i1 %.not.i.i.i27, label %1298, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i28
 
-1316:                                             ; preds = %1309
+1298:                                             ; preds = %1291
   call void @_ZSt25__throw_bad_function_callv() #17
   unreachable
 
-_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i28: ; preds = %1309
-  %1317 = getelementptr inbounds nuw i8, ptr %.02440.i25.ptr, i64 16
-  %1318 = getelementptr inbounds nuw i8, ptr %.02440.i25.ptr, i64 40
-  %1319 = load ptr, ptr %1318, align 8
-  %1320 = call noundef ptr %1319(ptr noundef nonnull align 8 dereferenceable(16) %1317, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %30) #16
+_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i28: ; preds = %1291
+  %1299 = getelementptr inbounds nuw i8, ptr %.02440.i25.ptr, i64 16
+  %1300 = getelementptr inbounds nuw i8, ptr %.02440.i25.ptr, i64 40
+  %1301 = load ptr, ptr %1300, align 8
+  %1302 = call noundef ptr %1301(ptr noundef nonnull align 8 dereferenceable(16) %1299, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %30) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
-  %.not31.i29 = icmp eq ptr %1320, null
-  br i1 %.not31.i29, label %1345, label %1321
+  %.not31.i29 = icmp eq ptr %1302, null
+  br i1 %.not31.i29, label %1325, label %1303
 
-1321:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i28
-  %1322 = getelementptr inbounds nuw i8, ptr %.02440.i25.ptr, i64 8
-  %1323 = load ptr, ptr %64, align 8
-  %1324 = load ptr, ptr %1323, align 8
-  %1325 = load i32, ptr %1322, align 8
-  %1326 = sdiv i32 %1325, 8
-  %1327 = sext i32 %1326 to i64
-  %1328 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1327, i1 false)
-  %1329 = trunc nuw nsw i64 %1328 to i8
-  %1330 = sub nsw i8 63, %1329
-  %1331 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1324, ptr noundef nonnull %1320, i8 %1330) #16
-  %1332 = load ptr, ptr %40, align 8
-  %1333 = getelementptr inbounds nuw i8, ptr %1305, i64 56
-  %1334 = load ptr, ptr %1333, align 8
-  %1335 = getelementptr inbounds i8, ptr %1334, i64 8
-  %1336 = load i32, ptr %.02440.i25.ptr, align 8
-  %1337 = load ptr, ptr %1335, align 8
-  %1338 = zext i32 %1336 to i64
-  %1339 = sub nsw i64 0, %1338
-  %1340 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1337, i64 %1339
-  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1332, ptr noundef nonnull align 8 dereferenceable(32) %1340) #16
-  %1341 = load ptr, ptr %40, align 8
-  %1342 = getelementptr inbounds nuw i8, ptr %1341, i64 32
-  %1343 = load ptr, ptr %1342, align 8
-  %1344 = getelementptr inbounds i8, ptr %1343, i64 144
-  store i32 %1331, ptr %1344, align 8
+1303:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i28
+  %1304 = getelementptr inbounds nuw i8, ptr %.02440.i25.ptr, i64 8
+  %1305 = load ptr, ptr %63, align 8
+  %1306 = load ptr, ptr %1305, align 8
+  %1307 = load i32, ptr %1304, align 8
+  %1308 = sdiv i32 %1307, 8
+  %1309 = sext i32 %1308 to i64
+  %1310 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1309, i1 false)
+  %1311 = trunc nuw nsw i64 %1310 to i8
+  %1312 = sub nsw i8 63, %1311
+  %1313 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1306, ptr noundef nonnull %1302, i8 %1312) #16
+  %1314 = getelementptr inbounds nuw i8, ptr %1287, i64 56
+  %1315 = load ptr, ptr %1314, align 8
+  %1316 = getelementptr inbounds i8, ptr %1315, i64 8
+  %1317 = load i32, ptr %.02440.i25.ptr, align 8
+  %1318 = load ptr, ptr %1316, align 8
+  %1319 = zext i32 %1317 to i64
+  %1320 = sub nsw i64 0, %1319
+  %1321 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1318, i64 %1320
+  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1288, ptr noundef nonnull align 8 dereferenceable(32) %1321) #16
+  %1322 = getelementptr inbounds nuw i8, ptr %1288, i64 32
+  %1323 = load ptr, ptr %1322, align 8
+  %1324 = getelementptr inbounds i8, ptr %1323, i64 144
+  store i32 %1313, ptr %1324, align 8
   br label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit32"
 
-1345:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i28, %.lr.ph.i24
+1325:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i28, %.lr.ph.i24
   %.02440.i25.add = add nuw nsw i64 %.02440.i25.idx, 48
   %.not29.i31 = icmp eq i64 %.02440.i25.add, 864
   br i1 %.not29.i31, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit32", label %.lr.ph.i24
 
-"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit32": ; preds = %1345, %1300, %1321
-  %.0.i30 = phi i1 [ true, %1321 ], [ false, %1300 ], [ false, %1345 ]
-  br label %1346
+"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit32": ; preds = %1325, %1282, %1303
+  %.0.i30 = phi i1 [ true, %1303 ], [ false, %1282 ], [ false, %1325 ]
+  br label %1326
 
-1346:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit32"
-  %1347 = phi ptr [ %436, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit32" ], [ %1348, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i ]
-  %1348 = getelementptr inbounds i8, ptr %1347, i64 -48
-  %1349 = getelementptr inbounds i8, ptr %1347, i64 -16
-  %1350 = load ptr, ptr %1349, align 8
-  %.not.i.i.i99.i = icmp eq ptr %1350, null
-  br i1 %.not.i.i.i99.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i, label %1351
+1326:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit32"
+  %1327 = phi ptr [ %435, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit32" ], [ %1328, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i ]
+  %1328 = getelementptr inbounds i8, ptr %1327, i64 -48
+  %1329 = getelementptr inbounds i8, ptr %1327, i64 -16
+  %1330 = load ptr, ptr %1329, align 8
+  %.not.i.i.i97.i = icmp eq ptr %1330, null
+  br i1 %.not.i.i.i97.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i, label %1331
 
-1351:                                             ; preds = %1346
-  %1352 = getelementptr inbounds i8, ptr %1347, i64 -32
-  %1353 = call noundef zeroext i1 %1350(ptr noundef nonnull align 8 dereferenceable(16) %1352, ptr noundef nonnull align 8 dereferenceable(16) %1352, i32 noundef 3) #16
-  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i
+1331:                                             ; preds = %1326
+  %1332 = getelementptr inbounds i8, ptr %1327, i64 -32
+  %1333 = call noundef zeroext i1 %1330(ptr noundef nonnull align 8 dereferenceable(16) %1332, ptr noundef nonnull align 8 dereferenceable(16) %1332, i32 noundef 3) #16
+  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i
 
-_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i: ; preds = %1351, %1346
-  %1354 = icmp eq ptr %1348, %50
-  br i1 %1354, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1346
+_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i: ; preds = %1331, %1326
+  %1334 = icmp eq ptr %1328, %50
+  br i1 %1334, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1326
 
-1355:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %1356 = select i1 %941, i32 14996, i32 0
-  store i32 %1356, ptr %51, align 16
-  store i32 1, ptr %192, align 4
-  store i32 8, ptr %193, align 8
-  store i64 0, ptr %197, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %194, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %196, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %195, align 16
-  %1357 = select i1 %941, i32 15095, i32 0
-  store i32 %1357, ptr %198, align 16
-  store i32 1, ptr %199, align 4
-  store i32 16, ptr %200, align 8
-  store i64 0, ptr %204, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %201, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %203, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %202, align 16
-  store i32 15027, ptr %205, align 16
-  store i32 1, ptr %206, align 4
-  store i32 32, ptr %207, align 8
-  store i64 0, ptr %211, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %208, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %210, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %209, align 16
-  store i32 17626, ptr %212, align 16
-  store i32 4, ptr %213, align 4
-  store i32 8, ptr %214, align 8
-  store i64 0, ptr %218, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %215, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %217, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %216, align 16
-  store i32 17866, ptr %219, align 16
-  store i32 4, ptr %220, align 4
-  store i32 8, ptr %221, align 8
-  store i64 0, ptr %225, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %222, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %224, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %223, align 16
-  store i32 15064, ptr %226, align 16
-  store i32 1, ptr %227, align 4
-  store i32 64, ptr %228, align 8
-  store i64 0, ptr %232, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %229, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %231, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %230, align 16
-  store i32 17604, ptr %233, align 16
-  store i32 8, ptr %234, align 4
-  store i32 8, ptr %235, align 8
-  store i64 0, ptr %239, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %236, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %238, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %237, align 16
-  store i32 17844, ptr %240, align 16
-  store i32 8, ptr %241, align 4
-  store i32 8, ptr %242, align 8
-  store i64 0, ptr %246, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %243, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %245, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %244, align 16
-  store i32 17714, ptr %247, align 16
-  store i32 4, ptr %248, align 4
-  store i32 16, ptr %249, align 8
-  store i64 0, ptr %253, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %250, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %252, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %251, align 16
-  store i32 17954, ptr %254, align 16
-  store i32 4, ptr %255, align 4
-  store i32 16, ptr %256, align 8
-  store i64 0, ptr %260, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %257, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %259, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %258, align 16
-  store i32 5535, ptr %261, align 16
-  store i32 1, ptr %262, align 4
-  store i32 128, ptr %263, align 8
-  store i64 0, ptr %267, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %264, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %266, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %265, align 16
-  %1358 = select i1 %941, i32 17648, i32 0
-  store i32 %1358, ptr %268, align 16
-  store i32 16, ptr %269, align 4
-  store i32 8, ptr %270, align 8
-  store i64 0, ptr %274, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %271, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %273, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %272, align 16
-  %1359 = select i1 %941, i32 17888, i32 0
-  store i32 %1359, ptr %275, align 16
-  store i32 16, ptr %276, align 4
-  store i32 8, ptr %277, align 8
-  store i64 0, ptr %281, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %278, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %280, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %279, align 16
-  store i32 17692, ptr %282, align 16
-  store i32 8, ptr %283, align 4
-  store i32 16, ptr %284, align 8
-  store i64 0, ptr %288, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %285, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %287, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %286, align 16
-  store i32 17932, ptr %289, align 16
-  store i32 8, ptr %290, align 4
-  store i32 16, ptr %291, align 8
-  store i64 0, ptr %295, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %292, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %294, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %293, align 16
-  store i32 17670, ptr %296, align 16
-  store i32 4, ptr %297, align 4
-  store i32 32, ptr %298, align 8
-  store i64 0, ptr %302, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %299, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %301, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %300, align 16
-  store i32 17910, ptr %303, align 16
-  store i32 4, ptr %304, align 4
-  store i32 32, ptr %305, align 8
-  store i64 0, ptr %309, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %306, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %308, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %307, align 16
-  %1360 = load ptr, ptr %65, align 8
-  %1361 = load ptr, ptr %40, align 8
-  %1362 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %1361, i32 noundef 1) #16
-  %.not.i13 = icmp eq ptr %1362, null
+1335:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %1336 = select i1 %941, i32 14996, i32 0
+  store i32 %1336, ptr %51, align 16
+  store i32 1, ptr %191, align 4
+  store i32 8, ptr %192, align 8
+  store i64 0, ptr %196, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %193, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %195, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %194, align 16
+  %1337 = select i1 %941, i32 15095, i32 0
+  store i32 %1337, ptr %197, align 16
+  store i32 1, ptr %198, align 4
+  store i32 16, ptr %199, align 8
+  store i64 0, ptr %203, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %200, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %202, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %201, align 16
+  store i32 15027, ptr %204, align 16
+  store i32 1, ptr %205, align 4
+  store i32 32, ptr %206, align 8
+  store i64 0, ptr %210, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %207, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %209, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %208, align 16
+  store i32 17626, ptr %211, align 16
+  store i32 4, ptr %212, align 4
+  store i32 8, ptr %213, align 8
+  store i64 0, ptr %217, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %214, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %216, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %215, align 16
+  store i32 17866, ptr %218, align 16
+  store i32 4, ptr %219, align 4
+  store i32 8, ptr %220, align 8
+  store i64 0, ptr %224, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %221, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %223, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %222, align 16
+  store i32 15064, ptr %225, align 16
+  store i32 1, ptr %226, align 4
+  store i32 64, ptr %227, align 8
+  store i64 0, ptr %231, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %228, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %230, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %229, align 16
+  store i32 17604, ptr %232, align 16
+  store i32 8, ptr %233, align 4
+  store i32 8, ptr %234, align 8
+  store i64 0, ptr %238, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %235, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %237, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %236, align 16
+  store i32 17844, ptr %239, align 16
+  store i32 8, ptr %240, align 4
+  store i32 8, ptr %241, align 8
+  store i64 0, ptr %245, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %242, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %244, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %243, align 16
+  store i32 17714, ptr %246, align 16
+  store i32 4, ptr %247, align 4
+  store i32 16, ptr %248, align 8
+  store i64 0, ptr %252, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %249, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %251, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %250, align 16
+  store i32 17954, ptr %253, align 16
+  store i32 4, ptr %254, align 4
+  store i32 16, ptr %255, align 8
+  store i64 0, ptr %259, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %256, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %258, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %257, align 16
+  store i32 5535, ptr %260, align 16
+  store i32 1, ptr %261, align 4
+  store i32 128, ptr %262, align 8
+  store i64 0, ptr %266, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %263, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %265, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %264, align 16
+  %1338 = select i1 %941, i32 17648, i32 0
+  store i32 %1338, ptr %267, align 16
+  store i32 16, ptr %268, align 4
+  store i32 8, ptr %269, align 8
+  store i64 0, ptr %273, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %270, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %272, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %271, align 16
+  %1339 = select i1 %941, i32 17888, i32 0
+  store i32 %1339, ptr %274, align 16
+  store i32 16, ptr %275, align 4
+  store i32 8, ptr %276, align 8
+  store i64 0, ptr %280, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %277, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %279, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %278, align 16
+  store i32 17692, ptr %281, align 16
+  store i32 8, ptr %282, align 4
+  store i32 16, ptr %283, align 8
+  store i64 0, ptr %287, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %284, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %286, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %285, align 16
+  store i32 17932, ptr %288, align 16
+  store i32 8, ptr %289, align 4
+  store i32 16, ptr %290, align 8
+  store i64 0, ptr %294, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %291, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %293, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %292, align 16
+  store i32 17670, ptr %295, align 16
+  store i32 4, ptr %296, align 4
+  store i32 32, ptr %297, align 8
+  store i64 0, ptr %301, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %298, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %300, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %299, align 16
+  store i32 17910, ptr %302, align 16
+  store i32 4, ptr %303, align 4
+  store i32 32, ptr %304, align 8
+  store i64 0, ptr %308, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %305, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %307, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %306, align 16
+  %1340 = load ptr, ptr %64, align 8
+  %1341 = load ptr, ptr %40, align 8
+  %1342 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %1341, i32 noundef 1) #16
+  %.not.i13 = icmp eq ptr %1342, null
   br i1 %.not.i13, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit22", label %.lr.ph.i14
 
-.lr.ph.i14:                                       ; preds = %1355, %1400
-  %.02440.i15.idx = phi i64 [ %.02440.i15.add, %1400 ], [ 0, %1355 ]
+.lr.ph.i14:                                       ; preds = %1335, %1378
+  %.02440.i15.idx = phi i64 [ %.02440.i15.add, %1378 ], [ 0, %1335 ]
   %.02440.i15.ptr = getelementptr inbounds i8, ptr %51, i64 %.02440.i15.idx
-  %1363 = load i32, ptr %.02440.i15.ptr, align 16
-  %.not30.i16 = icmp eq i32 %1363, 0
-  br i1 %.not30.i16, label %1400, label %1364
+  %1343 = load i32, ptr %.02440.i15.ptr, align 16
+  %.not30.i16 = icmp eq i32 %1343, 0
+  br i1 %.not30.i16, label %1378, label %1344
 
-1364:                                             ; preds = %.lr.ph.i14
-  %1365 = getelementptr inbounds nuw i8, ptr %.02440.i15.ptr, i64 4
-  %1366 = load i32, ptr %1365, align 4
-  %1367 = getelementptr inbounds nuw i8, ptr %.02440.i15.ptr, i64 8
-  %1368 = load i32, ptr %1367, align 8
+1344:                                             ; preds = %.lr.ph.i14
+  %1345 = getelementptr inbounds nuw i8, ptr %.02440.i15.ptr, i64 4
+  %1346 = load i32, ptr %1345, align 4
+  %1347 = getelementptr inbounds nuw i8, ptr %.02440.i15.ptr, i64 8
+  %1348 = load i32, ptr %1347, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
-  store ptr %1362, ptr %31, align 8
+  store ptr %1342, ptr %31, align 8
   store i32 256, ptr %32, align 4
-  store i32 %1366, ptr %33, align 4
-  store i32 %1368, ptr %34, align 4
-  %1369 = getelementptr inbounds nuw i8, ptr %.02440.i15.ptr, i64 32
-  %1370 = load ptr, ptr %1369, align 16
-  %.not.i.i.i17 = icmp eq ptr %1370, null
-  br i1 %.not.i.i.i17, label %1371, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i18
+  store i32 %1346, ptr %33, align 4
+  store i32 %1348, ptr %34, align 4
+  %1349 = getelementptr inbounds nuw i8, ptr %.02440.i15.ptr, i64 32
+  %1350 = load ptr, ptr %1349, align 16
+  %.not.i.i.i17 = icmp eq ptr %1350, null
+  br i1 %.not.i.i.i17, label %1351, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i18
 
-1371:                                             ; preds = %1364
+1351:                                             ; preds = %1344
   call void @_ZSt25__throw_bad_function_callv() #17
   unreachable
 
-_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i18: ; preds = %1364
-  %1372 = getelementptr inbounds nuw i8, ptr %.02440.i15.ptr, i64 16
-  %1373 = getelementptr inbounds nuw i8, ptr %.02440.i15.ptr, i64 40
-  %1374 = load ptr, ptr %1373, align 8
-  %1375 = call noundef ptr %1374(ptr noundef nonnull align 8 dereferenceable(16) %1372, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(4) %33, ptr noundef nonnull align 4 dereferenceable(4) %34) #16
+_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i18: ; preds = %1344
+  %1352 = getelementptr inbounds nuw i8, ptr %.02440.i15.ptr, i64 16
+  %1353 = getelementptr inbounds nuw i8, ptr %.02440.i15.ptr, i64 40
+  %1354 = load ptr, ptr %1353, align 8
+  %1355 = call noundef ptr %1354(ptr noundef nonnull align 8 dereferenceable(16) %1352, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(4) %33, ptr noundef nonnull align 4 dereferenceable(4) %34) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
-  %.not31.i19 = icmp eq ptr %1375, null
-  br i1 %.not31.i19, label %1400, label %1376
+  %.not31.i19 = icmp eq ptr %1355, null
+  br i1 %.not31.i19, label %1378, label %1356
 
-1376:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i18
-  %1377 = getelementptr inbounds nuw i8, ptr %.02440.i15.ptr, i64 8
-  %1378 = load ptr, ptr %64, align 8
-  %1379 = load ptr, ptr %1378, align 8
-  %1380 = load i32, ptr %1377, align 8
-  %1381 = sdiv i32 %1380, 8
-  %1382 = sext i32 %1381 to i64
-  %1383 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1382, i1 false)
-  %1384 = trunc nuw nsw i64 %1383 to i8
-  %1385 = sub nsw i8 63, %1384
-  %1386 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1379, ptr noundef nonnull %1375, i8 %1385) #16
-  %1387 = load ptr, ptr %40, align 8
-  %1388 = getelementptr inbounds nuw i8, ptr %1360, i64 56
-  %1389 = load ptr, ptr %1388, align 8
-  %1390 = getelementptr inbounds i8, ptr %1389, i64 8
-  %1391 = load i32, ptr %.02440.i15.ptr, align 8
-  %1392 = load ptr, ptr %1390, align 8
-  %1393 = zext i32 %1391 to i64
-  %1394 = sub nsw i64 0, %1393
-  %1395 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1392, i64 %1394
-  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1387, ptr noundef nonnull align 8 dereferenceable(32) %1395) #16
-  %1396 = load ptr, ptr %40, align 8
-  %1397 = getelementptr inbounds nuw i8, ptr %1396, i64 32
-  %1398 = load ptr, ptr %1397, align 8
-  %1399 = getelementptr inbounds i8, ptr %1398, i64 144
-  store i32 %1386, ptr %1399, align 8
+1356:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i18
+  %1357 = getelementptr inbounds nuw i8, ptr %.02440.i15.ptr, i64 8
+  %1358 = load ptr, ptr %63, align 8
+  %1359 = load ptr, ptr %1358, align 8
+  %1360 = load i32, ptr %1357, align 8
+  %1361 = sdiv i32 %1360, 8
+  %1362 = sext i32 %1361 to i64
+  %1363 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1362, i1 false)
+  %1364 = trunc nuw nsw i64 %1363 to i8
+  %1365 = sub nsw i8 63, %1364
+  %1366 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1359, ptr noundef nonnull %1355, i8 %1365) #16
+  %1367 = getelementptr inbounds nuw i8, ptr %1340, i64 56
+  %1368 = load ptr, ptr %1367, align 8
+  %1369 = getelementptr inbounds i8, ptr %1368, i64 8
+  %1370 = load i32, ptr %.02440.i15.ptr, align 8
+  %1371 = load ptr, ptr %1369, align 8
+  %1372 = zext i32 %1370 to i64
+  %1373 = sub nsw i64 0, %1372
+  %1374 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1371, i64 %1373
+  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1341, ptr noundef nonnull align 8 dereferenceable(32) %1374) #16
+  %1375 = getelementptr inbounds nuw i8, ptr %1341, i64 32
+  %1376 = load ptr, ptr %1375, align 8
+  %1377 = getelementptr inbounds i8, ptr %1376, i64 144
+  store i32 %1366, ptr %1377, align 8
   br label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit22"
 
-1400:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i18, %.lr.ph.i14
+1378:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i18, %.lr.ph.i14
   %.02440.i15.add = add nuw nsw i64 %.02440.i15.idx, 48
   %.not29.i21 = icmp eq i64 %.02440.i15.add, 816
   br i1 %.not29.i21, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit22", label %.lr.ph.i14
 
-"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit22": ; preds = %1400, %1355, %1376
-  %.0.i20 = phi i1 [ true, %1376 ], [ false, %1355 ], [ false, %1400 ]
-  br label %1401
+"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit22": ; preds = %1378, %1335, %1356
+  %.0.i20 = phi i1 [ true, %1356 ], [ false, %1335 ], [ false, %1378 ]
+  br label %1379
 
-1401:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit22"
-  %1402 = phi ptr [ %310, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit22" ], [ %1403, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i ]
-  %1403 = getelementptr inbounds i8, ptr %1402, i64 -48
-  %1404 = getelementptr inbounds i8, ptr %1402, i64 -16
-  %1405 = load ptr, ptr %1404, align 8
-  %.not.i.i.i101.i = icmp eq ptr %1405, null
-  br i1 %.not.i.i.i101.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i, label %1406
+1379:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit22"
+  %1380 = phi ptr [ %309, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit22" ], [ %1381, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i ]
+  %1381 = getelementptr inbounds i8, ptr %1380, i64 -48
+  %1382 = getelementptr inbounds i8, ptr %1380, i64 -16
+  %1383 = load ptr, ptr %1382, align 8
+  %.not.i.i.i99.i = icmp eq ptr %1383, null
+  br i1 %.not.i.i.i99.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i, label %1384
 
-1406:                                             ; preds = %1401
-  %1407 = getelementptr inbounds i8, ptr %1402, i64 -32
-  %1408 = call noundef zeroext i1 %1405(ptr noundef nonnull align 8 dereferenceable(16) %1407, ptr noundef nonnull align 8 dereferenceable(16) %1407, i32 noundef 3) #16
-  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i
+1384:                                             ; preds = %1379
+  %1385 = getelementptr inbounds i8, ptr %1380, i64 -32
+  %1386 = call noundef zeroext i1 %1383(ptr noundef nonnull align 8 dereferenceable(16) %1385, ptr noundef nonnull align 8 dereferenceable(16) %1385, i32 noundef 3) #16
+  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i
 
-_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i: ; preds = %1406, %1401
-  %1409 = icmp eq ptr %1403, %51
-  br i1 %1409, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1401
+_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i: ; preds = %1384, %1379
+  %1387 = icmp eq ptr %1381, %51
+  br i1 %1387, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1379
 
-1410:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %1411 = select i1 %941, i32 15002, i32 0
-  store i32 %1411, ptr %52, align 16
-  store i32 1, ptr %66, align 4
-  store i32 8, ptr %67, align 8
-  store i64 0, ptr %71, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %68, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %70, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %69, align 16
-  %1412 = select i1 %941, i32 15101, i32 0
-  store i32 %1412, ptr %72, align 16
-  store i32 1, ptr %73, align 4
-  store i32 16, ptr %74, align 8
-  store i64 0, ptr %78, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %75, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %77, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %76, align 16
-  store i32 15033, ptr %79, align 16
-  store i32 1, ptr %80, align 4
-  store i32 32, ptr %81, align 8
-  store i64 0, ptr %85, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %82, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %84, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %83, align 16
-  store i32 15070, ptr %86, align 16
-  store i32 1, ptr %87, align 4
-  store i32 64, ptr %88, align 8
-  store i64 0, ptr %92, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %89, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %91, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %90, align 16
-  store i32 17632, ptr %93, align 16
-  store i32 8, ptr %94, align 4
-  store i32 8, ptr %95, align 8
-  store i64 0, ptr %99, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %96, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %98, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %97, align 16
-  store i32 17872, ptr %100, align 16
-  store i32 8, ptr %101, align 4
-  store i32 8, ptr %102, align 8
-  store i64 0, ptr %106, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %103, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %105, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %104, align 16
-  store i32 5538, ptr %107, align 16
-  store i32 1, ptr %108, align 4
-  store i32 128, ptr %109, align 8
-  store i64 0, ptr %113, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %110, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %112, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %111, align 16
-  store i32 17610, ptr %114, align 16
-  store i32 16, ptr %115, align 4
-  store i32 8, ptr %116, align 8
-  store i64 0, ptr %120, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %117, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %119, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %118, align 16
-  store i32 17850, ptr %121, align 16
-  store i32 16, ptr %122, align 4
-  store i32 8, ptr %123, align 8
-  store i64 0, ptr %127, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %124, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %126, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %125, align 16
-  store i32 17720, ptr %128, align 16
-  store i32 8, ptr %129, align 4
-  store i32 16, ptr %130, align 8
-  store i64 0, ptr %134, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %131, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %133, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %132, align 16
-  store i32 17960, ptr %135, align 16
-  store i32 8, ptr %136, align 4
-  store i32 16, ptr %137, align 8
-  store i64 0, ptr %141, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %138, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %140, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %139, align 16
-  store i32 5550, ptr %142, align 16
-  store i32 1, ptr %143, align 4
-  store i32 256, ptr %144, align 8
-  store i64 0, ptr %148, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %145, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %147, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %146, align 16
-  %1413 = select i1 %941, i32 17654, i32 0
-  store i32 %1413, ptr %149, align 16
-  store i32 32, ptr %150, align 4
-  store i32 8, ptr %151, align 8
-  store i64 0, ptr %155, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %152, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %154, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %153, align 16
-  %1414 = select i1 %941, i32 17894, i32 0
-  store i32 %1414, ptr %156, align 16
-  store i32 32, ptr %157, align 4
-  store i32 8, ptr %158, align 8
-  store i64 0, ptr %162, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %159, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %161, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %160, align 16
-  store i32 17698, ptr %163, align 16
-  store i32 16, ptr %164, align 4
-  store i32 16, ptr %165, align 8
-  store i64 0, ptr %169, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %166, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %168, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %167, align 16
-  store i32 17938, ptr %170, align 16
-  store i32 16, ptr %171, align 4
-  store i32 16, ptr %172, align 8
-  store i64 0, ptr %176, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %173, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %175, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %174, align 16
-  store i32 17676, ptr %177, align 16
-  store i32 8, ptr %178, align 4
-  store i32 32, ptr %179, align 8
-  store i64 0, ptr %183, align 8
-  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %180, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %182, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %181, align 16
-  store i32 17916, ptr %184, align 16
-  store i32 8, ptr %185, align 4
-  store i32 32, ptr %186, align 8
-  store i64 0, ptr %190, align 8
-  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %187, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %189, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %188, align 16
-  %1415 = load ptr, ptr %65, align 8
-  %1416 = load ptr, ptr %40, align 8
-  %1417 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %1416, i32 noundef 1) #16
-  %.not.i11 = icmp eq ptr %1417, null
+1388:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %1389 = select i1 %941, i32 15002, i32 0
+  store i32 %1389, ptr %52, align 16
+  store i32 1, ptr %65, align 4
+  store i32 8, ptr %66, align 8
+  store i64 0, ptr %70, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %67, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %69, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %68, align 16
+  %1390 = select i1 %941, i32 15101, i32 0
+  store i32 %1390, ptr %71, align 16
+  store i32 1, ptr %72, align 4
+  store i32 16, ptr %73, align 8
+  store i64 0, ptr %77, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %74, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %76, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %75, align 16
+  store i32 15033, ptr %78, align 16
+  store i32 1, ptr %79, align 4
+  store i32 32, ptr %80, align 8
+  store i64 0, ptr %84, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %81, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %83, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %82, align 16
+  store i32 15070, ptr %85, align 16
+  store i32 1, ptr %86, align 4
+  store i32 64, ptr %87, align 8
+  store i64 0, ptr %91, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %88, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %90, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %89, align 16
+  store i32 17632, ptr %92, align 16
+  store i32 8, ptr %93, align 4
+  store i32 8, ptr %94, align 8
+  store i64 0, ptr %98, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %95, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %97, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %96, align 16
+  store i32 17872, ptr %99, align 16
+  store i32 8, ptr %100, align 4
+  store i32 8, ptr %101, align 8
+  store i64 0, ptr %105, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %102, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %104, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %103, align 16
+  store i32 5538, ptr %106, align 16
+  store i32 1, ptr %107, align 4
+  store i32 128, ptr %108, align 8
+  store i64 0, ptr %112, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %109, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %111, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %110, align 16
+  store i32 17610, ptr %113, align 16
+  store i32 16, ptr %114, align 4
+  store i32 8, ptr %115, align 8
+  store i64 0, ptr %119, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %116, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %118, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %117, align 16
+  store i32 17850, ptr %120, align 16
+  store i32 16, ptr %121, align 4
+  store i32 8, ptr %122, align 8
+  store i64 0, ptr %126, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %123, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %125, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %124, align 16
+  store i32 17720, ptr %127, align 16
+  store i32 8, ptr %128, align 4
+  store i32 16, ptr %129, align 8
+  store i64 0, ptr %133, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %130, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %132, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %131, align 16
+  store i32 17960, ptr %134, align 16
+  store i32 8, ptr %135, align 4
+  store i32 16, ptr %136, align 8
+  store i64 0, ptr %140, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %137, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %139, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %138, align 16
+  store i32 5550, ptr %141, align 16
+  store i32 1, ptr %142, align 4
+  store i32 256, ptr %143, align 8
+  store i64 0, ptr %147, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %144, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %146, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %145, align 16
+  %1391 = select i1 %941, i32 17654, i32 0
+  store i32 %1391, ptr %148, align 16
+  store i32 32, ptr %149, align 4
+  store i32 8, ptr %150, align 8
+  store i64 0, ptr %154, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %151, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %153, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %152, align 16
+  %1392 = select i1 %941, i32 17894, i32 0
+  store i32 %1392, ptr %155, align 16
+  store i32 32, ptr %156, align 4
+  store i32 8, ptr %157, align 8
+  store i64 0, ptr %161, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %158, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %160, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %159, align 16
+  store i32 17698, ptr %162, align 16
+  store i32 16, ptr %163, align 4
+  store i32 16, ptr %164, align 8
+  store i64 0, ptr %168, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %165, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %167, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %166, align 16
+  store i32 17938, ptr %169, align 16
+  store i32 16, ptr %170, align 4
+  store i32 16, ptr %171, align 8
+  store i64 0, ptr %175, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %172, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %174, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %173, align 16
+  store i32 17676, ptr %176, align 16
+  store i32 8, ptr %177, align 4
+  store i32 32, ptr %178, align 8
+  store i64 0, ptr %182, align 8
+  store ptr @_ZL14rebuildSExtCstPKN4llvm8ConstantEjjj, ptr %179, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %181, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %180, align 16
+  store i32 17916, ptr %183, align 16
+  store i32 8, ptr %184, align 4
+  store i32 32, ptr %185, align 8
+  store i64 0, ptr %189, align 8
+  store ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj, ptr %186, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %188, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %187, align 16
+  %1393 = load ptr, ptr %64, align 8
+  %1394 = load ptr, ptr %40, align 8
+  %1395 = call noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70) %1394, i32 noundef 1) #16
+  %.not.i11 = icmp eq ptr %1395, null
   br i1 %.not.i11, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %1410, %1455
-  %.02440.i.idx = phi i64 [ %.02440.i.add, %1455 ], [ 0, %1410 ]
+.lr.ph.i:                                         ; preds = %1388, %1431
+  %.02440.i.idx = phi i64 [ %.02440.i.add, %1431 ], [ 0, %1388 ]
   %.02440.i.ptr = getelementptr inbounds i8, ptr %52, i64 %.02440.i.idx
-  %1418 = load i32, ptr %.02440.i.ptr, align 16
-  %.not30.i = icmp eq i32 %1418, 0
-  br i1 %.not30.i, label %1455, label %1419
+  %1396 = load i32, ptr %.02440.i.ptr, align 16
+  %.not30.i = icmp eq i32 %1396, 0
+  br i1 %.not30.i, label %1431, label %1397
 
-1419:                                             ; preds = %.lr.ph.i
-  %1420 = getelementptr inbounds nuw i8, ptr %.02440.i.ptr, i64 4
-  %1421 = load i32, ptr %1420, align 4
-  %1422 = getelementptr inbounds nuw i8, ptr %.02440.i.ptr, i64 8
-  %1423 = load i32, ptr %1422, align 8
+1397:                                             ; preds = %.lr.ph.i
+  %1398 = getelementptr inbounds nuw i8, ptr %.02440.i.ptr, i64 4
+  %1399 = load i32, ptr %1398, align 4
+  %1400 = getelementptr inbounds nuw i8, ptr %.02440.i.ptr, i64 8
+  %1401 = load i32, ptr %1400, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38)
-  store ptr %1417, ptr %35, align 8
+  store ptr %1395, ptr %35, align 8
   store i32 512, ptr %36, align 4
-  store i32 %1421, ptr %37, align 4
-  store i32 %1423, ptr %38, align 4
-  %1424 = getelementptr inbounds nuw i8, ptr %.02440.i.ptr, i64 32
-  %1425 = load ptr, ptr %1424, align 16
-  %.not.i.i.i12 = icmp eq ptr %1425, null
-  br i1 %.not.i.i.i12, label %1426, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i
+  store i32 %1399, ptr %37, align 4
+  store i32 %1401, ptr %38, align 4
+  %1402 = getelementptr inbounds nuw i8, ptr %.02440.i.ptr, i64 32
+  %1403 = load ptr, ptr %1402, align 16
+  %.not.i.i.i12 = icmp eq ptr %1403, null
+  br i1 %.not.i.i.i12, label %1404, label %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i
 
-1426:                                             ; preds = %1419
+1404:                                             ; preds = %1397
   call void @_ZSt25__throw_bad_function_callv() #17
   unreachable
 
-_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i: ; preds = %1419
-  %1427 = getelementptr inbounds nuw i8, ptr %.02440.i.ptr, i64 16
-  %1428 = getelementptr inbounds nuw i8, ptr %.02440.i.ptr, i64 40
-  %1429 = load ptr, ptr %1428, align 8
-  %1430 = call noundef ptr %1429(ptr noundef nonnull align 8 dereferenceable(16) %1427, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 4 dereferenceable(4) %38) #16
+_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i: ; preds = %1397
+  %1405 = getelementptr inbounds nuw i8, ptr %.02440.i.ptr, i64 16
+  %1406 = getelementptr inbounds nuw i8, ptr %.02440.i.ptr, i64 40
+  %1407 = load ptr, ptr %1406, align 8
+  %1408 = call noundef ptr %1407(ptr noundef nonnull align 8 dereferenceable(16) %1405, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 4 dereferenceable(4) %38) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
-  %.not31.i = icmp eq ptr %1430, null
-  br i1 %.not31.i, label %1455, label %1431
+  %.not31.i = icmp eq ptr %1408, null
+  br i1 %.not31.i, label %1431, label %1409
 
-1431:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i
-  %1432 = getelementptr inbounds nuw i8, ptr %.02440.i.ptr, i64 8
-  %1433 = load ptr, ptr %64, align 8
-  %1434 = load ptr, ptr %1433, align 8
-  %1435 = load i32, ptr %1432, align 8
-  %1436 = sdiv i32 %1435, 8
-  %1437 = sext i32 %1436 to i64
-  %1438 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1437, i1 false)
-  %1439 = trunc nuw nsw i64 %1438 to i8
-  %1440 = sub nsw i8 63, %1439
-  %1441 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1434, ptr noundef nonnull %1430, i8 %1440) #16
-  %1442 = load ptr, ptr %40, align 8
-  %1443 = getelementptr inbounds nuw i8, ptr %1415, i64 56
-  %1444 = load ptr, ptr %1443, align 8
-  %1445 = getelementptr inbounds i8, ptr %1444, i64 8
-  %1446 = load i32, ptr %.02440.i.ptr, align 8
-  %1447 = load ptr, ptr %1445, align 8
-  %1448 = zext i32 %1446 to i64
-  %1449 = sub nsw i64 0, %1448
-  %1450 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1447, i64 %1449
-  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1442, ptr noundef nonnull align 8 dereferenceable(32) %1450) #16
-  %1451 = load ptr, ptr %40, align 8
-  %1452 = getelementptr inbounds nuw i8, ptr %1451, i64 32
-  %1453 = load ptr, ptr %1452, align 8
-  %1454 = getelementptr inbounds i8, ptr %1453, i64 144
-  store i32 %1441, ptr %1454, align 8
+1409:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i
+  %1410 = getelementptr inbounds nuw i8, ptr %.02440.i.ptr, i64 8
+  %1411 = load ptr, ptr %63, align 8
+  %1412 = load ptr, ptr %1411, align 8
+  %1413 = load i32, ptr %1410, align 8
+  %1414 = sdiv i32 %1413, 8
+  %1415 = sext i32 %1414 to i64
+  %1416 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1415, i1 false)
+  %1417 = trunc nuw nsw i64 %1416 to i8
+  %1418 = sub nsw i8 63, %1417
+  %1419 = call noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolIndexEPKNS_8ConstantENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(64) %1412, ptr noundef nonnull %1408, i8 %1418) #16
+  %1420 = getelementptr inbounds nuw i8, ptr %1393, i64 56
+  %1421 = load ptr, ptr %1420, align 8
+  %1422 = getelementptr inbounds i8, ptr %1421, i64 8
+  %1423 = load i32, ptr %.02440.i.ptr, align 8
+  %1424 = load ptr, ptr %1422, align 8
+  %1425 = zext i32 %1423 to i64
+  %1426 = sub nsw i64 0, %1425
+  %1427 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %1424, i64 %1426
+  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1394, ptr noundef nonnull align 8 dereferenceable(32) %1427) #16
+  %1428 = getelementptr inbounds nuw i8, ptr %1394, i64 32
+  %1429 = load ptr, ptr %1428, align 8
+  %1430 = getelementptr inbounds i8, ptr %1429, i64 144
+  store i32 %1419, ptr %1430, align 8
   br label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit"
 
-1455:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i, %.lr.ph.i
+1431:                                             ; preds = %_ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit.i, %.lr.ph.i
   %.02440.i.add = add nuw nsw i64 %.02440.i.idx, 48
   %.not29.i = icmp eq i64 %.02440.i.add, 864
   br i1 %.not29.i, label %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit", label %.lr.ph.i
 
-"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit": ; preds = %1455, %1410, %1431
-  %.0.i = phi i1 [ true, %1431 ], [ false, %1410 ], [ false, %1455 ]
-  br label %1456
+"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit": ; preds = %1431, %1388, %1409
+  %.0.i = phi i1 [ true, %1409 ], [ false, %1388 ], [ false, %1431 ]
+  br label %1432
 
-1456:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit104.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit"
-  %1457 = phi ptr [ %191, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit" ], [ %1458, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit104.i ]
-  %1458 = getelementptr inbounds i8, ptr %1457, i64 -48
-  %1459 = getelementptr inbounds i8, ptr %1457, i64 -16
-  %1460 = load ptr, ptr %1459, align 8
-  %.not.i.i.i103.i = icmp eq ptr %1460, null
-  br i1 %.not.i.i.i103.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit104.i, label %1461
+1432:                                             ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit"
+  %1433 = phi ptr [ %190, %"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj.exit" ], [ %1434, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i ]
+  %1434 = getelementptr inbounds i8, ptr %1433, i64 -48
+  %1435 = getelementptr inbounds i8, ptr %1433, i64 -16
+  %1436 = load ptr, ptr %1435, align 8
+  %.not.i.i.i101.i = icmp eq ptr %1436, null
+  br i1 %.not.i.i.i101.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i, label %1437
 
-1461:                                             ; preds = %1456
-  %1462 = getelementptr inbounds i8, ptr %1457, i64 -32
-  %1463 = call noundef zeroext i1 %1460(ptr noundef nonnull align 8 dereferenceable(16) %1462, ptr noundef nonnull align 8 dereferenceable(16) %1462, i32 noundef 3) #16
-  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit104.i
+1437:                                             ; preds = %1432
+  %1438 = getelementptr inbounds i8, ptr %1433, i64 -32
+  %1439 = call noundef zeroext i1 %1436(ptr noundef nonnull align 8 dereferenceable(16) %1438, ptr noundef nonnull align 8 dereferenceable(16) %1438, i32 noundef 3) #16
+  br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i
 
-_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit104.i: ; preds = %1461, %1456
-  %1464 = icmp eq ptr %1458, %52
-  br i1 %1464, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1456
+_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i: ; preds = %1437, %1432
+  %1440 = icmp eq ptr %1434, %52
+  br i1 %1440, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, label %1432
 
-1465:                                             ; preds = %.lr.ph
-  store ptr %40, ptr %53, align 8
-  %1466 = getelementptr inbounds nuw i8, ptr %.sroa.093.0169, i64 16
-  %1467 = load ptr, ptr %1466, align 8
-  %1468 = getelementptr inbounds nuw i8, ptr %1467, i64 24
-  %1469 = load i64, ptr %1468, align 8
-  %1470 = and i64 %1469, 1610612736
-  %1471 = icmp eq i64 %1470, 1610612736
-  br i1 %1471, label %1472, label %1474
+1441:                                             ; preds = %.lr.ph
+  %1442 = getelementptr inbounds nuw i8, ptr %922, i64 16
+  %1443 = load ptr, ptr %1442, align 8
+  %1444 = getelementptr inbounds nuw i8, ptr %1443, i64 24
+  %1445 = load i64, ptr %1444, align 8
+  %1446 = and i64 %1445, 1610612736
+  %1447 = icmp eq i64 %1446, 1610612736
+  br i1 %1447, label %1448, label %1450
 
-1472:                                             ; preds = %1465
-  %1473 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_1clEjj"(ptr noundef nonnull align 8 dereferenceable(8) %53, i32 noundef %925, i32 noundef %925)
+1448:                                             ; preds = %1441
+  %1449 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_1clEjj"(ptr nonnull %40, i32 noundef %925, i32 noundef %925)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %41)
@@ -3172,67 +3144,66 @@ _ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15Mac
   call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %50)
   call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
-  br i1 %1473, label %1485, label %1486
+  br i1 %1449, label %1461, label %1462
 
-1474:                                             ; preds = %1465
+1450:                                             ; preds = %1441
   %.not.i = xor i1 %944, true
   %brmerge.i = or i1 %938, %.not.i
-  br i1 %brmerge.i, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit.thread, label %1475
+  br i1 %brmerge.i, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit.thread, label %1451
 
-1475:                                             ; preds = %1474
+1451:                                             ; preds = %1450
   switch i16 %924, label %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit.thread [
-    i16 5377, label %1483
-    i16 5408, label %1483
-    i16 14840, label %1483
-    i16 5348, label %1476
-    i16 5379, label %1476
-    i16 14838, label %1476
-    i16 5315, label %1477
-    i16 5346, label %1477
-    i16 14809, label %1477
-    i16 5286, label %1478
-    i16 5317, label %1478
-    i16 14807, label %1478
-    i16 14245, label %1479
-    i16 14276, label %1479
-    i16 18349, label %1479
-    i16 14216, label %1480
-    i16 14247, label %1480
-    i16 18347, label %1480
-    i16 22001, label %1481
-    i16 22032, label %1481
-    i16 20376, label %1481
-    i16 21972, label %1482
-    i16 22003, label %1482
-    i16 20374, label %1482
+    i16 5377, label %1459
+    i16 5408, label %1459
+    i16 14840, label %1459
+    i16 5348, label %1452
+    i16 5379, label %1452
+    i16 14838, label %1452
+    i16 5315, label %1453
+    i16 5346, label %1453
+    i16 14809, label %1453
+    i16 5286, label %1454
+    i16 5317, label %1454
+    i16 14807, label %1454
+    i16 14245, label %1455
+    i16 14276, label %1455
+    i16 18349, label %1455
+    i16 14216, label %1456
+    i16 14247, label %1456
+    i16 18347, label %1456
+    i16 22001, label %1457
+    i16 22032, label %1457
+    i16 20376, label %1457
+    i16 21972, label %1458
+    i16 22003, label %1458
+    i16 20374, label %1458
   ]
 
-1476:                                             ; preds = %1475, %1475, %1475
-  br label %1483
+1452:                                             ; preds = %1451, %1451, %1451
+  br label %1459
 
-1477:                                             ; preds = %1475, %1475, %1475
-  br label %1483
+1453:                                             ; preds = %1451, %1451, %1451
+  br label %1459
 
-1478:                                             ; preds = %1475, %1475, %1475
-  br label %1483
+1454:                                             ; preds = %1451, %1451, %1451
+  br label %1459
 
-1479:                                             ; preds = %1475, %1475, %1475
-  br label %1483
+1455:                                             ; preds = %1451, %1451, %1451
+  br label %1459
 
-1480:                                             ; preds = %1475, %1475, %1475
-  br label %1483
+1456:                                             ; preds = %1451, %1451, %1451
+  br label %1459
 
-1481:                                             ; preds = %1475, %1475, %1475
-  br label %1483
+1457:                                             ; preds = %1451, %1451, %1451
+  br label %1459
 
-1482:                                             ; preds = %1475, %1475, %1475
-  br label %1483
+1458:                                             ; preds = %1451, %1451, %1451
+  br label %1459
 
-1483:                                             ; preds = %1482, %1481, %1480, %1479, %1478, %1477, %1476, %1475, %1475, %1475
-  %.061.ph.i = phi i32 [ 14735, %1476 ], [ 14753, %1477 ], [ 14762, %1478 ], [ 18293, %1479 ], [ 18302, %1480 ], [ 20320, %1481 ], [ 20329, %1482 ], [ 14726, %1475 ], [ 14726, %1475 ], [ 14726, %1475 ]
-  %.0.ph.i = phi i32 [ 14820, %1476 ], [ 14780, %1477 ], [ 14789, %1478 ], [ 18320, %1479 ], [ 18329, %1480 ], [ 20347, %1481 ], [ 20356, %1482 ], [ 14811, %1475 ], [ 14811, %1475 ], [ 14811, %1475 ]
-  %1484 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_1clEjj"(ptr noundef nonnull align 8 dereferenceable(8) %53, i32 noundef %.061.ph.i, i32 noundef %.0.ph.i)
+1459:                                             ; preds = %1458, %1457, %1456, %1455, %1454, %1453, %1452, %1451, %1451, %1451
+  %.061.ph.i = phi i32 [ 14735, %1452 ], [ 14753, %1453 ], [ 14762, %1454 ], [ 18293, %1455 ], [ 18302, %1456 ], [ 20320, %1457 ], [ 20329, %1458 ], [ 14726, %1451 ], [ 14726, %1451 ], [ 14726, %1451 ]
+  %.0.ph.i = phi i32 [ 14820, %1452 ], [ 14780, %1453 ], [ 14789, %1454 ], [ 18320, %1455 ], [ 18329, %1456 ], [ 20347, %1457 ], [ 20356, %1458 ], [ 14811, %1451 ], [ 14811, %1451 ], [ 14811, %1451 ]
+  %1460 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_1clEjj"(ptr nonnull %40, i32 noundef %.061.ph.i, i32 noundef %.0.ph.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %41)
@@ -3247,10 +3218,9 @@ _ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15Mac
   call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %50)
   call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
-  br i1 %1484, label %1485, label %1486
+  br i1 %1460, label %1461, label %1462
 
-_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit.thread: ; preds = %1474, %1475
+_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit.thread: ; preds = %1450, %1451
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %41)
@@ -3265,11 +3235,10 @@ _ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15Mach
   call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %50)
   call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
-  br label %1486
+  br label %1462
 
-_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit: ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit104.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit96.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit94.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit92.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit86.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit80.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit74.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit68.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit.i
-  %.062.i = phi i1 [ %.0.i90, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit.i ], [ %.0.i80, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit68.i ], [ %.0.i70, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit74.i ], [ %.0.i60, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit80.i ], [ %.0.i50, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit86.i ], [ %.0.i40, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit92.i ], [ %1247, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit94.i ], [ %1262, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit96.i ], [ %1290, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i ], [ %.0.i30, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i ], [ %.0.i20, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i ], [ %.0.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit104.i ]
+_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit: ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit96.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit94.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit92.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit90.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit87.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit84.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit81.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit78.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit.i
+  %.062.i = phi i1 [ %.0.i90, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit.i ], [ %.0.i80, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit78.i ], [ %.0.i70, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit81.i ], [ %.0.i60, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit84.i ], [ %.0.i50, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit87.i ], [ %.0.i40, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit90.i ], [ %1229, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit92.i ], [ %1244, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit94.i ], [ %1272, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit96.i ], [ %.0.i30, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit98.i ], [ %.0.i20, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit100.i ], [ %.0.i, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit102.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %41)
@@ -3284,51 +3253,50 @@ _ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15Mach
   call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %50)
   call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
-  br i1 %.062.i, label %1485, label %1486
+  br i1 %.062.i, label %1461, label %1462
 
-1485:                                             ; preds = %1483, %1472, %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit
-  br label %1486
+1461:                                             ; preds = %1459, %1448, %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit
+  br label %1462
 
-1486:                                             ; preds = %1483, %1472, %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit.thread, %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, %1485
-  %.2 = phi i1 [ true, %1485 ], [ %.1168, %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit ], [ %.1168, %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit.thread ], [ %.1168, %1472 ], [ %.1168, %1483 ]
-  %1487 = icmp ne ptr %.sroa.093.0169, null
-  call void @llvm.assume(i1 %1487)
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.093.0169, align 8
-  %1488 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
-  %.not.i.i.i = icmp eq i64 %1488, 0
+1462:                                             ; preds = %1459, %1448, %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit.thread, %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit, %1461
+  %.2 = phi i1 [ true, %1461 ], [ %.1168, %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit ], [ %.1168, %_ZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrE.exit.thread ], [ %.1168, %1448 ], [ %.1168, %1459 ]
+  %1463 = icmp ne ptr %922, null
+  call void @llvm.assume(i1 %1463)
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %922, align 8
+  %1464 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
+  %.not.i.i.i = icmp eq i64 %1464, 0
   br i1 %.not.i.i.i, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
 
-_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i: ; preds = %1486
-  %1489 = getelementptr inbounds nuw i8, ptr %.sroa.093.0169, i64 44
-  %1490 = load i32, ptr %1489, align 4
-  %1491 = and i32 %1490, 8
-  %.not34.i.i.i = icmp eq i32 %1491, 0
+_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i: ; preds = %1462
+  %1465 = getelementptr inbounds nuw i8, ptr %922, i64 44
+  %1466 = load i32, ptr %1465, align 4
+  %1467 = and i32 %1466, 8
+  %.not34.i.i.i = icmp eq i32 %1467, 0
   br i1 %.not34.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i
 
 _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i
-  %.sroa.0.15.i.i.i = phi ptr [ %1493, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ], [ %.sroa.093.0169, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ]
-  %1492 = getelementptr inbounds nuw i8, ptr %.sroa.0.15.i.i.i, i64 8
-  %1493 = load ptr, ptr %1492, align 8
-  %1494 = getelementptr inbounds nuw i8, ptr %1493, i64 44
-  %1495 = load i32, ptr %1494, align 4
-  %1496 = and i32 %1495, 8
-  %.not3.i.i.i = icmp eq i32 %1496, 0
+  %.sroa.0.15.i.i.i = phi ptr [ %1469, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ], [ %922, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ]
+  %1468 = getelementptr inbounds nuw i8, ptr %.sroa.0.15.i.i.i, i64 8
+  %1469 = load ptr, ptr %1468, align 8
+  %1470 = getelementptr inbounds nuw i8, ptr %1469, i64 44
+  %1471 = load i32, ptr %1470, align 4
+  %1472 = and i32 %1471, 8
+  %.not3.i.i.i = icmp eq i32 %1472, 0
   br i1 %.not3.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, !llvm.loop !4
 
-_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, %1486, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.093.0169, %1486 ], [ %.sroa.093.0169, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ], [ %1493, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ]
-  %1497 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
-  %.sroa.093.0 = load ptr, ptr %1497, align 8
-  %.not100 = icmp eq ptr %.sroa.093.0, %922
+_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, %1462, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i
+  %.sroa.0.0.i.i.i = phi ptr [ %922, %1462 ], [ %922, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ], [ %1469, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ]
+  %1473 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
+  %.sroa.093.0 = load ptr, ptr %1473, align 8
+  %.not100 = icmp eq ptr %.sroa.093.0, %921
   br i1 %.not100, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, %920
-  %.1.lcssa = phi i1 [ %.0172, %920 ], [ %.2, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
-  %1498 = getelementptr inbounds nuw i8, ptr %.sroa.096.0173, i64 8
-  %.sroa.096.0 = load ptr, ptr %1498, align 8
-  %.not = icmp eq ptr %.sroa.096.0, %63
-  br i1 %.not, label %._crit_edge176, label %920
+._crit_edge:                                      ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, %919
+  %.1.lcssa = phi i1 [ %.0172, %919 ], [ %.2, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
+  %1474 = getelementptr inbounds nuw i8, ptr %.sroa.096.0173, i64 8
+  %.sroa.096.0 = load ptr, ptr %1474, align 8
+  %.not = icmp eq ptr %.sroa.096.0, %62
+  br i1 %.not, label %._crit_edge176, label %919
 
 ._crit_edge176:                                   ; preds = %._crit_edge, %2
   %.0.lcssa = phi i1 [ false, %2 ], [ %.1.lcssa, %._crit_edge ]
@@ -4000,107 +3968,106 @@ define internal noundef ptr @_ZL14rebuildZExtCstPKN4llvm8ConstantEjjj(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_1clEjj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  %4 = alloca [2 x %struct.FixupEntry], align 16
-  %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %14, label %5
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_1clEjj"(ptr nocapture readonly %.0.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca [2 x %struct.FixupEntry], align 16
+  %.not = icmp eq i32 %0, 0
+  br i1 %.not, label %13, label %4
 
-5:                                                ; preds = %3
-  %6 = tail call noundef ptr @_ZN4llvm30lookupBroadcastFoldTableBySizeEjj(i32 noundef %1, i32 noundef 32) #16
-  %.not28 = icmp eq ptr %6, null
-  br i1 %.not28, label %14, label %7
+4:                                                ; preds = %2
+  %5 = tail call noundef ptr @_ZN4llvm30lookupBroadcastFoldTableBySizeEjj(i32 noundef %0, i32 noundef 32) #16
+  %.not28 = icmp eq ptr %5, null
+  br i1 %.not28, label %13, label %6
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load i16, ptr %10, align 4
-  %12 = and i16 %11, 7
-  %13 = zext nneg i16 %12 to i32
-  br label %14
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = load i16, ptr %9, align 4
+  %11 = and i16 %10, 7
+  %12 = zext nneg i16 %11 to i32
+  br label %13
 
-14:                                               ; preds = %5, %7, %3
-  %.023 = phi i32 [ %13, %7 ], [ 0, %5 ], [ 0, %3 ]
-  %.020 = phi i32 [ %9, %7 ], [ 0, %5 ], [ 0, %3 ]
-  %.not29 = icmp eq i32 %2, 0
-  br i1 %.not29, label %24, label %15
+13:                                               ; preds = %4, %6, %2
+  %.023 = phi i32 [ %12, %6 ], [ 0, %4 ], [ 0, %2 ]
+  %.020 = phi i32 [ %8, %6 ], [ 0, %4 ], [ 0, %2 ]
+  %.not29 = icmp eq i32 %1, 0
+  br i1 %.not29, label %23, label %14
 
-15:                                               ; preds = %14
-  %16 = tail call noundef ptr @_ZN4llvm30lookupBroadcastFoldTableBySizeEjj(i32 noundef %2, i32 noundef 64) #16
-  %.not30 = icmp eq ptr %16, null
-  br i1 %.not30, label %24, label %17
+14:                                               ; preds = %13
+  %15 = tail call noundef ptr @_ZN4llvm30lookupBroadcastFoldTableBySizeEjj(i32 noundef %1, i32 noundef 64) #16
+  %.not30 = icmp eq ptr %15, null
+  br i1 %.not30, label %23, label %16
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %21 = load i16, ptr %20, align 4
-  %22 = and i16 %21, 7
-  %23 = zext nneg i16 %22 to i32
-  br label %24
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %20 = load i16, ptr %19, align 4
+  %21 = and i16 %20, 7
+  %22 = zext nneg i16 %21 to i32
+  br label %23
 
-24:                                               ; preds = %15, %17, %14
-  %.022 = phi i32 [ %23, %17 ], [ 0, %15 ], [ 0, %14 ]
-  %.021 = phi i32 [ %19, %17 ], [ 0, %15 ], [ 0, %14 ]
-  %25 = icmp ne i32 %.020, 0
-  %26 = icmp ne i32 %.021, 0
-  %or.cond = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond, label %27, label %.loopexit
+23:                                               ; preds = %14, %16, %13
+  %.022 = phi i32 [ %22, %16 ], [ 0, %14 ], [ 0, %13 ]
+  %.021 = phi i32 [ %18, %16 ], [ 0, %14 ], [ 0, %13 ]
+  %24 = icmp ne i32 %.020, 0
+  %25 = icmp ne i32 %.021, 0
+  %or.cond = select i1 %24, i1 true, i1 %25
+  br i1 %or.cond, label %26, label %.loopexit
 
-27:                                               ; preds = %24
-  %28 = icmp eq i32 %.020, 0
-  %29 = select i1 %28, i32 %.022, i32 %.023
-  store i32 %.020, ptr %4, align 16
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 32, ptr %30, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 32, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %35 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 0, ptr %35, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %32, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %34, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %33, align 16
-  %36 = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 %.021, ptr %36, align 16
-  %37 = getelementptr inbounds i8, ptr %4, i64 52
-  store i32 64, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
-  store i32 64, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 64
-  %40 = getelementptr inbounds i8, ptr %4, i64 80
-  %41 = getelementptr inbounds i8, ptr %4, i64 88
-  %42 = getelementptr inbounds i8, ptr %4, i64 72
-  store i64 0, ptr %42, align 8
-  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %39, align 16
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %41, align 8
-  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %40, align 16
-  %43 = load ptr, ptr %0, align 8
-  %44 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj"(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr nonnull %4, i64 2, i32 noundef 0, i32 noundef %29)
-  %45 = getelementptr inbounds i8, ptr %4, i64 96
-  br label %46
+26:                                               ; preds = %23
+  %27 = icmp eq i32 %.020, 0
+  %28 = select i1 %27, i32 %.022, i32 %.023
+  store i32 %.020, ptr %3, align 16
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 32, ptr %29, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 32, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %34 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 0, ptr %34, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %31, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %33, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %32, align 16
+  %35 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 %.021, ptr %35, align 16
+  %36 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 64, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %3, i64 56
+  store i32 64, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %3, i64 64
+  %39 = getelementptr inbounds i8, ptr %3, i64 80
+  %40 = getelementptr inbounds i8, ptr %3, i64 88
+  %41 = getelementptr inbounds i8, ptr %3, i64 72
+  store i64 0, ptr %41, align 8
+  store ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj, ptr %38, align 16
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E9_M_invokeERKSt9_Any_dataOS4_OjSC_SC_, ptr %40, align 8
+  store ptr @_ZNSt17_Function_handlerIFPN4llvm8ConstantEPKS1_jjjEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %39, align 16
+  %42 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj"(ptr noundef nonnull align 8 dereferenceable(24) %.0.val, ptr nonnull %3, i64 2, i32 noundef 0, i32 noundef %28)
+  %43 = getelementptr inbounds i8, ptr %3, i64 96
+  br label %44
 
-46:                                               ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit, %27
-  %47 = phi ptr [ %45, %27 ], [ %48, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 -48
-  %49 = getelementptr inbounds i8, ptr %47, i64 -16
-  %50 = load ptr, ptr %49, align 8
-  %.not.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit, label %51
+44:                                               ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit, %26
+  %45 = phi ptr [ %43, %26 ], [ %46, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit ]
+  %46 = getelementptr inbounds i8, ptr %45, i64 -48
+  %47 = getelementptr inbounds i8, ptr %45, i64 -16
+  %48 = load ptr, ptr %47, align 8
+  %.not.i.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i.i, label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit, label %49
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %47, i64 -32
-  %53 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %52, i32 noundef 3) #16
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds i8, ptr %45, i64 -32
+  %51 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef 3) #16
   br label %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit
 
-_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit: ; preds = %46, %51
-  %54 = icmp eq ptr %48, %4
-  br i1 %54, label %.loopexit, label %46
+_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit: ; preds = %44, %49
+  %52 = icmp eq ptr %46, %3
+  br i1 %52, label %.loopexit, label %44
 
-.loopexit:                                        ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit, %24
-  %.0 = phi i1 [ false, %24 ], [ %44, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit ]
+.loopexit:                                        ; preds = %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit, %23
+  %.0 = phi i1 [ false, %23 ], [ %42, %_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEEN10FixupEntryD2Ev.exit ]
   ret i1 %.0
 }
 

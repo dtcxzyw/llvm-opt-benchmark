@@ -3626,9 +3626,9 @@ _ZN8pybind1112cpp_functionC2IZNS_6class_IZ22test_submodule_modulesRNS_7module_EE
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !119)
   %28 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #29
-          to label %.noexc.i10 unwind label %44
+          to label %.noexc.i9 unwind label %44
 
-.noexc.i10:                                       ; preds = %_ZN8pybind1112cpp_functionC2IZNS_6class_IZ22test_submodule_modulesRNS_7module_EE1BJEE13def_readwriteIS5_Z22test_submodule_modulesS4_E1AJEEERS6_PKcMT_T0_DpRKT1_EUlRKS5_E_JNS_9is_methodEEvEEOSC_DpRKT0_.exit
+.noexc.i9:                                        ; preds = %_ZN8pybind1112cpp_functionC2IZNS_6class_IZ22test_submodule_modulesRNS_7module_EE1BJEE13def_readwriteIS5_Z22test_submodule_modulesS4_E1AJEEERS6_PKcMT_T0_DpRKT1_EUlRKS5_E_JNS_9is_methodEEvEEOSC_DpRKT0_.exit
   %29 = getelementptr inbounds i8, ptr %28, i64 94
   %30 = getelementptr inbounds i8, ptr %28, i64 96
   store i16 0, ptr %30, align 8, !noalias !119
@@ -3648,10 +3648,10 @@ _ZN8pybind1112cpp_functionC2IZNS_6class_IZ22test_submodule_modulesRNS_7module_EE
   invoke void @_ZN8pybind1112cpp_function18initialize_genericEOSt10unique_ptrINS_6detail15function_recordENS0_33InitializingFunctionRecordDeleterEEPKcPKPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @_ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ22test_submodule_modulesRNS_7module_EE1BJEE13def_readwriteIS5_Z22test_submodule_modulesS4_E1AJEEERS6_PKcMT_T0_DpRKT1_EUlRS5_RKS8_E_vJSJ_SL_EJNS_9is_methodEEEEvOSC_PFSD_DpSF_EDpRKT2_E9signature, ptr noundef nonnull @_ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ22test_submodule_modulesRNS_7module_EE1BJEE13def_readwriteIS5_Z22test_submodule_modulesS4_E1AJEEERS6_PKcMT_T0_DpRKT1_EUlRS5_RKS8_E_vJSJ_SL_EJNS_9is_methodEEEEvOSC_PFSD_DpSF_EDpRKT2_E5types, i64 noundef 2)
           to label %36 unwind label %42
 
-36:                                               ; preds = %.noexc.i10
+36:                                               ; preds = %.noexc.i9
   %37 = load ptr, ptr %4, align 8
-  %.not.i.i.i11 = icmp eq ptr %37, null
-  br i1 %.not.i.i.i11, label %46, label %38
+  %.not.i.i.i10 = icmp eq ptr %37, null
+  br i1 %.not.i.i.i10, label %46, label %38
 
 38:                                               ; preds = %36
   invoke void @_ZN8pybind1112cpp_function8destructEPNS_6detail15function_recordEb(ptr noundef nonnull %37, i1 noundef zeroext false)
@@ -3664,19 +3664,19 @@ _ZN8pybind1112cpp_functionC2IZNS_6class_IZ22test_submodule_modulesRNS_7module_EE
   call void @__clang_call_terminate(ptr %41) #27
   unreachable
 
-42:                                               ; preds = %.noexc.i10
+42:                                               ; preds = %.noexc.i9
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN8pybind116detail15function_recordENS0_12cpp_function33InitializingFunctionRecordDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  br label %.body.i8
+  br label %.body.i7
 
 44:                                               ; preds = %_ZN8pybind1112cpp_functionC2IZNS_6class_IZ22test_submodule_modulesRNS_7module_EE1BJEE13def_readwriteIS5_Z22test_submodule_modulesS4_E1AJEEERS6_PKcMT_T0_DpRKT1_EUlRKS5_E_JNS_9is_methodEEvEEOSC_DpRKT0_.exit
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %.body.i8
+  br label %.body.i7
 
-.body.i8:                                         ; preds = %44, %42
-  %eh.lpad-body.i9 = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
+.body.i7:                                         ; preds = %44, %42
+  %eh.lpad-body.i8 = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
   call void @_ZN8pybind118functionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #26
   br label %.body
 
@@ -3690,13 +3690,13 @@ _ZN8pybind1112cpp_functionC2IZNS_6class_IZ22test_submodule_modulesRNS_7module_EE
 .noexc:                                           ; preds = %46
   %.sroa.07.0.copyload.i.i = load ptr, ptr %7, align 8
   %49 = invoke fastcc noundef ptr @_ZN8pybind116class_IZ22test_submodule_modulesRNS_7module_EE1BJEE19get_function_recordENS_6handleE(ptr %.sroa.07.0.copyload.i.i)
-          to label %.noexc12 unwind label %79
+          to label %.noexc11 unwind label %79
 
-.noexc12:                                         ; preds = %.noexc
+.noexc11:                                         ; preds = %.noexc
   %.not.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i, label %56, label %50
 
-50:                                               ; preds = %.noexc12
+50:                                               ; preds = %.noexc11
   %51 = getelementptr inbounds i8, ptr %48, i64 89
   %52 = load i16, ptr %51, align 1
   %53 = or i16 %52, 16
@@ -3707,7 +3707,7 @@ _ZN8pybind1112cpp_functionC2IZNS_6class_IZ22test_submodule_modulesRNS_7module_EE
   store i8 6, ptr %55, align 8
   br label %56
 
-56:                                               ; preds = %50, %.noexc12
+56:                                               ; preds = %50, %.noexc11
   %.not43.i.i = icmp eq ptr %49, null
   br i1 %.not43.i.i, label %_ZN8pybind116class_IZ22test_submodule_modulesRNS_7module_EE1BJEE19def_property_staticIJNS_9is_methodENS_19return_value_policyEEEERS4_PKcRKNS_12cpp_functionESD_DpRKT_.exit.i, label %57
 
@@ -3755,19 +3755,19 @@ _ZN8pybind116class_IZ22test_submodule_modulesRNS_7module_EE1BJEE12def_propertyIJ
 
 _ZN8pybind1112cpp_functionD2Ev.exit:              ; preds = %_ZN8pybind116class_IZ22test_submodule_modulesRNS_7module_EE1BJEE12def_propertyIJNS_19return_value_policyEEEERS4_PKcRKNS_12cpp_functionESC_DpRKT_.exit, %64, %67
   %71 = load ptr, ptr %6, align 8
-  %.not.i.i.i.i.i14 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i.i14, label %_ZN8pybind1112cpp_functionD2Ev.exit16, label %72
+  %.not.i.i.i.i.i13 = icmp eq ptr %71, null
+  br i1 %.not.i.i.i.i.i13, label %_ZN8pybind1112cpp_functionD2Ev.exit15, label %72
 
 72:                                               ; preds = %_ZN8pybind1112cpp_functionD2Ev.exit
   %73 = load i64, ptr %71, align 8
   %74 = add nsw i64 %73, -1
   store i64 %74, ptr %71, align 8
-  %.not.i.i.i.i.i.i15 = icmp eq i64 %74, 0
-  br i1 %.not.i.i.i.i.i.i15, label %75, label %_ZN8pybind1112cpp_functionD2Ev.exit16
+  %.not.i.i.i.i.i.i14 = icmp eq i64 %74, 0
+  br i1 %.not.i.i.i.i.i.i14, label %75, label %_ZN8pybind1112cpp_functionD2Ev.exit15
 
 75:                                               ; preds = %72
   invoke void @_Py_Dealloc(ptr noundef nonnull %71)
-          to label %_ZN8pybind1112cpp_functionD2Ev.exit16 unwind label %76
+          to label %_ZN8pybind1112cpp_functionD2Ev.exit15 unwind label %76
 
 76:                                               ; preds = %75
   %77 = landingpad { ptr, i32 }
@@ -3776,7 +3776,7 @@ _ZN8pybind1112cpp_functionD2Ev.exit:              ; preds = %_ZN8pybind116class_
   call void @__clang_call_terminate(ptr %78) #27
   unreachable
 
-_ZN8pybind1112cpp_functionD2Ev.exit16:            ; preds = %_ZN8pybind1112cpp_functionD2Ev.exit, %72, %75
+_ZN8pybind1112cpp_functionD2Ev.exit15:            ; preds = %_ZN8pybind1112cpp_functionD2Ev.exit, %72, %75
   ret ptr %0
 
 79:                                               ; preds = %_ZN8pybind116class_IZ22test_submodule_modulesRNS_7module_EE1BJEE19def_property_staticIJNS_9is_methodENS_19return_value_policyEEEERS4_PKcRKNS_12cpp_functionESD_DpRKT_.exit.i, %.noexc, %46
@@ -3785,8 +3785,8 @@ _ZN8pybind1112cpp_functionD2Ev.exit16:            ; preds = %_ZN8pybind1112cpp_f
   call void @_ZN8pybind1112cpp_functionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #26
   br label %.body
 
-.body:                                            ; preds = %.body.i8, %79
-  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %eh.lpad-body.i9, %.body.i8 ]
+.body:                                            ; preds = %.body.i7, %79
+  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %eh.lpad-body.i8, %.body.i7 ]
   call void @_ZN8pybind1112cpp_functionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #26
   br label %common.resume
 }

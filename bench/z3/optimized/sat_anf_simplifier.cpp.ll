@@ -4033,12 +4033,12 @@ invoke.cont9:                                     ; preds = %if.then.i.i5.i.i28,
           to label %invoke.cont10 unwind label %lpad7
 
 invoke.cont10:                                    ; preds = %invoke.cont9
+  %28 = ptrtoint ptr %seen_bin to i64
   %_M_manager.i.i33 = getelementptr inbounds i8, ptr %not_seen, i64 16
   %_M_invoker.i34 = getelementptr inbounds i8, ptr %not_seen, i64 24
-  %28 = getelementptr inbounds i8, ptr %not_seen, i64 8
-  store i64 0, ptr %28, align 8
-  %29 = ptrtoint ptr %seen_bin to i64
-  store i64 %29, ptr %not_seen, align 8
+  %29 = getelementptr inbounds i8, ptr %not_seen, i64 8
+  store i64 0, ptr %29, align 8
+  store i64 %28, ptr %not_seen, align 8
   store ptr @"_ZNSt17_Function_handlerIFbSt4pairIN3sat7literalES2_EEZNS1_14anf_simplifier12compile_aigsER10ptr_vectorINS1_6clauseEER7svectorIS3_jERN2dd6solverEE3$_2E9_M_invokeERKSt9_Any_dataOS3_", ptr %_M_invoker.i34, align 8
   store ptr @"_ZNSt17_Function_handlerIFbSt4pairIN3sat7literalES2_EEZNS1_14anf_simplifier12compile_aigsER10ptr_vectorINS1_6clauseEER7svectorIS3_jERN2dd6solverEE3$_2E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i33, align 8
   %30 = load ptr, ptr %bins, align 8

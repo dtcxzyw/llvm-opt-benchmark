@@ -635,8 +635,8 @@ _ZN7rocksdb5DeferC2EOSt8functionIFvvEE.exit:      ; preds = %for.inc, %while.end
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7rocksdb21OptimisticTransaction26CommitWithParallelValidateEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %unlocks, i64 16
   store i64 %27, ptr %unlocks, align 8
-  %ref.tmp51.sroa.3.0.unlocks.sroa_idx = getelementptr inbounds i8, ptr %unlocks, i64 8
-  store i64 0, ptr %ref.tmp51.sroa.3.0.unlocks.sroa_idx, align 8
+  %ref.tmp51.sroa.2.0.unlocks.sroa_idx = getelementptr inbounds i8, ptr %unlocks, i64 8
+  store i64 0, ptr %ref.tmp51.sroa.2.0.unlocks.sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7rocksdb21OptimisticTransaction26CommitWithParallelValidateEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   %28 = load ptr, ptr %tracked_locks_, align 8
   invoke void @_ZN7rocksdb15TransactionUtil21CheckKeysForConflictsEPNS_6DBImplERKNS_11LockTrackerEb(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %call2, ptr noundef nonnull align 8 dereferenceable(8) %28, i1 noundef zeroext true)

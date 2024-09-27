@@ -1190,7 +1190,7 @@ define internal i32 @dissect_sflow_245(ptr noundef %0, ptr noundef %1, ptr nound
   br label %dissect_sflow_245_address_type.exit
 
 dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
-  %.0.i83 = phi i32 [ 8, %28 ], [ 12, %29 ], [ 24, %35 ]
+  %.0.i84 = phi i32 [ 8, %28 ], [ 12, %29 ], [ 24, %35 ]
   %.off = add nsw i32 %12, -1
   %switch80 = icmp ult i32 %.off, 2
   br i1 %switch80, label %41, label %46
@@ -1208,16 +1208,16 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %46
-  %49 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0.i83) #7
+  %49 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0.i84) #7
   %50 = load ptr, ptr %14, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.715, i32 noundef %49) #7
   %51 = load i32, ptr @hf_sflow_5_sub_agent_id, align 4
-  %52 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %51, ptr noundef %0, i32 noundef %.0.i83, i32 noundef 4, i32 noundef %49) #7
-  %53 = add nuw nsw i32 %.0.i83, 4
+  %52 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %51, ptr noundef %0, i32 noundef %.0.i84, i32 noundef 4, i32 noundef %49) #7
+  %53 = add nuw nsw i32 %.0.i84, 4
   br label %54
 
 54:                                               ; preds = %48, %46
-  %.078 = phi i32 [ %53, %48 ], [ %.0.i83, %46 ]
+  %.078 = phi i32 [ %53, %48 ], [ %.0.i84, %46 ]
   %55 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.078) #7
   %56 = load ptr, ptr %14, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.716, i32 noundef %55) #7
@@ -1246,35 +1246,35 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
   br i1 %47, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %dissect_sflow_245_samples.exit.us
-  %.091.us = phi i32 [ %266, %dissect_sflow_245_samples.exit.us ], [ 0, %.lr.ph ]
-  %.190.us = phi i32 [ %.0.i81.us, %dissect_sflow_245_samples.exit.us ], [ %73, %.lr.ph ]
+  %.092.us = phi i32 [ %266, %dissect_sflow_245_samples.exit.us ], [ 0, %.lr.ph ]
+  %.191.us = phi i32 [ %.0.i82.us, %dissect_sflow_245_samples.exit.us ], [ %73, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %74 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.190.us) #7
+  %74 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.191.us) #7
   %75 = icmp ult i32 %74, 4096
   br i1 %75, label %83, label %76
 
 76:                                               ; preds = %.lr.ph.split.us
   %77 = lshr i32 %74, 12
   %78 = load i32, ptr @ett_sflow_245_sample, align 4
-  %79 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %0, i32 noundef %.190.us, i32 noundef -1, i32 noundef %78, ptr noundef nonnull %6, ptr noundef nonnull @.str.722) #7
+  %79 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %0, i32 noundef %.191.us, i32 noundef -1, i32 noundef %78, ptr noundef nonnull %6, ptr noundef nonnull @.str.722) #7
   %80 = load i32, ptr @hf_sflow_enterprise, align 4
-  %81 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %79, i32 noundef %80, ptr noundef %0, i32 noundef %.190.us, i32 noundef 4, i32 noundef %77, ptr noundef nonnull @.str.723, i32 noundef %77) #7
+  %81 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %79, i32 noundef %80, ptr noundef %0, i32 noundef %.191.us, i32 noundef 4, i32 noundef %77, ptr noundef nonnull @.str.723, i32 noundef %77) #7
   %82 = call i32 @tvb_captured_length(ptr noundef %0) #7
   br label %dissect_sflow_245_samples.exit.us
 
 83:                                               ; preds = %.lr.ph.split.us
   %84 = load i32, ptr @ett_sflow_245_sample, align 4
   %85 = call ptr @val_to_str_const(i32 noundef %74, ptr noundef nonnull @sflow_245_sampletype, ptr noundef nonnull @.str.720) #7
-  %86 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %0, i32 noundef %.190.us, i32 noundef -1, i32 noundef %84, ptr noundef nonnull %6, ptr noundef %85) #7
+  %86 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %0, i32 noundef %.191.us, i32 noundef -1, i32 noundef %84, ptr noundef nonnull %6, ptr noundef %85) #7
   %87 = load i32, ptr @hf_sflow_enterprise, align 4
-  %88 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %86, i32 noundef %87, ptr noundef %0, i32 noundef %.190.us, i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.721, i32 noundef 0) #7
+  %88 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %86, i32 noundef %87, ptr noundef %0, i32 noundef %.191.us, i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.721, i32 noundef 0) #7
   %89 = load i32, ptr @hf_sflow_245_sampletype12, align 4
-  %90 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %89, ptr noundef %0, i32 noundef %.190.us, i32 noundef 4, i32 noundef 0) #7
-  %91 = add i32 %.190.us, 4
+  %90 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %89, ptr noundef %0, i32 noundef %.191.us, i32 noundef 4, i32 noundef 0) #7
+  %91 = add i32 %.191.us, 4
   %92 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %91) #7
   %93 = load i32, ptr @hf_sflow_5_sample_length, align 4
   %94 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %93, ptr noundef %0, i32 noundef %91, i32 noundef 4, i32 noundef 0) #7
-  %95 = add i32 %.190.us, 8
+  %95 = add i32 %.191.us, 8
   switch i32 %74, label %dissect_sflow_5_counters_sample.exit.i.us [
     i32 1, label %211
     i32 2, label %193
@@ -1286,38 +1286,38 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
 96:                                               ; preds = %83
   %97 = load i32, ptr @hf_sflow_lag_port_actorsystemid, align 4
   %98 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %97, ptr noundef %0, i32 noundef %95, i32 noundef 6, i32 noundef 0) #7
-  %99 = add i32 %.190.us, 14
+  %99 = add i32 %.191.us, 14
   %100 = load i32, ptr @hf_sflow_lag_port_partneropersystemid, align 4
   %101 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %100, ptr noundef %0, i32 noundef %99, i32 noundef 6, i32 noundef 0) #7
-  %102 = add i32 %.190.us, 20
+  %102 = add i32 %.191.us, 20
   %103 = load i32, ptr @hf_sflow_lag_port_attachedaggid, align 4
   %104 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %103, ptr noundef %0, i32 noundef %102, i32 noundef 4, i32 noundef 0) #7
-  %105 = add i32 %.190.us, 24
+  %105 = add i32 %.191.us, 24
   %106 = load i32, ptr @hf_sflow_lag_port_state, align 4
   %107 = load i32, ptr @ett_sflow_lag_port_state_flags, align 4
   %108 = call ptr @proto_tree_add_bitmask(ptr noundef %86, ptr noundef %0, i32 noundef %105, i32 noundef %106, i32 noundef %107, ptr noundef nonnull @sflow_lag_port_state_flags, i32 noundef 0) #7
-  %109 = add i32 %.190.us, 28
+  %109 = add i32 %.191.us, 28
   %110 = load i32, ptr @hf_sflow_lag_port_stats_lacpdusrx, align 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %110, ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef 0) #7
-  %112 = add i32 %.190.us, 32
+  %112 = add i32 %.191.us, 32
   %113 = load i32, ptr @hf_sflow_lag_port_stats_markerpdusrx, align 4
   %114 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %113, ptr noundef %0, i32 noundef %112, i32 noundef 4, i32 noundef 0) #7
-  %115 = add i32 %.190.us, 36
+  %115 = add i32 %.191.us, 36
   %116 = load i32, ptr @hf_sflow_lag_port_stats_markerresponsepdusrx, align 4
   %117 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %116, ptr noundef %0, i32 noundef %115, i32 noundef 4, i32 noundef 0) #7
-  %118 = add i32 %.190.us, 40
+  %118 = add i32 %.191.us, 40
   %119 = load i32, ptr @hf_sflow_lag_port_stats_unknownrx, align 4
   %120 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %119, ptr noundef %0, i32 noundef %118, i32 noundef 4, i32 noundef 0) #7
-  %121 = add i32 %.190.us, 44
+  %121 = add i32 %.191.us, 44
   %122 = load i32, ptr @hf_sflow_lag_port_stats_illegalrx, align 4
   %123 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %122, ptr noundef %0, i32 noundef %121, i32 noundef 4, i32 noundef 0) #7
-  %124 = add i32 %.190.us, 48
+  %124 = add i32 %.191.us, 48
   %125 = load i32, ptr @hf_sflow_lag_port_stats_lacpdustx, align 4
   %126 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %125, ptr noundef %0, i32 noundef %124, i32 noundef 4, i32 noundef 0) #7
-  %127 = add i32 %.190.us, 52
+  %127 = add i32 %.191.us, 52
   %128 = load i32, ptr @hf_sflow_lag_port_stats_markerpdustx, align 4
   %129 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %128, ptr noundef %0, i32 noundef %127, i32 noundef 4, i32 noundef 0) #7
-  %130 = add i32 %.190.us, 56
+  %130 = add i32 %.191.us, 56
   %131 = load i32, ptr @hf_sflow_lag_port_stats_markerresponsepdustx, align 4
   %132 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef 4, i32 noundef 0) #7
   br label %dissect_sflow_5_counters_sample.exit.i.us
@@ -1328,13 +1328,13 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
   %136 = load i32, ptr @hf_sflow_counters_sample_sequence_number, align 4
   %137 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %136, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef 0) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %134, ptr noundef nonnull @.str.716, i32 noundef %135) #7
-  %138 = add i32 %.190.us, 12
+  %138 = add i32 %.191.us, 12
   %139 = load i32, ptr @hf_sflow_counters_sample_expanded_source_id_type, align 4
   %140 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %139, ptr noundef %0, i32 noundef %138, i32 noundef 4, i32 noundef 0) #7
-  %141 = add i32 %.190.us, 16
+  %141 = add i32 %.191.us, 16
   %142 = load i32, ptr @hf_sflow_counters_sample_expanded_source_id_index, align 4
   %143 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %142, ptr noundef %0, i32 noundef %141, i32 noundef 4, i32 noundef 0) #7
-  %144 = add i32 %.190.us, 20
+  %144 = add i32 %.191.us, 20
   %145 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %144) #7
   %146 = load i32, ptr @hf_sflow_counters_sample_counters_records, align 4
   %147 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %146, ptr noundef %0, i32 noundef %144, i32 noundef 4, i32 noundef 0) #7
@@ -1343,7 +1343,7 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
   br i1 %.not.i84.i.us, label %dissect_sflow_5_counters_sample.exit.i.us, label %.lr.ph.preheader.i85.i.us
 
 .lr.ph.preheader.i85.i.us:                        ; preds = %133
-  %149 = add i32 %.190.us, 24
+  %149 = add i32 %.191.us, 24
   br label %.lr.ph.i86.i.us
 
 .lr.ph.i86.i.us:                                  ; preds = %.lr.ph.i86.i.us, %.lr.ph.preheader.i85.i.us
@@ -1359,36 +1359,36 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
   %154 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %95) #7
   %155 = load i32, ptr @hf_sflow_flow_sample_sequence_number, align 4
   %156 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %155, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef 0) #7
-  %157 = add i32 %.190.us, 12
+  %157 = add i32 %.191.us, 12
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %153, ptr noundef nonnull @.str.716, i32 noundef %154) #7
   %158 = load i32, ptr @hf_sflow_flow_sample_source_id_type, align 4
   %159 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %158, ptr noundef %0, i32 noundef %157, i32 noundef 4, i32 noundef 0) #7
-  %160 = add i32 %.190.us, 16
+  %160 = add i32 %.191.us, 16
   %161 = load i32, ptr @hf_sflow_flow_sample_source_id_index, align 4
   %162 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %161, ptr noundef %0, i32 noundef %160, i32 noundef 4, i32 noundef 0) #7
-  %163 = add i32 %.190.us, 20
+  %163 = add i32 %.191.us, 20
   %164 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %163) #7
   %165 = load i32, ptr @hf_sflow_flow_sample_sampling_rate, align 4
   %166 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %86, i32 noundef %165, ptr noundef %0, i32 noundef %163, i32 noundef 4, i32 noundef %164, ptr noundef nonnull @.str.725, i32 noundef %164) #7
-  %167 = add i32 %.190.us, 24
+  %167 = add i32 %.191.us, 24
   %168 = load i32, ptr @hf_sflow_flow_sample_sample_pool, align 4
   %169 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %168, ptr noundef %0, i32 noundef %167, i32 noundef 4, i32 noundef 0) #7
-  %170 = add i32 %.190.us, 28
+  %170 = add i32 %.191.us, 28
   %171 = load i32, ptr @hf_sflow_flow_sample_dropped_packets, align 4
   %172 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %171, ptr noundef %0, i32 noundef %170, i32 noundef 4, i32 noundef 0) #7
-  %173 = add i32 %.190.us, 32
+  %173 = add i32 %.191.us, 32
   %174 = load i32, ptr @hf_sflow_flow_sample_input_interface_format, align 4
   %175 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %174, ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef 0) #7
-  %176 = add i32 %.190.us, 36
+  %176 = add i32 %.191.us, 36
   %177 = load i32, ptr @hf_sflow_flow_sample_input_interface_value, align 4
   %178 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %177, ptr noundef %0, i32 noundef %176, i32 noundef 4, i32 noundef 0) #7
-  %179 = add i32 %.190.us, 40
+  %179 = add i32 %.191.us, 40
   %180 = load i32, ptr @hf_sflow_24_flow_sample_output_interface_format, align 4
   %181 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %180, ptr noundef %0, i32 noundef %179, i32 noundef 4, i32 noundef 0) #7
-  %182 = add i32 %.190.us, 44
+  %182 = add i32 %.191.us, 44
   %183 = load i32, ptr @hf_sflow_24_flow_sample_output_interface_value, align 4
   %184 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %183, ptr noundef %0, i32 noundef %182, i32 noundef 4, i32 noundef 0) #7
-  %185 = add i32 %.190.us, 48
+  %185 = add i32 %.191.us, 48
   %186 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %185) #7
   %187 = load i32, ptr @hf_sflow_flow_sample_flow_record, align 4
   %188 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %187, ptr noundef %0, i32 noundef %185, i32 noundef 4, i32 noundef 0) #7
@@ -1397,7 +1397,7 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
   br i1 %.not.i80.i.us, label %dissect_sflow_5_counters_sample.exit.i.us, label %.lr.ph.preheader.i81.i.us
 
 .lr.ph.preheader.i81.i.us:                        ; preds = %152
-  %190 = add i32 %.190.us, 52
+  %190 = add i32 %.191.us, 52
   br label %.lr.ph.i82.i.us
 
 .lr.ph.i82.i.us:                                  ; preds = %.lr.ph.i82.i.us, %.lr.ph.preheader.i81.i.us
@@ -1414,12 +1414,12 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
   %196 = load i32, ptr @hf_sflow_counters_sample_sequence_number, align 4
   %197 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %196, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef 0) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %194, ptr noundef nonnull @.str.716, i32 noundef %195) #7
-  %198 = add i32 %.190.us, 12
+  %198 = add i32 %.191.us, 12
   %199 = load i32, ptr @hf_sflow_counters_sample_source_id_type, align 4
   %200 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %199, ptr noundef %0, i32 noundef %198, i32 noundef 4, i32 noundef 0) #7
   %201 = load i32, ptr @hf_sflow_counters_sample_source_id_index, align 4
   %202 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %201, ptr noundef %0, i32 noundef %198, i32 noundef 4, i32 noundef 0) #7
-  %203 = add i32 %.190.us, 16
+  %203 = add i32 %.191.us, 16
   %204 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %203) #7
   %205 = load i32, ptr @hf_sflow_counters_sample_counters_records, align 4
   %206 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %205, ptr noundef %0, i32 noundef %203, i32 noundef 4, i32 noundef 0) #7
@@ -1428,7 +1428,7 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
   br i1 %.not.i76.i.us, label %dissect_sflow_5_counters_sample.exit.i.us, label %.lr.ph.preheader.i77.i.us
 
 .lr.ph.preheader.i77.i.us:                        ; preds = %193
-  %208 = add i32 %.190.us, 20
+  %208 = add i32 %.191.us, 20
   br label %.lr.ph.i78.i.us
 
 .lr.ph.i78.i.us:                                  ; preds = %.lr.ph.i78.i.us, %.lr.ph.preheader.i77.i.us
@@ -1445,26 +1445,26 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
   %213 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %95) #7
   %214 = load i32, ptr @hf_sflow_flow_sample_sequence_number, align 4
   %215 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %214, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef 0) #7
-  %216 = add i32 %.190.us, 12
+  %216 = add i32 %.191.us, 12
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %212, ptr noundef nonnull @.str.716, i32 noundef %213) #7
   %217 = load i32, ptr @hf_sflow_flow_sample_source_id_class, align 4
   %218 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %217, ptr noundef %0, i32 noundef %216, i32 noundef 4, i32 noundef 0) #7
   %219 = load i32, ptr @hf_sflow_flow_sample_index, align 4
   %220 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %219, ptr noundef %0, i32 noundef %216, i32 noundef 4, i32 noundef 0) #7
-  %221 = add i32 %.190.us, 16
+  %221 = add i32 %.191.us, 16
   %222 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %221) #7
   %223 = load i32, ptr @hf_sflow_flow_sample_sampling_rate, align 4
   %224 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %86, i32 noundef %223, ptr noundef %0, i32 noundef %221, i32 noundef 4, i32 noundef %222, ptr noundef nonnull @.str.725, i32 noundef %222) #7
-  %225 = add i32 %.190.us, 20
+  %225 = add i32 %.191.us, 20
   %226 = load i32, ptr @hf_sflow_flow_sample_sample_pool, align 4
   %227 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %226, ptr noundef %0, i32 noundef %225, i32 noundef 4, i32 noundef 0) #7
-  %228 = add i32 %.190.us, 24
+  %228 = add i32 %.191.us, 24
   %229 = load i32, ptr @hf_sflow_flow_sample_dropped_packets, align 4
   %230 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %229, ptr noundef %0, i32 noundef %228, i32 noundef 4, i32 noundef 0) #7
-  %231 = add i32 %.190.us, 28
+  %231 = add i32 %.191.us, 28
   %232 = load i32, ptr @hf_sflow_flow_sample_input_interface, align 4
   %233 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %232, ptr noundef %0, i32 noundef %231, i32 noundef 4, i32 noundef 0) #7
-  %234 = add i32 %.190.us, 32
+  %234 = add i32 %.191.us, 32
   %235 = load i32, ptr @hf_sflow_5_flow_sample_output_interface, align 4
   %236 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %86, i32 noundef %235, ptr noundef %0, i32 noundef %234, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5) #7
   %237 = load i32, ptr @ett_sflow_5_output_interface, align 4
@@ -1500,7 +1500,7 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
   br label %255
 
 255:                                              ; preds = %252, %249, %248, %243
-  %256 = add i32 %.190.us, 36
+  %256 = add i32 %.191.us, 36
   %257 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %256) #7
   %258 = load i32, ptr @hf_sflow_flow_sample_flow_record, align 4
   %259 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %258, ptr noundef %0, i32 noundef %256, i32 noundef 4, i32 noundef 0) #7
@@ -1509,7 +1509,7 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
   br i1 %.not.i.i.us, label %dissect_sflow_5_flow_sample.exit.i.us, label %.lr.ph.preheader.i.i.us
 
 .lr.ph.preheader.i.i.us:                          ; preds = %255
-  %261 = add i32 %.190.us, 40
+  %261 = add i32 %.191.us, 40
   br label %.lr.ph.i.i.us
 
 .lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.us, %.lr.ph.preheader.i.i.us
@@ -1530,25 +1530,25 @@ dissect_sflow_5_counters_sample.exit.i.us:        ; preds = %.lr.ph.i86.i.us, %.
   br label %dissect_sflow_245_samples.exit.us
 
 dissect_sflow_245_samples.exit.us:                ; preds = %dissect_sflow_5_counters_sample.exit.i.us, %76
-  %.0.i81.us = phi i32 [ %264, %dissect_sflow_5_counters_sample.exit.i.us ], [ %82, %76 ]
+  %.0.i82.us = phi i32 [ %264, %dissect_sflow_5_counters_sample.exit.i.us ], [ %82, %76 ]
   %265 = load ptr, ptr %6, align 8
-  call void @proto_item_set_end(ptr noundef %265, ptr noundef %0, i32 noundef %.0.i81.us) #7
+  call void @proto_item_set_end(ptr noundef %265, ptr noundef %0, i32 noundef %.0.i82.us) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %266 = add nuw nsw i32 %.091.us, 1
-  %exitcond95.not = icmp eq i32 %266, %72
-  br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
+  %266 = add nuw nsw i32 %.092.us, 1
+  %exitcond96.not = icmp eq i32 %266, %72
+  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_sflow_245_samples.exit
-  %.091 = phi i32 [ %434, %dissect_sflow_245_samples.exit ], [ 0, %.lr.ph ]
-  %.190 = phi i32 [ %.0.i81, %dissect_sflow_245_samples.exit ], [ %73, %.lr.ph ]
+  %.092 = phi i32 [ %434, %dissect_sflow_245_samples.exit ], [ 0, %.lr.ph ]
+  %.191 = phi i32 [ %.0.i82, %dissect_sflow_245_samples.exit ], [ %73, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %267 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.190) #7
+  %267 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.191) #7
   %268 = load i32, ptr @ett_sflow_245_sample, align 4
   %269 = call ptr @val_to_str_const(i32 noundef %267, ptr noundef nonnull @sflow_245_sampletype, ptr noundef nonnull @.str.724) #7
-  %270 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %0, i32 noundef %.190, i32 noundef -1, i32 noundef %268, ptr noundef nonnull %6, ptr noundef %269) #7
+  %270 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %0, i32 noundef %.191, i32 noundef -1, i32 noundef %268, ptr noundef nonnull %6, ptr noundef %269) #7
   %271 = load i32, ptr @hf_sflow_245_sampletype, align 4
-  %272 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %271, ptr noundef %0, i32 noundef %.190, i32 noundef 4, i32 noundef 0) #7
-  %273 = add i32 %.190, 4
+  %272 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %271, ptr noundef %0, i32 noundef %.191, i32 noundef 4, i32 noundef 0) #7
+  %273 = add i32 %.191, 4
   switch i32 %267, label %dissect_sflow_245_samples.exit [
     i32 1, label %274
     i32 2, label %345
@@ -1561,24 +1561,24 @@ dissect_sflow_245_samples.exit.us:                ; preds = %dissect_sflow_5_cou
   %278 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %277, ptr noundef %0, i32 noundef %273, i32 noundef 4, i32 noundef 0) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %275, ptr noundef nonnull @.str.716, i32 noundef %276) #7
   %279 = load i32, ptr @hf_sflow_flow_sample_source_id_class, align 4
-  %280 = add i32 %.190, 8
+  %280 = add i32 %.191, 8
   %281 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %279, ptr noundef %0, i32 noundef %280, i32 noundef 4, i32 noundef 0) #7
   %282 = load i32, ptr @hf_sflow_flow_sample_index, align 4
   %283 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %282, ptr noundef %0, i32 noundef %280, i32 noundef 4, i32 noundef 0) #7
-  %284 = add i32 %.190, 12
+  %284 = add i32 %.191, 12
   %285 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %284) #7
   %286 = load i32, ptr @hf_sflow_flow_sample_sampling_rate, align 4
   %287 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %270, i32 noundef %286, ptr noundef %0, i32 noundef %284, i32 noundef 4, i32 noundef %285, ptr noundef nonnull @.str.725, i32 noundef %285) #7
   %288 = load i32, ptr @hf_sflow_flow_sample_sample_pool, align 4
-  %289 = add i32 %.190, 16
+  %289 = add i32 %.191, 16
   %290 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %288, ptr noundef %0, i32 noundef %289, i32 noundef 4, i32 noundef 0) #7
   %291 = load i32, ptr @hf_sflow_flow_sample_dropped_packets, align 4
-  %292 = add i32 %.190, 20
+  %292 = add i32 %.191, 20
   %293 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %291, ptr noundef %0, i32 noundef %292, i32 noundef 4, i32 noundef 0) #7
   %294 = load i32, ptr @hf_sflow_flow_sample_input_interface, align 4
-  %295 = add i32 %.190, 24
+  %295 = add i32 %.191, 24
   %296 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %294, ptr noundef %0, i32 noundef %295, i32 noundef 4, i32 noundef 0) #7
-  %297 = add i32 %.190, 28
+  %297 = add i32 %.191, 28
   %298 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %297) #7
   %.not.i88.i = icmp sgt i32 %298, -1
   br i1 %.not.i88.i, label %306, label %299
@@ -1603,11 +1603,11 @@ dissect_sflow_245_samples.exit.us:                ; preds = %dissect_sflow_5_cou
   br label %309
 
 309:                                              ; preds = %306, %304, %302
-  %310 = add i32 %.190, 32
+  %310 = add i32 %.191, 32
   %311 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %310) #7
   %312 = load i32, ptr @hf_sflow_245_packet_information_type, align 4
   %313 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %312, ptr noundef %0, i32 noundef %310, i32 noundef 4, i32 noundef 0) #7
-  %314 = add i32 %.190, 36
+  %314 = add i32 %.191, 36
   %cond.i.i = icmp eq i32 %311, 1
   br i1 %cond.i.i, label %315, label %317
 
@@ -1674,18 +1674,18 @@ dissect_sflow_245_samples.exit.us:                ; preds = %dissect_sflow_5_cou
   %349 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %348, ptr noundef %0, i32 noundef %273, i32 noundef 4, i32 noundef 0) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %346, ptr noundef nonnull @.str.716, i32 noundef %347) #7
   %350 = load i32, ptr @hf_sflow_counters_sample_source_id_class, align 4
-  %351 = add i32 %.190, 8
+  %351 = add i32 %.191, 8
   %352 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %350, ptr noundef %0, i32 noundef %351, i32 noundef 4, i32 noundef 0) #7
   %353 = load i32, ptr @hf_sflow_counters_sample_index, align 4
   %354 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %353, ptr noundef %0, i32 noundef %351, i32 noundef 4, i32 noundef 0) #7
   %355 = load i32, ptr @hf_sflow_counters_sample_sampling_interval, align 4
-  %356 = add i32 %.190, 12
+  %356 = add i32 %.191, 12
   %357 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %355, ptr noundef %0, i32 noundef %356, i32 noundef 4, i32 noundef 0) #7
-  %358 = add i32 %.190, 16
+  %358 = add i32 %.191, 16
   %359 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %358) #7
   %360 = load i32, ptr @hf_sflow_counters_sample_counters_type, align 4
   %361 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %360, ptr noundef %0, i32 noundef %358, i32 noundef 4, i32 noundef 0) #7
-  %362 = add i32 %.190, 20
+  %362 = add i32 %.191, 20
   %.off.i.i = add i32 %359, -1
   %switch.i.i = icmp ult i32 %.off.i.i, 6
   br i1 %switch.i.i, label %363, label %424
@@ -1695,63 +1695,63 @@ dissect_sflow_245_samples.exit.us:                ; preds = %dissect_sflow_5_cou
   %365 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %364, ptr noundef %0, i32 noundef %362, i32 noundef 4, i32 noundef 0) #7
   %366 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %362) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %346, ptr noundef nonnull @.str.742, i32 noundef %366) #7
-  %367 = add i32 %.190, 24
+  %367 = add i32 %.191, 24
   %368 = load i32, ptr @hf_sflow_245_iftype, align 4
   %369 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %368, ptr noundef %0, i32 noundef %367, i32 noundef 4, i32 noundef 0) #7
-  %370 = add i32 %.190, 28
+  %370 = add i32 %.191, 28
   %371 = load i32, ptr @hf_sflow_245_ifspeed, align 4
   %372 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %371, ptr noundef %0, i32 noundef %370, i32 noundef 8, i32 noundef 0) #7
-  %373 = add i32 %.190, 36
+  %373 = add i32 %.191, 36
   %374 = load i32, ptr @hf_sflow_245_ifdirection, align 4
   %375 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %374, ptr noundef %0, i32 noundef %373, i32 noundef 4, i32 noundef 0) #7
-  %376 = add i32 %.190, 40
+  %376 = add i32 %.191, 40
   %377 = load i32, ptr @hf_sflow_245_ifadmin_status, align 4
   %378 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %377, ptr noundef %0, i32 noundef %376, i32 noundef 4, i32 noundef 0) #7
   %379 = load i32, ptr @hf_sflow_245_ifoper_status, align 4
   %380 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %379, ptr noundef %0, i32 noundef %376, i32 noundef 4, i32 noundef 0) #7
-  %381 = add i32 %.190, 44
+  %381 = add i32 %.191, 44
   %382 = load i32, ptr @hf_sflow_245_ifinoct, align 4
   %383 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %382, ptr noundef %0, i32 noundef %381, i32 noundef 8, i32 noundef 0) #7
-  %384 = add i32 %.190, 52
+  %384 = add i32 %.191, 52
   %385 = load i32, ptr @hf_sflow_245_ifinpkt, align 4
   %386 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %385, ptr noundef %0, i32 noundef %384, i32 noundef 4, i32 noundef 0) #7
-  %387 = add i32 %.190, 56
+  %387 = add i32 %.191, 56
   %388 = load i32, ptr @hf_sflow_245_ifinmcast, align 4
   %389 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %388, ptr noundef %0, i32 noundef %387, i32 noundef 4, i32 noundef 0) #7
-  %390 = add i32 %.190, 60
+  %390 = add i32 %.191, 60
   %391 = load i32, ptr @hf_sflow_245_ifinbcast, align 4
   %392 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %391, ptr noundef %0, i32 noundef %390, i32 noundef 4, i32 noundef 0) #7
-  %393 = add i32 %.190, 64
+  %393 = add i32 %.191, 64
   %394 = load i32, ptr @hf_sflow_245_ifindisc, align 4
   %395 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %394, ptr noundef %0, i32 noundef %393, i32 noundef 4, i32 noundef 0) #7
-  %396 = add i32 %.190, 68
+  %396 = add i32 %.191, 68
   %397 = load i32, ptr @hf_sflow_245_ifinerr, align 4
   %398 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %397, ptr noundef %0, i32 noundef %396, i32 noundef 4, i32 noundef 0) #7
-  %399 = add i32 %.190, 72
+  %399 = add i32 %.191, 72
   %400 = load i32, ptr @hf_sflow_245_ifinunk, align 4
   %401 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %400, ptr noundef %0, i32 noundef %399, i32 noundef 4, i32 noundef 0) #7
-  %402 = add i32 %.190, 76
+  %402 = add i32 %.191, 76
   %403 = load i32, ptr @hf_sflow_245_ifoutoct, align 4
   %404 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %403, ptr noundef %0, i32 noundef %402, i32 noundef 8, i32 noundef 0) #7
-  %405 = add i32 %.190, 84
+  %405 = add i32 %.191, 84
   %406 = load i32, ptr @hf_sflow_245_ifoutpkt, align 4
   %407 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %406, ptr noundef %0, i32 noundef %405, i32 noundef 4, i32 noundef 0) #7
-  %408 = add i32 %.190, 88
+  %408 = add i32 %.191, 88
   %409 = load i32, ptr @hf_sflow_245_ifoutmcast, align 4
   %410 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %409, ptr noundef %0, i32 noundef %408, i32 noundef 4, i32 noundef 0) #7
-  %411 = add i32 %.190, 92
+  %411 = add i32 %.191, 92
   %412 = load i32, ptr @hf_sflow_245_ifoutbcast, align 4
   %413 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %412, ptr noundef %0, i32 noundef %411, i32 noundef 4, i32 noundef 0) #7
-  %414 = add i32 %.190, 96
+  %414 = add i32 %.191, 96
   %415 = load i32, ptr @hf_sflow_245_ifoutdisc, align 4
   %416 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %415, ptr noundef %0, i32 noundef %414, i32 noundef 4, i32 noundef 0) #7
-  %417 = add i32 %.190, 100
+  %417 = add i32 %.191, 100
   %418 = load i32, ptr @hf_sflow_245_ifouterr, align 4
   %419 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %418, ptr noundef %0, i32 noundef %417, i32 noundef 4, i32 noundef 0) #7
-  %420 = add i32 %.190, 104
+  %420 = add i32 %.191, 104
   %421 = load i32, ptr @hf_sflow_245_ifpromisc, align 4
   %422 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %421, ptr noundef %0, i32 noundef %420, i32 noundef 4, i32 noundef 0) #7
-  %423 = add i32 %.190, 108
+  %423 = add i32 %.191, 108
   br label %424
 
 424:                                              ; preds = %363, %345
@@ -1780,11 +1780,11 @@ dissect_sflow_245_samples.exit.us:                ; preds = %dissect_sflow_5_cou
   br label %dissect_sflow_245_samples.exit
 
 dissect_sflow_245_samples.exit:                   ; preds = %343, %.lr.ph.split, %317, %424, %425, %427, %429, %431
-  %.0.i81 = phi i32 [ %273, %.lr.ph.split ], [ %319, %317 ], [ %.0.i.i, %424 ], [ %432, %431 ], [ %430, %429 ], [ %428, %427 ], [ %426, %425 ], [ %.2.i.i, %343 ]
+  %.0.i82 = phi i32 [ %273, %.lr.ph.split ], [ %319, %317 ], [ %.0.i.i, %424 ], [ %432, %431 ], [ %430, %429 ], [ %428, %427 ], [ %426, %425 ], [ %.2.i.i, %343 ]
   %433 = load ptr, ptr %6, align 8
-  call void @proto_item_set_end(ptr noundef %433, ptr noundef %0, i32 noundef %.0.i81) #7
+  call void @proto_item_set_end(ptr noundef %433, ptr noundef %0, i32 noundef %.0.i82) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %434 = add nuw nsw i32 %.091, 1
+  %434 = add nuw nsw i32 %.092, 1
   %exitcond.not = icmp eq i32 %434, %72
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
 
@@ -2142,14 +2142,14 @@ dissect_sflow_245_address_type.exit.i:            ; preds = %201, %199, %197, %1
   br i1 %.not.i114, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %dissect_sflow_245_address_type.exit.i, %.lr.ph.i
-  %.055.i = phi i32 [ %216, %.lr.ph.i ], [ 0, %dissect_sflow_245_address_type.exit.i ]
-  %.05254.i = phi i32 [ %214, %.lr.ph.i ], [ 0, %dissect_sflow_245_address_type.exit.i ]
-  %211 = add i32 %.055.i, %207
+  %.056.i = phi i32 [ %216, %.lr.ph.i ], [ 0, %dissect_sflow_245_address_type.exit.i ]
+  %.05255.i = phi i32 [ %214, %.lr.ph.i ], [ 0, %dissect_sflow_245_address_type.exit.i ]
+  %211 = add i32 %.056.i, %207
   %212 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %211) #7
   %213 = load i32, ptr @hf_sflow_245_extended_mpls_in_label, align 4
-  %214 = add nuw nsw i32 %.05254.i, 1
+  %214 = add nuw nsw i32 %.05255.i, 1
   %215 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %209, i32 noundef %213, ptr noundef %0, i32 noundef %207, i32 noundef 4, i32 noundef %212, ptr noundef nonnull @.str.733, i32 noundef %214, i32 noundef %212) #7
-  %216 = add nuw nsw i32 %.055.i, 4
+  %216 = add nuw nsw i32 %.056.i, 4
   %exitcond.not.i = icmp eq i32 %214, %210
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
@@ -2163,22 +2163,22 @@ dissect_sflow_245_address_type.exit.i:            ; preds = %201, %199, %197, %1
   %223 = load i32, ptr @ett_sflow_5_mpls_in_label_stack, align 4
   %224 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %0, i32 noundef %222, i32 noundef -1, i32 noundef %223, ptr noundef null, ptr noundef nonnull @.str.734) #7
   %225 = and i32 %219, 255
-  %.not61.i = icmp eq i32 %225, 0
-  br i1 %.not61.i, label %dissect_sflow_5_extended_mpls_data.exit, label %.lr.ph59.i
+  %.not62.i = icmp eq i32 %225, 0
+  br i1 %.not62.i, label %dissect_sflow_5_extended_mpls_data.exit, label %.lr.ph60.i
 
-.lr.ph59.i:                                       ; preds = %._crit_edge.i, %.lr.ph59.i
-  %.157.i = phi i32 [ %231, %.lr.ph59.i ], [ 0, %._crit_edge.i ]
-  %.15356.i = phi i32 [ %229, %.lr.ph59.i ], [ 0, %._crit_edge.i ]
-  %226 = add i32 %.157.i, %222
+.lr.ph60.i:                                       ; preds = %._crit_edge.i, %.lr.ph60.i
+  %.158.i = phi i32 [ %231, %.lr.ph60.i ], [ 0, %._crit_edge.i ]
+  %.15357.i = phi i32 [ %229, %.lr.ph60.i ], [ 0, %._crit_edge.i ]
+  %226 = add i32 %.158.i, %222
   %227 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %226) #7
   %228 = load i32, ptr @hf_sflow_245_extended_mpls_out_label, align 4
-  %229 = add nuw nsw i32 %.15356.i, 1
+  %229 = add nuw nsw i32 %.15357.i, 1
   %230 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %224, i32 noundef %228, ptr noundef %0, i32 noundef %222, i32 noundef 4, i32 noundef %227, ptr noundef nonnull @.str.733, i32 noundef %229, i32 noundef %227) #7
-  %231 = add nuw nsw i32 %.157.i, 4
-  %exitcond62.not.i = icmp eq i32 %229, %225
-  br i1 %exitcond62.not.i, label %dissect_sflow_5_extended_mpls_data.exit, label %.lr.ph59.i, !llvm.loop !12
+  %231 = add nuw nsw i32 %.158.i, 4
+  %exitcond63.not.i = icmp eq i32 %229, %225
+  br i1 %exitcond63.not.i, label %dissect_sflow_5_extended_mpls_data.exit, label %.lr.ph60.i, !llvm.loop !12
 
-dissect_sflow_5_extended_mpls_data.exit:          ; preds = %.lr.ph59.i, %._crit_edge.i
+dissect_sflow_5_extended_mpls_data.exit:          ; preds = %.lr.ph60.i, %._crit_edge.i
   %232 = shl i32 %219, 2
   %233 = add i32 %232, %222
   br label %dissect_sflow_5_extended_vlan_tunnel.exit
@@ -2232,8 +2232,8 @@ dissect_sflow_245_address_type.exit.i115:         ; preds = %243, %241, %239, %2
   br label %dissect_sflow_5_extended_nat.exit
 
 dissect_sflow_5_extended_nat.exit:                ; preds = %dissect_sflow_245_address_type.exit.i115, %250, %252, %254
-  %.0.i8.i = phi i32 [ 0, %254 ], [ 16, %252 ], [ 4, %250 ], [ %248, %dissect_sflow_245_address_type.exit.i115 ]
-  %256 = add i32 %.0.i8.i, %249
+  %.0.i11.i = phi i32 [ 0, %254 ], [ 16, %252 ], [ 4, %250 ], [ %248, %dissect_sflow_245_address_type.exit.i115 ]
+  %256 = add i32 %.0.i11.i, %249
   br label %dissect_sflow_5_extended_vlan_tunnel.exit
 
 257:                                              ; preds = %9
@@ -2890,31 +2890,31 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
   %32 = load i32, ptr @ett_sflow_245_gw_as_dst, align 4
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #7
   %34 = icmp sgt i32 %29, 0
-  br i1 %34, label %.lr.ph98, label %._crit_edge99
+  br i1 %34, label %.lr.ph99, label %._crit_edge100
 
-.lr.ph98:                                         ; preds = %19
+.lr.ph99:                                         ; preds = %19
   %35 = icmp ult i32 %5, 4
-  br i1 %35, label %.lr.ph.us, label %.lr.ph98.split
+  br i1 %35, label %.lr.ph.us, label %.lr.ph99.split
 
-.lr.ph.us:                                        ; preds = %.lr.ph98, %.lr.ph.us
-  %.08896.us = phi i32 [ %39, %.lr.ph.us ], [ 16, %.lr.ph98 ]
-  %.08995.us = phi i32 [ %40, %.lr.ph.us ], [ 0, %.lr.ph98 ]
+.lr.ph.us:                                        ; preds = %.lr.ph99, %.lr.ph.us
+  %.08897.us = phi i32 [ %39, %.lr.ph.us ], [ 16, %.lr.ph99 ]
+  %.08996.us = phi i32 [ %40, %.lr.ph.us ], [ 0, %.lr.ph99 ]
   %36 = load i32, ptr @hf_sflow_245_dst_as, align 4
-  %37 = add i32 %.08896.us, %.087
+  %37 = add i32 %.08897.us, %.087
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef 4, i32 noundef 0) #7
-  %39 = add i32 %.08896.us, 4
-  %40 = add nuw nsw i32 %.08995.us, 1
-  %exitcond113.not = icmp eq i32 %40, %29
-  br i1 %exitcond113.not, label %._crit_edge99, label %.lr.ph.us, !llvm.loop !14
+  %39 = add i32 %.08897.us, 4
+  %40 = add nuw nsw i32 %.08996.us, 1
+  %exitcond114.not = icmp eq i32 %40, %29
+  br i1 %exitcond114.not, label %._crit_edge100, label %.lr.ph.us, !llvm.loop !14
 
-.lr.ph98.split:                                   ; preds = %.lr.ph98, %._crit_edge
-  %.08896 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 16, %.lr.ph98 ]
-  %.08995 = phi i32 [ %57, %._crit_edge ], [ 0, %.lr.ph98 ]
-  %41 = add i32 %.08896, %.087
+.lr.ph99.split:                                   ; preds = %.lr.ph99, %._crit_edge
+  %.08897 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 16, %.lr.ph99 ]
+  %.08996 = phi i32 [ %57, %._crit_edge ], [ 0, %.lr.ph99 ]
+  %41 = add i32 %.08897, %.087
   %42 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %41) #7
-  %43 = add i32 %23, %.08896
+  %43 = add i32 %23, %.08897
   %44 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %43) #7
-  %45 = add i32 %.08896, 8
+  %45 = add i32 %.08897, 8
   %46 = load i32, ptr @hf_sflow_245_as_type, align 4
   %47 = tail call ptr @val_to_str_const(i32 noundef %42, ptr noundef nonnull @sflow_245_as_types, ptr noundef nonnull @.str.728) #7
   %48 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %41, i32 noundef 8, i32 noundef %42, ptr noundef nonnull @.str.727, ptr noundef %47, i32 noundef %44) #7
@@ -2923,61 +2923,61 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
   %51 = icmp sgt i32 %44, 0
   br i1 %51, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph98.split, %.lr.ph
-  %.294 = phi i32 [ %55, %.lr.ph ], [ %45, %.lr.ph98.split ]
-  %.09193 = phi i32 [ %56, %.lr.ph ], [ 0, %.lr.ph98.split ]
+.lr.ph:                                           ; preds = %.lr.ph99.split, %.lr.ph
+  %.295 = phi i32 [ %55, %.lr.ph ], [ %45, %.lr.ph99.split ]
+  %.09194 = phi i32 [ %56, %.lr.ph ], [ 0, %.lr.ph99.split ]
   %52 = load i32, ptr @hf_sflow_245_dst_as, align 4
-  %53 = add i32 %.294, %.087
+  %53 = add i32 %.295, %.087
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef 0) #7
-  %55 = add i32 %.294, 4
-  %56 = add nuw nsw i32 %.09193, 1
+  %55 = add i32 %.295, 4
+  %56 = add nuw nsw i32 %.09194, 1
   %exitcond.not = icmp eq i32 %56, %44
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph98.split
-  %.2.lcssa = phi i32 [ %45, %.lr.ph98.split ], [ %55, %.lr.ph ]
-  %57 = add nuw nsw i32 %.08995, 1
-  %exitcond112.not = icmp eq i32 %57, %29
-  br i1 %exitcond112.not, label %._crit_edge99, label %.lr.ph98.split, !llvm.loop !14
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph99.split
+  %.2.lcssa = phi i32 [ %45, %.lr.ph99.split ], [ %55, %.lr.ph ]
+  %57 = add nuw nsw i32 %.08996, 1
+  %exitcond113.not = icmp eq i32 %57, %29
+  br i1 %exitcond113.not, label %._crit_edge100, label %.lr.ph99.split, !llvm.loop !14
 
-._crit_edge99:                                    ; preds = %._crit_edge, %.lr.ph.us, %19
+._crit_edge100:                                   ; preds = %._crit_edge, %.lr.ph.us, %19
   %.088.lcssa = phi i32 [ 16, %19 ], [ %39, %.lr.ph.us ], [ %.2.lcssa, %._crit_edge ]
   %58 = icmp ugt i32 %5, 3
   br i1 %58, label %59, label %75
 
-59:                                               ; preds = %._crit_edge99
+59:                                               ; preds = %._crit_edge100
   %60 = add i32 %.088.lcssa, %.087
   %61 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %60) #7
   %62 = load i32, ptr @hf_sflow_245_community_entries, align 4
   %63 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %62, ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef %61) #7
   %64 = load i32, ptr @ett_sflow_245_gw_community, align 4
   %65 = tail call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %64) #7
-  %.4101 = add i32 %.088.lcssa, 4
+  %.4102 = add i32 %.088.lcssa, 4
   %66 = icmp sgt i32 %61, 0
-  br i1 %66, label %.lr.ph105, label %._crit_edge106
+  br i1 %66, label %.lr.ph106, label %._crit_edge107
 
-.lr.ph105:                                        ; preds = %59, %.lr.ph105
-  %.4103 = phi i32 [ %.4, %.lr.ph105 ], [ %.4101, %59 ]
-  %.190102 = phi i32 [ %70, %.lr.ph105 ], [ 0, %59 ]
+.lr.ph106:                                        ; preds = %59, %.lr.ph106
+  %.4104 = phi i32 [ %.4, %.lr.ph106 ], [ %.4102, %59 ]
+  %.190103 = phi i32 [ %70, %.lr.ph106 ], [ 0, %59 ]
   %67 = load i32, ptr @hf_sflow_245_dst_as, align 4
-  %68 = add i32 %.4103, %.087
+  %68 = add i32 %.4104, %.087
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %67, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef 0) #7
-  %70 = add nuw nsw i32 %.190102, 1
-  %.4 = add i32 %.4103, 4
-  %exitcond114.not = icmp eq i32 %70, %61
-  br i1 %exitcond114.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !16
+  %70 = add nuw nsw i32 %.190103, 1
+  %.4 = add i32 %.4104, 4
+  %exitcond115.not = icmp eq i32 %70, %61
+  br i1 %exitcond115.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !16
 
-._crit_edge106:                                   ; preds = %.lr.ph105, %59
-  %.4.in.lcssa = phi i32 [ %.088.lcssa, %59 ], [ %.4103, %.lr.ph105 ]
-  %.4.lcssa = phi i32 [ %.4101, %59 ], [ %.4, %.lr.ph105 ]
+._crit_edge107:                                   ; preds = %.lr.ph106, %59
+  %.4.in.lcssa = phi i32 [ %.088.lcssa, %59 ], [ %.4104, %.lr.ph106 ]
+  %.4.lcssa = phi i32 [ %.4102, %59 ], [ %.4, %.lr.ph106 ]
   %71 = load i32, ptr @hf_sflow_245_localpref, align 4
   %72 = add i32 %.4.lcssa, %.087
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef 0) #7
   %74 = add i32 %.4.in.lcssa, 8
   br label %75
 
-75:                                               ; preds = %._crit_edge106, %._crit_edge99
-  %.3 = phi i32 [ %74, %._crit_edge106 ], [ %.088.lcssa, %._crit_edge99 ]
+75:                                               ; preds = %._crit_edge107, %._crit_edge100
+  %.3 = phi i32 [ %74, %._crit_edge107 ], [ %.088.lcssa, %._crit_edge100 ]
   %76 = add i32 %.3, %.087
   ret i32 %76
 }

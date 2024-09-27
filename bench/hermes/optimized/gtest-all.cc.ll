@@ -12880,16 +12880,12 @@ return:                                           ; preds = %if.then2.i.i.i, %in
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7testing11IsSubstringEPKcS1_PKwS3_(ptr noalias sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %needle_expr, ptr noundef %haystack_expr, ptr noundef %needle, ptr noundef %haystack) local_unnamed_addr #3 {
 entry:
-  %needle.addr = alloca ptr, align 8
-  %haystack.addr = alloca ptr, align 8
-  store ptr %needle, ptr %needle.addr, align 8
-  store ptr %haystack, ptr %haystack.addr, align 8
-  call fastcc void @_ZN7testing12_GLOBAL__N_115IsSubstringImplIPKwEENS_15AssertionResultEbPKcS6_RKT_S9_(ptr noalias align 8 %agg.result, i1 noundef zeroext true, ptr noundef %needle_expr, ptr noundef %haystack_expr, ptr noundef nonnull align 8 dereferenceable(8) %needle.addr, ptr noundef nonnull align 8 dereferenceable(8) %haystack.addr)
+  tail call fastcc void @_ZN7testing12_GLOBAL__N_115IsSubstringImplIPKwEENS_15AssertionResultEbPKcS6_RKT_S9_(ptr noalias align 8 %agg.result, i1 noundef zeroext true, ptr noundef %needle_expr, ptr noundef %haystack_expr, ptr %needle, ptr %haystack)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing12_GLOBAL__N_115IsSubstringImplIPKwEENS_15AssertionResultEbPKcS6_RKT_S9_(ptr noalias align 8 %agg.result, i1 noundef zeroext %expected_to_be_substring, ptr noundef %needle_expr, ptr noundef %haystack_expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %needle, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %haystack) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing12_GLOBAL__N_115IsSubstringImplIPKwEENS_15AssertionResultEbPKcS6_RKT_S9_(ptr noalias align 8 %agg.result, i1 noundef zeroext %expected_to_be_substring, ptr noundef %needle_expr, ptr noundef %haystack_expr, ptr %needle.0.val, ptr %haystack.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i6 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::Message", align 8
@@ -12900,26 +12896,24 @@ entry:
   %ref.tmp17 = alloca ptr, align 8
   store ptr %needle_expr, ptr %needle_expr.addr, align 8
   store ptr %haystack_expr, ptr %haystack_expr.addr, align 8
-  %0 = load ptr, ptr %needle, align 8
-  %1 = load ptr, ptr %haystack, align 8
-  %cmp.i = icmp eq ptr %0, null
-  %cmp1.i = icmp eq ptr %1, null
+  %cmp.i = icmp eq ptr %needle.0.val, null
+  %cmp1.i = icmp eq ptr %haystack.0.val, null
   %or.cond.i = or i1 %cmp.i, %cmp1.i
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp2.i = icmp eq ptr %0, %1
+  %cmp2.i = icmp eq ptr %needle.0.val, %haystack.0.val
   br label %_ZN7testing12_GLOBAL__N_115IsSubstringPredEPKwS2_.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call ptr @wcsstr(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %0) #51
+  %call.i = tail call ptr @wcsstr(ptr noundef nonnull readonly %haystack.0.val, ptr noundef nonnull readonly %needle.0.val) #51
   %cmp3.i = icmp ne ptr %call.i, null
   br label %_ZN7testing12_GLOBAL__N_115IsSubstringPredEPKwS2_.exit
 
 _ZN7testing12_GLOBAL__N_115IsSubstringPredEPKwS2_.exit: ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i1 [ %cmp2.i, %if.then.i ], [ %cmp3.i, %if.end.i ]
-  %2 = xor i1 %expected_to_be_substring, %retval.0.i
-  br i1 %2, label %if.end, label %if.then
+  %0 = xor i1 %expected_to_be_substring, %retval.0.i
+  br i1 %0, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN7testing12_GLOBAL__N_115IsSubstringPredEPKwS2_.exit
   store i8 1, ptr %agg.result, align 8, !alias.scope !166
@@ -12957,8 +12951,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont9
-  %3 = load ptr, ptr %needle, align 8
-  %call.i5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsEPKw(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef %3)
+  %call.i5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsEPKw(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef %needle.0.val)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
@@ -12966,29 +12959,29 @@ invoke.cont.i:                                    ; preds = %.noexc
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
-  %4 = load ptr, ptr %ref.tmp.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, null
+  %1 = load ptr, ptr %ref.tmp.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont11, label %if.then2.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %invoke.cont2.i
-  %vtable.i.i.i.i = load ptr, ptr %4, align 8
+  %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %5 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(128) %4) #50
+  %2 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(128) %1) #50
   br label %invoke.cont11
 
 lpad.i:                                           ; preds = %invoke.cont.i, %.noexc
-  %6 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %7 = load ptr, ptr %ref.tmp.i, align 8
-  %cmp.not.i.i.i1.i = icmp eq ptr %7, null
+  %4 = load ptr, ptr %ref.tmp.i, align 8
+  %cmp.not.i.i.i1.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i1.i, label %lpad.body, label %if.then2.i.i.i2.i
 
 if.then2.i.i.i2.i:                                ; preds = %lpad.i
-  %vtable.i.i.i3.i = load ptr, ptr %7, align 8
+  %vtable.i.i.i3.i = load ptr, ptr %4, align 8
   %vfn.i.i.i4.i = getelementptr inbounds i8, ptr %vtable.i.i.i3.i, i64 8
-  %8 = load ptr, ptr %vfn.i.i.i4.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(128) %7) #50
+  %5 = load ptr, ptr %vfn.i.i.i4.i, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(128) %4) #50
   br label %lpad.body
 
 invoke.cont11:                                    ; preds = %if.then2.i.i.i.i, %invoke.cont2.i
@@ -13032,8 +13025,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
           to label %.noexc20 unwind label %lpad
 
 .noexc20:                                         ; preds = %invoke.cont29
-  %9 = load ptr, ptr %haystack, align 8
-  %call.i7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsEPKw(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i6, ptr noundef %9)
+  %call.i7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsEPKw(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i6, ptr noundef %haystack.0.val)
           to label %invoke.cont.i14 unwind label %lpad.i8
 
 invoke.cont.i14:                                  ; preds = %.noexc20
@@ -13041,29 +13033,29 @@ invoke.cont.i14:                                  ; preds = %.noexc20
           to label %invoke.cont2.i15 unwind label %lpad.i8
 
 invoke.cont2.i15:                                 ; preds = %invoke.cont.i14
-  %10 = load ptr, ptr %ref.tmp.i6, align 8
-  %cmp.not.i.i.i.i16 = icmp eq ptr %10, null
+  %6 = load ptr, ptr %ref.tmp.i6, align 8
+  %cmp.not.i.i.i.i16 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i16, label %invoke.cont31, label %if.then2.i.i.i.i17
 
 if.then2.i.i.i.i17:                               ; preds = %invoke.cont2.i15
-  %vtable.i.i.i.i18 = load ptr, ptr %10, align 8
+  %vtable.i.i.i.i18 = load ptr, ptr %6, align 8
   %vfn.i.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i.i18, i64 8
-  %11 = load ptr, ptr %vfn.i.i.i.i19, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(128) %10) #50
+  %7 = load ptr, ptr %vfn.i.i.i.i19, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(128) %6) #50
   br label %invoke.cont31
 
 lpad.i8:                                          ; preds = %invoke.cont.i14, %.noexc20
-  %12 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %13 = load ptr, ptr %ref.tmp.i6, align 8
-  %cmp.not.i.i.i1.i9 = icmp eq ptr %13, null
+  %9 = load ptr, ptr %ref.tmp.i6, align 8
+  %cmp.not.i.i.i1.i9 = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i1.i9, label %lpad.body, label %if.then2.i.i.i2.i10
 
 if.then2.i.i.i2.i10:                              ; preds = %lpad.i8
-  %vtable.i.i.i3.i11 = load ptr, ptr %13, align 8
+  %vtable.i.i.i3.i11 = load ptr, ptr %9, align 8
   %vfn.i.i.i4.i12 = getelementptr inbounds i8, ptr %vtable.i.i.i3.i11, i64 8
-  %14 = load ptr, ptr %vfn.i.i.i4.i12, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(128) %13) #50
+  %10 = load ptr, ptr %vfn.i.i.i4.i12, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(128) %9) #50
   br label %lpad.body
 
 invoke.cont31:                                    ; preds = %if.then2.i.i.i.i17, %invoke.cont2.i15
@@ -13076,22 +13068,22 @@ invoke.cont33:                                    ; preds = %invoke.cont31
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %invoke.cont33
-  %15 = load ptr, ptr %message_.i.i4, align 8
-  %cmp.not.i.i.i = icmp eq ptr %15, null
+  %11 = load ptr, ptr %message_.i.i4, align 8
+  %cmp.not.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i, label %return, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %invoke.cont35
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #50
-  call void @_ZdlPv(ptr noundef nonnull %15) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #50
+  call void @_ZdlPv(ptr noundef nonnull %11) #54
   br label %return
 
 lpad:                                             ; preds = %invoke.cont29, %invoke.cont9, %invoke.cont33, %invoke.cont31, %invoke.cont27, %invoke.cont25, %invoke.cont23, %invoke.cont21, %invoke.cont19, %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont7, %invoke.cont5, %invoke.cont3, %invoke.cont, %if.end
-  %16 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad, %if.then2.i.i.i2.i10, %lpad.i8, %lpad.i, %if.then2.i.i.i2.i
-  %eh.lpad-body = phi { ptr, i32 } [ %6, %if.then2.i.i.i2.i ], [ %6, %lpad.i ], [ %16, %lpad ], [ %12, %if.then2.i.i.i2.i10 ], [ %12, %lpad.i8 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %3, %if.then2.i.i.i2.i ], [ %3, %lpad.i ], [ %12, %lpad ], [ %8, %if.then2.i.i.i2.i10 ], [ %8, %lpad.i8 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #50
   resume { ptr, i32 } %eh.lpad-body
 
@@ -13113,11 +13105,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7testing14IsNotSubstringEPKcS1_PKwS3_(ptr noalias sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %needle_expr, ptr noundef %haystack_expr, ptr noundef %needle, ptr noundef %haystack) local_unnamed_addr #3 {
 entry:
-  %needle.addr = alloca ptr, align 8
-  %haystack.addr = alloca ptr, align 8
-  store ptr %needle, ptr %needle.addr, align 8
-  store ptr %haystack, ptr %haystack.addr, align 8
-  call fastcc void @_ZN7testing12_GLOBAL__N_115IsSubstringImplIPKwEENS_15AssertionResultEbPKcS6_RKT_S9_(ptr noalias align 8 %agg.result, i1 noundef zeroext false, ptr noundef %needle_expr, ptr noundef %haystack_expr, ptr noundef nonnull align 8 dereferenceable(8) %needle.addr, ptr noundef nonnull align 8 dereferenceable(8) %haystack.addr)
+  tail call fastcc void @_ZN7testing12_GLOBAL__N_115IsSubstringImplIPKwEENS_15AssertionResultEbPKcS6_RKT_S9_(ptr noalias align 8 %agg.result, i1 noundef zeroext false, ptr noundef %needle_expr, ptr noundef %haystack_expr, ptr %needle, ptr %haystack)
   ret void
 }
 

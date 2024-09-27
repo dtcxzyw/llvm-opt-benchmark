@@ -5205,8 +5205,8 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %.lr.p
   %28 = load i24, ptr %27, align 8
   %29 = zext i24 %28 to i64
   %30 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %26, i64 %29
-  %.not31 = icmp eq i24 %28, 0
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.not32 = icmp eq i24 %28, 0
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -5217,15 +5217,15 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %.lr.p
   br label %36
 
 36:                                               ; preds = %.lr.ph, %_ZL13isValidRegUseRKN4llvm14MachineOperandE.exit.thread
-  %.032 = phi ptr [ %26, %.lr.ph ], [ %67, %_ZL13isValidRegUseRKN4llvm14MachineOperandE.exit.thread ]
-  %.0.val = load i32, ptr %.032, align 8
-  %37 = getelementptr i8, ptr %.032, i64 4
+  %.033 = phi ptr [ %26, %.lr.ph ], [ %67, %_ZL13isValidRegUseRKN4llvm14MachineOperandE.exit.thread ]
+  %.0.val = load i32, ptr %.033, align 8
+  %37 = getelementptr i8, ptr %.033, i64 4
   %.0.val21 = load i32, ptr %37, align 4
   %38 = icmp ne i32 %.0.val21, 0
   %39 = and i32 %.0.val, 16777471
   %40 = icmp eq i32 %39, 0
-  %or.cond29 = select i1 %40, i1 %38, i1 false
-  br i1 %or.cond29, label %41, label %_ZL13isValidRegUseRKN4llvm14MachineOperandE.exit.thread
+  %or.cond30 = select i1 %40, i1 %38, i1 false
+  br i1 %or.cond30, label %41, label %_ZL13isValidRegUseRKN4llvm14MachineOperandE.exit.thread
 
 41:                                               ; preds = %36
   %42 = call noundef ptr @_ZNK4llvm19ReachingDefAnalysis22getUniqueReachingMIDefEPNS_12MachineInstrENS_10MCRegisterE(ptr noundef nonnull readonly align 8 dereferenceable(444) %0, ptr noundef %1, i32 %.0.val21)
@@ -5245,14 +5245,14 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %.lr.p
   %50 = load i24, ptr %49, align 8
   %51 = zext i24 %50 to i64
   %52 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %48, i64 %51
-  %.not19.i = icmp eq i24 %50, 0
-  br i1 %.not19.i, label %._crit_edge.thread.i, label %_ZL13isValidRegDefRKN4llvm14MachineOperandE.exit.thread.i
+  %.not2.i = icmp eq i24 %50, 0
+  br i1 %.not2.i, label %._crit_edge.thread.i, label %_ZL13isValidRegDefRKN4llvm14MachineOperandE.exit.thread.i
 
 _ZL13isValidRegDefRKN4llvm14MachineOperandE.exit.thread.i: ; preds = %46, %_ZL13isValidRegDefRKN4llvm14MachineOperandE.exit.thread.i
-  %.01521.i = phi i32 [ %.1.i, %_ZL13isValidRegDefRKN4llvm14MachineOperandE.exit.thread.i ], [ 0, %46 ]
-  %.01620.i = phi ptr [ %59, %_ZL13isValidRegDefRKN4llvm14MachineOperandE.exit.thread.i ], [ %48, %46 ]
-  %.016.val.i = load i32, ptr %.01620.i, align 8
-  %53 = getelementptr i8, ptr %.01620.i, i64 4
+  %.0154.i = phi i32 [ %.1.i, %_ZL13isValidRegDefRKN4llvm14MachineOperandE.exit.thread.i ], [ 0, %46 ]
+  %.0163.i = phi ptr [ %59, %_ZL13isValidRegDefRKN4llvm14MachineOperandE.exit.thread.i ], [ %48, %46 ]
+  %.016.val.i = load i32, ptr %.0163.i, align 8
+  %53 = getelementptr i8, ptr %.0163.i, i64 4
   %.016.val17.i = load i32, ptr %53, align 4
   %54 = icmp ne i32 %.016.val17.i, 0
   %55 = and i32 %.016.val.i, 16777471
@@ -5262,8 +5262,8 @@ _ZL13isValidRegDefRKN4llvm14MachineOperandE.exit.thread.i: ; preds = %46, %_ZL13
   %58 = icmp ne i32 %57, 83886080
   %narrow.i = select i1 %or.cond.i, i1 %58, i1 false
   %spec.select.i = zext i1 %narrow.i to i32
-  %.1.i = add i32 %.01521.i, %spec.select.i
-  %59 = getelementptr inbounds i8, ptr %.01620.i, i64 32
+  %.1.i = add i32 %.0154.i, %spec.select.i
+  %59 = getelementptr inbounds i8, ptr %.0163.i, i64 32
   %.not.i = icmp eq ptr %59, %52
   br i1 %.not.i, label %._crit_edge.i, label %_ZL13isValidRegDefRKN4llvm14MachineOperandE.exit.thread.i
 
@@ -5277,7 +5277,7 @@ _ZL13isValidRegDefRKN4llvm14MachineOperandE.exit.thread.i: ; preds = %46, %_ZL13
   store i32 4, ptr %33, align 8
   store i32 0, ptr %34, align 4
   store i32 0, ptr %35, align 8
-  call void @_ZNK4llvm19ReachingDefAnalysis13getGlobalUsesEPNS_12MachineInstrENS_10MCRegisterERNS_15SmallPtrSetImplIS2_EE(ptr noundef nonnull align 8 dereferenceable(444) %0, ptr noundef nonnull %42, i32 %44, ptr noundef nonnull align 8 dereferenceable(28) %4)
+  call void @_ZNK4llvm19ReachingDefAnalysis13getGlobalUsesEPNS_12MachineInstrENS_10MCRegisterERNS_15SmallPtrSetImplIS2_EE(ptr noundef nonnull readonly align 8 dereferenceable(444) %0, ptr noundef nonnull %42, i32 %44, ptr noundef nonnull align 8 dereferenceable(28) %4)
   %61 = call noundef zeroext i1 @_ZN4llvm13set_is_subsetINS_11SmallPtrSetIPNS_12MachineInstrELj4EEENS_15SmallPtrSetImplIS3_EEEEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(28) %2)
   %62 = load ptr, ptr %32, align 8
   %63 = load ptr, ptr %4, align 8
@@ -5302,7 +5302,7 @@ _ZL13isValidRegDefRKN4llvm14MachineOperandE.exit.thread.i: ; preds = %46, %_ZL13
   br label %_ZL13isValidRegUseRKN4llvm14MachineOperandE.exit.thread
 
 _ZL13isValidRegUseRKN4llvm14MachineOperandE.exit.thread: ; preds = %36, %65, %"_ZZNK4llvm19ReachingDefAnalysis21collectKilledOperandsEPNS_12MachineInstrERNS_15SmallPtrSetImplIS2_EEENK3$_0clES2_NS_10MCRegisterE.exit.thread", %41, %66, %"_ZZNK4llvm19ReachingDefAnalysis21collectKilledOperandsEPNS_12MachineInstrERNS_15SmallPtrSetImplIS2_EEENK3$_0clES2_NS_10MCRegisterE.exit"
-  %67 = getelementptr inbounds i8, ptr %.032, i64 32
+  %67 = getelementptr inbounds i8, ptr %.033, i64 32
   %.not = icmp eq ptr %67, %30
   br i1 %.not, label %._crit_edge, label %36
 

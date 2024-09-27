@@ -4745,14 +4745,14 @@ define dso_local void @_ZN5vcpkg30cmd_execute_and_capture_outputERKNS_7CommandER
   %6 = alloca %"struct.vcpkg::ExpectedT.52", align 8
   %7 = alloca %"class.std::function", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 0, ptr %10, align 8
-  %11 = ptrtoint ptr %5 to i64
-  store i64 %11, ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_30cmd_execute_and_capture_outputERKNS0_7CommandERKNS0_31RedirectedProcessLaunchSettingsEE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_30cmd_execute_and_capture_outputERKNS0_7CommandERKNS0_31RedirectedProcessLaunchSettingsEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %8, align 8
+  %8 = ptrtoint ptr %5 to i64
+  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 0, ptr %11, align 8
+  store i64 %8, ptr %7, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_30cmd_execute_and_capture_outputERKNS0_7CommandERKNS0_31RedirectedProcessLaunchSettingsEE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %10, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_30cmd_execute_and_capture_outputERKNS0_7CommandERKNS0_31RedirectedProcessLaunchSettingsEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %9, align 8
   invoke void @_ZN5vcpkg27cmd_execute_and_stream_dataERKNS_7CommandERKNS_31RedirectedProcessLaunchSettingsERKSt8functionIFvNS_10StringViewEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.52") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %12 unwind label %34
 
@@ -4795,7 +4795,7 @@ define dso_local void @_ZN5vcpkg30cmd_execute_and_capture_outputERKNS_7CommandER
   br label %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit
 
 _ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit: ; preds = %24, %27
-  %28 = load ptr, ptr %8, align 8
+  %28 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit, label %29
 
@@ -4817,7 +4817,7 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit: ; preds = %_ZN5vcpkg9ExpectedT
 34:                                               ; preds = %3
   %35 = landingpad { ptr, i32 }
           cleanup
-  %36 = load ptr, ptr %8, align 8
+  %36 = load ptr, ptr %9, align 8
   %.not.i.i6 = icmp eq ptr %36, null
   br i1 %.not.i.i6, label %_ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit7, label %37
 

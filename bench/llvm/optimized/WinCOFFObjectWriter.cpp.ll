@@ -955,7 +955,7 @@ define dso_local void @_ZN4llvm13WinCOFFWriter12defineSymbolERKNS_11MCAssemblerE
 10:                                               ; preds = %3
   %11 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %12, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit63
+  br i1 %.not.i, label %12, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit64
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -972,11 +972,11 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit:           ; preds = %12
   %19 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #20
   store ptr %19, ptr %9, align 8
   %.not49 = icmp eq ptr %19, null
-  br i1 %.not49, label %.thread, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit63
+  br i1 %.not49, label %.thread, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit64
 
-_ZNK4llvm8MCSymbol11getFragmentEb.exit63:         ; preds = %10, %_ZNK4llvm8MCSymbol11getFragmentEb.exit
-  %.0.i60 = phi ptr [ %19, %_ZNK4llvm8MCSymbol11getFragmentEb.exit ], [ %11, %10 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.0.i60, i64 8
+_ZNK4llvm8MCSymbol11getFragmentEb.exit64:         ; preds = %10, %_ZNK4llvm8MCSymbol11getFragmentEb.exit
+  %.0.i61 = phi ptr [ %19, %_ZNK4llvm8MCSymbol11getFragmentEb.exit ], [ %11, %10 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %21, ptr %5, align 8
@@ -986,7 +986,7 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit63:         ; preds = %10, %_ZNK4llvm8MCSy
   %24 = icmp eq i32 %.val4.i.i, 0
   br i1 %24, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEPN12_GLOBAL__N_111COFFSectionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i.i, label %25
 
-25:                                               ; preds = %_ZNK4llvm8MCSymbol11getFragmentEb.exit63
+25:                                               ; preds = %_ZNK4llvm8MCSymbol11getFragmentEb.exit64
   %26 = ptrtoint ptr %21 to i64
   %27 = trunc i64 %26 to i32
   %28 = lshr i32 %27, 4
@@ -1028,8 +1028,8 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit63:         ; preds = %10, %_ZNK4llvm8MCSy
   %49 = icmp eq ptr %21, %48
   br i1 %49, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !24
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEPN12_GLOBAL__N_111COFFSectionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i.i: ; preds = %39, %_ZNK4llvm8MCSymbol11getFragmentEb.exit63
-  %.sink.i.i.i.i = phi ptr [ %40, %39 ], [ null, %_ZNK4llvm8MCSymbol11getFragmentEb.exit63 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEPN12_GLOBAL__N_111COFFSectionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i.i: ; preds = %39, %_ZNK4llvm8MCSymbol11getFragmentEb.exit64
+  %.sink.i.i.i.i = phi ptr [ %40, %39 ], [ null, %_ZNK4llvm8MCSymbol11getFragmentEb.exit64 ]
   %50 = call fastcc noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEPN12_GLOBAL__N_111COFFSectionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E20InsertIntoBucketImplIS4_EEPSC_RKS4_RKT_SG_(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef %.sink.i.i.i.i)
   store ptr %21, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -1087,8 +1087,8 @@ _ZL12isDwoSectionRKN4llvm9MCSectionE.exit:        ; preds = %58
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = load i8, ptr %77, align 8
-  %.not.i65 = icmp eq i8 %78, 2
-  br i1 %.not.i65, label %79, label %_ZN4llvm13WinCOFFWriter15getLinkedSymbolERKNS_8MCSymbolE.exit.thread
+  %.not.i66 = icmp eq i8 %78, 2
+  br i1 %.not.i66, label %79, label %_ZN4llvm13WinCOFFWriter15getLinkedSymbolERKNS_8MCSymbolE.exit.thread
 
 79:                                               ; preds = %74
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
@@ -1129,8 +1129,8 @@ _ZN4llvm13WinCOFFWriter15getLinkedSymbolERKNS_8MCSymbolE.exit: ; preds = %83, %_
 _ZN4llvm13WinCOFFWriter15getLinkedSymbolERKNS_8MCSymbolE.exit.thread: ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread11.i, %74, %68, %_ZN4llvm13WinCOFFWriter15getLinkedSymbolERKNS_8MCSymbolE.exit
   %96 = load i64, ptr %65, align 8
   %97 = and i64 %96, 1
-  %.not.i66 = icmp eq i64 %97, 0
-  br i1 %.not.i66, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %98
+  %.not.i67 = icmp eq i64 %97, 0
+  br i1 %.not.i67, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %98
 
 98:                                               ; preds = %_ZN4llvm13WinCOFFWriter15getLinkedSymbolERKNS_8MCSymbolE.exit.thread
   %99 = getelementptr inbounds i8, ptr %2, i64 -8
@@ -1190,43 +1190,43 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %98, %_ZN4llvm13WinC
   %125 = lshr i32 %123, 9
   %126 = xor i32 %124, %125
   %127 = add i32 %.val8.i.i, -1
-  %.0275.i.i.i.i68 = and i32 %127, %126
-  %128 = zext nneg i32 %.0275.i.i.i.i68 to i64
+  %.0275.i.i.i.i69 = and i32 %127, %126
+  %128 = zext nneg i32 %.0275.i.i.i.i69 to i64
   %129 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val7.i.i, i64 %128
   %130 = load ptr, ptr %129, align 8, !noalias !56
   %131 = icmp eq ptr %112, %130
-  br i1 %131, label %_ZN4llvm6detail12DenseSetImplIPN12_GLOBAL__N_110COFFSymbolENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit, label %.lr.ph.i.i.i.i69
+  br i1 %131, label %_ZN4llvm6detail12DenseSetImplIPN12_GLOBAL__N_110COFFSymbolENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit, label %.lr.ph.i.i.i.i70
 
-.lr.ph.i.i.i.i69:                                 ; preds = %121, %137
+.lr.ph.i.i.i.i70:                                 ; preds = %121, %137
   %132 = phi ptr [ %144, %137 ], [ %130, %121 ]
   %133 = phi ptr [ %143, %137 ], [ %129, %121 ]
-  %.0278.i.i.i.i70 = phi i32 [ %.027.i.i.i.i75, %137 ], [ %.0275.i.i.i.i68, %121 ]
-  %.0267.i.i.i.i71 = phi i32 [ %140, %137 ], [ 1, %121 ]
-  %.0286.i.i.i.i72 = phi ptr [ %spec.select.i.i.i.i74, %137 ], [ null, %121 ]
+  %.0278.i.i.i.i71 = phi i32 [ %.027.i.i.i.i76, %137 ], [ %.0275.i.i.i.i69, %121 ]
+  %.0267.i.i.i.i72 = phi i32 [ %140, %137 ], [ 1, %121 ]
+  %.0286.i.i.i.i73 = phi ptr [ %spec.select.i.i.i.i75, %137 ], [ null, %121 ]
   %134 = icmp eq ptr %132, inttoptr (i64 -4096 to ptr)
   br i1 %134, label %135, label %137
 
-135:                                              ; preds = %.lr.ph.i.i.i.i69
-  %.not.i.i.i.i76 = icmp eq ptr %.0286.i.i.i.i72, null
-  %136 = select i1 %.not.i.i.i.i76, ptr %133, ptr %.0286.i.i.i.i72
+135:                                              ; preds = %.lr.ph.i.i.i.i70
+  %.not.i.i.i.i77 = icmp eq ptr %.0286.i.i.i.i73, null
+  %136 = select i1 %.not.i.i.i.i77, ptr %133, ptr %.0286.i.i.i.i73
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_110COFFSymbolENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i
 
-137:                                              ; preds = %.lr.ph.i.i.i.i69
+137:                                              ; preds = %.lr.ph.i.i.i.i70
   %138 = icmp eq ptr %132, inttoptr (i64 -8192 to ptr)
-  %139 = icmp eq ptr %.0286.i.i.i.i72, null
-  %or.cond.not.i.i.i.i73 = select i1 %138, i1 %139, i1 false
-  %spec.select.i.i.i.i74 = select i1 %or.cond.not.i.i.i.i73, ptr %133, ptr %.0286.i.i.i.i72
-  %140 = add i32 %.0267.i.i.i.i71, 1
-  %141 = add i32 %.0267.i.i.i.i71, %.0278.i.i.i.i70
-  %.027.i.i.i.i75 = and i32 %141, %127
-  %142 = zext i32 %.027.i.i.i.i75 to i64
+  %139 = icmp eq ptr %.0286.i.i.i.i73, null
+  %or.cond.not.i.i.i.i74 = select i1 %138, i1 %139, i1 false
+  %spec.select.i.i.i.i75 = select i1 %or.cond.not.i.i.i.i74, ptr %133, ptr %.0286.i.i.i.i73
+  %140 = add i32 %.0267.i.i.i.i72, 1
+  %141 = add i32 %.0267.i.i.i.i72, %.0278.i.i.i.i71
+  %.027.i.i.i.i76 = and i32 %141, %127
+  %142 = zext i32 %.027.i.i.i.i76 to i64
   %143 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val7.i.i, i64 %142
   %144 = load ptr, ptr %143, align 8, !noalias !56
   %145 = icmp eq ptr %112, %144
-  br i1 %145, label %_ZN4llvm6detail12DenseSetImplIPN12_GLOBAL__N_110COFFSymbolENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit, label %.lr.ph.i.i.i.i69, !llvm.loop !61
+  br i1 %145, label %_ZN4llvm6detail12DenseSetImplIPN12_GLOBAL__N_110COFFSymbolENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit, label %.lr.ph.i.i.i.i70, !llvm.loop !61
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_110COFFSymbolENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i: ; preds = %135, %117
-  %.sink.i.i.i.i77 = phi ptr [ %136, %135 ], [ null, %117 ]
+  %.sink.i.i.i.i78 = phi ptr [ %136, %135 ], [ null, %117 ]
   %146 = getelementptr inbounds i8, ptr %0, i64 192
   %.val12.i.i.i.i = load i32, ptr %146, align 8, !noalias !56
   %147 = shl i32 %.val12.i.i.i.i, 2
@@ -1345,7 +1345,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_110COFFSymbolENS_6detail13Den
   br i1 %208, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_110COFFSymbolENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i, !llvm.loop !61
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_110COFFSymbolENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i.i.i: ; preds = %169, %200, %198, %184, %182, %178, %167, %153, %150
-  %.0.i.i13.i.i = phi ptr [ %.sink.i.i.i.i77, %178 ], [ %168, %167 ], [ null, %150 ], [ %161, %153 ], [ %199, %198 ], [ null, %182 ], [ %192, %184 ], [ %206, %200 ], [ %175, %169 ]
+  %.0.i.i13.i.i = phi ptr [ %.sink.i.i.i.i78, %178 ], [ %168, %167 ], [ null, %150 ], [ %161, %153 ], [ %199, %198 ], [ null, %182 ], [ %192, %184 ], [ %206, %200 ], [ %175, %169 ]
   %.val.i.i.i.i.i = load i32, ptr %146, align 8, !noalias !56
   %209 = add i32 %.val.i.i.i.i.i, 1
   store i32 %209, ptr %146, align 8, !noalias !56
@@ -1396,8 +1396,8 @@ _ZN4llvm6detail12DenseSetImplIPN12_GLOBAL__N_110COFFSymbolENS_8DenseMapIS4_NS0_1
   %223 = getelementptr inbounds nuw i8, ptr %.val55, i64 4
   store i32 0, ptr %223, align 4
   %224 = load i64, ptr %65, align 8
-  %sum.shift.i80 = lshr i64 %224, 41
-  %225 = trunc nuw nsw i64 %sum.shift.i80 to i32
+  %sum.shift.i81 = lshr i64 %224, 41
+  %225 = trunc nuw nsw i64 %sum.shift.i81 to i32
   %226 = and i32 %225, 7
   %.val = load ptr, ptr %222, align 8
   %227 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -1431,9 +1431,9 @@ _ZN4llvm6detail12DenseSetImplIPN12_GLOBAL__N_110COFFSymbolENS_8DenseMapIS4_NS0_1
   br label %_ZL14getSymbolValueRKN4llvm8MCSymbolERKNS_11MCAssemblerE.exit
 
 _ZL14getSymbolValueRKN4llvm8MCSymbolERKNS_11MCAssemblerE.exit: ; preds = %235, %238
-  %.0.i81 = phi i64 [ %237, %235 ], [ %spec.select.i, %238 ]
+  %.0.i82 = phi i64 [ %237, %235 ], [ %spec.select.i, %238 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %241 = trunc i64 %.0.i81 to i32
+  %241 = trunc i64 %.0.i82 to i32
   %242 = getelementptr inbounds nuw i8, ptr %.1109, i64 8
   store i32 %241, ptr %242, align 8
   %243 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1453,19 +1453,19 @@ _ZL14getSymbolValueRKN4llvm8MCSymbolERKNS_11MCAssemblerE.exit: ; preds = %235, %
   %253 = load i64, ptr %65, align 8
   %254 = and i64 %253, 32
   %.not115 = icmp eq i64 %254, 0
-  br i1 %.not115, label %255, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread112
+  br i1 %.not115, label %255, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread112
 
 255:                                              ; preds = %252
   %256 = load ptr, ptr %2, align 8
-  %.not.i82 = icmp eq ptr %256, null
-  br i1 %.not.i82, label %257, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread112
+  %.not.i83 = icmp eq ptr %256, null
+  br i1 %.not.i83, label %257, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread112
 
 257:                                              ; preds = %255
   %258 = and i64 %253, 28800
-  %or.cond.not.i84 = icmp eq i64 %258, 8192
-  br i1 %or.cond.not.i84, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit86, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread
+  %or.cond.not.i85 = icmp eq i64 %258, 8192
+  br i1 %or.cond.not.i85, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit87, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread
 
-_ZNK4llvm8MCSymbol11getFragmentEb.exit86:         ; preds = %257
+_ZNK4llvm8MCSymbol11getFragmentEb.exit87:         ; preds = %257
   %259 = or i64 %253, 8
   store i64 %259, ptr %65, align 8
   %260 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1473,25 +1473,25 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit86:         ; preds = %257
   %262 = call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %261) #20
   store ptr %262, ptr %2, align 8
   %.not54 = icmp eq ptr %262, null
-  br i1 %.not54, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit86._ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread_crit_edge, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread112
+  br i1 %.not54, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit87._ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread_crit_edge, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread112
 
-_ZNK4llvm8MCSymbol11getFragmentEb.exit86._ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread_crit_edge: ; preds = %_ZNK4llvm8MCSymbol11getFragmentEb.exit86
+_ZNK4llvm8MCSymbol11getFragmentEb.exit87._ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread_crit_edge: ; preds = %_ZNK4llvm8MCSymbol11getFragmentEb.exit87
   %.pre = load i64, ptr %65, align 8
-  br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread
+  br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread
 
-_ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread:  ; preds = %_ZNK4llvm8MCSymbol11getFragmentEb.exit86._ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread_crit_edge, %257
-  %263 = phi i64 [ %.pre, %_ZNK4llvm8MCSymbol11getFragmentEb.exit86._ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread_crit_edge ], [ %253, %257 ]
+_ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread:  ; preds = %_ZNK4llvm8MCSymbol11getFragmentEb.exit87._ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread_crit_edge, %257
+  %263 = phi i64 [ %.pre, %_ZNK4llvm8MCSymbol11getFragmentEb.exit87._ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread_crit_edge ], [ %253, %257 ]
   %264 = and i64 %263, 28672
   %265 = icmp eq i64 %264, 8192
   %266 = select i1 %265, i8 3, i8 2
-  br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread112
+  br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread112
 
-_ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread112: ; preds = %255, %_ZNK4llvm8MCSymbol11getFragmentEb.exit86, %_ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread, %252
-  %267 = phi i8 [ 2, %252 ], [ 3, %_ZNK4llvm8MCSymbol11getFragmentEb.exit86 ], [ %266, %_ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread ], [ 3, %255 ]
+_ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread112: ; preds = %255, %_ZNK4llvm8MCSymbol11getFragmentEb.exit87, %_ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread, %252
+  %267 = phi i8 [ 2, %252 ], [ 3, %_ZNK4llvm8MCSymbol11getFragmentEb.exit87 ], [ %266, %_ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread ], [ 3, %255 ]
   store i8 %267, ptr %249, align 2
   br label %268
 
-268:                                              ; preds = %_ZL14getSymbolValueRKN4llvm8MCSymbolERKNS_11MCAssemblerE.exit, %_ZNK4llvm8MCSymbol11getFragmentEb.exit86.thread112, %220
+268:                                              ; preds = %_ZL14getSymbolValueRKN4llvm8MCSymbolERKNS_11MCAssemblerE.exit, %_ZNK4llvm8MCSymbol11getFragmentEb.exit87.thread112, %220
   %269 = getelementptr inbounds nuw i8, ptr %64, i64 128
   store ptr %2, ptr %269, align 8
   br label %270
@@ -2537,13 +2537,13 @@ define dso_local void @_ZN4llvm13WinCOFFWriter20assignSectionNumbersEv(ptr nocap
   %.val9 = load ptr, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %.val11 = load ptr, ptr %3, align 8
-  %.not44 = icmp eq ptr %.val9, %.val11
-  br i1 %.not44, label %._crit_edge52, label %.lr.ph
+  %.not39 = icmp eq ptr %.val9, %.val11
+  br i1 %.not39, label %._crit_edge47, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %16
-  %.sroa.027.046 = phi ptr [ %17, %16 ], [ %.val9, %1 ]
-  %.045 = phi i64 [ %.1, %16 ], [ 1, %1 ]
-  %.val18 = load ptr, ptr %.sroa.027.046, align 8
+  %.sroa.029.041 = phi ptr [ %17, %16 ], [ %.val9, %1 ]
+  %.040 = phi i64 [ %.1, %16 ], [ 1, %1 ]
+  %.val18 = load ptr, ptr %.sroa.029.041, align 8
   %4 = getelementptr i8, ptr %.val18, i64 88
   %.val22 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val22, i64 64
@@ -2554,7 +2554,7 @@ define dso_local void @_ZN4llvm13WinCOFFWriter20assignSectionNumbersEv(ptr nocap
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = trunc i64 %.045 to i32
+  %9 = trunc i64 %.040 to i32
   %10 = getelementptr inbounds nuw i8, ptr %.val18, i64 72
   store i32 %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %.val22, i64 12
@@ -2564,25 +2564,25 @@ define dso_local void @_ZN4llvm13WinCOFFWriter20assignSectionNumbersEv(ptr nocap
   %.val.i = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   store i32 %9, ptr %14, align 4
-  %15 = add i64 %.045, 1
+  %15 = add i64 %.040, 1
   br label %16
 
 16:                                               ; preds = %.lr.ph, %8
-  %.1 = phi i64 [ %.045, %.lr.ph ], [ %15, %8 ]
-  %17 = getelementptr inbounds i8, ptr %.sroa.027.046, i64 8
+  %.1 = phi i64 [ %.040, %.lr.ph ], [ %15, %8 ]
+  %17 = getelementptr inbounds i8, ptr %.sroa.029.041, i64 8
   %.not = icmp eq ptr %17, %.val11
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %16
   %.val.pre = load ptr, ptr %2, align 8
   %.val10.pre = load ptr, ptr %3, align 8
-  %.not4347 = icmp eq ptr %.val.pre, %.val10.pre
-  br i1 %.not4347, label %._crit_edge52, label %.lr.ph51
+  %.not3842 = icmp eq ptr %.val.pre, %.val10.pre
+  br i1 %.not3842, label %._crit_edge47, label %.lr.ph46
 
-.lr.ph51:                                         ; preds = %._crit_edge, %30
-  %.sroa.025.049 = phi ptr [ %31, %30 ], [ %.val.pre, %._crit_edge ]
-  %.248 = phi i64 [ %.3, %30 ], [ %.1, %._crit_edge ]
-  %.val20 = load ptr, ptr %.sroa.025.049, align 8
+.lr.ph46:                                         ; preds = %._crit_edge, %30
+  %.sroa.027.044 = phi ptr [ %31, %30 ], [ %.val.pre, %._crit_edge ]
+  %.243 = phi i64 [ %.3, %30 ], [ %.1, %._crit_edge ]
+  %.val20 = load ptr, ptr %.sroa.027.044, align 8
   %18 = getelementptr i8, ptr %.val20, i64 88
   %.val23 = load ptr, ptr %18, align 8
   %19 = getelementptr i8, ptr %.val23, i64 64
@@ -2592,27 +2592,27 @@ define dso_local void @_ZN4llvm13WinCOFFWriter20assignSectionNumbersEv(ptr nocap
   %21 = icmp eq i8 %.val23.val.val, 5
   br i1 %21, label %22, label %30
 
-22:                                               ; preds = %.lr.ph51
-  %23 = trunc i64 %.248 to i32
+22:                                               ; preds = %.lr.ph46
+  %23 = trunc i64 %.243 to i32
   %24 = getelementptr inbounds nuw i8, ptr %.val20, i64 72
   store i32 %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.val23, i64 12
   store i32 %23, ptr %25, align 4
   %26 = load ptr, ptr %18, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %.val.i24 = load ptr, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %.val.i24, i64 16
+  %.val.i26 = load ptr, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %.val.i26, i64 16
   store i32 %23, ptr %28, align 4
-  %29 = add i64 %.248, 1
+  %29 = add i64 %.243, 1
   br label %30
 
-30:                                               ; preds = %.lr.ph51, %22
-  %.3 = phi i64 [ %29, %22 ], [ %.248, %.lr.ph51 ]
-  %31 = getelementptr inbounds i8, ptr %.sroa.025.049, i64 8
-  %.not43 = icmp eq ptr %31, %.val10.pre
-  br i1 %.not43, label %._crit_edge52, label %.lr.ph51
+30:                                               ; preds = %.lr.ph46, %22
+  %.3 = phi i64 [ %29, %22 ], [ %.243, %.lr.ph46 ]
+  %31 = getelementptr inbounds i8, ptr %.sroa.027.044, i64 8
+  %.not38 = icmp eq ptr %31, %.val10.pre
+  br i1 %.not38, label %._crit_edge47, label %.lr.ph46
 
-._crit_edge52:                                    ; preds = %30, %1, %._crit_edge
+._crit_edge47:                                    ; preds = %30, %1, %._crit_edge
   ret void
 }
 
@@ -4251,13 +4251,13 @@ define dso_local noundef i64 @_ZN4llvm13WinCOFFWriter11writeObjectERNS_11MCAssem
   tail call void @_ZN4llvm13WinCOFFWriter19setWeakDefaultNamesEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
   %.val9.i = load ptr, ptr %41, align 8
   %.val11.i = load ptr, ptr %42, align 8
-  %.not44.i = icmp eq ptr %.val9.i, %.val11.i
-  br i1 %.not44.i, label %_ZN4llvm13WinCOFFWriter20assignSectionNumbersEv.exit, label %.lr.ph.i
+  %.not39.i = icmp eq ptr %.val9.i, %.val11.i
+  br i1 %.not39.i, label %_ZN4llvm13WinCOFFWriter20assignSectionNumbersEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %49, %69
-  %.sroa.027.046.i = phi ptr [ %70, %69 ], [ %.val9.i, %49 ]
-  %.045.i = phi i64 [ %.1.i, %69 ], [ 1, %49 ]
-  %.val18.i = load ptr, ptr %.sroa.027.046.i, align 8
+  %.sroa.029.041.i = phi ptr [ %70, %69 ], [ %.val9.i, %49 ]
+  %.040.i = phi i64 [ %.1.i, %69 ], [ 1, %49 ]
+  %.val18.i = load ptr, ptr %.sroa.029.041.i, align 8
   %57 = getelementptr i8, ptr %.val18.i, i64 88
   %.val22.i = load ptr, ptr %57, align 8
   %58 = getelementptr i8, ptr %.val22.i, i64 64
@@ -4268,7 +4268,7 @@ define dso_local noundef i64 @_ZN4llvm13WinCOFFWriter11writeObjectERNS_11MCAssem
   br i1 %60, label %69, label %61
 
 61:                                               ; preds = %.lr.ph.i
-  %62 = trunc i64 %.045.i to i32
+  %62 = trunc i64 %.040.i to i32
   %63 = getelementptr inbounds nuw i8, ptr %.val18.i, i64 72
   store i32 %62, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.val22.i, i64 12
@@ -4278,25 +4278,25 @@ define dso_local noundef i64 @_ZN4llvm13WinCOFFWriter11writeObjectERNS_11MCAssem
   %.val.i.i = load ptr, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
   store i32 %62, ptr %67, align 4
-  %68 = add i64 %.045.i, 1
+  %68 = add i64 %.040.i, 1
   br label %69
 
 69:                                               ; preds = %61, %.lr.ph.i
-  %.1.i = phi i64 [ %.045.i, %.lr.ph.i ], [ %68, %61 ]
-  %70 = getelementptr inbounds i8, ptr %.sroa.027.046.i, i64 8
+  %.1.i = phi i64 [ %.040.i, %.lr.ph.i ], [ %68, %61 ]
+  %70 = getelementptr inbounds i8, ptr %.sroa.029.041.i, i64 8
   %.not.i = icmp eq ptr %70, %.val11.i
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %69
   %.val.pre.i = load ptr, ptr %41, align 8
   %.val10.pre.i = load ptr, ptr %42, align 8
-  %.not4347.i = icmp eq ptr %.val.pre.i, %.val10.pre.i
-  br i1 %.not4347.i, label %_ZN4llvm13WinCOFFWriter20assignSectionNumbersEv.exit, label %.lr.ph51.i
+  %.not3842.i = icmp eq ptr %.val.pre.i, %.val10.pre.i
+  br i1 %.not3842.i, label %_ZN4llvm13WinCOFFWriter20assignSectionNumbersEv.exit, label %.lr.ph46.i
 
-.lr.ph51.i:                                       ; preds = %._crit_edge.i, %83
-  %.sroa.025.049.i = phi ptr [ %84, %83 ], [ %.val.pre.i, %._crit_edge.i ]
-  %.248.i = phi i64 [ %.3.i, %83 ], [ %.1.i, %._crit_edge.i ]
-  %.val20.i = load ptr, ptr %.sroa.025.049.i, align 8
+.lr.ph46.i:                                       ; preds = %._crit_edge.i, %83
+  %.sroa.027.044.i = phi ptr [ %84, %83 ], [ %.val.pre.i, %._crit_edge.i ]
+  %.243.i = phi i64 [ %.3.i, %83 ], [ %.1.i, %._crit_edge.i ]
+  %.val20.i = load ptr, ptr %.sroa.027.044.i, align 8
   %71 = getelementptr i8, ptr %.val20.i, i64 88
   %.val23.i = load ptr, ptr %71, align 8
   %72 = getelementptr i8, ptr %.val23.i, i64 64
@@ -4306,25 +4306,25 @@ define dso_local noundef i64 @_ZN4llvm13WinCOFFWriter11writeObjectERNS_11MCAssem
   %74 = icmp eq i8 %.val23.val.val.i, 5
   br i1 %74, label %75, label %83
 
-75:                                               ; preds = %.lr.ph51.i
-  %76 = trunc i64 %.248.i to i32
+75:                                               ; preds = %.lr.ph46.i
+  %76 = trunc i64 %.243.i to i32
   %77 = getelementptr inbounds nuw i8, ptr %.val20.i, i64 72
   store i32 %76, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 12
   store i32 %76, ptr %78, align 4
   %79 = load ptr, ptr %71, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
-  %.val.i24.i = load ptr, ptr %80, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %.val.i24.i, i64 16
+  %.val.i26.i = load ptr, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %.val.i26.i, i64 16
   store i32 %76, ptr %81, align 4
-  %82 = add i64 %.248.i, 1
+  %82 = add i64 %.243.i, 1
   br label %83
 
-83:                                               ; preds = %75, %.lr.ph51.i
-  %.3.i = phi i64 [ %82, %75 ], [ %.248.i, %.lr.ph51.i ]
-  %84 = getelementptr inbounds i8, ptr %.sroa.025.049.i, i64 8
-  %.not43.i = icmp eq ptr %84, %.val10.pre.i
-  br i1 %.not43.i, label %_ZN4llvm13WinCOFFWriter20assignSectionNumbersEv.exit, label %.lr.ph51.i
+83:                                               ; preds = %75, %.lr.ph46.i
+  %.3.i = phi i64 [ %82, %75 ], [ %.243.i, %.lr.ph46.i ]
+  %84 = getelementptr inbounds i8, ptr %.sroa.027.044.i, i64 8
+  %.not38.i = icmp eq ptr %84, %.val10.pre.i
+  br i1 %.not38.i, label %_ZN4llvm13WinCOFFWriter20assignSectionNumbersEv.exit, label %.lr.ph46.i
 
 _ZN4llvm13WinCOFFWriter20assignSectionNumbersEv.exit: ; preds = %83, %49, %._crit_edge.i
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 212

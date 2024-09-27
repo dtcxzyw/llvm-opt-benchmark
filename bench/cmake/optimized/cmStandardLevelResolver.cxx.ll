@@ -2138,7 +2138,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %535
 
 535:                                              ; preds = %549, %533
-  %.val.i.i.i.i.i.i.i.i.i = phi i64 [ %.val.i.pre.i.i.i.i.i.i.i.i, %533 ], [ %.val.i.i22.i.i.i.i.i.i, %549 ]
+  %.val.i.i.i.i.i.i.i.i.i = phi i64 [ %.val.i.pre.i.i.i.i.i.i.i.i, %533 ], [ %.val.i.i25.i.i.i.i.i.i, %549 ]
   %.013.i.i.i.i.i.i.i.i = phi ptr [ %532, %533 ], [ %.0.i.i.i.i.i.i.i.i, %549 ]
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %534, %533 ], [ %548, %549 ]
   %536 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
@@ -2170,9 +2170,9 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 549:                                              ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N12_GLOBAL__N_121StandardLevelComputerEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i.i
   %550 = getelementptr i8, ptr %548, i64 120
-  %.val.i.i22.i.i.i.i.i.i = load i64, ptr %550, align 8
+  %.val.i.i25.i.i.i.i.i.i = load i64, ptr %550, align 8
   %551 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_123StandardComputerMappingB5cxx11E, i64 8), align 8
-  %552 = urem i64 %.val.i.i22.i.i.i.i.i.i, %551
+  %552 = urem i64 %.val.i.i25.i.i.i.i.i.i, %551
   %.not17.i.i.i.i.i.i.i.i = icmp eq i64 %552, %526
   br i1 %.not17.i.i.i.i.i.i.i.i, label %535, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_121StandardLevelComputerEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSC_10_Hash_nodeISA_Lb1EEEmRKT_m.exit.thread.i.i.i.i.i.i, !llvm.loop !9
 
@@ -2386,8 +2386,8 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %.0252.i.i.i.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i.i.i.i, %627 ], [ 0, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_121StandardLevelComputerEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i.i.i.i ]
   %.0.val.i.i.i.i.i.i.i.i.i = load ptr, ptr %.03.i.i.i.i.i.i.i.i.i, align 8
   %615 = getelementptr i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 120
-  %.val.i.i.i25.i.i.i.i.i.i = load i64, ptr %615, align 8
-  %616 = urem i64 %.val.i.i.i25.i.i.i.i.i.i, %606
+  %.val.i.i.i28.i.i.i.i.i.i = load i64, ptr %615, align 8
+  %616 = urem i64 %.val.i.i.i28.i.i.i.i.i.i, %606
   %617 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i.i.i.i, i64 %616
   %618 = load ptr, ptr %617, align 8
   %.not27.i.i.i.i.i.i.i.i.i = icmp eq ptr %618, null
@@ -2470,13 +2470,13 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 641:                                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_121StandardLevelComputerEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
   %642 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i.i, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_121StandardLevelComputerEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
-  %.0.i23.i.i.i.i.i.i = phi i64 [ %640, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_121StandardLevelComputerEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i.i.i ], [ %526, %._crit_edge.i.i.i.i.i.i.i ]
+  %.0.i26.i.i.i.i.i.i = phi i64 [ %640, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_121StandardLevelComputerEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i.i.i ], [ %526, %._crit_edge.i.i.i.i.i.i.i ]
   %643 = getelementptr inbounds i8, ptr %554, i64 120
   store i64 %521, ptr %643, align 8
-  %644 = getelementptr inbounds ptr, ptr %642, i64 %.0.i23.i.i.i.i.i.i
+  %644 = getelementptr inbounds ptr, ptr %642, i64 %.0.i26.i.i.i.i.i.i
   %645 = load ptr, ptr %644, align 8
-  %.not.i.i24.i.i.i.i.i.i = icmp eq ptr %645, null
-  br i1 %.not.i.i24.i.i.i.i.i.i, label %649, label %646
+  %.not.i.i27.i.i.i.i.i.i = icmp eq ptr %645, null
+  br i1 %.not.i.i27.i.i.i.i.i.i, label %649, label %646
 
 646:                                              ; preds = %641
   %647 = load ptr, ptr %645, align 8
@@ -2504,7 +2504,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 656:                                              ; preds = %651, %649
   %657 = phi ptr [ %.pre.i.i.i.i.i.i, %651 ], [ %642, %649 ]
-  %658 = getelementptr inbounds ptr, ptr %657, i64 %.0.i23.i.i.i.i.i.i
+  %658 = getelementptr inbounds ptr, ptr %657, i64 %.0.i26.i.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_123StandardComputerMappingB5cxx11E, i64 16), ptr %658, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_121StandardLevelComputerEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i.i.i.i.i
 

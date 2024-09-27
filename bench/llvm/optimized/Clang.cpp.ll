@@ -110,8 +110,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::raw_svector_ostream" = type { %"class.llvm::raw_pwrite_stream", ptr }
 %"class.llvm::raw_pwrite_stream" = type { %"class.llvm::raw_ostream" }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
-%"struct.__gnu_cxx::__ops::_Iter_pred.472" = type { %class.anon.471 }
-%class.anon.471 = type { ptr }
 %"class.llvm::SmallSet" = type { %"class.llvm::SmallVector.47", %"class.std::set" }
 %"class.llvm::SmallVector.47" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage.48" }
 %"class.llvm::SmallVectorImpl" = type { %"class.llvm::SmallVectorTemplateBase" }
@@ -1303,8 +1301,8 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.951 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.952 = private unnamed_addr constant [8 x i8] c"-target\00", align 1
 @switch.table._ZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKc = private unnamed_addr constant [4 x ptr] [ptr @.str.231, ptr @.str.232, ptr @.str.233, ptr @.str.234], align 8
-@switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.42 = private unnamed_addr constant [4 x i64] [i64 4, i64 13, i64 13, i64 7], align 8
-@switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.43 = private unnamed_addr constant [4 x ptr] [ptr @.str.724, ptr @.str.725, ptr @.str.726, ptr @.str.727], align 8
+@switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.43 = private unnamed_addr constant [4 x i64] [i64 4, i64 13, i64 13, i64 7], align 8
+@switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.44 = private unnamed_addr constant [4 x ptr] [ptr @.str.724, ptr @.str.725, ptr @.str.726, ptr @.str.727], align 8
 
 @_ZN5clang6driver5tools5ClangC1ERKNS0_9ToolChainEb = hidden unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN5clang6driver5tools5ClangC2ERKNS0_9ToolChainEb
 @_ZN5clang6driver5tools5ClangD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5clang6driver5tools5ClangD2Ev
@@ -58062,122 +58060,118 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %45, %55
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @"_ZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr nonnull %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  %2 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.472", align 8
-  %3 = alloca %"class.std::vector.49", align 8
-  call void @_ZNK4llvm3opt7ArgList15getAllArgValuesB5cxx11ENS0_12OptSpecifierE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.49") align 8 %3, ptr noundef nonnull align 8 dereferenceable(176) %.0.val, i32 325) #20
-  %.val = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %.val2 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr %0, ptr %2, align 8
-  %5 = ptrtoint ptr %.val2 to i64
-  %6 = ptrtoint ptr %.val to i64
-  %7 = sub i64 %5, %6
-  %8 = ashr i64 %7, 7
-  %9 = icmp sgt i64 %8, 0
-  br i1 %9, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
+  %2 = alloca %"class.std::vector.49", align 8
+  call void @_ZNK4llvm3opt7ArgList15getAllArgValuesB5cxx11ENS0_12OptSpecifierE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.49") align 8 %2, ptr noundef nonnull align 8 dereferenceable(176) %.0.val, i32 325) #20
+  %.val = load ptr, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %.val2 = load ptr, ptr %3, align 8
+  %4 = ptrtoint ptr %.val2 to i64
+  %5 = ptrtoint ptr %.val to i64
+  %6 = sub i64 %4, %5
+  %7 = ashr i64 %6, 7
+  %8 = icmp sgt i64 %7, 0
+  br i1 %8, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %1, %20
-  %.036.i.i.i.i.i.i = phi i64 [ %22, %20 ], [ %8, %1 ]
-  %.sroa.025.035.i.i.i.i.i.i = phi ptr [ %21, %20 ], [ %.val, %1 ]
-  %10 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.025.035.i.i.i.i.i.i)
-  br i1 %10, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit", label %11
+.lr.ph.i.i.i.i.i.i:                               ; preds = %1, %19
+  %.043.i.i.i.i.i.i = phi i64 [ %21, %19 ], [ %7, %1 ]
+  %.sroa.032.042.i.i.i.i.i.i = phi ptr [ %20, %19 ], [ %.val, %1 ]
+  %9 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.042.i.i.i.i.i.i)
+  br i1 %9, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit", label %10
 
-11:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %12 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i.i, i64 32
-  %13 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %12)
-  br i1 %13, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit", label %14
+10:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %11 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i.i, i64 32
+  %12 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr nonnull %0, ptr %11)
+  br i1 %12, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit", label %13
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i.i, i64 64
-  %16 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %15)
-  br i1 %16, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit", label %17
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i.i, i64 64
+  %15 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr nonnull %0, ptr %14)
+  br i1 %15, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit", label %16
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i.i, i64 96
-  %19 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %18)
-  br i1 %19, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit", label %20
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i.i, i64 96
+  %18 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr nonnull %0, ptr %17)
+  br i1 %18, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit", label %19
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i.i, i64 128
-  %22 = add nsw i64 %.036.i.i.i.i.i.i, -1
-  %23 = icmp sgt i64 %.036.i.i.i.i.i.i, 1
-  br i1 %23, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !2130
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i.i, i64 128
+  %21 = add nsw i64 %.043.i.i.i.i.i.i, -1
+  %22 = icmp sgt i64 %.043.i.i.i.i.i.i, 1
+  br i1 %22, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !2130
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %20
-  %.pre.i.i.i.i.i.i = ptrtoint ptr %21 to i64
-  %.pre37.i.i.i.i.i.i = sub i64 %5, %.pre.i.i.i.i.i.i
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %19
+  %.pre.i.i.i.i.i.i = ptrtoint ptr %20 to i64
+  %.pre44.i.i.i.i.i.i = sub i64 %4, %.pre.i.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %1
-  %.pre-phi38.i.i.i.i.i.i = phi i64 [ %.pre37.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %7, %1 ]
-  %.sroa.025.0.lcssa.i.i.i.i.i.i = phi ptr [ %21, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val, %1 ]
-  %24 = ashr exact i64 %.pre-phi38.i.i.i.i.i.i, 5
-  switch i64 %24, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit" [
-    i64 3, label %25
-    i64 2, label %29
-    i64 1, label %33
+  %.pre-phi45.i.i.i.i.i.i = phi i64 [ %.pre44.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %6, %1 ]
+  %.sroa.032.0.lcssa.i.i.i.i.i.i = phi ptr [ %20, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val, %1 ]
+  %23 = ashr exact i64 %.pre-phi45.i.i.i.i.i.i, 5
+  switch i64 %23, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit" [
+    i64 3, label %24
+    i64 2, label %28
+    i64 1, label %32
   ]
 
-25:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  %26 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.025.0.lcssa.i.i.i.i.i.i)
-  br i1 %26, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit", label %27
+24:                                               ; preds = %._crit_edge.i.i.i.i.i.i
+  %25 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.0.lcssa.i.i.i.i.i.i)
+  br i1 %25, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit", label %26
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i.i.i.i, i64 32
-  br label %29
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i.i.i.i, i64 32
+  br label %28
 
-29:                                               ; preds = %27, %._crit_edge.i.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %28, %27 ]
-  %30 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.025.1.i.i.i.i.i.i)
-  br i1 %30, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit", label %31
+28:                                               ; preds = %26, %._crit_edge.i.i.i.i.i.i
+  %.sroa.032.1.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %27, %26 ]
+  %29 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.1.i.i.i.i.i.i)
+  br i1 %29, label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit", label %30
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i.i.i.i, i64 32
-  br label %33
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i.i.i.i, i64 32
+  br label %32
 
-33:                                               ; preds = %31, %._crit_edge.i.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %32, %31 ]
-  %34 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.025.2.i.i.i.i.i.i)
-  %spec.select.i.i.i.i.i.i = select i1 %34, ptr %.sroa.025.2.i.i.i.i.i.i, ptr %.val2
+32:                                               ; preds = %30, %._crit_edge.i.i.i.i.i.i
+  %.sroa.032.2.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %31, %30 ]
+  %33 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.2.i.i.i.i.i.i)
+  %spec.select.i.i.i.i.i.i = select i1 %33, ptr %.sroa.032.2.i.i.i.i.i.i, ptr %.val2
   br label %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %11, %14, %17, %._crit_edge.i.i.i.i.i.i, %25, %29, %33
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %25 ], [ %.sroa.025.1.i.i.i.i.i.i, %29 ], [ %.val2, %._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %33 ], [ %18, %17 ], [ %15, %14 ], [ %12, %11 ], [ %.sroa.025.035.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %10, %13, %16, %._crit_edge.i.i.i.i.i.i, %24, %28, %32
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %24 ], [ %.sroa.032.1.i.i.i.i.i.i, %28 ], [ %.val2, %._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %32 ], [ %17, %16 ], [ %14, %13 ], [ %11, %10 ], [ %.sroa.032.042.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %34 = load ptr, ptr %2, align 8
   %35 = load ptr, ptr %3, align 8
-  %36 = load ptr, ptr %4, align 8
-  %.not4.i.i.i.i = icmp eq ptr %35, %36
+  %.not4.i.i.i.i = icmp eq ptr %34, %35
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit", %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %35, %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit" ]
+  %.05.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i ], [ %34, %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit" ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #20
-  %37 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %37, %36
+  %36 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %36, %35
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !1032
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %3, align 8
+  %.pr.i = load ptr, ptr %2, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit"
-  %38 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %35, %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit" ]
-  %.not.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %39
+  %37 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %34, %"_ZN4llvm6any_ofIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZZNK5clang6driver5tools5Clang12ConstructJobERNSC_11CompilationERKNSC_9JobActionERKNSC_9InputInfoERKNS_11SmallVectorISK_Lj4EEERKNS_3opt7ArgListEPKcENK3$_1clERKS7_EUlSZ_E_EEbOT_T0_.exit" ]
+  %.not.i.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %38
 
-39:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %43 = ptrtoint ptr %38 to i64
-  %44 = sub i64 %42, %43
-  call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %44) #21
+38:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %42 = ptrtoint ptr %37 to i64
+  %43 = sub i64 %41, %42
+  call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef %43) #21
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %39
-  %45 = icmp ne ptr %.val2, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
-  ret i1 %45
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %38
+  %44 = icmp ne ptr %.val2, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
+  ret i1 %44
 }
 
 declare noundef ptr @_ZN5clang6driver5tools19RelocationModelNameEN4llvm5Reloc5ModelE(i32 noundef) local_unnamed_addr #2
@@ -74522,10 +74516,10 @@ define linkonce_odr hidden void @_ZNK4llvm12DenormalMode5printERNS_11raw_ostream
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.42, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.43, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext nneg i8 %3 to i64
-  %switch.gep33 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.43, i64 0, i64 %6
+  %switch.gep33 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.44, i64 0, i64 %6
   %switch.load34 = load ptr, ptr %switch.gep33, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -74576,10 +74570,10 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %24, %26
 
 switch.lookup35:                                  ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
   %31 = zext nneg i8 %29 to i64
-  %switch.gep36 = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.42, i64 0, i64 %31
+  %switch.gep36 = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.43, i64 0, i64 %31
   %switch.load37 = load i64, ptr %switch.gep36, align 8
   %32 = zext nneg i8 %29 to i64
-  %switch.gep38 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.43, i64 0, i64 %32
+  %switch.gep38 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.44, i64 0, i64 %32
   %switch.load39 = load ptr, ptr %switch.gep38, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i5, i64 24
   %34 = load ptr, ptr %33, align 8
@@ -75088,40 +75082,38 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hide
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %4 = load ptr, ptr %0, align 8
-  %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
-  %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
-  %7 = icmp eq i64 %5, %6
-  br i1 %7, label %8, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZZNK5clang6driver5tools5Clang12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKNS3_9InputInfoERKN4llvm11SmallVectorISB_Lj4EEERKNSE_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSX_E_EclINS_17__normal_iteratorIPSV_St6vectorISV_SaISV_EEEEEEbT_"(ptr %.0.val, ptr nonnull %0) unnamed_addr #0 align 2 {
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
+  %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #20
+  %5 = icmp eq i64 %3, %4
+  br i1 %5, label %6, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i
 
-8:                                                ; preds = %2
-  %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
-  %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
-  %11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
-  %12 = icmp eq i64 %11, 0
-  br i1 %12, label %"_ZZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlSU_E_clESU_.exit", label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
+6:                                                ; preds = %1
+  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
+  %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #20
+  %9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %"_ZZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlSU_E_clESU_.exit", label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %8
-  %bcmp.i.i = tail call i32 @bcmp(ptr %9, ptr %10, i64 %11)
-  %13 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %13, label %"_ZZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlSU_E_clESU_.exit", label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %6
+  %bcmp.i.i = tail call i32 @bcmp(ptr %7, ptr %8, i64 %9)
+  %11 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %11, label %"_ZZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlSU_E_clESU_.exit", label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %2
-  %14 = load ptr, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %14) #20
-  %15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 1, i8 noundef signext 61) #20
-  %16 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0) #20
-  %17 = icmp ne i64 %16, -1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #20
+  %12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 1, i8 noundef signext 61) #20
+  %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0) #20
+  %14 = icmp ne i64 %13, -1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   br label %"_ZZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlSU_E_clESU_.exit"
 
-"_ZZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlSU_E_clESU_.exit": ; preds = %8, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i
-  %18 = phi i1 [ %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ true, %8 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  ret i1 %18
+"_ZZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlSU_E_clESU_.exit": ; preds = %6, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i
+  %15 = phi i1 [ %14, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread5.i ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ true, %6 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  ret i1 %15
 }
 
 ; Function Attrs: nounwind

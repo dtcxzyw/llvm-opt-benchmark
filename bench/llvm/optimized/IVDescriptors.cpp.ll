@@ -5988,8 +5988,8 @@ _ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit.i: ; preds =
   %49 = getelementptr inbounds %"class.llvm::Use", ptr %.pre.i.i, i64 %.0.i.i.i
   %50 = load ptr, ptr %49, align 8
   %.not33.i = icmp eq ptr %50, null
-  %.not348.i = icmp eq ptr %50, %.val
-  %or.cond.i = select i1 %.not33.i, i1 true, i1 %.not348.i
+  %.not347.i = icmp eq ptr %50, %.val
+  %or.cond.i = select i1 %.not33.i, i1 true, i1 %.not347.i
   br i1 %or.cond.i, label %_ZL23getCastsForInductionPHIRN4llvm25PredicatedScalarEvolutionEPKNS_11SCEVUnknownEPKNS_14SCEVAddRecExprERNS_15SmallVectorImplIPNS_11InstructionEEE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit.i
@@ -5999,41 +5999,41 @@ _ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit.i: ; preds =
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.lr.ph.i, %98
-  %.02611.i = phi ptr [ %spec.select.i.i40.i, %98 ], [ %spec.select, %.lr.ph.i ]
-  %.02710.i = phi i1 [ %.1.i49, %98 ], [ false, %.lr.ph.i ]
-  %.0289.i = phi ptr [ %.011.i.i, %98 ], [ %50, %.lr.ph.i ]
-  %.not35.i = icmp eq ptr %.02611.i, null
+  %.02610.i = phi ptr [ %spec.select.i.i40.i, %98 ], [ %spec.select, %.lr.ph.i ]
+  %.0279.i = phi i1 [ %.1.i49, %98 ], [ false, %.lr.ph.i ]
+  %.0288.i = phi ptr [ %.011.i.i, %98 ], [ %50, %.lr.ph.i ]
+  %.not35.i = icmp eq ptr %.02610.i, null
   br i1 %.not35.i, label %_ZL23getCastsForInductionPHIRN4llvm25PredicatedScalarEvolutionEPKNS_11SCEVUnknownEPKNS_14SCEVAddRecExprERNS_15SmallVectorImplIPNS_11InstructionEEE.exit.thread, label %53
 
 53:                                               ; preds = %select.unfold
-  %54 = getelementptr inbounds i8, ptr %.02611.i, i64 40
+  %54 = getelementptr inbounds i8, ptr %.02610.i, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = call noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %32, ptr noundef %55) #16
   br i1 %56, label %57, label %_ZL23getCastsForInductionPHIRN4llvm25PredicatedScalarEvolutionEPKNS_11SCEVUnknownEPKNS_14SCEVAddRecExprERNS_15SmallVectorImplIPNS_11InstructionEEE.exit.thread
 
 57:                                               ; preds = %53
-  %58 = call noundef ptr @_ZN4llvm25PredicatedScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %.0289.i) #16
+  %58 = call noundef ptr @_ZN4llvm25PredicatedScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %.0288.i) #16
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load i16, ptr %59, align 8
   %61 = icmp ne i16 %60, 8
-  %.not366.i = icmp eq ptr %58, null
-  %.not36.i = or i1 %.not366.i, %61
+  %.not365.i = icmp eq ptr %58, null
+  %.not36.i = or i1 %.not365.i, %61
   br i1 %.not36.i, label %64, label %62
 
 62:                                               ; preds = %57
   %63 = call noundef zeroext i1 @_ZNK4llvm25PredicatedScalarEvolution24areAddRecsEqualWithPredsEPKNS_14SCEVAddRecExprES3_(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %58, ptr noundef nonnull %.041) #16
-  %spec.select.i45 = or i1 %63, %.02710.i
+  %spec.select.i45 = or i1 %63, %.0279.i
   br i1 %spec.select.i45, label %65, label %84
 
 64:                                               ; preds = %57
-  br i1 %.02710.i, label %65, label %84
+  br i1 %.0279.i, label %65, label %84
 
 65:                                               ; preds = %62, %64
   %66 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   br i1 %66, label %73, label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %.02611.i, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.02610.i, i64 16
   %69 = load ptr, ptr %68, align 8
   %.not.i.i39.i = icmp eq ptr %69, null
   br i1 %.not.i.i39.i, label %_ZL23getCastsForInductionPHIRN4llvm25PredicatedScalarEvolutionEPKNS_11SCEVUnknownEPKNS_14SCEVAddRecExprERNS_15SmallVectorImplIPNS_11InstructionEEE.exit.thread, label %_ZNK4llvm5Value9hasOneUseEv.exit.i
@@ -6059,7 +6059,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i: 
   %78 = load ptr, ptr %6, align 8
   %79 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %80 = getelementptr inbounds ptr, ptr %78, i64 %79
-  %81 = ptrtoint ptr %.02611.i to i64
+  %81 = ptrtoint ptr %.02610.i to i64
   store i64 %81, ptr %80, align 1
   %82 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %83 = add i64 %82, 1
@@ -6068,18 +6068,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i: 
 
 84:                                               ; preds = %62, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i, %64
   %.1.i49 = phi i1 [ false, %62 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i ], [ false, %64 ]
-  %85 = load i8, ptr %.0289.i, align 8
+  %85 = load i8, ptr %.0288.i, align 8
   %86 = icmp ult i8 %85, 29
   %87 = zext i8 %85 to i32
   %88 = add nsw i32 %87, -60
   %89 = icmp ult i32 %88, -18
-  %.not15.i.i = select i1 %86, i1 true, i1 %89
-  br i1 %.not15.i.i, label %_ZL23getCastsForInductionPHIRN4llvm25PredicatedScalarEvolutionEPKNS_11SCEVUnknownEPKNS_14SCEVAddRecExprERNS_15SmallVectorImplIPNS_11InstructionEEE.exit.thread, label %90
+  %.not3.i.i = select i1 %86, i1 true, i1 %89
+  br i1 %.not3.i.i, label %_ZL23getCastsForInductionPHIRN4llvm25PredicatedScalarEvolutionEPKNS_11SCEVUnknownEPKNS_14SCEVAddRecExprERNS_15SmallVectorImplIPNS_11InstructionEEE.exit.thread, label %90
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds i8, ptr %.0289.i, i64 -64
+  %91 = getelementptr inbounds i8, ptr %.0288.i, i64 -64
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %.0289.i, i64 -32
+  %93 = getelementptr inbounds i8, ptr %.0288.i, i64 -32
   %94 = load ptr, ptr %93, align 8
   %95 = call noundef zeroext i1 @_ZNK4llvm4Loop15isLoopInvariantEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(152) %32, ptr noundef %92) #16
   br i1 %95, label %"_ZZL23getCastsForInductionPHIRN4llvm25PredicatedScalarEvolutionEPKNS_11SCEVUnknownEPKNS_14SCEVAddRecExprERNS_15SmallVectorImplIPNS_11InstructionEEEENK3$_0clEPKNS_5ValueE.exit.i", label %96

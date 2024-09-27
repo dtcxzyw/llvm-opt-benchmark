@@ -4840,8 +4840,8 @@ _ZNSt3mapIPKN4llvm18CodeGenInstructionEN12_GLOBAL__N_120X86FoldTablesEmitter17X8
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i
   %.027.lcssa37.i.i.i = phi ptr [ %.027.lcssa36.i.i.i, %36 ], [ %.02832.i.i.i, %._crit_edge.i.i.i ]
-  %.sroa.016.0.i.i.i = phi ptr [ %37, %36 ], [ %.02832.i.i.i, %._crit_edge.i.i.i ]
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.i.i.i, i64 32
+  %.sroa.018.0.i.i.i = phi ptr [ %37, %36 ], [ %.02832.i.i.i, %._crit_edge.i.i.i ]
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.i.i.i, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %17, align 8
   %.val5.i.i.i = load ptr, ptr %40, align 8
@@ -4915,8 +4915,8 @@ _ZNSt3mapIPKN4llvm18CodeGenInstructionEN12_GLOBAL__N_120X86FoldTablesEmitter17X8
 
 68:                                               ; preds = %66, %._crit_edge.i33.i.i
   %.027.lcssa37.i34.i.i = phi ptr [ %.027.lcssa36.i45.i.i, %66 ], [ %.02832.i26.i.i, %._crit_edge.i33.i.i ]
-  %.sroa.016.0.i35.i.i = phi ptr [ %67, %66 ], [ %.02832.i26.i.i, %._crit_edge.i33.i.i ]
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.i35.i.i, i64 32
+  %.sroa.018.0.i35.i.i = phi ptr [ %67, %66 ], [ %.02832.i26.i.i, %._crit_edge.i33.i.i ]
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.i35.i.i, i64 32
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %17, align 8
   %.val5.i36.i.i = load ptr, ptr %70, align 8
@@ -4991,8 +4991,8 @@ _ZNSt3mapIPKN4llvm18CodeGenInstructionEN12_GLOBAL__N_120X86FoldTablesEmitter17X8
 
 99:                                               ; preds = %97, %._crit_edge.i58.i.i
   %.027.lcssa37.i59.i.i = phi ptr [ %.027.lcssa36.i70.i.i, %97 ], [ %.02832.i51.i.i, %._crit_edge.i58.i.i ]
-  %.sroa.016.0.i60.i.i = phi ptr [ %98, %97 ], [ %.02832.i51.i.i, %._crit_edge.i58.i.i ]
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.i60.i.i, i64 32
+  %.sroa.018.0.i60.i.i = phi ptr [ %98, %97 ], [ %.02832.i51.i.i, %._crit_edge.i58.i.i ]
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.i60.i.i, i64 32
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %17, align 8
   %.val5.i61.i.i = load ptr, ptr %101, align 8
@@ -5033,7 +5033,7 @@ _ZNSt8_Rb_treeIPKN4llvm18CodeGenInstructionESt4pairIKS3_N12_GLOBAL__N_120X86Fold
   br label %_ZNSt8_Rb_treeIPKN4llvm18CodeGenInstructionESt4pairIKS3_N12_GLOBAL__N_120X86FoldTablesEmitter17X86FoldTableEntryEESt10_Select1stIS9_ENS7_19CompareInstrsByEnumESaIS9_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESJ_IJEEEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_.exit
 
 _ZNSt8_Rb_treeIPKN4llvm18CodeGenInstructionESt4pairIKS3_N12_GLOBAL__N_120X86FoldTablesEmitter17X86FoldTableEntryEESt10_Select1stIS9_ENS7_19CompareInstrsByEnumESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread13.i: ; preds = %_ZNSt8_Rb_treeIPKN4llvm18CodeGenInstructionESt4pairIKS3_N12_GLOBAL__N_120X86FoldTablesEmitter17X86FoldTableEntryEESt10_Select1stIS9_ENS7_19CompareInstrsByEnumESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.i, %99, %73, %68, %38
-  %.sroa.01.0.ph.i = phi ptr [ %.sroa.093.0.i.i, %_ZNSt8_Rb_treeIPKN4llvm18CodeGenInstructionESt4pairIKS3_N12_GLOBAL__N_120X86FoldTablesEmitter17X86FoldTableEntryEESt10_Select1stIS9_ENS7_19CompareInstrsByEnumESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.i ], [ %.sroa.016.0.i60.i.i, %99 ], [ %.sroa.016.0.i35.i.i, %68 ], [ %.sroa.016.0.i.i.i, %38 ], [ %.08.lcssa.i.i.i18, %73 ]
+  %.sroa.01.0.ph.i = phi ptr [ %.sroa.093.0.i.i, %_ZNSt8_Rb_treeIPKN4llvm18CodeGenInstructionESt4pairIKS3_N12_GLOBAL__N_120X86FoldTablesEmitter17X86FoldTableEntryEESt10_Select1stIS9_ENS7_19CompareInstrsByEnumESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.i ], [ %.sroa.018.0.i60.i.i, %99 ], [ %.sroa.018.0.i35.i.i, %68 ], [ %.sroa.018.0.i.i.i, %38 ], [ %.08.lcssa.i.i.i18, %73 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 72) #15
   br label %_ZNSt8_Rb_treeIPKN4llvm18CodeGenInstructionESt4pairIKS3_N12_GLOBAL__N_120X86FoldTablesEmitter17X86FoldTableEntryEESt10_Select1stIS9_ENS7_19CompareInstrsByEnumESaIS9_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESJ_IJEEEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_.exit
 

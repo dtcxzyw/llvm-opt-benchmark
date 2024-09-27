@@ -17239,12 +17239,12 @@ if.end191:                                        ; preds = %if.then186, %if.end
           to label %invoke.cont193 unwind label %lpad192
 
 invoke.cont193:                                   ; preds = %if.end191
+  %65 = ptrtoint ptr %ref to i64
   %_M_manager.i.i153 = getelementptr inbounds i8, ptr %ref.tmp194, i64 16
   %_M_invoker.i154 = getelementptr inbounds i8, ptr %ref.tmp194, i64 24
-  %65 = getelementptr inbounds i8, ptr %ref.tmp194, i64 8
-  store i64 0, ptr %65, align 8
-  %66 = ptrtoint ptr %ref to i64
-  store i64 %66, ptr %ref.tmp194, align 8
+  %66 = getelementptr inbounds i8, ptr %ref.tmp194, i64 8
+  store i64 0, ptr %66, align 8
+  store i64 %65, ptr %ref.tmp194, align 8
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt7Array2DISt6vectorINS0_17VarianceEstimatorIdEESaIS4_EEEEvEZ5errorS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i154, align 8
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt7Array2DISt6vectorINS0_17VarianceEstimatorIdEESaIS4_EEEEvEZ5errorS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEE3$_1E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %_M_manager.i.i153, align 8
   invoke void @_ZN4pbrt11ThreadLocalINS_7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS4_EEEEEC2EOSt8functionIFS7_vEE(ptr noundef nonnull align 8 dereferenceable(112) %pixelVariances, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194)

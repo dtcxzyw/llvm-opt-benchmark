@@ -707,14 +707,14 @@ _Z11do_per_stepll.exit:                           ; preds = %13
   br i1 %23, label %24, label %_Z11do_per_stepll.exit.thread
 
 24:                                               ; preds = %_Z11do_per_stepll.exit
-  %25 = getelementptr inbounds i8, ptr %6, i64 16
-  %26 = getelementptr inbounds i8, ptr %6, i64 24
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %27, align 8
-  %28 = ptrtoint ptr %0 to i64
-  store i64 %28, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx23NoseHooverChainsElement12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %26, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx23NoseHooverChainsElement12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %25, align 8
+  %25 = ptrtoint ptr %0 to i64
+  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %27 = getelementptr inbounds i8, ptr %6, i64 24
+  %28 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %28, align 8
+  store i64 %25, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx23NoseHooverChainsElement12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %27, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx23NoseHooverChainsElement12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %3, i64 16
   %30 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %30, null
@@ -734,7 +734,7 @@ _Z11do_per_stepll.exit:                           ; preds = %13
           to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit unwind label %46
 
 _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %32
-  %35 = load ptr, ptr %25, align 8
+  %35 = load ptr, ptr %26, align 8
   %.not.i.i9 = icmp eq ptr %35, null
   br i1 %.not.i.i9, label %_ZNSt8functionIFvvEED2Ev.exit, label %36
 
@@ -768,7 +768,7 @@ _ZNKSt8functionIFvlEEclEl.exit:                   ; preds = %_ZNSt8functionIFvvE
 46:                                               ; preds = %32, %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  %48 = load ptr, ptr %25, align 8
+  %48 = load ptr, ptr %26, align 8
   %.not.i.i12 = icmp eq ptr %48, null
   br i1 %.not.i.i12, label %_ZNSt8functionIFvvEED2Ev.exit13, label %49
 
@@ -2136,20 +2136,20 @@ define void @_ZN3gmx20NoseHooverChainsData5buildENS_8NhcUsageEPNS_19LegacySimula
   %spec.select.i = select i1 %.not.i, ptr null, ptr %35
   %36 = getelementptr inbounds i8, ptr %20, i64 792
   %37 = load ptr, ptr %36, align 8
-  %.not.i45 = icmp eq ptr %37, null
+  %.not.i46 = icmp eq ptr %37, null
   %38 = getelementptr inbounds float, ptr %37, i64 %34
-  %spec.select.i46 = select i1 %.not.i45, ptr null, ptr %38
+  %spec.select.i47 = select i1 %.not.i46, ptr null, ptr %38
   store ptr %37, ptr %7, align 8
   %39 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %spec.select.i46, ptr %39, align 8
+  store ptr %spec.select.i47, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %20, i64 744
   %41 = load ptr, ptr %40, align 8
-  %.not.i49 = icmp eq ptr %41, null
+  %.not.i50 = icmp eq ptr %41, null
   %42 = getelementptr inbounds float, ptr %41, i64 %34
-  %spec.select.i50 = select i1 %.not.i49, ptr null, ptr %42
+  %spec.select.i51 = select i1 %.not.i50, ptr null, ptr %42
   store ptr %41, ptr %8, align 8
   %43 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %spec.select.i50, ptr %43, align 8
+  store ptr %spec.select.i51, ptr %43, align 8
   invoke void @_ZN3gmx20NoseHooverChainsDataC1EifiNS_8ArrayRefIKfEES3_S3_NS_8NhcUsageE(ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef %22, float noundef %29, i32 noundef %31, ptr %33, ptr %spec.select.i, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %8, i32 noundef 0)
           to label %44 unwind label %46
 
@@ -2193,19 +2193,19 @@ define void @_ZN3gmx20NoseHooverChainsData5buildENS_8NhcUsageEPNS_19LegacySimula
   %64 = load i32, ptr %63, align 4
   %65 = getelementptr inbounds i8, ptr %55, i64 752
   %66 = load ptr, ptr %65, align 8
-  %.not.i53 = icmp eq ptr %66, null
+  %.not.i54 = icmp eq ptr %66, null
   %67 = getelementptr inbounds i8, ptr %66, i64 4
-  %spec.select.i54 = select i1 %.not.i53, ptr null, ptr %67
+  %spec.select.i55 = select i1 %.not.i54, ptr null, ptr %67
   %68 = getelementptr inbounds i8, ptr %55, i64 792
   %69 = load ptr, ptr %68, align 8
-  %.not.i57 = icmp eq ptr %69, null
+  %.not.i58 = icmp eq ptr %69, null
   %70 = getelementptr inbounds i8, ptr %69, i64 4
-  %spec.select.i58 = select i1 %.not.i57, ptr null, ptr %70
+  %spec.select.i59 = select i1 %.not.i58, ptr null, ptr %70
   store ptr %69, ptr %11, align 8
   %71 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %spec.select.i58, ptr %71, align 8
+  store ptr %spec.select.i59, ptr %71, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  invoke void @_ZN3gmx20NoseHooverChainsDataC1EifiNS_8ArrayRefIKfEES3_S3_NS_8NhcUsageE(ptr noundef nonnull align 8 dereferenceable(72) %10, i32 noundef 1, float noundef %62, i32 noundef %64, ptr %66, ptr %spec.select.i54, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %11, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %12, i32 noundef %0)
+  invoke void @_ZN3gmx20NoseHooverChainsDataC1EifiNS_8ArrayRefIKfEES3_S3_NS_8NhcUsageE(ptr noundef nonnull align 8 dereferenceable(72) %10, i32 noundef 1, float noundef %62, i32 noundef %64, ptr %66, ptr %spec.select.i55, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %11, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %12, i32 noundef %0)
           to label %72 unwind label %74
 
 72:                                               ; preds = %50
@@ -2250,19 +2250,19 @@ _ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_20NoseHooverC
 _ZNOSt8optionalIPN3gmx20NoseHooverChainsDataEE5valueEv.exit: ; preds = %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_20NoseHooverChainsDataEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %84 = extractvalue { ptr, i8 } %80, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #26
-  %85 = getelementptr inbounds i8, ptr %14, i64 16
-  %86 = getelementptr inbounds i8, ptr %14, i64 24
-  %87 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 0, ptr %87, align 8
-  %88 = ptrtoint ptr %84 to i64
-  store i64 %88, ptr %14, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_0E9_M_invokeERKSt9_Any_dataOS3_OS4_", ptr %86, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %85, align 8
+  %85 = ptrtoint ptr %84 to i64
+  %86 = getelementptr inbounds i8, ptr %14, i64 16
+  %87 = getelementptr inbounds i8, ptr %14, i64 24
+  %88 = getelementptr inbounds i8, ptr %14, i64 8
+  store i64 0, ptr %88, align 8
+  store i64 %85, ptr %14, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_0E9_M_invokeERKSt9_Any_dataOS3_OS4_", ptr %87, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %86, align 8
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper34registerReferenceTemperatureUpdateESt8functionIFvNS_8ArrayRefIKfEENS_35ReferenceTemperatureChangeAlgorithmEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %14)
           to label %89 unwind label %118
 
 89:                                               ; preds = %_ZNOSt8optionalIPN3gmx20NoseHooverChainsDataEE5valueEv.exit
-  %90 = load ptr, ptr %85, align 8
+  %90 = load ptr, ptr %86, align 8
   %.not.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit, label %91
 
@@ -2284,36 +2284,36 @@ _ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEE
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull @.str.40, ptr noundef %98)
   %99 = load ptr, ptr %2, align 8
   %100 = invoke { ptr, i8 } @_ZN3gmx32ModularSimulatorAlgorithmBuilder14simulationDataINS_20NoseHooverChainsDataEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(712) %99, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_20NoseHooverChainsDataEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit63 unwind label %126
+          to label %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_20NoseHooverChainsDataEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit64 unwind label %126
 
-_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_20NoseHooverChainsDataEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit63: ; preds = %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit
+_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_20NoseHooverChainsDataEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit64: ; preds = %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit
   %101 = extractvalue { ptr, i8 } %100, 1
   %102 = trunc i8 %101 to i1
-  br i1 %102, label %_ZNOSt8optionalIPN3gmx20NoseHooverChainsDataEE5valueEv.exit65, label %103
+  br i1 %102, label %_ZNOSt8optionalIPN3gmx20NoseHooverChainsDataEE5valueEv.exit66, label %103
 
-103:                                              ; preds = %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_20NoseHooverChainsDataEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit63
+103:                                              ; preds = %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_20NoseHooverChainsDataEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit64
   invoke void @_ZSt27__throw_bad_optional_accessv() #28
-          to label %.noexc64 unwind label %126
+          to label %.noexc65 unwind label %126
 
-.noexc64:                                         ; preds = %103
+.noexc65:                                         ; preds = %103
   unreachable
 
-_ZNOSt8optionalIPN3gmx20NoseHooverChainsDataEE5valueEv.exit65: ; preds = %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_20NoseHooverChainsDataEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit63
+_ZNOSt8optionalIPN3gmx20NoseHooverChainsDataEE5valueEv.exit66: ; preds = %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_20NoseHooverChainsDataEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit64
   %104 = extractvalue { ptr, i8 } %100, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #26
-  %105 = getelementptr inbounds i8, ptr %16, i64 16
-  %106 = getelementptr inbounds i8, ptr %16, i64 24
-  %107 = getelementptr inbounds i8, ptr %16, i64 8
-  store i64 0, ptr %107, align 8
-  %108 = ptrtoint ptr %104 to i64
-  store i64 %108, ptr %16, align 8
-  store ptr @"_ZNSt17_Function_handlerIFfldEZN3gmx20NoseHooverChainsData5buildENS1_8NhcUsageEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_10EnergyDataEE3$_1E9_M_invokeERKSt9_Any_dataOlOd", ptr %106, align 8
-  store ptr @"_ZNSt17_Function_handlerIFfldEZN3gmx20NoseHooverChainsData5buildENS1_8NhcUsageEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_10EnergyDataEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %105, align 8
+  %105 = ptrtoint ptr %104 to i64
+  %106 = getelementptr inbounds i8, ptr %16, i64 16
+  %107 = getelementptr inbounds i8, ptr %16, i64 24
+  %108 = getelementptr inbounds i8, ptr %16, i64 8
+  store i64 0, ptr %108, align 8
+  store i64 %105, ptr %16, align 8
+  store ptr @"_ZNSt17_Function_handlerIFfldEZN3gmx20NoseHooverChainsData5buildENS1_8NhcUsageEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_10EnergyDataEE3$_1E9_M_invokeERKSt9_Any_dataOlOd", ptr %107, align 8
+  store ptr @"_ZNSt17_Function_handlerIFfldEZN3gmx20NoseHooverChainsData5buildENS1_8NhcUsageEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_10EnergyDataEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %106, align 8
   invoke void @_ZN3gmx10EnergyData30addConservedEnergyContributionEOSt8functionIFfldEE(ptr noundef nonnull align 8 dereferenceable(552) %3, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %109 unwind label %128
 
-109:                                              ; preds = %_ZNOSt8optionalIPN3gmx20NoseHooverChainsDataEE5valueEv.exit65
-  %110 = load ptr, ptr %105, align 8
+109:                                              ; preds = %_ZNOSt8optionalIPN3gmx20NoseHooverChainsDataEE5valueEv.exit66
+  %110 = load ptr, ptr %106, align 8
   %.not.i.i67 = icmp eq ptr %110, null
   br i1 %.not.i.i67, label %_ZNSt8functionIFfldEED2Ev.exit, label %111
 
@@ -2339,7 +2339,7 @@ _ZNSt8functionIFfldEED2Ev.exit:                   ; preds = %109, %111
 118:                                              ; preds = %_ZNOSt8optionalIPN3gmx20NoseHooverChainsDataEE5valueEv.exit
   %119 = landingpad { ptr, i32 }
           cleanup
-  %120 = load ptr, ptr %85, align 8
+  %120 = load ptr, ptr %86, align 8
   %.not.i.i68 = icmp eq ptr %120, null
   br i1 %.not.i.i68, label %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit69, label %121
 
@@ -2359,10 +2359,10 @@ _ZNSt8functionIFfldEED2Ev.exit:                   ; preds = %109, %111
           cleanup
   br label %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit69.sink.split
 
-128:                                              ; preds = %_ZNOSt8optionalIPN3gmx20NoseHooverChainsDataEE5valueEv.exit65
+128:                                              ; preds = %_ZNOSt8optionalIPN3gmx20NoseHooverChainsDataEE5valueEv.exit66
   %129 = landingpad { ptr, i32 }
           cleanup
-  %130 = load ptr, ptr %105, align 8
+  %130 = load ptr, ptr %106, align 8
   %.not.i.i70 = icmp eq ptr %130, null
   br i1 %.not.i.i70, label %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit69, label %131
 

@@ -48288,7 +48288,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17.i.loopexit.i.i: ;
   br label %_ZN4llvm5ErrorD2Ev.exit.sink.split.i
 
 _ZN4llvm5ErrorD2Ev.exit.sink.split.i:             ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17.i.loopexit.i.i, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i.i, %74
-  %.sroa.04.1.i.ph.i = phi i1 [ true, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i.i ], [ true, %74 ], [ %107, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17.i.loopexit.i.i ]
+  %.sroa.02.1.i.ph.i = phi i1 [ true, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i.i ], [ true, %74 ], [ %107, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17.i.loopexit.i.i ]
   %108 = load ptr, ptr %68, align 8, !noalias !219
   %109 = getelementptr inbounds i8, ptr %108, i64 8
   %110 = load ptr, ptr %109, align 8, !noalias !219
@@ -48298,11 +48298,11 @@ _ZN4llvm5ErrorD2Ev.exit.sink.split.i:             ; preds = %_ZNKSt14default_del
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit.sink.split.i, %_ZN4llvm8ExpectedIPKN5clang7VarDeclEE9takeErrorEv.exit.i
   %.pre.i = phi i8 [ %65, %_ZN4llvm8ExpectedIPKN5clang7VarDeclEE9takeErrorEv.exit.i ], [ %.pre.i.pre, %_ZN4llvm5ErrorD2Ev.exit.sink.split.i ]
-  %.sroa.04.1.i.i = phi i1 [ true, %_ZN4llvm8ExpectedIPKN5clang7VarDeclEE9takeErrorEv.exit.i ], [ %.sroa.04.1.i.ph.i, %_ZN4llvm5ErrorD2Ev.exit.sink.split.i ]
+  %.sroa.02.1.i.i = phi i1 [ true, %_ZN4llvm8ExpectedIPKN5clang7VarDeclEE9takeErrorEv.exit.i ], [ %.sroa.02.1.i.ph.i, %_ZN4llvm5ErrorD2Ev.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.assume(i1 %.sroa.04.1.i.i)
+  call void @llvm.assume(i1 %.sroa.02.1.i.i)
   br label %111
 
 111:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %56

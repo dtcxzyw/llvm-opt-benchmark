@@ -1766,34 +1766,34 @@ define internal void @_GLOBAL__sub_I_MCAsmInfo.cpp() #17 section ".text.startup"
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3)
   store ptr @.str.2, ptr %3, align 8, !noalias !29
-  %.sroa.420.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 7, ptr %.sroa.420.0..sroa_idx.i, align 8, !noalias !29
-  %.sroa.521.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 0, ptr %.sroa.521.0..sroa_idx.i, align 8, !noalias !29
+  %.sroa.421.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 7, ptr %.sroa.421.0..sroa_idx.i, align 8, !noalias !29
+  %.sroa.522.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 0, ptr %.sroa.522.0..sroa_idx.i, align 8, !noalias !29
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr @.str.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !29
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 32
   store i64 20, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !29
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr @.str.4, ptr %5, align 8, !noalias !29
-  %.sroa.423.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 48
-  store i64 6, ptr %.sroa.423.0..sroa_idx.i, align 8, !noalias !29
-  %.sroa.524.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 56
-  store i32 1, ptr %.sroa.524.0..sroa_idx.i, align 8, !noalias !29
-  %.sroa.726.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr @.str.5, ptr %.sroa.726.0..sroa_idx.i, align 8, !noalias !29
-  %.sroa.827.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 72
-  store i64 7, ptr %.sroa.827.0..sroa_idx.i, align 8, !noalias !29
+  %.sroa.424.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 48
+  store i64 6, ptr %.sroa.424.0..sroa_idx.i, align 8, !noalias !29
+  %.sroa.525.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 56
+  store i32 1, ptr %.sroa.525.0..sroa_idx.i, align 8, !noalias !29
+  %.sroa.727.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 64
+  store ptr @.str.5, ptr %.sroa.727.0..sroa_idx.i, align 8, !noalias !29
+  %.sroa.828.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 72
+  store i64 7, ptr %.sroa.828.0..sroa_idx.i, align 8, !noalias !29
   %6 = getelementptr inbounds i8, ptr %3, i64 80
   store ptr @.str.6, ptr %6, align 8, !noalias !29
-  %.sroa.429.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 88
-  store i64 7, ptr %.sroa.429.0..sroa_idx.i, align 8, !noalias !29
-  %.sroa.530.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 96
-  store i32 2, ptr %.sroa.530.0..sroa_idx.i, align 8, !noalias !29
-  %.sroa.732.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 104
-  store ptr @.str.7, ptr %.sroa.732.0..sroa_idx.i, align 8, !noalias !29
-  %.sroa.833.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 112
-  store i64 8, ptr %.sroa.833.0..sroa_idx.i, align 8, !noalias !29
+  %.sroa.430.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 88
+  store i64 7, ptr %.sroa.430.0..sroa_idx.i, align 8, !noalias !29
+  %.sroa.531.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 96
+  store i32 2, ptr %.sroa.531.0..sroa_idx.i, align 8, !noalias !29
+  %.sroa.733.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 104
+  store ptr @.str.7, ptr %.sroa.733.0..sroa_idx.i, align 8, !noalias !29
+  %.sroa.834.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 112
+  store i64 8, ptr %.sroa.834.0..sroa_idx.i, align 8, !noalias !29
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %7, i64 noundef 4) #22
   %8 = getelementptr inbounds i8, ptr %3, i64 120

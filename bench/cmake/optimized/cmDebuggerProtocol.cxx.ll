@@ -7841,14 +7841,14 @@ define internal noundef zeroext i1 @_ZZN3dap6TypeOfINS_12CMakeVersionEE4typeEvEN
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::function.36", align 8
   store ptr %2, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %4 to i64
-  store i64 %9, ptr %5, align 8
-  store ptr @_ZNSt17_Function_handlerIFbPN3dap15FieldSerializerEEZZNS0_6TypeOfINS0_12CMakeVersionEE4typeEvENK2TI9serializeEPNS0_10SerializerEPKvEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_, ptr %7, align 8
-  store ptr @_ZNSt17_Function_handlerIFbPN3dap15FieldSerializerEEZZNS0_6TypeOfINS0_12CMakeVersionEE4typeEvENK2TI9serializeEPNS0_10SerializerEPKvEUlS2_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %6, align 8
+  %6 = ptrtoint ptr %4 to i64
+  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %6, ptr %5, align 8
+  store ptr @_ZNSt17_Function_handlerIFbPN3dap15FieldSerializerEEZZNS0_6TypeOfINS0_12CMakeVersionEE4typeEvENK2TI9serializeEPNS0_10SerializerEPKvEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_, ptr %8, align 8
+  store ptr @_ZNSt17_Function_handlerIFbPN3dap15FieldSerializerEEZZNS0_6TypeOfINS0_12CMakeVersionEE4typeEvENK2TI9serializeEPNS0_10SerializerEPKvEUlS2_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %7, align 8
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
@@ -7856,7 +7856,7 @@ define internal noundef zeroext i1 @_ZZN3dap6TypeOfINS_12CMakeVersionEE4typeEvEN
           to label %14 unwind label %21
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbPN3dap15FieldSerializerEEED2Ev.exit, label %16
 
@@ -7877,7 +7877,7 @@ _ZNSt8functionIFbPN3dap15FieldSerializerEEED2Ev.exit: ; preds = %14, %16
 21:                                               ; preds = %3
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %6, align 8
+  %23 = load ptr, ptr %7, align 8
   %.not.i.i2 = icmp eq ptr %23, null
   br i1 %.not.i.i2, label %_ZNSt8functionIFbPN3dap15FieldSerializerEEED2Ev.exit3, label %24
 
@@ -9362,14 +9362,14 @@ define internal noundef zeroext i1 @_ZZN3dap6TypeOfINS_23CMakeInitializeResponse
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::function.36", align 8
   store ptr %2, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %4 to i64
-  store i64 %9, ptr %5, align 8
-  store ptr @_ZNSt17_Function_handlerIFbPN3dap15FieldSerializerEEZZNS0_6TypeOfINS0_23CMakeInitializeResponseEE4typeEvENK2TI9serializeEPNS0_10SerializerEPKvEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_, ptr %7, align 8
-  store ptr @_ZNSt17_Function_handlerIFbPN3dap15FieldSerializerEEZZNS0_6TypeOfINS0_23CMakeInitializeResponseEE4typeEvENK2TI9serializeEPNS0_10SerializerEPKvEUlS2_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %6, align 8
+  %6 = ptrtoint ptr %4 to i64
+  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %6, ptr %5, align 8
+  store ptr @_ZNSt17_Function_handlerIFbPN3dap15FieldSerializerEEZZNS0_6TypeOfINS0_23CMakeInitializeResponseEE4typeEvENK2TI9serializeEPNS0_10SerializerEPKvEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_, ptr %8, align 8
+  store ptr @_ZNSt17_Function_handlerIFbPN3dap15FieldSerializerEEZZNS0_6TypeOfINS0_23CMakeInitializeResponseEE4typeEvENK2TI9serializeEPNS0_10SerializerEPKvEUlS2_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %7, align 8
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
@@ -9377,7 +9377,7 @@ define internal noundef zeroext i1 @_ZZN3dap6TypeOfINS_23CMakeInitializeResponse
           to label %14 unwind label %21
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbPN3dap15FieldSerializerEEED2Ev.exit, label %16
 
@@ -9398,7 +9398,7 @@ _ZNSt8functionIFbPN3dap15FieldSerializerEEED2Ev.exit: ; preds = %14, %16
 21:                                               ; preds = %3
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %6, align 8
+  %23 = load ptr, ptr %7, align 8
   %.not.i.i2 = icmp eq ptr %23, null
   br i1 %.not.i.i2, label %_ZNSt8functionIFbPN3dap15FieldSerializerEEED2Ev.exit3, label %24
 
@@ -10175,14 +10175,14 @@ define internal noundef zeroext i1 @_ZZN3dap6TypeOfINS_22CMakeInitializeRequestE
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::function.36", align 8
   store ptr %2, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %4 to i64
-  store i64 %9, ptr %5, align 8
-  store ptr @_ZNSt17_Function_handlerIFbPN3dap15FieldSerializerEEZZNS0_6TypeOfINS0_22CMakeInitializeRequestEE4typeEvENK2TI9serializeEPNS0_10SerializerEPKvEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_, ptr %7, align 8
-  store ptr @_ZNSt17_Function_handlerIFbPN3dap15FieldSerializerEEZZNS0_6TypeOfINS0_22CMakeInitializeRequestEE4typeEvENK2TI9serializeEPNS0_10SerializerEPKvEUlS2_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %6, align 8
+  %6 = ptrtoint ptr %4 to i64
+  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %6, ptr %5, align 8
+  store ptr @_ZNSt17_Function_handlerIFbPN3dap15FieldSerializerEEZZNS0_6TypeOfINS0_22CMakeInitializeRequestEE4typeEvENK2TI9serializeEPNS0_10SerializerEPKvEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_, ptr %8, align 8
+  store ptr @_ZNSt17_Function_handlerIFbPN3dap15FieldSerializerEEZZNS0_6TypeOfINS0_22CMakeInitializeRequestEE4typeEvENK2TI9serializeEPNS0_10SerializerEPKvEUlS2_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %7, align 8
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
@@ -10190,7 +10190,7 @@ define internal noundef zeroext i1 @_ZZN3dap6TypeOfINS_22CMakeInitializeRequestE
           to label %14 unwind label %21
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbPN3dap15FieldSerializerEEED2Ev.exit, label %16
 
@@ -10211,7 +10211,7 @@ _ZNSt8functionIFbPN3dap15FieldSerializerEEED2Ev.exit: ; preds = %14, %16
 21:                                               ; preds = %3
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %6, align 8
+  %23 = load ptr, ptr %7, align 8
   %.not.i.i2 = icmp eq ptr %23, null
   br i1 %.not.i.i2, label %_ZNSt8functionIFbPN3dap15FieldSerializerEEED2Ev.exit3, label %24
 

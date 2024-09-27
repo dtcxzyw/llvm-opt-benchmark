@@ -3858,8 +3858,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %25, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %23, %.lr.ph.i.i.i.i
-  %.037.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %23 ]
-  %26 = shl i64 %.037.i.i.i.i, 1
+  %.038.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %23 ]
+  %26 = shl i64 %.038.i.i.i.i, 1
   %27 = add i64 %26, 2
   %28 = getelementptr inbounds ptr, ptr %0, i64 %27
   %29 = or disjoint i64 %26, 1
@@ -3889,7 +3889,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %spec.select.i.i.i.i = select i1 %46, i64 %29, i64 %27
   %47 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds ptr, ptr %0, i64 %.037.i.i.i.i
+  %49 = getelementptr inbounds ptr, ptr %0, i64 %.038.i.i.i.i
   store ptr %48, ptr %49, align 8
   %50 = icmp slt i64 %spec.select.i.i.i.i, %17
   br i1 %50, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !45
@@ -3915,10 +3915,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %57
 
 57:                                               ; preds = %74, %.lr.ph.i.i.i.i.i
-  %.020.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0921.i.i.i.i.i, %74 ]
-  %.0921.in.i.i.i.i.i = add nsw i64 %.020.i.i.i.i.i, -1
-  %.0921.i.i.i.i.i = sdiv i64 %.0921.in.i.i.i.i.i, 2
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %.0921.i.i.i.i.i
+  %.010.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %74 ]
+  %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
+  %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
+  %58 = getelementptr inbounds ptr, ptr %0, i64 %.0911.i.i.i.i.i
   %.val.val.i.i.i.i.i = load ptr, ptr %3, align 8
   %59 = getelementptr i8, ptr %.val.val.i.i.i.i.i, i64 8
   %.val.val.val.i.i.i.i.i = load ptr, ptr %59, align 8
@@ -3942,13 +3942,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %73, label %74, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i"
 
 74:                                               ; preds = %57
-  %75 = getelementptr inbounds ptr, ptr %0, i64 %.020.i.i.i.i.i
+  %75 = getelementptr inbounds ptr, ptr %0, i64 %.010.i.i.i.i.i
   store ptr %.val2.i.i.i.i.i.i, ptr %75, align 8
-  %76 = icmp sgt i64 %.0921.i.i.i.i.i, %.0.i.i.i
+  %76 = icmp sgt i64 %.0911.i.i.i.i.i, %.0.i.i.i
   br i1 %76, label %57, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i", !llvm.loop !46
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i": ; preds = %74, %57, %54
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %54 ], [ %.020.i.i.i.i.i, %57 ], [ %.0921.i.i.i.i.i, %74 ]
+  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %54 ], [ %.010.i.i.i.i.i, %57 ], [ %.0911.i.i.i.i.i, %74 ]
   %77 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store ptr %24, ptr %77, align 8
   %78 = icmp eq i64 %.0.i.i.i, 0
@@ -3974,8 +3974,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %89, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i9.i, %.lr.ph.i.i
-  %.037.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i9.i ]
-  %90 = shl i64 %.037.i.i, 1
+  %.038.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i9.i ]
+  %90 = shl i64 %.038.i.i, 1
   %91 = add i64 %90, 2
   %92 = getelementptr inbounds ptr, ptr %0, i64 %91
   %93 = or disjoint i64 %90, 1
@@ -4005,7 +4005,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %spec.select.i.i = select i1 %110, i64 %93, i64 %91
   %111 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds ptr, ptr %0, i64 %.037.i.i
+  %113 = getelementptr inbounds ptr, ptr %0, i64 %.038.i.i
   store ptr %112, ptr %113, align 8
   %114 = icmp slt i64 %spec.select.i.i, %88
   br i1 %114, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !45
@@ -4041,10 +4041,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %130
 
 130:                                              ; preds = %147, %.lr.ph.i.i.i
-  %.020.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.0921.i.i78.i, %147 ]
-  %.0921.in.i.i.i = add nsw i64 %.020.i.i.i, -1
-  %.0921.i.i78.i = lshr i64 %.0921.in.i.i.i, 1
-  %131 = getelementptr inbounds ptr, ptr %0, i64 %.0921.i.i78.i
+  %.010.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.0911.i.i78.i, %147 ]
+  %.0911.in.i.i.i = add nsw i64 %.010.i.i.i, -1
+  %.0911.i.i78.i = lshr i64 %.0911.in.i.i.i, 1
+  %131 = getelementptr inbounds ptr, ptr %0, i64 %.0911.i.i78.i
   %.val.val.i.i.i = load ptr, ptr %3, align 8
   %132 = getelementptr i8, ptr %.val.val.i.i.i, i64 8
   %.val.val.val.i.i.i = load ptr, ptr %132, align 8
@@ -4068,13 +4068,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %146, label %147, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit"
 
 147:                                              ; preds = %130
-  %148 = getelementptr inbounds ptr, ptr %0, i64 %.020.i.i.i
+  %148 = getelementptr inbounds ptr, ptr %0, i64 %.010.i.i.i
   store ptr %.val2.i.i.i.i, ptr %148, align 8
-  %.not.i = icmp ult i64 %.0921.in.i.i.i, 2
+  %.not.i = icmp ult i64 %.0911.in.i.i.i, 2
   br i1 %.not.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit", label %130, !llvm.loop !46
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit": ; preds = %130, %147, %127
-  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %127 ], [ %.020.i.i.i, %130 ], [ 0, %147 ]
+  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %127 ], [ %.010.i.i.i, %130 ], [ 0, %147 ]
   %149 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i
   store ptr %82, ptr %149, align 8
   %150 = icmp sgt i64 %85, 8

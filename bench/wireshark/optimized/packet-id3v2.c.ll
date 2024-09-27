@@ -311,7 +311,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.262 = private unnamed_addr constant [5 x i8] c"WXXX\00", align 1
 @.str.263 = private unnamed_addr constant [28 x i8] c"User defined URL link frame\00", align 1
 @.str.264 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@switch.table.dissect_id3v2.4 = private unnamed_addr constant [3 x i32] [i32 10, i32 -1610612732, i32 4], align 4
+@switch.table.dissect_id3v2.5 = private unnamed_addr constant [3 x i32] [i32 10, i32 -1610612732, i32 4], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_id3v2() local_unnamed_addr #0 {
@@ -473,7 +473,7 @@ define internal i32 @dissect_id3v2(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 switch.lookup:                                    ; preds = %84
   %88 = zext nneg i8 %80 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_id3v2.4, i64 0, i64 %88
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_id3v2.5, i64 0, i64 %88
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %id3v2_dissect_textz_item.exit.i.i
 
@@ -497,7 +497,7 @@ id3v2_dissect_textz_item.exit.i.i:                ; preds = %84, %switch.lookup
 
 switch.lookup52:                                  ; preds = %94
   %98 = zext nneg i8 %80 to i64
-  %switch.gep53 = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_id3v2.4, i64 0, i64 %98
+  %switch.gep53 = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_id3v2.5, i64 0, i64 %98
   %switch.load54 = load i32, ptr %switch.gep53, align 4
   br label %dissect_id3v2_text_frame.exit.i
 
@@ -576,7 +576,7 @@ dissect_id3v2_text_frame.exit.i:                  ; preds = %94, %switch.lookup5
 
 switch.lookup55:                                  ; preds = %131
   %139 = zext nneg i8 %132 to i64
-  %switch.gep56 = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_id3v2.4, i64 0, i64 %139
+  %switch.gep56 = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_id3v2.5, i64 0, i64 %139
   %switch.load57 = load i32, ptr %switch.gep56, align 4
   br label %id3v2_dissect_textz_item.exit.i112.i
 
@@ -598,7 +598,7 @@ id3v2_dissect_textz_item.exit.i112.i:             ; preds = %131, %switch.lookup
 
 switch.lookup58:                                  ; preds = %id3v2_dissect_textz_item.exit.i112.i
   %150 = zext nneg i8 %132 to i64
-  %switch.gep59 = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_id3v2.4, i64 0, i64 %150
+  %switch.gep59 = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_id3v2.5, i64 0, i64 %150
   %switch.load60 = load i32, ptr %switch.gep59, align 4
   br label %dissect_id3v2_apic_frame.exit.i
 
@@ -638,7 +638,7 @@ dissect_id3v2_apic_frame.exit.i:                  ; preds = %id3v2_dissect_textz
 
 switch.lookup61:                                  ; preds = %164
   %174 = zext nneg i8 %165 to i64
-  %switch.gep62 = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_id3v2.4, i64 0, i64 %174
+  %switch.gep62 = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_id3v2.5, i64 0, i64 %174
   %switch.load63 = load i32, ptr %switch.gep62, align 4
   br label %dissect_id3v2_comment_frame.exit.i
 

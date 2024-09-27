@@ -1726,8 +1726,8 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr %100, ptr %76, align 32
   %108 = getelementptr inbounds nuw i8, ptr %77, i64 96
   store ptr %100, ptr %108, align 32
-  %.val.i.i.i = load ptr, ptr %1, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %77, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i)
+  %.val8.i.i.i = load ptr, ptr %1, align 8
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %77, ptr noundef nonnull align 8 dereferenceable(128) %.val8.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %109 = load i64, ptr %58, align 16
   %110 = load i64, ptr %57, align 64
@@ -1924,8 +1924,8 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store ptr %200, ptr %132, align 32
   %208 = getelementptr inbounds nuw i8, ptr %183, i64 96
   store ptr %200, ptr %208, align 32
-  %.val.i.i.i.i = load ptr, ptr %1, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %183, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i.i)
+  %.val9.i.i.i.i = load ptr, ptr %1, align 8
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %183, ptr noundef nonnull align 8 dereferenceable(128) %.val9.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %209 = add i8 %.promoted.i.pr49.i.i, -1
   store i8 %209, ptr %129, align 2

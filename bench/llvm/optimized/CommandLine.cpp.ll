@@ -20495,8 +20495,8 @@ _ZN4llvm2cl10SubCommand6getAllEv.exit.i:          ; preds = %88, %_ZN4llvm2cl14O
   %97 = getelementptr inbounds nuw i8, ptr %48, i64 138
   %98 = load i16, ptr %97, align 2
   %99 = and i16 %98, 16384
-  %.not.i.i.i.i2.i = icmp eq i16 %99, 0
-  br i1 %.not.i.i.i.i2.i, label %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEEA10_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i, label %100
+  %.not.i.i.i.i8.i = icmp eq i16 %99, 0
+  br i1 %.not.i.i.i.i8.i, label %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEEA10_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i, label %100
 
 100:                                              ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit.i
   %101 = load atomic i64, ptr @_ZL12GlobalParser acquire, align 8
@@ -20536,8 +20536,8 @@ _ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEEA10
   store i64 9, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 8
   call fastcc void @_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEENS0_4descEJNS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_(ptr noundef %86, ptr nonnull @.str.83, i64 63, ptr noundef nonnull readonly align 8 dereferenceable(8) %19, ptr noundef nonnull readonly align 4 dereferenceable(4) %20, ptr noundef nonnull readonly align 4 dereferenceable(4) %21, ptr noundef nonnull readonly align 8 dereferenceable(8) %22, ptr noundef nonnull readonly align 8 dereferenceable(16) %23)
   %109 = load atomic i64, ptr @_ZL12GlobalParser acquire, align 8
-  %.not.i.i.i.i.i3.i = icmp eq i64 %109, 0
-  br i1 %.not.i.i.i.i.i3.i, label %110, label %_ZN4llvm2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEC2IJA10_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
+  %.not.i.i.i.i.i9.i = icmp eq i64 %109, 0
+  br i1 %.not.i.i.i.i.i9.i, label %110, label %_ZN4llvm2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEC2IJA10_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
 
 110:                                              ; preds = %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEEA10_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL12GlobalParser, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_117CommandLineParserEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_117CommandLineParserEE4callEPv) #25
@@ -20556,17 +20556,17 @@ _ZN4llvm2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEC2IJA10_cNS0_4d
   store i32 3, ptr %26, align 4
   store ptr %60, ptr %27, align 8
   %115 = load atomic i64, ptr @_ZL14AllSubCommands acquire, align 8
-  %.not.i.i5.i = icmp eq i64 %115, 0
-  br i1 %.not.i.i5.i, label %116, label %_ZN4llvm2cl10SubCommand6getAllEv.exit7.i
+  %.not.i.i11.i = icmp eq i64 %115, 0
+  br i1 %.not.i.i11.i, label %116, label %_ZN4llvm2cl10SubCommand6getAllEv.exit13.i
 
 116:                                              ; preds = %_ZN4llvm2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEC2IJA10_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL14AllSubCommands, ptr noundef nonnull @_ZN4llvm14object_creatorINS_2cl10SubCommandEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_2cl10SubCommandEE4callEPv) #25
-  br label %_ZN4llvm2cl10SubCommand6getAllEv.exit7.i
+  br label %_ZN4llvm2cl10SubCommand6getAllEv.exit13.i
 
-_ZN4llvm2cl10SubCommand6getAllEv.exit7.i:         ; preds = %116, %_ZN4llvm2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEC2IJA10_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
+_ZN4llvm2cl10SubCommand6getAllEv.exit13.i:        ; preds = %116, %_ZN4llvm2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEC2IJA10_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
   %117 = load atomic i64, ptr @_ZL14AllSubCommands monotonic, align 8
-  %.0.i2.i.i6.i = inttoptr i64 %117 to ptr
-  store ptr %.0.i2.i.i6.i, ptr %28, align 8
+  %.0.i2.i.i12.i = inttoptr i64 %117 to ptr
+  store ptr %.0.i2.i.i12.i, ptr %28, align 8
   %118 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr null, ptr %118, align 8
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %114, i32 noundef 0, i32 noundef 0)
@@ -20586,21 +20586,21 @@ _ZN4llvm2cl10SubCommand6getAllEv.exit7.i:         ; preds = %116, %_ZN4llvm2cl3o
   %125 = getelementptr inbounds nuw i8, ptr %48, i64 322
   %126 = load i16, ptr %125, align 2
   %127 = and i16 %126, 16384
-  %.not.i.i.i.i8.i = icmp eq i16 %127, 0
-  br i1 %.not.i.i.i.i8.i, label %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEEA17_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i, label %128
+  %.not.i.i.i.i14.i = icmp eq i16 %127, 0
+  br i1 %.not.i.i.i.i14.i, label %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEEA17_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i, label %128
 
-128:                                              ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit7.i
+128:                                              ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit13.i
   %129 = load atomic i64, ptr @_ZL12GlobalParser acquire, align 8
-  %.not.i.i.i.i.i.i9.i = icmp eq i64 %129, 0
-  br i1 %.not.i.i.i.i.i.i9.i, label %130, label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit.i.i.i.i10.i
+  %.not.i.i.i.i.i.i15.i = icmp eq i64 %129, 0
+  br i1 %.not.i.i.i.i.i.i15.i, label %130, label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit.i.i.i.i16.i
 
 130:                                              ; preds = %128
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL12GlobalParser, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_117CommandLineParserEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_117CommandLineParserEE4callEPv) #25
-  br label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit.i.i.i.i10.i
+  br label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit.i.i.i.i16.i
 
-_ZN4llvm13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit.i.i.i.i10.i: ; preds = %130, %128
+_ZN4llvm13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit.i.i.i.i16.i: ; preds = %130, %128
   %131 = load atomic i64, ptr @_ZL12GlobalParser monotonic, align 8
-  %.0.i2.i.i.i.i.i.i11.i = inttoptr i64 %131 to ptr
+  %.0.i2.i.i.i.i.i.i17.i = inttoptr i64 %131 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
@@ -20608,27 +20608,27 @@ _ZN4llvm13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS
   %132 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 16, ptr %132, align 8
   store ptr %114, ptr %14, align 8
-  store ptr %.0.i2.i.i.i.i.i.i11.i, ptr %15, align 8
+  store ptr %.0.i2.i.i.i.i.i.i17.i, ptr %15, align 8
   %133 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %14, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %13, ptr %134, align 8
   %135 = ptrtoint ptr %15 to i64
-  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser17forEachSubCommandERN4llvm2cl6OptionENS1_12function_refIFvRNS2_10SubCommandEEEE(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i.i11.i, ptr noundef nonnull align 8 dereferenceable(128) %114, ptr nonnull @_ZN4llvm12function_refIFvRNS_2cl10SubCommandEEE11callback_fnIZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPNS1_6OptionENS_9StringRefEEUlS3_E_EEvlS3_, i64 %135)
+  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser17forEachSubCommandERN4llvm2cl6OptionENS1_12function_refIFvRNS2_10SubCommandEEEE(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i.i17.i, ptr noundef nonnull align 8 dereferenceable(128) %114, ptr nonnull @_ZN4llvm12function_refIFvRNS_2cl10SubCommandEEE11callback_fnIZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPNS1_6OptionENS_9StringRefEEUlS3_E_EEvlS3_, i64 %135)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br label %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEEA17_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i
 
-_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEEA17_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i: ; preds = %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit.i.i.i.i10.i, %_ZN4llvm2cl10SubCommand6getAllEv.exit7.i
+_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEEA17_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i: ; preds = %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit.i.i.i.i16.i, %_ZN4llvm2cl10SubCommand6getAllEv.exit13.i
   %136 = getelementptr inbounds nuw i8, ptr %48, i64 328
   store ptr @.str.84, ptr %136, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i12.i = getelementptr inbounds i8, ptr %48, i64 336
-  store i64 16, ptr %.sroa.3.0..sroa_idx.i.i.i.i12.i, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i18.i = getelementptr inbounds i8, ptr %48, i64 336
+  store i64 16, ptr %.sroa.3.0..sroa_idx.i.i.i.i18.i, align 8
   call fastcc void @_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEENS0_4descEJNS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_(ptr noundef %114, ptr nonnull @.str.85, i64 37, ptr noundef nonnull readonly align 8 dereferenceable(8) %24, ptr noundef nonnull readonly align 4 dereferenceable(4) %25, ptr noundef nonnull readonly align 4 dereferenceable(4) %26, ptr noundef nonnull readonly align 8 dereferenceable(8) %27, ptr noundef nonnull readonly align 8 dereferenceable(16) %28)
   %137 = load atomic i64, ptr @_ZL12GlobalParser acquire, align 8
-  %.not.i.i.i.i.i15.i = icmp eq i64 %137, 0
-  br i1 %.not.i.i.i.i.i15.i, label %138, label %_ZN4llvm2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEC2IJA17_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
+  %.not.i.i.i.i.i21.i = icmp eq i64 %137, 0
+  br i1 %.not.i.i.i.i.i21.i, label %138, label %_ZN4llvm2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEC2IJA17_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
 
 138:                                              ; preds = %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEEA17_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL12GlobalParser, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_117CommandLineParserEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_117CommandLineParserEE4callEPv) #25
@@ -20636,25 +20636,25 @@ _ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEEA17
 
 _ZN4llvm2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEC2IJA17_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i: ; preds = %138, %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEEA17_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i
   %139 = load atomic i64, ptr @_ZL12GlobalParser monotonic, align 8
-  %.0.i2.i.i.i.i.i16.i = inttoptr i64 %139 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser9addOptionEPN4llvm2cl6OptionEb(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i16.i, ptr noundef nonnull %114, i1 noundef zeroext false)
+  %.0.i2.i.i.i.i.i22.i = inttoptr i64 %139 to ptr
+  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser9addOptionEPN4llvm2cl6OptionEb(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i22.i, ptr noundef nonnull %114, i1 noundef zeroext false)
   %140 = load i16, ptr %125, align 2
   %141 = or i16 %140, 16384
   store i16 %141, ptr %125, align 2
   %142 = getelementptr inbounds nuw i8, ptr %48, i64 496
   store ptr %60, ptr %29, align 8
   %143 = load atomic i64, ptr @_ZL14AllSubCommands acquire, align 8
-  %.not.i.i18.i = icmp eq i64 %143, 0
-  br i1 %.not.i.i18.i, label %144, label %_ZN4llvm2cl10SubCommand6getAllEv.exit20.i
+  %.not.i.i24.i = icmp eq i64 %143, 0
+  br i1 %.not.i.i24.i, label %144, label %_ZN4llvm2cl10SubCommand6getAllEv.exit26.i
 
 144:                                              ; preds = %_ZN4llvm2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEC2IJA17_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL14AllSubCommands, ptr noundef nonnull @_ZN4llvm14object_creatorINS_2cl10SubCommandEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_2cl10SubCommandEE4callEPv) #25
-  br label %_ZN4llvm2cl10SubCommand6getAllEv.exit20.i
+  br label %_ZN4llvm2cl10SubCommand6getAllEv.exit26.i
 
-_ZN4llvm2cl10SubCommand6getAllEv.exit20.i:        ; preds = %144, %_ZN4llvm2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEC2IJA17_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
+_ZN4llvm2cl10SubCommand6getAllEv.exit26.i:        ; preds = %144, %_ZN4llvm2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEC2IJA17_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
   %145 = load atomic i64, ptr @_ZL14AllSubCommands monotonic, align 8
-  %.0.i2.i.i19.i = inttoptr i64 %145 to ptr
-  store ptr %.0.i2.i.i19.i, ptr %30, align 8
+  %.0.i2.i.i25.i = inttoptr i64 %145 to ptr
+  store ptr %.0.i2.i.i25.i, ptr %30, align 8
   %146 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr null, ptr %146, align 8
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %142, i32 noundef 0, i32 noundef 0)
@@ -20674,25 +20674,25 @@ _ZN4llvm2cl10SubCommand6getAllEv.exit20.i:        ; preds = %144, %_ZN4llvm2cl3o
   %153 = getelementptr inbounds nuw i8, ptr %48, i64 506
   %154 = load i16, ptr %153, align 2
   %155 = and i16 %154, 16384
-  %.not.i.i.i.i21.i = icmp eq i16 %155, 0
-  br i1 %.not.i.i.i.i21.i, label %_ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.thread.i, label %158
+  %.not.i.i.i.i27.i = icmp eq i16 %155, 0
+  br i1 %.not.i.i.i.i27.i, label %_ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.thread.i.i, label %158
 
-_ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.thread.i: ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit20.i
+_ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.thread.i.i: ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit26.i
   %156 = getelementptr inbounds nuw i8, ptr %48, i64 512
   store ptr @.str.86, ptr %156, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i25107.i = getelementptr inbounds i8, ptr %48, i64 520
-  store i64 4, ptr %.sroa.3.0..sroa_idx.i.i.i.i25107.i, align 8
+  %.sroa.3.0..sroa_idx.i.i.i4.i.i = getelementptr inbounds i8, ptr %48, i64 520
+  store i64 4, ptr %.sroa.3.0..sroa_idx.i.i.i4.i.i, align 8
   %157 = getelementptr inbounds nuw i8, ptr %48, i64 528
   store ptr @.str.87, ptr %157, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i108.i = getelementptr inbounds i8, ptr %48, i64 536
-  store i64 50, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i108.i, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %48, i64 536
+  store i64 50, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i7.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   br label %174
 
-158:                                              ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit20.i
+158:                                              ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit26.i
   %159 = load atomic i64, ptr @_ZL12GlobalParser acquire, align 8
-  %.not.i.i.i.i.i.i22.i = icmp eq i64 %159, 0
-  br i1 %.not.i.i.i.i.i.i22.i, label %160, label %_ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i
+  %.not.i.i.i.i.i.i28.i = icmp eq i64 %159, 0
+  br i1 %.not.i.i.i.i.i.i28.i, label %160, label %_ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i
 
 160:                                              ; preds = %158
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL12GlobalParser, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_117CommandLineParserEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_117CommandLineParserEE4callEPv) #25
@@ -20700,7 +20700,7 @@ _ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperEL
 
 _ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i: ; preds = %160, %158
   %161 = load atomic i64, ptr @_ZL12GlobalParser monotonic, align 8
-  %.0.i2.i.i.i.i.i.i24.i = inttoptr i64 %161 to ptr
+  %.0.i2.i.i.i.i.i.i29.i = inttoptr i64 %161 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
@@ -20708,13 +20708,13 @@ _ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperEL
   %162 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 4, ptr %162, align 8
   store ptr %142, ptr %11, align 8
-  store ptr %.0.i2.i.i.i.i.i.i24.i, ptr %12, align 8
+  store ptr %.0.i2.i.i.i.i.i.i29.i, ptr %12, align 8
   %163 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %11, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %10, ptr %164, align 8
   %165 = ptrtoint ptr %12 to i64
-  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser17forEachSubCommandERN4llvm2cl6OptionENS1_12function_refIFvRNS2_10SubCommandEEEE(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i.i24.i, ptr noundef nonnull align 8 dereferenceable(128) %142, ptr nonnull @_ZN4llvm12function_refIFvRNS_2cl10SubCommandEEE11callback_fnIZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPNS1_6OptionENS_9StringRefEEUlS3_E_EEvlS3_, i64 %165)
+  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser17forEachSubCommandERN4llvm2cl6OptionENS1_12function_refIFvRNS2_10SubCommandEEEE(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i.i29.i, ptr noundef nonnull align 8 dereferenceable(128) %142, ptr nonnull @_ZN4llvm12function_refIFvRNS_2cl10SubCommandEEE11callback_fnIZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPNS1_6OptionENS_9StringRefEEUlS3_E_EEvlS3_, i64 %165)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
@@ -20722,8 +20722,8 @@ _ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperEL
   %166 = icmp eq ptr %.pre.i.i, null
   %167 = getelementptr inbounds nuw i8, ptr %48, i64 512
   store ptr @.str.86, ptr %167, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i25.i = getelementptr inbounds i8, ptr %48, i64 520
-  store i64 4, ptr %.sroa.3.0..sroa_idx.i.i.i.i25.i, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i30.i = getelementptr inbounds i8, ptr %48, i64 520
+  store i64 4, ptr %.sroa.3.0..sroa_idx.i.i.i.i30.i, align 8
   %168 = getelementptr inbounds nuw i8, ptr %48, i64 528
   store ptr @.str.87, ptr %168, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %48, i64 536
@@ -20741,7 +20741,7 @@ _ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperEL
   %173 = call noundef zeroext i1 @_ZN4llvm2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 dereferenceable(128) %142, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %172)
   br label %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEA5_cJNS0_4descENS0_13LocationClassIS4_EENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i
 
-174:                                              ; preds = %_ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i, %_ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.thread.i
+174:                                              ; preds = %_ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i, %_ZN4llvm2cl10applicatorIA5_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.thread.i.i
   store ptr %56, ptr %147, align 8
   br label %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEA5_cJNS0_4descENS0_13LocationClassIS4_EENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i
 
@@ -20749,8 +20749,8 @@ _ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIb
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call fastcc void @_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEENS0_13ValueExpectedEJNS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_(ptr noundef %142, i32 3, ptr noundef nonnull readonly align 8 dereferenceable(8) %29, ptr noundef nonnull readonly align 8 dereferenceable(16) %30)
   %175 = load atomic i64, ptr @_ZL12GlobalParser acquire, align 8
-  %.not.i.i.i.i.i27.i = icmp eq i64 %175, 0
-  br i1 %.not.i.i.i.i.i27.i, label %176, label %_ZN4llvm2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEC2IJA5_cNS0_4descENS0_13LocationClassIS3_EENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
+  %.not.i.i.i.i.i32.i = icmp eq i64 %175, 0
+  br i1 %.not.i.i.i.i.i32.i, label %176, label %_ZN4llvm2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEC2IJA5_cNS0_4descENS0_13LocationClassIS3_EENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
 
 176:                                              ; preds = %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEA5_cJNS0_4descENS0_13LocationClassIS4_EENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL12GlobalParser, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_117CommandLineParserEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_117CommandLineParserEE4callEPv) #25
@@ -20758,15 +20758,15 @@ _ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIb
 
 _ZN4llvm2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEC2IJA5_cNS0_4descENS0_13LocationClassIS3_EENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i: ; preds = %176, %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEA5_cJNS0_4descENS0_13LocationClassIS4_EENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i
   %177 = load atomic i64, ptr @_ZL12GlobalParser monotonic, align 8
-  %.0.i2.i.i.i.i.i28.i = inttoptr i64 %177 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser9addOptionEPN4llvm2cl6OptionEb(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i28.i, ptr noundef nonnull %142, i1 noundef zeroext false)
+  %.0.i2.i.i.i.i.i33.i = inttoptr i64 %177 to ptr
+  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser9addOptionEPN4llvm2cl6OptionEb(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i33.i, ptr noundef nonnull %142, i1 noundef zeroext false)
   %178 = load i16, ptr %153, align 2
   %179 = or i16 %178, 16384
   store i16 %179, ptr %153, align 2
   %180 = getelementptr inbounds nuw i8, ptr %48, i64 680
   store ptr @.str.89, ptr %31, align 8
-  %.sroa.2.0..sroa_idx.i29.i = getelementptr inbounds i8, ptr %31, i64 8
-  store i64 16, ptr %.sroa.2.0..sroa_idx.i29.i, align 8
+  %.sroa.2.0..sroa_idx.i34.i = getelementptr inbounds i8, ptr %31, i64 8
+  store i64 16, ptr %.sroa.2.0..sroa_idx.i34.i, align 8
   store ptr %142, ptr %32, align 8
   store i32 16, ptr %33, align 4
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %180, i32 noundef 0, i32 noundef 1)
@@ -20778,17 +20778,17 @@ _ZN4llvm2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEC2IJA5_c
   %182 = getelementptr inbounds nuw i8, ptr %48, i64 816
   store ptr %60, ptr %34, align 8
   %183 = load atomic i64, ptr @_ZL14AllSubCommands acquire, align 8
-  %.not.i.i31.i = icmp eq i64 %183, 0
-  br i1 %.not.i.i31.i, label %184, label %_ZN4llvm2cl10SubCommand6getAllEv.exit33.i
+  %.not.i.i36.i = icmp eq i64 %183, 0
+  br i1 %.not.i.i36.i, label %184, label %_ZN4llvm2cl10SubCommand6getAllEv.exit38.i
 
 184:                                              ; preds = %_ZN4llvm2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEC2IJA5_cNS0_4descENS0_13LocationClassIS3_EENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL14AllSubCommands, ptr noundef nonnull @_ZN4llvm14object_creatorINS_2cl10SubCommandEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_2cl10SubCommandEE4callEPv) #25
-  br label %_ZN4llvm2cl10SubCommand6getAllEv.exit33.i
+  br label %_ZN4llvm2cl10SubCommand6getAllEv.exit38.i
 
-_ZN4llvm2cl10SubCommand6getAllEv.exit33.i:        ; preds = %184, %_ZN4llvm2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEC2IJA5_cNS0_4descENS0_13LocationClassIS3_EENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
+_ZN4llvm2cl10SubCommand6getAllEv.exit38.i:        ; preds = %184, %_ZN4llvm2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEC2IJA5_cNS0_4descENS0_13LocationClassIS3_EENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
   %185 = load atomic i64, ptr @_ZL14AllSubCommands monotonic, align 8
-  %.0.i2.i.i32.i = inttoptr i64 %185 to ptr
-  store ptr %.0.i2.i.i32.i, ptr %35, align 8
+  %.0.i2.i.i37.i = inttoptr i64 %185 to ptr
+  store ptr %.0.i2.i.i37.i, ptr %35, align 8
   %186 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr null, ptr %186, align 8
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %182, i32 noundef 0, i32 noundef 0)
@@ -20808,25 +20808,25 @@ _ZN4llvm2cl10SubCommand6getAllEv.exit33.i:        ; preds = %184, %_ZN4llvm2cl3o
   %193 = getelementptr inbounds nuw i8, ptr %48, i64 826
   %194 = load i16, ptr %193, align 2
   %195 = and i16 %194, 16384
-  %.not.i.i.i.i34.i = icmp eq i16 %195, 0
-  br i1 %.not.i.i.i.i34.i, label %_ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.thread.i, label %198
+  %.not.i.i.i.i39.i = icmp eq i16 %195, 0
+  br i1 %.not.i.i.i.i39.i, label %_ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.thread.i.i, label %198
 
-_ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.thread.i: ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit33.i
+_ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.thread.i.i: ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit38.i
   %196 = getelementptr inbounds nuw i8, ptr %48, i64 832
   store ptr @.str.90, ptr %196, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i40110.i = getelementptr inbounds i8, ptr %48, i64 840
-  store i64 11, ptr %.sroa.3.0..sroa_idx.i.i.i.i40110.i, align 8
+  %.sroa.3.0..sroa_idx.i.i.i6.i.i = getelementptr inbounds i8, ptr %48, i64 840
+  store i64 11, ptr %.sroa.3.0..sroa_idx.i.i.i6.i.i, align 8
   %197 = getelementptr inbounds nuw i8, ptr %48, i64 848
   store ptr @.str.91, ptr %197, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i43111.i = getelementptr inbounds i8, ptr %48, i64 856
-  store i64 29, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i43111.i, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i.i9.i.i = getelementptr inbounds i8, ptr %48, i64 856
+  store i64 29, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i9.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   br label %214
 
-198:                                              ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit33.i
+198:                                              ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit38.i
   %199 = load atomic i64, ptr @_ZL12GlobalParser acquire, align 8
-  %.not.i.i.i.i.i.i35.i = icmp eq i64 %199, 0
-  br i1 %.not.i.i.i.i.i.i35.i, label %200, label %_ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i
+  %.not.i.i.i.i.i.i40.i = icmp eq i64 %199, 0
+  br i1 %.not.i.i.i.i.i.i40.i, label %200, label %_ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i
 
 200:                                              ; preds = %198
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL12GlobalParser, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_117CommandLineParserEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_117CommandLineParserEE4callEPv) #25
@@ -20834,7 +20834,7 @@ _ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperE
 
 _ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i: ; preds = %200, %198
   %201 = load atomic i64, ptr @_ZL12GlobalParser monotonic, align 8
-  %.0.i2.i.i.i.i.i.i37.i = inttoptr i64 %201 to ptr
+  %.0.i2.i.i.i.i.i.i41.i = inttoptr i64 %201 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -20842,26 +20842,26 @@ _ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperE
   %202 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 11, ptr %202, align 8
   store ptr %182, ptr %7, align 8
-  store ptr %.0.i2.i.i.i.i.i.i37.i, ptr %8, align 8
+  store ptr %.0.i2.i.i.i.i.i.i41.i, ptr %8, align 8
   %203 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %203, align 8
   %204 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %6, ptr %204, align 8
   %205 = ptrtoint ptr %8 to i64
-  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser17forEachSubCommandERN4llvm2cl6OptionENS1_12function_refIFvRNS2_10SubCommandEEEE(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i.i37.i, ptr noundef nonnull align 8 dereferenceable(128) %182, ptr nonnull @_ZN4llvm12function_refIFvRNS_2cl10SubCommandEEE11callback_fnIZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPNS1_6OptionENS_9StringRefEEUlS3_E_EEvlS3_, i64 %205)
+  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser17forEachSubCommandERN4llvm2cl6OptionENS1_12function_refIFvRNS2_10SubCommandEEEE(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i.i41.i, ptr noundef nonnull align 8 dereferenceable(128) %182, ptr nonnull @_ZN4llvm12function_refIFvRNS_2cl10SubCommandEEE11callback_fnIZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPNS1_6OptionENS_9StringRefEEUlS3_E_EEvlS3_, i64 %205)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %.pre.i38.i = load ptr, ptr %187, align 8
-  %206 = icmp eq ptr %.pre.i38.i, null
+  %.pre.i42.i = load ptr, ptr %187, align 8
+  %206 = icmp eq ptr %.pre.i42.i, null
   %207 = getelementptr inbounds nuw i8, ptr %48, i64 832
   store ptr @.str.90, ptr %207, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i40.i = getelementptr inbounds i8, ptr %48, i64 840
-  store i64 11, ptr %.sroa.3.0..sroa_idx.i.i.i.i40.i, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i43.i = getelementptr inbounds i8, ptr %48, i64 840
+  store i64 11, ptr %.sroa.3.0..sroa_idx.i.i.i.i43.i, align 8
   %208 = getelementptr inbounds nuw i8, ptr %48, i64 848
   store ptr @.str.91, ptr %208, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i43.i = getelementptr inbounds i8, ptr %48, i64 856
-  store i64 29, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i43.i, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i46.i = getelementptr inbounds i8, ptr %48, i64 856
+  store i64 29, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i46.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   br i1 %206, label %214, label %209
 
@@ -20875,7 +20875,7 @@ _ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperE
   %213 = call noundef zeroext i1 @_ZN4llvm2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 dereferenceable(128) %182, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %212)
   br label %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEA12_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i
 
-214:                                              ; preds = %_ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i, %_ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.thread.i
+214:                                              ; preds = %_ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i, %_ZN4llvm2cl10applicatorIA12_cE3optINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.thread.i.i
   store ptr %58, ptr %187, align 8
   br label %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEA12_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i
 
@@ -20887,8 +20887,8 @@ _ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIb
   store i16 %217, ptr %193, align 2
   call fastcc void @_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEENS0_13ValueExpectedEJNS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_(ptr noundef %182, i32 3, ptr noundef nonnull readonly align 8 dereferenceable(8) %34, ptr noundef nonnull readonly align 8 dereferenceable(16) %35)
   %218 = load atomic i64, ptr @_ZL12GlobalParser acquire, align 8
-  %.not.i.i.i.i.i44.i = icmp eq i64 %218, 0
-  br i1 %.not.i.i.i.i.i44.i, label %219, label %_ZN4llvm2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEC2IJA12_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
+  %.not.i.i.i.i.i47.i = icmp eq i64 %218, 0
+  br i1 %.not.i.i.i.i.i47.i, label %219, label %_ZN4llvm2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEC2IJA12_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
 
 219:                                              ; preds = %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEA12_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL12GlobalParser, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_117CommandLineParserEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_117CommandLineParserEE4callEPv) #25
@@ -20896,31 +20896,31 @@ _ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIb
 
 _ZN4llvm2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEC2IJA12_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i: ; preds = %219, %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEEA12_cJNS0_4descENS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_.exit.i.i
   %220 = load atomic i64, ptr @_ZL12GlobalParser monotonic, align 8
-  %.0.i2.i.i.i.i.i45.i = inttoptr i64 %220 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser9addOptionEPN4llvm2cl6OptionEb(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i45.i, ptr noundef nonnull %182, i1 noundef zeroext false)
+  %.0.i2.i.i.i.i.i48.i = inttoptr i64 %220 to ptr
+  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser9addOptionEPN4llvm2cl6OptionEb(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i48.i, ptr noundef nonnull %182, i1 noundef zeroext false)
   %221 = load i16, ptr %193, align 2
   %222 = or i16 %221, 16384
   store i16 %222, ptr %193, align 2
   %223 = getelementptr inbounds nuw i8, ptr %48, i64 1000
   store ptr @.str.93, ptr %36, align 8
-  %.sroa.2.0..sroa_idx.i46.i = getelementptr inbounds i8, ptr %36, i64 8
-  store i64 52, ptr %.sroa.2.0..sroa_idx.i46.i, align 8
+  %.sroa.2.0..sroa_idx.i49.i = getelementptr inbounds i8, ptr %36, i64 8
+  store i64 52, ptr %.sroa.2.0..sroa_idx.i49.i, align 8
   store i32 1, ptr %37, align 4
   store i8 0, ptr %39, align 1
   store ptr %39, ptr %38, align 8
   store ptr %60, ptr %40, align 8
   %224 = load atomic i64, ptr @_ZL14AllSubCommands acquire, align 8
-  %.not.i.i47.i = icmp eq i64 %224, 0
-  br i1 %.not.i.i47.i, label %225, label %_ZN4llvm2cl10SubCommand6getAllEv.exit49.i
+  %.not.i.i50.i = icmp eq i64 %224, 0
+  br i1 %.not.i.i50.i, label %225, label %_ZN4llvm2cl10SubCommand6getAllEv.exit52.i
 
 225:                                              ; preds = %_ZN4llvm2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEC2IJA12_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL14AllSubCommands, ptr noundef nonnull @_ZN4llvm14object_creatorINS_2cl10SubCommandEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_2cl10SubCommandEE4callEPv) #25
-  br label %_ZN4llvm2cl10SubCommand6getAllEv.exit49.i
+  br label %_ZN4llvm2cl10SubCommand6getAllEv.exit52.i
 
-_ZN4llvm2cl10SubCommand6getAllEv.exit49.i:        ; preds = %225, %_ZN4llvm2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEC2IJA12_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
+_ZN4llvm2cl10SubCommand6getAllEv.exit52.i:        ; preds = %225, %_ZN4llvm2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEEC2IJA12_cNS0_4descENS0_13LocationClassIS3_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEDpRKT_.exit.i
   %226 = load atomic i64, ptr @_ZL14AllSubCommands monotonic, align 8
-  %.0.i2.i.i48.i = inttoptr i64 %226 to ptr
-  store ptr %.0.i2.i.i48.i, ptr %41, align 8
+  %.0.i2.i.i51.i = inttoptr i64 %226 to ptr
+  store ptr %.0.i2.i.i51.i, ptr %41, align 8
   %227 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr null, ptr %227, align 8
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %223, i32 noundef 0, i32 noundef 0)
@@ -20941,41 +20941,41 @@ _ZN4llvm2cl10SubCommand6getAllEv.exit49.i:        ; preds = %225, %_ZN4llvm2cl3o
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %233, align 8
   call void @_ZN4llvm2cl5applyINS0_3optIbLb0ENS0_6parserIbEEEEA14_cJNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_(ptr noundef nonnull %223, ptr noundef nonnull align 1 dereferenceable(14) @.str.92, ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(16) %41)
   %235 = load atomic i64, ptr @_ZL12GlobalParser acquire, align 8
-  %.not.i.i.i.i.i50.i = icmp eq i64 %235, 0
-  br i1 %.not.i.i.i.i.i50.i, label %236, label %_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA14_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i
+  %.not.i.i.i.i.i53.i = icmp eq i64 %235, 0
+  br i1 %.not.i.i.i.i.i53.i, label %236, label %_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA14_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i
 
-236:                                              ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit49.i
+236:                                              ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit52.i
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL12GlobalParser, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_117CommandLineParserEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_117CommandLineParserEE4callEPv) #25
   br label %_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA14_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i
 
-_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA14_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i: ; preds = %236, %_ZN4llvm2cl10SubCommand6getAllEv.exit49.i
+_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA14_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i: ; preds = %236, %_ZN4llvm2cl10SubCommand6getAllEv.exit52.i
   %237 = load atomic i64, ptr @_ZL12GlobalParser monotonic, align 8
-  %.0.i2.i.i.i.i.i51.i = inttoptr i64 %237 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser9addOptionEPN4llvm2cl6OptionEb(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i51.i, ptr noundef nonnull %223, i1 noundef zeroext false)
+  %.0.i2.i.i.i.i.i54.i = inttoptr i64 %237 to ptr
+  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser9addOptionEPN4llvm2cl6OptionEb(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i54.i, ptr noundef nonnull %223, i1 noundef zeroext false)
   %238 = getelementptr inbounds nuw i8, ptr %48, i64 1010
   %239 = load i16, ptr %238, align 2
   %240 = or i16 %239, 16384
   store i16 %240, ptr %238, align 2
   %241 = getelementptr inbounds nuw i8, ptr %48, i64 1192
   store ptr @.str.95, ptr %42, align 8
-  %.sroa.2.0..sroa_idx.i52.i = getelementptr inbounds i8, ptr %42, i64 8
-  store i64 50, ptr %.sroa.2.0..sroa_idx.i52.i, align 8
+  %.sroa.2.0..sroa_idx.i55.i = getelementptr inbounds i8, ptr %42, i64 8
+  store i64 50, ptr %.sroa.2.0..sroa_idx.i55.i, align 8
   store i32 1, ptr %43, align 4
   store i8 0, ptr %45, align 1
   store ptr %45, ptr %44, align 8
   store ptr %60, ptr %46, align 8
   %242 = load atomic i64, ptr @_ZL14AllSubCommands acquire, align 8
-  %.not.i.i53.i = icmp eq i64 %242, 0
-  br i1 %.not.i.i53.i, label %243, label %_ZN4llvm2cl10SubCommand6getAllEv.exit55.i
+  %.not.i.i56.i = icmp eq i64 %242, 0
+  br i1 %.not.i.i56.i, label %243, label %_ZN4llvm2cl10SubCommand6getAllEv.exit58.i
 
 243:                                              ; preds = %_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA14_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL14AllSubCommands, ptr noundef nonnull @_ZN4llvm14object_creatorINS_2cl10SubCommandEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_2cl10SubCommandEE4callEPv) #25
-  br label %_ZN4llvm2cl10SubCommand6getAllEv.exit55.i
+  br label %_ZN4llvm2cl10SubCommand6getAllEv.exit58.i
 
-_ZN4llvm2cl10SubCommand6getAllEv.exit55.i:        ; preds = %243, %_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA14_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i
+_ZN4llvm2cl10SubCommand6getAllEv.exit58.i:        ; preds = %243, %_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA14_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i
   %244 = load atomic i64, ptr @_ZL14AllSubCommands monotonic, align 8
-  %.0.i2.i.i54.i = inttoptr i64 %244 to ptr
-  store ptr %.0.i2.i.i54.i, ptr %47, align 8
+  %.0.i2.i.i57.i = inttoptr i64 %244 to ptr
+  store ptr %.0.i2.i.i57.i, ptr %47, align 8
   %245 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr null, ptr %245, align 8
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %241, i32 noundef 0, i32 noundef 0)
@@ -20996,17 +20996,17 @@ _ZN4llvm2cl10SubCommand6getAllEv.exit55.i:        ; preds = %243, %_ZN4llvm2cl3o
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %251, align 8
   call void @_ZN4llvm2cl5applyINS0_3optIbLb0ENS0_6parserIbEEEEA18_cJNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_(ptr noundef nonnull %241, ptr noundef nonnull align 1 dereferenceable(18) @.str.94, ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(16) %47)
   %253 = load atomic i64, ptr @_ZL12GlobalParser acquire, align 8
-  %.not.i.i.i.i.i56.i = icmp eq i64 %253, 0
-  br i1 %.not.i.i.i.i.i56.i, label %254, label %_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA18_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i
+  %.not.i.i.i.i.i59.i = icmp eq i64 %253, 0
+  br i1 %.not.i.i.i.i.i59.i, label %254, label %_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA18_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i
 
-254:                                              ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit55.i
+254:                                              ; preds = %_ZN4llvm2cl10SubCommand6getAllEv.exit58.i
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL12GlobalParser, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_117CommandLineParserEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_117CommandLineParserEE4callEPv) #25
   br label %_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA18_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i
 
-_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA18_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i: ; preds = %254, %_ZN4llvm2cl10SubCommand6getAllEv.exit55.i
+_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA18_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i: ; preds = %254, %_ZN4llvm2cl10SubCommand6getAllEv.exit58.i
   %255 = load atomic i64, ptr @_ZL12GlobalParser monotonic, align 8
-  %.0.i2.i.i.i.i.i57.i = inttoptr i64 %255 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser9addOptionEPN4llvm2cl6OptionEb(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i57.i, ptr noundef nonnull %241, i1 noundef zeroext false)
+  %.0.i2.i.i.i.i.i60.i = inttoptr i64 %255 to ptr
+  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser9addOptionEPN4llvm2cl6OptionEb(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i60.i, ptr noundef nonnull %241, i1 noundef zeroext false)
   %256 = getelementptr inbounds nuw i8, ptr %48, i64 1202
   %257 = load i16, ptr %256, align 2
   %258 = or i16 %257, 16384
@@ -21032,25 +21032,25 @@ _ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA18_cNS0_4descENS0_12OptionHiddenENS0_1
   %268 = getelementptr inbounds nuw i8, ptr %48, i64 1458
   %269 = load i16, ptr %268, align 2
   %270 = and i16 %269, 16384
-  %.not.i.i.i.i59.i = icmp eq i16 %270, 0
-  br i1 %.not.i.i.i.i59.i, label %_ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.thread.i, label %273
+  %.not.i.i.i.i62.i = icmp eq i16 %270, 0
+  br i1 %.not.i.i.i.i62.i, label %_ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.thread.i.i, label %273
 
-_ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.thread.i: ; preds = %_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA18_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i
+_ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.thread.i.i: ; preds = %_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA18_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i
   %271 = getelementptr inbounds nuw i8, ptr %48, i64 1464
   store ptr @.str.96, ptr %271, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i65113.i = getelementptr inbounds i8, ptr %48, i64 1472
-  store i64 7, ptr %.sroa.3.0..sroa_idx.i.i.i.i65113.i, align 8
+  %.sroa.3.0..sroa_idx.i.i.i4.i71.i = getelementptr inbounds i8, ptr %48, i64 1472
+  store i64 7, ptr %.sroa.3.0..sroa_idx.i.i.i4.i71.i, align 8
   %272 = getelementptr inbounds nuw i8, ptr %48, i64 1480
   store ptr @.str.97, ptr %272, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i67114.i = getelementptr inbounds i8, ptr %48, i64 1488
-  store i64 35, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i67114.i, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i.i7.i73.i = getelementptr inbounds i8, ptr %48, i64 1488
+  store i64 35, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i7.i73.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
   br label %289
 
 273:                                              ; preds = %_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA18_cNS0_4descENS0_12OptionHiddenENS0_11initializerIbEENS0_3catENS0_3subEEEEDpRKT_.exit.i
   %274 = load atomic i64, ptr @_ZL12GlobalParser acquire, align 8
-  %.not.i.i.i.i.i.i60.i = icmp eq i64 %274, 0
-  br i1 %.not.i.i.i.i.i.i60.i, label %275, label %_ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i
+  %.not.i.i.i.i.i.i63.i = icmp eq i64 %274, 0
+  br i1 %.not.i.i.i.i.i.i63.i, label %275, label %_ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i
 
 275:                                              ; preds = %273
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL12GlobalParser, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_117CommandLineParserEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_117CommandLineParserEE4callEPv) #25
@@ -21058,7 +21058,7 @@ _ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1EN
 
 _ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i: ; preds = %275, %273
   %276 = load atomic i64, ptr @_ZL12GlobalParser monotonic, align 8
-  %.0.i2.i.i.i.i.i.i62.i = inttoptr i64 %276 to ptr
+  %.0.i2.i.i.i.i.i.i64.i = inttoptr i64 %276 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -21066,26 +21066,26 @@ _ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1EN
   %277 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 7, ptr %277, align 8
   store ptr %260, ptr %3, align 8
-  store ptr %.0.i2.i.i.i.i.i.i62.i, ptr %4, align 8
+  store ptr %.0.i2.i.i.i.i.i.i64.i, ptr %4, align 8
   %278 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %278, align 8
   %279 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %279, align 8
   %280 = ptrtoint ptr %4 to i64
-  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser17forEachSubCommandERN4llvm2cl6OptionENS1_12function_refIFvRNS2_10SubCommandEEEE(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i.i62.i, ptr noundef nonnull align 8 dereferenceable(128) %260, ptr nonnull @_ZN4llvm12function_refIFvRNS_2cl10SubCommandEEE11callback_fnIZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPNS1_6OptionENS_9StringRefEEUlS3_E_EEvlS3_, i64 %280)
+  call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser17forEachSubCommandERN4llvm2cl6OptionENS1_12function_refIFvRNS2_10SubCommandEEEE(ptr noundef nonnull align 8 dereferenceable(352) %.0.i2.i.i.i.i.i.i64.i, ptr noundef nonnull align 8 dereferenceable(128) %260, ptr nonnull @_ZN4llvm12function_refIFvRNS_2cl10SubCommandEEE11callback_fnIZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPNS1_6OptionENS_9StringRefEEUlS3_E_EEvlS3_, i64 %280)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %.pre.i63.i = load ptr, ptr %262, align 8
-  %281 = icmp eq ptr %.pre.i63.i, null
+  %.pre.i65.i = load ptr, ptr %262, align 8
+  %281 = icmp eq ptr %.pre.i65.i, null
   %282 = getelementptr inbounds nuw i8, ptr %48, i64 1464
   store ptr @.str.96, ptr %282, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i65.i = getelementptr inbounds i8, ptr %48, i64 1472
-  store i64 7, ptr %.sroa.3.0..sroa_idx.i.i.i.i65.i, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i66.i = getelementptr inbounds i8, ptr %48, i64 1472
+  store i64 7, ptr %.sroa.3.0..sroa_idx.i.i.i.i66.i, align 8
   %283 = getelementptr inbounds nuw i8, ptr %48, i64 1480
   store ptr @.str.97, ptr %283, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i67.i = getelementptr inbounds i8, ptr %48, i64 1488
-  store i64 35, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i67.i, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i68.i = getelementptr inbounds i8, ptr %48, i64 1488
+  store i64 35, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i68.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
   br i1 %281, label %289, label %284
 
@@ -21099,7 +21099,7 @@ _ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1EN
   %288 = call noundef zeroext i1 @_ZN4llvm2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 dereferenceable(128) %260, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %287)
   br label %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEEEA8_cJNS0_4descENS0_13LocationClassIS4_EENS0_13ValueExpectedENS0_3catEEEEvPT_RKT0_DpRKT1_.exit.i.i
 
-289:                                              ; preds = %_ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i, %_ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.thread.i
+289:                                              ; preds = %_ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.i.i, %_ZN4llvm2cl10applicatorIA8_cE3optINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEEEEEvNS_9StringRefERT_.exit.i.thread.i.i
   store ptr %261, ptr %262, align 8
   br label %_ZN4llvm2cl5applyINS0_3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEEEA8_cJNS0_4descENS0_13LocationClassIS4_EENS0_13ValueExpectedENS0_3catEEEEvPT_RKT0_DpRKT1_.exit.i.i
 

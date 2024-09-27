@@ -67,7 +67,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.370" = type { %"class.llvm::SmallVectorTemplateCommon.371" }
 %"class.llvm::SmallVectorTemplateCommon.371" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.372" = type { [32 x i8] }
-%class.anon = type { ptr, ptr }
 %"struct.llvm::TargetRegisterInfo::RegClassInfo" = type { i32, i32, i32, i32 }
 %"struct.llvm::RegScavenger::ScavengedInfo" = type { i32, %"class.llvm::Register", ptr }
 %"class.std::vector.131" = type { %"struct.std::_Vector_base.132" }
@@ -5536,217 +5535,210 @@ declare void @_ZNK4llvm19TargetFrameLowering20determineCalleeSavesERNS_15Machine
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { i64, i8 } @_ZNK4llvm18RISCVFrameLowering27assignRVVStackObjectOffsetsERNS_15MachineFunctionE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::SmallVector.368", align 8
-  %4 = alloca %class.anon, align 8
-  %5 = alloca %"class.llvm::SmallVector.301", align 8
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %8, i64 noundef 8) #17
-  store ptr %7, ptr %4, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %3, ptr %9, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  call fastcc void @_ZL21getRVVCalleeSavedInfoRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %5, ptr %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  %12 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  br i1 %12, label %23, label %13
+  %4 = alloca %"class.llvm::SmallVector.301", align 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef 8) #17
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  call fastcc void @_ZL21getRVVCalleeSavedInfoRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %4, ptr %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  %10 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  br i1 %10, label %21, label %11
 
-13:                                               ; preds = %2
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr %"class.llvm::CalleeSavedInfo", ptr %18, i64 %17
-  %20 = getelementptr i8, ptr %19, i64 -8
-  %21 = load i32, ptr %20, align 4
-  %22 = add nsw i32 %21, 1
-  call fastcc void @"_ZZNK4llvm18RISCVFrameLowering27assignRVVStackObjectOffsetsERNS_15MachineFunctionEENK3$_0clEii"(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %16, i32 noundef %22)
-  br label %23
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = load i32, ptr %13, align 4
+  %15 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr %"class.llvm::CalleeSavedInfo", ptr %16, i64 %15
+  %18 = getelementptr i8, ptr %17, i64 -8
+  %19 = load i32, ptr %18, align 4
+  %20 = add nsw i32 %19, 1
+  call fastcc void @"_ZZNK4llvm18RISCVFrameLowering27assignRVVStackObjectOffsetsERNS_15MachineFunctionEENK3$_0clEii"(ptr %6, ptr nonnull %3, i32 noundef %14, i32 noundef %20)
+  br label %21
 
-23:                                               ; preds = %13, %2
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %24, align 8
-  %28 = ptrtoint ptr %26 to i64
-  %29 = ptrtoint ptr %27 to i64
-  %30 = sub i64 %28, %29
-  %31 = sdiv exact i64 %30, 40
-  %32 = trunc i64 %31 to i32
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %34 = load i32, ptr %33, align 8
-  %35 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  %36 = trunc i64 %35 to i32
-  %37 = add i32 %34, %36
-  %38 = sub i32 %32, %37
-  call fastcc void @"_ZZNK4llvm18RISCVFrameLowering27assignRVVStackObjectOffsetsERNS_15MachineFunctionEENK3$_0clEii"(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0, i32 noundef %38)
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 421
-  %42 = load i8, ptr %41, align 1
-  %43 = trunc i8 %42 to i1
-  br i1 %43, label %44, label %.loopexit
+21:                                               ; preds = %11, %2
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %22, align 8
+  %26 = ptrtoint ptr %24 to i64
+  %27 = ptrtoint ptr %25 to i64
+  %28 = sub i64 %26, %27
+  %29 = sdiv exact i64 %28, 40
+  %30 = trunc i64 %29 to i32
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %32 = load i32, ptr %31, align 8
+  %33 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  %34 = trunc i64 %33 to i32
+  %35 = add i32 %32, %34
+  %36 = sub i32 %30, %35
+  call fastcc void @"_ZZNK4llvm18RISCVFrameLowering27assignRVVStackObjectOffsetsERNS_15MachineFunctionEENK3$_0clEii"(ptr %6, ptr nonnull %3, i32 noundef 0, i32 noundef %36)
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 421
+  %40 = load i8, ptr %39, align 1
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %.loopexit
 
-44:                                               ; preds = %23
-  %45 = load ptr, ptr %3, align 8
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  %47 = getelementptr inbounds i32, ptr %45, i64 %46
-  %.not75 = icmp eq i64 %46, 0
-  br i1 %.not75, label %._crit_edge, label %.lr.ph
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %3, align 8
+  %44 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
+  %45 = getelementptr inbounds i32, ptr %43, i64 %44
+  %.not81 = icmp eq i64 %44, 0
+  br i1 %.not81, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %44, %.lr.ph
-  %.078 = phi i64 [ %62, %.lr.ph ], [ 0, %44 ]
-  %.04477 = phi ptr [ %65, %.lr.ph ], [ %45, %44 ]
-  %.sroa.064.076 = phi i8 [ %.sroa.speculated59, %.lr.ph ], [ 4, %44 ]
-  %48 = load i32, ptr %.04477, align 4
-  %49 = load i32, ptr %33, align 8
-  %50 = add i32 %49, %48
-  %51 = zext i32 %50 to i64
-  %52 = load ptr, ptr %24, align 8
-  %53 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %52, i64 %51, i32 1
-  %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %52, i64 %51, i32 2
-  %.sroa.0.0.copyload.i = load i8, ptr %55, align 8
+.lr.ph:                                           ; preds = %42, %.lr.ph
+  %.084 = phi i64 [ %60, %.lr.ph ], [ 0, %42 ]
+  %.04483 = phi ptr [ %63, %.lr.ph ], [ %43, %42 ]
+  %.sroa.068.082 = phi i8 [ %.sroa.speculated63, %.lr.ph ], [ 4, %42 ]
+  %46 = load i32, ptr %.04483, align 4
+  %47 = load i32, ptr %31, align 8
+  %48 = add i32 %47, %46
+  %49 = zext i32 %48 to i64
+  %50 = load ptr, ptr %22, align 8
+  %51 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %50, i64 %49, i32 1
+  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %50, i64 %49, i32 2
+  %.sroa.0.0.copyload.i = load i8, ptr %53, align 8
   %.sroa.speculated = call i8 @llvm.umax.i8(i8 %.sroa.0.0.copyload.i, i8 3)
-  %spec.store.select = call i64 @llvm.smax.i64(i64 %54, i64 8)
-  %56 = zext nneg i8 %.sroa.speculated to i64
-  %57 = shl nuw i64 1, %56
-  %58 = add i64 %.078, -1
-  %59 = add i64 %58, %spec.store.select
-  %60 = add i64 %59, %57
-  %61 = sub i64 0, %57
-  %62 = and i64 %60, %61
-  %63 = sub nsw i64 0, %62
-  %64 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %52, i64 %51
-  store i64 %63, ptr %64, align 8
-  %.sroa.speculated59 = call i8 @llvm.umax.i8(i8 %.sroa.064.076, i8 %.sroa.speculated)
-  %65 = getelementptr inbounds i8, ptr %.04477, i64 4
-  %.not = icmp eq ptr %65, %47
+  %spec.store.select = call i64 @llvm.smax.i64(i64 %52, i64 8)
+  %54 = zext nneg i8 %.sroa.speculated to i64
+  %55 = shl nuw i64 1, %54
+  %56 = add i64 %.084, -1
+  %57 = add i64 %56, %spec.store.select
+  %58 = add i64 %57, %55
+  %59 = sub i64 0, %55
+  %60 = and i64 %58, %59
+  %61 = sub nsw i64 0, %60
+  %62 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %50, i64 %49
+  store i64 %61, ptr %62, align 8
+  %.sroa.speculated63 = call i8 @llvm.umax.i8(i8 %.sroa.068.082, i8 %.sroa.speculated)
+  %63 = getelementptr inbounds i8, ptr %.04483, i64 4
+  %.not = icmp eq ptr %63, %45
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %44
-  %.sroa.064.0.lcssa = phi i8 [ 4, %44 ], [ %.sroa.speculated59, %.lr.ph ]
-  %.0.lcssa = phi i64 [ 0, %44 ], [ %62, %.lr.ph ]
-  %66 = zext nneg i8 %.sroa.064.0.lcssa to i64
-  %67 = shl nuw i64 1, %66
-  %68 = add i64 %.0.lcssa, -1
-  %69 = add i64 %68, %67
-  %70 = sub i64 0, %67
-  %71 = and i64 %69, %70
-  %.neg = sub i64 %.0.lcssa, %71
-  %.not47 = icmp eq i64 %71, %.0.lcssa
-  br i1 %.not47, label %.loopexit, label %72
+._crit_edge:                                      ; preds = %.lr.ph, %42
+  %.sroa.068.0.lcssa = phi i8 [ 4, %42 ], [ %.sroa.speculated63, %.lr.ph ]
+  %.0.lcssa = phi i64 [ 0, %42 ], [ %60, %.lr.ph ]
+  %64 = zext nneg i8 %.sroa.068.0.lcssa to i64
+  %65 = shl nuw i64 1, %64
+  %66 = add i64 %.0.lcssa, -1
+  %67 = add i64 %66, %65
+  %68 = sub i64 0, %65
+  %69 = and i64 %67, %68
+  %.neg = sub i64 %.0.lcssa, %69
+  %.not47 = icmp eq i64 %69, %.0.lcssa
+  br i1 %.not47, label %.loopexit, label %70
 
-72:                                               ; preds = %._crit_edge
-  %73 = load ptr, ptr %3, align 8
-  %74 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  %75 = getelementptr inbounds i32, ptr %73, i64 %74
-  %.not4880 = icmp eq i64 %74, 0
-  br i1 %.not4880, label %.loopexit, label %.lr.ph83
+70:                                               ; preds = %._crit_edge
+  %71 = load ptr, ptr %3, align 8
+  %72 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
+  %73 = getelementptr inbounds i32, ptr %71, i64 %72
+  %.not4886 = icmp eq i64 %72, 0
+  br i1 %.not4886, label %.loopexit, label %.lr.ph89
 
-.lr.ph83:                                         ; preds = %72, %.lr.ph83
-  %.04581 = phi ptr [ %84, %.lr.ph83 ], [ %73, %72 ]
-  %76 = load i32, ptr %.04581, align 4
-  %77 = load i32, ptr %33, align 8
-  %78 = add i32 %77, %76
-  %79 = zext i32 %78 to i64
-  %80 = load ptr, ptr %24, align 8
-  %81 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %80, i64 %79
-  %82 = load i64, ptr %81, align 8
-  %83 = add i64 %.neg, %82
-  store i64 %83, ptr %81, align 8
-  %84 = getelementptr inbounds i8, ptr %.04581, i64 4
-  %.not48 = icmp eq ptr %84, %75
-  br i1 %.not48, label %.loopexit, label %.lr.ph83
+.lr.ph89:                                         ; preds = %70, %.lr.ph89
+  %.04587 = phi ptr [ %82, %.lr.ph89 ], [ %71, %70 ]
+  %74 = load i32, ptr %.04587, align 4
+  %75 = load i32, ptr %31, align 8
+  %76 = add i32 %75, %74
+  %77 = zext i32 %76 to i64
+  %78 = load ptr, ptr %22, align 8
+  %79 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %78, i64 %77
+  %80 = load i64, ptr %79, align 8
+  %81 = add i64 %.neg, %80
+  store i64 %81, ptr %79, align 8
+  %82 = getelementptr inbounds i8, ptr %.04587, i64 4
+  %.not48 = icmp eq ptr %82, %73
+  br i1 %.not48, label %.loopexit, label %.lr.ph89
 
-.loopexit:                                        ; preds = %.lr.ph83, %72, %._crit_edge, %23
-  %.sroa.069.0 = phi i64 [ 0, %23 ], [ %.0.lcssa, %._crit_edge ], [ %71, %72 ], [ %71, %.lr.ph83 ]
-  %.sroa.3.0 = phi i8 [ 4, %23 ], [ %.sroa.064.0.lcssa, %._crit_edge ], [ %.sroa.064.0.lcssa, %72 ], [ %.sroa.064.0.lcssa, %.lr.ph83 ]
-  %85 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds i8, ptr %5, i64 16
-  %88 = icmp eq ptr %86, %87
-  br i1 %88, label %_ZN4llvm11SmallVectorINS_15CalleeSavedInfoELj8EED2Ev.exit, label %89
+.loopexit:                                        ; preds = %.lr.ph89, %70, %._crit_edge, %21
+  %.sroa.074.0 = phi i64 [ 0, %21 ], [ %.0.lcssa, %._crit_edge ], [ %69, %70 ], [ %69, %.lr.ph89 ]
+  %.sroa.375.0 = phi i8 [ 4, %21 ], [ %.sroa.068.0.lcssa, %._crit_edge ], [ %.sroa.068.0.lcssa, %70 ], [ %.sroa.068.0.lcssa, %.lr.ph89 ]
+  %83 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds i8, ptr %4, i64 16
+  %86 = icmp eq ptr %84, %85
+  br i1 %86, label %_ZN4llvm11SmallVectorINS_15CalleeSavedInfoELj8EED2Ev.exit, label %87
 
-89:                                               ; preds = %.loopexit
-  call void @free(ptr noundef %86) #17
+87:                                               ; preds = %.loopexit
+  call void @free(ptr noundef %84) #17
   br label %_ZN4llvm11SmallVectorINS_15CalleeSavedInfoELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_15CalleeSavedInfoELj8EED2Ev.exit: ; preds = %.loopexit, %89
-  %90 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  %91 = load ptr, ptr %3, align 8
-  %92 = icmp eq ptr %91, %8
-  br i1 %92, label %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit, label %93
+_ZN4llvm11SmallVectorINS_15CalleeSavedInfoELj8EED2Ev.exit: ; preds = %.loopexit, %87
+  %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
+  %89 = load ptr, ptr %3, align 8
+  %90 = icmp eq ptr %89, %7
+  br i1 %90, label %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit, label %91
 
-93:                                               ; preds = %_ZN4llvm11SmallVectorINS_15CalleeSavedInfoELj8EED2Ev.exit
-  call void @free(ptr noundef %91) #17
+91:                                               ; preds = %_ZN4llvm11SmallVectorINS_15CalleeSavedInfoELj8EED2Ev.exit
+  call void @free(ptr noundef %89) #17
   br label %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorIiLj8EED2Ev.exit:            ; preds = %_ZN4llvm11SmallVectorINS_15CalleeSavedInfoELj8EED2Ev.exit, %93
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.069.0, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
+_ZN4llvm11SmallVectorIiLj8EED2Ev.exit:            ; preds = %_ZN4llvm11SmallVectorINS_15CalleeSavedInfoELj8EED2Ev.exit, %91
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.074.0, 0
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.375.0, 1
   ret { i64, i8 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm18RISCVFrameLowering27assignRVVStackObjectOffsetsERNS_15MachineFunctionEENK3$_0clEii"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 2 {
-  %.not10 = icmp eq i32 %1, %2
-  br i1 %.not10, label %._crit_edge, label %.lr.ph
+define internal fastcc void @"_ZZNK4llvm18RISCVFrameLowering27assignRVVStackObjectOffsetsERNS_15MachineFunctionEENK3$_0clEii"(ptr nocapture readonly %.0.val, ptr %.8.val, i32 noundef %0, i32 noundef %1) unnamed_addr #1 align 2 {
+  %.not1 = icmp eq i32 %0, %1
+  br i1 %.not1, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %5
+.lr.ph:                                           ; preds = %2
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %5 = getelementptr inbounds i8, ptr %.8.val, i64 16
+  br label %6
 
-5:                                                ; preds = %.lr.ph, %31
-  %.011 = phi i32 [ %1, %.lr.ph ], [ %32, %31 ]
-  %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %9 = load i32, ptr %8, align 8
-  %10 = add i32 %9, %.011
-  %11 = zext i32 %10 to i64
-  %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %12, i64 %11, i32 6
-  %14 = load i8, ptr %13, align 4
-  %.not9 = icmp eq i8 %14, 2
-  br i1 %.not9, label %15, label %31
+6:                                                ; preds = %.lr.ph, %27
+  %.02 = phi i32 [ %0, %.lr.ph ], [ %28, %27 ]
+  %7 = load i32, ptr %4, align 8
+  %8 = add i32 %7, %.02
+  %9 = zext i32 %8 to i64
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %10, i64 %9, i32 6
+  %12 = load i8, ptr %11, align 4
+  %.not9 = icmp eq i8 %12, 2
+  br i1 %.not9, label %13, label %27
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %12, i64 %11, i32 1
-  %17 = load i64, ptr %16, align 8
-  %18 = icmp eq i64 %17, -1
-  br i1 %18, label %31, label %19
+13:                                               ; preds = %6
+  %14 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %10, i64 %9, i32 1
+  %15 = load i64, ptr %14, align 8
+  %16 = icmp eq i64 %15, -1
+  br i1 %16, label %27, label %17
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %4, align 8
-  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #17
-  %22 = add i64 %21, 1
-  %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #17
-  %.not.i.i.i = icmp ugt i64 %22, %23
-  br i1 %.not.i.i.i, label %24, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
+17:                                               ; preds = %13
+  %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #17
+  %19 = add i64 %18, 1
+  %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #17
+  %.not.i.i.i = icmp ugt i64 %19, %20
+  br i1 %.not.i.i.i, label %21, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %20, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %25, i64 noundef %22, i64 noundef 4) #17
+21:                                               ; preds = %17
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %.8.val, ptr noundef nonnull %5, i64 noundef %19, i64 noundef 4) #17
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %19, %24
-  %26 = load ptr, ptr %20, align 8
-  %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #17
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
-  store i32 %.011, ptr %28, align 1
-  %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #17
-  %30 = add i64 %29, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %20, i64 noundef %30) #17
-  br label %31
+_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %17, %21
+  %22 = load ptr, ptr %.8.val, align 8
+  %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #17
+  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  store i32 %.02, ptr %24, align 1
+  %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #17
+  %26 = add i64 %25, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.8.val, i64 noundef %26) #17
+  br label %27
 
-31:                                               ; preds = %15, %5, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
-  %32 = add nsw i32 %.011, 1
-  %.not = icmp eq i32 %32, %2
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !136
+27:                                               ; preds = %13, %6, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
+  %28 = add nsw i32 %.02, 1
+  %.not = icmp eq i32 %28, %1
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !136
 
-._crit_edge:                                      ; preds = %31, %3
+._crit_edge:                                      ; preds = %27, %2
   ret void
 }
 

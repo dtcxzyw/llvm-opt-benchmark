@@ -3897,18 +3897,18 @@ _ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclE
 
 205:                                              ; preds = %203, %._crit_edge.i.i.i.i.i
   %.025.lcssa38.i.i.i.i.i = phi ptr [ %.025.lcssa37.i.i.i.i.i, %203 ], [ %.02632.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
-  %.sroa.014.0.i.i.i.i.i = phi ptr [ %204, %203 ], [ %.02632.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %.sroa.016.0.i.i.i.i.i = phi ptr [ %204, %203 ], [ %.02632.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %206 = load ptr, ptr %183, align 8
-  %.not.i.i12.i.i.i.i.i = icmp eq ptr %206, null
-  br i1 %.not.i.i12.i.i.i.i.i, label %.invoke.i, label %_ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclES7_S7_.exit13.i.i.i.i.i
+  %.not.i.i14.i.i.i.i.i = icmp eq ptr %206, null
+  br i1 %.not.i.i14.i.i.i.i.i, label %.invoke.i, label %_ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclES7_S7_.exit15.i.i.i.i.i
 
-_ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclES7_S7_.exit13.i.i.i.i.i: ; preds = %205
-  %207 = getelementptr inbounds i8, ptr %.sroa.014.0.i.i.i.i.i, i64 32
+_ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclES7_S7_.exit15.i.i.i.i.i: ; preds = %205
+  %207 = getelementptr inbounds i8, ptr %.sroa.016.0.i.i.i.i.i, i64 32
   %208 = load ptr, ptr %184, align 8
   %209 = invoke noundef zeroext i1 %208(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(32) %207, ptr noundef nonnull align 8 dereferenceable(32) %.010.i.ptr.i)
           to label %.noexc13.i unwind label %.loopexit.split-lp.loopexit.i
 
-.noexc13.i:                                       ; preds = %_ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclES7_S7_.exit13.i.i.i.i.i
+.noexc13.i:                                       ; preds = %_ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclES7_S7_.exit15.i.i.i.i.i
   br i1 %209, label %_ZNSt8_Rb_treeIZN12_GLOBAL__N_122HandleTransformCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE16ActionDescriptorSE_St9_IdentityISE_ESt8functionIFbRKS7_SJ_EESaISE_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISE_ERKSE_.exit.thread.i.i.i, label %_ZNSt8_Rb_treeIZN12_GLOBAL__N_122HandleTransformCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE16ActionDescriptorSE_St9_IdentityISE_ESt8functionIFbRKS7_SJ_EESaISE_EE17_M_insert_unique_IRKSE_NSN_11_Alloc_nodeEEESt17_Rb_tree_iteratorISE_ESt23_Rb_tree_const_iteratorISE_EOT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIZN12_GLOBAL__N_122HandleTransformCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE16ActionDescriptorSE_St9_IdentityISE_ESt8functionIFbRKS7_SJ_EESaISE_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISE_ERKSE_.exit.i.i.i: ; preds = %.noexc9.i
@@ -3995,7 +3995,7 @@ _ZNSt8_Rb_treeIZN12_GLOBAL__N_122HandleTransformCommandERKSt6vectorINSt7__cxx111
           cleanup
   br label %.body17.i
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %.noexc15.i, %_ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclES7_S7_.exit.i10.i.i.i, %_ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclES7_S7_.exit13.i.i.i.i.i, %_ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclES7_S7_.exit.i.i.i.i
+.loopexit.split-lp.loopexit.i:                    ; preds = %.noexc15.i, %_ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclES7_S7_.exit.i10.i.i.i, %_ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclES7_S7_.exit15.i.i.i.i.i, %_ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclES7_S7_.exit.i.i.i.i
   %lpad.loopexit1.i = landingpad { ptr, i32 }
           cleanup
   br label %.body17.i

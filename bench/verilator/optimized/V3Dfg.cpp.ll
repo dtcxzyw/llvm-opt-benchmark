@@ -812,7 +812,7 @@ $_ZTV17DfgVertexVariadic = comdat any
 @.str.504 = private unnamed_addr constant [109 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/verilator/verilator/src/V3AstNodeDType.h\00", section "llvm.metadata"
 @llvm.global.annotations = appending global [116 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE, ptr @.str.483, ptr @.str.484, i32 329, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK7AstNode4op2pEv, ptr @.str.485, ptr @.str.486, i32 1947, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK6DfgSel10selfEqualsERK9DfgVertex, ptr @.str.487, ptr @.str.488, i32 444, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK6DfgSel10selfEqualsERK9DfgVertex, ptr @.str.489, ptr @.str.488, i32 444, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8V3Number5widthEv, ptr @.str.490, ptr @.str.491, i32 591, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8V3Number6toSIntEv, ptr @.str.490, ptr @.str.491, i32 644, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8AstRange13elementsConstEv, ptr @.str.485, ptr @.str.492, i32 2515, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex8findSinkI12DfgVarPackedEEPT_St8functionIFbRKS2_EE, ptr @.str.487, ptr @.str.493, i32 849, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex8findSinkI12DfgVarPackedEEPT_St8functionIFbRKS2_EE, ptr @.str.489, ptr @.str.493, i32 849, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z8cvtToHexIPK9DfgVertexENSt9enable_ifIXsr3std10is_pointerIT_EE5valueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4typeES4_, ptr @.str.494, ptr @.str.495, i32 44, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK6VNType5asciiEv, ptr @.str.490, ptr @.str.496, i32 507, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZeqRK6VNTypeNS_2enE, ptr @.str.494, ptr @.str.486, i32 133, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, ptr @.str.483, ptr @.str.493, i32 346, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN7AstNode9privateAsI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_, ptr @.str.494, ptr @.str.486, i32 2425, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, ptr @.str.483, ptr @.str.486, i32 2196, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.487, ptr @.str.488, i32 265, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.489, ptr @.str.488, i32 265, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8AstRange7loConstEv, ptr @.str.485, ptr @.str.492, i32 2510, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK6AstVar4nameB5cxx11Ev, ptr @.str.485, ptr @.str.492, i32 1888, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK6AstVar4nameB5cxx11Ev, ptr @.str.490, ptr @.str.492, i32 1888, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_, ptr @.str.490, ptr @.str.486, i32 2395, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertex4hashEv, ptr @.str.487, ptr @.str.488, i32 388, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertex4hashEv, ptr @.str.489, ptr @.str.488, i32 388, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN8FileLine15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, ptr @.str.483, ptr @.str.484, i32 331, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8AstConst6toSIntEv, ptr @.str.490, ptr @.str.497, i32 1042, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK12DfgVertexVar10selfEqualsERK9DfgVertex, ptr @.str.487, ptr @.str.488, i32 450, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK12DfgVertexVar10selfEqualsERK9DfgVertex, ptr @.str.489, ptr @.str.488, i32 450, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex11forEachSinkESt8functionIFvRKS_EE, ptr @.str.487, ptr @.str.493, i32 805, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex11forEachSinkESt8functionIFvRKS_EE, ptr @.str.489, ptr @.str.493, i32 805, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertex12unlinkDeleteER8DfgGraph, ptr @.str.487, ptr @.str.488, i32 415, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertex12unlinkDeleteER8DfgGraph, ptr @.str.489, ptr @.str.488, i32 415, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8VDfgType5asciiEv, ptr @.str.490, ptr @.str.498, i32 174, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex17forEachSourceEdgeESt8functionIFvRK7DfgEdgemEE, ptr @.str.487, ptr @.str.493, i32 816, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex17forEachSourceEdgeESt8functionIFvRK7DfgEdgemEE, ptr @.str.489, ptr @.str.493, i32 816, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgGraph19dumpDotUpstreamConeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK9DfgVertexS7_, ptr @.str.487, ptr @.str.488, i32 243, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgGraph19dumpDotUpstreamConeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK9DfgVertexS7_, ptr @.str.489, ptr @.str.488, i32 243, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType, ptr @.str.487, ptr @.str.488, i32 342, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType, ptr @.str.489, ptr @.str.488, i32 342, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgGraph7dumpDotERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.487, ptr @.str.488, i32 177, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgGraph7dumpDotERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.489, ptr @.str.488, i32 177, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertexD0Ev, ptr @.str.487, ptr @.str.488, i32 349, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertexD0Ev, ptr @.str.489, ptr @.str.488, i32 349, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib, ptr @.str.499, ptr @.str.500, i32 532, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex15forEachSinkEdgeESt8functionIFvRK7DfgEdgeEE, ptr @.str.487, ptr @.str.493, i32 830, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex15forEachSinkEdgeESt8functionIFvRK7DfgEdgeEE, ptr @.str.489, ptr @.str.493, i32 830, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK7AstNode4typeEv, ptr @.str.490, ptr @.str.486, i32 1941, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN7DfgEdge12relinkSourceEP9DfgVertex, ptr @.str.487, ptr @.str.488, i32 327, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN7DfgEdge12relinkSourceEP9DfgVertex, ptr @.str.489, ptr @.str.488, i32 327, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK6V3Hash5valueEv, ptr @.str.490, ptr @.str.501, i32 50, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN7V3Error10v3errorStrB5cxx11Ev, ptr @.str.489, ptr @.str.500, i32 535, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex8selfHashEv, ptr @.str.487, ptr @.str.488, i32 353, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex8selfHashEv, ptr @.str.489, ptr @.str.488, i32 353, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex6fanoutEv, ptr @.str.487, ptr @.str.488, i32 409, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex6fanoutEv, ptr @.str.489, ptr @.str.488, i32 409, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgConst10selfEqualsERK9DfgVertex, ptr @.str.487, ptr @.str.488, i32 436, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgConst10selfEqualsERK9DfgVertex, ptr @.str.489, ptr @.str.488, i32 436, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgConst8selfHashEv, ptr @.str.487, ptr @.str.488, i32 440, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgConst8selfHashEv, ptr @.str.489, ptr @.str.488, i32 440, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK6AstVar7varTypeEv, ptr @.str.490, ptr @.str.492, i32 1893, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK6AstVar9directionEv, ptr @.str.490, ptr @.str.492, i32 1898, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex10selfEqualsERKS_, ptr @.str.487, ptr @.str.488, i32 351, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex10selfEqualsERKS_, ptr @.str.489, ptr @.str.488, i32 351, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK7AstNode6user3uEv, ptr @.str.485, ptr @.str.486, i32 2082, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN7AstNode15unsafePrivateAsI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_, ptr @.str.494, ptr @.str.486, i32 2411, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8AstRange7hiConstEv, ptr @.str.485, ptr @.str.492, i32 2505, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgGraph11dumpDotFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_, ptr @.str.487, ptr @.str.488, i32 192, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgGraph11dumpDotFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_, ptr @.str.489, ptr @.str.488, i32 192, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8V3Number8isSignedEv, ptr @.str.490, ptr @.str.491, i32 609, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN8DfgGraph8addGraphERS_, ptr @.str.487, ptr @.str.488, i32 37, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN8DfgGraph8addGraphERS_, ptr @.str.489, ptr @.str.488, i32 37, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8V3Number6toUIntEv, ptr @.str.490, ptr @.str.491, i32 643, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertex15forEachSinkEdgeESt8functionIFvR7DfgEdgeEE, ptr @.str.487, ptr @.str.493, i32 823, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertex15forEachSinkEdgeESt8functionIFvR7DfgEdgeEE, ptr @.str.489, ptr @.str.493, i32 823, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8AstRange10rightConstEv, ptr @.str.485, ptr @.str.492, i32 2504, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8AstRange6rightpEv, ptr @.str.485, ptr @.str.492, i32 2502, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8AstRange9leftConstEv, ptr @.str.485, ptr @.str.492, i32 2503, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertex11replaceWithEPS_, ptr @.str.487, ptr @.str.488, i32 426, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertex11replaceWithEPS_, ptr @.str.489, ptr @.str.488, i32 426, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN6V3File12addTgtDependERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.490, ptr @.str.502, i32 68, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN8DfgGraphC2ER9AstModuleRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.487, ptr @.str.488, i32 29, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN8DfgGraphC2ER9AstModuleRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.489, ptr @.str.488, i32 29, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK12V3NumberData5widthEv, ptr @.str.490, ptr @.str.491, i32 218, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK12DfgVertexVar8selfHashEv, ptr @.str.487, ptr @.str.488, i32 456, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK12DfgVertexVar8selfHashEv, ptr @.str.489, ptr @.str.488, i32 456, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK12V3NumberData8isStringEv, ptr @.str.490, ptr @.str.491, i32 296, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8AstRange5leftpEv, ptr @.str.485, ptr @.str.492, i32 2502, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertexD2Ev, ptr @.str.487, ptr @.str.488, i32 349, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertexD2Ev, ptr @.str.489, ptr @.str.488, i32 349, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex6equalsERKS_RSt13unordered_mapISt4pairIPS0_S4_EhSt4hashIS5_ESt8equal_toIS5_ESaIS3_IKS5_hEEE, ptr @.str.487, ptr @.str.488, i32 355, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex6equalsERKS_RSt13unordered_mapISt4pairIPS0_S4_EhSt4hashIS5_ESt8equal_toIS5_ESaIS3_IKS5_hEEE, ptr @.str.489, ptr @.str.488, i32 355, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK7AstNode8typeNameEv, ptr @.str.490, ptr @.str.486, i32 1942, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK7AstNode4op1pEv, ptr @.str.485, ptr @.str.486, i32 1946, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, ptr @.str.483, ptr @.str.500, i32 544, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, ptr @.str.490, ptr @.str.500, i32 544, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb, ptr @.str.499, ptr @.str.500, i32 530, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK17AstNodeArrayDType13elementsConstEv, ptr @.str.485, ptr @.str.503, i32 77, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8AstConst3numEv, ptr @.str.490, ptr @.str.497, i32 1039, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN7DfgEdge12unlinkSourceEv, ptr @.str.487, ptr @.str.488, i32 303, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN7DfgEdge12unlinkSourceEv, ptr @.str.489, ptr @.str.488, i32 303, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN8DfgGraphD2Ev, ptr @.str.487, ptr @.str.488, i32 33, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN8DfgGraphD2Ev, ptr @.str.489, ptr @.str.488, i32 33, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK12AstNodeDType5widthEv, ptr @.str.490, ptr @.str.504, i32 108, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgGraph19dumpDotFilePrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.487, ptr @.str.488, i32 201, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8DfgGraph19dumpDotFilePrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @.str.489, ptr @.str.488, i32 201, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex13forEachSourceESt8functionIFvRKS_EE, ptr @.str.487, ptr @.str.493, i32 789, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK9DfgVertex13forEachSourceESt8functionIFvRKS_EE, ptr @.str.489, ptr @.str.493, i32 789, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK17AstNodeArrayDType6rangepEv, ptr @.str.485, ptr @.str.504, i32 150, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN7AstNode15unsafePrivateAsI8AstRangePS_EEPT_S2_, ptr @.str.494, ptr @.str.486, i32 2411, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN7AstNode15unsafePrivateAsI11AstNodeExprPS_EEPT_S2_, ptr @.str.494, ptr @.str.486, i32 2411, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK12V3NumberData15isDynamicNumberEv, ptr @.str.490, ptr @.str.491, i32 293, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZeqRK10VDirectionNS_2enE, ptr @.str.490, ptr @.str.486, i32 804, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK8V3Number5asciiB5cxx11Ebb, ptr @.str.485, ptr @.str.491, i32 588, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK6DfgSel8selfHashEv, ptr @.str.487, ptr @.str.488, i32 446, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZNK6DfgSel8selfHashEv, ptr @.str.489, ptr @.str.488, i32 446, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertex17forEachSourceEdgeESt8functionIFvR7DfgEdgemEE, ptr @.str.487, ptr @.str.493, i32 809, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZN9DfgVertex17forEachSourceEdgeESt8functionIFvR7DfgEdgemEE, ptr @.str.489, ptr @.str.493, i32 809, ptr null }], section "llvm.metadata"
 @switch.table._ZL27dumpDotVertexAndSourceEdgesRSoRK9DfgVertex = private unnamed_addr constant [3 x ptr] [ptr @.str.17, ptr @.str.18, ptr @.str.19], align 8
-@switch.table._ZL27dumpDotVertexAndSourceEdgesRSoRK9DfgVertex.87 = private unnamed_addr constant [3 x ptr] [ptr @.str.28, ptr @.str.29, ptr @.str.30], align 8
+@switch.table._ZL27dumpDotVertexAndSourceEdgesRSoRK9DfgVertex.92 = private unnamed_addr constant [3 x ptr] [ptr @.str.28, ptr @.str.29, ptr @.str.30], align 8
 
 @_ZN8DfgGraphC1ER9AstModuleRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = dso_local unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8DfgGraphC2ER9AstModuleRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 @_ZN8DfgGraphD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN8DfgGraphD2Ev
@@ -1237,19 +1237,19 @@ define dso_local void @_ZNK8DfgGraph7dumpDotERSoRKNSt7__cxx1112basic_stringIcSt1
 13:                                               ; preds = %10, %3
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.4)
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %18, align 8
-  %19 = ptrtoint ptr %1 to i64
-  store i64 %19, ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZNK8DfgGraph7dumpDotERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %17, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZNK8DfgGraph7dumpDotERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %16, align 8
+  %16 = ptrtoint ptr %1 to i64
+  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %19, align 8
+  store i64 %16, ptr %4, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZNK8DfgGraph7dumpDotERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %18, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZNK8DfgGraph7dumpDotERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %17, align 8
   invoke void @_ZNK8DfgGraph13forEachVertexESt8functionIFvRK9DfgVertexEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %4)
           to label %20 unwind label %28
 
 20:                                               ; preds = %13
-  %21 = load ptr, ptr %16, align 8
+  %21 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit, label %22
 
@@ -1271,7 +1271,7 @@ _ZNSt8functionIFvRK9DfgVertexEED2Ev.exit:         ; preds = %20, %22
 28:                                               ; preds = %13
   %29 = landingpad { ptr, i32 }
           cleanup
-  %30 = load ptr, ptr %16, align 8
+  %30 = load ptr, ptr %17, align 8
   %.not.i.i11 = icmp eq ptr %30, null
   br i1 %.not.i.i11, label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit12, label %31
 
@@ -1734,9 +1734,9 @@ define internal fastcc void @_ZL29dumpDotUpstreamConeFromVertexRSoRK9DfgVertex(p
   store float 1.000000e+00, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %17 = getelementptr inbounds i8, ptr %6, i64 16
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
-  %19 = ptrtoint ptr %3 to i64
+  %17 = ptrtoint ptr %3 to i64
+  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %19 = getelementptr inbounds i8, ptr %6, i64 24
   %20 = getelementptr inbounds i8, ptr %6, i64 8
   br label %21
 
@@ -1766,14 +1766,14 @@ define internal fastcc void @_ZL29dumpDotUpstreamConeFromVertexRSoRK9DfgVertex(p
 32:                                               ; preds = %21, %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit14
+  br label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit15
 
 34:                                               ; preds = %26
   %35 = load ptr, ptr %5, align 8
   store i64 0, ptr %20, align 8
-  store i64 %19, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZL29dumpDotUpstreamConeFromVertexRSoS2_E3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %18, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZL29dumpDotUpstreamConeFromVertexRSoS2_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %17, align 8
+  store i64 %17, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZL29dumpDotUpstreamConeFromVertexRSoS2_E3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %19, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZL29dumpDotUpstreamConeFromVertexRSoS2_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %18, align 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
@@ -1786,37 +1786,37 @@ define internal fastcc void @_ZL29dumpDotUpstreamConeFromVertexRSoRK9DfgVertex(p
   %.not9.i = icmp eq i64 %41, 0
   br i1 %.not9.i, label %_ZNK9DfgVertex13forEachSourceESt8functionIFvRKS_EE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.noexc, %.noexc12
-  %.08.i = phi i64 [ %48, %.noexc12 ], [ 0, %.noexc ]
+.lr.ph.i:                                         ; preds = %.noexc, %.noexc13
+  %.08.i = phi i64 [ %48, %.noexc13 ], [ 0, %.noexc ]
   %42 = getelementptr inbounds %class.DfgEdge, ptr %40, i64 %.08.i, i32 2
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
-  br i1 %.not.i, label %.noexc12, label %44
+  br i1 %.not.i, label %.noexc13, label %44
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = load ptr, ptr %17, align 8
+  %45 = load ptr, ptr %18, align 8
   %.not.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i, label %46, label %_ZNKSt8functionIFvRK9DfgVertexEEclES2_.exit.i
 
 46:                                               ; preds = %44
   invoke void @_ZSt25__throw_bad_function_callv() #30
-          to label %.noexc11 unwind label %.loopexit.split-lp36.loopexit.split-lp
+          to label %.noexc12 unwind label %.loopexit.split-lp36.loopexit.split-lp
 
-.noexc11:                                         ; preds = %46
+.noexc12:                                         ; preds = %46
   unreachable
 
 _ZNKSt8functionIFvRK9DfgVertexEEclES2_.exit.i:    ; preds = %44
-  %47 = load ptr, ptr %18, align 8
+  %47 = load ptr, ptr %19, align 8
   invoke void %47(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(72) %43)
-          to label %.noexc12 unwind label %.loopexit35
+          to label %.noexc13 unwind label %.loopexit35
 
-.noexc12:                                         ; preds = %_ZNKSt8functionIFvRK9DfgVertexEEclES2_.exit.i, %.lr.ph.i
+.noexc13:                                         ; preds = %_ZNKSt8functionIFvRK9DfgVertexEEclES2_.exit.i, %.lr.ph.i
   %48 = add nuw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %48, %41
   br i1 %exitcond.not.i, label %_ZNK9DfgVertex13forEachSourceESt8functionIFvRKS_EE.exit, label %.lr.ph.i, !llvm.loop !7
 
-_ZNK9DfgVertex13forEachSourceESt8functionIFvRKS_EE.exit: ; preds = %.noexc12, %.noexc
-  %49 = load ptr, ptr %17, align 8
+_ZNK9DfgVertex13forEachSourceESt8functionIFvRKS_EE.exit: ; preds = %.noexc13, %.noexc
+  %49 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit, label %50
 
@@ -1853,13 +1853,13 @@ _ZNSt8functionIFvRK9DfgVertexEED2Ev.exit:         ; preds = %_ZNK9DfgVertex13for
 
 .loopexit.split-lp36:                             ; preds = %.loopexit.split-lp36.loopexit, %.loopexit.split-lp36.loopexit.split-lp, %.loopexit35
   %lpad.phi39 = phi { ptr, i32 } [ %lpad.loopexit37, %.loopexit35 ], [ %lpad.loopexit40, %.loopexit.split-lp36.loopexit ], [ %lpad.loopexit.split-lp41, %.loopexit.split-lp36.loopexit.split-lp ]
-  %56 = load ptr, ptr %17, align 8
-  %.not.i.i13 = icmp eq ptr %56, null
-  br i1 %.not.i.i13, label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit14, label %57
+  %56 = load ptr, ptr %18, align 8
+  %.not.i.i14 = icmp eq ptr %56, null
+  br i1 %.not.i.i14, label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit15, label %57
 
 57:                                               ; preds = %.loopexit.split-lp36
   %58 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit14 unwind label %59
+          to label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit15 unwind label %59
 
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
@@ -1869,14 +1869,14 @@ _ZNSt8functionIFvRK9DfgVertexEED2Ev.exit:         ; preds = %_ZNK9DfgVertex13for
   unreachable
 
 ._crit_edge:                                      ; preds = %.backedge
-  %62 = getelementptr inbounds i8, ptr %7, i64 16
-  %63 = getelementptr inbounds i8, ptr %7, i64 24
-  %64 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 0, ptr %64, align 8
-  %65 = ptrtoint ptr %0 to i64
-  store i64 %65, ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZL29dumpDotUpstreamConeFromVertexRSoS2_E3$_1E9_M_invokeERKSt9_Any_dataS2_", ptr %63, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZL29dumpDotUpstreamConeFromVertexRSoS2_E3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %62, align 8
+  %62 = ptrtoint ptr %0 to i64
+  %63 = getelementptr inbounds i8, ptr %7, i64 16
+  %64 = getelementptr inbounds i8, ptr %7, i64 24
+  %65 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 0, ptr %65, align 8
+  store i64 %62, ptr %7, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZL29dumpDotUpstreamConeFromVertexRSoS2_E3$_1E9_M_invokeERKSt9_Any_dataS2_", ptr %64, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZL29dumpDotUpstreamConeFromVertexRSoS2_E3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %1, i64 24
   %.04.i = load ptr, ptr %66, align 8
   %.not5.i = icmp eq ptr %.04.i, null
@@ -1896,14 +1896,14 @@ _ZNKSt8functionIFvRK9DfgVertexEEclES2_.exit.i18:  ; preds = %._crit_edge, %threa
   %.06.i46 = phi ptr [ %.0.i, %thread-pre-split ], [ %.04.i, %._crit_edge ]
   %68 = getelementptr inbounds i8, ptr %.06.i46, i64 24
   %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %63, align 8
+  %70 = load ptr, ptr %64, align 8
   invoke void %70(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(72) %69)
           to label %.noexc21 unwind label %.loopexit
 
 .noexc21:                                         ; preds = %_ZNKSt8functionIFvRK9DfgVertexEEclES2_.exit.i18
   %.0.i = load ptr, ptr %.06.i46, align 8
   %.not.i19 = icmp eq ptr %.0.i, null
-  %.pr33 = load ptr, ptr %62, align 8
+  %.pr33 = load ptr, ptr %63, align 8
   %.not.i.i22 = icmp eq ptr %.pr33, null
   br i1 %.not.i19, label %_ZNK9DfgVertex11forEachSinkESt8functionIFvRKS_EE.exit, label %thread-pre-split, !llvm.loop !8
 
@@ -1972,13 +1972,13 @@ _ZNSt6vectorIPK9DfgVertexSaIS2_EED2Ev.exit:       ; preds = %_ZNSt13unordered_se
 
 86:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %87 = load ptr, ptr %62, align 8
+  %87 = load ptr, ptr %63, align 8
   %.not.i.i26 = icmp eq ptr %87, null
-  br i1 %.not.i.i26, label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit14, label %88
+  br i1 %.not.i.i26, label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit15, label %88
 
 88:                                               ; preds = %86
   %89 = invoke noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit14 unwind label %90
+          to label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit15 unwind label %90
 
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
@@ -1987,18 +1987,18 @@ _ZNSt6vectorIPK9DfgVertexSaIS2_EED2Ev.exit:       ; preds = %_ZNSt13unordered_se
   call void @__clang_call_terminate(ptr %92) #28
   unreachable
 
-_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit14:       ; preds = %88, %86, %57, %.loopexit.split-lp36, %32
+_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit15:       ; preds = %88, %86, %57, %.loopexit.split-lp36, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %lpad.phi39, %.loopexit.split-lp36 ], [ %lpad.phi39, %57 ], [ %lpad.phi, %86 ], [ %lpad.phi, %88 ]
   call void @_ZNSt13unordered_setIPK9DfgVertexSt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #29
   %93 = load ptr, ptr %3, align 8
   %.not.i.i.i28 = icmp eq ptr %93, null
   br i1 %.not.i.i.i28, label %.body, label %94
 
-94:                                               ; preds = %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit14
+94:                                               ; preds = %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit15
   call void @_ZdlPv(ptr noundef nonnull %93) #32
   br label %.body
 
-.body:                                            ; preds = %94, %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit14
+.body:                                            ; preds = %94, %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit15
   resume { ptr, i32 } %.pn
 }
 
@@ -2054,19 +2054,19 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %20
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
-  %22 = getelementptr inbounds i8, ptr %6, i64 24
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %23, align 8
-  %24 = ptrtoint ptr %3 to i64
-  store i64 %24, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %22, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %21, align 8
+  %21 = ptrtoint ptr %3 to i64
+  %22 = getelementptr inbounds i8, ptr %6, i64 16
+  %23 = getelementptr inbounds i8, ptr %6, i64 24
+  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %24, align 8
+  store i64 %21, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %23, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %22, align 8
   invoke void @_ZNK8DfgGraph13forEachVertexESt8functionIFvRK9DfgVertexEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %6)
           to label %25 unwind label %36
 
 25:                                               ; preds = %.critedge
-  %26 = load ptr, ptr %21, align 8
+  %26 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRK9DfgVertexEED2Ev.exit, label %27
 
@@ -2099,7 +2099,7 @@ _ZNSt8functionIFvRK9DfgVertexEED2Ev.exit:         ; preds = %25, %27
 36:                                               ; preds = %.critedge
   %37 = landingpad { ptr, i32 }
           cleanup
-  %38 = load ptr, ptr %21, align 8
+  %38 = load ptr, ptr %22, align 8
   %.not.i.i16 = icmp eq ptr %38, null
   br i1 %.not.i.i16, label %common.resume, label %39
 
@@ -2705,14 +2705,14 @@ define dso_local noundef i32 @_ZNK9DfgVertex6fanoutEv(ptr nocapture noundef nonn
   %2 = alloca i32, align 4
   %3 = alloca %"class.std::function.90", align 8
   store i32 0, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %6, align 8
-  %7 = ptrtoint ptr %2 to i64
-  store i64 %7, ptr %3, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRK7DfgEdgeEZNK9DfgVertex6fanoutEvE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRK7DfgEdgeEZNK9DfgVertex6fanoutEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %4, align 8
+  %4 = ptrtoint ptr %2 to i64
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %7, align 8
+  store i64 %4, ptr %3, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRK7DfgEdgeEZNK9DfgVertex6fanoutEvE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRK7DfgEdgeEZNK9DfgVertex6fanoutEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
@@ -2731,13 +2731,13 @@ thread-pre-split:                                 ; preds = %.noexc2
 _ZNKSt8functionIFvRK7DfgEdgeEEclES2_.exit.i:      ; preds = %1, %thread-pre-split
   %.06.i7 = phi ptr [ %11, %thread-pre-split ], [ %9, %1 ]
   %11 = load ptr, ptr %.06.i7, align 8
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %6, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %.06.i7)
           to label %.noexc2 unwind label %.loopexit
 
 .noexc2:                                          ; preds = %_ZNKSt8functionIFvRK7DfgEdgeEEclES2_.exit.i
   %.not.i = icmp eq ptr %11, null
-  %.pr5 = load ptr, ptr %4, align 8
+  %.pr5 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %.pr5, null
   br i1 %.not.i, label %_ZNK9DfgVertex15forEachSinkEdgeESt8functionIFvRK7DfgEdgeEE.exit, label %thread-pre-split, !llvm.loop !13
 
@@ -2772,7 +2772,7 @@ _ZNSt8functionIFvRK7DfgEdgeEED2Ev.exit:           ; preds = %_ZNK9DfgVertex15for
 
 19:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %5, align 8
   %.not.i.i3 = icmp eq ptr %20, null
   br i1 %.not.i.i3, label %_ZNSt8functionIFvRK7DfgEdgeEED2Ev.exit4, label %21
 
@@ -5666,7 +5666,7 @@ switch.lookup:                                    ; preds = %39
 
 switch.lookup12:                                  ; preds = %88
   %209 = zext nneg i8 %switch.tableidx13 to i64
-  %switch.gep14 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZL27dumpDotVertexAndSourceEdgesRSoRK9DfgVertex.87, i64 0, i64 %209
+  %switch.gep14 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZL27dumpDotVertexAndSourceEdgesRSoRK9DfgVertex.92, i64 0, i64 %209
   %switch.load15 = load ptr, ptr %switch.gep14, align 8
   br label %_ZL13dumpDotVertexRSoRK9DfgVertex.exit
 

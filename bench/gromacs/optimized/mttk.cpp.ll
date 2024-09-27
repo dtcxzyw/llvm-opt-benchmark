@@ -712,14 +712,14 @@ define linkonce_odr void @_ZN3gmx11MttkElementD0Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx14MttkBoxScaling12scheduleTaskEldRKSt8functionIFvS1_IFvvEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1, double %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.515", align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %0 to i64
-  store i64 %9, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx14MttkBoxScaling12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx14MttkBoxScaling12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %6, align 8
+  %6 = ptrtoint ptr %0 to i64
+  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %6, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx14MttkBoxScaling12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx14MttkBoxScaling12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %11, null
@@ -739,7 +739,7 @@ define void @_ZN3gmx14MttkBoxScaling12scheduleTaskEldRKSt8functionIFvS1_IFvvEEEE
           to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit unwind label %22
 
 _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %13
-  %16 = load ptr, ptr %6, align 8
+  %16 = load ptr, ptr %7, align 8
   %.not.i.i4 = icmp eq ptr %16, null
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %17
 
@@ -760,7 +760,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNKSt8functionIFvS
 22:                                               ; preds = %13, %12
   %23 = landingpad { ptr, i32 }
           cleanup
-  %24 = load ptr, ptr %6, align 8
+  %24 = load ptr, ptr %7, align 8
   %.not.i.i5 = icmp eq ptr %24, null
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %25
 
@@ -949,21 +949,21 @@ _ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_24MttkPropaga
   call void @_ZN3gmx24MttkPropagatorConnection6dataIDB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8)
   %121 = load ptr, ptr %1, align 8
   %122 = invoke { ptr, i8 } @_ZN3gmx32ModularSimulatorAlgorithmBuilder14simulationDataINS_24MttkPropagatorConnectionEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(712) %121, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_24MttkPropagatorConnectionEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45 unwind label %185
+          to label %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_24MttkPropagatorConnectionEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48 unwind label %185
 
-_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_24MttkPropagatorConnectionEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45: ; preds = %109
+_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_24MttkPropagatorConnectionEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48: ; preds = %109
   %123 = extractvalue { ptr, i8 } %122, 1
   %124 = trunc i8 %123 to i1
   br i1 %124, label %_ZNOSt8optionalIPN3gmx24MttkPropagatorConnectionEE5valueEv.exit, label %125
 
-125:                                              ; preds = %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_24MttkPropagatorConnectionEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45
+125:                                              ; preds = %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_24MttkPropagatorConnectionEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48
   invoke void @_ZSt27__throw_bad_optional_accessv() #31
-          to label %.noexc46 unwind label %185
+          to label %.noexc49 unwind label %185
 
-.noexc46:                                         ; preds = %125
+.noexc49:                                         ; preds = %125
   unreachable
 
-_ZNOSt8optionalIPN3gmx24MttkPropagatorConnectionEE5valueEv.exit: ; preds = %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_24MttkPropagatorConnectionEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45
+_ZNOSt8optionalIPN3gmx24MttkPropagatorConnectionEE5valueEv.exit: ; preds = %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_24MttkPropagatorConnectionEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48
   %126 = extractvalue { ptr, i8 } %122, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #29
   call void @_ZN3gmx8MttkData6dataIDB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9)
@@ -1007,27 +1007,27 @@ _ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_8MttkDataEEES
 
 150:                                              ; preds = %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_8MttkDataEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   invoke void @_ZSt27__throw_bad_optional_accessv() #31
-          to label %.noexc49 unwind label %192
+          to label %.noexc52 unwind label %192
 
-.noexc49:                                         ; preds = %150
+.noexc52:                                         ; preds = %150
   unreachable
 
 _ZNOSt8optionalIPN3gmx8MttkDataEE5valueEv.exit:   ; preds = %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper14simulationDataINS_8MttkDataEEESt8optionalIPT_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %151 = extractvalue { ptr, i8 } %147, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #29
-  %152 = getelementptr inbounds i8, ptr %12, i64 16
-  %153 = getelementptr inbounds i8, ptr %12, i64 24
-  %154 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 0, ptr %154, align 8
-  %155 = ptrtoint ptr %151 to i64
-  store i64 %155, ptr %12, align 8
-  store ptr @"_ZNSt17_Function_handlerIFfldEZN3gmx8MttkData5buildEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataERKNS1_31MttkPropagatorConnectionDetailsEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %153, align 8
-  store ptr @"_ZNSt17_Function_handlerIFfldEZN3gmx8MttkData5buildEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataERKNS1_31MttkPropagatorConnectionDetailsEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %152, align 8
+  %152 = ptrtoint ptr %151 to i64
+  %153 = getelementptr inbounds i8, ptr %12, i64 16
+  %154 = getelementptr inbounds i8, ptr %12, i64 24
+  %155 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 0, ptr %155, align 8
+  store i64 %152, ptr %12, align 8
+  store ptr @"_ZNSt17_Function_handlerIFfldEZN3gmx8MttkData5buildEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataERKNS1_31MttkPropagatorConnectionDetailsEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %154, align 8
+  store ptr @"_ZNSt17_Function_handlerIFfldEZN3gmx8MttkData5buildEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataERKNS1_31MttkPropagatorConnectionDetailsEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %153, align 8
   invoke void @_ZN3gmx10EnergyData30addConservedEnergyContributionEOSt8functionIFfldEE(ptr noundef nonnull align 8 dereferenceable(552) %3, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %156 unwind label %194
 
 156:                                              ; preds = %_ZNOSt8optionalIPN3gmx8MttkDataEE5valueEv.exit
-  %157 = load ptr, ptr %152, align 8
+  %157 = load ptr, ptr %153, align 8
   %.not.i.i = icmp eq ptr %157, null
   br i1 %.not.i.i, label %_ZNSt8functionIFfldEED2Ev.exit, label %158
 
@@ -1047,7 +1047,7 @@ _ZNSt8functionIFfldEED2Ev.exit:                   ; preds = %156, %158
   %164 = getelementptr inbounds i8, ptr %13, i64 24
   %165 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 0, ptr %165, align 8
-  store i64 %155, ptr %13, align 8
+  store i64 %152, ptr %13, align 8
   store ptr @"_ZNSt17_Function_handlerIFPA3_KfvEZN3gmx8MttkData5buildEPNS4_19LegacySimulatorDataEPNS4_38ModularSimulatorAlgorithmBuilderHelperEPNS4_19StatePropagatorDataEPNS4_10EnergyDataERKNS4_31MttkPropagatorConnectionDetailsEE3$_1E9_M_invokeERKSt9_Any_data", ptr %164, align 8
   store ptr @"_ZNSt17_Function_handlerIFPA3_KfvEZN3gmx8MttkData5buildEPNS4_19LegacySimulatorDataEPNS4_38ModularSimulatorAlgorithmBuilderHelperEPNS4_19StatePropagatorDataEPNS4_10EnergyDataERKNS4_31MttkPropagatorConnectionDetailsEE3$_1E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %163, align 8
   invoke void @_ZN3gmx10EnergyData32setParrinelloRahmanBoxVelocitiesEOSt8functionIFPA3_KfvEE(ptr noundef nonnull align 8 dereferenceable(552) %3, ptr noundef nonnull align 8 dereferenceable(32) %13)
@@ -1055,8 +1055,8 @@ _ZNSt8functionIFfldEED2Ev.exit:                   ; preds = %156, %158
 
 166:                                              ; preds = %_ZNSt8functionIFfldEED2Ev.exit
   %167 = load ptr, ptr %163, align 8
-  %.not.i.i51 = icmp eq ptr %167, null
-  br i1 %.not.i.i51, label %_ZNSt8functionIFPA3_KfvEED2Ev.exit, label %168
+  %.not.i.i53 = icmp eq ptr %167, null
+  br i1 %.not.i.i53, label %_ZNSt8functionIFPA3_KfvEED2Ev.exit, label %168
 
 168:                                              ; preds = %166
   %169 = invoke noundef zeroext i1 %167(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
@@ -1074,7 +1074,7 @@ _ZNSt8functionIFPA3_KfvEED2Ev.exit:               ; preds = %166, %168
   %174 = getelementptr inbounds i8, ptr %14, i64 24
   %175 = getelementptr inbounds i8, ptr %14, i64 8
   store i64 0, ptr %175, align 8
-  store i64 %155, ptr %14, align 8
+  store i64 %152, ptr %14, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_8MttkData5buildEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_19StatePropagatorDataEPNS0_10EnergyDataERKNS0_31MttkPropagatorConnectionDetailsEE3$_2E9_M_invokeERKSt9_Any_dataOS3_OS4_", ptr %174, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_8MttkData5buildEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_19StatePropagatorDataEPNS0_10EnergyDataERKNS0_31MttkPropagatorConnectionDetailsEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %173, align 8
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper34registerReferenceTemperatureUpdateESt8functionIFvNS_8ArrayRefIKfEENS_35ReferenceTemperatureChangeAlgorithmEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %14)
@@ -1082,8 +1082,8 @@ _ZNSt8functionIFPA3_KfvEED2Ev.exit:               ; preds = %166, %168
 
 176:                                              ; preds = %_ZNSt8functionIFPA3_KfvEED2Ev.exit
   %177 = load ptr, ptr %173, align 8
-  %.not.i.i53 = icmp eq ptr %177, null
-  br i1 %.not.i.i53, label %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit, label %178
+  %.not.i.i54 = icmp eq ptr %177, null
+  br i1 %.not.i.i54, label %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit, label %178
 
 178:                                              ; preds = %176
   %179 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
@@ -1102,40 +1102,40 @@ _ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEE
 183:                                              ; preds = %108, %103
   %184 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt8functionIFfldEED2Ev.exit55.sink.split
+  br label %_ZNSt8functionIFfldEED2Ev.exit56.sink.split
 
 185:                                              ; preds = %125, %109
   %186 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt8functionIFfldEED2Ev.exit55.sink.split
+  br label %_ZNSt8functionIFfldEED2Ev.exit56.sink.split
 
 187:                                              ; preds = %_ZNOSt8optionalIPN3gmx24MttkPropagatorConnectionEE5valueEv.exit
   %188 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt8functionIFfldEED2Ev.exit55.sink.split
+  br label %_ZNSt8functionIFfldEED2Ev.exit56.sink.split
 
 189:                                              ; preds = %143
   %190 = landingpad { ptr, i32 }
           cleanup
   %191 = getelementptr inbounds i8, ptr %10, i64 120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %191) #29
-  br label %_ZNSt8functionIFfldEED2Ev.exit55.sink.split
+  br label %_ZNSt8functionIFfldEED2Ev.exit56.sink.split
 
 192:                                              ; preds = %150, %_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper19storeSimulationDataINS_8MttkDataEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_.exit
   %193 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt8functionIFfldEED2Ev.exit55.sink.split
+  br label %_ZNSt8functionIFfldEED2Ev.exit56.sink.split
 
 194:                                              ; preds = %_ZNOSt8optionalIPN3gmx8MttkDataEE5valueEv.exit
   %195 = landingpad { ptr, i32 }
           cleanup
-  %196 = load ptr, ptr %152, align 8
-  %.not.i.i54 = icmp eq ptr %196, null
-  br i1 %.not.i.i54, label %_ZNSt8functionIFfldEED2Ev.exit55, label %197
+  %196 = load ptr, ptr %153, align 8
+  %.not.i.i55 = icmp eq ptr %196, null
+  br i1 %.not.i.i55, label %_ZNSt8functionIFfldEED2Ev.exit56, label %197
 
 197:                                              ; preds = %194
   %198 = invoke noundef zeroext i1 %196(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
-          to label %_ZNSt8functionIFfldEED2Ev.exit55 unwind label %199
+          to label %_ZNSt8functionIFfldEED2Ev.exit56 unwind label %199
 
 199:                                              ; preds = %197
   %200 = landingpad { ptr, i32 }
@@ -1148,12 +1148,12 @@ _ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEE
   %203 = landingpad { ptr, i32 }
           cleanup
   %204 = load ptr, ptr %163, align 8
-  %.not.i.i56 = icmp eq ptr %204, null
-  br i1 %.not.i.i56, label %_ZNSt8functionIFfldEED2Ev.exit55, label %205
+  %.not.i.i57 = icmp eq ptr %204, null
+  br i1 %.not.i.i57, label %_ZNSt8functionIFfldEED2Ev.exit56, label %205
 
 205:                                              ; preds = %202
   %206 = invoke noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
-          to label %_ZNSt8functionIFfldEED2Ev.exit55 unwind label %207
+          to label %_ZNSt8functionIFfldEED2Ev.exit56 unwind label %207
 
 207:                                              ; preds = %205
   %208 = landingpad { ptr, i32 }
@@ -1166,12 +1166,12 @@ _ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEE
   %211 = landingpad { ptr, i32 }
           cleanup
   %212 = load ptr, ptr %173, align 8
-  %.not.i.i58 = icmp eq ptr %212, null
-  br i1 %.not.i.i58, label %_ZNSt8functionIFfldEED2Ev.exit55, label %213
+  %.not.i.i59 = icmp eq ptr %212, null
+  br i1 %.not.i.i59, label %_ZNSt8functionIFfldEED2Ev.exit56, label %213
 
 213:                                              ; preds = %210
   %214 = invoke noundef zeroext i1 %212(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
-          to label %_ZNSt8functionIFfldEED2Ev.exit55 unwind label %215
+          to label %_ZNSt8functionIFfldEED2Ev.exit56 unwind label %215
 
 215:                                              ; preds = %213
   %216 = landingpad { ptr, i32 }
@@ -1180,14 +1180,14 @@ _ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEE
   call void @__clang_call_terminate(ptr %217) #32
   unreachable
 
-_ZNSt8functionIFfldEED2Ev.exit55.sink.split:      ; preds = %187, %189, %183, %185, %192
+_ZNSt8functionIFfldEED2Ev.exit56.sink.split:      ; preds = %187, %189, %183, %185, %192
   %.sink = phi ptr [ %11, %192 ], [ %8, %185 ], [ %7, %183 ], [ %9, %189 ], [ %9, %187 ]
   %.pn42.ph = phi { ptr, i32 } [ %193, %192 ], [ %186, %185 ], [ %184, %183 ], [ %190, %189 ], [ %188, %187 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #29
-  br label %_ZNSt8functionIFfldEED2Ev.exit55
+  br label %_ZNSt8functionIFfldEED2Ev.exit56
 
-_ZNSt8functionIFfldEED2Ev.exit55:                 ; preds = %_ZNSt8functionIFfldEED2Ev.exit55.sink.split, %213, %210, %205, %202, %197, %194
-  %.pn42 = phi { ptr, i32 } [ %195, %194 ], [ %195, %197 ], [ %203, %202 ], [ %203, %205 ], [ %211, %210 ], [ %211, %213 ], [ %.pn42.ph, %_ZNSt8functionIFfldEED2Ev.exit55.sink.split ]
+_ZNSt8functionIFfldEED2Ev.exit56:                 ; preds = %_ZNSt8functionIFfldEED2Ev.exit56.sink.split, %213, %210, %205, %202, %197, %194
+  %.pn42 = phi { ptr, i32 } [ %195, %194 ], [ %195, %197 ], [ %203, %202 ], [ %203, %205 ], [ %211, %210 ], [ %211, %213 ], [ %.pn42.ph, %_ZNSt8functionIFfldEED2Ev.exit56.sink.split ]
   resume { ptr, i32 } %.pn42
 }
 

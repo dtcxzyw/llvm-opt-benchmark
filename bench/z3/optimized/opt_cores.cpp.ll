@@ -13424,27 +13424,27 @@ if.then10.i.i.i.i:                                ; preds = %while.end.i.i.i.i
 
 if.end17.i.i.i.i:                                 ; preds = %if.then10.i.i.i.i, %while.end.i.i.i.i
   %__holeIndex.addr.1.i.i.i.i = phi i64 [ %sub13.i.i.i.i, %if.then10.i.i.i.i ], [ %__secondChild.0.lcssa.i.i.i.i, %while.end.i.i.i.i ]
-  %cmp12.i.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i.i, %div13.i.i.i
-  br i1 %cmp12.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
+  %cmp3.i.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i.i, %div13.i.i.i
+  br i1 %cmp3.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
 land.rhs.i.i.i.i.i:                               ; preds = %if.end17.i.i.i.i, %while.body.i.i.i.i.i
-  %__holeIndex.addr.013.i.i.i.i.i = phi i64 [ %__parent.014.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end17.i.i.i.i ]
-  %__parent.014.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.013.i.i.i.i.i, -1
-  %__parent.014.i.i.i.i.i = sdiv i64 %__parent.014.in.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__parent.014.i.i.i.i.i
+  %__holeIndex.addr.04.i.i.i.i.i = phi i64 [ %__parent.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end17.i.i.i.i ]
+  %__parent.05.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.04.i.i.i.i.i, -1
+  %__parent.05.i.i.i.i.i = sdiv i64 %__parent.05.in.i.i.i.i.i, 2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__parent.05.i.i.i.i.i
   %add.ptr.val.i.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %call.i.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_"(ptr %__comp.coerce, ptr noundef %add.ptr.val.i.i.i.i.i, ptr noundef %0)
   br i1 %call.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.013.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i.i
   store ptr %4, ptr %add.ptr2.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp sgt i64 %__parent.014.i.i.i.i.i, %div13.i.i.i
+  %cmp.i.i.i.i.i = icmp sgt i64 %__parent.05.i.i.i.i.i, %div13.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !90
 
 "_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end17.i.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end17.i.i.i.i ], [ %__holeIndex.addr.013.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.014.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end17.i.i.i.i ], [ %__holeIndex.addr.04.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %add.ptr5.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store ptr %0, ptr %add.ptr5.i.i.i.i.i, align 8
   %cmp6246.i.i.i = icmp ult i64 %sub.i.i.i, 2
@@ -13749,18 +13749,18 @@ if.then10.i40.i.i.i:                              ; preds = %while.end.i17.i.i.i
 
 if.end17.i21.i.i.i:                               ; preds = %if.then10.i40.i.i.i, %while.end.i17.i.i.i
   %__holeIndex.addr.1.i22.i.i.i = phi i64 [ %sub13.i42.i.i.i, %if.then10.i40.i.i.i ], [ %__secondChild.0.lcssa.i18.i.i.i, %while.end.i17.i.i.i ]
-  %cmp12.i.i23.not.i.i.i = icmp slt i64 %__holeIndex.addr.1.i22.i.i.i, %__parent.0247.i.i.i
-  br i1 %cmp12.i.i23.not.i.i.i, label %"_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_T2_.exit59.i.i.i", label %land.rhs.i.i26.preheader.i.i.i
+  %cmp3.i.i23.not.i.i.i = icmp slt i64 %__holeIndex.addr.1.i22.i.i.i, %__parent.0247.i.i.i
+  br i1 %cmp3.i.i23.not.i.i.i, label %"_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_T2_.exit59.i.i.i", label %land.rhs.i.i26.preheader.i.i.i
 
 land.rhs.i.i26.preheader.i.i.i:                   ; preds = %if.end17.i21.i.i.i
   %m_hash.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   br label %land.rhs.i.i26.i.i.i
 
 land.rhs.i.i26.i.i.i:                             ; preds = %while.body.i.i33.i.i.i, %land.rhs.i.i26.preheader.i.i.i
-  %__holeIndex.addr.013.i.i27.i.i.i = phi i64 [ %__parent.014.i.i29.i.i.i, %while.body.i.i33.i.i.i ], [ %__holeIndex.addr.1.i22.i.i.i, %land.rhs.i.i26.preheader.i.i.i ]
-  %__parent.014.in.i.i28.i.i.i = add nsw i64 %__holeIndex.addr.013.i.i27.i.i.i, -1
-  %__parent.014.i.i29.i.i.i = sdiv i64 %__parent.014.in.i.i28.i.i.i, 2
-  %add.ptr.i.i30.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__parent.014.i.i29.i.i.i
+  %__holeIndex.addr.04.i.i27.i.i.i = phi i64 [ %__parent.05.i.i29.i.i.i, %while.body.i.i33.i.i.i ], [ %__holeIndex.addr.1.i22.i.i.i, %land.rhs.i.i26.preheader.i.i.i ]
+  %__parent.05.in.i.i28.i.i.i = add nsw i64 %__holeIndex.addr.04.i.i27.i.i.i, -1
+  %__parent.05.i.i29.i.i.i = sdiv i64 %__parent.05.in.i.i28.i.i.i, 2
+  %add.ptr.i.i30.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__parent.05.i.i29.i.i.i
   %add.ptr.val.i.i31.i.i.i = load ptr, ptr %add.ptr.i.i30.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i100.i.i.i)
   store ptr %add.ptr.val.i.i31.i.i.i, ptr %ref.tmp.i100.i.i.i, align 8
@@ -13992,13 +13992,13 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
 
 while.body.i.i33.i.i.i:                           ; preds = %"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit.i.i.i", %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %62 = load ptr, ptr %add.ptr.i.i30.i.i.i, align 8
-  %add.ptr2.i.i34.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.013.i.i27.i.i.i
+  %add.ptr2.i.i34.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i27.i.i.i
   store ptr %62, ptr %add.ptr2.i.i34.i.i.i, align 8
-  %cmp.i.i35.not.i.i.i = icmp slt i64 %__parent.014.i.i29.i.i.i, %__parent.0247.i.i.i
+  %cmp.i.i35.not.i.i.i = icmp slt i64 %__parent.05.i.i29.i.i.i, %__parent.0247.i.i.i
   br i1 %cmp.i.i35.not.i.i.i, label %"_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_T2_.exit59.i.i.i", label %land.rhs.i.i26.i.i.i, !llvm.loop !90
 
 "_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_T2_.exit59.i.i.i": ; preds = %while.body.i.i33.i.i.i, %"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit.i.i.i", %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %if.end17.i21.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i24.i.i.i = phi i64 [ %__holeIndex.addr.1.i22.i.i.i, %if.end17.i21.i.i.i ], [ %__holeIndex.addr.013.i.i27.i.i.i, %"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit.i.i.i" ], [ %__parent.014.i.i29.i.i.i, %while.body.i.i33.i.i.i ], [ %__holeIndex.addr.013.i.i27.i.i.i, %if.else.i.i.i.i.i.i.i ], [ %__holeIndex.addr.013.i.i27.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i24.i.i.i = phi i64 [ %__holeIndex.addr.1.i22.i.i.i, %if.end17.i21.i.i.i ], [ %__holeIndex.addr.04.i.i27.i.i.i, %"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit.i.i.i" ], [ %__parent.05.i.i29.i.i.i, %while.body.i.i33.i.i.i ], [ %__holeIndex.addr.04.i.i27.i.i.i, %if.else.i.i.i.i.i.i.i ], [ %__holeIndex.addr.04.i.i27.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %add.ptr5.i.i25.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i24.i.i.i
   store ptr %5, ptr %add.ptr5.i.i25.i.i.i, align 8
   %cmp6.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -14032,8 +14032,8 @@ while.body.lr.ph.i.i:                             ; preds = %"_ZSt13__adjust_hea
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %"_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_SF_SF_RT0_.exit.i23.i", %while.body.lr.ph.i.i
-  %__last.addr.0193.i.i = phi ptr [ %__last.addr.076, %while.body.lr.ph.i.i ], [ %incdec.ptr.i10.i, %"_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_SF_SF_RT0_.exit.i23.i" ]
-  %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %__last.addr.0193.i.i, i64 -8
+  %__last.addr.012.i.i = phi ptr [ %__last.addr.076, %while.body.lr.ph.i.i ], [ %incdec.ptr.i10.i, %"_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_SF_SF_RT0_.exit.i23.i" ]
+  %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %__last.addr.012.i.i, i64 -8
   %63 = load ptr, ptr %incdec.ptr.i10.i, align 8
   %64 = load ptr, ptr %__first, align 8
   store ptr %64, ptr %incdec.ptr.i10.i, align 8
@@ -14316,18 +14316,18 @@ if.then10.i.i.i104.i:                             ; preds = %land.lhs.true.i.i.i
 
 if.end17.i.i.i20.i:                               ; preds = %if.then10.i.i.i104.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i17.i
   %__holeIndex.addr.1.i.i.i21.i = phi i64 [ %sub13.i.i.i106.i, %if.then10.i.i.i104.i ], [ %__secondChild.0.lcssa.i.i.i18.i, %land.lhs.true.i.i.i.i ], [ %__secondChild.0.lcssa.i.i.i18.i, %while.end.i.i.i17.i ]
-  %cmp12.i.i.i.i22.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i21.i, 0
-  br i1 %cmp12.i.i.i.i22.i, label %land.rhs.i.i.i.preheader.i.i, label %"_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_SF_SF_RT0_.exit.i23.i"
+  %cmp3.i.i.i.i22.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i21.i, 0
+  br i1 %cmp3.i.i.i.i22.i, label %land.rhs.i.i.i.preheader.i.i, label %"_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_SF_SF_RT0_.exit.i23.i"
 
 land.rhs.i.i.i.preheader.i.i:                     ; preds = %if.end17.i.i.i20.i
   %m_hash.i.i.i.i.i.i.i27.i = getelementptr inbounds i8, ptr %63, i64 12
   br label %land.rhs.i.i.i.i28.i
 
 land.rhs.i.i.i.i28.i:                             ; preds = %while.body.i.i.i.i67.i, %land.rhs.i.i.i.preheader.i.i
-  %__holeIndex.addr.013.i.i.i.i29.i = phi i64 [ %__parent.014.i.i45.i.i31.i, %while.body.i.i.i.i67.i ], [ %__holeIndex.addr.1.i.i.i21.i, %land.rhs.i.i.i.preheader.i.i ]
-  %__parent.014.in.i.i.i.i30.i = add nsw i64 %__holeIndex.addr.013.i.i.i.i29.i, -1
-  %__parent.014.i.i45.i.i31.i = lshr i64 %__parent.014.in.i.i.i.i30.i, 1
-  %add.ptr.i.i.i.i32.i = getelementptr inbounds ptr, ptr %__first, i64 %__parent.014.i.i45.i.i31.i
+  %__holeIndex.addr.04.i.i.i.i29.i = phi i64 [ %__parent.05.i.i45.i.i31.i, %while.body.i.i.i.i67.i ], [ %__holeIndex.addr.1.i.i.i21.i, %land.rhs.i.i.i.preheader.i.i ]
+  %__parent.05.in.i.i.i.i30.i = add nsw i64 %__holeIndex.addr.04.i.i.i.i29.i, -1
+  %__parent.05.i.i45.i.i31.i = lshr i64 %__parent.05.in.i.i.i.i30.i, 1
+  %add.ptr.i.i.i.i32.i = getelementptr inbounds ptr, ptr %__first, i64 %__parent.05.i.i45.i.i31.i
   %add.ptr.val.i.i.i.i33.i = load ptr, ptr %add.ptr.i.i.i.i32.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i47.i.i)
   store ptr %add.ptr.val.i.i.i.i33.i, ptr %ref.tmp.i47.i.i, align 8
@@ -14559,13 +14559,13 @@ if.else.i.i.i.i.i65.i:                            ; preds = %land.lhs.true.i.i.i
 
 while.body.i.i.i.i67.i:                           ; preds = %"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit.i82.i", %if.else.i.i.i.i.i65.i, %if.then.i.i.i.i.i.i.i90.i
   %122 = load ptr, ptr %add.ptr.i.i.i.i32.i, align 8
-  %add.ptr2.i.i.i.i68.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.013.i.i.i.i29.i
+  %add.ptr2.i.i.i.i68.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i29.i
   store ptr %122, ptr %add.ptr2.i.i.i.i68.i, align 8
-  %cmp.i.i.not.i.i69.i = icmp ult i64 %__parent.014.in.i.i.i.i30.i, 2
+  %cmp.i.i.not.i.i69.i = icmp ult i64 %__parent.05.in.i.i.i.i30.i, 2
   br i1 %cmp.i.i.not.i.i69.i, label %"_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_SF_SF_RT0_.exit.i23.i", label %land.rhs.i.i.i.i28.i, !llvm.loop !90
 
 "_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_SF_SF_RT0_.exit.i23.i": ; preds = %while.body.i.i.i.i67.i, %"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit.i82.i", %if.else.i.i.i.i.i65.i, %if.then.i.i.i.i.i.i.i90.i, %if.end17.i.i.i20.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i24.i = phi i64 [ %__holeIndex.addr.1.i.i.i21.i, %if.end17.i.i.i20.i ], [ %__holeIndex.addr.013.i.i.i.i29.i, %if.then.i.i.i.i.i.i.i90.i ], [ %__holeIndex.addr.013.i.i.i.i29.i, %if.else.i.i.i.i.i65.i ], [ %__holeIndex.addr.013.i.i.i.i29.i, %"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit.i82.i" ], [ 0, %while.body.i.i.i.i67.i ]
+  %__holeIndex.addr.0.lcssa.i.i.i.i24.i = phi i64 [ %__holeIndex.addr.1.i.i.i21.i, %if.end17.i.i.i20.i ], [ %__holeIndex.addr.04.i.i.i.i29.i, %if.then.i.i.i.i.i.i.i90.i ], [ %__holeIndex.addr.04.i.i.i.i29.i, %if.else.i.i.i.i.i65.i ], [ %__holeIndex.addr.04.i.i.i.i29.i, %"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit.i82.i" ], [ 0, %while.body.i.i.i.i67.i ]
   %add.ptr5.i.i.i.i25.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i24.i
   store ptr %63, ptr %add.ptr5.i.i.i.i25.i, align 8
   %cmp.i26.i = icmp sgt i64 %sub.ptr.sub.i.i12.i, 8

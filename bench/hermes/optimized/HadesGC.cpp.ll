@@ -3381,12 +3381,12 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
   %3 = trunc i64 %call to i32
   %conv2 = add i32 %2, %3
   store i32 %conv2, ptr %mallocSizeEstimate, align 8
+  %4 = ptrtoint ptr %info to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %4, align 8
-  %5 = ptrtoint ptr %info to i64
-  store i64 %5, ptr %ref.tmp, align 8
+  %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %5, align 8
+  store i64 %4, ptr %ref.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN6hermes2vm6GCCellEEZNS1_7HadesGC25getHeapInfoWithMallocSizeERNS1_6GCBase8HeapInfoEE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN6hermes2vm6GCCellEEZNS1_7HadesGC25getHeapInfoWithMallocSizeERNS1_6GCBase8HeapInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   call void @_ZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEE(ptr noundef nonnull align 8 dereferenceable(8152) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -6172,12 +6172,12 @@ entry:
   %agg.tmp = alloca %"class.std::function.116", align 8
   %backgroundExecutor_ = getelementptr inbounds i8, ptr %this, i64 7672
   %0 = load ptr, ptr %backgroundExecutor_, align 8
+  %1 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %1, align 8
-  %2 = ptrtoint ptr %this to i64
-  store i64 %2, ptr %agg.tmp, align 8
+  %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store i64 0, ptr %2, align 8
+  store i64 %1, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN6hermes2vm7HadesGC21collectOGInBackgroundEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN6hermes2vm7HadesGC21collectOGInBackgroundEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   call void @_ZN6hermes2vm7HadesGC8Executor3addESt8functionIFvvEE(ptr nonnull sret(%"class.std::future") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %agg.tmp)

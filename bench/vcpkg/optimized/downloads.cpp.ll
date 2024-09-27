@@ -1427,13 +1427,13 @@ define internal fastcc void @_ZN5vcpkgL20download_files_innerERKNS_10FilesystemE
   %29 = getelementptr inbounds i8, ptr %17, i64 8
   %30 = getelementptr inbounds i8, ptr %7, i64 8
   %31 = getelementptr inbounds i8, ptr %15, i64 8
-  %32 = getelementptr inbounds i8, ptr %20, i64 16
-  %33 = getelementptr inbounds i8, ptr %20, i64 24
-  %34 = ptrtoint ptr %4 to i64
-  %35 = getelementptr inbounds i8, ptr %21, i64 8
-  %36 = getelementptr inbounds i8, ptr %19, i64 32
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
-  %38 = getelementptr inbounds i8, ptr %20, i64 8
+  %32 = ptrtoint ptr %4 to i64
+  %33 = getelementptr inbounds i8, ptr %20, i64 16
+  %34 = getelementptr inbounds i8, ptr %20, i64 24
+  %35 = getelementptr inbounds i8, ptr %20, i64 8
+  %36 = getelementptr inbounds i8, ptr %21, i64 8
+  %37 = getelementptr inbounds i8, ptr %19, i64 32
+  %38 = getelementptr inbounds i8, ptr %6, i64 8
   br label %39
 
 39:                                               ; preds = %5, %.loopexit33
@@ -1610,17 +1610,17 @@ _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit51: ; preds = %55
   br label %common.resume
 
 ._crit_edge55:                                    ; preds = %86, %._crit_edge
-  store i64 0, ptr %38, align 8
-  store i64 %34, ptr %20, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L20download_files_innerERKNS0_10FilesystemENS0_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathEEEENS6_IKSD_EEPSt6vectorIiSaIiEEE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %33, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L20download_files_innerERKNS0_10FilesystemENS0_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathEEEENS6_IKSD_EEPSt6vectorIiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation", ptr %32, align 8
+  store i64 0, ptr %35, align 8
+  store i64 %32, ptr %20, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L20download_files_innerERKNS0_10FilesystemENS0_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathEEEENS6_IKSD_EEPSt6vectorIiSaIiEEE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %34, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L20download_files_innerERKNS0_10FilesystemENS0_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathEEEENS6_IKSD_EEPSt6vectorIiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation", ptr %33, align 8
   invoke void @_ZN5vcpkg28cmd_execute_and_stream_linesERKNS_7CommandERKSt8functionIFvNS_10StringViewEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %90 unwind label %109
 
 90:                                               ; preds = %._crit_edge55
   store i32 472, ptr %21, align 8
-  store ptr @.str.1, ptr %35, align 8
-  %91 = load i8, ptr %36, align 8
+  store ptr @.str.1, ptr %36, align 8
+  %91 = load i8, ptr %37, align 8
   %92 = trunc i8 %91 to i1
   br i1 %92, label %93, label %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit
 
@@ -1641,7 +1641,7 @@ _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit51: ; preds = %55
 
 _ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit: ; preds = %90
   %99 = load i32, ptr %19, align 8
-  %100 = load ptr, ptr %32, align 8
+  %100 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %100, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit, label %101
 
@@ -1675,7 +1675,7 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit: ; preds = %_ZN5vcpkg9ExpectedT
 109:                                              ; preds = %._crit_edge55
   %110 = landingpad { ptr, i32 }
           cleanup
-  %111 = load ptr, ptr %32, align 8
+  %111 = load ptr, ptr %33, align 8
   %.not.i.i52 = icmp eq ptr %111, null
   br i1 %.not.i.i52, label %common.resume, label %112
 
@@ -1719,7 +1719,7 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit: ; preds = %_ZN5vcpkg9ExpectedT
   %132 = add nsw i64 %.neg.i.i, %130
   %133 = mul nsw i64 %132, 1000000
   store i64 %.zext, ptr %6, align 8
-  store i64 %133, ptr %37, align 8
+  store i64 %133, ptr %38, align 8
   br label %134
 
 134:                                              ; preds = %137, %129
@@ -1934,19 +1934,19 @@ _ZN5vcpkg7Strings6concatIJA30_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %80 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %17) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #23
   store i32 0, ptr %18, align 4
-  %81 = getelementptr inbounds i8, ptr %20, i64 16
-  %82 = getelementptr inbounds i8, ptr %20, i64 24
-  %83 = getelementptr inbounds i8, ptr %20, i64 8
-  store i64 0, ptr %83, align 8
-  %84 = ptrtoint ptr %18 to i64
-  store i64 %84, ptr %20, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_20send_snapshot_to_apiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS0_4Json6ObjectEE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %82, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_20send_snapshot_to_apiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS0_4Json6ObjectEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %81, align 8
+  %81 = ptrtoint ptr %18 to i64
+  %82 = getelementptr inbounds i8, ptr %20, i64 16
+  %83 = getelementptr inbounds i8, ptr %20, i64 24
+  %84 = getelementptr inbounds i8, ptr %20, i64 8
+  store i64 0, ptr %84, align 8
+  store i64 %81, ptr %20, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_20send_snapshot_to_apiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS0_4Json6ObjectEE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %83, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_20send_snapshot_to_apiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS0_4Json6ObjectEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %82, align 8
   invoke void @_ZN5vcpkg28cmd_execute_and_stream_linesERKNS_7CommandERKNS_31RedirectedProcessLaunchSettingsERKSt8functionIFvNS_10StringViewEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(120) %16, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %85 unwind label %117
 
 85:                                               ; preds = %79
-  %86 = load ptr, ptr %81, align 8
+  %86 = load ptr, ptr %82, align 8
   %.not.i.i = icmp eq ptr %86, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit, label %87
 
@@ -2031,7 +2031,7 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit: ; preds = %85, %87
 117:                                              ; preds = %79
   %118 = landingpad { ptr, i32 }
           cleanup
-  %119 = load ptr, ptr %81, align 8
+  %119 = load ptr, ptr %82, align 8
   %.not.i.i26 = icmp eq ptr %119, null
   br i1 %.not.i.i26, label %_ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit27, label %120
 
@@ -2525,19 +2525,19 @@ _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit67: ; preds = %_ZNO5vcpkg7Co
 
 148:                                              ; preds = %143
   store i32 0, ptr %31, align 4
-  %149 = getelementptr inbounds i8, ptr %33, i64 16
-  %150 = getelementptr inbounds i8, ptr %33, i64 24
-  %151 = getelementptr inbounds i8, ptr %33, i64 8
-  store i64 0, ptr %151, align 8
-  %152 = ptrtoint ptr %31 to i64
-  store i64 %152, ptr %33, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_8put_fileERKNS0_18ReadOnlyFilesystemES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EENS0_4SpanIKSC_EERKNS0_4PathES1_E3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %150, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_8put_fileERKNS0_18ReadOnlyFilesystemES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EENS0_4SpanIKSC_EERKNS0_4PathES1_E3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %149, align 8
+  %149 = ptrtoint ptr %31 to i64
+  %150 = getelementptr inbounds i8, ptr %33, i64 16
+  %151 = getelementptr inbounds i8, ptr %33, i64 24
+  %152 = getelementptr inbounds i8, ptr %33, i64 8
+  store i64 0, ptr %152, align 8
+  store i64 %149, ptr %33, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_8put_fileERKNS0_18ReadOnlyFilesystemES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EENS0_4SpanIKSC_EERKNS0_4PathES1_E3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %151, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_8put_fileERKNS0_18ReadOnlyFilesystemES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EENS0_4SpanIKSC_EERKNS0_4PathES1_E3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %150, align 8
   invoke void @_ZN5vcpkg28cmd_execute_and_stream_linesERKNS_7CommandERKSt8functionIFvNS_10StringViewEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %32, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %33)
           to label %153 unwind label %196
 
 153:                                              ; preds = %148
-  %154 = load ptr, ptr %149, align 8
+  %154 = load ptr, ptr %150, align 8
   %.not.i.i = icmp eq ptr %154, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit, label %155
 
@@ -2663,7 +2663,7 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit: ; preds = %153, %155
 196:                                              ; preds = %148
   %197 = landingpad { ptr, i32 }
           cleanup
-  %198 = load ptr, ptr %149, align 8
+  %198 = load ptr, ptr %150, align 8
   %.not.i.i79 = icmp eq ptr %198, null
   br i1 %.not.i.i79, label %common.resume, label %199
 

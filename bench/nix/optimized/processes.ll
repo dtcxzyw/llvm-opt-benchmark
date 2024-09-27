@@ -1878,14 +1878,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
   br label %_ZNSt8functionIFvvEED2Ev.exit32
 
 53:                                               ; preds = %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
-  %54 = getelementptr inbounds i8, ptr %10, i64 16
-  %55 = getelementptr inbounds i8, ptr %10, i64 24
-  %56 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 0, ptr %56, align 8
-  %57 = ptrtoint ptr %5 to i64
-  store i64 %57, ptr %10, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3nix8killUserEjE3$_0E9_M_invokeERKSt9_Any_data", ptr %55, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3nix8killUserEjE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation", ptr %54, align 8
+  %54 = ptrtoint ptr %5 to i64
+  %55 = getelementptr inbounds i8, ptr %10, i64 16
+  %56 = getelementptr inbounds i8, ptr %10, i64 24
+  %57 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 0, ptr %57, align 8
+  store i64 %54, ptr %10, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3nix8killUserEjE3$_0E9_M_invokeERKSt9_Any_data", ptr %56, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3nix8killUserEjE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation", ptr %55, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #35
@@ -1935,7 +1935,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN3nix14ProcessOptionsD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #35
-  %74 = load ptr, ptr %54, align 8
+  %74 = load ptr, ptr %55, align 8
   %.not.i.i = icmp eq ptr %74, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %75
 
@@ -1984,7 +1984,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZN3nix14ProcessOpt
 
 .body29:                                          ; preds = %58, %87
   %.pn19 = phi { ptr, i32 } [ %88, %87 ], [ %59, %58 ]
-  %89 = load ptr, ptr %54, align 8
+  %89 = load ptr, ptr %55, align 8
   %.not.i.i31 = icmp eq ptr %89, null
   br i1 %.not.i.i31, label %_ZNSt8functionIFvvEED2Ev.exit32, label %90
 

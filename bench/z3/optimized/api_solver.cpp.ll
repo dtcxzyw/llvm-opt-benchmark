@@ -11759,12 +11759,12 @@ if.then.i7:                                       ; preds = %_ZNSt8functionIFvPv
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.then.i7, %_ZNSt8functionIFvPvPN15user_propagator8callbackEEEC2IPS4_vEEOT_.exit
+  %0 = ptrtoint ptr %fresh_eh to i64
   %_M_manager.i.i10 = getelementptr inbounds i8, ptr %_fresh, i64 16
   %_M_invoker.i11 = getelementptr inbounds i8, ptr %_fresh, i64 24
-  %0 = getelementptr inbounds i8, ptr %_fresh, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %fresh_eh to i64
-  store i64 %1, ptr %_fresh, align 8
+  %1 = getelementptr inbounds i8, ptr %_fresh, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %_fresh, align 8
   store ptr @"_ZNSt17_Function_handlerIFPvS0_R11ast_managerRPN15user_propagator11context_objEEZ24Z3_solver_propagate_initE3$_0E9_M_invokeERKSt9_Any_dataOS0_S2_S6_", ptr %_M_invoker.i11, align 8
   store ptr @"_ZNSt17_Function_handlerIFPvS0_R11ast_managerRPN15user_propagator11context_objEEZ24Z3_solver_propagate_initE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %_M_manager.i.i10, align 8
   %m_solver.i = getelementptr inbounds i8, ptr %s, i64 32

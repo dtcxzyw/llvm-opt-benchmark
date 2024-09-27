@@ -55437,41 +55437,41 @@ _ZNSt3mapIPN5clang7VarDeclEN12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfo
   br i1 %26, label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread.i, label %27
 
 27:                                               ; preds = %21, %19
-  %.01315.i.i.i = load ptr, ptr %3, align 8
-  %.not16.i.i.i = icmp eq ptr %.01315.i.i.i, null
-  br i1 %.not16.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i10
+  %.01113.i.i.i = load ptr, ptr %3, align 8
+  %.not14.i.i.i = icmp eq ptr %.01113.i.i.i, null
+  br i1 %.not14.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i10
 
 .lr.ph.i.i.i10:                                   ; preds = %27, %.lr.ph.i.i.i10
-  %.01317.i.i.i = phi ptr [ %.013.i.i.i, %.lr.ph.i.i.i10 ], [ %.01315.i.i.i, %27 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.01317.i.i.i, i64 32
+  %.01115.i.i.i = phi ptr [ %.011.i.i.i, %.lr.ph.i.i.i10 ], [ %.01113.i.i.i, %27 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.01115.i.i.i, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = icmp ult ptr %.val7.i, %29
   %.in.v.i.i.i = select i1 %30, i64 16, i64 24
-  %.in.i.i.i = getelementptr i8, ptr %.01317.i.i.i, i64 %.in.v.i.i.i
-  %.013.i.i.i = load ptr, ptr %.in.i.i.i, align 8
-  %.not.i.i.i11 = icmp eq ptr %.013.i.i.i, null
+  %.in.i.i.i = getelementptr i8, ptr %.01115.i.i.i, i64 %.in.v.i.i.i
+  %.011.i.i.i = load ptr, ptr %.in.i.i.i, align 8
+  %.not.i.i.i11 = icmp eq ptr %.011.i.i.i, null
   br i1 %.not.i.i.i11, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i10, !llvm.loop !141
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i10
   br i1 %30, label %._crit_edge.thread.i.i.i, label %35
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %27
-  %.012.lcssa21.i.i.i = phi ptr [ %.01317.i.i.i, %._crit_edge.i.i.i ], [ %4, %27 ]
+  %.010.lcssa19.i.i.i = phi ptr [ %.01115.i.i.i, %._crit_edge.i.i.i ], [ %4, %27 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   %.val9.i.i.i = load ptr, ptr %31, align 8
-  %32 = icmp eq ptr %.012.lcssa21.i.i.i, %.val9.i.i.i
+  %32 = icmp eq ptr %.010.lcssa19.i.i.i, %.val9.i.i.i
   br i1 %32, label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread.i, label %33
 
 33:                                               ; preds = %._crit_edge.thread.i.i.i
-  %34 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.012.lcssa21.i.i.i) #20
+  %34 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i.i.i) #20
   %.phi.trans.insert31.i.i = getelementptr inbounds nuw i8, ptr %34, i64 32
   %.pre32.i.i = load ptr, ptr %.phi.trans.insert31.i.i, align 8
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge.i.i.i
   %36 = phi ptr [ %.pre32.i.i, %33 ], [ %29, %._crit_edge.i.i.i ]
-  %.012.lcssa22.i.i.i = phi ptr [ %.012.lcssa21.i.i.i, %33 ], [ %.01317.i.i.i, %._crit_edge.i.i.i ]
-  %.sroa.01.0.i.i.i = phi ptr [ %34, %33 ], [ %.01317.i.i.i, %._crit_edge.i.i.i ]
+  %.010.lcssa20.i.i.i = phi ptr [ %.010.lcssa19.i.i.i, %33 ], [ %.01115.i.i.i, %._crit_edge.i.i.i ]
+  %.sroa.01.0.i.i.i = phi ptr [ %34, %33 ], [ %.01115.i.i.i, %._crit_edge.i.i.i ]
   %37 = icmp ult ptr %36, %.val7.i
   br i1 %37, label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread.i, label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread13.i
 
@@ -55503,39 +55503,39 @@ _ZNSt3mapIPN5clang7VarDeclEN12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfo
   br label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread.i
 
 54:                                               ; preds = %46
-  %.01315.i16.i.i = load ptr, ptr %3, align 8
-  %.not16.i17.i.i = icmp eq ptr %.01315.i16.i.i, null
-  br i1 %.not16.i17.i.i, label %._crit_edge.thread.i33.i.i, label %.lr.ph.i18.i.i
+  %.01113.i16.i.i = load ptr, ptr %3, align 8
+  %.not14.i17.i.i = icmp eq ptr %.01113.i16.i.i, null
+  br i1 %.not14.i17.i.i, label %._crit_edge.thread.i33.i.i, label %.lr.ph.i18.i.i
 
 .lr.ph.i18.i.i:                                   ; preds = %54, %.lr.ph.i18.i.i
-  %.01317.i19.i.i = phi ptr [ %.013.i22.i.i, %.lr.ph.i18.i.i ], [ %.01315.i16.i.i, %54 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.01317.i19.i.i, i64 32
+  %.01115.i19.i.i = phi ptr [ %.011.i22.i.i, %.lr.ph.i18.i.i ], [ %.01113.i16.i.i, %54 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.01115.i19.i.i, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = icmp ult ptr %.val7.i, %56
   %.in.v.i20.i.i = select i1 %57, i64 16, i64 24
-  %.in.i21.i.i = getelementptr i8, ptr %.01317.i19.i.i, i64 %.in.v.i20.i.i
-  %.013.i22.i.i = load ptr, ptr %.in.i21.i.i, align 8
-  %.not.i23.i.i = icmp eq ptr %.013.i22.i.i, null
+  %.in.i21.i.i = getelementptr i8, ptr %.01115.i19.i.i, i64 %.in.v.i20.i.i
+  %.011.i22.i.i = load ptr, ptr %.in.i21.i.i, align 8
+  %.not.i23.i.i = icmp eq ptr %.011.i22.i.i, null
   br i1 %.not.i23.i.i, label %._crit_edge.i24.i.i, label %.lr.ph.i18.i.i, !llvm.loop !141
 
 ._crit_edge.i24.i.i:                              ; preds = %.lr.ph.i18.i.i
   br i1 %57, label %._crit_edge.thread.i33.i.i, label %61
 
 ._crit_edge.thread.i33.i.i:                       ; preds = %._crit_edge.i24.i.i, %54
-  %.012.lcssa21.i34.i.i = phi ptr [ %.01317.i19.i.i, %._crit_edge.i24.i.i ], [ %4, %54 ]
-  %58 = icmp eq ptr %.012.lcssa21.i34.i.i, %44
+  %.010.lcssa19.i34.i.i = phi ptr [ %.01115.i19.i.i, %._crit_edge.i24.i.i ], [ %4, %54 ]
+  %58 = icmp eq ptr %.010.lcssa19.i34.i.i, %44
   br i1 %58, label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread.i, label %59
 
 59:                                               ; preds = %._crit_edge.thread.i33.i.i
-  %60 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.012.lcssa21.i34.i.i) #20
+  %60 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i34.i.i) #20
   %.phi.trans.insert29.i.i = getelementptr inbounds nuw i8, ptr %60, i64 32
   %.pre30.i.i = load ptr, ptr %.phi.trans.insert29.i.i, align 8
   br label %61
 
 61:                                               ; preds = %59, %._crit_edge.i24.i.i
   %62 = phi ptr [ %.pre30.i.i, %59 ], [ %56, %._crit_edge.i24.i.i ]
-  %.012.lcssa22.i25.i.i = phi ptr [ %.012.lcssa21.i34.i.i, %59 ], [ %.01317.i19.i.i, %._crit_edge.i24.i.i ]
-  %.sroa.01.0.i26.i.i = phi ptr [ %60, %59 ], [ %.01317.i19.i.i, %._crit_edge.i24.i.i ]
+  %.010.lcssa20.i25.i.i = phi ptr [ %.010.lcssa19.i34.i.i, %59 ], [ %.01115.i19.i.i, %._crit_edge.i24.i.i ]
+  %.sroa.01.0.i26.i.i = phi ptr [ %60, %59 ], [ %.01115.i19.i.i, %._crit_edge.i24.i.i ]
   %63 = icmp ult ptr %62, %.val7.i
   br i1 %63, label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread.i, label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread13.i
 
@@ -55565,41 +55565,41 @@ _ZNSt3mapIPN5clang7VarDeclEN12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfo
   br label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread.i
 
 78:                                               ; preds = %70
-  %.01315.i37.i.i = load ptr, ptr %3, align 8
-  %.not16.i38.i.i = icmp eq ptr %.01315.i37.i.i, null
-  br i1 %.not16.i38.i.i, label %._crit_edge.thread.i54.i.i, label %.lr.ph.i39.i.i
+  %.01113.i37.i.i = load ptr, ptr %3, align 8
+  %.not14.i38.i.i = icmp eq ptr %.01113.i37.i.i, null
+  br i1 %.not14.i38.i.i, label %._crit_edge.thread.i54.i.i, label %.lr.ph.i39.i.i
 
 .lr.ph.i39.i.i:                                   ; preds = %78, %.lr.ph.i39.i.i
-  %.01317.i40.i.i = phi ptr [ %.013.i43.i.i, %.lr.ph.i39.i.i ], [ %.01315.i37.i.i, %78 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.01317.i40.i.i, i64 32
+  %.01115.i40.i.i = phi ptr [ %.011.i43.i.i, %.lr.ph.i39.i.i ], [ %.01113.i37.i.i, %78 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.01115.i40.i.i, i64 32
   %80 = load ptr, ptr %79, align 8
   %81 = icmp ult ptr %.val7.i, %80
   %.in.v.i41.i.i = select i1 %81, i64 16, i64 24
-  %.in.i42.i.i = getelementptr i8, ptr %.01317.i40.i.i, i64 %.in.v.i41.i.i
-  %.013.i43.i.i = load ptr, ptr %.in.i42.i.i, align 8
-  %.not.i44.i.i = icmp eq ptr %.013.i43.i.i, null
+  %.in.i42.i.i = getelementptr i8, ptr %.01115.i40.i.i, i64 %.in.v.i41.i.i
+  %.011.i43.i.i = load ptr, ptr %.in.i42.i.i, align 8
+  %.not.i44.i.i = icmp eq ptr %.011.i43.i.i, null
   br i1 %.not.i44.i.i, label %._crit_edge.i45.i.i, label %.lr.ph.i39.i.i, !llvm.loop !141
 
 ._crit_edge.i45.i.i:                              ; preds = %.lr.ph.i39.i.i
   br i1 %81, label %._crit_edge.thread.i54.i.i, label %86
 
 ._crit_edge.thread.i54.i.i:                       ; preds = %._crit_edge.i45.i.i, %78
-  %.012.lcssa21.i55.i.i = phi ptr [ %.01317.i40.i.i, %._crit_edge.i45.i.i ], [ %4, %78 ]
+  %.010.lcssa19.i55.i.i = phi ptr [ %.01115.i40.i.i, %._crit_edge.i45.i.i ], [ %4, %78 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 24
   %.val9.i56.i.i = load ptr, ptr %82, align 8
-  %83 = icmp eq ptr %.012.lcssa21.i55.i.i, %.val9.i56.i.i
+  %83 = icmp eq ptr %.010.lcssa19.i55.i.i, %.val9.i56.i.i
   br i1 %83, label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread.i, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i54.i.i
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.012.lcssa21.i55.i.i) #20
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i55.i.i) #20
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i45.i.i
   %87 = phi ptr [ %.pre.i.i, %84 ], [ %80, %._crit_edge.i45.i.i ]
-  %.012.lcssa22.i46.i.i = phi ptr [ %.012.lcssa21.i55.i.i, %84 ], [ %.01317.i40.i.i, %._crit_edge.i45.i.i ]
-  %.sroa.01.0.i47.i.i = phi ptr [ %85, %84 ], [ %.01317.i40.i.i, %._crit_edge.i45.i.i ]
+  %.010.lcssa20.i46.i.i = phi ptr [ %.010.lcssa19.i55.i.i, %84 ], [ %.01115.i40.i.i, %._crit_edge.i45.i.i ]
+  %.sroa.01.0.i47.i.i = phi ptr [ %85, %84 ], [ %.01115.i40.i.i, %._crit_edge.i45.i.i ]
   %88 = icmp ult ptr %87, %.val7.i
   br i1 %88, label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread.i, label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread13.i
 
@@ -55610,7 +55610,7 @@ _ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewr
   br i1 %.not.i, label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread13.i, label %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread.i
 
 _ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.thread.i: ; preds = %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.i, %86, %._crit_edge.thread.i54.i.i, %75, %61, %._crit_edge.thread.i33.i.i, %51, %35, %._crit_edge.thread.i.i.i, %21
-  %.sroa.12.0.i10.i = phi ptr [ %.sroa.12.0.i.i, %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.i ], [ %.012.lcssa21.i55.i.i, %._crit_edge.thread.i54.i.i ], [ %.012.lcssa21.i34.i.i, %._crit_edge.thread.i33.i.i ], [ %.012.lcssa21.i.i.i, %._crit_edge.thread.i.i.i ], [ %spec.select24.i.i, %75 ], [ %spec.select22.i.i, %51 ], [ %23, %21 ], [ %.012.lcssa22.i.i.i, %35 ], [ %.012.lcssa22.i25.i.i, %61 ], [ %.012.lcssa22.i46.i.i, %86 ]
+  %.sroa.12.0.i10.i = phi ptr [ %.sroa.12.0.i.i, %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.i ], [ %.010.lcssa19.i55.i.i, %._crit_edge.thread.i54.i.i ], [ %.010.lcssa19.i34.i.i, %._crit_edge.thread.i33.i.i ], [ %.010.lcssa19.i.i.i, %._crit_edge.thread.i.i.i ], [ %spec.select24.i.i, %75 ], [ %spec.select22.i.i, %51 ], [ %23, %21 ], [ %.010.lcssa20.i.i.i, %35 ], [ %.010.lcssa20.i25.i.i, %61 ], [ %.010.lcssa20.i46.i.i, %86 ]
   %.sroa.021.0.i9.i = phi ptr [ %.sroa.021.0.i.i, %_ZNSt8_Rb_treeIPN5clang7VarDeclESt4pairIKS2_N12_GLOBAL__N_123AutoreleasePoolRewriter11PoolVarInfoEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_.exit.i ], [ null, %._crit_edge.thread.i54.i.i ], [ null, %._crit_edge.thread.i33.i.i ], [ null, %._crit_edge.thread.i.i.i ], [ %spec.select23.i.i, %75 ], [ %spec.select.i.i, %51 ], [ null, %21 ], [ null, %35 ], [ null, %61 ], [ null, %86 ]
   %.not.i.i10.i = icmp ne ptr %.sroa.021.0.i9.i, null
   %89 = icmp eq ptr %.sroa.12.0.i10.i, %4

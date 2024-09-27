@@ -2918,19 +2918,19 @@ define void @_ZN6opencc13PhraseExtract22CalculateSuffixEntropyEv(ptr noundef non
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %22, align 8
-  %23 = ptrtoint ptr %0 to i64
-  store i64 %23, ptr %2, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6HasherESt8equal_toIS2_ESaISt4pairIS3_mEEEEZNS0_13PhraseExtract22CalculateSuffixEntropyEvE3$_0E9_M_invokeERKSt9_Any_dataS4_SD_", ptr %21, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6HasherESt8equal_toIS2_ESaISt4pairIS3_mEEEEZNS0_13PhraseExtract22CalculateSuffixEntropyEvE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %20, align 8
+  %20 = ptrtoint ptr %0 to i64
+  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %23, align 8
+  store i64 %20, ptr %2, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6HasherESt8equal_toIS2_ESaISt4pairIS3_mEEEEZNS0_13PhraseExtract22CalculateSuffixEntropyEvE3$_0E9_M_invokeERKSt9_Any_dataS4_SD_", ptr %22, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6HasherESt8equal_toIS2_ESaISt4pairIS3_mEEEEZNS0_13PhraseExtract22CalculateSuffixEntropyEvE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %21, align 8
   invoke void @_ZN6opencc28CalculatePrefixSuffixEntropyILb1EEEvRKSt6vectorINS_19UTF8StringSliceBaseIhEESaIS3_EEmmmRKSt8functionIFvRKS3_RSt13unordered_mapIS3_mNS3_6HasherESt8equal_toIS3_ESaISt4pairIS9_mEEEEE(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %15, i64 noundef %17, i64 noundef %19, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %24 unwind label %32
 
 24:                                               ; preds = %12
-  %25 = load ptr, ptr %20, align 8
+  %25 = load ptr, ptr %21, align 8
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6HasherESt8equal_toIS2_ESaISt4pairIS3_mEEEEED2Ev.exit, label %26
 
@@ -2953,7 +2953,7 @@ _ZNSt8functionIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6
 32:                                               ; preds = %12
   %33 = landingpad { ptr, i32 }
           cleanup
-  %34 = load ptr, ptr %20, align 8
+  %34 = load ptr, ptr %21, align 8
   %.not.i.i2 = icmp eq ptr %34, null
   br i1 %.not.i.i2, label %_ZNSt8functionIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6HasherESt8equal_toIS2_ESaISt4pairIS3_mEEEEED2Ev.exit3, label %35
 
@@ -3711,19 +3711,19 @@ define void @_ZN6opencc13PhraseExtract22CalculatePrefixEntropyEv(ptr noundef non
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %22, align 8
-  %23 = ptrtoint ptr %0 to i64
-  store i64 %23, ptr %2, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6HasherESt8equal_toIS2_ESaISt4pairIS3_mEEEEZNS0_13PhraseExtract22CalculatePrefixEntropyEvE3$_0E9_M_invokeERKSt9_Any_dataS4_SD_", ptr %21, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6HasherESt8equal_toIS2_ESaISt4pairIS3_mEEEEZNS0_13PhraseExtract22CalculatePrefixEntropyEvE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %20, align 8
+  %20 = ptrtoint ptr %0 to i64
+  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %23, align 8
+  store i64 %20, ptr %2, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6HasherESt8equal_toIS2_ESaISt4pairIS3_mEEEEZNS0_13PhraseExtract22CalculatePrefixEntropyEvE3$_0E9_M_invokeERKSt9_Any_dataS4_SD_", ptr %22, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6HasherESt8equal_toIS2_ESaISt4pairIS3_mEEEEZNS0_13PhraseExtract22CalculatePrefixEntropyEvE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %21, align 8
   invoke void @_ZN6opencc28CalculatePrefixSuffixEntropyILb0EEEvRKSt6vectorINS_19UTF8StringSliceBaseIhEESaIS3_EEmmmRKSt8functionIFvRKS3_RSt13unordered_mapIS3_mNS3_6HasherESt8equal_toIS3_ESaISt4pairIS9_mEEEEE(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %15, i64 noundef %17, i64 noundef %19, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %24 unwind label %32
 
 24:                                               ; preds = %12
-  %25 = load ptr, ptr %20, align 8
+  %25 = load ptr, ptr %21, align 8
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6HasherESt8equal_toIS2_ESaISt4pairIS3_mEEEEED2Ev.exit, label %26
 
@@ -3746,7 +3746,7 @@ _ZNSt8functionIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6
 32:                                               ; preds = %12
   %33 = landingpad { ptr, i32 }
           cleanup
-  %34 = load ptr, ptr %20, align 8
+  %34 = load ptr, ptr %21, align 8
   %.not.i.i2 = icmp eq ptr %34, null
   br i1 %.not.i.i2, label %_ZNSt8functionIFvRKN6opencc19UTF8StringSliceBaseIhEERSt13unordered_mapIS2_mNS2_6HasherESt8equal_toIS2_ESaISt4pairIS3_mEEEEED2Ev.exit3, label %35
 
@@ -9561,10 +9561,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %38, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_SF_T0_.exit"
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_RT0_.exit.i.i", %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %39, %.lr.ph.i9.i ], [ %storemerge66.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_RT0_.exit.i.i" ]
-  %39 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -16
+  %.sroa.0.03.i.i = phi ptr [ %39, %.lr.ph.i9.i ], [ %storemerge66.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_RT0_.exit.i.i" ]
+  %39 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -16
   %.sroa.03.0.copyload.i.i10.i = load ptr, ptr %39, align 8
-  %.sroa.24.0..sroa_idx.i.i11.i = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
+  %.sroa.24.0..sroa_idx.i.i11.i = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %.sroa.24.0.copyload.i.i12.i = load i64, ptr %.sroa.24.0..sroa_idx.i.i11.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %39, ptr noundef nonnull align 8 dereferenceable(10) %0, i64 10, i1 false)
   %40 = ptrtoint ptr %39 to i64
@@ -10180,9 +10180,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %11 = getelementptr inbounds i8, ptr %5, i64 248
   br label %12
 
-12:                                               ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread41"
-  %.050 = phi i64 [ %1, %.lr.ph ], [ %45, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread41" ]
-  %13 = shl i64 %.050, 1
+12:                                               ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread42"
+  %.051 = phi i64 [ %1, %.lr.ph ], [ %45, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread42" ]
+  %13 = shl i64 %.051, 1
   %14 = add i64 %13, 2
   %15 = getelementptr inbounds %"class.opencc::UTF8StringSliceBase", ptr %0, i64 %14
   %16 = or disjoint i64 %13, 1
@@ -10198,7 +10198,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 25:                                               ; preds = %12
   %26 = icmp ult i64 %20, %23
-  br i1 %26, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread41", label %27
+  br i1 %26, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread42", label %27
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %15, align 8
@@ -10220,25 +10220,25 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %41 = getelementptr inbounds i8, ptr %17, i64 8
   %42 = load i8, ptr %41, align 8
   %43 = icmp ult i8 %40, %42
-  br i1 %43, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread41"
+  br i1 %43, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread42"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit": ; preds = %27
   %44 = icmp slt i32 %.fr, 0
-  br i1 %44, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread41"
+  br i1 %44, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread42"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread": ; preds = %38, %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit"
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread41"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread42"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread41": ; preds = %38, %25, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread42": ; preds = %38, %25, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread"
   %45 = phi i64 [ %16, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread" ], [ %14, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit" ], [ %14, %25 ], [ %14, %38 ]
   %46 = getelementptr inbounds %"class.opencc::UTF8StringSliceBase", ptr %0, i64 %45
-  %47 = getelementptr inbounds %"class.opencc::UTF8StringSliceBase", ptr %0, i64 %.050
+  %47 = getelementptr inbounds %"class.opencc::UTF8StringSliceBase", ptr %0, i64 %.051
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %47, ptr noundef nonnull align 8 dereferenceable(10) %46, i64 10, i1 false)
   %48 = icmp slt i64 %45, %9
   br i1 %48, label %12, label %._crit_edge, !llvm.loop !114
 
-._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread41", %6
-  %.0.lcssa = phi i64 [ %1, %6 ], [ %45, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread41" ]
+._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread42", %6
+  %.0.lcssa = phi i64 [ %1, %6 ], [ %45, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread42" ]
   %49 = and i64 %2, 1
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %51, label %60
@@ -10267,19 +10267,19 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %62, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %7, i64 9
-  %64 = getelementptr inbounds i8, ptr %5, i64 248
+  %63 = getelementptr inbounds i8, ptr %5, i64 248
+  %64 = getelementptr inbounds i8, ptr %7, i64 9
   br label %65
 
 65:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread.i", %.lr.ph.i
-  %.025.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0926.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread.i" ]
-  %.0926.in.i = add nsw i64 %.025.i, -1
-  %.0926.i = sdiv i64 %.0926.in.i, 2
-  %66 = getelementptr inbounds %"class.opencc::UTF8StringSliceBase", ptr %0, i64 %.0926.i
-  %67 = load ptr, ptr %64, align 8
+  %.016.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0917.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread.i" ]
+  %.0917.in.i = add nsw i64 %.016.i, -1
+  %.0917.i = sdiv i64 %.0917.in.i, 2
+  %66 = getelementptr inbounds %"class.opencc::UTF8StringSliceBase", ptr %0, i64 %.0917.i
+  %67 = load ptr, ptr %63, align 8
   %68 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6opencc13PhraseExtract8DictType3GetERKNS_19UTF8StringSliceBaseIhEE(ptr noundef nonnull align 8 dereferenceable(112) %67, ptr noundef nonnull align 8 dereferenceable(10) %66)
   %69 = load i64, ptr %68, align 8
-  %70 = load ptr, ptr %64, align 8
+  %70 = load ptr, ptr %63, align 8
   %71 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6opencc13PhraseExtract8DictType3GetERKNS_19UTF8StringSliceBaseIhEE(ptr noundef nonnull align 8 dereferenceable(112) %70, ptr noundef nonnull align 8 dereferenceable(10) %7)
   %72 = load i64, ptr %71, align 8
   %73 = icmp ugt i64 %69, %72
@@ -10293,7 +10293,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %77 = load ptr, ptr %66, align 8
   %78 = load ptr, ptr %7, align 8
   %79 = getelementptr inbounds i8, ptr %66, i64 9
-  %80 = load i8, ptr %63, align 1
+  %80 = load i8, ptr %64, align 1
   %81 = load i8, ptr %79, align 1
   %82 = call i8 @llvm.umin.i8(i8 %80, i8 %81)
   %83 = zext i8 %82 to i64
@@ -10313,13 +10313,13 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %91, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread.i", label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i", %86, %65
-  %92 = getelementptr inbounds %"class.opencc::UTF8StringSliceBase", ptr %0, i64 %.025.i
+  %92 = getelementptr inbounds %"class.opencc::UTF8StringSliceBase", ptr %0, i64 %.016.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %92, ptr noundef nonnull align 8 dereferenceable(10) %66, i64 10, i1 false)
-  %93 = icmp sgt i64 %.0926.i, %1
+  %93 = icmp sgt i64 %.0917.i, %1
   br i1 %93, label %65, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !115
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %74, %86, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread.i", %60
-  %.0.lcssa.i = phi i64 [ %.1, %60 ], [ %.025.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i" ], [ %.0926.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread.i" ], [ %.025.i, %74 ], [ %.025.i, %86 ]
+  %.0.lcssa.i = phi i64 [ %.1, %60 ], [ %.016.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i" ], [ %.0917.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread.i" ], [ %.016.i, %74 ], [ %.016.i, %86 ]
   %94 = getelementptr inbounds %"class.opencc::UTF8StringSliceBase", ptr %0, i64 %.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %94, ptr noundef nonnull align 8 dereferenceable(10) %7, i64 10, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)

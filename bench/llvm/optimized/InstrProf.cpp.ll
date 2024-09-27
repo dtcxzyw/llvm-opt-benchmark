@@ -140,7 +140,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.295" = type { %"class.llvm::SmallVectorTemplateCommon.296" }
 %"class.llvm::SmallVectorTemplateCommon.296" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.297" = type { [64 x i8] }
-%class.anon.298 = type { i8 }
 %"class.llvm::IntrusiveRefCntPtr" = type { ptr }
 %"class.llvm::Expected.392" = type { %union.anon.393, i8, [7 x i8] }
 %union.anon.393 = type { %"struct.llvm::AlignedCharArrayUnion.394" }
@@ -11038,137 +11037,134 @@ declare noundef ptr @_ZN4llvm6Module17getOrInsertComdatENS_9StringRefE(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(249) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
-  %6 = alloca %class.anon.298, align 1
+  %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
-  %8 = alloca %"class.llvm::Error", align 8
-  %9 = zext i1 %4 to i8
-  store i8 %9, ptr %6, align 1
-  call fastcc void @"_ZZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bENK3$_0clES8_RNS_17CountSumOrPercentE"(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %10 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit5
+  %8 = zext i1 %4 to i8
+  call fastcc void @"_ZZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bENK3$_0clES8_RNS_17CountSumOrPercentE"(ptr dead_on_unwind noalias writable align 8 %6, i8 %8, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  %9 = load ptr, ptr %6, align 8
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit6
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call fastcc void @"_ZZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bENK3$_0clES8_RNS_17CountSumOrPercentE"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %11)
-  %12 = load ptr, ptr %8, align 8
-  %.not7 = icmp eq ptr %12, null
-  br i1 %.not7, label %13, label %_ZN4llvm5ErrorD2Ev.exit5
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  call fastcc void @"_ZZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bENK3$_0clES8_RNS_17CountSumOrPercentE"(ptr dead_on_unwind noalias writable align 8 %7, i8 %8, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %10)
+  %11 = load ptr, ptr %7, align 8
+  %.not10 = icmp eq ptr %11, null
+  br i1 %.not10, label %12, label %_ZN4llvm5ErrorD2Ev.exit6
 
-13:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  store ptr %2, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  store ptr %3, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  store i8 1, ptr %16, align 8
-  br label %_ZN4llvm5ErrorD2Ev.exit5
+12:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  store ptr %2, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  store ptr %3, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  store i8 1, ptr %15, align 8
+  br label %_ZN4llvm5ErrorD2Ev.exit6
 
-_ZN4llvm5ErrorD2Ev.exit5:                         ; preds = %_ZN4llvm5ErrorD2Ev.exit, %5, %13
-  %.sink = phi ptr [ null, %13 ], [ %10, %5 ], [ %12, %_ZN4llvm5ErrorD2Ev.exit ]
+_ZN4llvm5ErrorD2Ev.exit6:                         ; preds = %_ZN4llvm5ErrorD2Ev.exit, %5, %12
+  %.sink = phi ptr [ null, %12 ], [ %9, %5 ], [ %11, %_ZN4llvm5ErrorD2Ev.exit ]
   store ptr %.sink, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bENK3$_0clES8_RNS_17CountSumOrPercentE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #0 align 2 {
-  %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
-  %6 = alloca %"class.llvm::Expected.392", align 8
-  %7 = alloca %"class.llvm::Twine", align 8
-  %8 = alloca %"class.std::function.396", align 8
-  call void @_ZN4llvm3vfs17getRealFileSystemEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %5) #28
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 4, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %10, align 1
-  store ptr %2, ptr %7, align 8
-  %11 = load ptr, ptr %5, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
-  call void @_ZN4llvm15InstrProfReader6createERKNS_5TwineERNS_3vfs10FileSystemEPKNS_19InstrProfCorrelatorESt8functionIFvNS_5ErrorEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.392") align 8 %6, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef null, ptr noundef nonnull %8) #28
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %13 = load ptr, ptr %12, align 8
-  %.not.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit, label %14
+define internal fastcc void @"_ZZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bENK3$_0clES8_RNS_17CountSumOrPercentE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i8 %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 align 2 {
+  %4 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
+  %5 = alloca %"class.llvm::Expected.392", align 8
+  %6 = alloca %"class.llvm::Twine", align 8
+  %7 = alloca %"class.std::function.396", align 8
+  call void @_ZN4llvm3vfs17getRealFileSystemEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %4) #28
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i8 4, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 33
+  store i8 1, ptr %9, align 1
+  store ptr %1, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  call void @_ZN4llvm15InstrProfReader6createERKNS_5TwineERNS_3vfs10FileSystemEPKNS_19InstrProfCorrelatorESt8functionIFvNS_5ErrorEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.392") align 8 %5, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef null, ptr noundef nonnull %7) #28
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %.not.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit, label %13
 
-14:                                               ; preds = %4
-  %15 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3) #28
+13:                                               ; preds = %3
+  %14 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3) #28
   br label %_ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit
 
-_ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit:        ; preds = %4, %14
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %17 = load i8, ptr %16, align 8
-  %18 = trunc i8 %17 to i1
-  %19 = load i64, ptr %6, align 8
-  %20 = inttoptr i64 %19 to ptr
-  store ptr null, ptr %6, align 8
-  br i1 %18, label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit, label %_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit
+_ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit:        ; preds = %3, %13
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = load i8, ptr %15, align 8
+  %17 = trunc i8 %16 to i1
+  %18 = load i64, ptr %5, align 8
+  %19 = inttoptr i64 %18 to ptr
+  store ptr null, ptr %5, align 8
+  br i1 %17, label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit, label %_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit: ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit
-  store ptr %20, ptr %0, align 8, !alias.scope !212
-  %.not = icmp ne i64 %19, 0
+  store ptr %19, ptr %0, align 8, !alias.scope !212
+  %.not = icmp ne i64 %18, 0
   call void @llvm.assume(i1 %.not)
   br label %.critedge
 
 _ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit
-  %21 = load i8, ptr %1, align 1
-  %22 = trunc i8 %21 to i1
-  call void @_ZN4llvm15InstrProfReader16accumulateCountsERNS_17CountSumOrPercentEb(ptr noundef nonnull align 8 dereferenceable(112) %20, ptr noundef nonnull align 8 dereferenceable(40) %3, i1 noundef zeroext %22) #28
+  %20 = trunc i8 %.0.val to i1
+  call void @_ZN4llvm15InstrProfReader16accumulateCountsERNS_17CountSumOrPercentEb(ptr noundef nonnull align 8 dereferenceable(112) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i1 noundef zeroext %20) #28
   store ptr null, ptr %0, align 8
-  %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(112) %20) #28
-  %.pr = load ptr, ptr %6, align 8
-  %.pre11 = load i8, ptr %16, align 8
+  %21 = load ptr, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(112) %19) #28
+  %.pr = load ptr, ptr %5, align 8
+  %.pre6 = load i8, ptr %15, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit, %_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit
-  %26 = phi i8 [ %17, %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit ], [ %.pre11, %_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit ]
-  %27 = phi ptr [ null, %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit ], [ %.pr, %_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit ]
-  %28 = trunc i8 %26 to i1
-  %.not.i1.i = icmp eq ptr %27, null
-  br i1 %28, label %33, label %29
+  %24 = phi i8 [ %16, %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit ], [ %.pre6, %_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit ]
+  %25 = phi ptr [ null, %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit ], [ %.pr, %_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit ]
+  %26 = trunc i8 %24 to i1
+  %.not.i1.i = icmp eq ptr %25, null
+  br i1 %26, label %31, label %27
 
-29:                                               ; preds = %.critedge
+27:                                               ; preds = %.critedge
   br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm15InstrProfReaderEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm15InstrProfReaderEEclEPS1_.exit.i.i: ; preds = %29
-  %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(112) %27) #28
+_ZNKSt14default_deleteIN4llvm15InstrProfReaderEEclEPS1_.exit.i.i: ; preds = %27
+  %28 = load ptr, ptr %25, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(112) %25) #28
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit
 
-33:                                               ; preds = %.critedge
+31:                                               ; preds = %.critedge
   br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %33
-  %34 = load ptr, ptr %27, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(8) %27) #28
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %31
+  %32 = load ptr, ptr %25, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8
+  call void %34(ptr noundef nonnull align 8 dereferenceable(8) %25) #28
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit
 
-_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit: ; preds = %29, %_ZNKSt14default_deleteIN4llvm15InstrProfReaderEEclEPS1_.exit.i.i, %33, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
-  store ptr null, ptr %6, align 8
-  %37 = load ptr, ptr %5, align 8
-  %.not.i.i5 = icmp eq ptr %37, null
-  br i1 %.not.i.i5, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit, label %38
+_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit: ; preds = %27, %_ZNKSt14default_deleteIN4llvm15InstrProfReaderEEclEPS1_.exit.i.i, %31, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
+  store ptr null, ptr %5, align 8
+  %35 = load ptr, ptr %4, align 8
+  %.not.i.i5 = icmp eq ptr %35, null
+  br i1 %.not.i.i5, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit, label %36
 
-38:                                               ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
-  %40 = atomicrmw sub ptr %39, i32 1 acq_rel, align 4
-  %41 = icmp eq i32 %40, 1
-  br i1 %41, label %42, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
+36:                                               ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit
+  %37 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = atomicrmw sub ptr %37, i32 1 acq_rel, align 4
+  %39 = icmp eq i32 %38, 1
+  br i1 %39, label %40, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %37, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(12) %37) #28
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %35, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(12) %35) #28
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
 
-_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit, %38, %42
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit, %36, %40
   ret void
 }
 

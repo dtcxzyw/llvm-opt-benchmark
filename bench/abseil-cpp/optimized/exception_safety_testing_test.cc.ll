@@ -24235,7 +24235,7 @@ new.notnull.i.i:                                  ; preds = %entry
 
 delete.notnull.i.i:                               ; preds = %new.notnull.i.i
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %call.i.i.i)
-          to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE4EED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i
+          to label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvENK3$_0clEv.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i.i
   %2 = landingpad { ptr, i32 }
@@ -24243,10 +24243,6 @@ terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i.i
   %3 = extractvalue { ptr, i32 } %2, 0
   tail call void @__clang_call_terminate(ptr %3) #27
   unreachable
-
-_ZN7testing13ThrowingValueILNS_8TypeSpecE4EED2Ev.exit.i.i: ; preds = %delete.notnull.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i.i) #24
-  br label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_44ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvE3$_0EEvRKT_.exit"
 
 lpad.i.i:                                         ; preds = %new.notnull.i.i
   %4 = landingpad { ptr, i32 }
@@ -24257,6 +24253,10 @@ lpad.i.i:                                         ; preds = %new.notnull.i.i
   %6 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #24
   %matches.i = icmp eq i32 %5, %6
   br i1 %matches.i, label %catch.i, label %common.resume
+
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvENK3$_0clEv.exit.i": ; preds = %delete.notnull.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i.i) #24
+  br label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_44ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvE3$_0EEvRKT_.exit"
 
 catch.i:                                          ; preds = %lpad.i.i
   %7 = extractvalue { ptr, i32 } %4, 0
@@ -24357,7 +24357,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup13.i
   call void @__clang_call_terminate(ptr %20) #27
   unreachable
 
-"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_44ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvE3$_0EEvRKT_.exit": ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE4EED2Ev.exit.i.i, %_ZN7testing7MessageD2Ev.exit.i
+"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_44ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvE3$_0EEvRKT_.exit": ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvENK3$_0clEv.exit.i", %_ZN7testing7MessageD2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1)
@@ -24385,39 +24385,35 @@ arrayctor.loop.i.i:                               ; preds = %invoke.cont.i.i, %n
 invoke.cont.i.i:                                  ; preds = %arrayctor.loop.i.i
   %arrayctor.cur.add.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i, 4
   %arrayctor.done.i.i = icmp eq i64 %arrayctor.cur.add.i.i, 16
-  br i1 %arrayctor.done.i.i, label %delete.notnull.i.i45, label %arrayctor.loop.i.i
+  br i1 %arrayctor.done.i.i, label %delete.notnull.i.i43, label %arrayctor.loop.i.i
 
-delete.notnull.i.i45:                             ; preds = %invoke.cont.i.i
+delete.notnull.i.i43:                             ; preds = %invoke.cont.i.i
   %23 = load i64, ptr %call.i.i.i3, align 4
   %arraydestroy.isempty8.i.i = icmp eq i64 %23, 0
-  br i1 %arraydestroy.isempty8.i.i, label %arraydestroy.done13.i.i, label %arraydestroy.body9.preheader.i.i
+  br i1 %arraydestroy.isempty8.i.i, label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvENK3$_1clEv.exit.i", label %arraydestroy.body9.preheader.i.i
 
-arraydestroy.body9.preheader.i.i:                 ; preds = %delete.notnull.i.i45
-  %delete.end.i.i.idx = shl nsw i64 %23, 2
-  %.ptr.i.i.add = add nsw i64 %delete.end.i.i.idx, 8
+arraydestroy.body9.preheader.i.i:                 ; preds = %delete.notnull.i.i43
+  %delete.end.i.idx.i = shl nsw i64 %23, 2
+  %.ptr.i.add.i = add nsw i64 %delete.end.i.idx.i, 8
   br label %arraydestroy.body9.i.i
 
-arraydestroy.body9.i.i:                           ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE4EED2Ev.exit.i.i47, %arraydestroy.body9.preheader.i.i
-  %arraydestroy.elementPast10.i.i.idx = phi i64 [ %arraydestroy.elementPast10.i.i.add, %_ZN7testing13ThrowingValueILNS_8TypeSpecE4EED2Ev.exit.i.i47 ], [ %.ptr.i.i.add, %arraydestroy.body9.preheader.i.i ]
-  %arraydestroy.elementPast10.i.i.add = add nsw i64 %arraydestroy.elementPast10.i.i.idx, -4
-  %arraydestroy.element11.i.i.ptr = getelementptr inbounds i8, ptr %call.i.i.i3, i64 %arraydestroy.elementPast10.i.i.add
-  invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %arraydestroy.element11.i.i.ptr)
-          to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE4EED2Ev.exit.i.i47 unwind label %terminate.lpad.i.i.i.i46
+arraydestroy.body9.i.i:                           ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE4EED2Ev.exit.i.i, %arraydestroy.body9.preheader.i.i
+  %arraydestroy.elementPast10.i.idx.i = phi i64 [ %arraydestroy.elementPast10.i.add.i, %_ZN7testing13ThrowingValueILNS_8TypeSpecE4EED2Ev.exit.i.i ], [ %.ptr.i.add.i, %arraydestroy.body9.preheader.i.i ]
+  %arraydestroy.elementPast10.i.add.i = add nsw i64 %arraydestroy.elementPast10.i.idx.i, -4
+  %arraydestroy.element11.i.ptr.i = getelementptr inbounds i8, ptr %call.i.i.i3, i64 %arraydestroy.elementPast10.i.add.i
+  invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %arraydestroy.element11.i.ptr.i)
+          to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE4EED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i44
 
-terminate.lpad.i.i.i.i46:                         ; preds = %arraydestroy.body9.i.i
+terminate.lpad.i.i.i.i44:                         ; preds = %arraydestroy.body9.i.i
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   call void @__clang_call_terminate(ptr %25) #27
   unreachable
 
-_ZN7testing13ThrowingValueILNS_8TypeSpecE4EED2Ev.exit.i.i47: ; preds = %arraydestroy.body9.i.i
-  %arraydestroy.done12.i.i = icmp eq i64 %arraydestroy.elementPast10.i.i.add, 8
-  br i1 %arraydestroy.done12.i.i, label %arraydestroy.done13.i.i, label %arraydestroy.body9.i.i
-
-arraydestroy.done13.i.i:                          ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE4EED2Ev.exit.i.i47, %delete.notnull.i.i45
-  call void @_ZdaPv(ptr noundef nonnull %call.i.i.i3) #24
-  br label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_44ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvE3$_1EEvRKT_.exit"
+_ZN7testing13ThrowingValueILNS_8TypeSpecE4EED2Ev.exit.i.i: ; preds = %arraydestroy.body9.i.i
+  %arraydestroy.done12.i.i = icmp eq i64 %arraydestroy.elementPast10.i.add.i, 8
+  br i1 %arraydestroy.done12.i.i, label %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvENK3$_1clEv.exit.i", label %arraydestroy.body9.i.i
 
 lpad.i.i6:                                        ; preds = %arrayctor.loop.i.i
   %26 = landingpad { ptr, i32 }
@@ -24450,6 +24446,10 @@ cleanup.action6.i.i:                              ; preds = %_ZN7testing13Throwi
   %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #24
   %matches.i7 = icmp eq i32 %29, %30
   br i1 %matches.i7, label %catch.i10, label %common.resume
+
+"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvENK3$_1clEv.exit.i": ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE4EED2Ev.exit.i.i, %delete.notnull.i.i43
+  call void @_ZdaPv(ptr noundef nonnull %call.i.i.i3) #24
+  br label %"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_44ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvE3$_1EEvRKT_.exit"
 
 catch.i10:                                        ; preds = %cleanup.action6.i.i
   %31 = extractvalue { ptr, i32 } %26, 0
@@ -24546,7 +24546,7 @@ terminate.lpad.i14:                               ; preds = %ehcleanup13.i12
   call void @__clang_call_terminate(ptr %44) #27
   unreachable
 
-"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_44ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvE3$_1EEvRKT_.exit": ; preds = %arraydestroy.done13.i.i, %_ZN7testing7MessageD2Ev.exit.i42
+"_ZN7testing12_GLOBAL__N_113ExpectNoThrowIZNS0_44ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvE3$_1EEvRKT_.exit": ; preds = %"_ZZN7testing12_GLOBAL__N_144ThrowingValueTest_NonThrowingAllocation_Test8TestBodyEvENK3$_1clEv.exit.i", %_ZN7testing7MessageD2Ev.exit.i42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i2)
   ret void
@@ -33938,7 +33938,7 @@ _ZN7testing15AssertionResultD2Ev.exit43:          ; preds = %if.end47, %_ZNKSt14
   %contracts_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 64
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 16
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !217, !noalias !214
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !217, !noalias !214
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_113ExampleStructEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractINS2_3$_3EEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i.i.i.i.i.i, align 8, !alias.scope !217, !noalias !214
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_113ExampleStructEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractINS2_3$_3EEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i, align 8, !alias.scope !217, !noalias !214
   invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i)
@@ -34225,7 +34225,7 @@ _ZN7testing15AssertionResultD2Ev.exit58:          ; preds = %if.end75, %_ZNKSt14
   %contracts_.i.i.i.i72 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i60, i64 64
   %_M_manager.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i59, i64 16
   %_M_invoker.i.i.i.i.i.i74 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i59, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i59, i8 0, i64 16, i1 false), !alias.scope !228, !noalias !225
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i59, i8 0, i64 16, i1 false), !alias.scope !228, !noalias !225
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_113ExampleStructEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractINS2_3$_4EEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i.i.i.i.i.i74, align 8, !alias.scope !228, !noalias !225
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_113ExampleStructEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractINS2_3$_4EEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i73, align 8, !alias.scope !228, !noalias !225
   invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i72, ptr %ref.tmp.i.i.i.i59)
@@ -34524,8 +34524,8 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEEC2IRKPS7_vEEOT_.exit.i.i: ; preds = %if.then.i.i.i, %entry
   %__x.val.i.i.i.i = phi ptr [ null, %entry ], [ @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, %if.then.i.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, i8 0, i64 32, i1 false), !noalias !237
   %cmp.i.not.i2.i.i = icmp eq ptr %operation_.val, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, i8 0, i64 32, i1 false), !noalias !237
   br i1 %cmp.i.not.i2.i.i, label %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2IRPS4_vEEOT_.exit.i.i, label %if.then.i3.i.i
 
 if.then.i3.i.i:                                   ; preds = %_ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEEC2IRKPS7_vEEOT_.exit.i.i
@@ -34621,12 +34621,12 @@ terminate.lpad.i.i12.i.i.i:                       ; preds = %if.then.i.i10.i.i.i
 invoke.cont.i.i.i:                                ; preds = %invoke.cont.i14.i.i.i, %_ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEEC2ERKS8_.exit.i.i.i
   %contracts_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
   %contracts.val.i.i.i = load ptr, ptr %contracts_.i.i, align 8, !noalias !237
+  %15 = ptrtoint ptr %contracts.val.i.i.i to i64
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
   %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 24
-  %15 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
-  store i64 0, ptr %15, align 8, !alias.scope !240, !noalias !237
-  %16 = ptrtoint ptr %contracts.val.i.i.i to i64
-  store i64 %16, ptr %ref.tmp.i.i.i, align 8, !alias.scope !240, !noalias !237
+  %16 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
+  store i64 0, ptr %16, align 8, !alias.scope !240, !noalias !237
+  store i64 %15, ptr %ref.tmp.i.i.i, align 8, !alias.scope !240, !noalias !237
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_113ExampleStructEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPS5_EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i.i.i.i, align 8, !alias.scope !240, !noalias !237
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_113ExampleStructEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPS5_EESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i, align 8, !alias.scope !240, !noalias !237
   invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i, ptr %ref.tmp.i.i.i)
@@ -37689,12 +37689,12 @@ entry:
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_119FailsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i.i.i.i.i, align 8, !alias.scope !357, !noalias !354
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_119FailsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i.i, align 8, !alias.scope !357, !noalias !354
   %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 32
+  %2 = ptrtoint ptr %ref.tmp.i.i.i to i64
   %_M_manager.i.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 48
   %_M_invoker.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 56
-  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 40
-  store i64 0, ptr %2, align 8, !alias.scope !360, !noalias !354
-  %3 = ptrtoint ptr %ref.tmp.i.i.i to i64
-  store i64 %3, ptr %arrayinit.element.i.i.i.i, align 8, !alias.scope !360, !noalias !354
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 40
+  store i64 0, ptr %3, align 8, !alias.scope !360, !noalias !354
+  store i64 %2, ptr %arrayinit.element.i.i.i.i, align 8, !alias.scope !360, !noalias !354
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_119FailsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i17.i.i.i.i, align 8, !alias.scope !360, !noalias !354
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_119FailsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i16.i.i.i.i, align 8, !alias.scope !360, !noalias !354
   invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 2)
@@ -38031,12 +38031,12 @@ _ZN7testing15AssertionResultD2Ev.exit20:          ; preds = %if.end, %_ZNKSt14de
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i.i.i.i.i37, align 8, !alias.scope !371, !noalias !368
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i.i36, align 8, !alias.scope !371, !noalias !368
   %arrayinit.element.i.i.i.i38 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i22, i64 32
+  %46 = ptrtoint ptr %ref.tmp.i.i.i23 to i64
   %_M_manager.i.i.i16.i.i.i.i39 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i22, i64 48
   %_M_invoker.i.i17.i.i.i.i40 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i22, i64 56
-  %46 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i22, i64 40
-  store i64 0, ptr %46, align 8, !alias.scope !374, !noalias !368
-  %47 = ptrtoint ptr %ref.tmp.i.i.i23 to i64
-  store i64 %47, ptr %arrayinit.element.i.i.i.i38, align 8, !alias.scope !374, !noalias !368
+  %47 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i22, i64 40
+  store i64 0, ptr %47, align 8, !alias.scope !374, !noalias !368
+  store i64 %46, ptr %arrayinit.element.i.i.i.i38, align 8, !alias.scope !374, !noalias !368
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i17.i.i.i.i40, align 8, !alias.scope !374, !noalias !368
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i16.i.i.i.i39, align 8, !alias.scope !374, !noalias !368
   invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i35, ptr %ref.tmp.i.i.i.i22, i64 2)
@@ -38844,7 +38844,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i19, i64 32
   %_M_manager.i.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i19, i64 48
   %_M_invoker.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i19, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !427, !noalias !421
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayinit.element.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !427, !noalias !421
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i.i17.i.i.i.i, align 8, !alias.scope !427, !noalias !421
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_56ExceptionCheckTest_BasicGuaranteeWithExtraContracts_Test8TestBodyEvE3$_0EESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %_M_manager.i.i.i16.i.i.i.i, align 8, !alias.scope !427, !noalias !421
   invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i32, ptr %ref.tmp.i.i.i.i19, i64 2)
@@ -40376,12 +40376,12 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i.i.i.i.i33, align 8, !alias.scope !481, !noalias !478
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i.i32, align 8, !alias.scope !481, !noalias !478
   %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i18, i64 32
+  %40 = ptrtoint ptr %ref.tmp.i.i.i19 to i64
   %_M_manager.i.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i18, i64 48
   %_M_invoker.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i18, i64 56
-  %40 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i18, i64 40
-  store i64 0, ptr %40, align 8, !alias.scope !484, !noalias !478
-  %41 = ptrtoint ptr %ref.tmp.i.i.i19 to i64
-  store i64 %41, ptr %arrayinit.element.i.i.i.i, align 8, !alias.scope !484, !noalias !478
+  %41 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i18, i64 40
+  store i64 0, ptr %41, align 8, !alias.scope !484, !noalias !478
+  store i64 %40, ptr %arrayinit.element.i.i.i.i, align 8, !alias.scope !484, !noalias !478
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i17.i.i.i.i, align 8, !alias.scope !484, !noalias !478
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i16.i.i.i.i, align 8, !alias.scope !484, !noalias !478
   invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i31, ptr %ref.tmp.i.i.i.i18, i64 2)
@@ -41454,13 +41454,13 @@ entry:
   %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 32
   %_M_manager.i.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 48
   %_M_invoker.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !534, !noalias !528
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayinit.element.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !534, !noalias !528
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i.i17.i.i.i.i, align 8, !alias.scope !534, !noalias !528
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_0EESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %_M_manager.i.i.i16.i.i.i.i, align 8, !alias.scope !534, !noalias !528
   %arrayinit.element8.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 64
   %_M_manager.i.i.i18.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 80
   %_M_invoker.i.i19.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element8.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !537, !noalias !528
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayinit.element8.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !537, !noalias !528
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i.i19.i.i.i.i, align 8, !alias.scope !537, !noalias !528
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %_M_manager.i.i.i18.i.i.i.i, align 8, !alias.scope !537, !noalias !528
   invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i, ptr %ref.tmp.i.i.i.i, i64 3)
@@ -41797,18 +41797,18 @@ _ZN7testing15AssertionResultD2Ev.exit27:          ; preds = %if.end, %_ZNKSt14de
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i.i.i.i.i45, align 8, !alias.scope !548, !noalias !545
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i.i44, align 8, !alias.scope !548, !noalias !545
   %arrayinit.element.i.i.i.i46 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i30, i64 32
+  %44 = ptrtoint ptr %ref.tmp.i.i.i31 to i64
   %_M_manager.i.i.i16.i.i.i.i47 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i30, i64 48
   %_M_invoker.i.i17.i.i.i.i48 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i30, i64 56
-  %44 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i30, i64 40
-  store i64 0, ptr %44, align 8, !alias.scope !551, !noalias !545
-  %45 = ptrtoint ptr %ref.tmp.i.i.i31 to i64
-  store i64 %45, ptr %arrayinit.element.i.i.i.i46, align 8, !alias.scope !551, !noalias !545
+  %45 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i30, i64 40
+  store i64 0, ptr %45, align 8, !alias.scope !551, !noalias !545
+  store i64 %44, ptr %arrayinit.element.i.i.i.i46, align 8, !alias.scope !551, !noalias !545
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i17.i.i.i.i48, align 8, !alias.scope !551, !noalias !545
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i16.i.i.i.i47, align 8, !alias.scope !551, !noalias !545
   %arrayinit.element7.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i30, i64 64
   %_M_manager.i.i.i18.i.i.i.i49 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i30, i64 80
   %_M_invoker.i.i19.i.i.i.i50 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i30, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element7.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !554, !noalias !545
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayinit.element7.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !554, !noalias !545
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i.i19.i.i.i.i50, align 8, !alias.scope !554, !noalias !545
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_122FollowsStrongGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_2EESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %_M_manager.i.i.i18.i.i.i.i49, align 8, !alias.scope !554, !noalias !545
   invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i43, ptr %ref.tmp.i.i.i.i30, i64 3)
@@ -43468,7 +43468,7 @@ invoke.cont.i.i.i:                                ; preds = %invoke.cont.i14.i.i
   %contracts_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
   %_M_manager.i.i.i16.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
   %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, i8 0, i64 16, i1 false), !alias.scope !621, !noalias !618
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, i8 0, i64 16, i1 false), !alias.scope !621, !noalias !618
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_13ThrowingValueILNS0_8TypeSpecE0EEEEZNS0_19exceptions_internal19ExceptionSafetyTestIS4_E12WrapContractIZNS0_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_0EESt8functionIS6_ERKT_EUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_", ptr %_M_invoker.i.i.i.i.i, align 8, !alias.scope !621, !noalias !618
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_13ThrowingValueILNS0_8TypeSpecE0EEEEZNS0_19exceptions_internal19ExceptionSafetyTestIS4_E12WrapContractIZNS0_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_0EESt8functionIS6_ERKT_EUlS5_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %_M_manager.i.i.i16.i.i.i, align 8, !alias.scope !621, !noalias !618
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i, i8 0, i64 24, i1 false), !noalias !618
@@ -44684,12 +44684,12 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_111NonCopyableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i.i.i.i.i31, align 8, !alias.scope !665, !noalias !662
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_111NonCopyableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i.i30, align 8, !alias.scope !665, !noalias !662
   %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i16, i64 32
+  %40 = ptrtoint ptr %ref.tmp.i.i.i17 to i64
   %_M_manager.i.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i16, i64 48
   %_M_invoker.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i16, i64 56
-  %40 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i16, i64 40
-  store i64 0, ptr %40, align 8, !alias.scope !668, !noalias !662
-  %41 = ptrtoint ptr %ref.tmp.i.i.i17 to i64
-  store i64 %41, ptr %arrayinit.element.i.i.i.i, align 8, !alias.scope !668, !noalias !662
+  %41 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i16, i64 40
+  store i64 0, ptr %41, align 8, !alias.scope !668, !noalias !662
+  store i64 %40, ptr %arrayinit.element.i.i.i.i, align 8, !alias.scope !668, !noalias !662
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_111NonCopyableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i17.i.i.i.i, align 8, !alias.scope !668, !noalias !662
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_111NonCopyableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractENS6_22StrongGuaranteeTagTypeEEUlS4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i16.i.i.i.i, align 8, !alias.scope !668, !noalias !662
   invoke fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i29, ptr %ref.tmp.i.i.i.i16, i64 2)
@@ -46220,18 +46220,18 @@ terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
 invoke.cont:                                      ; preds = %invoke.cont.i14, %_ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS3_EEvEEC2ERKS8_.exit
   %contracts_ = getelementptr inbounds i8, ptr %this, i64 64
   %contracts.val = load ptr, ptr %contracts, align 8
+  %14 = ptrtoint ptr %contracts.val to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %14 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %14, align 8, !alias.scope !724
-  %15 = ptrtoint ptr %contracts.val to i64
-  store i64 %15, ptr %ref.tmp, align 8, !alias.scope !724
+  %15 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %15, align 8, !alias.scope !724
+  store i64 %14, ptr %ref.tmp, align 8, !alias.scope !724
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121NonEqualityComparableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_, ptr %_M_invoker.i.i, align 8, !alias.scope !724
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121NonEqualityComparableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIPFS1_PNS2_11NonNegativeEEEESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8, !alias.scope !724
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %_M_manager.i.i.i16 = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   %_M_invoker.i.i17 = getelementptr inbounds i8, ptr %ref.tmp, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element, i8 0, i64 16, i1 false), !alias.scope !727
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayinit.element, i8 0, i64 16, i1 false), !alias.scope !727
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121NonEqualityComparableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i.i17, align 8, !alias.scope !727
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121NonEqualityComparableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIS5_ERKT_EUlS4_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %_M_manager.i.i.i16, align 8, !alias.scope !727
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contracts_, i8 0, i64 24, i1 false)
@@ -47746,16 +47746,16 @@ _ZN7testing15AssertionResultD2Ev.exit35:          ; preds = %if.end33, %_ZNKSt14
   %contracts_.i.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i44, i64 64
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i43, i64 16
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i43, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i43, i8 0, i64 16, i1 false), !alias.scope !793, !noalias !790
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i43, i8 0, i64 16, i1 false), !alias.scope !793, !noalias !790
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEZNS0_19exceptions_internal19ExceptionSafetyTestIS7_E12WrapContractINS2_4$_11EEESt8functionIS9_ERKT_EUlS8_E_E9_M_invokeERKSt9_Any_dataOS8_", ptr %_M_invoker.i.i.i.i.i.i, align 8, !alias.scope !793, !noalias !790
   store ptr @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEZNS0_19exceptions_internal19ExceptionSafetyTestIS7_E12WrapContractINS2_4$_11EEESt8functionIS9_ERKT_EUlS8_E_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i, align 8, !alias.scope !793, !noalias !790
   %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i43, i64 32
+  %59 = ptrtoint ptr %ref.tmp.i.i.i44 to i64
   %_M_manager.i.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i43, i64 48
   %_M_invoker.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i43, i64 56
-  %59 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i43, i64 40
-  store i64 0, ptr %59, align 8, !alias.scope !796, !noalias !790
-  %60 = ptrtoint ptr %ref.tmp.i.i.i44 to i64
-  store i64 %60, ptr %arrayinit.element.i.i.i.i, align 8, !alias.scope !796, !noalias !790
+  %60 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i43, i64 40
+  store i64 0, ptr %60, align 8, !alias.scope !796, !noalias !790
+  store i64 %59, ptr %arrayinit.element.i.i.i.i, align 8, !alias.scope !796, !noalias !790
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEZNS0_19exceptions_internal19ExceptionSafetyTestIS7_E12WrapContractENSA_22StrongGuaranteeTagTypeEEUlS8_E_E9_M_invokeERKSt9_Any_dataOS8_, ptr %_M_invoker.i.i17.i.i.i.i, align 8, !alias.scope !796, !noalias !790
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEZNS0_19exceptions_internal19ExceptionSafetyTestIS7_E12WrapContractENSA_22StrongGuaranteeTagTypeEEUlS8_E_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %_M_manager.i.i.i16.i.i.i.i, align 8, !alias.scope !796, !noalias !790
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contracts_.i.i.i.i56, i8 0, i64 24, i1 false), !noalias !790

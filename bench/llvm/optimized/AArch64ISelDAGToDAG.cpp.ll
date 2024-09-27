@@ -28458,21 +28458,21 @@ define internal fastcc void @_ZN4llvm9transformIRNS_11SmallVectorINS_7SDValueELj
   %8 = load ptr, ptr %0, align 8
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   %10 = getelementptr inbounds %"class.llvm::SDValue", ptr %8, i64 %9
-  %.not13.i = icmp eq i64 %9, 0
-  br i1 %.not13.i, label %_ZSt9transformIPN4llvm7SDValueES2_N12_GLOBAL__N_111WidenVectorEET0_T_S6_S5_T1_.exit, label %.lr.ph.i
+  %.not12.i = icmp eq i64 %9, 0
+  br i1 %.not12.i, label %_ZSt9transformIPN4llvm7SDValueES2_N12_GLOBAL__N_111WidenVectorEET0_T_S6_S5_T1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.215.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.25.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
   br label %13
 
 13:                                               ; preds = %_ZN12_GLOBAL__N_111WidenVectorclEN4llvm7SDValueE.exit.i, %.lr.ph.i
-  %.015.i = phi ptr [ %8, %.lr.ph.i ], [ %54, %_ZN12_GLOBAL__N_111WidenVectorclEN4llvm7SDValueE.exit.i ]
-  %.01114.i = phi ptr [ %1, %.lr.ph.i ], [ %55, %_ZN12_GLOBAL__N_111WidenVectorclEN4llvm7SDValueE.exit.i ]
-  %.sroa.01.0.copyload.i = load ptr, ptr %.015.i, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %.015.i, i64 8
+  %.014.i = phi ptr [ %8, %.lr.ph.i ], [ %54, %_ZN12_GLOBAL__N_111WidenVectorclEN4llvm7SDValueE.exit.i ]
+  %.01113.i = phi ptr [ %1, %.lr.ph.i ], [ %55, %_ZN12_GLOBAL__N_111WidenVectorclEN4llvm7SDValueE.exit.i ]
+  %.sroa.01.0.copyload.i = load ptr, ptr %.014.i, align 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %.014.i, i64 8
   %.sroa.22.0.copyload.i = load i32, ptr %.sroa.22.0..sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -28565,7 +28565,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i.i:           ; preds = %46, %_ZNK4llvm3EVT2
   store i32 %49, ptr %12, align 8
   %50 = call noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(904) %2, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(12) %5, i16 %43, ptr null) #22
   store ptr %50, ptr %6, align 8
-  store i32 0, ptr %.sroa.215.0..sroa_idx.i.i, align 8
+  store i32 0, ptr %.sroa.25.0..sroa_idx.i.i, align 8
   store ptr %.sroa.01.0.copyload.i, ptr %7, align 8
   store i32 %.sroa.22.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %51 = call { ptr, i32 } @_ZN4llvm12SelectionDAG21getTargetInsertSubregEiRKNS_5SDLocENS_3EVTENS_7SDValueES5_(ptr noundef nonnull align 8 dereferenceable(904) %2, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %5, i16 %43, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %7) #22
@@ -28584,11 +28584,11 @@ _ZN12_GLOBAL__N_111WidenVectorclEN4llvm7SDValueE.exit.i: ; preds = %53, %_ZN4llv
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %.fca.0.extract.i = extractvalue { ptr, i32 } %51, 0
   %.fca.1.extract.i = extractvalue { ptr, i32 } %51, 1
-  store ptr %.fca.0.extract.i, ptr %.01114.i, align 8
-  %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %.01114.i, i64 8
+  store ptr %.fca.0.extract.i, ptr %.01113.i, align 8
+  %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %.01113.i, i64 8
   store i32 %.fca.1.extract.i, ptr %.sroa.24.0..sroa_idx.i, align 8
-  %54 = getelementptr inbounds i8, ptr %.015.i, i64 16
-  %55 = getelementptr inbounds i8, ptr %.01114.i, i64 16
+  %54 = getelementptr inbounds i8, ptr %.014.i, i64 16
+  %55 = getelementptr inbounds i8, ptr %.01113.i, i64 16
   %.not.i = icmp eq ptr %54, %10
   br i1 %.not.i, label %_ZSt9transformIPN4llvm7SDValueES2_N12_GLOBAL__N_111WidenVectorEET0_T_S6_S5_T1_.exit, label %13, !llvm.loop !121
 

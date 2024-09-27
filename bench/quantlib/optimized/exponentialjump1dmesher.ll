@@ -951,12 +951,12 @@ entry:
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp15) #19
   call void @_ZN8QuantLib20GaussLobattoIntegralC1Emddb(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp15, i64 noundef 10000, double noundef 0x3D719799812DEA11, double noundef 0x47EFFFFFE0000000, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp18) #19
+  %2 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp18, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp18, i64 24
-  %2 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
-  store i64 0, ptr %2, align 8
-  %3 = ptrtoint ptr %this to i64
-  store i64 %3, ptr %ref.tmp18, align 8, !tbaa !27
+  %3 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
+  store i64 0, ptr %3, align 8
+  store i64 %2, ptr %ref.tmp18, align 8, !tbaa !27
   store ptr @"_ZNSt17_Function_handlerIFddEZNK8QuantLib23ExponentialJump1dMesher20jumpSizeDistributionEdE3$_0E9_M_invokeERKSt9_Any_dataOd", ptr %_M_invoker.i, align 8, !tbaa !38
   store ptr @"_ZNSt17_Function_handlerIFddEZNK8QuantLib23ExponentialJump1dMesher20jumpSizeDistributionEdE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i, align 8, !tbaa !41
   %eta_ = getelementptr inbounds nuw i8, ptr %this, i64 96

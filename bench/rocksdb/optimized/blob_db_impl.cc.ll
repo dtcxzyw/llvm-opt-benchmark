@@ -12144,17 +12144,17 @@ entry:
   %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 2080
   %1 = load ptr, ptr %_M_left.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 2064
-  %cmp.i.not1518.i = icmp eq ptr %1, %add.ptr.i.i.i
-  br i1 %cmp.i.not1518.i, label %"_ZN7rocksdb7blob_db10BlobDBImpl37MarkUnreferencedBlobFilesObsoleteImplIZNS1_33MarkUnreferencedBlobFilesObsoleteEvE3$_0EEvT_.exit", label %while.body.lr.ph.i
+  %cmp.i.not1619.i = icmp eq ptr %1, %add.ptr.i.i.i
+  br i1 %cmp.i.not1619.i, label %"_ZN7rocksdb7blob_db10BlobDBImpl37MarkUnreferencedBlobFilesObsoleteImplIZNS1_33MarkUnreferencedBlobFilesObsoleteEvE3$_0EEvT_.exit", label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry, %if.end16.i
-  %obsoleted_files.0.ph20.i = phi i64 [ %inc.i, %if.end16.i ], [ 0, %entry ]
-  %it.sroa.0.0.ph19.i = phi ptr [ %call.i5.i, %if.end16.i ], [ %1, %entry ]
+  %obsoleted_files.0.ph21.i = phi i64 [ %inc.i, %if.end16.i ], [ 0, %entry ]
+  %it.sroa.0.0.ph20.i = phi ptr [ %call.i6.i, %if.end16.i ], [ %1, %entry ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.then.i, %while.body.lr.ph.i
-  %it.sroa.0.016.i = phi ptr [ %it.sroa.0.0.ph19.i, %while.body.lr.ph.i ], [ %call.i.i, %if.then.i ]
-  %second.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 40
+  %it.sroa.0.017.i = phi ptr [ %it.sroa.0.0.ph20.i, %while.body.lr.ph.i ], [ %call.i.i, %if.then.i ]
+  %second.i = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 40
   %2 = load ptr, ptr %second.i, align 8
   %obsolete_.i.i = getelementptr inbounds i8, ptr %2, i64 200
   %3 = load atomic i8, ptr %obsolete_.i.i seq_cst, align 1
@@ -12162,12 +12162,12 @@ while.body.i:                                     ; preds = %if.then.i, %while.b
   br i1 %tobool.i.i.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %call.i.i = tail call ptr @_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEESt10_Select1stIS7_ESt4lessImESaIS7_EE5eraseB5cxx11ESt17_Rb_tree_iteratorIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %live_imm_non_ttl_blob_files_.i, ptr nonnull %it.sroa.0.016.i)
+  %call.i.i = tail call ptr @_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEESt10_Select1stIS7_ESt4lessImESaIS7_EE5eraseB5cxx11ESt17_Rb_tree_iteratorIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %live_imm_non_ttl_blob_files_.i, ptr nonnull %it.sroa.0.017.i)
   %cmp.i.not.i = icmp eq ptr %call.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.not.i, label %while.end.i, label %while.body.i, !llvm.loop !48
 
 if.end.i:                                         ; preds = %while.body.i
-  %second.i.le = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 40
+  %second.i.le = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 40
   %4 = load ptr, ptr %second.i.le, align 8
   %mutex_.i.i = getelementptr inbounds i8, ptr %4, i64 248
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %mutex_.i.i)
@@ -12205,19 +12205,19 @@ _ZN7rocksdb9WriteLockD2Ev.exit3.i.i:              ; preds = %lpad.i.i
   br i1 %call2.i.i, label %if.end16.i, label %while.end.i
 
 if.end16.i:                                       ; preds = %"_ZZN7rocksdb7blob_db10BlobDBImpl33MarkUnreferencedBlobFilesObsoleteEvENK3$_0clERKSt10shared_ptrINS0_8BlobFileEE.exit.i"
-  %call.i5.i = tail call ptr @_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEESt10_Select1stIS7_ESt4lessImESaIS7_EE5eraseB5cxx11ESt17_Rb_tree_iteratorIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %live_imm_non_ttl_blob_files_.i, ptr nonnull %it.sroa.0.016.i)
-  %inc.i = add i64 %obsoleted_files.0.ph20.i, 1
-  %cmp.i.not15.i = icmp eq ptr %call.i5.i, %add.ptr.i.i.i
-  br i1 %cmp.i.not15.i, label %while.end.i, label %while.body.lr.ph.i, !llvm.loop !48
+  %call.i6.i = tail call ptr @_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEESt10_Select1stIS7_ESt4lessImESaIS7_EE5eraseB5cxx11ESt17_Rb_tree_iteratorIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %live_imm_non_ttl_blob_files_.i, ptr nonnull %it.sroa.0.017.i)
+  %inc.i = add i64 %obsoleted_files.0.ph21.i, 1
+  %cmp.i.not16.i = icmp eq ptr %call.i6.i, %add.ptr.i.i.i
+  br i1 %cmp.i.not16.i, label %while.end.i, label %while.body.lr.ph.i, !llvm.loop !48
 
 while.end.i:                                      ; preds = %if.end16.i, %"_ZZN7rocksdb7blob_db10BlobDBImpl33MarkUnreferencedBlobFilesObsoleteEvENK3$_0clERKSt10shared_ptrINS0_8BlobFileEE.exit.i", %if.then.i
-  %obsoleted_files.0.ph14.i = phi i64 [ %obsoleted_files.0.ph20.i, %if.then.i ], [ %obsoleted_files.0.ph20.i, %"_ZZN7rocksdb7blob_db10BlobDBImpl33MarkUnreferencedBlobFilesObsoleteEvENK3$_0clERKSt10shared_ptrINS0_8BlobFileEE.exit.i" ], [ %inc.i, %if.end16.i ]
-  %cmp.not.i = icmp eq i64 %obsoleted_files.0.ph14.i, 0
+  %obsoleted_files.0.ph15.i = phi i64 [ %obsoleted_files.0.ph21.i, %if.then.i ], [ %obsoleted_files.0.ph21.i, %"_ZZN7rocksdb7blob_db10BlobDBImpl33MarkUnreferencedBlobFilesObsoleteEvENK3$_0clERKSt10shared_ptrINS0_8BlobFileEE.exit.i" ], [ %inc.i, %if.end16.i ]
+  %cmp.not.i = icmp eq i64 %obsoleted_files.0.ph15.i, 0
   br i1 %cmp.not.i, label %"_ZN7rocksdb7blob_db10BlobDBImpl37MarkUnreferencedBlobFilesObsoleteImplIZNS1_33MarkUnreferencedBlobFilesObsoleteEvE3$_0EEvT_.exit", label %if.then23.i
 
 if.then23.i:                                      ; preds = %while.end.i
   %info_log.i = getelementptr inbounds i8, ptr %this, i64 240
-  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log.i, ptr noundef nonnull @.str.113, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 93), i64 noundef %obsoleted_files.0.ph14.i)
+  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log.i, ptr noundef nonnull @.str.113, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 93), i64 noundef %obsoleted_files.0.ph15.i)
   %statistics_.i = getelementptr inbounds i8, ptr %this, i64 1856
   %10 = load ptr, ptr %statistics_.i, align 8
   %tobool.not.i.i = icmp eq ptr %10, null
@@ -12227,7 +12227,7 @@ if.then.i.i:                                      ; preds = %if.then23.i
   %vtable.i.i = load ptr, ptr %10, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 176
   %11 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(33) %10, i32 noundef 114, i64 noundef %obsoleted_files.0.ph14.i)
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(33) %10, i32 noundef 114, i64 noundef %obsoleted_files.0.ph15.i)
   br label %"_ZN7rocksdb7blob_db10BlobDBImpl37MarkUnreferencedBlobFilesObsoleteImplIZNS1_33MarkUnreferencedBlobFilesObsoleteEvE3$_0EEvT_.exit"
 
 "_ZN7rocksdb7blob_db10BlobDBImpl37MarkUnreferencedBlobFilesObsoleteImplIZNS1_33MarkUnreferencedBlobFilesObsoleteEvE3$_0EEvT_.exit": ; preds = %entry, %while.end.i, %if.then23.i, %if.then.i.i

@@ -2644,12 +2644,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim15GetPrimTypeInfoEv.exit.i: ; pred
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8
-  %.not6.i = icmp eq ptr %15, %17
-  br i1 %.not6.i, label %.loopexit.i, label %.lr.ph.i
+  %.not8.i = icmp eq ptr %15, %17
+  br i1 %.not8.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim15GetPrimTypeInfoEv.exit.i, %34
-  %.sroa.01.07.i = phi ptr [ %35, %34 ], [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim15GetPrimTypeInfoEv.exit.i ]
-  %18 = load ptr, ptr %.sroa.01.07.i, align 8
+  %.sroa.03.09.i = phi ptr [ %35, %34 ], [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim15GetPrimTypeInfoEv.exit.i ]
+  %18 = load ptr, ptr %.sroa.03.09.i, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %19, align 8
   %20 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__6TfType3IsAES0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr %.sroa.0.0.copyload.i)
@@ -2659,7 +2659,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim15GetPrimTypeInfoEv.exit.i: ; pred
   br i1 %20, label %22, label %34
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr %.sroa.01.07.i, align 8
+  %23 = load ptr, ptr %.sroa.03.09.i, align 8
   %24 = icmp ne ptr %23, null
   br label %.loopexitthread-pre-split.i
 
@@ -2683,7 +2683,7 @@ _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInf
   resume { ptr, i32 } %26
 
 34:                                               ; preds = %21
-  %35 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 8
+  %35 = getelementptr inbounds i8, ptr %.sroa.03.09.i, i64 8
   %.not.i = icmp eq ptr %35, %17
   br i1 %.not.i, label %.loopexitthread-pre-split.i, label %.lr.ph.i
 
@@ -2811,9 +2811,9 @@ _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInf
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L30_GetFirstSchemaInFamilyPrimIsAIJNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyEEEEPKNS2_10SchemaInfoERKNS_7UsdPrimEDpRKT_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L30_GetFirstSchemaInFamilyPrimIsAIJNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyEEEEPKNS2_10SchemaInfoERKNS_7UsdPrimEDpRKT_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim15GetPrimTypeInfoEv.exit.i, %.loopexit.i, %36
-  %spec.select.i4 = phi ptr [ %spec.select.i, %.loopexit.i ], [ %spec.select.i, %36 ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim15GetPrimTypeInfoEv.exit.i ]
+  %spec.select.i5 = phi ptr [ %spec.select.i, %.loopexit.i ], [ %spec.select.i, %36 ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim15GetPrimTypeInfoEv.exit.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %42 = icmp ne ptr %spec.select.i4, null
+  %42 = icmp ne ptr %spec.select.i5, null
   ret i1 %42
 }
 
@@ -4223,8 +4223,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8
-  %.not24.i = icmp eq ptr %12, %14
-  br i1 %.not24.i, label %.loopexit.i, label %.lr.ph.i
+  %.not8.i = icmp eq ptr %12, %14
+  br i1 %.not8.i, label %.loopexit.i, label %.lr.ph.i
 
 15:                                               ; preds = %11
   %16 = landingpad { ptr, i32 }
@@ -4232,8 +4232,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInfoESaIS4_EED2Ev.exit.i
 
 .lr.ph.i:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEjNS_17UsdSchemaRegistry13VersionPolicyE.exit.i, %32
-  %.sroa.019.025.i = phi ptr [ %33, %32 ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEjNS_17UsdSchemaRegistry13VersionPolicyE.exit.i ]
-  %17 = load ptr, ptr %.sroa.019.025.i, align 8
+  %.sroa.03.09.i = phi ptr [ %33, %32 ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEjNS_17UsdSchemaRegistry13VersionPolicyE.exit.i ]
+  %17 = load ptr, ptr %.sroa.03.09.i, align 8
   %18 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L25_IsSchemaInAppliedSchemasERKSt6vectorINS_7TfTokenESaIS1_EERKNS_17UsdSchemaRegistry10SchemaInfoE(ptr %7, ptr %9, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %19 unwind label %23
 
@@ -4241,7 +4241,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   br i1 %18, label %20, label %32
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr %.sroa.019.025.i, align 8
+  %21 = load ptr, ptr %.sroa.03.09.i, align 8
   %22 = icmp ne ptr %21, null
   br label %.loopexitthread-pre-split.i
 
@@ -4262,7 +4262,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInfoESaIS4_EED2Ev.exit.i
 
 32:                                               ; preds = %19
-  %33 = getelementptr inbounds i8, ptr %.sroa.019.025.i, i64 8
+  %33 = getelementptr inbounds i8, ptr %.sroa.03.09.i, i64 8
   %.not.i = icmp eq ptr %33, %14
   br i1 %.not.i, label %.loopexitthread-pre-split.i, label %.lr.ph.i
 
@@ -4313,7 +4313,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
   br label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %4
-  %.029.i = phi i1 [ %spec.select.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ false, %4 ]
+  %.013.i = phi i1 [ %spec.select.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ false, %4 ]
   %49 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %7, %4 ]
   %.not.i.i.i18.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i18.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L33_GetFirstSchemaInFamilyPrimHasAPIIJNS_7TfTokenEjNS_17UsdSchemaRegistry13VersionPolicyEEEEPKNS2_10SchemaInfoERKNS_7UsdPrimEDpRKT_.exit, label %50
@@ -4335,7 +4335,7 @@ _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInf
 _ZN32pxrInternal_v0_24__pxrReserved__L33_GetFirstSchemaInFamilyPrimHasAPIIJNS_7TfTokenEjNS_17UsdSchemaRegistry13VersionPolicyEEEEPKNS2_10SchemaInfoERKNS_7UsdPrimEDpRKT_.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i, %50
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  ret i1 %.029.i
+  ret i1 %.013.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4379,8 +4379,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   %22 = load ptr, ptr %8, align 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %24 = load ptr, ptr %23, align 8
-  %.not25.i = icmp eq ptr %22, %24
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph.i
+  %.not8.i = icmp eq ptr %22, %24
+  br i1 %.not8.i, label %.loopexit.i, label %.lr.ph.i
 
 25:                                               ; preds = %21
   %26 = landingpad { ptr, i32 }
@@ -4388,8 +4388,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInfoESaIS4_EED2Ev.exit.i
 
 .lr.ph.i:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEjNS_17UsdSchemaRegistry13VersionPolicyE.exit.i, %41
-  %.sroa.020.026.i = phi ptr [ %42, %41 ], [ %22, %_ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEjNS_17UsdSchemaRegistry13VersionPolicyE.exit.i ]
-  %27 = load ptr, ptr %.sroa.020.026.i, align 8
+  %.sroa.03.09.i = phi ptr [ %42, %41 ], [ %22, %_ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEjNS_17UsdSchemaRegistry13VersionPolicyE.exit.i ]
+  %27 = load ptr, ptr %.sroa.03.09.i, align 8
   %28 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L33_IsSchemaInstanceInAppliedSchemasERKSt6vectorINS_7TfTokenESaIS1_EERKNS_17UsdSchemaRegistry10SchemaInfoERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %29 unwind label %32
 
@@ -4397,7 +4397,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   br i1 %28, label %30, label %41
 
 30:                                               ; preds = %29
-  %31 = load ptr, ptr %.sroa.020.026.i, align 8
+  %31 = load ptr, ptr %.sroa.03.09.i, align 8
   br label %.loopexitthread-pre-split.i
 
 32:                                               ; preds = %.lr.ph.i
@@ -4417,7 +4417,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInfoESaIS4_EED2Ev.exit.i
 
 41:                                               ; preds = %29
-  %42 = getelementptr inbounds i8, ptr %.sroa.020.026.i, i64 8
+  %42 = getelementptr inbounds i8, ptr %.sroa.03.09.i, i64 8
   %.not.i = icmp eq ptr %42, %24
   br i1 %.not.i, label %.loopexitthread-pre-split.i, label %.lr.ph.i
 
@@ -4468,7 +4468,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
   br label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %16
-  %.130.i = phi ptr [ %spec.select.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ null, %16 ]
+  %.113.i = phi ptr [ %spec.select.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ null, %16 ]
   %58 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %17, %16 ]
   %.not.i.i.i19.i = icmp eq ptr %58, null
   br i1 %.not.i.i.i19.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L41_GetFirstSchemaInFamilyPrimHasAPIInstanceIJNS_7TfTokenEjNS_17UsdSchemaRegistry13VersionPolicyEEEEPKNS2_10SchemaInfoERKNS_7UsdPrimERKS1_DpRKT_.exit, label %59
@@ -4488,7 +4488,7 @@ _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInf
   resume { ptr, i32 } %.pn.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__L41_GetFirstSchemaInFamilyPrimHasAPIInstanceIJNS_7TfTokenEjNS_17UsdSchemaRegistry13VersionPolicyEEEEPKNS2_10SchemaInfoERKNS_7UsdPrimERKS1_DpRKT_.exit: ; preds = %11, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i, %59
-  %.0.i = phi ptr [ null, %11 ], [ %.130.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i ], [ %.130.i, %59 ]
+  %.0.i = phi ptr [ null, %11 ], [ %.113.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i ], [ %.113.i, %59 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -4532,9 +4532,9 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim14HasAP
 _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyE.exit.i: ; preds = %12
   %.pre.i = load ptr, ptr %5, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre28.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.not24.i = icmp eq ptr %.pre.i, %.pre28.i
-  br i1 %.not24.i, label %.loopexit.i, label %.lr.ph.i
+  %.pre10.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  %.not6.i = icmp eq ptr %.pre.i, %.pre10.i
+  br i1 %.not6.i, label %.loopexit.i, label %.lr.ph.i
 
 16:                                               ; preds = %12, %10
   %17 = landingpad { ptr, i32 }
@@ -4542,8 +4542,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInfoESaIS4_EED2Ev.exit.i
 
 .lr.ph.i:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyE.exit.i, %32
-  %.sroa.019.025.i = phi ptr [ %33, %32 ], [ %.pre.i, %_ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyE.exit.i ]
-  %18 = load ptr, ptr %.sroa.019.025.i, align 8
+  %.sroa.01.07.i = phi ptr [ %33, %32 ], [ %.pre.i, %_ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyE.exit.i ]
+  %18 = load ptr, ptr %.sroa.01.07.i, align 8
   %19 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L25_IsSchemaInAppliedSchemasERKSt6vectorINS_7TfTokenESaIS1_EERKNS_17UsdSchemaRegistry10SchemaInfoE(ptr %6, ptr %8, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %20 unwind label %23
 
@@ -4551,7 +4551,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS
   br i1 %19, label %21, label %32
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr %.sroa.019.025.i, align 8
+  %22 = load ptr, ptr %.sroa.01.07.i, align 8
   br label %.loopexitthread-pre-split.i
 
 23:                                               ; preds = %.lr.ph.i
@@ -4571,8 +4571,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInfoESaIS4_EED2Ev.exit.i
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %.sroa.019.025.i, i64 8
-  %.not.i = icmp eq ptr %33, %.pre28.i
+  %33 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 8
+  %.not.i = icmp eq ptr %33, %.pre10.i
   br i1 %.not.i, label %.loopexitthread-pre-split.i, label %.lr.ph.i
 
 .loopexitthread-pre-split.i:                      ; preds = %32, %21
@@ -4624,7 +4624,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
   br label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %3
-  %.031.i = phi i1 [ %49, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ false, %3 ]
+  %.013.i = phi i1 [ %49, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ false, %3 ]
   %50 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %6, %3 ]
   %.not.i.i.i18.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i18.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L33_GetFirstSchemaInFamilyPrimHasAPIIJNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyEEEEPKNS2_10SchemaInfoERKNS_7UsdPrimEDpRKT_.exit, label %51
@@ -4646,7 +4646,7 @@ _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInf
 _ZN32pxrInternal_v0_24__pxrReserved__L33_GetFirstSchemaInFamilyPrimHasAPIIJNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyEEEEPKNS2_10SchemaInfoERKNS_7UsdPrimEDpRKT_.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i, %51
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  ret i1 %.031.i
+  ret i1 %.013.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4705,9 +4705,9 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim14HasAP
 _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyE.exit.i: ; preds = %22
   %.pre.i = load ptr, ptr %7, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.pre29.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.not25.i = icmp eq ptr %.pre.i, %.pre29.i
-  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph.i
+  %.pre10.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  %.not6.i = icmp eq ptr %.pre.i, %.pre10.i
+  br i1 %.not6.i, label %.loopexit.i, label %.lr.ph.i
 
 26:                                               ; preds = %22, %20
   %27 = landingpad { ptr, i32 }
@@ -4715,8 +4715,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInfoESaIS4_EED2Ev.exit.i
 
 .lr.ph.i:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyE.exit.i, %42
-  %.sroa.020.026.i = phi ptr [ %43, %42 ], [ %.pre.i, %_ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyE.exit.i ]
-  %28 = load ptr, ptr %.sroa.020.026.i, align 8
+  %.sroa.01.07.i = phi ptr [ %43, %42 ], [ %.pre.i, %_ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyE.exit.i ]
+  %28 = load ptr, ptr %.sroa.01.07.i, align 8
   %29 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L33_IsSchemaInstanceInAppliedSchemasERKSt6vectorINS_7TfTokenESaIS1_EERKNS_17UsdSchemaRegistry10SchemaInfoERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %30 unwind label %33
 
@@ -4724,7 +4724,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS
   br i1 %29, label %31, label %42
 
 31:                                               ; preds = %30
-  %32 = load ptr, ptr %.sroa.020.026.i, align 8
+  %32 = load ptr, ptr %.sroa.01.07.i, align 8
   br label %.loopexitthread-pre-split.i
 
 33:                                               ; preds = %.lr.ph.i
@@ -4744,8 +4744,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_6TfTypeENS
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInfoESaIS4_EED2Ev.exit.i
 
 42:                                               ; preds = %30
-  %43 = getelementptr inbounds i8, ptr %.sroa.020.026.i, i64 8
-  %.not.i = icmp eq ptr %43, %.pre29.i
+  %43 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 8
+  %.not.i = icmp eq ptr %43, %.pre10.i
   br i1 %.not.i, label %.loopexitthread-pre-split.i, label %.lr.ph.i
 
 .loopexitthread-pre-split.i:                      ; preds = %42, %31
@@ -4796,7 +4796,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
   br label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %15
-  %.132.i = phi ptr [ %spec.select.i5, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ null, %15 ]
+  %.113.i = phi ptr [ %spec.select.i5, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ null, %15 ]
   %59 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %16, %15 ]
   %.not.i.i.i19.i = icmp eq ptr %59, null
   br i1 %.not.i.i.i19.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L41_GetFirstSchemaInFamilyPrimHasAPIInstanceIJNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyEEEEPKNS2_10SchemaInfoERKNS_7UsdPrimERKNS_7TfTokenEDpRKT_.exit, label %60
@@ -4816,7 +4816,7 @@ _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInf
   resume { ptr, i32 } %.pn.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__L41_GetFirstSchemaInFamilyPrimHasAPIInstanceIJNS_6TfTypeENS_17UsdSchemaRegistry13VersionPolicyEEEEPKNS2_10SchemaInfoERKNS_7UsdPrimERKNS_7TfTokenEDpRKT_.exit: ; preds = %10, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i, %60
-  %.0.i = phi ptr [ null, %10 ], [ %.132.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i ], [ %.132.i, %60 ]
+  %.0.i = phi ptr [ null, %10 ], [ %.113.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i ], [ %.113.i, %60 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -4897,8 +4897,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   %37 = load ptr, ptr %6, align 8
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %39 = load ptr, ptr %38, align 8
-  %.not26.i = icmp eq ptr %37, %39
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.preheader.i
+  %.not6.i = icmp eq ptr %37, %39
+  br i1 %.not6.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %36
   %.val.pre.i = load ptr, ptr %5, align 8
@@ -4911,8 +4911,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   br label %.body.i
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.preheader.i
-  %.sroa.021.027.i = phi ptr [ %57, %56 ], [ %37, %.lr.ph.preheader.i ]
-  %42 = load ptr, ptr %.sroa.021.027.i, align 8
+  %.sroa.01.07.i = phi ptr [ %57, %56 ], [ %37, %.lr.ph.preheader.i ]
+  %42 = load ptr, ptr %.sroa.01.07.i, align 8
   %43 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L25_IsSchemaInAppliedSchemasERKSt6vectorINS_7TfTokenESaIS1_EERKNS_17UsdSchemaRegistry10SchemaInfoE(ptr %.val.pre.i, ptr %.val14.pre.i, ptr noundef nonnull align 8 dereferenceable(32) %42)
           to label %44 unwind label %47
 
@@ -4920,7 +4920,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   br i1 %43, label %45, label %56
 
 45:                                               ; preds = %44
-  %46 = load ptr, ptr %.sroa.021.027.i, align 8
+  %46 = load ptr, ptr %.sroa.01.07.i, align 8
   br label %.loopexitthread-pre-split.i
 
 47:                                               ; preds = %.lr.ph.i
@@ -4940,7 +4940,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   br label %.body.i
 
 56:                                               ; preds = %44
-  %57 = getelementptr inbounds i8, ptr %.sroa.021.027.i, i64 8
+  %57 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 8
   %.not.i = icmp eq ptr %57, %39
   br i1 %.not.i, label %.loopexitthread-pre-split.i, label %.lr.ph.i
 
@@ -5113,8 +5113,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   %47 = load ptr, ptr %8, align 8
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %49 = load ptr, ptr %48, align 8
-  %.not27.i = icmp eq ptr %47, %49
-  br i1 %.not27.i, label %.loopexit.i, label %.lr.ph.i
+  %.not6.i = icmp eq ptr %47, %49
+  br i1 %.not6.i, label %.loopexit.i, label %.lr.ph.i
 
 50:                                               ; preds = %27, %23, %21
   %51 = landingpad { ptr, i32 }
@@ -5122,8 +5122,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   br label %.body.i
 
 .lr.ph.i:                                         ; preds = %46, %66
-  %.sroa.022.028.i = phi ptr [ %67, %66 ], [ %47, %46 ]
-  %52 = load ptr, ptr %.sroa.022.028.i, align 8
+  %.sroa.01.07.i = phi ptr [ %67, %66 ], [ %47, %46 ]
+  %52 = load ptr, ptr %.sroa.01.07.i, align 8
   %53 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L33_IsSchemaInstanceInAppliedSchemasERKSt6vectorINS_7TfTokenESaIS1_EERKNS_17UsdSchemaRegistry10SchemaInfoERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %54 unwind label %57
 
@@ -5131,7 +5131,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   br i1 %53, label %55, label %66
 
 55:                                               ; preds = %54
-  %56 = load ptr, ptr %.sroa.022.028.i, align 8
+  %56 = load ptr, ptr %.sroa.01.07.i, align 8
   br label %.loopexitthread-pre-split.i
 
 57:                                               ; preds = %.lr.ph.i
@@ -5151,7 +5151,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_FindSchemaInfosInFamilyERKNS_7TfTokenEj
   br label %.body.i
 
 66:                                               ; preds = %54
-  %67 = getelementptr inbounds i8, ptr %.sroa.022.028.i, i64 8
+  %67 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 8
   %.not.i = icmp eq ptr %67, %49
   br i1 %.not.i, label %.loopexitthread-pre-split.i, label %.lr.ph.i
 

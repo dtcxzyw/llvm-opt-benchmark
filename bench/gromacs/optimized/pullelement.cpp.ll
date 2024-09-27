@@ -326,14 +326,14 @@ define void @_ZN3gmx11PullElement12scheduleTaskEldRKSt8functionIFvS1_IFvvEEEE(pt
   br i1 %8, label %9, label %_ZNSt8functionIFvvEED2Ev.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %12, align 8
-  %13 = ptrtoint ptr %0 to i64
-  store i64 %13, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx11PullElement12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %11, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx11PullElement12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %10, align 8
+  %10 = ptrtoint ptr %0 to i64
+  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %13, align 8
+  store i64 %10, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx11PullElement12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %12, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx11PullElement12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
@@ -353,7 +353,7 @@ define void @_ZN3gmx11PullElement12scheduleTaskEldRKSt8functionIFvS1_IFvvEEEE(pt
           to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit unwind label %26
 
 _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %17
-  %20 = load ptr, ptr %10, align 8
+  %20 = load ptr, ptr %11, align 8
   %.not.i.i4 = icmp eq ptr %20, null
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %21
 
@@ -371,7 +371,7 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %17
 26:                                               ; preds = %17, %16
   %27 = landingpad { ptr, i32 }
           cleanup
-  %28 = load ptr, ptr %10, align 8
+  %28 = load ptr, ptr %11, align 8
   %.not.i.i5 = icmp eq ptr %28, null
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %29
 
@@ -3398,19 +3398,19 @@ _ZNKSt14default_deleteIN3gmx11PullElementEEclEPS1_.exit.i: ; preds = %29
 
 _ZNSt10unique_ptrIN3gmx11PullElementESt14default_deleteIS1_EED2Ev.exit: ; preds = %29, %_ZNKSt14default_deleteIN3gmx11PullElementEEclEPS1_.exit.i
   store ptr null, ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %9, i64 16
-  %35 = getelementptr inbounds i8, ptr %9, i64 24
-  %36 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 0, ptr %36, align 8
-  %37 = ptrtoint ptr %28 to i64
-  store i64 %37, ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx11PullElement21getElementPointerImplEPNS8_19LegacySimulatorDataEPNS8_38ModularSimulatorAlgorithmBuilderHelperEPNS8_19StatePropagatorDataEPNS8_10EnergyDataEPNS8_26FreeEnergyPerturbationDataEPNS8_25GlobalCommunicationHelperEPNS8_18ObservablesReducerEE3$_0E9_M_invokeERKSt9_Any_dataOlOdS6_", ptr %35, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx11PullElement21getElementPointerImplEPNS8_19LegacySimulatorDataEPNS8_38ModularSimulatorAlgorithmBuilderHelperEPNS8_19StatePropagatorDataEPNS8_10EnergyDataEPNS8_26FreeEnergyPerturbationDataEPNS8_25GlobalCommunicationHelperEPNS8_18ObservablesReducerEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation", ptr %34, align 8
+  %34 = ptrtoint ptr %28 to i64
+  %35 = getelementptr inbounds i8, ptr %9, i64 16
+  %36 = getelementptr inbounds i8, ptr %9, i64 24
+  %37 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 0, ptr %37, align 8
+  store i64 %34, ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx11PullElement21getElementPointerImplEPNS8_19LegacySimulatorDataEPNS8_38ModularSimulatorAlgorithmBuilderHelperEPNS8_19StatePropagatorDataEPNS8_10EnergyDataEPNS8_26FreeEnergyPerturbationDataEPNS8_25GlobalCommunicationHelperEPNS8_18ObservablesReducerEE3$_0E9_M_invokeERKSt9_Any_dataOlOdS6_", ptr %36, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx11PullElement21getElementPointerImplEPNS8_19LegacySimulatorDataEPNS8_38ModularSimulatorAlgorithmBuilderHelperEPNS8_19StatePropagatorDataEPNS8_10EnergyDataEPNS8_26FreeEnergyPerturbationDataEPNS8_25GlobalCommunicationHelperEPNS8_18ObservablesReducerEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation", ptr %35, align 8
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper26registerPostStepSchedulingESt8functionIFvldRKS1_IFvS1_IFvvEEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %9)
           to label %38 unwind label %51
 
 38:                                               ; preds = %_ZNSt10unique_ptrIN3gmx11PullElementESt14default_deleteIS1_EED2Ev.exit
-  %39 = load ptr, ptr %34, align 8
+  %39 = load ptr, ptr %35, align 8
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit, label %40
 
@@ -3445,7 +3445,7 @@ _ZNKSt14default_deleteIN3gmx11PullElementEEclEPS1_.exit.i13: ; preds = %45
 51:                                               ; preds = %_ZNSt10unique_ptrIN3gmx11PullElementESt14default_deleteIS1_EED2Ev.exit
   %52 = landingpad { ptr, i32 }
           cleanup
-  %53 = load ptr, ptr %34, align 8
+  %53 = load ptr, ptr %35, align 8
   %.not.i.i15 = icmp eq ptr %53, null
   br i1 %.not.i.i15, label %common.resume, label %54
 

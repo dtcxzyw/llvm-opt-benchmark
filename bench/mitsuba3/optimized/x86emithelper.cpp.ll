@@ -944,7 +944,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitPrologERKNS
 
 130:                                              ; preds = %122
   %131 = trunc nuw nsw i64 %123 to i8
-  call fastcc void @_ZN6asmjit9_abi_1_103x86L32X86Internal_setupSaveRestoreInfoENS0_8RegGroupERKNS0_9FuncFrameERNS1_3RegERjS8_(i8 noundef zeroext %131, ptr noundef nonnull align 4 dereferenceable(100) %1, ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13) #11
+  %.val = load i32, ptr %1, align 4
+  call fastcc void @_ZN6asmjit9_abi_1_103x86L32X86Internal_setupSaveRestoreInfoENS0_8RegGroupERKNS0_9FuncFrameERNS1_3RegERjS8_(i8 noundef zeroext %131, i32 %.val, ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13) #11
   %132 = load i32, ptr %12, align 4, !tbaa !4
   %133 = load i32, ptr %13, align 4
   br label %134
@@ -1019,42 +1020,41 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_103x8616EmitterExplici
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN6asmjit9_abi_1_103x86L32X86Internal_setupSaveRestoreInfoENS0_8RegGroupERKNS0_9FuncFrameERNS1_3RegERjS8_(i8 noundef zeroext range(i8 1, 4) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %1, ptr nocapture noundef nonnull align 4 dereferenceable(16) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6asmjit9_abi_1_103x86L32X86Internal_setupSaveRestoreInfoENS0_8RegGroupERKNS0_9FuncFrameERNS1_3RegERjS8_(i8 noundef zeroext range(i8 1, 4) %0, i32 %.0.val, ptr nocapture noundef nonnull align 4 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   switch i8 %0, label %default.unreachable1 [
-    i8 1, label %6
-    i8 2, label %15
-    i8 3, label %16
+    i8 1, label %5
+    i8 2, label %13
+    i8 3, label %14
   ]
 
-6:                                                ; preds = %5
-  store <4 x i32> <i32 268435809, i32 0, i32 0, i32 0>, ptr %2, align 4
-  %7 = load i32, ptr %1, align 4, !tbaa !49
-  %8 = and i32 %7, 65536
+5:                                                ; preds = %4
+  store <4 x i32> <i32 268435809, i32 0, i32 0, i32 0>, ptr %1, align 4
+  %6 = and i32 %.0.val, 65536
+  %7 = icmp eq i32 %6, 0
+  %8 = and i32 %.0.val, 64
   %9 = icmp eq i32 %8, 0
-  %10 = and i32 %7, 64
-  %11 = icmp eq i32 %10, 0
-  %12 = select i1 %9, i32 421, i32 1154
-  %13 = select i1 %9, i32 456, i32 1184
-  %14 = select i1 %11, i32 %13, i32 %12
-  br label %17
+  %10 = select i1 %7, i32 421, i32 1154
+  %11 = select i1 %7, i32 456, i32 1184
+  %12 = select i1 %9, i32 %11, i32 %10
+  br label %15
 
-15:                                               ; preds = %5
-  store <4 x i32> <i32 649, i32 0, i32 0, i32 0>, ptr %2, align 4
-  br label %17
+13:                                               ; preds = %4
+  store <4 x i32> <i32 649, i32 0, i32 0, i32 0>, ptr %1, align 4
+  br label %15
 
-16:                                               ; preds = %5
-  store <4 x i32> <i32 134218641, i32 0, i32 0, i32 0>, ptr %2, align 4
-  br label %17
+14:                                               ; preds = %4
+  store <4 x i32> <i32 134218641, i32 0, i32 0, i32 0>, ptr %1, align 4
+  br label %15
 
-17:                                               ; preds = %16, %15, %6
-  %18 = phi i32 [ 446, %16 ], [ 338, %15 ], [ %14, %6 ]
+15:                                               ; preds = %14, %13, %5
+  %16 = phi i32 [ 446, %14 ], [ 338, %13 ], [ %12, %5 ]
+  store i32 %16, ptr %2, align 4, !tbaa !4
+  %17 = load i32, ptr %1, align 4, !tbaa !9
+  %18 = lshr i32 %17, 24
   store i32 %18, ptr %3, align 4, !tbaa !4
-  %19 = load i32, ptr %2, align 4, !tbaa !9
-  %20 = lshr i32 %19, 24
-  store i32 %20, ptr %4, align 4, !tbaa !4
   ret void
 
-default.unreachable1:                             ; preds = %5
+default.unreachable1:                             ; preds = %4
   unreachable
 }
 
@@ -1155,7 +1155,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS
 
 62:                                               ; preds = %54
   %63 = trunc nuw nsw i64 %55 to i8
-  call fastcc void @_ZN6asmjit9_abi_1_103x86L32X86Internal_setupSaveRestoreInfoENS0_8RegGroupERKNS0_9FuncFrameERNS1_3RegERjS8_(i8 noundef zeroext %63, ptr noundef nonnull align 4 dereferenceable(100) %1, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10) #11
+  %.val = load i32, ptr %1, align 4
+  call fastcc void @_ZN6asmjit9_abi_1_103x86L32X86Internal_setupSaveRestoreInfoENS0_8RegGroupERKNS0_9FuncFrameERNS1_3RegERjS8_(i8 noundef zeroext %63, i32 %.val, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10) #11
   %64 = load i32, ptr %9, align 4, !tbaa !4
   %65 = load i32, ptr %10, align 4
   br label %66

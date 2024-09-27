@@ -22110,11 +22110,11 @@ _ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8has
 
 .loopexit.loopexit:                               ; preds = %73
   %.pre = load ptr, ptr %1, align 8
-  %.pre26 = load ptr, ptr %5, align 8
+  %.pre27 = load ptr, ptr %5, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit, %._crit_edge.i
-  %77 = phi ptr [ %64, %._crit_edge.i ], [ %19, %_ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit ], [ %.pre26, %.loopexit.loopexit ]
+  %77 = phi ptr [ %64, %._crit_edge.i ], [ %19, %_ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit ], [ %.pre27, %.loopexit.loopexit ]
   %78 = phi ptr [ %65, %._crit_edge.i ], [ %20, %_ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit ], [ %.pre, %.loopexit.loopexit ]
   %.1.ph = phi i32 [ %.0, %._crit_edge.i ], [ %26, %_ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit ], [ %.0, %.loopexit.loopexit ]
   %79 = icmp eq ptr %78, %77
@@ -22508,9 +22508,9 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_
 
 _ZNSt6vectorIN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE12emplace_backIJRKS5_RiEEEvDpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE17_M_realloc_insertIJRKS5_RiEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i, %157
   %.val7.i = phi ptr [ %160, %157 ], [ %.ptr.i3.i39.i, %_ZNSt6vectorIN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE17_M_realloc_insertIJRKS5_RiEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i ]
-  %.val.i6 = phi ptr [ %.val.pre.i, %157 ], [ %176, %_ZNSt6vectorIN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE17_M_realloc_insertIJRKS5_RiEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i ]
+  %.val.i7 = phi ptr [ %.val.pre.i, %157 ], [ %176, %_ZNSt6vectorIN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE17_M_realloc_insertIJRKS5_RiEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i ]
   %212 = ptrtoint ptr %.val7.i to i64
-  %213 = ptrtoint ptr %.val.i6 to i64
+  %213 = ptrtoint ptr %.val.i7 to i64
   %214 = sub i64 %212, %213
   %215 = sdiv exact i64 %214, 88
   %216 = trunc i64 %215 to i32
@@ -22534,11 +22534,11 @@ _ZN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash
   br label %_ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE9do_lookupERKS4_Ri.exit
 
 _ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE9do_lookupERKS4_Ri.exit: ; preds = %.lr.ph.i, %_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE9do_insertERKS4_Ri.exit
-  %.sink33 = phi i32 [ %227, %_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE9do_insertERKS4_Ri.exit ], [ %.018.i, %.lr.ph.i ]
+  %.sink34 = phi i32 [ %227, %_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE9do_insertERKS4_Ri.exit ], [ %.018.i, %.lr.ph.i ]
   %.sink = phi i8 [ 1, %_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE9do_insertERKS4_Ri.exit ], [ 0, %.lr.ph.i ]
   store ptr %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sink33, ptr %.sroa.2.0..sroa_idx, align 8
+  store i32 %.sink34, ptr %.sroa.2.0..sroa_idx, align 8
   %228 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %.sink, ptr %228, align 8
   ret void

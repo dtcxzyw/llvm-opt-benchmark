@@ -16798,12 +16798,12 @@ if.then9:                                         ; preds = %if.then7
   store i64 %6, ptr %log_number_ref_, align 8
   %batch_ = getelementptr inbounds i8, ptr %5, i64 48
   %7 = load ptr, ptr %batch_, align 8
+  %8 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %8 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %this to i64
-  store i64 %9, ptr %agg.tmp, align 8
+  %9 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %8, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFmjEZN7rocksdb12_GLOBAL__N_116MemTableInserter23MarkCommitWithTimestampERKNS1_5SliceES6_EUljE_E9_M_invokeERKSt9_Any_dataOj, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFmjEZN7rocksdb12_GLOBAL__N_116MemTableInserter23MarkCommitWithTimestampERKNS1_5SliceES6_EUljE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   invoke void @_ZN7rocksdb10WriteBatch16UpdateTimestampsERKNS_5SliceESt8functionIFmjEE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(16) %commit_ts, ptr noundef nonnull %agg.tmp)

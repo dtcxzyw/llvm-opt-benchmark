@@ -6062,22 +6062,22 @@ _ZSt11lower_boundISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved_
   br i1 %.not.i.i.i, label %.lr.ph.i, label %.lr.ph.i.i.i, !llvm.loop !61
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i, %36
-  %.016.i = phi i64 [ %.1.i, %36 ], [ %25, %.lr.ph.i.i.i ]
-  %.sroa.011.015.i = phi ptr [ %.sroa.011.1.i, %36 ], [ %.sroa.013.0.lcssa.i.i, %.lr.ph.i.i.i ]
-  %26 = lshr i64 %.016.i, 1
-  %.not12.i = icmp eq i64 %.016.i, 1
-  br i1 %.not12.i, label %_ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEmEvRT_T0_.exit.i, label %.preheader.i.i.i
+  %.06.i = phi i64 [ %.1.i, %36 ], [ %25, %.lr.ph.i.i.i ]
+  %.sroa.01.05.i = phi ptr [ %.sroa.01.1.i, %36 ], [ %.sroa.013.0.lcssa.i.i, %.lr.ph.i.i.i ]
+  %26 = lshr i64 %.06.i, 1
+  %.not2.i = icmp eq i64 %.06.i, 1
+  br i1 %.not2.i, label %_ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEmEvRT_T0_.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i, %.preheader.i.i.i
   %.012.i.i.i = phi i64 [ %28, %.preheader.i.i.i ], [ %26, %.lr.ph.i ]
-  %27 = phi ptr [ %29, %.preheader.i.i.i ], [ %.sroa.011.015.i, %.lr.ph.i ]
+  %27 = phi ptr [ %29, %.preheader.i.i.i ], [ %.sroa.01.05.i, %.lr.ph.i ]
   %28 = add nsw i64 %.012.i.i.i, -1
   %29 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %27) #29
   %.not6.i.i.i = icmp eq i64 %28, 0
   br i1 %.not6.i.i.i, label %_ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEmEvRT_T0_.exit.i, label %.preheader.i.i.i, !llvm.loop !62
 
 _ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEmEvRT_T0_.exit.i: ; preds = %.preheader.i.i.i, %.lr.ph.i
-  %.sroa.0.0.i = phi ptr [ %.sroa.011.015.i, %.lr.ph.i ], [ %29, %.preheader.i.i.i ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.01.05.i, %.lr.ph.i ], [ %29, %.preheader.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 32
   %31 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %30, ptr noundef nonnull align 4 dereferenceable(8) %2)
   br i1 %31, label %32, label %36
@@ -6085,19 +6085,19 @@ _ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7Sdf
 32:                                               ; preds = %_ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEmEvRT_T0_.exit.i
   %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.0.i) #29
   %34 = xor i64 %26, -1
-  %35 = add i64 %.016.i, %34
+  %35 = add i64 %.06.i, %34
   br label %36
 
 36:                                               ; preds = %32, %_ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEmEvRT_T0_.exit.i
-  %.sroa.011.1.i = phi ptr [ %33, %32 ], [ %.sroa.011.015.i, %_ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEmEvRT_T0_.exit.i ]
+  %.sroa.01.1.i = phi ptr [ %33, %32 ], [ %.sroa.01.05.i, %_ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEmEvRT_T0_.exit.i ]
   %.1.i = phi i64 [ %35, %32 ], [ %26, %_ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEmEvRT_T0_.exit.i ]
   %.not.i = icmp eq i64 %.1.i, 0
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L14TfFindBoundaryISt23_Rb_tree_const_iteratorINS_7SdfPathEEZNS_24SdfPathFindPrefixedRangeIS3_NS_16Sdf_PathIdentityEEESt4pairIT_S7_ES7_S7_RKS2_RKT0_EUlSA_E_EES7_S7_S7_SD_.exit, label %.lr.ph.i, !llvm.loop !64
 
 _ZN32pxrInternal_v0_24__pxrReserved__L14TfFindBoundaryISt23_Rb_tree_const_iteratorINS_7SdfPathEEZNS_24SdfPathFindPrefixedRangeIS3_NS_16Sdf_PathIdentityEEESt4pairIT_S7_ES7_S7_RKS2_RKT0_EUlSA_E_EES7_S7_S7_SD_.exit: ; preds = %36, %_ZSt11lower_boundISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEES2_ZNS1_24SdfPathFindPrefixedRangeIS3_NS1_16Sdf_PathIdentityEEESt4pairIT_S7_ES7_S7_RKS2_RKT0_E7CompareES7_S7_S7_SD_T1_.exit
-  %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.013.0.lcssa.i.i, %_ZSt11lower_boundISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEES2_ZNS1_24SdfPathFindPrefixedRangeIS3_NS1_16Sdf_PathIdentityEEESt4pairIT_S7_ES7_S7_RKS2_RKT0_E7CompareES7_S7_S7_SD_T1_.exit ], [ %.sroa.011.1.i, %36 ]
+  %.sroa.01.0.lcssa.i = phi ptr [ %.sroa.013.0.lcssa.i.i, %_ZSt11lower_boundISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEES2_ZNS1_24SdfPathFindPrefixedRangeIS3_NS1_16Sdf_PathIdentityEEESt4pairIT_S7_ES7_S7_RKS2_RKT0_E7CompareES7_S7_S7_SD_T1_.exit ], [ %.sroa.01.1.i, %36 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.013.0.lcssa.i.i, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.011.0.lcssa.i, 1
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.01.0.lcssa.i, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 

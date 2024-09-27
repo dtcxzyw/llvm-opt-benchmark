@@ -1657,12 +1657,12 @@ _Z9is_forallPK3ast.exit25:                        ; preds = %_Z9is_forallPK3ast.
 
 invoke.cont.i:                                    ; preds = %_Z9is_forallPK3ast.exit25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %mk_var.i)
+  %3 = ptrtoint ptr %this to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %mk_var.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %mk_var.i, i64 24
-  %3 = getelementptr inbounds i8, ptr %mk_var.i, i64 8
-  store i64 0, ptr %3, align 8
-  %4 = ptrtoint ptr %this to i64
-  store i64 %4, ptr %mk_var.i, align 8
+  %4 = getelementptr inbounds i8, ptr %mk_var.i, i64 8
+  store i64 0, ptr %4, align 8
+  store i64 %3, ptr %mk_var.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver9skolemizeES3_E3$_0E9_M_invokeERKSt9_Any_dataOS3_Oj", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver9skolemizeES3_E3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   %call3.i = invoke i32 @_ZN1q6solver11instantiateEP10quantifierbRSt8functionIFP4exprS2_jEE(ptr noundef nonnull align 8 dereferenceable(3144) %this, ptr noundef nonnull %call2, i1 noundef zeroext %cmp.i, ptr noundef nonnull align 8 dereferenceable(32) %mk_var.i)
@@ -1953,12 +1953,12 @@ declare noundef ptr @_ZNK3euf13th_euf_solver13bool_var2exprEj(ptr noundef nonnul
 define hidden i32 @_ZN1q6solver9skolemizeEP10quantifier(ptr noundef nonnull align 8 dereferenceable(3144) %this, ptr noundef %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mk_var = alloca %"class.std::function.350", align 8
+  %0 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %mk_var, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %mk_var, i64 24
-  %0 = getelementptr inbounds i8, ptr %mk_var, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %this to i64
-  store i64 %1, ptr %mk_var, align 8
+  %1 = getelementptr inbounds i8, ptr %mk_var, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %mk_var, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver9skolemizeES3_E3$_0E9_M_invokeERKSt9_Any_dataOS3_Oj", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver9skolemizeES3_E3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %q, i64 4
@@ -4093,12 +4093,12 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 define hidden i32 @_ZN1q6solver10specializeEP10quantifier(ptr noundef nonnull align 8 dereferenceable(3144) %this, ptr noundef %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mk_var = alloca %"class.std::function.350", align 8
+  %0 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %mk_var, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %mk_var, i64 24
-  %0 = getelementptr inbounds i8, ptr %mk_var, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %this to i64
-  store i64 %1, ptr %mk_var, align 8
+  %1 = getelementptr inbounds i8, ptr %mk_var, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %mk_var, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver10specializeES3_E3$_0E9_M_invokeERKSt9_Any_dataOS3_Oj", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver10specializeES3_E3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %q, i64 4

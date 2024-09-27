@@ -3686,8 +3686,8 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %25, %_ZN3tbb6de
   %33 = select i1 %31, i64 2, i64 %32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %7, ptr %6, align 8
-  %.sroa.460.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %0, ptr %.sroa.460.0..sroa_idx.i, align 8
+  %.sroa.461.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %0, ptr %.sroa.461.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %8, ptr %.sroa.5.0..sroa_idx.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -3806,37 +3806,37 @@ _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal
   %82 = getelementptr inbounds %"struct.std::atomic.50", ptr %81, i64 %3
   %83 = load atomic i64, ptr %82 acquire, align 8
   %84 = icmp eq i64 %83, 0
-  br i1 %84, label %.lr.ph.i.i22.i, label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EEE14create_segmentEPSt6atomicIPSB_Emm.exit
+  br i1 %84, label %.lr.ph.i.i25.i, label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EEE14create_segmentEPSt6atomicIPSB_Emm.exit
 
-.lr.ph.i.i22.i:                                   ; preds = %80, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i24.i
-  %.sroa.0.010.i.i23.i = phi i32 [ %.sroa.0.1.i.i25.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i24.i ], [ 1, %80 ]
-  %85 = icmp slt i32 %.sroa.0.010.i.i23.i, 17
+.lr.ph.i.i25.i:                                   ; preds = %80, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i27.i
+  %.sroa.0.010.i.i26.i = phi i32 [ %.sroa.0.1.i.i28.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i27.i ], [ 1, %80 ]
+  %85 = icmp slt i32 %.sroa.0.010.i.i26.i, 17
   br i1 %85, label %86, label %91
 
-86:                                               ; preds = %.lr.ph.i.i22.i
-  %87 = icmp sgt i32 %.sroa.0.010.i.i23.i, 0
-  br i1 %87, label %.lr.ph.i.i.i.i27.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i26.i
+86:                                               ; preds = %.lr.ph.i.i25.i
+  %87 = icmp sgt i32 %.sroa.0.010.i.i26.i, 0
+  br i1 %87, label %.lr.ph.i.i.i.i30.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i29.i
 
-.lr.ph.i.i.i.i27.i:                               ; preds = %86, %.lr.ph.i.i.i.i27.i
-  %.01.i.i.i.i28.i = phi i32 [ %88, %.lr.ph.i.i.i.i27.i ], [ %.sroa.0.010.i.i23.i, %86 ]
-  %88 = add nsw i32 %.01.i.i.i.i28.i, -1
+.lr.ph.i.i.i.i30.i:                               ; preds = %86, %.lr.ph.i.i.i.i30.i
+  %.01.i.i.i.i31.i = phi i32 [ %88, %.lr.ph.i.i.i.i30.i ], [ %.sroa.0.010.i.i26.i, %86 ]
+  %88 = add nsw i32 %.01.i.i.i.i31.i, -1
   call void @llvm.x86.sse2.pause()
-  %89 = icmp ugt i32 %.01.i.i.i.i28.i, 1
-  br i1 %89, label %.lr.ph.i.i.i.i27.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i26.i, !llvm.loop !34
+  %89 = icmp ugt i32 %.01.i.i.i.i31.i, 1
+  br i1 %89, label %.lr.ph.i.i.i.i30.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i29.i, !llvm.loop !34
 
-_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i26.i: ; preds = %.lr.ph.i.i.i.i27.i, %86
-  %90 = shl nsw i32 %.sroa.0.010.i.i23.i, 1
-  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i24.i
+_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i29.i: ; preds = %.lr.ph.i.i.i.i30.i, %86
+  %90 = shl nsw i32 %.sroa.0.010.i.i26.i, 1
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i27.i
 
-91:                                               ; preds = %.lr.ph.i.i22.i
+91:                                               ; preds = %.lr.ph.i.i25.i
   %92 = call noundef i32 @sched_yield() #15
-  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i24.i
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i27.i
 
-_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i24.i: ; preds = %91, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i26.i
-  %.sroa.0.1.i.i25.i = phi i32 [ %90, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i26.i ], [ %.sroa.0.010.i.i23.i, %91 ]
+_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i27.i: ; preds = %91, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i29.i
+  %.sroa.0.1.i.i28.i = phi i32 [ %90, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i29.i ], [ %.sroa.0.010.i.i26.i, %91 ]
   %93 = load atomic i64, ptr %82 acquire, align 8
   %94 = icmp eq i64 %93, 0
-  br i1 %94, label %.lr.ph.i.i22.i, label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EEE14create_segmentEPSt6atomicIPSB_Emm.exit, !llvm.loop !54
+  br i1 %94, label %.lr.ph.i.i25.i, label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EEE14create_segmentEPSt6atomicIPSB_Emm.exit, !llvm.loop !54
 
 95:                                               ; preds = %5
   %96 = shl nuw i64 1, %3
@@ -3874,39 +3874,39 @@ _ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11
   %115 = getelementptr inbounds %"struct.std::atomic.50", ptr %2, i64 %3
   %116 = load atomic i64, ptr %115 acquire, align 8
   %117 = icmp eq i64 %116, 0
-  br i1 %117, label %.lr.ph.i.i32.i, label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EEE14create_segmentEPSt6atomicIPSB_Emm.exit
+  br i1 %117, label %.lr.ph.i.i35.i, label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EEE14create_segmentEPSt6atomicIPSB_Emm.exit
 
-.lr.ph.i.i32.i:                                   ; preds = %114, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i34.i
-  %.sroa.0.010.i.i33.i = phi i32 [ %.sroa.0.1.i.i35.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i34.i ], [ 1, %114 ]
-  %118 = icmp slt i32 %.sroa.0.010.i.i33.i, 17
+.lr.ph.i.i35.i:                                   ; preds = %114, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i37.i
+  %.sroa.0.010.i.i36.i = phi i32 [ %.sroa.0.1.i.i38.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i37.i ], [ 1, %114 ]
+  %118 = icmp slt i32 %.sroa.0.010.i.i36.i, 17
   br i1 %118, label %119, label %124
 
-119:                                              ; preds = %.lr.ph.i.i32.i
-  %120 = icmp sgt i32 %.sroa.0.010.i.i33.i, 0
-  br i1 %120, label %.lr.ph.i.i.i.i37.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i36.i
+119:                                              ; preds = %.lr.ph.i.i35.i
+  %120 = icmp sgt i32 %.sroa.0.010.i.i36.i, 0
+  br i1 %120, label %.lr.ph.i.i.i.i40.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i39.i
 
-.lr.ph.i.i.i.i37.i:                               ; preds = %119, %.lr.ph.i.i.i.i37.i
-  %.01.i.i.i.i38.i = phi i32 [ %121, %.lr.ph.i.i.i.i37.i ], [ %.sroa.0.010.i.i33.i, %119 ]
-  %121 = add nsw i32 %.01.i.i.i.i38.i, -1
+.lr.ph.i.i.i.i40.i:                               ; preds = %119, %.lr.ph.i.i.i.i40.i
+  %.01.i.i.i.i41.i = phi i32 [ %121, %.lr.ph.i.i.i.i40.i ], [ %.sroa.0.010.i.i36.i, %119 ]
+  %121 = add nsw i32 %.01.i.i.i.i41.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %122 = icmp ugt i32 %.01.i.i.i.i38.i, 1
-  br i1 %122, label %.lr.ph.i.i.i.i37.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i36.i, !llvm.loop !34
+  %122 = icmp ugt i32 %.01.i.i.i.i41.i, 1
+  br i1 %122, label %.lr.ph.i.i.i.i40.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i39.i, !llvm.loop !34
 
-_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i36.i: ; preds = %.lr.ph.i.i.i.i37.i, %119
-  %123 = shl nsw i32 %.sroa.0.010.i.i33.i, 1
-  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i34.i
+_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i39.i: ; preds = %.lr.ph.i.i.i.i40.i, %119
+  %123 = shl nsw i32 %.sroa.0.010.i.i36.i, 1
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i37.i
 
-124:                                              ; preds = %.lr.ph.i.i32.i
+124:                                              ; preds = %.lr.ph.i.i35.i
   %125 = tail call noundef i32 @sched_yield() #15
-  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i34.i
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i37.i
 
-_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i34.i: ; preds = %124, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i36.i
-  %.sroa.0.1.i.i35.i = phi i32 [ %123, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i36.i ], [ %.sroa.0.010.i.i33.i, %124 ]
+_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i37.i: ; preds = %124, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i39.i
+  %.sroa.0.1.i.i38.i = phi i32 [ %123, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i39.i ], [ %.sroa.0.010.i.i36.i, %124 ]
   %126 = load atomic i64, ptr %115 acquire, align 8
   %127 = icmp eq i64 %126, 0
-  br i1 %127, label %.lr.ph.i.i32.i, label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EEE14create_segmentEPSt6atomicIPSB_Emm.exit, !llvm.loop !54
+  br i1 %127, label %.lr.ph.i.i35.i, label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EEE14create_segmentEPSt6atomicIPSB_Emm.exit, !llvm.loop !54
 
-_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EEE14create_segmentEPSt6atomicIPSB_Emm.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i34.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i24.i, %.lr.ph88.i, %14, %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EENS1_17concurrent_vectorISB_SD_EELm3EE25extend_table_if_necessaryERPSt6atomicIPSB_Emm.exit.i, %.preheader.i, %78, %80, %_ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS3_23cache_aligned_allocatorISC_EEE14create_segmentEPSt6atomicIPSC_EmmEUlvE1_E13on_completionIZNSF_14create_segmentESJ_mmEUlvE2_EEvT_.exit.i, %114
+_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EEE14create_segmentEPSt6atomicIPSB_Emm.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i37.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i27.i, %.lr.ph88.i, %14, %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EENS1_17concurrent_vectorISB_SD_EELm3EE25extend_table_if_necessaryERPSt6atomicIPSB_Emm.exit.i, %.preheader.i, %78, %80, %_ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS3_23cache_aligned_allocatorISC_EEE14create_segmentEPSt6atomicIPSC_EmmEUlvE1_E13on_completionIZNSF_14create_segmentESJ_mmEUlvE2_EEvT_.exit.i, %114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %128 = getelementptr inbounds %"struct.std::atomic.50", ptr %2, i64 %3

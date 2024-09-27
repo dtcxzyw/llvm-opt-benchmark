@@ -2416,19 +2416,19 @@ _ZNSt10unique_ptrI10cmMakefileSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNK
 
 107:                                              ; preds = %96, %_ZNSt10unique_ptrI10cmMakefileSt14default_deleteIS0_EED2Ev.exit
   %108 = load ptr, ptr %54, align 8
-  %109 = getelementptr inbounds i8, ptr %24, i64 16
-  %110 = getelementptr inbounds i8, ptr %24, i64 24
-  %111 = getelementptr inbounds i8, ptr %24, i64 8
-  store i64 0, ptr %111, align 8
-  %112 = ptrtoint ptr %0 to i64
-  store i64 %112, ptr %24, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEZN20cmCTestScriptHandler11CreateCMakeEvE3$_0E9_M_invokeERKSt9_Any_dataS7_Of", ptr %110, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEZN20cmCTestScriptHandler11CreateCMakeEvE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %109, align 8
+  %109 = ptrtoint ptr %0 to i64
+  %110 = getelementptr inbounds i8, ptr %24, i64 16
+  %111 = getelementptr inbounds i8, ptr %24, i64 24
+  %112 = getelementptr inbounds i8, ptr %24, i64 8
+  store i64 0, ptr %112, align 8
+  store i64 %109, ptr %24, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEZN20cmCTestScriptHandler11CreateCMakeEvE3$_0E9_M_invokeERKSt9_Any_dataS7_Of", ptr %111, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEZN20cmCTestScriptHandler11CreateCMakeEvE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %110, align 8
   invoke void @_ZN5cmake19SetProgressCallbackESt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEE(ptr noundef nonnull align 8 dereferenceable(2216) %108, ptr noundef nonnull %24)
           to label %113 unwind label %445
 
 113:                                              ; preds = %107
-  %114 = load ptr, ptr %109, align 8
+  %114 = load ptr, ptr %110, align 8
   %.not.i.i = icmp eq ptr %114, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEED2Ev.exit, label %115
 
@@ -3444,7 +3444,7 @@ _ZNSt10unique_ptrI20cmCTestUploadCommandSt14default_deleteIS0_EED2Ev.exit: ; pre
 445:                                              ; preds = %107
   %446 = landingpad { ptr, i32 }
           cleanup
-  %447 = load ptr, ptr %109, align 8
+  %447 = load ptr, ptr %110, align 8
   %.not.i.i333 = icmp eq ptr %447, null
   br i1 %.not.i.i333, label %.body92, label %448
 
@@ -4220,19 +4220,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94: ; 
 
 160:                                              ; preds = %155, %145
   %161 = load ptr, ptr %52, align 8
-  %162 = getelementptr inbounds i8, ptr %26, i64 16
-  %163 = getelementptr inbounds i8, ptr %26, i64 24
-  %164 = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 0, ptr %164, align 8
-  %165 = ptrtoint ptr %0 to i64
-  store i64 %165, ptr %26, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN20cmCTestScriptHandler12ReadInScriptERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %163, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN20cmCTestScriptHandler12ReadInScriptERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %162, align 8
+  %162 = ptrtoint ptr %0 to i64
+  %163 = getelementptr inbounds i8, ptr %26, i64 16
+  %164 = getelementptr inbounds i8, ptr %26, i64 24
+  %165 = getelementptr inbounds i8, ptr %26, i64 8
+  store i64 0, ptr %165, align 8
+  store i64 %162, ptr %26, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN20cmCTestScriptHandler12ReadInScriptERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %164, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN20cmCTestScriptHandler12ReadInScriptERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %163, align 8
   invoke void @_ZN10cmMakefile16OnExecuteCommandESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(3520) %161, ptr noundef nonnull %26)
           to label %166 unwind label %201
 
 166:                                              ; preds = %160
-  %167 = load ptr, ptr %162, align 8
+  %167 = load ptr, ptr %163, align 8
   %.not.i.i = icmp eq ptr %167, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %168
 
@@ -4345,7 +4345,7 @@ _ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.thread: ; preds = %182, %185, %1
 201:                                              ; preds = %160
   %202 = landingpad { ptr, i32 }
           cleanup
-  %203 = load ptr, ptr %162, align 8
+  %203 = load ptr, ptr %163, align 8
   %.not.i.i103 = icmp eq ptr %203, null
   br i1 %.not.i.i103, label %_ZNSt8functionIFvvEED2Ev.exit104, label %204
 

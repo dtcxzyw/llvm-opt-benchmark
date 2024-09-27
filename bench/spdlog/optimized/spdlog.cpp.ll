@@ -9449,12 +9449,12 @@ _ZN6spdlog7details7log_msgC2EN3fmt2v917basic_string_viewIcEENS_5level10level_enu
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %5 = load ptr, ptr %vfn, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp)
+  %6 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
-  %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
-  store i64 0, ptr %6, align 8
-  %7 = ptrtoint ptr %this to i64
-  store i64 %7, ptr %agg.tmp7, align 8
+  %7 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
+  store i64 0, ptr %7, align 8
+  store i64 %6, ptr %agg.tmp7, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN6spdlog7details7log_msgEEZNS0_6logger15dump_backtrace_EvE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN6spdlog7details7log_msgEEZNS0_6logger15dump_backtrace_EvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN6spdlog7details10backtracer11foreach_popESt8functionIFvRKNS0_7log_msgEEE(ptr noundef nonnull align 8 dereferenceable(104) %tracer_, ptr noundef nonnull %agg.tmp7)

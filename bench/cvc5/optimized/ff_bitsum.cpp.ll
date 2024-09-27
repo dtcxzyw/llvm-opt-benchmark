@@ -823,9 +823,10 @@ for.body64.lr.ph:                                 ; preds = %invoke.cont55
   %sub.ptr.rhs.cast.i.i77 = ptrtoint ptr %59 to i64
   %sub.ptr.sub.i.i78 = sub i64 %sub.ptr.lhs.cast.i.i76, %sub.ptr.rhs.cast.i.i77
   %sub.ptr.div.i.i79 = ashr exact i64 %sub.ptr.sub.i.i78, 3
+  %60 = ptrtoint ptr %cache to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp74, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp74, i64 24
-  %60 = ptrtoint ptr %cache to i64
+  %61 = getelementptr inbounds i8, ptr %agg.tmp74, i64 8
   %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %cache, i64 24
   %_M_bucket_count.i.i303 = getelementptr inbounds i8, ptr %agg.tmp161, i64 8
   %_M_before_begin.i.i304 = getelementptr inbounds i8, ptr %agg.tmp161, i64 16
@@ -853,7 +854,6 @@ for.body64.lr.ph:                                 ; preds = %invoke.cont55
   %_M_manager.i.i.i124 = getelementptr inbounds i8, ptr %ref.tmp70, i64 32
   %d_skipIf.i127 = getelementptr inbounds i8, ptr %ref.tmp70, i64 16
   %umax988 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i79, i64 1)
-  %61 = getelementptr inbounds i8, ptr %agg.tmp74, i64 8
   br label %for.body64
 
 for.body64:                                       ; preds = %for.body64.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit710

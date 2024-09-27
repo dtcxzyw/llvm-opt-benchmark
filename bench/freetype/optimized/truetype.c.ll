@@ -3397,12 +3397,12 @@ Ins_CINDEX.exit:                                  ; preds = %599, %601, %602
   br label %671
 
 671:                                              ; preds = %665, %662
-  %.sink99.i = phi ptr [ %666, %665 ], [ %661, %662 ]
-  %.sink98.i = phi ptr [ %668, %665 ], [ %663, %662 ]
+  %.sink100.i = phi ptr [ %666, %665 ], [ %661, %662 ]
+  %.sink99.i = phi ptr [ %668, %665 ], [ %663, %662 ]
   %.sink.i429 = phi ptr [ %670, %665 ], [ %664, %662 ]
   %.064.i = phi i32 [ 16, %665 ], [ 8, %662 ]
-  store ptr %.sink99.i, ptr %16, align 8
-  store ptr %.sink98.i, ptr %216, align 8
+  store ptr %.sink100.i, ptr %16, align 8
+  store ptr %.sink99.i, ptr %216, align 8
   store ptr %.sink.i429, ptr %217, align 8
   %672 = load i16, ptr %19, align 4
   %673 = zext i16 %672 to i32
@@ -3425,37 +3425,37 @@ Ins_CINDEX.exit:                                  ; preds = %599, %601, %602
   %.not72.i = icmp ult i32 %682, %684
   %685 = add nsw i32 %684, -1
   %spec.select.i431 = select i1 %.not72.i, i32 %682, i32 %685
-  %.not7384.i = icmp ugt i32 %.061.i, %spec.select.i431
-  br i1 %.not7384.i, label %.critedge77.i, label %.lr.ph.i
+  %.not7385.i = icmp ugt i32 %.061.i, %spec.select.i431
+  br i1 %.not7385.i, label %.critedge77.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %674
   %686 = load ptr, ptr %221, align 8
   br label %687
 
 687:                                              ; preds = %695, %.lr.ph.i
-  %.185.i = phi i32 [ %.061.i, %.lr.ph.i ], [ %694, %695 ]
-  %688 = zext i32 %.185.i to i64
+  %.186.i = phi i32 [ %.061.i, %.lr.ph.i ], [ %694, %695 ]
+  %688 = zext i32 %.186.i to i64
   %689 = getelementptr inbounds i8, ptr %686, i64 %688
   %690 = load i8, ptr %689, align 1
   %691 = zext i8 %690 to i32
   %692 = and i32 %.064.i, %691
   %693 = icmp eq i32 %692, 0
-  %694 = add i32 %.185.i, 1
+  %694 = add i32 %.186.i, 1
   %.not73.i = icmp ugt i32 %694, %spec.select.i431
   br i1 %693, label %695, label %.critedge.preheader.i
 
 .critedge.preheader.i:                            ; preds = %687
-  br i1 %.not73.i, label %.critedge._crit_edge.thread.i, label %.lr.ph91.i
+  br i1 %.not73.i, label %.critedge._crit_edge.thread.i, label %.lr.ph92.i
 
 695:                                              ; preds = %687
   br i1 %.not73.i, label %.critedge77.i, label %687, !llvm.loop !10
 
-.lr.ph91.i:                                       ; preds = %.critedge.preheader.i, %iup_worker_interpolate_.exit.i
-  %.390.i = phi i32 [ %.3.i, %iup_worker_interpolate_.exit.i ], [ %694, %.critedge.preheader.i ]
-  %.3.in89.i = phi i32 [ %.390.i, %iup_worker_interpolate_.exit.i ], [ %.185.i, %.critedge.preheader.i ]
-  %.06288.i = phi i32 [ %.163.i, %iup_worker_interpolate_.exit.i ], [ %.185.i, %.critedge.preheader.i ]
+.lr.ph92.i:                                       ; preds = %.critedge.preheader.i, %iup_worker_interpolate_.exit.i
+  %.391.i = phi i32 [ %.3.i, %iup_worker_interpolate_.exit.i ], [ %694, %.critedge.preheader.i ]
+  %.3.in90.i = phi i32 [ %.391.i, %iup_worker_interpolate_.exit.i ], [ %.186.i, %.critedge.preheader.i ]
+  %.06289.i = phi i32 [ %.163.i, %iup_worker_interpolate_.exit.i ], [ %.186.i, %.critedge.preheader.i ]
   %696 = load ptr, ptr %221, align 8
-  %697 = zext i32 %.390.i to i64
+  %697 = zext i32 %.391.i to i64
   %698 = getelementptr inbounds i8, ptr %696, i64 %697
   %699 = load i8, ptr %698, align 1
   %700 = zext i8 %699 to i32
@@ -3463,19 +3463,19 @@ Ins_CINDEX.exit:                                  ; preds = %599, %601, %602
   %.not76.i = icmp eq i32 %701, 0
   br i1 %.not76.i, label %iup_worker_interpolate_.exit.i, label %702
 
-702:                                              ; preds = %.lr.ph91.i
-  %703 = add i32 %.06288.i, 1
-  %704 = icmp ugt i32 %703, %.3.in89.i
+702:                                              ; preds = %.lr.ph92.i
+  %703 = add i32 %.06289.i, 1
+  %704 = icmp ugt i32 %703, %.3.in90.i
   br i1 %704, label %iup_worker_interpolate_.exit.i, label %705
 
 705:                                              ; preds = %702
-  %.not.i.i432 = icmp ult i32 %.06288.i, %673
-  %.not104.i.i = icmp ult i32 %.390.i, %673
+  %.not.i.i432 = icmp ult i32 %.06289.i, %673
+  %.not104.i.i = icmp ult i32 %.391.i, %673
   %or.cond.i.i433 = and i1 %.not104.i.i, %.not.i.i432
   br i1 %or.cond.i.i433, label %706, label %iup_worker_interpolate_.exit.i
 
 706:                                              ; preds = %705
-  %707 = zext i32 %.06288.i to i64
+  %707 = zext i32 %.06289.i to i64
   %708 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink.i429, i64 %707
   %709 = load i64, ptr %708, align 8
   %710 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink.i429, i64 %697
@@ -3491,13 +3491,13 @@ Ins_CINDEX.exit:                                  ; preds = %599, %601, %602
   %.pre-phi.i.i = phi i64 [ %697, %713 ], [ %707, %706 ]
   %.088.i.i = phi i64 [ %709, %713 ], [ %711, %706 ]
   %.087.i.i = phi i64 [ %711, %713 ], [ %709, %706 ]
-  %715 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink99.i, i64 %.pre-phi.i.i
+  %715 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink100.i, i64 %.pre-phi.i.i
   %716 = load i64, ptr %715, align 8
-  %717 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink99.i, i64 %.pre-phi125.i.i
+  %717 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink100.i, i64 %.pre-phi125.i.i
   %718 = load i64, ptr %717, align 8
-  %719 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink98.i, i64 %.pre-phi.i.i
+  %719 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink99.i, i64 %.pre-phi.i.i
   %720 = load i64, ptr %719, align 8
-  %721 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink98.i, i64 %.pre-phi125.i.i
+  %721 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink99.i, i64 %.pre-phi125.i.i
   %722 = load i64, ptr %721, align 8
   %723 = sub i64 %720, %716
   %724 = sub i64 %722, %718
@@ -3514,7 +3514,7 @@ Ins_CINDEX.exit:                                  ; preds = %599, %601, %602
 .lr.ph123.i.i:                                    ; preds = %714, %.lr.ph123.i.i
   %.085122.i.i = phi i32 [ %735, %.lr.ph123.i.i ], [ %703, %714 ]
   %729 = zext i32 %.085122.i.i to i64
-  %730 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink99.i, i64 %729
+  %730 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink100.i, i64 %729
   %731 = load i64, ptr %730, align 8
   %.not110.i.i = icmp sgt i64 %731, %716
   %732 = add i64 %731, %723
@@ -3522,10 +3522,10 @@ Ins_CINDEX.exit:                                  ; preds = %599, %601, %602
   %733 = add i64 %731, %724
   %spec.select.i.i435 = select i1 %.not111.i.i, i64 %720, i64 %733
   %.082.i.i = select i1 %.not110.i.i, i64 %spec.select.i.i435, i64 %732
-  %734 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink98.i, i64 %729
+  %734 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink99.i, i64 %729
   store i64 %.082.i.i, ptr %734, align 8
   %735 = add i32 %.085122.i.i, 1
-  %.not109.i.i = icmp ugt i32 %735, %.3.in89.i
+  %.not109.i.i = icmp ugt i32 %735, %.3.in90.i
   br i1 %.not109.i.i, label %iup_worker_interpolate_.exit.i, label %.lr.ph123.i.i, !llvm.loop !11
 
 736:                                              ; preds = %761, %.lr.ph.i.i
@@ -3533,7 +3533,7 @@ Ins_CINDEX.exit:                                  ; preds = %599, %601, %602
   %.079119.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %.180.i.i, %761 ]
   %.186118.i.i = phi i32 [ %703, %.lr.ph.i.i ], [ %763, %761 ]
   %737 = zext i32 %.186118.i.i to i64
-  %738 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink99.i, i64 %737
+  %738 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink100.i, i64 %737
   %739 = load i64, ptr %738, align 8
   %.not106.i.i = icmp sgt i64 %739, %716
   br i1 %.not106.i.i, label %742, label %740
@@ -3580,78 +3580,78 @@ Ins_CINDEX.exit:                                  ; preds = %599, %601, %602
   %.180.i.i = phi i64 [ %.079119.i.i, %740 ], [ %.079119.i.i, %743 ], [ %.281.i.i, %748 ]
   %.1.i.i434 = phi i8 [ %.078120.i.i, %740 ], [ %.078120.i.i, %743 ], [ 1, %748 ]
   %.0.i.i = phi i64 [ %741, %740 ], [ %744, %743 ], [ %760, %748 ]
-  %762 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink98.i, i64 %737
+  %762 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink99.i, i64 %737
   store i64 %.0.i.i, ptr %762, align 8
   %763 = add i32 %.186118.i.i, 1
-  %.not105.i.i = icmp ugt i32 %763, %.3.in89.i
+  %.not105.i.i = icmp ugt i32 %763, %.3.in90.i
   br i1 %.not105.i.i, label %iup_worker_interpolate_.exit.i, label %736, !llvm.loop !12
 
-iup_worker_interpolate_.exit.i:                   ; preds = %761, %.lr.ph123.i.i, %705, %702, %.lr.ph91.i
-  %.163.i = phi i32 [ %.06288.i, %.lr.ph91.i ], [ %.390.i, %702 ], [ %.390.i, %705 ], [ %.390.i, %.lr.ph123.i.i ], [ %.390.i, %761 ]
-  %.3.i = add i32 %.390.i, 1
+iup_worker_interpolate_.exit.i:                   ; preds = %761, %.lr.ph123.i.i, %705, %702, %.lr.ph92.i
+  %.163.i = phi i32 [ %.06289.i, %.lr.ph92.i ], [ %.391.i, %702 ], [ %.391.i, %705 ], [ %.391.i, %.lr.ph123.i.i ], [ %.391.i, %761 ]
+  %.3.i = add i32 %.391.i, 1
   %.not74.i = icmp ugt i32 %.3.i, %spec.select.i431
-  br i1 %.not74.i, label %.critedge._crit_edge.i, label %.lr.ph91.i, !llvm.loop !13
+  br i1 %.not74.i, label %.critedge._crit_edge.i, label %.lr.ph92.i, !llvm.loop !13
 
 .critedge._crit_edge.i:                           ; preds = %iup_worker_interpolate_.exit.i
-  %764 = icmp eq i32 %.163.i, %.185.i
+  %764 = icmp eq i32 %.163.i, %.186.i
   br i1 %764, label %.critedge._crit_edge.thread.i, label %779
 
 .critedge._crit_edge.thread.i:                    ; preds = %.critedge._crit_edge.i, %.critedge.preheader.i
-  %.3.lcssa102.i = phi i32 [ %.3.i, %.critedge._crit_edge.i ], [ %694, %.critedge.preheader.i ]
-  %765 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink98.i, i64 %688
+  %.3.lcssa103.i = phi i32 [ %.3.i, %.critedge._crit_edge.i ], [ %694, %.critedge.preheader.i ]
+  %765 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink99.i, i64 %688
   %766 = load i64, ptr %765, align 8
-  %767 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink99.i, i64 %688
+  %767 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink100.i, i64 %688
   %768 = load i64, ptr %767, align 8
   %769 = sub i64 %766, %768
-  %.not.i78.i = icmp eq i64 %766, %768
-  br i1 %.not.i78.i, label %.critedge77.i, label %.preheader25.i.i
+  %.not.i79.i = icmp eq i64 %766, %768
+  br i1 %.not.i79.i, label %.critedge77.i, label %.preheader1.i.i
 
-.preheader25.i.i:                                 ; preds = %.critedge._crit_edge.thread.i
-  %770 = icmp ult i32 %.061.i, %.185.i
+.preheader1.i.i:                                  ; preds = %.critedge._crit_edge.thread.i
+  %770 = icmp ult i32 %.061.i, %.186.i
   br i1 %770, label %.lr.ph.preheader.i.i, label %.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %.preheader25.i.i
+.lr.ph.preheader.i.i:                             ; preds = %.preheader1.i.i
   %771 = zext i32 %.061.i to i64
-  br label %.lr.ph.i80.i
+  br label %.lr.ph.i81.i
 
-.preheader.i.i:                                   ; preds = %.lr.ph.i80.i, %.preheader25.i.i
-  br i1 %.not73.i, label %.critedge77.i, label %.lr.ph30.i.i
+.preheader.i.i:                                   ; preds = %.lr.ph.i81.i, %.preheader1.i.i
+  br i1 %.not73.i, label %.critedge77.i, label %.lr.ph6.i.i
 
-.lr.ph.i80.i:                                     ; preds = %.lr.ph.i80.i, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %771, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i80.i ]
-  %772 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink98.i, i64 %indvars.iv.i.i
+.lr.ph.i81.i:                                     ; preds = %.lr.ph.i81.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %771, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i81.i ]
+  %772 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink99.i, i64 %indvars.iv.i.i
   %773 = load i64, ptr %772, align 8
   %774 = add i64 %773, %769
   store i64 %774, ptr %772, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %688
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %.lr.ph.i80.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %.lr.ph.i81.i, !llvm.loop !14
 
-.lr.ph30.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph30.i.i
-  %.129.i.i = phi i32 [ %.1.i79.i, %.lr.ph30.i.i ], [ %694, %.preheader.i.i ]
-  %775 = zext i32 %.129.i.i to i64
-  %776 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink98.i, i64 %775
+.lr.ph6.i.i:                                      ; preds = %.preheader.i.i, %.lr.ph6.i.i
+  %.15.i.i = phi i32 [ %.1.i80.i, %.lr.ph6.i.i ], [ %694, %.preheader.i.i ]
+  %775 = zext i32 %.15.i.i to i64
+  %776 = getelementptr inbounds %struct.FT_Vector_, ptr %.sink99.i, i64 %775
   %777 = load i64, ptr %776, align 8
   %778 = add i64 %777, %769
   store i64 %778, ptr %776, align 8
-  %.1.i79.i = add i32 %.129.i.i, 1
-  %.not24.i.i = icmp ugt i32 %.1.i79.i, %spec.select.i431
-  br i1 %.not24.i.i, label %.critedge77.i, label %.lr.ph30.i.i, !llvm.loop !15
+  %.1.i80.i = add i32 %.15.i.i, 1
+  %.not24.i.i = icmp ugt i32 %.1.i80.i, %spec.select.i431
+  br i1 %.not24.i.i, label %.critedge77.i, label %.lr.ph6.i.i, !llvm.loop !15
 
 779:                                              ; preds = %.critedge._crit_edge.i
   %780 = add i32 %.163.i, 1
   %781 = and i32 %780, 65535
-  call fastcc void @iup_worker_interpolate_(ptr noundef %16, i32 noundef %781, i32 noundef %spec.select.i431, i32 noundef %.163.i, i32 noundef %.185.i)
-  %.not75.i = icmp eq i32 %.185.i, 0
+  call fastcc void @iup_worker_interpolate_(ptr noundef %16, i32 noundef %781, i32 noundef %spec.select.i431, i32 noundef %.163.i, i32 noundef %.186.i)
+  %.not75.i = icmp eq i32 %.186.i, 0
   br i1 %.not75.i, label %.critedge77.i, label %782
 
 782:                                              ; preds = %779
-  %783 = add i32 %.185.i, -1
-  call fastcc void @iup_worker_interpolate_(ptr noundef %16, i32 noundef %.061.i, i32 noundef %783, i32 noundef %.163.i, i32 noundef %.185.i)
+  %783 = add i32 %.186.i, -1
+  call fastcc void @iup_worker_interpolate_(ptr noundef %16, i32 noundef %.061.i, i32 noundef %783, i32 noundef %.163.i, i32 noundef %.186.i)
   br label %.critedge77.i
 
-.critedge77.i:                                    ; preds = %695, %.lr.ph30.i.i, %782, %779, %.preheader.i.i, %.critedge._crit_edge.thread.i, %674
-  %.2.i = phi i32 [ %.3.i, %782 ], [ %.3.i, %779 ], [ %.3.lcssa102.i, %.critedge._crit_edge.thread.i ], [ %.3.lcssa102.i, %.preheader.i.i ], [ %.061.i, %674 ], [ %.3.lcssa102.i, %.lr.ph30.i.i ], [ %694, %695 ]
+.critedge77.i:                                    ; preds = %695, %.lr.ph6.i.i, %782, %779, %.preheader.i.i, %.critedge._crit_edge.thread.i, %674
+  %.2.i = phi i32 [ %.3.i, %782 ], [ %.3.i, %779 ], [ %.3.lcssa103.i, %.critedge._crit_edge.thread.i ], [ %.3.lcssa103.i, %.preheader.i.i ], [ %.061.i, %674 ], [ %.3.lcssa103.i, %.lr.ph6.i.i ], [ %694, %695 ]
   %784 = add i16 %.0.i430, 1
   %785 = sext i16 %784 to i32
   %786 = load i16, ptr %212, align 2

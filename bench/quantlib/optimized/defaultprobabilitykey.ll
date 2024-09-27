@@ -269,7 +269,7 @@ _ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv.exit: ; preds = %for.body, 
 
 for.body.i.i.i:                                   ; preds = %_ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv.exit, %if.end23.i.i.i
   %__trip_count.067.i.i.i = phi i64 [ %dec.i.i.i, %if.end23.i.i.i ], [ %shr.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv.exit ]
-  %__first.sroa.0.066.i.i.i = phi ptr [ %incdec.ptr.i26.i.i.i, %if.end23.i.i.i ], [ %18, %_ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv.exit ]
+  %__first.sroa.0.066.i.i.i = phi ptr [ %incdec.ptr.i32.i.i.i, %if.end23.i.i.i ], [ %18, %_ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv.exit ]
   %22 = load ptr, ptr %__first.sroa.0.066.i.i.i, align 8, !tbaa !26
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i, !prof !17
@@ -287,67 +287,67 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__no
 if.end.i.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.066.i.i.i, i64 16
   %24 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8, !tbaa !26
-  %cmp.not.i.i.i9.i.i.i = icmp eq ptr %24, null
-  br i1 %cmp.not.i.i.i9.i.i.i, label %cond.false.i.i.i11.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit13.i.i.i, !prof !17
-
-cond.false.i.i.i11.i.i.i:                         ; preds = %if.end.i.i.i
-  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv, ptr noundef nonnull @.str.5, i64 noundef 778)
-  %.pre.i.i.i12.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i, align 8, !tbaa !26
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit13.i.i.i
-
-_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit13.i.i.i: ; preds = %cond.false.i.i.i11.i.i.i, %if.end.i.i.i
-  %25 = phi ptr [ %24, %if.end.i.i.i ], [ %.pre.i.i.i12.i.i.i, %cond.false.i.i.i11.i.i.i ]
-  %call2.i.i10.i.i.i = tail call noundef zeroext i1 @_ZN8QuantLibeqERKNS_11DefaultTypeES2_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %21)
-  br i1 %call2.i.i10.i.i.i, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit, label %if.end11.i.i.i
-
-if.end11.i.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit13.i.i.i
-  %incdec.ptr.i14.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.066.i.i.i, i64 32
-  %26 = load ptr, ptr %incdec.ptr.i14.i.i.i, align 8, !tbaa !26
-  %cmp.not.i.i.i15.i.i.i = icmp eq ptr %26, null
+  %cmp.not.i.i.i15.i.i.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i.i15.i.i.i, label %cond.false.i.i.i17.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit19.i.i.i, !prof !17
 
-cond.false.i.i.i17.i.i.i:                         ; preds = %if.end11.i.i.i
+cond.false.i.i.i17.i.i.i:                         ; preds = %if.end.i.i.i
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv, ptr noundef nonnull @.str.5, i64 noundef 778)
-  %.pre.i.i.i18.i.i.i = load ptr, ptr %incdec.ptr.i14.i.i.i, align 8, !tbaa !26
+  %.pre.i.i.i18.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i, align 8, !tbaa !26
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit19.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit19.i.i.i: ; preds = %cond.false.i.i.i17.i.i.i, %if.end11.i.i.i
-  %27 = phi ptr [ %26, %if.end11.i.i.i ], [ %.pre.i.i.i18.i.i.i, %cond.false.i.i.i17.i.i.i ]
-  %call2.i.i16.i.i.i = tail call noundef zeroext i1 @_ZN8QuantLibeqERKNS_11DefaultTypeES2_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %21)
-  br i1 %call2.i.i16.i.i.i, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit, label %if.end17.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit19.i.i.i: ; preds = %cond.false.i.i.i17.i.i.i, %if.end.i.i.i
+  %25 = phi ptr [ %24, %if.end.i.i.i ], [ %.pre.i.i.i18.i.i.i, %cond.false.i.i.i17.i.i.i ]
+  %call2.i.i16.i.i.i = tail call noundef zeroext i1 @_ZN8QuantLibeqERKNS_11DefaultTypeES2_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  br i1 %call2.i.i16.i.i.i, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit, label %if.end11.i.i.i
 
-if.end17.i.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit19.i.i.i
-  %incdec.ptr.i20.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.066.i.i.i, i64 48
-  %28 = load ptr, ptr %incdec.ptr.i20.i.i.i, align 8, !tbaa !26
-  %cmp.not.i.i.i21.i.i.i = icmp eq ptr %28, null
+if.end11.i.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit19.i.i.i
+  %incdec.ptr.i20.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.066.i.i.i, i64 32
+  %26 = load ptr, ptr %incdec.ptr.i20.i.i.i, align 8, !tbaa !26
+  %cmp.not.i.i.i21.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i21.i.i.i, label %cond.false.i.i.i23.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit25.i.i.i, !prof !17
 
-cond.false.i.i.i23.i.i.i:                         ; preds = %if.end17.i.i.i
+cond.false.i.i.i23.i.i.i:                         ; preds = %if.end11.i.i.i
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv, ptr noundef nonnull @.str.5, i64 noundef 778)
   %.pre.i.i.i24.i.i.i = load ptr, ptr %incdec.ptr.i20.i.i.i, align 8, !tbaa !26
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit25.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit25.i.i.i: ; preds = %cond.false.i.i.i23.i.i.i, %if.end17.i.i.i
-  %29 = phi ptr [ %28, %if.end17.i.i.i ], [ %.pre.i.i.i24.i.i.i, %cond.false.i.i.i23.i.i.i ]
-  %call2.i.i22.i.i.i = tail call noundef zeroext i1 @_ZN8QuantLibeqERKNS_11DefaultTypeES2_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %21)
-  br i1 %call2.i.i22.i.i.i, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit, label %if.end23.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit25.i.i.i: ; preds = %cond.false.i.i.i23.i.i.i, %if.end11.i.i.i
+  %27 = phi ptr [ %26, %if.end11.i.i.i ], [ %.pre.i.i.i24.i.i.i, %cond.false.i.i.i23.i.i.i ]
+  %call2.i.i22.i.i.i = tail call noundef zeroext i1 @_ZN8QuantLibeqERKNS_11DefaultTypeES2_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  br i1 %call2.i.i22.i.i.i, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit, label %if.end17.i.i.i
 
-if.end23.i.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit25.i.i.i
-  %incdec.ptr.i26.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.066.i.i.i, i64 64
+if.end17.i.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit25.i.i.i
+  %incdec.ptr.i26.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.066.i.i.i, i64 48
+  %28 = load ptr, ptr %incdec.ptr.i26.i.i.i, align 8, !tbaa !26
+  %cmp.not.i.i.i27.i.i.i = icmp eq ptr %28, null
+  br i1 %cmp.not.i.i.i27.i.i.i, label %cond.false.i.i.i29.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit31.i.i.i, !prof !17
+
+cond.false.i.i.i29.i.i.i:                         ; preds = %if.end17.i.i.i
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv, ptr noundef nonnull @.str.5, i64 noundef 778)
+  %.pre.i.i.i30.i.i.i = load ptr, ptr %incdec.ptr.i26.i.i.i, align 8, !tbaa !26
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit31.i.i.i
+
+_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit31.i.i.i: ; preds = %cond.false.i.i.i29.i.i.i, %if.end17.i.i.i
+  %29 = phi ptr [ %28, %if.end17.i.i.i ], [ %.pre.i.i.i30.i.i.i, %cond.false.i.i.i29.i.i.i ]
+  %call2.i.i28.i.i.i = tail call noundef zeroext i1 @_ZN8QuantLibeqERKNS_11DefaultTypeES2_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  br i1 %call2.i.i28.i.i.i, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit, label %if.end23.i.i.i
+
+if.end23.i.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit31.i.i.i
+  %incdec.ptr.i32.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.066.i.i.i, i64 64
   %dec.i.i.i = add nsw i64 %__trip_count.067.i.i.i, -1
   %cmp.i.i.i20 = icmp sgt i64 %__trip_count.067.i.i.i, 1
   br i1 %cmp.i.i.i20, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !28
 
 for.end.loopexit.i.i.i:                           ; preds = %if.end23.i.i.i
-  %.pre.i.i.i = ptrtoint ptr %incdec.ptr.i26.i.i.i to i64
+  %.pre.i.i.i = ptrtoint ptr %incdec.ptr.i32.i.i.i to i64
   %.pre68.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %.pre.i.i.i
   br label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv.exit
-  %sub.ptr.sub.i29.pre-phi.i.i.i = phi i64 [ %.pre68.i.i.i, %for.end.loopexit.i.i.i ], [ %sub.ptr.sub.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv.exit ]
-  %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %incdec.ptr.i26.i.i.i, %for.end.loopexit.i.i.i ], [ %18, %_ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv.exit ]
-  %sub.ptr.div.i30.i.i.i = ashr exact i64 %sub.ptr.sub.i29.pre-phi.i.i.i, 4
-  switch i64 %sub.ptr.div.i30.i.i.i, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit [
+  %sub.ptr.sub.i35.pre-phi.i.i.i = phi i64 [ %.pre68.i.i.i, %for.end.loopexit.i.i.i ], [ %sub.ptr.sub.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv.exit ]
+  %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %incdec.ptr.i32.i.i.i, %for.end.loopexit.i.i.i ], [ %18, %_ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv.exit ]
+  %sub.ptr.div.i36.i.i.i = ashr exact i64 %sub.ptr.sub.i35.pre-phi.i.i.i, 4
+  switch i64 %sub.ptr.div.i36.i.i.i, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit [
     i64 3, label %sw.bb.i.i.i
     i64 2, label %sw.bb32.i.i.i
     i64 1, label %sw.bb39.i.i.i
@@ -355,62 +355,62 @@ for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.
 
 sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
   %30 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i, align 8, !tbaa !26
-  %cmp.not.i.i.i31.i.i.i = icmp eq ptr %30, null
-  br i1 %cmp.not.i.i.i31.i.i.i, label %cond.false.i.i.i33.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit35.i.i.i, !prof !17
+  %cmp.not.i.i.i37.i.i.i = icmp eq ptr %30, null
+  br i1 %cmp.not.i.i.i37.i.i.i, label %cond.false.i.i.i39.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit41.i.i.i, !prof !17
 
-cond.false.i.i.i33.i.i.i:                         ; preds = %sw.bb.i.i.i
+cond.false.i.i.i39.i.i.i:                         ; preds = %sw.bb.i.i.i
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv, ptr noundef nonnull @.str.5, i64 noundef 778)
-  %.pre.i.i.i34.i.i.i = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i, align 8, !tbaa !26
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit35.i.i.i
+  %.pre.i.i.i40.i.i.i = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i, align 8, !tbaa !26
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit41.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit35.i.i.i: ; preds = %cond.false.i.i.i33.i.i.i, %sw.bb.i.i.i
-  %31 = phi ptr [ %30, %sw.bb.i.i.i ], [ %.pre.i.i.i34.i.i.i, %cond.false.i.i.i33.i.i.i ]
-  %call2.i.i32.i.i.i = tail call noundef zeroext i1 @_ZN8QuantLibeqERKNS_11DefaultTypeES2_(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %21)
-  br i1 %call2.i.i32.i.i.i, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit, label %if.end30.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit41.i.i.i: ; preds = %cond.false.i.i.i39.i.i.i, %sw.bb.i.i.i
+  %31 = phi ptr [ %30, %sw.bb.i.i.i ], [ %.pre.i.i.i40.i.i.i, %cond.false.i.i.i39.i.i.i ]
+  %call2.i.i38.i.i.i = tail call noundef zeroext i1 @_ZN8QuantLibeqERKNS_11DefaultTypeES2_(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  br i1 %call2.i.i38.i.i.i, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit, label %if.end30.i.i.i
 
-if.end30.i.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit35.i.i.i
-  %incdec.ptr.i36.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 16
+if.end30.i.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit41.i.i.i
+  %incdec.ptr.i42.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 16
   br label %sw.bb32.i.i.i
 
 sw.bb32.i.i.i:                                    ; preds = %if.end30.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i36.i.i.i, %if.end30.i.i.i ]
+  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i42.i.i.i, %if.end30.i.i.i ]
   %32 = load ptr, ptr %__first.sroa.0.1.i.i.i, align 8, !tbaa !26
-  %cmp.not.i.i.i37.i.i.i = icmp eq ptr %32, null
-  br i1 %cmp.not.i.i.i37.i.i.i, label %cond.false.i.i.i39.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit41.i.i.i, !prof !17
+  %cmp.not.i.i.i43.i.i.i = icmp eq ptr %32, null
+  br i1 %cmp.not.i.i.i43.i.i.i, label %cond.false.i.i.i45.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit47.i.i.i, !prof !17
 
-cond.false.i.i.i39.i.i.i:                         ; preds = %sw.bb32.i.i.i
+cond.false.i.i.i45.i.i.i:                         ; preds = %sw.bb32.i.i.i
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv, ptr noundef nonnull @.str.5, i64 noundef 778)
-  %.pre.i.i.i40.i.i.i = load ptr, ptr %__first.sroa.0.1.i.i.i, align 8, !tbaa !26
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit41.i.i.i
+  %.pre.i.i.i46.i.i.i = load ptr, ptr %__first.sroa.0.1.i.i.i, align 8, !tbaa !26
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit47.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit41.i.i.i: ; preds = %cond.false.i.i.i39.i.i.i, %sw.bb32.i.i.i
-  %33 = phi ptr [ %32, %sw.bb32.i.i.i ], [ %.pre.i.i.i40.i.i.i, %cond.false.i.i.i39.i.i.i ]
-  %call2.i.i38.i.i.i = tail call noundef zeroext i1 @_ZN8QuantLibeqERKNS_11DefaultTypeES2_(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %21)
-  br i1 %call2.i.i38.i.i.i, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit, label %if.end37.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit47.i.i.i: ; preds = %cond.false.i.i.i45.i.i.i, %sw.bb32.i.i.i
+  %33 = phi ptr [ %32, %sw.bb32.i.i.i ], [ %.pre.i.i.i46.i.i.i, %cond.false.i.i.i45.i.i.i ]
+  %call2.i.i44.i.i.i = tail call noundef zeroext i1 @_ZN8QuantLibeqERKNS_11DefaultTypeES2_(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  br i1 %call2.i.i44.i.i.i, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit, label %if.end37.i.i.i
 
-if.end37.i.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit41.i.i.i
-  %incdec.ptr.i42.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i.i, i64 16
+if.end37.i.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit47.i.i.i
+  %incdec.ptr.i48.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i.i, i64 16
   br label %sw.bb39.i.i.i
 
 sw.bb39.i.i.i:                                    ; preds = %if.end37.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i42.i.i.i, %if.end37.i.i.i ]
+  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i48.i.i.i, %if.end37.i.i.i ]
   %34 = load ptr, ptr %__first.sroa.0.2.i.i.i, align 8, !tbaa !26
-  %cmp.not.i.i.i43.i.i.i = icmp eq ptr %34, null
-  br i1 %cmp.not.i.i.i43.i.i.i, label %cond.false.i.i.i45.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit47.i.i.i, !prof !17
+  %cmp.not.i.i.i49.i.i.i = icmp eq ptr %34, null
+  br i1 %cmp.not.i.i.i49.i.i.i, label %cond.false.i.i.i51.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit53.i.i.i, !prof !17
 
-cond.false.i.i.i45.i.i.i:                         ; preds = %sw.bb39.i.i.i
+cond.false.i.i.i51.i.i.i:                         ; preds = %sw.bb39.i.i.i
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib11DefaultTypeEEdeEv, ptr noundef nonnull @.str.5, i64 noundef 778)
-  %.pre.i.i.i46.i.i.i = load ptr, ptr %__first.sroa.0.2.i.i.i, align 8, !tbaa !26
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit47.i.i.i
+  %.pre.i.i.i52.i.i.i = load ptr, ptr %__first.sroa.0.2.i.i.i, align 8, !tbaa !26
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit53.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit47.i.i.i: ; preds = %cond.false.i.i.i45.i.i.i, %sw.bb39.i.i.i
-  %35 = phi ptr [ %34, %sw.bb39.i.i.i ], [ %.pre.i.i.i46.i.i.i, %cond.false.i.i.i45.i.i.i ]
-  %call2.i.i44.i.i.i = tail call noundef zeroext i1 @_ZN8QuantLibeqERKNS_11DefaultTypeES2_(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %21)
-  %spec.select.i.i.i = select i1 %call2.i.i44.i.i.i, ptr %__first.sroa.0.2.i.i.i, ptr %17
+_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit53.i.i.i: ; preds = %cond.false.i.i.i51.i.i.i, %sw.bb39.i.i.i
+  %35 = phi ptr [ %34, %sw.bb39.i.i.i ], [ %.pre.i.i.i52.i.i.i, %cond.false.i.i.i51.i.i.i ]
+  %call2.i.i50.i.i.i = tail call noundef zeroext i1 @_ZN8QuantLibeqERKNS_11DefaultTypeES2_(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  %spec.select.i.i.i = select i1 %call2.i.i50.i.i.i, ptr %__first.sroa.0.2.i.i.i, ptr %17
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit13.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit19.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit25.i.i.i, %for.end.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit35.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit41.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit47.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit35.i.i.i ], [ %__first.sroa.0.1.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit41.i.i.i ], [ %17, %for.end.i.i.i ], [ %spec.select.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit47.i.i.i ], [ %__first.sroa.0.066.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i ], [ %incdec.ptr.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit13.i.i.i ], [ %incdec.ptr.i14.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit19.i.i.i ], [ %incdec.ptr.i20.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit25.i.i.i ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_19points_toEET_SF_SF_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit19.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit25.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit31.i.i.i, %for.end.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit41.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit47.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit53.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit41.i.i.i ], [ %__first.sroa.0.1.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit47.i.i.i ], [ %17, %for.end.i.i.i ], [ %spec.select.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit53.i.i.i ], [ %__first.sroa.0.066.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i ], [ %incdec.ptr.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit19.i.i.i ], [ %incdec.ptr.i20.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit25.i.i.i ], [ %incdec.ptr.i26.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit31.i.i.i ]
   %36 = load ptr, ptr %_M_finish.i14, align 8, !tbaa !25
   %cmp.i.not = icmp ne ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %36
   %inc = add nuw i64 %i.026, 1

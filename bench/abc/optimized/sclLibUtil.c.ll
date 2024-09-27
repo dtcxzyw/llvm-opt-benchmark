@@ -2148,127 +2148,109 @@ Abc_SclFindInvertor.exit.thread:                  ; preds = %20, %1, %Scl_CellPi
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Abc_SclComputeParametersPin(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, float noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #13 {
-  %7 = alloca %struct.SC_Pair_, align 4
-  %8 = alloca %struct.SC_Pair_, align 4
-  %9 = alloca %struct.SC_Pair_, align 4
+  %7 = alloca %struct.SC_Pair_, align 8
+  %8 = alloca %struct.SC_Pair_, align 8
+  %9 = alloca %struct.SC_Pair_, align 8
   %10 = alloca %struct.SC_Pair_, align 8
-  %11 = alloca %struct.SC_Pair_, align 4
-  %12 = alloca %struct.SC_Pair_, align 8
-  %13 = alloca %struct.SC_Pair_, align 8
-  %14 = alloca %struct.SC_Pair_, align 8
-  %15 = alloca %struct.SC_Pair_, align 8
+  store i64 0, ptr %7, align 8
+  store i64 0, ptr %8, align 8
+  store i64 0, ptr %9, align 8
   store i64 0, ptr %10, align 8
-  store float %3, ptr %11, align 4
-  %16 = getelementptr inbounds i8, ptr %11, i64 4
-  store float %3, ptr %16, align 4
-  store i64 0, ptr %12, align 8
-  store i64 0, ptr %13, align 8
-  store i64 0, ptr %14, align 8
-  store i64 0, ptr %15, align 8
-  %17 = getelementptr i8, ptr %1, i64 56
-  %.val28 = load ptr, ptr %17, align 8
-  %18 = getelementptr i8, ptr %1, i64 64
-  %.val29 = load i32, ptr %18, align 8
-  %19 = sext i32 %.val29 to i64
-  %20 = getelementptr inbounds ptr, ptr %.val28, i64 %19
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr i8, ptr %21, i64 72
-  %.val6.i = load ptr, ptr %22, align 8
-  %23 = sext i32 %2 to i64
-  %24 = getelementptr inbounds ptr, ptr %.val6.i, i64 %23
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr i8, ptr %25, i64 12
-  %.val7.i = load i32, ptr %26, align 4
-  %27 = icmp eq i32 %.val7.i, 0
-  br i1 %27, label %Scl_CellPinTime.exit.thread, label %Scl_CellPinTime.exit
+  %11 = getelementptr i8, ptr %1, i64 56
+  %.val28 = load ptr, ptr %11, align 8
+  %12 = getelementptr i8, ptr %1, i64 64
+  %.val29 = load i32, ptr %12, align 8
+  %13 = sext i32 %.val29 to i64
+  %14 = getelementptr inbounds ptr, ptr %.val28, i64 %13
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr i8, ptr %15, i64 72
+  %.val6.i = load ptr, ptr %16, align 8
+  %17 = sext i32 %2 to i64
+  %18 = getelementptr inbounds ptr, ptr %.val6.i, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr i8, ptr %19, i64 12
+  %.val7.i = load i32, ptr %20, align 4
+  %21 = icmp eq i32 %.val7.i, 0
+  br i1 %21, label %Scl_CellPinTime.exit.thread, label %Scl_CellPinTime.exit
 
 Scl_CellPinTime.exit:                             ; preds = %6
-  %28 = getelementptr i8, ptr %25, i64 16
-  %.val.i = load ptr, ptr %28, align 8
-  %29 = load ptr, ptr %.val.i, align 8
-  %.not = icmp eq ptr %29, null
-  br i1 %.not, label %Scl_CellPinTime.exit.thread, label %30
+  %22 = getelementptr i8, ptr %19, i64 16
+  %.val.i = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %.val.i, align 8
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %Scl_CellPinTime.exit.thread, label %24
 
-30:                                               ; preds = %Scl_CellPinTime.exit
-  %31 = getelementptr i8, ptr %29, i64 52
-  %.val24 = load i32, ptr %31, align 4
-  %32 = icmp eq i32 %.val24, 1
-  br i1 %32, label %33, label %38
+24:                                               ; preds = %Scl_CellPinTime.exit
+  %25 = getelementptr i8, ptr %23, i64 52
+  %.val24 = load i32, ptr %25, align 4
+  %26 = icmp eq i32 %.val24, 1
+  br i1 %26, label %27, label %32
 
-33:                                               ; preds = %30
+27:                                               ; preds = %24
   store float 0.000000e+00, ptr %4, align 4
-  %34 = getelementptr i8, ptr %29, i64 72
-  %.val = load ptr, ptr %34, align 8
-  %35 = load ptr, ptr %.val, align 8
-  %36 = getelementptr i8, ptr %35, i64 8
-  %.val27 = load ptr, ptr %36, align 8
-  %37 = load float, ptr %.val27, align 4
+  %28 = getelementptr i8, ptr %23, i64 72
+  %.val = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %.val, align 8
+  %30 = getelementptr i8, ptr %29, i64 8
+  %.val27 = load ptr, ptr %30, align 8
+  %31 = load float, ptr %.val27, align 4
   br label %Scl_CellPinTime.exit.thread.sink.split
 
-38:                                               ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %7, i64 4
-  store float 0.000000e+00, ptr %39, align 4
-  store float 0.000000e+00, ptr %7, align 4
-  %40 = getelementptr i8, ptr %29, i64 56
-  %.val26 = load ptr, ptr %40, align 8
-  %41 = load float, ptr %.val26, align 4
-  %42 = getelementptr inbounds i8, ptr %8, i64 4
-  store float %41, ptr %42, align 4
-  store float %41, ptr %8, align 4
-  %43 = sext i32 %.val24 to i64
-  %44 = getelementptr float, ptr %.val26, i64 %43
-  %45 = getelementptr i8, ptr %44, i64 -8
-  %46 = load float, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %9, i64 4
-  store float %46, ptr %47, align 4
-  store float %46, ptr %9, align 4
-  call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %29, ptr noundef %10, ptr noundef %11, ptr noundef %7, ptr noundef %12, ptr noundef %15)
-  call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %29, ptr noundef %10, ptr noundef %11, ptr noundef %8, ptr noundef %13, ptr noundef %15)
-  call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %29, ptr noundef %10, ptr noundef %11, ptr noundef %9, ptr noundef %14, ptr noundef %15)
-  %48 = load float, ptr %12, align 8
-  %49 = fpext float %48 to double
-  %50 = getelementptr inbounds i8, ptr %12, i64 4
-  %51 = load float, ptr %50, align 4
-  %52 = fpext float %51 to double
-  %53 = fmul double %52, 5.000000e-01
-  %54 = tail call double @llvm.fmuladd.f64(double %49, double 5.000000e-01, double %53)
-  %55 = fptrunc double %54 to float
-  %56 = load float, ptr %13, align 8
-  %57 = fpext float %56 to double
-  %58 = getelementptr inbounds i8, ptr %13, i64 4
-  %59 = load float, ptr %58, align 4
-  %60 = fpext float %59 to double
-  %61 = fmul double %60, 5.000000e-01
-  %62 = tail call double @llvm.fmuladd.f64(double %57, double 5.000000e-01, double %61)
-  %63 = fptrunc double %62 to float
-  %64 = load float, ptr %14, align 8
-  %65 = fpext float %64 to double
-  %66 = getelementptr inbounds i8, ptr %14, i64 4
-  %67 = load float, ptr %66, align 4
-  %68 = fpext float %67 to double
-  %69 = fmul double %68, 5.000000e-01
-  %70 = tail call double @llvm.fmuladd.f64(double %65, double 5.000000e-01, double %69)
-  %71 = fptrunc double %70 to float
-  %72 = fsub float %71, %63
-  %73 = fsub float %46, %41
-  %74 = getelementptr inbounds ptr, ptr %.val28, i64 %23
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
-  %77 = load float, ptr %76, align 8
-  %78 = fpext float %77 to double
-  %79 = getelementptr inbounds i8, ptr %75, i64 20
-  %80 = load float, ptr %79, align 4
-  %81 = fpext float %80 to double
-  %82 = fmul double %81, 5.000000e-01
-  %83 = tail call double @llvm.fmuladd.f64(double %78, double 5.000000e-01, double %82)
-  %84 = fptrunc double %83 to float
-  %85 = fdiv float %73, %84
-  %86 = fdiv float %72, %85
-  store float %86, ptr %4, align 4
+32:                                               ; preds = %24
+  %33 = getelementptr i8, ptr %23, i64 56
+  %.val26 = load ptr, ptr %33, align 8
+  %34 = load float, ptr %.val26, align 4
+  %35 = sext i32 %.val24 to i64
+  %36 = getelementptr float, ptr %.val26, i64 %35
+  %37 = getelementptr i8, ptr %36, i64 -8
+  %38 = load float, ptr %37, align 4
+  call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %23, float 0.000000e+00, float 0.000000e+00, float %3, float %3, float 0.000000e+00, float 0.000000e+00, ptr noundef %7, ptr noundef %10)
+  call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %23, float 0.000000e+00, float 0.000000e+00, float %3, float %3, float %34, float %34, ptr noundef %8, ptr noundef %10)
+  call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %23, float 0.000000e+00, float 0.000000e+00, float %3, float %3, float %38, float %38, ptr noundef %9, ptr noundef %10)
+  %39 = load float, ptr %7, align 8
+  %40 = fpext float %39 to double
+  %41 = getelementptr inbounds i8, ptr %7, i64 4
+  %42 = load float, ptr %41, align 4
+  %43 = fpext float %42 to double
+  %44 = fmul double %43, 5.000000e-01
+  %45 = tail call double @llvm.fmuladd.f64(double %40, double 5.000000e-01, double %44)
+  %46 = fptrunc double %45 to float
+  %47 = load float, ptr %8, align 8
+  %48 = fpext float %47 to double
+  %49 = getelementptr inbounds i8, ptr %8, i64 4
+  %50 = load float, ptr %49, align 4
+  %51 = fpext float %50 to double
+  %52 = fmul double %51, 5.000000e-01
+  %53 = tail call double @llvm.fmuladd.f64(double %48, double 5.000000e-01, double %52)
+  %54 = fptrunc double %53 to float
+  %55 = load float, ptr %9, align 8
+  %56 = fpext float %55 to double
+  %57 = getelementptr inbounds i8, ptr %9, i64 4
+  %58 = load float, ptr %57, align 4
+  %59 = fpext float %58 to double
+  %60 = fmul double %59, 5.000000e-01
+  %61 = tail call double @llvm.fmuladd.f64(double %56, double 5.000000e-01, double %60)
+  %62 = fptrunc double %61 to float
+  %63 = fsub float %62, %54
+  %64 = fsub float %38, %34
+  %65 = getelementptr inbounds ptr, ptr %.val28, i64 %17
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %68 = load float, ptr %67, align 8
+  %69 = fpext float %68 to double
+  %70 = getelementptr inbounds i8, ptr %66, i64 20
+  %71 = load float, ptr %70, align 4
+  %72 = fpext float %71 to double
+  %73 = fmul double %72, 5.000000e-01
+  %74 = tail call double @llvm.fmuladd.f64(double %69, double 5.000000e-01, double %73)
+  %75 = fptrunc double %74 to float
+  %76 = fdiv float %64, %75
+  %77 = fdiv float %63, %76
+  store float %77, ptr %4, align 4
   br label %Scl_CellPinTime.exit.thread.sink.split
 
-Scl_CellPinTime.exit.thread.sink.split:           ; preds = %33, %38
-  %.sink = phi float [ %55, %38 ], [ %37, %33 ]
+Scl_CellPinTime.exit.thread.sink.split:           ; preds = %27, %32
+  %.sink = phi float [ %46, %32 ], [ %31, %27 ]
   store float %.sink, ptr %5, align 4
   br label %Scl_CellPinTime.exit.thread
 
@@ -2278,110 +2260,84 @@ Scl_CellPinTime.exit.thread:                      ; preds = %Scl_CellPinTime.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Scl_LibPinArrival(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #14 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8
-  switch i32 %8, label %47 [
-    i32 1, label %9
-    i32 3, label %9
+define internal fastcc void @Scl_LibPinArrival(ptr nocapture noundef readonly %0, float %.0.val, float %.4.val, float %.0.val1, float %.4.val3, float %.0.val5, float %.4.val7, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #14 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load i32, ptr %4, align 8
+  switch i32 %5, label %31 [
+    i32 1, label %6
+    i32 3, label %6
   ]
 
-9:                                                ; preds = %6, %6
-  %10 = load float, ptr %4, align 4
-  %11 = load float, ptr %1, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load float, ptr %2, align 4
-  %14 = load float, ptr %3, align 4
-  %15 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %12, float noundef %13, float noundef %14)
-  %16 = fadd float %11, %15
-  %17 = fcmp ogt float %10, %16
-  %18 = select i1 %17, float %10, float %16
-  store float %18, ptr %4, align 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
-  %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
-  %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 200
-  %24 = getelementptr inbounds i8, ptr %2, i64 4
-  %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %3, i64 4
-  %27 = load float, ptr %26, align 4
-  %28 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %23, float noundef %25, float noundef %27)
-  %29 = fadd float %22, %28
-  %30 = fcmp ogt float %20, %29
-  %31 = select i1 %30, float %20, float %29
-  store float %31, ptr %19, align 4
-  %32 = load float, ptr %5, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 376
-  %34 = load float, ptr %2, align 4
-  %35 = load float, ptr %3, align 4
-  %36 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %33, float noundef %34, float noundef %35)
-  %37 = fcmp ogt float %32, %36
-  %38 = select i1 %37, float %32, float %36
-  store float %38, ptr %5, align 4
-  %39 = getelementptr inbounds i8, ptr %5, i64 4
-  %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 552
-  %42 = load float, ptr %24, align 4
-  %43 = load float, ptr %26, align 4
-  %44 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %41, float noundef %42, float noundef %43)
-  %45 = fcmp ogt float %40, %44
-  %46 = select i1 %45, float %40, float %44
-  store float %46, ptr %39, align 4
-  %.pre = load i32, ptr %7, align 8
-  br label %47
+6:                                                ; preds = %3, %3
+  %7 = load float, ptr %1, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %8, float noundef %.0.val1, float noundef %.0.val5)
+  %10 = fadd float %.0.val, %9
+  %11 = fcmp ogt float %7, %10
+  %12 = select i1 %11, float %7, float %10
+  store float %12, ptr %1, align 4
+  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = load float, ptr %13, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 200
+  %16 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %15, float noundef %.4.val3, float noundef %.4.val7)
+  %17 = fadd float %.4.val, %16
+  %18 = fcmp ogt float %14, %17
+  %19 = select i1 %18, float %14, float %17
+  store float %19, ptr %13, align 4
+  %20 = load float, ptr %2, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 376
+  %22 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %21, float noundef %.0.val1, float noundef %.0.val5)
+  %23 = fcmp ogt float %20, %22
+  %24 = select i1 %23, float %20, float %22
+  store float %24, ptr %2, align 4
+  %25 = getelementptr inbounds i8, ptr %2, i64 4
+  %26 = load float, ptr %25, align 4
+  %27 = getelementptr inbounds i8, ptr %0, i64 552
+  %28 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %27, float noundef %.4.val3, float noundef %.4.val7)
+  %29 = fcmp ogt float %26, %28
+  %30 = select i1 %29, float %26, float %28
+  store float %30, ptr %25, align 4
+  %.pre = load i32, ptr %4, align 8
+  br label %31
 
-47:                                               ; preds = %6, %9
-  %48 = phi i32 [ %8, %6 ], [ %.pre, %9 ]
-  %49 = and i32 %48, -2
-  %switch = icmp eq i32 %49, 2
-  br i1 %switch, label %50, label %88
+31:                                               ; preds = %3, %6
+  %32 = phi i32 [ %5, %3 ], [ %.pre, %6 ]
+  %33 = and i32 %32, -2
+  %switch = icmp eq i32 %33, 2
+  br i1 %switch, label %34, label %59
 
-50:                                               ; preds = %47
-  %51 = load float, ptr %4, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 4
-  %53 = load float, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
-  %55 = getelementptr inbounds i8, ptr %2, i64 4
-  %56 = load float, ptr %55, align 4
-  %57 = load float, ptr %3, align 4
-  %58 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %54, float noundef %56, float noundef %57)
-  %59 = fadd float %53, %58
-  %60 = fcmp ogt float %51, %59
-  %61 = select i1 %60, float %51, float %59
-  store float %61, ptr %4, align 4
-  %62 = getelementptr inbounds i8, ptr %4, i64 4
-  %63 = load float, ptr %62, align 4
-  %64 = load float, ptr %1, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 200
-  %66 = load float, ptr %2, align 4
-  %67 = getelementptr inbounds i8, ptr %3, i64 4
-  %68 = load float, ptr %67, align 4
-  %69 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %65, float noundef %66, float noundef %68)
-  %70 = fadd float %64, %69
-  %71 = fcmp ogt float %63, %70
-  %72 = select i1 %71, float %63, float %70
-  store float %72, ptr %62, align 4
-  %73 = load float, ptr %5, align 4
-  %74 = getelementptr inbounds i8, ptr %0, i64 376
-  %75 = load float, ptr %55, align 4
-  %76 = load float, ptr %3, align 4
-  %77 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %74, float noundef %75, float noundef %76)
-  %78 = fcmp ogt float %73, %77
-  %79 = select i1 %78, float %73, float %77
-  store float %79, ptr %5, align 4
-  %80 = getelementptr inbounds i8, ptr %5, i64 4
-  %81 = load float, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %0, i64 552
-  %83 = load float, ptr %2, align 4
-  %84 = load float, ptr %67, align 4
-  %85 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %82, float noundef %83, float noundef %84)
-  %86 = fcmp ogt float %81, %85
-  %87 = select i1 %86, float %81, float %85
-  store float %87, ptr %80, align 4
-  br label %88
+34:                                               ; preds = %31
+  %35 = load float, ptr %1, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %36, float noundef %.4.val3, float noundef %.0.val5)
+  %38 = fadd float %.4.val, %37
+  %39 = fcmp ogt float %35, %38
+  %40 = select i1 %39, float %35, float %38
+  store float %40, ptr %1, align 4
+  %41 = getelementptr inbounds i8, ptr %1, i64 4
+  %42 = load float, ptr %41, align 4
+  %43 = getelementptr inbounds i8, ptr %0, i64 200
+  %44 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %43, float noundef %.0.val1, float noundef %.4.val7)
+  %45 = fadd float %.0.val, %44
+  %46 = fcmp ogt float %42, %45
+  %47 = select i1 %46, float %42, float %45
+  store float %47, ptr %41, align 4
+  %48 = load float, ptr %2, align 4
+  %49 = getelementptr inbounds i8, ptr %0, i64 376
+  %50 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %49, float noundef %.4.val3, float noundef %.0.val5)
+  %51 = fcmp ogt float %48, %50
+  %52 = select i1 %51, float %48, float %50
+  store float %52, ptr %2, align 4
+  %53 = getelementptr inbounds i8, ptr %2, i64 4
+  %54 = load float, ptr %53, align 4
+  %55 = getelementptr inbounds i8, ptr %0, i64 552
+  %56 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %55, float noundef %.0.val1, float noundef %.4.val7)
+  %57 = fcmp ogt float %54, %56
+  %58 = select i1 %57, float %54, float %56
+  store float %58, ptr %53, align 4
+  br label %59
 
-88:                                               ; preds = %47, %50
+59:                                               ; preds = %31, %34
   ret void
 }
 
@@ -2442,19 +2398,19 @@ define void @Abc_SclComputeParametersClass(ptr nocapture noundef readnone %0, pt
   br label %6
 
 6:                                                ; preds = %5, %Abc_SclComputeParametersCell.exit
-  %.0135 = phi i32 [ 0, %5 ], [ %170, %Abc_SclComputeParametersCell.exit ]
-  %.018133 = phi float [ 0.000000e+00, %5 ], [ %169, %Abc_SclComputeParametersCell.exit ]
-  %.019132 = phi float [ 0.000000e+00, %5 ], [ %168, %Abc_SclComputeParametersCell.exit ]
-  %.020130 = phi ptr [ %1, %5 ], [ %172, %Abc_SclComputeParametersCell.exit ]
-  %.0116129 = phi float [ 0.000000e+00, %5 ], [ %.1, %Abc_SclComputeParametersCell.exit ]
-  %.0117128 = phi float [ 0.000000e+00, %5 ], [ %.1118, %Abc_SclComputeParametersCell.exit ]
-  %7 = getelementptr inbounds i8, ptr %.020130, i64 64
+  %.077 = phi i32 [ 0, %5 ], [ %170, %Abc_SclComputeParametersCell.exit ]
+  %.01875 = phi float [ 0.000000e+00, %5 ], [ %169, %Abc_SclComputeParametersCell.exit ]
+  %.01974 = phi float [ 0.000000e+00, %5 ], [ %168, %Abc_SclComputeParametersCell.exit ]
+  %.02072 = phi ptr [ %1, %5 ], [ %172, %Abc_SclComputeParametersCell.exit ]
+  %.05871 = phi float [ 0.000000e+00, %5 ], [ %.1, %Abc_SclComputeParametersCell.exit ]
+  %.05970 = phi float [ 0.000000e+00, %5 ], [ %.160, %Abc_SclComputeParametersCell.exit ]
+  %7 = getelementptr inbounds i8, ptr %.02072, i64 64
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.i.preheader, label %.critedge.i
 
 .lr.ph.i.preheader:                               ; preds = %6
-  %10 = getelementptr i8, ptr %.020130, i64 56
+  %10 = getelementptr i8, ptr %.02072, i64 56
   %.val28.i = load ptr, ptr %10, align 8
   %11 = zext nneg i32 %8 to i64
   %12 = getelementptr inbounds ptr, ptr %.val28.i, i64 %11
@@ -2683,9 +2639,9 @@ Scl_LibPinArrival.exit:                           ; preds = %116, %117
 
 Abc_SclComputeParametersPin.exit:                 ; preds = %Scl_LibPinArrival.exit, %24
   %.2 = phi float [ 0.000000e+00, %24 ], [ %161, %Scl_LibPinArrival.exit ]
-  %.1120 = phi float [ %28, %24 ], [ %136, %Scl_LibPinArrival.exit ]
+  %.162 = phi float [ %28, %24 ], [ %136, %Scl_LibPinArrival.exit ]
   %162 = fadd float %.01826.i, %.2
-  %163 = fadd float %.01727.i, %.1120
+  %163 = fadd float %.01727.i, %.162
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
   br i1 %exitcond.not, label %.critedge.i, label %.lr.ph.i, !llvm.loop !37
@@ -2700,12 +2656,12 @@ Abc_SclComputeParametersPin.exit:                 ; preds = %Scl_LibPinArrival.e
   br label %Abc_SclComputeParametersCell.exit
 
 Abc_SclComputeParametersCell.exit:                ; preds = %.lr.ph.i, %Scl_CellPinTime.exit.i, %.critedge.i
-  %.1118 = phi float [ %166, %.critedge.i ], [ %.0117128, %Scl_CellPinTime.exit.i ], [ %.0117128, %.lr.ph.i ]
-  %.1 = phi float [ %167, %.critedge.i ], [ %.0116129, %Scl_CellPinTime.exit.i ], [ %.0116129, %.lr.ph.i ]
-  %168 = fadd float %.019132, %.1118
-  %169 = fadd float %.018133, %.1
-  %170 = add nuw nsw i32 %.0135, 1
-  %171 = getelementptr inbounds i8, ptr %.020130, i64 72
+  %.160 = phi float [ %166, %.critedge.i ], [ %.05970, %Scl_CellPinTime.exit.i ], [ %.05970, %.lr.ph.i ]
+  %.1 = phi float [ %167, %.critedge.i ], [ %.05871, %Scl_CellPinTime.exit.i ], [ %.05871, %.lr.ph.i ]
+  %168 = fadd float %.01974, %.160
+  %169 = fadd float %.01875, %.1
+  %170 = add nuw nsw i32 %.077, 1
+  %171 = getelementptr inbounds i8, ptr %.02072, i64 72
   %172 = load ptr, ptr %171, align 8
   %.not = icmp eq ptr %172, %1
   br i1 %.not, label %173, label %6, !llvm.loop !38
@@ -3053,86 +3009,86 @@ Abc_SclComputeAverageSlew.exit:                   ; preds = %39, %Scl_CellPinTim
   %wide.trip.count = zext nneg i32 %.val93 to i64
   br label %1059
 
-.lr.ph1054:                                       ; preds = %1069
+.lr.ph996:                                        ; preds = %1069
   %59 = getelementptr i8, ptr %0, i64 120
   %.not82 = icmp eq i32 %3, 0
   %60 = fpext float %2 to double
   %61 = fmul double %60, 1.000000e-02
-  br i1 %.not, label %.lr.ph1054.split.us, label %.lr.ph1054.split
+  br i1 %.not, label %.lr.ph996.split.us, label %.lr.ph996.split
 
-.lr.ph1054.split.us:                              ; preds = %.lr.ph1054, %.critedge4.us
-  %.val92.us1107 = phi i32 [ %.val92.us, %.critedge4.us ], [ %.val93, %.lr.ph1054 ]
-  %indvars.iv1098 = phi i64 [ %indvars.iv.next1099, %.critedge4.us ], [ 0, %.lr.ph1054 ]
+.lr.ph996.split.us:                               ; preds = %.lr.ph996, %.critedge4.us
+  %.val92.us1049 = phi i32 [ %.val92.us, %.critedge4.us ], [ %.val93, %.lr.ph996 ]
+  %indvars.iv1040 = phi i64 [ %indvars.iv.next1041, %.critedge4.us ], [ 0, %.lr.ph996 ]
   %.val89.us = load ptr, ptr %59, align 8
-  %62 = getelementptr inbounds ptr, ptr %.val89.us, i64 %indvars.iv1098
+  %62 = getelementptr inbounds ptr, ptr %.val89.us, i64 %indvars.iv1040
   %63 = load ptr, ptr %62, align 8
-  %.phi.trans.insert1103 = getelementptr inbounds i8, ptr %63, i64 64
-  %.pre1104 = load i32, ptr %.phi.trans.insert1103, align 8
-  br i1 %.not82, label %.lr.ph1054.split.us._crit_edge, label %64
+  %.phi.trans.insert1045 = getelementptr inbounds i8, ptr %63, i64 64
+  %.pre1046 = load i32, ptr %.phi.trans.insert1045, align 8
+  br i1 %.not82, label %.lr.ph996.split.us._crit_edge, label %64
 
-64:                                               ; preds = %.lr.ph1054.split.us
-  %.not83.us = icmp eq i32 %.pre1104, 1
-  br i1 %.not83.us, label %.lr.ph1054.split.us._crit_edge, label %.critedge4.us
+64:                                               ; preds = %.lr.ph996.split.us
+  %.not83.us = icmp eq i32 %.pre1046, 1
+  br i1 %.not83.us, label %.lr.ph996.split.us._crit_edge, label %.critedge4.us
 
-.lr.ph1054.split.us._crit_edge:                   ; preds = %.lr.ph1054.split.us, %64
-  %65 = phi i32 [ 1, %64 ], [ %.pre1104, %.lr.ph1054.split.us ]
+.lr.ph996.split.us._crit_edge:                    ; preds = %.lr.ph996.split.us, %64
+  %65 = phi i32 [ 1, %64 ], [ %.pre1046, %.lr.ph996.split.us ]
   %66 = getelementptr inbounds i8, ptr %63, i64 64
   %67 = getelementptr i8, ptr %63, i64 52
-  %.val911045.us = load i32, ptr %67, align 4
-  %68 = icmp slt i32 %65, %.val911045.us
+  %.val91987.us = load i32, ptr %67, align 4
+  %68 = icmp slt i32 %65, %.val91987.us
   br i1 %68, label %1034, label %.critedge4.us
 
 .critedge4.us.loopexit:                           ; preds = %Abc_SclComputeParametersCell.exit.thread.us
   %.val92.us.pre = load i32, ptr %50, align 4
   br label %.critedge4.us
 
-.critedge4.us:                                    ; preds = %.critedge4.us.loopexit, %.lr.ph1054.split.us._crit_edge, %64
-  %.val92.us = phi i32 [ %.val92.us.pre, %.critedge4.us.loopexit ], [ %.val92.us1107, %.lr.ph1054.split.us._crit_edge ], [ %.val92.us1107, %64 ]
-  %indvars.iv.next1099 = add nuw nsw i64 %indvars.iv1098, 1
+.critedge4.us:                                    ; preds = %.critedge4.us.loopexit, %.lr.ph996.split.us._crit_edge, %64
+  %.val92.us = phi i32 [ %.val92.us.pre, %.critedge4.us.loopexit ], [ %.val92.us1049, %.lr.ph996.split.us._crit_edge ], [ %.val92.us1049, %64 ]
+  %indvars.iv.next1041 = add nuw nsw i64 %indvars.iv1040, 1
   %69 = sext i32 %.val92.us to i64
-  %70 = icmp slt i64 %indvars.iv.next1099, %69
-  br i1 %70, label %.lr.ph1054.split.us, label %.critedge2, !llvm.loop !43
+  %70 = icmp slt i64 %indvars.iv.next1041, %69
+  br i1 %70, label %.lr.ph996.split.us, label %.critedge2, !llvm.loop !43
 
 71:                                               ; preds = %.preheader.split.us.us, %Abc_SclComputeParametersCell.exit.thread.us
-  %.11049.us = phi ptr [ %63, %.preheader.split.us.us ], [ %1028, %Abc_SclComputeParametersCell.exit.thread.us ]
-  %.0771048.us = phi i32 [ 0, %.preheader.split.us.us ], [ %72, %Abc_SclComputeParametersCell.exit.thread.us ]
-  %72 = add nuw nsw i32 %.0771048.us, 1
+  %.1991.us = phi ptr [ %63, %.preheader.split.us.us ], [ %1028, %Abc_SclComputeParametersCell.exit.thread.us ]
+  %.077990.us = phi i32 [ 0, %.preheader.split.us.us ], [ %72, %Abc_SclComputeParametersCell.exit.thread.us ]
+  %72 = add nuw nsw i32 %.077990.us, 1
   %73 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %72)
-  %74 = getelementptr inbounds i8, ptr %.11049.us, i64 12
+  %74 = getelementptr inbounds i8, ptr %.1991.us, i64 12
   %75 = load i32, ptr %74, align 4
   %.not86.us = icmp eq i32 %75, 0
   %76 = select i1 %.not86.us, ptr @.str.27, ptr @.str.26
   %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %76)
   %78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28)
-  %79 = load ptr, ptr %.11049.us, align 8
+  %79 = load ptr, ptr %.1991.us, align 8
   %80 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %1066, ptr noundef %79)
-  %81 = getelementptr inbounds i8, ptr %.11049.us, i64 40
+  %81 = getelementptr inbounds i8, ptr %.1991.us, i64 40
   %82 = load i32, ptr %81, align 8
   %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %82)
-  %84 = getelementptr inbounds i8, ptr %.11049.us, i64 24
+  %84 = getelementptr inbounds i8, ptr %.1991.us, i64 24
   %85 = load float, ptr %84, align 8
   %86 = fpext float %85 to double
   %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, double noundef %86)
-  %88 = getelementptr inbounds i8, ptr %.11049.us, i64 28
+  %88 = getelementptr inbounds i8, ptr %.1991.us, i64 28
   %89 = load float, ptr %88, align 4
   %90 = fpext float %89 to double
   %91 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, double noundef %90)
-  %92 = getelementptr inbounds i8, ptr %.11049.us, i64 68
+  %92 = getelementptr inbounds i8, ptr %.1991.us, i64 68
   %93 = load i32, ptr %92, align 4
   %94 = icmp eq i32 %93, 1
   br i1 %94, label %95, label %Abc_SclComputeParametersCell.exit.thread.us
 
 95:                                               ; preds = %71
-  %96 = getelementptr inbounds i8, ptr %.11049.us, i64 64
+  %96 = getelementptr inbounds i8, ptr %.1991.us, i64 64
   %97 = load i32, ptr %96, align 8
   %98 = icmp sgt i32 %97, 0
   br i1 %98, label %.lr.ph.i.preheader.us, label %.loopexit.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %Abc_SclComputeParametersPin.exit.us
-  %indvars.iv1093 = phi i64 [ 0, %.lr.ph.i.preheader.us ], [ %indvars.iv.next1094, %Abc_SclComputeParametersPin.exit.us ]
+  %indvars.iv1035 = phi i64 [ 0, %.lr.ph.i.preheader.us ], [ %indvars.iv.next1036, %Abc_SclComputeParametersPin.exit.us ]
   %.01727.i.us = phi float [ 0.000000e+00, %.lr.ph.i.preheader.us ], [ %978, %Abc_SclComputeParametersPin.exit.us ]
   %.01826.i.us = phi float [ 0.000000e+00, %.lr.ph.i.preheader.us ], [ %977, %Abc_SclComputeParametersPin.exit.us ]
-  %99 = getelementptr inbounds ptr, ptr %.val6.i.i101.us, i64 %indvars.iv1093
+  %99 = getelementptr inbounds ptr, ptr %.val6.i.i101.us, i64 %indvars.iv1035
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr i8, ptr %100, i64 12
   %.val7.i.i102.us = load i32, ptr %101, align 4
@@ -4727,7 +4683,7 @@ Scl_LibPinArrival.exit.us:                        ; preds = %Scl_LibLookup.exit1
   %956 = fptrunc double %955 to float
   %957 = fsub float %956, %951
   %958 = fsub float %114, %110
-  %959 = getelementptr inbounds ptr, ptr %.val28.i.us, i64 %indvars.iv1093
+  %959 = getelementptr inbounds ptr, ptr %.val28.i.us, i64 %indvars.iv1035
   %960 = load ptr, ptr %959, align 8
   %961 = getelementptr inbounds i8, ptr %960, i64 16
   %962 = load float, ptr %961, align 8
@@ -4752,13 +4708,13 @@ Scl_LibPinArrival.exit.us:                        ; preds = %Scl_LibLookup.exit1
   br label %Abc_SclComputeParametersPin.exit.us
 
 Abc_SclComputeParametersPin.exit.us:              ; preds = %972, %Scl_LibPinArrival.exit.us
-  %.2980.us = phi float [ 0.000000e+00, %972 ], [ %971, %Scl_LibPinArrival.exit.us ]
-  %.1977.us = phi float [ %976, %972 ], [ %946, %Scl_LibPinArrival.exit.us ]
-  %977 = fadd float %.01826.i.us, %.2980.us
-  %978 = fadd float %.01727.i.us, %.1977.us
-  %indvars.iv.next1094 = add nuw nsw i64 %indvars.iv1093, 1
-  %exitcond1097.not = icmp eq i64 %indvars.iv.next1094, %1030
-  br i1 %exitcond1097.not, label %.loopexit.us, label %.lr.ph.i.us, !llvm.loop !37
+  %.2922.us = phi float [ 0.000000e+00, %972 ], [ %971, %Scl_LibPinArrival.exit.us ]
+  %.1919.us = phi float [ %976, %972 ], [ %946, %Scl_LibPinArrival.exit.us ]
+  %977 = fadd float %.01826.i.us, %.2922.us
+  %978 = fadd float %.01727.i.us, %.1919.us
+  %indvars.iv.next1036 = add nuw nsw i64 %indvars.iv1035, 1
+  %exitcond1039.not = icmp eq i64 %indvars.iv.next1036, %1030
+  br i1 %exitcond1039.not, label %.loopexit.us, label %.lr.ph.i.us, !llvm.loop !37
 
 .loopexit.us:                                     ; preds = %Abc_SclComputeParametersPin.exit.us, %95
   %.018.lcssa.i.us = phi float [ 0.000000e+00, %95 ], [ %977, %Abc_SclComputeParametersPin.exit.us ]
@@ -4778,7 +4734,7 @@ Abc_SclComputeParametersPin.exit.us:              ; preds = %972, %Scl_LibPinArr
   br i1 %990, label %.lr.ph.i99.us, label %SC_CellPinCapAve.exit.us
 
 .lr.ph.i99.us:                                    ; preds = %.loopexit.us
-  %991 = getelementptr i8, ptr %.11049.us, i64 56
+  %991 = getelementptr i8, ptr %.1991.us, i64 56
   %.val.i100.us = load ptr, ptr %991, align 8
   %wide.trip.count.i.us = zext nneg i32 %989 to i64
   br label %992
@@ -4810,7 +4766,7 @@ SC_CellPinCapAve.exit.us:                         ; preds = %992, %.loopexit.us
   %1008 = fpext float %1007 to double
   %1009 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, double noundef %1008)
   %1010 = load i32, ptr %96, align 8
-  %1011 = getelementptr i8, ptr %.11049.us, i64 56
+  %1011 = getelementptr i8, ptr %.1991.us, i64 56
   %.1.val96.us = load ptr, ptr %1011, align 8
   %1012 = sext i32 %1010 to i64
   %1013 = getelementptr inbounds ptr, ptr %.1.val96.us, i64 %1012
@@ -4832,13 +4788,13 @@ SC_CellPinCapAve.exit.us:                         ; preds = %992, %.loopexit.us
 
 Abc_SclComputeParametersCell.exit.thread.us:      ; preds = %.lr.ph.i.us, %Scl_CellPinTime.exit.i103.us, %SC_CellPinCapAve.exit.us, %71
   %putchar88.us = tail call i32 @putchar(i32 10)
-  %1027 = getelementptr inbounds i8, ptr %.11049.us, i64 72
+  %1027 = getelementptr inbounds i8, ptr %.1991.us, i64 72
   %1028 = load ptr, ptr %1027, align 8
-  %.not1056 = icmp eq ptr %1028, %63
-  br i1 %.not1056, label %.critedge4.us.loopexit, label %71, !llvm.loop !46
+  %.not998 = icmp eq ptr %1028, %63
+  br i1 %.not998, label %.critedge4.us.loopexit, label %71, !llvm.loop !46
 
 .lr.ph.i.preheader.us:                            ; preds = %95
-  %1029 = getelementptr i8, ptr %.11049.us, i64 56
+  %1029 = getelementptr i8, ptr %.1991.us, i64 56
   %.val28.i.us = load ptr, ptr %1029, align 8
   %1030 = zext nneg i32 %97 to i64
   %1031 = getelementptr inbounds ptr, ptr %.val28.i.us, i64 %1030
@@ -4847,14 +4803,14 @@ Abc_SclComputeParametersCell.exit.thread.us:      ; preds = %.lr.ph.i.us, %Scl_C
   %.val6.i.i101.us = load ptr, ptr %1033, align 8
   br label %.lr.ph.i.us
 
-1034:                                             ; preds = %.lr.ph1054.split.us._crit_edge
+1034:                                             ; preds = %.lr.ph996.split.us._crit_edge
   %1035 = getelementptr i8, ptr %63, i64 56
   %1036 = getelementptr inbounds i8, ptr %63, i64 68
   %.val.us.us = load ptr, ptr %1035, align 8
   %1037 = sext i32 %65 to i64
   %1038 = getelementptr inbounds ptr, ptr %.val.us.us, i64 %1037
   %1039 = load ptr, ptr %1038, align 8
-  %1040 = trunc nuw nsw i64 %indvars.iv1098 to i32
+  %1040 = trunc nuw nsw i64 %indvars.iv1040 to i32
   %1041 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %1040)
   br label %1042
 
@@ -4877,13 +4833,13 @@ Abc_SclComputeParametersCell.exit.thread.us:      ; preds = %.lr.ph.i.us, %Scl_C
   %1051 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %1050)
   %1052 = load i32, ptr %1036, align 4
   %1053 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %1052)
-  %.phi.trans.insert1105 = getelementptr inbounds i8, ptr %1039, i64 40
-  %.pre1106 = load ptr, ptr %.phi.trans.insert1105, align 8
-  %.not84.us.us = icmp eq ptr %.pre1106, null
+  %.phi.trans.insert1047 = getelementptr inbounds i8, ptr %1039, i64 40
+  %.pre1048 = load ptr, ptr %.phi.trans.insert1047, align 8
+  %.not84.us.us = icmp eq ptr %.pre1048, null
   br i1 %.not84.us.us, label %.preheader.split.us.us, label %1054
 
 1054:                                             ; preds = %1048
-  %1055 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull %.pre1106)
+  %1055 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull %.pre1048)
   br label %.preheader.split.us.us
 
 .preheader.split.us.us:                           ; preds = %1054, %1048
@@ -4897,7 +4853,7 @@ Abc_SclComputeParametersCell.exit.thread.us:      ; preds = %.lr.ph.i.us, %Scl_C
 
 1059:                                             ; preds = %.lr.ph, %1069
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1069 ]
-  %.0731044 = phi i32 [ 0, %.lr.ph ], [ %1066, %1069 ]
+  %.073986 = phi i32 [ 0, %.lr.ph ], [ %1066, %1069 ]
   %1060 = getelementptr inbounds ptr, ptr %.val90, i64 %indvars.iv
   %1061 = load ptr, ptr %1060, align 8
   %1062 = load ptr, ptr %1061, align 8
@@ -4906,55 +4862,55 @@ Abc_SclComputeParametersCell.exit.thread.us:      ; preds = %.lr.ph.i.us, %Scl_C
   br label %1065
 
 1065:                                             ; preds = %1059, %1065
-  %.01042 = phi ptr [ %1061, %1059 ], [ %1068, %1065 ]
-  %.1741041 = phi i32 [ %.0731044, %1059 ], [ %1066, %1065 ]
-  %1066 = tail call noundef i32 @llvm.smax.i32(i32 %.1741041, i32 %1064)
-  %1067 = getelementptr inbounds i8, ptr %.01042, i64 72
+  %.0984 = phi ptr [ %1061, %1059 ], [ %1068, %1065 ]
+  %.174983 = phi i32 [ %.073986, %1059 ], [ %1066, %1065 ]
+  %1066 = tail call noundef i32 @llvm.smax.i32(i32 %.174983, i32 %1064)
+  %1067 = getelementptr inbounds i8, ptr %.0984, i64 72
   %1068 = load ptr, ptr %1067, align 8
-  %.not1055 = icmp eq ptr %1068, %1061
-  br i1 %.not1055, label %1069, label %1065, !llvm.loop !47
+  %.not997 = icmp eq ptr %1068, %1061
+  br i1 %.not997, label %1069, label %1065, !llvm.loop !47
 
 1069:                                             ; preds = %1065
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph1054, label %1059, !llvm.loop !48
+  br i1 %exitcond.not, label %.lr.ph996, label %1059, !llvm.loop !48
 
-.lr.ph1054.split:                                 ; preds = %.lr.ph1054, %.critedge4
-  %.val921101 = phi i32 [ %.val92, %.critedge4 ], [ %.val93, %.lr.ph1054 ]
-  %indvars.iv1090 = phi i64 [ %indvars.iv.next1091, %.critedge4 ], [ 0, %.lr.ph1054 ]
+.lr.ph996.split:                                  ; preds = %.lr.ph996, %.critedge4
+  %.val921043 = phi i32 [ %.val92, %.critedge4 ], [ %.val93, %.lr.ph996 ]
+  %indvars.iv1032 = phi i64 [ %indvars.iv.next1033, %.critedge4 ], [ 0, %.lr.ph996 ]
   %.val89 = load ptr, ptr %59, align 8
-  %1070 = getelementptr inbounds ptr, ptr %.val89, i64 %indvars.iv1090
+  %1070 = getelementptr inbounds ptr, ptr %.val89, i64 %indvars.iv1032
   %1071 = load ptr, ptr %1070, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1071, i64 64
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br i1 %.not82, label %.lr.ph1054.split._crit_edge, label %1072
+  br i1 %.not82, label %.lr.ph996.split._crit_edge, label %1072
 
-1072:                                             ; preds = %.lr.ph1054.split
+1072:                                             ; preds = %.lr.ph996.split
   %.not83 = icmp eq i32 %.pre, 1
-  br i1 %.not83, label %.lr.ph1054.split._crit_edge, label %.critedge4
+  br i1 %.not83, label %.lr.ph996.split._crit_edge, label %.critedge4
 
-.lr.ph1054.split._crit_edge:                      ; preds = %.lr.ph1054.split, %1072
-  %1073 = phi i32 [ 1, %1072 ], [ %.pre, %.lr.ph1054.split ]
+.lr.ph996.split._crit_edge:                       ; preds = %.lr.ph996.split, %1072
+  %1073 = phi i32 [ 1, %1072 ], [ %.pre, %.lr.ph996.split ]
   %1074 = getelementptr inbounds i8, ptr %1071, i64 64
   %1075 = getelementptr i8, ptr %1071, i64 52
-  %.val911045 = load i32, ptr %1075, align 4
-  %1076 = icmp slt i32 %1073, %.val911045
-  br i1 %1076, label %.lr.ph1047, label %.critedge4
+  %.val91987 = load i32, ptr %1075, align 4
+  %1076 = icmp slt i32 %1073, %.val91987
+  br i1 %1076, label %.lr.ph989, label %.critedge4
 
-.lr.ph1047:                                       ; preds = %.lr.ph1054.split._crit_edge
+.lr.ph989:                                        ; preds = %.lr.ph996.split._crit_edge
   %1077 = getelementptr i8, ptr %1071, i64 56
   %1078 = getelementptr inbounds i8, ptr %1071, i64 68
   %1079 = sext i32 %1073 to i64
-  %1080 = trunc nuw nsw i64 %indvars.iv1090 to i32
+  %1080 = trunc nuw nsw i64 %indvars.iv1032 to i32
   br label %1081
 
-1081:                                             ; preds = %.lr.ph1047, %1107
-  %indvars.iv1087 = phi i64 [ %1079, %.lr.ph1047 ], [ %indvars.iv.next1088, %1107 ]
+1081:                                             ; preds = %.lr.ph989, %1107
+  %indvars.iv1029 = phi i64 [ %1079, %.lr.ph989 ], [ %indvars.iv.next1030, %1107 ]
   %.val = load ptr, ptr %1077, align 8
-  %1082 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv1087
+  %1082 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv1029
   %1083 = load ptr, ptr %1082, align 8
   %1084 = load i32, ptr %1074, align 8
-  %1085 = trunc nsw i64 %indvars.iv1087 to i32
+  %1085 = trunc nsw i64 %indvars.iv1029 to i32
   %1086 = icmp eq i32 %1084, %1085
   br i1 %1086, label %1087, label %1100
 
@@ -5004,22 +4960,22 @@ Abc_SclClassCellNum.exit:                         ; preds = %1089
   %1110 = load i32, ptr %1074, align 8
   tail call void @Kit_DsdPrintFromTruth(ptr noundef %.val97, i32 noundef %1110) #30
   %putchar85 = tail call i32 @putchar(i32 10)
-  %indvars.iv.next1088 = add nsw i64 %indvars.iv1087, 1
+  %indvars.iv.next1030 = add nsw i64 %indvars.iv1029, 1
   %.val91 = load i32, ptr %1075, align 4
   %1111 = sext i32 %.val91 to i64
-  %1112 = icmp slt i64 %indvars.iv.next1088, %1111
+  %1112 = icmp slt i64 %indvars.iv.next1030, %1111
   br i1 %1112, label %1081, label %.critedge4.loopexit, !llvm.loop !49
 
 .critedge4.loopexit:                              ; preds = %1107
   %.val92.pre = load i32, ptr %50, align 4
   br label %.critedge4
 
-.critedge4:                                       ; preds = %.critedge4.loopexit, %.lr.ph1054.split._crit_edge, %1072
-  %.val92 = phi i32 [ %.val92.pre, %.critedge4.loopexit ], [ %.val921101, %.lr.ph1054.split._crit_edge ], [ %.val921101, %1072 ]
-  %indvars.iv.next1091 = add nuw nsw i64 %indvars.iv1090, 1
+.critedge4:                                       ; preds = %.critedge4.loopexit, %.lr.ph996.split._crit_edge, %1072
+  %.val92 = phi i32 [ %.val92.pre, %.critedge4.loopexit ], [ %.val921043, %.lr.ph996.split._crit_edge ], [ %.val921043, %1072 ]
+  %indvars.iv.next1033 = add nuw nsw i64 %indvars.iv1032, 1
   %1113 = sext i32 %.val92 to i64
-  %1114 = icmp slt i64 %indvars.iv.next1091, %1113
-  br i1 %1114, label %.lr.ph1054.split, label %.critedge2, !llvm.loop !43
+  %1114 = icmp slt i64 %indvars.iv.next1033, %1113
+  br i1 %1114, label %.lr.ph996.split, label %.critedge2, !llvm.loop !43
 
 .critedge2:                                       ; preds = %.critedge4, %.critedge4.us, %56
   ret void
@@ -6893,17 +6849,17 @@ define noalias noundef ptr @Abc_SclProduceGenlibStr(ptr nocapture noundef readon
 
 10:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %.0661034 = phi i32 [ 0, %.lr.ph ], [ %.1, %22 ]
+  %.066976 = phi i32 [ 0, %.lr.ph ], [ %.1, %22 ]
   %11 = getelementptr inbounds ptr, ptr %.val81, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 68
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 1
-  br i1 %15, label %.preheader1008, label %22
+  br i1 %15, label %.preheader950, label %22
 
-.preheader1008:                                   ; preds = %10, %.preheader1008
-  %.012.i = phi i32 [ %spec.select.i, %.preheader1008 ], [ 0, %10 ]
-  %.0910.i = phi ptr [ %20, %.preheader1008 ], [ %12, %10 ]
+.preheader950:                                    ; preds = %10, %.preheader950
+  %.012.i = phi i32 [ %spec.select.i, %.preheader950 ], [ 0, %10 ]
+  %.0910.i = phi ptr [ %20, %.preheader950 ], [ %12, %10 ]
   %16 = getelementptr inbounds i8, ptr %.0910.i, i64 12
   %17 = load i32, ptr %16, align 4
   %.not.i = icmp eq i32 %17, 0
@@ -6912,14 +6868,14 @@ define noalias noundef ptr @Abc_SclProduceGenlibStr(ptr nocapture noundef readon
   %19 = getelementptr inbounds i8, ptr %.0910.i, i64 72
   %20 = load ptr, ptr %19, align 8
   %.not13.i = icmp eq ptr %20, %12
-  br i1 %.not13.i, label %Abc_SclClassCellNum.exit, label %.preheader1008, !llvm.loop !10
+  br i1 %.not13.i, label %Abc_SclClassCellNum.exit, label %.preheader950, !llvm.loop !10
 
-Abc_SclClassCellNum.exit:                         ; preds = %.preheader1008
-  %21 = tail call noundef i32 @llvm.smax.i32(i32 %.0661034, i32 %spec.select.i)
+Abc_SclClassCellNum.exit:                         ; preds = %.preheader950
+  %21 = tail call noundef i32 @llvm.smax.i32(i32 %.066976, i32 %spec.select.i)
   br label %22
 
 22:                                               ; preds = %10, %Abc_SclClassCellNum.exit
-  %.1 = phi i32 [ %21, %Abc_SclClassCellNum.exit ], [ %.0661034, %10 ]
+  %.1 = phi i32 [ %21, %Abc_SclClassCellNum.exit ], [ %.066976, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !64
@@ -6940,22 +6896,22 @@ Abc_SclClassCellNum.exit:                         ; preds = %.preheader1008
   store ptr %25, ptr %26, align 8
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %23, ptr noundef nonnull @.str.39)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %23, ptr noundef nonnull @.str.40)
-  %.val821037 = load i32, ptr %7, align 4
-  %27 = icmp sgt i32 %.val821037, 0
-  br i1 %27, label %.lr.ph1040, label %.critedge2
+  %.val82979 = load i32, ptr %7, align 4
+  %27 = icmp sgt i32 %.val82979, 0
+  br i1 %27, label %.lr.ph982, label %.critedge2
 
-.lr.ph1040:                                       ; preds = %.critedge
+.lr.ph982:                                        ; preds = %.critedge
   %28 = getelementptr i8, ptr %0, i64 120
   %.not78 = icmp ne i32 %.0, 0
   %29 = fpext float %2 to double
   br label %30
 
-30:                                               ; preds = %.lr.ph1040, %1072
-  %.val821073 = phi i32 [ %.val821037, %.lr.ph1040 ], [ %.val82, %1072 ]
-  %indvars.iv1070 = phi i64 [ 0, %.lr.ph1040 ], [ %indvars.iv.next1071, %1072 ]
-  %.0671039 = phi i32 [ 2, %.lr.ph1040 ], [ %.168, %1072 ]
+30:                                               ; preds = %.lr.ph982, %1072
+  %.val821015 = phi i32 [ %.val82979, %.lr.ph982 ], [ %.val82, %1072 ]
+  %indvars.iv1012 = phi i64 [ 0, %.lr.ph982 ], [ %indvars.iv.next1013, %1072 ]
+  %.067981 = phi i32 [ 2, %.lr.ph982 ], [ %.168, %1072 ]
   %.val80 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds ptr, ptr %.val80, i64 %indvars.iv1070
+  %31 = getelementptr inbounds ptr, ptr %.val80, i64 %indvars.iv1012
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 64
   %34 = load i32, ptr %33, align 8
@@ -7024,19 +6980,19 @@ Abc_SclClassCellNum.exit94:                       ; preds = %.preheader
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %23, ptr noundef nonnull @.str.46)
   %66 = load i32, ptr %33, align 8
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph1036, label %.critedge4
+  br i1 %67, label %.lr.ph978, label %.critedge4
 
-.lr.ph1036:                                       ; preds = %48, %Vec_StrPrintStr.exit121
-  %indvars.iv1067 = phi i64 [ %indvars.iv.next1068, %Vec_StrPrintStr.exit121 ], [ 0, %48 ]
+.lr.ph978:                                        ; preds = %48, %Vec_StrPrintStr.exit121
+  %indvars.iv1009 = phi i64 [ %indvars.iv.next1010, %Vec_StrPrintStr.exit121 ], [ 0, %48 ]
   %.val = load ptr, ptr %56, align 8
-  %68 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv1067
+  %68 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv1009
   %69 = load ptr, ptr %68, align 8
   br label %70
 
-70:                                               ; preds = %965, %.lr.ph1036
-  %.022.i = phi i32 [ 0, %.lr.ph1036 ], [ %.1.i, %965 ]
-  %.01620.i = phi float [ 0.000000e+00, %.lr.ph1036 ], [ %.117.i, %965 ]
-  %.01819.i = phi ptr [ %32, %.lr.ph1036 ], [ %967, %965 ]
+70:                                               ; preds = %965, %.lr.ph978
+  %.022.i = phi i32 [ 0, %.lr.ph978 ], [ %.1.i, %965 ]
+  %.01620.i = phi float [ 0.000000e+00, %.lr.ph978 ], [ %.117.i, %965 ]
+  %.01819.i = phi ptr [ %32, %.lr.ph978 ], [ %967, %965 ]
   %71 = getelementptr inbounds i8, ptr %.01819.i, i64 12
   %72 = load i32, ptr %71, align 4
   %.not.i95 = icmp eq i32 %72, 0
@@ -7052,7 +7008,7 @@ Abc_SclClassCellNum.exit94:                       ; preds = %.preheader
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr i8, ptr %78, i64 72
   %.val6.i.i = load ptr, ptr %79, align 8
-  %80 = getelementptr inbounds ptr, ptr %.val6.i.i, i64 %indvars.iv1067
+  %80 = getelementptr inbounds ptr, ptr %.val6.i.i, i64 %indvars.iv1009
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr i8, ptr %81, i64 12
   %.val7.i.i = load i32, ptr %82, align 4
@@ -8656,7 +8612,7 @@ Scl_LibPinArrival.exit:                           ; preds = %Scl_LibLookup.exit2
   %942 = fptrunc double %941 to float
   %943 = fsub float %942, %937
   %944 = fsub float %100, %96
-  %945 = getelementptr inbounds ptr, ptr %.val28.i, i64 %indvars.iv1067
+  %945 = getelementptr inbounds ptr, ptr %.val28.i, i64 %indvars.iv1009
   %946 = load ptr, ptr %945, align 8
   %947 = getelementptr inbounds i8, ptr %946, i64 16
   %948 = load float, ptr %947, align 8
@@ -8674,10 +8630,10 @@ Scl_LibPinArrival.exit:                           ; preds = %Scl_LibLookup.exit2
   br label %Abc_SclComputeParametersPin.exit
 
 Abc_SclComputeParametersPin.exit:                 ; preds = %89, %Scl_LibPinArrival.exit, %73, %Scl_CellPinTime.exit.i
-  %.1983 = phi double [ 0.000000e+00, %73 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %89 ], [ %959, %Scl_LibPinArrival.exit ]
-  %.0981 = phi float [ 0.000000e+00, %73 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ %93, %89 ], [ %932, %Scl_LibPinArrival.exit ]
-  %960 = fpext float %.0981 to double
-  %961 = tail call double @llvm.fmuladd.f64(double %.1983, double %29, double %960)
+  %.1925 = phi double [ 0.000000e+00, %73 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %89 ], [ %959, %Scl_LibPinArrival.exit ]
+  %.0923 = phi float [ 0.000000e+00, %73 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ %93, %89 ], [ %932, %Scl_LibPinArrival.exit ]
+  %960 = fpext float %.0923 to double
+  %961 = tail call double @llvm.fmuladd.f64(double %.1925, double %29, double %960)
   %962 = fptrunc double %961 to float
   %963 = fadd float %.01620.i, %962
   %964 = add nsw i32 %.022.i, 1
@@ -8926,23 +8882,23 @@ Vec_StrPush.exit.i115:                            ; preds = %1062, %Vec_StrGrow.
   br i1 %exitcond.not.i117, label %Vec_StrPrintStr.exit121, label %1039, !llvm.loop !60
 
 Vec_StrPrintStr.exit121:                          ; preds = %Vec_StrPush.exit.i115, %Vec_StrPrintStr.exit108
-  %indvars.iv.next1068 = add nuw nsw i64 %indvars.iv1067, 1
+  %indvars.iv.next1010 = add nuw nsw i64 %indvars.iv1009, 1
   %1068 = load i32, ptr %33, align 8
   %1069 = sext i32 %1068 to i64
-  %1070 = icmp slt i64 %indvars.iv.next1068, %1069
-  br i1 %1070, label %.lr.ph1036, label %.critedge4, !llvm.loop !65
+  %1070 = icmp slt i64 %indvars.iv.next1010, %1069
+  br i1 %1070, label %.lr.ph978, label %.critedge4, !llvm.loop !65
 
 .critedge4:                                       ; preds = %Vec_StrPrintStr.exit121, %48
-  %1071 = add nsw i32 %.0671039, 1
+  %1071 = add nsw i32 %.067981, 1
   %.val82.pre = load i32, ptr %7, align 4
   br label %1072
 
 1072:                                             ; preds = %Abc_SclClassCellNum.exit94, %36, %30, %.critedge4
-  %.val82 = phi i32 [ %.val821073, %30 ], [ %.val821073, %36 ], [ %.val821073, %Abc_SclClassCellNum.exit94 ], [ %.val82.pre, %.critedge4 ]
-  %.168 = phi i32 [ %.0671039, %30 ], [ %.0671039, %36 ], [ %.0671039, %Abc_SclClassCellNum.exit94 ], [ %1071, %.critedge4 ]
-  %indvars.iv.next1071 = add nuw nsw i64 %indvars.iv1070, 1
+  %.val82 = phi i32 [ %.val821015, %30 ], [ %.val821015, %36 ], [ %.val821015, %Abc_SclClassCellNum.exit94 ], [ %.val82.pre, %.critedge4 ]
+  %.168 = phi i32 [ %.067981, %30 ], [ %.067981, %36 ], [ %.067981, %Abc_SclClassCellNum.exit94 ], [ %1071, %.critedge4 ]
+  %indvars.iv.next1013 = add nuw nsw i64 %indvars.iv1012, 1
   %1073 = sext i32 %.val82 to i64
-  %1074 = icmp slt i64 %indvars.iv.next1071, %1073
+  %1074 = icmp slt i64 %indvars.iv.next1013, %1073
   br i1 %1074, label %30, label %.critedge2, !llvm.loop !66
 
 .critedge2:                                       ; preds = %1072, %.critedge
@@ -9035,17 +8991,17 @@ define noalias noundef ptr @Abc_SclProduceGenlibStrProfile(ptr nocapture noundef
 
 11:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %.0711040 = phi i32 [ 0, %.lr.ph ], [ %.1, %23 ]
+  %.071982 = phi i32 [ 0, %.lr.ph ], [ %.1, %23 ]
   %12 = getelementptr inbounds ptr, ptr %.val87, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 68
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 1
-  br i1 %16, label %.preheader1014, label %23
+  br i1 %16, label %.preheader956, label %23
 
-.preheader1014:                                   ; preds = %11, %.preheader1014
-  %.012.i = phi i32 [ %spec.select.i, %.preheader1014 ], [ 0, %11 ]
-  %.0910.i = phi ptr [ %21, %.preheader1014 ], [ %13, %11 ]
+.preheader956:                                    ; preds = %11, %.preheader956
+  %.012.i = phi i32 [ %spec.select.i, %.preheader956 ], [ 0, %11 ]
+  %.0910.i = phi ptr [ %21, %.preheader956 ], [ %13, %11 ]
   %17 = getelementptr inbounds i8, ptr %.0910.i, i64 12
   %18 = load i32, ptr %17, align 4
   %.not.i = icmp eq i32 %18, 0
@@ -9054,14 +9010,14 @@ define noalias noundef ptr @Abc_SclProduceGenlibStrProfile(ptr nocapture noundef
   %20 = getelementptr inbounds i8, ptr %.0910.i, i64 72
   %21 = load ptr, ptr %20, align 8
   %.not13.i = icmp eq ptr %21, %13
-  br i1 %.not13.i, label %Abc_SclClassCellNum.exit, label %.preheader1014, !llvm.loop !10
+  br i1 %.not13.i, label %Abc_SclClassCellNum.exit, label %.preheader956, !llvm.loop !10
 
-Abc_SclClassCellNum.exit:                         ; preds = %.preheader1014
-  %22 = tail call noundef i32 @llvm.smax.i32(i32 %.0711040, i32 %spec.select.i)
+Abc_SclClassCellNum.exit:                         ; preds = %.preheader956
+  %22 = tail call noundef i32 @llvm.smax.i32(i32 %.071982, i32 %spec.select.i)
   br label %23
 
 23:                                               ; preds = %11, %Abc_SclClassCellNum.exit
-  %.1 = phi i32 [ %22, %Abc_SclClassCellNum.exit ], [ %.0711040, %11 ]
+  %.1 = phi i32 [ %22, %Abc_SclClassCellNum.exit ], [ %.071982, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !67
@@ -9083,21 +9039,21 @@ Abc_SclClassCellNum.exit:                         ; preds = %.preheader1014
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %24, ptr noundef nonnull @.str.39)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %24, ptr noundef nonnull @.str.40)
   %28 = getelementptr i8, ptr %0, i64 100
-  %.val881043 = load i32, ptr %28, align 4
-  %29 = icmp sgt i32 %.val881043, 0
-  br i1 %29, label %.lr.ph1046, label %.critedge2
+  %.val88985 = load i32, ptr %28, align 4
+  %29 = icmp sgt i32 %.val88985, 0
+  br i1 %29, label %.lr.ph988, label %.critedge2
 
-.lr.ph1046:                                       ; preds = %.critedge
+.lr.ph988:                                        ; preds = %.critedge
   %30 = getelementptr i8, ptr %0, i64 104
   %.not84 = icmp ne i32 %.0, 0
   %31 = fpext float %3 to double
   br label %32
 
-32:                                               ; preds = %.lr.ph1046, %1083
-  %indvars.iv1076 = phi i64 [ 0, %.lr.ph1046 ], [ %indvars.iv.next1077, %1083 ]
-  %.0721045 = phi i32 [ 2, %.lr.ph1046 ], [ %.173, %1083 ]
+32:                                               ; preds = %.lr.ph988, %1083
+  %indvars.iv1018 = phi i64 [ 0, %.lr.ph988 ], [ %indvars.iv.next1019, %1083 ]
+  %.072987 = phi i32 [ 2, %.lr.ph988 ], [ %.173, %1083 ]
   %.val86 = load ptr, ptr %30, align 8
-  %33 = getelementptr inbounds ptr, ptr %.val86, i64 %indvars.iv1076
+  %33 = getelementptr inbounds ptr, ptr %.val86, i64 %indvars.iv1018
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 64
   %36 = load i32, ptr %35, align 8
@@ -9181,19 +9137,19 @@ Abc_SclClassCellNum.exit100:                      ; preds = %.preheader
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %24, ptr noundef nonnull @.str.46)
   %77 = load i32, ptr %35, align 8
   %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.lr.ph1042, label %.critedge4
+  br i1 %78, label %.lr.ph984, label %.critedge4
 
-.lr.ph1042:                                       ; preds = %59, %Vec_StrPrintStr.exit127
-  %indvars.iv1073 = phi i64 [ %indvars.iv.next1074, %Vec_StrPrintStr.exit127 ], [ 0, %59 ]
+.lr.ph984:                                        ; preds = %59, %Vec_StrPrintStr.exit127
+  %indvars.iv1015 = phi i64 [ %indvars.iv.next1016, %Vec_StrPrintStr.exit127 ], [ 0, %59 ]
   %.val = load ptr, ptr %67, align 8
-  %79 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv1073
+  %79 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv1015
   %80 = load ptr, ptr %79, align 8
   br label %81
 
-81:                                               ; preds = %976, %.lr.ph1042
-  %.022.i = phi i32 [ 0, %.lr.ph1042 ], [ %.1.i, %976 ]
-  %.01620.i = phi float [ 0.000000e+00, %.lr.ph1042 ], [ %.117.i, %976 ]
-  %.01819.i = phi ptr [ %34, %.lr.ph1042 ], [ %978, %976 ]
+81:                                               ; preds = %976, %.lr.ph984
+  %.022.i = phi i32 [ 0, %.lr.ph984 ], [ %.1.i, %976 ]
+  %.01620.i = phi float [ 0.000000e+00, %.lr.ph984 ], [ %.117.i, %976 ]
+  %.01819.i = phi ptr [ %34, %.lr.ph984 ], [ %978, %976 ]
   %82 = getelementptr inbounds i8, ptr %.01819.i, i64 12
   %83 = load i32, ptr %82, align 4
   %.not.i101 = icmp eq i32 %83, 0
@@ -9209,7 +9165,7 @@ Abc_SclClassCellNum.exit100:                      ; preds = %.preheader
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr i8, ptr %89, i64 72
   %.val6.i.i = load ptr, ptr %90, align 8
-  %91 = getelementptr inbounds ptr, ptr %.val6.i.i, i64 %indvars.iv1073
+  %91 = getelementptr inbounds ptr, ptr %.val6.i.i, i64 %indvars.iv1015
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr i8, ptr %92, i64 12
   %.val7.i.i = load i32, ptr %93, align 4
@@ -10813,7 +10769,7 @@ Scl_LibPinArrival.exit:                           ; preds = %Scl_LibLookup.exit2
   %953 = fptrunc double %952 to float
   %954 = fsub float %953, %948
   %955 = fsub float %111, %107
-  %956 = getelementptr inbounds ptr, ptr %.val28.i, i64 %indvars.iv1073
+  %956 = getelementptr inbounds ptr, ptr %.val28.i, i64 %indvars.iv1015
   %957 = load ptr, ptr %956, align 8
   %958 = getelementptr inbounds i8, ptr %957, i64 16
   %959 = load float, ptr %958, align 8
@@ -10831,10 +10787,10 @@ Scl_LibPinArrival.exit:                           ; preds = %Scl_LibLookup.exit2
   br label %Abc_SclComputeParametersPin.exit
 
 Abc_SclComputeParametersPin.exit:                 ; preds = %100, %Scl_LibPinArrival.exit, %84, %Scl_CellPinTime.exit.i
-  %.1989 = phi double [ 0.000000e+00, %84 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %100 ], [ %970, %Scl_LibPinArrival.exit ]
-  %.0987 = phi float [ 0.000000e+00, %84 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ %104, %100 ], [ %943, %Scl_LibPinArrival.exit ]
-  %971 = fpext float %.0987 to double
-  %972 = tail call double @llvm.fmuladd.f64(double %.1989, double %31, double %971)
+  %.1931 = phi double [ 0.000000e+00, %84 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %100 ], [ %970, %Scl_LibPinArrival.exit ]
+  %.0929 = phi float [ 0.000000e+00, %84 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ %104, %100 ], [ %943, %Scl_LibPinArrival.exit ]
+  %971 = fpext float %.0929 to double
+  %972 = tail call double @llvm.fmuladd.f64(double %.1931, double %31, double %971)
   %973 = fptrunc double %972 to float
   %974 = fadd float %.01620.i, %973
   %975 = add nsw i32 %.022.i, 1
@@ -11083,22 +11039,22 @@ Vec_StrPush.exit.i121:                            ; preds = %1073, %Vec_StrGrow.
   br i1 %exitcond.not.i123, label %Vec_StrPrintStr.exit127, label %1050, !llvm.loop !60
 
 Vec_StrPrintStr.exit127:                          ; preds = %Vec_StrPush.exit.i121, %Vec_StrPrintStr.exit114
-  %indvars.iv.next1074 = add nuw nsw i64 %indvars.iv1073, 1
+  %indvars.iv.next1016 = add nuw nsw i64 %indvars.iv1015, 1
   %1079 = load i32, ptr %35, align 8
   %1080 = sext i32 %1079 to i64
-  %1081 = icmp slt i64 %indvars.iv.next1074, %1080
-  br i1 %1081, label %.lr.ph1042, label %.critedge4, !llvm.loop !68
+  %1081 = icmp slt i64 %indvars.iv.next1016, %1080
+  br i1 %1081, label %.lr.ph984, label %.critedge4, !llvm.loop !68
 
 .critedge4:                                       ; preds = %Vec_StrPrintStr.exit127, %59
-  %1082 = add nsw i32 %.0721045, 1
+  %1082 = add nsw i32 %.072987, 1
   br label %1083
 
 1083:                                             ; preds = %52, %56, %Abc_SclClassCellNum.exit100, %38, %32, %.critedge4
-  %.173 = phi i32 [ %.0721045, %32 ], [ %.0721045, %38 ], [ %.0721045, %Abc_SclClassCellNum.exit100 ], [ %.0721045, %52 ], [ %.0721045, %56 ], [ %1082, %.critedge4 ]
-  %indvars.iv.next1077 = add nuw nsw i64 %indvars.iv1076, 1
+  %.173 = phi i32 [ %.072987, %32 ], [ %.072987, %38 ], [ %.072987, %Abc_SclClassCellNum.exit100 ], [ %.072987, %52 ], [ %.072987, %56 ], [ %1082, %.critedge4 ]
+  %indvars.iv.next1019 = add nuw nsw i64 %indvars.iv1018, 1
   %.val88 = load i32, ptr %28, align 4
   %1084 = sext i32 %.val88 to i64
-  %1085 = icmp slt i64 %indvars.iv.next1077, %1084
+  %1085 = icmp slt i64 %indvars.iv.next1019, %1084
   br i1 %1085, label %32, label %.critedge2, !llvm.loop !69
 
 .critedge2:                                       ; preds = %1083, %.critedge

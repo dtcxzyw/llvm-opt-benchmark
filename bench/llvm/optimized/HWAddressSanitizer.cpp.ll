@@ -1598,10 +1598,10 @@ _ZNSt8optionalIhEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
   %303 = load i32, ptr %302, align 8
   %304 = and i32 %303, -49
   %305 = and i32 %303, 15
-  %.not65.i.i.i = icmp eq i32 %305, 9
-  %storemerge66.v.i.i.i = select i1 %.not65.i.i.i, i32 16, i32 16400
-  %storemerge66.i.i.i = or i32 %storemerge66.v.i.i.i, %304
-  store i32 %storemerge66.i.i.i, ptr %302, align 8
+  %.not66.i.i.i = icmp eq i32 %305, 9
+  %storemerge67.v.i.i.i = select i1 %.not66.i.i.i, i32 16, i32 16400
+  %storemerge67.i.i.i = or i32 %storemerge67.v.i.i.i, %304
+  store i32 %storemerge67.i.i.i, ptr %302, align 8
   %306 = load ptr, ptr %55, align 8
   %307 = call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %306, i32 noundef 8) #20
   %308 = call noundef ptr @_ZN4llvm9ArrayType3getEPNS_4TypeEm(ptr noundef %307, i64 noundef 8) #20
@@ -3232,17 +3232,17 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %select.unfold.i.i.i
 "_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_0clEv.exit.i": ; preds = %240, %236
   %.016.i.i.i.i.i.i = phi double [ %241, %240 ], [ %238, %236 ]
   %242 = fcmp uge double %.016.i.i.i.i.i.i, %237
-  br i1 %242, label %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.thread15.i", label %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_0clEv.exit.thread.i"
+  br i1 %242, label %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.thread14.i", label %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_0clEv.exit.thread.i"
 
-"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.thread15.i": ; preds = %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_0clEv.exit.i"
+"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.thread14.i": ; preds = %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_0clEv.exit.i"
   %243 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull @_ZN4llvm33OptimizationRemarkEmitterAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %1) #20
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   br label %266
 
 "_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_0clEv.exit.thread.i": ; preds = %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_0clEv.exit.i", %215
   %245 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL21ClHotPercentileCutoff, i64 8), align 8
-  %.not.i7.i = icmp eq i16 %245, 0
-  br i1 %.not.i7.i, label %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.thread.i", label %246
+  %.not.i9.i = icmp eq i16 %245, 0
+  br i1 %.not.i9.i, label %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.thread.i", label %246
 
 246:                                              ; preds = %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_0clEv.exit.thread.i"
   %247 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull @_ZN4llvm25OuterAnalysisManagerProxyINS_15AnalysisManagerINS_6ModuleEJEEENS_8FunctionEJEE3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %1) #20
@@ -3260,8 +3260,8 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %select.unfold.i.i.i
   tail call void @_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE20verifyNotInvalidatedINS_22ProfileSummaryAnalysisEEEvRS1_PNT_6ResultE(ptr noundef nonnull align 8 dereferenceable(72) %255, ptr noundef nonnull align 8 dereferenceable(857) %250, ptr noundef nonnull %254)
   %256 = getelementptr inbounds nuw i8, ptr %252, i64 16
   %257 = load ptr, ptr %256, align 8
-  %.not10.i.i = icmp eq ptr %257, null
-  br i1 %.not10.i.i, label %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.thread.i", label %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.i"
+  %.not3.i.i = icmp eq ptr %257, null
+  br i1 %.not3.i.i, label %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.thread.i", label %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.i"
 
 "_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.thread.i": ; preds = %253, %246, %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_0clEv.exit.thread.i"
   %258 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull @_ZN4llvm33OptimizationRemarkEmitterAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %1) #20
@@ -3277,14 +3277,14 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %select.unfold.i.i.i
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   br i1 %263, label %266, label %317
 
-266:                                              ; preds = %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.i", %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.thread15.i"
-  %267 = phi ptr [ %244, %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.thread15.i" ], [ %265, %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.i" ]
+266:                                              ; preds = %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.i", %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.thread14.i"
+  %267 = phi ptr [ %244, %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.thread14.i" ], [ %265, %"_ZZNK12_GLOBAL__N_118HWAddressSanitizer34selectiveInstrumentationShouldSkipERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEEENK3$_1clEv.exit.i" ]
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %199)
   %268 = load ptr, ptr %267, align 8
   %269 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %268) #20
   %270 = tail call noundef ptr @_ZN4llvm11LLVMContext21getLLVMRemarkStreamerEv(ptr noundef nonnull align 8 dereferenceable(8) %269) #20
-  %.not.i.i.i9.i = icmp eq ptr %270, null
-  br i1 %.not.i.i.i9.i, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i
+  %.not.i.i.i11.i = icmp eq ptr %270, null
+  br i1 %.not.i.i.i11.i, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i: ; preds = %266
   %271 = load ptr, ptr %267, align 8

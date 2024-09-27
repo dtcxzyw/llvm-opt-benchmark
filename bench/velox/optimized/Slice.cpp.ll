@@ -4505,13 +4505,13 @@ if.then.i.i180.i:                                 ; preds = %_ZNK8facebook5velox
   %begin_.i.i181.i = getelementptr inbounds i8, ptr %rows, i64 28
   %213 = load i32, ptr %begin_.i.i181.i, align 4, !noalias !23
   %214 = load i32, ptr %end_.i.i, align 8, !noalias !23
-  %cmp30.i.i.i = icmp slt i32 %213, %214
-  br i1 %cmp30.i.i.i, label %for.body.i.i183.i, label %if.end.i
+  %cmp4.i.i.i = icmp slt i32 %213, %214
+  br i1 %cmp4.i.i.i, label %for.body.i.i183.i, label %if.end.i
 
 for.body.i.i183.i:                                ; preds = %if.then.i.i180.i, %for.body.i.i183.i
-  %row.031.i.i.i = phi i32 [ %inc.i.i.i, %for.body.i.i183.i ], [ %213, %if.then.i.i180.i ]
-  call fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_113SliceFunction10applyArrayIlEESt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKSt6vectorIS7_SaIS7_EERNS0_4exec7EvalCtxERKS5_IKNS0_4TypeEEENKUlT_E0_clIiEEDaSO_(ptr %call2.i59.i, ptr nonnull readonly %fillResultVectorFunc.i, i32 noundef %row.031.i.i.i), !noalias !23
-  %inc.i.i.i = add nsw i32 %row.031.i.i.i, 1
+  %row.05.i.i.i = phi i32 [ %inc.i.i.i, %for.body.i.i183.i ], [ %213, %if.then.i.i180.i ]
+  call fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_113SliceFunction10applyArrayIlEESt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKSt6vectorIS7_SaIS7_EERNS0_4exec7EvalCtxERKS5_IKNS0_4TypeEEENKUlT_E0_clIiEEDaSO_(ptr %call2.i59.i, ptr nonnull readonly %fillResultVectorFunc.i, i32 noundef %row.05.i.i.i), !noalias !23
+  %inc.i.i.i = add nsw i32 %row.05.i.i.i, 1
   %215 = load i32, ptr %end_.i.i, align 8, !noalias !23
   %cmp.i.i184.i = icmp slt i32 %inc.i.i.i, %215
   br i1 %cmp.i.i184.i, label %for.body.i.i183.i, label %if.end.i, !llvm.loop !47

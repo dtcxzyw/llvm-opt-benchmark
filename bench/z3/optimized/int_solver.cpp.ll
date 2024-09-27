@@ -4311,24 +4311,24 @@ call.i.i.noexc24:                                 ; preds = %if.else.i
 
 if.end51.thread68:                                ; preds = %if.end28, %call.i.i.noexc24, %if.end19, %if.end12
   %r.3 = phi i32 [ %call27, %if.end28 ], [ %call.i1923, %call.i.i.noexc24 ], [ %call.i1213, %if.end19 ], [ %r.0, %if.end12 ]
+  %27 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %gomory_fn, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %gomory_fn, i64 24
-  %27 = getelementptr inbounds i8, ptr %gomory_fn, i64 8
-  store i64 0, ptr %27, align 8
-  %28 = ptrtoint ptr %this to i64
-  store i64 %28, ptr %gomory_fn, align 8
+  %28 = getelementptr inbounds i8, ptr %gomory_fn, i64 8
+  store i64 0, ptr %28, align 8
+  store i64 %27, ptr %gomory_fn, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2lp8lia_moveEjEZNS0_10int_solver5checkEPNS0_11explanationEE3$_0E9_M_invokeERKSt9_Any_dataOj", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2lp8lia_moveEjEZNS0_10int_solver5checkEPNS0_11explanationEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   br label %if.end58
 
 land.lhs.true44:                                  ; preds = %call.i.i.noexc, %invoke.cont36, %if.then.i21
   %29 = phi i32 [ %.pre72, %call.i.i.noexc ], [ %.pre72, %invoke.cont36 ], [ %.pre, %if.then.i21 ]
+  %30 = ptrtoint ptr %this to i64
   %_M_manager.i.i57 = getelementptr inbounds i8, ptr %gomory_fn, i64 16
   %_M_invoker.i58 = getelementptr inbounds i8, ptr %gomory_fn, i64 24
-  %30 = getelementptr inbounds i8, ptr %gomory_fn, i64 8
-  store i64 0, ptr %30, align 8
-  %31 = ptrtoint ptr %this to i64
-  store i64 %31, ptr %gomory_fn, align 8
+  %31 = getelementptr inbounds i8, ptr %gomory_fn, i64 8
+  store i64 0, ptr %31, align 8
+  store i64 %30, ptr %gomory_fn, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2lp8lia_moveEjEZNS0_10int_solver5checkEPNS0_11explanationEE3$_0E9_M_invokeERKSt9_Any_dataOj", ptr %_M_invoker.i58, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2lp8lia_moveEjEZNS0_10int_solver5checkEPNS0_11explanationEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i57, align 8
   %32 = load ptr, ptr %this, align 8

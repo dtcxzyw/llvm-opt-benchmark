@@ -1415,10 +1415,10 @@ _ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv.exit34: ; preds = %38
   br i1 %.not3.i2.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail12zip_shortestIJPNS_3UseES5_EEEEEZNS_12IRSimilarity7isCloseERKNS8_17IRInstructionDataESB_E3$_1EEbOT_T0_.exit"
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %56
-  %.val.val.i.i7.i.i.i.i = load ptr, ptr %scevgep21.sink.i.i.i.i, align 8, !noalias !17
-  %.val1.val.i.i8.i.i.i.i = load ptr, ptr %.in.i.i, align 8, !noalias !17
-  %.not.i9.i.i.i.i = icmp eq ptr %.val1.val.i.i8.i.i.i.i, %.val.val.i.i7.i.i.i.i
-  br i1 %.not.i9.i.i.i.i, label %.lr.ph.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail12zip_shortestIJPNS_3UseES5_EEEEEZNS_12IRSimilarity7isCloseERKNS8_17IRInstructionDataESB_E3$_1EEbOT_T0_.exit"
+  %.val.val.i.i5.i.i.i.i = load ptr, ptr %scevgep21.sink.i.i.i.i, align 8, !noalias !17
+  %.val1.val.i.i6.i.i.i.i = load ptr, ptr %.in.i.i, align 8, !noalias !17
+  %.not.i7.i.i.i.i = icmp eq ptr %.val1.val.i.i6.i.i.i.i, %.val.val.i.i5.i.i.i.i
+  br i1 %.not.i7.i.i.i.i, label %.lr.ph.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail12zip_shortestIJPNS_3UseES5_EEEEEZNS_12IRSimilarity7isCloseERKNS8_17IRInstructionDataESB_E3$_1EEbOT_T0_.exit"
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i
   %.val.val.i.i.i.i.i.i = load ptr, ptr %74, align 8, !noalias !17
@@ -1427,10 +1427,10 @@ _ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv.exit34: ; preds = %38
   br i1 %.not.i.i.i.i.i, label %.lr.ph.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail12zip_shortestIJPNS_3UseES5_EEEEEZNS_12IRSimilarity7isCloseERKNS8_17IRInstructionDataESB_E3$_1EEbOT_T0_.exit", !llvm.loop !24
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.preheader.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %71 = phi ptr [ %73, %.lr.ph.i.i.i.i.i ], [ %.in.i.i, %.lr.ph.i.preheader.i.i.i.i ]
-  %72 = phi ptr [ %74, %.lr.ph.i.i.i.i.i ], [ %scevgep21.sink.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i ]
-  %73 = getelementptr inbounds i8, ptr %71, i64 32
-  %74 = getelementptr inbounds i8, ptr %72, i64 32
+  %71 = phi ptr [ %74, %.lr.ph.i.i.i.i.i ], [ %scevgep21.sink.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i ]
+  %72 = phi ptr [ %73, %.lr.ph.i.i.i.i.i ], [ %.in.i.i, %.lr.ph.i.preheader.i.i.i.i ]
+  %73 = getelementptr inbounds i8, ptr %72, i64 32
+  %74 = getelementptr inbounds i8, ptr %71, i64 32
   %75 = icmp ne ptr %73, %13
   %76 = icmp ne ptr %74, %15
   %.not3.i.i.i.i.i.i = select i1 %75, i1 %76, i1 false
@@ -1438,9 +1438,9 @@ _ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv.exit34: ; preds = %38
 
 "_ZN4llvm6all_ofINS_14iterator_rangeINS_6detail12zip_shortestIJPNS_3UseES5_EEEEEZNS_12IRSimilarity7isCloseERKNS8_17IRInstructionDataESB_E3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i, %56, %.lr.ph.i.preheader.i.i.i.i
   %.in.i.i.i.i = phi ptr [ %.in.i.i, %56 ], [ %.in.i.i, %.lr.ph.i.preheader.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i.i ]
-  %.in13.i.i.i.i = phi ptr [ %scevgep21.sink.i.i.i.i, %56 ], [ %scevgep21.sink.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i ], [ %74, %.lr.ph.i.i.i.i ], [ %74, %.lr.ph.i.i.i.i.i ]
+  %.in11.i.i.i.i = phi ptr [ %scevgep21.sink.i.i.i.i, %56 ], [ %scevgep21.sink.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i ], [ %74, %.lr.ph.i.i.i.i ], [ %74, %.lr.ph.i.i.i.i.i ]
   %77 = icmp eq ptr %13, %.in.i.i.i.i
-  %78 = icmp eq ptr %15, %.in13.i.i.i.i
+  %78 = icmp eq ptr %15, %.in11.i.i.i.i
   %79 = select i1 %77, i1 true, i1 %78
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
@@ -1521,11 +1521,11 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_6detail5zippyINS
   %15 = load ptr, ptr %6, align 8, !noalias !47
   %16 = load ptr, ptr %4, align 8, !noalias !47
   %17 = getelementptr i8, ptr %15, i64 8
-  %.val.val.i.i7.i.i.i = load ptr, ptr %17, align 8, !noalias !47
+  %.val.val.i.i5.i.i.i = load ptr, ptr %17, align 8, !noalias !47
   %18 = getelementptr i8, ptr %16, i64 8
-  %.val1.val.i.i8.i.i.i = load ptr, ptr %18, align 8, !noalias !47
-  %.not.i9.i.i.i = icmp eq ptr %.val1.val.i.i8.i.i.i, %.val.val.i.i7.i.i.i
-  br i1 %.not.i9.i.i.i, label %.lr.ph.i.i.i, label %"_ZSt6all_ofIN4llvm6detail12zip_shortestIJPKPNS0_5ValueES6_EEEZNS0_12IRSimilarity7isCloseERKNS8_17IRInstructionDataESB_E3$_0EbT_SD_T0_.exit"
+  %.val1.val.i.i6.i.i.i = load ptr, ptr %18, align 8, !noalias !47
+  %.not.i7.i.i.i = icmp eq ptr %.val1.val.i.i6.i.i.i, %.val.val.i.i5.i.i.i
+  br i1 %.not.i7.i.i.i, label %.lr.ph.i.i.i, label %"_ZSt6all_ofIN4llvm6detail12zip_shortestIJPKPNS0_5ValueES6_EEEZNS0_12IRSimilarity7isCloseERKNS8_17IRInstructionDataESB_E3$_0EbT_SD_T0_.exit"
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i
   %19 = load ptr, ptr %26, align 8, !noalias !47
@@ -1538,10 +1538,10 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_6detail5zippyINS
   br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i, label %"_ZSt6all_ofIN4llvm6detail12zip_shortestIJPKPNS0_5ValueES6_EEEZNS0_12IRSimilarity7isCloseERKNS8_17IRInstructionDataESB_E3$_0EbT_SD_T0_.exit", !llvm.loop !54
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.preheader.i.i.i, %.lr.ph.i.i.i.i
-  %23 = phi ptr [ %25, %.lr.ph.i.i.i.i ], [ %4, %.lr.ph.i.preheader.i.i.i ]
-  %24 = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %6, %.lr.ph.i.preheader.i.i.i ]
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %23 = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %6, %.lr.ph.i.preheader.i.i.i ]
+  %24 = phi ptr [ %25, %.lr.ph.i.i.i.i ], [ %4, %.lr.ph.i.preheader.i.i.i ]
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds i8, ptr %23, i64 8
   %27 = icmp ne ptr %25, %8
   %28 = icmp ne ptr %26, %12
   %.not3.i.i.i.i.i = select i1 %27, i1 %28, i1 false
@@ -1549,9 +1549,9 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_6detail5zippyINS
 
 "_ZSt6all_ofIN4llvm6detail12zip_shortestIJPKPNS0_5ValueES6_EEEZNS0_12IRSimilarity7isCloseERKNS8_17IRInstructionDataESB_E3$_0EbT_SD_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %1, %.lr.ph.i.preheader.i.i.i
   %.in.i.i.i = phi ptr [ %4, %1 ], [ %4, %.lr.ph.i.preheader.i.i.i ], [ %25, %.lr.ph.i.i.i ], [ %25, %.lr.ph.i.i.i.i ]
-  %.in13.i.i.i = phi ptr [ %6, %1 ], [ %6, %.lr.ph.i.preheader.i.i.i ], [ %26, %.lr.ph.i.i.i ], [ %26, %.lr.ph.i.i.i.i ]
+  %.in11.i.i.i = phi ptr [ %6, %1 ], [ %6, %.lr.ph.i.preheader.i.i.i ], [ %26, %.lr.ph.i.i.i ], [ %26, %.lr.ph.i.i.i.i ]
   %29 = icmp eq ptr %8, %.in.i.i.i
-  %30 = icmp eq ptr %12, %.in13.i.i.i
+  %30 = icmp eq ptr %12, %.in11.i.i.i
   %31 = select i1 %29, i1 true, i1 %30
   ret i1 %31
 }
@@ -4084,8 +4084,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandida
   %19 = load ptr, ptr %18, align 8
   %20 = icmp ne ptr %9, %13
   %21 = icmp ne ptr %15, %19
-  %.not3.i3.i.i.i.i.i = select i1 %20, i1 %21, i1 false
-  br i1 %.not3.i3.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i, label %"_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEESC_EEEZNS8_21IRSimilarityCandidate9isSimilarERKSF_SH_E3$_0EEbOT_T0_.exit"
+  %.not3.i2.i.i.i.i.i = select i1 %20, i1 %21, i1 false
+  br i1 %.not3.i2.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i, label %"_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEESC_EEEZNS8_21IRSimilarityCandidate9isSimilarERKSF_SH_E3$_0EEbOT_T0_.exit"
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 72
@@ -4112,15 +4112,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandida
   br i1 %33, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12IRSimilarity21IRSimilarityCandidate9isSimilarERKS4_S6_E3$_0EclINS2_6detail12zip_shortestIJNS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS3_17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEESH_EEEEEbT_.exit.i.i.i.i.i", label %"_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEESC_EEEZNS8_21IRSimilarityCandidate9isSimilarERKSF_SH_E3$_0EEbOT_T0_.exit", !llvm.loop !96
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12IRSimilarity21IRSimilarityCandidate9isSimilarERKS4_S6_E3$_0EclINS2_6detail12zip_shortestIJNS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS3_17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEESH_EEEEEbT_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.preheader.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.04.010.i7.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %15, %.lr.ph.i.preheader.i.i.i ]
-  %.sroa.5.011.i6.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %9, %.lr.ph.i.preheader.i.i.i ]
-  %34 = tail call noundef zeroext i1 @_ZN4llvm12IRSimilarity7isCloseERKNS0_17IRInstructionDataES3_(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.5.011.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.04.010.i7.i.i.i), !noalias !89
+  %.sroa.03.09.i7.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %15, %.lr.ph.i.preheader.i.i.i ]
+  %.sroa.5.010.i6.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %9, %.lr.ph.i.preheader.i.i.i ]
+  %34 = tail call noundef zeroext i1 @_ZN4llvm12IRSimilarity7isCloseERKNS0_17IRInstructionDataES3_(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.5.010.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.03.09.i7.i.i.i), !noalias !89
   br i1 %34, label %35, label %"_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEESC_EEEZNS8_21IRSimilarityCandidate9isSimilarERKSF_SH_E3$_0EEbOT_T0_.exit"
 
 35:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12IRSimilarity21IRSimilarityCandidate9isSimilarERKS4_S6_E3$_0EclINS2_6detail12zip_shortestIJNS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS3_17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEESH_EEEEEbT_.exit.i.i.i.i.i"
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.5.011.i6.i.i.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.5.010.i6.i.i.i, i64 8
   %37 = load ptr, ptr %36, align 8, !noalias !89
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i7.i.i.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i7.i.i.i, i64 8
   %39 = load ptr, ptr %38, align 8, !noalias !89
   %40 = icmp ne ptr %37, %13
   %41 = icmp ne ptr %39, %19
@@ -4128,8 +4128,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandida
   br i1 %.not3.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %"_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEESC_EEEZNS8_21IRSimilarityCandidate9isSimilarERKSF_SH_E3$_0EEbOT_T0_.exit", !llvm.loop !96
 
 "_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEESC_EEEZNS8_21IRSimilarityCandidate9isSimilarERKSF_SH_E3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12IRSimilarity21IRSimilarityCandidate9isSimilarERKS4_S6_E3$_0EclINS2_6detail12zip_shortestIJNS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS3_17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEESH_EEEEEbT_.exit.i.i.i.i.i", %35, %7, %.lr.ph.i.preheader.i.i.i.i, %.lr.ph.i.preheader.i.i.i
-  %.in.i.i.i = phi ptr [ %9, %7 ], [ %9, %.lr.ph.i.preheader.i.i.i.i ], [ %9, %.lr.ph.i.preheader.i.i.i ], [ %37, %35 ], [ %37, %.lr.ph.i.i.i.i ], [ %37, %.lr.ph.i.i.i.i.i ], [ %.sroa.5.011.i6.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12IRSimilarity21IRSimilarityCandidate9isSimilarERKS4_S6_E3$_0EclINS2_6detail12zip_shortestIJNS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS3_17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEESH_EEEEEbT_.exit.i.i.i.i.i" ]
-  %.in13.i.i.i = phi ptr [ %15, %7 ], [ %15, %.lr.ph.i.preheader.i.i.i.i ], [ %15, %.lr.ph.i.preheader.i.i.i ], [ %39, %35 ], [ %39, %.lr.ph.i.i.i.i ], [ %39, %.lr.ph.i.i.i.i.i ], [ %.sroa.04.010.i7.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12IRSimilarity21IRSimilarityCandidate9isSimilarERKS4_S6_E3$_0EclINS2_6detail12zip_shortestIJNS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS3_17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEESH_EEEEEbT_.exit.i.i.i.i.i" ]
+  %.in.i.i.i = phi ptr [ %9, %7 ], [ %9, %.lr.ph.i.preheader.i.i.i.i ], [ %9, %.lr.ph.i.preheader.i.i.i ], [ %37, %35 ], [ %37, %.lr.ph.i.i.i.i ], [ %37, %.lr.ph.i.i.i.i.i ], [ %.sroa.5.010.i6.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12IRSimilarity21IRSimilarityCandidate9isSimilarERKS4_S6_E3$_0EclINS2_6detail12zip_shortestIJNS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS3_17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEESH_EEEEEbT_.exit.i.i.i.i.i" ]
+  %.in13.i.i.i = phi ptr [ %15, %7 ], [ %15, %.lr.ph.i.preheader.i.i.i.i ], [ %15, %.lr.ph.i.preheader.i.i.i ], [ %39, %35 ], [ %39, %.lr.ph.i.i.i.i ], [ %39, %.lr.ph.i.i.i.i.i ], [ %.sroa.03.09.i7.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12IRSimilarity21IRSimilarityCandidate9isSimilarERKS4_S6_E3$_0EclINS2_6detail12zip_shortestIJNS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS3_17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEESH_EEEEEbT_.exit.i.i.i.i.i" ]
   %42 = icmp eq ptr %13, %.in.i.i.i
   %43 = icmp eq ptr %19, %.in13.i.i.i
   %44 = select i1 %42, i1 true, i1 %43

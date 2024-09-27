@@ -1818,8 +1818,8 @@ define internal void @_ZN5clang4ento5check7ASTDeclINS_19TranslationUnitDeclEE10_
   %18 = getelementptr inbounds i8, ptr %17, i64 40
   %19 = ptrtoint ptr %11 to i64
   %20 = tail call i64 @_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 %19) #15
-  %.not9.i.i.i.i.i = icmp eq i64 %20, 0
-  br i1 %.not9.i.i.i.i.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %.lr.ph.i.i.i.i.i
+  %.not8.i.i.i.i.i = icmp eq i64 %20, 0
+  br i1 %.not8.i.i.i.i.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 2104
@@ -1827,10 +1827,10 @@ define internal void @_ZN5clang4ento5check7ASTDeclINS_19TranslationUnitDeclEE10_
   br label %23
 
 23:                                               ; preds = %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.sroa.04.010.i.i.i.i.i = phi i64 [ %20, %.lr.ph.i.i.i.i.i ], [ %52, %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i ]
-  %24 = and i64 %.sroa.04.010.i.i.i.i.i, 4
+  %.sroa.03.09.i.i.i.i.i = phi i64 [ %20, %.lr.ph.i.i.i.i.i ], [ %52, %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i ]
+  %24 = and i64 %.sroa.03.09.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %24, 0
-  %25 = and i64 %.sroa.04.010.i.i.i.i.i, -8
+  %25 = and i64 %.sroa.03.09.i.i.i.i.i, -8
   %26 = inttoptr i64 %25 to ptr
   %.not5.i.i.i.i.i.i.i = icmp eq i64 %25, 0
   %.not.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i, %.not5.i.i.i.i.i.i.i

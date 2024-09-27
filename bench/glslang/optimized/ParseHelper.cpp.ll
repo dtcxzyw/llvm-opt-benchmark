@@ -2053,54 +2053,54 @@ $_ZTVN7glslang16TIntermTraverserE = comdat any
 @.str.1433 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @.str.1434 = private unnamed_addr constant [74 x i8] c"vector::_M_range_check: __n (which is %zu) >= this->size() (which is %zu)\00", align 1
 @switch.table._ZNK7glslang13TParseContext22getIoArrayImplicitSizeERKNS_10TQualifierEPNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE = private unnamed_addr constant [9 x i32] [i32 1, i32 2, i32 4, i32 0, i32 3, i32 6, i32 0, i32 0, i32 0], align 4
-@switch.table._ZNK7glslang13TParseContext22getIoArrayImplicitSizeERKNS_10TQualifierEPNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.32 = private unnamed_addr constant [6 x i32] [i32 1, i32 2, i32 4, i32 0, i32 3, i32 6], align 4
+@switch.table._ZNK7glslang13TParseContext22getIoArrayImplicitSizeERKNS_10TQualifierEPNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.33 = private unnamed_addr constant [6 x i32] [i32 1, i32 2, i32 4, i32 0, i32 3, i32 6], align 4
 @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ = private unnamed_addr constant [5 x ptr] [ptr @.str.590, ptr @.str.1308, ptr @.str.591, ptr @.str.589, ptr @.str.593], align 8
 @switch.table._ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasicTypeE = private unnamed_addr constant [4 x i32] [i32 10, i32 3, i32 7, i32 1], align 4
-@switch.table._ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasicTypeE.38 = private unnamed_addr constant [5 x i32] [i32 45, i32 44, i32 38, i32 40, i32 35], align 4
-@switch.table._ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasicTypeE.39 = private unnamed_addr constant [5 x i32] [i32 32, i32 31, i32 26, i32 28, i32 23], align 4
+@switch.table._ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasicTypeE.39 = private unnamed_addr constant [5 x i32] [i32 45, i32 44, i32 38, i32 40, i32 35], align 4
+@switch.table._ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasicTypeE.40 = private unnamed_addr constant [5 x i32] [i32 32, i32 31, i32 26, i32 28, i32 23], align 4
 @switch.table._ZN7glslang5TType14getBasicStringENS_10TBasicTypeE = private unnamed_addr constant [24 x ptr] [ptr @.str.1277, ptr @.str.1092, ptr @.str.1088, ptr @.str.1278, ptr @.str.1279, ptr @.str.1280, ptr @.str.1281, ptr @.str.1282, ptr @.str.1089, ptr @.str.1090, ptr @.str.1283, ptr @.str.1284, ptr @.str.1091, ptr @.str.458, ptr @.str.1276, ptr @.str.1285, ptr @.str.1286, ptr @.str.1287, ptr @.str.1289, ptr @.str.1288, ptr @.str.1292, ptr @.str.1098, ptr @.str.1291, ptr @.str.1290], align 8
 @switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b = private unnamed_addr constant [29 x ptr] [ptr @.str.1261, ptr @.str.423, ptr @.str.132, ptr @.str.1264, ptr @.str.400, ptr @.str.590, ptr @.str.1263, ptr @.str.1270, ptr @.str.1271, ptr @.str.801, ptr @.str.1272, ptr @.str.1273, ptr @.str.1274, ptr @.str.412, ptr @.str.423, ptr @.str.132, ptr @.str.1265, ptr @.str.1262, ptr @.str.1266, ptr @.str.1267, ptr @.str.36, ptr @.str.37, ptr @.str.47, ptr @.str.1268, ptr @.str.490, ptr @.str.299, ptr @.str.1269, ptr @.str.45, ptr @.str.495], align 8
-@switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.40 = private unnamed_addr constant [3 x ptr] [ptr @.str.1293, ptr @.str.1294, ptr @.str.1295], align 8
-@switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.41 = private unnamed_addr constant [4 x ptr] [ptr @.str.2, ptr @.str.1293, ptr @.str.1294, ptr @.str.1295], align 8
+@switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.41 = private unnamed_addr constant [3 x ptr] [ptr @.str.1293, ptr @.str.1294, ptr @.str.1295], align 8
+@switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.42 = private unnamed_addr constant [4 x ptr] [ptr @.str.2, ptr @.str.1293, ptr @.str.1294, ptr @.str.1295], align 8
 @switch.table._ZN7glslang13TParseContext19setDefaultPrecisionERKNS_10TSourceLocERNS_11TPublicTypeENS_19TPrecisionQualifierE = private unnamed_addr constant [8 x ptr] [ptr @.str.1092, ptr @.str.1088, ptr @.str.1278, ptr @.str.1279, ptr @.str.1280, ptr @.str.1281, ptr @.str.1282, ptr @.str.1089], align 8
 @switch.table._ZN7glslang13TParseContext18setLayoutQualifierERKNS_10TSourceLocERNS_11TPublicTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE = private unnamed_addr constant [4 x ptr] [ptr @.str.1362, ptr @.str.1363, ptr @.str.1364, ptr @.str.1365], align 8
-@switch.table._ZN7glslang13TParseContext18setLayoutQualifierERKNS_10TSourceLocERNS_11TPublicTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.42 = private unnamed_addr constant [6 x ptr] [ptr @.str.1366, ptr @.str.1367, ptr @.str.1368, ptr @.str.1369, ptr @.str.1370, ptr @.str.1371], align 8
+@switch.table._ZN7glslang13TParseContext18setLayoutQualifierERKNS_10TSourceLocERNS_11TPublicTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.43 = private unnamed_addr constant [6 x ptr] [ptr @.str.1366, ptr @.str.1367, ptr @.str.1368, ptr @.str.1369, ptr @.str.1370, ptr @.str.1371], align 8
 @switch.table._ZN7glslang10TQualifier21getLayoutFormatStringENS_13TLayoutFormatE = private unnamed_addr constant [52 x ptr] [ptr @.str.1309, ptr @.str.1310, ptr @.str.1314, ptr @.str.1318, ptr @.str.1324, ptr @.str.1020, ptr @.str.1311, ptr @.str.1312, ptr @.str.1313, ptr @.str.1315, ptr @.str.1316, ptr @.str.1317, ptr @.str.1319, ptr @.str.1320, ptr @.str.1321, ptr @.str.1322, ptr @.str.1323, ptr @.str.1325, ptr @.str.1326, ptr @.str.1327, ptr @.str.1328, ptr @.str.1020, ptr @.str.1329, ptr @.str.1330, ptr @.str.1331, ptr @.str.1335, ptr @.str.1020, ptr @.str.1332, ptr @.str.1333, ptr @.str.1334, ptr @.str.1336, ptr @.str.1337, ptr @.str.1349, ptr @.str.1020, ptr @.str.1338, ptr @.str.1339, ptr @.str.1340, ptr @.str.1345, ptr @.str.1020, ptr @.str.1341, ptr @.str.1342, ptr @.str.1343, ptr @.str.1344, ptr @.str.1346, ptr @.str.1347, ptr @.str.1348, ptr @.str.1020, ptr @.str.1350, ptr @.str.1351, ptr @.str.1352, ptr @.str.1353, ptr @.str.1354], align 8
 @switch.table._ZN7glslang10TQualifier22getBlendEquationStringENS_19TBlendEquationShiftE = private unnamed_addr constant [16 x ptr] [ptr @.str.1380, ptr @.str.1381, ptr @.str.1382, ptr @.str.1383, ptr @.str.1384, ptr @.str.1385, ptr @.str.1386, ptr @.str.1387, ptr @.str.1388, ptr @.str.1389, ptr @.str.1390, ptr @.str.1391, ptr @.str.1392, ptr @.str.1393, ptr @.str.1394, ptr @.str.1395], align 8
 @switch.table._ZN7glslang13TParseContext30layoutMemberLocationArrayCheckERKNS_10TSourceLocEbPNS_11TArraySizesE = private unnamed_addr constant [28 x i32] [i32 1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], align 4
 @switch.table._ZNK7glslang8TSampler9getStringB5cxx11Ev = private unnamed_addr constant [8 x ptr] [ptr @.str.1417, ptr @.str.1414, ptr @.str.1415, ptr @.str.1416, ptr @.str.1418, ptr @.str.1419, ptr @.str.1420, ptr @.str.2], align 8
 @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb = private unnamed_addr constant [9 x i32] [i32 132, i32 0, i32 122, i32 41, i32 49, i32 61, i32 69, i32 0, i32 89], align 4
-@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.46 = private unnamed_addr constant [8 x i32] [i32 136, i32 0, i32 126, i32 45, i32 52, i32 65, i32 72, i32 85], align 4
-@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.47 = private unnamed_addr constant [9 x i32] [i32 131, i32 0, i32 121, i32 40, i32 48, i32 0, i32 68, i32 81, i32 88], align 4
-@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.48 = private unnamed_addr constant [9 x i32] [i32 135, i32 0, i32 125, i32 44, i32 51, i32 64, i32 0, i32 84, i32 92], align 4
-@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.49 = private unnamed_addr constant [9 x i32] [i32 130, i32 0, i32 120, i32 0, i32 47, i32 60, i32 67, i32 80, i32 87], align 4
-@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.50 = private unnamed_addr constant [9 x i32] [i32 134, i32 0, i32 124, i32 43, i32 0, i32 63, i32 71, i32 83, i32 91], align 4
-@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.51 = private unnamed_addr constant [7 x i32] [i32 128, i32 55, i32 58, i32 75, i32 78, i32 95, i32 98], align 4
-@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.52 = private unnamed_addr constant [9 x i32] [i32 138, i32 0, i32 0, i32 54, i32 57, i32 74, i32 77, i32 94, i32 97], align 4
+@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.47 = private unnamed_addr constant [8 x i32] [i32 136, i32 0, i32 126, i32 45, i32 52, i32 65, i32 72, i32 85], align 4
+@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.48 = private unnamed_addr constant [9 x i32] [i32 131, i32 0, i32 121, i32 40, i32 48, i32 0, i32 68, i32 81, i32 88], align 4
+@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.49 = private unnamed_addr constant [9 x i32] [i32 135, i32 0, i32 125, i32 44, i32 51, i32 64, i32 0, i32 84, i32 92], align 4
+@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.50 = private unnamed_addr constant [9 x i32] [i32 130, i32 0, i32 120, i32 0, i32 47, i32 60, i32 67, i32 80, i32 87], align 4
+@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.51 = private unnamed_addr constant [9 x i32] [i32 134, i32 0, i32 124, i32 43, i32 0, i32 63, i32 71, i32 83, i32 91], align 4
+@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.52 = private unnamed_addr constant [7 x i32] [i32 128, i32 55, i32 58, i32 75, i32 78, i32 95, i32 98], align 4
+@switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.53 = private unnamed_addr constant [9 x i32] [i32 138, i32 0, i32 0, i32 54, i32 57, i32 74, i32 77, i32 94, i32 97], align 4
 @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE = private unnamed_addr constant [5 x i64] [i64 29728, i64 29808, i64 29648, i64 29568, i64 29888], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.53 = private unnamed_addr constant [5 x i64] [i64 29736, i64 29816, i64 29656, i64 29576, i64 29896], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.54 = private unnamed_addr constant [5 x i64] [i64 29744, i64 29824, i64 29664, i64 29584, i64 29904], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.55 = private unnamed_addr constant [5 x i64] [i64 29745, i64 29825, i64 29665, i64 29585, i64 29905], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.56 = private unnamed_addr constant [5 x i64] [i64 29748, i64 29828, i64 29668, i64 29588, i64 29908], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.57 = private unnamed_addr constant [5 x i64] [i64 29752, i64 29832, i64 29672, i64 29592, i64 29912], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.58 = private unnamed_addr constant [5 x i64] [i64 29756, i64 29836, i64 29676, i64 29596, i64 29916], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.59 = private unnamed_addr constant [5 x i64] [i64 29764, i64 29844, i64 29684, i64 29604, i64 29924], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.60 = private unnamed_addr constant [5 x i64] [i64 29772, i64 29852, i64 29692, i64 29612, i64 29932], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.61 = private unnamed_addr constant [5 x i64] [i64 29773, i64 29853, i64 29693, i64 29613, i64 29933], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.62 = private unnamed_addr constant [5 x i64] [i64 29777, i64 29857, i64 29697, i64 29617, i64 29937], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.63 = private unnamed_addr constant [5 x i64] [i64 29780, i64 29860, i64 29700, i64 29620, i64 29940], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.64 = private unnamed_addr constant [5 x i64] [i64 29784, i64 29864, i64 29704, i64 29624, i64 29944], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.65 = private unnamed_addr constant [5 x i64] [i64 29788, i64 29868, i64 29708, i64 29628, i64 29948], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.66 = private unnamed_addr constant [5 x i64] [i64 29792, i64 29872, i64 29712, i64 29632, i64 29952], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.67 = private unnamed_addr constant [5 x i64] [i64 29800, i64 29880, i64 29720, i64 29640, i64 29960], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.68 = private unnamed_addr constant [5 x i64] [i64 29801, i64 29881, i64 29721, i64 29641, i64 29961], align 8
-@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.69 = private unnamed_addr constant [5 x i64] [i64 29802, i64 29882, i64 29722, i64 29642, i64 29962], align 8
-@switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.72 = private unnamed_addr constant [4 x ptr] [ptr @.str.1012, ptr @.str.1013, ptr @.str.1014, ptr @.str.1015], align 8
-@switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.73 = private unnamed_addr constant [7 x ptr] [ptr @.str.1011, ptr @.str.1012, ptr @.str.1013, ptr @.str.1014, ptr @.str.1015, ptr @.str.1016, ptr @.str.1017], align 8
-@switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.74 = private unnamed_addr constant [9 x ptr] [ptr @.str.1011, ptr @.str.1012, ptr @.str.1013, ptr @.str.1014, ptr @.str.1015, ptr @.str.1016, ptr @.str.1017, ptr @.str.1018, ptr @.str.1019], align 8
-@switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75 = private unnamed_addr constant [31 x ptr] [ptr @.str.1259, ptr @.str.1260, ptr @.str.1261, ptr @.str.423, ptr @.str.132, ptr @.str.1264, ptr @.str.400, ptr @.str.590, ptr @.str.1263, ptr @.str.1270, ptr @.str.1271, ptr @.str.801, ptr @.str.1272, ptr @.str.1273, ptr @.str.1274, ptr @.str.412, ptr @.str.423, ptr @.str.132, ptr @.str.1265, ptr @.str.1262, ptr @.str.1266, ptr @.str.1267, ptr @.str.36, ptr @.str.37, ptr @.str.47, ptr @.str.1268, ptr @.str.490, ptr @.str.299, ptr @.str.1269, ptr @.str.45, ptr @.str.495], align 8
-@switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.77 = private unnamed_addr constant [3 x ptr] [ptr @.str.1356, ptr @.str.1357, ptr @.str.1358], align 8
-@switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.79 = private unnamed_addr constant [6 x ptr] [ptr @.str.1372, ptr @.str.1373, ptr @.str.1374, ptr @.str.1375, ptr @.str.1376, ptr @.str.1377], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.54 = private unnamed_addr constant [5 x i64] [i64 29736, i64 29816, i64 29656, i64 29576, i64 29896], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.55 = private unnamed_addr constant [5 x i64] [i64 29744, i64 29824, i64 29664, i64 29584, i64 29904], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.56 = private unnamed_addr constant [5 x i64] [i64 29745, i64 29825, i64 29665, i64 29585, i64 29905], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.57 = private unnamed_addr constant [5 x i64] [i64 29748, i64 29828, i64 29668, i64 29588, i64 29908], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.58 = private unnamed_addr constant [5 x i64] [i64 29752, i64 29832, i64 29672, i64 29592, i64 29912], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.59 = private unnamed_addr constant [5 x i64] [i64 29756, i64 29836, i64 29676, i64 29596, i64 29916], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.60 = private unnamed_addr constant [5 x i64] [i64 29764, i64 29844, i64 29684, i64 29604, i64 29924], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.61 = private unnamed_addr constant [5 x i64] [i64 29772, i64 29852, i64 29692, i64 29612, i64 29932], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.62 = private unnamed_addr constant [5 x i64] [i64 29773, i64 29853, i64 29693, i64 29613, i64 29933], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.63 = private unnamed_addr constant [5 x i64] [i64 29777, i64 29857, i64 29697, i64 29617, i64 29937], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.64 = private unnamed_addr constant [5 x i64] [i64 29780, i64 29860, i64 29700, i64 29620, i64 29940], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.65 = private unnamed_addr constant [5 x i64] [i64 29784, i64 29864, i64 29704, i64 29624, i64 29944], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.66 = private unnamed_addr constant [5 x i64] [i64 29788, i64 29868, i64 29708, i64 29628, i64 29948], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.67 = private unnamed_addr constant [5 x i64] [i64 29792, i64 29872, i64 29712, i64 29632, i64 29952], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.68 = private unnamed_addr constant [5 x i64] [i64 29800, i64 29880, i64 29720, i64 29640, i64 29960], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.69 = private unnamed_addr constant [5 x i64] [i64 29801, i64 29881, i64 29721, i64 29641, i64 29961], align 8
+@switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.70 = private unnamed_addr constant [5 x i64] [i64 29802, i64 29882, i64 29722, i64 29642, i64 29962], align 8
+@switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.73 = private unnamed_addr constant [4 x ptr] [ptr @.str.1012, ptr @.str.1013, ptr @.str.1014, ptr @.str.1015], align 8
+@switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.74 = private unnamed_addr constant [7 x ptr] [ptr @.str.1011, ptr @.str.1012, ptr @.str.1013, ptr @.str.1014, ptr @.str.1015, ptr @.str.1016, ptr @.str.1017], align 8
+@switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75 = private unnamed_addr constant [9 x ptr] [ptr @.str.1011, ptr @.str.1012, ptr @.str.1013, ptr @.str.1014, ptr @.str.1015, ptr @.str.1016, ptr @.str.1017, ptr @.str.1018, ptr @.str.1019], align 8
+@switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.76 = private unnamed_addr constant [31 x ptr] [ptr @.str.1259, ptr @.str.1260, ptr @.str.1261, ptr @.str.423, ptr @.str.132, ptr @.str.1264, ptr @.str.400, ptr @.str.590, ptr @.str.1263, ptr @.str.1270, ptr @.str.1271, ptr @.str.801, ptr @.str.1272, ptr @.str.1273, ptr @.str.1274, ptr @.str.412, ptr @.str.423, ptr @.str.132, ptr @.str.1265, ptr @.str.1262, ptr @.str.1266, ptr @.str.1267, ptr @.str.36, ptr @.str.37, ptr @.str.47, ptr @.str.1268, ptr @.str.490, ptr @.str.299, ptr @.str.1269, ptr @.str.45, ptr @.str.495], align 8
+@switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.78 = private unnamed_addr constant [3 x ptr] [ptr @.str.1356, ptr @.str.1357, ptr @.str.1358], align 8
+@switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.80 = private unnamed_addr constant [6 x ptr] [ptr @.str.1372, ptr @.str.1373, ptr @.str.1374, ptr @.str.1375, ptr @.str.1376, ptr @.str.1377], align 8
 @switch.table._ZN7glslang24GetBuiltInVariableStringENS_16TBuiltInVariableE = private unnamed_addr constant [138 x ptr] [ptr @.str.2, ptr @.str.1104, ptr @.str.1105, ptr @.str.1106, ptr @.str.1107, ptr @.str.1108, ptr @.str.1109, ptr @.str.1110, ptr @.str.1111, ptr @.str.1112, ptr @.str.1113, ptr @.str.1114, ptr @.str.1115, ptr @.str.1116, ptr @.str.1117, ptr @.str.1118, ptr @.str.1119, ptr @.str.1120, ptr @.str.1121, ptr @.str.1122, ptr @.str.1123, ptr @.str.1124, ptr @.str.1125, ptr @.str.1126, ptr @.str.1127, ptr @.str.1128, ptr @.str.1129, ptr @.str.1130, ptr @.str.1131, ptr @.str.1132, ptr @.str.1133, ptr @.str.1134, ptr @.str.1135, ptr @.str.1136, ptr @.str.1137, ptr @.str.1138, ptr @.str.1139, ptr @.str.1140, ptr @.str.1141, ptr @.str.1142, ptr @.str.1143, ptr @.str.1144, ptr @.str.1145, ptr @.str.1146, ptr @.str.1147, ptr @.str.1148, ptr @.str.1149, ptr @.str.1150, ptr @.str.1151, ptr @.str.1152, ptr @.str.1153, ptr @.str.1154, ptr @.str.1155, ptr @.str.1156, ptr @.str.1157, ptr @.str.1158, ptr @.str.1159, ptr @.str.1160, ptr @.str.1161, ptr @.str.1162, ptr @.str.1163, ptr @.str.1164, ptr @.str.1165, ptr @.str.1166, ptr @.str.1167, ptr @.str.1168, ptr @.str.1169, ptr @.str.1170, ptr @.str.1171, ptr @.str.1172, ptr @.str.1173, ptr @.str.1174, ptr @.str.1175, ptr @.str.1176, ptr @.str.1177, ptr @.str.1178, ptr @.str.1179, ptr @.str.1180, ptr @.str.1181, ptr @.str.1182, ptr @.str.1183, ptr @.str.1184, ptr @.str.1230, ptr @.str.1231, ptr @.str.1185, ptr @.str.1186, ptr @.str.1187, ptr @.str.1188, ptr @.str.1189, ptr @.str.1190, ptr @.str.1191, ptr @.str.1192, ptr @.str.1193, ptr @.str.1194, ptr @.str.1195, ptr @.str.1196, ptr @.str.1197, ptr @.str.1198, ptr @.str.1199, ptr @.str.1200, ptr @.str.1201, ptr @.str.1202, ptr @.str.1203, ptr @.str.1204, ptr @.str.1205, ptr @.str.1206, ptr @.str.1234, ptr @.str.1207, ptr @.str.1209, ptr @.str.1234, ptr @.str.1210, ptr @.str.1234, ptr @.str.1208, ptr @.str.1211, ptr @.str.1212, ptr @.str.1213, ptr @.str.1212, ptr @.str.1213, ptr @.str.1214, ptr @.str.1215, ptr @.str.1216, ptr @.str.1217, ptr @.str.1218, ptr @.str.1219, ptr @.str.1220, ptr @.str.1221, ptr @.str.1234, ptr @.str.1234, ptr @.str.1232, ptr @.str.1233, ptr @.str.1222, ptr @.str.1223, ptr @.str.1224, ptr @.str.1225, ptr @.str.1226, ptr @.str.1227, ptr @.str.1228, ptr @.str.1229], align 8
 
 @_ZN7glslang13TParseContextC1ERNS_12TSymbolTableERNS_13TIntermediateEbi8EProfileRKNS_10SpvVersionE11EShLanguageR9TInfoSinkb11EShMessagesPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE = unnamed_addr alias void (ptr, ptr, ptr, i1, i32, i32, ptr, i32, ptr, i1, i32, ptr), ptr @_ZN7glslang13TParseContextC2ERNS_12TSymbolTableERNS_13TIntermediateEbi8EProfileRKNS_10SpvVersionE11EShLanguageR9TInfoSinkb11EShMessagesPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE
@@ -8603,7 +8603,7 @@ _ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit: ; preds = %58, %58, %5
 
 switch.lookup:                                    ; preds = %68
   %73 = and i64 %70, 127
-  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %73
+  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.76, i64 0, i64 %73
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK7glslang5TType25getStorageQualifierStringEv.exit
 
@@ -8662,7 +8662,7 @@ switch.lookup:                                    ; preds = %15
   %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZNK7glslang13TParseContext22getIoArrayImplicitSizeERKNS_10TQualifierEPNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE, i64 0, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep42 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.74, i64 0, i64 %20
+  %switch.gep42 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %20
   %switch.load43 = load ptr, ptr %switch.gep42, align 8
   br label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit
 
@@ -8707,7 +8707,7 @@ _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit: ; preds =
 
 switch.lookup44:                                  ; preds = %35
   %39 = zext nneg i32 %switch.tableidx45 to i64
-  %switch.gep46 = getelementptr inbounds [6 x i32], ptr @switch.table._ZNK7glslang13TParseContext22getIoArrayImplicitSizeERKNS_10TQualifierEPNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.32, i64 0, i64 %39
+  %switch.gep46 = getelementptr inbounds [6 x i32], ptr @switch.table._ZNK7glslang13TParseContext22getIoArrayImplicitSizeERKNS_10TQualifierEPNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.33, i64 0, i64 %39
   %switch.load47 = load i32, ptr %switch.gep46, align 4
   br label %_ZN7glslang10TQualifier17mapGeometryToSizeENS_15TLayoutGeometryE.exit20
 
@@ -8724,7 +8724,7 @@ _ZN7glslang10TQualifier17mapGeometryToSizeENS_15TLayoutGeometryE.exit20: ; preds
 
 switch.lookup48:                                  ; preds = %_ZN7glslang10TQualifier17mapGeometryToSizeENS_15TLayoutGeometryE.exit20
   %46 = zext nneg i32 %switch.tableidx49 to i64
-  %switch.gep50 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.74, i64 0, i64 %46
+  %switch.gep50 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %46
   %switch.load51 = load ptr, ptr %switch.gep50, align 8
   br label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit22
 
@@ -14169,7 +14169,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup952:                                 ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit482
   %1627 = and i64 %1624, 127
-  %switch.gep953 = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %1627
+  %switch.gep953 = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.76, i64 0, i64 %1627
   %switch.load954 = load ptr, ptr %switch.gep953, align 8
   br label %_ZNK7glslang5TType25getStorageQualifierStringEv.exit
 
@@ -14304,7 +14304,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup955:                                 ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit494
   %1685 = zext nneg i32 %1683 to i64
-  %switch.gep956 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.41, i64 0, i64 %1685
+  %switch.gep956 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.42, i64 0, i64 %1685
   %switch.load957 = load ptr, ptr %switch.gep956, align 8
   br label %_ZNK7glslang5TType27getPrecisionQualifierStringEv.exit
 
@@ -16267,7 +16267,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup958:                                 ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit696
   %2592 = zext nneg i32 %2590 to i64
-  %switch.gep959 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.41, i64 0, i64 %2592
+  %switch.gep959 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.42, i64 0, i64 %2592
   %switch.load960 = load ptr, ptr %switch.gep959, align 8
   br label %_ZNK7glslang5TType27getPrecisionQualifierStringEv.exit698
 
@@ -18820,7 +18820,7 @@ _ZNK7glslang17TSpirvInstructionneERKS0_.exit.thread: ; preds = %_ZNSt11char_trai
 
 switch.lookup:                                    ; preds = %182
   %193 = and i64 %190, 127
-  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %193
+  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.76, i64 0, i64 %193
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK7glslang5TType25getStorageQualifierStringEv.exit
 
@@ -18884,7 +18884,7 @@ _ZNK7glslang5TType25getStorageQualifierStringEv.exit: ; preds = %182, %switch.lo
 
 switch.lookup91:                                  ; preds = %225
   %238 = zext nneg i32 %236 to i64
-  %switch.gep92 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.41, i64 0, i64 %238
+  %switch.gep92 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.42, i64 0, i64 %238
   %switch.load93 = load ptr, ptr %switch.gep92, align 8
   br label %_ZNK7glslang5TType27getPrecisionQualifierStringEv.exit
 
@@ -35841,13 +35841,13 @@ switch.lookup:                                    ; preds = %4
 
 switch.lookup8:                                   ; preds = %6
   %11 = zext nneg i32 %switch.tableidx9 to i64
-  %switch.gep10 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasicTypeE.38, i64 0, i64 %11
+  %switch.gep10 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasicTypeE.39, i64 0, i64 %11
   %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %13
 
 switch.lookup12:                                  ; preds = %8
   %12 = zext nneg i32 %switch.tableidx13 to i64
-  %switch.gep14 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasicTypeE.39, i64 0, i64 %12
+  %switch.gep14 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasicTypeE.40, i64 0, i64 %12
   %switch.load15 = load i32, ptr %switch.gep14, align 4
   br label %13
 
@@ -36100,7 +36100,7 @@ _ZNK7glslang11TPublicType7isImageEv.exit.thread:  ; preds = %_ZNK7glslang11TPubl
 
 switch.lookup:                                    ; preds = %100
   %104 = and i64 %101, 127
-  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %104
+  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.76, i64 0, i64 %104
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang25GetStorageQualifierStringENS_17TStorageQualifierE.exit
 
@@ -36580,7 +36580,7 @@ define linkonce_odr noundef ptr @_ZN7glslang25GetStorageQualifierStringENS_17TSt
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.76, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -36902,7 +36902,7 @@ _ZN7glslang25GetStorageQualifierStringENS_17TStorageQualifierE.exit: ; preds = %
 
 switch.lookup571:                                 ; preds = %152
   %154 = zext nneg i32 %switch.tableidx572 to i64
-  %switch.gep573 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.40, i64 0, i64 %154
+  %switch.gep573 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.41, i64 0, i64 %154
   %switch.load574 = load ptr, ptr %switch.gep573, align 8
   br label %_ZN7glslang27GetPrecisionQualifierStringENS_19TPrecisionQualifierE.exit
 
@@ -37005,7 +37005,7 @@ _ZN7glslang27GetPrecisionQualifierStringENS_19TPrecisionQualifierE.exit: ; preds
 
 switch.lookup575:                                 ; preds = %189
   %194 = zext nneg i32 %192 to i64
-  %switch.gep576 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.41, i64 0, i64 %194
+  %switch.gep576 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN7glslang13TParseContext15mergeQualifiersERKNS_10TSourceLocERNS_10TQualifierERKS4_b.42, i64 0, i64 %194
   %switch.load577 = load ptr, ptr %switch.gep576, align 8
   br label %_ZN7glslang27GetPrecisionQualifierStringENS_19TPrecisionQualifierE.exit398
 
@@ -44526,7 +44526,7 @@ define void @_ZN7glslang13TParseContext20paramCheckFixStorageERKNS_10TSourceLocE
 
 switch.lookup:                                    ; preds = %34
   %45 = zext nneg i32 %43 to i64
-  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.76, i64 0, i64 %45
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang25GetStorageQualifierStringENS_17TStorageQualifierE.exit
 
@@ -46825,7 +46825,7 @@ _ZN7glslang10TQualifier20getLayoutDepthStringENS_12TLayoutDepthE.exit: ; preds =
 switch.lookup335:                                 ; preds = %.preheader301
   %switch.tableidx336 = add nsw i32 %.0219311, -1
   %312 = sext i32 %switch.tableidx336 to i64
-  %switch.gep337 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN7glslang13TParseContext18setLayoutQualifierERKNS_10TSourceLocERNS_11TPublicTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.42, i64 0, i64 %312
+  %switch.gep337 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN7glslang13TParseContext18setLayoutQualifierERKNS_10TSourceLocERNS_11TPublicTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.43, i64 0, i64 %312
   %switch.load338 = load ptr, ptr %switch.gep337, align 8
   br label %_ZN7glslang10TQualifier22getLayoutStencilStringENS_14TLayoutStencilE.exit
 
@@ -46854,7 +46854,7 @@ _ZN7glslang10TQualifier22getLayoutStencilStringENS_14TLayoutStencilE.exit: ; pre
 switch.lookup339:                                 ; preds = %.preheader300
   %switch.tableidx340 = add nsw i32 %.0218312, -1
   %319 = sext i32 %switch.tableidx340 to i64
-  %switch.gep341 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.79, i64 0, i64 %319
+  %switch.gep341 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.80, i64 0, i64 %319
   %switch.load342 = load ptr, ptr %switch.gep341, align 8
   br label %_ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exit
 
@@ -46872,7 +46872,7 @@ _ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exi
 switch.lookup343:                                 ; preds = %321
   %switch.tableidx344 = add nsw i32 %.0218312, -1
   %323 = sext i32 %switch.tableidx344 to i64
-  %switch.gep345 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.79, i64 0, i64 %323
+  %switch.gep345 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.80, i64 0, i64 %323
   %switch.load346 = load ptr, ptr %switch.gep345, align 8
   br label %_ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exit271
 
@@ -50072,16 +50072,16 @@ _ZN7glslang7TVectorIPKNS_9TFunctionEEC2ERKS4_.exit: ; preds = %.lr.ph.i.i.i, %_Z
   store i8 %62, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEZNS0_13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0E9_M_invokeERKSt9_Any_dataS3_S3_OS4_Oi", ptr %81, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEZNS0_13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %80, align 8
-  %83 = getelementptr inbounds i8, ptr %9, i64 16
-  %84 = getelementptr inbounds i8, ptr %9, i64 24
-  %85 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 0, ptr %85, align 8
-  %86 = ptrtoint ptr %0 to i64
-  store i64 %86, ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_", ptr %84, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %83, align 8
+  %83 = ptrtoint ptr %0 to i64
+  %84 = getelementptr inbounds i8, ptr %9, i64 16
+  %85 = getelementptr inbounds i8, ptr %9, i64 24
+  %86 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 0, ptr %86, align 8
+  store i64 %83, ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_S3_", ptr %85, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %84, align 8
   %87 = call noundef ptr @_ZN7glslang17TParseContextBase14selectFunctionENS_7TVectorIPKNS_9TFunctionEEERS3_St8functionIFbRKNS_5TTypeESA_NS_9TOperatorEiEES7_IFbSA_SA_SA_EERb(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(340) %2, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull align 1 dereferenceable(1) %6) #22
-  %88 = load ptr, ptr %83, align 8
+  %88 = load ptr, ptr %84, align 8
   %.not.i.i = icmp eq ptr %88, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbRKN7glslang5TTypeES3_S3_EED2Ev.exit, label %89
 
@@ -54265,7 +54265,7 @@ define noundef ptr @_ZN7glslang13TParseContext18executeInitializerERKNS_10TSourc
 
 switch.lookup:                                    ; preds = %71
   %80 = and i64 %77, 127
-  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %80
+  %switch.gep = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.76, i64 0, i64 %80
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK7glslang5TType25getStorageQualifierStringEv.exit
 
@@ -55236,7 +55236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 
 switch.lookup172:                                 ; preds = %725
   %734 = and i64 %731, 127
-  %switch.gep173 = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %734
+  %switch.gep173 = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.76, i64 0, i64 %734
   %switch.load174 = load ptr, ptr %switch.gep173, align 8
   br label %_ZNK7glslang5TType25getStorageQualifierStringEv.exit145
 
@@ -57636,43 +57636,43 @@ switch.lookup:                                    ; preds = %611
 
 switch.lookup210:                                 ; preds = %621
   %692 = zext nneg i32 %switch.tableidx211 to i64
-  %switch.gep212 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.46, i64 0, i64 %692
+  %switch.gep212 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.47, i64 0, i64 %692
   %switch.load213 = load i32, ptr %switch.gep212, align 4
   br label %699
 
 switch.lookup214:                                 ; preds = %631
   %693 = zext nneg i32 %switch.tableidx215 to i64
-  %switch.gep216 = getelementptr inbounds [9 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.47, i64 0, i64 %693
+  %switch.gep216 = getelementptr inbounds [9 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.48, i64 0, i64 %693
   %switch.load217 = load i32, ptr %switch.gep216, align 4
   br label %699
 
 switch.lookup218:                                 ; preds = %641
   %694 = zext nneg i32 %switch.tableidx219 to i64
-  %switch.gep220 = getelementptr inbounds [9 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.48, i64 0, i64 %694
+  %switch.gep220 = getelementptr inbounds [9 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.49, i64 0, i64 %694
   %switch.load221 = load i32, ptr %switch.gep220, align 4
   br label %699
 
 switch.lookup222:                                 ; preds = %651
   %695 = zext nneg i32 %switch.tableidx223 to i64
-  %switch.gep224 = getelementptr inbounds [9 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.49, i64 0, i64 %695
+  %switch.gep224 = getelementptr inbounds [9 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.50, i64 0, i64 %695
   %switch.load225 = load i32, ptr %switch.gep224, align 4
   br label %699
 
 switch.lookup226:                                 ; preds = %661
   %696 = zext nneg i32 %switch.tableidx227 to i64
-  %switch.gep228 = getelementptr inbounds [9 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.50, i64 0, i64 %696
+  %switch.gep228 = getelementptr inbounds [9 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.51, i64 0, i64 %696
   %switch.load229 = load i32, ptr %switch.gep228, align 4
   br label %699
 
 switch.lookup230:                                 ; preds = %671
   %697 = zext nneg i32 %switch.tableidx231 to i64
-  %switch.gep232 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.51, i64 0, i64 %697
+  %switch.gep232 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.52, i64 0, i64 %697
   %switch.load233 = load i32, ptr %switch.gep232, align 4
   br label %699
 
 switch.lookup234:                                 ; preds = %681
   %698 = zext nneg i32 %switch.tableidx235 to i64
-  %switch.gep236 = getelementptr inbounds [9 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.52, i64 0, i64 %698
+  %switch.gep236 = getelementptr inbounds [9 x i32], ptr @switch.table._ZN7glslang13TParseContext16constructBuiltInERKNS_5TTypeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocEb.53, i64 0, i64 %698
   %switch.load237 = load i32, ptr %switch.gep236, align 4
   br label %699
 
@@ -58554,55 +58554,55 @@ switch.lookup:                                    ; preds = %._crit_edge484
   %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE, i64 0, i64 %351
   %switch.load = load i64, ptr %switch.gep, align 8
   %352 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep554 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.53, i64 0, i64 %352
+  %switch.gep554 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.54, i64 0, i64 %352
   %switch.load555 = load i64, ptr %switch.gep554, align 8
   %353 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep556 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.54, i64 0, i64 %353
+  %switch.gep556 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.55, i64 0, i64 %353
   %switch.load557 = load i64, ptr %switch.gep556, align 8
   %354 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep558 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.55, i64 0, i64 %354
+  %switch.gep558 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.56, i64 0, i64 %354
   %switch.load559 = load i64, ptr %switch.gep558, align 8
   %355 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep560 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.56, i64 0, i64 %355
+  %switch.gep560 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.57, i64 0, i64 %355
   %switch.load561 = load i64, ptr %switch.gep560, align 8
   %356 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep562 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.57, i64 0, i64 %356
+  %switch.gep562 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.58, i64 0, i64 %356
   %switch.load563 = load i64, ptr %switch.gep562, align 8
   %357 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep564 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.58, i64 0, i64 %357
+  %switch.gep564 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.59, i64 0, i64 %357
   %switch.load565 = load i64, ptr %switch.gep564, align 8
   %358 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep566 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.59, i64 0, i64 %358
+  %switch.gep566 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.60, i64 0, i64 %358
   %switch.load567 = load i64, ptr %switch.gep566, align 8
   %359 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep568 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.60, i64 0, i64 %359
+  %switch.gep568 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.61, i64 0, i64 %359
   %switch.load569 = load i64, ptr %switch.gep568, align 8
   %360 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep570 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.61, i64 0, i64 %360
+  %switch.gep570 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.62, i64 0, i64 %360
   %switch.load571 = load i64, ptr %switch.gep570, align 8
   %361 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep572 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.62, i64 0, i64 %361
+  %switch.gep572 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.63, i64 0, i64 %361
   %switch.load573 = load i64, ptr %switch.gep572, align 8
   %362 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep574 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.63, i64 0, i64 %362
+  %switch.gep574 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.64, i64 0, i64 %362
   %switch.load575 = load i64, ptr %switch.gep574, align 8
   %363 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep576 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.64, i64 0, i64 %363
+  %switch.gep576 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.65, i64 0, i64 %363
   %switch.load577 = load i64, ptr %switch.gep576, align 8
   %364 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep578 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.65, i64 0, i64 %364
+  %switch.gep578 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.66, i64 0, i64 %364
   %switch.load579 = load i64, ptr %switch.gep578, align 8
   %365 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep580 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.66, i64 0, i64 %365
+  %switch.gep580 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.67, i64 0, i64 %365
   %switch.load581 = load i64, ptr %switch.gep580, align 8
   %366 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep582 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.67, i64 0, i64 %366
+  %switch.gep582 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.68, i64 0, i64 %366
   %switch.load583 = load i64, ptr %switch.gep582, align 8
   %367 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep584 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.68, i64 0, i64 %367
+  %switch.gep584 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.69, i64 0, i64 %367
   %switch.load585 = load i64, ptr %switch.gep584, align 8
   %368 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep586 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.69, i64 0, i64 %368
+  %switch.gep586 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7glslang13TParseContext12declareBlockERKNS_10TSourceLocERNS_7TVectorINS_8TTypeLocEEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_11TArraySizesE.70, i64 0, i64 %368
   %switch.load587 = load i64, ptr %switch.gep586, align 8
   %369 = getelementptr inbounds i8, ptr %0, i64 %switch.load
   %.sroa.0266.0.copyload270 = load ptr, ptr %369, align 8
@@ -59561,7 +59561,7 @@ _ZN7glslang13TParseContext27mergeObjectLayoutQualifiersERNS_10TQualifierERKS1_b.
 
 switch.lookup588:                                 ; preds = %887
   %893 = and i64 %883, 127
-  %switch.gep589 = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %893
+  %switch.gep589 = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.76, i64 0, i64 %893
   %switch.load590 = load ptr, ptr %switch.gep589, align 8
   br label %_ZNK7glslang5TType25getStorageQualifierStringEv.exit
 
@@ -62076,7 +62076,7 @@ _ZN7glslang13TIntermediate14setInvocationsEi.exit: ; preds = %69
 switch.lookup:                                    ; preds = %88
   %switch.tableidx = add nsw i32 %81, -1
   %92 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.74, i64 0, i64 %92
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %92
   %switch.load = load ptr, ptr %switch.gep, align 8
   %93 = load ptr, ptr %0, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 344
@@ -62113,7 +62113,7 @@ _ZN7glslang13TIntermediate17setInputPrimitiveENS_15TLayoutGeometryE.exit: ; pred
 switch.lookup345:                                 ; preds = %_ZN7glslang13TIntermediate17setInputPrimitiveENS_15TLayoutGeometryE.exit
   %switch.tableidx346 = add nsw i32 %81, -1
   %106 = sext i32 %switch.tableidx346 to i64
-  %switch.gep347 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.74, i64 0, i64 %106
+  %switch.gep347 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %106
   %switch.load348 = load ptr, ptr %switch.gep347, align 8
   %107 = load ptr, ptr %0, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 344
@@ -62157,7 +62157,7 @@ _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit233: ; pred
 switch.lookup349:                                 ; preds = %116
   %switch.tableidx350 = add nsw i32 %81, -2
   %119 = sext i32 %switch.tableidx350 to i64
-  %switch.gep351 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.72, i64 0, i64 %119
+  %switch.gep351 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.73, i64 0, i64 %119
   %switch.load352 = load ptr, ptr %switch.gep351, align 8
   %120 = load ptr, ptr %0, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 344
@@ -62184,7 +62184,7 @@ _ZN7glslang13TIntermediate18setOutputPrimitiveENS_15TLayoutGeometryE.exit: ; pre
 switch.lookup353:                                 ; preds = %_ZN7glslang13TIntermediate18setOutputPrimitiveENS_15TLayoutGeometryE.exit
   %switch.tableidx354 = add nsw i32 %81, -1
   %129 = sext i32 %switch.tableidx354 to i64
-  %switch.gep355 = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.73, i64 0, i64 %129
+  %switch.gep355 = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.74, i64 0, i64 %129
   %switch.load356 = load ptr, ptr %switch.gep355, align 8
   %130 = load ptr, ptr %0, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 344
@@ -62219,7 +62219,7 @@ _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit241: ; pred
 switch.lookup357:                                 ; preds = %140
   %switch.tableidx358 = add nsw i32 %81, -1
   %142 = sext i32 %switch.tableidx358 to i64
-  %switch.gep359 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.74, i64 0, i64 %142
+  %switch.gep359 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %142
   %switch.load360 = load ptr, ptr %switch.gep359, align 8
   br label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit243
 
@@ -62230,7 +62230,7 @@ _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit243: ; pred
 
 switch.lookup361:                                 ; preds = %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit243
   %144 = and i64 %84, 127
-  %switch.gep362 = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.75, i64 0, i64 %144
+  %switch.gep362 = getelementptr inbounds [31 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.76, i64 0, i64 %144
   %switch.load363 = load ptr, ptr %switch.gep362, align 8
   br label %_ZN7glslang25GetStorageQualifierStringENS_17TStorageQualifierE.exit
 
@@ -62278,7 +62278,7 @@ _ZN7glslang13TIntermediate16setVertexSpacingENS_14TVertexSpacingE.exit: ; preds 
 switch.lookup364:                                 ; preds = %162
   %switch.tableidx365 = add nsw i32 %150, -1
   %164 = sext i32 %switch.tableidx365 to i64
-  %switch.gep366 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.77, i64 0, i64 %164
+  %switch.gep366 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.78, i64 0, i64 %164
   %switch.load367 = load ptr, ptr %switch.gep366, align 8
   br label %_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit
 
@@ -62297,7 +62297,7 @@ _ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit: ; pre
 switch.lookup368:                                 ; preds = %168
   %switch.tableidx369 = add nsw i32 %150, -1
   %170 = sext i32 %switch.tableidx369 to i64
-  %switch.gep370 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.77, i64 0, i64 %170
+  %switch.gep370 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.78, i64 0, i64 %170
   %switch.load371 = load ptr, ptr %switch.gep370, align 8
   br label %_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit249
 
@@ -63110,7 +63110,7 @@ _ZN7glslang13TIntermediate20setInterlockOrderingENS_18TInterlockOrderingE.exit: 
 switch.lookup372:                                 ; preds = %570
   %switch.tableidx373 = add nsw i32 %560, -1
   %572 = sext i32 %switch.tableidx373 to i64
-  %switch.gep374 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.79, i64 0, i64 %572
+  %switch.gep374 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.80, i64 0, i64 %572
   %switch.load375 = load ptr, ptr %switch.gep374, align 8
   br label %_ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exit
 
@@ -63129,7 +63129,7 @@ _ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exi
 switch.lookup376:                                 ; preds = %576
   %switch.tableidx377 = add nsw i32 %560, -1
   %578 = sext i32 %switch.tableidx377 to i64
-  %switch.gep378 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.79, i64 0, i64 %578
+  %switch.gep378 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.80, i64 0, i64 %578
   %switch.load379 = load ptr, ptr %switch.gep378, align 8
   br label %_ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exit274
 

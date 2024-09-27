@@ -130,7 +130,7 @@ define dso_local void @_Z23cmFileAPIToolchainsDumpR9cmFileAPIm(ptr dead_on_unwin
           to label %.noexc.i unwind label %230
 
 .noexc.i:                                         ; preds = %3
-  %30 = load ptr, ptr %1, align 8
+  %30 = load ptr, ptr %1, align 8, !noalias !5
   %31 = getelementptr inbounds i8, ptr %30, i64 1912
   %32 = load ptr, ptr %31, align 8
   invoke void @_ZNK7cmState19GetEnabledLanguagesB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.10") align 8 %27, ptr noundef nonnull align 8 dereferenceable(705) %32)
@@ -414,7 +414,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %115
 
 115:                                              ; preds = %113, %109, %106
-  %116 = load ptr, ptr %1, align 8, !noalias !17
+  %116 = load ptr, ptr %1, align 8, !noalias !18
   %117 = getelementptr inbounds i8, ptr %116, i64 2104
   %118 = load ptr, ptr %117, align 8, !noalias !17
   %119 = getelementptr inbounds i8, ptr %118, i64 128
@@ -438,8 +438,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
           to label %.noexc.i.i.i unwind label %211
 
 .noexc.i.i.i:                                     ; preds = %123
-  %.val.i.i.i.i = load ptr, ptr @_ZZN12_GLOBAL__N_110Toolchains13DumpToolchainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17CompilerVariables, align 8, !noalias !18
-  %.val9.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_110Toolchains13DumpToolchainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17CompilerVariables, i64 8), align 8, !noalias !18
+  %.val.i.i.i.i = load ptr, ptr @_ZZN12_GLOBAL__N_110Toolchains13DumpToolchainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17CompilerVariables, align 8, !noalias !19
+  %.val9.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_110Toolchains13DumpToolchainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17CompilerVariables, i64 8), align 8, !noalias !19
   %.not2.i.i.i.i = icmp eq ptr %.val.i.i.i.i, %.val9.i.i.i.i
   br i1 %.not2.i.i.i.i, label %_ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_17ToolchainVariableESaISD_EE.exit.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -471,8 +471,8 @@ _ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1
           to label %.noexc116.i.i.i unwind label %211
 
 .noexc116.i.i.i:                                  ; preds = %131
-  %.val.i110.i.i.i = load ptr, ptr @_ZZN12_GLOBAL__N_110Toolchains13DumpToolchainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE25CompilerImplicitVariables, align 8, !noalias !21
-  %.val9.i111.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_110Toolchains13DumpToolchainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE25CompilerImplicitVariables, i64 8), align 8, !noalias !21
+  %.val.i110.i.i.i = load ptr, ptr @_ZZN12_GLOBAL__N_110Toolchains13DumpToolchainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE25CompilerImplicitVariables, align 8, !noalias !22
+  %.val9.i111.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_110Toolchains13DumpToolchainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE25CompilerImplicitVariables, i64 8), align 8, !noalias !22
   %.not2.i112.i.i.i = icmp eq ptr %.val.i110.i.i.i, %.val9.i111.i.i.i
   br i1 %.not2.i112.i.i.i, label %_ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_17ToolchainVariableESaISD_EE.exit119.i.i.i, label %.lr.ph.i113.i.i.i
 
@@ -977,7 +977,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_117ToolchainVariableESaI
   %.01217.i.i.i.i.i.add = add nuw nsw i64 %.01217.i.i.i.i.i.idx, 72
   %14 = getelementptr inbounds i8, ptr %.018.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq i64 %.01217.i.i.i.i.i.add, 288
-  br i1 %.not.i.i.i.i.i, label %25, label %.lr.ph.i.i.i.i.i, !llvm.loop !24
+  br i1 %.not.i.i.i.i.i, label %25, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
 15:                                               ; preds = %.lr.ph.i.i.i.i.i
   %16 = landingpad { ptr, i32 }
@@ -1052,7 +1052,7 @@ define internal void @_ZNSt6vectorIN12_GLOBAL__N_117ToolchainVariableESaIS1_EED2
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #14
   %6 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 72
   %.not.i.i.i = icmp eq ptr %6, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_117ToolchainVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_117ToolchainVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !26
 
 _ZSt8_DestroyIPN12_GLOBAL__N_117ToolchainVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.val.pr = load ptr, ptr %0, align 8
@@ -1090,35 +1090,35 @@ define internal fastcc void @_ZN12_GLOBAL__N_110Toolchains21DumpToolchainVariabl
   %11 = alloca %"class.Json::Value", align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 32
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
-  store i64 6, ptr %6, align 8, !alias.scope !26, !noalias !29
+  store i64 6, ptr %6, align 8, !alias.scope !27, !noalias !30
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr @.str.25, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !26, !noalias !29
+  store ptr @.str.25, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !27, !noalias !30
   %13 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr null, ptr %13, align 8, !alias.scope !26, !noalias !29
+  store ptr null, ptr %13, align 8, !alias.scope !27, !noalias !30
   %14 = getelementptr inbounds i8, ptr %6, i64 24
-  %15 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14, !noalias !29
+  %15 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14, !noalias !30
   %16 = extractvalue { i64, ptr } %15, 0
   %17 = extractvalue { i64, ptr } %15, 1
-  store i64 %16, ptr %14, align 8, !alias.scope !32, !noalias !29
+  store i64 %16, ptr %14, align 8, !alias.scope !33, !noalias !30
   %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %17, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !32, !noalias !29
+  store ptr %17, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !alias.scope !33, !noalias !30
   %18 = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr null, ptr %18, align 8, !alias.scope !32, !noalias !29
+  store ptr null, ptr %18, align 8, !alias.scope !33, !noalias !30
   %19 = getelementptr inbounds i8, ptr %6, i64 48
-  store i64 1, ptr %19, align 8, !alias.scope !35, !noalias !29
+  store i64 1, ptr %19, align 8, !alias.scope !36, !noalias !30
   %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr @.str.26, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !alias.scope !35, !noalias !29
+  store ptr @.str.26, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !alias.scope !36, !noalias !30
   %20 = getelementptr inbounds i8, ptr %6, i64 64
-  store ptr null, ptr %20, align 8, !alias.scope !35, !noalias !29
+  store ptr null, ptr %20, align 8, !alias.scope !36, !noalias !30
   %21 = getelementptr inbounds i8, ptr %6, i64 72
-  %22 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #14, !noalias !29
+  %22 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #14, !noalias !30
   %23 = extractvalue { i64, ptr } %22, 0
   %24 = extractvalue { i64, ptr } %22, 1
-  store i64 %23, ptr %21, align 8, !alias.scope !38, !noalias !29
+  store i64 %23, ptr %21, align 8, !alias.scope !39, !noalias !30
   %.sroa.2.0..sroa_idx.i26.i = getelementptr inbounds i8, ptr %6, i64 80
-  store ptr %24, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !alias.scope !38, !noalias !29
+  store ptr %24, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !alias.scope !39, !noalias !30
   %25 = getelementptr inbounds i8, ptr %6, i64 88
-  store ptr null, ptr %25, align 8, !alias.scope !38, !noalias !29
+  store ptr null, ptr %25, align 8, !alias.scope !39, !noalias !30
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr nonnull %6, i64 4)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
   %26 = getelementptr inbounds i8, ptr %3, i64 64
@@ -1423,7 +1423,7 @@ define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_117ToolchainVariableEE
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i) #14
   %4 = getelementptr inbounds i8, ptr %.05.i, i64 72
   %.not.i = icmp eq ptr %4, %1
-  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_117ToolchainVariableEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_117ToolchainVariableEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !26
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_117ToolchainVariableEEEvT_S5_.exit: ; preds = %.lr.ph.i, %2
   ret void
@@ -1541,26 +1541,27 @@ attributes #18 = { noreturn nounwind }
 !15 = distinct !{!15, !"_ZN12_GLOBAL__N_110Toolchains13DumpToolchainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
 !16 = !{!"branch_weights", i32 1, i32 1048575}
 !17 = !{!14}
-!18 = !{!19, !14, !9, !6}
-!19 = distinct !{!19, !20, !"_ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_17ToolchainVariableESaISD_EE: argument 0"}
-!20 = distinct !{!20, !"_ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_17ToolchainVariableESaISD_EE"}
-!21 = !{!22, !14, !9, !6}
-!22 = distinct !{!22, !23, !"_ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_17ToolchainVariableESaISD_EE: argument 0"}
-!23 = distinct !{!23, !"_ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_17ToolchainVariableESaISD_EE"}
-!24 = distinct !{!24, !12}
+!18 = !{!14, !6}
+!19 = !{!20, !14, !9, !6}
+!20 = distinct !{!20, !21, !"_ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_17ToolchainVariableESaISD_EE: argument 0"}
+!21 = distinct !{!21, !"_ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_17ToolchainVariableESaISD_EE"}
+!22 = !{!23, !14, !9, !6}
+!23 = distinct !{!23, !24, !"_ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_17ToolchainVariableESaISD_EE: argument 0"}
+!24 = distinct !{!24, !"_ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_17ToolchainVariableESaISD_EE"}
 !25 = distinct !{!25, !12}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
-!28 = distinct !{!28, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_Z8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_: argument 0"}
-!31 = distinct !{!31, !"_Z8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
-!34 = distinct !{!34, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
-!37 = distinct !{!37, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
-!40 = distinct !{!40, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
+!26 = distinct !{!26, !12}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
+!29 = distinct !{!29, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_Z8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_: argument 0"}
+!32 = distinct !{!32, !"_Z8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
+!35 = distinct !{!35, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
+!38 = distinct !{!38, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
+!41 = distinct !{!41, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_SA_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}

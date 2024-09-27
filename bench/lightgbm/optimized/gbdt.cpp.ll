@@ -4310,10 +4310,10 @@ _ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit93.thread227:
   %138 = getelementptr inbounds i8, ptr %0, i64 88
   %139 = getelementptr inbounds i8, ptr %12, i64 16
   %140 = getelementptr inbounds i8, ptr %12, i64 24
-  %141 = getelementptr inbounds i8, ptr %0, i64 384
-  %142 = getelementptr inbounds i8, ptr %0, i64 240
+  %141 = getelementptr inbounds i8, ptr %12, i64 8
+  %142 = getelementptr inbounds i8, ptr %0, i64 384
+  %143 = getelementptr inbounds i8, ptr %0, i64 240
   %wide.trip.count = zext nneg i32 %104 to i64
-  %143 = getelementptr inbounds i8, ptr %12, i64 8
   br label %144
 
 144:                                              ; preds = %.lr.ph187, %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit
@@ -4450,8 +4450,8 @@ _ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EE5resetEPS1_.exit: ; pr
   %225 = getelementptr inbounds double, ptr %223, i64 %147
   %226 = load ptr, ptr %89, align 8
   %227 = load ptr, ptr %106, align 8
-  store i64 0, ptr %143, align 8
   %228 = ptrtoint ptr %225 to i64
+  store i64 0, ptr %141, align 8
   store i64 %228, ptr %12, align 8
   store ptr @"_ZNSt17_Function_handlerIFdPKfiEZN8LightGBM4GBDT12TrainOneIterES1_S1_E3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %140, align 8
   store ptr @"_ZNSt17_Function_handlerIFdPKfiEZN8LightGBM4GBDT12TrainOneIterES1_S1_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %139, align 8
@@ -4488,7 +4488,7 @@ _ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EE5resetEPS1_.exit: ; pr
   unreachable
 
 _ZNSt8functionIFdPKfiEED2Ev.exit:                 ; preds = %240, %242
-  %247 = load double, ptr %141, align 8
+  %247 = load double, ptr %142, align 8
   %248 = load ptr, ptr %.sroa.0106.1, align 8
   %249 = getelementptr inbounds i8, ptr %248, i64 32
   %250 = load ptr, ptr %249, align 8
@@ -4651,7 +4651,7 @@ _ZN8LightGBM27ObtainAutomaticInitialScoreEPKNS_17ObjectiveFunctionEi.exit: ; pre
 327:                                              ; preds = %272, %.loopexit147, %255, %260
   %.166 = phi i1 [ true, %260 ], [ true, %255 ], [ %.065185, %.loopexit147 ], [ %.065185, %272 ]
   %328 = load ptr, ptr %133, align 8
-  %329 = load ptr, ptr %142, align 8
+  %329 = load ptr, ptr %143, align 8
   %.not.i.i88 = icmp eq ptr %328, %329
   br i1 %.not.i.i88, label %334, label %330
 
@@ -4728,7 +4728,7 @@ _ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_S
   store ptr %349, ptr %132, align 8
   store ptr %355, ptr %133, align 8
   %357 = getelementptr inbounds %"class.std::unique_ptr.118", ptr %349, i64 %345
-  store ptr %357, ptr %142, align 8
+  store ptr %357, ptr %143, align 8
   br label %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit: ; preds = %330, %.noexc89

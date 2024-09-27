@@ -1706,7 +1706,7 @@ _ZN4llvm7find_ifIRNS_11SmallVectorISt4pairINS_8RegisterEiELj8EEEZN12_GLOBAL__N_1
 624:                                              ; preds = %591
   %625 = mul i32 %621, 37
   %626 = add i32 %.val4.i.i.i.i.i.i, -1
-  %.0256.i.i.i.i.i.i.i.i = and i32 %625, %626
+  %.0256.i.i.i.i.i.i.i.i = and i32 %626, %625
   %627 = zext i32 %.0256.i.i.i.i.i.i.i.i to i64
   %628 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val.i.i.i.i.i26.i, i64 %627
   %629 = load i32, ptr %628, align 4
@@ -4957,8 +4957,8 @@ define internal fastcc void @_ZSt16__introsort_loopIPN4llvm8RegisterElN9__gnu_cx
   br i1 %20, label %.lr.ph.i5.i, label %.split17.i.i.i, !llvm.loop !62
 
 .lr.ph.i5.i:                                      ; preds = %.split17.i.i.i, %.lr.ph.i5.i
-  %.07.i.i = phi ptr [ %21, %.lr.ph.i5.i ], [ %.023, %.split17.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.07.i.i, i64 -4
+  %.01.i.i = phi ptr [ %21, %.lr.ph.i5.i ], [ %.023, %.split17.i.i.i ]
+  %21 = getelementptr inbounds i8, ptr %.01.i.i, i64 -4
   %.sroa.02.0.copyload.i.i6.i = load i32, ptr %21, align 4
   %22 = load i32, ptr %0, align 4
   store i32 %22, ptr %21, align 4
@@ -5446,8 +5446,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8RegisterElS1_N9__gnu_cx
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
-  %.032 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %10 ]
-  %11 = shl i64 %.032, 1
+  %.033 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %10 ]
+  %11 = shl i64 %.033, 1
   %12 = add i64 %11, 2
   %13 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %12
   %14 = or disjoint i64 %11, 1
@@ -5507,7 +5507,7 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8RegisterElS1_N9__gnu_cx
   %66 = icmp ugt i32 %40, %65
   %spec.select = select i1 %66, i64 %14, i64 %12
   %67 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %spec.select
-  %68 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %.032
+  %68 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %.033
   %69 = load i32, ptr %67, align 4
   store i32 %69, ptr %68, align 4
   %70 = icmp slt i64 %spec.select, %7
@@ -5537,82 +5537,82 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8RegisterElS1_N9__gnu_cx
 83:                                               ; preds = %77, %73, %._crit_edge
   %.1 = phi i64 [ %79, %77 ], [ %.0.lcssa, %73 ], [ %.0.lcssa, %._crit_edge ]
   %84 = icmp sgt i64 %.1, %1
-  br i1 %84, label %.lr.ph.i.preheader, label %_ZSt11__push_heapIPN4llvm8RegisterElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_SF_T1_RT2_.exit
+  br i1 %84, label %.lr.ph.i, label %_ZSt11__push_heapIPN4llvm8RegisterElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_SF_T1_RT2_.exit
 
-.lr.ph.i.preheader:                               ; preds = %83
+.lr.ph.i:                                         ; preds = %83
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %.lr.ph.i
+  br label %86
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %138
-  %.01318.i = phi i64 [ %.019.i, %138 ], [ %.1, %.lr.ph.i.preheader ]
-  %.019.in.i = add nsw i64 %.01318.i, -1
-  %.019.i = sdiv i64 %.019.in.i, 2
-  %86 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %.019.i
-  %.val14.i = load i32, ptr %86, align 4
-  %87 = load ptr, ptr %85, align 8
-  %88 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %87, i32 %.val14.i, i16 1) #18
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 288
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 272
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %87, i64 264
-  %94 = load ptr, ptr %93, align 8
-  %95 = ptrtoint ptr %92 to i64
-  %96 = ptrtoint ptr %94 to i64
-  %97 = sub i64 %95, %96
-  %98 = lshr exact i64 %97, 3
-  %99 = trunc i64 %98 to i32
-  %100 = getelementptr inbounds nuw i8, ptr %87, i64 304
-  %101 = load i32, ptr %100, align 8
-  %102 = mul i32 %101, %99
-  %103 = load ptr, ptr %88, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %105 = load i16, ptr %104, align 8
-  %106 = zext i16 %105 to i32
-  %107 = add i32 %102, %106
-  %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %90, i64 %108, i32 1
-  %110 = load i32, ptr %109, align 4
-  %111 = lshr i32 %110, 3
-  %112 = load ptr, ptr %85, align 8
-  %113 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %112, i32 %3, i16 1) #18
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 288
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %112, i64 272
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %112, i64 264
-  %119 = load ptr, ptr %118, align 8
-  %120 = ptrtoint ptr %117 to i64
-  %121 = ptrtoint ptr %119 to i64
-  %122 = sub i64 %120, %121
-  %123 = lshr exact i64 %122, 3
-  %124 = trunc i64 %123 to i32
-  %125 = getelementptr inbounds nuw i8, ptr %112, i64 304
-  %126 = load i32, ptr %125, align 8
-  %127 = mul i32 %126, %124
-  %128 = load ptr, ptr %113, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %130 = load i16, ptr %129, align 8
-  %131 = zext i16 %130 to i32
-  %132 = add i32 %127, %131
-  %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %115, i64 %133, i32 1
-  %135 = load i32, ptr %134, align 4
-  %136 = lshr i32 %135, 3
-  %137 = icmp ugt i32 %111, %136
-  br i1 %137, label %138, label %_ZSt11__push_heapIPN4llvm8RegisterElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_SF_T1_RT2_.exit
+86:                                               ; preds = %139, %.lr.ph.i
+  %.0134.i = phi i64 [ %.1, %.lr.ph.i ], [ %.05.i, %139 ]
+  %.05.in.i = add nsw i64 %.0134.i, -1
+  %.05.i = sdiv i64 %.05.in.i, 2
+  %87 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %.05.i
+  %.val14.i = load i32, ptr %87, align 4
+  %88 = load ptr, ptr %85, align 8
+  %89 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %88, i32 %.val14.i, i16 1) #18
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 288
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 272
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 264
+  %95 = load ptr, ptr %94, align 8
+  %96 = ptrtoint ptr %93 to i64
+  %97 = ptrtoint ptr %95 to i64
+  %98 = sub i64 %96, %97
+  %99 = lshr exact i64 %98, 3
+  %100 = trunc i64 %99 to i32
+  %101 = getelementptr inbounds nuw i8, ptr %88, i64 304
+  %102 = load i32, ptr %101, align 8
+  %103 = mul i32 %102, %100
+  %104 = load ptr, ptr %89, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  %106 = load i16, ptr %105, align 8
+  %107 = zext i16 %106 to i32
+  %108 = add i32 %103, %107
+  %109 = zext i32 %108 to i64
+  %110 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %91, i64 %109, i32 1
+  %111 = load i32, ptr %110, align 4
+  %112 = lshr i32 %111, 3
+  %113 = load ptr, ptr %85, align 8
+  %114 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %113, i32 %3, i16 1) #18
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 288
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 272
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %113, i64 264
+  %120 = load ptr, ptr %119, align 8
+  %121 = ptrtoint ptr %118 to i64
+  %122 = ptrtoint ptr %120 to i64
+  %123 = sub i64 %121, %122
+  %124 = lshr exact i64 %123, 3
+  %125 = trunc i64 %124 to i32
+  %126 = getelementptr inbounds nuw i8, ptr %113, i64 304
+  %127 = load i32, ptr %126, align 8
+  %128 = mul i32 %127, %125
+  %129 = load ptr, ptr %114, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
+  %131 = load i16, ptr %130, align 8
+  %132 = zext i16 %131 to i32
+  %133 = add i32 %128, %132
+  %134 = zext i32 %133 to i64
+  %135 = getelementptr inbounds %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %116, i64 %134, i32 1
+  %136 = load i32, ptr %135, align 4
+  %137 = lshr i32 %136, 3
+  %138 = icmp ugt i32 %112, %137
+  br i1 %138, label %139, label %_ZSt11__push_heapIPN4llvm8RegisterElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_SF_T1_RT2_.exit
 
-138:                                              ; preds = %.lr.ph.i
-  %139 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %.01318.i
-  %140 = load i32, ptr %86, align 4
-  store i32 %140, ptr %139, align 4
-  %141 = icmp sgt i64 %.019.i, %1
-  br i1 %141, label %.lr.ph.i, label %_ZSt11__push_heapIPN4llvm8RegisterElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_SF_T1_RT2_.exit, !llvm.loop !69
+139:                                              ; preds = %86
+  %140 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %.0134.i
+  %141 = load i32, ptr %87, align 4
+  store i32 %141, ptr %140, align 4
+  %142 = icmp sgt i64 %.05.i, %1
+  br i1 %142, label %86, label %_ZSt11__push_heapIPN4llvm8RegisterElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_SF_T1_RT2_.exit, !llvm.loop !69
 
-_ZSt11__push_heapIPN4llvm8RegisterElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_SF_T1_RT2_.exit: ; preds = %.lr.ph.i, %138, %83
-  %.013.lcssa.i = phi i64 [ %.1, %83 ], [ %.01318.i, %.lr.ph.i ], [ %.019.i, %138 ]
-  %142 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %.013.lcssa.i
-  store i32 %3, ptr %142, align 4
+_ZSt11__push_heapIPN4llvm8RegisterElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_SF_T1_RT2_.exit: ; preds = %86, %139, %83
+  %.013.lcssa.i = phi i64 [ %.1, %83 ], [ %.0134.i, %86 ], [ %.05.i, %139 ]
+  %143 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %.013.lcssa.i
+  store i32 %3, ptr %143, align 4
   ret void
 }
 

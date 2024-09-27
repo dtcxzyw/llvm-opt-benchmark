@@ -328,7 +328,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.44 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
 @"_ZTSZN32pxrInternal_v0_24__pxrReserved__23Trace_JSONSerialization22WriteCollectionsToJSONERNS_8JsWriterERKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS6_EEE3$_0" = internal constant [163 x i8] c"ZN32pxrInternal_v0_24__pxrReserved__23Trace_JSONSerialization22WriteCollectionsToJSONERNS_8JsWriterERKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS6_EEE3$_0\00", align 1
 @"_ZTIZN32pxrInternal_v0_24__pxrReserved__23Trace_JSONSerialization22WriteCollectionsToJSONERNS_8JsWriterERKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS6_EEE3$_0" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSZN32pxrInternal_v0_24__pxrReserved__23Trace_JSONSerialization22WriteCollectionsToJSONERNS_8JsWriterERKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS6_EEE3$_0" }, align 8
-@"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.41" = private unnamed_addr constant [8 x ptr] [ptr @.str.44, ptr @.str.13, ptr @.str.14, ptr @.str.17, ptr @.str.43, ptr @.str.15, ptr @.str.16, ptr @.str.18], align 8
+@"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42" = private unnamed_addr constant [8 x ptr] [ptr @.str.44, ptr @.str.13, ptr @.str.14, ptr @.str.17, ptr @.str.43, ptr @.str.15, ptr @.str.16, ptr @.str.18], align 8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__19_TraceEventFromJSONERKNS_7JsValueERNS_25EventListConstructionDataE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(184) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -2756,19 +2756,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventTreeEED2Ev.exit: ;
 
 42:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %45 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 0, ptr %45, align 8
-  %46 = ptrtoint ptr %1 to i64
-  store i64 %46, ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %44, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %43, align 8
+  %43 = ptrtoint ptr %1 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %46 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 0, ptr %46, align 8
+  store i64 %43, ptr %7, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %45, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %44, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventTree22WriteChromeTraceObjectERNS_8JsWriterESt8functionIFvS2_EE(ptr noundef nonnull align 8 dereferenceable(144) %41, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %7)
           to label %47 unwind label %78
 
 47:                                               ; preds = %42
-  %48 = load ptr, ptr %43, align 8
+  %48 = load ptr, ptr %44, align 8
   %.not.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEED2Ev.exit, label %49
 
@@ -2842,7 +2842,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventTreeEED2Ev.exit18:
 78:                                               ; preds = %42
   %79 = landingpad { ptr, i32 }
           cleanup
-  %80 = load ptr, ptr %43, align 8
+  %80 = load ptr, ptr %44, align 8
   %.not.i.i19 = icmp eq ptr %80, null
   br i1 %.not.i.i19, label %_ZNSt8functionIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEED2Ev.exit20, label %81
 
@@ -9753,7 +9753,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i.i.i.i.i
 
 switch.lookup:                                    ; preds = %.noexc10.i.i.i.i.i.i.i.i
   %52 = zext nneg i8 %50 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.41", i64 0, i64 %52
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 0, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -9809,19 +9809,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9Event
   %68 = load ptr, ptr %.sroa.01.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %69 = ptrtoint ptr %68 to i64
   %70 = and i64 %69, -8
-  %.not.i29.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %70, 0
-  br i1 %.not.i29.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %74, label %71
+  %.not.i32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %70, 0
+  br i1 %.not.i32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %74, label %71
 
 71:                                               ; preds = %67
   %72 = inttoptr i64 %70 to ptr
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit30.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit33.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 74:                                               ; preds = %67
   %75 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev()
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit30.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit33.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit30.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %74, %71
+_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit33.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %74, %71
   %76 = phi ptr [ %73, %71 ], [ %75, %74 ]
   %77 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %78 = load i32, ptr %77, align 8
@@ -9829,22 +9829,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit30.i.i.i.i
   %80 = invoke noundef zeroext i8 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc23.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-.noexc23.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit30.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+.noexc23.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit33.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %81 = icmp ult i8 %80, 8
-  br i1 %81, label %switch.lookup2, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %81, label %switch.lookup2, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit35.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 switch.lookup2:                                   ; preds = %.noexc23.i.i.i.i.i.i.i.i
   %82 = zext nneg i8 %80 to i64
-  %switch.gep3 = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.41", i64 0, i64 %82
+  %switch.gep3 = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 0, i64 %82
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit35.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc23.i.i.i.i.i.i.i.i, %switch.lookup2
-  %.0.i31.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load4, %switch.lookup2 ], [ @.str.44, %.noexc23.i.i.i.i.i.i.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit35.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc23.i.i.i.i.i.i.i.i, %switch.lookup2
+  %.0.i34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load4, %switch.lookup2 ], [ @.str.44, %.noexc23.i.i.i.i.i.i.i.i ]
   %83 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc24.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-.noexc24.i.i.i.i.i.i.i.i:                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+.noexc24.i.i.i.i.i.i.i.i:                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit35.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %84 = invoke noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22ArchTicksToNanosecondsEm(i64 noundef %83)
           to label %.noexc25.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
@@ -9879,7 +9879,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9Event
           to label %.noexc32.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 .noexc32.i.i.i.i.i.i.i.i:                         ; preds = %.noexc31.i.i.i.i.i.i.i.i
-  %94 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.0.i31.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  %94 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.0.i34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc33.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 .noexc33.i.i.i.i.i.i.i.i:                         ; preds = %.noexc32.i.i.i.i.i.i.i.i
@@ -9898,19 +9898,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9Event
   %99 = load ptr, ptr %.sroa.01.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %100 = ptrtoint ptr %99 to i64
   %101 = and i64 %100, -8
-  %.not.i33.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %101, 0
-  br i1 %.not.i33.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %105, label %102
+  %.not.i36.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %101, 0
+  br i1 %.not.i36.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %105, label %102
 
 102:                                              ; preds = %98
   %103 = inttoptr i64 %101 to ptr
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 105:                                              ; preds = %98
   %106 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev()
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %105, %102
+_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %105, %102
   %107 = phi ptr [ %104, %102 ], [ %106, %105 ]
   %108 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %109 = load i32, ptr %108, align 8
@@ -9918,22 +9918,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit34.i.i.i.i
   %111 = invoke noundef zeroext i8 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc39.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-.noexc39.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+.noexc39.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %112 = icmp ult i8 %111, 8
-  br i1 %112, label %switch.lookup5, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit36.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %112, label %switch.lookup5, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 switch.lookup5:                                   ; preds = %.noexc39.i.i.i.i.i.i.i.i
   %113 = zext nneg i8 %111 to i64
-  %switch.gep6 = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.41", i64 0, i64 %113
+  %switch.gep6 = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 0, i64 %113
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit36.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit36.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc39.i.i.i.i.i.i.i.i, %switch.lookup5
-  %.0.i35.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load7, %switch.lookup5 ], [ @.str.44, %.noexc39.i.i.i.i.i.i.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc39.i.i.i.i.i.i.i.i, %switch.lookup5
+  %.0.i38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load7, %switch.lookup5 ], [ @.str.44, %.noexc39.i.i.i.i.i.i.i.i ]
   %114 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc40.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-.noexc40.i.i.i.i.i.i.i.i:                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit36.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+.noexc40.i.i.i.i.i.i.i.i:                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %115 = invoke noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22ArchTicksToNanosecondsEm(i64 noundef %114)
           to label %.noexc41.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
@@ -9964,7 +9964,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9Event
           to label %.noexc47.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 .noexc47.i.i.i.i.i.i.i.i:                         ; preds = %.noexc46.i.i.i.i.i.i.i.i
-  %124 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.0.i35.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  %124 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.0.i38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc48.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 .noexc48.i.i.i.i.i.i.i.i:                         ; preds = %.noexc47.i.i.i.i.i.i.i.i
@@ -10016,19 +10016,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9Event
   %136 = load ptr, ptr %.sroa.01.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %137 = ptrtoint ptr %136 to i64
   %138 = and i64 %137, -8
-  %.not.i37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %138, 0
-  br i1 %.not.i37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %142, label %139
+  %.not.i40.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %138, 0
+  br i1 %.not.i40.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %142, label %139
 
 139:                                              ; preds = %135
   %140 = inttoptr i64 %138 to ptr
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit41.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 142:                                              ; preds = %135
   %143 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev()
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit41.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %142, %139
+_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit41.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %142, %139
   %144 = phi ptr [ %141, %139 ], [ %143, %142 ]
   %145 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %146 = load i32, ptr %145, align 8
@@ -10036,22 +10036,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit38.i.i.i.i
   %148 = invoke noundef zeroext i8 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc54.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-.noexc54.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+.noexc54.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit41.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %149 = icmp ult i8 %148, 8
-  br i1 %149, label %switch.lookup8, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit40.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %149, label %switch.lookup8, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 switch.lookup8:                                   ; preds = %.noexc54.i.i.i.i.i.i.i.i
   %150 = zext nneg i8 %148 to i64
-  %switch.gep9 = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.41", i64 0, i64 %150
+  %switch.gep9 = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 0, i64 %150
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit40.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit40.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc54.i.i.i.i.i.i.i.i, %switch.lookup8
-  %.0.i39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load10, %switch.lookup8 ], [ @.str.44, %.noexc54.i.i.i.i.i.i.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc54.i.i.i.i.i.i.i.i, %switch.lookup8
+  %.0.i42.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load10, %switch.lookup8 ], [ @.str.44, %.noexc54.i.i.i.i.i.i.i.i ]
   %151 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent17GetStartTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc55.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-.noexc55.i.i.i.i.i.i.i.i:                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit40.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+.noexc55.i.i.i.i.i.i.i.i:                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %152 = invoke noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22ArchTicksToNanosecondsEm(i64 noundef %151)
           to label %.noexc56.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
@@ -10092,7 +10092,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9Event
           to label %.noexc64.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 .noexc64.i.i.i.i.i.i.i.i:                         ; preds = %.noexc63.i.i.i.i.i.i.i.i
-  %165 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.0.i39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  %165 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.0.i42.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc65.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 .noexc65.i.i.i.i.i.i.i.i:                         ; preds = %.noexc64.i.i.i.i.i.i.i.i
@@ -10111,19 +10111,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9Event
   %170 = load ptr, ptr %.sroa.01.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %171 = ptrtoint ptr %170 to i64
   %172 = and i64 %171, -8
-  %.not.i41.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %172, 0
-  br i1 %.not.i41.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %176, label %173
+  %.not.i44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %172, 0
+  br i1 %.not.i44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %176, label %173
 
 173:                                              ; preds = %169
   %174 = inttoptr i64 %172 to ptr
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit42.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 176:                                              ; preds = %169
   %177 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev()
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit42.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit42.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %176, %173
+_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %176, %173
   %178 = phi ptr [ %175, %173 ], [ %177, %176 ]
   %179 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %180 = load i32, ptr %179, align 8
@@ -10131,22 +10131,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit42.i.i.i.i
   %182 = invoke noundef zeroext i8 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc71.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-.noexc71.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit42.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+.noexc71.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %183 = icmp ult i8 %182, 8
-  br i1 %183, label %switch.lookup11, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %183, label %switch.lookup11, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit47.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 switch.lookup11:                                  ; preds = %.noexc71.i.i.i.i.i.i.i.i
   %184 = zext nneg i8 %182 to i64
-  %switch.gep12 = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.41", i64 0, i64 %184
+  %switch.gep12 = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 0, i64 %184
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit47.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc71.i.i.i.i.i.i.i.i, %switch.lookup11
-  %.0.i43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load13, %switch.lookup11 ], [ @.str.44, %.noexc71.i.i.i.i.i.i.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit47.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc71.i.i.i.i.i.i.i.i, %switch.lookup11
+  %.0.i46.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load13, %switch.lookup11 ], [ @.str.44, %.noexc71.i.i.i.i.i.i.i.i ]
   %185 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc72.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-.noexc72.i.i.i.i.i.i.i.i:                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+.noexc72.i.i.i.i.i.i.i.i:                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit47.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %186 = invoke noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22ArchTicksToNanosecondsEm(i64 noundef %185)
           to label %.noexc73.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
@@ -10177,7 +10177,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9Event
           to label %.noexc79.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 .noexc79.i.i.i.i.i.i.i.i:                         ; preds = %.noexc78.i.i.i.i.i.i.i.i
-  %195 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.0.i43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  %195 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.0.i46.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc80.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 .noexc80.i.i.i.i.i.i.i.i:                         ; preds = %.noexc79.i.i.i.i.i.i.i.i
@@ -10315,7 +10315,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.ex
   call void @_ZdlPvm(ptr noundef nonnull %243, i64 noundef %249) #24
   br label %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter18_WriteObjectFieldsIRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEDTcmclfp0_clL_ZSt7declvalIS5_EDTcl9__declvalIT_ELi0EEEvEEEcvv_EEOSG_OT0_.exit.i.i.i.i.i"
 
-.loopexit.i.i.i.i.i.i.i.i:                        ; preds = %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.exit.i.i.i.i.i.i.sink.split.i.i.i.i.i.i.i.i.i, %.noexc80.i.i.i.i.i.i.i.i, %.noexc79.i.i.i.i.i.i.i.i, %.noexc78.i.i.i.i.i.i.i.i, %.noexc77.i.i.i.i.i.i.i.i, %.noexc76.i.i.i.i.i.i.i.i, %.noexc75.i.i.i.i.i.i.i.i, %.noexc74.i.i.i.i.i.i.i.i, %.noexc73.i.i.i.i.i.i.i.i, %.noexc72.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit42.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %176, %.noexc67.i.i.i.i.i.i.i.i, %.noexc66.i.i.i.i.i.i.i.i, %.noexc65.i.i.i.i.i.i.i.i, %.noexc64.i.i.i.i.i.i.i.i, %.noexc63.i.i.i.i.i.i.i.i, %.noexc62.i.i.i.i.i.i.i.i, %.noexc61.i.i.i.i.i.i.i.i, %.noexc60.i.i.i.i.i.i.i.i, %.noexc59.i.i.i.i.i.i.i.i, %.noexc58.i.i.i.i.i.i.i.i, %.noexc57.i.i.i.i.i.i.i.i, %.noexc56.i.i.i.i.i.i.i.i, %.noexc55.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit40.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %142, %.noexc51.i.i.i.i.i.i.i.i, %.noexc50.i.i.i.i.i.i.i.i, %.noexc49.i.i.i.i.i.i.i.i, %.noexc48.i.i.i.i.i.i.i.i, %.noexc47.i.i.i.i.i.i.i.i, %.noexc46.i.i.i.i.i.i.i.i, %.noexc45.i.i.i.i.i.i.i.i, %.noexc44.i.i.i.i.i.i.i.i, %.noexc43.i.i.i.i.i.i.i.i, %.noexc42.i.i.i.i.i.i.i.i, %.noexc41.i.i.i.i.i.i.i.i, %.noexc40.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit36.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %105, %.noexc35.i.i.i.i.i.i.i.i, %.noexc34.i.i.i.i.i.i.i.i, %.noexc33.i.i.i.i.i.i.i.i, %.noexc32.i.i.i.i.i.i.i.i, %.noexc31.i.i.i.i.i.i.i.i, %.noexc30.i.i.i.i.i.i.i.i, %.noexc29.i.i.i.i.i.i.i.i, %.noexc28.i.i.i.i.i.i.i.i, %.noexc27.i.i.i.i.i.i.i.i, %.noexc26.i.i.i.i.i.i.i.i, %.noexc25.i.i.i.i.i.i.i.i, %.noexc24.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit30.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %74, %.noexc20.invoke.i.i.i.i.i.i.i.i, %.noexc19.i.i.i.i.i.i.i.i, %.noexc18.i.i.i.i.i.i.i.i, %.noexc17.i.i.i.i.i.i.i.i, %.noexc16.i.i.i.i.i.i.i.i, %.noexc15.i.i.i.i.i.i.i.i, %.noexc14.i.i.i.i.i.i.i.i, %.noexc13.i.i.i.i.i.i.i.i, %.noexc12.i.i.i.i.i.i.i.i, %.noexc11.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %44, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+.loopexit.i.i.i.i.i.i.i.i:                        ; preds = %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.exit.i.i.i.i.i.i.sink.split.i.i.i.i.i.i.i.i.i, %.noexc80.i.i.i.i.i.i.i.i, %.noexc79.i.i.i.i.i.i.i.i, %.noexc78.i.i.i.i.i.i.i.i, %.noexc77.i.i.i.i.i.i.i.i, %.noexc76.i.i.i.i.i.i.i.i, %.noexc75.i.i.i.i.i.i.i.i, %.noexc74.i.i.i.i.i.i.i.i, %.noexc73.i.i.i.i.i.i.i.i, %.noexc72.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit47.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %176, %.noexc67.i.i.i.i.i.i.i.i, %.noexc66.i.i.i.i.i.i.i.i, %.noexc65.i.i.i.i.i.i.i.i, %.noexc64.i.i.i.i.i.i.i.i, %.noexc63.i.i.i.i.i.i.i.i, %.noexc62.i.i.i.i.i.i.i.i, %.noexc61.i.i.i.i.i.i.i.i, %.noexc60.i.i.i.i.i.i.i.i, %.noexc59.i.i.i.i.i.i.i.i, %.noexc58.i.i.i.i.i.i.i.i, %.noexc57.i.i.i.i.i.i.i.i, %.noexc56.i.i.i.i.i.i.i.i, %.noexc55.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit41.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %142, %.noexc51.i.i.i.i.i.i.i.i, %.noexc50.i.i.i.i.i.i.i.i, %.noexc49.i.i.i.i.i.i.i.i, %.noexc48.i.i.i.i.i.i.i.i, %.noexc47.i.i.i.i.i.i.i.i, %.noexc46.i.i.i.i.i.i.i.i, %.noexc45.i.i.i.i.i.i.i.i, %.noexc44.i.i.i.i.i.i.i.i, %.noexc43.i.i.i.i.i.i.i.i, %.noexc42.i.i.i.i.i.i.i.i, %.noexc41.i.i.i.i.i.i.i.i, %.noexc40.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %105, %.noexc35.i.i.i.i.i.i.i.i, %.noexc34.i.i.i.i.i.i.i.i, %.noexc33.i.i.i.i.i.i.i.i, %.noexc32.i.i.i.i.i.i.i.i, %.noexc31.i.i.i.i.i.i.i.i, %.noexc30.i.i.i.i.i.i.i.i, %.noexc29.i.i.i.i.i.i.i.i, %.noexc28.i.i.i.i.i.i.i.i, %.noexc27.i.i.i.i.i.i.i.i, %.noexc26.i.i.i.i.i.i.i.i, %.noexc25.i.i.i.i.i.i.i.i, %.noexc24.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit35.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit33.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %74, %.noexc20.invoke.i.i.i.i.i.i.i.i, %.noexc19.i.i.i.i.i.i.i.i, %.noexc18.i.i.i.i.i.i.i.i, %.noexc17.i.i.i.i.i.i.i.i, %.noexc16.i.i.i.i.i.i.i.i, %.noexc15.i.i.i.i.i.i.i.i, %.noexc14.i.i.i.i.i.i.i.i, %.noexc13.i.i.i.i.i.i.i.i, %.noexc12.i.i.i.i.i.i.i.i, %.noexc11.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %44, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %lpad.loopexit.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i.i.i

@@ -25614,13 +25614,13 @@ if.end44.i:                                       ; preds = %mpd_qncopy.exit.i, 
 if.then48.i:                                      ; preds = %if.end44.i
   %sub51.i = sub i64 1, %.fr.i.i
   store i64 %sub51.i, ptr %exp46.i, align 8
-  %spec.select153.i = call i64 @llvm.smin.i64(i64 %.fr.i.i, i64 7)
-  %spec.select.i = trunc i64 %spec.select153.i to i32
+  %spec.select4.i = call i64 @llvm.smin.i64(i64 %.fr.i.i, i64 7)
+  %spec.select.i = trunc i64 %spec.select4.i to i32
   %84 = load ptr, ptr %data.i84.i, align 8
   %85 = getelementptr i64, ptr %84, i64 %80
   %arrayidx.i.i66 = getelementptr i8, ptr %85, i64 -8
   %86 = load i64, ptr %arrayidx.i.i66, align 8
-  %conv.i.i = and i64 %spec.select153.i, 4294967295
+  %conv.i.i = and i64 %spec.select4.i, 4294967295
   %cmp1.not.i.i = icmp ult i64 %cond.i83.i, %conv.i.i
   br i1 %cmp1.not.i.i, label %if.else.i.i, label %if.then.i79.i
 
@@ -25651,20 +25651,20 @@ if.then9.i.i:                                     ; preds = %if.else.i.i
   br label %_mpd_get_msdigits.exit.i
 
 _mpd_get_msdigits.exit.i:                         ; preds = %if.then9.i.i, %if.else.i.i, %if.then.i79.i
-  %vhat.1.i = phi i64 [ %86, %if.else.i.i ], [ %div.i.i, %if.then.i79.i ], [ %add.i.i, %if.then9.i.i ]
+  %vhat.0.i = phi i64 [ %86, %if.else.i.i ], [ %div.i.i, %if.then.i79.i ], [ %add.i.i, %if.then9.i.i ]
   %cmp58.i = icmp slt i32 %spec.select.i, 7
   br i1 %cmp58.i, label %if.end84.sink.split.i, label %if.end84.i
 
 if.else.i:                                        ; preds = %if.end44.i
   %sub65.i = sub i64 2, %.fr.i.i
   store i64 %sub65.i, ptr %exp46.i, align 8
-  %spec.select71154.i = call i64 @llvm.smin.i64(i64 %.fr.i.i, i64 8)
-  %spec.select71.i = trunc i64 %spec.select71154.i to i32
+  %spec.select715.i = call i64 @llvm.smin.i64(i64 %.fr.i.i, i64 8)
+  %spec.select71.i = trunc i64 %spec.select715.i to i32
   %91 = load ptr, ptr %data.i84.i, align 8
   %92 = getelementptr i64, ptr %91, i64 %80
   %arrayidx.i86.i = getelementptr i8, ptr %92, i64 -8
   %93 = load i64, ptr %arrayidx.i86.i, align 8
-  %conv.i87.i = and i64 %spec.select71154.i, 4294967295
+  %conv.i87.i = and i64 %spec.select715.i, 4294967295
   %cmp1.not.i88.i = icmp ult i64 %cond.i83.i, %conv.i87.i
   br i1 %cmp1.not.i88.i, label %if.else.i93.i, label %if.then.i89.i
 
@@ -25686,8 +25686,8 @@ if.then9.i95.i:                                   ; preds = %if.else.i93.i
   %mul.i17.i100.i = mul i64 %95, %93
   %arrayidx16.i104.i = getelementptr i8, ptr %92, i64 -16
   %96 = load i64, ptr %arrayidx16.i104.i, align 8
-  %reass.sub75 = sub nsw i64 %cond.i83.i, %conv.i87.i
-  %sub19.i106.i = add nsw i64 %reass.sub75, 19
+  %reass.sub74 = sub nsw i64 %cond.i83.i, %conv.i87.i
+  %sub19.i106.i = add nsw i64 %reass.sub74, 19
   %arrayidx20.i107.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub19.i106.i
   %97 = load i64, ptr %arrayidx20.i107.i, align 8
   %div21.i108.i = udiv i64 %96, %97
@@ -25695,26 +25695,26 @@ if.then9.i95.i:                                   ; preds = %if.else.i93.i
   br label %_mpd_get_msdigits.exit113.i
 
 _mpd_get_msdigits.exit113.i:                      ; preds = %if.then9.i95.i, %if.else.i93.i, %if.then.i89.i
-  %vhat.2.i = phi i64 [ %93, %if.else.i93.i ], [ %div.i92.i, %if.then.i89.i ], [ %add.i109.i, %if.then9.i95.i ]
+  %vhat.1.i = phi i64 [ %93, %if.else.i93.i ], [ %div.i92.i, %if.then.i89.i ], [ %add.i109.i, %if.then9.i95.i ]
   %cmp76.i = icmp slt i32 %spec.select71.i, 8
   br i1 %cmp76.i, label %if.end84.sink.split.i, label %if.end84.i
 
 if.end84.sink.split.i:                            ; preds = %_mpd_get_msdigits.exit113.i, %_mpd_get_msdigits.exit.i
-  %spec.select71154.sink.i = phi i64 [ %spec.select153.i, %_mpd_get_msdigits.exit.i ], [ %spec.select71154.i, %_mpd_get_msdigits.exit113.i ]
+  %spec.select715.sink.i = phi i64 [ %spec.select4.i, %_mpd_get_msdigits.exit.i ], [ %spec.select715.i, %_mpd_get_msdigits.exit113.i ]
   %.sink.i = phi i64 [ 30064771072, %_mpd_get_msdigits.exit.i ], [ 34359738368, %_mpd_get_msdigits.exit113.i ]
-  %vhat.2.sink.i = phi i64 [ %vhat.1.i, %_mpd_get_msdigits.exit.i ], [ %vhat.2.i, %_mpd_get_msdigits.exit113.i ]
+  %vhat.1.sink.i = phi i64 [ %vhat.0.i, %_mpd_get_msdigits.exit.i ], [ %vhat.1.i, %_mpd_get_msdigits.exit113.i ]
   %.ph.i = phi i64 [ %sub51.i, %_mpd_get_msdigits.exit.i ], [ %sub65.i, %_mpd_get_msdigits.exit113.i ]
-  %98 = shl i64 %spec.select71154.sink.i, 32
-  %sext155.i = sub i64 %.sink.i, %98
-  %idxprom80.i = ashr exact i64 %sext155.i, 32
+  %98 = shl i64 %spec.select715.sink.i, 32
+  %sext6.i = sub i64 %.sink.i, %98
+  %idxprom80.i = ashr exact i64 %sext6.i, 32
   %arrayidx81.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %idxprom80.i
   %99 = load i64, ptr %arrayidx81.i, align 8
-  %mul82.i = mul i64 %99, %vhat.2.sink.i
+  %mul82.i = mul i64 %99, %vhat.1.sink.i
   br label %if.end84.i
 
 if.end84.i:                                       ; preds = %if.end84.sink.split.i, %_mpd_get_msdigits.exit113.i, %_mpd_get_msdigits.exit.i
   %100 = phi i64 [ %sub65.i, %_mpd_get_msdigits.exit113.i ], [ %sub51.i, %_mpd_get_msdigits.exit.i ], [ %.ph.i, %if.end84.sink.split.i ]
-  %vhat.0.i = phi i64 [ %vhat.2.i, %_mpd_get_msdigits.exit113.i ], [ %vhat.1.i, %_mpd_get_msdigits.exit.i ], [ %mul82.i, %if.end84.sink.split.i ]
+  %vhat.2.i = phi i64 [ %vhat.1.i, %_mpd_get_msdigits.exit113.i ], [ %vhat.0.i, %_mpd_get_msdigits.exit.i ], [ %mul82.i, %if.end84.sink.split.i ]
   %101 = load i64, ptr %exp4.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i114.i)
   br label %for.cond.i.i.outer
@@ -25729,13 +25729,13 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i.outer,
   %add.i115.i = add i64 %lo.0.i.i, %hi.0.i.i.ph
   %div17.i.i = lshr i64 %add.i115.i, 1
   %mul.i116.i = mul i64 %div17.i.i, %div17.i.i
-  %cmp.not.i.i = icmp ult i64 %vhat.0.i, %mul.i116.i
+  %cmp.not.i.i = icmp ult i64 %vhat.2.i, %mul.i116.i
   br i1 %cmp.not.i.i, label %if.else.i131.i, label %if.then.i117.i
 
 if.then.i117.i:                                   ; preds = %for.cond.i.i
   %add2.i.i = or i64 %add.i115.i, 1
   %add3.i.i = add i64 %mul.i116.i, %add2.i.i
-  %cmp4.i.i = icmp ult i64 %vhat.0.i, %add3.i.i
+  %cmp4.i.i = icmp ult i64 %vhat.2.i, %add3.i.i
   br i1 %cmp4.i.i, label %for.end.i.i, label %if.end.i118.i
 
 if.end.i118.i:                                    ; preds = %if.then.i117.i
@@ -25811,8 +25811,8 @@ do.body.i.i:                                      ; preds = %_invroot_init_appro
   br i1 %cmp1.i.i, label %do.body.i.i, label %invroot_schedule_prec.exit.i, !llvm.loop !42
 
 invroot_schedule_prec.exit.i:                     ; preds = %do.body.i.i
-  %cmp92159.i = icmp sgt i32 %i.0.i.i, -1
-  br i1 %cmp92159.i, label %for.body.preheader.i, label %for.end.i
+  %cmp9210.i = icmp sgt i32 %i.0.i.i, -1
+  br i1 %cmp9210.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %invroot_schedule_prec.exit.i
   %112 = zext nneg i32 %i.0.i.i to i64
@@ -25969,11 +25969,11 @@ if.then.i152.i:                                   ; preds = %mpd_del.exit172.i
   %135 = load ptr, ptr @mpd_free, align 8
   %136 = load ptr, ptr %data20.i, align 8
   call void %135(ptr noundef %136) #28
-  %.pre166.i = load i8, ptr %t.i, align 8
+  %.pre17.i = load i8, ptr %t.i, align 8
   br label %if.end.i145.i
 
 if.end.i145.i:                                    ; preds = %if.then.i152.i, %mpd_del.exit172.i
-  %137 = phi i8 [ %.pre166.i, %if.then.i152.i ], [ %134, %mpd_del.exit172.i ]
+  %137 = phi i8 [ %.pre17.i, %if.then.i152.i ], [ %134, %mpd_del.exit172.i ]
   %138 = and i8 %137, 16
   %tobool.i.i148.not.i = icmp eq i8 %138, 0
   br i1 %tobool.i.i148.not.i, label %if.then3.i151.i, label %mpd_del.exit154.i
@@ -25996,11 +25996,11 @@ if.then.i.i67:                                    ; preds = %if.then132.i
   %141 = load ptr, ptr @mpd_free, align 8
   %142 = load ptr, ptr %data.i84.i, align 8
   call void %141(ptr noundef %142) #28
-  %.pre167.i = load i8, ptr %v.0.i, align 8
+  %.pre18.i = load i8, ptr %v.0.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i67, %if.then132.i
-  %143 = phi i8 [ %.pre167.i, %if.then.i.i67 ], [ %140, %if.then132.i ]
+  %143 = phi i8 [ %.pre18.i, %if.then.i.i67 ], [ %140, %if.then132.i ]
   %144 = and i8 %143, 16
   %tobool.i.i.not.i = icmp eq i8 %144, 0
   br i1 %tobool.i.i.not.i, label %if.then3.i.i, label %if.end133.i

@@ -421,4514 +421,4513 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %2 = alloca [200 x i16], align 16
   %3 = alloca [200 x %union._zend_parser_stack_elem], align 16
   %4 = alloca [128 x i8], align 16
-  %5 = alloca ptr, align 8
-  %6 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca %struct._zval_struct, align 8
   %9 = alloca %struct._zval_struct, align 8
   %10 = alloca %struct._zval_struct, align 8
   %11 = alloca %struct._zval_struct, align 8
-  %12 = alloca %struct._zval_struct, align 8
   store i64 0, ptr %1, align 8
-  store ptr %4, ptr %5, align 8
-  store i64 128, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  br label %16
+  store i64 128, ptr %5, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  br label %15
 
-14:                                               ; preds = %2454, %2393, %84
-  %.11590 = phi ptr [ %2456, %2454 ], [ %2373, %2393 ], [ %85, %84 ]
-  %.11579 = phi ptr [ %.61584, %2454 ], [ %2372, %2393 ], [ %.21580, %84 ]
-  %.11569 = phi i32 [ 3, %2454 ], [ %.01568, %2393 ], [ %spec.select, %84 ]
-  %.11565 = phi i32 [ %2455, %2454 ], [ %2394, %2393 ], [ %78, %84 ]
-  %.1 = phi i32 [ %.7, %2454 ], [ %.9, %2393 ], [ -2, %84 ]
-  %15 = getelementptr inbounds i8, ptr %.11579, i64 2
-  br label %16
+13:                                               ; preds = %2451, %2392, %83
+  %.11684 = phi ptr [ %.41687, %2451 ], [ %.01683, %2392 ], [ %.01683, %83 ]
+  %.11590 = phi ptr [ %2453, %2451 ], [ %2372, %2392 ], [ %84, %83 ]
+  %.11579 = phi ptr [ %.61584, %2451 ], [ %2371, %2392 ], [ %.21580, %83 ]
+  %.11569 = phi i32 [ 3, %2451 ], [ %.01568, %2392 ], [ %spec.select, %83 ]
+  %.11565 = phi i32 [ %2452, %2451 ], [ %2393, %2392 ], [ %77, %83 ]
+  %.1 = phi i32 [ %.7, %2451 ], [ %.9, %2392 ], [ -2, %83 ]
+  %14 = getelementptr inbounds i8, ptr %.11579, i64 2
+  br label %15
 
-16:                                               ; preds = %14, %0
-  %.01589 = phi ptr [ %3, %0 ], [ %.11590, %14 ]
-  %.01587 = phi ptr [ %3, %0 ], [ %.11588, %14 ]
-  %.01578 = phi ptr [ %2, %0 ], [ %15, %14 ]
-  %.01573 = phi ptr [ %2, %0 ], [ %.11574, %14 ]
-  %.01571 = phi i64 [ 200, %0 ], [ %.11572, %14 ]
-  %.01568 = phi i32 [ 0, %0 ], [ %.11569, %14 ]
-  %.01564 = phi i32 [ 0, %0 ], [ %.11565, %14 ]
-  %.01559 = phi i32 [ -2, %0 ], [ %.1, %14 ]
-  %17 = trunc nsw i32 %.01564 to i16
-  store i16 %17, ptr %.01578, align 2
-  %18 = getelementptr inbounds i16, ptr %.01573, i64 %.01571
-  %19 = getelementptr inbounds i8, ptr %18, i64 -2
-  %.not = icmp ugt ptr %19, %.01578
-  br i1 %.not, label %45, label %20
+15:                                               ; preds = %13, %0
+  %.01683 = phi ptr [ %4, %0 ], [ %.11684, %13 ]
+  %.01589 = phi ptr [ %3, %0 ], [ %.11590, %13 ]
+  %.01587 = phi ptr [ %3, %0 ], [ %.11588, %13 ]
+  %.01578 = phi ptr [ %2, %0 ], [ %14, %13 ]
+  %.01573 = phi ptr [ %2, %0 ], [ %.11574, %13 ]
+  %.01571 = phi i64 [ 200, %0 ], [ %.11572, %13 ]
+  %.01568 = phi i32 [ 0, %0 ], [ %.11569, %13 ]
+  %.01564 = phi i32 [ 0, %0 ], [ %.11565, %13 ]
+  %.01559 = phi i32 [ -2, %0 ], [ %.1, %13 ]
+  %16 = trunc nsw i32 %.01564 to i16
+  store i16 %16, ptr %.01578, align 2
+  %17 = getelementptr inbounds i16, ptr %.01573, i64 %.01571
+  %18 = getelementptr inbounds i8, ptr %17, i64 -2
+  %.not = icmp ugt ptr %18, %.01578
+  br i1 %.not, label %44, label %19
 
-20:                                               ; preds = %16
-  %21 = ptrtoint ptr %.01578 to i64
-  %22 = ptrtoint ptr %.01573 to i64
-  %23 = sub i64 %21, %22
-  %24 = ashr exact i64 %23, 1
-  %25 = add nsw i64 %24, 1
-  %26 = icmp sgt i64 %.01571, 9999
-  br i1 %26, label %.loopexit1690, label %27
+19:                                               ; preds = %15
+  %20 = ptrtoint ptr %.01578 to i64
+  %21 = ptrtoint ptr %.01573 to i64
+  %22 = sub i64 %20, %21
+  %23 = ashr exact i64 %22, 1
+  %24 = add nsw i64 %23, 1
+  %25 = icmp sgt i64 %.01571, 9999
+  br i1 %25, label %.loopexit1706, label %26
 
-27:                                               ; preds = %20
-  %28 = shl nsw i64 %.01571, 1
-  %spec.store.select = call i64 @llvm.smin.i64(i64 %28, i64 10000)
-  %29 = mul nsw i64 %spec.store.select, 10
-  %30 = add nsw i64 %29, 7
-  %31 = call noalias ptr @malloc(i64 noundef %30) #11
-  %.not1636 = icmp eq ptr %31, null
-  br i1 %.not1636, label %.loopexit1690, label %32
+26:                                               ; preds = %19
+  %27 = shl nsw i64 %.01571, 1
+  %spec.store.select = call i64 @llvm.smin.i64(i64 %27, i64 10000)
+  %28 = mul nsw i64 %spec.store.select, 10
+  %29 = add nsw i64 %28, 7
+  %30 = call noalias ptr @malloc(i64 noundef %29) #11
+  %.not1636 = icmp eq ptr %30, null
+  br i1 %.not1636, label %.loopexit1706, label %31
 
-32:                                               ; preds = %27
-  %33 = shl i64 %25, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr align 2 %.01573, i64 %33, i1 false)
-  %34 = shl nsw i64 %spec.store.select, 1
-  %35 = add nsw i64 %34, 7
-  %36 = sdiv i64 %35, 8
-  %37 = getelementptr inbounds %union.yyalloc, ptr %31, i64 %36
-  %38 = shl i64 %25, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr align 8 %.01587, i64 %38, i1 false)
+31:                                               ; preds = %26
+  %32 = shl i64 %24, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr align 2 %.01573, i64 %32, i1 false)
+  %33 = shl nsw i64 %spec.store.select, 1
+  %34 = add nsw i64 %33, 7
+  %35 = sdiv i64 %34, 8
+  %36 = getelementptr inbounds %union.yyalloc, ptr %30, i64 %35
+  %37 = shl i64 %24, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr align 8 %.01587, i64 %37, i1 false)
   %.not1637 = icmp eq ptr %.01573, %2
-  br i1 %.not1637, label %40, label %39
+  br i1 %.not1637, label %39, label %38
 
-39:                                               ; preds = %32
+38:                                               ; preds = %31
   call void @free(ptr noundef %.01573) #12
-  br label %40
+  br label %39
 
-40:                                               ; preds = %39, %32
-  %41 = getelementptr inbounds i16, ptr %31, i64 %25
-  %42 = getelementptr inbounds i8, ptr %41, i64 -2
-  %43 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %37, i64 %25
-  %44 = getelementptr inbounds i8, ptr %43, i64 -8
-  %.not1638 = icmp sgt i64 %spec.store.select, %25
-  br i1 %.not1638, label %45, label %.loopexit.loopexit1717
+39:                                               ; preds = %38, %31
+  %40 = getelementptr inbounds i16, ptr %30, i64 %24
+  %41 = getelementptr inbounds i8, ptr %40, i64 -2
+  %42 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %36, i64 %24
+  %43 = getelementptr inbounds i8, ptr %42, i64 -8
+  %.not1638 = icmp sgt i64 %spec.store.select, %24
+  br i1 %.not1638, label %44, label %.loopexit.loopexit1738
 
-45:                                               ; preds = %40, %16
-  %.21591 = phi ptr [ %44, %40 ], [ %.01589, %16 ]
-  %.11588 = phi ptr [ %37, %40 ], [ %.01587, %16 ]
-  %.21580 = phi ptr [ %42, %40 ], [ %.01578, %16 ]
-  %.11574 = phi ptr [ %31, %40 ], [ %.01573, %16 ]
-  %.11572 = phi i64 [ %spec.store.select, %40 ], [ %.01571, %16 ]
-  %46 = icmp eq i32 %.01564, 3
-  br i1 %46, label %.loopexit1692, label %47
+44:                                               ; preds = %39, %15
+  %.21591 = phi ptr [ %43, %39 ], [ %.01589, %15 ]
+  %.11588 = phi ptr [ %36, %39 ], [ %.01587, %15 ]
+  %.21580 = phi ptr [ %41, %39 ], [ %.01578, %15 ]
+  %.11574 = phi ptr [ %30, %39 ], [ %.01573, %15 ]
+  %.11572 = phi i64 [ %spec.store.select, %39 ], [ %.01571, %15 ]
+  %45 = icmp eq i32 %.01564, 3
+  br i1 %45, label %.loopexit1708, label %46
 
-47:                                               ; preds = %45
-  %48 = sext i32 %.01564 to i64
-  %49 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %48
-  %50 = load i16, ptr %49, align 2
-  %51 = sext i16 %50 to i32
-  %52 = icmp eq i16 %50, -901
-  br i1 %52, label %87, label %53
+46:                                               ; preds = %44
+  %47 = sext i32 %.01564 to i64
+  %48 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %47
+  %49 = load i16, ptr %48, align 2
+  %50 = sext i16 %49 to i32
+  %51 = icmp eq i16 %49, -901
+  br i1 %51, label %86, label %52
 
-53:                                               ; preds = %47
-  %54 = icmp eq i32 %.01559, -2
-  br i1 %54, label %55, label %57
+52:                                               ; preds = %46
+  %53 = icmp eq i32 %.01559, -2
+  br i1 %53, label %54, label %56
 
-55:                                               ; preds = %53
-  %56 = call i32 @zendlex(ptr noundef nonnull %1) #12
-  br label %57
+54:                                               ; preds = %52
+  %55 = call i32 @zendlex(ptr noundef nonnull %1) #12
+  br label %56
 
-57:                                               ; preds = %55, %53
-  %.5 = phi i32 [ %56, %55 ], [ %.01559, %53 ]
-  %58 = icmp slt i32 %.5, 1
-  br i1 %58, label %68, label %59
+56:                                               ; preds = %54, %52
+  %.5 = phi i32 [ %55, %54 ], [ %.01559, %52 ]
+  %57 = icmp slt i32 %.5, 1
+  br i1 %57, label %67, label %58
 
-59:                                               ; preds = %57
-  %60 = icmp eq i32 %.5, 256
-  br i1 %60, label %.thread1688, label %61
+58:                                               ; preds = %56
+  %59 = icmp eq i32 %.5, 256
+  br i1 %59, label %.thread1703, label %60
 
-61:                                               ; preds = %59
-  %62 = icmp ult i32 %.5, 407
-  br i1 %62, label %63, label %68
+60:                                               ; preds = %58
+  %61 = icmp ult i32 %.5, 407
+  br i1 %61, label %62, label %67
 
-63:                                               ; preds = %61
-  %64 = zext nneg i32 %.5 to i64
-  %65 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1
-  %67 = zext i8 %66 to i32
-  br label %68
+62:                                               ; preds = %60
+  %63 = zext nneg i32 %.5 to i64
+  %64 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %63
+  %65 = load i8, ptr %64, align 1
+  %66 = zext i8 %65 to i32
+  br label %67
 
-68:                                               ; preds = %63, %61, %57
-  %.01605 = phi i32 [ 0, %57 ], [ %67, %63 ], [ 2, %61 ]
-  %.6 = phi i32 [ 0, %57 ], [ %.5, %63 ], [ %.5, %61 ]
-  %69 = add nsw i32 %.01605, %51
-  %or.cond3 = icmp ugt i32 %69, 9776
-  br i1 %or.cond3, label %87, label %70
+67:                                               ; preds = %62, %60, %56
+  %.01605 = phi i32 [ 0, %56 ], [ %66, %62 ], [ 2, %60 ]
+  %.6 = phi i32 [ 0, %56 ], [ %.5, %62 ], [ %.5, %60 ]
+  %68 = add nsw i32 %.01605, %50
+  %or.cond3 = icmp ugt i32 %68, 9776
+  br i1 %or.cond3, label %86, label %69
 
-70:                                               ; preds = %68
-  %71 = zext nneg i32 %69 to i64
-  %72 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %71
-  %73 = load i16, ptr %72, align 2
-  %74 = sext i16 %73 to i32
-  %.not1639 = icmp eq i32 %.01605, %74
-  br i1 %.not1639, label %75, label %87
+69:                                               ; preds = %67
+  %70 = zext nneg i32 %68 to i64
+  %71 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %70
+  %72 = load i16, ptr %71, align 2
+  %73 = sext i16 %72 to i32
+  %.not1639 = icmp eq i32 %.01605, %73
+  br i1 %.not1639, label %74, label %86
 
-75:                                               ; preds = %70
-  %76 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %71
-  %77 = load i16, ptr %76, align 2
-  %78 = sext i16 %77 to i32
-  %79 = icmp slt i16 %77, 1
-  br i1 %79, label %80, label %84
+74:                                               ; preds = %69
+  %75 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %70
+  %76 = load i16, ptr %75, align 2
+  %77 = sext i16 %76 to i32
+  %78 = icmp slt i16 %76, 1
+  br i1 %78, label %79, label %83
 
-80:                                               ; preds = %75
-  %81 = icmp eq i16 %77, -568
-  br i1 %81, label %.thread, label %82
+79:                                               ; preds = %74
+  %80 = icmp eq i16 %76, -568
+  br i1 %80, label %.thread, label %81
 
-82:                                               ; preds = %80
-  %83 = sub nsw i32 0, %78
-  br label %92
+81:                                               ; preds = %79
+  %82 = sub nsw i32 0, %77
+  br label %91
 
-84:                                               ; preds = %75
+83:                                               ; preds = %74
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %.01568, i32 1)
-  %85 = getelementptr inbounds i8, ptr %.21591, i64 8
-  %86 = load i64, ptr %1, align 8
-  store i64 %86, ptr %85, align 8
-  br label %14
+  %84 = getelementptr inbounds i8, ptr %.21591, i64 8
+  %85 = load i64, ptr %1, align 8
+  store i64 %85, ptr %84, align 8
+  br label %13
 
-87:                                               ; preds = %68, %70, %47
-  %.4 = phi i32 [ %.01559, %47 ], [ %.6, %68 ], [ %.6, %70 ]
-  %88 = getelementptr inbounds [1131 x i16], ptr @yydefact, i64 0, i64 %48
-  %89 = load i16, ptr %88, align 2
-  %90 = sext i16 %89 to i32
-  %91 = icmp eq i16 %89, 0
-  br i1 %91, label %2395, label %92
+86:                                               ; preds = %67, %69, %46
+  %.4 = phi i32 [ %.01559, %46 ], [ %.6, %67 ], [ %.6, %69 ]
+  %87 = getelementptr inbounds [1131 x i16], ptr @yydefact, i64 0, i64 %47
+  %88 = load i16, ptr %87, align 2
+  %89 = sext i16 %88 to i32
+  %90 = icmp eq i16 %88, 0
+  br i1 %90, label %2394, label %91
 
-92:                                               ; preds = %87, %82
-  %.01598 = phi i32 [ %90, %87 ], [ %83, %82 ]
-  %.9 = phi i32 [ %.4, %87 ], [ %.6, %82 ]
-  %93 = sext i32 %.01598 to i64
-  %94 = getelementptr inbounds [597 x i8], ptr @yyr2, i64 0, i64 %93
-  %95 = load i8, ptr %94, align 1
-  %96 = sext i8 %95 to i32
-  %97 = sub nsw i32 1, %96
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %.21591, i64 %98
-  %.sroa.0.0.copyload = load ptr, ptr %99, align 8
-  switch i32 %.01598, label %2368 [
-    i32 2, label %100
-    i32 83, label %102
-    i32 84, label %104
-    i32 85, label %110
-    i32 86, label %115
-    i32 87, label %117
-    i32 88, label %119
-    i32 89, label %121
-    i32 90, label %123
-    i32 91, label %125
-    i32 92, label %127
-    i32 93, label %129
-    i32 94, label %132
-    i32 95, label %135
-    i32 96, label %138
-    i32 97, label %141
-    i32 98, label %144
-    i32 99, label %149
-    i32 100, label %152
-    i32 101, label %157
-    i32 102, label %160
-    i32 103, label %163
-    i32 104, label %168
-    i32 105, label %170
-    i32 106, label %172
-    i32 107, label %174
-    i32 108, label %176
-    i32 109, label %178
-    i32 110, label %180
-    i32 111, label %182
-    i32 112, label %187
-    i32 113, label %191
-    i32 114, label %207
-    i32 115, label %220
-    i32 116, label %226
-    i32 117, label %239
-    i32 118, label %243
-    i32 119, label %246
-    i32 120, label %253
-    i32 121, label %257
-    i32 122, label %264
-    i32 123, label %267
-    i32 124, label %268
-    i32 125, label %269
-    i32 126, label %275
-    i32 129, label %281
-    i32 130, label %286
-    i32 131, label %289
-    i32 132, label %294
-    i32 133, label %297
-    i32 134, label %302
-    i32 135, label %305
-    i32 136, label %308
-    i32 137, label %314
-    i32 138, label %317
-    i32 139, label %322
-    i32 140, label %325
-    i32 141, label %330
-    i32 142, label %335
-    i32 143, label %338
-    i32 144, label %343
-    i32 145, label %345
-    i32 146, label %347
-    i32 147, label %349
-    i32 148, label %354
-    i32 149, label %357
-    i32 150, label %360
-    i32 151, label %362
-    i32 152, label %364
-    i32 153, label %369
-    i32 154, label %375
-    i32 155, label %384
-    i32 156, label %389
-    i32 157, label %393
-    i32 158, label %397
-    i32 159, label %401
-    i32 160, label %404
-    i32 161, label %407
-    i32 162, label %410
-    i32 163, label %413
-    i32 164, label %416
-    i32 165, label %419
-    i32 166, label %426
-    i32 167, label %435
-    i32 168, label %439
-    i32 169, label %444
-    i32 170, label %445
-    i32 171, label %452
-    i32 172, label %456
-    i32 173, label %460
-    i32 174, label %462
-    i32 175, label %473
-    i32 176, label %476
-    i32 177, label %481
-    i32 178, label %482
-    i32 179, label %484
-    i32 180, label %485
-    i32 181, label %488
-    i32 182, label %491
-    i32 183, label %496
-    i32 184, label %499
-    i32 185, label %501
-    i32 186, label %507
-    i32 187, label %534
-    i32 188, label %535
-    i32 189, label %536
-    i32 190, label %537
-    i32 191, label %538
-    i32 192, label %542
-    i32 193, label %564
-    i32 194, label %568
-    i32 195, label %587
-    i32 196, label %590
-    i32 197, label %599
-    i32 198, label %605
-    i32 199, label %614
-    i32 200, label %615
-    i32 201, label %618
-    i32 202, label %619
-    i32 203, label %620
-    i32 204, label %621
-    i32 205, label %625
-    i32 206, label %640
-    i32 207, label %644
-    i32 208, label %661
-    i32 209, label %665
-    i32 210, label %684
-    i32 211, label %685
-    i32 212, label %687
-    i32 213, label %699
-    i32 214, label %700
-    i32 215, label %702
-    i32 216, label %703
-    i32 217, label %705
-    i32 218, label %706
-    i32 219, label %708
-    i32 220, label %709
-    i32 221, label %711
-    i32 222, label %713
-    i32 223, label %716
-    i32 224, label %720
-    i32 225, label %724
-    i32 226, label %726
-    i32 227, label %729
-    i32 228, label %731
-    i32 229, label %734
-    i32 230, label %736
-    i32 231, label %739
-    i32 232, label %742
-    i32 233, label %745
-    i32 234, label %748
-    i32 235, label %751
-    i32 236, label %753
-    i32 237, label %761
-    i32 240, label %767
-    i32 241, label %773
-    i32 242, label %775
-    i32 243, label %778
-    i32 244, label %781
-    i32 245, label %786
-    i32 246, label %791
-    i32 247, label %794
-    i32 248, label %797
-    i32 249, label %802
-    i32 250, label %804
-    i32 251, label %807
-    i32 252, label %813
-    i32 253, label %821
-    i32 254, label %823
-    i32 255, label %829
-    i32 256, label %835
-    i32 257, label %843
-    i32 258, label %846
-    i32 259, label %853
-    i32 260, label %856
-    i32 261, label %858
-    i32 262, label %861
-    i32 263, label %866
-    i32 264, label %871
-    i32 265, label %873
-    i32 266, label %874
-    i32 267, label %879
-    i32 268, label %900
-    i32 269, label %923
-    i32 270, label %924
-    i32 271, label %926
-    i32 272, label %928
-    i32 273, label %933
-    i32 274, label %935
-    i32 275, label %937
-    i32 276, label %939
-    i32 277, label %942
-    i32 278, label %944
-    i32 279, label %947
-    i32 280, label %952
-    i32 281, label %957
-    i32 282, label %962
-    i32 283, label %967
-    i32 284, label %969
-    i32 285, label %974
-    i32 286, label %976
-    i32 287, label %978
-    i32 288, label %981
-    i32 289, label %984
-    i32 290, label %986
-    i32 291, label %988
-    i32 292, label %991
-    i32 293, label %996
-    i32 294, label %1001
-    i32 295, label %1006
-    i32 296, label %1011
-    i32 297, label %1012
-    i32 298, label %1014
-    i32 299, label %1016
-    i32 300, label %1019
-    i32 301, label %1021
-    i32 302, label %1024
-    i32 303, label %1029
-    i32 304, label %1031
-    i32 305, label %1036
-    i32 306, label %1039
-    i32 307, label %1044
-    i32 308, label %1047
-    i32 309, label %1051
-    i32 310, label %1056
-    i32 311, label %1059
-    i32 312, label %1062
-    i32 313, label %1067
-    i32 314, label %1072
-    i32 315, label %1074
-    i32 316, label %1084
-    i32 317, label %1092
-    i32 318, label %1102
-    i32 319, label %1132
-    i32 320, label %1134
-    i32 321, label %1136
-    i32 322, label %1141
-    i32 323, label %1146
-    i32 324, label %1149
-    i32 325, label %1154
-    i32 326, label %1155
-    i32 327, label %1156
-    i32 328, label %1159
-    i32 329, label %1162
-    i32 330, label %1167
-    i32 331, label %1170
-    i32 332, label %1173
-    i32 333, label %1178
-    i32 334, label %1183
-    i32 335, label %1192
-    i32 336, label %1204
-    i32 337, label %1214
-    i32 338, label %1217
-    i32 339, label %1219
-    i32 340, label %1224
-    i32 341, label %1225
-    i32 342, label %1228
-    i32 343, label %1233
-    i32 344, label %1234
-    i32 345, label %1235
-    i32 346, label %1245
-    i32 347, label %1246
-    i32 348, label %1256
-    i32 349, label %1260
-    i32 350, label %1266
-    i32 351, label %1267
-    i32 352, label %1268
-    i32 353, label %1269
-    i32 354, label %1270
-    i32 355, label %1271
-    i32 356, label %1272
-    i32 357, label %1273
-    i32 358, label %1278
-    i32 359, label %1281
-    i32 360, label %1290
-    i32 361, label %1301
-    i32 362, label %1306
-    i32 363, label %1309
-    i32 364, label %1320
-    i32 365, label %1335
-    i32 366, label %1346
-    i32 367, label %1351
-    i32 368, label %1354
-    i32 369, label %1357
-    i32 370, label %1358
-    i32 371, label %1360
-    i32 372, label %1365
-    i32 373, label %1368
-    i32 374, label %1372
-    i32 375, label %1392
-    i32 376, label %1397
-    i32 377, label %1399
-    i32 378, label %1407
-    i32 379, label %1409
-    i32 380, label %1416
-    i32 381, label %1423
-    i32 382, label %1428
-    i32 383, label %1433
-    i32 384, label %1436
-    i32 385, label %1442
-    i32 386, label %1448
-    i32 387, label %1454
-    i32 388, label %1460
-    i32 389, label %1466
-    i32 390, label %1472
-    i32 391, label %1478
-    i32 392, label %1484
-    i32 393, label %1490
-    i32 394, label %1496
-    i32 395, label %1502
-    i32 396, label %1508
-    i32 397, label %1513
-    i32 398, label %1517
-    i32 399, label %1520
-    i32 400, label %1524
-    i32 401, label %1527
-    i32 402, label %1532
-    i32 403, label %1537
-    i32 404, label %1542
-    i32 405, label %1547
-    i32 406, label %1553
-    i32 407, label %1559
-    i32 408, label %1565
-    i32 409, label %1571
-    i32 410, label %1577
-    i32 411, label %1582
-    i32 412, label %1588
-    i32 413, label %1594
-    i32 414, label %1600
-    i32 415, label %1606
-    i32 416, label %1612
-    i32 417, label %1618
-    i32 418, label %1624
-    i32 419, label %1630
-    i32 420, label %1633
-    i32 421, label %1636
-    i32 422, label %1640
-    i32 423, label %1644
-    i32 424, label %1650
-    i32 425, label %1656
-    i32 426, label %1662
-    i32 427, label %1668
-    i32 428, label %1674
-    i32 429, label %1680
-    i32 430, label %1685
-    i32 431, label %1690
-    i32 432, label %1696
-    i32 433, label %1701
-    i32 434, label %1708
-    i32 435, label %1710
-    i32 436, label %1717
-    i32 437, label %1722
-    i32 438, label %1727
-    i32 439, label %1729
-    i32 440, label %1733
-    i32 441, label %1737
-    i32 442, label %1741
-    i32 443, label %1745
-    i32 444, label %1749
-    i32 445, label %1753
-    i32 446, label %1757
-    i32 447, label %1760
-    i32 448, label %1763
-    i32 449, label %1765
-    i32 450, label %1769
-    i32 451, label %1772
-    i32 452, label %1776
-    i32 453, label %1781
-    i32 454, label %1788
-    i32 455, label %1793
-    i32 456, label %1796
-    i32 457, label %1798
-    i32 458, label %1803
-    i32 459, label %1808
-    i32 460, label %1816
-    i32 461, label %1818
-    i32 462, label %1847
-    i32 463, label %1874
-    i32 464, label %1878
-    i32 465, label %1882
-    i32 466, label %1884
-    i32 467, label %1888
-    i32 468, label %1890
-    i32 469, label %1891
-    i32 470, label %1892
-    i32 471, label %1893
-    i32 472, label %1896
-    i32 473, label %1901
-    i32 474, label %1904
-    i32 475, label %1906
-    i32 476, label %1909
-    i32 477, label %1914
-    i32 478, label %1923
-    i32 479, label %1930
-    i32 480, label %1937
-    i32 481, label %1941
-    i32 482, label %1950
-    i32 483, label %1955
-    i32 484, label %1957
-    i32 485, label %1959
-    i32 486, label %1961
-    i32 487, label %1964
-    i32 488, label %1965
-    i32 489, label %1968
-    i32 490, label %1971
-    i32 491, label %1973
-    i32 492, label %1975
-    i32 493, label %1977
-    i32 494, label %1979
-    i32 495, label %1983
-    i32 496, label %1987
-    i32 497, label %1989
-    i32 498, label %1992
-    i32 499, label %1994
-    i32 500, label %1996
-    i32 501, label %1999
-    i32 502, label %2002
-    i32 503, label %2005
-    i32 504, label %2007
-    i32 505, label %2009
-    i32 506, label %2011
-    i32 507, label %2014
-    i32 508, label %2017
-    i32 509, label %2020
-    i32 510, label %2023
-    i32 511, label %2026
-    i32 512, label %2029
-    i32 513, label %2032
-    i32 514, label %2035
-    i32 515, label %2038
-    i32 516, label %2043
-    i32 517, label %2048
-    i32 518, label %2054
-    i32 519, label %2060
-    i32 520, label %2061
-    i32 521, label %2063
-    i32 522, label %2065
-    i32 523, label %2067
-    i32 524, label %2070
-    i32 525, label %2072
-    i32 526, label %2074
-    i32 527, label %2076
-    i32 528, label %2078
-    i32 529, label %2080
-    i32 530, label %2083
-    i32 531, label %2085
-    i32 532, label %2088
-    i32 533, label %2094
-    i32 534, label %2101
-    i32 535, label %2108
-    i32 536, label %2115
-    i32 537, label %2117
-    i32 538, label %2119
-    i32 539, label %2121
-    i32 540, label %2126
-    i32 541, label %2131
-    i32 542, label %2133
-    i32 543, label %2136
-    i32 544, label %2139
-    i32 545, label %2144
-    i32 546, label %2149
-    i32 547, label %2152
-    i32 548, label %2158
-    i32 549, label %2165
-    i32 550, label %2170
-    i32 551, label %2175
-    i32 552, label %2180
-    i32 553, label %2185
-    i32 554, label %2187
-    i32 555, label %2190
-    i32 556, label %2193
-    i32 557, label %2195
-    i32 558, label %2198
-    i32 559, label %2201
-    i32 560, label %2213
-    i32 561, label %2214
-    i32 562, label %2216
-    i32 563, label %2221
-    i32 564, label %2224
-    i32 565, label %2229
-    i32 566, label %2232
-    i32 567, label %2238
-    i32 568, label %2242
-    i32 569, label %2245
-    i32 570, label %2253
-    i32 571, label %2259
-    i32 572, label %2264
-    i32 573, label %2269
-    i32 574, label %2272
-    i32 575, label %2277
-    i32 576, label %2280
-    i32 577, label %2287
-    i32 578, label %2293
-    i32 579, label %2299
-    i32 580, label %2304
-    i32 581, label %2309
-    i32 582, label %2317
-    i32 583, label %2320
-    i32 584, label %2322
-    i32 585, label %2324
-    i32 586, label %2327
-    i32 587, label %2330
-    i32 588, label %2333
-    i32 589, label %2337
-    i32 590, label %2341
-    i32 591, label %2345
-    i32 592, label %2350
-    i32 593, label %2354
-    i32 594, label %2358
-    i32 595, label %2360
-    i32 596, label %2365
+91:                                               ; preds = %86, %81
+  %.01598 = phi i32 [ %89, %86 ], [ %82, %81 ]
+  %.9 = phi i32 [ %.4, %86 ], [ %.6, %81 ]
+  %92 = sext i32 %.01598 to i64
+  %93 = getelementptr inbounds [597 x i8], ptr @yyr2, i64 0, i64 %92
+  %94 = load i8, ptr %93, align 1
+  %95 = sext i8 %94 to i32
+  %96 = sub nsw i32 1, %95
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %.21591, i64 %97
+  %.sroa.0.0.copyload = load ptr, ptr %98, align 8
+  switch i32 %.01598, label %2367 [
+    i32 2, label %99
+    i32 83, label %101
+    i32 84, label %103
+    i32 85, label %109
+    i32 86, label %114
+    i32 87, label %116
+    i32 88, label %118
+    i32 89, label %120
+    i32 90, label %122
+    i32 91, label %124
+    i32 92, label %126
+    i32 93, label %128
+    i32 94, label %131
+    i32 95, label %134
+    i32 96, label %137
+    i32 97, label %140
+    i32 98, label %143
+    i32 99, label %148
+    i32 100, label %151
+    i32 101, label %156
+    i32 102, label %159
+    i32 103, label %162
+    i32 104, label %167
+    i32 105, label %169
+    i32 106, label %171
+    i32 107, label %173
+    i32 108, label %175
+    i32 109, label %177
+    i32 110, label %179
+    i32 111, label %181
+    i32 112, label %186
+    i32 113, label %190
+    i32 114, label %206
+    i32 115, label %219
+    i32 116, label %225
+    i32 117, label %238
+    i32 118, label %242
+    i32 119, label %245
+    i32 120, label %252
+    i32 121, label %256
+    i32 122, label %263
+    i32 123, label %266
+    i32 124, label %267
+    i32 125, label %268
+    i32 126, label %274
+    i32 129, label %280
+    i32 130, label %285
+    i32 131, label %288
+    i32 132, label %293
+    i32 133, label %296
+    i32 134, label %301
+    i32 135, label %304
+    i32 136, label %307
+    i32 137, label %313
+    i32 138, label %316
+    i32 139, label %321
+    i32 140, label %324
+    i32 141, label %329
+    i32 142, label %334
+    i32 143, label %337
+    i32 144, label %342
+    i32 145, label %344
+    i32 146, label %346
+    i32 147, label %348
+    i32 148, label %353
+    i32 149, label %356
+    i32 150, label %359
+    i32 151, label %361
+    i32 152, label %363
+    i32 153, label %368
+    i32 154, label %374
+    i32 155, label %383
+    i32 156, label %388
+    i32 157, label %392
+    i32 158, label %396
+    i32 159, label %400
+    i32 160, label %403
+    i32 161, label %406
+    i32 162, label %409
+    i32 163, label %412
+    i32 164, label %415
+    i32 165, label %418
+    i32 166, label %425
+    i32 167, label %434
+    i32 168, label %438
+    i32 169, label %443
+    i32 170, label %444
+    i32 171, label %451
+    i32 172, label %455
+    i32 173, label %459
+    i32 174, label %461
+    i32 175, label %472
+    i32 176, label %475
+    i32 177, label %480
+    i32 178, label %481
+    i32 179, label %483
+    i32 180, label %484
+    i32 181, label %487
+    i32 182, label %490
+    i32 183, label %495
+    i32 184, label %498
+    i32 185, label %500
+    i32 186, label %506
+    i32 187, label %533
+    i32 188, label %534
+    i32 189, label %535
+    i32 190, label %536
+    i32 191, label %537
+    i32 192, label %541
+    i32 193, label %563
+    i32 194, label %567
+    i32 195, label %586
+    i32 196, label %589
+    i32 197, label %598
+    i32 198, label %604
+    i32 199, label %613
+    i32 200, label %614
+    i32 201, label %617
+    i32 202, label %618
+    i32 203, label %619
+    i32 204, label %620
+    i32 205, label %624
+    i32 206, label %639
+    i32 207, label %643
+    i32 208, label %660
+    i32 209, label %664
+    i32 210, label %683
+    i32 211, label %684
+    i32 212, label %686
+    i32 213, label %698
+    i32 214, label %699
+    i32 215, label %701
+    i32 216, label %702
+    i32 217, label %704
+    i32 218, label %705
+    i32 219, label %707
+    i32 220, label %708
+    i32 221, label %710
+    i32 222, label %712
+    i32 223, label %715
+    i32 224, label %719
+    i32 225, label %723
+    i32 226, label %725
+    i32 227, label %728
+    i32 228, label %730
+    i32 229, label %733
+    i32 230, label %735
+    i32 231, label %738
+    i32 232, label %741
+    i32 233, label %744
+    i32 234, label %747
+    i32 235, label %750
+    i32 236, label %752
+    i32 237, label %760
+    i32 240, label %766
+    i32 241, label %772
+    i32 242, label %774
+    i32 243, label %777
+    i32 244, label %780
+    i32 245, label %785
+    i32 246, label %790
+    i32 247, label %793
+    i32 248, label %796
+    i32 249, label %801
+    i32 250, label %803
+    i32 251, label %806
+    i32 252, label %812
+    i32 253, label %820
+    i32 254, label %822
+    i32 255, label %828
+    i32 256, label %834
+    i32 257, label %842
+    i32 258, label %845
+    i32 259, label %852
+    i32 260, label %855
+    i32 261, label %857
+    i32 262, label %860
+    i32 263, label %865
+    i32 264, label %870
+    i32 265, label %872
+    i32 266, label %873
+    i32 267, label %878
+    i32 268, label %899
+    i32 269, label %922
+    i32 270, label %923
+    i32 271, label %925
+    i32 272, label %927
+    i32 273, label %932
+    i32 274, label %934
+    i32 275, label %936
+    i32 276, label %938
+    i32 277, label %941
+    i32 278, label %943
+    i32 279, label %946
+    i32 280, label %951
+    i32 281, label %956
+    i32 282, label %961
+    i32 283, label %966
+    i32 284, label %968
+    i32 285, label %973
+    i32 286, label %975
+    i32 287, label %977
+    i32 288, label %980
+    i32 289, label %983
+    i32 290, label %985
+    i32 291, label %987
+    i32 292, label %990
+    i32 293, label %995
+    i32 294, label %1000
+    i32 295, label %1005
+    i32 296, label %1010
+    i32 297, label %1011
+    i32 298, label %1013
+    i32 299, label %1015
+    i32 300, label %1018
+    i32 301, label %1020
+    i32 302, label %1023
+    i32 303, label %1028
+    i32 304, label %1030
+    i32 305, label %1035
+    i32 306, label %1038
+    i32 307, label %1043
+    i32 308, label %1046
+    i32 309, label %1050
+    i32 310, label %1055
+    i32 311, label %1058
+    i32 312, label %1061
+    i32 313, label %1066
+    i32 314, label %1071
+    i32 315, label %1073
+    i32 316, label %1083
+    i32 317, label %1091
+    i32 318, label %1101
+    i32 319, label %1131
+    i32 320, label %1133
+    i32 321, label %1135
+    i32 322, label %1140
+    i32 323, label %1145
+    i32 324, label %1148
+    i32 325, label %1153
+    i32 326, label %1154
+    i32 327, label %1155
+    i32 328, label %1158
+    i32 329, label %1161
+    i32 330, label %1166
+    i32 331, label %1169
+    i32 332, label %1172
+    i32 333, label %1177
+    i32 334, label %1182
+    i32 335, label %1191
+    i32 336, label %1203
+    i32 337, label %1213
+    i32 338, label %1216
+    i32 339, label %1218
+    i32 340, label %1223
+    i32 341, label %1224
+    i32 342, label %1227
+    i32 343, label %1232
+    i32 344, label %1233
+    i32 345, label %1234
+    i32 346, label %1244
+    i32 347, label %1245
+    i32 348, label %1255
+    i32 349, label %1259
+    i32 350, label %1265
+    i32 351, label %1266
+    i32 352, label %1267
+    i32 353, label %1268
+    i32 354, label %1269
+    i32 355, label %1270
+    i32 356, label %1271
+    i32 357, label %1272
+    i32 358, label %1277
+    i32 359, label %1280
+    i32 360, label %1289
+    i32 361, label %1300
+    i32 362, label %1305
+    i32 363, label %1308
+    i32 364, label %1319
+    i32 365, label %1334
+    i32 366, label %1345
+    i32 367, label %1350
+    i32 368, label %1353
+    i32 369, label %1356
+    i32 370, label %1357
+    i32 371, label %1359
+    i32 372, label %1364
+    i32 373, label %1367
+    i32 374, label %1371
+    i32 375, label %1391
+    i32 376, label %1396
+    i32 377, label %1398
+    i32 378, label %1406
+    i32 379, label %1408
+    i32 380, label %1415
+    i32 381, label %1422
+    i32 382, label %1427
+    i32 383, label %1432
+    i32 384, label %1435
+    i32 385, label %1441
+    i32 386, label %1447
+    i32 387, label %1453
+    i32 388, label %1459
+    i32 389, label %1465
+    i32 390, label %1471
+    i32 391, label %1477
+    i32 392, label %1483
+    i32 393, label %1489
+    i32 394, label %1495
+    i32 395, label %1501
+    i32 396, label %1507
+    i32 397, label %1512
+    i32 398, label %1516
+    i32 399, label %1519
+    i32 400, label %1523
+    i32 401, label %1526
+    i32 402, label %1531
+    i32 403, label %1536
+    i32 404, label %1541
+    i32 405, label %1546
+    i32 406, label %1552
+    i32 407, label %1558
+    i32 408, label %1564
+    i32 409, label %1570
+    i32 410, label %1576
+    i32 411, label %1581
+    i32 412, label %1587
+    i32 413, label %1593
+    i32 414, label %1599
+    i32 415, label %1605
+    i32 416, label %1611
+    i32 417, label %1617
+    i32 418, label %1623
+    i32 419, label %1629
+    i32 420, label %1632
+    i32 421, label %1635
+    i32 422, label %1639
+    i32 423, label %1643
+    i32 424, label %1649
+    i32 425, label %1655
+    i32 426, label %1661
+    i32 427, label %1667
+    i32 428, label %1673
+    i32 429, label %1679
+    i32 430, label %1684
+    i32 431, label %1689
+    i32 432, label %1695
+    i32 433, label %1700
+    i32 434, label %1707
+    i32 435, label %1709
+    i32 436, label %1716
+    i32 437, label %1721
+    i32 438, label %1726
+    i32 439, label %1728
+    i32 440, label %1732
+    i32 441, label %1736
+    i32 442, label %1740
+    i32 443, label %1744
+    i32 444, label %1748
+    i32 445, label %1752
+    i32 446, label %1756
+    i32 447, label %1759
+    i32 448, label %1762
+    i32 449, label %1764
+    i32 450, label %1768
+    i32 451, label %1771
+    i32 452, label %1775
+    i32 453, label %1780
+    i32 454, label %1787
+    i32 455, label %1792
+    i32 456, label %1795
+    i32 457, label %1797
+    i32 458, label %1802
+    i32 459, label %1807
+    i32 460, label %1815
+    i32 461, label %1817
+    i32 462, label %1846
+    i32 463, label %1873
+    i32 464, label %1877
+    i32 465, label %1881
+    i32 466, label %1883
+    i32 467, label %1887
+    i32 468, label %1889
+    i32 469, label %1890
+    i32 470, label %1891
+    i32 471, label %1892
+    i32 472, label %1895
+    i32 473, label %1900
+    i32 474, label %1903
+    i32 475, label %1905
+    i32 476, label %1908
+    i32 477, label %1913
+    i32 478, label %1922
+    i32 479, label %1929
+    i32 480, label %1936
+    i32 481, label %1940
+    i32 482, label %1949
+    i32 483, label %1954
+    i32 484, label %1956
+    i32 485, label %1958
+    i32 486, label %1960
+    i32 487, label %1963
+    i32 488, label %1964
+    i32 489, label %1967
+    i32 490, label %1970
+    i32 491, label %1972
+    i32 492, label %1974
+    i32 493, label %1976
+    i32 494, label %1978
+    i32 495, label %1982
+    i32 496, label %1986
+    i32 497, label %1988
+    i32 498, label %1991
+    i32 499, label %1993
+    i32 500, label %1995
+    i32 501, label %1998
+    i32 502, label %2001
+    i32 503, label %2004
+    i32 504, label %2006
+    i32 505, label %2008
+    i32 506, label %2010
+    i32 507, label %2013
+    i32 508, label %2016
+    i32 509, label %2019
+    i32 510, label %2022
+    i32 511, label %2025
+    i32 512, label %2028
+    i32 513, label %2031
+    i32 514, label %2034
+    i32 515, label %2037
+    i32 516, label %2042
+    i32 517, label %2047
+    i32 518, label %2053
+    i32 519, label %2059
+    i32 520, label %2060
+    i32 521, label %2062
+    i32 522, label %2064
+    i32 523, label %2066
+    i32 524, label %2069
+    i32 525, label %2071
+    i32 526, label %2073
+    i32 527, label %2075
+    i32 528, label %2077
+    i32 529, label %2079
+    i32 530, label %2082
+    i32 531, label %2084
+    i32 532, label %2087
+    i32 533, label %2093
+    i32 534, label %2100
+    i32 535, label %2107
+    i32 536, label %2114
+    i32 537, label %2116
+    i32 538, label %2118
+    i32 539, label %2120
+    i32 540, label %2125
+    i32 541, label %2130
+    i32 542, label %2132
+    i32 543, label %2135
+    i32 544, label %2138
+    i32 545, label %2143
+    i32 546, label %2148
+    i32 547, label %2151
+    i32 548, label %2157
+    i32 549, label %2164
+    i32 550, label %2169
+    i32 551, label %2174
+    i32 552, label %2179
+    i32 553, label %2184
+    i32 554, label %2186
+    i32 555, label %2189
+    i32 556, label %2192
+    i32 557, label %2194
+    i32 558, label %2197
+    i32 559, label %2200
+    i32 560, label %2212
+    i32 561, label %2213
+    i32 562, label %2215
+    i32 563, label %2220
+    i32 564, label %2223
+    i32 565, label %2228
+    i32 566, label %2231
+    i32 567, label %2237
+    i32 568, label %2241
+    i32 569, label %2244
+    i32 570, label %2252
+    i32 571, label %2258
+    i32 572, label %2263
+    i32 573, label %2268
+    i32 574, label %2271
+    i32 575, label %2276
+    i32 576, label %2279
+    i32 577, label %2286
+    i32 578, label %2292
+    i32 579, label %2298
+    i32 580, label %2303
+    i32 581, label %2308
+    i32 582, label %2316
+    i32 583, label %2319
+    i32 584, label %2321
+    i32 585, label %2323
+    i32 586, label %2326
+    i32 587, label %2329
+    i32 588, label %2332
+    i32 589, label %2336
+    i32 590, label %2340
+    i32 591, label %2344
+    i32 592, label %2349
+    i32 593, label %2353
+    i32 594, label %2357
+    i32 595, label %2359
+    i32 596, label %2364
   ]
 
-100:                                              ; preds = %92
-  %101 = load ptr, ptr %.21591, align 8
-  store ptr %101, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
-  br label %2368
+99:                                               ; preds = %91
+  %100 = load ptr, ptr %.21591, align 8
+  store ptr %100, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  br label %2367
 
-102:                                              ; preds = %92
-  %103 = load ptr, ptr %.21591, align 8
-  br label %2368
+101:                                              ; preds = %91
+  %102 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-104:                                              ; preds = %92
-  %105 = load ptr, ptr %.21591, align 8
-  %106 = call i32 @zend_lex_tstring(ptr noundef nonnull %7, ptr noundef %105) #12
-  %107 = icmp eq i32 %106, -1
-  br i1 %107, label %.loopexit.loopexit1717, label %108
+103:                                              ; preds = %91
+  %104 = load ptr, ptr %.21591, align 8
+  %105 = call i32 @zend_lex_tstring(ptr noundef nonnull %6, ptr noundef %104) #12
+  %106 = icmp eq i32 %105, -1
+  br i1 %106, label %.loopexit.loopexit1738, label %107
 
-108:                                              ; preds = %104
-  %109 = call ptr @zend_ast_create_zval(ptr noundef nonnull %7) #12
-  br label %2368
+107:                                              ; preds = %103
+  %108 = call ptr @zend_ast_create_zval(ptr noundef nonnull %6) #12
+  br label %2367
 
-110:                                              ; preds = %92
-  %111 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %112 = load ptr, ptr %111, align 8
-  %113 = load ptr, ptr %.21591, align 8
-  %114 = call ptr @zend_ast_list_add(ptr noundef %112, ptr noundef %113) #12
-  br label %2368
+109:                                              ; preds = %91
+  %110 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr %.21591, align 8
+  %113 = call ptr @zend_ast_list_add(ptr noundef %111, ptr noundef %112) #12
+  br label %2367
 
-115:                                              ; preds = %92
-  %116 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 132) #12
-  br label %2368
+114:                                              ; preds = %91
+  %115 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 132) #12
+  br label %2367
 
-117:                                              ; preds = %92
-  %118 = load ptr, ptr %.21591, align 8
-  br label %2368
+116:                                              ; preds = %91
+  %117 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-119:                                              ; preds = %92
-  %120 = load ptr, ptr %.21591, align 8
-  br label %2368
+118:                                              ; preds = %91
+  %119 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-121:                                              ; preds = %92
-  %122 = load ptr, ptr %.21591, align 8
-  br label %2368
+120:                                              ; preds = %91
+  %121 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-123:                                              ; preds = %92
-  %124 = load ptr, ptr %.21591, align 8
-  br label %2368
+122:                                              ; preds = %91
+  %123 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-125:                                              ; preds = %92
-  %126 = load ptr, ptr %.21591, align 8
-  br label %2368
+124:                                              ; preds = %91
+  %125 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-127:                                              ; preds = %92
-  %128 = load ptr, ptr %.21591, align 8
-  br label %2368
+126:                                              ; preds = %91
+  %127 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-129:                                              ; preds = %92
-  %130 = load ptr, ptr %.21591, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 2
-  store i16 1, ptr %131, align 2
-  br label %2368
+128:                                              ; preds = %91
+  %129 = load ptr, ptr %.21591, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 2
+  store i16 1, ptr %130, align 2
+  br label %2367
 
-132:                                              ; preds = %92
-  %133 = load ptr, ptr %.21591, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 2
-  store i16 1, ptr %134, align 2
-  br label %2368
+131:                                              ; preds = %91
+  %132 = load ptr, ptr %.21591, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 2
+  store i16 1, ptr %133, align 2
+  br label %2367
 
-135:                                              ; preds = %92
-  %136 = load ptr, ptr %.21591, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 2
-  store i16 0, ptr %137, align 2
-  br label %2368
+134:                                              ; preds = %91
+  %135 = load ptr, ptr %.21591, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 2
+  store i16 0, ptr %136, align 2
+  br label %2367
 
-138:                                              ; preds = %92
-  %139 = load ptr, ptr %.21591, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 2
-  store i16 2, ptr %140, align 2
-  br label %2368
+137:                                              ; preds = %91
+  %138 = load ptr, ptr %.21591, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 2
+  store i16 2, ptr %139, align 2
+  br label %2367
 
-141:                                              ; preds = %92
-  %142 = load ptr, ptr %.21591, align 8
-  %143 = call ptr @zend_ast_create_2(i16 noundef zeroext 546, ptr noundef %142, ptr noundef null) #12
-  br label %2368
+140:                                              ; preds = %91
+  %141 = load ptr, ptr %.21591, align 8
+  %142 = call ptr @zend_ast_create_2(i16 noundef zeroext 546, ptr noundef %141, ptr noundef null) #12
+  br label %2367
 
-144:                                              ; preds = %92
-  %145 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %146 = load ptr, ptr %145, align 8
-  %147 = load ptr, ptr %.21591, align 8
-  %148 = call ptr @zend_ast_create_2(i16 noundef zeroext 546, ptr noundef %146, ptr noundef %147) #12
-  br label %2368
+143:                                              ; preds = %91
+  %144 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %145 = load ptr, ptr %144, align 8
+  %146 = load ptr, ptr %.21591, align 8
+  %147 = call ptr @zend_ast_create_2(i16 noundef zeroext 546, ptr noundef %145, ptr noundef %146) #12
+  br label %2367
 
-149:                                              ; preds = %92
-  %150 = load ptr, ptr %.21591, align 8
-  %151 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 147, ptr noundef %150) #12
-  br label %2368
+148:                                              ; preds = %91
+  %149 = load ptr, ptr %.21591, align 8
+  %150 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 147, ptr noundef %149) #12
+  br label %2367
 
-152:                                              ; preds = %92
-  %153 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %154 = load ptr, ptr %153, align 8
-  %155 = load ptr, ptr %.21591, align 8
-  %156 = call ptr @zend_ast_list_add(ptr noundef %154, ptr noundef %155) #12
-  br label %2368
+151:                                              ; preds = %91
+  %152 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %153 = load ptr, ptr %152, align 8
+  %154 = load ptr, ptr %.21591, align 8
+  %155 = call ptr @zend_ast_list_add(ptr noundef %153, ptr noundef %154) #12
+  br label %2367
 
-157:                                              ; preds = %92
-  %158 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %159 = load ptr, ptr %158, align 8
-  br label %2368
+156:                                              ; preds = %91
+  %157 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %158 = load ptr, ptr %157, align 8
+  br label %2367
 
-160:                                              ; preds = %92
-  %161 = load ptr, ptr %.21591, align 8
-  %162 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 146, ptr noundef %161) #12
-  br label %2368
+159:                                              ; preds = %91
+  %160 = load ptr, ptr %.21591, align 8
+  %161 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 146, ptr noundef %160) #12
+  br label %2367
 
-163:                                              ; preds = %92
-  %164 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %165 = load ptr, ptr %164, align 8
-  %166 = load ptr, ptr %.21591, align 8
-  %167 = call ptr @zend_ast_list_add(ptr noundef %165, ptr noundef %166) #12
-  br label %2368
+162:                                              ; preds = %91
+  %163 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %164 = load ptr, ptr %163, align 8
+  %165 = load ptr, ptr %.21591, align 8
+  %166 = call ptr @zend_ast_list_add(ptr noundef %164, ptr noundef %165) #12
+  br label %2367
 
-168:                                              ; preds = %92
-  %169 = load ptr, ptr %.21591, align 8
-  br label %2368
+167:                                              ; preds = %91
+  %168 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-170:                                              ; preds = %92
-  %171 = load ptr, ptr %.21591, align 8
-  br label %2368
+169:                                              ; preds = %91
+  %170 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-172:                                              ; preds = %92
-  %173 = load ptr, ptr %.21591, align 8
-  br label %2368
+171:                                              ; preds = %91
+  %172 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-174:                                              ; preds = %92
-  %175 = load ptr, ptr %.21591, align 8
-  br label %2368
+173:                                              ; preds = %91
+  %174 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-176:                                              ; preds = %92
-  %177 = load ptr, ptr %.21591, align 8
-  br label %2368
+175:                                              ; preds = %91
+  %176 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-178:                                              ; preds = %92
-  %179 = load ptr, ptr %.21591, align 8
-  br label %2368
+177:                                              ; preds = %91
+  %178 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-180:                                              ; preds = %92
-  %181 = load ptr, ptr %.21591, align 8
-  br label %2368
+179:                                              ; preds = %91
+  %180 = load ptr, ptr %.21591, align 8
+  br label %2367
 
-182:                                              ; preds = %92
-  %183 = load ptr, ptr %.21591, align 8
-  %184 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %185 = load ptr, ptr %184, align 8
-  %186 = call ptr @zend_ast_with_attributes(ptr noundef %183, ptr noundef %185) #12
-  br label %2368
+181:                                              ; preds = %91
+  %182 = load ptr, ptr %.21591, align 8
+  %183 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %184 = load ptr, ptr %183, align 8
+  %185 = call ptr @zend_ast_with_attributes(ptr noundef %182, ptr noundef %184) #12
+  br label %2367
 
-187:                                              ; preds = %92
-  %188 = call i64 @zend_get_scanned_file_offset() #12
-  %189 = call ptr @zend_ast_create_zval_from_long(i64 noundef %188) #12
-  %190 = call ptr @zend_ast_create_1(i16 noundef zeroext 282, ptr noundef %189) #12
+186:                                              ; preds = %91
+  %187 = call i64 @zend_get_scanned_file_offset() #12
+  %188 = call ptr @zend_ast_create_zval_from_long(i64 noundef %187) #12
+  %189 = call ptr @zend_ast_create_1(i16 noundef zeroext 282, ptr noundef %188) #12
   call void @zend_stop_lexing() #12
-  br label %2368
+  br label %2367
 
-191:                                              ; preds = %92
-  %192 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %193 = load ptr, ptr %192, align 8
-  %194 = call ptr @zend_ast_create_2(i16 noundef zeroext 542, ptr noundef %193, ptr noundef null) #12
-  %195 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
-  %.not1665 = icmp eq ptr %195, null
-  br i1 %.not1665, label %2368, label %196
+190:                                              ; preds = %91
+  %191 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %192 = load ptr, ptr %191, align 8
+  %193 = call ptr @zend_ast_create_2(i16 noundef zeroext 542, ptr noundef %192, ptr noundef null) #12
+  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  %.not1665 = icmp eq ptr %194, null
+  br i1 %.not1665, label %2367, label %195
 
-196:                                              ; preds = %191
-  %197 = getelementptr inbounds i8, ptr %195, i64 4
-  %198 = load i32, ptr %197, align 4
-  %199 = and i32 %198, 64
-  %.not1666 = icmp eq i32 %199, 0
-  br i1 %.not1666, label %200, label %206
+195:                                              ; preds = %190
+  %196 = getelementptr inbounds i8, ptr %194, i64 4
+  %197 = load i32, ptr %196, align 4
+  %198 = and i32 %197, 64
+  %.not1666 = icmp eq i32 %198, 0
+  br i1 %.not1666, label %199, label %205
 
-200:                                              ; preds = %196
-  %201 = load i32, ptr %195, align 4
-  %202 = icmp ne i32 %201, 0
-  call void @llvm.assume(i1 %202)
-  %203 = add i32 %201, -1
-  store i32 %203, ptr %195, align 4
-  %204 = icmp eq i32 %203, 0
-  br i1 %204, label %205, label %206
+199:                                              ; preds = %195
+  %200 = load i32, ptr %194, align 4
+  %201 = icmp ne i32 %200, 0
+  call void @llvm.assume(i1 %201)
+  %202 = add i32 %200, -1
+  store i32 %202, ptr %194, align 4
+  %203 = icmp eq i32 %202, 0
+  br i1 %203, label %204, label %205
 
-205:                                              ; preds = %200
-  call void @_efree(ptr noundef nonnull %195) #12
-  br label %206
+204:                                              ; preds = %199
+  call void @_efree(ptr noundef nonnull %194) #12
+  br label %205
 
-206:                                              ; preds = %200, %205, %196
+205:                                              ; preds = %199, %204, %195
   store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
-  br label %2368
+  br label %2367
 
-207:                                              ; preds = %92
-  %208 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
-  %.not1663 = icmp eq ptr %208, null
-  br i1 %.not1663, label %2368, label %209
+206:                                              ; preds = %91
+  %207 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  %.not1663 = icmp eq ptr %207, null
+  br i1 %.not1663, label %2367, label %208
 
-209:                                              ; preds = %207
-  %210 = getelementptr inbounds i8, ptr %208, i64 4
-  %211 = load i32, ptr %210, align 4
-  %212 = and i32 %211, 64
-  %.not1664 = icmp eq i32 %212, 0
-  br i1 %.not1664, label %213, label %219
+208:                                              ; preds = %206
+  %209 = getelementptr inbounds i8, ptr %207, i64 4
+  %210 = load i32, ptr %209, align 4
+  %211 = and i32 %210, 64
+  %.not1664 = icmp eq i32 %211, 0
+  br i1 %.not1664, label %212, label %218
 
-213:                                              ; preds = %209
-  %214 = load i32, ptr %208, align 4
-  %215 = icmp ne i32 %214, 0
-  call void @llvm.assume(i1 %215)
-  %216 = add i32 %214, -1
-  store i32 %216, ptr %208, align 4
-  %217 = icmp eq i32 %216, 0
-  br i1 %217, label %218, label %219
+212:                                              ; preds = %208
+  %213 = load i32, ptr %207, align 4
+  %214 = icmp ne i32 %213, 0
+  call void @llvm.assume(i1 %214)
+  %215 = add i32 %213, -1
+  store i32 %215, ptr %207, align 4
+  %216 = icmp eq i32 %215, 0
+  br i1 %216, label %217, label %218
 
-218:                                              ; preds = %213
-  call void @_efree(ptr noundef nonnull %208) #12
-  br label %219
+217:                                              ; preds = %212
+  call void @_efree(ptr noundef nonnull %207) #12
+  br label %218
 
-219:                                              ; preds = %213, %218, %209
+218:                                              ; preds = %212, %217, %208
   store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
-  br label %2368
+  br label %2367
 
-220:                                              ; preds = %92
-  %221 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %224 = load ptr, ptr %223, align 8
-  %225 = call ptr @zend_ast_create_2(i16 noundef zeroext 542, ptr noundef %222, ptr noundef %224) #12
-  br label %2368
+219:                                              ; preds = %91
+  %220 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %223 = load ptr, ptr %222, align 8
+  %224 = call ptr @zend_ast_create_2(i16 noundef zeroext 542, ptr noundef %221, ptr noundef %223) #12
+  br label %2367
 
-226:                                              ; preds = %92
-  %227 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
-  %.not1661 = icmp eq ptr %227, null
-  br i1 %.not1661, label %2368, label %228
+225:                                              ; preds = %91
+  %226 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  %.not1661 = icmp eq ptr %226, null
+  br i1 %.not1661, label %2367, label %227
 
-228:                                              ; preds = %226
-  %229 = getelementptr inbounds i8, ptr %227, i64 4
-  %230 = load i32, ptr %229, align 4
-  %231 = and i32 %230, 64
-  %.not1662 = icmp eq i32 %231, 0
-  br i1 %.not1662, label %232, label %238
+227:                                              ; preds = %225
+  %228 = getelementptr inbounds i8, ptr %226, i64 4
+  %229 = load i32, ptr %228, align 4
+  %230 = and i32 %229, 64
+  %.not1662 = icmp eq i32 %230, 0
+  br i1 %.not1662, label %231, label %237
 
-232:                                              ; preds = %228
-  %233 = load i32, ptr %227, align 4
-  %234 = icmp ne i32 %233, 0
-  call void @llvm.assume(i1 %234)
-  %235 = add i32 %233, -1
-  store i32 %235, ptr %227, align 4
-  %236 = icmp eq i32 %235, 0
-  br i1 %236, label %237, label %238
+231:                                              ; preds = %227
+  %232 = load i32, ptr %226, align 4
+  %233 = icmp ne i32 %232, 0
+  call void @llvm.assume(i1 %233)
+  %234 = add i32 %232, -1
+  store i32 %234, ptr %226, align 4
+  %235 = icmp eq i32 %234, 0
+  br i1 %235, label %236, label %237
 
-237:                                              ; preds = %232
-  call void @_efree(ptr noundef nonnull %227) #12
-  br label %238
+236:                                              ; preds = %231
+  call void @_efree(ptr noundef nonnull %226) #12
+  br label %237
 
-238:                                              ; preds = %232, %237, %228
+237:                                              ; preds = %231, %236, %227
   store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
-  br label %2368
-
-239:                                              ; preds = %92
-  %240 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %241 = load ptr, ptr %240, align 8
-  %242 = call ptr @zend_ast_create_2(i16 noundef zeroext 542, ptr noundef null, ptr noundef %241) #12
-  br label %2368
-
-243:                                              ; preds = %92
-  %244 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %245 = load ptr, ptr %244, align 8
-  br label %2368
-
-246:                                              ; preds = %92
-  %247 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %250 = load i64, ptr %249, align 8
-  %251 = trunc i64 %250 to i16
-  %252 = getelementptr inbounds i8, ptr %248, i64 2
-  store i16 %251, ptr %252, align 2
-  br label %2368
-
-253:                                              ; preds = %92
-  %254 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 2
-  store i16 1, ptr %256, align 2
-  br label %2368
-
-257:                                              ; preds = %92
-  %258 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %261 = load i64, ptr %260, align 8
-  %262 = trunc i64 %261 to i16
-  %263 = getelementptr inbounds i8, ptr %259, i64 2
-  store i16 %262, ptr %263, align 2
-  br label %2368
-
-264:                                              ; preds = %92
-  %265 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %266 = load ptr, ptr %265, align 8
-  br label %2368
-
-267:                                              ; preds = %92
-  br label %2368
-
-268:                                              ; preds = %92
-  br label %2368
-
-269:                                              ; preds = %92
-  %270 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %273 = load ptr, ptr %272, align 8
-  %274 = call ptr @zend_ast_create_2(i16 noundef zeroext 545, ptr noundef %271, ptr noundef %273) #12
-  br label %2368
-
-275:                                              ; preds = %92
-  %276 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %277 = load ptr, ptr %276, align 8
-  %278 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %279 = load ptr, ptr %278, align 8
-  %280 = call ptr @zend_ast_create_2(i16 noundef zeroext 545, ptr noundef %277, ptr noundef %279) #12
-  br label %2368
-
-281:                                              ; preds = %92
-  %282 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %283 = load ptr, ptr %282, align 8
-  %284 = load ptr, ptr %.21591, align 8
-  %285 = call ptr @zend_ast_list_add(ptr noundef %283, ptr noundef %284) #12
-  br label %2368
-
-286:                                              ; preds = %92
-  %287 = load ptr, ptr %.21591, align 8
-  %288 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef %287) #12
-  br label %2368
-
-289:                                              ; preds = %92
-  %290 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %291 = load ptr, ptr %290, align 8
-  %292 = load ptr, ptr %.21591, align 8
-  %293 = call ptr @zend_ast_list_add(ptr noundef %291, ptr noundef %292) #12
-  br label %2368
-
-294:                                              ; preds = %92
-  %295 = load ptr, ptr %.21591, align 8
-  %296 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef %295) #12
-  br label %2368
-
-297:                                              ; preds = %92
-  %298 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %299 = load ptr, ptr %298, align 8
-  %300 = load ptr, ptr %.21591, align 8
-  %301 = call ptr @zend_ast_list_add(ptr noundef %299, ptr noundef %300) #12
-  br label %2368
-
-302:                                              ; preds = %92
-  %303 = load ptr, ptr %.21591, align 8
-  %304 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef %303) #12
-  br label %2368
-
-305:                                              ; preds = %92
-  %306 = load ptr, ptr %.21591, align 8
-  %307 = getelementptr inbounds i8, ptr %306, i64 2
-  store i16 1, ptr %307, align 2
-  br label %2368
-
-308:                                              ; preds = %92
-  %309 = load ptr, ptr %.21591, align 8
-  %310 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %311 = load i64, ptr %310, align 8
-  %312 = trunc i64 %311 to i16
-  %313 = getelementptr inbounds i8, ptr %309, i64 2
-  store i16 %312, ptr %313, align 2
-  br label %2368
-
-314:                                              ; preds = %92
-  %315 = load ptr, ptr %.21591, align 8
-  %316 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %315, ptr noundef null) #12
-  br label %2368
-
-317:                                              ; preds = %92
-  %318 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %319 = load ptr, ptr %318, align 8
-  %320 = load ptr, ptr %.21591, align 8
-  %321 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %319, ptr noundef %320) #12
-  br label %2368
-
-322:                                              ; preds = %92
-  %323 = load ptr, ptr %.21591, align 8
-  %324 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %323, ptr noundef null) #12
-  br label %2368
-
-325:                                              ; preds = %92
-  %326 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %327 = load ptr, ptr %326, align 8
-  %328 = load ptr, ptr %.21591, align 8
-  %329 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %327, ptr noundef %328) #12
-  br label %2368
-
-330:                                              ; preds = %92
-  %331 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %332 = load ptr, ptr %331, align 8
-  %333 = load ptr, ptr %.21591, align 8
-  %334 = call ptr @zend_ast_list_add(ptr noundef %332, ptr noundef %333) #12
-  br label %2368
-
-335:                                              ; preds = %92
-  %336 = load ptr, ptr %.21591, align 8
-  %337 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 139, ptr noundef %336) #12
-  br label %2368
-
-338:                                              ; preds = %92
-  %339 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %340 = load ptr, ptr %339, align 8
-  %341 = load ptr, ptr %.21591, align 8
-  %342 = call ptr @zend_ast_list_add(ptr noundef %340, ptr noundef %341) #12
-  br label %2368
-
-343:                                              ; preds = %92
-  %344 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 132) #12
-  br label %2368
-
-345:                                              ; preds = %92
-  %346 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-347:                                              ; preds = %92
-  %348 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-349:                                              ; preds = %92
-  %350 = load ptr, ptr %.21591, align 8
-  %351 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %352 = load ptr, ptr %351, align 8
-  %353 = call ptr @zend_ast_with_attributes(ptr noundef %350, ptr noundef %352) #12
-  br label %2368
-
-354:                                              ; preds = %92
-  %355 = load ptr, ptr @zend_ce_compile_error, align 8
-  %356 = call ptr @zend_throw_exception(ptr noundef %355, ptr noundef nonnull @.str, i64 noundef 0) #12
-  br label %2422
-
-357:                                              ; preds = %92
-  %358 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %359 = load ptr, ptr %358, align 8
-  br label %2368
-
-360:                                              ; preds = %92
-  %361 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-362:                                              ; preds = %92
-  %363 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-364:                                              ; preds = %92
-  %365 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %366 = load ptr, ptr %365, align 8
-  %367 = load ptr, ptr %.21591, align 8
-  %368 = call ptr @zend_ast_create_2(i16 noundef zeroext 533, ptr noundef %366, ptr noundef %367) #12
-  br label %2368
-
-369:                                              ; preds = %92
-  %370 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %371 = load ptr, ptr %370, align 8
-  %372 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %373 = load ptr, ptr %372, align 8
-  %374 = call ptr @zend_ast_create_2(i16 noundef zeroext 534, ptr noundef %371, ptr noundef %373) #12
-  br label %2368
-
-375:                                              ; preds = %92
-  %376 = getelementptr inbounds i8, ptr %.21591, i64 -48
-  %377 = load ptr, ptr %376, align 8
-  %378 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %379 = load ptr, ptr %378, align 8
-  %380 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %381 = load ptr, ptr %380, align 8
-  %382 = load ptr, ptr %.21591, align 8
-  %383 = call ptr @zend_ast_create_4(i16 noundef zeroext 1024, ptr noundef %377, ptr noundef %379, ptr noundef %381, ptr noundef %382) #12
-  br label %2368
-
-384:                                              ; preds = %92
-  %385 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %386 = load ptr, ptr %385, align 8
-  %387 = load ptr, ptr %.21591, align 8
-  %388 = call ptr @zend_ast_create_2(i16 noundef zeroext 536, ptr noundef %386, ptr noundef %387) #12
-  br label %2368
-
-389:                                              ; preds = %92
-  %390 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %391 = load ptr, ptr %390, align 8
-  %392 = call ptr @zend_ast_create_1(i16 noundef zeroext 286, ptr noundef %391) #12
-  br label %2368
-
-393:                                              ; preds = %92
-  %394 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %395 = load ptr, ptr %394, align 8
-  %396 = call ptr @zend_ast_create_1(i16 noundef zeroext 287, ptr noundef %395) #12
-  br label %2368
-
-397:                                              ; preds = %92
-  %398 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %399 = load ptr, ptr %398, align 8
-  %400 = call ptr @zend_ast_create_1(i16 noundef zeroext 279, ptr noundef %399) #12
-  br label %2368
-
-401:                                              ; preds = %92
-  %402 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %403 = load ptr, ptr %402, align 8
-  br label %2368
-
-404:                                              ; preds = %92
-  %405 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %406 = load ptr, ptr %405, align 8
-  br label %2368
-
-407:                                              ; preds = %92
-  %408 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %409 = load ptr, ptr %408, align 8
-  br label %2368
-
-410:                                              ; preds = %92
-  %411 = load ptr, ptr %.21591, align 8
-  %412 = call ptr @zend_ast_create_1(i16 noundef zeroext 283, ptr noundef %411) #12
-  br label %2368
-
-413:                                              ; preds = %92
-  %414 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %415 = load ptr, ptr %414, align 8
-  br label %2368
-
-416:                                              ; preds = %92
-  %417 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %418 = load ptr, ptr %417, align 8
-  br label %2368
-
-419:                                              ; preds = %92
-  %420 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %421 = load ptr, ptr %420, align 8
-  %422 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %423 = load ptr, ptr %422, align 8
-  %424 = load ptr, ptr %.21591, align 8
-  %425 = call ptr @zend_ast_create_4(i16 noundef zeroext 1025, ptr noundef %421, ptr noundef %423, ptr noundef null, ptr noundef %424) #12
-  br label %2368
-
-426:                                              ; preds = %92
-  %427 = getelementptr inbounds i8, ptr %.21591, i64 -48
-  %428 = load ptr, ptr %427, align 8
-  %429 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %430 = load ptr, ptr %429, align 8
-  %431 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %432 = load ptr, ptr %431, align 8
-  %433 = load ptr, ptr %.21591, align 8
-  %434 = call ptr @zend_ast_create_4(i16 noundef zeroext 1025, ptr noundef %428, ptr noundef %430, ptr noundef %432, ptr noundef %433) #12
-  br label %2368
-
-435:                                              ; preds = %92
-  %436 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %437 = load ptr, ptr %436, align 8
-  %438 = call zeroext i1 @zend_handle_encoding_declaration(ptr noundef %437) #12
-  br i1 %438, label %2368, label %2422
-
-439:                                              ; preds = %92
-  %440 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %441 = load ptr, ptr %440, align 8
-  %442 = load ptr, ptr %.21591, align 8
-  %443 = call ptr @zend_ast_create_2(i16 noundef zeroext 538, ptr noundef %441, ptr noundef %442) #12
-  br label %2368
-
-444:                                              ; preds = %92
-  br label %2368
-
-445:                                              ; preds = %92
-  %446 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %447 = load ptr, ptr %446, align 8
-  %448 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %449 = load ptr, ptr %448, align 8
-  %450 = load ptr, ptr %.21591, align 8
-  %451 = call ptr @zend_ast_create_3(i16 noundef zeroext 772, ptr noundef %447, ptr noundef %449, ptr noundef %450) #12
-  br label %2368
-
-452:                                              ; preds = %92
-  %453 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %454 = load ptr, ptr %453, align 8
-  %455 = call ptr @zend_ast_create_1(i16 noundef zeroext 285, ptr noundef %454) #12
-  br label %2368
-
-456:                                              ; preds = %92
-  %457 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %458 = load ptr, ptr %457, align 8
-  %459 = call ptr @zend_ast_create_1(i16 noundef zeroext 280, ptr noundef %458) #12
-  br label %2368
-
-460:                                              ; preds = %92
-  %461 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 135) #12
-  br label %2368
-
-462:                                              ; preds = %92
-  %463 = getelementptr inbounds i8, ptr %.21591, i64 -64
-  %464 = load ptr, ptr %463, align 8
-  %465 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %466 = load ptr, ptr %465, align 8
-  %467 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %468 = load ptr, ptr %467, align 8
-  %469 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %470 = load ptr, ptr %469, align 8
-  %471 = call ptr @zend_ast_create_3(i16 noundef zeroext 773, ptr noundef %466, ptr noundef %468, ptr noundef %470) #12
-  %472 = call ptr @zend_ast_list_add(ptr noundef %464, ptr noundef %471) #12
-  br label %2368
-
-473:                                              ; preds = %92
-  %474 = load ptr, ptr %.21591, align 8
-  %475 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 141, ptr noundef %474) #12
-  br label %2368
-
-476:                                              ; preds = %92
-  %477 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %478 = load ptr, ptr %477, align 8
-  %479 = load ptr, ptr %.21591, align 8
-  %480 = call ptr @zend_ast_list_add(ptr noundef %478, ptr noundef %479) #12
-  br label %2368
-
-481:                                              ; preds = %92
-  br label %2368
-
-482:                                              ; preds = %92
-  %483 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-484:                                              ; preds = %92
-  br label %2368
-
-485:                                              ; preds = %92
-  %486 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %487 = load ptr, ptr %486, align 8
-  br label %2368
-
-488:                                              ; preds = %92
-  %489 = load ptr, ptr %.21591, align 8
-  %490 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %489) #12
-  br label %2368
-
-491:                                              ; preds = %92
-  %492 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %493 = load ptr, ptr %492, align 8
-  %494 = load ptr, ptr %.21591, align 8
-  %495 = call ptr @zend_ast_list_add(ptr noundef %493, ptr noundef %494) #12
-  br label %2368
-
-496:                                              ; preds = %92
-  %497 = load ptr, ptr %.21591, align 8
-  %498 = call ptr @zend_ast_create_1(i16 noundef zeroext 278, ptr noundef %497) #12
-  br label %2368
-
-499:                                              ; preds = %92
-  %500 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-501:                                              ; preds = %92
-  %502 = load ptr, ptr %.21591, align 8
-  %503 = call i32 @zend_lex_tstring(ptr noundef nonnull %8, ptr noundef %502) #12
-  %504 = icmp eq i32 %503, -1
-  br i1 %504, label %.loopexit.loopexit1717, label %505
-
-505:                                              ; preds = %501
-  %506 = call ptr @zend_ast_create_zval(ptr noundef nonnull %8) #12
-  br label %2368
-
-507:                                              ; preds = %92
-  %508 = getelementptr inbounds i8, ptr %.21591, i64 -88
-  %509 = load i64, ptr %508, align 8
-  %510 = load i64, ptr %.21591, align 8
-  %511 = or i64 %510, %509
-  %512 = trunc i64 %511 to i32
-  %513 = getelementptr inbounds i8, ptr %.21591, i64 -96
-  %514 = load i64, ptr %513, align 8
-  %515 = trunc i64 %514 to i32
-  %516 = getelementptr inbounds i8, ptr %.21591, i64 -72
-  %517 = load ptr, ptr %516, align 8
-  %518 = getelementptr inbounds i8, ptr %.21591, i64 -80
-  %519 = load ptr, ptr %518, align 8
-  %520 = load i16, ptr %519, align 8
-  %521 = icmp eq i16 %520, 64
-  call void @llvm.assume(i1 %521)
-  %522 = getelementptr inbounds i8, ptr %519, i64 8
-  %523 = load ptr, ptr %522, align 8
-  %524 = getelementptr inbounds i8, ptr %.21591, i64 -56
-  %525 = load ptr, ptr %524, align 8
-  %526 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %527 = load ptr, ptr %526, align 8
-  %528 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %529 = load ptr, ptr %528, align 8
-  %530 = call ptr @zend_ast_create_decl(i16 noundef zeroext 67, i32 noundef %512, i32 noundef %515, ptr noundef %517, ptr noundef %523, ptr noundef %525, ptr noundef null, ptr noundef %527, ptr noundef %529, ptr noundef null) #12
-  %531 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %532 = load i64, ptr %531, align 8
-  %533 = trunc i64 %532 to i32
-  store i32 %533, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  br label %2368
-
-534:                                              ; preds = %92
-  br label %2368
-
-535:                                              ; preds = %92
-  br label %2368
-
-536:                                              ; preds = %92
-  br label %2368
-
-537:                                              ; preds = %92
-  br label %2368
-
-538:                                              ; preds = %92
-  %539 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %540 = sext i32 %539 to i64
-  %541 = inttoptr i64 %540 to ptr
-  br label %2368
-
-542:                                              ; preds = %92
-  %543 = getelementptr inbounds i8, ptr %.21591, i64 -72
-  %544 = load i64, ptr %543, align 8
-  %545 = trunc i64 %544 to i32
-  %546 = getelementptr inbounds i8, ptr %.21591, i64 -56
-  %547 = load i64, ptr %546, align 8
-  %548 = trunc i64 %547 to i32
-  %549 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %550 = load ptr, ptr %549, align 8
-  %551 = getelementptr inbounds i8, ptr %.21591, i64 -48
-  %552 = load ptr, ptr %551, align 8
-  %553 = load i16, ptr %552, align 8
-  %554 = icmp eq i16 %553, 64
-  call void @llvm.assume(i1 %554)
-  %555 = getelementptr inbounds i8, ptr %552, i64 8
-  %556 = load ptr, ptr %555, align 8
-  %557 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %558 = load ptr, ptr %557, align 8
-  %559 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %560 = load ptr, ptr %559, align 8
-  %561 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %562 = load ptr, ptr %561, align 8
-  %563 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef %545, i32 noundef %548, ptr noundef %550, ptr noundef %556, ptr noundef %558, ptr noundef %560, ptr noundef %562, ptr noundef null, ptr noundef null) #12
-  br label %2368
-
-564:                                              ; preds = %92
-  %565 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %566 = sext i32 %565 to i64
-  %567 = inttoptr i64 %566 to ptr
-  br label %2368
-
-568:                                              ; preds = %92
-  %569 = getelementptr inbounds i8, ptr %.21591, i64 -56
-  %570 = load i64, ptr %569, align 8
-  %571 = trunc i64 %570 to i32
-  %572 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %573 = load ptr, ptr %572, align 8
-  %574 = getelementptr inbounds i8, ptr %.21591, i64 -48
-  %575 = load ptr, ptr %574, align 8
-  %576 = load i16, ptr %575, align 8
-  %577 = icmp eq i16 %576, 64
-  call void @llvm.assume(i1 %577)
-  %578 = getelementptr inbounds i8, ptr %575, i64 8
-  %579 = load ptr, ptr %578, align 8
-  %580 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %581 = load ptr, ptr %580, align 8
-  %582 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %583 = load ptr, ptr %582, align 8
-  %584 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %585 = load ptr, ptr %584, align 8
-  %586 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 0, i32 noundef %571, ptr noundef %573, ptr noundef %579, ptr noundef %581, ptr noundef %583, ptr noundef %585, ptr noundef null, ptr noundef null) #12
-  br label %2368
-
-587:                                              ; preds = %92
-  %588 = load i64, ptr %.21591, align 8
-  %589 = inttoptr i64 %588 to ptr
-  br label %2368
-
-590:                                              ; preds = %92
-  %591 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %592 = load i64, ptr %591, align 8
-  %593 = trunc i64 %592 to i32
-  %594 = load i64, ptr %.21591, align 8
-  %595 = trunc i64 %594 to i32
-  %596 = call i32 @zend_add_class_modifier(i32 noundef %593, i32 noundef %595) #12
-  %597 = zext i32 %596 to i64
-  %598 = inttoptr i64 %597 to ptr
-  %.not1660 = icmp eq i32 %596, 0
-  br i1 %.not1660, label %2422, label %2368
-
-599:                                              ; preds = %92
-  %600 = load i64, ptr %.21591, align 8
-  %601 = trunc i64 %600 to i32
-  %602 = call i32 @zend_add_anonymous_class_modifier(i32 noundef 0, i32 noundef %601) #12
-  %603 = zext i32 %602 to i64
-  %604 = inttoptr i64 %603 to ptr
-  %.not1659 = icmp eq i32 %602, 0
-  br i1 %.not1659, label %2422, label %2368
-
-605:                                              ; preds = %92
-  %606 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %607 = load i64, ptr %606, align 8
-  %608 = trunc i64 %607 to i32
-  %609 = load i64, ptr %.21591, align 8
-  %610 = trunc i64 %609 to i32
-  %611 = call i32 @zend_add_anonymous_class_modifier(i32 noundef %608, i32 noundef %610) #12
-  %612 = zext i32 %611 to i64
-  %613 = inttoptr i64 %612 to ptr
-  %.not1658 = icmp eq i32 %611, 0
-  br i1 %.not1658, label %2422, label %2368
-
-614:                                              ; preds = %92
-  br label %2368
-
-615:                                              ; preds = %92
-  %616 = load i64, ptr %.21591, align 8
-  %617 = inttoptr i64 %616 to ptr
-  br label %2368
-
-618:                                              ; preds = %92
-  br label %2368
-
-619:                                              ; preds = %92
-  br label %2368
-
-620:                                              ; preds = %92
-  br label %2368
-
-621:                                              ; preds = %92
-  %622 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %623 = sext i32 %622 to i64
-  %624 = inttoptr i64 %623 to ptr
-  br label %2368
-
-625:                                              ; preds = %92
-  %626 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %627 = load i64, ptr %626, align 8
-  %628 = trunc i64 %627 to i32
-  %629 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %630 = load ptr, ptr %629, align 8
-  %631 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %632 = load ptr, ptr %631, align 8
-  %633 = load i16, ptr %632, align 8
-  %634 = icmp eq i16 %633, 64
-  call void @llvm.assume(i1 %634)
-  %635 = getelementptr inbounds i8, ptr %632, i64 8
-  %636 = load ptr, ptr %635, align 8
-  %637 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %638 = load ptr, ptr %637, align 8
-  %639 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 2, i32 noundef %628, ptr noundef %630, ptr noundef %636, ptr noundef null, ptr noundef null, ptr noundef %638, ptr noundef null, ptr noundef null) #12
-  br label %2368
-
-640:                                              ; preds = %92
-  %641 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %642 = sext i32 %641 to i64
-  %643 = inttoptr i64 %642 to ptr
-  br label %2368
-
-644:                                              ; preds = %92
-  %645 = getelementptr inbounds i8, ptr %.21591, i64 -48
-  %646 = load i64, ptr %645, align 8
-  %647 = trunc i64 %646 to i32
-  %648 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %649 = load ptr, ptr %648, align 8
-  %650 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %651 = load ptr, ptr %650, align 8
-  %652 = load i16, ptr %651, align 8
-  %653 = icmp eq i16 %652, 64
-  call void @llvm.assume(i1 %653)
-  %654 = getelementptr inbounds i8, ptr %651, i64 8
-  %655 = load ptr, ptr %654, align 8
-  %656 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %657 = load ptr, ptr %656, align 8
-  %658 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %659 = load ptr, ptr %658, align 8
-  %660 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 1, i32 noundef %647, ptr noundef %649, ptr noundef %655, ptr noundef null, ptr noundef %657, ptr noundef %659, ptr noundef null, ptr noundef null) #12
-  br label %2368
-
-661:                                              ; preds = %92
-  %662 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %663 = sext i32 %662 to i64
-  %664 = inttoptr i64 %663 to ptr
-  br label %2368
-
-665:                                              ; preds = %92
-  %666 = getelementptr inbounds i8, ptr %.21591, i64 -56
-  %667 = load i64, ptr %666, align 8
-  %668 = trunc i64 %667 to i32
-  %669 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %670 = load ptr, ptr %669, align 8
-  %671 = getelementptr inbounds i8, ptr %.21591, i64 -48
-  %672 = load ptr, ptr %671, align 8
-  %673 = load i16, ptr %672, align 8
-  %674 = icmp eq i16 %673, 64
-  call void @llvm.assume(i1 %674)
-  %675 = getelementptr inbounds i8, ptr %672, i64 8
-  %676 = load ptr, ptr %675, align 8
-  %677 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %678 = load ptr, ptr %677, align 8
-  %679 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %680 = load ptr, ptr %679, align 8
-  %681 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %682 = load ptr, ptr %681, align 8
-  %683 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 268435488, i32 noundef %668, ptr noundef %670, ptr noundef %676, ptr noundef null, ptr noundef %678, ptr noundef %680, ptr noundef null, ptr noundef %682) #12
-  br label %2368
-
-684:                                              ; preds = %92
-  br label %2368
-
-685:                                              ; preds = %92
-  %686 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-687:                                              ; preds = %92
-  %688 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %689 = load ptr, ptr %688, align 8
-  %690 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %691 = load ptr, ptr %690, align 8
-  %692 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %693 = load ptr, ptr %692, align 8
-  %.not1657 = icmp eq ptr %693, null
-  br i1 %.not1657, label %696, label %694
-
-694:                                              ; preds = %687
-  %695 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %693) #12
-  br label %696
-
-696:                                              ; preds = %687, %694
-  %697 = phi ptr [ %695, %694 ], [ null, %687 ]
-  %698 = call ptr @zend_ast_create_4(i16 noundef zeroext 1026, ptr noundef %689, ptr noundef %691, ptr noundef %697, ptr noundef null) #12
-  br label %2368
-
-699:                                              ; preds = %92
-  br label %2368
-
-700:                                              ; preds = %92
-  %701 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-702:                                              ; preds = %92
-  br label %2368
-
-703:                                              ; preds = %92
-  %704 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-705:                                              ; preds = %92
-  br label %2368
-
-706:                                              ; preds = %92
-  %707 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-708:                                              ; preds = %92
-  br label %2368
-
-709:                                              ; preds = %92
-  %710 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-711:                                              ; preds = %92
-  %712 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-713:                                              ; preds = %92
-  %714 = load ptr, ptr %.21591, align 8
-  %715 = call ptr @zend_ast_create_1(i16 noundef zeroext 281, ptr noundef %714) #12
-  br label %2368
-
-716:                                              ; preds = %92
-  %717 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %718 = load ptr, ptr %717, align 8
-  %719 = getelementptr inbounds i8, ptr %718, i64 2
-  store i16 1, ptr %719, align 2
-  br label %2368
-
-720:                                              ; preds = %92
-  %721 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %722 = load ptr, ptr %721, align 8
-  %723 = getelementptr inbounds i8, ptr %722, i64 2
-  store i16 3, ptr %723, align 2
-  br label %2368
-
-724:                                              ; preds = %92
-  %725 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-726:                                              ; preds = %92
-  %727 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %728 = load ptr, ptr %727, align 8
-  br label %2368
-
-729:                                              ; preds = %92
-  %730 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-731:                                              ; preds = %92
-  %732 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %733 = load ptr, ptr %732, align 8
-  br label %2368
-
-734:                                              ; preds = %92
-  %735 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-736:                                              ; preds = %92
-  %737 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %738 = load ptr, ptr %737, align 8
-  br label %2368
-
-739:                                              ; preds = %92
-  %740 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %741 = load ptr, ptr %740, align 8
-  br label %2368
-
-742:                                              ; preds = %92
-  %743 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %744 = load ptr, ptr %743, align 8
-  br label %2368
-
-745:                                              ; preds = %92
-  %746 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %747 = load ptr, ptr %746, align 8
-  br label %2368
-
-748:                                              ; preds = %92
-  %749 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %750 = load ptr, ptr %749, align 8
-  br label %2368
-
-751:                                              ; preds = %92
-  %752 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 134) #12
-  br label %2368
-
-753:                                              ; preds = %92
-  %754 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %755 = load ptr, ptr %754, align 8
-  %756 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %757 = load ptr, ptr %756, align 8
-  %758 = load ptr, ptr %.21591, align 8
-  %759 = call ptr @zend_ast_create_2(i16 noundef zeroext 537, ptr noundef %757, ptr noundef %758) #12
-  %760 = call ptr @zend_ast_list_add(ptr noundef %755, ptr noundef %759) #12
-  br label %2368
-
-761:                                              ; preds = %92
-  %762 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %763 = load ptr, ptr %762, align 8
-  %764 = load ptr, ptr %.21591, align 8
-  %765 = call ptr @zend_ast_create_2(i16 noundef zeroext 537, ptr noundef null, ptr noundef %764) #12
-  %766 = call ptr @zend_ast_list_add(ptr noundef %763, ptr noundef %765) #12
-  br label %2368
-
-767:                                              ; preds = %92
-  %768 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %769 = load ptr, ptr %768, align 8
-  %770 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %771 = load ptr, ptr %770, align 8
-  %772 = call ptr @zend_ast_create_2(i16 noundef zeroext 547, ptr noundef %769, ptr noundef %771) #12
-  br label %2368
-
-773:                                              ; preds = %92
-  %774 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 148) #12
-  br label %2368
-
-775:                                              ; preds = %92
-  %776 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %777 = load ptr, ptr %776, align 8
-  br label %2368
-
-778:                                              ; preds = %92
-  %779 = load ptr, ptr %.21591, align 8
-  %780 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 148, ptr noundef %779) #12
-  br label %2368
-
-781:                                              ; preds = %92
-  %782 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %783 = load ptr, ptr %782, align 8
-  %784 = load ptr, ptr %.21591, align 8
-  %785 = call ptr @zend_ast_list_add(ptr noundef %783, ptr noundef %784) #12
-  br label %2368
-
-786:                                              ; preds = %92
-  %787 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %788 = load ptr, ptr %787, align 8
-  %789 = load ptr, ptr %.21591, align 8
-  %790 = call ptr @zend_ast_create_2(i16 noundef zeroext 548, ptr noundef %788, ptr noundef %789) #12
-  br label %2368
-
-791:                                              ; preds = %92
-  %792 = load ptr, ptr %.21591, align 8
-  %793 = call ptr @zend_ast_create_2(i16 noundef zeroext 548, ptr noundef null, ptr noundef %792) #12
-  br label %2368
-
-794:                                              ; preds = %92
-  %795 = load ptr, ptr %.21591, align 8
-  %796 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 131, ptr noundef %795) #12
-  br label %2368
-
-797:                                              ; preds = %92
-  %798 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %799 = load ptr, ptr %798, align 8
-  %800 = load ptr, ptr %.21591, align 8
-  %801 = call ptr @zend_ast_list_add(ptr noundef %799, ptr noundef %800) #12
-  br label %2368
-
-802:                                              ; preds = %92
-  %803 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-804:                                              ; preds = %92
-  %805 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %806 = load ptr, ptr %805, align 8
-  br label %2368
-
-807:                                              ; preds = %92
-  %808 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %809 = load ptr, ptr %808, align 8
-  %810 = load ptr, ptr %.21591, align 8
-  %811 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %809, ptr noundef %810) #12
-  %812 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 133, ptr noundef %811) #12
-  br label %2368
-
-813:                                              ; preds = %92
-  %814 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %815 = load ptr, ptr %814, align 8
-  %816 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %817 = load ptr, ptr %816, align 8
-  %818 = load ptr, ptr %.21591, align 8
-  %819 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %817, ptr noundef %818) #12
-  %820 = call ptr @zend_ast_list_add(ptr noundef %815, ptr noundef %819) #12
-  br label %2368
-
-821:                                              ; preds = %92
-  %822 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-823:                                              ; preds = %92
-  %824 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %825 = load ptr, ptr %824, align 8
-  %826 = load ptr, ptr %.21591, align 8
-  %827 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef null, ptr noundef %826) #12
-  %828 = call ptr @zend_ast_list_add(ptr noundef %825, ptr noundef %827) #12
-  br label %2368
-
-829:                                              ; preds = %92
-  %830 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %831 = load ptr, ptr %830, align 8
-  %832 = load ptr, ptr %.21591, align 8
-  %833 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %831, ptr noundef %832) #12
-  %834 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 133, ptr noundef %833) #12
-  br label %2368
-
-835:                                              ; preds = %92
-  %836 = getelementptr inbounds i8, ptr %.21591, i64 -48
-  %837 = load ptr, ptr %836, align 8
-  %838 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %839 = load ptr, ptr %838, align 8
-  %840 = load ptr, ptr %.21591, align 8
-  %841 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %839, ptr noundef %840) #12
-  %842 = call ptr @zend_ast_list_add(ptr noundef %837, ptr noundef %841) #12
-  br label %2368
-
-843:                                              ; preds = %92
-  %844 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %845 = load ptr, ptr %844, align 8
-  br label %2368
-
-846:                                              ; preds = %92
-  %847 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %848 = load ptr, ptr %847, align 8
-  %849 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %850 = load ptr, ptr %849, align 8
-  %851 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef null, ptr noundef %850) #12
-  %852 = call ptr @zend_ast_list_add(ptr noundef %848, ptr noundef %851) #12
-  br label %2368
-
-853:                                              ; preds = %92
-  %854 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %855 = load ptr, ptr %854, align 8
-  br label %2368
-
-856:                                              ; preds = %92
-  %857 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 136) #12
-  br label %2368
-
-858:                                              ; preds = %92
-  %859 = load ptr, ptr %.21591, align 8
-  %860 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 136, ptr noundef %859) #12
-  br label %2368
-
-861:                                              ; preds = %92
-  %862 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %863 = load ptr, ptr %862, align 8
-  %864 = load ptr, ptr %.21591, align 8
-  %865 = call ptr @zend_ast_list_add(ptr noundef %863, ptr noundef %864) #12
-  br label %2368
-
-866:                                              ; preds = %92
-  %867 = load ptr, ptr %.21591, align 8
-  %868 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %869 = load ptr, ptr %868, align 8
-  %870 = call ptr @zend_ast_with_attributes(ptr noundef %867, ptr noundef %869) #12
-  br label %2368
-
-871:                                              ; preds = %92
-  %872 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-873:                                              ; preds = %92
-  br label %2368
-
-874:                                              ; preds = %92
-  %875 = load ptr, ptr %.21591, align 8
-  %876 = call i32 @zend_modifier_list_to_flags(i32 noundef 3, ptr noundef %875) #12
-  %877 = zext i32 %876 to i64
-  %878 = inttoptr i64 %877 to ptr
-  %.not1656 = icmp eq i32 %876, 0
-  br i1 %.not1656, label %2422, label %2368
-
-879:                                              ; preds = %92
-  %880 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %881 = load i64, ptr %880, align 8
-  %882 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %883 = load i64, ptr %882, align 8
-  %884 = or i64 %883, %881
-  %885 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %886 = load i64, ptr %885, align 8
-  %887 = or i64 %884, %886
-  %888 = trunc i64 %887 to i16
-  %889 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %890 = load ptr, ptr %889, align 8
-  %891 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %892 = load ptr, ptr %891, align 8
-  %893 = load ptr, ptr %.21591, align 8
-  %.not1655 = icmp eq ptr %893, null
-  br i1 %.not1655, label %896, label %894
-
-894:                                              ; preds = %879
-  %895 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %893) #12
-  br label %896
-
-896:                                              ; preds = %879, %894
-  %897 = phi ptr [ %895, %894 ], [ null, %879 ]
-  %898 = call ptr @zend_ast_create_5(i16 noundef zeroext 1280, ptr noundef %890, ptr noundef %892, ptr noundef null, ptr noundef null, ptr noundef %897) #12
-  %899 = getelementptr inbounds i8, ptr %898, i64 2
-  store i16 %888, ptr %899, align 2
-  br label %2368
-
-900:                                              ; preds = %92
-  %901 = getelementptr inbounds i8, ptr %.21591, i64 -56
-  %902 = load i64, ptr %901, align 8
-  %903 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %904 = load i64, ptr %903, align 8
-  %905 = or i64 %904, %902
-  %906 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %907 = load i64, ptr %906, align 8
-  %908 = or i64 %905, %907
-  %909 = trunc i64 %908 to i16
-  %910 = getelementptr inbounds i8, ptr %.21591, i64 -48
-  %911 = load ptr, ptr %910, align 8
-  %912 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %913 = load ptr, ptr %912, align 8
-  %914 = load ptr, ptr %.21591, align 8
-  %915 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %916 = load ptr, ptr %915, align 8
-  %.not1654 = icmp eq ptr %916, null
-  br i1 %.not1654, label %919, label %917
-
-917:                                              ; preds = %900
-  %918 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %916) #12
-  br label %919
-
-919:                                              ; preds = %900, %917
-  %920 = phi ptr [ %918, %917 ], [ null, %900 ]
-  %921 = call ptr @zend_ast_create_5(i16 noundef zeroext 1280, ptr noundef %911, ptr noundef %913, ptr noundef %914, ptr noundef null, ptr noundef %920) #12
-  %922 = getelementptr inbounds i8, ptr %921, i64 2
-  store i16 %909, ptr %922, align 2
-  br label %2368
-
-923:                                              ; preds = %92
-  br label %2368
-
-924:                                              ; preds = %92
-  %925 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-926:                                              ; preds = %92
-  %927 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-928:                                              ; preds = %92
-  %929 = load ptr, ptr %.21591, align 8
-  %930 = getelementptr inbounds i8, ptr %929, i64 2
-  %931 = load i16, ptr %930, align 2
-  %932 = or i16 %931, 256
-  store i16 %932, ptr %930, align 2
-  br label %2368
-
-933:                                              ; preds = %92
-  %934 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-935:                                              ; preds = %92
-  %936 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-937:                                              ; preds = %92
-  %938 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-939:                                              ; preds = %92
-  %940 = call ptr @zend_ast_create_0(i16 noundef zeroext 1) #12
-  %941 = getelementptr inbounds i8, ptr %940, i64 2
-  store i16 15, ptr %941, align 2
-  br label %2368
-
-942:                                              ; preds = %92
-  %943 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-944:                                              ; preds = %92
-  %945 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %946 = load ptr, ptr %945, align 8
-  br label %2368
-
-947:                                              ; preds = %92
-  %948 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %949 = load ptr, ptr %948, align 8
-  %950 = load ptr, ptr %.21591, align 8
-  %951 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 144, ptr noundef %949, ptr noundef %950) #12
-  br label %2368
-
-952:                                              ; preds = %92
-  %953 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %954 = load ptr, ptr %953, align 8
-  %955 = load ptr, ptr %.21591, align 8
-  %956 = call ptr @zend_ast_list_add(ptr noundef %954, ptr noundef %955) #12
-  br label %2368
-
-957:                                              ; preds = %92
-  %958 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %959 = load ptr, ptr %958, align 8
-  %960 = load ptr, ptr %.21591, align 8
-  %961 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 145, ptr noundef %959, ptr noundef %960) #12
-  br label %2368
-
-962:                                              ; preds = %92
-  %963 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %964 = load ptr, ptr %963, align 8
-  %965 = load ptr, ptr %.21591, align 8
-  %966 = call ptr @zend_ast_list_add(ptr noundef %964, ptr noundef %965) #12
-  br label %2368
-
-967:                                              ; preds = %92
-  %968 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-969:                                              ; preds = %92
-  %970 = load ptr, ptr %.21591, align 8
-  %971 = getelementptr inbounds i8, ptr %970, i64 2
-  %972 = load i16, ptr %971, align 2
-  %973 = or i16 %972, 256
-  store i16 %973, ptr %971, align 2
-  br label %2368
-
-974:                                              ; preds = %92
-  %975 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-976:                                              ; preds = %92
-  %977 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-978:                                              ; preds = %92
-  %979 = call ptr @zend_ast_create_0(i16 noundef zeroext 1) #12
-  %980 = getelementptr inbounds i8, ptr %979, i64 2
-  store i16 7, ptr %980, align 2
-  br label %2368
-
-981:                                              ; preds = %92
-  %982 = call ptr @zend_ast_create_0(i16 noundef zeroext 1) #12
-  %983 = getelementptr inbounds i8, ptr %982, i64 2
-  store i16 12, ptr %983, align 2
-  br label %2368
-
-984:                                              ; preds = %92
-  %985 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-986:                                              ; preds = %92
-  %987 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-988:                                              ; preds = %92
-  %989 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %990 = load ptr, ptr %989, align 8
-  br label %2368
-
-991:                                              ; preds = %92
-  %992 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %993 = load ptr, ptr %992, align 8
-  %994 = load ptr, ptr %.21591, align 8
-  %995 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 144, ptr noundef %993, ptr noundef %994) #12
-  br label %2368
-
-996:                                              ; preds = %92
-  %997 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %998 = load ptr, ptr %997, align 8
-  %999 = load ptr, ptr %.21591, align 8
-  %1000 = call ptr @zend_ast_list_add(ptr noundef %998, ptr noundef %999) #12
-  br label %2368
-
-1001:                                             ; preds = %92
-  %1002 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1003 = load ptr, ptr %1002, align 8
-  %1004 = load ptr, ptr %.21591, align 8
-  %1005 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 145, ptr noundef %1003, ptr noundef %1004) #12
-  br label %2368
-
-1006:                                             ; preds = %92
-  %1007 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1008 = load ptr, ptr %1007, align 8
-  %1009 = load ptr, ptr %.21591, align 8
-  %1010 = call ptr @zend_ast_list_add(ptr noundef %1008, ptr noundef %1009) #12
-  br label %2368
-
-1011:                                             ; preds = %92
-  br label %2368
-
-1012:                                             ; preds = %92
-  %1013 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1014:                                             ; preds = %92
-  %1015 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 128) #12
-  br label %2368
-
-1016:                                             ; preds = %92
-  %1017 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1018 = load ptr, ptr %1017, align 8
-  br label %2368
-
-1019:                                             ; preds = %92
-  %1020 = call ptr @zend_ast_create_0(i16 noundef zeroext 3) #12
-  br label %2368
-
-1021:                                             ; preds = %92
-  %1022 = load ptr, ptr %.21591, align 8
-  %1023 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 128, ptr noundef %1022) #12
-  br label %2368
-
-1024:                                             ; preds = %92
-  %1025 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1026 = load ptr, ptr %1025, align 8
-  %1027 = load ptr, ptr %.21591, align 8
-  %1028 = call ptr @zend_ast_list_add(ptr noundef %1026, ptr noundef %1027) #12
-  br label %2368
-
-1029:                                             ; preds = %92
-  %1030 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1031:                                             ; preds = %92
-  %1032 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1033 = load ptr, ptr %1032, align 8
-  %1034 = load ptr, ptr %.21591, align 8
-  %1035 = call ptr @zend_ast_create_2(i16 noundef zeroext 549, ptr noundef %1033, ptr noundef %1034) #12
-  br label %2368
-
-1036:                                             ; preds = %92
-  %1037 = load ptr, ptr %.21591, align 8
-  %1038 = call ptr @zend_ast_create_1(i16 noundef zeroext 258, ptr noundef %1037) #12
-  br label %2368
-
-1039:                                             ; preds = %92
-  %1040 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1041 = load ptr, ptr %1040, align 8
-  %1042 = load ptr, ptr %.21591, align 8
-  %1043 = call ptr @zend_ast_list_add(ptr noundef %1041, ptr noundef %1042) #12
-  br label %2368
-
-1044:                                             ; preds = %92
-  %1045 = load ptr, ptr %.21591, align 8
-  %1046 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %1045) #12
-  br label %2368
-
-1047:                                             ; preds = %92
-  %1048 = load ptr, ptr %.21591, align 8
-  %1049 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %1048) #12
-  %1050 = call ptr @zend_ast_create_1(i16 noundef zeroext 277, ptr noundef %1049) #12
-  br label %2368
-
-1051:                                             ; preds = %92
-  %1052 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1053 = load ptr, ptr %1052, align 8
-  %1054 = load ptr, ptr %.21591, align 8
-  %1055 = call ptr @zend_ast_list_add(ptr noundef %1053, ptr noundef %1054) #12
-  br label %2368
-
-1056:                                             ; preds = %92
-  %1057 = load ptr, ptr %.21591, align 8
-  %1058 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %1057) #12
-  br label %2368
-
-1059:                                             ; preds = %92
-  %1060 = load ptr, ptr %.21591, align 8
-  %1061 = call ptr @zend_ast_create_2(i16 noundef zeroext 532, ptr noundef %1060, ptr noundef null) #12
-  br label %2368
-
-1062:                                             ; preds = %92
-  %1063 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1064 = load ptr, ptr %1063, align 8
-  %1065 = load ptr, ptr %.21591, align 8
-  %1066 = call ptr @zend_ast_create_2(i16 noundef zeroext 532, ptr noundef %1064, ptr noundef %1065) #12
-  br label %2368
-
-1067:                                             ; preds = %92
-  %1068 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1069 = load ptr, ptr %1068, align 8
-  %1070 = load ptr, ptr %.21591, align 8
-  %1071 = call ptr @zend_ast_list_add(ptr noundef %1069, ptr noundef %1070) #12
-  br label %2368
-
-1072:                                             ; preds = %92
-  %1073 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 132) #12
-  br label %2368
-
-1074:                                             ; preds = %92
-  %1075 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1076 = load ptr, ptr %1075, align 8
-  %1077 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1078 = load ptr, ptr %1077, align 8
-  %1079 = call ptr @zend_ast_create_3(i16 noundef zeroext 774, ptr noundef %1076, ptr noundef %1078, ptr noundef null) #12
-  %1080 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1081 = load i64, ptr %1080, align 8
-  %1082 = trunc i64 %1081 to i16
-  %1083 = getelementptr inbounds i8, ptr %1079, i64 2
-  store i16 %1082, ptr %1083, align 2
-  br label %2368
-
-1084:                                             ; preds = %92
-  %1085 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1086 = load ptr, ptr %1085, align 8
-  %1087 = call ptr @zend_ast_create_3(i16 noundef zeroext 777, ptr noundef %1086, ptr noundef null, ptr noundef null) #12
-  %1088 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1089 = load i64, ptr %1088, align 8
-  %1090 = trunc i64 %1089 to i16
-  %1091 = getelementptr inbounds i8, ptr %1087, i64 2
-  store i16 %1090, ptr %1091, align 2
-  br label %2368
-
-1092:                                             ; preds = %92
-  %1093 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1094 = load ptr, ptr %1093, align 8
-  %1095 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1096 = load ptr, ptr %1095, align 8
-  %1097 = call ptr @zend_ast_create_3(i16 noundef zeroext 777, ptr noundef %1094, ptr noundef null, ptr noundef %1096) #12
-  %1098 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %1099 = load i64, ptr %1098, align 8
-  %1100 = trunc i64 %1099 to i16
-  %1101 = getelementptr inbounds i8, ptr %1097, i64 2
-  store i16 %1100, ptr %1101, align 2
-  br label %2368
-
-1102:                                             ; preds = %92
-  %1103 = getelementptr inbounds i8, ptr %.21591, i64 -72
-  %1104 = load i64, ptr %1103, align 8
-  %1105 = getelementptr inbounds i8, ptr %.21591, i64 -88
-  %1106 = load i64, ptr %1105, align 8
-  %1107 = or i64 %1106, %1104
-  %1108 = load i64, ptr %.21591, align 8
-  %1109 = or i64 %1107, %1108
-  %1110 = trunc i64 %1109 to i32
-  %1111 = getelementptr inbounds i8, ptr %.21591, i64 -80
-  %1112 = load i64, ptr %1111, align 8
-  %1113 = trunc i64 %1112 to i32
-  %1114 = getelementptr inbounds i8, ptr %.21591, i64 -56
-  %1115 = load ptr, ptr %1114, align 8
-  %1116 = getelementptr inbounds i8, ptr %.21591, i64 -64
-  %1117 = load ptr, ptr %1116, align 8
-  %1118 = load i16, ptr %1117, align 8
-  %1119 = icmp eq i16 %1118, 64
-  call void @llvm.assume(i1 %1119)
-  %1120 = getelementptr inbounds i8, ptr %1117, i64 8
-  %1121 = load ptr, ptr %1120, align 8
-  %1122 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %1123 = load ptr, ptr %1122, align 8
-  %1124 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1125 = load ptr, ptr %1124, align 8
-  %1126 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1127 = load ptr, ptr %1126, align 8
-  %1128 = call ptr @zend_ast_create_decl(i16 noundef zeroext 69, i32 noundef %1110, i32 noundef %1113, ptr noundef %1115, ptr noundef %1121, ptr noundef %1123, ptr noundef null, ptr noundef %1125, ptr noundef %1127, ptr noundef null) #12
-  %1129 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1130 = load i64, ptr %1129, align 8
-  %1131 = trunc i64 %1130 to i32
-  store i32 %1131, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  br label %2368
-
-1132:                                             ; preds = %92
-  %1133 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1134:                                             ; preds = %92
-  %1135 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1136:                                             ; preds = %92
-  %1137 = load ptr, ptr %.21591, align 8
-  %1138 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1139 = load ptr, ptr %1138, align 8
-  %1140 = call ptr @zend_ast_with_attributes(ptr noundef %1137, ptr noundef %1139) #12
-  br label %2368
-
-1141:                                             ; preds = %92
-  %1142 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1143 = load ptr, ptr %1142, align 8
-  %1144 = load ptr, ptr %.21591, align 8
-  %1145 = call ptr @zend_ast_create_2(i16 noundef zeroext 539, ptr noundef %1143, ptr noundef %1144) #12
-  br label %2368
-
-1146:                                             ; preds = %92
-  %1147 = load ptr, ptr %.21591, align 8
-  %1148 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 141, ptr noundef %1147) #12
-  br label %2368
-
-1149:                                             ; preds = %92
-  %1150 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1151 = load ptr, ptr %1150, align 8
-  %1152 = load ptr, ptr %.21591, align 8
-  %1153 = call ptr @zend_ast_list_add(ptr noundef %1151, ptr noundef %1152) #12
-  br label %2368
-
-1154:                                             ; preds = %92
-  br label %2368
-
-1155:                                             ; preds = %92
-  br label %2368
-
-1156:                                             ; preds = %92
-  %1157 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1158 = load ptr, ptr %1157, align 8
-  br label %2368
-
-1159:                                             ; preds = %92
-  %1160 = load ptr, ptr %.21591, align 8
-  %1161 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 142, ptr noundef %1160) #12
-  br label %2368
-
-1162:                                             ; preds = %92
-  %1163 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1164 = load ptr, ptr %1163, align 8
-  %1165 = load ptr, ptr %.21591, align 8
-  %1166 = call ptr @zend_ast_list_add(ptr noundef %1164, ptr noundef %1165) #12
-  br label %2368
-
-1167:                                             ; preds = %92
-  %1168 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1169 = load ptr, ptr %1168, align 8
-  br label %2368
-
-1170:                                             ; preds = %92
-  %1171 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1172 = load ptr, ptr %1171, align 8
-  br label %2368
-
-1173:                                             ; preds = %92
-  %1174 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1175 = load ptr, ptr %1174, align 8
-  %1176 = load ptr, ptr %.21591, align 8
-  %1177 = call ptr @zend_ast_create_2(i16 noundef zeroext 540, ptr noundef %1175, ptr noundef %1176) #12
-  br label %2368
-
-1178:                                             ; preds = %92
-  %1179 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1180 = load ptr, ptr %1179, align 8
-  %1181 = load ptr, ptr %.21591, align 8
-  %1182 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %1180, ptr noundef %1181) #12
-  br label %2368
-
-1183:                                             ; preds = %92
-  %1184 = load ptr, ptr %.21591, align 8
-  %1185 = call i32 @zend_lex_tstring(ptr noundef nonnull %9, ptr noundef %1184) #12
-  %1186 = icmp eq i32 %1185, -1
-  br i1 %1186, label %.loopexit.loopexit1717, label %1187
-
-1187:                                             ; preds = %1183
-  %1188 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1189 = load ptr, ptr %1188, align 8
-  %1190 = call ptr @zend_ast_create_zval(ptr noundef nonnull %9) #12
-  %1191 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %1189, ptr noundef %1190) #12
-  br label %2368
-
-1192:                                             ; preds = %92
-  %1193 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1194 = load i64, ptr %1193, align 8
-  %1195 = trunc i64 %1194 to i32
-  %1196 = call i32 @zend_modifier_token_to_flag(i32 noundef 1, i32 noundef %1195) #12
-  %1197 = trunc i32 %1196 to i16
-  %1198 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1199 = load ptr, ptr %1198, align 8
-  %1200 = load ptr, ptr %.21591, align 8
-  %1201 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %1199, ptr noundef %1200) #12
-  %1202 = getelementptr inbounds i8, ptr %1201, i64 2
-  store i16 %1197, ptr %1202, align 2
-  %.not1653 = icmp eq i32 %1196, 0
-  br i1 %.not1653, label %1203, label %2368
-
-1203:                                             ; preds = %1192
-  call void @zend_ast_destroy(ptr noundef nonnull %1201) #12
-  br label %2422
-
-1204:                                             ; preds = %92
-  %1205 = load i64, ptr %.21591, align 8
-  %1206 = trunc i64 %1205 to i32
-  %1207 = call i32 @zend_modifier_token_to_flag(i32 noundef 1, i32 noundef %1206) #12
-  %1208 = trunc i32 %1207 to i16
-  %1209 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1210 = load ptr, ptr %1209, align 8
-  %1211 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %1210, ptr noundef null) #12
-  %1212 = getelementptr inbounds i8, ptr %1211, i64 2
-  store i16 %1208, ptr %1212, align 2
-  %.not1652 = icmp eq i32 %1207, 0
-  br i1 %.not1652, label %1213, label %2368
-
-1213:                                             ; preds = %1204
-  call void @zend_ast_destroy(ptr noundef nonnull %1211) #12
-  br label %2422
-
-1214:                                             ; preds = %92
-  %1215 = load ptr, ptr %.21591, align 8
-  %1216 = call ptr @zend_ast_create_2(i16 noundef zeroext 541, ptr noundef null, ptr noundef %1215) #12
-  br label %2368
-
-1217:                                             ; preds = %92
-  %1218 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1219:                                             ; preds = %92
-  %1220 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1221 = load ptr, ptr %1220, align 8
-  %1222 = load ptr, ptr %.21591, align 8
-  %1223 = call ptr @zend_ast_create_2(i16 noundef zeroext 541, ptr noundef %1221, ptr noundef %1222) #12
-  br label %2368
-
-1224:                                             ; preds = %92
-  br label %2368
-
-1225:                                             ; preds = %92
-  %1226 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1227 = load ptr, ptr %1226, align 8
-  br label %2368
-
-1228:                                             ; preds = %92
-  %1229 = load ptr, ptr %.21591, align 8
-  %1230 = call i32 @zend_modifier_list_to_flags(i32 noundef 0, ptr noundef %1229) #12
-  %1231 = zext i32 %1230 to i64
-  %1232 = inttoptr i64 %1231 to ptr
-  %.not1651 = icmp eq i32 %1230, 0
-  br i1 %.not1651, label %2422, label %2368
-
-1233:                                             ; preds = %92
-  br label %2368
-
-1234:                                             ; preds = %92
-  br label %2368
-
-1235:                                             ; preds = %92
-  %1236 = load ptr, ptr %.21591, align 8
-  %1237 = call i32 @zend_modifier_list_to_flags(i32 noundef 1, ptr noundef %1236) #12
-  %1238 = zext i32 %1237 to i64
-  %.not1649 = icmp eq i32 %1237, 0
-  br i1 %.not1649, label %2422, label %1239
-
-1239:                                             ; preds = %1235
-  %1240 = inttoptr i64 %1238 to ptr
-  %1241 = and i64 %1238, 7
-  %.not1650 = icmp eq i64 %1241, 0
-  br i1 %.not1650, label %1242, label %2368
-
-1242:                                             ; preds = %1239
-  %1243 = or disjoint i64 %1238, 1
-  %1244 = inttoptr i64 %1243 to ptr
-  br label %2368
-
-1245:                                             ; preds = %92
-  br label %2368
-
-1246:                                             ; preds = %92
-  %1247 = load ptr, ptr %.21591, align 8
-  %1248 = call i32 @zend_modifier_list_to_flags(i32 noundef 2, ptr noundef %1247) #12
-  %1249 = zext i32 %1248 to i64
-  %.not1647 = icmp eq i32 %1248, 0
-  br i1 %.not1647, label %2422, label %1250
-
-1250:                                             ; preds = %1246
-  %1251 = inttoptr i64 %1249 to ptr
-  %1252 = and i64 %1249, 7
-  %.not1648 = icmp eq i64 %1252, 0
-  br i1 %.not1648, label %1253, label %2368
-
-1253:                                             ; preds = %1250
-  %1254 = or disjoint i64 %1249, 1
-  %1255 = inttoptr i64 %1254 to ptr
-  br label %2368
-
-1256:                                             ; preds = %92
-  %1257 = load i64, ptr %.21591, align 8
-  %1258 = call ptr @zend_ast_create_zval_from_long(i64 noundef %1257) #12
-  %1259 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 149, ptr noundef %1258) #12
-  br label %2368
-
-1260:                                             ; preds = %92
-  %1261 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1262 = load ptr, ptr %1261, align 8
-  %1263 = load i64, ptr %.21591, align 8
-  %1264 = call ptr @zend_ast_create_zval_from_long(i64 noundef %1263) #12
-  %1265 = call ptr @zend_ast_list_add(ptr noundef %1262, ptr noundef %1264) #12
-  br label %2368
-
-1266:                                             ; preds = %92
-  br label %2368
-
-1267:                                             ; preds = %92
-  br label %2368
-
-1268:                                             ; preds = %92
-  br label %2368
-
-1269:                                             ; preds = %92
-  br label %2368
-
-1270:                                             ; preds = %92
-  br label %2368
-
-1271:                                             ; preds = %92
-  br label %2368
-
-1272:                                             ; preds = %92
-  br label %2368
-
-1273:                                             ; preds = %92
-  %1274 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1275 = load ptr, ptr %1274, align 8
-  %1276 = load ptr, ptr %.21591, align 8
-  %1277 = call ptr @zend_ast_list_add(ptr noundef %1275, ptr noundef %1276) #12
-  br label %2368
-
-1278:                                             ; preds = %92
-  %1279 = load ptr, ptr %.21591, align 8
-  %1280 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 138, ptr noundef %1279) #12
-  br label %2368
-
-1281:                                             ; preds = %92
-  %1282 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1283 = load ptr, ptr %1282, align 8
-  %1284 = load ptr, ptr %.21591, align 8
-  %.not1646 = icmp eq ptr %1284, null
-  br i1 %.not1646, label %1287, label %1285
-
-1285:                                             ; preds = %1281
-  %1286 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %1284) #12
-  br label %1287
-
-1287:                                             ; preds = %1281, %1285
-  %1288 = phi ptr [ %1286, %1285 ], [ null, %1281 ]
-  %1289 = call ptr @zend_ast_create_3(i16 noundef zeroext 775, ptr noundef %1283, ptr noundef null, ptr noundef %1288) #12
-  br label %2368
-
-1290:                                             ; preds = %92
-  %1291 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1292 = load ptr, ptr %1291, align 8
-  %1293 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1294 = load ptr, ptr %1293, align 8
-  %1295 = load ptr, ptr %.21591, align 8
-  %.not1645 = icmp eq ptr %1295, null
-  br i1 %.not1645, label %1298, label %1296
-
-1296:                                             ; preds = %1290
-  %1297 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %1295) #12
-  br label %1298
-
-1298:                                             ; preds = %1290, %1296
-  %1299 = phi ptr [ %1297, %1296 ], [ null, %1290 ]
-  %1300 = call ptr @zend_ast_create_3(i16 noundef zeroext 775, ptr noundef %1292, ptr noundef %1294, ptr noundef %1299) #12
-  br label %2368
-
-1301:                                             ; preds = %92
-  %1302 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1303 = load ptr, ptr %1302, align 8
-  %1304 = load ptr, ptr %.21591, align 8
-  %1305 = call ptr @zend_ast_list_add(ptr noundef %1303, ptr noundef %1304) #12
-  br label %2368
-
-1306:                                             ; preds = %92
-  %1307 = load ptr, ptr %.21591, align 8
-  %1308 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 140, ptr noundef %1307) #12
-  br label %2368
-
-1309:                                             ; preds = %92
-  %1310 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1311 = load ptr, ptr %1310, align 8
-  %1312 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1313 = load ptr, ptr %1312, align 8
-  %1314 = load ptr, ptr %.21591, align 8
-  %.not1644 = icmp eq ptr %1314, null
-  br i1 %.not1644, label %1317, label %1315
-
-1315:                                             ; preds = %1309
-  %1316 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %1314) #12
-  br label %1317
-
-1317:                                             ; preds = %1309, %1315
-  %1318 = phi ptr [ %1316, %1315 ], [ null, %1309 ]
-  %1319 = call ptr @zend_ast_create_3(i16 noundef zeroext 776, ptr noundef %1311, ptr noundef %1313, ptr noundef %1318) #12
-  br label %2368
-
-1320:                                             ; preds = %92
-  %1321 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1322 = load ptr, ptr %1321, align 8
-  %1323 = call i32 @zend_lex_tstring(ptr noundef nonnull %10, ptr noundef %1322) #12
-  %1324 = icmp eq i32 %1323, -1
-  br i1 %1324, label %.loopexit.loopexit1717, label %1325
-
-1325:                                             ; preds = %1320
-  %1326 = call ptr @zend_ast_create_zval(ptr noundef nonnull %10) #12
-  %1327 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1328 = load ptr, ptr %1327, align 8
-  %1329 = load ptr, ptr %.21591, align 8
-  %.not1643 = icmp eq ptr %1329, null
-  br i1 %.not1643, label %1332, label %1330
-
-1330:                                             ; preds = %1325
-  %1331 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %1329) #12
-  br label %1332
-
-1332:                                             ; preds = %1325, %1330
-  %1333 = phi ptr [ %1331, %1330 ], [ null, %1325 ]
-  %1334 = call ptr @zend_ast_create_3(i16 noundef zeroext 776, ptr noundef %1326, ptr noundef %1328, ptr noundef %1333) #12
-  br label %2368
-
-1335:                                             ; preds = %92
-  %1336 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1337 = load ptr, ptr %1336, align 8
-  %1338 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1339 = load ptr, ptr %1338, align 8
-  %1340 = load ptr, ptr %.21591, align 8
-  %.not1642 = icmp eq ptr %1340, null
-  br i1 %.not1642, label %1343, label %1341
-
-1341:                                             ; preds = %1335
-  %1342 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %1340) #12
-  br label %1343
-
-1343:                                             ; preds = %1335, %1341
-  %1344 = phi ptr [ %1342, %1341 ], [ null, %1335 ]
-  %1345 = call ptr @zend_ast_create_3(i16 noundef zeroext 776, ptr noundef %1337, ptr noundef %1339, ptr noundef %1344) #12
-  br label %2368
-
-1346:                                             ; preds = %92
-  %1347 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1348 = load ptr, ptr %1347, align 8
-  %1349 = load ptr, ptr %.21591, align 8
-  %1350 = call ptr @zend_ast_list_add(ptr noundef %1348, ptr noundef %1349) #12
-  br label %2368
-
-1351:                                             ; preds = %92
-  %1352 = load ptr, ptr %.21591, align 8
-  %1353 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %1352) #12
-  br label %2368
-
-1354:                                             ; preds = %92
-  %1355 = load ptr, ptr %.21591, align 8
-  %1356 = call ptr @zend_ast_create_1(i16 noundef zeroext 283, ptr noundef %1355) #12
-  br label %2368
-
-1357:                                             ; preds = %92
-  br label %2368
-
-1358:                                             ; preds = %92
-  %1359 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1360:                                             ; preds = %92
-  %1361 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1362 = load ptr, ptr %1361, align 8
-  %1363 = load ptr, ptr %.21591, align 8
-  %1364 = call ptr @zend_ast_list_add(ptr noundef %1362, ptr noundef %1363) #12
-  br label %2368
-
-1365:                                             ; preds = %92
-  %1366 = load ptr, ptr %.21591, align 8
-  %1367 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 131, ptr noundef %1366) #12
-  br label %2368
-
-1368:                                             ; preds = %92
-  %1369 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %1370 = sext i32 %1369 to i64
-  %1371 = inttoptr i64 %1370 to ptr
-  br label %2368
-
-1372:                                             ; preds = %92
-  %1373 = getelementptr inbounds i8, ptr %.21591, i64 -72
-  %1374 = load i64, ptr %1373, align 8
-  %1375 = trunc i64 %1374 to i32
-  %1376 = or i32 %1375, 4
-  %1377 = getelementptr inbounds i8, ptr %.21591, i64 -56
-  %1378 = load i64, ptr %1377, align 8
-  %1379 = trunc i64 %1378 to i32
-  %1380 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1381 = load ptr, ptr %1380, align 8
-  %1382 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %1383 = load ptr, ptr %1382, align 8
-  %1384 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %1385 = load ptr, ptr %1384, align 8
-  %1386 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1387 = load ptr, ptr %1386, align 8
-  %1388 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef %1376, i32 noundef %1379, ptr noundef %1381, ptr noundef null, ptr noundef %1383, ptr noundef %1385, ptr noundef %1387, ptr noundef null, ptr noundef null) #12
-  %1389 = getelementptr inbounds i8, ptr %.21591, i64 -48
-  %1390 = load ptr, ptr %1389, align 8
-  %1391 = call ptr @zend_ast_create_2(i16 noundef zeroext 527, ptr noundef %1388, ptr noundef %1390) #12
-  br label %2368
-
-1392:                                             ; preds = %92
-  %1393 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1394 = load ptr, ptr %1393, align 8
-  %1395 = load ptr, ptr %.21591, align 8
-  %1396 = call ptr @zend_ast_create_2(i16 noundef zeroext 527, ptr noundef %1394, ptr noundef %1395) #12
-  br label %2368
-
-1397:                                             ; preds = %92
-  %1398 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1399:                                             ; preds = %92
-  %1400 = load ptr, ptr %.21591, align 8
-  %1401 = getelementptr inbounds i8, ptr %1400, i64 8
-  %1402 = load ptr, ptr %1401, align 8
-  %1403 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1404 = load ptr, ptr %1403, align 8
-  %1405 = call ptr @zend_ast_with_attributes(ptr noundef %1402, ptr noundef %1404) #12
-  %1406 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1407:                                             ; preds = %92
-  %1408 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1409:                                             ; preds = %92
-  %1410 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1411 = load ptr, ptr %1410, align 8
-  %1412 = getelementptr inbounds i8, ptr %1411, i64 2
-  store i16 1, ptr %1412, align 2
-  %1413 = load ptr, ptr %1410, align 8
-  %1414 = load ptr, ptr %.21591, align 8
-  %1415 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef %1413, ptr noundef %1414) #12
-  br label %2368
-
-1416:                                             ; preds = %92
-  %1417 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1418 = load ptr, ptr %1417, align 8
-  %1419 = getelementptr inbounds i8, ptr %1418, i64 2
-  store i16 3, ptr %1419, align 2
-  %1420 = load ptr, ptr %1417, align 8
-  %1421 = load ptr, ptr %.21591, align 8
-  %1422 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef %1420, ptr noundef %1421) #12
-  br label %2368
-
-1423:                                             ; preds = %92
-  %1424 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1425 = load ptr, ptr %1424, align 8
-  %1426 = load ptr, ptr %.21591, align 8
-  %1427 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef %1425, ptr noundef %1426) #12
-  br label %2368
-
-1428:                                             ; preds = %92
-  %1429 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1430 = load ptr, ptr %1429, align 8
-  %1431 = load ptr, ptr %.21591, align 8
-  %1432 = call ptr @zend_ast_create_2(i16 noundef zeroext 519, ptr noundef %1430, ptr noundef %1431) #12
-  br label %2368
-
-1433:                                             ; preds = %92
-  %1434 = load ptr, ptr %.21591, align 8
-  %1435 = call ptr @zend_ast_create_1(i16 noundef zeroext 266, ptr noundef %1434) #12
-  br label %2368
-
-1436:                                             ; preds = %92
-  %1437 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1438 = load ptr, ptr %1437, align 8
-  %1439 = load ptr, ptr %.21591, align 8
-  %1440 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1438, ptr noundef %1439) #12
-  %1441 = getelementptr inbounds i8, ptr %1440, i64 2
-  store i16 1, ptr %1441, align 2
-  br label %2368
-
-1442:                                             ; preds = %92
-  %1443 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1444 = load ptr, ptr %1443, align 8
-  %1445 = load ptr, ptr %.21591, align 8
-  %1446 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1444, ptr noundef %1445) #12
-  %1447 = getelementptr inbounds i8, ptr %1446, i64 2
-  store i16 2, ptr %1447, align 2
-  br label %2368
-
-1448:                                             ; preds = %92
-  %1449 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1450 = load ptr, ptr %1449, align 8
-  %1451 = load ptr, ptr %.21591, align 8
-  %1452 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1450, ptr noundef %1451) #12
-  %1453 = getelementptr inbounds i8, ptr %1452, i64 2
-  store i16 3, ptr %1453, align 2
-  br label %2368
-
-1454:                                             ; preds = %92
-  %1455 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1456 = load ptr, ptr %1455, align 8
-  %1457 = load ptr, ptr %.21591, align 8
-  %1458 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1456, ptr noundef %1457) #12
-  %1459 = getelementptr inbounds i8, ptr %1458, i64 2
-  store i16 12, ptr %1459, align 2
-  br label %2368
-
-1460:                                             ; preds = %92
-  %1461 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1462 = load ptr, ptr %1461, align 8
-  %1463 = load ptr, ptr %.21591, align 8
-  %1464 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1462, ptr noundef %1463) #12
-  %1465 = getelementptr inbounds i8, ptr %1464, i64 2
-  store i16 4, ptr %1465, align 2
-  br label %2368
-
-1466:                                             ; preds = %92
-  %1467 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1468 = load ptr, ptr %1467, align 8
-  %1469 = load ptr, ptr %.21591, align 8
-  %1470 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1468, ptr noundef %1469) #12
-  %1471 = getelementptr inbounds i8, ptr %1470, i64 2
-  store i16 8, ptr %1471, align 2
-  br label %2368
-
-1472:                                             ; preds = %92
-  %1473 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1474 = load ptr, ptr %1473, align 8
-  %1475 = load ptr, ptr %.21591, align 8
-  %1476 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1474, ptr noundef %1475) #12
-  %1477 = getelementptr inbounds i8, ptr %1476, i64 2
-  store i16 5, ptr %1477, align 2
-  br label %2368
-
-1478:                                             ; preds = %92
-  %1479 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1480 = load ptr, ptr %1479, align 8
-  %1481 = load ptr, ptr %.21591, align 8
-  %1482 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1480, ptr noundef %1481) #12
-  %1483 = getelementptr inbounds i8, ptr %1482, i64 2
-  store i16 10, ptr %1483, align 2
-  br label %2368
-
-1484:                                             ; preds = %92
-  %1485 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1486 = load ptr, ptr %1485, align 8
-  %1487 = load ptr, ptr %.21591, align 8
-  %1488 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1486, ptr noundef %1487) #12
-  %1489 = getelementptr inbounds i8, ptr %1488, i64 2
-  store i16 9, ptr %1489, align 2
-  br label %2368
-
-1490:                                             ; preds = %92
-  %1491 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1492 = load ptr, ptr %1491, align 8
-  %1493 = load ptr, ptr %.21591, align 8
-  %1494 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1492, ptr noundef %1493) #12
-  %1495 = getelementptr inbounds i8, ptr %1494, i64 2
-  store i16 11, ptr %1495, align 2
-  br label %2368
-
-1496:                                             ; preds = %92
-  %1497 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1498 = load ptr, ptr %1497, align 8
-  %1499 = load ptr, ptr %.21591, align 8
-  %1500 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1498, ptr noundef %1499) #12
-  %1501 = getelementptr inbounds i8, ptr %1500, i64 2
-  store i16 6, ptr %1501, align 2
-  br label %2368
-
-1502:                                             ; preds = %92
-  %1503 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1504 = load ptr, ptr %1503, align 8
-  %1505 = load ptr, ptr %.21591, align 8
-  %1506 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1504, ptr noundef %1505) #12
-  %1507 = getelementptr inbounds i8, ptr %1506, i64 2
-  store i16 7, ptr %1507, align 2
-  br label %2368
-
-1508:                                             ; preds = %92
-  %1509 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1510 = load ptr, ptr %1509, align 8
-  %1511 = load ptr, ptr %.21591, align 8
-  %1512 = call ptr @zend_ast_create_2(i16 noundef zeroext 531, ptr noundef %1510, ptr noundef %1511) #12
-  br label %2368
-
-1513:                                             ; preds = %92
-  %1514 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1515 = load ptr, ptr %1514, align 8
-  %1516 = call ptr @zend_ast_create_1(i16 noundef zeroext 273, ptr noundef %1515) #12
-  br label %2368
-
-1517:                                             ; preds = %92
-  %1518 = load ptr, ptr %.21591, align 8
-  %1519 = call ptr @zend_ast_create_1(i16 noundef zeroext 271, ptr noundef %1518) #12
-  br label %2368
-
-1520:                                             ; preds = %92
-  %1521 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1522 = load ptr, ptr %1521, align 8
-  %1523 = call ptr @zend_ast_create_1(i16 noundef zeroext 274, ptr noundef %1522) #12
-  br label %2368
-
-1524:                                             ; preds = %92
-  %1525 = load ptr, ptr %.21591, align 8
-  %1526 = call ptr @zend_ast_create_1(i16 noundef zeroext 272, ptr noundef %1525) #12
-  br label %2368
-
-1527:                                             ; preds = %92
-  %1528 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1529 = load ptr, ptr %1528, align 8
-  %1530 = load ptr, ptr %.21591, align 8
-  %1531 = call ptr @zend_ast_create_2(i16 noundef zeroext 525, ptr noundef %1529, ptr noundef %1530) #12
-  br label %2368
-
-1532:                                             ; preds = %92
-  %1533 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1534 = load ptr, ptr %1533, align 8
-  %1535 = load ptr, ptr %.21591, align 8
-  %1536 = call ptr @zend_ast_create_2(i16 noundef zeroext 524, ptr noundef %1534, ptr noundef %1535) #12
-  br label %2368
-
-1537:                                             ; preds = %92
-  %1538 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1539 = load ptr, ptr %1538, align 8
-  %1540 = load ptr, ptr %.21591, align 8
-  %1541 = call ptr @zend_ast_create_2(i16 noundef zeroext 525, ptr noundef %1539, ptr noundef %1540) #12
-  br label %2368
-
-1542:                                             ; preds = %92
-  %1543 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1544 = load ptr, ptr %1543, align 8
-  %1545 = load ptr, ptr %.21591, align 8
-  %1546 = call ptr @zend_ast_create_2(i16 noundef zeroext 524, ptr noundef %1544, ptr noundef %1545) #12
-  br label %2368
-
-1547:                                             ; preds = %92
-  %1548 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1549 = load ptr, ptr %1548, align 8
-  %1550 = load ptr, ptr %.21591, align 8
-  %1551 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1549, ptr noundef %1550) #12
-  %1552 = getelementptr inbounds i8, ptr %1551, i64 2
-  store i16 15, ptr %1552, align 2
-  br label %2368
-
-1553:                                             ; preds = %92
-  %1554 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1555 = load ptr, ptr %1554, align 8
-  %1556 = load ptr, ptr %.21591, align 8
-  %1557 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1555, ptr noundef %1556) #12
-  %1558 = getelementptr inbounds i8, ptr %1557, i64 2
-  store i16 9, ptr %1558, align 2
-  br label %2368
-
-1559:                                             ; preds = %92
-  %1560 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1561 = load ptr, ptr %1560, align 8
-  %1562 = load ptr, ptr %.21591, align 8
-  %1563 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1561, ptr noundef %1562) #12
-  %1564 = getelementptr inbounds i8, ptr %1563, i64 2
-  store i16 10, ptr %1564, align 2
-  br label %2368
-
-1565:                                             ; preds = %92
-  %1566 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1567 = load ptr, ptr %1566, align 8
-  %1568 = load ptr, ptr %.21591, align 8
-  %1569 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1567, ptr noundef %1568) #12
-  %1570 = getelementptr inbounds i8, ptr %1569, i64 2
-  store i16 10, ptr %1570, align 2
-  br label %2368
-
-1571:                                             ; preds = %92
-  %1572 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1573 = load ptr, ptr %1572, align 8
-  %1574 = load ptr, ptr %.21591, align 8
-  %1575 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1573, ptr noundef %1574) #12
-  %1576 = getelementptr inbounds i8, ptr %1575, i64 2
-  store i16 11, ptr %1576, align 2
-  br label %2368
-
-1577:                                             ; preds = %92
-  %1578 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1579 = load ptr, ptr %1578, align 8
-  %1580 = load ptr, ptr %.21591, align 8
-  %1581 = call ptr @zend_ast_create_concat_op(ptr noundef %1579, ptr noundef %1580) #12
-  br label %2368
-
-1582:                                             ; preds = %92
-  %1583 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1584 = load ptr, ptr %1583, align 8
-  %1585 = load ptr, ptr %.21591, align 8
-  %1586 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1584, ptr noundef %1585) #12
-  %1587 = getelementptr inbounds i8, ptr %1586, i64 2
-  store i16 1, ptr %1587, align 2
-  br label %2368
-
-1588:                                             ; preds = %92
-  %1589 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1590 = load ptr, ptr %1589, align 8
-  %1591 = load ptr, ptr %.21591, align 8
-  %1592 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1590, ptr noundef %1591) #12
-  %1593 = getelementptr inbounds i8, ptr %1592, i64 2
-  store i16 2, ptr %1593, align 2
-  br label %2368
-
-1594:                                             ; preds = %92
-  %1595 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1596 = load ptr, ptr %1595, align 8
-  %1597 = load ptr, ptr %.21591, align 8
-  %1598 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1596, ptr noundef %1597) #12
-  %1599 = getelementptr inbounds i8, ptr %1598, i64 2
-  store i16 3, ptr %1599, align 2
-  br label %2368
-
-1600:                                             ; preds = %92
-  %1601 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1602 = load ptr, ptr %1601, align 8
-  %1603 = load ptr, ptr %.21591, align 8
-  %1604 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1602, ptr noundef %1603) #12
-  %1605 = getelementptr inbounds i8, ptr %1604, i64 2
-  store i16 12, ptr %1605, align 2
-  br label %2368
-
-1606:                                             ; preds = %92
-  %1607 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1608 = load ptr, ptr %1607, align 8
-  %1609 = load ptr, ptr %.21591, align 8
-  %1610 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1608, ptr noundef %1609) #12
-  %1611 = getelementptr inbounds i8, ptr %1610, i64 2
-  store i16 4, ptr %1611, align 2
-  br label %2368
-
-1612:                                             ; preds = %92
-  %1613 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1614 = load ptr, ptr %1613, align 8
-  %1615 = load ptr, ptr %.21591, align 8
-  %1616 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1614, ptr noundef %1615) #12
-  %1617 = getelementptr inbounds i8, ptr %1616, i64 2
-  store i16 5, ptr %1617, align 2
-  br label %2368
-
-1618:                                             ; preds = %92
-  %1619 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1620 = load ptr, ptr %1619, align 8
-  %1621 = load ptr, ptr %.21591, align 8
-  %1622 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1620, ptr noundef %1621) #12
-  %1623 = getelementptr inbounds i8, ptr %1622, i64 2
-  store i16 6, ptr %1623, align 2
-  br label %2368
-
-1624:                                             ; preds = %92
-  %1625 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1626 = load ptr, ptr %1625, align 8
-  %1627 = load ptr, ptr %.21591, align 8
-  %1628 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1626, ptr noundef %1627) #12
-  %1629 = getelementptr inbounds i8, ptr %1628, i64 2
-  store i16 7, ptr %1629, align 2
-  br label %2368
-
-1630:                                             ; preds = %92
-  %1631 = load ptr, ptr %.21591, align 8
-  %1632 = call ptr @zend_ast_create_1(i16 noundef zeroext 259, ptr noundef %1631) #12
-  br label %2368
-
-1633:                                             ; preds = %92
-  %1634 = load ptr, ptr %.21591, align 8
-  %1635 = call ptr @zend_ast_create_1(i16 noundef zeroext 260, ptr noundef %1634) #12
-  br label %2368
-
-1636:                                             ; preds = %92
-  %1637 = load ptr, ptr %.21591, align 8
-  %1638 = call ptr @zend_ast_create_1(i16 noundef zeroext 270, ptr noundef %1637) #12
-  %1639 = getelementptr inbounds i8, ptr %1638, i64 2
-  store i16 14, ptr %1639, align 2
-  br label %2368
-
-1640:                                             ; preds = %92
-  %1641 = load ptr, ptr %.21591, align 8
-  %1642 = call ptr @zend_ast_create_1(i16 noundef zeroext 270, ptr noundef %1641) #12
-  %1643 = getelementptr inbounds i8, ptr %1642, i64 2
-  store i16 13, ptr %1643, align 2
-  br label %2368
-
-1644:                                             ; preds = %92
-  %1645 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1646 = load ptr, ptr %1645, align 8
-  %1647 = load ptr, ptr %.21591, align 8
-  %1648 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1646, ptr noundef %1647) #12
-  %1649 = getelementptr inbounds i8, ptr %1648, i64 2
-  store i16 16, ptr %1649, align 2
-  br label %2368
-
-1650:                                             ; preds = %92
-  %1651 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1652 = load ptr, ptr %1651, align 8
-  %1653 = load ptr, ptr %.21591, align 8
-  %1654 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1652, ptr noundef %1653) #12
-  %1655 = getelementptr inbounds i8, ptr %1654, i64 2
-  store i16 17, ptr %1655, align 2
-  br label %2368
-
-1656:                                             ; preds = %92
-  %1657 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1658 = load ptr, ptr %1657, align 8
-  %1659 = load ptr, ptr %.21591, align 8
-  %1660 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1658, ptr noundef %1659) #12
-  %1661 = getelementptr inbounds i8, ptr %1660, i64 2
-  store i16 18, ptr %1661, align 2
-  br label %2368
-
-1662:                                             ; preds = %92
-  %1663 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1664 = load ptr, ptr %1663, align 8
-  %1665 = load ptr, ptr %.21591, align 8
-  %1666 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1664, ptr noundef %1665) #12
-  %1667 = getelementptr inbounds i8, ptr %1666, i64 2
-  store i16 19, ptr %1667, align 2
-  br label %2368
-
-1668:                                             ; preds = %92
-  %1669 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1670 = load ptr, ptr %1669, align 8
-  %1671 = load ptr, ptr %.21591, align 8
-  %1672 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1670, ptr noundef %1671) #12
-  %1673 = getelementptr inbounds i8, ptr %1672, i64 2
-  store i16 20, ptr %1673, align 2
-  br label %2368
-
-1674:                                             ; preds = %92
-  %1675 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1676 = load ptr, ptr %1675, align 8
-  %1677 = load ptr, ptr %.21591, align 8
-  %1678 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1676, ptr noundef %1677) #12
-  %1679 = getelementptr inbounds i8, ptr %1678, i64 2
-  store i16 21, ptr %1679, align 2
-  br label %2368
-
-1680:                                             ; preds = %92
-  %1681 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1682 = load ptr, ptr %1681, align 8
-  %1683 = load ptr, ptr %.21591, align 8
-  %1684 = call ptr @zend_ast_create_2(i16 noundef zeroext 522, ptr noundef %1682, ptr noundef %1683) #12
-  br label %2368
-
-1685:                                             ; preds = %92
-  %1686 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1687 = load ptr, ptr %1686, align 8
-  %1688 = load ptr, ptr %.21591, align 8
-  %1689 = call ptr @zend_ast_create_2(i16 noundef zeroext 523, ptr noundef %1687, ptr noundef %1688) #12
-  br label %2368
-
-1690:                                             ; preds = %92
-  %1691 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1692 = load ptr, ptr %1691, align 8
-  %1693 = load ptr, ptr %.21591, align 8
-  %1694 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1692, ptr noundef %1693) #12
-  %1695 = getelementptr inbounds i8, ptr %1694, i64 2
-  store i16 170, ptr %1695, align 2
-  br label %2368
-
-1696:                                             ; preds = %92
-  %1697 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1698 = load ptr, ptr %1697, align 8
-  %1699 = load ptr, ptr %.21591, align 8
-  %1700 = call ptr @zend_ast_create_2(i16 noundef zeroext 528, ptr noundef %1698, ptr noundef %1699) #12
-  br label %2368
-
-1701:                                             ; preds = %92
-  %1702 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1703 = load ptr, ptr %1702, align 8
-  %1704 = load i16, ptr %1703, align 8
-  %1705 = icmp eq i16 %1704, 771
-  br i1 %1705, label %1706, label %2368
-
-1706:                                             ; preds = %1701
-  %1707 = getelementptr inbounds i8, ptr %1703, i64 2
-  store i16 1, ptr %1707, align 2
-  br label %2368
-
-1708:                                             ; preds = %92
-  %1709 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1710:                                             ; preds = %92
-  %1711 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %1712 = load ptr, ptr %1711, align 8
-  %1713 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1714 = load ptr, ptr %1713, align 8
-  %1715 = load ptr, ptr %.21591, align 8
-  %1716 = call ptr @zend_ast_create_3(i16 noundef zeroext 771, ptr noundef %1712, ptr noundef %1714, ptr noundef %1715) #12
-  br label %2368
-
-1717:                                             ; preds = %92
-  %1718 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1719 = load ptr, ptr %1718, align 8
-  %1720 = load ptr, ptr %.21591, align 8
-  %1721 = call ptr @zend_ast_create_3(i16 noundef zeroext 771, ptr noundef %1719, ptr noundef null, ptr noundef %1720) #12
-  br label %2368
-
-1722:                                             ; preds = %92
-  %1723 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1724 = load ptr, ptr %1723, align 8
-  %1725 = load ptr, ptr %.21591, align 8
-  %1726 = call ptr @zend_ast_create_2(i16 noundef zeroext 530, ptr noundef %1724, ptr noundef %1725) #12
-  br label %2368
-
-1727:                                             ; preds = %92
-  %1728 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1729:                                             ; preds = %92
-  %1730 = load ptr, ptr %.21591, align 8
-  %1731 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1730) #12
-  %1732 = getelementptr inbounds i8, ptr %1731, i64 2
-  store i16 4, ptr %1732, align 2
-  br label %2368
-
-1733:                                             ; preds = %92
-  %1734 = load ptr, ptr %.21591, align 8
-  %1735 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1734) #12
-  %1736 = getelementptr inbounds i8, ptr %1735, i64 2
-  store i16 5, ptr %1736, align 2
-  br label %2368
-
-1737:                                             ; preds = %92
-  %1738 = load ptr, ptr %.21591, align 8
-  %1739 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1738) #12
-  %1740 = getelementptr inbounds i8, ptr %1739, i64 2
-  store i16 6, ptr %1740, align 2
-  br label %2368
-
-1741:                                             ; preds = %92
-  %1742 = load ptr, ptr %.21591, align 8
-  %1743 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1742) #12
-  %1744 = getelementptr inbounds i8, ptr %1743, i64 2
-  store i16 7, ptr %1744, align 2
-  br label %2368
-
-1745:                                             ; preds = %92
-  %1746 = load ptr, ptr %.21591, align 8
-  %1747 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1746) #12
-  %1748 = getelementptr inbounds i8, ptr %1747, i64 2
-  store i16 8, ptr %1748, align 2
-  br label %2368
-
-1749:                                             ; preds = %92
-  %1750 = load ptr, ptr %.21591, align 8
-  %1751 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1750) #12
-  %1752 = getelementptr inbounds i8, ptr %1751, i64 2
-  store i16 18, ptr %1752, align 2
-  br label %2368
-
-1753:                                             ; preds = %92
-  %1754 = load ptr, ptr %.21591, align 8
-  %1755 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1754) #12
-  %1756 = getelementptr inbounds i8, ptr %1755, i64 2
-  store i16 1, ptr %1756, align 2
-  br label %2368
-
-1757:                                             ; preds = %92
-  %1758 = load ptr, ptr %.21591, align 8
-  %1759 = call ptr @zend_ast_create_1(i16 noundef zeroext 267, ptr noundef %1758) #12
-  br label %2368
-
-1760:                                             ; preds = %92
-  %1761 = load ptr, ptr %.21591, align 8
-  %1762 = call ptr @zend_ast_create_1(i16 noundef zeroext 264, ptr noundef %1761) #12
-  br label %2368
-
-1763:                                             ; preds = %92
-  %1764 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1765:                                             ; preds = %92
-  %1766 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1767 = load ptr, ptr %1766, align 8
-  %1768 = call ptr @zend_ast_create_1(i16 noundef zeroext 265, ptr noundef %1767) #12
-  br label %2368
-
-1769:                                             ; preds = %92
-  %1770 = load ptr, ptr %.21591, align 8
-  %1771 = call ptr @zend_ast_create_1(i16 noundef zeroext 268, ptr noundef %1770) #12
-  br label %2368
-
-1772:                                             ; preds = %92
-  %1773 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef null, ptr noundef null) #12
-  %1774 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  %1775 = or i32 %1774, 16777216
-  store i32 %1775, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  br label %2368
-
-1776:                                             ; preds = %92
-  %1777 = load ptr, ptr %.21591, align 8
-  %1778 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef %1777, ptr noundef null) #12
-  %1779 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  %1780 = or i32 %1779, 16777216
-  store i32 %1780, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  br label %2368
-
-1781:                                             ; preds = %92
-  %1782 = load ptr, ptr %.21591, align 8
-  %1783 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1784 = load ptr, ptr %1783, align 8
-  %1785 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef %1782, ptr noundef %1784) #12
-  %1786 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  %1787 = or i32 %1786, 16777216
-  store i32 %1787, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  br label %2368
-
-1788:                                             ; preds = %92
-  %1789 = load ptr, ptr %.21591, align 8
-  %1790 = call ptr @zend_ast_create_1(i16 noundef zeroext 275, ptr noundef %1789) #12
-  %1791 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  %1792 = or i32 %1791, 16777216
-  store i32 %1792, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  br label %2368
-
-1793:                                             ; preds = %92
-  %1794 = load ptr, ptr %.21591, align 8
-  %1795 = call ptr @zend_ast_create_1(i16 noundef zeroext 284, ptr noundef %1794) #12
-  br label %2368
-
-1796:                                             ; preds = %92
-  %1797 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1798:                                             ; preds = %92
-  %1799 = load ptr, ptr %.21591, align 8
-  %1800 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1801 = load ptr, ptr %1800, align 8
-  %1802 = call ptr @zend_ast_with_attributes(ptr noundef %1799, ptr noundef %1801) #12
-  br label %2368
-
-1803:                                             ; preds = %92
-  %1804 = load ptr, ptr %.21591, align 8
-  %1805 = getelementptr inbounds i8, ptr %1804, i64 12
-  %1806 = load i32, ptr %1805, align 4
-  %1807 = or i32 %1806, 16
-  store i32 %1807, ptr %1805, align 4
-  br label %2368
-
-1808:                                             ; preds = %92
-  %1809 = load ptr, ptr %.21591, align 8
-  %1810 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1811 = load ptr, ptr %1810, align 8
-  %1812 = call ptr @zend_ast_with_attributes(ptr noundef %1809, ptr noundef %1811) #12
-  %1813 = getelementptr inbounds i8, ptr %1812, i64 12
-  %1814 = load i32, ptr %1813, align 4
-  %1815 = or i32 %1814, 16
-  store i32 %1815, ptr %1813, align 4
-  br label %2368
-
-1816:                                             ; preds = %92
-  %1817 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1818:                                             ; preds = %92
-  %1819 = getelementptr inbounds i8, ptr %.21591, i64 -88
-  %1820 = load i64, ptr %1819, align 8
-  %1821 = load i64, ptr %.21591, align 8
-  %1822 = or i64 %1821, %1820
-  %1823 = trunc i64 %1822 to i32
-  %1824 = getelementptr inbounds i8, ptr %.21591, i64 -96
-  %1825 = load i64, ptr %1824, align 8
-  %1826 = trunc i64 %1825 to i32
-  %1827 = getelementptr inbounds i8, ptr %.21591, i64 -80
-  %1828 = load ptr, ptr %1827, align 8
-  %1829 = call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %1829, align 4
-  %1830 = getelementptr inbounds i8, ptr %1829, i64 4
-  store i32 22, ptr %1830, align 4
-  %1831 = getelementptr inbounds i8, ptr %1829, i64 8
-  store i64 0, ptr %1831, align 8
-  %1832 = getelementptr inbounds i8, ptr %1829, i64 16
-  store i64 9, ptr %1832, align 8
-  %1833 = getelementptr inbounds i8, ptr %1829, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1833, ptr noundef nonnull align 1 dereferenceable(9) @.str.1, i64 9, i1 false)
-  %1834 = getelementptr inbounds i8, ptr %1829, i64 33
-  store i8 0, ptr %1834, align 1
-  %1835 = getelementptr inbounds i8, ptr %.21591, i64 -64
-  %1836 = load ptr, ptr %1835, align 8
-  %1837 = getelementptr inbounds i8, ptr %.21591, i64 -48
-  %1838 = load ptr, ptr %1837, align 8
-  %1839 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1840 = load ptr, ptr %1839, align 8
-  %1841 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %1842 = load ptr, ptr %1841, align 8
-  %1843 = call ptr @zend_ast_create_decl(i16 noundef zeroext 68, i32 noundef %1823, i32 noundef %1826, ptr noundef %1828, ptr noundef nonnull %1829, ptr noundef %1836, ptr noundef %1838, ptr noundef %1840, ptr noundef %1842, ptr noundef null) #12
-  %1844 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %1845 = load i64, ptr %1844, align 8
-  %1846 = trunc i64 %1845 to i32
-  store i32 %1846, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  br label %2368
-
-1847:                                             ; preds = %92
-  %1848 = getelementptr inbounds i8, ptr %.21591, i64 -80
-  %1849 = load i64, ptr %1848, align 8
-  %1850 = load i64, ptr %.21591, align 8
-  %1851 = or i64 %1850, %1849
-  %1852 = trunc i64 %1851 to i32
-  %1853 = getelementptr inbounds i8, ptr %.21591, i64 -88
-  %1854 = load i64, ptr %1853, align 8
-  %1855 = trunc i64 %1854 to i32
-  %1856 = getelementptr inbounds i8, ptr %.21591, i64 -72
-  %1857 = load ptr, ptr %1856, align 8
-  %1858 = call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %1858, align 4
-  %1859 = getelementptr inbounds i8, ptr %1858, i64 4
-  store i32 22, ptr %1859, align 4
-  %1860 = getelementptr inbounds i8, ptr %1858, i64 8
-  store i64 0, ptr %1860, align 8
-  %1861 = getelementptr inbounds i8, ptr %1858, i64 16
-  store i64 9, ptr %1861, align 8
-  %1862 = getelementptr inbounds i8, ptr %1858, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1862, ptr noundef nonnull align 1 dereferenceable(9) @.str.1, i64 9, i1 false)
-  %1863 = getelementptr inbounds i8, ptr %1858, i64 33
-  store i8 0, ptr %1863, align 1
-  %1864 = getelementptr inbounds i8, ptr %.21591, i64 -56
-  %1865 = load ptr, ptr %1864, align 8
-  %1866 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1867 = load ptr, ptr %1866, align 8
-  %1868 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %1869 = load ptr, ptr %1868, align 8
-  %1870 = call ptr @zend_ast_create_decl(i16 noundef zeroext 71, i32 noundef %1852, i32 noundef %1855, ptr noundef %1857, ptr noundef nonnull %1858, ptr noundef %1865, ptr noundef null, ptr noundef %1867, ptr noundef %1869, ptr noundef null) #12
-  %1871 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1872 = load i64, ptr %1871, align 8
-  %1873 = trunc i64 %1872 to i32
-  store i32 %1873, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  br label %2368
-
-1874:                                             ; preds = %92
-  %1875 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %1876 = sext i32 %1875 to i64
-  %1877 = inttoptr i64 %1876 to ptr
-  br label %2368
-
-1878:                                             ; preds = %92
-  %1879 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %1880 = sext i32 %1879 to i64
-  %1881 = inttoptr i64 %1880 to ptr
-  br label %2368
-
-1882:                                             ; preds = %92
-  %1883 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
+  br label %2367
+
+238:                                              ; preds = %91
+  %239 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %240 = load ptr, ptr %239, align 8
+  %241 = call ptr @zend_ast_create_2(i16 noundef zeroext 542, ptr noundef null, ptr noundef %240) #12
+  br label %2367
+
+242:                                              ; preds = %91
+  %243 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %244 = load ptr, ptr %243, align 8
+  br label %2367
+
+245:                                              ; preds = %91
+  %246 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %247 = load ptr, ptr %246, align 8
+  %248 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %249 = load i64, ptr %248, align 8
+  %250 = trunc i64 %249 to i16
+  %251 = getelementptr inbounds i8, ptr %247, i64 2
+  store i16 %250, ptr %251, align 2
+  br label %2367
+
+252:                                              ; preds = %91
+  %253 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %254 = load ptr, ptr %253, align 8
+  %255 = getelementptr inbounds i8, ptr %254, i64 2
+  store i16 1, ptr %255, align 2
+  br label %2367
+
+256:                                              ; preds = %91
+  %257 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %258 = load ptr, ptr %257, align 8
+  %259 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %260 = load i64, ptr %259, align 8
+  %261 = trunc i64 %260 to i16
+  %262 = getelementptr inbounds i8, ptr %258, i64 2
+  store i16 %261, ptr %262, align 2
+  br label %2367
+
+263:                                              ; preds = %91
+  %264 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %265 = load ptr, ptr %264, align 8
+  br label %2367
+
+266:                                              ; preds = %91
+  br label %2367
+
+267:                                              ; preds = %91
+  br label %2367
+
+268:                                              ; preds = %91
+  %269 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %270 = load ptr, ptr %269, align 8
+  %271 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %272 = load ptr, ptr %271, align 8
+  %273 = call ptr @zend_ast_create_2(i16 noundef zeroext 545, ptr noundef %270, ptr noundef %272) #12
+  br label %2367
+
+274:                                              ; preds = %91
+  %275 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %276 = load ptr, ptr %275, align 8
+  %277 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %278 = load ptr, ptr %277, align 8
+  %279 = call ptr @zend_ast_create_2(i16 noundef zeroext 545, ptr noundef %276, ptr noundef %278) #12
+  br label %2367
+
+280:                                              ; preds = %91
+  %281 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %282 = load ptr, ptr %281, align 8
+  %283 = load ptr, ptr %.21591, align 8
+  %284 = call ptr @zend_ast_list_add(ptr noundef %282, ptr noundef %283) #12
+  br label %2367
+
+285:                                              ; preds = %91
+  %286 = load ptr, ptr %.21591, align 8
+  %287 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef %286) #12
+  br label %2367
+
+288:                                              ; preds = %91
+  %289 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %290 = load ptr, ptr %289, align 8
+  %291 = load ptr, ptr %.21591, align 8
+  %292 = call ptr @zend_ast_list_add(ptr noundef %290, ptr noundef %291) #12
+  br label %2367
+
+293:                                              ; preds = %91
+  %294 = load ptr, ptr %.21591, align 8
+  %295 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef %294) #12
+  br label %2367
+
+296:                                              ; preds = %91
+  %297 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %298 = load ptr, ptr %297, align 8
+  %299 = load ptr, ptr %.21591, align 8
+  %300 = call ptr @zend_ast_list_add(ptr noundef %298, ptr noundef %299) #12
+  br label %2367
+
+301:                                              ; preds = %91
+  %302 = load ptr, ptr %.21591, align 8
+  %303 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef %302) #12
+  br label %2367
+
+304:                                              ; preds = %91
+  %305 = load ptr, ptr %.21591, align 8
+  %306 = getelementptr inbounds i8, ptr %305, i64 2
+  store i16 1, ptr %306, align 2
+  br label %2367
+
+307:                                              ; preds = %91
+  %308 = load ptr, ptr %.21591, align 8
+  %309 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %310 = load i64, ptr %309, align 8
+  %311 = trunc i64 %310 to i16
+  %312 = getelementptr inbounds i8, ptr %308, i64 2
+  store i16 %311, ptr %312, align 2
+  br label %2367
+
+313:                                              ; preds = %91
+  %314 = load ptr, ptr %.21591, align 8
+  %315 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %314, ptr noundef null) #12
+  br label %2367
+
+316:                                              ; preds = %91
+  %317 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %318 = load ptr, ptr %317, align 8
+  %319 = load ptr, ptr %.21591, align 8
+  %320 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %318, ptr noundef %319) #12
+  br label %2367
+
+321:                                              ; preds = %91
+  %322 = load ptr, ptr %.21591, align 8
+  %323 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %322, ptr noundef null) #12
+  br label %2367
+
+324:                                              ; preds = %91
+  %325 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %326 = load ptr, ptr %325, align 8
+  %327 = load ptr, ptr %.21591, align 8
+  %328 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %326, ptr noundef %327) #12
+  br label %2367
+
+329:                                              ; preds = %91
+  %330 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %331 = load ptr, ptr %330, align 8
+  %332 = load ptr, ptr %.21591, align 8
+  %333 = call ptr @zend_ast_list_add(ptr noundef %331, ptr noundef %332) #12
+  br label %2367
+
+334:                                              ; preds = %91
+  %335 = load ptr, ptr %.21591, align 8
+  %336 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 139, ptr noundef %335) #12
+  br label %2367
+
+337:                                              ; preds = %91
+  %338 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %339 = load ptr, ptr %338, align 8
+  %340 = load ptr, ptr %.21591, align 8
+  %341 = call ptr @zend_ast_list_add(ptr noundef %339, ptr noundef %340) #12
+  br label %2367
+
+342:                                              ; preds = %91
+  %343 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 132) #12
+  br label %2367
+
+344:                                              ; preds = %91
+  %345 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+346:                                              ; preds = %91
+  %347 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+348:                                              ; preds = %91
+  %349 = load ptr, ptr %.21591, align 8
+  %350 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %351 = load ptr, ptr %350, align 8
+  %352 = call ptr @zend_ast_with_attributes(ptr noundef %349, ptr noundef %351) #12
+  br label %2367
+
+353:                                              ; preds = %91
+  %354 = load ptr, ptr @zend_ce_compile_error, align 8
+  %355 = call ptr @zend_throw_exception(ptr noundef %354, ptr noundef nonnull @.str, i64 noundef 0) #12
+  br label %2419
+
+356:                                              ; preds = %91
+  %357 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %358 = load ptr, ptr %357, align 8
+  br label %2367
+
+359:                                              ; preds = %91
+  %360 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+361:                                              ; preds = %91
+  %362 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+363:                                              ; preds = %91
+  %364 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %365 = load ptr, ptr %364, align 8
+  %366 = load ptr, ptr %.21591, align 8
+  %367 = call ptr @zend_ast_create_2(i16 noundef zeroext 533, ptr noundef %365, ptr noundef %366) #12
+  br label %2367
+
+368:                                              ; preds = %91
+  %369 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %370 = load ptr, ptr %369, align 8
+  %371 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %372 = load ptr, ptr %371, align 8
+  %373 = call ptr @zend_ast_create_2(i16 noundef zeroext 534, ptr noundef %370, ptr noundef %372) #12
+  br label %2367
+
+374:                                              ; preds = %91
+  %375 = getelementptr inbounds i8, ptr %.21591, i64 -48
+  %376 = load ptr, ptr %375, align 8
+  %377 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %378 = load ptr, ptr %377, align 8
+  %379 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %380 = load ptr, ptr %379, align 8
+  %381 = load ptr, ptr %.21591, align 8
+  %382 = call ptr @zend_ast_create_4(i16 noundef zeroext 1024, ptr noundef %376, ptr noundef %378, ptr noundef %380, ptr noundef %381) #12
+  br label %2367
+
+383:                                              ; preds = %91
+  %384 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %385 = load ptr, ptr %384, align 8
+  %386 = load ptr, ptr %.21591, align 8
+  %387 = call ptr @zend_ast_create_2(i16 noundef zeroext 536, ptr noundef %385, ptr noundef %386) #12
+  br label %2367
+
+388:                                              ; preds = %91
+  %389 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %390 = load ptr, ptr %389, align 8
+  %391 = call ptr @zend_ast_create_1(i16 noundef zeroext 286, ptr noundef %390) #12
+  br label %2367
+
+392:                                              ; preds = %91
+  %393 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %394 = load ptr, ptr %393, align 8
+  %395 = call ptr @zend_ast_create_1(i16 noundef zeroext 287, ptr noundef %394) #12
+  br label %2367
+
+396:                                              ; preds = %91
+  %397 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %398 = load ptr, ptr %397, align 8
+  %399 = call ptr @zend_ast_create_1(i16 noundef zeroext 279, ptr noundef %398) #12
+  br label %2367
+
+400:                                              ; preds = %91
+  %401 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %402 = load ptr, ptr %401, align 8
+  br label %2367
+
+403:                                              ; preds = %91
+  %404 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %405 = load ptr, ptr %404, align 8
+  br label %2367
+
+406:                                              ; preds = %91
+  %407 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %408 = load ptr, ptr %407, align 8
+  br label %2367
+
+409:                                              ; preds = %91
+  %410 = load ptr, ptr %.21591, align 8
+  %411 = call ptr @zend_ast_create_1(i16 noundef zeroext 283, ptr noundef %410) #12
+  br label %2367
+
+412:                                              ; preds = %91
+  %413 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %414 = load ptr, ptr %413, align 8
+  br label %2367
+
+415:                                              ; preds = %91
+  %416 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %417 = load ptr, ptr %416, align 8
+  br label %2367
+
+418:                                              ; preds = %91
+  %419 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %420 = load ptr, ptr %419, align 8
+  %421 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %422 = load ptr, ptr %421, align 8
+  %423 = load ptr, ptr %.21591, align 8
+  %424 = call ptr @zend_ast_create_4(i16 noundef zeroext 1025, ptr noundef %420, ptr noundef %422, ptr noundef null, ptr noundef %423) #12
+  br label %2367
+
+425:                                              ; preds = %91
+  %426 = getelementptr inbounds i8, ptr %.21591, i64 -48
+  %427 = load ptr, ptr %426, align 8
+  %428 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %429 = load ptr, ptr %428, align 8
+  %430 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %431 = load ptr, ptr %430, align 8
+  %432 = load ptr, ptr %.21591, align 8
+  %433 = call ptr @zend_ast_create_4(i16 noundef zeroext 1025, ptr noundef %427, ptr noundef %429, ptr noundef %431, ptr noundef %432) #12
+  br label %2367
+
+434:                                              ; preds = %91
+  %435 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %436 = load ptr, ptr %435, align 8
+  %437 = call zeroext i1 @zend_handle_encoding_declaration(ptr noundef %436) #12
+  br i1 %437, label %2367, label %2419
+
+438:                                              ; preds = %91
+  %439 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %440 = load ptr, ptr %439, align 8
+  %441 = load ptr, ptr %.21591, align 8
+  %442 = call ptr @zend_ast_create_2(i16 noundef zeroext 538, ptr noundef %440, ptr noundef %441) #12
+  br label %2367
+
+443:                                              ; preds = %91
+  br label %2367
+
+444:                                              ; preds = %91
+  %445 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %446 = load ptr, ptr %445, align 8
+  %447 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %448 = load ptr, ptr %447, align 8
+  %449 = load ptr, ptr %.21591, align 8
+  %450 = call ptr @zend_ast_create_3(i16 noundef zeroext 772, ptr noundef %446, ptr noundef %448, ptr noundef %449) #12
+  br label %2367
+
+451:                                              ; preds = %91
+  %452 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %453 = load ptr, ptr %452, align 8
+  %454 = call ptr @zend_ast_create_1(i16 noundef zeroext 285, ptr noundef %453) #12
+  br label %2367
+
+455:                                              ; preds = %91
+  %456 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %457 = load ptr, ptr %456, align 8
+  %458 = call ptr @zend_ast_create_1(i16 noundef zeroext 280, ptr noundef %457) #12
+  br label %2367
+
+459:                                              ; preds = %91
+  %460 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 135) #12
+  br label %2367
+
+461:                                              ; preds = %91
+  %462 = getelementptr inbounds i8, ptr %.21591, i64 -64
+  %463 = load ptr, ptr %462, align 8
+  %464 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %465 = load ptr, ptr %464, align 8
+  %466 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %467 = load ptr, ptr %466, align 8
+  %468 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %469 = load ptr, ptr %468, align 8
+  %470 = call ptr @zend_ast_create_3(i16 noundef zeroext 773, ptr noundef %465, ptr noundef %467, ptr noundef %469) #12
+  %471 = call ptr @zend_ast_list_add(ptr noundef %463, ptr noundef %470) #12
+  br label %2367
+
+472:                                              ; preds = %91
+  %473 = load ptr, ptr %.21591, align 8
+  %474 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 141, ptr noundef %473) #12
+  br label %2367
+
+475:                                              ; preds = %91
+  %476 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %477 = load ptr, ptr %476, align 8
+  %478 = load ptr, ptr %.21591, align 8
+  %479 = call ptr @zend_ast_list_add(ptr noundef %477, ptr noundef %478) #12
+  br label %2367
+
+480:                                              ; preds = %91
+  br label %2367
+
+481:                                              ; preds = %91
+  %482 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+483:                                              ; preds = %91
+  br label %2367
+
+484:                                              ; preds = %91
+  %485 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %486 = load ptr, ptr %485, align 8
+  br label %2367
+
+487:                                              ; preds = %91
+  %488 = load ptr, ptr %.21591, align 8
+  %489 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %488) #12
+  br label %2367
+
+490:                                              ; preds = %91
+  %491 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %492 = load ptr, ptr %491, align 8
+  %493 = load ptr, ptr %.21591, align 8
+  %494 = call ptr @zend_ast_list_add(ptr noundef %492, ptr noundef %493) #12
+  br label %2367
+
+495:                                              ; preds = %91
+  %496 = load ptr, ptr %.21591, align 8
+  %497 = call ptr @zend_ast_create_1(i16 noundef zeroext 278, ptr noundef %496) #12
+  br label %2367
+
+498:                                              ; preds = %91
+  %499 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+500:                                              ; preds = %91
+  %501 = load ptr, ptr %.21591, align 8
+  %502 = call i32 @zend_lex_tstring(ptr noundef nonnull %7, ptr noundef %501) #12
+  %503 = icmp eq i32 %502, -1
+  br i1 %503, label %.loopexit.loopexit1738, label %504
+
+504:                                              ; preds = %500
+  %505 = call ptr @zend_ast_create_zval(ptr noundef nonnull %7) #12
+  br label %2367
+
+506:                                              ; preds = %91
+  %507 = getelementptr inbounds i8, ptr %.21591, i64 -88
+  %508 = load i64, ptr %507, align 8
+  %509 = load i64, ptr %.21591, align 8
+  %510 = or i64 %509, %508
+  %511 = trunc i64 %510 to i32
+  %512 = getelementptr inbounds i8, ptr %.21591, i64 -96
+  %513 = load i64, ptr %512, align 8
+  %514 = trunc i64 %513 to i32
+  %515 = getelementptr inbounds i8, ptr %.21591, i64 -72
+  %516 = load ptr, ptr %515, align 8
+  %517 = getelementptr inbounds i8, ptr %.21591, i64 -80
+  %518 = load ptr, ptr %517, align 8
+  %519 = load i16, ptr %518, align 8
+  %520 = icmp eq i16 %519, 64
+  call void @llvm.assume(i1 %520)
+  %521 = getelementptr inbounds i8, ptr %518, i64 8
+  %522 = load ptr, ptr %521, align 8
+  %523 = getelementptr inbounds i8, ptr %.21591, i64 -56
+  %524 = load ptr, ptr %523, align 8
+  %525 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %526 = load ptr, ptr %525, align 8
+  %527 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %528 = load ptr, ptr %527, align 8
+  %529 = call ptr @zend_ast_create_decl(i16 noundef zeroext 67, i32 noundef %511, i32 noundef %514, ptr noundef %516, ptr noundef %522, ptr noundef %524, ptr noundef null, ptr noundef %526, ptr noundef %528, ptr noundef null) #12
+  %530 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %531 = load i64, ptr %530, align 8
+  %532 = trunc i64 %531 to i32
+  store i32 %532, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  br label %2367
+
+533:                                              ; preds = %91
+  br label %2367
+
+534:                                              ; preds = %91
+  br label %2367
+
+535:                                              ; preds = %91
+  br label %2367
+
+536:                                              ; preds = %91
+  br label %2367
+
+537:                                              ; preds = %91
+  %538 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %539 = sext i32 %538 to i64
+  %540 = inttoptr i64 %539 to ptr
+  br label %2367
+
+541:                                              ; preds = %91
+  %542 = getelementptr inbounds i8, ptr %.21591, i64 -72
+  %543 = load i64, ptr %542, align 8
+  %544 = trunc i64 %543 to i32
+  %545 = getelementptr inbounds i8, ptr %.21591, i64 -56
+  %546 = load i64, ptr %545, align 8
+  %547 = trunc i64 %546 to i32
+  %548 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %549 = load ptr, ptr %548, align 8
+  %550 = getelementptr inbounds i8, ptr %.21591, i64 -48
+  %551 = load ptr, ptr %550, align 8
+  %552 = load i16, ptr %551, align 8
+  %553 = icmp eq i16 %552, 64
+  call void @llvm.assume(i1 %553)
+  %554 = getelementptr inbounds i8, ptr %551, i64 8
+  %555 = load ptr, ptr %554, align 8
+  %556 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %557 = load ptr, ptr %556, align 8
+  %558 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %559 = load ptr, ptr %558, align 8
+  %560 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %561 = load ptr, ptr %560, align 8
+  %562 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef %544, i32 noundef %547, ptr noundef %549, ptr noundef %555, ptr noundef %557, ptr noundef %559, ptr noundef %561, ptr noundef null, ptr noundef null) #12
+  br label %2367
+
+563:                                              ; preds = %91
+  %564 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %565 = sext i32 %564 to i64
+  %566 = inttoptr i64 %565 to ptr
+  br label %2367
+
+567:                                              ; preds = %91
+  %568 = getelementptr inbounds i8, ptr %.21591, i64 -56
+  %569 = load i64, ptr %568, align 8
+  %570 = trunc i64 %569 to i32
+  %571 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %572 = load ptr, ptr %571, align 8
+  %573 = getelementptr inbounds i8, ptr %.21591, i64 -48
+  %574 = load ptr, ptr %573, align 8
+  %575 = load i16, ptr %574, align 8
+  %576 = icmp eq i16 %575, 64
+  call void @llvm.assume(i1 %576)
+  %577 = getelementptr inbounds i8, ptr %574, i64 8
+  %578 = load ptr, ptr %577, align 8
+  %579 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %580 = load ptr, ptr %579, align 8
+  %581 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %582 = load ptr, ptr %581, align 8
+  %583 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %584 = load ptr, ptr %583, align 8
+  %585 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 0, i32 noundef %570, ptr noundef %572, ptr noundef %578, ptr noundef %580, ptr noundef %582, ptr noundef %584, ptr noundef null, ptr noundef null) #12
+  br label %2367
+
+586:                                              ; preds = %91
+  %587 = load i64, ptr %.21591, align 8
+  %588 = inttoptr i64 %587 to ptr
+  br label %2367
+
+589:                                              ; preds = %91
+  %590 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %591 = load i64, ptr %590, align 8
+  %592 = trunc i64 %591 to i32
+  %593 = load i64, ptr %.21591, align 8
+  %594 = trunc i64 %593 to i32
+  %595 = call i32 @zend_add_class_modifier(i32 noundef %592, i32 noundef %594) #12
+  %596 = zext i32 %595 to i64
+  %597 = inttoptr i64 %596 to ptr
+  %.not1660 = icmp eq i32 %595, 0
+  br i1 %.not1660, label %2419, label %2367
+
+598:                                              ; preds = %91
+  %599 = load i64, ptr %.21591, align 8
+  %600 = trunc i64 %599 to i32
+  %601 = call i32 @zend_add_anonymous_class_modifier(i32 noundef 0, i32 noundef %600) #12
+  %602 = zext i32 %601 to i64
+  %603 = inttoptr i64 %602 to ptr
+  %.not1659 = icmp eq i32 %601, 0
+  br i1 %.not1659, label %2419, label %2367
+
+604:                                              ; preds = %91
+  %605 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %606 = load i64, ptr %605, align 8
+  %607 = trunc i64 %606 to i32
+  %608 = load i64, ptr %.21591, align 8
+  %609 = trunc i64 %608 to i32
+  %610 = call i32 @zend_add_anonymous_class_modifier(i32 noundef %607, i32 noundef %609) #12
+  %611 = zext i32 %610 to i64
+  %612 = inttoptr i64 %611 to ptr
+  %.not1658 = icmp eq i32 %610, 0
+  br i1 %.not1658, label %2419, label %2367
+
+613:                                              ; preds = %91
+  br label %2367
+
+614:                                              ; preds = %91
+  %615 = load i64, ptr %.21591, align 8
+  %616 = inttoptr i64 %615 to ptr
+  br label %2367
+
+617:                                              ; preds = %91
+  br label %2367
+
+618:                                              ; preds = %91
+  br label %2367
+
+619:                                              ; preds = %91
+  br label %2367
+
+620:                                              ; preds = %91
+  %621 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %622 = sext i32 %621 to i64
+  %623 = inttoptr i64 %622 to ptr
+  br label %2367
+
+624:                                              ; preds = %91
+  %625 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %626 = load i64, ptr %625, align 8
+  %627 = trunc i64 %626 to i32
+  %628 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %629 = load ptr, ptr %628, align 8
+  %630 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %631 = load ptr, ptr %630, align 8
+  %632 = load i16, ptr %631, align 8
+  %633 = icmp eq i16 %632, 64
+  call void @llvm.assume(i1 %633)
+  %634 = getelementptr inbounds i8, ptr %631, i64 8
+  %635 = load ptr, ptr %634, align 8
+  %636 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %637 = load ptr, ptr %636, align 8
+  %638 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 2, i32 noundef %627, ptr noundef %629, ptr noundef %635, ptr noundef null, ptr noundef null, ptr noundef %637, ptr noundef null, ptr noundef null) #12
+  br label %2367
+
+639:                                              ; preds = %91
+  %640 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %641 = sext i32 %640 to i64
+  %642 = inttoptr i64 %641 to ptr
+  br label %2367
+
+643:                                              ; preds = %91
+  %644 = getelementptr inbounds i8, ptr %.21591, i64 -48
+  %645 = load i64, ptr %644, align 8
+  %646 = trunc i64 %645 to i32
+  %647 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %648 = load ptr, ptr %647, align 8
+  %649 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %650 = load ptr, ptr %649, align 8
+  %651 = load i16, ptr %650, align 8
+  %652 = icmp eq i16 %651, 64
+  call void @llvm.assume(i1 %652)
+  %653 = getelementptr inbounds i8, ptr %650, i64 8
+  %654 = load ptr, ptr %653, align 8
+  %655 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %656 = load ptr, ptr %655, align 8
+  %657 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %658 = load ptr, ptr %657, align 8
+  %659 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 1, i32 noundef %646, ptr noundef %648, ptr noundef %654, ptr noundef null, ptr noundef %656, ptr noundef %658, ptr noundef null, ptr noundef null) #12
+  br label %2367
+
+660:                                              ; preds = %91
+  %661 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %662 = sext i32 %661 to i64
+  %663 = inttoptr i64 %662 to ptr
+  br label %2367
+
+664:                                              ; preds = %91
+  %665 = getelementptr inbounds i8, ptr %.21591, i64 -56
+  %666 = load i64, ptr %665, align 8
+  %667 = trunc i64 %666 to i32
+  %668 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %669 = load ptr, ptr %668, align 8
+  %670 = getelementptr inbounds i8, ptr %.21591, i64 -48
+  %671 = load ptr, ptr %670, align 8
+  %672 = load i16, ptr %671, align 8
+  %673 = icmp eq i16 %672, 64
+  call void @llvm.assume(i1 %673)
+  %674 = getelementptr inbounds i8, ptr %671, i64 8
+  %675 = load ptr, ptr %674, align 8
+  %676 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %677 = load ptr, ptr %676, align 8
+  %678 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %679 = load ptr, ptr %678, align 8
+  %680 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %681 = load ptr, ptr %680, align 8
+  %682 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 268435488, i32 noundef %667, ptr noundef %669, ptr noundef %675, ptr noundef null, ptr noundef %677, ptr noundef %679, ptr noundef null, ptr noundef %681) #12
+  br label %2367
+
+683:                                              ; preds = %91
+  br label %2367
+
+684:                                              ; preds = %91
+  %685 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+686:                                              ; preds = %91
+  %687 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %688 = load ptr, ptr %687, align 8
+  %689 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %690 = load ptr, ptr %689, align 8
+  %691 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %692 = load ptr, ptr %691, align 8
+  %.not1657 = icmp eq ptr %692, null
+  br i1 %.not1657, label %695, label %693
+
+693:                                              ; preds = %686
+  %694 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %692) #12
+  br label %695
+
+695:                                              ; preds = %686, %693
+  %696 = phi ptr [ %694, %693 ], [ null, %686 ]
+  %697 = call ptr @zend_ast_create_4(i16 noundef zeroext 1026, ptr noundef %688, ptr noundef %690, ptr noundef %696, ptr noundef null) #12
+  br label %2367
+
+698:                                              ; preds = %91
+  br label %2367
+
+699:                                              ; preds = %91
+  %700 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+701:                                              ; preds = %91
+  br label %2367
+
+702:                                              ; preds = %91
+  %703 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+704:                                              ; preds = %91
+  br label %2367
+
+705:                                              ; preds = %91
+  %706 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+707:                                              ; preds = %91
+  br label %2367
+
+708:                                              ; preds = %91
+  %709 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+710:                                              ; preds = %91
+  %711 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+712:                                              ; preds = %91
+  %713 = load ptr, ptr %.21591, align 8
+  %714 = call ptr @zend_ast_create_1(i16 noundef zeroext 281, ptr noundef %713) #12
+  br label %2367
+
+715:                                              ; preds = %91
+  %716 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %717 = load ptr, ptr %716, align 8
+  %718 = getelementptr inbounds i8, ptr %717, i64 2
+  store i16 1, ptr %718, align 2
+  br label %2367
+
+719:                                              ; preds = %91
+  %720 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %721 = load ptr, ptr %720, align 8
+  %722 = getelementptr inbounds i8, ptr %721, i64 2
+  store i16 3, ptr %722, align 2
+  br label %2367
+
+723:                                              ; preds = %91
+  %724 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+725:                                              ; preds = %91
+  %726 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %727 = load ptr, ptr %726, align 8
+  br label %2367
+
+728:                                              ; preds = %91
+  %729 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+730:                                              ; preds = %91
+  %731 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %732 = load ptr, ptr %731, align 8
+  br label %2367
+
+733:                                              ; preds = %91
+  %734 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+735:                                              ; preds = %91
+  %736 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %737 = load ptr, ptr %736, align 8
+  br label %2367
+
+738:                                              ; preds = %91
+  %739 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %740 = load ptr, ptr %739, align 8
+  br label %2367
+
+741:                                              ; preds = %91
+  %742 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %743 = load ptr, ptr %742, align 8
+  br label %2367
+
+744:                                              ; preds = %91
+  %745 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %746 = load ptr, ptr %745, align 8
+  br label %2367
+
+747:                                              ; preds = %91
+  %748 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %749 = load ptr, ptr %748, align 8
+  br label %2367
+
+750:                                              ; preds = %91
+  %751 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 134) #12
+  br label %2367
+
+752:                                              ; preds = %91
+  %753 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %754 = load ptr, ptr %753, align 8
+  %755 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %756 = load ptr, ptr %755, align 8
+  %757 = load ptr, ptr %.21591, align 8
+  %758 = call ptr @zend_ast_create_2(i16 noundef zeroext 537, ptr noundef %756, ptr noundef %757) #12
+  %759 = call ptr @zend_ast_list_add(ptr noundef %754, ptr noundef %758) #12
+  br label %2367
+
+760:                                              ; preds = %91
+  %761 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %762 = load ptr, ptr %761, align 8
+  %763 = load ptr, ptr %.21591, align 8
+  %764 = call ptr @zend_ast_create_2(i16 noundef zeroext 537, ptr noundef null, ptr noundef %763) #12
+  %765 = call ptr @zend_ast_list_add(ptr noundef %762, ptr noundef %764) #12
+  br label %2367
+
+766:                                              ; preds = %91
+  %767 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %768 = load ptr, ptr %767, align 8
+  %769 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %770 = load ptr, ptr %769, align 8
+  %771 = call ptr @zend_ast_create_2(i16 noundef zeroext 547, ptr noundef %768, ptr noundef %770) #12
+  br label %2367
+
+772:                                              ; preds = %91
+  %773 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 148) #12
+  br label %2367
+
+774:                                              ; preds = %91
+  %775 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %776 = load ptr, ptr %775, align 8
+  br label %2367
+
+777:                                              ; preds = %91
+  %778 = load ptr, ptr %.21591, align 8
+  %779 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 148, ptr noundef %778) #12
+  br label %2367
+
+780:                                              ; preds = %91
+  %781 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %782 = load ptr, ptr %781, align 8
+  %783 = load ptr, ptr %.21591, align 8
+  %784 = call ptr @zend_ast_list_add(ptr noundef %782, ptr noundef %783) #12
+  br label %2367
+
+785:                                              ; preds = %91
+  %786 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %787 = load ptr, ptr %786, align 8
+  %788 = load ptr, ptr %.21591, align 8
+  %789 = call ptr @zend_ast_create_2(i16 noundef zeroext 548, ptr noundef %787, ptr noundef %788) #12
+  br label %2367
+
+790:                                              ; preds = %91
+  %791 = load ptr, ptr %.21591, align 8
+  %792 = call ptr @zend_ast_create_2(i16 noundef zeroext 548, ptr noundef null, ptr noundef %791) #12
+  br label %2367
+
+793:                                              ; preds = %91
+  %794 = load ptr, ptr %.21591, align 8
+  %795 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 131, ptr noundef %794) #12
+  br label %2367
+
+796:                                              ; preds = %91
+  %797 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %798 = load ptr, ptr %797, align 8
+  %799 = load ptr, ptr %.21591, align 8
+  %800 = call ptr @zend_ast_list_add(ptr noundef %798, ptr noundef %799) #12
+  br label %2367
+
+801:                                              ; preds = %91
+  %802 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+803:                                              ; preds = %91
+  %804 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %805 = load ptr, ptr %804, align 8
+  br label %2367
+
+806:                                              ; preds = %91
+  %807 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %808 = load ptr, ptr %807, align 8
+  %809 = load ptr, ptr %.21591, align 8
+  %810 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %808, ptr noundef %809) #12
+  %811 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 133, ptr noundef %810) #12
+  br label %2367
+
+812:                                              ; preds = %91
+  %813 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %814 = load ptr, ptr %813, align 8
+  %815 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %816 = load ptr, ptr %815, align 8
+  %817 = load ptr, ptr %.21591, align 8
+  %818 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %816, ptr noundef %817) #12
+  %819 = call ptr @zend_ast_list_add(ptr noundef %814, ptr noundef %818) #12
+  br label %2367
+
+820:                                              ; preds = %91
+  %821 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+822:                                              ; preds = %91
+  %823 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %824 = load ptr, ptr %823, align 8
+  %825 = load ptr, ptr %.21591, align 8
+  %826 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef null, ptr noundef %825) #12
+  %827 = call ptr @zend_ast_list_add(ptr noundef %824, ptr noundef %826) #12
+  br label %2367
+
+828:                                              ; preds = %91
+  %829 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %830 = load ptr, ptr %829, align 8
+  %831 = load ptr, ptr %.21591, align 8
+  %832 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %830, ptr noundef %831) #12
+  %833 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 133, ptr noundef %832) #12
+  br label %2367
+
+834:                                              ; preds = %91
+  %835 = getelementptr inbounds i8, ptr %.21591, i64 -48
+  %836 = load ptr, ptr %835, align 8
+  %837 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %838 = load ptr, ptr %837, align 8
+  %839 = load ptr, ptr %.21591, align 8
+  %840 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %838, ptr noundef %839) #12
+  %841 = call ptr @zend_ast_list_add(ptr noundef %836, ptr noundef %840) #12
+  br label %2367
+
+842:                                              ; preds = %91
+  %843 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %844 = load ptr, ptr %843, align 8
+  br label %2367
+
+845:                                              ; preds = %91
+  %846 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %847 = load ptr, ptr %846, align 8
+  %848 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %849 = load ptr, ptr %848, align 8
+  %850 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef null, ptr noundef %849) #12
+  %851 = call ptr @zend_ast_list_add(ptr noundef %847, ptr noundef %850) #12
+  br label %2367
+
+852:                                              ; preds = %91
+  %853 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %854 = load ptr, ptr %853, align 8
+  br label %2367
+
+855:                                              ; preds = %91
+  %856 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 136) #12
+  br label %2367
+
+857:                                              ; preds = %91
+  %858 = load ptr, ptr %.21591, align 8
+  %859 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 136, ptr noundef %858) #12
+  br label %2367
+
+860:                                              ; preds = %91
+  %861 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %862 = load ptr, ptr %861, align 8
+  %863 = load ptr, ptr %.21591, align 8
+  %864 = call ptr @zend_ast_list_add(ptr noundef %862, ptr noundef %863) #12
+  br label %2367
+
+865:                                              ; preds = %91
+  %866 = load ptr, ptr %.21591, align 8
+  %867 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %868 = load ptr, ptr %867, align 8
+  %869 = call ptr @zend_ast_with_attributes(ptr noundef %866, ptr noundef %868) #12
+  br label %2367
+
+870:                                              ; preds = %91
+  %871 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+872:                                              ; preds = %91
+  br label %2367
+
+873:                                              ; preds = %91
+  %874 = load ptr, ptr %.21591, align 8
+  %875 = call i32 @zend_modifier_list_to_flags(i32 noundef 3, ptr noundef %874) #12
+  %876 = zext i32 %875 to i64
+  %877 = inttoptr i64 %876 to ptr
+  %.not1656 = icmp eq i32 %875, 0
+  br i1 %.not1656, label %2419, label %2367
+
+878:                                              ; preds = %91
+  %879 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %880 = load i64, ptr %879, align 8
+  %881 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %882 = load i64, ptr %881, align 8
+  %883 = or i64 %882, %880
+  %884 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %885 = load i64, ptr %884, align 8
+  %886 = or i64 %883, %885
+  %887 = trunc i64 %886 to i16
+  %888 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %889 = load ptr, ptr %888, align 8
+  %890 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %891 = load ptr, ptr %890, align 8
+  %892 = load ptr, ptr %.21591, align 8
+  %.not1655 = icmp eq ptr %892, null
+  br i1 %.not1655, label %895, label %893
+
+893:                                              ; preds = %878
+  %894 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %892) #12
+  br label %895
+
+895:                                              ; preds = %878, %893
+  %896 = phi ptr [ %894, %893 ], [ null, %878 ]
+  %897 = call ptr @zend_ast_create_5(i16 noundef zeroext 1280, ptr noundef %889, ptr noundef %891, ptr noundef null, ptr noundef null, ptr noundef %896) #12
+  %898 = getelementptr inbounds i8, ptr %897, i64 2
+  store i16 %887, ptr %898, align 2
+  br label %2367
+
+899:                                              ; preds = %91
+  %900 = getelementptr inbounds i8, ptr %.21591, i64 -56
+  %901 = load i64, ptr %900, align 8
+  %902 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %903 = load i64, ptr %902, align 8
+  %904 = or i64 %903, %901
+  %905 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %906 = load i64, ptr %905, align 8
+  %907 = or i64 %904, %906
+  %908 = trunc i64 %907 to i16
+  %909 = getelementptr inbounds i8, ptr %.21591, i64 -48
+  %910 = load ptr, ptr %909, align 8
+  %911 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %912 = load ptr, ptr %911, align 8
+  %913 = load ptr, ptr %.21591, align 8
+  %914 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %915 = load ptr, ptr %914, align 8
+  %.not1654 = icmp eq ptr %915, null
+  br i1 %.not1654, label %918, label %916
+
+916:                                              ; preds = %899
+  %917 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %915) #12
+  br label %918
+
+918:                                              ; preds = %899, %916
+  %919 = phi ptr [ %917, %916 ], [ null, %899 ]
+  %920 = call ptr @zend_ast_create_5(i16 noundef zeroext 1280, ptr noundef %910, ptr noundef %912, ptr noundef %913, ptr noundef null, ptr noundef %919) #12
+  %921 = getelementptr inbounds i8, ptr %920, i64 2
+  store i16 %908, ptr %921, align 2
+  br label %2367
+
+922:                                              ; preds = %91
+  br label %2367
+
+923:                                              ; preds = %91
+  %924 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+925:                                              ; preds = %91
+  %926 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+927:                                              ; preds = %91
+  %928 = load ptr, ptr %.21591, align 8
+  %929 = getelementptr inbounds i8, ptr %928, i64 2
+  %930 = load i16, ptr %929, align 2
+  %931 = or i16 %930, 256
+  store i16 %931, ptr %929, align 2
+  br label %2367
+
+932:                                              ; preds = %91
+  %933 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+934:                                              ; preds = %91
+  %935 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+936:                                              ; preds = %91
+  %937 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+938:                                              ; preds = %91
+  %939 = call ptr @zend_ast_create_0(i16 noundef zeroext 1) #12
+  %940 = getelementptr inbounds i8, ptr %939, i64 2
+  store i16 15, ptr %940, align 2
+  br label %2367
+
+941:                                              ; preds = %91
+  %942 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+943:                                              ; preds = %91
+  %944 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %945 = load ptr, ptr %944, align 8
+  br label %2367
+
+946:                                              ; preds = %91
+  %947 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %948 = load ptr, ptr %947, align 8
+  %949 = load ptr, ptr %.21591, align 8
+  %950 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 144, ptr noundef %948, ptr noundef %949) #12
+  br label %2367
+
+951:                                              ; preds = %91
+  %952 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %953 = load ptr, ptr %952, align 8
+  %954 = load ptr, ptr %.21591, align 8
+  %955 = call ptr @zend_ast_list_add(ptr noundef %953, ptr noundef %954) #12
+  br label %2367
+
+956:                                              ; preds = %91
+  %957 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %958 = load ptr, ptr %957, align 8
+  %959 = load ptr, ptr %.21591, align 8
+  %960 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 145, ptr noundef %958, ptr noundef %959) #12
+  br label %2367
+
+961:                                              ; preds = %91
+  %962 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %963 = load ptr, ptr %962, align 8
+  %964 = load ptr, ptr %.21591, align 8
+  %965 = call ptr @zend_ast_list_add(ptr noundef %963, ptr noundef %964) #12
+  br label %2367
+
+966:                                              ; preds = %91
+  %967 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+968:                                              ; preds = %91
+  %969 = load ptr, ptr %.21591, align 8
+  %970 = getelementptr inbounds i8, ptr %969, i64 2
+  %971 = load i16, ptr %970, align 2
+  %972 = or i16 %971, 256
+  store i16 %972, ptr %970, align 2
+  br label %2367
+
+973:                                              ; preds = %91
+  %974 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+975:                                              ; preds = %91
+  %976 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+977:                                              ; preds = %91
+  %978 = call ptr @zend_ast_create_0(i16 noundef zeroext 1) #12
+  %979 = getelementptr inbounds i8, ptr %978, i64 2
+  store i16 7, ptr %979, align 2
+  br label %2367
+
+980:                                              ; preds = %91
+  %981 = call ptr @zend_ast_create_0(i16 noundef zeroext 1) #12
+  %982 = getelementptr inbounds i8, ptr %981, i64 2
+  store i16 12, ptr %982, align 2
+  br label %2367
+
+983:                                              ; preds = %91
+  %984 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+985:                                              ; preds = %91
+  %986 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+987:                                              ; preds = %91
+  %988 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %989 = load ptr, ptr %988, align 8
+  br label %2367
+
+990:                                              ; preds = %91
+  %991 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %992 = load ptr, ptr %991, align 8
+  %993 = load ptr, ptr %.21591, align 8
+  %994 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 144, ptr noundef %992, ptr noundef %993) #12
+  br label %2367
+
+995:                                              ; preds = %91
+  %996 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %997 = load ptr, ptr %996, align 8
+  %998 = load ptr, ptr %.21591, align 8
+  %999 = call ptr @zend_ast_list_add(ptr noundef %997, ptr noundef %998) #12
+  br label %2367
+
+1000:                                             ; preds = %91
+  %1001 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1002 = load ptr, ptr %1001, align 8
+  %1003 = load ptr, ptr %.21591, align 8
+  %1004 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 145, ptr noundef %1002, ptr noundef %1003) #12
+  br label %2367
+
+1005:                                             ; preds = %91
+  %1006 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1007 = load ptr, ptr %1006, align 8
+  %1008 = load ptr, ptr %.21591, align 8
+  %1009 = call ptr @zend_ast_list_add(ptr noundef %1007, ptr noundef %1008) #12
+  br label %2367
+
+1010:                                             ; preds = %91
+  br label %2367
+
+1011:                                             ; preds = %91
+  %1012 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1013:                                             ; preds = %91
+  %1014 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 128) #12
+  br label %2367
+
+1015:                                             ; preds = %91
+  %1016 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1017 = load ptr, ptr %1016, align 8
+  br label %2367
+
+1018:                                             ; preds = %91
+  %1019 = call ptr @zend_ast_create_0(i16 noundef zeroext 3) #12
+  br label %2367
+
+1020:                                             ; preds = %91
+  %1021 = load ptr, ptr %.21591, align 8
+  %1022 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 128, ptr noundef %1021) #12
+  br label %2367
+
+1023:                                             ; preds = %91
+  %1024 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1025 = load ptr, ptr %1024, align 8
+  %1026 = load ptr, ptr %.21591, align 8
+  %1027 = call ptr @zend_ast_list_add(ptr noundef %1025, ptr noundef %1026) #12
+  br label %2367
+
+1028:                                             ; preds = %91
+  %1029 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1030:                                             ; preds = %91
+  %1031 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1032 = load ptr, ptr %1031, align 8
+  %1033 = load ptr, ptr %.21591, align 8
+  %1034 = call ptr @zend_ast_create_2(i16 noundef zeroext 549, ptr noundef %1032, ptr noundef %1033) #12
+  br label %2367
+
+1035:                                             ; preds = %91
+  %1036 = load ptr, ptr %.21591, align 8
+  %1037 = call ptr @zend_ast_create_1(i16 noundef zeroext 258, ptr noundef %1036) #12
+  br label %2367
+
+1038:                                             ; preds = %91
+  %1039 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1040 = load ptr, ptr %1039, align 8
+  %1041 = load ptr, ptr %.21591, align 8
+  %1042 = call ptr @zend_ast_list_add(ptr noundef %1040, ptr noundef %1041) #12
+  br label %2367
+
+1043:                                             ; preds = %91
+  %1044 = load ptr, ptr %.21591, align 8
+  %1045 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %1044) #12
+  br label %2367
+
+1046:                                             ; preds = %91
+  %1047 = load ptr, ptr %.21591, align 8
+  %1048 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %1047) #12
+  %1049 = call ptr @zend_ast_create_1(i16 noundef zeroext 277, ptr noundef %1048) #12
+  br label %2367
+
+1050:                                             ; preds = %91
+  %1051 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1052 = load ptr, ptr %1051, align 8
+  %1053 = load ptr, ptr %.21591, align 8
+  %1054 = call ptr @zend_ast_list_add(ptr noundef %1052, ptr noundef %1053) #12
+  br label %2367
+
+1055:                                             ; preds = %91
+  %1056 = load ptr, ptr %.21591, align 8
+  %1057 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %1056) #12
+  br label %2367
+
+1058:                                             ; preds = %91
+  %1059 = load ptr, ptr %.21591, align 8
+  %1060 = call ptr @zend_ast_create_2(i16 noundef zeroext 532, ptr noundef %1059, ptr noundef null) #12
+  br label %2367
+
+1061:                                             ; preds = %91
+  %1062 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1063 = load ptr, ptr %1062, align 8
+  %1064 = load ptr, ptr %.21591, align 8
+  %1065 = call ptr @zend_ast_create_2(i16 noundef zeroext 532, ptr noundef %1063, ptr noundef %1064) #12
+  br label %2367
+
+1066:                                             ; preds = %91
+  %1067 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1068 = load ptr, ptr %1067, align 8
+  %1069 = load ptr, ptr %.21591, align 8
+  %1070 = call ptr @zend_ast_list_add(ptr noundef %1068, ptr noundef %1069) #12
+  br label %2367
+
+1071:                                             ; preds = %91
+  %1072 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 132) #12
+  br label %2367
+
+1073:                                             ; preds = %91
+  %1074 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1075 = load ptr, ptr %1074, align 8
+  %1076 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1077 = load ptr, ptr %1076, align 8
+  %1078 = call ptr @zend_ast_create_3(i16 noundef zeroext 774, ptr noundef %1075, ptr noundef %1077, ptr noundef null) #12
+  %1079 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1080 = load i64, ptr %1079, align 8
+  %1081 = trunc i64 %1080 to i16
+  %1082 = getelementptr inbounds i8, ptr %1078, i64 2
+  store i16 %1081, ptr %1082, align 2
+  br label %2367
+
+1083:                                             ; preds = %91
+  %1084 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1085 = load ptr, ptr %1084, align 8
+  %1086 = call ptr @zend_ast_create_3(i16 noundef zeroext 777, ptr noundef %1085, ptr noundef null, ptr noundef null) #12
+  %1087 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1088 = load i64, ptr %1087, align 8
+  %1089 = trunc i64 %1088 to i16
+  %1090 = getelementptr inbounds i8, ptr %1086, i64 2
+  store i16 %1089, ptr %1090, align 2
+  br label %2367
+
+1091:                                             ; preds = %91
+  %1092 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1093 = load ptr, ptr %1092, align 8
+  %1094 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1095 = load ptr, ptr %1094, align 8
+  %1096 = call ptr @zend_ast_create_3(i16 noundef zeroext 777, ptr noundef %1093, ptr noundef null, ptr noundef %1095) #12
+  %1097 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %1098 = load i64, ptr %1097, align 8
+  %1099 = trunc i64 %1098 to i16
+  %1100 = getelementptr inbounds i8, ptr %1096, i64 2
+  store i16 %1099, ptr %1100, align 2
+  br label %2367
+
+1101:                                             ; preds = %91
+  %1102 = getelementptr inbounds i8, ptr %.21591, i64 -72
+  %1103 = load i64, ptr %1102, align 8
+  %1104 = getelementptr inbounds i8, ptr %.21591, i64 -88
+  %1105 = load i64, ptr %1104, align 8
+  %1106 = or i64 %1105, %1103
+  %1107 = load i64, ptr %.21591, align 8
+  %1108 = or i64 %1106, %1107
+  %1109 = trunc i64 %1108 to i32
+  %1110 = getelementptr inbounds i8, ptr %.21591, i64 -80
+  %1111 = load i64, ptr %1110, align 8
+  %1112 = trunc i64 %1111 to i32
+  %1113 = getelementptr inbounds i8, ptr %.21591, i64 -56
+  %1114 = load ptr, ptr %1113, align 8
+  %1115 = getelementptr inbounds i8, ptr %.21591, i64 -64
+  %1116 = load ptr, ptr %1115, align 8
+  %1117 = load i16, ptr %1116, align 8
+  %1118 = icmp eq i16 %1117, 64
+  call void @llvm.assume(i1 %1118)
+  %1119 = getelementptr inbounds i8, ptr %1116, i64 8
+  %1120 = load ptr, ptr %1119, align 8
+  %1121 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %1122 = load ptr, ptr %1121, align 8
+  %1123 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1124 = load ptr, ptr %1123, align 8
+  %1125 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1126 = load ptr, ptr %1125, align 8
+  %1127 = call ptr @zend_ast_create_decl(i16 noundef zeroext 69, i32 noundef %1109, i32 noundef %1112, ptr noundef %1114, ptr noundef %1120, ptr noundef %1122, ptr noundef null, ptr noundef %1124, ptr noundef %1126, ptr noundef null) #12
+  %1128 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1129 = load i64, ptr %1128, align 8
+  %1130 = trunc i64 %1129 to i32
+  store i32 %1130, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  br label %2367
+
+1131:                                             ; preds = %91
+  %1132 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1133:                                             ; preds = %91
+  %1134 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1135:                                             ; preds = %91
+  %1136 = load ptr, ptr %.21591, align 8
+  %1137 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1138 = load ptr, ptr %1137, align 8
+  %1139 = call ptr @zend_ast_with_attributes(ptr noundef %1136, ptr noundef %1138) #12
+  br label %2367
+
+1140:                                             ; preds = %91
+  %1141 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1142 = load ptr, ptr %1141, align 8
+  %1143 = load ptr, ptr %.21591, align 8
+  %1144 = call ptr @zend_ast_create_2(i16 noundef zeroext 539, ptr noundef %1142, ptr noundef %1143) #12
+  br label %2367
+
+1145:                                             ; preds = %91
+  %1146 = load ptr, ptr %.21591, align 8
+  %1147 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 141, ptr noundef %1146) #12
+  br label %2367
+
+1148:                                             ; preds = %91
+  %1149 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1150 = load ptr, ptr %1149, align 8
+  %1151 = load ptr, ptr %.21591, align 8
+  %1152 = call ptr @zend_ast_list_add(ptr noundef %1150, ptr noundef %1151) #12
+  br label %2367
+
+1153:                                             ; preds = %91
+  br label %2367
+
+1154:                                             ; preds = %91
+  br label %2367
+
+1155:                                             ; preds = %91
+  %1156 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1157 = load ptr, ptr %1156, align 8
+  br label %2367
+
+1158:                                             ; preds = %91
+  %1159 = load ptr, ptr %.21591, align 8
+  %1160 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 142, ptr noundef %1159) #12
+  br label %2367
+
+1161:                                             ; preds = %91
+  %1162 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1163 = load ptr, ptr %1162, align 8
+  %1164 = load ptr, ptr %.21591, align 8
+  %1165 = call ptr @zend_ast_list_add(ptr noundef %1163, ptr noundef %1164) #12
+  br label %2367
+
+1166:                                             ; preds = %91
+  %1167 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1168 = load ptr, ptr %1167, align 8
+  br label %2367
+
+1169:                                             ; preds = %91
+  %1170 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1171 = load ptr, ptr %1170, align 8
+  br label %2367
+
+1172:                                             ; preds = %91
+  %1173 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1174 = load ptr, ptr %1173, align 8
+  %1175 = load ptr, ptr %.21591, align 8
+  %1176 = call ptr @zend_ast_create_2(i16 noundef zeroext 540, ptr noundef %1174, ptr noundef %1175) #12
+  br label %2367
+
+1177:                                             ; preds = %91
+  %1178 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1179 = load ptr, ptr %1178, align 8
+  %1180 = load ptr, ptr %.21591, align 8
+  %1181 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %1179, ptr noundef %1180) #12
+  br label %2367
+
+1182:                                             ; preds = %91
+  %1183 = load ptr, ptr %.21591, align 8
+  %1184 = call i32 @zend_lex_tstring(ptr noundef nonnull %8, ptr noundef %1183) #12
+  %1185 = icmp eq i32 %1184, -1
+  br i1 %1185, label %.loopexit.loopexit1738, label %1186
+
+1186:                                             ; preds = %1182
+  %1187 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1188 = load ptr, ptr %1187, align 8
+  %1189 = call ptr @zend_ast_create_zval(ptr noundef nonnull %8) #12
+  %1190 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %1188, ptr noundef %1189) #12
+  br label %2367
+
+1191:                                             ; preds = %91
+  %1192 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1193 = load i64, ptr %1192, align 8
+  %1194 = trunc i64 %1193 to i32
+  %1195 = call i32 @zend_modifier_token_to_flag(i32 noundef 1, i32 noundef %1194) #12
+  %1196 = trunc i32 %1195 to i16
+  %1197 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1198 = load ptr, ptr %1197, align 8
+  %1199 = load ptr, ptr %.21591, align 8
+  %1200 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %1198, ptr noundef %1199) #12
+  %1201 = getelementptr inbounds i8, ptr %1200, i64 2
+  store i16 %1196, ptr %1201, align 2
+  %.not1653 = icmp eq i32 %1195, 0
+  br i1 %.not1653, label %1202, label %2367
+
+1202:                                             ; preds = %1191
+  call void @zend_ast_destroy(ptr noundef nonnull %1200) #12
+  br label %2419
+
+1203:                                             ; preds = %91
+  %1204 = load i64, ptr %.21591, align 8
+  %1205 = trunc i64 %1204 to i32
+  %1206 = call i32 @zend_modifier_token_to_flag(i32 noundef 1, i32 noundef %1205) #12
+  %1207 = trunc i32 %1206 to i16
+  %1208 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1209 = load ptr, ptr %1208, align 8
+  %1210 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %1209, ptr noundef null) #12
+  %1211 = getelementptr inbounds i8, ptr %1210, i64 2
+  store i16 %1207, ptr %1211, align 2
+  %.not1652 = icmp eq i32 %1206, 0
+  br i1 %.not1652, label %1212, label %2367
+
+1212:                                             ; preds = %1203
+  call void @zend_ast_destroy(ptr noundef nonnull %1210) #12
+  br label %2419
+
+1213:                                             ; preds = %91
+  %1214 = load ptr, ptr %.21591, align 8
+  %1215 = call ptr @zend_ast_create_2(i16 noundef zeroext 541, ptr noundef null, ptr noundef %1214) #12
+  br label %2367
+
+1216:                                             ; preds = %91
+  %1217 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1218:                                             ; preds = %91
+  %1219 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1220 = load ptr, ptr %1219, align 8
+  %1221 = load ptr, ptr %.21591, align 8
+  %1222 = call ptr @zend_ast_create_2(i16 noundef zeroext 541, ptr noundef %1220, ptr noundef %1221) #12
+  br label %2367
+
+1223:                                             ; preds = %91
+  br label %2367
+
+1224:                                             ; preds = %91
+  %1225 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1226 = load ptr, ptr %1225, align 8
+  br label %2367
+
+1227:                                             ; preds = %91
+  %1228 = load ptr, ptr %.21591, align 8
+  %1229 = call i32 @zend_modifier_list_to_flags(i32 noundef 0, ptr noundef %1228) #12
+  %1230 = zext i32 %1229 to i64
+  %1231 = inttoptr i64 %1230 to ptr
+  %.not1651 = icmp eq i32 %1229, 0
+  br i1 %.not1651, label %2419, label %2367
+
+1232:                                             ; preds = %91
+  br label %2367
+
+1233:                                             ; preds = %91
+  br label %2367
+
+1234:                                             ; preds = %91
+  %1235 = load ptr, ptr %.21591, align 8
+  %1236 = call i32 @zend_modifier_list_to_flags(i32 noundef 1, ptr noundef %1235) #12
+  %1237 = zext i32 %1236 to i64
+  %.not1649 = icmp eq i32 %1236, 0
+  br i1 %.not1649, label %2419, label %1238
+
+1238:                                             ; preds = %1234
+  %1239 = inttoptr i64 %1237 to ptr
+  %1240 = and i64 %1237, 7
+  %.not1650 = icmp eq i64 %1240, 0
+  br i1 %.not1650, label %1241, label %2367
+
+1241:                                             ; preds = %1238
+  %1242 = or disjoint i64 %1237, 1
+  %1243 = inttoptr i64 %1242 to ptr
+  br label %2367
+
+1244:                                             ; preds = %91
+  br label %2367
+
+1245:                                             ; preds = %91
+  %1246 = load ptr, ptr %.21591, align 8
+  %1247 = call i32 @zend_modifier_list_to_flags(i32 noundef 2, ptr noundef %1246) #12
+  %1248 = zext i32 %1247 to i64
+  %.not1647 = icmp eq i32 %1247, 0
+  br i1 %.not1647, label %2419, label %1249
+
+1249:                                             ; preds = %1245
+  %1250 = inttoptr i64 %1248 to ptr
+  %1251 = and i64 %1248, 7
+  %.not1648 = icmp eq i64 %1251, 0
+  br i1 %.not1648, label %1252, label %2367
+
+1252:                                             ; preds = %1249
+  %1253 = or disjoint i64 %1248, 1
+  %1254 = inttoptr i64 %1253 to ptr
+  br label %2367
+
+1255:                                             ; preds = %91
+  %1256 = load i64, ptr %.21591, align 8
+  %1257 = call ptr @zend_ast_create_zval_from_long(i64 noundef %1256) #12
+  %1258 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 149, ptr noundef %1257) #12
+  br label %2367
+
+1259:                                             ; preds = %91
+  %1260 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1261 = load ptr, ptr %1260, align 8
+  %1262 = load i64, ptr %.21591, align 8
+  %1263 = call ptr @zend_ast_create_zval_from_long(i64 noundef %1262) #12
+  %1264 = call ptr @zend_ast_list_add(ptr noundef %1261, ptr noundef %1263) #12
+  br label %2367
+
+1265:                                             ; preds = %91
+  br label %2367
+
+1266:                                             ; preds = %91
+  br label %2367
+
+1267:                                             ; preds = %91
+  br label %2367
+
+1268:                                             ; preds = %91
+  br label %2367
+
+1269:                                             ; preds = %91
+  br label %2367
+
+1270:                                             ; preds = %91
+  br label %2367
+
+1271:                                             ; preds = %91
+  br label %2367
+
+1272:                                             ; preds = %91
+  %1273 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1274 = load ptr, ptr %1273, align 8
+  %1275 = load ptr, ptr %.21591, align 8
+  %1276 = call ptr @zend_ast_list_add(ptr noundef %1274, ptr noundef %1275) #12
+  br label %2367
+
+1277:                                             ; preds = %91
+  %1278 = load ptr, ptr %.21591, align 8
+  %1279 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 138, ptr noundef %1278) #12
+  br label %2367
+
+1280:                                             ; preds = %91
+  %1281 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1282 = load ptr, ptr %1281, align 8
+  %1283 = load ptr, ptr %.21591, align 8
+  %.not1646 = icmp eq ptr %1283, null
+  br i1 %.not1646, label %1286, label %1284
+
+1284:                                             ; preds = %1280
+  %1285 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %1283) #12
+  br label %1286
+
+1286:                                             ; preds = %1280, %1284
+  %1287 = phi ptr [ %1285, %1284 ], [ null, %1280 ]
+  %1288 = call ptr @zend_ast_create_3(i16 noundef zeroext 775, ptr noundef %1282, ptr noundef null, ptr noundef %1287) #12
+  br label %2367
+
+1289:                                             ; preds = %91
+  %1290 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1291 = load ptr, ptr %1290, align 8
+  %1292 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1293 = load ptr, ptr %1292, align 8
+  %1294 = load ptr, ptr %.21591, align 8
+  %.not1645 = icmp eq ptr %1294, null
+  br i1 %.not1645, label %1297, label %1295
+
+1295:                                             ; preds = %1289
+  %1296 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %1294) #12
+  br label %1297
+
+1297:                                             ; preds = %1289, %1295
+  %1298 = phi ptr [ %1296, %1295 ], [ null, %1289 ]
+  %1299 = call ptr @zend_ast_create_3(i16 noundef zeroext 775, ptr noundef %1291, ptr noundef %1293, ptr noundef %1298) #12
+  br label %2367
+
+1300:                                             ; preds = %91
+  %1301 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1302 = load ptr, ptr %1301, align 8
+  %1303 = load ptr, ptr %.21591, align 8
+  %1304 = call ptr @zend_ast_list_add(ptr noundef %1302, ptr noundef %1303) #12
+  br label %2367
+
+1305:                                             ; preds = %91
+  %1306 = load ptr, ptr %.21591, align 8
+  %1307 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 140, ptr noundef %1306) #12
+  br label %2367
+
+1308:                                             ; preds = %91
+  %1309 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1310 = load ptr, ptr %1309, align 8
+  %1311 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1312 = load ptr, ptr %1311, align 8
+  %1313 = load ptr, ptr %.21591, align 8
+  %.not1644 = icmp eq ptr %1313, null
+  br i1 %.not1644, label %1316, label %1314
+
+1314:                                             ; preds = %1308
+  %1315 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %1313) #12
+  br label %1316
+
+1316:                                             ; preds = %1308, %1314
+  %1317 = phi ptr [ %1315, %1314 ], [ null, %1308 ]
+  %1318 = call ptr @zend_ast_create_3(i16 noundef zeroext 776, ptr noundef %1310, ptr noundef %1312, ptr noundef %1317) #12
+  br label %2367
+
+1319:                                             ; preds = %91
+  %1320 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1321 = load ptr, ptr %1320, align 8
+  %1322 = call i32 @zend_lex_tstring(ptr noundef nonnull %9, ptr noundef %1321) #12
+  %1323 = icmp eq i32 %1322, -1
+  br i1 %1323, label %.loopexit.loopexit1738, label %1324
+
+1324:                                             ; preds = %1319
+  %1325 = call ptr @zend_ast_create_zval(ptr noundef nonnull %9) #12
+  %1326 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1327 = load ptr, ptr %1326, align 8
+  %1328 = load ptr, ptr %.21591, align 8
+  %.not1643 = icmp eq ptr %1328, null
+  br i1 %.not1643, label %1331, label %1329
+
+1329:                                             ; preds = %1324
+  %1330 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %1328) #12
+  br label %1331
+
+1331:                                             ; preds = %1324, %1329
+  %1332 = phi ptr [ %1330, %1329 ], [ null, %1324 ]
+  %1333 = call ptr @zend_ast_create_3(i16 noundef zeroext 776, ptr noundef %1325, ptr noundef %1327, ptr noundef %1332) #12
+  br label %2367
+
+1334:                                             ; preds = %91
+  %1335 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1336 = load ptr, ptr %1335, align 8
+  %1337 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1338 = load ptr, ptr %1337, align 8
+  %1339 = load ptr, ptr %.21591, align 8
+  %.not1642 = icmp eq ptr %1339, null
+  br i1 %.not1642, label %1342, label %1340
+
+1340:                                             ; preds = %1334
+  %1341 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %1339) #12
+  br label %1342
+
+1342:                                             ; preds = %1334, %1340
+  %1343 = phi ptr [ %1341, %1340 ], [ null, %1334 ]
+  %1344 = call ptr @zend_ast_create_3(i16 noundef zeroext 776, ptr noundef %1336, ptr noundef %1338, ptr noundef %1343) #12
+  br label %2367
+
+1345:                                             ; preds = %91
+  %1346 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1347 = load ptr, ptr %1346, align 8
+  %1348 = load ptr, ptr %.21591, align 8
+  %1349 = call ptr @zend_ast_list_add(ptr noundef %1347, ptr noundef %1348) #12
+  br label %2367
+
+1350:                                             ; preds = %91
+  %1351 = load ptr, ptr %.21591, align 8
+  %1352 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %1351) #12
+  br label %2367
+
+1353:                                             ; preds = %91
+  %1354 = load ptr, ptr %.21591, align 8
+  %1355 = call ptr @zend_ast_create_1(i16 noundef zeroext 283, ptr noundef %1354) #12
+  br label %2367
+
+1356:                                             ; preds = %91
+  br label %2367
+
+1357:                                             ; preds = %91
+  %1358 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1359:                                             ; preds = %91
+  %1360 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1361 = load ptr, ptr %1360, align 8
+  %1362 = load ptr, ptr %.21591, align 8
+  %1363 = call ptr @zend_ast_list_add(ptr noundef %1361, ptr noundef %1362) #12
+  br label %2367
+
+1364:                                             ; preds = %91
+  %1365 = load ptr, ptr %.21591, align 8
+  %1366 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 131, ptr noundef %1365) #12
+  br label %2367
+
+1367:                                             ; preds = %91
+  %1368 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %1369 = sext i32 %1368 to i64
+  %1370 = inttoptr i64 %1369 to ptr
+  br label %2367
+
+1371:                                             ; preds = %91
+  %1372 = getelementptr inbounds i8, ptr %.21591, i64 -72
+  %1373 = load i64, ptr %1372, align 8
+  %1374 = trunc i64 %1373 to i32
+  %1375 = or i32 %1374, 4
+  %1376 = getelementptr inbounds i8, ptr %.21591, i64 -56
+  %1377 = load i64, ptr %1376, align 8
+  %1378 = trunc i64 %1377 to i32
+  %1379 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1380 = load ptr, ptr %1379, align 8
+  %1381 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %1382 = load ptr, ptr %1381, align 8
+  %1383 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %1384 = load ptr, ptr %1383, align 8
+  %1385 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1386 = load ptr, ptr %1385, align 8
+  %1387 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef %1375, i32 noundef %1378, ptr noundef %1380, ptr noundef null, ptr noundef %1382, ptr noundef %1384, ptr noundef %1386, ptr noundef null, ptr noundef null) #12
+  %1388 = getelementptr inbounds i8, ptr %.21591, i64 -48
+  %1389 = load ptr, ptr %1388, align 8
+  %1390 = call ptr @zend_ast_create_2(i16 noundef zeroext 527, ptr noundef %1387, ptr noundef %1389) #12
+  br label %2367
+
+1391:                                             ; preds = %91
+  %1392 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1393 = load ptr, ptr %1392, align 8
+  %1394 = load ptr, ptr %.21591, align 8
+  %1395 = call ptr @zend_ast_create_2(i16 noundef zeroext 527, ptr noundef %1393, ptr noundef %1394) #12
+  br label %2367
+
+1396:                                             ; preds = %91
+  %1397 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1398:                                             ; preds = %91
+  %1399 = load ptr, ptr %.21591, align 8
+  %1400 = getelementptr inbounds i8, ptr %1399, i64 8
+  %1401 = load ptr, ptr %1400, align 8
+  %1402 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1403 = load ptr, ptr %1402, align 8
+  %1404 = call ptr @zend_ast_with_attributes(ptr noundef %1401, ptr noundef %1403) #12
+  %1405 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1406:                                             ; preds = %91
+  %1407 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1408:                                             ; preds = %91
+  %1409 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1410 = load ptr, ptr %1409, align 8
+  %1411 = getelementptr inbounds i8, ptr %1410, i64 2
+  store i16 1, ptr %1411, align 2
+  %1412 = load ptr, ptr %1409, align 8
+  %1413 = load ptr, ptr %.21591, align 8
+  %1414 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef %1412, ptr noundef %1413) #12
+  br label %2367
+
+1415:                                             ; preds = %91
+  %1416 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1417 = load ptr, ptr %1416, align 8
+  %1418 = getelementptr inbounds i8, ptr %1417, i64 2
+  store i16 3, ptr %1418, align 2
+  %1419 = load ptr, ptr %1416, align 8
+  %1420 = load ptr, ptr %.21591, align 8
+  %1421 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef %1419, ptr noundef %1420) #12
+  br label %2367
+
+1422:                                             ; preds = %91
+  %1423 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1424 = load ptr, ptr %1423, align 8
+  %1425 = load ptr, ptr %.21591, align 8
+  %1426 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef %1424, ptr noundef %1425) #12
+  br label %2367
+
+1427:                                             ; preds = %91
+  %1428 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1429 = load ptr, ptr %1428, align 8
+  %1430 = load ptr, ptr %.21591, align 8
+  %1431 = call ptr @zend_ast_create_2(i16 noundef zeroext 519, ptr noundef %1429, ptr noundef %1430) #12
+  br label %2367
+
+1432:                                             ; preds = %91
+  %1433 = load ptr, ptr %.21591, align 8
+  %1434 = call ptr @zend_ast_create_1(i16 noundef zeroext 266, ptr noundef %1433) #12
+  br label %2367
+
+1435:                                             ; preds = %91
+  %1436 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1437 = load ptr, ptr %1436, align 8
+  %1438 = load ptr, ptr %.21591, align 8
+  %1439 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1437, ptr noundef %1438) #12
+  %1440 = getelementptr inbounds i8, ptr %1439, i64 2
+  store i16 1, ptr %1440, align 2
+  br label %2367
+
+1441:                                             ; preds = %91
+  %1442 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1443 = load ptr, ptr %1442, align 8
+  %1444 = load ptr, ptr %.21591, align 8
+  %1445 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1443, ptr noundef %1444) #12
+  %1446 = getelementptr inbounds i8, ptr %1445, i64 2
+  store i16 2, ptr %1446, align 2
+  br label %2367
+
+1447:                                             ; preds = %91
+  %1448 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1449 = load ptr, ptr %1448, align 8
+  %1450 = load ptr, ptr %.21591, align 8
+  %1451 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1449, ptr noundef %1450) #12
+  %1452 = getelementptr inbounds i8, ptr %1451, i64 2
+  store i16 3, ptr %1452, align 2
+  br label %2367
+
+1453:                                             ; preds = %91
+  %1454 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1455 = load ptr, ptr %1454, align 8
+  %1456 = load ptr, ptr %.21591, align 8
+  %1457 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1455, ptr noundef %1456) #12
+  %1458 = getelementptr inbounds i8, ptr %1457, i64 2
+  store i16 12, ptr %1458, align 2
+  br label %2367
+
+1459:                                             ; preds = %91
+  %1460 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1461 = load ptr, ptr %1460, align 8
+  %1462 = load ptr, ptr %.21591, align 8
+  %1463 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1461, ptr noundef %1462) #12
+  %1464 = getelementptr inbounds i8, ptr %1463, i64 2
+  store i16 4, ptr %1464, align 2
+  br label %2367
+
+1465:                                             ; preds = %91
+  %1466 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1467 = load ptr, ptr %1466, align 8
+  %1468 = load ptr, ptr %.21591, align 8
+  %1469 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1467, ptr noundef %1468) #12
+  %1470 = getelementptr inbounds i8, ptr %1469, i64 2
+  store i16 8, ptr %1470, align 2
+  br label %2367
+
+1471:                                             ; preds = %91
+  %1472 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1473 = load ptr, ptr %1472, align 8
+  %1474 = load ptr, ptr %.21591, align 8
+  %1475 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1473, ptr noundef %1474) #12
+  %1476 = getelementptr inbounds i8, ptr %1475, i64 2
+  store i16 5, ptr %1476, align 2
+  br label %2367
+
+1477:                                             ; preds = %91
+  %1478 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1479 = load ptr, ptr %1478, align 8
+  %1480 = load ptr, ptr %.21591, align 8
+  %1481 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1479, ptr noundef %1480) #12
+  %1482 = getelementptr inbounds i8, ptr %1481, i64 2
+  store i16 10, ptr %1482, align 2
+  br label %2367
+
+1483:                                             ; preds = %91
+  %1484 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1485 = load ptr, ptr %1484, align 8
+  %1486 = load ptr, ptr %.21591, align 8
+  %1487 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1485, ptr noundef %1486) #12
+  %1488 = getelementptr inbounds i8, ptr %1487, i64 2
+  store i16 9, ptr %1488, align 2
+  br label %2367
+
+1489:                                             ; preds = %91
+  %1490 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1491 = load ptr, ptr %1490, align 8
+  %1492 = load ptr, ptr %.21591, align 8
+  %1493 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1491, ptr noundef %1492) #12
+  %1494 = getelementptr inbounds i8, ptr %1493, i64 2
+  store i16 11, ptr %1494, align 2
+  br label %2367
+
+1495:                                             ; preds = %91
+  %1496 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1497 = load ptr, ptr %1496, align 8
+  %1498 = load ptr, ptr %.21591, align 8
+  %1499 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1497, ptr noundef %1498) #12
+  %1500 = getelementptr inbounds i8, ptr %1499, i64 2
+  store i16 6, ptr %1500, align 2
+  br label %2367
+
+1501:                                             ; preds = %91
+  %1502 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1503 = load ptr, ptr %1502, align 8
+  %1504 = load ptr, ptr %.21591, align 8
+  %1505 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1503, ptr noundef %1504) #12
+  %1506 = getelementptr inbounds i8, ptr %1505, i64 2
+  store i16 7, ptr %1506, align 2
+  br label %2367
+
+1507:                                             ; preds = %91
+  %1508 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1509 = load ptr, ptr %1508, align 8
+  %1510 = load ptr, ptr %.21591, align 8
+  %1511 = call ptr @zend_ast_create_2(i16 noundef zeroext 531, ptr noundef %1509, ptr noundef %1510) #12
+  br label %2367
+
+1512:                                             ; preds = %91
+  %1513 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1514 = load ptr, ptr %1513, align 8
+  %1515 = call ptr @zend_ast_create_1(i16 noundef zeroext 273, ptr noundef %1514) #12
+  br label %2367
+
+1516:                                             ; preds = %91
+  %1517 = load ptr, ptr %.21591, align 8
+  %1518 = call ptr @zend_ast_create_1(i16 noundef zeroext 271, ptr noundef %1517) #12
+  br label %2367
+
+1519:                                             ; preds = %91
+  %1520 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1521 = load ptr, ptr %1520, align 8
+  %1522 = call ptr @zend_ast_create_1(i16 noundef zeroext 274, ptr noundef %1521) #12
+  br label %2367
+
+1523:                                             ; preds = %91
+  %1524 = load ptr, ptr %.21591, align 8
+  %1525 = call ptr @zend_ast_create_1(i16 noundef zeroext 272, ptr noundef %1524) #12
+  br label %2367
+
+1526:                                             ; preds = %91
+  %1527 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1528 = load ptr, ptr %1527, align 8
+  %1529 = load ptr, ptr %.21591, align 8
+  %1530 = call ptr @zend_ast_create_2(i16 noundef zeroext 525, ptr noundef %1528, ptr noundef %1529) #12
+  br label %2367
+
+1531:                                             ; preds = %91
+  %1532 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1533 = load ptr, ptr %1532, align 8
+  %1534 = load ptr, ptr %.21591, align 8
+  %1535 = call ptr @zend_ast_create_2(i16 noundef zeroext 524, ptr noundef %1533, ptr noundef %1534) #12
+  br label %2367
+
+1536:                                             ; preds = %91
+  %1537 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1538 = load ptr, ptr %1537, align 8
+  %1539 = load ptr, ptr %.21591, align 8
+  %1540 = call ptr @zend_ast_create_2(i16 noundef zeroext 525, ptr noundef %1538, ptr noundef %1539) #12
+  br label %2367
+
+1541:                                             ; preds = %91
+  %1542 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1543 = load ptr, ptr %1542, align 8
+  %1544 = load ptr, ptr %.21591, align 8
+  %1545 = call ptr @zend_ast_create_2(i16 noundef zeroext 524, ptr noundef %1543, ptr noundef %1544) #12
+  br label %2367
+
+1546:                                             ; preds = %91
+  %1547 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1548 = load ptr, ptr %1547, align 8
+  %1549 = load ptr, ptr %.21591, align 8
+  %1550 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1548, ptr noundef %1549) #12
+  %1551 = getelementptr inbounds i8, ptr %1550, i64 2
+  store i16 15, ptr %1551, align 2
+  br label %2367
+
+1552:                                             ; preds = %91
+  %1553 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1554 = load ptr, ptr %1553, align 8
+  %1555 = load ptr, ptr %.21591, align 8
+  %1556 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1554, ptr noundef %1555) #12
+  %1557 = getelementptr inbounds i8, ptr %1556, i64 2
+  store i16 9, ptr %1557, align 2
+  br label %2367
+
+1558:                                             ; preds = %91
+  %1559 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1560 = load ptr, ptr %1559, align 8
+  %1561 = load ptr, ptr %.21591, align 8
+  %1562 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1560, ptr noundef %1561) #12
+  %1563 = getelementptr inbounds i8, ptr %1562, i64 2
+  store i16 10, ptr %1563, align 2
+  br label %2367
+
+1564:                                             ; preds = %91
+  %1565 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1566 = load ptr, ptr %1565, align 8
+  %1567 = load ptr, ptr %.21591, align 8
+  %1568 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1566, ptr noundef %1567) #12
+  %1569 = getelementptr inbounds i8, ptr %1568, i64 2
+  store i16 10, ptr %1569, align 2
+  br label %2367
+
+1570:                                             ; preds = %91
+  %1571 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1572 = load ptr, ptr %1571, align 8
+  %1573 = load ptr, ptr %.21591, align 8
+  %1574 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1572, ptr noundef %1573) #12
+  %1575 = getelementptr inbounds i8, ptr %1574, i64 2
+  store i16 11, ptr %1575, align 2
+  br label %2367
+
+1576:                                             ; preds = %91
+  %1577 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1578 = load ptr, ptr %1577, align 8
+  %1579 = load ptr, ptr %.21591, align 8
+  %1580 = call ptr @zend_ast_create_concat_op(ptr noundef %1578, ptr noundef %1579) #12
+  br label %2367
+
+1581:                                             ; preds = %91
+  %1582 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1583 = load ptr, ptr %1582, align 8
+  %1584 = load ptr, ptr %.21591, align 8
+  %1585 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1583, ptr noundef %1584) #12
+  %1586 = getelementptr inbounds i8, ptr %1585, i64 2
+  store i16 1, ptr %1586, align 2
+  br label %2367
+
+1587:                                             ; preds = %91
+  %1588 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1589 = load ptr, ptr %1588, align 8
+  %1590 = load ptr, ptr %.21591, align 8
+  %1591 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1589, ptr noundef %1590) #12
+  %1592 = getelementptr inbounds i8, ptr %1591, i64 2
+  store i16 2, ptr %1592, align 2
+  br label %2367
+
+1593:                                             ; preds = %91
+  %1594 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1595 = load ptr, ptr %1594, align 8
+  %1596 = load ptr, ptr %.21591, align 8
+  %1597 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1595, ptr noundef %1596) #12
+  %1598 = getelementptr inbounds i8, ptr %1597, i64 2
+  store i16 3, ptr %1598, align 2
+  br label %2367
+
+1599:                                             ; preds = %91
+  %1600 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1601 = load ptr, ptr %1600, align 8
+  %1602 = load ptr, ptr %.21591, align 8
+  %1603 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1601, ptr noundef %1602) #12
+  %1604 = getelementptr inbounds i8, ptr %1603, i64 2
+  store i16 12, ptr %1604, align 2
+  br label %2367
+
+1605:                                             ; preds = %91
+  %1606 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1607 = load ptr, ptr %1606, align 8
+  %1608 = load ptr, ptr %.21591, align 8
+  %1609 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1607, ptr noundef %1608) #12
+  %1610 = getelementptr inbounds i8, ptr %1609, i64 2
+  store i16 4, ptr %1610, align 2
+  br label %2367
+
+1611:                                             ; preds = %91
+  %1612 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1613 = load ptr, ptr %1612, align 8
+  %1614 = load ptr, ptr %.21591, align 8
+  %1615 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1613, ptr noundef %1614) #12
+  %1616 = getelementptr inbounds i8, ptr %1615, i64 2
+  store i16 5, ptr %1616, align 2
+  br label %2367
+
+1617:                                             ; preds = %91
+  %1618 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1619 = load ptr, ptr %1618, align 8
+  %1620 = load ptr, ptr %.21591, align 8
+  %1621 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1619, ptr noundef %1620) #12
+  %1622 = getelementptr inbounds i8, ptr %1621, i64 2
+  store i16 6, ptr %1622, align 2
+  br label %2367
+
+1623:                                             ; preds = %91
+  %1624 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1625 = load ptr, ptr %1624, align 8
+  %1626 = load ptr, ptr %.21591, align 8
+  %1627 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1625, ptr noundef %1626) #12
+  %1628 = getelementptr inbounds i8, ptr %1627, i64 2
+  store i16 7, ptr %1628, align 2
+  br label %2367
+
+1629:                                             ; preds = %91
+  %1630 = load ptr, ptr %.21591, align 8
+  %1631 = call ptr @zend_ast_create_1(i16 noundef zeroext 259, ptr noundef %1630) #12
+  br label %2367
+
+1632:                                             ; preds = %91
+  %1633 = load ptr, ptr %.21591, align 8
+  %1634 = call ptr @zend_ast_create_1(i16 noundef zeroext 260, ptr noundef %1633) #12
+  br label %2367
+
+1635:                                             ; preds = %91
+  %1636 = load ptr, ptr %.21591, align 8
+  %1637 = call ptr @zend_ast_create_1(i16 noundef zeroext 270, ptr noundef %1636) #12
+  %1638 = getelementptr inbounds i8, ptr %1637, i64 2
+  store i16 14, ptr %1638, align 2
+  br label %2367
+
+1639:                                             ; preds = %91
+  %1640 = load ptr, ptr %.21591, align 8
+  %1641 = call ptr @zend_ast_create_1(i16 noundef zeroext 270, ptr noundef %1640) #12
+  %1642 = getelementptr inbounds i8, ptr %1641, i64 2
+  store i16 13, ptr %1642, align 2
+  br label %2367
+
+1643:                                             ; preds = %91
+  %1644 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1645 = load ptr, ptr %1644, align 8
+  %1646 = load ptr, ptr %.21591, align 8
+  %1647 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1645, ptr noundef %1646) #12
+  %1648 = getelementptr inbounds i8, ptr %1647, i64 2
+  store i16 16, ptr %1648, align 2
+  br label %2367
+
+1649:                                             ; preds = %91
+  %1650 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1651 = load ptr, ptr %1650, align 8
+  %1652 = load ptr, ptr %.21591, align 8
+  %1653 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1651, ptr noundef %1652) #12
+  %1654 = getelementptr inbounds i8, ptr %1653, i64 2
+  store i16 17, ptr %1654, align 2
+  br label %2367
+
+1655:                                             ; preds = %91
+  %1656 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1657 = load ptr, ptr %1656, align 8
+  %1658 = load ptr, ptr %.21591, align 8
+  %1659 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1657, ptr noundef %1658) #12
+  %1660 = getelementptr inbounds i8, ptr %1659, i64 2
+  store i16 18, ptr %1660, align 2
+  br label %2367
+
+1661:                                             ; preds = %91
+  %1662 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1663 = load ptr, ptr %1662, align 8
+  %1664 = load ptr, ptr %.21591, align 8
+  %1665 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1663, ptr noundef %1664) #12
+  %1666 = getelementptr inbounds i8, ptr %1665, i64 2
+  store i16 19, ptr %1666, align 2
+  br label %2367
+
+1667:                                             ; preds = %91
+  %1668 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1669 = load ptr, ptr %1668, align 8
+  %1670 = load ptr, ptr %.21591, align 8
+  %1671 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1669, ptr noundef %1670) #12
+  %1672 = getelementptr inbounds i8, ptr %1671, i64 2
+  store i16 20, ptr %1672, align 2
+  br label %2367
+
+1673:                                             ; preds = %91
+  %1674 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1675 = load ptr, ptr %1674, align 8
+  %1676 = load ptr, ptr %.21591, align 8
+  %1677 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1675, ptr noundef %1676) #12
+  %1678 = getelementptr inbounds i8, ptr %1677, i64 2
+  store i16 21, ptr %1678, align 2
+  br label %2367
+
+1679:                                             ; preds = %91
+  %1680 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1681 = load ptr, ptr %1680, align 8
+  %1682 = load ptr, ptr %.21591, align 8
+  %1683 = call ptr @zend_ast_create_2(i16 noundef zeroext 522, ptr noundef %1681, ptr noundef %1682) #12
+  br label %2367
+
+1684:                                             ; preds = %91
+  %1685 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1686 = load ptr, ptr %1685, align 8
+  %1687 = load ptr, ptr %.21591, align 8
+  %1688 = call ptr @zend_ast_create_2(i16 noundef zeroext 523, ptr noundef %1686, ptr noundef %1687) #12
+  br label %2367
+
+1689:                                             ; preds = %91
+  %1690 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1691 = load ptr, ptr %1690, align 8
+  %1692 = load ptr, ptr %.21591, align 8
+  %1693 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1691, ptr noundef %1692) #12
+  %1694 = getelementptr inbounds i8, ptr %1693, i64 2
+  store i16 170, ptr %1694, align 2
+  br label %2367
+
+1695:                                             ; preds = %91
+  %1696 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1697 = load ptr, ptr %1696, align 8
+  %1698 = load ptr, ptr %.21591, align 8
+  %1699 = call ptr @zend_ast_create_2(i16 noundef zeroext 528, ptr noundef %1697, ptr noundef %1698) #12
+  br label %2367
+
+1700:                                             ; preds = %91
+  %1701 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1702 = load ptr, ptr %1701, align 8
+  %1703 = load i16, ptr %1702, align 8
+  %1704 = icmp eq i16 %1703, 771
+  br i1 %1704, label %1705, label %2367
+
+1705:                                             ; preds = %1700
+  %1706 = getelementptr inbounds i8, ptr %1702, i64 2
+  store i16 1, ptr %1706, align 2
+  br label %2367
+
+1707:                                             ; preds = %91
+  %1708 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1709:                                             ; preds = %91
+  %1710 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %1711 = load ptr, ptr %1710, align 8
+  %1712 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1713 = load ptr, ptr %1712, align 8
+  %1714 = load ptr, ptr %.21591, align 8
+  %1715 = call ptr @zend_ast_create_3(i16 noundef zeroext 771, ptr noundef %1711, ptr noundef %1713, ptr noundef %1714) #12
+  br label %2367
+
+1716:                                             ; preds = %91
+  %1717 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1718 = load ptr, ptr %1717, align 8
+  %1719 = load ptr, ptr %.21591, align 8
+  %1720 = call ptr @zend_ast_create_3(i16 noundef zeroext 771, ptr noundef %1718, ptr noundef null, ptr noundef %1719) #12
+  br label %2367
+
+1721:                                             ; preds = %91
+  %1722 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1723 = load ptr, ptr %1722, align 8
+  %1724 = load ptr, ptr %.21591, align 8
+  %1725 = call ptr @zend_ast_create_2(i16 noundef zeroext 530, ptr noundef %1723, ptr noundef %1724) #12
+  br label %2367
+
+1726:                                             ; preds = %91
+  %1727 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1728:                                             ; preds = %91
+  %1729 = load ptr, ptr %.21591, align 8
+  %1730 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1729) #12
+  %1731 = getelementptr inbounds i8, ptr %1730, i64 2
+  store i16 4, ptr %1731, align 2
+  br label %2367
+
+1732:                                             ; preds = %91
+  %1733 = load ptr, ptr %.21591, align 8
+  %1734 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1733) #12
+  %1735 = getelementptr inbounds i8, ptr %1734, i64 2
+  store i16 5, ptr %1735, align 2
+  br label %2367
+
+1736:                                             ; preds = %91
+  %1737 = load ptr, ptr %.21591, align 8
+  %1738 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1737) #12
+  %1739 = getelementptr inbounds i8, ptr %1738, i64 2
+  store i16 6, ptr %1739, align 2
+  br label %2367
+
+1740:                                             ; preds = %91
+  %1741 = load ptr, ptr %.21591, align 8
+  %1742 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1741) #12
+  %1743 = getelementptr inbounds i8, ptr %1742, i64 2
+  store i16 7, ptr %1743, align 2
+  br label %2367
+
+1744:                                             ; preds = %91
+  %1745 = load ptr, ptr %.21591, align 8
+  %1746 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1745) #12
+  %1747 = getelementptr inbounds i8, ptr %1746, i64 2
+  store i16 8, ptr %1747, align 2
+  br label %2367
+
+1748:                                             ; preds = %91
+  %1749 = load ptr, ptr %.21591, align 8
+  %1750 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1749) #12
+  %1751 = getelementptr inbounds i8, ptr %1750, i64 2
+  store i16 18, ptr %1751, align 2
+  br label %2367
+
+1752:                                             ; preds = %91
+  %1753 = load ptr, ptr %.21591, align 8
+  %1754 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1753) #12
+  %1755 = getelementptr inbounds i8, ptr %1754, i64 2
+  store i16 1, ptr %1755, align 2
+  br label %2367
+
+1756:                                             ; preds = %91
+  %1757 = load ptr, ptr %.21591, align 8
+  %1758 = call ptr @zend_ast_create_1(i16 noundef zeroext 267, ptr noundef %1757) #12
+  br label %2367
+
+1759:                                             ; preds = %91
+  %1760 = load ptr, ptr %.21591, align 8
+  %1761 = call ptr @zend_ast_create_1(i16 noundef zeroext 264, ptr noundef %1760) #12
+  br label %2367
+
+1762:                                             ; preds = %91
+  %1763 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1764:                                             ; preds = %91
+  %1765 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1766 = load ptr, ptr %1765, align 8
+  %1767 = call ptr @zend_ast_create_1(i16 noundef zeroext 265, ptr noundef %1766) #12
+  br label %2367
+
+1768:                                             ; preds = %91
+  %1769 = load ptr, ptr %.21591, align 8
+  %1770 = call ptr @zend_ast_create_1(i16 noundef zeroext 268, ptr noundef %1769) #12
+  br label %2367
+
+1771:                                             ; preds = %91
+  %1772 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef null, ptr noundef null) #12
+  %1773 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  %1774 = or i32 %1773, 16777216
+  store i32 %1774, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  br label %2367
+
+1775:                                             ; preds = %91
+  %1776 = load ptr, ptr %.21591, align 8
+  %1777 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef %1776, ptr noundef null) #12
+  %1778 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  %1779 = or i32 %1778, 16777216
+  store i32 %1779, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  br label %2367
+
+1780:                                             ; preds = %91
+  %1781 = load ptr, ptr %.21591, align 8
+  %1782 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1783 = load ptr, ptr %1782, align 8
+  %1784 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef %1781, ptr noundef %1783) #12
+  %1785 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  %1786 = or i32 %1785, 16777216
+  store i32 %1786, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  br label %2367
+
+1787:                                             ; preds = %91
+  %1788 = load ptr, ptr %.21591, align 8
+  %1789 = call ptr @zend_ast_create_1(i16 noundef zeroext 275, ptr noundef %1788) #12
+  %1790 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  %1791 = or i32 %1790, 16777216
+  store i32 %1791, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  br label %2367
+
+1792:                                             ; preds = %91
+  %1793 = load ptr, ptr %.21591, align 8
+  %1794 = call ptr @zend_ast_create_1(i16 noundef zeroext 284, ptr noundef %1793) #12
+  br label %2367
+
+1795:                                             ; preds = %91
+  %1796 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1797:                                             ; preds = %91
+  %1798 = load ptr, ptr %.21591, align 8
+  %1799 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1800 = load ptr, ptr %1799, align 8
+  %1801 = call ptr @zend_ast_with_attributes(ptr noundef %1798, ptr noundef %1800) #12
+  br label %2367
+
+1802:                                             ; preds = %91
+  %1803 = load ptr, ptr %.21591, align 8
+  %1804 = getelementptr inbounds i8, ptr %1803, i64 12
+  %1805 = load i32, ptr %1804, align 4
+  %1806 = or i32 %1805, 16
+  store i32 %1806, ptr %1804, align 4
+  br label %2367
+
+1807:                                             ; preds = %91
+  %1808 = load ptr, ptr %.21591, align 8
+  %1809 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1810 = load ptr, ptr %1809, align 8
+  %1811 = call ptr @zend_ast_with_attributes(ptr noundef %1808, ptr noundef %1810) #12
+  %1812 = getelementptr inbounds i8, ptr %1811, i64 12
+  %1813 = load i32, ptr %1812, align 4
+  %1814 = or i32 %1813, 16
+  store i32 %1814, ptr %1812, align 4
+  br label %2367
+
+1815:                                             ; preds = %91
+  %1816 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1817:                                             ; preds = %91
+  %1818 = getelementptr inbounds i8, ptr %.21591, i64 -88
+  %1819 = load i64, ptr %1818, align 8
+  %1820 = load i64, ptr %.21591, align 8
+  %1821 = or i64 %1820, %1819
+  %1822 = trunc i64 %1821 to i32
+  %1823 = getelementptr inbounds i8, ptr %.21591, i64 -96
+  %1824 = load i64, ptr %1823, align 8
+  %1825 = trunc i64 %1824 to i32
+  %1826 = getelementptr inbounds i8, ptr %.21591, i64 -80
+  %1827 = load ptr, ptr %1826, align 8
+  %1828 = call noalias ptr @_emalloc_40() #12
+  store i32 1, ptr %1828, align 4
+  %1829 = getelementptr inbounds i8, ptr %1828, i64 4
+  store i32 22, ptr %1829, align 4
+  %1830 = getelementptr inbounds i8, ptr %1828, i64 8
+  store i64 0, ptr %1830, align 8
+  %1831 = getelementptr inbounds i8, ptr %1828, i64 16
+  store i64 9, ptr %1831, align 8
+  %1832 = getelementptr inbounds i8, ptr %1828, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1832, ptr noundef nonnull align 1 dereferenceable(9) @.str.1, i64 9, i1 false)
+  %1833 = getelementptr inbounds i8, ptr %1828, i64 33
+  store i8 0, ptr %1833, align 1
+  %1834 = getelementptr inbounds i8, ptr %.21591, i64 -64
+  %1835 = load ptr, ptr %1834, align 8
+  %1836 = getelementptr inbounds i8, ptr %.21591, i64 -48
+  %1837 = load ptr, ptr %1836, align 8
+  %1838 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1839 = load ptr, ptr %1838, align 8
+  %1840 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %1841 = load ptr, ptr %1840, align 8
+  %1842 = call ptr @zend_ast_create_decl(i16 noundef zeroext 68, i32 noundef %1822, i32 noundef %1825, ptr noundef %1827, ptr noundef nonnull %1828, ptr noundef %1835, ptr noundef %1837, ptr noundef %1839, ptr noundef %1841, ptr noundef null) #12
+  %1843 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %1844 = load i64, ptr %1843, align 8
+  %1845 = trunc i64 %1844 to i32
+  store i32 %1845, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  br label %2367
+
+1846:                                             ; preds = %91
+  %1847 = getelementptr inbounds i8, ptr %.21591, i64 -80
+  %1848 = load i64, ptr %1847, align 8
+  %1849 = load i64, ptr %.21591, align 8
+  %1850 = or i64 %1849, %1848
+  %1851 = trunc i64 %1850 to i32
+  %1852 = getelementptr inbounds i8, ptr %.21591, i64 -88
+  %1853 = load i64, ptr %1852, align 8
+  %1854 = trunc i64 %1853 to i32
+  %1855 = getelementptr inbounds i8, ptr %.21591, i64 -72
+  %1856 = load ptr, ptr %1855, align 8
+  %1857 = call noalias ptr @_emalloc_40() #12
+  store i32 1, ptr %1857, align 4
+  %1858 = getelementptr inbounds i8, ptr %1857, i64 4
+  store i32 22, ptr %1858, align 4
+  %1859 = getelementptr inbounds i8, ptr %1857, i64 8
+  store i64 0, ptr %1859, align 8
+  %1860 = getelementptr inbounds i8, ptr %1857, i64 16
+  store i64 9, ptr %1860, align 8
+  %1861 = getelementptr inbounds i8, ptr %1857, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1861, ptr noundef nonnull align 1 dereferenceable(9) @.str.1, i64 9, i1 false)
+  %1862 = getelementptr inbounds i8, ptr %1857, i64 33
+  store i8 0, ptr %1862, align 1
+  %1863 = getelementptr inbounds i8, ptr %.21591, i64 -56
+  %1864 = load ptr, ptr %1863, align 8
+  %1865 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1866 = load ptr, ptr %1865, align 8
+  %1867 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %1868 = load ptr, ptr %1867, align 8
+  %1869 = call ptr @zend_ast_create_decl(i16 noundef zeroext 71, i32 noundef %1851, i32 noundef %1854, ptr noundef %1856, ptr noundef nonnull %1857, ptr noundef %1864, ptr noundef null, ptr noundef %1866, ptr noundef %1868, ptr noundef null) #12
+  %1870 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1871 = load i64, ptr %1870, align 8
+  %1872 = trunc i64 %1871 to i32
+  store i32 %1872, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  br label %2367
+
+1873:                                             ; preds = %91
+  %1874 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %1875 = sext i32 %1874 to i64
+  %1876 = inttoptr i64 %1875 to ptr
+  br label %2367
+
+1877:                                             ; preds = %91
+  %1878 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %1879 = sext i32 %1878 to i64
+  %1880 = inttoptr i64 %1879 to ptr
+  br label %2367
+
+1881:                                             ; preds = %91
+  %1882 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 160), align 8
-  br label %2368
+  br label %2367
 
-1884:                                             ; preds = %92
-  %1885 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  %1886 = zext i32 %1885 to i64
-  %1887 = inttoptr i64 %1886 to ptr
+1883:                                             ; preds = %91
+  %1884 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
+  %1885 = zext i32 %1884 to i64
+  %1886 = inttoptr i64 %1885 to ptr
   store i32 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 168), align 8
-  br label %2368
-
-1888:                                             ; preds = %92
-  %1889 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
-  br label %2368
-
-1890:                                             ; preds = %92
-  br label %2368
-
-1891:                                             ; preds = %92
-  br label %2368
-
-1892:                                             ; preds = %92
-  br label %2368
-
-1893:                                             ; preds = %92
-  %1894 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1895 = load ptr, ptr %1894, align 8
-  br label %2368
-
-1896:                                             ; preds = %92
-  %1897 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1898 = load ptr, ptr %1897, align 8
-  %1899 = load ptr, ptr %.21591, align 8
-  %1900 = call ptr @zend_ast_list_add(ptr noundef %1898, ptr noundef %1899) #12
-  br label %2368
-
-1901:                                             ; preds = %92
-  %1902 = load ptr, ptr %.21591, align 8
-  %1903 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 137, ptr noundef %1902) #12
-  br label %2368
-
-1904:                                             ; preds = %92
-  %1905 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1906:                                             ; preds = %92
-  %1907 = load ptr, ptr %.21591, align 8
-  %1908 = getelementptr inbounds i8, ptr %1907, i64 2
-  store i16 1, ptr %1908, align 2
-  br label %2368
-
-1909:                                             ; preds = %92
-  %1910 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1911 = load ptr, ptr %1910, align 8
-  %1912 = load ptr, ptr %.21591, align 8
-  %1913 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %1911, ptr noundef %1912) #12
-  br label %2368
-
-1914:                                             ; preds = %92
-  %1915 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1916 = load ptr, ptr %1915, align 8
-  %1917 = call i32 @zend_lex_tstring(ptr noundef nonnull %11, ptr noundef %1916) #12
-  %1918 = icmp eq i32 %1917, -1
-  br i1 %1918, label %.loopexit.loopexit1717, label %1919
-
-1919:                                             ; preds = %1914
-  %1920 = call ptr @zend_ast_create_zval(ptr noundef nonnull %11) #12
-  %1921 = load ptr, ptr %.21591, align 8
-  %1922 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %1920, ptr noundef %1921) #12
-  br label %2368
-
-1923:                                             ; preds = %92
-  %1924 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1925 = load ptr, ptr %1924, align 8
-  %1926 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1927 = load ptr, ptr %1926, align 8
-  %1928 = load ptr, ptr %.21591, align 8
-  %1929 = call ptr @zend_ast_create_3(i16 noundef zeroext 770, ptr noundef %1925, ptr noundef %1927, ptr noundef %1928) #12
-  br label %2368
-
-1930:                                             ; preds = %92
-  %1931 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %1932 = load ptr, ptr %1931, align 8
-  %1933 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1934 = load ptr, ptr %1933, align 8
-  %1935 = load ptr, ptr %.21591, align 8
-  %1936 = call ptr @zend_ast_create_3(i16 noundef zeroext 770, ptr noundef %1932, ptr noundef %1934, ptr noundef %1935) #12
-  br label %2368
-
-1937:                                             ; preds = %92
-  %1938 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %1939 = sext i32 %1938 to i64
-  %1940 = inttoptr i64 %1939 to ptr
-  br label %2368
-
-1941:                                             ; preds = %92
-  %1942 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %1943 = load ptr, ptr %1942, align 8
-  %1944 = load ptr, ptr %.21591, align 8
-  %1945 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %1943, ptr noundef %1944) #12
-  %1946 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1947 = load i64, ptr %1946, align 8
-  %1948 = trunc i64 %1947 to i32
-  %1949 = getelementptr inbounds i8, ptr %1945, i64 4
-  store i32 %1948, ptr %1949, align 4
-  br label %2368
-
-1950:                                             ; preds = %92
-  %1951 = load ptr, ptr @zend_known_strings, align 8
-  %1952 = getelementptr inbounds i8, ptr %1951, i64 144
-  %1953 = load ptr, ptr %1952, align 8
-  store ptr %1953, ptr %12, align 8
-  store i32 6, ptr %13, align 8
-  %1954 = call ptr @zend_ast_create_zval_ex(ptr noundef nonnull %12, i16 noundef zeroext 1) #12
-  br label %2368
-
-1955:                                             ; preds = %92
-  %1956 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1957:                                             ; preds = %92
-  %1958 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1959:                                             ; preds = %92
-  %1960 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1961:                                             ; preds = %92
-  %1962 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1963 = load ptr, ptr %1962, align 8
-  br label %2368
-
-1964:                                             ; preds = %92
-  br label %2368
-
-1965:                                             ; preds = %92
-  %1966 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1967 = load ptr, ptr %1966, align 8
-  br label %2368
-
-1968:                                             ; preds = %92
-  %1969 = load ptr, ptr @zend_empty_string, align 8
-  %1970 = call ptr @zend_ast_create_zval_from_str(ptr noundef %1969) #12
-  br label %2368
-
-1971:                                             ; preds = %92
-  %1972 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1973:                                             ; preds = %92
-  %1974 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1975:                                             ; preds = %92
-  %1976 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 128) #12
-  br label %2368
-
-1977:                                             ; preds = %92
-  %1978 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1979:                                             ; preds = %92
-  %1980 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1981 = load ptr, ptr %1980, align 8
-  %1982 = getelementptr inbounds i8, ptr %1981, i64 2
-  store i16 2, ptr %1982, align 2
-  br label %2368
-
-1983:                                             ; preds = %92
-  %1984 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1985 = load ptr, ptr %1984, align 8
-  %1986 = getelementptr inbounds i8, ptr %1985, i64 2
-  store i16 3, ptr %1986, align 2
-  br label %2368
-
-1987:                                             ; preds = %92
-  %1988 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1989:                                             ; preds = %92
-  %1990 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1991 = load ptr, ptr %1990, align 8
-  br label %2368
-
-1992:                                             ; preds = %92
-  %1993 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1994:                                             ; preds = %92
-  %1995 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-1996:                                             ; preds = %92
-  %1997 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %1998 = load ptr, ptr %1997, align 8
-  br label %2368
-
-1999:                                             ; preds = %92
-  %2000 = load ptr, ptr @zend_empty_string, align 8
-  %2001 = call ptr @zend_ast_create_zval_from_str(ptr noundef %2000) #12
-  br label %2368
-
-2002:                                             ; preds = %92
-  %2003 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2004 = load ptr, ptr %2003, align 8
-  br label %2368
-
-2005:                                             ; preds = %92
-  %2006 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2007:                                             ; preds = %92
-  %2008 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2009:                                             ; preds = %92
-  %2010 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2011:                                             ; preds = %92
-  %2012 = load ptr, ptr %.21591, align 8
-  %2013 = call ptr @zend_ast_create_1(i16 noundef zeroext 257, ptr noundef %2012) #12
-  br label %2368
-
-2014:                                             ; preds = %92
-  %2015 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %2016 = getelementptr inbounds i8, ptr %2015, i64 2
-  store i16 343, ptr %2016, align 2
-  br label %2368
-
-2017:                                             ; preds = %92
-  %2018 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %2019 = getelementptr inbounds i8, ptr %2018, i64 2
-  store i16 344, ptr %2019, align 2
-  br label %2368
-
-2020:                                             ; preds = %92
-  %2021 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %2022 = getelementptr inbounds i8, ptr %2021, i64 2
-  store i16 345, ptr %2022, align 2
-  br label %2368
-
-2023:                                             ; preds = %92
-  %2024 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %2025 = getelementptr inbounds i8, ptr %2024, i64 2
-  store i16 347, ptr %2025, align 2
-  br label %2368
-
-2026:                                             ; preds = %92
-  %2027 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %2028 = getelementptr inbounds i8, ptr %2027, i64 2
-  store i16 348, ptr %2028, align 2
-  br label %2368
-
-2029:                                             ; preds = %92
-  %2030 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %2031 = getelementptr inbounds i8, ptr %2030, i64 2
-  store i16 349, ptr %2031, align 2
-  br label %2368
-
-2032:                                             ; preds = %92
-  %2033 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %2034 = getelementptr inbounds i8, ptr %2033, i64 2
-  store i16 350, ptr %2034, align 2
-  br label %2368
-
-2035:                                             ; preds = %92
-  %2036 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %2037 = getelementptr inbounds i8, ptr %2036, i64 2
-  store i16 346, ptr %2037, align 2
-  br label %2368
-
-2038:                                             ; preds = %92
-  %2039 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2040 = load ptr, ptr %2039, align 8
-  %2041 = load ptr, ptr %.21591, align 8
-  %2042 = call ptr @zend_ast_create_class_const_or_name(ptr noundef %2040, ptr noundef %2041) #12
-  br label %2368
-
-2043:                                             ; preds = %92
-  %2044 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2045 = load ptr, ptr %2044, align 8
-  %2046 = load ptr, ptr %.21591, align 8
-  %2047 = call ptr @zend_ast_create_class_const_or_name(ptr noundef %2045, ptr noundef %2046) #12
-  br label %2368
-
-2048:                                             ; preds = %92
-  %2049 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %2050 = load ptr, ptr %2049, align 8
-  %2051 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2052 = load ptr, ptr %2051, align 8
-  %2053 = call ptr @zend_ast_create_2(i16 noundef zeroext 517, ptr noundef %2050, ptr noundef %2052) #12
-  br label %2368
-
-2054:                                             ; preds = %92
-  %2055 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %2056 = load ptr, ptr %2055, align 8
-  %2057 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2058 = load ptr, ptr %2057, align 8
-  %2059 = call ptr @zend_ast_create_2(i16 noundef zeroext 517, ptr noundef %2056, ptr noundef %2058) #12
-  br label %2368
-
-2060:                                             ; preds = %92
-  br label %2368
-
-2061:                                             ; preds = %92
-  %2062 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2063:                                             ; preds = %92
-  %2064 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2065:                                             ; preds = %92
-  %2066 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2067:                                             ; preds = %92
-  %2068 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2069 = load ptr, ptr %2068, align 8
-  br label %2368
-
-2070:                                             ; preds = %92
-  %2071 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2072:                                             ; preds = %92
-  %2073 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2074:                                             ; preds = %92
-  %2075 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2076:                                             ; preds = %92
-  %2077 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2078:                                             ; preds = %92
-  %2079 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2080:                                             ; preds = %92
-  %2081 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2082 = load ptr, ptr %2081, align 8
-  br label %2368
-
-2083:                                             ; preds = %92
-  %2084 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2085:                                             ; preds = %92
-  %2086 = load ptr, ptr %.21591, align 8
-  %2087 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2086) #12
-  br label %2368
-
-2088:                                             ; preds = %92
-  %2089 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %2090 = load ptr, ptr %2089, align 8
-  %2091 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2092 = load ptr, ptr %2091, align 8
-  %2093 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2090, ptr noundef %2092) #12
-  br label %2368
-
-2094:                                             ; preds = %92
-  %2095 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %2096 = load ptr, ptr %2095, align 8
-  %2097 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2098 = load ptr, ptr %2097, align 8
-  %2099 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2096, ptr noundef %2098) #12
-  %2100 = getelementptr inbounds i8, ptr %2099, i64 2
-  store i16 2, ptr %2100, align 2
-  br label %2368
-
-2101:                                             ; preds = %92
-  %2102 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %2103 = load ptr, ptr %2102, align 8
-  %2104 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2105 = load ptr, ptr %2104, align 8
-  %2106 = load ptr, ptr %.21591, align 8
-  %2107 = call ptr @zend_ast_create_3(i16 noundef zeroext 768, ptr noundef %2103, ptr noundef %2105, ptr noundef %2106) #12
-  br label %2368
-
-2108:                                             ; preds = %92
-  %2109 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %2110 = load ptr, ptr %2109, align 8
-  %2111 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2112 = load ptr, ptr %2111, align 8
-  %2113 = load ptr, ptr %.21591, align 8
-  %2114 = call ptr @zend_ast_create_3(i16 noundef zeroext 769, ptr noundef %2110, ptr noundef %2112, ptr noundef %2113) #12
-  br label %2368
-
-2115:                                             ; preds = %92
-  %2116 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2117:                                             ; preds = %92
-  %2118 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2119:                                             ; preds = %92
-  %2120 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2121:                                             ; preds = %92
-  %2122 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2123 = load ptr, ptr %2122, align 8
-  %2124 = load ptr, ptr %.21591, align 8
-  %2125 = call ptr @zend_ast_create_2(i16 noundef zeroext 513, ptr noundef %2123, ptr noundef %2124) #12
-  br label %2368
-
-2126:                                             ; preds = %92
-  %2127 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2128 = load ptr, ptr %2127, align 8
-  %2129 = load ptr, ptr %.21591, align 8
-  %2130 = call ptr @zend_ast_create_2(i16 noundef zeroext 514, ptr noundef %2128, ptr noundef %2129) #12
-  br label %2368
-
-2131:                                             ; preds = %92
-  %2132 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2133:                                             ; preds = %92
-  %2134 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2135 = load ptr, ptr %2134, align 8
-  br label %2368
-
-2136:                                             ; preds = %92
-  %2137 = load ptr, ptr %.21591, align 8
-  %2138 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2137) #12
-  br label %2368
-
-2139:                                             ; preds = %92
-  %2140 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2141 = load ptr, ptr %2140, align 8
-  %2142 = load ptr, ptr %.21591, align 8
-  %2143 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %2141, ptr noundef %2142) #12
-  br label %2368
-
-2144:                                             ; preds = %92
-  %2145 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2146 = load ptr, ptr %2145, align 8
-  %2147 = load ptr, ptr %.21591, align 8
-  %2148 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %2146, ptr noundef %2147) #12
-  br label %2368
-
-2149:                                             ; preds = %92
-  %2150 = load ptr, ptr %.21591, align 8
-  %2151 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2150) #12
-  br label %2368
-
-2152:                                             ; preds = %92
-  %2153 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %2154 = load ptr, ptr %2153, align 8
-  %2155 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2156 = load ptr, ptr %2155, align 8
-  %2157 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2154, ptr noundef %2156) #12
-  br label %2368
-
-2158:                                             ; preds = %92
-  %2159 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %2160 = load ptr, ptr %2159, align 8
-  %2161 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2162 = load ptr, ptr %2161, align 8
-  %2163 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2160, ptr noundef %2162) #12
-  %2164 = getelementptr inbounds i8, ptr %2163, i64 2
-  store i16 2, ptr %2164, align 2
-  br label %2368
-
-2165:                                             ; preds = %92
-  %2166 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2167 = load ptr, ptr %2166, align 8
-  %2168 = load ptr, ptr %.21591, align 8
-  %2169 = call ptr @zend_ast_create_2(i16 noundef zeroext 513, ptr noundef %2167, ptr noundef %2168) #12
-  br label %2368
-
-2170:                                             ; preds = %92
-  %2171 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2172 = load ptr, ptr %2171, align 8
-  %2173 = load ptr, ptr %.21591, align 8
-  %2174 = call ptr @zend_ast_create_2(i16 noundef zeroext 514, ptr noundef %2172, ptr noundef %2173) #12
-  br label %2368
-
-2175:                                             ; preds = %92
-  %2176 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2177 = load ptr, ptr %2176, align 8
-  %2178 = load ptr, ptr %.21591, align 8
-  %2179 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %2177, ptr noundef %2178) #12
-  br label %2368
-
-2180:                                             ; preds = %92
-  %2181 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2182 = load ptr, ptr %2181, align 8
-  %2183 = load ptr, ptr %.21591, align 8
-  %2184 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %2182, ptr noundef %2183) #12
-  br label %2368
-
-2185:                                             ; preds = %92
-  %2186 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2187:                                             ; preds = %92
-  %2188 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2189 = load ptr, ptr %2188, align 8
-  br label %2368
-
-2190:                                             ; preds = %92
-  %2191 = load ptr, ptr %.21591, align 8
-  %2192 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2191) #12
-  br label %2368
-
-2193:                                             ; preds = %92
-  %2194 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2195:                                             ; preds = %92
-  %2196 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2197 = load ptr, ptr %2196, align 8
-  br label %2368
-
-2198:                                             ; preds = %92
-  %2199 = load ptr, ptr %.21591, align 8
-  %2200 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2199) #12
-  br label %2368
-
-2201:                                             ; preds = %92
-  %2202 = load ptr, ptr %.21591, align 8
-  %2203 = getelementptr inbounds i8, ptr %2202, i64 8
-  %2204 = load i32, ptr %2203, align 8
-  %.not1641 = icmp eq i32 %2204, 0
-  br i1 %.not1641, label %2368, label %2205
-
-2205:                                             ; preds = %2201
-  %2206 = getelementptr inbounds i8, ptr %2202, i64 16
-  %2207 = add i32 %2204, -1
-  %2208 = zext i32 %2207 to i64
-  %2209 = getelementptr inbounds [1 x ptr], ptr %2206, i64 0, i64 %2208
-  %2210 = load ptr, ptr %2209, align 8
-  %2211 = icmp eq ptr %2210, null
-  br i1 %2211, label %2212, label %2368
-
-2212:                                             ; preds = %2205
-  store i32 %2207, ptr %2203, align 8
-  br label %2368
-
-2213:                                             ; preds = %92
-  br label %2368
-
-2214:                                             ; preds = %92
-  %2215 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2216:                                             ; preds = %92
-  %2217 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2218 = load ptr, ptr %2217, align 8
-  %2219 = load ptr, ptr %.21591, align 8
-  %2220 = call ptr @zend_ast_list_add(ptr noundef %2218, ptr noundef %2219) #12
-  br label %2368
-
-2221:                                             ; preds = %92
-  %2222 = load ptr, ptr %.21591, align 8
-  %2223 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 129, ptr noundef %2222) #12
-  br label %2368
-
-2224:                                             ; preds = %92
-  %2225 = load ptr, ptr %.21591, align 8
-  %2226 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2227 = load ptr, ptr %2226, align 8
-  %2228 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2225, ptr noundef %2227) #12
-  br label %2368
-
-2229:                                             ; preds = %92
-  %2230 = load ptr, ptr %.21591, align 8
-  %2231 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2230, ptr noundef null) #12
-  br label %2368
-
-2232:                                             ; preds = %92
-  %2233 = load ptr, ptr %.21591, align 8
-  %2234 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %2235 = load ptr, ptr %2234, align 8
-  %2236 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2233, ptr noundef %2235) #12
-  %2237 = getelementptr inbounds i8, ptr %2236, i64 2
-  store i16 1, ptr %2237, align 2
-  br label %2368
-
-2238:                                             ; preds = %92
-  %2239 = load ptr, ptr %.21591, align 8
-  %2240 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2239, ptr noundef null) #12
-  %2241 = getelementptr inbounds i8, ptr %2240, i64 2
-  store i16 1, ptr %2241, align 2
-  br label %2368
-
-2242:                                             ; preds = %92
-  %2243 = load ptr, ptr %.21591, align 8
-  %2244 = call ptr @zend_ast_create_1(i16 noundef zeroext 258, ptr noundef %2243) #12
-  br label %2368
-
-2245:                                             ; preds = %92
-  %2246 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2247 = load ptr, ptr %2246, align 8
-  %2248 = getelementptr inbounds i8, ptr %2247, i64 2
-  store i16 1, ptr %2248, align 2
-  %2249 = load ptr, ptr %2246, align 8
-  %2250 = getelementptr inbounds i8, ptr %.21591, i64 -40
-  %2251 = load ptr, ptr %2250, align 8
-  %2252 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2249, ptr noundef %2251) #12
-  br label %2368
-
-2253:                                             ; preds = %92
-  %2254 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2255 = load ptr, ptr %2254, align 8
-  %2256 = getelementptr inbounds i8, ptr %2255, i64 2
-  store i16 1, ptr %2256, align 2
-  %2257 = load ptr, ptr %2254, align 8
-  %2258 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2257, ptr noundef null) #12
-  br label %2368
-
-2259:                                             ; preds = %92
-  %2260 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2261 = load ptr, ptr %2260, align 8
-  %2262 = load ptr, ptr %.21591, align 8
-  %2263 = call ptr @zend_ast_list_add(ptr noundef %2261, ptr noundef %2262) #12
-  br label %2368
-
-2264:                                             ; preds = %92
-  %2265 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2266 = load ptr, ptr %2265, align 8
-  %2267 = load ptr, ptr %.21591, align 8
-  %2268 = call ptr @zend_ast_list_add(ptr noundef %2266, ptr noundef %2267) #12
-  br label %2368
-
-2269:                                             ; preds = %92
-  %2270 = load ptr, ptr %.21591, align 8
-  %2271 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 130, ptr noundef %2270) #12
-  br label %2368
-
-2272:                                             ; preds = %92
-  %2273 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2274 = load ptr, ptr %2273, align 8
-  %2275 = load ptr, ptr %.21591, align 8
-  %2276 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 130, ptr noundef %2274, ptr noundef %2275) #12
-  br label %2368
-
-2277:                                             ; preds = %92
-  %2278 = load ptr, ptr %.21591, align 8
-  %2279 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2278) #12
-  br label %2368
-
-2280:                                             ; preds = %92
-  %2281 = getelementptr inbounds i8, ptr %.21591, i64 -24
-  %2282 = load ptr, ptr %2281, align 8
-  %2283 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2282) #12
-  %2284 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2285 = load ptr, ptr %2284, align 8
-  %2286 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2283, ptr noundef %2285) #12
-  br label %2368
-
-2287:                                             ; preds = %92
-  %2288 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2289 = load ptr, ptr %2288, align 8
-  %2290 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2289) #12
-  %2291 = load ptr, ptr %.21591, align 8
-  %2292 = call ptr @zend_ast_create_2(i16 noundef zeroext 513, ptr noundef %2290, ptr noundef %2291) #12
-  br label %2368
-
-2293:                                             ; preds = %92
-  %2294 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2295 = load ptr, ptr %2294, align 8
-  %2296 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2295) #12
-  %2297 = load ptr, ptr %.21591, align 8
-  %2298 = call ptr @zend_ast_create_2(i16 noundef zeroext 514, ptr noundef %2296, ptr noundef %2297) #12
-  br label %2368
-
-2299:                                             ; preds = %92
-  %2300 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2301 = load ptr, ptr %2300, align 8
-  %2302 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2301) #12
-  %2303 = getelementptr inbounds i8, ptr %2302, i64 2
-  store i16 2, ptr %2303, align 2
-  br label %2368
-
-2304:                                             ; preds = %92
-  %2305 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2306 = load ptr, ptr %2305, align 8
-  %2307 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2306) #12
-  %2308 = getelementptr inbounds i8, ptr %2307, i64 2
-  store i16 1, ptr %2308, align 2
-  br label %2368
-
-2309:                                             ; preds = %92
-  %2310 = getelementptr inbounds i8, ptr %.21591, i64 -32
-  %2311 = load ptr, ptr %2310, align 8
-  %2312 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2311) #12
-  %2313 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2314 = load ptr, ptr %2313, align 8
-  %2315 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2312, ptr noundef %2314) #12
-  %2316 = getelementptr inbounds i8, ptr %2315, i64 2
-  store i16 1, ptr %2316, align 2
-  br label %2368
-
-2317:                                             ; preds = %92
-  %2318 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2319 = load ptr, ptr %2318, align 8
-  br label %2368
-
-2320:                                             ; preds = %92
-  %2321 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2322:                                             ; preds = %92
-  %2323 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2324:                                             ; preds = %92
-  %2325 = load ptr, ptr %.21591, align 8
-  %2326 = call ptr @zend_negate_num_string(ptr noundef %2325) #12
-  br label %2368
-
-2327:                                             ; preds = %92
-  %2328 = load ptr, ptr %.21591, align 8
-  %2329 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2328) #12
-  br label %2368
-
-2330:                                             ; preds = %92
-  %2331 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2332 = load ptr, ptr %2331, align 8
-  br label %2368
-
-2333:                                             ; preds = %92
-  %2334 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2335 = load ptr, ptr %2334, align 8
-  %2336 = call ptr @zend_ast_create_1(i16 noundef zeroext 262, ptr noundef %2335) #12
-  br label %2368
-
-2337:                                             ; preds = %92
-  %2338 = load ptr, ptr %.21591, align 8
-  %2339 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2338) #12
-  %2340 = getelementptr inbounds i8, ptr %2339, i64 2
-  store i16 2, ptr %2340, align 2
-  br label %2368
-
-2341:                                             ; preds = %92
-  %2342 = load ptr, ptr %.21591, align 8
-  %2343 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2342) #12
-  %2344 = getelementptr inbounds i8, ptr %2343, i64 2
-  store i16 4, ptr %2344, align 2
-  br label %2368
-
-2345:                                             ; preds = %92
-  %2346 = getelementptr inbounds i8, ptr %.21591, i64 -8
-  %2347 = load ptr, ptr %2346, align 8
-  %2348 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2347) #12
-  %2349 = getelementptr inbounds i8, ptr %2348, i64 2
-  store i16 1, ptr %2349, align 2
-  br label %2368
-
-2350:                                             ; preds = %92
-  %2351 = load ptr, ptr %.21591, align 8
-  %2352 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2351) #12
-  %2353 = getelementptr inbounds i8, ptr %2352, i64 2
-  store i16 8, ptr %2353, align 2
-  br label %2368
-
-2354:                                             ; preds = %92
-  %2355 = load ptr, ptr %.21591, align 8
-  %2356 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2355) #12
-  %2357 = getelementptr inbounds i8, ptr %2356, i64 2
-  store i16 16, ptr %2357, align 2
-  br label %2368
-
-2358:                                             ; preds = %92
-  %2359 = load ptr, ptr %.21591, align 8
-  br label %2368
-
-2360:                                             ; preds = %92
-  %2361 = getelementptr inbounds i8, ptr %.21591, i64 -16
-  %2362 = load ptr, ptr %2361, align 8
-  %2363 = load ptr, ptr %.21591, align 8
-  %2364 = call ptr @zend_ast_create_2(i16 noundef zeroext 524, ptr noundef %2362, ptr noundef %2363) #12
-  br label %2368
-
-2365:                                             ; preds = %92
-  %2366 = load ptr, ptr %.21591, align 8
-  %2367 = call ptr @zend_ast_create_1(i16 noundef zeroext 263, ptr noundef %2366) #12
-  br label %2368
-
-2368:                                             ; preds = %2201, %2205, %2212, %92, %1701, %1706, %1250, %1253, %1239, %1242, %1228, %1204, %1192, %874, %605, %599, %590, %435, %238, %226, %219, %207, %206, %191, %2365, %2360, %2358, %2354, %2350, %2345, %2341, %2337, %2333, %2330, %2327, %2324, %2322, %2320, %2317, %2309, %2304, %2299, %2293, %2287, %2280, %2277, %2272, %2269, %2264, %2259, %2253, %2245, %2242, %2238, %2232, %2229, %2224, %2221, %2216, %2214, %2213, %2198, %2195, %2193, %2190, %2187, %2185, %2180, %2175, %2170, %2165, %2158, %2152, %2149, %2144, %2139, %2136, %2133, %2131, %2126, %2121, %2119, %2117, %2115, %2108, %2101, %2094, %2088, %2085, %2083, %2080, %2078, %2076, %2074, %2072, %2070, %2067, %2065, %2063, %2061, %2060, %2054, %2048, %2043, %2038, %2035, %2032, %2029, %2026, %2023, %2020, %2017, %2014, %2011, %2009, %2007, %2005, %2002, %1999, %1996, %1994, %1992, %1989, %1987, %1983, %1979, %1977, %1975, %1973, %1971, %1968, %1965, %1964, %1961, %1959, %1957, %1955, %1950, %1941, %1937, %1930, %1923, %1919, %1909, %1906, %1904, %1901, %1896, %1893, %1892, %1891, %1890, %1888, %1884, %1882, %1878, %1874, %1847, %1818, %1816, %1808, %1803, %1798, %1796, %1793, %1788, %1781, %1776, %1772, %1769, %1765, %1763, %1760, %1757, %1753, %1749, %1745, %1741, %1737, %1733, %1729, %1727, %1722, %1717, %1710, %1708, %1696, %1690, %1685, %1680, %1674, %1668, %1662, %1656, %1650, %1644, %1640, %1636, %1633, %1630, %1624, %1618, %1612, %1606, %1600, %1594, %1588, %1582, %1577, %1571, %1565, %1559, %1553, %1547, %1542, %1537, %1532, %1527, %1524, %1520, %1517, %1513, %1508, %1502, %1496, %1490, %1484, %1478, %1472, %1466, %1460, %1454, %1448, %1442, %1436, %1433, %1428, %1423, %1416, %1409, %1407, %1399, %1397, %1392, %1372, %1368, %1365, %1360, %1358, %1357, %1354, %1351, %1346, %1343, %1332, %1317, %1306, %1301, %1298, %1287, %1278, %1273, %1272, %1271, %1270, %1269, %1268, %1267, %1266, %1260, %1256, %1245, %1234, %1233, %1225, %1224, %1219, %1217, %1214, %1187, %1178, %1173, %1170, %1167, %1162, %1159, %1156, %1155, %1154, %1149, %1146, %1141, %1136, %1134, %1132, %1102, %1092, %1084, %1074, %1072, %1067, %1062, %1059, %1056, %1051, %1047, %1044, %1039, %1036, %1031, %1029, %1024, %1021, %1019, %1016, %1014, %1012, %1011, %1006, %1001, %996, %991, %988, %986, %984, %981, %978, %976, %974, %969, %967, %962, %957, %952, %947, %944, %942, %939, %937, %935, %933, %928, %926, %924, %923, %919, %896, %873, %871, %866, %861, %858, %856, %853, %846, %843, %835, %829, %823, %821, %813, %807, %804, %802, %797, %794, %791, %786, %781, %778, %775, %773, %767, %761, %753, %751, %748, %745, %742, %739, %736, %734, %731, %729, %726, %724, %720, %716, %713, %711, %709, %708, %706, %705, %703, %702, %700, %699, %696, %685, %684, %665, %661, %644, %640, %625, %621, %620, %619, %618, %615, %614, %587, %568, %564, %542, %538, %537, %536, %535, %534, %507, %505, %499, %496, %491, %488, %485, %484, %482, %481, %476, %473, %462, %460, %456, %452, %445, %444, %439, %426, %419, %416, %413, %410, %407, %404, %401, %397, %393, %389, %384, %375, %369, %364, %362, %360, %357, %349, %347, %345, %343, %338, %335, %330, %325, %322, %317, %314, %308, %305, %302, %297, %294, %289, %286, %281, %275, %269, %268, %267, %264, %257, %253, %246, %243, %239, %220, %187, %182, %180, %178, %176, %174, %172, %170, %168, %163, %160, %157, %152, %149, %144, %141, %138, %135, %132, %129, %127, %125, %123, %121, %119, %117, %115, %110, %108, %102, %100
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %92 ], [ %2367, %2365 ], [ %2364, %2360 ], [ %2359, %2358 ], [ %2356, %2354 ], [ %2352, %2350 ], [ %2348, %2345 ], [ %2343, %2341 ], [ %2339, %2337 ], [ %2336, %2333 ], [ %2332, %2330 ], [ %2329, %2327 ], [ %2326, %2324 ], [ %2323, %2322 ], [ %2321, %2320 ], [ %2319, %2317 ], [ %2315, %2309 ], [ %2307, %2304 ], [ %2302, %2299 ], [ %2298, %2293 ], [ %2292, %2287 ], [ %2286, %2280 ], [ %2279, %2277 ], [ %2276, %2272 ], [ %2271, %2269 ], [ %2268, %2264 ], [ %2263, %2259 ], [ %2258, %2253 ], [ %2252, %2245 ], [ %2244, %2242 ], [ %2240, %2238 ], [ %2236, %2232 ], [ %2231, %2229 ], [ %2228, %2224 ], [ %2223, %2221 ], [ %2220, %2216 ], [ %2215, %2214 ], [ null, %2213 ], [ %2200, %2198 ], [ %2197, %2195 ], [ %2194, %2193 ], [ %2192, %2190 ], [ %2189, %2187 ], [ %2186, %2185 ], [ %2184, %2180 ], [ %2179, %2175 ], [ %2174, %2170 ], [ %2169, %2165 ], [ %2163, %2158 ], [ %2157, %2152 ], [ %2151, %2149 ], [ %2148, %2144 ], [ %2143, %2139 ], [ %2138, %2136 ], [ %2135, %2133 ], [ %2132, %2131 ], [ %2130, %2126 ], [ %2125, %2121 ], [ %2120, %2119 ], [ %2118, %2117 ], [ %2116, %2115 ], [ %2114, %2108 ], [ %2107, %2101 ], [ %2099, %2094 ], [ %2093, %2088 ], [ %2087, %2085 ], [ %2084, %2083 ], [ %2082, %2080 ], [ %2079, %2078 ], [ %2077, %2076 ], [ %2075, %2074 ], [ %2073, %2072 ], [ %2071, %2070 ], [ %2069, %2067 ], [ %2066, %2065 ], [ %2064, %2063 ], [ %2062, %2061 ], [ null, %2060 ], [ %2059, %2054 ], [ %2053, %2048 ], [ %2047, %2043 ], [ %2042, %2038 ], [ %2036, %2035 ], [ %2033, %2032 ], [ %2030, %2029 ], [ %2027, %2026 ], [ %2024, %2023 ], [ %2021, %2020 ], [ %2018, %2017 ], [ %2015, %2014 ], [ %2013, %2011 ], [ %2010, %2009 ], [ %2008, %2007 ], [ %2006, %2005 ], [ %2004, %2002 ], [ %2001, %1999 ], [ %1998, %1996 ], [ %1995, %1994 ], [ %1993, %1992 ], [ %1991, %1989 ], [ %1988, %1987 ], [ %1985, %1983 ], [ %1981, %1979 ], [ %1978, %1977 ], [ %1976, %1975 ], [ %1974, %1973 ], [ %1972, %1971 ], [ %1970, %1968 ], [ %1967, %1965 ], [ null, %1964 ], [ %1963, %1961 ], [ %1960, %1959 ], [ %1958, %1957 ], [ %1956, %1955 ], [ %1954, %1950 ], [ %1945, %1941 ], [ %1940, %1937 ], [ %1936, %1930 ], [ %1929, %1923 ], [ %1922, %1919 ], [ %1913, %1909 ], [ %1907, %1906 ], [ %1905, %1904 ], [ %1903, %1901 ], [ %1900, %1896 ], [ %1895, %1893 ], [ null, %1892 ], [ inttoptr (i64 4096 to ptr), %1891 ], [ null, %1890 ], [ %1889, %1888 ], [ %1887, %1884 ], [ %1883, %1882 ], [ %1881, %1878 ], [ %1877, %1874 ], [ %1870, %1847 ], [ %1843, %1818 ], [ %1817, %1816 ], [ %1812, %1808 ], [ %1804, %1803 ], [ %1802, %1798 ], [ %1797, %1796 ], [ %1795, %1793 ], [ %1790, %1788 ], [ %1785, %1781 ], [ %1778, %1776 ], [ %1773, %1772 ], [ %1771, %1769 ], [ %1768, %1765 ], [ %1764, %1763 ], [ %1762, %1760 ], [ %1759, %1757 ], [ %1755, %1753 ], [ %1751, %1749 ], [ %1747, %1745 ], [ %1743, %1741 ], [ %1739, %1737 ], [ %1735, %1733 ], [ %1731, %1729 ], [ %1728, %1727 ], [ %1726, %1722 ], [ %1721, %1717 ], [ %1716, %1710 ], [ %1709, %1708 ], [ %1703, %1706 ], [ %1703, %1701 ], [ %1700, %1696 ], [ %1694, %1690 ], [ %1689, %1685 ], [ %1684, %1680 ], [ %1678, %1674 ], [ %1672, %1668 ], [ %1666, %1662 ], [ %1660, %1656 ], [ %1654, %1650 ], [ %1648, %1644 ], [ %1642, %1640 ], [ %1638, %1636 ], [ %1635, %1633 ], [ %1632, %1630 ], [ %1628, %1624 ], [ %1622, %1618 ], [ %1616, %1612 ], [ %1610, %1606 ], [ %1604, %1600 ], [ %1598, %1594 ], [ %1592, %1588 ], [ %1586, %1582 ], [ %1581, %1577 ], [ %1575, %1571 ], [ %1569, %1565 ], [ %1563, %1559 ], [ %1557, %1553 ], [ %1551, %1547 ], [ %1546, %1542 ], [ %1541, %1537 ], [ %1536, %1532 ], [ %1531, %1527 ], [ %1526, %1524 ], [ %1523, %1520 ], [ %1519, %1517 ], [ %1516, %1513 ], [ %1512, %1508 ], [ %1506, %1502 ], [ %1500, %1496 ], [ %1494, %1490 ], [ %1488, %1484 ], [ %1482, %1478 ], [ %1476, %1472 ], [ %1470, %1466 ], [ %1464, %1460 ], [ %1458, %1454 ], [ %1452, %1448 ], [ %1446, %1442 ], [ %1440, %1436 ], [ %1435, %1433 ], [ %1432, %1428 ], [ %1427, %1423 ], [ %1422, %1416 ], [ %1415, %1409 ], [ %1408, %1407 ], [ %1406, %1399 ], [ %1398, %1397 ], [ %1396, %1392 ], [ %1391, %1372 ], [ %1371, %1368 ], [ %1367, %1365 ], [ %1364, %1360 ], [ %1359, %1358 ], [ null, %1357 ], [ %1356, %1354 ], [ %1353, %1351 ], [ %1350, %1346 ], [ %1345, %1343 ], [ %1334, %1332 ], [ %1319, %1317 ], [ %1308, %1306 ], [ %1305, %1301 ], [ %1300, %1298 ], [ %1289, %1287 ], [ %1280, %1278 ], [ %1277, %1273 ], [ inttoptr (i64 327 to ptr), %1272 ], [ inttoptr (i64 323 to ptr), %1271 ], [ inttoptr (i64 322 to ptr), %1270 ], [ inttoptr (i64 321 to ptr), %1269 ], [ inttoptr (i64 324 to ptr), %1268 ], [ inttoptr (i64 325 to ptr), %1267 ], [ inttoptr (i64 326 to ptr), %1266 ], [ %1265, %1260 ], [ %1259, %1256 ], [ %1251, %1250 ], [ %1255, %1253 ], [ inttoptr (i64 1 to ptr), %1245 ], [ %1240, %1239 ], [ %1244, %1242 ], [ inttoptr (i64 1 to ptr), %1234 ], [ inttoptr (i64 1 to ptr), %1233 ], [ %1232, %1228 ], [ %1227, %1225 ], [ null, %1224 ], [ %1223, %1219 ], [ %1218, %1217 ], [ %1216, %1214 ], [ %1211, %1204 ], [ %1201, %1192 ], [ %1191, %1187 ], [ %1182, %1178 ], [ %1177, %1173 ], [ %1172, %1170 ], [ %1169, %1167 ], [ %1166, %1162 ], [ %1161, %1159 ], [ %1158, %1156 ], [ null, %1155 ], [ null, %1154 ], [ %1153, %1149 ], [ %1148, %1146 ], [ %1145, %1141 ], [ %1140, %1136 ], [ %1135, %1134 ], [ %1133, %1132 ], [ %1128, %1102 ], [ %1097, %1092 ], [ %1087, %1084 ], [ %1079, %1074 ], [ %1073, %1072 ], [ %1071, %1067 ], [ %1066, %1062 ], [ %1061, %1059 ], [ %1058, %1056 ], [ %1055, %1051 ], [ %1050, %1047 ], [ %1046, %1044 ], [ %1043, %1039 ], [ %1038, %1036 ], [ %1035, %1031 ], [ %1030, %1029 ], [ %1028, %1024 ], [ %1023, %1021 ], [ %1020, %1019 ], [ %1018, %1016 ], [ %1015, %1014 ], [ %1013, %1012 ], [ null, %1011 ], [ %1010, %1006 ], [ %1005, %1001 ], [ %1000, %996 ], [ %995, %991 ], [ %990, %988 ], [ %987, %986 ], [ %985, %984 ], [ %982, %981 ], [ %979, %978 ], [ %977, %976 ], [ %975, %974 ], [ %970, %969 ], [ %968, %967 ], [ %966, %962 ], [ %961, %957 ], [ %956, %952 ], [ %951, %947 ], [ %946, %944 ], [ %943, %942 ], [ %940, %939 ], [ %938, %937 ], [ %936, %935 ], [ %934, %933 ], [ %929, %928 ], [ %927, %926 ], [ %925, %924 ], [ null, %923 ], [ %921, %919 ], [ %898, %896 ], [ %878, %874 ], [ null, %873 ], [ %872, %871 ], [ %870, %866 ], [ %865, %861 ], [ %860, %858 ], [ %857, %856 ], [ %855, %853 ], [ %852, %846 ], [ %845, %843 ], [ %842, %835 ], [ %834, %829 ], [ %828, %823 ], [ %822, %821 ], [ %820, %813 ], [ %812, %807 ], [ %806, %804 ], [ %803, %802 ], [ %801, %797 ], [ %796, %794 ], [ %793, %791 ], [ %790, %786 ], [ %785, %781 ], [ %780, %778 ], [ %777, %775 ], [ %774, %773 ], [ %772, %767 ], [ %766, %761 ], [ %760, %753 ], [ %752, %751 ], [ %750, %748 ], [ %747, %745 ], [ %744, %742 ], [ %741, %739 ], [ %738, %736 ], [ %735, %734 ], [ %733, %731 ], [ %730, %729 ], [ %728, %726 ], [ %725, %724 ], [ %722, %720 ], [ %718, %716 ], [ %715, %713 ], [ %712, %711 ], [ %710, %709 ], [ null, %708 ], [ %707, %706 ], [ null, %705 ], [ %704, %703 ], [ null, %702 ], [ %701, %700 ], [ null, %699 ], [ %698, %696 ], [ %686, %685 ], [ null, %684 ], [ %683, %665 ], [ %664, %661 ], [ %660, %644 ], [ %643, %640 ], [ %639, %625 ], [ %624, %621 ], [ inttoptr (i64 73728 to ptr), %620 ], [ inttoptr (i64 32 to ptr), %619 ], [ inttoptr (i64 64 to ptr), %618 ], [ %617, %615 ], [ null, %614 ], [ %613, %605 ], [ %604, %599 ], [ %598, %590 ], [ %589, %587 ], [ %586, %568 ], [ %567, %564 ], [ %563, %542 ], [ %541, %538 ], [ inttoptr (i64 16 to ptr), %537 ], [ null, %536 ], [ inttoptr (i64 8 to ptr), %535 ], [ null, %534 ], [ %530, %507 ], [ %506, %505 ], [ %500, %499 ], [ %498, %496 ], [ %495, %491 ], [ %490, %488 ], [ %487, %485 ], [ null, %484 ], [ %483, %482 ], [ null, %481 ], [ %480, %476 ], [ %475, %473 ], [ %472, %462 ], [ %461, %460 ], [ %459, %456 ], [ %455, %452 ], [ %451, %445 ], [ null, %444 ], [ %443, %439 ], [ %.sroa.0.0.copyload, %435 ], [ %434, %426 ], [ %425, %419 ], [ %418, %416 ], [ %415, %413 ], [ %412, %410 ], [ %409, %407 ], [ %406, %404 ], [ %403, %401 ], [ %400, %397 ], [ %396, %393 ], [ %392, %389 ], [ %388, %384 ], [ %383, %375 ], [ %374, %369 ], [ %368, %364 ], [ %363, %362 ], [ %361, %360 ], [ %359, %357 ], [ %353, %349 ], [ %348, %347 ], [ %346, %345 ], [ %344, %343 ], [ %342, %338 ], [ %337, %335 ], [ %334, %330 ], [ %329, %325 ], [ %324, %322 ], [ %321, %317 ], [ %316, %314 ], [ %309, %308 ], [ %306, %305 ], [ %304, %302 ], [ %301, %297 ], [ %296, %294 ], [ %293, %289 ], [ %288, %286 ], [ %285, %281 ], [ %280, %275 ], [ %274, %269 ], [ inttoptr (i64 4 to ptr), %268 ], [ inttoptr (i64 2 to ptr), %267 ], [ %266, %264 ], [ %259, %257 ], [ %255, %253 ], [ %248, %246 ], [ %245, %243 ], [ %242, %239 ], [ %.sroa.0.0.copyload, %238 ], [ %.sroa.0.0.copyload, %226 ], [ %225, %220 ], [ %.sroa.0.0.copyload, %219 ], [ %.sroa.0.0.copyload, %207 ], [ %194, %206 ], [ %194, %191 ], [ %190, %187 ], [ %186, %182 ], [ %181, %180 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %169, %168 ], [ %167, %163 ], [ %162, %160 ], [ %159, %157 ], [ %156, %152 ], [ %151, %149 ], [ %148, %144 ], [ %143, %141 ], [ %139, %138 ], [ %136, %135 ], [ %133, %132 ], [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %118, %117 ], [ %116, %115 ], [ %114, %110 ], [ %109, %108 ], [ %103, %102 ], [ %.sroa.0.0.copyload, %100 ], [ %2202, %2212 ], [ %2202, %2205 ], [ %2202, %2201 ]
-  %2369 = sext i8 %95 to i64
-  %2370 = sub nsw i64 0, %2369
-  %2371 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %.21591, i64 %2370
-  %2372 = getelementptr inbounds i16, ptr %.21580, i64 %2370
-  %2373 = getelementptr inbounds i8, ptr %2371, i64 8
-  store ptr %.sroa.0.0, ptr %2373, align 8
-  %2374 = getelementptr inbounds [597 x i16], ptr @yyr1, i64 0, i64 %93
-  %2375 = load i16, ptr %2374, align 2
-  %2376 = sext i16 %2375 to i64
-  %2377 = add nsw i64 %2376, -179
-  %2378 = getelementptr inbounds [177 x i16], ptr @yypgoto, i64 0, i64 %2377
-  %2379 = load i16, ptr %2378, align 2
-  %2380 = sext i16 %2379 to i32
-  %2381 = load i16, ptr %2372, align 2
-  %2382 = sext i16 %2381 to i32
-  %2383 = add nsw i32 %2382, %2380
-  %or.cond5 = icmp ult i32 %2383, 9777
-  br i1 %or.cond5, label %2384, label %2391
-
-2384:                                             ; preds = %2368
-  %2385 = zext nneg i32 %2383 to i64
-  %2386 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %2385
-  %2387 = load i16, ptr %2386, align 2
-  %2388 = icmp eq i16 %2387, %2381
-  br i1 %2388, label %2389, label %2391
-
-2389:                                             ; preds = %2384
-  %2390 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %2385
-  br label %2393
-
-2391:                                             ; preds = %2384, %2368
-  %2392 = getelementptr inbounds [177 x i16], ptr @yydefgoto, i64 0, i64 %2377
-  br label %2393
-
-2393:                                             ; preds = %2391, %2389
-  %.in.in = phi ptr [ %2390, %2389 ], [ %2392, %2391 ]
+  br label %2367
+
+1887:                                             ; preds = %91
+  %1888 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  br label %2367
+
+1889:                                             ; preds = %91
+  br label %2367
+
+1890:                                             ; preds = %91
+  br label %2367
+
+1891:                                             ; preds = %91
+  br label %2367
+
+1892:                                             ; preds = %91
+  %1893 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1894 = load ptr, ptr %1893, align 8
+  br label %2367
+
+1895:                                             ; preds = %91
+  %1896 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1897 = load ptr, ptr %1896, align 8
+  %1898 = load ptr, ptr %.21591, align 8
+  %1899 = call ptr @zend_ast_list_add(ptr noundef %1897, ptr noundef %1898) #12
+  br label %2367
+
+1900:                                             ; preds = %91
+  %1901 = load ptr, ptr %.21591, align 8
+  %1902 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 137, ptr noundef %1901) #12
+  br label %2367
+
+1903:                                             ; preds = %91
+  %1904 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1905:                                             ; preds = %91
+  %1906 = load ptr, ptr %.21591, align 8
+  %1907 = getelementptr inbounds i8, ptr %1906, i64 2
+  store i16 1, ptr %1907, align 2
+  br label %2367
+
+1908:                                             ; preds = %91
+  %1909 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1910 = load ptr, ptr %1909, align 8
+  %1911 = load ptr, ptr %.21591, align 8
+  %1912 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %1910, ptr noundef %1911) #12
+  br label %2367
+
+1913:                                             ; preds = %91
+  %1914 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1915 = load ptr, ptr %1914, align 8
+  %1916 = call i32 @zend_lex_tstring(ptr noundef nonnull %10, ptr noundef %1915) #12
+  %1917 = icmp eq i32 %1916, -1
+  br i1 %1917, label %.loopexit.loopexit1738, label %1918
+
+1918:                                             ; preds = %1913
+  %1919 = call ptr @zend_ast_create_zval(ptr noundef nonnull %10) #12
+  %1920 = load ptr, ptr %.21591, align 8
+  %1921 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %1919, ptr noundef %1920) #12
+  br label %2367
+
+1922:                                             ; preds = %91
+  %1923 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1924 = load ptr, ptr %1923, align 8
+  %1925 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1926 = load ptr, ptr %1925, align 8
+  %1927 = load ptr, ptr %.21591, align 8
+  %1928 = call ptr @zend_ast_create_3(i16 noundef zeroext 770, ptr noundef %1924, ptr noundef %1926, ptr noundef %1927) #12
+  br label %2367
+
+1929:                                             ; preds = %91
+  %1930 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %1931 = load ptr, ptr %1930, align 8
+  %1932 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1933 = load ptr, ptr %1932, align 8
+  %1934 = load ptr, ptr %.21591, align 8
+  %1935 = call ptr @zend_ast_create_3(i16 noundef zeroext 770, ptr noundef %1931, ptr noundef %1933, ptr noundef %1934) #12
+  br label %2367
+
+1936:                                             ; preds = %91
+  %1937 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %1938 = sext i32 %1937 to i64
+  %1939 = inttoptr i64 %1938 to ptr
+  br label %2367
+
+1940:                                             ; preds = %91
+  %1941 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %1942 = load ptr, ptr %1941, align 8
+  %1943 = load ptr, ptr %.21591, align 8
+  %1944 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %1942, ptr noundef %1943) #12
+  %1945 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1946 = load i64, ptr %1945, align 8
+  %1947 = trunc i64 %1946 to i32
+  %1948 = getelementptr inbounds i8, ptr %1944, i64 4
+  store i32 %1947, ptr %1948, align 4
+  br label %2367
+
+1949:                                             ; preds = %91
+  %1950 = load ptr, ptr @zend_known_strings, align 8
+  %1951 = getelementptr inbounds i8, ptr %1950, i64 144
+  %1952 = load ptr, ptr %1951, align 8
+  store ptr %1952, ptr %11, align 8
+  store i32 6, ptr %12, align 8
+  %1953 = call ptr @zend_ast_create_zval_ex(ptr noundef nonnull %11, i16 noundef zeroext 1) #12
+  br label %2367
+
+1954:                                             ; preds = %91
+  %1955 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1956:                                             ; preds = %91
+  %1957 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1958:                                             ; preds = %91
+  %1959 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1960:                                             ; preds = %91
+  %1961 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1962 = load ptr, ptr %1961, align 8
+  br label %2367
+
+1963:                                             ; preds = %91
+  br label %2367
+
+1964:                                             ; preds = %91
+  %1965 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1966 = load ptr, ptr %1965, align 8
+  br label %2367
+
+1967:                                             ; preds = %91
+  %1968 = load ptr, ptr @zend_empty_string, align 8
+  %1969 = call ptr @zend_ast_create_zval_from_str(ptr noundef %1968) #12
+  br label %2367
+
+1970:                                             ; preds = %91
+  %1971 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1972:                                             ; preds = %91
+  %1973 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1974:                                             ; preds = %91
+  %1975 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 128) #12
+  br label %2367
+
+1976:                                             ; preds = %91
+  %1977 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1978:                                             ; preds = %91
+  %1979 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1980 = load ptr, ptr %1979, align 8
+  %1981 = getelementptr inbounds i8, ptr %1980, i64 2
+  store i16 2, ptr %1981, align 2
+  br label %2367
+
+1982:                                             ; preds = %91
+  %1983 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1984 = load ptr, ptr %1983, align 8
+  %1985 = getelementptr inbounds i8, ptr %1984, i64 2
+  store i16 3, ptr %1985, align 2
+  br label %2367
+
+1986:                                             ; preds = %91
+  %1987 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1988:                                             ; preds = %91
+  %1989 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1990 = load ptr, ptr %1989, align 8
+  br label %2367
+
+1991:                                             ; preds = %91
+  %1992 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1993:                                             ; preds = %91
+  %1994 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+1995:                                             ; preds = %91
+  %1996 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %1997 = load ptr, ptr %1996, align 8
+  br label %2367
+
+1998:                                             ; preds = %91
+  %1999 = load ptr, ptr @zend_empty_string, align 8
+  %2000 = call ptr @zend_ast_create_zval_from_str(ptr noundef %1999) #12
+  br label %2367
+
+2001:                                             ; preds = %91
+  %2002 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2003 = load ptr, ptr %2002, align 8
+  br label %2367
+
+2004:                                             ; preds = %91
+  %2005 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2006:                                             ; preds = %91
+  %2007 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2008:                                             ; preds = %91
+  %2009 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2010:                                             ; preds = %91
+  %2011 = load ptr, ptr %.21591, align 8
+  %2012 = call ptr @zend_ast_create_1(i16 noundef zeroext 257, ptr noundef %2011) #12
+  br label %2367
+
+2013:                                             ; preds = %91
+  %2014 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
+  %2015 = getelementptr inbounds i8, ptr %2014, i64 2
+  store i16 343, ptr %2015, align 2
+  br label %2367
+
+2016:                                             ; preds = %91
+  %2017 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
+  %2018 = getelementptr inbounds i8, ptr %2017, i64 2
+  store i16 344, ptr %2018, align 2
+  br label %2367
+
+2019:                                             ; preds = %91
+  %2020 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
+  %2021 = getelementptr inbounds i8, ptr %2020, i64 2
+  store i16 345, ptr %2021, align 2
+  br label %2367
+
+2022:                                             ; preds = %91
+  %2023 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
+  %2024 = getelementptr inbounds i8, ptr %2023, i64 2
+  store i16 347, ptr %2024, align 2
+  br label %2367
+
+2025:                                             ; preds = %91
+  %2026 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
+  %2027 = getelementptr inbounds i8, ptr %2026, i64 2
+  store i16 348, ptr %2027, align 2
+  br label %2367
+
+2028:                                             ; preds = %91
+  %2029 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
+  %2030 = getelementptr inbounds i8, ptr %2029, i64 2
+  store i16 349, ptr %2030, align 2
+  br label %2367
+
+2031:                                             ; preds = %91
+  %2032 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
+  %2033 = getelementptr inbounds i8, ptr %2032, i64 2
+  store i16 350, ptr %2033, align 2
+  br label %2367
+
+2034:                                             ; preds = %91
+  %2035 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
+  %2036 = getelementptr inbounds i8, ptr %2035, i64 2
+  store i16 346, ptr %2036, align 2
+  br label %2367
+
+2037:                                             ; preds = %91
+  %2038 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2039 = load ptr, ptr %2038, align 8
+  %2040 = load ptr, ptr %.21591, align 8
+  %2041 = call ptr @zend_ast_create_class_const_or_name(ptr noundef %2039, ptr noundef %2040) #12
+  br label %2367
+
+2042:                                             ; preds = %91
+  %2043 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2044 = load ptr, ptr %2043, align 8
+  %2045 = load ptr, ptr %.21591, align 8
+  %2046 = call ptr @zend_ast_create_class_const_or_name(ptr noundef %2044, ptr noundef %2045) #12
+  br label %2367
+
+2047:                                             ; preds = %91
+  %2048 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %2049 = load ptr, ptr %2048, align 8
+  %2050 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2051 = load ptr, ptr %2050, align 8
+  %2052 = call ptr @zend_ast_create_2(i16 noundef zeroext 517, ptr noundef %2049, ptr noundef %2051) #12
+  br label %2367
+
+2053:                                             ; preds = %91
+  %2054 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %2055 = load ptr, ptr %2054, align 8
+  %2056 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2057 = load ptr, ptr %2056, align 8
+  %2058 = call ptr @zend_ast_create_2(i16 noundef zeroext 517, ptr noundef %2055, ptr noundef %2057) #12
+  br label %2367
+
+2059:                                             ; preds = %91
+  br label %2367
+
+2060:                                             ; preds = %91
+  %2061 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2062:                                             ; preds = %91
+  %2063 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2064:                                             ; preds = %91
+  %2065 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2066:                                             ; preds = %91
+  %2067 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2068 = load ptr, ptr %2067, align 8
+  br label %2367
+
+2069:                                             ; preds = %91
+  %2070 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2071:                                             ; preds = %91
+  %2072 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2073:                                             ; preds = %91
+  %2074 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2075:                                             ; preds = %91
+  %2076 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2077:                                             ; preds = %91
+  %2078 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2079:                                             ; preds = %91
+  %2080 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2081 = load ptr, ptr %2080, align 8
+  br label %2367
+
+2082:                                             ; preds = %91
+  %2083 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2084:                                             ; preds = %91
+  %2085 = load ptr, ptr %.21591, align 8
+  %2086 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2085) #12
+  br label %2367
+
+2087:                                             ; preds = %91
+  %2088 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %2089 = load ptr, ptr %2088, align 8
+  %2090 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2091 = load ptr, ptr %2090, align 8
+  %2092 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2089, ptr noundef %2091) #12
+  br label %2367
+
+2093:                                             ; preds = %91
+  %2094 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %2095 = load ptr, ptr %2094, align 8
+  %2096 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2097 = load ptr, ptr %2096, align 8
+  %2098 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2095, ptr noundef %2097) #12
+  %2099 = getelementptr inbounds i8, ptr %2098, i64 2
+  store i16 2, ptr %2099, align 2
+  br label %2367
+
+2100:                                             ; preds = %91
+  %2101 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %2102 = load ptr, ptr %2101, align 8
+  %2103 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2104 = load ptr, ptr %2103, align 8
+  %2105 = load ptr, ptr %.21591, align 8
+  %2106 = call ptr @zend_ast_create_3(i16 noundef zeroext 768, ptr noundef %2102, ptr noundef %2104, ptr noundef %2105) #12
+  br label %2367
+
+2107:                                             ; preds = %91
+  %2108 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %2109 = load ptr, ptr %2108, align 8
+  %2110 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2111 = load ptr, ptr %2110, align 8
+  %2112 = load ptr, ptr %.21591, align 8
+  %2113 = call ptr @zend_ast_create_3(i16 noundef zeroext 769, ptr noundef %2109, ptr noundef %2111, ptr noundef %2112) #12
+  br label %2367
+
+2114:                                             ; preds = %91
+  %2115 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2116:                                             ; preds = %91
+  %2117 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2118:                                             ; preds = %91
+  %2119 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2120:                                             ; preds = %91
+  %2121 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2122 = load ptr, ptr %2121, align 8
+  %2123 = load ptr, ptr %.21591, align 8
+  %2124 = call ptr @zend_ast_create_2(i16 noundef zeroext 513, ptr noundef %2122, ptr noundef %2123) #12
+  br label %2367
+
+2125:                                             ; preds = %91
+  %2126 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2127 = load ptr, ptr %2126, align 8
+  %2128 = load ptr, ptr %.21591, align 8
+  %2129 = call ptr @zend_ast_create_2(i16 noundef zeroext 514, ptr noundef %2127, ptr noundef %2128) #12
+  br label %2367
+
+2130:                                             ; preds = %91
+  %2131 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2132:                                             ; preds = %91
+  %2133 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2134 = load ptr, ptr %2133, align 8
+  br label %2367
+
+2135:                                             ; preds = %91
+  %2136 = load ptr, ptr %.21591, align 8
+  %2137 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2136) #12
+  br label %2367
+
+2138:                                             ; preds = %91
+  %2139 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2140 = load ptr, ptr %2139, align 8
+  %2141 = load ptr, ptr %.21591, align 8
+  %2142 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %2140, ptr noundef %2141) #12
+  br label %2367
+
+2143:                                             ; preds = %91
+  %2144 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2145 = load ptr, ptr %2144, align 8
+  %2146 = load ptr, ptr %.21591, align 8
+  %2147 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %2145, ptr noundef %2146) #12
+  br label %2367
+
+2148:                                             ; preds = %91
+  %2149 = load ptr, ptr %.21591, align 8
+  %2150 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2149) #12
+  br label %2367
+
+2151:                                             ; preds = %91
+  %2152 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %2153 = load ptr, ptr %2152, align 8
+  %2154 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2155 = load ptr, ptr %2154, align 8
+  %2156 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2153, ptr noundef %2155) #12
+  br label %2367
+
+2157:                                             ; preds = %91
+  %2158 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %2159 = load ptr, ptr %2158, align 8
+  %2160 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2161 = load ptr, ptr %2160, align 8
+  %2162 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2159, ptr noundef %2161) #12
+  %2163 = getelementptr inbounds i8, ptr %2162, i64 2
+  store i16 2, ptr %2163, align 2
+  br label %2367
+
+2164:                                             ; preds = %91
+  %2165 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2166 = load ptr, ptr %2165, align 8
+  %2167 = load ptr, ptr %.21591, align 8
+  %2168 = call ptr @zend_ast_create_2(i16 noundef zeroext 513, ptr noundef %2166, ptr noundef %2167) #12
+  br label %2367
+
+2169:                                             ; preds = %91
+  %2170 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2171 = load ptr, ptr %2170, align 8
+  %2172 = load ptr, ptr %.21591, align 8
+  %2173 = call ptr @zend_ast_create_2(i16 noundef zeroext 514, ptr noundef %2171, ptr noundef %2172) #12
+  br label %2367
+
+2174:                                             ; preds = %91
+  %2175 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2176 = load ptr, ptr %2175, align 8
+  %2177 = load ptr, ptr %.21591, align 8
+  %2178 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %2176, ptr noundef %2177) #12
+  br label %2367
+
+2179:                                             ; preds = %91
+  %2180 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2181 = load ptr, ptr %2180, align 8
+  %2182 = load ptr, ptr %.21591, align 8
+  %2183 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %2181, ptr noundef %2182) #12
+  br label %2367
+
+2184:                                             ; preds = %91
+  %2185 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2186:                                             ; preds = %91
+  %2187 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2188 = load ptr, ptr %2187, align 8
+  br label %2367
+
+2189:                                             ; preds = %91
+  %2190 = load ptr, ptr %.21591, align 8
+  %2191 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2190) #12
+  br label %2367
+
+2192:                                             ; preds = %91
+  %2193 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2194:                                             ; preds = %91
+  %2195 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2196 = load ptr, ptr %2195, align 8
+  br label %2367
+
+2197:                                             ; preds = %91
+  %2198 = load ptr, ptr %.21591, align 8
+  %2199 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2198) #12
+  br label %2367
+
+2200:                                             ; preds = %91
+  %2201 = load ptr, ptr %.21591, align 8
+  %2202 = getelementptr inbounds i8, ptr %2201, i64 8
+  %2203 = load i32, ptr %2202, align 8
+  %.not1641 = icmp eq i32 %2203, 0
+  br i1 %.not1641, label %2367, label %2204
+
+2204:                                             ; preds = %2200
+  %2205 = getelementptr inbounds i8, ptr %2201, i64 16
+  %2206 = add i32 %2203, -1
+  %2207 = zext i32 %2206 to i64
+  %2208 = getelementptr inbounds [1 x ptr], ptr %2205, i64 0, i64 %2207
+  %2209 = load ptr, ptr %2208, align 8
+  %2210 = icmp eq ptr %2209, null
+  br i1 %2210, label %2211, label %2367
+
+2211:                                             ; preds = %2204
+  store i32 %2206, ptr %2202, align 8
+  br label %2367
+
+2212:                                             ; preds = %91
+  br label %2367
+
+2213:                                             ; preds = %91
+  %2214 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2215:                                             ; preds = %91
+  %2216 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2217 = load ptr, ptr %2216, align 8
+  %2218 = load ptr, ptr %.21591, align 8
+  %2219 = call ptr @zend_ast_list_add(ptr noundef %2217, ptr noundef %2218) #12
+  br label %2367
+
+2220:                                             ; preds = %91
+  %2221 = load ptr, ptr %.21591, align 8
+  %2222 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 129, ptr noundef %2221) #12
+  br label %2367
+
+2223:                                             ; preds = %91
+  %2224 = load ptr, ptr %.21591, align 8
+  %2225 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2226 = load ptr, ptr %2225, align 8
+  %2227 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2224, ptr noundef %2226) #12
+  br label %2367
+
+2228:                                             ; preds = %91
+  %2229 = load ptr, ptr %.21591, align 8
+  %2230 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2229, ptr noundef null) #12
+  br label %2367
+
+2231:                                             ; preds = %91
+  %2232 = load ptr, ptr %.21591, align 8
+  %2233 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %2234 = load ptr, ptr %2233, align 8
+  %2235 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2232, ptr noundef %2234) #12
+  %2236 = getelementptr inbounds i8, ptr %2235, i64 2
+  store i16 1, ptr %2236, align 2
+  br label %2367
+
+2237:                                             ; preds = %91
+  %2238 = load ptr, ptr %.21591, align 8
+  %2239 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2238, ptr noundef null) #12
+  %2240 = getelementptr inbounds i8, ptr %2239, i64 2
+  store i16 1, ptr %2240, align 2
+  br label %2367
+
+2241:                                             ; preds = %91
+  %2242 = load ptr, ptr %.21591, align 8
+  %2243 = call ptr @zend_ast_create_1(i16 noundef zeroext 258, ptr noundef %2242) #12
+  br label %2367
+
+2244:                                             ; preds = %91
+  %2245 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2246 = load ptr, ptr %2245, align 8
+  %2247 = getelementptr inbounds i8, ptr %2246, i64 2
+  store i16 1, ptr %2247, align 2
+  %2248 = load ptr, ptr %2245, align 8
+  %2249 = getelementptr inbounds i8, ptr %.21591, i64 -40
+  %2250 = load ptr, ptr %2249, align 8
+  %2251 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2248, ptr noundef %2250) #12
+  br label %2367
+
+2252:                                             ; preds = %91
+  %2253 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2254 = load ptr, ptr %2253, align 8
+  %2255 = getelementptr inbounds i8, ptr %2254, i64 2
+  store i16 1, ptr %2255, align 2
+  %2256 = load ptr, ptr %2253, align 8
+  %2257 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2256, ptr noundef null) #12
+  br label %2367
+
+2258:                                             ; preds = %91
+  %2259 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2260 = load ptr, ptr %2259, align 8
+  %2261 = load ptr, ptr %.21591, align 8
+  %2262 = call ptr @zend_ast_list_add(ptr noundef %2260, ptr noundef %2261) #12
+  br label %2367
+
+2263:                                             ; preds = %91
+  %2264 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2265 = load ptr, ptr %2264, align 8
+  %2266 = load ptr, ptr %.21591, align 8
+  %2267 = call ptr @zend_ast_list_add(ptr noundef %2265, ptr noundef %2266) #12
+  br label %2367
+
+2268:                                             ; preds = %91
+  %2269 = load ptr, ptr %.21591, align 8
+  %2270 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 130, ptr noundef %2269) #12
+  br label %2367
+
+2271:                                             ; preds = %91
+  %2272 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2273 = load ptr, ptr %2272, align 8
+  %2274 = load ptr, ptr %.21591, align 8
+  %2275 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 130, ptr noundef %2273, ptr noundef %2274) #12
+  br label %2367
+
+2276:                                             ; preds = %91
+  %2277 = load ptr, ptr %.21591, align 8
+  %2278 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2277) #12
+  br label %2367
+
+2279:                                             ; preds = %91
+  %2280 = getelementptr inbounds i8, ptr %.21591, i64 -24
+  %2281 = load ptr, ptr %2280, align 8
+  %2282 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2281) #12
+  %2283 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2284 = load ptr, ptr %2283, align 8
+  %2285 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2282, ptr noundef %2284) #12
+  br label %2367
+
+2286:                                             ; preds = %91
+  %2287 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2288 = load ptr, ptr %2287, align 8
+  %2289 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2288) #12
+  %2290 = load ptr, ptr %.21591, align 8
+  %2291 = call ptr @zend_ast_create_2(i16 noundef zeroext 513, ptr noundef %2289, ptr noundef %2290) #12
+  br label %2367
+
+2292:                                             ; preds = %91
+  %2293 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2294 = load ptr, ptr %2293, align 8
+  %2295 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2294) #12
+  %2296 = load ptr, ptr %.21591, align 8
+  %2297 = call ptr @zend_ast_create_2(i16 noundef zeroext 514, ptr noundef %2295, ptr noundef %2296) #12
+  br label %2367
+
+2298:                                             ; preds = %91
+  %2299 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2300 = load ptr, ptr %2299, align 8
+  %2301 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2300) #12
+  %2302 = getelementptr inbounds i8, ptr %2301, i64 2
+  store i16 2, ptr %2302, align 2
+  br label %2367
+
+2303:                                             ; preds = %91
+  %2304 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2305 = load ptr, ptr %2304, align 8
+  %2306 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2305) #12
+  %2307 = getelementptr inbounds i8, ptr %2306, i64 2
+  store i16 1, ptr %2307, align 2
+  br label %2367
+
+2308:                                             ; preds = %91
+  %2309 = getelementptr inbounds i8, ptr %.21591, i64 -32
+  %2310 = load ptr, ptr %2309, align 8
+  %2311 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2310) #12
+  %2312 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2313 = load ptr, ptr %2312, align 8
+  %2314 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2311, ptr noundef %2313) #12
+  %2315 = getelementptr inbounds i8, ptr %2314, i64 2
+  store i16 1, ptr %2315, align 2
+  br label %2367
+
+2316:                                             ; preds = %91
+  %2317 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2318 = load ptr, ptr %2317, align 8
+  br label %2367
+
+2319:                                             ; preds = %91
+  %2320 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2321:                                             ; preds = %91
+  %2322 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2323:                                             ; preds = %91
+  %2324 = load ptr, ptr %.21591, align 8
+  %2325 = call ptr @zend_negate_num_string(ptr noundef %2324) #12
+  br label %2367
+
+2326:                                             ; preds = %91
+  %2327 = load ptr, ptr %.21591, align 8
+  %2328 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2327) #12
+  br label %2367
+
+2329:                                             ; preds = %91
+  %2330 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2331 = load ptr, ptr %2330, align 8
+  br label %2367
+
+2332:                                             ; preds = %91
+  %2333 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2334 = load ptr, ptr %2333, align 8
+  %2335 = call ptr @zend_ast_create_1(i16 noundef zeroext 262, ptr noundef %2334) #12
+  br label %2367
+
+2336:                                             ; preds = %91
+  %2337 = load ptr, ptr %.21591, align 8
+  %2338 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2337) #12
+  %2339 = getelementptr inbounds i8, ptr %2338, i64 2
+  store i16 2, ptr %2339, align 2
+  br label %2367
+
+2340:                                             ; preds = %91
+  %2341 = load ptr, ptr %.21591, align 8
+  %2342 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2341) #12
+  %2343 = getelementptr inbounds i8, ptr %2342, i64 2
+  store i16 4, ptr %2343, align 2
+  br label %2367
+
+2344:                                             ; preds = %91
+  %2345 = getelementptr inbounds i8, ptr %.21591, i64 -8
+  %2346 = load ptr, ptr %2345, align 8
+  %2347 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2346) #12
+  %2348 = getelementptr inbounds i8, ptr %2347, i64 2
+  store i16 1, ptr %2348, align 2
+  br label %2367
+
+2349:                                             ; preds = %91
+  %2350 = load ptr, ptr %.21591, align 8
+  %2351 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2350) #12
+  %2352 = getelementptr inbounds i8, ptr %2351, i64 2
+  store i16 8, ptr %2352, align 2
+  br label %2367
+
+2353:                                             ; preds = %91
+  %2354 = load ptr, ptr %.21591, align 8
+  %2355 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2354) #12
+  %2356 = getelementptr inbounds i8, ptr %2355, i64 2
+  store i16 16, ptr %2356, align 2
+  br label %2367
+
+2357:                                             ; preds = %91
+  %2358 = load ptr, ptr %.21591, align 8
+  br label %2367
+
+2359:                                             ; preds = %91
+  %2360 = getelementptr inbounds i8, ptr %.21591, i64 -16
+  %2361 = load ptr, ptr %2360, align 8
+  %2362 = load ptr, ptr %.21591, align 8
+  %2363 = call ptr @zend_ast_create_2(i16 noundef zeroext 524, ptr noundef %2361, ptr noundef %2362) #12
+  br label %2367
+
+2364:                                             ; preds = %91
+  %2365 = load ptr, ptr %.21591, align 8
+  %2366 = call ptr @zend_ast_create_1(i16 noundef zeroext 263, ptr noundef %2365) #12
+  br label %2367
+
+2367:                                             ; preds = %2200, %2204, %2211, %91, %1700, %1705, %1249, %1252, %1238, %1241, %1227, %1203, %1191, %873, %604, %598, %589, %434, %237, %225, %218, %206, %205, %190, %2364, %2359, %2357, %2353, %2349, %2344, %2340, %2336, %2332, %2329, %2326, %2323, %2321, %2319, %2316, %2308, %2303, %2298, %2292, %2286, %2279, %2276, %2271, %2268, %2263, %2258, %2252, %2244, %2241, %2237, %2231, %2228, %2223, %2220, %2215, %2213, %2212, %2197, %2194, %2192, %2189, %2186, %2184, %2179, %2174, %2169, %2164, %2157, %2151, %2148, %2143, %2138, %2135, %2132, %2130, %2125, %2120, %2118, %2116, %2114, %2107, %2100, %2093, %2087, %2084, %2082, %2079, %2077, %2075, %2073, %2071, %2069, %2066, %2064, %2062, %2060, %2059, %2053, %2047, %2042, %2037, %2034, %2031, %2028, %2025, %2022, %2019, %2016, %2013, %2010, %2008, %2006, %2004, %2001, %1998, %1995, %1993, %1991, %1988, %1986, %1982, %1978, %1976, %1974, %1972, %1970, %1967, %1964, %1963, %1960, %1958, %1956, %1954, %1949, %1940, %1936, %1929, %1922, %1918, %1908, %1905, %1903, %1900, %1895, %1892, %1891, %1890, %1889, %1887, %1883, %1881, %1877, %1873, %1846, %1817, %1815, %1807, %1802, %1797, %1795, %1792, %1787, %1780, %1775, %1771, %1768, %1764, %1762, %1759, %1756, %1752, %1748, %1744, %1740, %1736, %1732, %1728, %1726, %1721, %1716, %1709, %1707, %1695, %1689, %1684, %1679, %1673, %1667, %1661, %1655, %1649, %1643, %1639, %1635, %1632, %1629, %1623, %1617, %1611, %1605, %1599, %1593, %1587, %1581, %1576, %1570, %1564, %1558, %1552, %1546, %1541, %1536, %1531, %1526, %1523, %1519, %1516, %1512, %1507, %1501, %1495, %1489, %1483, %1477, %1471, %1465, %1459, %1453, %1447, %1441, %1435, %1432, %1427, %1422, %1415, %1408, %1406, %1398, %1396, %1391, %1371, %1367, %1364, %1359, %1357, %1356, %1353, %1350, %1345, %1342, %1331, %1316, %1305, %1300, %1297, %1286, %1277, %1272, %1271, %1270, %1269, %1268, %1267, %1266, %1265, %1259, %1255, %1244, %1233, %1232, %1224, %1223, %1218, %1216, %1213, %1186, %1177, %1172, %1169, %1166, %1161, %1158, %1155, %1154, %1153, %1148, %1145, %1140, %1135, %1133, %1131, %1101, %1091, %1083, %1073, %1071, %1066, %1061, %1058, %1055, %1050, %1046, %1043, %1038, %1035, %1030, %1028, %1023, %1020, %1018, %1015, %1013, %1011, %1010, %1005, %1000, %995, %990, %987, %985, %983, %980, %977, %975, %973, %968, %966, %961, %956, %951, %946, %943, %941, %938, %936, %934, %932, %927, %925, %923, %922, %918, %895, %872, %870, %865, %860, %857, %855, %852, %845, %842, %834, %828, %822, %820, %812, %806, %803, %801, %796, %793, %790, %785, %780, %777, %774, %772, %766, %760, %752, %750, %747, %744, %741, %738, %735, %733, %730, %728, %725, %723, %719, %715, %712, %710, %708, %707, %705, %704, %702, %701, %699, %698, %695, %684, %683, %664, %660, %643, %639, %624, %620, %619, %618, %617, %614, %613, %586, %567, %563, %541, %537, %536, %535, %534, %533, %506, %504, %498, %495, %490, %487, %484, %483, %481, %480, %475, %472, %461, %459, %455, %451, %444, %443, %438, %425, %418, %415, %412, %409, %406, %403, %400, %396, %392, %388, %383, %374, %368, %363, %361, %359, %356, %348, %346, %344, %342, %337, %334, %329, %324, %321, %316, %313, %307, %304, %301, %296, %293, %288, %285, %280, %274, %268, %267, %266, %263, %256, %252, %245, %242, %238, %219, %186, %181, %179, %177, %175, %173, %171, %169, %167, %162, %159, %156, %151, %148, %143, %140, %137, %134, %131, %128, %126, %124, %122, %120, %118, %116, %114, %109, %107, %101, %99
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %91 ], [ %2366, %2364 ], [ %2363, %2359 ], [ %2358, %2357 ], [ %2355, %2353 ], [ %2351, %2349 ], [ %2347, %2344 ], [ %2342, %2340 ], [ %2338, %2336 ], [ %2335, %2332 ], [ %2331, %2329 ], [ %2328, %2326 ], [ %2325, %2323 ], [ %2322, %2321 ], [ %2320, %2319 ], [ %2318, %2316 ], [ %2314, %2308 ], [ %2306, %2303 ], [ %2301, %2298 ], [ %2297, %2292 ], [ %2291, %2286 ], [ %2285, %2279 ], [ %2278, %2276 ], [ %2275, %2271 ], [ %2270, %2268 ], [ %2267, %2263 ], [ %2262, %2258 ], [ %2257, %2252 ], [ %2251, %2244 ], [ %2243, %2241 ], [ %2239, %2237 ], [ %2235, %2231 ], [ %2230, %2228 ], [ %2227, %2223 ], [ %2222, %2220 ], [ %2219, %2215 ], [ %2214, %2213 ], [ null, %2212 ], [ %2199, %2197 ], [ %2196, %2194 ], [ %2193, %2192 ], [ %2191, %2189 ], [ %2188, %2186 ], [ %2185, %2184 ], [ %2183, %2179 ], [ %2178, %2174 ], [ %2173, %2169 ], [ %2168, %2164 ], [ %2162, %2157 ], [ %2156, %2151 ], [ %2150, %2148 ], [ %2147, %2143 ], [ %2142, %2138 ], [ %2137, %2135 ], [ %2134, %2132 ], [ %2131, %2130 ], [ %2129, %2125 ], [ %2124, %2120 ], [ %2119, %2118 ], [ %2117, %2116 ], [ %2115, %2114 ], [ %2113, %2107 ], [ %2106, %2100 ], [ %2098, %2093 ], [ %2092, %2087 ], [ %2086, %2084 ], [ %2083, %2082 ], [ %2081, %2079 ], [ %2078, %2077 ], [ %2076, %2075 ], [ %2074, %2073 ], [ %2072, %2071 ], [ %2070, %2069 ], [ %2068, %2066 ], [ %2065, %2064 ], [ %2063, %2062 ], [ %2061, %2060 ], [ null, %2059 ], [ %2058, %2053 ], [ %2052, %2047 ], [ %2046, %2042 ], [ %2041, %2037 ], [ %2035, %2034 ], [ %2032, %2031 ], [ %2029, %2028 ], [ %2026, %2025 ], [ %2023, %2022 ], [ %2020, %2019 ], [ %2017, %2016 ], [ %2014, %2013 ], [ %2012, %2010 ], [ %2009, %2008 ], [ %2007, %2006 ], [ %2005, %2004 ], [ %2003, %2001 ], [ %2000, %1998 ], [ %1997, %1995 ], [ %1994, %1993 ], [ %1992, %1991 ], [ %1990, %1988 ], [ %1987, %1986 ], [ %1984, %1982 ], [ %1980, %1978 ], [ %1977, %1976 ], [ %1975, %1974 ], [ %1973, %1972 ], [ %1971, %1970 ], [ %1969, %1967 ], [ %1966, %1964 ], [ null, %1963 ], [ %1962, %1960 ], [ %1959, %1958 ], [ %1957, %1956 ], [ %1955, %1954 ], [ %1953, %1949 ], [ %1944, %1940 ], [ %1939, %1936 ], [ %1935, %1929 ], [ %1928, %1922 ], [ %1921, %1918 ], [ %1912, %1908 ], [ %1906, %1905 ], [ %1904, %1903 ], [ %1902, %1900 ], [ %1899, %1895 ], [ %1894, %1892 ], [ null, %1891 ], [ inttoptr (i64 4096 to ptr), %1890 ], [ null, %1889 ], [ %1888, %1887 ], [ %1886, %1883 ], [ %1882, %1881 ], [ %1880, %1877 ], [ %1876, %1873 ], [ %1869, %1846 ], [ %1842, %1817 ], [ %1816, %1815 ], [ %1811, %1807 ], [ %1803, %1802 ], [ %1801, %1797 ], [ %1796, %1795 ], [ %1794, %1792 ], [ %1789, %1787 ], [ %1784, %1780 ], [ %1777, %1775 ], [ %1772, %1771 ], [ %1770, %1768 ], [ %1767, %1764 ], [ %1763, %1762 ], [ %1761, %1759 ], [ %1758, %1756 ], [ %1754, %1752 ], [ %1750, %1748 ], [ %1746, %1744 ], [ %1742, %1740 ], [ %1738, %1736 ], [ %1734, %1732 ], [ %1730, %1728 ], [ %1727, %1726 ], [ %1725, %1721 ], [ %1720, %1716 ], [ %1715, %1709 ], [ %1708, %1707 ], [ %1702, %1705 ], [ %1702, %1700 ], [ %1699, %1695 ], [ %1693, %1689 ], [ %1688, %1684 ], [ %1683, %1679 ], [ %1677, %1673 ], [ %1671, %1667 ], [ %1665, %1661 ], [ %1659, %1655 ], [ %1653, %1649 ], [ %1647, %1643 ], [ %1641, %1639 ], [ %1637, %1635 ], [ %1634, %1632 ], [ %1631, %1629 ], [ %1627, %1623 ], [ %1621, %1617 ], [ %1615, %1611 ], [ %1609, %1605 ], [ %1603, %1599 ], [ %1597, %1593 ], [ %1591, %1587 ], [ %1585, %1581 ], [ %1580, %1576 ], [ %1574, %1570 ], [ %1568, %1564 ], [ %1562, %1558 ], [ %1556, %1552 ], [ %1550, %1546 ], [ %1545, %1541 ], [ %1540, %1536 ], [ %1535, %1531 ], [ %1530, %1526 ], [ %1525, %1523 ], [ %1522, %1519 ], [ %1518, %1516 ], [ %1515, %1512 ], [ %1511, %1507 ], [ %1505, %1501 ], [ %1499, %1495 ], [ %1493, %1489 ], [ %1487, %1483 ], [ %1481, %1477 ], [ %1475, %1471 ], [ %1469, %1465 ], [ %1463, %1459 ], [ %1457, %1453 ], [ %1451, %1447 ], [ %1445, %1441 ], [ %1439, %1435 ], [ %1434, %1432 ], [ %1431, %1427 ], [ %1426, %1422 ], [ %1421, %1415 ], [ %1414, %1408 ], [ %1407, %1406 ], [ %1405, %1398 ], [ %1397, %1396 ], [ %1395, %1391 ], [ %1390, %1371 ], [ %1370, %1367 ], [ %1366, %1364 ], [ %1363, %1359 ], [ %1358, %1357 ], [ null, %1356 ], [ %1355, %1353 ], [ %1352, %1350 ], [ %1349, %1345 ], [ %1344, %1342 ], [ %1333, %1331 ], [ %1318, %1316 ], [ %1307, %1305 ], [ %1304, %1300 ], [ %1299, %1297 ], [ %1288, %1286 ], [ %1279, %1277 ], [ %1276, %1272 ], [ inttoptr (i64 327 to ptr), %1271 ], [ inttoptr (i64 323 to ptr), %1270 ], [ inttoptr (i64 322 to ptr), %1269 ], [ inttoptr (i64 321 to ptr), %1268 ], [ inttoptr (i64 324 to ptr), %1267 ], [ inttoptr (i64 325 to ptr), %1266 ], [ inttoptr (i64 326 to ptr), %1265 ], [ %1264, %1259 ], [ %1258, %1255 ], [ %1250, %1249 ], [ %1254, %1252 ], [ inttoptr (i64 1 to ptr), %1244 ], [ %1239, %1238 ], [ %1243, %1241 ], [ inttoptr (i64 1 to ptr), %1233 ], [ inttoptr (i64 1 to ptr), %1232 ], [ %1231, %1227 ], [ %1226, %1224 ], [ null, %1223 ], [ %1222, %1218 ], [ %1217, %1216 ], [ %1215, %1213 ], [ %1210, %1203 ], [ %1200, %1191 ], [ %1190, %1186 ], [ %1181, %1177 ], [ %1176, %1172 ], [ %1171, %1169 ], [ %1168, %1166 ], [ %1165, %1161 ], [ %1160, %1158 ], [ %1157, %1155 ], [ null, %1154 ], [ null, %1153 ], [ %1152, %1148 ], [ %1147, %1145 ], [ %1144, %1140 ], [ %1139, %1135 ], [ %1134, %1133 ], [ %1132, %1131 ], [ %1127, %1101 ], [ %1096, %1091 ], [ %1086, %1083 ], [ %1078, %1073 ], [ %1072, %1071 ], [ %1070, %1066 ], [ %1065, %1061 ], [ %1060, %1058 ], [ %1057, %1055 ], [ %1054, %1050 ], [ %1049, %1046 ], [ %1045, %1043 ], [ %1042, %1038 ], [ %1037, %1035 ], [ %1034, %1030 ], [ %1029, %1028 ], [ %1027, %1023 ], [ %1022, %1020 ], [ %1019, %1018 ], [ %1017, %1015 ], [ %1014, %1013 ], [ %1012, %1011 ], [ null, %1010 ], [ %1009, %1005 ], [ %1004, %1000 ], [ %999, %995 ], [ %994, %990 ], [ %989, %987 ], [ %986, %985 ], [ %984, %983 ], [ %981, %980 ], [ %978, %977 ], [ %976, %975 ], [ %974, %973 ], [ %969, %968 ], [ %967, %966 ], [ %965, %961 ], [ %960, %956 ], [ %955, %951 ], [ %950, %946 ], [ %945, %943 ], [ %942, %941 ], [ %939, %938 ], [ %937, %936 ], [ %935, %934 ], [ %933, %932 ], [ %928, %927 ], [ %926, %925 ], [ %924, %923 ], [ null, %922 ], [ %920, %918 ], [ %897, %895 ], [ %877, %873 ], [ null, %872 ], [ %871, %870 ], [ %869, %865 ], [ %864, %860 ], [ %859, %857 ], [ %856, %855 ], [ %854, %852 ], [ %851, %845 ], [ %844, %842 ], [ %841, %834 ], [ %833, %828 ], [ %827, %822 ], [ %821, %820 ], [ %819, %812 ], [ %811, %806 ], [ %805, %803 ], [ %802, %801 ], [ %800, %796 ], [ %795, %793 ], [ %792, %790 ], [ %789, %785 ], [ %784, %780 ], [ %779, %777 ], [ %776, %774 ], [ %773, %772 ], [ %771, %766 ], [ %765, %760 ], [ %759, %752 ], [ %751, %750 ], [ %749, %747 ], [ %746, %744 ], [ %743, %741 ], [ %740, %738 ], [ %737, %735 ], [ %734, %733 ], [ %732, %730 ], [ %729, %728 ], [ %727, %725 ], [ %724, %723 ], [ %721, %719 ], [ %717, %715 ], [ %714, %712 ], [ %711, %710 ], [ %709, %708 ], [ null, %707 ], [ %706, %705 ], [ null, %704 ], [ %703, %702 ], [ null, %701 ], [ %700, %699 ], [ null, %698 ], [ %697, %695 ], [ %685, %684 ], [ null, %683 ], [ %682, %664 ], [ %663, %660 ], [ %659, %643 ], [ %642, %639 ], [ %638, %624 ], [ %623, %620 ], [ inttoptr (i64 73728 to ptr), %619 ], [ inttoptr (i64 32 to ptr), %618 ], [ inttoptr (i64 64 to ptr), %617 ], [ %616, %614 ], [ null, %613 ], [ %612, %604 ], [ %603, %598 ], [ %597, %589 ], [ %588, %586 ], [ %585, %567 ], [ %566, %563 ], [ %562, %541 ], [ %540, %537 ], [ inttoptr (i64 16 to ptr), %536 ], [ null, %535 ], [ inttoptr (i64 8 to ptr), %534 ], [ null, %533 ], [ %529, %506 ], [ %505, %504 ], [ %499, %498 ], [ %497, %495 ], [ %494, %490 ], [ %489, %487 ], [ %486, %484 ], [ null, %483 ], [ %482, %481 ], [ null, %480 ], [ %479, %475 ], [ %474, %472 ], [ %471, %461 ], [ %460, %459 ], [ %458, %455 ], [ %454, %451 ], [ %450, %444 ], [ null, %443 ], [ %442, %438 ], [ %.sroa.0.0.copyload, %434 ], [ %433, %425 ], [ %424, %418 ], [ %417, %415 ], [ %414, %412 ], [ %411, %409 ], [ %408, %406 ], [ %405, %403 ], [ %402, %400 ], [ %399, %396 ], [ %395, %392 ], [ %391, %388 ], [ %387, %383 ], [ %382, %374 ], [ %373, %368 ], [ %367, %363 ], [ %362, %361 ], [ %360, %359 ], [ %358, %356 ], [ %352, %348 ], [ %347, %346 ], [ %345, %344 ], [ %343, %342 ], [ %341, %337 ], [ %336, %334 ], [ %333, %329 ], [ %328, %324 ], [ %323, %321 ], [ %320, %316 ], [ %315, %313 ], [ %308, %307 ], [ %305, %304 ], [ %303, %301 ], [ %300, %296 ], [ %295, %293 ], [ %292, %288 ], [ %287, %285 ], [ %284, %280 ], [ %279, %274 ], [ %273, %268 ], [ inttoptr (i64 4 to ptr), %267 ], [ inttoptr (i64 2 to ptr), %266 ], [ %265, %263 ], [ %258, %256 ], [ %254, %252 ], [ %247, %245 ], [ %244, %242 ], [ %241, %238 ], [ %.sroa.0.0.copyload, %237 ], [ %.sroa.0.0.copyload, %225 ], [ %224, %219 ], [ %.sroa.0.0.copyload, %218 ], [ %.sroa.0.0.copyload, %206 ], [ %193, %205 ], [ %193, %190 ], [ %189, %186 ], [ %185, %181 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %162 ], [ %161, %159 ], [ %158, %156 ], [ %155, %151 ], [ %150, %148 ], [ %147, %143 ], [ %142, %140 ], [ %138, %137 ], [ %135, %134 ], [ %132, %131 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %115, %114 ], [ %113, %109 ], [ %108, %107 ], [ %102, %101 ], [ %.sroa.0.0.copyload, %99 ], [ %2201, %2211 ], [ %2201, %2204 ], [ %2201, %2200 ]
+  %2368 = sext i8 %94 to i64
+  %2369 = sub nsw i64 0, %2368
+  %2370 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %.21591, i64 %2369
+  %2371 = getelementptr inbounds i16, ptr %.21580, i64 %2369
+  %2372 = getelementptr inbounds i8, ptr %2370, i64 8
+  store ptr %.sroa.0.0, ptr %2372, align 8
+  %2373 = getelementptr inbounds [597 x i16], ptr @yyr1, i64 0, i64 %92
+  %2374 = load i16, ptr %2373, align 2
+  %2375 = sext i16 %2374 to i64
+  %2376 = add nsw i64 %2375, -179
+  %2377 = getelementptr inbounds [177 x i16], ptr @yypgoto, i64 0, i64 %2376
+  %2378 = load i16, ptr %2377, align 2
+  %2379 = sext i16 %2378 to i32
+  %2380 = load i16, ptr %2371, align 2
+  %2381 = sext i16 %2380 to i32
+  %2382 = add nsw i32 %2381, %2379
+  %or.cond5 = icmp ult i32 %2382, 9777
+  br i1 %or.cond5, label %2383, label %2390
+
+2383:                                             ; preds = %2367
+  %2384 = zext nneg i32 %2382 to i64
+  %2385 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %2384
+  %2386 = load i16, ptr %2385, align 2
+  %2387 = icmp eq i16 %2386, %2380
+  br i1 %2387, label %2388, label %2390
+
+2388:                                             ; preds = %2383
+  %2389 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %2384
+  br label %2392
+
+2390:                                             ; preds = %2383, %2367
+  %2391 = getelementptr inbounds [177 x i16], ptr @yydefgoto, i64 0, i64 %2376
+  br label %2392
+
+2392:                                             ; preds = %2390, %2388
+  %.in.in = phi ptr [ %2389, %2388 ], [ %2391, %2390 ]
   %.in = load i16, ptr %.in.in, align 2
-  %2394 = sext i16 %.in to i32
-  br label %14
+  %2393 = sext i16 %.in to i32
+  br label %13
 
-2395:                                             ; preds = %87
-  %2396 = icmp eq i32 %.4, -2
-  br i1 %2396, label %2402, label %.thread
+2394:                                             ; preds = %86
+  %2395 = icmp eq i32 %.4, -2
+  br i1 %2395, label %2401, label %.thread
 
-.thread:                                          ; preds = %80, %2395
-  %.81679 = phi i32 [ %.4, %2395 ], [ %.6, %80 ]
-  %or.cond7 = icmp ult i32 %.81679, 407
-  br i1 %or.cond7, label %2397, label %2402
+.thread:                                          ; preds = %79, %2394
+  %.81692 = phi i32 [ %.4, %2394 ], [ %.6, %79 ]
+  %or.cond7 = icmp ult i32 %.81692, 407
+  br i1 %or.cond7, label %2396, label %2401
 
-2397:                                             ; preds = %.thread
-  %2398 = zext nneg i32 %.81679 to i64
-  %2399 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %2398
-  %2400 = load i8, ptr %2399, align 1
-  %2401 = zext i8 %2400 to i32
-  br label %2402
+2396:                                             ; preds = %.thread
+  %2397 = zext nneg i32 %.81692 to i64
+  %2398 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %2397
+  %2399 = load i8, ptr %2398, align 1
+  %2400 = zext i8 %2399 to i32
+  br label %2401
 
-2402:                                             ; preds = %2397, %.thread, %2395
-  %.81680 = phi i32 [ -2, %2395 ], [ %.81679, %2397 ], [ %.81679, %.thread ]
-  %2403 = phi i32 [ -2, %2395 ], [ %2401, %2397 ], [ 2, %.thread ]
-  switch i32 %.01568, label %.thread1688 [
-    i32 0, label %2404
-    i32 3, label %2417
+2401:                                             ; preds = %2396, %.thread, %2394
+  %.81693 = phi i32 [ -2, %2394 ], [ %.81692, %2396 ], [ %.81692, %.thread ]
+  %2402 = phi i32 [ -2, %2394 ], [ %2400, %2396 ], [ 2, %.thread ]
+  switch i32 %.01568, label %.thread1703 [
+    i32 0, label %2403
+    i32 3, label %2414
   ]
 
-2404:                                             ; preds = %2402
-  %2405 = call fastcc i32 @yysyntax_error(ptr noundef %6, ptr noundef %5, ptr nonnull %.21580, i32 %2403)
-  switch i32 %2405, label %.thread1681 [
-    i32 0, label %.thread1684
-    i32 -1, label %2407
+2403:                                             ; preds = %2401
+  %2404 = call fastcc i32 @yysyntax_error(ptr noundef %5, ptr %.01683, ptr nonnull %.21580, i32 %2402)
+  switch i32 %2404, label %.thread1694 [
+    i32 0, label %.thread1698
+    i32 -1, label %2405
   ]
 
-.thread1684:                                      ; preds = %2404
-  %2406 = load ptr, ptr %5, align 8
-  call void @zenderror(ptr noundef %2406) #12
-  br label %.thread1688
+.thread1698:                                      ; preds = %2403
+  call void @zenderror(ptr noundef %.01683) #12
+  br label %.thread1703
 
-2407:                                             ; preds = %2404
-  %2408 = load ptr, ptr %5, align 8
-  %.not1668 = icmp eq ptr %2408, %4
-  br i1 %.not1668, label %2410, label %2409
+2405:                                             ; preds = %2403
+  %.not1668 = icmp eq ptr %.01683, %4
+  br i1 %.not1668, label %2407, label %2406
 
-2409:                                             ; preds = %2407
-  call void @free(ptr noundef %2408) #12
-  br label %2410
+2406:                                             ; preds = %2405
+  call void @free(ptr noundef %.01683) #12
+  br label %2407
 
-2410:                                             ; preds = %2409, %2407
-  %2411 = load i64, ptr %6, align 8
-  %2412 = call noalias ptr @malloc(i64 noundef %2411) #11
-  store ptr %2412, ptr %5, align 8
-  %.not1669 = icmp eq ptr %2412, null
-  br i1 %.not1669, label %2413, label %2414
+2407:                                             ; preds = %2406, %2405
+  %2408 = load i64, ptr %5, align 8
+  %2409 = call noalias ptr @malloc(i64 noundef %2408) #11
+  %.not1669 = icmp eq ptr %2409, null
+  br i1 %.not1669, label %2410, label %2411
 
-2413:                                             ; preds = %2410
-  store ptr %4, ptr %5, align 8
-  store i64 128, ptr %6, align 8
-  br label %.thread1681
+2410:                                             ; preds = %2407
+  store i64 128, ptr %5, align 8
+  br label %.thread1694
 
-.thread1681:                                      ; preds = %2404, %2413
+.thread1694:                                      ; preds = %2403, %2410
+  %.61689.ph = phi ptr [ %4, %2410 ], [ %.01683, %2403 ]
   call void @zenderror(ptr noundef nonnull @.str.2) #12
-  br label %.loopexit1690
+  br label %.loopexit1706
 
-2414:                                             ; preds = %2410
-  %2415 = call fastcc i32 @yysyntax_error(ptr noundef %6, ptr noundef %5, ptr nonnull %.21580, i32 %2403)
-  call void @zenderror(ptr noundef nonnull %2412) #12
-  %2416 = icmp eq i32 %2415, -2
-  br i1 %2416, label %.loopexit1690, label %.thread1688
+2411:                                             ; preds = %2407
+  %2412 = call fastcc i32 @yysyntax_error(ptr noundef %5, ptr nonnull %2409, ptr nonnull %.21580, i32 %2402)
+  call void @zenderror(ptr noundef nonnull %2409) #12
+  %2413 = icmp eq i32 %2412, -2
+  br i1 %2413, label %.loopexit1706, label %.thread1703
 
-2417:                                             ; preds = %2402
-  %2418 = icmp slt i32 %.81680, 1
-  br i1 %2418, label %2419, label %2421
+2414:                                             ; preds = %2401
+  %2415 = icmp slt i32 %.81693, 1
+  br i1 %2415, label %2416, label %2418
 
-2419:                                             ; preds = %2417
-  %2420 = icmp eq i32 %.81680, 0
-  br i1 %2420, label %.loopexit.loopexit1717, label %.thread1688
+2416:                                             ; preds = %2414
+  %2417 = icmp eq i32 %.81693, 0
+  br i1 %2417, label %.loopexit.loopexit1738, label %.thread1703
 
-2421:                                             ; preds = %2417
-  call fastcc void @yydestruct(i32 noundef %2403, ptr noundef %1)
-  br label %.thread1688
+2418:                                             ; preds = %2414
+  call fastcc void @yydestruct(i32 noundef %2402, ptr noundef %1)
+  br label %.thread1703
 
-2422:                                             ; preds = %1246, %1235, %1228, %874, %605, %599, %590, %435, %1213, %1203, %354
-  %2423 = sext i8 %95 to i64
-  %2424 = sub nsw i64 0, %2423
-  %2425 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %.21591, i64 %2424
-  %2426 = getelementptr inbounds i16, ptr %.21580, i64 %2424
-  %2427 = load i16, ptr %2426, align 2
-  %2428 = sext i16 %2427 to i32
-  br label %.thread1688
+2419:                                             ; preds = %1245, %1234, %1227, %873, %604, %598, %589, %434, %1212, %1202, %353
+  %2420 = sext i8 %94 to i64
+  %2421 = sub nsw i64 0, %2420
+  %2422 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %.21591, i64 %2421
+  %2423 = getelementptr inbounds i16, ptr %.21580, i64 %2421
+  %2424 = load i16, ptr %2423, align 2
+  %2425 = sext i16 %2424 to i32
+  br label %.thread1703
 
-.thread1688:                                      ; preds = %2402, %2414, %.thread1684, %59, %2419, %2421, %2422
-  %.51594 = phi ptr [ %.21591, %2419 ], [ %.21591, %2421 ], [ %2425, %2422 ], [ %.21591, %59 ], [ %.21591, %.thread1684 ], [ %.21591, %2414 ], [ %.21591, %2402 ]
-  %.51583 = phi ptr [ %.21580, %2419 ], [ %.21580, %2421 ], [ %2426, %2422 ], [ %.21580, %59 ], [ %.21580, %.thread1684 ], [ %.21580, %2414 ], [ %.21580, %2402 ]
-  %.21566 = phi i32 [ %.01564, %2419 ], [ %.01564, %2421 ], [ %2428, %2422 ], [ %.01564, %59 ], [ %.01564, %.thread1684 ], [ %.01564, %2414 ], [ %.01564, %2402 ]
-  %.7 = phi i32 [ %.81680, %2419 ], [ -2, %2421 ], [ %.9, %2422 ], [ 257, %59 ], [ %.81680, %.thread1684 ], [ %.81680, %2414 ], [ %.81680, %2402 ]
-  br label %2429
+.thread1703:                                      ; preds = %2401, %2411, %.thread1698, %58, %2416, %2418, %2419
+  %.41687 = phi ptr [ %.01683, %2416 ], [ %.01683, %2418 ], [ %.01683, %2419 ], [ %.01683, %58 ], [ %.01683, %.thread1698 ], [ %2409, %2411 ], [ %.01683, %2401 ]
+  %.51594 = phi ptr [ %.21591, %2416 ], [ %.21591, %2418 ], [ %2422, %2419 ], [ %.21591, %58 ], [ %.21591, %.thread1698 ], [ %.21591, %2411 ], [ %.21591, %2401 ]
+  %.51583 = phi ptr [ %.21580, %2416 ], [ %.21580, %2418 ], [ %2423, %2419 ], [ %.21580, %58 ], [ %.21580, %.thread1698 ], [ %.21580, %2411 ], [ %.21580, %2401 ]
+  %.21566 = phi i32 [ %.01564, %2416 ], [ %.01564, %2418 ], [ %2425, %2419 ], [ %.01564, %58 ], [ %.01564, %.thread1698 ], [ %.01564, %2411 ], [ %.01564, %2401 ]
+  %.7 = phi i32 [ %.81693, %2416 ], [ -2, %2418 ], [ %.9, %2419 ], [ 257, %58 ], [ %.81693, %.thread1698 ], [ %.81693, %2411 ], [ %.81693, %2401 ]
+  br label %2426
 
-2429:                                             ; preds = %2446, %.thread1688
-  %.61595 = phi ptr [ %.51594, %.thread1688 ], [ %2450, %2446 ]
-  %.61584 = phi ptr [ %.51583, %.thread1688 ], [ %2451, %2446 ]
-  %.31567 = phi i32 [ %.21566, %.thread1688 ], [ %2453, %2446 ]
-  %2430 = sext i32 %.31567 to i64
-  %2431 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %2430
-  %2432 = load i16, ptr %2431, align 2
-  %2433 = add i16 %2432, 1
-  %or.cond9 = icmp ult i16 %2433, 9777
-  br i1 %or.cond9, label %2434, label %2444
+2426:                                             ; preds = %2443, %.thread1703
+  %.61595 = phi ptr [ %.51594, %.thread1703 ], [ %2447, %2443 ]
+  %.61584 = phi ptr [ %.51583, %.thread1703 ], [ %2448, %2443 ]
+  %.31567 = phi i32 [ %.21566, %.thread1703 ], [ %2450, %2443 ]
+  %2427 = sext i32 %.31567 to i64
+  %2428 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %2427
+  %2429 = load i16, ptr %2428, align 2
+  %2430 = add i16 %2429, 1
+  %or.cond9 = icmp ult i16 %2430, 9777
+  br i1 %or.cond9, label %2431, label %2441
 
-2434:                                             ; preds = %2429
-  %2435 = sext i16 %2432 to i64
-  %2436 = add nsw i64 %2435, 1
-  %2437 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %2436
-  %2438 = load i16, ptr %2437, align 2
-  %2439 = icmp eq i16 %2438, 1
-  br i1 %2439, label %2440, label %2444
+2431:                                             ; preds = %2426
+  %2432 = sext i16 %2429 to i64
+  %2433 = add nsw i64 %2432, 1
+  %2434 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %2433
+  %2435 = load i16, ptr %2434, align 2
+  %2436 = icmp eq i16 %2435, 1
+  br i1 %2436, label %2437, label %2441
 
-2440:                                             ; preds = %2434
-  %2441 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %2436
-  %2442 = load i16, ptr %2441, align 2
-  %2443 = icmp sgt i16 %2442, 0
-  br i1 %2443, label %2454, label %2444
+2437:                                             ; preds = %2431
+  %2438 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %2433
+  %2439 = load i16, ptr %2438, align 2
+  %2440 = icmp sgt i16 %2439, 0
+  br i1 %2440, label %2451, label %2441
 
-2444:                                             ; preds = %2434, %2440, %2429
-  %2445 = icmp eq ptr %.61584, %.11574
-  br i1 %2445, label %.loopexit1692, label %2446
+2441:                                             ; preds = %2431, %2437, %2426
+  %2442 = icmp eq ptr %.61584, %.11574
+  br i1 %2442, label %.loopexit1708, label %2443
 
-2446:                                             ; preds = %2444
-  %2447 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %2430
-  %2448 = load i16, ptr %2447, align 2
-  %2449 = sext i16 %2448 to i32
-  call fastcc void @yydestruct(i32 noundef %2449, ptr noundef %.61595)
-  %2450 = getelementptr inbounds i8, ptr %.61595, i64 -8
-  %2451 = getelementptr inbounds i8, ptr %.61584, i64 -2
-  %2452 = load i16, ptr %2451, align 2
-  %2453 = sext i16 %2452 to i32
-  br label %2429
+2443:                                             ; preds = %2441
+  %2444 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %2427
+  %2445 = load i16, ptr %2444, align 2
+  %2446 = sext i16 %2445 to i32
+  call fastcc void @yydestruct(i32 noundef %2446, ptr noundef %.61595)
+  %2447 = getelementptr inbounds i8, ptr %.61595, i64 -8
+  %2448 = getelementptr inbounds i8, ptr %.61584, i64 -2
+  %2449 = load i16, ptr %2448, align 2
+  %2450 = sext i16 %2449 to i32
+  br label %2426
 
-2454:                                             ; preds = %2440
-  %2455 = zext nneg i16 %2442 to i32
-  %2456 = getelementptr inbounds i8, ptr %.61595, i64 8
-  %2457 = load i64, ptr %1, align 8
-  store i64 %2457, ptr %2456, align 8
-  br label %14
+2451:                                             ; preds = %2437
+  %2452 = zext nneg i16 %2439 to i32
+  %2453 = getelementptr inbounds i8, ptr %.61595, i64 8
+  %2454 = load i64, ptr %1, align 8
+  store i64 %2454, ptr %2453, align 8
+  br label %13
 
-.loopexit.loopexit1717:                           ; preds = %40, %104, %501, %1183, %1320, %1914, %2419
-  %.21602.ph = phi i32 [ 0, %40 ], [ 0, %2419 ], [ %96, %1914 ], [ %96, %1320 ], [ %96, %1183 ], [ %96, %501 ], [ %96, %104 ]
-  %.41593.ph = phi ptr [ %44, %40 ], [ %.21591, %2419 ], [ %.21591, %1914 ], [ %.21591, %1320 ], [ %.21591, %1183 ], [ %.21591, %501 ], [ %.21591, %104 ]
-  %.41582.ph = phi ptr [ %42, %40 ], [ %.21580, %2419 ], [ %.21580, %1914 ], [ %.21580, %1320 ], [ %.21580, %1183 ], [ %.21580, %501 ], [ %.21580, %104 ]
-  %.31576.ph = phi ptr [ %31, %40 ], [ %.11574, %2419 ], [ %.11574, %1914 ], [ %.11574, %1320 ], [ %.11574, %1183 ], [ %.11574, %501 ], [ %.11574, %104 ]
-  %.3.ph = phi i32 [ %.01559, %40 ], [ 0, %2419 ], [ %.9, %1914 ], [ %.9, %1320 ], [ %.9, %1183 ], [ %.9, %501 ], [ %.9, %104 ]
-  %2458 = sext i32 %.21602.ph to i64
-  br label %.loopexit1692
+.loopexit.loopexit1738:                           ; preds = %39, %103, %500, %1182, %1319, %1913, %2416
+  %.21602.ph = phi i32 [ 0, %2416 ], [ %95, %1913 ], [ %95, %1319 ], [ %95, %1182 ], [ %95, %500 ], [ %95, %103 ], [ 0, %39 ]
+  %.41593.ph = phi ptr [ %.21591, %2416 ], [ %.21591, %1913 ], [ %.21591, %1319 ], [ %.21591, %1182 ], [ %.21591, %500 ], [ %.21591, %103 ], [ %43, %39 ]
+  %.41582.ph = phi ptr [ %.21580, %2416 ], [ %.21580, %1913 ], [ %.21580, %1319 ], [ %.21580, %1182 ], [ %.21580, %500 ], [ %.21580, %103 ], [ %41, %39 ]
+  %.31576.ph = phi ptr [ %.11574, %2416 ], [ %.11574, %1913 ], [ %.11574, %1319 ], [ %.11574, %1182 ], [ %.11574, %500 ], [ %.11574, %103 ], [ %30, %39 ]
+  %.3.ph = phi i32 [ 0, %2416 ], [ %.9, %1913 ], [ %.9, %1319 ], [ %.9, %1182 ], [ %.9, %500 ], [ %.9, %103 ], [ %.01559, %39 ]
+  %2455 = sext i32 %.21602.ph to i64
+  br label %.loopexit1708
 
-.loopexit1690:                                    ; preds = %2414, %27, %20, %.thread1681
-  %.31592 = phi ptr [ %.21591, %.thread1681 ], [ %.01589, %27 ], [ %.21591, %2414 ], [ %.01589, %20 ]
-  %.31581 = phi ptr [ %.21580, %.thread1681 ], [ %.01578, %27 ], [ %.21580, %2414 ], [ %.01578, %20 ]
-  %.21575 = phi ptr [ %.11574, %.thread1681 ], [ %.01573, %27 ], [ %.11574, %2414 ], [ %.01573, %20 ]
-  %.2 = phi i32 [ %.81680, %.thread1681 ], [ %.01559, %27 ], [ %.81680, %2414 ], [ %.01559, %20 ]
+.loopexit1706:                                    ; preds = %2411, %26, %19, %.thread1694
+  %.21685 = phi ptr [ %.61689.ph, %.thread1694 ], [ %.01683, %26 ], [ %.01683, %19 ], [ %2409, %2411 ]
+  %.31592 = phi ptr [ %.21591, %.thread1694 ], [ %.01589, %26 ], [ %.01589, %19 ], [ %.21591, %2411 ]
+  %.31581 = phi ptr [ %.21580, %.thread1694 ], [ %.01578, %26 ], [ %.01578, %19 ], [ %.21580, %2411 ]
+  %.21575 = phi ptr [ %.11574, %.thread1694 ], [ %.01573, %26 ], [ %.01573, %19 ], [ %.11574, %2411 ]
+  %.2 = phi i32 [ %.81693, %.thread1694 ], [ %.01559, %26 ], [ %.01559, %19 ], [ %.81693, %2411 ]
   call void @zenderror(ptr noundef nonnull @.str.5) #12
-  br label %.loopexit1692
+  br label %.loopexit1708
 
-.loopexit1692:                                    ; preds = %45, %2444, %.loopexit.loopexit1717, %.loopexit1690
-  %.41604 = phi i64 [ 0, %.loopexit1690 ], [ %2458, %.loopexit.loopexit1717 ], [ 0, %2444 ], [ 0, %45 ]
-  %.01599 = phi i32 [ 2, %.loopexit1690 ], [ 1, %.loopexit.loopexit1717 ], [ 1, %2444 ], [ 0, %45 ]
-  %.71596 = phi ptr [ %.31592, %.loopexit1690 ], [ %.41593.ph, %.loopexit.loopexit1717 ], [ %.61595, %2444 ], [ %.21591, %45 ]
-  %.71585 = phi ptr [ %.31581, %.loopexit1690 ], [ %.41582.ph, %.loopexit.loopexit1717 ], [ %.61584, %2444 ], [ %.21580, %45 ]
-  %.41577 = phi ptr [ %.21575, %.loopexit1690 ], [ %.31576.ph, %.loopexit.loopexit1717 ], [ %.11574, %2444 ], [ %.11574, %45 ]
-  %.10 = phi i32 [ %.2, %.loopexit1690 ], [ %.3.ph, %.loopexit.loopexit1717 ], [ %.7, %2444 ], [ %.01559, %45 ]
+.loopexit1708:                                    ; preds = %44, %2441, %.loopexit.loopexit1738, %.loopexit1706
+  %.71690 = phi ptr [ %.21685, %.loopexit1706 ], [ %.01683, %.loopexit.loopexit1738 ], [ %.41687, %2441 ], [ %.01683, %44 ]
+  %.41604 = phi i64 [ 0, %.loopexit1706 ], [ %2455, %.loopexit.loopexit1738 ], [ 0, %2441 ], [ 0, %44 ]
+  %.01599 = phi i32 [ 2, %.loopexit1706 ], [ 1, %.loopexit.loopexit1738 ], [ 1, %2441 ], [ 0, %44 ]
+  %.71596 = phi ptr [ %.31592, %.loopexit1706 ], [ %.41593.ph, %.loopexit.loopexit1738 ], [ %.61595, %2441 ], [ %.21591, %44 ]
+  %.71585 = phi ptr [ %.31581, %.loopexit1706 ], [ %.41582.ph, %.loopexit.loopexit1738 ], [ %.61584, %2441 ], [ %.21580, %44 ]
+  %.41577 = phi ptr [ %.21575, %.loopexit1706 ], [ %.31576.ph, %.loopexit.loopexit1738 ], [ %.11574, %2441 ], [ %.11574, %44 ]
+  %.10 = phi i32 [ %.2, %.loopexit1706 ], [ %.3.ph, %.loopexit.loopexit1738 ], [ %.7, %2441 ], [ %.01559, %44 ]
   %.not1670 = icmp eq i32 %.10, -2
-  br i1 %.not1670, label %2467, label %2459
+  br i1 %.not1670, label %2464, label %2456
 
-2459:                                             ; preds = %.loopexit1692
+2456:                                             ; preds = %.loopexit1708
   %or.cond11 = icmp ult i32 %.10, 407
-  br i1 %or.cond11, label %2460, label %2465
+  br i1 %or.cond11, label %2457, label %2462
 
-2460:                                             ; preds = %2459
-  %2461 = zext nneg i32 %.10 to i64
-  %2462 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %2461
-  %2463 = load i8, ptr %2462, align 1
-  %2464 = zext i8 %2463 to i32
-  br label %2465
+2457:                                             ; preds = %2456
+  %2458 = zext nneg i32 %.10 to i64
+  %2459 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %2458
+  %2460 = load i8, ptr %2459, align 1
+  %2461 = zext i8 %2460 to i32
+  br label %2462
 
-2465:                                             ; preds = %2459, %2460
-  %2466 = phi i32 [ %2464, %2460 ], [ 2, %2459 ]
-  call fastcc void @yydestruct(i32 noundef %2466, ptr noundef %1)
-  br label %2467
+2462:                                             ; preds = %2456, %2457
+  %2463 = phi i32 [ %2461, %2457 ], [ 2, %2456 ]
+  call fastcc void @yydestruct(i32 noundef %2463, ptr noundef %1)
+  br label %2464
 
-2467:                                             ; preds = %2465, %.loopexit1692
-  %2468 = sub nsw i64 0, %.41604
-  %2469 = getelementptr inbounds i16, ptr %.71585, i64 %2468
-  %.not16711714 = icmp eq ptr %2469, %.41577
-  br i1 %.not16711714, label %._crit_edge, label %.lr.ph.preheader
+2464:                                             ; preds = %2462, %.loopexit1708
+  %2465 = sub nsw i64 0, %.41604
+  %2466 = getelementptr inbounds i16, ptr %.71585, i64 %2465
+  %.not16711735 = icmp eq ptr %2466, %.41577
+  br i1 %.not16711735, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %2467
-  %2470 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %.71596, i64 %2468
+.lr.ph.preheader:                                 ; preds = %2464
+  %2467 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %.71596, i64 %2465
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.815861716 = phi ptr [ %2477, %.lr.ph ], [ %2469, %.lr.ph.preheader ]
-  %.815971715 = phi ptr [ %2476, %.lr.ph ], [ %2470, %.lr.ph.preheader ]
-  %2471 = load i16, ptr %.815861716, align 2
-  %2472 = sext i16 %2471 to i64
-  %2473 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %2472
-  %2474 = load i16, ptr %2473, align 2
-  %2475 = sext i16 %2474 to i32
-  call fastcc void @yydestruct(i32 noundef %2475, ptr noundef %.815971715)
-  %2476 = getelementptr inbounds i8, ptr %.815971715, i64 -8
-  %2477 = getelementptr inbounds i8, ptr %.815861716, i64 -2
-  %.not1671 = icmp eq ptr %2477, %.41577
+  %.815861737 = phi ptr [ %2474, %.lr.ph ], [ %2466, %.lr.ph.preheader ]
+  %.815971736 = phi ptr [ %2473, %.lr.ph ], [ %2467, %.lr.ph.preheader ]
+  %2468 = load i16, ptr %.815861737, align 2
+  %2469 = sext i16 %2468 to i64
+  %2470 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %2469
+  %2471 = load i16, ptr %2470, align 2
+  %2472 = sext i16 %2471 to i32
+  call fastcc void @yydestruct(i32 noundef %2472, ptr noundef %.815971736)
+  %2473 = getelementptr inbounds i8, ptr %.815971736, i64 -8
+  %2474 = getelementptr inbounds i8, ptr %.815861737, i64 -2
+  %.not1671 = icmp eq ptr %2474, %.41577
   br i1 %.not1671, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %2467
+._crit_edge:                                      ; preds = %.lr.ph, %2464
   %.not1672 = icmp eq ptr %.41577, %2
-  br i1 %.not1672, label %2479, label %2478
+  br i1 %.not1672, label %2476, label %2475
 
-2478:                                             ; preds = %._crit_edge
+2475:                                             ; preds = %._crit_edge
   call void @free(ptr noundef %.41577) #12
-  br label %2479
+  br label %2476
 
-2479:                                             ; preds = %2478, %._crit_edge
-  %2480 = load ptr, ptr %5, align 8
-  %.not1673 = icmp eq ptr %2480, %4
-  br i1 %.not1673, label %2482, label %2481
+2476:                                             ; preds = %2475, %._crit_edge
+  %.not1673 = icmp eq ptr %.71690, %4
+  br i1 %.not1673, label %2478, label %2477
 
-2481:                                             ; preds = %2479
-  call void @free(ptr noundef %2480) #12
-  br label %2482
+2477:                                             ; preds = %2476
+  call void @free(ptr noundef %.71690) #12
+  br label %2478
 
-2482:                                             ; preds = %2481, %2479
+2478:                                             ; preds = %2477, %2476
   ret i32 %.01599
 }
 
@@ -5000,195 +4999,191 @@ declare ptr @zend_ast_create_class_const_or_name(ptr noundef, ptr noundef) local
 declare ptr @zend_negate_num_string(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture readonly %.0.val, i32 %.8.val) unnamed_addr #5 {
-  %3 = alloca [5 x i32], align 16
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #5 {
+  %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
-  br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread4, label %4
+  br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread6, label %3
 
-4:                                                ; preds = %2
-  store i32 %.8.val, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
-  %.val.val.i = load i16, ptr %.0.val, align 2
-  %6 = sext i16 %.val.val.i to i64
-  %7 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %6
-  %8 = load i16, ptr %7, align 2
-  %9 = icmp eq i16 %8, -901
-  br i1 %9, label %.thread.i.i, label %10
+3:                                                ; preds = %1
+  store i32 %.8.val, ptr %2, align 16
+  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %.val.val.i = load i16, ptr %.0.val1, align 2
+  %5 = sext i16 %.val.val.i to i64
+  %6 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %5
+  %7 = load i16, ptr %6, align 2
+  %8 = icmp eq i16 %7, -901
+  br i1 %8, label %.thread.i.i, label %9
 
-10:                                               ; preds = %4
-  %11 = sext i16 %8 to i32
-  %12 = icmp slt i16 %8, 0
-  %13 = sub nsw i32 0, %11
-  %14 = select i1 %12, i32 %13, i32 0
-  %15 = sub nsw i32 9777, %11
-  %16 = tail call i32 @llvm.smin.i32(i32 %15, i32 179)
-  %17 = icmp slt i32 %14, %16
-  br i1 %17, label %.lr.ph.preheader.i.i, label %.thread.i.i
+9:                                                ; preds = %3
+  %10 = sext i16 %7 to i32
+  %11 = icmp slt i16 %7, 0
+  %12 = sub nsw i32 0, %10
+  %13 = select i1 %11, i32 %12, i32 0
+  %14 = sub nsw i32 9777, %10
+  %15 = tail call i32 @llvm.smin.i32(i32 %14, i32 179)
+  %16 = icmp slt i32 %13, %15
+  br i1 %16, label %.lr.ph.preheader.i.i, label %.thread.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %10
-  %18 = sext i32 %14 to i64
-  %19 = sext i16 %8 to i64
-  %20 = sext i32 %16 to i64
+.lr.ph.preheader.i.i:                             ; preds = %9
+  %17 = sext i32 %13 to i64
+  %18 = sext i16 %7 to i64
+  %19 = sext i32 %15 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %38, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %18, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %38 ]
-  %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %38 ]
-  %21 = add nsw i64 %indvars.iv.i.i, %19
-  %22 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %21
-  %23 = load i16, ptr %22, align 2
-  %24 = sext i16 %23 to i32
-  %25 = trunc nsw i64 %indvars.iv.i.i to i32
-  %26 = icmp eq i32 %25, %24
-  %27 = icmp ne i64 %indvars.iv.i.i, 1
-  %or.cond.i.i = and i1 %27, %26
-  br i1 %or.cond.i.i, label %28, label %38
+.lr.ph.i.i:                                       ; preds = %37, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %17, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %37 ]
+  %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %37 ]
+  %20 = add nsw i64 %indvars.iv.i.i, %18
+  %21 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %20
+  %22 = load i16, ptr %21, align 2
+  %23 = sext i16 %22 to i32
+  %24 = trunc nsw i64 %indvars.iv.i.i to i32
+  %25 = icmp eq i32 %24, %23
+  %26 = icmp ne i64 %indvars.iv.i.i, 1
+  %or.cond.i.i = and i1 %26, %25
+  br i1 %or.cond.i.i, label %27, label %37
 
-28:                                               ; preds = %.lr.ph.i.i
-  %29 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %21
-  %30 = load i16, ptr %29, align 2
-  %31 = icmp eq i16 %30, -568
-  br i1 %31, label %38, label %32
+27:                                               ; preds = %.lr.ph.i.i
+  %28 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %20
+  %29 = load i16, ptr %28, align 2
+  %30 = icmp eq i16 %29, -568
+  br i1 %30, label %37, label %31
 
-32:                                               ; preds = %28
-  %33 = icmp eq i32 %.14.i.i, 4
-  br i1 %33, label %yy_syntax_error_arguments.exit.thread4, label %34
+31:                                               ; preds = %27
+  %32 = icmp eq i32 %.14.i.i, 4
+  br i1 %32, label %yy_syntax_error_arguments.exit.thread6, label %33
 
-34:                                               ; preds = %32
-  %35 = add i32 %.14.i.i, 1
-  %36 = sext i32 %.14.i.i to i64
-  %37 = getelementptr inbounds i32, ptr %5, i64 %36
-  store i32 %24, ptr %37, align 4
-  br label %38
+33:                                               ; preds = %31
+  %34 = add i32 %.14.i.i, 1
+  %35 = sext i32 %.14.i.i to i64
+  %36 = getelementptr inbounds i32, ptr %4, i64 %35
+  store i32 %23, ptr %36, align 4
+  br label %37
 
-38:                                               ; preds = %34, %28, %.lr.ph.i.i
-  %.2.i.i = phi i32 [ %.14.i.i, %28 ], [ %35, %34 ], [ %.14.i.i, %.lr.ph.i.i ]
+37:                                               ; preds = %33, %27, %.lr.ph.i.i
+  %.2.i.i = phi i32 [ %.14.i.i, %27 ], [ %34, %33 ], [ %.14.i.i, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %20
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %19
   br i1 %exitcond.not.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-._crit_edge.i.i:                                  ; preds = %38
+._crit_edge.i.i:                                  ; preds = %37
   switch i32 %.2.i.i, label %yy_syntax_error_arguments.exit [
     i32 0, label %.thread.i.i
-    i32 -2, label %yy_syntax_error_arguments.exit.thread6
+    i32 -2, label %yy_syntax_error_arguments.exit.thread8
   ]
 
-.thread.i.i:                                      ; preds = %._crit_edge.i.i, %10, %4
-  store i32 -2, ptr %5, align 4
-  br label %yy_syntax_error_arguments.exit.thread4
+.thread.i.i:                                      ; preds = %._crit_edge.i.i, %9, %3
+  store i32 -2, ptr %4, align 4
+  br label %yy_syntax_error_arguments.exit.thread6
 
 yy_syntax_error_arguments.exit:                   ; preds = %._crit_edge.i.i
-  %39 = add nsw i32 %.2.i.i, 1
-  switch i32 %.2.i.i, label %yy_syntax_error_arguments.exit.thread4 [
-    i32 -3, label %yy_syntax_error_arguments.exit.thread6
-    i32 4, label %43
-    i32 3, label %42
-    i32 1, label %40
-    i32 2, label %41
+  %38 = add nsw i32 %.2.i.i, 1
+  switch i32 %.2.i.i, label %yy_syntax_error_arguments.exit.thread6 [
+    i32 -3, label %yy_syntax_error_arguments.exit.thread8
+    i32 4, label %42
+    i32 3, label %41
+    i32 1, label %39
+    i32 2, label %40
   ]
 
+39:                                               ; preds = %yy_syntax_error_arguments.exit
+  br label %yy_syntax_error_arguments.exit.thread6
+
 40:                                               ; preds = %yy_syntax_error_arguments.exit
-  br label %yy_syntax_error_arguments.exit.thread4
+  br label %yy_syntax_error_arguments.exit.thread6
 
 41:                                               ; preds = %yy_syntax_error_arguments.exit
-  br label %yy_syntax_error_arguments.exit.thread4
+  br label %yy_syntax_error_arguments.exit.thread6
 
 42:                                               ; preds = %yy_syntax_error_arguments.exit
-  br label %yy_syntax_error_arguments.exit.thread4
+  br label %yy_syntax_error_arguments.exit.thread6
 
-43:                                               ; preds = %yy_syntax_error_arguments.exit
-  br label %yy_syntax_error_arguments.exit.thread4
+yy_syntax_error_arguments.exit.thread6:           ; preds = %31, %.thread.i.i, %1, %yy_syntax_error_arguments.exit, %42, %41, %40, %39
+  %.0.i5 = phi i32 [ 4, %41 ], [ 3, %40 ], [ 2, %39 ], [ 5, %42 ], [ %38, %yy_syntax_error_arguments.exit ], [ 0, %1 ], [ 1, %.thread.i.i ], [ 1, %31 ]
+  %.040 = phi ptr [ @.str.11, %41 ], [ @.str.10, %40 ], [ @.str.9, %39 ], [ @.str.12, %42 ], [ @.str.2, %yy_syntax_error_arguments.exit ], [ @.str.2, %1 ], [ @.str.8, %.thread.i.i ], [ @.str.8, %31 ]
+  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.040) #13
+  %44 = shl nsw i32 %.0.i5, 1
+  %45 = sext i32 %44 to i64
+  %reass.sub = sub i64 %43, %45
+  %46 = add i64 %reass.sub, 1
+  %47 = icmp sgt i32 %.0.i5, 0
+  br i1 %47, label %.lr.ph.preheader, label %._crit_edge
 
-yy_syntax_error_arguments.exit.thread4:           ; preds = %32, %.thread.i.i, %2, %yy_syntax_error_arguments.exit, %43, %42, %41, %40
-  %.0.i3 = phi i32 [ 4, %42 ], [ 3, %41 ], [ 2, %40 ], [ 5, %43 ], [ %39, %yy_syntax_error_arguments.exit ], [ 0, %2 ], [ 1, %.thread.i.i ], [ 1, %32 ]
-  %.040 = phi ptr [ @.str.11, %42 ], [ @.str.10, %41 ], [ @.str.9, %40 ], [ @.str.12, %43 ], [ @.str.2, %yy_syntax_error_arguments.exit ], [ @.str.2, %2 ], [ @.str.8, %.thread.i.i ], [ @.str.8, %32 ]
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.040) #13
-  %45 = shl nsw i32 %.0.i3, 1
-  %46 = sext i32 %45 to i64
-  %reass.sub = sub i64 %44, %46
-  %47 = add i64 %reass.sub, 1
-  %48 = icmp sgt i32 %.0.i3, 0
-  br i1 %48, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %yy_syntax_error_arguments.exit.thread4
-  %wide.trip.count = zext nneg i32 %.0.i3 to i64
+.lr.ph.preheader:                                 ; preds = %yy_syntax_error_arguments.exit.thread6
+  %wide.trip.count = zext nneg i32 %.0.i5 to i64
   br label %.lr.ph
 
-49:                                               ; preds = %.lr.ph
+48:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %49 ]
-  %.04210 = phi i64 [ %47, %.lr.ph.preheader ], [ %56, %49 ]
-  %50 = getelementptr inbounds [5 x i32], ptr %3, i64 0, i64 %indvars.iv
-  %51 = load i32, ptr %50, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [357 x ptr], ptr @yytname, i64 0, i64 %52
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call fastcc i64 @zend_yytnamerr(ptr noundef null, ptr noundef %54)
-  %56 = add i64 %55, %.04210
-  %.not47 = icmp sgt i64 %.04210, %56
-  br i1 %.not47, label %yy_syntax_error_arguments.exit.thread6, label %49
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %48
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %48 ]
+  %.04212 = phi i64 [ %46, %.lr.ph.preheader ], [ %55, %48 ]
+  %49 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %50 = load i32, ptr %49, align 4
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds [357 x ptr], ptr @yytname, i64 0, i64 %51
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call fastcc i64 @zend_yytnamerr(ptr noundef null, ptr noundef %53)
+  %55 = add i64 %54, %.04212
+  %.not47 = icmp sgt i64 %.04212, %55
+  br i1 %.not47, label %yy_syntax_error_arguments.exit.thread8, label %48
 
-._crit_edge:                                      ; preds = %49, %yy_syntax_error_arguments.exit.thread4
-  %.042.lcssa = phi i64 [ %47, %yy_syntax_error_arguments.exit.thread4 ], [ %56, %49 ]
-  %57 = load i64, ptr %0, align 8
-  %58 = icmp slt i64 %57, %.042.lcssa
-  br i1 %58, label %59, label %61
+._crit_edge:                                      ; preds = %48, %yy_syntax_error_arguments.exit.thread6
+  %.042.lcssa = phi i64 [ %46, %yy_syntax_error_arguments.exit.thread6 ], [ %55, %48 ]
+  %56 = load i64, ptr %0, align 8
+  %57 = icmp slt i64 %56, %.042.lcssa
+  br i1 %57, label %58, label %.preheader
 
-59:                                               ; preds = %._crit_edge
-  %60 = shl nsw i64 %.042.lcssa, 1
-  %.not46 = icmp sgt i64 %.042.lcssa, %60
-  %spec.store.select = select i1 %.not46, i64 9223372036854775807, i64 %60
+58:                                               ; preds = %._crit_edge
+  %59 = shl nsw i64 %.042.lcssa, 1
+  %.not46 = icmp sgt i64 %.042.lcssa, %59
+  %spec.store.select = select i1 %.not46, i64 9223372036854775807, i64 %59
   store i64 %spec.store.select, ptr %0, align 8
-  br label %yy_syntax_error_arguments.exit.thread6
+  br label %yy_syntax_error_arguments.exit.thread8
 
-61:                                               ; preds = %._crit_edge
-  %62 = load ptr, ptr %1, align 8
-  br label %63
-
-63:                                               ; preds = %79, %61
-  %.141 = phi ptr [ %.040, %61 ], [ %81, %79 ]
-  %.036 = phi ptr [ %62, %61 ], [ %80, %79 ]
-  %.0 = phi i32 [ 0, %61 ], [ %.1, %79 ]
-  %64 = load i8, ptr %.141, align 1
-  store i8 %64, ptr %.036, align 1
-  switch i8 %64, label %79 [
-    i8 0, label %yy_syntax_error_arguments.exit.thread6
-    i8 37, label %65
+.preheader:                                       ; preds = %._crit_edge, %75
+  %.141 = phi ptr [ %77, %75 ], [ %.040, %._crit_edge ]
+  %.036 = phi ptr [ %76, %75 ], [ %.0.val, %._crit_edge ]
+  %.0 = phi i32 [ %.1, %75 ], [ 0, %._crit_edge ]
+  %60 = load i8, ptr %.141, align 1
+  store i8 %60, ptr %.036, align 1
+  switch i8 %60, label %75 [
+    i8 0, label %yy_syntax_error_arguments.exit.thread8
+    i8 37, label %61
   ]
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %.141, i64 1
-  %67 = load i8, ptr %66, align 1
-  %68 = icmp eq i8 %67, 115
-  %69 = icmp slt i32 %.0, %.0.i3
-  %or.cond = select i1 %68, i1 %69, i1 false
-  br i1 %or.cond, label %70, label %79
+61:                                               ; preds = %.preheader
+  %62 = getelementptr inbounds i8, ptr %.141, i64 1
+  %63 = load i8, ptr %62, align 1
+  %64 = icmp eq i8 %63, 115
+  %65 = icmp slt i32 %.0, %.0.i5
+  %or.cond = select i1 %64, i1 %65, i1 false
+  br i1 %or.cond, label %66, label %75
 
-70:                                               ; preds = %65
-  %71 = add nsw i32 %.0, 1
-  %72 = sext i32 %.0 to i64
-  %73 = getelementptr inbounds [5 x i32], ptr %3, i64 0, i64 %72
-  %74 = load i32, ptr %73, align 4
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [357 x ptr], ptr @yytname, i64 0, i64 %75
-  %77 = load ptr, ptr %76, align 8
-  %78 = tail call fastcc i64 @zend_yytnamerr(ptr noundef nonnull %.036, ptr noundef %77)
-  br label %79
+66:                                               ; preds = %61
+  %67 = add nsw i32 %.0, 1
+  %68 = sext i32 %.0 to i64
+  %69 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %68
+  %70 = load i32, ptr %69, align 4
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds [357 x ptr], ptr @yytname, i64 0, i64 %71
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call fastcc i64 @zend_yytnamerr(ptr noundef nonnull %.036, ptr noundef %73)
+  br label %75
 
-79:                                               ; preds = %65, %63, %70
-  %.sink17 = phi i64 [ %78, %70 ], [ 1, %63 ], [ 1, %65 ]
-  %.sink = phi i64 [ 2, %70 ], [ 1, %63 ], [ 1, %65 ]
-  %.1 = phi i32 [ %71, %70 ], [ %.0, %63 ], [ %.0, %65 ]
-  %80 = getelementptr inbounds i8, ptr %.036, i64 %.sink17
-  %81 = getelementptr inbounds i8, ptr %.141, i64 %.sink
-  br label %63
+75:                                               ; preds = %61, %.preheader, %66
+  %.sink19 = phi i64 [ %74, %66 ], [ 1, %.preheader ], [ 1, %61 ]
+  %.sink = phi i64 [ 2, %66 ], [ 1, %.preheader ], [ 1, %61 ]
+  %.1 = phi i32 [ %67, %66 ], [ %.0, %.preheader ], [ %.0, %61 ]
+  %76 = getelementptr inbounds i8, ptr %.036, i64 %.sink19
+  %77 = getelementptr inbounds i8, ptr %.141, i64 %.sink
+  br label %.preheader
 
-yy_syntax_error_arguments.exit.thread6:           ; preds = %.lr.ph, %63, %._crit_edge.i.i, %59, %yy_syntax_error_arguments.exit
-  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %59 ], [ %.2.i.i, %._crit_edge.i.i ], [ 0, %63 ], [ -2, %.lr.ph ]
+yy_syntax_error_arguments.exit.thread8:           ; preds = %.lr.ph, %.preheader, %._crit_edge.i.i, %58, %yy_syntax_error_arguments.exit
+  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %58 ], [ %.2.i.i, %._crit_edge.i.i ], [ 0, %.preheader ], [ -2, %.lr.ph ]
   ret i32 %.038
 }
 

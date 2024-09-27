@@ -123165,61 +123165,49 @@ entry:
   %agg.tmp.ensured = alloca %"class.absl::Cord", align 8
   %agg.tmp = alloca %"class.absl::Cord", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp = alloca i32, align 4
   %ref.tmp3 = alloca %"class.testing::Message", align 8
   %ref.tmp6 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar14 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp15 = alloca i32, align 4
   %ref.tmp19 = alloca %"class.testing::Message", align 8
   %ref.tmp22 = alloca %"class.testing::internal::AssertHelper", align 8
   %agg.tmp.ensured33 = alloca %"class.absl::Cord", align 8
   %agg.tmp34 = alloca %"class.absl::Cord", align 8
   %gtest_ar39 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp41 = alloca i32, align 4
   %ref.tmp45 = alloca %"class.testing::Message", align 8
   %ref.tmp48 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar59 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp61 = alloca i32, align 4
   %ref.tmp65 = alloca %"class.testing::Message", align 8
   %ref.tmp68 = alloca %"class.testing::internal::AssertHelper", align 8
   %agg.tmp.ensured79 = alloca %"class.absl::Cord", align 8
   %agg.tmp80 = alloca %"class.absl::Cord", align 8
   %gtest_ar85 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp87 = alloca i32, align 4
   %ref.tmp91 = alloca %"class.testing::Message", align 8
   %ref.tmp94 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar105 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp107 = alloca i32, align 4
   %ref.tmp111 = alloca %"class.testing::Message", align 8
   %ref.tmp114 = alloca %"class.testing::internal::AssertHelper", align 8
   %agg.tmp.ensured125 = alloca %"class.absl::Cord", align 8
   %agg.tmp126 = alloca %"class.absl::Cord", align 8
   %gtest_ar131 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp133 = alloca i32, align 4
   %ref.tmp137 = alloca %"class.testing::Message", align 8
   %ref.tmp140 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar151 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp153 = alloca i32, align 4
   %ref.tmp157 = alloca %"class.testing::Message", align 8
   %ref.tmp160 = alloca %"class.testing::internal::AssertHelper", align 8
   %agg.tmp.ensured171 = alloca %"class.absl::Cord", align 8
   %agg.tmp172 = alloca %"class.absl::Cord", align 8
   %gtest_ar177 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp179 = alloca i32, align 4
   %ref.tmp183 = alloca %"class.testing::Message", align 8
   %ref.tmp186 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar197 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp199 = alloca i32, align 4
   %ref.tmp203 = alloca %"class.testing::Message", align 8
   %ref.tmp206 = alloca %"class.testing::internal::AssertHelper", align 8
   %agg.tmp.ensured217 = alloca %"class.absl::Cord", align 8
   %agg.tmp218 = alloca %"class.absl::Cord", align 8
   %gtest_ar223 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp225 = alloca i32, align 4
   %ref.tmp229 = alloca %"class.testing::Message", align 8
   %ref.tmp232 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar243 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp245 = alloca i32, align 4
   %ref.tmp249 = alloca %"class.testing::Message", align 8
   %ref.tmp252 = alloca %"class.testing::internal::AssertHelper", align 8
   %invoked_as.i = getelementptr inbounds i8, ptr %tracker, i64 4
@@ -123283,8 +123271,7 @@ terminate.lpad.i41:                               ; preds = %if.then.i40
   unreachable
 
 _ZN4absl4CordD2Ev.exit42:                         ; preds = %invoke.cont, %_ZN4absl4CordD2Ev.exit, %if.then.i40
-  store i32 2, ptr %ref.tmp, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, i32 2)
   %10 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %10 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -123381,8 +123368,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store i32 2, ptr %ref.tmp15, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar14, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar14, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, i32 2)
   %21 = load i8, ptr %gtest_ar14, align 8
   %tobool.i49 = trunc i8 %21 to i1
   br i1 %tobool.i49, label %if.end31, label %if.else18
@@ -123538,8 +123524,7 @@ terminate.lpad.i88:                               ; preds = %if.then.i87
   unreachable
 
 _ZN4absl4CordD2Ev.exit89:                         ; preds = %invoke.cont37, %_ZN4absl4CordD2Ev.exit85, %if.then.i87
-  store i32 2, ptr %ref.tmp41, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar39, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar39, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, i32 2)
   %41 = load i8, ptr %gtest_ar39, align 8
   %tobool.i90 = trunc i8 %41 to i1
   br i1 %tobool.i90, label %if.end57, label %if.else44
@@ -123641,8 +123626,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %if.end57, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109
   store ptr null, ptr %message_.i107, align 8
-  store i32 2, ptr %ref.tmp61, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar59, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp61)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar59, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, i32 2)
   %52 = load i8, ptr %gtest_ar59, align 8
   %tobool.i111 = trunc i8 %52 to i1
   br i1 %tobool.i111, label %if.end77, label %if.else64
@@ -123798,8 +123782,7 @@ terminate.lpad.i150:                              ; preds = %if.then.i149
   unreachable
 
 _ZN4absl4CordD2Ev.exit151:                        ; preds = %invoke.cont83, %_ZN4absl4CordD2Ev.exit147, %if.then.i149
-  store i32 1, ptr %ref.tmp87, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar85, ptr noundef nonnull @.str.718, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp87)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar85, ptr noundef nonnull @.str.718, ptr noundef nonnull align 4 dereferenceable(4) %tracker, i32 1)
   %72 = load i8, ptr %gtest_ar85, align 8
   %tobool.i152 = trunc i8 %72 to i1
   br i1 %tobool.i152, label %if.end103, label %if.else90
@@ -123901,8 +123884,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit172:         ; preds = %if.end103, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i171
   store ptr null, ptr %message_.i169, align 8
-  store i32 2, ptr %ref.tmp107, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar105, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp107)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar105, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, i32 2)
   %83 = load i8, ptr %gtest_ar105, align 8
   %tobool.i173 = trunc i8 %83 to i1
   br i1 %tobool.i173, label %if.end123, label %if.else110
@@ -124109,8 +124091,7 @@ terminate.lpad.i216:                              ; preds = %if.then.i215
   unreachable
 
 _ZN4absl4CordD2Ev.exit217:                        ; preds = %invoke.cont129, %_ZN4absl4CordD2Ev.exit212, %if.then.i215
-  store i32 2, ptr %ref.tmp133, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar131, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp133)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar131, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, i32 2)
   %107 = load i8, ptr %gtest_ar131, align 8
   %tobool.i218 = trunc i8 %107 to i1
   br i1 %tobool.i218, label %if.end149, label %if.else136
@@ -124212,8 +124193,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit238:         ; preds = %if.end149, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i237
   store ptr null, ptr %message_.i235, align 8
-  store i32 2, ptr %ref.tmp153, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar151, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp153)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar151, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, i32 2)
   %118 = load i8, ptr %gtest_ar151, align 8
   %tobool.i239 = trunc i8 %118 to i1
   br i1 %tobool.i239, label %if.end169, label %if.else156
@@ -124369,8 +124349,7 @@ terminate.lpad.i280:                              ; preds = %if.then.i279
   unreachable
 
 _ZN4absl4CordD2Ev.exit281:                        ; preds = %invoke.cont175, %_ZN4absl4CordD2Ev.exit276, %if.then.i279
-  store i32 2, ptr %ref.tmp179, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar177, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp179)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar177, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, i32 2)
   %138 = load i8, ptr %gtest_ar177, align 8
   %tobool.i282 = trunc i8 %138 to i1
   br i1 %tobool.i282, label %if.end195, label %if.else182
@@ -124472,8 +124451,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit302:         ; preds = %if.end195, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i301
   store ptr null, ptr %message_.i299, align 8
-  store i32 2, ptr %ref.tmp199, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar197, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp199)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar197, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, i32 2)
   %149 = load i8, ptr %gtest_ar197, align 8
   %tobool.i303 = trunc i8 %149 to i1
   br i1 %tobool.i303, label %if.end215, label %if.else202
@@ -124629,8 +124607,7 @@ terminate.lpad.i344:                              ; preds = %if.then.i343
   unreachable
 
 _ZN4absl4CordD2Ev.exit345:                        ; preds = %invoke.cont221, %_ZN4absl4CordD2Ev.exit340, %if.then.i343
-  store i32 1, ptr %ref.tmp225, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar223, ptr noundef nonnull @.str.718, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp225)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar223, ptr noundef nonnull @.str.718, ptr noundef nonnull align 4 dereferenceable(4) %tracker, i32 1)
   %169 = load i8, ptr %gtest_ar223, align 8
   %tobool.i346 = trunc i8 %169 to i1
   br i1 %tobool.i346, label %if.end241, label %if.else228
@@ -124732,8 +124709,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit366:         ; preds = %if.end241, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i365
   store ptr null, ptr %message_.i363, align 8
-  store i32 2, ptr %ref.tmp245, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar243, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp245)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar243, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, i32 2)
   %180 = load i8, ptr %gtest_ar243, align 8
   %tobool.i367 = trunc i8 %180 to i1
   br i1 %tobool.i367, label %if.end261, label %if.else248
@@ -124916,15 +124892,14 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont4, %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr noundef %rhs_expression, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr noundef %rhs_expression, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, i32 %rhs.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i32, ptr %lhs, align 4, !noalias !1584
-  %1 = load i32, ptr %rhs, align 4, !noalias !1584
-  %cmp.i = icmp eq i32 %0, %1
+  %cmp.i = icmp eq i32 %0, %rhs.0.val
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -124946,11 +124921,11 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.end.i
           to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !1597
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
-  %common.resume.op.i.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %1, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i.i, %if.end.i
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #33, !noalias !1597
   br label %common.resume.i.i
@@ -124964,8 +124939,7 @@ _ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTe
 
 .noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
-  %value.val.i.i.i6.i.i = load i32, ptr %rhs, align 4, !noalias !1603
-  %call.i.i.i.i.i.i1.i.i.i7.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, i32 noundef %value.val.i.i.i6.i.i)
+  %call.i.i.i.i.i.i1.i.i.i7.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, i32 noundef %rhs.0.val)
           to label %invoke.cont.i.i.i9.i.i unwind label %lpad.i.i.i8.i.i, !noalias !1603
 
 invoke.cont.i.i.i9.i.i:                           ; preds = %.noexc.i.i
@@ -124973,7 +124947,7 @@ invoke.cont.i.i.i9.i.i:                           ; preds = %.noexc.i.i
           to label %invoke.cont.i.i unwind label %lpad.i.i.i8.i.i, !noalias !1597
 
 lpad.i.i.i8.i.i:                                  ; preds = %invoke.cont.i.i.i9.i.i, %.noexc.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #33, !noalias !1597
   br label %ehcleanup.i.i
@@ -124985,18 +124959,18 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.
           to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
 
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #33
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i, %lpad.i.i.i8.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %5, %lpad2.i.i ], [ %4, %lpad.i.i ], [ %3, %lpad.i.i.i8.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %4, %lpad2.i.i ], [ %3, %lpad.i.i ], [ %2, %lpad.i.i.i8.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #33
   br label %common.resume.i.i
 
@@ -125012,15 +124986,14 @@ _ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExtern
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, i32 %rhs.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i32, ptr %lhs, align 4, !noalias !1606
-  %1 = load i32, ptr %rhs, align 4, !noalias !1606
-  %cmp.i = icmp eq i32 %0, %1
+  %cmp.i = icmp eq i32 %0, %rhs.0.val
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -125042,11 +125015,11 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.end.i
           to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !1619
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
-  %common.resume.op.i.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %1, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i.i, %if.end.i
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #33, !noalias !1619
   br label %common.resume.i.i
@@ -125060,8 +125033,7 @@ _ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTe
 
 .noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
-  %value.val.i.i.i6.i.i = load i32, ptr %rhs, align 4, !noalias !1625
-  %call.i.i.i.i.i.i1.i.i.i7.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, i32 noundef %value.val.i.i.i6.i.i)
+  %call.i.i.i.i.i.i1.i.i.i7.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, i32 noundef %rhs.0.val)
           to label %invoke.cont.i.i.i9.i.i unwind label %lpad.i.i.i8.i.i, !noalias !1625
 
 invoke.cont.i.i.i9.i.i:                           ; preds = %.noexc.i.i
@@ -125069,7 +125041,7 @@ invoke.cont.i.i.i9.i.i:                           ; preds = %.noexc.i.i
           to label %invoke.cont.i.i unwind label %lpad.i.i.i8.i.i, !noalias !1619
 
 lpad.i.i.i8.i.i:                                  ; preds = %invoke.cont.i.i.i9.i.i, %.noexc.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #33, !noalias !1619
   br label %ehcleanup.i.i
@@ -125081,18 +125053,18 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.
           to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
 
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #33
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i, %lpad.i.i.i8.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %5, %lpad2.i.i ], [ %4, %lpad.i.i ], [ %3, %lpad.i.i.i8.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %4, %lpad2.i.i ], [ %3, %lpad.i.i ], [ %2, %lpad.i.i.i8.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #33
   br label %common.resume.i.i
 
@@ -125189,16 +125161,13 @@ nrvo.skipdtor:                                    ; preds = %_ZZN12_GLOBAL__N_16
 define internal fastcc void @_ZN4absl13cord_internal14InvokeReleaserIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaservEEvNS0_5Rank0EOT_St17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar.i.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp.i.i.i.i.i = alloca i32, align 4
   %ref.tmp2.i.i.i.i.i = alloca %"class.testing::Message", align 8
   %ref.tmp3.i.i.i.i.i = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp3.i.i.i.i.i)
   %invoked_as.i.i.i.i.i = getelementptr inbounds i8, ptr %releaser.0.val, i64 4
-  store i32 0, ptr %ref.tmp.i.i.i.i.i, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar.i.i.i.i.i, ptr noundef nonnull @.str.719, ptr noundef nonnull @.str.720, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i.i.i.i.i)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar.i.i.i.i.i, ptr noundef nonnull @.str.719, ptr noundef nonnull @.str.720, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i.i.i.i.i, i32 0)
   %0 = load i8, ptr %gtest_ar.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i.i.i, label %cleanup.i.i.i.i.i, label %if.else.i.i.i.i.i
@@ -125301,7 +125270,6 @@ ehcleanup10.i.i.i.i.i:                            ; preds = %_ZN7testing7Message
 
 _ZSt6invokeIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserJRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i.i.i.i.i, %cleanup.cont.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp3.i.i.i.i.i)
   ret void

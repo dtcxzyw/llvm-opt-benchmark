@@ -6695,10 +6695,10 @@ define dso_local void @_ZN5clang8SemaHLSL25handleResourceBindingAttrEPNS_4DeclER
   %12 = alloca [5 x i8], align 1
   %13 = alloca i32, align 4
   %14 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
-  %.sroa.068.sroa.10.i = alloca i8, align 4
-  %.sroa.068.sroa.11.i = alloca i8, align 1
-  %.sroa.068.sroa.12.i = alloca i8, align 2
-  %.sroa.068.sroa.13.i = alloca i8, align 1
+  %.sroa.04.sroa.10.i = alloca i8, align 4
+  %.sroa.04.sroa.11.i = alloca i8, align 1
+  %.sroa.04.sroa.12.i = alloca i8, align 2
+  %.sroa.04.sroa.13.i = alloca i8, align 1
   %15 = alloca i32, align 4
   %16 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %17 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
@@ -6747,15 +6747,15 @@ define dso_local void @_ZN5clang8SemaHLSL25handleResourceBindingAttrEPNS_4DeclER
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 65535
-  %.not93 = icmp eq i32 %54, 0
-  br i1 %.not93, label %_ZNK5clang10ParsedAttr10isArgIdentEj.exit.thread, label %_ZNK5clang10ParsedAttr10isArgIdentEj.exit
+  %.not90 = icmp eq i32 %54, 0
+  br i1 %.not90, label %_ZNK5clang10ParsedAttr10isArgIdentEj.exit.thread, label %_ZNK5clang10ParsedAttr10isArgIdentEj.exit
 
 _ZNK5clang10ParsedAttr10isArgIdentEj.exit:        ; preds = %50
   %55 = getelementptr inbounds i8, ptr %2, i64 72
   %.sroa.0.0.copyload.i.i = load i64, ptr %55, align 8
   %56 = and i64 %.sroa.0.0.copyload.i.i, 2
-  %.not94 = icmp eq i64 %56, 0
-  br i1 %.not94, label %_ZNK5clang10ParsedAttr10isArgIdentEj.exit.thread, label %60
+  %.not91 = icmp eq i64 %56, 0
+  br i1 %.not91, label %_ZNK5clang10ParsedAttr10isArgIdentEj.exit.thread, label %60
 
 _ZNK5clang10ParsedAttr10isArgIdentEj.exit.thread: ; preds = %50, %_ZNK5clang10ParsedAttr10isArgIdentEj.exit
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6785,8 +6785,8 @@ _ZNK5clang10ParsedAttr10isArgIdentEj.exit43:      ; preds = %60
   %72 = getelementptr inbounds i8, ptr %2, i64 80
   %.sroa.0.0.copyload.i.i42 = load i64, ptr %72, align 8
   %73 = and i64 %.sroa.0.0.copyload.i.i42, 2
-  %.not95 = icmp eq i64 %73, 0
-  br i1 %.not95, label %74, label %78
+  %.not92 = icmp eq i64 %73, 0
+  br i1 %.not92, label %74, label %78
 
 74:                                               ; preds = %_ZNK5clang10ParsedAttr10isArgIdentEj.exit43
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6864,15 +6864,15 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit:  ; preds = %98
   %105 = phi i64 [ %90, %89 ], [ %.pre, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit ]
   %.0 = phi i32 [ undef, %89 ], [ %93, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit ]
   %.not.i54 = icmp ult i64 %105, 5
-  br i1 %.not.i54, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread88, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+  br i1 %.not.i54, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread85, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %104
   %106 = load ptr, ptr %26, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %106, ptr noundef nonnull dereferenceable(5) @.str.8, i64 5)
   %107 = icmp eq i32 %bcmp.i, 0
-  br i1 %107, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread88
+  br i1 %107, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread85
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread88: ; preds = %104, %_ZNK4llvm9StringRef11starts_withES0_.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread85: ; preds = %104, %_ZNK4llvm9StringRef11starts_withES0_.exit
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %35, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %.sroa.069.0, i32 noundef 3568, i1 noundef zeroext false) #25
   %108 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_(ptr noundef nonnull align 8 dereferenceable(96) %35, ptr noundef nonnull align 8 dereferenceable(16) %26)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %35) #25
@@ -6885,9 +6885,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   %111 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %109, i64 %110, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %24) #25
   %112 = load i64, ptr %24, align 8
   %.not.i62 = icmp ugt i64 %112, 4294967295
-  %or.cond92.not = select i1 %111, i1 true, i1 %.not.i62
+  %or.cond89.not = select i1 %111, i1 true, i1 %.not.i62
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  br i1 %or.cond92.not, label %113, label %115
+  br i1 %or.cond89.not, label %113, label %115
 
 113:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %.sroa.069.0, i32 noundef 3568, i1 noundef zeroext false) #25
@@ -6907,14 +6907,14 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %23)
   %117 = load i32, ptr %37, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.068.sroa.10.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.068.sroa.11.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.068.sroa.12.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.068.sroa.13.i)
-  store i8 0, ptr %.sroa.068.sroa.10.i, align 4
-  store i8 0, ptr %.sroa.068.sroa.11.i, align 1
-  store i8 0, ptr %.sroa.068.sroa.12.i, align 2
-  store i8 0, ptr %.sroa.068.sroa.13.i, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.04.sroa.10.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.04.sroa.11.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.04.sroa.12.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.04.sroa.13.i)
+  store i8 0, ptr %.sroa.04.sroa.10.i, align 4
+  store i8 0, ptr %.sroa.04.sroa.11.i, align 1
+  store i8 0, ptr %.sroa.04.sroa.12.i, align 2
+  store i8 0, ptr %.sroa.04.sroa.13.i, align 1
   %118 = and i32 %117, 256
   %.not.i.i.i = icmp eq i32 %118, 0
   br i1 %.not.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_31HLSLGroupSharedAddressSpaceAttrEEEbv.exit.thread.i.i, label %119
@@ -7292,7 +7292,7 @@ _ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7V
   %295 = load i8, ptr %294, align 1
   %.sroa.030.0.insert.ext.i.i = zext i8 %295 to i32
   %.sroa.030.0.insert.insert.i.i = shl nuw nsw i32 %.sroa.030.0.insert.ext.i.i, 16
-  %.sroa.14.10.insert.shift72.i = or disjoint i32 %.sroa.030.0.insert.insert.i.i, 16777216
+  %.sroa.14.10.insert.shift8.i = or disjoint i32 %.sroa.030.0.insert.insert.i.i, 16777216
   br label %462
 
 .loopexit.i.i:                                    ; preds = %235, %228, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i.i.i, %_ZNK5clang4Decl7hasAttrINS_21HLSLResourceClassAttrEEEbv.exit.thread.i.i.i.i, %_ZN5clangneENS_22specific_attr_iteratorINS_21HLSLResourceClassAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i.i.i, %230, %215, %_ZL24getRecordDeclFromVarDeclPN5clang7VarDeclE.exit.i.i.i, %_ZNK5clang4Type28getPointeeOrArrayElementTypeEv.exit.i.i.i.i
@@ -7392,7 +7392,7 @@ _ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.thread.i.i: ; preds = %_ZL26
   br i1 %345, label %._crit_edge61.i.i, label %.lr.ph60.i.i
 
 .lr.ph60.i.i:                                     ; preds = %342, %.backedge.i.i
-  %.sroa.14.1.i = phi i32 [ %.sroa.14.2.i, %.backedge.i.i ], [ 0, %342 ]
+  %.sroa.14.0.i = phi i32 [ %.sroa.14.1.i, %.backedge.i.i ], [ 0, %342 ]
   %346 = load ptr, ptr %5, align 8
   %347 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
   %348 = getelementptr inbounds ptr, ptr %346, i64 %347
@@ -7465,7 +7465,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i.i: ; preds = %._crit_edge.
   br i1 %383, label %.backedge.i.i, label %385
 
 .backedge.i.i:                                    ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i, %392, %385, %382, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i.i, %369, %._crit_edge.i44.i
-  %.sroa.14.2.i = phi i32 [ %.sroa.14.1.i, %385 ], [ %.sroa.14.1.i, %392 ], [ 1, %382 ], [ 1, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i.i ], [ 1, %369 ], [ 1, %._crit_edge.i44.i ], [ %.sroa.14.1.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i ]
+  %.sroa.14.1.i = phi i32 [ %.sroa.14.0.i, %385 ], [ %.sroa.14.0.i, %392 ], [ 1, %382 ], [ 1, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i.i ], [ 1, %369 ], [ 1, %._crit_edge.i44.i ], [ %.sroa.14.0.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i ]
   %384 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
   br i1 %384, label %._crit_edge61.i.i, label %.lr.ph60.i.i, !llvm.loop !37
 
@@ -7576,7 +7576,7 @@ _ZNK5clang4Decl7getAttrINS_21HLSLResourceClassAttrEEEPT_v.exit.i.i: ; preds = %.
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %433, %432, %431, %_ZNK5clang4Decl7getAttrINS_21HLSLResourceClassAttrEEEPT_v.exit.i.i
-  %.sink4.i.i.sroa.phi.i = phi ptr [ %.sroa.068.sroa.13.i, %433 ], [ %.sroa.068.sroa.12.i, %432 ], [ %.sroa.068.sroa.11.i, %431 ], [ %.sroa.068.sroa.10.i, %_ZNK5clang4Decl7getAttrINS_21HLSLResourceClassAttrEEEPT_v.exit.i.i ]
+  %.sink4.i.i.sroa.phi.i = phi ptr [ %.sroa.04.sroa.13.i, %433 ], [ %.sroa.04.sroa.12.i, %432 ], [ %.sroa.04.sroa.11.i, %431 ], [ %.sroa.04.sroa.10.i, %_ZNK5clang4Decl7getAttrINS_21HLSLResourceClassAttrEEEPT_v.exit.i.i ]
   store i8 1, ptr %.sink4.i.i.sroa.phi.i, align 1
   br label %_ZL45updateResourceClassFlagsFromDeclResourceClassR20RegisterBindingFlagsN4llvm4dxil13ResourceClassE.exit.i.i
 
@@ -7621,7 +7621,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i: ; p
   br i1 %.not35.i.i, label %.backedge.i.i, label %.lr.ph58.i.i, !llvm.loop !37
 
 ._crit_edge61.i.i:                                ; preds = %.backedge.i.i, %342
-  %.sroa.14.3.i = phi i32 [ 0, %342 ], [ %.sroa.14.2.i, %.backedge.i.i ]
+  %.sroa.14.2.i = phi i32 [ 0, %342 ], [ %.sroa.14.1.i, %.backedge.i.i ]
   %451 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
   %452 = load ptr, ptr %5, align 8
   %453 = icmp eq ptr %452, %343
@@ -7635,21 +7635,21 @@ _ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10Rec
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %.sroa.068.sroa.10.i.0..sroa.068.sroa.10.i.0..sroa.068.sroa.10.i.0..sroa.068.sroa.10.0..sroa.068.sroa.10.0..sroa.068.sroa.10.0..sroa.068.0..sroa.0.0.copyload.i.pre.i = load i8, ptr %.sroa.068.sroa.10.i, align 4
-  %.sroa.068.sroa.11.i.0..sroa.068.sroa.11.i.0..sroa.068.sroa.11.i.0..sroa.068.sroa.11.0..sroa.068.sroa.11.0..sroa.068.sroa.11.0..sroa.068.0..sroa.0.0.copyload.i.pre.i = load i8, ptr %.sroa.068.sroa.11.i, align 1
-  %.sroa.068.sroa.12.i.0..sroa.068.sroa.12.i.0..sroa.068.sroa.12.i.0..sroa.068.sroa.12.0..sroa.068.sroa.12.0..sroa.068.sroa.12.0..sroa.068.0..sroa.0.0.copyload.i.pre.i = load i8, ptr %.sroa.068.sroa.12.i, align 2
-  %.sroa.068.sroa.13.i.0..sroa.068.sroa.13.i.0..sroa.068.sroa.13.i.0..sroa.068.sroa.13.0..sroa.068.sroa.13.0..sroa.068.sroa.13.0..sroa.068.0..sroa.0.0.copyload.i.pre.i = load i8, ptr %.sroa.068.sroa.13.i, align 1
-  %455 = and i8 %.sroa.068.sroa.10.i.0..sroa.068.sroa.10.i.0..sroa.068.sroa.10.i.0..sroa.068.sroa.10.0..sroa.068.sroa.10.0..sroa.068.sroa.10.0..sroa.068.0..sroa.0.0.copyload.i.pre.i, 1
-  %456 = and i8 %.sroa.068.sroa.11.i.0..sroa.068.sroa.11.i.0..sroa.068.sroa.11.i.0..sroa.068.sroa.11.0..sroa.068.sroa.11.0..sroa.068.sroa.11.0..sroa.068.0..sroa.0.0.copyload.i.pre.i, 1
-  %457 = and i8 %.sroa.068.sroa.12.i.0..sroa.068.sroa.12.i.0..sroa.068.sroa.12.i.0..sroa.068.sroa.12.0..sroa.068.sroa.12.0..sroa.068.sroa.12.0..sroa.068.0..sroa.0.0.copyload.i.pre.i, 1
-  %458 = and i8 %.sroa.068.sroa.13.i.0..sroa.068.sroa.13.i.0..sroa.068.sroa.13.i.0..sroa.068.sroa.13.0..sroa.068.sroa.13.0..sroa.068.sroa.13.0..sroa.068.0..sroa.0.0.copyload.i.pre.i, 1
+  %.sroa.04.sroa.10.i.0..sroa.04.sroa.10.i.0..sroa.04.sroa.10.i.0..sroa.04.sroa.10.0..sroa.04.sroa.10.0..sroa.04.sroa.10.0..sroa.04.0..sroa.0.0.copyload.i.pre.i = load i8, ptr %.sroa.04.sroa.10.i, align 4
+  %.sroa.04.sroa.11.i.0..sroa.04.sroa.11.i.0..sroa.04.sroa.11.i.0..sroa.04.sroa.11.0..sroa.04.sroa.11.0..sroa.04.sroa.11.0..sroa.04.0..sroa.0.0.copyload.i.pre.i = load i8, ptr %.sroa.04.sroa.11.i, align 1
+  %.sroa.04.sroa.12.i.0..sroa.04.sroa.12.i.0..sroa.04.sroa.12.i.0..sroa.04.sroa.12.0..sroa.04.sroa.12.0..sroa.04.sroa.12.0..sroa.04.0..sroa.0.0.copyload.i.pre.i = load i8, ptr %.sroa.04.sroa.12.i, align 2
+  %.sroa.04.sroa.13.i.0..sroa.04.sroa.13.i.0..sroa.04.sroa.13.i.0..sroa.04.sroa.13.0..sroa.04.sroa.13.0..sroa.04.sroa.13.0..sroa.04.0..sroa.0.0.copyload.i.pre.i = load i8, ptr %.sroa.04.sroa.13.i, align 1
+  %455 = and i8 %.sroa.04.sroa.10.i.0..sroa.04.sroa.10.i.0..sroa.04.sroa.10.i.0..sroa.04.sroa.10.0..sroa.04.sroa.10.0..sroa.04.sroa.10.0..sroa.04.0..sroa.0.0.copyload.i.pre.i, 1
+  %456 = and i8 %.sroa.04.sroa.11.i.0..sroa.04.sroa.11.i.0..sroa.04.sroa.11.i.0..sroa.04.sroa.11.0..sroa.04.sroa.11.0..sroa.04.sroa.11.0..sroa.04.0..sroa.0.0.copyload.i.pre.i, 1
+  %457 = and i8 %.sroa.04.sroa.12.i.0..sroa.04.sroa.12.i.0..sroa.04.sroa.12.i.0..sroa.04.sroa.12.0..sroa.04.sroa.12.0..sroa.04.sroa.12.0..sroa.04.0..sroa.0.0.copyload.i.pre.i, 1
+  %458 = and i8 %.sroa.04.sroa.13.i.0..sroa.04.sroa.13.i.0..sroa.04.sroa.13.i.0..sroa.04.sroa.13.0..sroa.04.sroa.13.0..sroa.04.sroa.13.0..sroa.04.0..sroa.0.0.copyload.i.pre.i, 1
   br label %462
 
 459:                                              ; preds = %334, %_ZNK5clang4Decl7hasAttrINS_31HLSLGroupSharedAddressSpaceAttrEEEbv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.068.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.068.sroa.11.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.068.sroa.12.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.068.sroa.13.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.04.sroa.10.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.04.sroa.11.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.04.sroa.12.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.04.sroa.13.i)
   store i32 %.0, ptr %15, align 4
   %460 = getelementptr inbounds i8, ptr %116, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %460, i32 %70, i32 noundef 3564, i1 noundef zeroext false) #25
@@ -7657,20 +7657,20 @@ _ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10Rec
   br label %.sink.split.i
 
 462:                                              ; preds = %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i, %333, %331, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i, %141
-  %.sroa.068.sroa.13.0..sroa.068.sroa.13.0..sroa.068.sroa.13.0..sroa.068.0..sroa.0.0.copyload.i.ph.i = phi i8 [ 0, %141 ], [ 0, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ %458, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ 0, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ 0, %331 ], [ 0, %333 ]
-  %.sroa.068.sroa.12.0..sroa.068.sroa.12.0..sroa.068.sroa.12.0..sroa.068.0..sroa.0.0.copyload.i.ph.i = phi i8 [ 0, %141 ], [ 0, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ %457, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ 0, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ 0, %331 ], [ 0, %333 ]
-  %.sroa.068.sroa.11.0..sroa.068.sroa.11.0..sroa.068.sroa.11.0..sroa.068.0..sroa.0.0.copyload.i.ph.i = phi i8 [ 0, %141 ], [ 0, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ %456, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ 0, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ 0, %331 ], [ 0, %333 ]
-  %.sroa.068.sroa.10.0..sroa.068.sroa.10.0..sroa.068.sroa.10.0..sroa.068.0..sroa.0.0.copyload.i.ph.i = phi i8 [ 0, %141 ], [ 0, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ %455, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ 0, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ 0, %331 ], [ 0, %333 ]
-  %.sroa.14.0.ph.i = phi i32 [ %.sroa.14.10.insert.ext.i, %141 ], [ %.sroa.14.10.insert.shift72.i, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ %.sroa.14.3.i, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ 0, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ 0, %331 ], [ 256, %333 ]
-  %.not75.ph.i = phi i1 [ true, %141 ], [ true, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ true, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ false, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ false, %331 ], [ false, %333 ]
-  %.sroa.068.sroa.0.0.ph.i = phi i1 [ true, %141 ], [ true, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ false, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ false, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ false, %331 ], [ false, %333 ]
+  %.sroa.04.sroa.13.0..sroa.04.sroa.13.0..sroa.04.sroa.13.0..sroa.04.0..sroa.0.0.copyload.i.ph.i = phi i8 [ 0, %141 ], [ 0, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ %458, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ 0, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ 0, %331 ], [ 0, %333 ]
+  %.sroa.04.sroa.12.0..sroa.04.sroa.12.0..sroa.04.sroa.12.0..sroa.04.0..sroa.0.0.copyload.i.ph.i = phi i8 [ 0, %141 ], [ 0, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ %457, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ 0, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ 0, %331 ], [ 0, %333 ]
+  %.sroa.04.sroa.11.0..sroa.04.sroa.11.0..sroa.04.sroa.11.0..sroa.04.0..sroa.0.0.copyload.i.ph.i = phi i8 [ 0, %141 ], [ 0, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ %456, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ 0, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ 0, %331 ], [ 0, %333 ]
+  %.sroa.04.sroa.10.0..sroa.04.sroa.10.0..sroa.04.sroa.10.0..sroa.04.0..sroa.0.0.copyload.i.ph.i = phi i8 [ 0, %141 ], [ 0, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ %455, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ 0, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ 0, %331 ], [ 0, %333 ]
+  %.sroa.14.3.ph.i = phi i32 [ %.sroa.14.10.insert.ext.i, %141 ], [ %.sroa.14.10.insert.shift8.i, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ %.sroa.14.2.i, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ 0, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ 0, %331 ], [ 256, %333 ]
+  %.not11.ph.i = phi i1 [ true, %141 ], [ true, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ true, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ false, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ false, %331 ], [ false, %333 ]
+  %.sroa.04.sroa.0.0.ph.i = phi i1 [ true, %141 ], [ true, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ false, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ false, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ false, %331 ], [ false, %333 ]
   %.ph.i = phi i1 [ false, %141 ], [ false, %_ZL31getSpecifiedHLSLAttrFromVarDeclIN5clang21HLSLResourceClassAttrEEPKT_PNS0_7VarDeclE.exit.i.i ], [ true, %_ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10RecordTypeE.exit.i ], [ false, %_ZL26isDeclaredWithinCOrTBufferPKN5clang4DeclE.exit.i.i ], [ false, %331 ], [ false, %333 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.068.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.068.sroa.11.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.068.sroa.12.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.068.sroa.13.i)
-  %.sroa.9.8.extract.trunc152.i = trunc i32 %.sroa.14.0.ph.i to i8
-  %.sroa.12.8.extract.shift153.i = lshr i32 %.sroa.14.0.ph.i, 16
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.04.sroa.10.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.04.sroa.11.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.04.sroa.12.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.04.sroa.13.i)
+  %.sroa.9.8.extract.trunc88.i = trunc i32 %.sroa.14.3.ph.i to i8
+  %.sroa.12.8.extract.shift89.i = lshr i32 %.sroa.14.3.ph.i, 16
   store i32 %.0, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %12)
@@ -7958,19 +7958,19 @@ _ZL35ValidateMultipleRegisterAnnotationsRN5clang4SemaEPNS_4DeclE12RegisterType.e
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14)
-  br i1 %.sroa.068.sroa.0.0.ph.i, label %568, label %574
+  br i1 %.sroa.04.sroa.0.0.ph.i, label %568, label %574
 
 568:                                              ; preds = %_ZL35ValidateMultipleRegisterAnnotationsRN5clang4SemaEPNS_4DeclE12RegisterType.exit.i
-  %569 = and i32 %.sroa.14.0.ph.i, 16777216
-  %.not77.i = icmp eq i32 %569, 0
-  br i1 %.not77.i, label %570, label %switch.lookup
+  %569 = and i32 %.sroa.14.3.ph.i, 16777216
+  %.not13.i = icmp eq i32 %569, 0
+  br i1 %.not13.i, label %570, label %switch.lookup
 
 570:                                              ; preds = %568
   call void @_ZSt27__throw_bad_optional_accessv() #29
   unreachable
 
 switch.lookup:                                    ; preds = %568
-  %switch.idx.cast = and i32 %.sroa.12.8.extract.shift153.i, 255
+  %switch.idx.cast = and i32 %.sroa.12.8.extract.shift89.i, 255
   %.not33.i = icmp eq i32 %.0, %switch.idx.cast
   br i1 %.not33.i, label %_ZL29DiagnoseHLSLRegisterAttributeRN5clang4SemaERNS_14SourceLocationEPNS_4DeclE12RegisterType.exit, label %571
 
@@ -7982,12 +7982,12 @@ switch.lookup:                                    ; preds = %568
   br label %.sink.split.i
 
 574:                                              ; preds = %_ZL35ValidateMultipleRegisterAnnotationsRN5clang4SemaEPNS_4DeclE12RegisterType.exit.i
-  br i1 %.not75.ph.i, label %586, label %575
+  br i1 %.not11.ph.i, label %586, label %575
 
 575:                                              ; preds = %574
-  %576 = and i32 %.sroa.14.0.ph.i, 256
-  %.not76.i = icmp eq i32 %576, 0
-  br i1 %.not76.i, label %581, label %577
+  %576 = and i32 %.sroa.14.3.ph.i, 256
+  %.not12.i = icmp eq i32 %576, 0
+  br i1 %.not12.i, label %581, label %577
 
 577:                                              ; preds = %575
   switch i32 %.0, label %579 [
@@ -8021,15 +8021,15 @@ switch.lookup:                                    ; preds = %568
   br i1 %.ph.i, label %587, label %_ZL29DiagnoseHLSLRegisterAttributeRN5clang4SemaERNS_14SourceLocationEPNS_4DeclE12RegisterType.exit
 
 587:                                              ; preds = %586
-  store i8 %.sroa.068.sroa.10.0..sroa.068.sroa.10.0..sroa.068.sroa.10.0..sroa.068.0..sroa.0.0.copyload.i.ph.i, ptr %22, align 1
+  store i8 %.sroa.04.sroa.10.0..sroa.04.sroa.10.0..sroa.04.sroa.10.0..sroa.04.0..sroa.0.0.copyload.i.ph.i, ptr %22, align 1
   %588 = getelementptr inbounds i8, ptr %22, i64 1
-  store i8 %.sroa.068.sroa.11.0..sroa.068.sroa.11.0..sroa.068.sroa.11.0..sroa.068.0..sroa.0.0.copyload.i.ph.i, ptr %588, align 1
+  store i8 %.sroa.04.sroa.11.0..sroa.04.sroa.11.0..sroa.04.sroa.11.0..sroa.04.0..sroa.0.0.copyload.i.ph.i, ptr %588, align 1
   %589 = getelementptr inbounds i8, ptr %22, i64 2
-  store i8 %.sroa.068.sroa.12.0..sroa.068.sroa.12.0..sroa.068.sroa.12.0..sroa.068.0..sroa.0.0.copyload.i.ph.i, ptr %589, align 1
+  store i8 %.sroa.04.sroa.12.0..sroa.04.sroa.12.0..sroa.04.sroa.12.0..sroa.04.0..sroa.0.0.copyload.i.ph.i, ptr %589, align 1
   %590 = getelementptr inbounds i8, ptr %22, i64 3
-  store i8 %.sroa.068.sroa.13.0..sroa.068.sroa.13.0..sroa.068.sroa.13.0..sroa.068.0..sroa.0.0.copyload.i.ph.i, ptr %590, align 1
+  store i8 %.sroa.04.sroa.13.0..sroa.04.sroa.13.0..sroa.04.sroa.13.0..sroa.04.0..sroa.0.0.copyload.i.ph.i, ptr %590, align 1
   %591 = getelementptr inbounds i8, ptr %22, i64 4
-  %592 = and i8 %.sroa.9.8.extract.trunc152.i, 1
+  %592 = and i8 %.sroa.9.8.extract.trunc88.i, 1
   store i8 %592, ptr %591, align 1
   %593 = load i32, ptr %15, align 4
   %594 = sext i32 %593 to i64
@@ -8071,7 +8071,7 @@ _ZL29DiagnoseHLSLRegisterAttributeRN5clang4SemaERNS_14SourceLocationEPNS_4DeclE1
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull %602) #25
   br label %604
 
-604:                                              ; preds = %42, %603, %_ZL29DiagnoseHLSLRegisterAttributeRN5clang4SemaERNS_14SourceLocationEPNS_4DeclE12RegisterType.exit, %113, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread88, %103, %95, %94, %74, %_ZNK5clang10ParsedAttr10isArgIdentEj.exit.thread
+604:                                              ; preds = %42, %603, %_ZL29DiagnoseHLSLRegisterAttributeRN5clang4SemaERNS_14SourceLocationEPNS_4DeclE12RegisterType.exit, %113, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread85, %103, %95, %94, %74, %_ZNK5clang10ParsedAttr10isArgIdentEj.exit.thread
   ret void
 }
 

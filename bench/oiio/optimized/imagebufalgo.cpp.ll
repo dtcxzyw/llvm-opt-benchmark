@@ -19167,8 +19167,8 @@ cond.end.i:                                       ; preds = %cond.false.i, %call
   store i64 1024, ptr %m_minitems.i.i, align 8
   store ptr null, ptr %m_pool.i.i, align 8
   store i8 0, ptr %m_recursive.i.i, align 8
-  store i64 0, ptr %10, align 8
   %20 = ptrtoint ptr %14 to i64
+  store i64 0, ptr %10, align 8
   store i64 %20, ptr %agg.tmp4.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L15divide_by_alphaERNS0_8ImageBufES1_iE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L15divide_by_alphaERNS0_8ImageBufES1_iE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8

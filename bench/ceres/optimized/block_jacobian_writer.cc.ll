@@ -2249,8 +2249,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %28, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %27, %.lr.ph.i.i.i.i
-  %.038.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %27 ]
-  %29 = shl i64 %.038.i.i.i.i, 1
+  %.039.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %27 ]
+  %29 = shl i64 %.039.i.i.i.i, 1
   %30 = add i64 %29, 2
   %31 = or disjoint i64 %29, 1
   %.val.val.i.i.i.i = load ptr, ptr %3, align 8
@@ -2273,7 +2273,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %45 = icmp slt i32 %39, %44
   %spec.select.i.i.i.i = select i1 %45, i64 %31, i64 %30
   %46 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i.i
-  %47 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.038.i.i.i.i
+  %47 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.039.i.i.i.i
   %48 = load i32, ptr %46, align 4
   store i32 %48, ptr %47, align 4
   %49 = getelementptr inbounds i8, ptr %46, i64 4
@@ -2306,10 +2306,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %60
 
 60:                                               ; preds = %74, %.lr.ph.i.i.i.i.i
-  %.020.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0921.i.i.i.i.i, %74 ]
-  %.0921.in.i.i.i.i.i = add nsw i64 %.020.i.i.i.i.i, -1
-  %.0921.i.i.i.i.i = sdiv i64 %.0921.in.i.i.i.i.i, 2
-  %61 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0921.i.i.i.i.i
+  %.010.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %74 ]
+  %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
+  %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
+  %61 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0911.i.i.i.i.i
   %.val.val.i.i.i.i.i = load ptr, ptr %3, align 8
   %62 = getelementptr i8, ptr %.val.val.i.i.i.i.i, i64 16
   %.val.val.val.i.i.i.i.i = load ptr, ptr %62, align 8
@@ -2328,21 +2328,21 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %73, label %74, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_T0_SR_T1_T2_.exit.i.i.i"
 
 74:                                               ; preds = %60
-  %75 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.020.i.i.i.i.i
+  %75 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.010.i.i.i.i.i
   %76 = load i32, ptr %61, align 4
   store i32 %76, ptr %75, align 4
   %77 = getelementptr inbounds i8, ptr %75, i64 4
   store i32 %.val2.i.i.i.i.i.i, ptr %77, align 4
-  %78 = icmp sgt i64 %.0921.i.i.i.i.i, %.0.i.i.i
+  %78 = icmp sgt i64 %.0911.i.i.i.i.i, %.0.i.i.i
   br i1 %78, label %60, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_T0_SR_T1_T2_.exit.i.i.i", !llvm.loop !47
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_T0_SR_T1_T2_.exit.i.i.i": ; preds = %74, %60, %57
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %57 ], [ %.020.i.i.i.i.i, %60 ], [ %.0921.i.i.i.i.i, %74 ]
+  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %57 ], [ %.010.i.i.i.i.i, %60 ], [ %.0911.i.i.i.i.i, %74 ]
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.03.0.copyload.i.i.i, 32
   %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i.i.i to i32
-  %.sroa.013.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.03.0.copyload.i.i.i to i32
+  %.sroa.03.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.03.0.copyload.i.i.i to i32
   %79 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i.i.i.i
-  store i32 %.sroa.013.0.extract.trunc.i.i.i.i.i, ptr %79, align 4
+  store i32 %.sroa.03.0.extract.trunc.i.i.i.i.i, ptr %79, align 4
   %80 = getelementptr inbounds i8, ptr %79, i64 4
   store i32 %.sroa.2.0.extract.trunc.i.i.i.i.i, ptr %80, align 4
   %81 = icmp eq i64 %.0.i.i.i, 0
@@ -2371,8 +2371,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %93, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i9.i, %.lr.ph.i.i
-  %.038.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i9.i ]
-  %94 = shl i64 %.038.i.i, 1
+  %.039.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i9.i ]
+  %94 = shl i64 %.039.i.i, 1
   %95 = add i64 %94, 2
   %96 = or disjoint i64 %94, 1
   %.val.val.i.i = load ptr, ptr %3, align 8
@@ -2395,7 +2395,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %110 = icmp slt i32 %104, %109
   %spec.select.i.i = select i1 %110, i64 %96, i64 %95
   %111 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i
-  %112 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.038.i.i
+  %112 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.039.i.i
   %113 = load i32, ptr %111, align 4
   store i32 %113, ptr %112, align 4
   %114 = getelementptr inbounds i8, ptr %111, i64 4
@@ -2440,10 +2440,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %136
 
 136:                                              ; preds = %150, %.lr.ph.i.i.i
-  %.020.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.0921.i.i89.i, %150 ]
-  %.0921.in.i.i.i = add nsw i64 %.020.i.i.i, -1
-  %.0921.i.i89.i = lshr i64 %.0921.in.i.i.i, 1
-  %137 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0921.i.i89.i
+  %.010.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.0911.i.i89.i, %150 ]
+  %.0911.in.i.i.i = add nsw i64 %.010.i.i.i, -1
+  %.0911.i.i89.i = lshr i64 %.0911.in.i.i.i, 1
+  %137 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0911.i.i89.i
   %.val.val.i.i.i = load ptr, ptr %3, align 8
   %138 = getelementptr i8, ptr %.val.val.i.i.i, i64 16
   %.val.val.val.i.i.i = load ptr, ptr %138, align 8
@@ -2462,21 +2462,21 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %149, label %150, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_SQ_SQ_RT0_.exit"
 
 150:                                              ; preds = %136
-  %151 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.020.i.i.i
+  %151 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.010.i.i.i
   %152 = load i32, ptr %137, align 4
   store i32 %152, ptr %151, align 4
   %153 = getelementptr inbounds i8, ptr %151, i64 4
   store i32 %.val2.i.i.i.i, ptr %153, align 4
-  %.not.i = icmp ult i64 %.0921.in.i.i.i, 2
+  %.not.i = icmp ult i64 %.0911.in.i.i.i, 2
   br i1 %.not.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_SQ_SQ_RT0_.exit", label %136, !llvm.loop !47
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_SQ_SQ_RT0_.exit": ; preds = %136, %150, %133
-  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %133 ], [ %.020.i.i.i, %136 ], [ 0, %150 ]
+  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %133 ], [ %.010.i.i.i, %136 ], [ 0, %150 ]
   %.sroa.2.0.extract.shift.i.i.i = lshr i64 %.sroa.03.0.copyload.i, 32
   %.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i to i32
-  %.sroa.013.0.extract.trunc.i.i.i = trunc i64 %.sroa.03.0.copyload.i to i32
+  %.sroa.03.0.extract.trunc.i.i.i = trunc i64 %.sroa.03.0.copyload.i to i32
   %154 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i.i
-  store i32 %.sroa.013.0.extract.trunc.i.i.i, ptr %154, align 4
+  store i32 %.sroa.03.0.extract.trunc.i.i.i, ptr %154, align 4
   %155 = getelementptr inbounds i8, ptr %154, i64 4
   store i32 %.sroa.2.0.extract.trunc.i.i.i, ptr %155, align 4
   %156 = icmp sgt i64 %89, 8

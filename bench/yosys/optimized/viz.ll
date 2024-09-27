@@ -12594,9 +12594,9 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i182: ; preds 
 
 ._crit_edge.i.i167:                               ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i182, %.noexc184, %374
   %402 = phi ptr [ %.val6.i2802, %374 ], [ %.val.i.i179, %.noexc184 ], [ %.val13.i.i180, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i182 ]
-  %.045.i = phi i32 [ %384, %374 ], [ 0, %.noexc184 ], [ %401, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i182 ]
+  %.046.i = phi i32 [ %384, %374 ], [ 0, %.noexc184 ], [ %401, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i182 ]
   %403 = phi ptr [ %356, %374 ], [ %.val.i.i179, %.noexc184 ], [ %.val.i.i179, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i182 ]
-  %404 = sext i32 %.045.i to i64
+  %404 = sext i32 %.046.i to i64
   %405 = getelementptr inbounds i32, ptr %403, i64 %404
   %406 = load i32, ptr %405, align 4
   %407 = icmp sgt i32 %406, -1
@@ -12639,12 +12639,12 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeENS0_8hash_op
 
 422:                                              ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.thread.i
   store ptr %.fr.i, ptr %420, align 8
-  %.sroa.6.0..sroa_idx22.i = getelementptr inbounds i8, ptr %420, i64 8
-  store i32 %.sroa.71650.0.copyload, ptr %.sroa.6.0..sroa_idx22.i, align 8
-  %.sroa.7.0..sroa_idx30.i = getelementptr inbounds i8, ptr %420, i64 12
-  store i32 %.sroa.19.0.copyload, ptr %.sroa.7.0..sroa_idx30.i, align 4
-  %.sroa.736.0..sroa_idx39.i = getelementptr inbounds i8, ptr %420, i64 16
-  store ptr null, ptr %.sroa.736.0..sroa_idx39.i, align 8
+  %.sroa.6.0..sroa_idx23.i = getelementptr inbounds i8, ptr %420, i64 8
+  store i32 %.sroa.71650.0.copyload, ptr %.sroa.6.0..sroa_idx23.i, align 8
+  %.sroa.7.0..sroa_idx31.i = getelementptr inbounds i8, ptr %420, i64 12
+  store i32 %.sroa.19.0.copyload, ptr %.sroa.7.0..sroa_idx31.i, align 4
+  %.sroa.737.0..sroa_idx40.i = getelementptr inbounds i8, ptr %420, i64 16
+  store ptr null, ptr %.sroa.737.0..sroa_idx40.i, align 8
   %423 = getelementptr inbounds i8, ptr %420, i64 24
   store i32 -1, ptr %423, align 8
   %424 = load ptr, ptr %92, align 8
@@ -12675,8 +12675,8 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeE
   %434 = icmp ult i64 %433, %431
   %435 = call i64 @llvm.umin.i64(i64 %433, i64 288230376151711743)
   %436 = select i1 %434, i64 288230376151711743, i64 %435
-  %.not.i.i.i.i15.i = icmp ne i64 %436, 0
-  call void @llvm.assume(i1 %.not.i.i.i.i15.i)
+  %.not.i.i.i.i16.i = icmp ne i64 %436, 0
+  call void @llvm.assume(i1 %.not.i.i.i.i16.i)
   %437 = shl nuw nsw i64 %436, 5
   %438 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %437) #33
           to label %.noexc186 unwind label %.loopexit1900
@@ -12684,12 +12684,12 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeE
 .noexc186:                                        ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %439 = getelementptr inbounds i8, ptr %438, i64 %429
   store ptr %.fr.i, ptr %439, align 8
-  %.sroa.6.0..sroa_idx24.i = getelementptr inbounds i8, ptr %439, i64 8
-  store i32 %.sroa.71650.0.copyload, ptr %.sroa.6.0..sroa_idx24.i, align 8
-  %.sroa.7.0..sroa_idx32.i = getelementptr inbounds i8, ptr %439, i64 12
-  store i32 %.sroa.19.0.copyload, ptr %.sroa.7.0..sroa_idx32.i, align 4
-  %.sroa.736.0..sroa_idx41.i = getelementptr inbounds i8, ptr %439, i64 16
-  store ptr null, ptr %.sroa.736.0..sroa_idx41.i, align 8
+  %.sroa.6.0..sroa_idx25.i = getelementptr inbounds i8, ptr %439, i64 8
+  store i32 %.sroa.71650.0.copyload, ptr %.sroa.6.0..sroa_idx25.i, align 8
+  %.sroa.7.0..sroa_idx33.i = getelementptr inbounds i8, ptr %439, i64 12
+  store i32 %.sroa.19.0.copyload, ptr %.sroa.7.0..sroa_idx33.i, align 4
+  %.sroa.737.0..sroa_idx42.i = getelementptr inbounds i8, ptr %439, i64 16
+  store ptr null, ptr %.sroa.737.0..sroa_idx42.i, align 8
   %440 = getelementptr inbounds i8, ptr %439, i64 24
   store i32 -1, ptr %440, align 8
   br i1 %432, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS4_EEE7entry_tESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit38.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
@@ -12916,8 +12916,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeENS0_8hash_op
   store i32 %.sroa.71650.0.copyload, ptr %.sroa.6.0..sroa_idx.i, align 8
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %.pre2804, i64 12
   store i32 %.sroa.19.0.copyload, ptr %.sroa.7.0..sroa_idx.i, align 4
-  %.sroa.736.0..sroa_idx.i = getelementptr inbounds i8, ptr %.pre2804, i64 16
-  store ptr null, ptr %.sroa.736.0..sroa_idx.i, align 8
+  %.sroa.737.0..sroa_idx.i = getelementptr inbounds i8, ptr %.pre2804, i64 16
+  store ptr null, ptr %.sroa.737.0..sroa_idx.i, align 8
   %530 = getelementptr inbounds i8, ptr %.pre2804, i64 24
   store i32 %406, ptr %530, align 8
   %531 = load ptr, ptr %92, align 8
@@ -12951,12 +12951,12 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeE
 .noexc189:                                        ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12_M_check_lenEmPKc.exit.i.i16.i.i
   %546 = getelementptr inbounds i8, ptr %545, i64 %536
   store ptr %.fr.i, ptr %546, align 8
-  %.sroa.6.0..sroa_idx20.i = getelementptr inbounds i8, ptr %546, i64 8
-  store i32 %.sroa.71650.0.copyload, ptr %.sroa.6.0..sroa_idx20.i, align 8
-  %.sroa.7.0..sroa_idx28.i = getelementptr inbounds i8, ptr %546, i64 12
-  store i32 %.sroa.19.0.copyload, ptr %.sroa.7.0..sroa_idx28.i, align 4
-  %.sroa.736.0..sroa_idx37.i = getelementptr inbounds i8, ptr %546, i64 16
-  store ptr null, ptr %.sroa.736.0..sroa_idx37.i, align 8
+  %.sroa.6.0..sroa_idx21.i = getelementptr inbounds i8, ptr %546, i64 8
+  store i32 %.sroa.71650.0.copyload, ptr %.sroa.6.0..sroa_idx21.i, align 8
+  %.sroa.7.0..sroa_idx29.i = getelementptr inbounds i8, ptr %546, i64 12
+  store i32 %.sroa.19.0.copyload, ptr %.sroa.7.0..sroa_idx29.i, align 4
+  %.sroa.737.0..sroa_idx38.i = getelementptr inbounds i8, ptr %546, i64 16
+  store ptr null, ptr %.sroa.737.0..sroa_idx38.i, align 8
   %547 = getelementptr inbounds i8, ptr %546, i64 24
   store i32 %406, ptr %547, align 8
   br i1 %539, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS4_EEE7entry_tESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit38.i.i23.i.i, label %.lr.ph.i.i.i.i.i.i19.i.i
@@ -14177,9 +14177,9 @@ _ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4CellEEEjPKT_.exit.i.i.i: ; preds 
 
 ._crit_edge.i.i304:                               ; preds = %_ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4CellEEEjPKT_.exit.i.i.i, %.noexc339, %1020
   %1048 = phi ptr [ %.val6.i299, %1020 ], [ %.val.i.i335, %.noexc339 ], [ %.val13.i.i336, %_ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4CellEEEjPKT_.exit.i.i.i ]
-  %.028.i = phi i32 [ %1027, %1020 ], [ 0, %.noexc339 ], [ %1047, %_ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4CellEEEjPKT_.exit.i.i.i ]
+  %.029.i = phi i32 [ %1027, %1020 ], [ 0, %.noexc339 ], [ %1047, %_ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4CellEEEjPKT_.exit.i.i.i ]
   %1049 = phi ptr [ %.val.i298, %1020 ], [ %.val.i.i335, %.noexc339 ], [ %.val.i.i335, %_ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4CellEEEjPKT_.exit.i.i.i ]
-  %1050 = sext i32 %.028.i to i64
+  %1050 = sext i32 %.029.i to i64
   %1051 = getelementptr inbounds i32, ptr %1049, i64 %1050
   %1052 = load i32, ptr %1051, align 4
   %1053 = icmp sgt i32 %1052, -1
@@ -14212,13 +14212,13 @@ _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeENS0_8hash_ops
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread.thread.i: ; preds = %._ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread.thread.i_crit_edge, %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread.i
   %1064 = phi ptr [ %.pre2876, %._ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread.thread.i_crit_edge ], [ %.pre2877, %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread.i ]
   %1065 = phi ptr [ %.pre2819, %._ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread.thread.i_crit_edge ], [ %.pre2820, %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread.i ]
-  %.not.i.i11.i = icmp eq ptr %1065, %1064
-  br i1 %.not.i.i11.i, label %1070, label %1066
+  %.not.i.i12.i = icmp eq ptr %1065, %1064
+  br i1 %.not.i.i12.i, label %1070, label %1066
 
 1066:                                             ; preds = %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread.thread.i
   store ptr %1008, ptr %1065, align 8
-  %.sroa.6.0..sroa_idx22.i321 = getelementptr inbounds i8, ptr %1065, i64 8
-  store ptr null, ptr %.sroa.6.0..sroa_idx22.i321, align 8
+  %.sroa.6.0..sroa_idx23.i321 = getelementptr inbounds i8, ptr %1065, i64 8
+  store ptr null, ptr %.sroa.6.0..sroa_idx23.i321, align 8
   %1067 = getelementptr inbounds i8, ptr %1065, i64 16
   store i32 -1, ptr %1067, align 8
   %1068 = load ptr, ptr %961, align 8
@@ -14251,8 +14251,8 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeEN
 .noexc341:                                        ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS5_EEE7entry_tESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %1083 = getelementptr inbounds i8, ptr %1082, i64 %1073
   store ptr %1008, ptr %1083, align 8
-  %.sroa.6.0..sroa_idx24.i325 = getelementptr inbounds i8, ptr %1083, i64 8
-  store ptr null, ptr %.sroa.6.0..sroa_idx24.i325, align 8
+  %.sroa.6.0..sroa_idx25.i325 = getelementptr inbounds i8, ptr %1083, i64 8
+  store ptr null, ptr %.sroa.6.0..sroa_idx25.i325, align 8
   %1084 = getelementptr inbounds i8, ptr %1083, i64 16
   store i32 -1, ptr %1084, align 8
   br i1 %1076, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS5_EEE7entry_tESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit38.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i326
@@ -14328,8 +14328,8 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeEN
 .noexc344:                                        ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS5_EEE7entry_tESaISC_EE12_M_check_lenEmPKc.exit.i.i16.i.i
   %1108 = getelementptr inbounds i8, ptr %1107, i64 %1098
   store ptr %1008, ptr %1108, align 8
-  %.sroa.6.0..sroa_idx20.i314 = getelementptr inbounds i8, ptr %1108, i64 8
-  store ptr null, ptr %.sroa.6.0..sroa_idx20.i314, align 8
+  %.sroa.6.0..sroa_idx21.i314 = getelementptr inbounds i8, ptr %1108, i64 8
+  store ptr null, ptr %.sroa.6.0..sroa_idx21.i314, align 8
   %1109 = getelementptr inbounds i8, ptr %1108, i64 16
   store i32 %1052, ptr %1109, align 8
   br i1 %1101, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS5_EEE7entry_tESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit38.i.i23.i.i, label %.lr.ph.i.i.i.i.i.i19.i.i315
@@ -32645,7 +32645,7 @@ _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE7do_hashE
 
 53:                                               ; preds = %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE7do_hashERKS4_.exit.thread.thread, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE7do_hashERKS4_.exit.thread
   %54 = phi ptr [ %6, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE7do_hashERKS4_.exit.thread.thread ], [ %52, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE7do_hashERKS4_.exit.thread ]
-  %.val13.i10 = load ptr, ptr %2, align 8
+  %.val13.i12 = load ptr, ptr %2, align 8
   %55 = getelementptr inbounds i8, ptr %1, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %1, i64 40
@@ -32654,7 +32654,7 @@ _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE7do_hashE
   br i1 %.not.i.i, label %63, label %59
 
 59:                                               ; preds = %53
-  store ptr %.val13.i10, ptr %56, align 8
+  store ptr %.val13.i12, ptr %56, align 8
   %60 = getelementptr inbounds i8, ptr %56, i64 8
   store i32 -1, ptr %60, align 8
   %61 = load ptr, ptr %55, align 8
@@ -32687,7 +32687,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_ops
   %75 = shl nuw nsw i64 %74, 4
   %76 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #33
   %77 = getelementptr inbounds i8, ptr %76, i64 %66
-  store ptr %.val13.i10, ptr %77, align 8
+  store ptr %.val13.i12, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 8
   store i32 -1, ptr %78, align 8
   br i1 %70, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit39.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
@@ -32726,7 +32726,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsE
   %85 = sext i32 %.0 to i64
   %86 = getelementptr inbounds i32, ptr %36, i64 %85
   %.val15.i = load ptr, ptr %2, align 8
-  %.val16.i8 = load i32, ptr %86, align 4
+  %.val16.i10 = load i32, ptr %86, align 4
   %87 = getelementptr inbounds i8, ptr %1, i64 32
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %1, i64 40
@@ -32737,7 +32737,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsE
 91:                                               ; preds = %84
   store ptr %.val15.i, ptr %88, align 8
   %92 = getelementptr inbounds i8, ptr %88, i64 8
-  store i32 %.val16.i8, ptr %92, align 8
+  store i32 %.val16.i10, ptr %92, align 8
   %93 = load ptr, ptr %87, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 16
   store ptr %94, ptr %87, align 8
@@ -32771,7 +32771,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_ops
   %109 = getelementptr inbounds i8, ptr %108, i64 %98
   store ptr %.val15.i, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 8
-  store i32 %.val16.i8, ptr %110, align 8
+  store i32 %.val16.i10, ptr %110, align 8
   br i1 %102, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit39.i.i25.i, label %.lr.ph.i.i.i.i.i.i21.i
 
 .lr.ph.i.i.i.i.i.i21.i:                           ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE12_M_check_lenEmPKc.exit.i.i18.i, %.lr.ph.i.i.i.i.i.i21.i
@@ -32802,9 +32802,9 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsE
 
 _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE12emplace_backIJRKS5_RiEEEvDpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE17_M_realloc_insertIJRKS5_RiEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, %91
   %.val7.i = phi ptr [ %94, %91 ], [ %113, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE17_M_realloc_insertIJRKS5_RiEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ]
-  %.val.i9 = phi ptr [ %.val.pre.i, %91 ], [ %108, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE17_M_realloc_insertIJRKS5_RiEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ]
+  %.val.i11 = phi ptr [ %.val.pre.i, %91 ], [ %108, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EE17_M_realloc_insertIJRKS5_RiEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ]
   %116 = ptrtoint ptr %.val7.i to i64
-  %117 = ptrtoint ptr %.val.i9 to i64
+  %117 = ptrtoint ptr %.val.i11 to i64
   %118 = sub i64 %116, %117
   %119 = lshr exact i64 %118, 4
   %120 = trunc i64 %119 to i32
@@ -32828,11 +32828,11 @@ _ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE9do_insert
   br label %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE9do_lookupERKS4_Ri.exit
 
 _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE9do_lookupERKS4_Ri.exit: ; preds = %42, %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE9do_insertERKS4_Ri.exit
-  %.sink32 = phi i32 [ %131, %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE9do_insertERKS4_Ri.exit ], [ %.021.i, %42 ]
+  %.sink34 = phi i32 [ %131, %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE9do_insertERKS4_Ri.exit ], [ %.021.i, %42 ]
   %.sink = phi i8 [ 1, %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE9do_insertERKS4_Ri.exit ], [ 0, %42 ]
   store ptr %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sink32, ptr %.sroa.2.0..sroa_idx, align 8
+  store i32 %.sink34, ptr %.sroa.2.0..sroa_idx, align 8
   %132 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %.sink, ptr %132, align 8
   ret void
@@ -48999,9 +48999,9 @@ define internal fastcc void @_ZZN12_GLOBAL__N_19VizWorker9write_dotEP8_IO_FILEEN
 
 ._crit_edge.i.i:                                  ; preds = %32, %30, %12
   %39 = phi ptr [ %.val6.i, %12 ], [ %.val.i.i, %30 ], [ %.val13.i.i, %32 ]
-  %.025.i = phi i32 [ %20, %12 ], [ 0, %30 ], [ %38, %32 ]
+  %.012.i = phi i32 [ %20, %12 ], [ 0, %30 ], [ %38, %32 ]
   %40 = phi ptr [ %.val.i, %12 ], [ %.val.i.i, %30 ], [ %.val.i.i, %32 ]
-  %41 = sext i32 %.025.i to i64
+  %41 = sext i32 %.012.i to i64
   %42 = getelementptr inbounds i32, ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = icmp sgt i32 %43, -1
@@ -49040,8 +49040,8 @@ _ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeES4_NS0_12hash_ptr_opsEE7do_ha
 
 60:                                               ; preds = %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeES4_NS0_12hash_ptr_opsEE7do_hashERKS4_.exit.thread.thread.i
   store ptr %1, ptr %57, align 8
-  %.sroa.6.0..sroa_idx19.i = getelementptr inbounds i8, ptr %57, i64 8
-  store ptr null, ptr %.sroa.6.0..sroa_idx19.i, align 8
+  %.sroa.6.0..sroa_idx6.i = getelementptr inbounds i8, ptr %57, i64 8
+  store ptr null, ptr %.sroa.6.0..sroa_idx6.i, align 8
   %61 = getelementptr inbounds i8, ptr %57, i64 16
   store i32 -1, ptr %61, align 8
   %62 = load ptr, ptr %56, align 8
@@ -49075,8 +49075,8 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeES5_NS1_12hash_ptr_
   %77 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %76) #33
   %78 = getelementptr inbounds i8, ptr %77, i64 %67
   store ptr %1, ptr %78, align 8
-  %.sroa.6.0..sroa_idx21.i = getelementptr inbounds i8, ptr %78, i64 8
-  store ptr null, ptr %.sroa.6.0..sroa_idx21.i, align 8
+  %.sroa.6.0..sroa_idx8.i = getelementptr inbounds i8, ptr %78, i64 8
+  store ptr null, ptr %.sroa.6.0..sroa_idx8.i, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   store i32 -1, ptr %79, align 8
   br i1 %71, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeES5_NS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit38.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
@@ -49156,8 +49156,8 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeES5_NS1_12hash_ptr_
   %106 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %105) #33
   %107 = getelementptr inbounds i8, ptr %106, i64 %96
   store ptr %1, ptr %107, align 8
-  %.sroa.6.0..sroa_idx17.i = getelementptr inbounds i8, ptr %107, i64 8
-  store ptr null, ptr %.sroa.6.0..sroa_idx17.i, align 8
+  %.sroa.6.0..sroa_idx4.i = getelementptr inbounds i8, ptr %107, i64 8
+  store ptr null, ptr %.sroa.6.0..sroa_idx4.i, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 16
   store i32 %43, ptr %108, align 8
   br i1 %100, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeES5_NS1_12hash_ptr_opsEE7entry_tESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit38.i.i23.i.i, label %.lr.ph.i.i.i.i.i.i19.i.i
@@ -49225,10 +49225,10 @@ _ZN5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeES4_NS0_12hash_ptr_opsEEixERKS4
   %133 = load ptr, ptr %132, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %.val.i18 = load ptr, ptr %133, align 8
+  %.val.i19 = load ptr, ptr %133, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 8
-  %.val8.i19 = load ptr, ptr %134, align 8
-  %135 = icmp eq ptr %.val.i18, %.val8.i19
+  %.val8.i20 = load ptr, ptr %134, align 8
+  %135 = icmp eq ptr %.val.i19, %.val8.i20
   br i1 %135, label %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeESt6vectorIS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESaISD_EENS0_12hash_ptr_opsEE7do_hashERKS4_.exit.thread.i.thread, label %138
 
 _ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeESt6vectorIS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESaISD_EENS0_12hash_ptr_opsEE7do_hashERKS4_.exit.thread.i.thread: ; preds = %_ZN5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeES4_NS0_12hash_ptr_opsEEixERKS4_.exit
@@ -49242,31 +49242,31 @@ _ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeESt6vectorIS5_INSt7__cxx1112ba
 138:                                              ; preds = %_ZN5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeES4_NS0_12hash_ptr_opsEEixERKS4_.exit
   %139 = ptrtoint ptr %2 to i64
   %140 = trunc i64 %139 to i32
-  %141 = ptrtoint ptr %.val8.i19 to i64
-  %142 = ptrtoint ptr %.val.i18 to i64
+  %141 = ptrtoint ptr %.val8.i20 to i64
+  %142 = ptrtoint ptr %.val.i19 to i64
   %143 = sub i64 %141, %142
   %144 = lshr exact i64 %143, 2
   %145 = trunc i64 %144 to i32
   %146 = urem i32 %140, %145
   %147 = getelementptr inbounds i8, ptr %133, i64 24
-  %.val15.i.i20 = load ptr, ptr %147, align 8
+  %.val15.i.i21 = load ptr, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %133, i64 32
-  %.val16.i.i21 = load ptr, ptr %148, align 8
-  %149 = ptrtoint ptr %.val16.i.i21 to i64
-  %150 = ptrtoint ptr %.val15.i.i20 to i64
+  %.val16.i.i22 = load ptr, ptr %148, align 8
+  %149 = ptrtoint ptr %.val16.i.i22 to i64
+  %150 = ptrtoint ptr %.val15.i.i21 to i64
   %151 = sub i64 %149, %150
   %152 = sdiv exact i64 %151, 40
   %153 = shl nsw i64 %152, 1
   %154 = ashr exact i64 %143, 2
   %155 = icmp ugt i64 %153, %154
-  br i1 %155, label %156, label %._crit_edge.i.i22
+  br i1 %155, label %156, label %._crit_edge.i.i23
 
 156:                                              ; preds = %138
   tail call fastcc void @_ZN5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeESt6vectorIS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESaISD_EENS0_12hash_ptr_opsEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %133)
   %.val.i.i52 = load ptr, ptr %133, align 8
   %.val13.i.i53 = load ptr, ptr %134, align 8
   %157 = icmp eq ptr %.val.i.i52, %.val13.i.i53
-  br i1 %157, label %._crit_edge.i.i22, label %158
+  br i1 %157, label %._crit_edge.i.i23, label %158
 
 158:                                              ; preds = %156
   %159 = ptrtoint ptr %.val13.i.i53 to i64
@@ -49275,19 +49275,19 @@ _ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeESt6vectorIS5_INSt7__cxx1112ba
   %162 = lshr exact i64 %161, 2
   %163 = trunc i64 %162 to i32
   %164 = urem i32 %140, %163
-  br label %._crit_edge.i.i22
+  br label %._crit_edge.i.i23
 
-._crit_edge.i.i22:                                ; preds = %158, %156, %138
-  %165 = phi ptr [ %.val8.i19, %138 ], [ %.val.i.i52, %156 ], [ %.val13.i.i53, %158 ]
-  %.025.i23 = phi i32 [ %146, %138 ], [ 0, %156 ], [ %164, %158 ]
-  %166 = phi ptr [ %.val.i18, %138 ], [ %.val.i.i52, %156 ], [ %.val.i.i52, %158 ]
-  %167 = sext i32 %.025.i23 to i64
+._crit_edge.i.i23:                                ; preds = %158, %156, %138
+  %165 = phi ptr [ %.val8.i20, %138 ], [ %.val.i.i52, %156 ], [ %.val13.i.i53, %158 ]
+  %.03.i = phi i32 [ %146, %138 ], [ 0, %156 ], [ %164, %158 ]
+  %166 = phi ptr [ %.val.i19, %138 ], [ %.val.i.i52, %156 ], [ %.val.i.i52, %158 ]
+  %167 = sext i32 %.03.i to i64
   %168 = getelementptr inbounds i32, ptr %166, i64 %167
   %169 = load i32, ptr %168, align 4
   %170 = icmp sgt i32 %169, -1
   br i1 %170, label %.lr.ph.i.i49, label %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeESt6vectorIS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESaISD_EENS0_12hash_ptr_opsEE7do_hashERKS4_.exit.thread.i
 
-.lr.ph.i.i49:                                     ; preds = %._crit_edge.i.i22
+.lr.ph.i.i49:                                     ; preds = %._crit_edge.i.i23
   %.val19.i.i50 = load ptr, ptr %147, align 8
   br label %171
 
@@ -49305,7 +49305,7 @@ _ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeESt6vectorIS5_INSt7__cxx1112ba
   %179 = icmp sgt i32 %178, -1
   br i1 %179, label %171, label %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeESt6vectorIS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESaISD_EENS0_12hash_ptr_opsEE7do_hashERKS4_.exit.thread.i, !llvm.loop !32
 
-_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeESt6vectorIS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESaISD_EENS0_12hash_ptr_opsEE7do_hashERKS4_.exit.thread.i: ; preds = %176, %._crit_edge.i.i22
+_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19GraphNodeESt6vectorIS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESaISD_EENS0_12hash_ptr_opsEE7do_hashERKS4_.exit.thread.i: ; preds = %176, %._crit_edge.i.i23
   store ptr %2, ptr %4, align 8
   %180 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %180, i8 0, i64 24, i1 false)
@@ -49593,8 +49593,8 @@ _ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS
   %305 = ptrtoint ptr %303 to i64
   %306 = sub i64 %304, %305
   %307 = and i64 %306, 34359738360
-  %.not71 = icmp eq i64 %307, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph.preheader
+  %.not69 = icmp eq i64 %307, 0
+  br i1 %.not69, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE12emplace_backIJEEEvDpOT_.exit
   %sext = shl i64 %306, 29

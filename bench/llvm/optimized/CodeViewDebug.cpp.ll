@@ -929,8 +929,8 @@ $_ZSt19piecewise_construct = comdat any
 @_ZSt19piecewise_construct = linkonce_odr constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 @switch.table._ZN4llvm13CodeViewDebug11beginModuleEPNS_6ModuleE = private unnamed_addr constant [35 x i8] c"\00\00\03\01\06\06\02\02\04\03\0D\00\03\02\03\11\12\03D\03\03\03\03\03\01\01\03\15\00\13\03\03\01\02\02", align 1
 @switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE = private unnamed_addr constant [8 x i32] [i32 86, i32 80, i32 0, i32 81, i32 82, i32 0, i32 0, i32 83], align 4
-@switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE.35 = private unnamed_addr constant [15 x i32] [i32 70, i32 0, i32 64, i32 0, i32 68, i32 0, i32 65, i32 0, i32 66, i32 0, i32 0, i32 0, i32 0, i32 0, i32 67], align 4
-@switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE.36 = private unnamed_addr constant [4 x i32] [i32 124, i32 122, i32 0, i32 123], align 4
+@switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE.36 = private unnamed_addr constant [15 x i32] [i32 70, i32 0, i32 64, i32 0, i32 68, i32 0, i32 65, i32 0, i32 66, i32 0, i32 0, i32 0, i32 0, i32 0, i32 67], align 4
+@switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE.37 = private unnamed_addr constant [4 x i32] [i32 124, i32 122, i32 0, i32 123], align 4
 
 @_ZN4llvm13CodeViewDebugC1EPNS_10AsmPrinterE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm13CodeViewDebugC2EPNS_10AsmPrinterE
 
@@ -14901,16 +14901,16 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit75: ; pred
   %767 = icmp eq i32 %766, 35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %768 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %769 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %770 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %770, align 8
-  %771 = ptrtoint ptr %0 to i64
-  store i64 %771, ptr %3, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfoERKNS0_12MachineInstrElEZNS0_13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0E9_M_invokeERKSt9_Any_dataS3_S6_Ol", ptr %769, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfoERKNS0_12MachineInstrElEZNS0_13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %768, align 8
+  %768 = ptrtoint ptr %0 to i64
+  %769 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %770 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %771 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %771, align 8
+  store i64 %768, ptr %3, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfoERKNS0_12MachineInstrElEZNS0_13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0E9_M_invokeERKSt9_Any_dataS3_S6_Ol", ptr %770, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfoERKNS0_12MachineInstrElEZNS0_13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %769, align 8
   call void @_Z22forEachJumpTableBranchPKN4llvm15MachineFunctionEbRKSt8functionIFvRKNS_20MachineJumpTableInfoERKNS_12MachineInstrElEE(ptr noundef nonnull %1, i1 noundef zeroext %767, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  %772 = load ptr, ptr %768, align 8
+  %772 = load ptr, ptr %769, align 8
   %.not.i.i.i76 = icmp eq ptr %772, null
   br i1 %.not.i.i.i76, label %_ZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS_15MachineFunctionEb.exit, label %773
 
@@ -14943,16 +14943,16 @@ declare void @_ZNK4llvm8DebugLoc13getFnDebugLocEv(ptr dead_on_unwind writable sr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS_15MachineFunctionEb(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::function.1246", align 8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %7, align 8
-  %8 = ptrtoint ptr %0 to i64
-  store i64 %8, ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfoERKNS0_12MachineInstrElEZNS0_13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0E9_M_invokeERKSt9_Any_dataS3_S6_Ol", ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfoERKNS0_12MachineInstrElEZNS0_13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %5, align 8
+  %5 = ptrtoint ptr %0 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %8, align 8
+  store i64 %5, ptr %4, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfoERKNS0_12MachineInstrElEZNS0_13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0E9_M_invokeERKSt9_Any_dataS3_S6_Ol", ptr %7, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfoERKNS0_12MachineInstrElEZNS0_13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %6, align 8
   call void @_Z22forEachJumpTableBranchPKN4llvm15MachineFunctionEbRKSt8functionIFvRKNS_20MachineJumpTableInfoERKNS_12MachineInstrElEE(ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRKN4llvm20MachineJumpTableInfoERKNS0_12MachineInstrElEED2Ev.exit, label %10
 
@@ -16175,13 +16175,13 @@ switch.lookup:                                    ; preds = %15
 
 switch.lookup185:                                 ; preds = %19
   %168 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep186 = getelementptr inbounds [15 x i32], ptr @switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE.35, i64 0, i64 %168
+  %switch.gep186 = getelementptr inbounds [15 x i32], ptr @switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE.36, i64 0, i64 %168
   %switch.load187 = load i32, ptr %switch.gep186, align 4
   br label %.thread162
 
 switch.lookup188:                                 ; preds = %28
   %169 = zext nneg i32 %switch.tableidx189 to i64
-  %switch.gep190 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE.36, i64 0, i64 %169
+  %switch.gep190 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE.37, i64 0, i64 %169
   %switch.load191 = load i32, ptr %switch.gep190, align 4
   br label %.thread162
 

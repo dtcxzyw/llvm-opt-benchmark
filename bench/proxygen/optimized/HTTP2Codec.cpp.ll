@@ -13955,21 +13955,21 @@ if.then8:                                         ; preds = %if.end
   %add.ptr.i.i7.i = getelementptr inbounds i8, ptr %1, i64 %mul.i.i6.i
   %length_.i = getelementptr inbounds i8, ptr %headers, i64 8
   %3 = load i64, ptr %length_.i, align 8
-  %cmp9.not.i = icmp eq i64 %3, 0
-  br i1 %cmp9.not.i, label %invoke.cont, label %for.body.i
+  %cmp8.not.i = icmp eq i64 %3, 0
+  br i1 %cmp8.not.i, label %invoke.cont, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then8, %for.inc.i
   %4 = phi i64 [ %8, %for.inc.i ], [ %3, %if.then8 ]
-  %i.010.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.then8 ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %i.010.i
+  %i.09.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.then8 ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %i.09.i
   %5 = load i8, ptr %arrayidx.i, align 1
   %cmp4.not.i = icmp eq i8 %5, 0
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %arrayidx5.i = getelementptr inbounds ptr, ptr %add.ptr.i.i7.i, i64 %i.010.i
+  %arrayidx5.i = getelementptr inbounds ptr, ptr %add.ptr.i.i7.i, i64 %i.09.i
   %6 = load ptr, ptr %arrayidx5.i, align 8
-  %arrayidx6.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %i.010.i
+  %arrayidx6.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %i.09.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #29
@@ -13993,7 +13993,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i
 
 for.inc.i:                                        ; preds = %"_ZZN8proxygen10HTTP2Codec13encodeHeadersERN5folly10IOBufQueueERKNS_11HTTPHeadersERSt6vectorINS_8compress6HeaderESaIS9_EEPNS_14HTTPHeaderSizeEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESN_.exit.i", %for.body.i
   %8 = phi i64 [ %4, %for.body.i ], [ %.pre.i, %"_ZZN8proxygen10HTTP2Codec13encodeHeadersERN5folly10IOBufQueueERKNS_11HTTPHeadersERSt6vectorINS_8compress6HeaderESaIS9_EEPNS_14HTTPHeaderSizeEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESN_.exit.i" ]
-  %inc.i = add nuw i64 %i.010.i, 1
+  %inc.i = add nuw i64 %i.09.i, 1
   %cmp.i = icmp ult i64 %inc.i, %8
   br i1 %cmp.i, label %for.body.i, label %invoke.cont, !llvm.loop !144
 

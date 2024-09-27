@@ -28633,10 +28633,10 @@ entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %ref.tmp18 = alloca %"struct.doctest::Approx", align 8
   store double %expected, ptr %expected.addr, align 8
+  %0 = ptrtoint ptr %json_string to i64
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_26)
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE_EE", i64 16), ptr %DOCTEST_CAPTURE_26, align 8, !alias.scope !262
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_26, i64 16
-  %0 = ptrtoint ptr %json_string to i64
   store i64 %0, ptr %lambda_.i.i, align 8, !alias.scope !262
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_29)
           to label %invoke.cont unwind label %lpad
@@ -28828,10 +28828,10 @@ entry:
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
   %agg.tmp = alloca %"class.std::function", align 8
+  %0 = ptrtoint ptr %json_string to i64
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_33)
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE_EE", i64 16), ptr %DOCTEST_CAPTURE_33, align 8, !alias.scope !268
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_33, i64 16
-  %0 = ptrtoint ptr %json_string to i64
   store i64 %0, ptr %lambda_.i.i, align 8, !alias.scope !268
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_36)
           to label %invoke.cont unwind label %lpad

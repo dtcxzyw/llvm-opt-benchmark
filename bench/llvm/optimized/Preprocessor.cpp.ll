@@ -143,7 +143,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::NumericLiteralParser" = type <{ ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8, i8, i8, %"class.llvm::SmallString.652", i16, i8, [5 x i8] }>
 %"class.llvm::APInt" = type <{ %union.anon.658, i32, [4 x i8] }>
 %union.anon.658 = type { i64 }
-%class.anon.678 = type { ptr }
 %"struct.std::pair.679" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 %"class.llvm::SmallVector.681" = type { %"class.llvm::SmallVectorImpl.682", %"struct.llvm::SmallVectorStorage.685" }
 %"class.llvm::SmallVectorImpl.682" = type { %"class.llvm::SmallVectorTemplateBase.683" }
@@ -11137,151 +11136,144 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit23:          ; preds = %.lr.ph.i.i.i.i.i12,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang12Preprocessor18isSafeBufferOptOutERKNS_13SourceManagerERKNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
-  %4 = alloca %class.anon.678, align 8
-  store ptr %1, ptr %4, align 8
   %.sroa.02.0.copyload = load i32, ptr %2, align 4
-  %5 = and i32 %.sroa.02.0.copyload, 2147483647
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 252
-  %7 = load i32, ptr %6, align 4
-  %8 = icmp ult i32 %5, %7
-  br i1 %8, label %9, label %11
+  %4 = and i32 %.sroa.02.0.copyload, 2147483647
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 252
+  %6 = load i32, ptr %5, align 4
+  %7 = icmp ult i32 %4, %6
+  br i1 %7, label %8, label %10
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3120
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3120
   br label %.sink.split
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3264
-  %13 = tail call i32 @_ZNK5clang13SourceManager24getUniqueLoadedASTFileIDENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.02.0.copyload) #29
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3280
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.loopexit.i.i, label %18
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 3264
+  %12 = tail call i32 @_ZNK5clang13SourceManager24getUniqueLoadedASTFileIDENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.02.0.copyload) #29
+  %13 = load ptr, ptr %11, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 3280
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %.loopexit.i.i, label %17
 
-18:                                               ; preds = %11
-  %19 = add i32 %16, -1
-  %.01821.i.i.i.i = and i32 %19, %13
-  %20 = zext i32 %.01821.i.i.i.i to i64
-  %21 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.716", ptr %14, i64 %20
-  %.sroa.02.0.copyload22.i.i.i.i = load i32, ptr %21, align 4
-  %22 = icmp eq i32 %13, %.sroa.02.0.copyload22.i.i.i.i
-  br i1 %22, label %_ZNK5clang12PreprocessorUt1_21lookupLoadedOptOutMapENS_14SourceLocationERKNS_13SourceManagerE.exit, label %.lr.ph.i.i.i.i
+17:                                               ; preds = %10
+  %18 = add i32 %15, -1
+  %.01821.i.i.i.i = and i32 %18, %12
+  %19 = zext i32 %.01821.i.i.i.i to i64
+  %20 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.716", ptr %13, i64 %19
+  %.sroa.02.0.copyload22.i.i.i.i = load i32, ptr %20, align 4
+  %21 = icmp eq i32 %12, %.sroa.02.0.copyload22.i.i.i.i
+  br i1 %21, label %_ZNK5clang12PreprocessorUt1_21lookupLoadedOptOutMapENS_14SourceLocationERKNS_13SourceManagerE.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %18, %24
-  %.sroa.02.0.copyload25.i.i.i.i = phi i32 [ %.sroa.02.0.copyload.i.i.i.i, %24 ], [ %.sroa.02.0.copyload22.i.i.i.i, %18 ]
-  %.01824.i.i.i.i = phi i32 [ %.018.i.i.i.i, %24 ], [ %.01821.i.i.i.i, %18 ]
-  %.01923.i.i.i.i = phi i32 [ %25, %24 ], [ 1, %18 ]
-  %23 = icmp eq i32 %.sroa.02.0.copyload25.i.i.i.i, 0
-  br i1 %23, label %.loopexit.i.i, label %24
+.lr.ph.i.i.i.i:                                   ; preds = %17, %23
+  %.sroa.02.0.copyload25.i.i.i.i = phi i32 [ %.sroa.02.0.copyload.i.i.i.i, %23 ], [ %.sroa.02.0.copyload22.i.i.i.i, %17 ]
+  %.01824.i.i.i.i = phi i32 [ %.018.i.i.i.i, %23 ], [ %.01821.i.i.i.i, %17 ]
+  %.01923.i.i.i.i = phi i32 [ %24, %23 ], [ 1, %17 ]
+  %22 = icmp eq i32 %.sroa.02.0.copyload25.i.i.i.i, 0
+  br i1 %22, label %.loopexit.i.i, label %23
 
-24:                                               ; preds = %.lr.ph.i.i.i.i
-  %25 = add i32 %.01923.i.i.i.i, 1
-  %26 = add i32 %.01923.i.i.i.i, %.01824.i.i.i.i
-  %.018.i.i.i.i = and i32 %26, %19
-  %27 = zext i32 %.018.i.i.i.i to i64
-  %28 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.716", ptr %14, i64 %27
-  %.sroa.02.0.copyload.i.i.i.i = load i32, ptr %28, align 4
-  %29 = icmp eq i32 %13, %.sroa.02.0.copyload.i.i.i.i
-  br i1 %29, label %_ZNK5clang12PreprocessorUt1_21lookupLoadedOptOutMapENS_14SourceLocationERKNS_13SourceManagerE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !247
+23:                                               ; preds = %.lr.ph.i.i.i.i
+  %24 = add i32 %.01923.i.i.i.i, 1
+  %25 = add i32 %.01923.i.i.i.i, %.01824.i.i.i.i
+  %.018.i.i.i.i = and i32 %25, %18
+  %26 = zext i32 %.018.i.i.i.i to i64
+  %27 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.716", ptr %13, i64 %26
+  %.sroa.02.0.copyload.i.i.i.i = load i32, ptr %27, align 4
+  %28 = icmp eq i32 %12, %.sroa.02.0.copyload.i.i.i.i
+  br i1 %28, label %_ZNK5clang12PreprocessorUt1_21lookupLoadedOptOutMapENS_14SourceLocationERKNS_13SourceManagerE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !247
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %11
-  %30 = zext i32 %16 to i64
-  %31 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.716", ptr %14, i64 %30
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %10
+  %29 = zext i32 %15 to i64
+  %30 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.716", ptr %13, i64 %29
   br label %_ZNK5clang12PreprocessorUt1_21lookupLoadedOptOutMapENS_14SourceLocationERKNS_13SourceManagerE.exit
 
-_ZNK5clang12PreprocessorUt1_21lookupLoadedOptOutMapENS_14SourceLocationERKNS_13SourceManagerE.exit: ; preds = %24, %18, %.loopexit.i.i
-  %.0.i.i.pn.i.i = phi ptr [ %31, %.loopexit.i.i ], [ %21, %18 ], [ %28, %24 ]
-  %32 = zext i32 %16 to i64
-  %33 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.716", ptr %14, i64 %32
-  %34 = icmp eq ptr %.0.i.i.pn.i.i, %33
-  br i1 %34, label %38, label %35
+_ZNK5clang12PreprocessorUt1_21lookupLoadedOptOutMapENS_14SourceLocationERKNS_13SourceManagerE.exit: ; preds = %23, %17, %.loopexit.i.i
+  %.0.i.i.pn.i.i = phi ptr [ %30, %.loopexit.i.i ], [ %20, %17 ], [ %27, %23 ]
+  %31 = zext i32 %15 to i64
+  %32 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.716", ptr %13, i64 %31
+  %33 = icmp eq ptr %.0.i.i.pn.i.i, %32
+  br i1 %33, label %37, label %34
 
-35:                                               ; preds = %_ZNK5clang12PreprocessorUt1_21lookupLoadedOptOutMapENS_14SourceLocationERKNS_13SourceManagerE.exit
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i, i64 8
+34:                                               ; preds = %_ZNK5clang12PreprocessorUt1_21lookupLoadedOptOutMapENS_14SourceLocationERKNS_13SourceManagerE.exit
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i, i64 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %9, %35
-  %.sink = phi ptr [ %36, %35 ], [ %10, %9 ]
-  %37 = call fastcc noundef zeroext i1 @"_ZZNK5clang12Preprocessor18isSafeBufferOptOutERKNS_13SourceManagerERKNS_14SourceLocationEENK3$_0clERKN4llvm11SmallVectorISt4pairIS4_S4_ELj16EEES6_"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(144) %.sink, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  br label %38
+.sink.split:                                      ; preds = %8, %34
+  %.sink = phi ptr [ %35, %34 ], [ %9, %8 ]
+  %36 = tail call fastcc noundef zeroext i1 @"_ZZNK5clang12Preprocessor18isSafeBufferOptOutERKNS_13SourceManagerERKNS_14SourceLocationEENK3$_0clERKN4llvm11SmallVectorISt4pairIS4_S4_ELj16EEES6_"(ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(144) %.sink, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  br label %37
 
-38:                                               ; preds = %.sink.split, %_ZNK5clang12PreprocessorUt1_21lookupLoadedOptOutMapENS_14SourceLocationERKNS_13SourceManagerE.exit
-  %.0 = phi i1 [ false, %_ZNK5clang12PreprocessorUt1_21lookupLoadedOptOutMapENS_14SourceLocationERKNS_13SourceManagerE.exit ], [ %37, %.sink.split ]
+37:                                               ; preds = %.sink.split, %_ZNK5clang12PreprocessorUt1_21lookupLoadedOptOutMapENS_14SourceLocationERKNS_13SourceManagerE.exit
+  %.0 = phi i1 [ false, %_ZNK5clang12PreprocessorUt1_21lookupLoadedOptOutMapENS_14SourceLocationERKNS_13SourceManagerE.exit ], [ %36, %.sink.split ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK5clang12Preprocessor18isSafeBufferOptOutERKNS_13SourceManagerERKNS_14SourceLocationEENK3$_0clERKN4llvm11SmallVectorISt4pairIS4_S4_ELj16EEES6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) unnamed_addr #0 align 2 {
-  %4 = load ptr, ptr %0, align 8
-  %5 = load ptr, ptr %1, align 8
-  %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #29
-  %7 = icmp sgt i64 %6, 0
-  br i1 %7, label %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRKNS_11SmallVectorISt4pairIN5clang14SourceLocationES4_ELj16EEEZZNKS3_12Preprocessor18isSafeBufferOptOutERKNS3_13SourceManagerERKS4_ENK3$_0clES8_SE_EUlRKS5_E_SH_EEDaOT_T0_.exit"
+define internal fastcc noundef zeroext i1 @"_ZZNK5clang12Preprocessor18isSafeBufferOptOutERKNS_13SourceManagerERKNS_14SourceLocationEENK3$_0clERKN4llvm11SmallVectorISt4pairIS4_S4_ELj16EEES6_"(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(144) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 {
+  %3 = load ptr, ptr %0, align 8
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
+  %5 = icmp sgt i64 %4, 0
+  br i1 %5, label %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRKNS_11SmallVectorISt4pairIN5clang14SourceLocationES4_ELj16EEEZZNKS3_12Preprocessor18isSafeBufferOptOutERKNS3_13SourceManagerERKS4_ENK3$_0clES8_SE_EUlRKS5_E_SH_EEDaOT_T0_.exit"
 
-_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i: ; preds = %3, %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i
-  %.018.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i ], [ %5, %3 ]
-  %.01017.i.i = phi i64 [ %.111.i.i, %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i ], [ %6, %3 ]
-  %8 = lshr i64 %.01017.i.i, 1
-  %9 = getelementptr inbounds %"struct.std::pair.679", ptr %.018.i.i, i64 %8
-  %10 = getelementptr i8, ptr %9, i64 4
-  %.val13.i.i = load i32, ptr %10, align 4
-  %.val12.val.i.i = load i32, ptr %2, align 4
-  %11 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.val13.i.i, i32 %.val12.val.i.i) #29
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
-  %13 = xor i64 %8, -1
-  %14 = add nsw i64 %.01017.i.i, %13
-  %.111.i.i = select i1 %11, i64 %14, i64 %8
-  %.1.i.i = select i1 %11, ptr %12, ptr %.018.i.i
-  %15 = icmp sgt i64 %.111.i.i, 0
-  br i1 %15, label %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRKNS_11SmallVectorISt4pairIN5clang14SourceLocationES4_ELj16EEEZZNKS3_12Preprocessor18isSafeBufferOptOutERKNS3_13SourceManagerERKS4_ENK3$_0clES8_SE_EUlRKS5_E_SH_EEDaOT_T0_.exit", !llvm.loop !248
+_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i: ; preds = %2, %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i
+  %.018.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i ], [ %3, %2 ]
+  %.01017.i.i = phi i64 [ %.111.i.i, %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i ], [ %4, %2 ]
+  %6 = lshr i64 %.01017.i.i, 1
+  %7 = getelementptr inbounds %"struct.std::pair.679", ptr %.018.i.i, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 4
+  %.val13.i.i = load i32, ptr %8, align 4
+  %.val12.val.i.i = load i32, ptr %1, align 4
+  %9 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %.0.val, i32 %.val13.i.i, i32 %.val12.val.i.i) #29
+  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = xor i64 %6, -1
+  %12 = add nsw i64 %.01017.i.i, %11
+  %.111.i.i = select i1 %9, i64 %12, i64 %6
+  %.1.i.i = select i1 %9, ptr %10, ptr %.018.i.i
+  %13 = icmp sgt i64 %.111.i.i, 0
+  br i1 %13, label %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRKNS_11SmallVectorISt4pairIN5clang14SourceLocationES4_ELj16EEEZZNKS3_12Preprocessor18isSafeBufferOptOutERKNS3_13SourceManagerERKS4_ENK3$_0clES8_SE_EUlRKS5_E_SH_EEDaOT_T0_.exit", !llvm.loop !248
 
-"_ZN4llvm15partition_pointIRKNS_11SmallVectorISt4pairIN5clang14SourceLocationES4_ELj16EEEZZNKS3_12Preprocessor18isSafeBufferOptOutERKNS3_13SourceManagerERKS4_ENK3$_0clES8_SE_EUlRKS5_E_SH_EEDaOT_T0_.exit": ; preds = %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i, %3
-  %.0.lcssa.i.i = phi ptr [ %5, %3 ], [ %.1.i.i, %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i ]
-  %16 = load ptr, ptr %1, align 8
-  %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #29
-  %18 = getelementptr inbounds %"struct.std::pair.679", ptr %16, i64 %17
-  %.not = icmp eq ptr %.0.lcssa.i.i, %18
-  br i1 %.not, label %22, label %19
+"_ZN4llvm15partition_pointIRKNS_11SmallVectorISt4pairIN5clang14SourceLocationES4_ELj16EEEZZNKS3_12Preprocessor18isSafeBufferOptOutERKNS3_13SourceManagerERKS4_ENK3$_0clES8_SE_EUlRKS5_E_SH_EEDaOT_T0_.exit": ; preds = %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i, %2
+  %.0.lcssa.i.i = phi ptr [ %3, %2 ], [ %.1.i.i, %_ZSt7advanceIPKSt4pairIN5clang14SourceLocationES2_ElEvRT_T0_.exit.i.i ]
+  %14 = load ptr, ptr %0, align 8
+  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
+  %16 = getelementptr inbounds %"struct.std::pair.679", ptr %14, i64 %15
+  %.not = icmp eq ptr %.0.lcssa.i.i, %16
+  br i1 %.not, label %17, label %.sink.split
 
-19:                                               ; preds = %"_ZN4llvm15partition_pointIRKNS_11SmallVectorISt4pairIN5clang14SourceLocationES4_ELj16EEEZZNKS3_12Preprocessor18isSafeBufferOptOutERKNS3_13SourceManagerERKS4_ENK3$_0clES8_SE_EUlRKS5_E_SH_EEDaOT_T0_.exit"
+17:                                               ; preds = %"_ZN4llvm15partition_pointIRKNS_11SmallVectorISt4pairIN5clang14SourceLocationES4_ELj16EEEZZNKS3_12Preprocessor18isSafeBufferOptOutERKNS3_13SourceManagerERKS4_ENK3$_0clES8_SE_EUlRKS5_E_SH_EEDaOT_T0_.exit"
+  %18 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
+  br i1 %18, label %37, label %19
+
+19:                                               ; preds = %17
   %20 = load ptr, ptr %0, align 8
-  %.sroa.03.0.copyload = load i32, ptr %.0.lcssa.i.i, align 4
-  %.sroa.02.0.copyload = load i32, ptr %2, align 4
-  %21 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %20, i32 %.sroa.03.0.copyload, i32 %.sroa.02.0.copyload) #29
-  br label %43
+  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
+  %22 = getelementptr inbounds %"struct.std::pair.679", ptr %20, i64 %21
+  %23 = getelementptr inbounds i8, ptr %22, i64 -8
+  %24 = load ptr, ptr %0, align 8
+  %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
+  %26 = getelementptr inbounds %"struct.std::pair.679", ptr %24, i64 %25
+  %27 = getelementptr inbounds i8, ptr %26, i64 -4
+  %28 = load i32, ptr %23, align 4
+  %29 = load i32, ptr %27, align 4
+  %30 = icmp eq i32 %28, %29
+  br i1 %30, label %31, label %37
 
-22:                                               ; preds = %"_ZN4llvm15partition_pointIRKNS_11SmallVectorISt4pairIN5clang14SourceLocationES4_ELj16EEEZZNKS3_12Preprocessor18isSafeBufferOptOutERKNS3_13SourceManagerERKS4_ENK3$_0clES8_SE_EUlRKS5_E_SH_EEDaOT_T0_.exit"
-  %23 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #29
-  br i1 %23, label %43, label %24
+31:                                               ; preds = %19
+  %32 = load ptr, ptr %0, align 8
+  %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
+  %34 = getelementptr inbounds %"struct.std::pair.679", ptr %32, i64 %33
+  %35 = getelementptr inbounds i8, ptr %34, i64 -8
+  br label %.sink.split
 
-24:                                               ; preds = %22
-  %25 = load ptr, ptr %1, align 8
-  %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #29
-  %27 = getelementptr inbounds %"struct.std::pair.679", ptr %25, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 -8
-  %29 = load ptr, ptr %1, align 8
-  %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #29
-  %31 = getelementptr inbounds %"struct.std::pair.679", ptr %29, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 -4
-  %33 = load i32, ptr %28, align 4
-  %34 = load i32, ptr %32, align 4
-  %35 = icmp eq i32 %33, %34
-  br i1 %35, label %36, label %43
+.sink.split:                                      ; preds = %"_ZN4llvm15partition_pointIRKNS_11SmallVectorISt4pairIN5clang14SourceLocationES4_ELj16EEEZZNKS3_12Preprocessor18isSafeBufferOptOutERKNS3_13SourceManagerERKS4_ENK3$_0clES8_SE_EUlRKS5_E_SH_EEDaOT_T0_.exit", %31
+  %.sroa.01.0.copyload.sink.in = phi ptr [ %35, %31 ], [ %.0.lcssa.i.i, %"_ZN4llvm15partition_pointIRKNS_11SmallVectorISt4pairIN5clang14SourceLocationES4_ELj16EEEZZNKS3_12Preprocessor18isSafeBufferOptOutERKNS3_13SourceManagerERKS4_ENK3$_0clES8_SE_EUlRKS5_E_SH_EEDaOT_T0_.exit" ]
+  %.sroa.01.0.copyload.sink = load i32, ptr %.sroa.01.0.copyload.sink.in, align 4
+  %.sroa.0.0.copyload = load i32, ptr %1, align 4
+  %36 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %.0.val, i32 %.sroa.01.0.copyload.sink, i32 %.sroa.0.0.copyload) #29
+  br label %37
 
-36:                                               ; preds = %24
-  %37 = load ptr, ptr %0, align 8
-  %38 = load ptr, ptr %1, align 8
-  %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #29
-  %40 = getelementptr inbounds %"struct.std::pair.679", ptr %38, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 -8
-  %.sroa.01.0.copyload = load i32, ptr %41, align 4
-  %.sroa.0.0.copyload = load i32, ptr %2, align 4
-  %42 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %37, i32 %.sroa.01.0.copyload, i32 %.sroa.0.0.copyload) #29
-  br label %43
-
-43:                                               ; preds = %22, %24, %36, %19
-  %.0 = phi i1 [ %21, %19 ], [ %42, %36 ], [ false, %24 ], [ false, %22 ]
+37:                                               ; preds = %.sink.split, %17, %19
+  %.0 = phi i1 [ false, %19 ], [ false, %17 ], [ %36, %.sink.split ]
   ret i1 %.0
 }
 

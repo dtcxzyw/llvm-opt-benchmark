@@ -41173,25 +41173,25 @@ if.end34.i.i.i.i:                                 ; preds = %if.then21.i.i.i.i, 
   store i8 0, ptr %reserved.i.i.i.i.i.i, align 1
   store i32 %9, ptr %arraylen.i.i.i.i.i.i, align 8
   store i64 %10, ptr %xSampling.i.i.i.i.i, align 4
-  %cmp15.i.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i.i, %__parent.0.i.i.i
-  br i1 %cmp15.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_T0_SI_T1_T2_.exit.i.i.i
+  %cmp3.i.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i.i, %__parent.0.i.i.i
+  br i1 %cmp3.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_T0_SI_T1_T2_.exit.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %if.end34.i.i.i.i, %while.body.i.i.i.i.i
-  %__holeIndex.addr.016.i.i.i.i.i = phi i64 [ %__parent.017.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end34.i.i.i.i ]
-  %__parent.017.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.016.i.i.i.i.i, -1
-  %__parent.017.i.i.i.i.i = sdiv i64 %__parent.017.in.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %__first.coerce, i64 %__parent.017.i.i.i.i.i
+  %__holeIndex.addr.04.i.i.i.i.i = phi i64 [ %__parent.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end34.i.i.i.i ]
+  %__parent.05.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.04.i.i.i.i.i, -1
+  %__parent.05.i.i.i.i.i = sdiv i64 %__parent.05.in.i.i.i.i.i, 2
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %__first.coerce, i64 %__parent.05.i.i.i.i.i
   %call2.i.i.i.i.i.i = call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 8 dereferenceable(76) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp36.i.i.i.i)
   br i1 %call2.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_T0_SI_T1_T2_.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr.i11.i.i.i.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %__first.coerce, i64 %__holeIndex.addr.016.i.i.i.i.i
+  %add.ptr.i11.i.i.i.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %__first.coerce, i64 %__holeIndex.addr.04.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %add.ptr.i11.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(76) %add.ptr.i.i.i.i.i.i, i64 76, i1 false)
-  %cmp.i.i.i.i.i = icmp sgt i64 %__parent.017.i.i.i.i.i, %__parent.0.i.i.i
+  %cmp.i.i.i.i.i = icmp sgt i64 %__parent.05.i.i.i.i.i, %__parent.0.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_T0_SI_T1_T2_.exit.i.i.i, !llvm.loop !269
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_T0_SI_T1_T2_.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end34.i.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end34.i.i.i.i ], [ %__holeIndex.addr.016.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.017.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end34.i.i.i.i ], [ %__holeIndex.addr.04.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %add.ptr.i12.i.i.i.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %add.ptr.i12.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp36.i.i.i.i, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %agg.tmp36.i.i.i.i)
@@ -41302,25 +41302,25 @@ if.end34.i.i:                                     ; preds = %if.then21.i.i, %lan
   store i8 0, ptr %reserved.i.i.i.i, align 1
   store i32 %20, ptr %arraylen.i.i.i.i, align 8
   store i64 %21, ptr %xSampling.i.i.i, align 4
-  %cmp15.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i, 0
-  br i1 %cmp15.i.i.i, label %land.rhs.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_RT0_.exit
+  %cmp3.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i, 0
+  br i1 %cmp3.i.i.i, label %land.rhs.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_RT0_.exit
 
 land.rhs.i.i.i:                                   ; preds = %if.end34.i.i, %while.body.i.i.i8
-  %__holeIndex.addr.016.i.i.i = phi i64 [ %__parent.017.i.i2728.i, %while.body.i.i.i8 ], [ %__holeIndex.addr.1.i.i, %if.end34.i.i ]
-  %__parent.017.in.i.i.i = add nsw i64 %__holeIndex.addr.016.i.i.i, -1
-  %__parent.017.i.i2728.i = lshr i64 %__parent.017.in.i.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %__first.coerce, i64 %__parent.017.i.i2728.i
+  %__holeIndex.addr.04.i.i.i = phi i64 [ %__parent.05.i.i2728.i, %while.body.i.i.i8 ], [ %__holeIndex.addr.1.i.i, %if.end34.i.i ]
+  %__parent.05.in.i.i.i = add nsw i64 %__holeIndex.addr.04.i.i.i, -1
+  %__parent.05.i.i2728.i = lshr i64 %__parent.05.in.i.i.i, 1
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %__first.coerce, i64 %__parent.05.i.i2728.i
   %call2.i.i.i.i = call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 8 dereferenceable(76) %add.ptr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp36.i.i)
   br i1 %call2.i.i.i.i, label %while.body.i.i.i8, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_RT0_.exit
 
 while.body.i.i.i8:                                ; preds = %land.rhs.i.i.i
-  %add.ptr.i11.i.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %__first.coerce, i64 %__holeIndex.addr.016.i.i.i
+  %add.ptr.i11.i.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %__first.coerce, i64 %__holeIndex.addr.04.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %add.ptr.i11.i.i.i, ptr noundef nonnull align 8 dereferenceable(76) %add.ptr.i.i.i.i, i64 76, i1 false)
-  %cmp.i.i.not.i = icmp ult i64 %__parent.017.in.i.i.i, 2
+  %cmp.i.i.not.i = icmp ult i64 %__parent.05.in.i.i.i, 2
   br i1 %cmp.i.i.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_RT0_.exit, label %land.rhs.i.i.i, !llvm.loop !269
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_RT0_.exit: ; preds = %land.rhs.i.i.i, %while.body.i.i.i8, %if.end34.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i, %if.end34.i.i ], [ %__holeIndex.addr.016.i.i.i, %land.rhs.i.i.i ], [ 0, %while.body.i.i.i8 ]
+  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i, %if.end34.i.i ], [ %__holeIndex.addr.04.i.i.i, %land.rhs.i.i.i ], [ 0, %while.body.i.i.i8 ]
   %add.ptr.i12.i.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %add.ptr.i12.i.i.i, ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp36.i.i, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %agg.tmp36.i.i)

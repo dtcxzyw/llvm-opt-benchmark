@@ -5979,6 +5979,7 @@ for.body47.i.i:                                   ; preds = %for.cond44.preheade
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp13.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp14.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp15.i.i)
+  %33 = ptrtoint ptr %pl to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !77
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp78.i.i.i.i.i), !noalias !77
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i.i.i), !noalias !77
@@ -5988,17 +5989,17 @@ for.body47.i.i:                                   ; preds = %for.cond44.preheade
           to label %_ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i, !noalias !77
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %"_ZN2tf8PipelineIJNS_4PipeIZ4mainE3$_0EENS1_IZ4mainE3$_1EENS1_IZ4mainE3$_2EEEE5resetEv.exit.i"
-  %33 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #37
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #37
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i.i.i: ; preds = %"_ZN2tf8PipelineIJNS_4PipeIZ4mainE3$_0EENS1_IZ4mainE3$_1EENS1_IZ4mainE3$_2EEEE5resetEv.exit.i"
-  %35 = load i64, ptr @_ZN2tf9node_poolE, align 8, !noalias !77
-  %and.i.i.i.i.i.i = and i64 %35, %call.i.i1.i.i.i.i.i.i.i
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2tf9node_poolE, i64 64), align 8, !noalias !77
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %36, i64 %and.i.i.i.i.i.i
+  %36 = load i64, ptr @_ZN2tf9node_poolE, align 8, !noalias !77
+  %and.i.i.i.i.i.i = and i64 %36, %call.i.i1.i.i.i.i.i.i.i
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2tf9node_poolE, i64 64), align 8, !noalias !77
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %37, i64 %and.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i.i.i), !noalias !77
   %call1.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i) #33, !noalias !77
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i.i.i, 0
@@ -6009,8 +6010,8 @@ for.cond.preheader.i.i.i.i.i:                     ; preds = %_ZN2tf10ObjectPoolI
   br label %for.body.i.i.i.i.i
 
 if.then.i.i.i.i.i.invoke.i:                       ; preds = %if.then20.i.i.i138.i.i, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i24.i.i, %if.then20.i.i.i.i.i, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i.i.i
-  %37 = phi i32 [ %call1.i.i.i.i.i.i.i, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i.i.i ], [ %call1.i.i45.i.i.i.i.i, %if.then20.i.i.i.i.i ], [ %call1.i.i45.i.i.i139.i.i, %if.then20.i.i.i138.i.i ], [ %call1.i.i.i.i.i27.i.i, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i24.i.i ]
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %37) #38
+  %38 = phi i32 [ %call1.i.i.i.i.i.i.i, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i.i.i ], [ %call1.i.i45.i.i.i.i.i, %if.then20.i.i.i.i.i ], [ %call1.i.i45.i.i.i139.i.i, %if.then20.i.i.i138.i.i ], [ %call1.i.i.i.i.i27.i.i, %_ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i24.i.i ]
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %38) #38
           to label %if.then.i.i.i.i.i.cont.i unwind label %lpad24.loopexit.split-lp.i
 
 if.then.i.i.i.i.i.cont.i:                         ; preds = %if.then.i.i.i.i.i.invoke.i
@@ -6021,12 +6022,12 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   %idxprom.i.i.i.i.i = zext nneg i32 %f.04.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds [5 x %"struct.tf::ObjectPool<tf::Node>::Blocklist"], ptr %lists.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   %next.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 8
-  %38 = load ptr, ptr %next.i.i.i.i.i.i, align 8, !noalias !77
-  %cmp.i.i.i.i.i.i = icmp eq ptr %38, %arrayidx.i.i.i.i.i
+  %39 = load ptr, ptr %next.i.i.i.i.i.i, align 8, !noalias !77
+  %cmp.i.i.i.i.i.i = icmp eq ptr %39, %arrayidx.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %for.end.thread.i.i.i.i.i
 
 for.end.thread.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i
-  %add.ptr.i.i44.i.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 -8
+  %add.ptr.i.i44.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 -8
   br label %if.end59.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
@@ -6040,15 +6041,15 @@ if.then20.i.i.i.i.i:                              ; preds = %for.inc.i.i.i.i.i
   br i1 %tobool.not.i46.i.i.i.i.i, label %_ZNSt5mutex4lockEv.exit48.i.i.i.i.i, label %if.then.i.i.i.i.i.invoke.i
 
 _ZNSt5mutex4lockEv.exit48.i.i.i.i.i:              ; preds = %if.then20.i.i.i.i.i
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2tf9node_poolE, i64 56), align 8, !noalias !77
-  %cmp.i49.i.i.i.i.i = icmp eq ptr %39, getelementptr inbounds (i8, ptr @_ZN2tf9node_poolE, i64 48)
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2tf9node_poolE, i64 56), align 8, !noalias !77
+  %cmp.i49.i.i.i.i.i = icmp eq ptr %40, getelementptr inbounds (i8, ptr @_ZN2tf9node_poolE, i64 48)
   br i1 %cmp.i49.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then24.i.i.i.i.i
 
 if.then24.i.i.i.i.i:                              ; preds = %_ZNSt5mutex4lockEv.exit48.i.i.i.i.i
-  %add.ptr.i.i50.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 -8
-  %u.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 24
-  %40 = load i64, ptr %u.i.i.i.i.i, align 8, !noalias !77
-  %add.i.i.i.i.i = add i64 %40, 1
+  %add.ptr.i.i50.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 -8
+  %u.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = load i64, ptr %u.i.i.i.i.i, align 8, !noalias !77
+  %add.i.i.i.i.i = add i64 %41, 1
   %cmp.i51.i.i.i.i.i = icmp eq i64 %add.i.i.i.i.i, 273
   %div.i.i.i.i.i.i = udiv i64 %add.i.i.i.i.i, 69
   %cond.i.i.i.i.i.i = select i1 %cmp.i51.i.i.i.i.i, i64 4, i64 %div.i.i.i.i.i.i
@@ -6056,29 +6057,29 @@ if.then24.i.i.i.i.i:                              ; preds = %_ZNSt5mutex4lockEv.
   %sext.i.i.i.i.i = shl i64 %cond.i.i.i.i.i.i, 32
   %idxprom31.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i, 32
   %arrayidx32.i.i.i.i.i = getelementptr inbounds [5 x %"struct.tf::ObjectPool<tf::Node>::Blocklist"], ptr %lists.i.i.i.i.i, i64 0, i64 %idxprom31.i.i.i.i.i
-  %41 = load ptr, ptr %39, align 8, !noalias !77
-  %next.i52.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 8
-  %42 = load ptr, ptr %next.i52.i.i.i.i.i, align 8, !noalias !77
-  store ptr %41, ptr %42, align 8, !noalias !77
-  %next3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 8
-  store ptr %42, ptr %next3.i.i.i.i.i.i.i, align 8, !noalias !77
+  %42 = load ptr, ptr %40, align 8, !noalias !77
+  %next.i52.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 8
+  %43 = load ptr, ptr %next.i52.i.i.i.i.i, align 8, !noalias !77
+  store ptr %42, ptr %43, align 8, !noalias !77
+  %next3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 8
+  store ptr %43, ptr %next3.i.i.i.i.i.i.i, align 8, !noalias !77
   %next.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx32.i.i.i.i.i, i64 8
-  %43 = load ptr, ptr %next.i.i.i.i.i.i.i, align 8, !noalias !77
-  store ptr %39, ptr %43, align 8, !noalias !77
-  store ptr %43, ptr %next.i52.i.i.i.i.i, align 8, !noalias !77
-  store ptr %arrayidx32.i.i.i.i.i, ptr %39, align 8, !noalias !77
-  store ptr %39, ptr %next.i.i.i.i.i.i.i, align 8, !noalias !77
-  %44 = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i to i64
-  store atomic i64 %44, ptr %add.ptr.i.i50.i.i.i.i.i seq_cst, align 8, !noalias !77
+  %44 = load ptr, ptr %next.i.i.i.i.i.i.i, align 8, !noalias !77
+  store ptr %40, ptr %44, align 8, !noalias !77
+  store ptr %44, ptr %next.i52.i.i.i.i.i, align 8, !noalias !77
+  store ptr %arrayidx32.i.i.i.i.i, ptr %40, align 8, !noalias !77
+  store ptr %40, ptr %next.i.i.i.i.i.i.i, align 8, !noalias !77
+  %45 = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i to i64
+  store atomic i64 %45, ptr %add.ptr.i.i50.i.i.i.i.i seq_cst, align 8, !noalias !77
   %call1.i.i53.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN2tf9node_poolE, i64 8)) #33, !noalias !77
   %u36.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 120
-  %45 = load i64, ptr %u36.i.i.i.i.i, align 8, !noalias !77
-  %46 = load i64, ptr %u.i.i.i.i.i, align 8, !noalias !77
-  %add38.i.i.i.i.i = add i64 %46, %45
+  %46 = load i64, ptr %u36.i.i.i.i.i, align 8, !noalias !77
+  %47 = load i64, ptr %u.i.i.i.i.i, align 8, !noalias !77
+  %add38.i.i.i.i.i = add i64 %47, %46
   store i64 %add38.i.i.i.i.i, ptr %u36.i.i.i.i.i, align 8, !noalias !77
   %a.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 128
-  %47 = load i64, ptr %a.i.i.i.i.i, align 8, !noalias !77
-  %add40.i.i.i.i.i = add i64 %47, 273
+  %48 = load i64, ptr %a.i.i.i.i.i, align 8, !noalias !77
+  %add40.i.i.i.i.i = add i64 %48, 273
   store i64 %add40.i.i.i.i.i, ptr %a.i.i.i.i.i, align 8, !noalias !77
   br label %if.end59.i.i.i.i.i
 
@@ -6089,21 +6090,21 @@ if.else.i.i.i.i.i:                                ; preds = %_ZNSt5mutex4lockEv.
 
 call44.i.i.i.i.noexc.i:                           ; preds = %if.else.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65584) %call44.i.i.i.i36.i, i8 0, i64 65584, i1 false), !noalias !77
-  %48 = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i to i64
-  store atomic i64 %48, ptr %call44.i.i.i.i36.i seq_cst, align 8, !noalias !77
+  %49 = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i to i64
+  store atomic i64 %49, ptr %call44.i.i.i.i36.i seq_cst, align 8, !noalias !77
   %i.i.i.i.i.i = getelementptr inbounds i8, ptr %call44.i.i.i.i36.i, i64 24
   %list_node51.i.i.i.i.i = getelementptr inbounds i8, ptr %call44.i.i.i.i36.i, i64 8
   %next.i55.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !77
-  %49 = load ptr, ptr %next.i55.i.i.i.i.i, align 8, !noalias !77
-  store ptr %list_node51.i.i.i.i.i, ptr %49, align 8, !noalias !77
+  %50 = load ptr, ptr %next.i55.i.i.i.i.i, align 8, !noalias !77
+  store ptr %list_node51.i.i.i.i.i, ptr %50, align 8, !noalias !77
   %next3.i.i56.i.i.i.i.i = getelementptr inbounds i8, ptr %call44.i.i.i.i36.i, i64 16
-  store ptr %49, ptr %next3.i.i56.i.i.i.i.i, align 8, !noalias !77
+  store ptr %50, ptr %next3.i.i56.i.i.i.i.i, align 8, !noalias !77
   store ptr %lists.i.i.i.i.i, ptr %list_node51.i.i.i.i.i, align 8, !noalias !77
   store ptr %list_node51.i.i.i.i.i, ptr %next.i55.i.i.i.i.i, align 8, !noalias !77
   %a55.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 128
-  %50 = load i64, ptr %a55.i.i.i.i.i, align 8, !noalias !77
-  %add56.i.i.i.i.i = add i64 %50, 273
+  %51 = load i64, ptr %a55.i.i.i.i.i, align 8, !noalias !77
+  %add56.i.i.i.i.i = add i64 %51, 273
   store i64 %add56.i.i.i.i.i, ptr %a55.i.i.i.i.i, align 8, !noalias !77
   br label %if.end59.i.i.i.i.i
 
@@ -6111,35 +6112,35 @@ if.end59.i.i.i.i.i:                               ; preds = %call44.i.i.i.i.noex
   %f.1.i.i.i.i.i = phi i32 [ 0, %call44.i.i.i.i.noexc.i ], [ %conv.i.i.i.i.i, %if.then24.i.i.i.i.i ], [ %f.04.i.i.i.i.i, %for.end.thread.i.i.i.i.i ]
   %s.1.i.i.i.i.i = phi ptr [ %call44.i.i.i.i36.i, %call44.i.i.i.i.noexc.i ], [ %add.ptr.i.i50.i.i.i.i.i, %if.then24.i.i.i.i.i ], [ %add.ptr.i.i44.i.i.i.i.i, %for.end.thread.i.i.i.i.i ]
   %u60.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 120
-  %51 = load i64, ptr %u60.i.i.i.i.i, align 8, !noalias !77
-  %add61.i.i.i.i.i = add i64 %51, 1
+  %52 = load i64, ptr %u60.i.i.i.i.i, align 8, !noalias !77
+  %add61.i.i.i.i.i = add i64 %52, 1
   store i64 %add61.i.i.i.i.i, ptr %u60.i.i.i.i.i, align 8, !noalias !77
   %u63.i.i.i.i.i = getelementptr inbounds i8, ptr %s.1.i.i.i.i.i, i64 32
-  %52 = load i64, ptr %u63.i.i.i.i.i, align 8, !noalias !77
-  %add64.i.i.i.i.i = add i64 %52, 1
+  %53 = load i64, ptr %u63.i.i.i.i.i, align 8, !noalias !77
+  %add64.i.i.i.i.i = add i64 %53, 1
   store i64 %add64.i.i.i.i.i, ptr %u63.i.i.i.i.i, align 8, !noalias !77
   %top.i.i.i.i.i.i = getelementptr inbounds i8, ptr %s.1.i.i.i.i.i, i64 40
-  %53 = load ptr, ptr %top.i.i.i.i.i.i, align 8, !noalias !77
-  %cmp.i57.i.i.i.i.i = icmp eq ptr %53, null
+  %54 = load ptr, ptr %top.i.i.i.i.i.i, align 8, !noalias !77
+  %cmp.i57.i.i.i.i.i = icmp eq ptr %54, null
   br i1 %cmp.i57.i.i.i.i.i, label %if.then.i58.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i58.i.i.i.i.i:                            ; preds = %if.end59.i.i.i.i.i
   %data.i.i.i.i.i.i = getelementptr inbounds i8, ptr %s.1.i.i.i.i.i, i64 48
   %i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %s.1.i.i.i.i.i, i64 24
-  %54 = load i64, ptr %i.i.i.i.i.i.i, align 8, !noalias !77
-  %inc.i.i.i.i.i.i = add i64 %54, 1
+  %55 = load i64, ptr %i.i.i.i.i.i.i, align 8, !noalias !77
+  %inc.i.i.i.i.i.i = add i64 %55, 1
   store i64 %inc.i.i.i.i.i.i, ptr %i.i.i.i.i.i.i, align 8, !noalias !77
-  %mul.i.i.i.i.i.i = mul i64 %54, 240
+  %mul.i.i.i.i.i.i = mul i64 %55, 240
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %data.i.i.i.i.i.i, i64 %mul.i.i.i.i.i.i
   br label %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end59.i.i.i.i.i
-  %55 = load ptr, ptr %53, align 8, !noalias !77
-  store ptr %55, ptr %top.i.i.i.i.i.i, align 8, !noalias !77
+  %56 = load ptr, ptr %54, align 8, !noalias !77
+  store ptr %56, ptr %top.i.i.i.i.i.i, align 8, !noalias !77
   br label %_ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i.i.i
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE9_allocateEPNS2_5BlockE.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i58.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.then.i58.i.i.i.i.i ], [ %53, %if.else.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.then.i58.i.i.i.i.i ], [ %54, %if.else.i.i.i.i.i.i ]
   %cmp.i59.i.i.i.i.i = icmp eq i64 %add64.i.i.i.i.i, 273
   %div.i60.i.i.i.i.i = udiv i64 %add64.i.i.i.i.i, 69
   %cond.i61.i.i.i.i.i = select i1 %cmp.i59.i.i.i.i.i, i64 4, i64 %div.i60.i.i.i.i.i
@@ -6152,16 +6153,16 @@ if.then71.i.i.i.i.i:                              ; preds = %_ZN2tf10ObjectPoolI
   %sext42.i.i.i.i.i = shl i64 %cond.i61.i.i.i.i.i, 32
   %idxprom74.i.i.i.i.i = ashr exact i64 %sext42.i.i.i.i.i, 32
   %arrayidx75.i.i.i.i.i = getelementptr inbounds [5 x %"struct.tf::ObjectPool<tf::Node>::Blocklist"], ptr %lists.i.i.i.i.i, i64 0, i64 %idxprom74.i.i.i.i.i
-  %56 = load ptr, ptr %list_node72.i.i.i.i.i, align 8, !noalias !77
+  %57 = load ptr, ptr %list_node72.i.i.i.i.i, align 8, !noalias !77
   %next.i62.i.i.i.i.i = getelementptr inbounds i8, ptr %s.1.i.i.i.i.i, i64 16
-  %57 = load ptr, ptr %next.i62.i.i.i.i.i, align 8, !noalias !77
-  store ptr %56, ptr %57, align 8, !noalias !77
-  %next3.i.i63.i.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 8
-  store ptr %57, ptr %next3.i.i63.i.i.i.i.i, align 8, !noalias !77
+  %58 = load ptr, ptr %next.i62.i.i.i.i.i, align 8, !noalias !77
+  store ptr %57, ptr %58, align 8, !noalias !77
+  %next3.i.i63.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
+  store ptr %58, ptr %next3.i.i63.i.i.i.i.i, align 8, !noalias !77
   %next.i.i64.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx75.i.i.i.i.i, i64 8
-  %58 = load ptr, ptr %next.i.i64.i.i.i.i.i, align 8, !noalias !77
-  store ptr %list_node72.i.i.i.i.i, ptr %58, align 8, !noalias !77
-  store ptr %58, ptr %next.i62.i.i.i.i.i, align 8, !noalias !77
+  %59 = load ptr, ptr %next.i.i64.i.i.i.i.i, align 8, !noalias !77
+  store ptr %list_node72.i.i.i.i.i, ptr %59, align 8, !noalias !77
+  store ptr %59, ptr %next.i62.i.i.i.i.i, align 8, !noalias !77
   store ptr %arrayidx75.i.i.i.i.i, ptr %list_node72.i.i.i.i.i, align 8, !noalias !77
   store ptr %list_node72.i.i.i.i.i, ptr %next.i.i64.i.i.i.i.i, align 8, !noalias !77
   br label %if.end76.i.i.i.i.i
@@ -6182,10 +6183,10 @@ call.i.noexc.i.i.i.i.i:                           ; preds = %if.end76.i.i.i.i.i
           to label %if.end.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i, !noalias !77
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %.noexc.i.i.i.i.i
-  %59 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #37
+  %61 = extractvalue { ptr, i32 } %60, 0
+  call void @__clang_call_terminate(ptr %61) #37
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %.noexc.i.i.i.i.i
@@ -6200,7 +6201,7 @@ invoke.cont.i8.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i
           to label %invoke.cont.i.i.i.i.i unwind label %lpad.i7.i.i.i.i, !noalias !77
 
 lpad.i7.i.i.i.i:                                  ; preds = %invoke.cont.i8.i.i.i.i, %if.end.i.i.i.i.i
-  %61 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i.i.i.i.i) #33, !noalias !77
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #33, !noalias !77
@@ -6213,18 +6214,18 @@ invoke.cont.i.i.i.i.i:                            ; preds = %invoke.cont.i8.i.i.
           to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZNS_8PipelineIJNS_4PipeIZ4mainE3$_0EENSB_IZ4mainE3$_1EENSB_IZ4mainE3$_2EEEE6_buildEvEUlvE_EEEPS1_DpOT_.exit.i.i.i.i" unwind label %lpad80.i.i.i.i.i, !noalias !77
 
 lpad.i.i.i.i.i:                                   ; preds = %call.i.noexc.i.i.i.i.i, %if.end76.i.i.i.i.i
-  %62 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i.i.i.i
 
 lpad80.i.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i.i
-  %63 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i) #33, !noalias !77
   br label %ehcleanup.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i:                              ; preds = %lpad80.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i7.i.i.i.i
-  %.pn.i.i.i.i.i = phi { ptr, i32 } [ %63, %lpad80.i.i.i.i.i ], [ %62, %lpad.i.i.i.i.i ], [ %61, %lpad.i7.i.i.i.i ]
+  %.pn.i.i.i.i.i = phi { ptr, i32 } [ %64, %lpad80.i.i.i.i.i ], [ %63, %lpad.i.i.i.i.i ], [ %62, %lpad.i7.i.i.i.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i.i.i.i.i) #33, !noalias !77
   br label %lpad24.body.i
 
@@ -6253,9 +6254,8 @@ ehcleanup.i.i.i.i.i:                              ; preds = %lpad80.i.i.i.i.i, %
   %_handle.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 176
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 192
   %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 200
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %_join_counter.i.i.i.i.i.i, i8 0, i64 32, i1 false), !noalias !77
-  %64 = ptrtoint ptr %pl to i64
-  store i64 %64, ptr %_handle.i.i.i.i.i.i, align 8, !noalias !77
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_join_counter.i.i.i.i.i.i, i8 0, i64 32, i1 false), !noalias !77
+  store i64 %33, ptr %_handle.i.i.i.i.i.i, align 8, !noalias !77
   store ptr @"_ZNSt17_Function_handlerIFivEZN2tf8PipelineIJNS1_4PipeIZ4mainE3$_0EENS3_IZ4mainE3$_1EENS3_IZ4mainE3$_2EEEE6_buildEvEUlvE_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !77
   store ptr @"_ZNSt17_Function_handlerIFivEZN2tf8PipelineIJNS1_4PipeIZ4mainE3$_0EENS3_IZ4mainE3$_1EENS3_IZ4mainE3$_2EEEE6_buildEvEUlvE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !77
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 208

@@ -3983,9 +3983,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFS
   %.0.i.i = phi ptr [ %.0.i.i7.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E16InsertIntoBucketIS4_JEEEPSC_SG_OT_DpOT0_.exit.i.i ], [ %24, %16 ], [ %38, %32 ]
   %111 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   store i32 %5, ptr %111, align 4
-  %.val7 = load ptr, ptr %6, align 8
-  %.val8 = load i32, ptr %14, align 8
-  %112 = icmp eq i32 %.val8, 0
+  %.val8 = load ptr, ptr %6, align 8
+  %.val9 = load i32, ptr %14, align 8
+  %112 = icmp eq i32 %.val9, 0
   br i1 %112, label %.loopexit.i, label %113
 
 113:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_.exit
@@ -3994,10 +3994,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFS
   %116 = lshr i32 %115, 4
   %117 = lshr i32 %115, 9
   %118 = xor i32 %116, %117
-  %119 = add i32 %.val8, -1
+  %119 = add i32 %.val9, -1
   %.0163.i.i = and i32 %119, %118
   %120 = zext nneg i32 %.0163.i.i to i64
-  %121 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.317", ptr %.val7, i64 %120
+  %121 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.317", ptr %.val8, i64 %120
   %122 = load ptr, ptr %121, align 8
   %123 = icmp eq ptr %1, %122
   br i1 %123, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit, label %.lr.ph.i.i
@@ -4014,20 +4014,20 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFS
   %128 = add i32 %.0154.i.i, %.0165.i.i
   %.016.i.i = and i32 %128, %119
   %129 = zext i32 %.016.i.i to i64
-  %130 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.317", ptr %.val7, i64 %129
+  %130 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.317", ptr %.val8, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %1, %131
   br i1 %132, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit, label %.lr.ph.i.i, !llvm.loop !28
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_.exit
-  %133 = zext i32 %.val8 to i64
-  %134 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.317", ptr %.val7, i64 %133
+  %133 = zext i32 %.val9 to i64
+  %134 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.317", ptr %.val8, i64 %133
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit: ; preds = %126, %113, %.loopexit.i
   %.0.i.pn.i = phi ptr [ %134, %.loopexit.i ], [ %121, %113 ], [ %130, %126 ]
-  %135 = zext i32 %.val8 to i64
-  %136 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.317", ptr %.val7, i64 %135
+  %135 = zext i32 %.val9 to i64
+  %136 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.317", ptr %.val8, i64 %135
   %.not = icmp eq ptr %.0.i.pn.i, %136
   br i1 %.not, label %140, label %137
 
@@ -4046,8 +4046,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFS
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %146 = load i8, ptr %145, align 8
   %147 = and i8 %146, 16
-  %.not14 = icmp eq i8 %147, 0
-  %148 = select i1 %.not14, i32 2, i32 1
+  %.not15 = icmp eq i8 %147, 0
+  %148 = select i1 %.not15, i32 2, i32 1
   br label %149
 
 149:                                              ; preds = %140, %144, %137

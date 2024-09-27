@@ -112,9 +112,9 @@ define dso_local void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 33
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %.sroa.5342.0..sroa_idx345 = getelementptr inbounds i8, ptr %18, i64 16
-  %.sroa.7352.0..sroa_idx355 = getelementptr inbounds i8, ptr %18, i64 32
-  %.sroa.9357.0..sroa_idx360 = getelementptr inbounds i8, ptr %18, i64 33
+  %.sroa.5351.0..sroa_idx354 = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.7361.0..sroa_idx364 = getelementptr inbounds i8, ptr %18, i64 32
+  %.sroa.9366.0..sroa_idx369 = getelementptr inbounds i8, ptr %18, i64 33
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 44
   %44 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -127,10 +127,10 @@ define dso_local void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(
   %52 = getelementptr inbounds i8, ptr %27, i64 32
   %53 = getelementptr inbounds i8, ptr %27, i64 33
   %54 = getelementptr inbounds i8, ptr %27, i64 16
-  %.sroa.2.0..sroa_idx.i.i.i115 = getelementptr inbounds i8, ptr %27, i64 24
-  %.sroa.5211.0..sroa_idx214 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.7221.0..sroa_idx224 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.9226.0..sroa_idx229 = getelementptr inbounds i8, ptr %9, i64 33
+  %.sroa.2.0..sroa_idx.i.i.i124 = getelementptr inbounds i8, ptr %27, i64 24
+  %.sroa.5220.0..sroa_idx223 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.7230.0..sroa_idx233 = getelementptr inbounds i8, ptr %9, i64 32
+  %.sroa.9235.0..sroa_idx238 = getelementptr inbounds i8, ptr %9, i64 33
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %26, i64 33
@@ -142,10 +142,10 @@ define dso_local void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(
   %63 = getelementptr inbounds i8, ptr %24, i64 32
   %64 = getelementptr inbounds i8, ptr %24, i64 33
   %65 = getelementptr inbounds i8, ptr %24, i64 16
-  %.sroa.2.0..sroa_idx.i.i.i70 = getelementptr inbounds i8, ptr %24, i64 24
-  %.sroa.5242.0..sroa_idx245 = getelementptr inbounds i8, ptr %12, i64 16
-  %.sroa.7252.0..sroa_idx255 = getelementptr inbounds i8, ptr %12, i64 32
-  %.sroa.9257.0..sroa_idx260 = getelementptr inbounds i8, ptr %12, i64 33
+  %.sroa.2.0..sroa_idx.i.i.i79 = getelementptr inbounds i8, ptr %24, i64 24
+  %.sroa.5251.0..sroa_idx254 = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.7261.0..sroa_idx264 = getelementptr inbounds i8, ptr %12, i64 32
+  %.sroa.9266.0..sroa_idx269 = getelementptr inbounds i8, ptr %12, i64 33
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %32, i64 33
@@ -157,18 +157,18 @@ define dso_local void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(
   %74 = getelementptr inbounds i8, ptr %30, i64 32
   %75 = getelementptr inbounds i8, ptr %30, i64 33
   %76 = getelementptr inbounds i8, ptr %30, i64 16
-  %.sroa.2.0..sroa_idx.i.i.i160 = getelementptr inbounds i8, ptr %30, i64 24
-  %.sroa.5.0..sroa_idx187 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.7.0..sroa_idx195 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.9.0..sroa_idx199 = getelementptr inbounds i8, ptr %6, i64 33
+  %.sroa.2.0..sroa_idx.i.i.i169 = getelementptr inbounds i8, ptr %30, i64 24
+  %.sroa.5.0..sroa_idx196 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.7.0..sroa_idx204 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.9.0..sroa_idx208 = getelementptr inbounds i8, ptr %6, i64 33
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %23, i64 33
   %80 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %.sroa.5273.0..sroa_idx276 = getelementptr inbounds i8, ptr %15, i64 16
-  %.sroa.7283.0..sroa_idx286 = getelementptr inbounds i8, ptr %15, i64 32
-  %.sroa.9288.0..sroa_idx291 = getelementptr inbounds i8, ptr %15, i64 33
+  %.sroa.5282.0..sroa_idx285 = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.7292.0..sroa_idx295 = getelementptr inbounds i8, ptr %15, i64 32
+  %.sroa.9297.0..sroa_idx300 = getelementptr inbounds i8, ptr %15, i64 33
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %83
 
@@ -212,9 +212,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %90
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18)
   store ptr %22, ptr %18, align 8
-  store ptr @.str.2, ptr %.sroa.5342.0..sroa_idx345, align 8
-  store i8 2, ptr %.sroa.7352.0..sroa_idx355, align 8
-  store i8 3, ptr %.sroa.9357.0..sroa_idx360, align 1
+  store ptr @.str.2, ptr %.sroa.5351.0..sroa_idx354, align 8
+  store i8 2, ptr %.sroa.7361.0..sroa_idx364, align 8
+  store i8 3, ptr %.sroa.9366.0..sroa_idx369, align 1
   %94 = load ptr, ptr %2, align 8, !noalias !7
   %95 = getelementptr inbounds i8, ptr %94, i64 16
   %96 = load ptr, ptr %95, align 8, !noalias !7
@@ -253,27 +253,27 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %90
   %.sroa.03.0.copyload = load ptr, ptr %112, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %112, i64 8
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
-  switch i64 %.sroa.24.0.copyload, label %_ZN4llvmplERKNS_5TwineES2_.exit41 [
+  switch i64 %.sroa.24.0.copyload, label %_ZN4llvmplERKNS_5TwineES2_.exit50 [
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
-    i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit.i22
+    i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit.i31
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %111
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.3, i64 4)
   %113 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %113, label %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit25, label %_ZN4llvmeqENS_9StringRefES0_.exit.i14
+  br i1 %113, label %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34, label %_ZN4llvmeqENS_9StringRefES0_.exit.i23
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i14:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %bcmp.i.i15 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
-  %114 = icmp eq i32 %bcmp.i.i15, 0
-  br i1 %114, label %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit25, label %_ZN4llvmplERKNS_5TwineES2_.exit41
+_ZN4llvmeqENS_9StringRefES0_.exit.i23:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
+  %bcmp.i.i24 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
+  %114 = icmp eq i32 %bcmp.i.i24, 0
+  br i1 %114, label %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34, label %_ZN4llvmplERKNS_5TwineES2_.exit50
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i22:            ; preds = %111
-  %bcmp.i.i23 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(8) @.str.5, i64 8)
-  %115 = icmp eq i32 %bcmp.i.i23, 0
-  br i1 %115, label %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit25, label %_ZN4llvmplERKNS_5TwineES2_.exit41
+_ZN4llvmeqENS_9StringRefES0_.exit.i31:            ; preds = %111
+  %bcmp.i.i32 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(8) @.str.5, i64 8)
+  %115 = icmp eq i32 %bcmp.i.i32, 0
+  br i1 %115, label %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34, label %_ZN4llvmplERKNS_5TwineES2_.exit50
 
-_ZN4llvmplERKNS_5TwineES2_.exit41:                ; preds = %111, %_ZN4llvmeqENS_9StringRefES0_.exit.i14, %_ZN4llvmeqENS_9StringRefES0_.exit.i22
+_ZN4llvmplERKNS_5TwineES2_.exit50:                ; preds = %111, %_ZN4llvmeqENS_9StringRefES0_.exit.i23, %_ZN4llvmeqENS_9StringRefES0_.exit.i31
   store i8 3, ptr %78, align 8, !alias.scope !18
   store i8 5, ptr %79, align 1, !alias.scope !18
   store ptr @.str.6, ptr %23, align 8, !alias.scope !18
@@ -282,9 +282,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit41:                ; preds = %111, %_ZN4llvmeqENS
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
   store ptr %23, ptr %15, align 8
-  store ptr @.str.2, ptr %.sroa.5273.0..sroa_idx276, align 8
-  store i8 2, ptr %.sroa.7283.0..sroa_idx286, align 8
-  store i8 3, ptr %.sroa.9288.0..sroa_idx291, align 1
+  store ptr @.str.2, ptr %.sroa.5282.0..sroa_idx285, align 8
+  store i8 2, ptr %.sroa.7292.0..sroa_idx295, align 8
+  store i8 3, ptr %.sroa.9297.0..sroa_idx300, align 1
   %116 = load ptr, ptr %2, align 8, !noalias !21
   %117 = getelementptr inbounds i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8, !noalias !21
@@ -318,8 +318,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit41:                ; preds = %111, %_ZN4llvmeqENS
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   br label %212
 
-_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit25: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i14, %_ZN4llvmeqENS_9StringRefES0_.exit.i22
-  %.sroa.8.5 = phi i32 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i14 ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i22 ]
+_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i23, %_ZN4llvmeqENS_9StringRefES0_.exit.i31
+  %.sroa.8.5 = phi i32 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i23 ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i31 ]
   %133 = getelementptr inbounds i8, ptr %112, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %133, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %112, i64 24
@@ -330,12 +330,12 @@ _ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKi
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %135 = call noundef i32 @_ZN4llvm28ItaniumManglingCanonicalizer14addEquivalenceENS0_12FragmentKindENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.sroa.8.5, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #11
   switch i32 %135, label %212 [
-    i32 3, label %_ZN4llvmplERKNS_5TwineES2_.exit176
-    i32 1, label %_ZN4llvmplERKNS_5TwineES2_.exit86
-    i32 2, label %_ZN4llvmplERKNS_5TwineES2_.exit131
+    i32 3, label %_ZN4llvmplERKNS_5TwineES2_.exit185
+    i32 1, label %_ZN4llvmplERKNS_5TwineES2_.exit95
+    i32 2, label %_ZN4llvmplERKNS_5TwineES2_.exit140
   ]
 
-_ZN4llvmplERKNS_5TwineES2_.exit86:                ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit25
+_ZN4llvmplERKNS_5TwineES2_.exit95:                ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34
   %136 = load ptr, ptr %21, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
@@ -357,15 +357,15 @@ _ZN4llvmplERKNS_5TwineES2_.exit86:                ; preds = %_ZN4llvm12StringSwi
   %144 = load ptr, ptr %143, align 8
   store ptr %25, ptr %24, align 8, !alias.scope !40
   store ptr %144, ptr %65, align 8, !alias.scope !40
-  store i64 %142, ptr %.sroa.2.0..sroa_idx.i.i.i70, align 8, !alias.scope !40
+  store i64 %142, ptr %.sroa.2.0..sroa_idx.i.i.i79, align 8, !alias.scope !40
   store i8 2, ptr %63, align 8, !alias.scope !40
   store i8 5, ptr %64, align 1, !alias.scope !40
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   store ptr %24, ptr %12, align 8
-  store ptr @.str.9, ptr %.sroa.5242.0..sroa_idx245, align 8
-  store i8 2, ptr %.sroa.7252.0..sroa_idx255, align 8
-  store i8 3, ptr %.sroa.9257.0..sroa_idx260, align 1
+  store ptr @.str.9, ptr %.sroa.5251.0..sroa_idx254, align 8
+  store i8 2, ptr %.sroa.7261.0..sroa_idx264, align 8
+  store i8 3, ptr %.sroa.9266.0..sroa_idx269, align 1
   %145 = load ptr, ptr %2, align 8, !noalias !45
   %146 = getelementptr inbounds i8, ptr %145, i64 16
   %147 = load ptr, ptr %146, align 8, !noalias !45
@@ -399,7 +399,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit86:                ; preds = %_ZN4llvm12StringSwi
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   br label %212
 
-_ZN4llvmplERKNS_5TwineES2_.exit131:               ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit25
+_ZN4llvmplERKNS_5TwineES2_.exit140:               ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34
   %162 = load ptr, ptr %21, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
@@ -420,15 +420,15 @@ _ZN4llvmplERKNS_5TwineES2_.exit131:               ; preds = %_ZN4llvm12StringSwi
   %169 = load ptr, ptr %162, align 8
   store ptr %28, ptr %27, align 8, !alias.scope !64
   store ptr %169, ptr %54, align 8, !alias.scope !64
-  store i64 %168, ptr %.sroa.2.0..sroa_idx.i.i.i115, align 8, !alias.scope !64
+  store i64 %168, ptr %.sroa.2.0..sroa_idx.i.i.i124, align 8, !alias.scope !64
   store i8 2, ptr %52, align 8, !alias.scope !64
   store i8 5, ptr %53, align 1, !alias.scope !64
   call void @llvm.experimental.noalias.scope.decl(metadata !69)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   store ptr %27, ptr %9, align 8
-  store ptr @.str.12, ptr %.sroa.5211.0..sroa_idx214, align 8
-  store i8 2, ptr %.sroa.7221.0..sroa_idx224, align 8
-  store i8 3, ptr %.sroa.9226.0..sroa_idx229, align 1
+  store ptr @.str.12, ptr %.sroa.5220.0..sroa_idx223, align 8
+  store i8 2, ptr %.sroa.7230.0..sroa_idx233, align 8
+  store i8 3, ptr %.sroa.9235.0..sroa_idx238, align 1
   %170 = load ptr, ptr %2, align 8, !noalias !69
   %171 = getelementptr inbounds i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8, !noalias !69
@@ -462,7 +462,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit131:               ; preds = %_ZN4llvm12StringSwi
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   br label %212
 
-_ZN4llvmplERKNS_5TwineES2_.exit176:               ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit25
+_ZN4llvmplERKNS_5TwineES2_.exit185:               ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34
   %187 = load ptr, ptr %21, align 8
   %188 = getelementptr inbounds i8, ptr %187, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
@@ -483,15 +483,15 @@ _ZN4llvmplERKNS_5TwineES2_.exit176:               ; preds = %_ZN4llvm12StringSwi
   %194 = load ptr, ptr %187, align 8
   store ptr %31, ptr %30, align 8, !alias.scope !88
   store ptr %194, ptr %76, align 8, !alias.scope !88
-  store i64 %193, ptr %.sroa.2.0..sroa_idx.i.i.i160, align 8, !alias.scope !88
+  store i64 %193, ptr %.sroa.2.0..sroa_idx.i.i.i169, align 8, !alias.scope !88
   store i8 2, ptr %74, align 8, !alias.scope !88
   store i8 5, ptr %75, align 1, !alias.scope !88
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   store ptr %30, ptr %6, align 8
-  store ptr @.str.12, ptr %.sroa.5.0..sroa_idx187, align 8
-  store i8 2, ptr %.sroa.7.0..sroa_idx195, align 8
-  store i8 3, ptr %.sroa.9.0..sroa_idx199, align 1
+  store ptr @.str.12, ptr %.sroa.5.0..sroa_idx196, align 8
+  store i8 2, ptr %.sroa.7.0..sroa_idx204, align 8
+  store i8 3, ptr %.sroa.9.0..sroa_idx208, align 1
   %195 = load ptr, ptr %2, align 8, !noalias !93
   %196 = getelementptr inbounds i8, ptr %195, i64 16
   %197 = load ptr, ptr %196, align 8, !noalias !93
@@ -525,8 +525,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit176:               ; preds = %_ZN4llvm12StringSwi
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %212
 
-212:                                              ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit25, %_ZN4llvmplERKNS_5TwineES2_.exit176, %_ZN4llvmplERKNS_5TwineES2_.exit131, %_ZN4llvmplERKNS_5TwineES2_.exit86, %_ZN4llvmplERKNS_5TwineES2_.exit41, %_ZN4llvmplERKNS_5TwineES2_.exit
-  %switch = phi i1 [ true, %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit25 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit131 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit86 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit176 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit41 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+212:                                              ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34, %_ZN4llvmplERKNS_5TwineES2_.exit185, %_ZN4llvmplERKNS_5TwineES2_.exit140, %_ZN4llvmplERKNS_5TwineES2_.exit95, %_ZN4llvmplERKNS_5TwineES2_.exit50, %_ZN4llvmplERKNS_5TwineES2_.exit
+  %switch = phi i1 [ true, %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit140 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit95 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit185 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit50 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   %213 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #11
   %214 = load ptr, ptr %21, align 8
   %215 = icmp eq ptr %214, %38

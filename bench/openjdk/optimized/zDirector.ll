@@ -191,7 +191,7 @@ define hidden void @_ZN9ZDirector10run_threadEv(ptr noundef nonnull align 8 dere
   %8 = alloca %struct.ZStatMutatorAllocRateStats, align 8
   %9 = alloca %struct.ZStatCycleStats, align 8
   %10 = alloca %struct.ZStatCycleStats, align 8
-  %.sroa.318.i = alloca [7 x i8], align 1
+  %.sroa.321.i = alloca [7 x i8], align 1
   %.sroa.3.i = alloca [7 x i8], align 1
   %11 = alloca %struct.ZStatHeapStats, align 8
   %12 = alloca %struct.ZStatHeapStats, align 8
@@ -207,26 +207,26 @@ define hidden void @_ZN9ZDirector10run_threadEv(ptr noundef nonnull align 8 dere
   %19 = getelementptr inbounds i8, ptr %9, i64 40
   %20 = getelementptr inbounds i8, ptr %10, i64 40
   %21 = getelementptr inbounds i8, ptr %13, i64 24
-  %.sroa.2.0..sroa_idx28.i = getelementptr inbounds i8, ptr %13, i64 32
-  %.sroa.329.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 40
+  %.sroa.2.0..sroa_idx31.i = getelementptr inbounds i8, ptr %13, i64 32
+  %.sroa.332.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 40
   %22 = getelementptr inbounds i8, ptr %13, i64 48
   %23 = getelementptr inbounds i8, ptr %13, i64 152
-  %.sroa.326.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 160
+  %.sroa.329.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 160
   %24 = getelementptr inbounds i8, ptr %13, i64 168
-  %.sroa.318.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 169
-  %.sroa.319.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 176
-  %.sroa.420.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 184
-  %.sroa.521.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 192
-  %.sroa.622.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 196
+  %.sroa.321.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 169
+  %.sroa.322.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 176
+  %.sroa.423.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 184
+  %.sroa.524.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 192
+  %.sroa.625.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 196
   %25 = getelementptr inbounds i8, ptr %13, i64 200
   %26 = getelementptr inbounds i8, ptr %13, i64 224
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 232
   %27 = getelementptr inbounds i8, ptr %13, i64 240
   %28 = getelementptr inbounds i8, ptr %13, i64 344
-  %.sroa.324.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 352
+  %.sroa.327.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 352
   %29 = getelementptr inbounds i8, ptr %13, i64 360
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 361
-  %.sroa.316.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 368
+  %.sroa.319.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 368
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 376
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 384
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 388
@@ -251,7 +251,7 @@ define hidden void @_ZN9ZDirector10run_threadEv(ptr noundef nonnull align 8 dere
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %45 = getelementptr inbounds i8, ptr %13, i64 216
   %46 = getelementptr inbounds i8, ptr %13, i64 408
-  %.sroa.2.0..sroa_idx.i4 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx.i3 = getelementptr inbounds i8, ptr %2, i64 8
   br label %47
 
 47:                                               ; preds = %.lr.ph, %_ZL8start_gcRK14ZDirectorStats.exit
@@ -261,7 +261,7 @@ define hidden void @_ZN9ZDirector10run_threadEv(ptr noundef nonnull align 8 dere
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.318.i)
+  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.321.i)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
@@ -301,7 +301,7 @@ _ZN7ZLockerI5ZLockEC2EPS0_.exit.i.i:              ; preds = %70, %47
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.318.i, i8 0, i64 7, i1 false), !alias.scope !12, !noalias !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.321.i, i8 0, i64 7, i1 false), !alias.scope !12, !noalias !6
   br label %78
 
 74:                                               ; preds = %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i.i
@@ -311,9 +311,9 @@ _ZN7ZLockerI5ZLockEC2EPS0_.exit.i.i:              ; preds = %70, %47
   br label %78
 
 78:                                               ; preds = %74, %73
-  %.sroa.420.0.i = phi double [ %62, %74 ], [ 0.000000e+00, %73 ]
-  %.sroa.521.0.i = phi i32 [ %77, %74 ], [ 0, %73 ]
-  %.sroa.319.0.i = phi double [ %76, %74 ], [ 0.000000e+00, %73 ]
+  %.sroa.423.0.i = phi double [ %62, %74 ], [ 0.000000e+00, %73 ]
+  %.sroa.524.0.i = phi i32 [ %77, %74 ], [ 0, %73 ]
+  %.sroa.322.0.i = phi double [ %76, %74 ], [ 0.000000e+00, %73 ]
   %.sink.i.i = phi i8 [ 1, %74 ], [ 0, %73 ]
   br i1 %.not.i.i.i, label %_ZL26sample_worker_resize_statsR15ZStatCycleStatsR17ZStatWorkersStatsP8ZWorkers.exit.i, label %79
 
@@ -325,33 +325,33 @@ _ZL26sample_worker_resize_statsR15ZStatCycleStatsR17ZStatWorkersStatsP8ZWorkers.
   %81 = call noundef ptr @_ZN11ZGeneration7workersEv(ptr noundef nonnull align 64 dereferenceable(6592) %51) #11, !noalias !6
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %82 = call noundef ptr @_ZN8ZWorkers13resizing_lockEv(ptr noundef nonnull align 8 dereferenceable(184) %81) #11, !noalias !19
-  %.not.i.i12.i = icmp eq ptr %82, null
-  br i1 %.not.i.i12.i, label %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i13.i, label %83
+  %.not.i.i15.i = icmp eq ptr %82, null
+  br i1 %.not.i.i15.i, label %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i16.i, label %83
 
 83:                                               ; preds = %_ZL26sample_worker_resize_statsR15ZStatCycleStatsR17ZStatWorkersStatsP8ZWorkers.exit.i
   %84 = call i32 @pthread_mutex_lock(ptr noundef nonnull %82) #11, !noalias !19
-  br label %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i13.i
+  br label %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i16.i
 
-_ZN7ZLockerI5ZLockEC2EPS0_.exit.i13.i:            ; preds = %83, %_ZL26sample_worker_resize_statsR15ZStatCycleStatsR17ZStatWorkersStatsP8ZWorkers.exit.i
+_ZN7ZLockerI5ZLockEC2EPS0_.exit.i16.i:            ; preds = %83, %_ZL26sample_worker_resize_statsR15ZStatCycleStatsR17ZStatWorkersStatsP8ZWorkers.exit.i
   %85 = call noundef zeroext i1 @_ZNK8ZWorkers9is_activeEv(ptr noundef nonnull align 8 dereferenceable(184) %81) #11, !noalias !19
   br i1 %85, label %87, label %86
 
-86:                                               ; preds = %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i13.i
+86:                                               ; preds = %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i16.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3.i, i8 0, i64 7, i1 false), !alias.scope !16, !noalias !6
   br label %91
 
-87:                                               ; preds = %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i13.i
+87:                                               ; preds = %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i16.i
   %88 = load double, ptr %20, align 8, !noalias !19
   %89 = fsub double %88, %67
   %90 = call noundef i32 @_ZNK8ZWorkers14active_workersEv(ptr noundef nonnull align 8 dereferenceable(184) %81) #11, !noalias !19
   br label %91
 
 91:                                               ; preds = %87, %86
-  %.sroa.316.0.i = phi double [ %89, %87 ], [ 0.000000e+00, %86 ]
+  %.sroa.319.0.i = phi double [ %89, %87 ], [ 0.000000e+00, %86 ]
   %.sroa.4.0.i = phi double [ %66, %87 ], [ 0.000000e+00, %86 ]
   %.sroa.5.0.i = phi i32 [ %90, %87 ], [ 0, %86 ]
-  %.sink.i14.i = phi i8 [ 1, %87 ], [ 0, %86 ]
-  br i1 %.not.i.i12.i, label %_ZL12sample_statsv.exit, label %92
+  %.sink.i17.i = phi i8 [ 1, %87 ], [ 0, %86 ]
+  br i1 %.not.i.i15.i, label %_ZL12sample_statsv.exit, label %92
 
 92:                                               ; preds = %91
   %93 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %82) #11, !noalias !19
@@ -369,26 +369,26 @@ _ZL12sample_statsv.exit:                          ; preds = %91, %92
   %100 = call noundef i32 @_ZNK14ZGenerationOld26total_collections_at_startEv(ptr noundef nonnull align 64 dereferenceable(6720) %51) #11, !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store i64 %54, ptr %21, align 8, !alias.scope !6
-  store i64 %55, ptr %.sroa.2.0..sroa_idx28.i, align 8, !alias.scope !6
-  store i32 %57, ptr %.sroa.329.0..sroa_idx.i, align 8, !alias.scope !6
+  store i64 %55, ptr %.sroa.2.0..sroa_idx31.i, align 8, !alias.scope !6
+  store i32 %57, ptr %.sroa.332.0..sroa_idx.i, align 8, !alias.scope !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %22, ptr noundef nonnull align 8 dereferenceable(104) %9, i64 104, i1 false)
   store double %62, ptr %23, align 8, !alias.scope !6
-  store double %63, ptr %.sroa.326.0..sroa_idx.i, align 8, !alias.scope !6
+  store double %63, ptr %.sroa.329.0..sroa_idx.i, align 8, !alias.scope !6
   store i8 %.sink.i.i, ptr %24, align 8, !alias.scope !6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.318.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.318.i, i64 7, i1 false)
-  store double %.sroa.319.0.i, ptr %.sroa.319.0..sroa_idx.i, align 8, !alias.scope !6
-  store double %.sroa.420.0.i, ptr %.sroa.420.0..sroa_idx.i, align 8, !alias.scope !6
-  store i32 %.sroa.521.0.i, ptr %.sroa.521.0..sroa_idx.i, align 8, !alias.scope !6
-  store i32 0, ptr %.sroa.622.0..sroa_idx.i, align 4, !alias.scope !6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.321.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.321.i, i64 7, i1 false)
+  store double %.sroa.322.0.i, ptr %.sroa.322.0..sroa_idx.i, align 8, !alias.scope !6
+  store double %.sroa.423.0.i, ptr %.sroa.423.0..sroa_idx.i, align 8, !alias.scope !6
+  store i32 %.sroa.524.0.i, ptr %.sroa.524.0..sroa_idx.i, align 8, !alias.scope !6
+  store i32 0, ptr %.sroa.625.0..sroa_idx.i, align 4, !alias.scope !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   store i64 %97, ptr %26, align 8, !alias.scope !6
   store i32 0, ptr %.sroa.22.0..sroa_idx.i, align 8, !alias.scope !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef nonnull align 8 dereferenceable(104) %10, i64 104, i1 false)
   store double %66, ptr %28, align 8, !alias.scope !6
-  store double %67, ptr %.sroa.324.0..sroa_idx.i, align 8, !alias.scope !6
-  store i8 %.sink.i14.i, ptr %29, align 8, !alias.scope !6
+  store double %67, ptr %.sroa.327.0..sroa_idx.i, align 8, !alias.scope !6
+  store i8 %.sink.i17.i, ptr %29, align 8, !alias.scope !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3.i, i64 7, i1 false)
-  store double %.sroa.316.0.i, ptr %.sroa.316.0..sroa_idx.i, align 8, !alias.scope !6
+  store double %.sroa.319.0.i, ptr %.sroa.319.0..sroa_idx.i, align 8, !alias.scope !6
   store double %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !6
   store i32 %.sroa.5.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !6
   store i32 0, ptr %.sroa.6.0..sroa_idx.i, align 4, !alias.scope !6
@@ -398,7 +398,7 @@ _ZL12sample_statsv.exit:                          ; preds = %91, %92
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.318.i)
+  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.321.i)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
@@ -438,7 +438,7 @@ _ZL16rule_major_timerRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL16rule_ma
 
 116:                                              ; preds = %113
   %117 = load i64, ptr %21, align 8
-  %118 = load i64, ptr %.sroa.2.0..sroa_idx28.i, align 8
+  %118 = load i64, ptr %.sroa.2.0..sroa_idx31.i, align 8
   %119 = load i64, ptr %33, align 8
   %120 = add i64 %119, 1
   %121 = uitofp i64 %120 to double
@@ -487,7 +487,7 @@ _ZL17rule_major_warmupRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL17rule_m
   %143 = fmul double %142, 1.000000e-01
   %144 = fptoui double %143 to i64
   %145 = add i64 %140, %144
-  %146 = load i64, ptr %.sroa.2.0..sroa_idx28.i, align 8
+  %146 = load i64, ptr %.sroa.2.0..sroa_idx31.i, align 8
   %147 = load double, ptr %32, align 8
   %148 = icmp ult i64 %146, %145
   %149 = fcmp olt double %147, 3.000000e+02
@@ -649,7 +649,7 @@ _ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread11.i.i: ; preds = %
   br i1 %221, label %222, label %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread.i.i
 
 222:                                              ; preds = %219
-  %223 = load i64, ptr %.sroa.2.0..sroa_idx28.i, align 8
+  %223 = load i64, ptr %.sroa.2.0..sroa_idx31.i, align 8
   %224 = call i64 @llvm.usub.sat.i64(i64 %.val.i.i.i, i64 %223)
   %225 = call noundef i64 @_ZN11ZHeuristics19relocation_headroomEv() #11
   %226 = call i64 @llvm.usub.sat.i64(i64 %224, i64 %225)
@@ -713,7 +713,7 @@ _ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i: ; preds = %245, %222
 259:                                              ; preds = %252
   %260 = call noundef i64 @_ZN11ZHeuristics19relocation_headroomEv() #11
   %.val12.i.i.i = load i64, ptr %21, align 8
-  %.val13.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx28.i, align 8
+  %.val13.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx31.i, align 8
   %261 = call i64 @llvm.usub.sat.i64(i64 %.val12.i.i.i, i64 %.val13.i.i.i)
   %262 = call noundef i64 @_ZN11ZHeuristics19relocation_headroomEv() #11
   %263 = call i64 @llvm.usub.sat.i64(i64 %261, i64 %262)
@@ -777,7 +777,7 @@ _ZL29calculate_extra_young_gc_timeRK14ZDirectorStats.exit.i.i: ; preds = %275
   %295 = fdiv double %283, %294
   %296 = fsub double %287, %295
   %297 = fmul double %296, %294
-  %298 = load i32, ptr %.sroa.329.0..sroa_idx.i, align 8
+  %298 = load i32, ptr %.sroa.332.0..sroa_idx.i, align 8
   %299 = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
   %300 = sub i32 %298, %299
   %301 = sitofp i32 %300 to double
@@ -809,7 +809,7 @@ _ZL29calculate_extra_young_gc_timeRK14ZDirectorStats.exit.i.i: ; preds = %275
   br i1 %314, label %_ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.i, label %_ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.thread.i
 
 _ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.i: ; preds = %308
-  %.val4.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx28.i, align 8
+  %.val4.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx31.i, align 8
   %315 = call i64 @llvm.usub.sat.i64(i64 %.val.i.i20.i, i64 %.val4.i.i.i)
   %316 = call noundef i64 @_ZN11ZHeuristics19relocation_headroomEv() #11
   %317 = call i64 @llvm.usub.sat.i64(i64 %315, i64 %316)
@@ -874,7 +874,7 @@ _ZL14start_minor_gcRK14ZDirectorStatsN7GCCause5CauseE.exit.i: ; preds = %334, %3
 
 341:                                              ; preds = %338
   %.sroa.016.0.copyload.i = load i8, ptr %24, align 8
-  %.sroa.420.0.copyload.i = load i32, ptr %.sroa.521.0..sroa_idx.i, align 8
+  %.sroa.420.0.copyload.i = load i32, ptr %.sroa.524.0..sroa_idx.i, align 8
   %.sroa.012.0.copyload.i = load i8, ptr %29, align 8
   %.sroa.315.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 8
   %342 = trunc i8 %.sroa.016.0.copyload.i to i1
@@ -887,7 +887,7 @@ _ZL14start_minor_gcRK14ZDirectorStatsN7GCCause5CauseE.exit.i: ; preds = %334, %3
   %.fca.0.extract.i = extractvalue { i64, i32 } %346, 0
   %.fca.1.extract.i = extractvalue { i64, i32 } %346, 1
   store i64 %.fca.0.extract.i, ptr %2, align 8
-  store i32 %.fca.1.extract.i, ptr %.sroa.2.0..sroa_idx.i4, align 8
+  store i32 %.fca.1.extract.i, ptr %.sroa.2.0..sroa_idx.i3, align 8
   %347 = call noundef i32 @_ZNK14ZDriverRequest5causeEv(ptr noundef nonnull align 4 dereferenceable(12) %2) #11
   %348 = icmp eq i32 %347, 11
   br i1 %348, label %_ZL9adjust_gcRK14ZDirectorStats.exit, label %349
@@ -907,9 +907,9 @@ _ZL14start_minor_gcRK14ZDirectorStatsN7GCCause5CauseE.exit.i: ; preds = %334, %3
   br label %359
 
 359:                                              ; preds = %353, %349
-  %.0.i5 = phi i32 [ %358, %353 ], [ %351, %349 ]
+  %.0.i4 = phi i32 [ %358, %353 ], [ %351, %349 ]
   %360 = trunc i8 %.sroa.012.0.copyload.i to i1
-  %361 = load i32, ptr %.sroa.521.0..sroa_idx.i, align 8
+  %361 = load i32, ptr %.sroa.524.0..sroa_idx.i, align 8
   %362 = load i32, ptr %.sroa.5.0..sroa_idx.i, align 8
   %363 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %364 = call noundef zeroext i1 @_ZNK14ZPageAllocator17is_alloc_stallingEv(ptr noundef nonnull align 8 dereferenceable(609) %363) #11
@@ -939,12 +939,12 @@ _ZL14start_minor_gcRK14ZDirectorStatsN7GCCause5CauseE.exit.i: ; preds = %334, %3
   %376 = call double @llvm.fmuladd.f64(double %.sroa.214.0.copyload.i.i, double 0x400A52FFD1DCD706, double %.sroa.113.0.copyload.i.i)
   %377 = call double @llvm.fmuladd.f64(double %.sroa.416.0.copyload.i.i, double 0x400A52FFD1DCD706, double %.sroa.315.0.copyload.i.i)
   %378 = fadd double %376, %377
-  %.sroa.1.0.copyload.i.i10 = load double, ptr %35, align 8
-  %.sroa.2.0.copyload.i.i12 = load double, ptr %36, align 8
-  %.sroa.3.0.copyload.i.i14 = load double, ptr %37, align 8
-  %.sroa.4.0.copyload.i.i16 = load double, ptr %38, align 8
-  %379 = call double @llvm.fmuladd.f64(double %.sroa.2.0.copyload.i.i12, double 0x400A52FFD1DCD706, double %.sroa.1.0.copyload.i.i10)
-  %380 = call double @llvm.fmuladd.f64(double %.sroa.4.0.copyload.i.i16, double 0x400A52FFD1DCD706, double %.sroa.3.0.copyload.i.i14)
+  %.sroa.1.0.copyload.i.i9 = load double, ptr %35, align 8
+  %.sroa.2.0.copyload.i.i11 = load double, ptr %36, align 8
+  %.sroa.3.0.copyload.i.i13 = load double, ptr %37, align 8
+  %.sroa.4.0.copyload.i.i15 = load double, ptr %38, align 8
+  %379 = call double @llvm.fmuladd.f64(double %.sroa.2.0.copyload.i.i11, double 0x400A52FFD1DCD706, double %.sroa.1.0.copyload.i.i9)
+  %380 = call double @llvm.fmuladd.f64(double %.sroa.4.0.copyload.i.i15, double 0x400A52FFD1DCD706, double %.sroa.3.0.copyload.i.i13)
   %381 = fadd double %379, %380
   %382 = load i64, ptr %45, align 8
   %383 = load i64, ptr %46, align 8
@@ -956,21 +956,21 @@ _ZL14start_minor_gcRK14ZDirectorStatsN7GCCause5CauseE.exit.i: ; preds = %334, %3
   br label %_ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit.i
 
 _ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit.i: ; preds = %375, %372
-  %.0.i.i6 = phi double [ %388, %375 ], [ 1.000000e+00, %372 ]
-  %389 = uitofp i32 %.0.i5 to double
-  %390 = fmul double %.0.i.i6, %389
+  %.0.i.i5 = phi double [ %388, %375 ], [ 1.000000e+00, %372 ]
+  %389 = uitofp i32 %.0.i4 to double
+  %390 = fmul double %.0.i.i5, %389
   %391 = fptoui double %390 to i32
   %392 = load i32, ptr @ZOldGCThreads, align 4
   %393 = call noundef i32 @llvm.umax.i32(i32 %391, i32 1)
   %394 = call noundef i32 @llvm.umin.i32(i32 %393, i32 %392)
-  %395 = add i32 %394, %.0.i5
+  %395 = add i32 %394, %.0.i4
   %396 = icmp ugt i32 %395, %370
   %or.cond.i = and i1 %396, %360
   br i1 %or.cond.i, label %397, label %_ZL21select_worker_threadsRK14ZDirectorStatsj20ZWorkerSelectionType.exit
 
 397:                                              ; preds = %_ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit.i
-  %398 = fadd double %.0.i.i6, 1.000000e+00
-  %399 = fdiv double %.0.i.i6, %398
+  %398 = fadd double %.0.i.i5, 1.000000e+00
+  %399 = fdiv double %.0.i.i5, %398
   %400 = fsub double 1.000000e+00, %399
   %401 = uitofp i32 %370 to double
   %402 = fmul double %400, %401
@@ -984,16 +984,16 @@ _ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit.i: ; preds = %37
   br label %_ZL21select_worker_threadsRK14ZDirectorStatsj20ZWorkerSelectionType.exit
 
 _ZL21select_worker_threadsRK14ZDirectorStatsj20ZWorkerSelectionType.exit: ; preds = %365, %368, %_ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit.i, %397
-  %.sroa.0.0.i = phi i32 [ %366, %365 ], [ %361, %368 ], [ %.0.i5, %_ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit.i ], [ %406, %397 ]
-  %.sroa.4.0.i8 = phi i32 [ %367, %365 ], [ %362, %368 ], [ %394, %_ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit.i ], [ %409, %397 ]
-  %.not.i = icmp ne i32 %.sroa.315.0.copyload.i, %.sroa.4.0.i8
+  %.sroa.0.0.i = phi i32 [ %366, %365 ], [ %361, %368 ], [ %.0.i4, %_ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit.i ], [ %406, %397 ]
+  %.sroa.4.0.i7 = phi i32 [ %367, %365 ], [ %362, %368 ], [ %394, %_ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit.i ], [ %409, %397 ]
+  %.not.i = icmp ne i32 %.sroa.315.0.copyload.i, %.sroa.4.0.i7
   %or.cond.not.i = select i1 %360, i1 %.not.i, i1 false
   br i1 %or.cond.not.i, label %410, label %413
 
 410:                                              ; preds = %_ZL21select_worker_threadsRK14ZDirectorStatsj20ZWorkerSelectionType.exit
   %411 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %412 = call noundef ptr @_ZN11ZGeneration7workersEv(ptr noundef nonnull align 64 dereferenceable(6592) %411) #11
-  call void @_ZN8ZWorkers22request_resize_workersEj(ptr noundef nonnull align 8 dereferenceable(184) %412, i32 noundef %.sroa.4.0.i8) #11
+  call void @_ZN8ZWorkers22request_resize_workersEj(ptr noundef nonnull align 8 dereferenceable(184) %412, i32 noundef %.sroa.4.0.i7) #11
   br label %413
 
 413:                                              ; preds = %410, %_ZL21select_worker_threadsRK14ZDirectorStatsj20ZWorkerSelectionType.exit

@@ -5851,19 +5851,19 @@ common.resume:                                    ; preds = %_ZNSt8functionIFvSt
   %27 = getelementptr inbounds i8, ptr %18, i64 56
   store i8 0, ptr %27, align 8
   store ptr %18, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 16
-  %29 = getelementptr inbounds i8, ptr %6, i64 24
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %30, align 8
-  %31 = ptrtoint ptr %4 to i64
-  store i64 %31, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvSt6futureISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN3nix16BinaryCacheStore7getFileERKS7_RNSB_4SinkEE3$_0E9_M_invokeERKSt9_Any_dataOS9_", ptr %29, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvSt6futureISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN3nix16BinaryCacheStore7getFileERKS7_RNSB_4SinkEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %28, align 8
+  %28 = ptrtoint ptr %4 to i64
+  %29 = getelementptr inbounds i8, ptr %6, i64 16
+  %30 = getelementptr inbounds i8, ptr %6, i64 24
+  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %31, align 8
+  store i64 %28, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvSt6futureISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN3nix16BinaryCacheStore7getFileERKS7_RNSB_4SinkEE3$_0E9_M_invokeERKSt9_Any_dataOS9_", ptr %30, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvSt6futureISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN3nix16BinaryCacheStore7getFileERKS7_RNSB_4SinkEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %29, align 8
   %32 = getelementptr inbounds i8, ptr %5, i64 16
   %33 = getelementptr inbounds i8, ptr %5, i64 24
   %34 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 0, ptr %34, align 8
-  store i64 %31, ptr %5, align 8
+  store i64 %28, ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFvSt6futureISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN3nix16BinaryCacheStore7getFileERKS7_RNSB_4SinkEE3$_0E9_M_invokeERKSt9_Any_dataOS9_", ptr %33, align 8
   store ptr @"_ZNSt17_Function_handlerIFvSt6futureISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN3nix16BinaryCacheStore7getFileERKS7_RNSB_4SinkEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %5, i64 32
@@ -5888,7 +5888,7 @@ common.resume:                                    ; preds = %_ZNSt8functionIFvSt
   unreachable
 
 _ZN3nix8CallbackISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit: ; preds = %25, %40
-  %45 = load ptr, ptr %28, align 8
+  %45 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvSt6futureISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEED2Ev.exit, label %46
 
@@ -12878,14 +12878,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZNSt8functionIFN3nix13ValidPathInfoESt4pairINS0_4HashEmEEED2Ev.exit
 
 23:                                               ; preds = %9, %5
-  %24 = getelementptr inbounds i8, ptr %8, i64 16
-  %25 = getelementptr inbounds i8, ptr %8, i64 24
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 0, ptr %26, align 8
-  %27 = ptrtoint ptr %1 to i64
-  store i64 %27, ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN3nix13ValidPathInfoESt4pairINS0_4HashEmEEZNS0_16BinaryCacheStore10addToStoreERKS1_RNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E9_M_invokeERKSt9_Any_dataOS4_", ptr %25, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN3nix13ValidPathInfoESt4pairINS0_4HashEmEEZNS0_16BinaryCacheStore10addToStoreERKS1_RNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %24, align 8
+  %24 = ptrtoint ptr %1 to i64
+  %25 = getelementptr inbounds i8, ptr %8, i64 16
+  %26 = getelementptr inbounds i8, ptr %8, i64 24
+  %27 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 0, ptr %27, align 8
+  store i64 %24, ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN3nix13ValidPathInfoESt4pairINS0_4HashEmEEZNS0_16BinaryCacheStore10addToStoreERKS1_RNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E9_M_invokeERKSt9_Any_dataOS4_", ptr %26, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN3nix13ValidPathInfoESt4pairINS0_4HashEmEEZNS0_16BinaryCacheStore10addToStoreERKS1_RNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %25, align 8
   invoke void @_ZN3nix16BinaryCacheStore16addToStoreCommonERNS_6SourceENS_10RepairFlagENS_13CheckSigsFlagESt8functionIFNS_13ValidPathInfoESt4pairINS_4HashEmEEE(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.141") align 8 %7, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3, i1 zeroext poison, ptr noundef nonnull %8)
           to label %28 unwind label %71
 
@@ -12964,7 +12964,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit
 
 _ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit:       ; preds = %28, %47, %60, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %65 = load ptr, ptr %24, align 8
+  %65 = load ptr, ptr %25, align 8
   %.not.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i, label %_ZNSt8functionIFN3nix13ValidPathInfoESt4pairINS0_4HashEmEEED2Ev.exit, label %66
 
@@ -12985,7 +12985,7 @@ _ZNSt8functionIFN3nix13ValidPathInfoESt4pairINS0_4HashEmEEED2Ev.exit: ; preds = 
 71:                                               ; preds = %23
   %72 = landingpad { ptr, i32 }
           cleanup
-  %73 = load ptr, ptr %24, align 8
+  %73 = load ptr, ptr %25, align 8
   %.not.i.i9 = icmp eq ptr %73, null
   br i1 %.not.i.i9, label %_ZNSt8functionIFN3nix13ValidPathInfoESt4pairINS0_4HashEmEEED2Ev.exit10, label %74
 

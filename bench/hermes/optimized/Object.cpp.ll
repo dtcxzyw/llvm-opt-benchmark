@@ -4523,18 +4523,18 @@ _ZN4llvh23SmallVectorTemplateBaseIZN6hermes2vmL30objectDefinePropertiesInternalE
 
 if.then15.i.i:                                    ; preds = %_ZN4llvh23SmallVectorTemplateBaseIZN6hermes2vmL30objectDefinePropertiesInternalERNS2_7RuntimeENS2_6HandleINS2_11HermesValueEEES7_E8NewPropsLb0EE18uninitialized_moveIPS8_SB_EEvT_SC_T0_.exit.i.i
   call void @free(ptr noundef %43) #8
-  %.pre7.pre.i = load i32, ptr %Size.i.i.i.i.i, align 8
+  %.pre1.pre.i = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIZN6hermes2vmL30objectDefinePropertiesInternalERNS2_7RuntimeENS2_6HandleINS2_11HermesValueEEES7_E8NewPropsLb0EE4growEm.exit.i
 
 _ZN4llvh23SmallVectorTemplateBaseIZN6hermes2vmL30objectDefinePropertiesInternalERNS2_7RuntimeENS2_6HandleINS2_11HermesValueEEES7_E8NewPropsLb0EE4growEm.exit.i: ; preds = %if.then15.i.i, %_ZN4llvh23SmallVectorTemplateBaseIZN6hermes2vmL30objectDefinePropertiesInternalERNS2_7RuntimeENS2_6HandleINS2_11HermesValueEEES7_E8NewPropsLb0EE18uninitialized_moveIPS8_SB_EEvT_SC_T0_.exit.i.i
-  %.pre7.i = phi i32 [ %44, %_ZN4llvh23SmallVectorTemplateBaseIZN6hermes2vmL30objectDefinePropertiesInternalERNS2_7RuntimeENS2_6HandleINS2_11HermesValueEEES7_E8NewPropsLb0EE18uninitialized_moveIPS8_SB_EEvT_SC_T0_.exit.i.i ], [ %.pre7.pre.i, %if.then15.i.i ]
+  %.pre1.i = phi i32 [ %44, %_ZN4llvh23SmallVectorTemplateBaseIZN6hermes2vmL30objectDefinePropertiesInternalERNS2_7RuntimeENS2_6HandleINS2_11HermesValueEEES7_E8NewPropsLb0EE18uninitialized_moveIPS8_SB_EEvT_SC_T0_.exit.i.i ], [ %.pre1.pre.i, %if.then15.i.i ]
   store ptr %call.i.i.i, ptr %newProps, align 8
   %conv18.i.i = trunc i64 %add.i.i.i to i32
   store i32 %conv18.i.i, ptr %Capacity2.i.i.i.i.i, align 4
   br label %_ZN4llvh15SmallVectorImplIZN6hermes2vmL30objectDefinePropertiesInternalERNS2_7RuntimeENS2_6HandleINS2_11HermesValueEEES7_E8NewPropsE12emplace_backIJRjRNS2_19DefinePropertyFlagsENS2_13MutableHandleIS6_EEEEEvDpOT_.exit
 
 _ZN4llvh15SmallVectorImplIZN6hermes2vmL30objectDefinePropertiesInternalERNS2_7RuntimeENS2_6HandleINS2_11HermesValueEEES7_E8NewPropsE12emplace_backIJRjRNS2_19DefinePropertyFlagsENS2_13MutableHandleIS6_EEEEEvDpOT_.exit: ; preds = %entry.if.end_crit_edge.i, %_ZN4llvh23SmallVectorTemplateBaseIZN6hermes2vmL30objectDefinePropertiesInternalERNS2_7RuntimeENS2_6HandleINS2_11HermesValueEEES7_E8NewPropsLb0EE4growEm.exit.i
-  %47 = phi i32 [ %41, %entry.if.end_crit_edge.i ], [ %.pre7.i, %_ZN4llvh23SmallVectorTemplateBaseIZN6hermes2vmL30objectDefinePropertiesInternalERNS2_7RuntimeENS2_6HandleINS2_11HermesValueEEES7_E8NewPropsLb0EE4growEm.exit.i ]
+  %47 = phi i32 [ %41, %entry.if.end_crit_edge.i ], [ %.pre1.i, %_ZN4llvh23SmallVectorTemplateBaseIZN6hermes2vmL30objectDefinePropertiesInternalERNS2_7RuntimeENS2_6HandleINS2_11HermesValueEEES7_E8NewPropsLb0EE4growEm.exit.i ]
   %48 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %call.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseIZN6hermes2vmL30objectDefinePropertiesInternalERNS2_7RuntimeENS2_6HandleINS2_11HermesValueEEES7_E8NewPropsLb0EE4growEm.exit.i ]
   %conv.i3.i = zext i32 %47 to i64
   %add.ptr.i.i = getelementptr inbounds %struct.NewProps, ptr %48, i64 %conv.i3.i

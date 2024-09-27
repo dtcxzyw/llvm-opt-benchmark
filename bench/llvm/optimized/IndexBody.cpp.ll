@@ -4480,8 +4480,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = inttoptr i64 %20 to ptr
-  %.not50.i.i = icmp eq i64 %20, 0
-  %.not.i.i = select i1 %.not.i.i.i, i1 true, i1 %.not50.i.i
+  %.not53.i.i = icmp eq i64 %20, 0
+  %.not.i.i = select i1 %.not.i.i.i, i1 true, i1 %.not53.i.i
   br i1 %.not.i.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111BodyIndexerEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit.thread, label %22
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111BodyIndexerEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit.thread: ; preds = %3
@@ -4515,11 +4515,11 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111BodyIndexerEE25WalkUpFromObjCMes
   br label %_ZN12_GLOBAL__N_111BodyIndexer11addCallRoleERjRN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEE.exit.i.i
 
 35:                                               ; preds = %22
-  %.not.i16.i.i = icmp eq i16 %28, 15
+  %.not.i18.i.i = icmp eq i16 %28, 15
   %36 = getelementptr inbounds i8, ptr %25, i64 -48
-  %spec.select.i.i5.i.i.i = select i1 %.not.i16.i.i, ptr %36, ptr null
+  %spec.select.i.i5.i.i.i = select i1 %.not.i18.i.i, ptr %36, ptr null
   store ptr %spec.select.i.i5.i.i.i, ptr %10, align 8
-  br i1 %.not.i16.i.i, label %37, label %_ZN12_GLOBAL__N_111BodyIndexer11addCallRoleERjRN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEE.exit.i.i
+  br i1 %.not.i18.i.i, label %37, label %_ZN12_GLOBAL__N_111BodyIndexer11addCallRoleERjRN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEE.exit.i.i
 
 37:                                               ; preds = %35
   store i32 16384, ptr %11, align 4
@@ -4548,8 +4548,8 @@ _ZNK12_GLOBAL__N_111BodyIndexer13getParentStmtEv.exit.i.i: ; preds = %_ZN12_GLOB
 _ZN4llvm15isa_and_nonnullIJN5clang16PseudoObjectExprEEPNS1_4StmtEEEbRKT0_.exit.thread.i.i: ; preds = %_ZNK12_GLOBAL__N_111BodyIndexer13getParentStmtEv.exit.i.i, %_ZN12_GLOBAL__N_111BodyIndexer11addCallRoleERjRN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEE.exit.i.i
   %47 = load i32, ptr %16, align 8
   %48 = and i32 %47, 67108864
-  %.not55.i.i = icmp eq i32 %48, 0
-  %.mux54.i.i = select i1 %.not55.i.i, i32 32, i32 288
+  %.not58.i.i = icmp eq i32 %48, 0
+  %.mux57.i.i = select i1 %.not58.i.i, i32 32, i32 288
   br label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.i.i
 
 _ZN4llvm15isa_and_nonnullIJN5clang16PseudoObjectExprEEPNS1_4StmtEEEbRKT0_.exit.i.i: ; preds = %_ZNK12_GLOBAL__N_111BodyIndexer13getParentStmtEv.exit.i.i
@@ -4579,15 +4579,15 @@ _ZN4llvm15isa_and_nonnullIJN5clang16PseudoObjectExprEEPNS1_4StmtEEEbRKT0_.exit.i
 61:                                               ; preds = %58, %54
   %62 = phi i8 [ %.pre.i.i.i, %58 ], [ %56, %54 ]
   %.012.i.i.i = phi ptr [ %60, %58 ], [ %.val.i.i, %54 ]
-  %.not.i17.i.i = icmp eq i8 %62, 32
-  br i1 %.not.i17.i.i, label %63, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.thread.i.i
+  %.not.i19.i.i = icmp eq i8 %62, 32
+  br i1 %.not.i19.i.i, label %63, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.thread.i.i
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %64, align 8
   %65 = and i64 %.0.copyload.i.i.i.i.i.i.i, 4
-  %.not.i.i19.i.i = icmp eq i64 %65, 0
-  br i1 %.not.i.i19.i.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.thread.i.i, label %66
+  %.not.i.i21.i.i = icmp eq i64 %65, 0
+  br i1 %.not.i.i21.i.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.thread.i.i, label %66
 
 66:                                               ; preds = %63
   %67 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
@@ -4615,11 +4615,11 @@ _ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprE
   br label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.i.i
 
 _ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.i.i: ; preds = %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.thread.i.i, %73, %69, %66, %_ZN4llvm15isa_and_nonnullIJN5clang16PseudoObjectExprEEPNS1_4StmtEEEbRKT0_.exit.i.i, %_ZN4llvm15isa_and_nonnullIJN5clang16PseudoObjectExprEEPNS1_4StmtEEEbRKT0_.exit.thread.i.i
-  %.039.i.i = phi i32 [ %.mux.i.i, %_ZN4llvm15isa_and_nonnullIJN5clang16PseudoObjectExprEEPNS1_4StmtEEEbRKT0_.exit.i.i ], [ 32, %66 ], [ 32, %69 ], [ 32, %73 ], [ 288, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.thread.i.i ], [ %.mux54.i.i, %_ZN4llvm15isa_and_nonnullIJN5clang16PseudoObjectExprEEPNS1_4StmtEEEbRKT0_.exit.thread.i.i ]
+  %.042.i.i = phi i32 [ %.mux.i.i, %_ZN4llvm15isa_and_nonnullIJN5clang16PseudoObjectExprEEPNS1_4StmtEEEbRKT0_.exit.i.i ], [ 32, %66 ], [ 32, %69 ], [ 32, %73 ], [ 288, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.thread.i.i ], [ %.mux57.i.i, %_ZN4llvm15isa_and_nonnullIJN5clang16PseudoObjectExprEEPNS1_4StmtEEEbRKT0_.exit.thread.i.i ]
   %79 = load i32, ptr %16, align 8
   %80 = and i32 %79, 16711680
-  %.not.i20.i.i = icmp eq i32 %80, 65536
-  br i1 %.not.i20.i.i, label %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i.i.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.i.i
+  %.not.i22.i.i = icmp eq i32 %80, 65536
+  br i1 %.not.i22.i.i, label %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i.i.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.i.i
 
 _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i.i.i: ; preds = %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.i.i
   %81 = getelementptr inbounds i8, ptr %1, i64 40
@@ -4633,8 +4633,8 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i.i.i: ; preds = %_ZZN12
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %87 = load i32, ptr %86, align 8
   %88 = and i32 %87, 16777216
-  %.not.i.i22.i.i = icmp eq i32 %88, 0
-  br i1 %.not.i.i22.i.i, label %94, label %89
+  %.not.i.i24.i.i = icmp eq i32 %88, 0
+  br i1 %.not.i.i24.i.i, label %94, label %89
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -4649,20 +4649,20 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i.i.i: ; preds = %_ZZN12
   br label %_ZNK5clang15ObjCMessageExpr15getMethodFamilyEv.exit.i.i.i
 
 _ZNK5clang15ObjCMessageExpr15getMethodFamilyEv.exit.i.i.i: ; preds = %94, %89
-  %.0.i.i23.i.i = phi i32 [ %93, %89 ], [ %96, %94 ]
-  %97 = icmp eq i32 %.0.i.i23.i.i, 1
+  %.0.i.i25.i.i = phi i32 [ %93, %89 ], [ %96, %94 ]
+  %97 = icmp eq i32 %.0.i.i25.i.i, 1
   br i1 %97, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.i.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.i.i
 
 _ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.i.i: ; preds = %_ZNK5clang15ObjCMessageExpr15getMethodFamilyEv.exit.i.i.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i.i.i
-  %98 = or disjoint i32 %.039.i.i, 64
+  %98 = or disjoint i32 %.042.i.i, 64
   %99 = call i64 @_ZNK5clang15ObjCMessageExpr15getReceiverTypeEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #15
   %100 = and i64 %99, -16
   %101 = inttoptr i64 %100 to ptr
   %102 = load ptr, ptr %101, align 16
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load i8, ptr %103, align 16
-  %.not.i25.i.i = icmp eq i8 %104, 33
-  br i1 %.not.i25.i.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread45.i.i, label %105
+  %.not.i27.i.i = icmp eq i8 %104, 33
+  br i1 %.not.i27.i.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread48.i.i, label %105
 
 105:                                              ; preds = %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.i.i
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -4678,17 +4678,17 @@ _ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprE
 _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i.i: ; preds = %105
   %113 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %102) #15
   %.not15.i.i = icmp eq ptr %113, null
-  br i1 %.not15.i.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit._ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread_crit_edge.i.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread45.i.i
+  br i1 %.not15.i.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit._ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread_crit_edge.i.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread48.i.i
 
 _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit._ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread_crit_edge.i.i: ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i.i
   %.pre.i.i = load ptr, ptr %101, align 16
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 16
-  %.pre51.i.i = load i8, ptr %.phi.trans.insert.i.i, align 16
+  %.pre54.i.i = load i8, ptr %.phi.trans.insert.i.i, align 16
   br label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i.i
 
-_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread45.i.i: ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i.i, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.i.i
-  %.0.i2648.i.i = phi ptr [ %113, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i.i ], [ %102, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.i.i ]
-  %114 = getelementptr inbounds nuw i8, ptr %.0.i2648.i.i, i64 32
+_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread48.i.i: ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i.i, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.i.i
+  %.0.i2851.i.i = phi ptr [ %113, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i.i ], [ %102, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.i.i ]
+  %114 = getelementptr inbounds nuw i8, ptr %.0.i2851.i.i, i64 32
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %114, align 8
   %115 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -16
   %116 = inttoptr i64 %115 to ptr
@@ -4697,19 +4697,19 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread45.i.i: ; pr
   %119 = load i8, ptr %118, align 16
   %120 = and i8 %119, -2
   %spec.select.i.i.i.i.i.i.i.i.not.i.i.i.i = icmp eq i8 %120, 34
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.thread12.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.thread11.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.i
 
 _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i.i: ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit._ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread_crit_edge.i.i, %105
-  %121 = phi i8 [ %.pre51.i.i, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit._ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread_crit_edge.i.i ], [ %104, %105 ]
+  %121 = phi i8 [ %.pre54.i.i, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit._ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread_crit_edge.i.i ], [ %104, %105 ]
   %122 = phi ptr [ %.pre.i.i, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit._ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread_crit_edge.i.i ], [ %102, %105 ]
   %123 = and i8 %121, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i29.i.i = icmp eq i8 %123, 34
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i29.i.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.thread12.i, label %124
+  %spec.select.i.i.i.i.i.i.i.i.not.i31.i.i = icmp eq i8 %123, 34
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i31.i.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.thread11.i, label %124
 
 124:                                              ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i.i
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %.sroa.0.0.copyload.i.i.i.i30.i.i = load i64, ptr %125, align 8
-  %126 = and i64 %.sroa.0.0.copyload.i.i.i.i30.i.i, -16
+  %.sroa.0.0.copyload.i.i.i.i32.i.i = load i64, ptr %125, align 8
+  %126 = and i64 %.sroa.0.0.copyload.i.i.i.i32.i.i, -16
   %127 = inttoptr i64 %126 to ptr
   %128 = load ptr, ptr %127, align 16
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
@@ -4725,16 +4725,16 @@ _ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprE
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   br label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_14ObjCObjectTypeEE_clES6_.exit.i
 
-_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.thread12.i: ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i.i, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread45.i.i
-  %.0.i.i27.sink.i.ph.i = phi ptr [ %122, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i.i ], [ %117, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread45.i.i ]
+_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.thread11.i: ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i.i, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread48.i.i
+  %.0.i.i29.sink.i.ph.i = phi ptr [ %122, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i.i ], [ %117, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread48.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   br label %.preheader.i.preheader.i
 
-_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.i: ; preds = %124, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread45.i.i
-  %.sink.i.i = phi ptr [ %117, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread45.i.i ], [ %122, %124 ]
+_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.i: ; preds = %124, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread48.i.i
+  %.sink.i.i = phi ptr [ %117, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread48.i.i ], [ %122, %124 ]
   %132 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %.sink.i.i) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -4743,12 +4743,12 @@ _ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprE
   %.not.i4.i = icmp eq ptr %132, null
   br i1 %.not.i4.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_14ObjCObjectTypeEE_clES6_.exit.i, label %.preheader.i.preheader.i
 
-.preheader.i.preheader.i:                         ; preds = %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.i, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.thread12.i
-  %.0.i.i27.sink.i15.i = phi ptr [ %.0.i.i27.sink.i.ph.i, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.thread12.i ], [ %132, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.i ]
+.preheader.i.preheader.i:                         ; preds = %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.i, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.thread11.i
+  %.0.i.i29.sink.i14.i = phi ptr [ %.0.i.i29.sink.i.ph.i, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.thread11.i ], [ %132, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.i ]
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread13.i.i.i, %.preheader.i.preheader.i
-  %.pn.i.i.i = phi ptr [ %.0.i16.i.i.i, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread13.i.i.i ], [ %.0.i.i27.sink.i15.i, %.preheader.i.preheader.i ]
+  %.pn.i.i.i = phi ptr [ %.0.i16.i.i.i, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread13.i.i.i ], [ %.0.i.i29.sink.i14.i, %.preheader.i.preheader.i ]
   %storemerge.in.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 24
   %storemerge.i.i.i = load i64, ptr %storemerge.in.i.i.i, align 8
   %133 = and i64 %storemerge.i.i.i, -16
@@ -4804,8 +4804,8 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit.i.i: ; preds = %_ZNK5clang4Type5
   br label %152
 
 152:                                              ; preds = %150, %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit.i.i, %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit.thread.i.i
-  %153 = getelementptr inbounds i8, ptr %.0.i.i27.sink.i15.i, i64 48
-  %154 = getelementptr inbounds nuw i8, ptr %.0.i.i27.sink.i15.i, i64 16
+  %153 = getelementptr inbounds i8, ptr %.0.i.i29.sink.i14.i, i64 48
+  %154 = getelementptr inbounds nuw i8, ptr %.0.i.i29.sink.i14.i, i64 16
   %155 = load i32, ptr %154, align 16
   %156 = lshr i32 %155, 19
   %157 = and i32 %156, 127
@@ -4814,16 +4814,16 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit.i.i: ; preds = %_ZNK5clang4Type5
   %160 = lshr i32 %155, 26
   %161 = zext nneg i32 %160 to i64
   %162 = getelementptr inbounds ptr, ptr %159, i64 %161
-  %.not1215.i.i = icmp ult i32 %155, 67108864
-  br i1 %.not1215.i.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_14ObjCObjectTypeEE_clES6_.exit.i, label %.lr.ph.i.i
+  %.not123.i.i = icmp ult i32 %155, 67108864
+  br i1 %.not123.i.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_14ObjCObjectTypeEE_clES6_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %152, %.lr.ph.i.i
-  %.016.i.i = phi ptr [ %165, %.lr.ph.i.i ], [ %159, %152 ]
-  %163 = load ptr, ptr %.016.i.i, align 8
+  %.04.i.i = phi ptr [ %165, %.lr.ph.i.i ], [ %159, %152 ]
+  %163 = load ptr, ptr %.04.i.i, align 8
   store ptr %163, ptr %6, align 8
   store i32 8192, ptr %7, align 4
   %164 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE12emplace_backIJjRPKNS1_16ObjCProtocolDeclEEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %165 = getelementptr inbounds i8, ptr %.016.i.i, i64 8
+  %165 = getelementptr inbounds i8, ptr %.04.i.i, i64 8
   %.not12.i.i = icmp eq ptr %165, %162
   br i1 %.not12.i.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_14ObjCObjectTypeEE_clES6_.exit.i, label %.lr.ph.i.i
 
@@ -4835,12 +4835,12 @@ _ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprE
   br label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.i.i
 
 _ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.i.i: ; preds = %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_14ObjCObjectTypeEE_clES6_.exit.i, %_ZNK5clang15ObjCMessageExpr15getMethodFamilyEv.exit.i.i.i, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.i.i
-  %.1.i.i = phi i32 [ %.039.i.i, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.i.i ], [ %.039.i.i, %_ZNK5clang15ObjCMessageExpr15getMethodFamilyEv.exit.i.i.i ], [ %98, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_14ObjCObjectTypeEE_clES6_.exit.i ]
+  %.1.i.i = phi i32 [ %.042.i.i, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.i.i ], [ %.042.i.i, %_ZNK5clang15ObjCMessageExpr15getMethodFamilyEv.exit.i.i.i ], [ %98, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_14ObjCObjectTypeEE_clES6_.exit.i ]
   %166 = load ptr, ptr %0, align 8
   %167 = load i32, ptr %16, align 8
   %168 = and i32 %167, 67108864
-  %.not.i32.i.i = icmp eq i32 %168, 0
-  br i1 %.not.i32.i.i, label %171, label %169
+  %.not.i34.i.i = icmp eq i32 %168, 0
+  br i1 %.not.i34.i.i, label %171, label %169
 
 169:                                              ; preds = %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.i.i
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4849,8 +4849,8 @@ _ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprE
 
 171:                                              ; preds = %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.i.i
   %172 = and i32 %167, 402653184
-  %.not.i.i33.i.i = icmp eq i32 %172, 0
-  br i1 %.not.i.i33.i.i, label %183, label %173
+  %.not.i.i35.i.i = icmp eq i32 %172, 0
+  br i1 %.not.i.i35.i.i, label %183, label %173
 
 173:                                              ; preds = %171
   %174 = call i64 @_ZNK5clang15ObjCMessageExpr11getSelectorEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #15

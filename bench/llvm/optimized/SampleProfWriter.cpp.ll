@@ -1309,13 +1309,13 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinar
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %26 = phi ptr [ %35, %.lr.ph ], [ %25, %1 ]
   %27 = phi i64 [ %33, %.lr.ph ], [ 0, %1 ]
-  %.028 = phi i32 [ %32, %.lr.ph ], [ 0, %1 ]
+  %.032 = phi i32 [ %32, %.lr.ph ], [ 0, %1 ]
   %28 = getelementptr inbounds %"struct.llvm::sampleprof::SecHdrTableEntry", ptr %26, i64 %27, i32 4
   %29 = load i64, ptr %28, align 8
   %30 = load ptr, ptr %14, align 8
   %31 = getelementptr inbounds i32, ptr %30, i64 %29
-  store i32 %.028, ptr %31, align 4
-  %32 = add i32 %.028, 1
+  store i32 %.032, ptr %31, align 4
+  %32 = add i32 %.032, 1
   %33 = zext i32 %32 to i64
   %34 = load ptr, ptr %16, align 8
   %35 = load ptr, ptr %15, align 8
@@ -1331,10 +1331,10 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinar
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %44 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #22
-  %.not33 = icmp eq i64 %44, 0
-  br i1 %.not33, label %._crit_edge32, label %.lr.ph31
+  %.not37 = icmp eq i64 %44, 0
+  br i1 %.not37, label %._crit_edge36, label %.lr.ph35
 
-.lr.ph31:                                         ; preds = %._crit_edge
+.lr.ph35:                                         ; preds = %._crit_edge
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -1358,9 +1358,9 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinar
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %66
 
-66:                                               ; preds = %.lr.ph31, %66
-  %67 = phi i64 [ 0, %.lr.ph31 ], [ %120, %66 ]
-  %.01229 = phi i32 [ 0, %.lr.ph31 ], [ %119, %66 ]
+66:                                               ; preds = %.lr.ph35, %66
+  %67 = phi i64 [ 0, %.lr.ph35 ], [ %120, %66 ]
+  %.01233 = phi i32 [ 0, %.lr.ph35 ], [ %119, %66 ]
   %68 = load ptr, ptr %14, align 8
   %69 = getelementptr inbounds i32, ptr %68, i64 %67
   %70 = load i32, ptr %69, align 4
@@ -1376,7 +1376,7 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinar
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %74 = zext i32 %.sroa.0.0.copyload to i64
   %75 = load i64, ptr %45, align 8
-  %76 = shl i32 %.01229, 2
+  %76 = shl i32 %.01233, 2
   %77 = zext i32 %76 to i64
   %78 = shl nuw nsw i64 %77, 3
   %79 = add i64 %75, %78
@@ -1491,24 +1491,24 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinar
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  %119 = add i32 %.01229, 1
+  %119 = add i32 %.01233, 1
   %120 = zext i32 %119 to i64
   %121 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #22
   %122 = icmp ugt i64 %121, %120
-  br i1 %122, label %66, label %._crit_edge32, !llvm.loop !13
+  br i1 %122, label %66, label %._crit_edge36, !llvm.loop !13
 
-._crit_edge32:                                    ; preds = %66, %._crit_edge
+._crit_edge36:                                    ; preds = %66, %._crit_edge
   %123 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #22
   %124 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #22
   %125 = load ptr, ptr %14, align 8
   %126 = icmp eq ptr %125, %23
   br i1 %126, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %127
 
-127:                                              ; preds = %._crit_edge32
+127:                                              ; preds = %._crit_edge36
   call void @free(ptr noundef %125) #22
   br label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge32, %127
+_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge36, %127
   %.fca.1.insert = insertvalue { i32, ptr } { i32 0, ptr poison }, ptr %123, 1
   ret { i32, ptr } %.fca.1.insert
 }
@@ -2734,41 +2734,41 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostr
   %.06.i.i = phi ptr [ %31, %.lr.ph.i.i ], [ %22, %25 ]
   %30 = call { ptr, i8 } @_ZNSt8_Rb_treeIN4llvm10sampleprof13SampleContextESt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE17_M_emplace_uniqueIJRS3_IS2_mEEEES3_ISt17_Rb_tree_iteratorIS5_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %.06.i.i)
   %31 = getelementptr inbounds i8, ptr %.06.i.i, i64 48
-  %.not.i.i16 = icmp eq ptr %31, %24
-  br i1 %.not.i.i16, label %_ZNSt3mapIN4llvm10sampleprof13SampleContextEmSt4lessIS2_ESaISt4pairIKS2_mEEEC2IPS5_IS2_mEEET_SD_.exit, label %.lr.ph.i.i, !llvm.loop !31
+  %.not.i.i19 = icmp eq ptr %31, %24
+  br i1 %.not.i.i19, label %_ZNSt3mapIN4llvm10sampleprof13SampleContextEmSt4lessIS2_ESaISt4pairIKS2_mEEEC2IPS5_IS2_mEEET_SD_.exit, label %.lr.ph.i.i, !llvm.loop !31
 
 _ZNSt3mapIN4llvm10sampleprof13SampleContextEmSt4lessIS2_ESaISt4pairIKS2_mEEEC2IPS5_IS2_mEEET_SD_.exit: ; preds = %.lr.ph.i.i
   %.pre = load ptr, ptr %27, align 8
-  %.not6068 = icmp eq ptr %.pre, %26
-  br i1 %.not6068, label %._crit_edge, label %.lr.ph70
+  %.not6169 = icmp eq ptr %.pre, %26
+  br i1 %.not6169, label %._crit_edge, label %.lr.ph71
 
-.lr.ph70:                                         ; preds = %_ZNSt3mapIN4llvm10sampleprof13SampleContextEmSt4lessIS2_ESaISt4pairIKS2_mEEEC2IPS5_IS2_mEEET_SD_.exit, %52
-  %.sroa.036.069 = phi ptr [ %54, %52 ], [ %.pre, %_ZNSt3mapIN4llvm10sampleprof13SampleContextEmSt4lessIS2_ESaISt4pairIKS2_mEEEC2IPS5_IS2_mEEET_SD_.exit ]
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.036.069, i64 32
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.036.069, i64 72
+.lr.ph71:                                         ; preds = %_ZNSt3mapIN4llvm10sampleprof13SampleContextEmSt4lessIS2_ESaISt4pairIKS2_mEEEC2IPS5_IS2_mEEET_SD_.exit, %52
+  %.sroa.039.070 = phi ptr [ %54, %52 ], [ %.pre, %_ZNSt3mapIN4llvm10sampleprof13SampleContextEmSt4lessIS2_ESaISt4pairIKS2_mEEEC2IPS5_IS2_mEEET_SD_.exit ]
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.039.070, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.039.070, i64 72
   %34 = load i64, ptr %33, align 8
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 112
   %37 = load ptr, ptr %36, align 8
   %38 = call { i32, ptr } %37(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(40) %32) #22
   %39 = extractvalue { i32, ptr } %38, 0
-  %.not.i17 = icmp eq i32 %39, 0
-  br i1 %.not.i17, label %.preheader, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_18SecFuncOffsetFlagsEEEvNS0_7SecTypeET_.exit.thread52
+  %.not.i20 = icmp eq i32 %39, 0
+  br i1 %.not.i20, label %.preheader, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_18SecFuncOffsetFlagsEEEvNS0_7SecTypeET_.exit.thread53
 
-_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_18SecFuncOffsetFlagsEEEvNS0_7SecTypeET_.exit.thread52: ; preds = %.lr.ph70
+_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_18SecFuncOffsetFlagsEEEvNS0_7SecTypeET_.exit.thread53: ; preds = %.lr.ph71
   %40 = extractvalue { i32, ptr } %38, 1
   %41 = getelementptr inbounds i8, ptr %2, i64 16
   %42 = load ptr, ptr %41, align 8
   call void @_ZNSt8_Rb_treeIN4llvm10sampleprof13SampleContextESt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %42)
-  br label %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit31.thread"
+  br label %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit34.thread"
 
-.preheader:                                       ; preds = %.lr.ph70, %_ZN4llvm11raw_ostreamlsEc.exit.i.i
-  %.019.i.i = phi i64 [ %43, %_ZN4llvm11raw_ostreamlsEc.exit.i.i ], [ %34, %.lr.ph70 ]
+.preheader:                                       ; preds = %.lr.ph71, %_ZN4llvm11raw_ostreamlsEc.exit.i.i
+  %.019.i.i = phi i64 [ %43, %_ZN4llvm11raw_ostreamlsEc.exit.i.i ], [ %34, %.lr.ph71 ]
   %43 = lshr i64 %.019.i.i, 7
-  %.not.i.i18 = icmp ugt i64 %.019.i.i, 127
+  %.not.i.i21 = icmp ugt i64 %.019.i.i, 127
   %44 = trunc i64 %.019.i.i to i8
   %45 = or i8 %44, -128
-  %.0.i.i = select i1 %.not.i.i18, i8 %45, i8 %44
+  %.0.i.i = select i1 %.not.i.i21, i8 %45, i8 %44
   %46 = load ptr, ptr %7, align 8
   %47 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp ult ptr %46, %47
@@ -2785,13 +2785,13 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_18Sec
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i:               ; preds = %50, %48
-  br i1 %.not.i.i18, label %.preheader, label %52, !llvm.loop !6
+  br i1 %.not.i.i21, label %.preheader, label %52, !llvm.loop !6
 
 52:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i
   %53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #22
-  %54 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.036.069) #26
-  %.not60 = icmp eq ptr %54, %26
-  br i1 %.not60, label %._crit_edge, label %.lr.ph70
+  %54 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.039.070) #26
+  %.not61 = icmp eq ptr %54, %26
+  br i1 %.not61, label %._crit_edge, label %.lr.ph71
 
 ._crit_edge:                                      ; preds = %52, %25, %_ZNSt3mapIN4llvm10sampleprof13SampleContextEmSt4lessIS2_ESaISt4pairIKS2_mEEEC2IPS5_IS2_mEEET_SD_.exit
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2816,53 +2816,53 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i:               ; preds = %50, %48
 
 65:                                               ; preds = %61, %.lr.ph.i
   %66 = getelementptr inbounds i8, ptr %.011.i, i64 40
-  %.not.i19 = icmp eq ptr %66, %58
-  br i1 %.not.i19, label %.loopexit.sink.split, label %.lr.ph.i
+  %.not.i22 = icmp eq ptr %66, %58
+  br i1 %.not.i22, label %.loopexit.sink.split, label %.lr.ph.i
 
 67:                                               ; preds = %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit
-  %.not66 = icmp eq i64 %23, 0
-  br i1 %.not66, label %.loopexit, label %.lr.ph
+  %.not67 = icmp eq i64 %23, 0
+  br i1 %.not67, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %67, %84
-  %.01567 = phi ptr [ %86, %84 ], [ %22, %67 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.01567, i64 40
+  %.01568 = phi ptr [ %86, %84 ], [ %22, %67 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.01568, i64 40
   %69 = load i64, ptr %68, align 8
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 112
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call { i32, ptr } %72(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(40) %.01567) #22
+  %73 = tail call { i32, ptr } %72(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(40) %.01568) #22
   %74 = extractvalue { i32, ptr } %73, 0
-  %.not.i20 = icmp eq i32 %74, 0
-  br i1 %.not.i20, label %.preheader61, label %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit31.thread.loopexit"
+  %.not.i23 = icmp eq i32 %74, 0
+  br i1 %.not.i23, label %.preheader62, label %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit34.thread.loopexit"
 
-.preheader61:                                     ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEc.exit.i.i29
-  %.019.i.i25 = phi i64 [ %75, %_ZN4llvm11raw_ostreamlsEc.exit.i.i29 ], [ %69, %.lr.ph ]
-  %75 = lshr i64 %.019.i.i25, 7
-  %.not.i.i26 = icmp ugt i64 %.019.i.i25, 127
-  %76 = trunc i64 %.019.i.i25 to i8
+.preheader62:                                     ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEc.exit.i.i32
+  %.019.i.i28 = phi i64 [ %75, %_ZN4llvm11raw_ostreamlsEc.exit.i.i32 ], [ %69, %.lr.ph ]
+  %75 = lshr i64 %.019.i.i28, 7
+  %.not.i.i29 = icmp ugt i64 %.019.i.i28, 127
+  %76 = trunc i64 %.019.i.i28 to i8
   %77 = or i8 %76, -128
-  %.0.i.i27 = select i1 %.not.i.i26, i8 %77, i8 %76
+  %.0.i.i30 = select i1 %.not.i.i29, i8 %77, i8 %76
   %78 = load ptr, ptr %7, align 8
   %79 = load ptr, ptr %8, align 8
-  %.not.i.i.i28 = icmp ult ptr %78, %79
-  br i1 %.not.i.i.i28, label %82, label %80
+  %.not.i.i.i31 = icmp ult ptr %78, %79
+  br i1 %.not.i.i.i31, label %82, label %80
 
-80:                                               ; preds = %.preheader61
-  %81 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 noundef zeroext %.0.i.i27) #22
-  br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i29
+80:                                               ; preds = %.preheader62
+  %81 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 noundef zeroext %.0.i.i30) #22
+  br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i32
 
-82:                                               ; preds = %.preheader61
+82:                                               ; preds = %.preheader62
   %83 = getelementptr inbounds i8, ptr %78, i64 1
   store ptr %83, ptr %7, align 8
-  store i8 %.0.i.i27, ptr %78, align 1
-  br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i29
+  store i8 %.0.i.i30, ptr %78, align 1
+  br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i32
 
-_ZN4llvm11raw_ostreamlsEc.exit.i.i29:             ; preds = %82, %80
-  br i1 %.not.i.i26, label %.preheader61, label %84, !llvm.loop !6
+_ZN4llvm11raw_ostreamlsEc.exit.i.i32:             ; preds = %82, %80
+  br i1 %.not.i.i29, label %.preheader62, label %84, !llvm.loop !6
 
-84:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i29
+84:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i32
   %85 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #22
-  %86 = getelementptr inbounds i8, ptr %.01567, i64 48
+  %86 = getelementptr inbounds i8, ptr %.01568, i64 48
   %.not = icmp eq ptr %86, %24
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -2899,17 +2899,17 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i29:             ; preds = %82, %80
   %103 = load ptr, ptr %19, align 8
   %104 = zext i32 %98 to i64
   %105 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.279", ptr %103, i64 %104
-  %.not5.i.i32 = icmp eq i32 %98, 0
-  br i1 %.not5.i.i32, label %._crit_edge.i.i, label %.lr.ph.i.i33
+  %.not5.i.i35 = icmp eq i32 %98, 0
+  br i1 %.not5.i.i35, label %._crit_edge.i.i, label %.lr.ph.i.i36
 
-.lr.ph.i.i33:                                     ; preds = %102, %.lr.ph.i.i33
-  %.06.i.i34 = phi ptr [ %106, %.lr.ph.i.i33 ], [ %103, %102 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.06.i.i34, i8 0, i64 40, i1 false)
-  %106 = getelementptr inbounds i8, ptr %.06.i.i34, i64 48
-  %.not.i.i35 = icmp eq ptr %106, %105
-  br i1 %.not.i.i35, label %._crit_edge.i.i, label %.lr.ph.i.i33, !llvm.loop !8
+.lr.ph.i.i36:                                     ; preds = %102, %.lr.ph.i.i36
+  %.06.i.i37 = phi ptr [ %106, %.lr.ph.i.i36 ], [ %103, %102 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.06.i.i37, i8 0, i64 40, i1 false)
+  %106 = getelementptr inbounds i8, ptr %.06.i.i37, i64 48
+  %.not.i.i38 = icmp eq ptr %106, %105
+  br i1 %.not.i.i38, label %._crit_edge.i.i, label %.lr.ph.i.i36, !llvm.loop !8
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i33, %102
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i36, %102
   store i32 0, ptr %89, align 8
   store i32 0, ptr %92, align 4
   br label %_ZN4llvm9MapVectorINS_10sampleprof13SampleContextEmNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_mELj0EEEE5clearEv.exit
@@ -2919,16 +2919,16 @@ _ZN4llvm9MapVectorINS_10sampleprof13SampleContextEmNS_8DenseMapIS2_jNS_12DenseMa
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i32 0, ptr %108, align 8
   %109 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #22
-  br label %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit31.thread"
+  br label %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit34.thread"
 
-"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit31.thread.loopexit": ; preds = %.lr.ph
+"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit34.thread.loopexit": ; preds = %.lr.ph
   %110 = extractvalue { i32, ptr } %73, 1
-  br label %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit31.thread"
+  br label %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit34.thread"
 
-"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit31.thread": ; preds = %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit31.thread.loopexit", %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_18SecFuncOffsetFlagsEEEvNS0_7SecTypeET_.exit.thread52, %_ZN4llvm9MapVectorINS_10sampleprof13SampleContextEmNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_mELj0EEEE5clearEv.exit
-  %.sroa.042.2 = phi i32 [ 0, %_ZN4llvm9MapVectorINS_10sampleprof13SampleContextEmNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_mELj0EEEE5clearEv.exit ], [ %39, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_18SecFuncOffsetFlagsEEEvNS0_7SecTypeET_.exit.thread52 ], [ %74, %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit31.thread.loopexit" ]
-  %.sroa.6.2 = phi ptr [ %109, %_ZN4llvm9MapVectorINS_10sampleprof13SampleContextEmNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_mELj0EEEE5clearEv.exit ], [ %40, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_18SecFuncOffsetFlagsEEEvNS0_7SecTypeET_.exit.thread52 ], [ %110, %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit31.thread.loopexit" ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.042.2, 0
+"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit34.thread": ; preds = %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit34.thread.loopexit", %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_18SecFuncOffsetFlagsEEEvNS0_7SecTypeET_.exit.thread53, %_ZN4llvm9MapVectorINS_10sampleprof13SampleContextEmNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_mELj0EEEE5clearEv.exit
+  %.sroa.043.2 = phi i32 [ 0, %_ZN4llvm9MapVectorINS_10sampleprof13SampleContextEmNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_mELj0EEEE5clearEv.exit ], [ %39, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_18SecFuncOffsetFlagsEEEvNS0_7SecTypeET_.exit.thread53 ], [ %74, %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit34.thread.loopexit" ]
+  %.sroa.6.2 = phi ptr [ %109, %_ZN4llvm9MapVectorINS_10sampleprof13SampleContextEmNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_mELj0EEEE5clearEv.exit ], [ %40, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_18SecFuncOffsetFlagsEEEvNS0_7SecTypeET_.exit.thread53 ], [ %110, %"_ZZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEvENK3$_0clERKNS0_13SampleContextEm.exit34.thread.loopexit" ]
+  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.043.2, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.6.2, 1
   ret { i32, ptr } %.fca.1.insert
 }

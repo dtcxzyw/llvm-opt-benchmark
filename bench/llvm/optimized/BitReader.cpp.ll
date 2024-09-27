@@ -148,8 +148,8 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEE9takeErrorE
   %43 = load i64, ptr %11, align 8, !noalias !4
   %44 = inttoptr i64 %43 to ptr
   store ptr null, ptr %11, align 8, !noalias !4
-  %.not21 = icmp eq i64 %43, 0
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %45
+  %.not20 = icmp eq i64 %43, 0
+  br i1 %.not20, label %_ZN4llvm5ErrorD2Ev.exit11, label %45
 
 45:                                               ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEE9takeErrorEv.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #12
@@ -254,7 +254,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i16.i.loopexit.i: ; p
   br label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i16.i.loopexit.i, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i, %50
-  %.sroa.04.1.ph.i = phi i1 [ true, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i ], [ true, %50 ], [ %91, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i16.i.loopexit.i ]
+  %.sroa.02.1.ph.i = phi i1 [ true, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i ], [ true, %50 ], [ %91, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i16.i.loopexit.i ]
   %92 = load ptr, ptr %44, align 8, !noalias !7
   %93 = getelementptr inbounds i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8, !noalias !7
@@ -262,7 +262,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.assume(i1 %.sroa.04.1.ph.i)
+  call void @llvm.assume(i1 %.sroa.02.1.ph.i)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit10, label %95
 
@@ -276,7 +276,7 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   store ptr null, ptr %2, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #12
   %.pr = load ptr, ptr %11, align 8
-  %.pre22 = load i8, ptr %40, align 8
+  %.pre21 = load i8, ptr %40, align 8
   br label %99
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %_ZN4llvm15ParserCallbacksD2Ev.exit._ZN4llvm5ErrorD2Ev.exit11_crit_edge, %_ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEE9takeErrorEv.exit
@@ -286,7 +286,7 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %_ZN4llvm15ParserCal
   br label %99
 
 99:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit10, %_ZN4llvm5ErrorD2Ev.exit11
-  %100 = phi i8 [ %.pre22, %_ZN4llvm5ErrorD2Ev.exit10 ], [ %41, %_ZN4llvm5ErrorD2Ev.exit11 ]
+  %100 = phi i8 [ %.pre21, %_ZN4llvm5ErrorD2Ev.exit10 ], [ %41, %_ZN4llvm5ErrorD2Ev.exit11 ]
   %101 = phi ptr [ %.pr, %_ZN4llvm5ErrorD2Ev.exit10 ], [ null, %_ZN4llvm5ErrorD2Ev.exit11 ]
   %.1 = phi i32 [ 1, %_ZN4llvm5ErrorD2Ev.exit10 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit11 ]
   %102 = trunc i8 %100 to i1
@@ -563,8 +563,8 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEE9takeErrorE
   %43 = load i64, ptr %11, align 8, !noalias !30
   %44 = inttoptr i64 %43 to ptr
   store ptr null, ptr %11, align 8, !noalias !30
-  %.not21 = icmp eq i64 %43, 0
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %45
+  %.not20 = icmp eq i64 %43, 0
+  br i1 %.not20, label %_ZN4llvm5ErrorD2Ev.exit11, label %45
 
 45:                                               ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEE9takeErrorEv.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #12
@@ -669,7 +669,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i16.i.loopexit.i: ; p
   br label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i16.i.loopexit.i, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i, %50
-  %.sroa.04.1.ph.i = phi i1 [ true, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i ], [ true, %50 ], [ %91, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i16.i.loopexit.i ]
+  %.sroa.02.1.ph.i = phi i1 [ true, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.i ], [ true, %50 ], [ %91, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i16.i.loopexit.i ]
   %92 = load ptr, ptr %44, align 8, !noalias !33
   %93 = getelementptr inbounds i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8, !noalias !33
@@ -677,7 +677,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.assume(i1 %.sroa.04.1.ph.i)
+  call void @llvm.assume(i1 %.sroa.02.1.ph.i)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit10, label %95
 
@@ -691,7 +691,7 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   store ptr null, ptr %2, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #12
   %.pr = load ptr, ptr %11, align 8
-  %.pre22 = load i8, ptr %40, align 8
+  %.pre21 = load i8, ptr %40, align 8
   br label %99
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %_ZN4llvm15ParserCallbacksD2Ev.exit._ZN4llvm5ErrorD2Ev.exit11_crit_edge, %_ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEE9takeErrorEv.exit
@@ -701,7 +701,7 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %_ZN4llvm15ParserCal
   br label %99
 
 99:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit10, %_ZN4llvm5ErrorD2Ev.exit11
-  %100 = phi i8 [ %.pre22, %_ZN4llvm5ErrorD2Ev.exit10 ], [ %41, %_ZN4llvm5ErrorD2Ev.exit11 ]
+  %100 = phi i8 [ %.pre21, %_ZN4llvm5ErrorD2Ev.exit10 ], [ %41, %_ZN4llvm5ErrorD2Ev.exit11 ]
   %101 = phi ptr [ %.pr, %_ZN4llvm5ErrorD2Ev.exit10 ], [ null, %_ZN4llvm5ErrorD2Ev.exit11 ]
   %.1 = phi i32 [ 1, %_ZN4llvm5ErrorD2Ev.exit10 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit11 ]
   %102 = trunc i8 %100 to i1

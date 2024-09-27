@@ -4437,8 +4437,8 @@ _ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE17_M_re
 
 .thread.i.i.i.i:                                  ; preds = %.noexc208
   %762 = ptrtoint ptr %.01646.i to i64
-  %.val2144.i.i.i.i = load i64, ptr %149, align 8
-  %763 = urem i64 %762, %.val2144.i.i.i.i
+  %.val2147.i.i.i.i = load i64, ptr %149, align 8
+  %763 = urem i64 %762, %.val2147.i.i.i.i
   %.val22.i.i.i.i = load ptr, ptr %15, align 8
   %764 = getelementptr inbounds ptr, ptr %.val22.i.i.i.i, i64 %763
   %765 = load ptr, ptr %764, align 8
@@ -4446,13 +4446,13 @@ _ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE17_M_re
   br i1 %.not.i.i.i.i.i.i, label %_ZNKSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIKS5_PS3_ESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit.thread.i.i.i.i, label %774
 
 .preheader.i:                                     ; preds = %.noexc208, %766
-  %.sroa.038.0.in.i.i.i.i = phi ptr [ %.sroa.038.0.i.i.i.i, %766 ], [ %150, %.noexc208 ]
-  %.sroa.038.0.i.i.i.i = load ptr, ptr %.sroa.038.0.in.i.i.i.i, align 8
-  %.not.i.i.i.i205 = icmp eq ptr %.sroa.038.0.i.i.i.i, null
+  %.sroa.041.0.in.i.i.i.i = phi ptr [ %.sroa.041.0.i.i.i.i, %766 ], [ %150, %.noexc208 ]
+  %.sroa.041.0.i.i.i.i = load ptr, ptr %.sroa.041.0.in.i.i.i.i, align 8
+  %.not.i.i.i.i205 = icmp eq ptr %.sroa.041.0.i.i.i.i, null
   br i1 %.not.i.i.i.i205, label %771, label %766
 
 766:                                              ; preds = %.preheader.i
-  %767 = getelementptr inbounds i8, ptr %.sroa.038.0.i.i.i.i, i64 8
+  %767 = getelementptr inbounds i8, ptr %.sroa.041.0.i.i.i.i, i64 8
   %.val19.i.i.i.i = load ptr, ptr %767, align 8
   %768 = icmp eq ptr %.01646.i, %.val19.i.i.i.i
   br i1 %768, label %_ZNKSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIKS5_PS3_ESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit.i.i.i.i, label %.preheader.i, !llvm.loop !31
@@ -4494,16 +4494,16 @@ _ZNSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIK
   %782 = getelementptr inbounds i8, ptr %780, i64 8
   %.val21.i.i.i.i.i.i = load ptr, ptr %782, align 8
   %783 = ptrtoint ptr %.val21.i.i.i.i.i.i to i64
-  %784 = urem i64 %783, %.val2144.i.i.i.i
+  %784 = urem i64 %783, %.val2147.i.i.i.i
   %.not17.i.i.i.i.i.i = icmp eq i64 %784, %763
   br i1 %.not17.i.i.i.i.i.i, label %778, label %_ZNKSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIKS5_PS3_ESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit.thread.i.i.i.i, !llvm.loop !30
 
 _ZNKSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIKS5_PS3_ESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit.thread.i.i.i.i: ; preds = %781, %.lr.ph.i.i.i.i.i.i, %771, %.thread.i.i.i.i
   %785 = phi i64 [ %773, %771 ], [ %763, %.thread.i.i.i.i ], [ %763, %.lr.ph.i.i.i.i.i.i ], [ %763, %781 ]
-  %.val2147.i.i.i.i = phi i64 [ %.val21.i.i.i.i, %771 ], [ %.val2144.i.i.i.i, %.thread.i.i.i.i ], [ %.val2144.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.val2144.i.i.i.i, %781 ]
+  %.val2150.i.i.i.i = phi i64 [ %.val21.i.i.i.i, %771 ], [ %.val2147.i.i.i.i, %.thread.i.i.i.i ], [ %.val2147.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.val2147.i.i.i.i, %781 ]
   %786 = phi i64 [ %772, %771 ], [ %762, %.thread.i.i.i.i ], [ %762, %.lr.ph.i.i.i.i.i.i ], [ %762, %781 ]
   %787 = load i64, ptr %152, align 8
-  %788 = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %151, i64 noundef %.val2147.i.i.i.i, i64 noundef %.val14.i.i.i.i, i64 noundef 1)
+  %788 = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %151, i64 noundef %.val2150.i.i.i.i, i64 noundef %.val14.i.i.i.i, i64 noundef 1)
           to label %.noexc.i.i.i.i unwind label %769
 
 .noexc.i.i.i.i:                                   ; preds = %_ZNKSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIKS5_PS3_ESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit.thread.i.i.i.i
@@ -4654,11 +4654,11 @@ _ZNSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIK
 
 830:                                              ; preds = %_ZNSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIKS5_PS3_ESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i, %._crit_edge.i.i.i.i.i
   %831 = phi ptr [ %.0.i.i.i.i.i.i.i.i, %_ZNSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIKS5_PS3_ESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
-  %.0.i30.i.i.i.i = phi i64 [ %829, %_ZNSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIKS5_PS3_ESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i ], [ %785, %._crit_edge.i.i.i.i.i ]
-  %832 = getelementptr inbounds ptr, ptr %831, i64 %.0.i30.i.i.i.i
+  %.0.i33.i.i.i.i = phi i64 [ %829, %_ZNSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIKS5_PS3_ESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i ], [ %785, %._crit_edge.i.i.i.i.i ]
+  %832 = getelementptr inbounds ptr, ptr %831, i64 %.0.i33.i.i.i.i
   %833 = load ptr, ptr %832, align 8
-  %.not.i.i31.i.i.i.i = icmp eq ptr %833, null
-  br i1 %.not.i.i31.i.i.i.i, label %837, label %834
+  %.not.i.i34.i.i.i.i = icmp eq ptr %833, null
+  br i1 %.not.i.i34.i.i.i.i, label %837, label %834
 
 834:                                              ; preds = %830
   %835 = load ptr, ptr %833, align 8
@@ -4687,7 +4687,7 @@ _ZNSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIK
 
 844:                                              ; preds = %839, %837
   %845 = phi ptr [ %.pre.i.i.i.i, %839 ], [ %831, %837 ]
-  %846 = getelementptr inbounds ptr, ptr %845, i64 %.0.i30.i.i.i.i
+  %846 = getelementptr inbounds ptr, ptr %845, i64 %.0.i33.i.i.i.i
   store ptr %150, ptr %846, align 8
   br label %847
 

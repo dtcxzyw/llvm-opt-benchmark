@@ -1892,8 +1892,8 @@ define internal fastcc void @_ZN6icu_755units12_GLOBAL__N_123mergeUnitsAndDimens
 entry:
   %singleUnits = getelementptr inbounds i8, ptr %shouldBeMerged, i64 8
   %0 = load i32, ptr %singleUnits, align 8
-  %cmp8 = icmp sgt i32 %0, 0
-  br i1 %cmp8, label %for.body.lr.ph, label %for.end
+  %cmp7 = icmp sgt i32 %0, 0
+  br i1 %cmp7, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %fPool.i = getelementptr inbounds i8, ptr %shouldBeMerged, i64 16
@@ -1908,11 +1908,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %singleUnit.sroa.0.0.copyload = load i32, ptr %5, align 4
-  %singleUnit.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %singleUnit.sroa.35.0.copyload = load i32, ptr %singleUnit.sroa.35.0..sroa_idx, align 4
+  %singleUnit.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %singleUnit.sroa.25.0.copyload = load i32, ptr %singleUnit.sroa.25.0..sroa_idx, align 4
   %unitIndicesWithDimension.val.i = load i32, ptr %unitIndicesWithDimension, align 8
-  %cmp11.i = icmp sgt i32 %unitIndicesWithDimension.val.i, 0
-  br i1 %cmp11.i, label %for.body.lr.ph.i, label %for.end.i
+  %cmp4.i = icmp sgt i32 %unitIndicesWithDimension.val.i, 0
+  br i1 %cmp4.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body
   %unitIndicesWithDimension.val8.i = load ptr, ptr %1, align 8
@@ -1933,7 +1933,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %cmp3.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %mul.i = mul nsw i32 %singleUnit.sroa.35.0.copyload, %multiplier
+  %mul.i = mul nsw i32 %singleUnit.sroa.25.0.copyload, %multiplier
   %dimensionality4.i = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i32, ptr %dimensionality4.i, align 4
   %add.i = add nsw i32 %8, %mul.i
@@ -1960,7 +1960,7 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   br i1 %cmp2.not.i.i.i.i, label %_ZN6icu_755units12_GLOBAL__N_128mergeSingleUnitWithDimensionERNS_16MaybeStackVectorINS1_21UnitIndexAndDimensionELi8EEERKNS_14SingleUnitImplEi.exit, label %if.then3.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  br i1 %cmp11.i, label %if.then5.i.i.i.i, label %if.end14.i.i.i.i
+  br i1 %cmp4.i, label %if.then5.i.i.i.i, label %if.end14.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %if.then3.i.i.i.i
   %9 = load i32, ptr %2, align 8
@@ -1996,7 +1996,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6icu_7515MaybeSt
 new.notnull.i.i.i:                                ; preds = %if.end.i.i.i
   %dimensionality.i.i.i.i = getelementptr inbounds i8, ptr %call9.i.i.i, i64 4
   store i32 %singleUnit.sroa.0.0.copyload, ptr %call9.i.i.i, align 4
-  %mul.i6.i.i.i = mul nsw i32 %singleUnit.sroa.35.0.copyload, %multiplier
+  %mul.i6.i.i.i = mul nsw i32 %singleUnit.sroa.25.0.copyload, %multiplier
   store i32 %mul.i6.i.i.i, ptr %dimensionality.i.i.i.i, align 4
   br label %new.cont.i.i.i
 

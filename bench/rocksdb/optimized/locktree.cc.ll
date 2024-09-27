@@ -1089,11 +1089,11 @@ if.then10:                                        ; preds = %if.then6
 if.end14:                                         ; preds = %_ZN4tokuL38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked_keyrangeEPK10__toku_dbtS6_PNS_10comparatorEmPNS_13GrowableArrayINS_8row_lockEEE.exit.thread, %_ZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEE.exit, %_ZN4tokuL38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked_keyrangeEPK10__toku_dbtS6_PNS_10comparatorEmPNS_13GrowableArrayINS_8row_lockEEE.exit
   %m_size.i = getelementptr inbounds i8, ptr %overlapping_row_locks, i64 8
   %6 = load i64, ptr %m_size.i, align 8
-  %cmp17.not.i = icmp eq i64 %6, 0
-  br i1 %cmp17.not.i, label %if.then19.thread, label %for.body.lr.ph.i
+  %cmp6.not.i = icmp eq i64 %6, 0
+  br i1 %cmp6.not.i, label %if.then19.thread, label %for.body.lr.ph.i
 
 if.then19.thread:                                 ; preds = %if.end14
-  %lnot40 = xor i1 %is_write_request, true
+  %lnot38 = xor i1 %is_write_request, true
   br label %for.end
 
 for.body.lr.ph.i:                                 ; preds = %if.end14
@@ -1106,25 +1106,25 @@ for.body.lr.ph.split.us.i:                        ; preds = %for.body.lr.ph.i
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.body.us.i, %for.body.lr.ph.split.us.i
-  %conflicts_exist.019.us.i = phi i1 [ false, %for.body.lr.ph.split.us.i ], [ %spec.select.i, %for.body.us.i ]
-  %i.018.us.i = phi i64 [ 0, %for.body.lr.ph.split.us.i ], [ %inc.us.i, %for.body.us.i ]
-  %gep.i = getelementptr %"struct.toku::row_lock", ptr %invariant.gep.i, i64 %i.018.us.i
+  %conflicts_exist.08.us.i = phi i1 [ false, %for.body.lr.ph.split.us.i ], [ %spec.select.i, %for.body.us.i ]
+  %i.07.us.i = phi i64 [ 0, %for.body.lr.ph.split.us.i ], [ %inc.us.i, %for.body.us.i ]
+  %gep.i = getelementptr %"struct.toku::row_lock", ptr %invariant.gep.i, i64 %i.07.us.i
   %lock.sroa.1.0.copyload.us.i = load i64, ptr %gep.i, align 8
   %cmp2.not.us.i = icmp ne i64 %lock.sroa.1.0.copyload.us.i, %txnid
-  %spec.select.i = select i1 %cmp2.not.us.i, i1 true, i1 %conflicts_exist.019.us.i
-  %inc.us.i = add nuw i64 %i.018.us.i, 1
-  %exitcond21.not.i = icmp eq i64 %inc.us.i, %6
-  br i1 %exitcond21.not.i, label %_ZN4tokuL28determine_conflicting_txnidsERKNS_13GrowableArrayINS_8row_lockEEERKmPNS_9txnid_setE.exit, label %for.body.us.i, !llvm.loop !10
+  %spec.select.i = select i1 %cmp2.not.us.i, i1 true, i1 %conflicts_exist.08.us.i
+  %inc.us.i = add nuw i64 %i.07.us.i, 1
+  %exitcond10.not.i = icmp eq i64 %inc.us.i, %6
+  br i1 %exitcond10.not.i, label %_ZN4tokuL28determine_conflicting_txnidsERKNS_13GrowableArrayINS_8row_lockEEERKmPNS_9txnid_setE.exit, label %for.body.us.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc19.i
-  %conflicts_exist.019.i = phi i1 [ %conflicts_exist.1.i, %for.inc19.i ], [ false, %for.body.lr.ph.i ]
-  %i.018.i = phi i64 [ %inc.i, %for.inc19.i ], [ 0, %for.body.lr.ph.i ]
+  %conflicts_exist.08.i = phi i1 [ %conflicts_exist.1.i, %for.inc19.i ], [ false, %for.body.lr.ph.i ]
+  %i.07.i = phi i64 [ %inc.i, %for.inc19.i ], [ 0, %for.body.lr.ph.i ]
   %8 = load ptr, ptr %overlapping_row_locks, align 8, !noalias !7
-  %arrayidx.i.i = getelementptr inbounds %"struct.toku::row_lock", ptr %8, i64 %i.018.i
+  %arrayidx.i.i = getelementptr inbounds %"struct.toku::row_lock", ptr %8, i64 %i.07.i
   %lock.sroa.1.0.arrayidx.i.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 88
   %lock.sroa.1.0.copyload.i = load i64, ptr %lock.sroa.1.0.arrayidx.i.sroa_idx.i, align 8
-  %lock.sroa.214.0.arrayidx.i.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 104
-  %lock.sroa.214.0.copyload.i = load ptr, ptr %lock.sroa.214.0.arrayidx.i.sroa_idx.i, align 8
+  %lock.sroa.23.0.arrayidx.i.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 104
+  %lock.sroa.23.0.copyload.i = load ptr, ptr %lock.sroa.23.0.arrayidx.i.sroa_idx.i, align 8
   %cmp2.not.i = icmp eq i64 %lock.sroa.1.0.copyload.i, %txnid
   br i1 %cmp2.not.i, label %for.inc19.i, label %if.then.i
 
@@ -1133,15 +1133,15 @@ if.then.i:                                        ; preds = %for.body.i
   br i1 %cmp4.i17, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %_M_left.i.i.i = getelementptr inbounds i8, ptr %lock.sroa.214.0.copyload.i, i64 24
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %lock.sroa.23.0.copyload.i, i64 24
   %9 = load ptr, ptr %_M_left.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %lock.sroa.214.0.copyload.i, i64 8
-  %cmp.i.not15.i = icmp eq ptr %9, %add.ptr.i.i.i
-  br i1 %cmp.i.not15.i, label %for.inc19.i, label %for.body11.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %lock.sroa.23.0.copyload.i, i64 8
+  %cmp.i.not4.i = icmp eq ptr %9, %add.ptr.i.i.i
+  br i1 %cmp.i.not4.i, label %for.inc19.i, label %for.body11.i
 
 for.body11.i:                                     ; preds = %if.then5.i, %for.inc.i
-  %__begin5.sroa.0.016.i = phi ptr [ %call.i.i18, %for.inc.i ], [ %9, %if.then5.i ]
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.016.i, i64 32
+  %__begin5.sroa.0.05.i = phi ptr [ %call.i.i18, %for.inc.i ], [ %9, %if.then5.i ]
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.05.i, i64 32
   %10 = load i64, ptr %_M_storage.i.i.i, align 8
   %cmp13.not.i = icmp eq i64 %10, %txnid
   br i1 %cmp13.not.i, label %for.inc.i, label %if.then14.i
@@ -1151,7 +1151,7 @@ if.then14.i:                                      ; preds = %for.body11.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then14.i, %for.body11.i
-  %call.i.i18 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin5.sroa.0.016.i) #19
+  %call.i.i18 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin5.sroa.0.05.i) #19
   %cmp.i.not.i = icmp eq ptr %call.i.i18, %add.ptr.i.i.i
   br i1 %cmp.i.not.i, label %for.inc19.i, label %for.body11.i
 
@@ -1160,8 +1160,8 @@ if.else.i:                                        ; preds = %if.then.i
   br label %for.inc19.i
 
 for.inc19.i:                                      ; preds = %for.inc.i, %if.else.i, %if.then5.i, %for.body.i
-  %conflicts_exist.1.i = phi i1 [ %conflicts_exist.019.i, %for.body.i ], [ true, %if.else.i ], [ true, %if.then5.i ], [ true, %for.inc.i ]
-  %inc.i = add nuw i64 %i.018.i, 1
+  %conflicts_exist.1.i = phi i1 [ %conflicts_exist.08.i, %for.body.i ], [ true, %if.else.i ], [ true, %if.then5.i ], [ true, %for.inc.i ]
+  %inc.i = add nuw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %6
   br i1 %exitcond.not.i, label %_ZN4tokuL28determine_conflicting_txnidsERKNS_13GrowableArrayINS_8row_lockEEERKmPNS_9txnid_setE.exit, label %for.body.i, !llvm.loop !10
 
@@ -1176,10 +1176,10 @@ for.body.lr.ph:                                   ; preds = %_ZN4tokuL28determin
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit
-  %i.038 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit ]
-  %all_shared.0.in37 = phi i1 [ %lnot, %for.body.lr.ph ], [ %14, %_ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit ]
+  %i.036 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit ]
+  %all_shared.0.in35 = phi i1 [ %lnot, %for.body.lr.ph ], [ %14, %_ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit ]
   %11 = load ptr, ptr %overlapping_row_locks, align 8, !noalias !11
-  %arrayidx.i = getelementptr inbounds %"struct.toku::row_lock", ptr %11, i64 %i.038
+  %arrayidx.i = getelementptr inbounds %"struct.toku::row_lock", ptr %11, i64 %i.036
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %overlapping_lock, ptr noundef nonnull align 8 dereferenceable(112) %arrayidx.i, i64 112, i1 false)
   call void @_ZN4toku8keyrange6extendERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %requested_range, ptr noundef nonnull align 8 dereferenceable(17) %m_cmp24, ptr noundef nonnull align 8 dereferenceable(81) %overlapping_lock)
   %12 = load ptr, ptr %this, align 8
@@ -1197,13 +1197,13 @@ if.then.i20:                                      ; preds = %for.body
 _ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit: ; preds = %for.body, %if.then.i20
   %13 = load i8, ptr %is_shared28, align 8
   %tobool29 = trunc i8 %13 to i1
-  %14 = select i1 %all_shared.0.in37, i1 %tobool29, i1 false
-  %inc = add nuw i64 %i.038, 1
+  %14 = select i1 %all_shared.0.in35, i1 %tobool29, i1 false
+  %inc = add nuw i64 %i.036, 1
   %exitcond.not = icmp eq i64 %inc, %6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %_ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit, %if.then19.thread
-  %all_shared.0.in.lcssa = phi i1 [ %lnot40, %if.then19.thread ], [ %14, %_ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit ]
+  %all_shared.0.in.lcssa = phi i1 [ %lnot38, %if.then19.thread ], [ %14, %_ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %new_lock31, ptr noundef nonnull align 8 dereferenceable(81) %requested_range, i64 81, i1 false)
   %txnid33 = getelementptr inbounds i8, ptr %new_lock31, i64 88
   store i64 %txnid, ptr %txnid33, align 8
@@ -1641,19 +1641,19 @@ _ZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %copy_fn.i)
   %m_size.i.i = getelementptr inbounds i8, ptr %overlapping_row_locks, i64 8
   %3 = load i64, ptr %m_size.i.i, align 8
-  %cmp17.not.i = icmp eq i64 %3, 0
+  %cmp6.not.i = icmp eq i64 %3, 0
   %tobool.not.i = icmp eq ptr %conflicts, null
-  %or.cond = or i1 %cmp17.not.i, %tobool.not.i
+  %or.cond = or i1 %cmp6.not.i, %tobool.not.i
   br i1 %or.cond, label %_ZN4tokuL28determine_conflicting_txnidsERKNS_13GrowableArrayINS_8row_lockEEERKmPNS_9txnid_setE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEE.exit, %for.inc19.i
-  %i.018.i = phi i64 [ %inc.i, %for.inc19.i ], [ 0, %_ZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEE.exit ]
+  %i.07.i = phi i64 [ %inc.i, %for.inc19.i ], [ 0, %_ZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEE.exit ]
   %4 = load ptr, ptr %overlapping_row_locks, align 8, !noalias !20
-  %arrayidx.i.i = getelementptr inbounds %"struct.toku::row_lock", ptr %4, i64 %i.018.i
+  %arrayidx.i.i = getelementptr inbounds %"struct.toku::row_lock", ptr %4, i64 %i.07.i
   %lock.sroa.1.0.arrayidx.i.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 88
   %lock.sroa.1.0.copyload.i = load i64, ptr %lock.sroa.1.0.arrayidx.i.sroa_idx.i, align 8
-  %lock.sroa.214.0.arrayidx.i.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 104
-  %lock.sroa.214.0.copyload.i = load ptr, ptr %lock.sroa.214.0.arrayidx.i.sroa_idx.i, align 8
+  %lock.sroa.23.0.arrayidx.i.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 104
+  %lock.sroa.23.0.copyload.i = load ptr, ptr %lock.sroa.23.0.arrayidx.i.sroa_idx.i, align 8
   %cmp2.not.i = icmp eq i64 %lock.sroa.1.0.copyload.i, %txnid
   br i1 %cmp2.not.i, label %for.inc19.i, label %if.then.i
 
@@ -1662,15 +1662,15 @@ if.then.i:                                        ; preds = %for.body.i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %_M_left.i.i.i = getelementptr inbounds i8, ptr %lock.sroa.214.0.copyload.i, i64 24
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %lock.sroa.23.0.copyload.i, i64 24
   %5 = load ptr, ptr %_M_left.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %lock.sroa.214.0.copyload.i, i64 8
-  %cmp.i.not15.i = icmp eq ptr %5, %add.ptr.i.i.i
-  br i1 %cmp.i.not15.i, label %for.inc19.i, label %for.body11.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %lock.sroa.23.0.copyload.i, i64 8
+  %cmp.i.not4.i = icmp eq ptr %5, %add.ptr.i.i.i
+  br i1 %cmp.i.not4.i, label %for.inc19.i, label %for.body11.i
 
 for.body11.i:                                     ; preds = %if.then5.i, %for.inc.i
-  %__begin5.sroa.0.016.i = phi ptr [ %call.i.i1, %for.inc.i ], [ %5, %if.then5.i ]
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.016.i, i64 32
+  %__begin5.sroa.0.05.i = phi ptr [ %call.i.i1, %for.inc.i ], [ %5, %if.then5.i ]
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.05.i, i64 32
   %6 = load i64, ptr %_M_storage.i.i.i, align 8
   %cmp13.not.i = icmp eq i64 %6, %txnid
   br i1 %cmp13.not.i, label %for.inc.i, label %if.then14.i
@@ -1680,7 +1680,7 @@ if.then14.i:                                      ; preds = %for.body11.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then14.i, %for.body11.i
-  %call.i.i1 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin5.sroa.0.016.i) #19
+  %call.i.i1 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin5.sroa.0.05.i) #19
   %cmp.i.not.i = icmp eq ptr %call.i.i1, %add.ptr.i.i.i
   br i1 %cmp.i.not.i, label %for.inc19.i, label %for.body11.i
 
@@ -1689,7 +1689,7 @@ if.else.i:                                        ; preds = %if.then.i
   br label %for.inc19.i
 
 for.inc19.i:                                      ; preds = %for.inc.i, %if.else.i, %if.then5.i, %for.body.i
-  %inc.i = add nuw i64 %i.018.i, 1
+  %inc.i = add nuw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %3
   br i1 %exitcond.not.i, label %_ZN4tokuL28determine_conflicting_txnidsERKNS_13GrowableArrayINS_8row_lockEEERKmPNS_9txnid_setE.exit, label %for.body.i, !llvm.loop !10
 

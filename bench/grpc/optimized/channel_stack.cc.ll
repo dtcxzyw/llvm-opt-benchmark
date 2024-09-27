@@ -844,12 +844,12 @@ if.end.i:
   %ref.tmp = alloca %"class.std::function.9", align 8
   %agg.tmp = alloca %"struct.grpc_core::CallArgs", align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 112
+  %0 = ptrtoint ptr %add.ptr.i to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %0, align 8, !alias.scope !20
-  %1 = ptrtoint ptr %add.ptr.i to i64
-  store i64 %1, ptr %ref.tmp, align 8, !alias.scope !20
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %1, align 8, !alias.scope !20
+  store i64 %0, ptr %ref.tmp, align 8, !alias.scope !20
   store ptr @"_ZNSt17_Function_handlerIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEZN12_GLOBAL__N_110ClientNextEP20grpc_channel_elementE3$_0E9_M_invokeERKSt9_Any_dataOS8_", ptr %_M_invoker.i.i, align 8, !alias.scope !20
   store ptr @"_ZNSt17_Function_handlerIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEZN12_GLOBAL__N_110ClientNextEP20grpc_channel_elementE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8, !alias.scope !20
   %2 = load i8, ptr %call_args, align 1
@@ -1049,12 +1049,12 @@ if.end.i:
   %0 = load i64, ptr %count, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 96
   %add.ptr1.i = getelementptr %struct.grpc_channel_element, ptr %1, i64 %0
+  %2 = ptrtoint ptr %add.ptr1.i to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %2, align 8, !alias.scope !23
-  %3 = ptrtoint ptr %add.ptr1.i to i64
-  store i64 %3, ptr %ref.tmp, align 8, !alias.scope !23
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8, !alias.scope !23
+  store i64 %2, ptr %ref.tmp, align 8, !alias.scope !23
   store ptr @"_ZNSt17_Function_handlerIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEZN12_GLOBAL__N_110ServerNextEP20grpc_channel_elementE3$_0E9_M_invokeERKSt9_Any_dataOS8_", ptr %_M_invoker.i.i, align 8, !alias.scope !23
   store ptr @"_ZNSt17_Function_handlerIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEZN12_GLOBAL__N_110ServerNextEP20grpc_channel_elementE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8, !alias.scope !23
   %4 = load i8, ptr %call_args, align 1
@@ -1316,12 +1316,12 @@ entry:
   %polling_entity.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity4.i.i.i, i64 32, i1 false), !noalias !31
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = ptrtoint ptr %add.ptr.i.i.i to i64
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
   %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
-  %8 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
-  store i64 0, ptr %8, align 8, !alias.scope !37, !noalias !34
-  %9 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %9, ptr %agg.tmp2.i.i.i, align 8, !alias.scope !37, !noalias !34
+  %9 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
+  store i64 0, ptr %9, align 8, !alias.scope !37, !noalias !34
+  store i64 %8, ptr %agg.tmp2.i.i.i, align 8, !alias.scope !37, !noalias !34
   store ptr @"_ZNSt17_Function_handlerIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEZN12_GLOBAL__N_110ClientNextEP20grpc_channel_elementE3$_0E9_M_invokeERKSt9_Any_dataOS8_", ptr %_M_invoker.i.i.i.i.i, align 8, !alias.scope !37, !noalias !34
   store ptr @"_ZNSt17_Function_handlerIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEZN12_GLOBAL__N_110ClientNextEP20grpc_channel_elementE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i, align 8, !alias.scope !37, !noalias !34
   invoke void %6(ptr sret(%"class.grpc_core::ArenaPromise") align 16 %agg.result, ptr noundef nonnull %4, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
@@ -2065,12 +2065,12 @@ entry:
   %polling_entity.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity4.i.i.i, i64 32, i1 false), !noalias !47
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 -16
+  %8 = ptrtoint ptr %add.ptr.i.i.i to i64
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
   %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
-  %8 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
-  store i64 0, ptr %8, align 8, !alias.scope !53, !noalias !50
-  %9 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %9, ptr %agg.tmp2.i.i.i, align 8, !alias.scope !53, !noalias !50
+  %9 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
+  store i64 0, ptr %9, align 8, !alias.scope !53, !noalias !50
+  store i64 %8, ptr %agg.tmp2.i.i.i, align 8, !alias.scope !53, !noalias !50
   store ptr @"_ZNSt17_Function_handlerIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEZN12_GLOBAL__N_110ServerNextEP20grpc_channel_elementE3$_0E9_M_invokeERKSt9_Any_dataOS8_", ptr %_M_invoker.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
   store ptr @"_ZNSt17_Function_handlerIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEZN12_GLOBAL__N_110ServerNextEP20grpc_channel_elementE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
   invoke void %6(ptr sret(%"class.grpc_core::ArenaPromise") align 16 %agg.result, ptr noundef nonnull %4, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)

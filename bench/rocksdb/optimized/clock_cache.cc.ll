@@ -1286,7 +1286,7 @@ do.body.i:                                        ; preds = %if.end8.i, %entry
 
 if.then.i.i:                                      ; preds = %do.body.i
   %hashed_key.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i, ptr noundef nonnull dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i, label %if.then3.i.i, label %if.end.sink.split.i
 
@@ -1585,7 +1585,7 @@ do.body.i:                                        ; preds = %if.end8.i, %entry
 
 if.then.i.i:                                      ; preds = %do.body.i
   %hashed_key.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i, ptr noundef nonnull dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i, label %if.then3.i.i, label %if.end22.sink.split.i.i
 
@@ -1713,60 +1713,60 @@ entry:
   %shl.i = shl nuw i64 1, %sh_prom.i
   %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::FixedHyperClockTable::HandleImpl", ptr %0, i64 %shl.i
   %arrayidx.i.i.idx = shl i64 64, %sh_prom.i
-  %cmp10.i = icmp sgt i64 %arrayidx.i.i.idx, 0
-  br i1 %cmp10.i, label %for.body.i.preheader, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit
+  %cmp1.i = icmp sgt i64 %arrayidx.i.i.idx, 0
+  br i1 %cmp1.i, label %for.body.lr.ph.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit
 
-for.body.i.preheader:                             ; preds = %entry
+for.body.lr.ph.i:                                 ; preds = %entry
   %2 = load i32, ptr %this, align 64
   %.fr = freeze i32 %2
   %cmp = icmp eq i32 %.fr, 1
-  br i1 %cmp, label %for.body.i.us, label %for.body.i
+  br i1 %cmp, label %for.body.us.i, label %for.body.i
 
-for.body.i.us:                                    ; preds = %for.body.i.preheader, %for.inc.i.us
-  %table_pinned_usage.0.us = phi i64 [ %table_pinned_usage.2.us, %for.inc.i.us ], [ 0, %for.body.i.preheader ]
-  %h.011.i.us = phi ptr [ %incdec.ptr.i.us, %for.inc.i.us ], [ %0, %for.body.i.preheader ]
-  %meta.i.us = getelementptr inbounds i8, ptr %h.011.i.us, i64 40
-  %3 = load atomic i64, ptr %meta.i.us monotonic, align 8
+for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.inc.us.i
+  %table_pinned_usage.3 = phi i64 [ %table_pinned_usage.5, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
+  %h.02.us.i = phi ptr [ %incdec.ptr.us.i, %for.inc.us.i ], [ %0, %for.body.lr.ph.i ]
+  %meta.us.i = getelementptr inbounds i8, ptr %h.02.us.i, i64 40
+  %3 = load atomic i64, ptr %meta.us.i monotonic, align 8
   %4 = and i64 %3, 4611686018427387904
-  %tobool1.not.i.us = icmp eq i64 %4, 0
-  br i1 %tobool1.not.i.us, label %for.inc.i.us, label %if.then2.i.us
+  %tobool1.not.us.i = icmp eq i64 %4, 0
+  br i1 %tobool1.not.us.i, label %for.inc.us.i, label %if.then2.us.i
 
-if.then2.i.us:                                    ; preds = %for.body.i.us
-  %5 = atomicrmw add ptr %meta.i.us, i64 1 acq_rel, align 8
+if.then2.us.i:                                    ; preds = %for.body.us.i
+  %5 = atomicrmw add ptr %meta.us.i, i64 1 acq_rel, align 8
   %6 = and i64 %5, 4611686018427387904
-  %tobool7.not.i.us = icmp eq i64 %6, 0
-  br i1 %tobool7.not.i.us, label %for.inc.i.us, label %if.then12.i.us
+  %tobool7.not.us.i = icmp eq i64 %6, 0
+  br i1 %tobool7.not.us.i, label %for.inc.us.i, label %if.then12.us.i
 
-if.then12.i.us:                                   ; preds = %if.then2.i.us
-  %7 = load atomic i64, ptr %meta.i.us monotonic, align 8
-  %shr1.i.i.i.us = lshr i64 %7, 30
-  %sub.i.i.i.us = sub i64 %7, %shr1.i.i.i.us
-  %and.i.i.i.us = and i64 %sub.i.i.i.us, 1073741822
-  %cmp.not.i.i.us = icmp eq i64 %and.i.i.i.us, 0
-  br i1 %cmp.not.i.i.us, label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i.us, label %if.then.i.i.us
+if.then12.us.i:                                   ; preds = %if.then2.us.i
+  %7 = load atomic i64, ptr %meta.us.i monotonic, align 8
+  %shr1.i.i.us.i = lshr i64 %7, 30
+  %sub.i.i.us.i = sub i64 %7, %shr1.i.i.us.i
+  %and.i.i.us.i = and i64 %sub.i.i.us.i, 1073741822
+  %cmp.not.i.us.i = icmp eq i64 %and.i.i.us.i, 0
+  br i1 %cmp.not.i.us.i, label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i, label %if.then.i.us.i
 
-if.then.i.i.us:                                   ; preds = %if.then12.i.us
-  %total_charge.i.i.i.us = getelementptr inbounds i8, ptr %h.011.i.us, i64 32
-  %8 = load i64, ptr %total_charge.i.i.i.us, align 8
-  %add.i.i.us = add i64 %8, %table_pinned_usage.0.us
-  %add6.i.i.us = add i64 %add.i.i.us, 64
-  br label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i.us
+if.then.i.us.i:                                   ; preds = %if.then12.us.i
+  %total_charge.i.i.us.i = getelementptr inbounds i8, ptr %h.02.us.i, i64 32
+  %8 = load i64, ptr %total_charge.i.i.us.i, align 8
+  %add.i.us.i = add i64 %table_pinned_usage.3, 64
+  %add6.i.us.i = add i64 %add.i.us.i, %8
+  br label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i
 
-_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i.us: ; preds = %if.then.i.i.us, %if.then12.i.us
-  %table_pinned_usage.1.us = phi i64 [ %table_pinned_usage.0.us, %if.then12.i.us ], [ %add6.i.i.us, %if.then.i.i.us ]
-  %9 = atomicrmw sub ptr %meta.i.us, i64 1 acq_rel, align 8
-  br label %for.inc.i.us
+_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i: ; preds = %if.then.i.us.i, %if.then12.us.i
+  %table_pinned_usage.4 = phi i64 [ %table_pinned_usage.3, %if.then12.us.i ], [ %add6.i.us.i, %if.then.i.us.i ]
+  %9 = atomicrmw sub ptr %meta.us.i, i64 1 acq_rel, align 8
+  br label %for.inc.us.i
 
-for.inc.i.us:                                     ; preds = %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i.us, %if.then2.i.us, %for.body.i.us
-  %table_pinned_usage.2.us = phi i64 [ %table_pinned_usage.0.us, %for.body.i.us ], [ %table_pinned_usage.0.us, %if.then2.i.us ], [ %table_pinned_usage.1.us, %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i.us ]
-  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %h.011.i.us, i64 64
-  %cmp.i.us = icmp ult ptr %incdec.ptr.i.us, %arrayidx.i.i
-  br i1 %cmp.i.us, label %for.body.i.us, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit, !llvm.loop !22
+for.inc.us.i:                                     ; preds = %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i, %if.then2.us.i, %for.body.us.i
+  %table_pinned_usage.5 = phi i64 [ %table_pinned_usage.3, %for.body.us.i ], [ %table_pinned_usage.3, %if.then2.us.i ], [ %table_pinned_usage.4, %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i ]
+  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %h.02.us.i, i64 64
+  %cmp.us.i = icmp ult ptr %incdec.ptr.us.i, %arrayidx.i.i
+  br i1 %cmp.us.i, label %for.body.us.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit, !llvm.loop !22
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
-  %table_pinned_usage.0 = phi i64 [ %table_pinned_usage.2, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %h.011.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %0, %for.body.i.preheader ]
-  %meta.i = getelementptr inbounds i8, ptr %h.011.i, i64 40
+for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
+  %table_pinned_usage.0 = phi i64 [ %table_pinned_usage.2, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
+  %h.02.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %0, %for.body.lr.ph.i ]
+  %meta.i = getelementptr inbounds i8, ptr %h.02.i, i64 40
   %10 = load atomic i64, ptr %meta.i monotonic, align 8
   %11 = and i64 %10, 4611686018427387904
   %tobool1.not.i = icmp eq i64 %11, 0
@@ -1787,7 +1787,7 @@ if.then12.i:                                      ; preds = %if.then2.i
   br i1 %cmp.not.i.i, label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then12.i
-  %total_charge.i.i.i = getelementptr inbounds i8, ptr %h.011.i, i64 32
+  %total_charge.i.i.i = getelementptr inbounds i8, ptr %h.02.i, i64 32
   %15 = load i64, ptr %total_charge.i.i.i, align 8
   %add.i.i = add i64 %15, %table_pinned_usage.0
   br label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i
@@ -1799,15 +1799,15 @@ _ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPin
 
 for.inc.i:                                        ; preds = %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i, %if.then2.i, %for.body.i
   %table_pinned_usage.2 = phi i64 [ %table_pinned_usage.0, %for.body.i ], [ %table_pinned_usage.0, %if.then2.i ], [ %table_pinned_usage.1, %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %h.011.i, i64 64
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %h.02.i, i64 64
   %cmp.i = icmp ult ptr %incdec.ptr.i, %arrayidx.i.i
   br i1 %cmp.i, label %for.body.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit, !llvm.loop !22
 
-_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit: ; preds = %for.inc.i, %for.inc.i.us, %entry
-  %table_pinned_usage.3 = phi i64 [ 0, %entry ], [ %table_pinned_usage.2.us, %for.inc.i.us ], [ %table_pinned_usage.2, %for.inc.i ]
+_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit: ; preds = %for.inc.i, %for.inc.us.i, %entry
+  %table_pinned_usage.6 = phi i64 [ 0, %entry ], [ %table_pinned_usage.5, %for.inc.us.i ], [ %table_pinned_usage.2, %for.inc.i ]
   %standalone_usage_.i = getelementptr inbounds i8, ptr %this, i64 144
   %17 = load atomic i64, ptr %standalone_usage_.i monotonic, align 16
-  %add = add i64 %17, %table_pinned_usage.3
+  %add = add i64 %17, %table_pinned_usage.6
   ret i64 %add
 }
 
@@ -3384,59 +3384,59 @@ entry:
   %3 = load ptr, ptr %array_.i, align 32
   %4 = getelementptr %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %3, i64 %shl.i.i
   %arrayidx.i.i = getelementptr %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %4, i64 %shr.i.i.i
-  %cmp10.i = icmp ult ptr %1, %arrayidx.i.i
-  br i1 %cmp10.i, label %for.body.i.preheader, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_19AutoHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit
+  %cmp1.i = icmp ult ptr %1, %arrayidx.i.i
+  br i1 %cmp1.i, label %for.body.lr.ph.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_19AutoHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit
 
-for.body.i.preheader:                             ; preds = %entry
+for.body.lr.ph.i:                                 ; preds = %entry
   %.fr = freeze i32 %0
   %cmp = icmp eq i32 %.fr, 1
-  br i1 %cmp, label %for.body.i.us, label %for.body.i
+  br i1 %cmp, label %for.body.us.i, label %for.body.i
 
-for.body.i.us:                                    ; preds = %for.body.i.preheader, %for.inc.i.us
-  %table_pinned_usage.0.us = phi i64 [ %table_pinned_usage.2.us, %for.inc.i.us ], [ 0, %for.body.i.preheader ]
-  %h.011.i.us = phi ptr [ %incdec.ptr.i.us, %for.inc.i.us ], [ %1, %for.body.i.preheader ]
-  %meta.i.us = getelementptr inbounds i8, ptr %h.011.i.us, i64 40
-  %5 = load atomic i64, ptr %meta.i.us monotonic, align 8
+for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.inc.us.i
+  %table_pinned_usage.3 = phi i64 [ %table_pinned_usage.5, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
+  %h.02.us.i = phi ptr [ %incdec.ptr.us.i, %for.inc.us.i ], [ %1, %for.body.lr.ph.i ]
+  %meta.us.i = getelementptr inbounds i8, ptr %h.02.us.i, i64 40
+  %5 = load atomic i64, ptr %meta.us.i monotonic, align 8
   %6 = and i64 %5, 4611686018427387904
-  %tobool1.not.i.us = icmp eq i64 %6, 0
-  br i1 %tobool1.not.i.us, label %for.inc.i.us, label %if.then2.i.us
+  %tobool1.not.us.i = icmp eq i64 %6, 0
+  br i1 %tobool1.not.us.i, label %for.inc.us.i, label %if.then2.us.i
 
-if.then2.i.us:                                    ; preds = %for.body.i.us
-  %7 = atomicrmw add ptr %meta.i.us, i64 1 acq_rel, align 8
+if.then2.us.i:                                    ; preds = %for.body.us.i
+  %7 = atomicrmw add ptr %meta.us.i, i64 1 acq_rel, align 8
   %8 = and i64 %7, 4611686018427387904
-  %tobool7.not.i.us = icmp eq i64 %8, 0
-  br i1 %tobool7.not.i.us, label %for.inc.i.us, label %if.then12.i.us
+  %tobool7.not.us.i = icmp eq i64 %8, 0
+  br i1 %tobool7.not.us.i, label %for.inc.us.i, label %if.then12.us.i
 
-if.then12.i.us:                                   ; preds = %if.then2.i.us
-  %9 = load atomic i64, ptr %meta.i.us monotonic, align 8
-  %shr1.i.i.i.us = lshr i64 %9, 30
-  %sub.i.i.i.us = sub i64 %9, %shr1.i.i.i.us
-  %and.i.i.i.us = and i64 %sub.i.i.i.us, 1073741822
-  %cmp.not.i.i.us = icmp eq i64 %and.i.i.i.us, 0
-  br i1 %cmp.not.i.i.us, label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i.us, label %if.then.i.i.us
+if.then12.us.i:                                   ; preds = %if.then2.us.i
+  %9 = load atomic i64, ptr %meta.us.i monotonic, align 8
+  %shr1.i.i.us.i = lshr i64 %9, 30
+  %sub.i.i.us.i = sub i64 %9, %shr1.i.i.us.i
+  %and.i.i.us.i = and i64 %sub.i.i.us.i, 1073741822
+  %cmp.not.i.us.i = icmp eq i64 %and.i.i.us.i, 0
+  br i1 %cmp.not.i.us.i, label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i, label %if.then.i.us.i
 
-if.then.i.i.us:                                   ; preds = %if.then12.i.us
-  %total_charge.i.i.i.us = getelementptr inbounds i8, ptr %h.011.i.us, i64 32
-  %10 = load i64, ptr %total_charge.i.i.i.us, align 8
-  %add.i.i2.us = add i64 %10, %table_pinned_usage.0.us
-  %add6.i.i.us = add i64 %add.i.i2.us, 64
-  br label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i.us
+if.then.i.us.i:                                   ; preds = %if.then12.us.i
+  %total_charge.i.i.us.i = getelementptr inbounds i8, ptr %h.02.us.i, i64 32
+  %10 = load i64, ptr %total_charge.i.i.us.i, align 8
+  %add.i.us.i = add i64 %table_pinned_usage.3, 64
+  %add6.i.us.i = add i64 %add.i.us.i, %10
+  br label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i
 
-_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i.us: ; preds = %if.then.i.i.us, %if.then12.i.us
-  %table_pinned_usage.1.us = phi i64 [ %table_pinned_usage.0.us, %if.then12.i.us ], [ %add6.i.i.us, %if.then.i.i.us ]
-  %11 = atomicrmw sub ptr %meta.i.us, i64 1 acq_rel, align 8
-  br label %for.inc.i.us
+_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i: ; preds = %if.then.i.us.i, %if.then12.us.i
+  %table_pinned_usage.4 = phi i64 [ %table_pinned_usage.3, %if.then12.us.i ], [ %add6.i.us.i, %if.then.i.us.i ]
+  %11 = atomicrmw sub ptr %meta.us.i, i64 1 acq_rel, align 8
+  br label %for.inc.us.i
 
-for.inc.i.us:                                     ; preds = %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i.us, %if.then2.i.us, %for.body.i.us
-  %table_pinned_usage.2.us = phi i64 [ %table_pinned_usage.0.us, %for.body.i.us ], [ %table_pinned_usage.0.us, %if.then2.i.us ], [ %table_pinned_usage.1.us, %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i.us ]
-  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %h.011.i.us, i64 64
-  %cmp.i.us = icmp ult ptr %incdec.ptr.i.us, %arrayidx.i.i
-  br i1 %cmp.i.us, label %for.body.i.us, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_19AutoHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit, !llvm.loop !41
+for.inc.us.i:                                     ; preds = %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i, %if.then2.us.i, %for.body.us.i
+  %table_pinned_usage.5 = phi i64 [ %table_pinned_usage.3, %for.body.us.i ], [ %table_pinned_usage.3, %if.then2.us.i ], [ %table_pinned_usage.4, %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i ]
+  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %h.02.us.i, i64 64
+  %cmp.us.i = icmp ult ptr %incdec.ptr.us.i, %arrayidx.i.i
+  br i1 %cmp.us.i, label %for.body.us.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_19AutoHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit, !llvm.loop !41
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
-  %table_pinned_usage.0 = phi i64 [ %table_pinned_usage.2, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %h.011.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %1, %for.body.i.preheader ]
-  %meta.i = getelementptr inbounds i8, ptr %h.011.i, i64 40
+for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
+  %table_pinned_usage.0 = phi i64 [ %table_pinned_usage.2, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
+  %h.02.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %1, %for.body.lr.ph.i ]
+  %meta.i = getelementptr inbounds i8, ptr %h.02.i, i64 40
   %12 = load atomic i64, ptr %meta.i monotonic, align 8
   %13 = and i64 %12, 4611686018427387904
   %tobool1.not.i = icmp eq i64 %13, 0
@@ -3457,27 +3457,27 @@ if.then12.i:                                      ; preds = %if.then2.i
   br i1 %cmp.not.i.i, label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then12.i
-  %total_charge.i.i.i = getelementptr inbounds i8, ptr %h.011.i, i64 32
+  %total_charge.i.i.i = getelementptr inbounds i8, ptr %h.02.i, i64 32
   %17 = load i64, ptr %total_charge.i.i.i, align 8
-  %add.i.i2 = add i64 %17, %table_pinned_usage.0
+  %add.i.i3 = add i64 %17, %table_pinned_usage.0
   br label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i
 
 _ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i: ; preds = %if.then.i.i, %if.then12.i
-  %table_pinned_usage.1 = phi i64 [ %table_pinned_usage.0, %if.then12.i ], [ %add.i.i2, %if.then.i.i ]
+  %table_pinned_usage.1 = phi i64 [ %table_pinned_usage.0, %if.then12.i ], [ %add.i.i3, %if.then.i.i ]
   %18 = atomicrmw sub ptr %meta.i, i64 1 acq_rel, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i, %if.then2.i, %for.body.i
   %table_pinned_usage.2 = phi i64 [ %table_pinned_usage.0, %for.body.i ], [ %table_pinned_usage.0, %if.then2.i ], [ %table_pinned_usage.1, %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %h.011.i, i64 64
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %h.02.i, i64 64
   %cmp.i = icmp ult ptr %incdec.ptr.i, %arrayidx.i.i
   br i1 %cmp.i, label %for.body.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_19AutoHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit, !llvm.loop !41
 
-_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_19AutoHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit: ; preds = %for.inc.i, %for.inc.i.us, %entry
-  %table_pinned_usage.3 = phi i64 [ 0, %entry ], [ %table_pinned_usage.2.us, %for.inc.i.us ], [ %table_pinned_usage.2, %for.inc.i ]
+_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_19AutoHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit: ; preds = %for.inc.i, %for.inc.us.i, %entry
+  %table_pinned_usage.6 = phi i64 [ 0, %entry ], [ %table_pinned_usage.5, %for.inc.us.i ], [ %table_pinned_usage.2, %for.inc.i ]
   %standalone_usage_.i = getelementptr inbounds i8, ptr %this, i64 144
   %19 = load atomic i64, ptr %standalone_usage_.i monotonic, align 16
-  %add = add i64 %19, %table_pinned_usage.3
+  %add = add i64 %19, %table_pinned_usage.6
   ret i64 %add
 }
 

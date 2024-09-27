@@ -31,7 +31,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::compressed_pair.6" = type { %"class.eastl::compressed_pair_imp.7" }
 %"class.eastl::compressed_pair_imp.7" = type { %"struct.eastl::ListNodeBase", %struct.fixed_pool_reference }
 %struct.fixed_pool_reference = type { ptr }
-%class.anon = type { ptr }
 
 $_ZN5eastl4listIiNS_29fixed_allocator_with_overflowEED2Ev = comdat any
 
@@ -117,24 +116,20 @@ entry:
   %myList1.i = alloca %"class.eastl::list.4", align 8
   %myList2.i = alloca %"class.eastl::list.4", align 8
   %nErrorCount.i = alloca i32, align 4
-  %testAllocatorAlignment.i = alloca %class.anon, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %testAllocatorAlignment.i)
   store i32 0, ptr %nErrorCount.i, align 4
-  store ptr %nErrorCount.i, ptr %testAllocatorAlignment.i, align 8
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 1)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 2)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 4)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 8)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 16)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 1)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 2)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 4)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 8)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 16)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 1)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 2)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 4)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 8)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 16)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 1)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 2)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 4)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 8)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 16)
   %0 = load i32, ptr %nErrorCount.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %testAllocatorAlignment.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i6)
   call void @llvm.lifetime.start.p0(i64 4800, ptr nonnull %buffer1.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %intList1.i)
@@ -1305,7 +1300,7 @@ _ZL19TestAllocatorMallocv.exit:                   ; preds = %while.body.i.i.i47.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef range(i32 1, 17) %requestedAlignment) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr %this.0.val, i32 noundef range(i32 1, 17) %requestedAlignment) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr @_ZN17CountingAllocator17totalDeallocCountE, align 8
   store i64 0, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -1319,22 +1314,20 @@ entry:
   store i64 100, ptr @_ZN17CountingAllocator21activeAllocatedMemoryE, align 8
   %call.i.i9 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 100, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %cmp = icmp ne ptr %call.i.i9, null
-  %0 = load ptr, ptr %this, align 8
-  %call5 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1)
-  %1 = ptrtoint ptr %call.i.i9 to i64
+  %call5 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %this.0.val, ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1)
+  %0 = ptrtoint ptr %call.i.i9 to i64
   %sub.i = add nsw i64 %conv2, -1
-  %and.i = and i64 %sub.i, %1
+  %and.i = and i64 %sub.i, %0
   %cmp.i = icmp eq i64 %and.i, 0
-  %2 = load ptr, ptr %this, align 8
-  %call10 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull @.str, i32 noundef 357, ptr noundef nonnull @.str.2)
-  %3 = load i64, ptr @_ZN17CountingAllocator16activeAllocCountE, align 8
-  %dec.i = add i64 %3, -1
+  %call10 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i, ptr noundef nonnull align 4 dereferenceable(4) %this.0.val, ptr noundef nonnull @.str, i32 noundef 357, ptr noundef nonnull @.str.2)
+  %1 = load i64, ptr @_ZN17CountingAllocator16activeAllocCountE, align 8
+  %dec.i = add i64 %1, -1
   store i64 %dec.i, ptr @_ZN17CountingAllocator16activeAllocCountE, align 8
-  %4 = load i64, ptr @_ZN17CountingAllocator17totalDeallocCountE, align 8
-  %dec2.i = add i64 %4, -1
+  %2 = load i64, ptr @_ZN17CountingAllocator17totalDeallocCountE, align 8
+  %dec2.i = add i64 %2, -1
   store i64 %dec2.i, ptr @_ZN17CountingAllocator17totalDeallocCountE, align 8
-  %5 = load i64, ptr @_ZN17CountingAllocator21activeAllocatedMemoryE, align 8
-  %sub.i6 = add i64 %5, -100
+  %3 = load i64, ptr @_ZN17CountingAllocator21activeAllocatedMemoryE, align 8
+  %sub.i6 = add i64 %3, -100
   store i64 %sub.i6, ptr @_ZN17CountingAllocator21activeAllocatedMemoryE, align 8
   %isnull.i.i = icmp eq ptr %call.i.i9, null
   br i1 %isnull.i.i, label %invoke.cont12, label %delete.notnull.i.i
@@ -1345,10 +1338,9 @@ delete.notnull.i.i:                               ; preds = %entry
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %delete.notnull.i.i, %entry
-  %6 = phi i64 [ %.pre, %delete.notnull.i.i ], [ %sub.i6, %entry ]
-  %cmp15 = icmp eq i64 %6, 0
-  %7 = load ptr, ptr %this, align 8
-  %call17 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp15, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull @.str, i32 noundef 360, ptr noundef nonnull @.str.3)
+  %4 = phi i64 [ %.pre, %delete.notnull.i.i ], [ %sub.i6, %entry ]
+  %cmp15 = icmp eq i64 %4, 0
+  %call17 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp15, ptr noundef nonnull align 4 dereferenceable(4) %this.0.val, ptr noundef nonnull @.str, i32 noundef 360, ptr noundef nonnull @.str.3)
   ret void
 }
 

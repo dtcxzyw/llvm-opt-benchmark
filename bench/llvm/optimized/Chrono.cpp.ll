@@ -139,7 +139,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS_3sys8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10)
   %14 = icmp eq i64 %3, 0
   %spec.select.i = select i1 %14, ptr @.str.2, ptr %2
-  %spec.select31.i = select i1 %14, i64 20, i64 %3
+  %spec.select11.i = select i1 %14, i64 20, i64 %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %15, align 8
@@ -165,16 +165,16 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS_3sys8
 
 28:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i, %4
   %29 = phi i64 [ 0, %4 ], [ %66, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
-  %.032.i = phi i32 [ 0, %4 ], [ %65, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
+  %.012.i = phi i32 [ 0, %4 ], [ %65, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
   %30 = getelementptr inbounds i8, ptr %spec.select.i, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 37
   br i1 %32, label %33, label %58
 
 33:                                               ; preds = %28
-  %34 = add i32 %.032.i, 1
+  %34 = add i32 %.012.i, 1
   %35 = zext i32 %34 to i64
-  %36 = icmp ugt i64 %spec.select31.i, %35
+  %36 = icmp ugt i64 %spec.select11.i, %35
   br i1 %36, label %37, label %58
 
 37:                                               ; preds = %33
@@ -245,10 +245,10 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS_3sys8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %63, %61, %55, %53, %44, %42, %40
-  %.1.i = phi i32 [ %34, %44 ], [ %34, %42 ], [ %34, %40 ], [ %34, %53 ], [ %34, %55 ], [ %.032.i, %61 ], [ %.032.i, %63 ]
+  %.1.i = phi i32 [ %34, %44 ], [ %34, %42 ], [ %34, %40 ], [ %34, %53 ], [ %34, %55 ], [ %.012.i, %61 ], [ %.012.i, %63 ]
   %65 = add i32 %.1.i, 1
   %66 = zext i32 %65 to i64
-  %67 = icmp ugt i64 %spec.select31.i, %66
+  %67 = icmp ugt i64 %spec.select11.i, %66
   br i1 %67, label %28, label %68, !llvm.loop !22
 
 68:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i
@@ -330,7 +330,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS1_3_V2
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10)
   %16 = icmp eq i64 %3, 0
   %spec.select.i = select i1 %16, ptr @.str.2, ptr %2
-  %spec.select31.i = select i1 %16, i64 20, i64 %3
+  %spec.select11.i = select i1 %16, i64 20, i64 %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %17, align 8
@@ -348,26 +348,26 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS1_3_V2
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %30 = sdiv i64 %14, 1000
-  %31 = sdiv i64 %14, 1000000
+  %26 = sdiv i64 %14, 1000
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %29 = sdiv i64 %14, 1000000
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %32
 
 32:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i, %4
   %33 = phi i64 [ 0, %4 ], [ %70, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
-  %.032.i = phi i32 [ 0, %4 ], [ %69, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
+  %.012.i = phi i32 [ 0, %4 ], [ %69, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
   %34 = getelementptr inbounds i8, ptr %spec.select.i, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 37
   br i1 %36, label %37, label %62
 
 37:                                               ; preds = %32
-  %38 = add i32 %.032.i, 1
+  %38 = add i32 %.012.i, 1
   %39 = zext i32 %38 to i64
-  %40 = icmp ugt i64 %spec.select31.i, %39
+  %40 = icmp ugt i64 %spec.select11.i, %39
   br i1 %40, label %41, label %62
 
 41:                                               ; preds = %37
@@ -381,16 +381,16 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS1_3_V2
   ]
 
 44:                                               ; preds = %41
-  store ptr @.str.3, ptr %28, align 8, !alias.scope !27
+  store ptr @.str.3, ptr %30, align 8, !alias.scope !27
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %7, align 8, !alias.scope !27
-  store i64 %31, ptr %29, align 8, !alias.scope !27
+  store i64 %29, ptr %31, align 8, !alias.scope !27
   %45 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 46:                                               ; preds = %41
-  store ptr @.str.4, ptr %26, align 8, !alias.scope !30
+  store ptr @.str.4, ptr %27, align 8, !alias.scope !30
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %8, align 8, !alias.scope !30
-  store i64 %30, ptr %27, align 8, !alias.scope !30
+  store i64 %26, ptr %28, align 8, !alias.scope !30
   %47 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(16) %8) #8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
@@ -438,10 +438,10 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS1_3_V2
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %67, %65, %59, %57, %48, %46, %44
-  %.1.i = phi i32 [ %38, %48 ], [ %38, %46 ], [ %38, %44 ], [ %38, %57 ], [ %38, %59 ], [ %.032.i, %65 ], [ %.032.i, %67 ]
+  %.1.i = phi i32 [ %38, %48 ], [ %38, %46 ], [ %38, %44 ], [ %38, %57 ], [ %38, %59 ], [ %.012.i, %65 ], [ %.012.i, %67 ]
   %69 = add i32 %.1.i, 1
   %70 = zext i32 %69 to i64
-  %71 = icmp ugt i64 %spec.select31.i, %70
+  %71 = icmp ugt i64 %spec.select11.i, %70
   br i1 %71, label %32, label %72, !llvm.loop !36
 
 72:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i

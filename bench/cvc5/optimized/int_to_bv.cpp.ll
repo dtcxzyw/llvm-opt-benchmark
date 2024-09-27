@@ -423,12 +423,12 @@ cleanup.done39:                                   ; preds = %cleanup.done
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp140.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp157.i)
   store ptr %7, ptr %agg.tmp.i, align 8, !noalias !4
+  %8 = ptrtoint ptr %binaryCache to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 24
-  %8 = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
-  store i64 0, ptr %8, align 8, !noalias !4
-  %9 = ptrtoint ptr %binaryCache to i64
-  store i64 %9, ptr %agg.tmp1.i, align 8, !noalias !4
+  %9 = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
+  store i64 0, ptr %9, align 8, !noalias !4
+  store i64 %8, ptr %agg.tmp1.i, align 8, !noalias !4
   store ptr @"_ZNSt17_Function_handlerIFbN4cvc58internal12NodeTemplateILb0EEEEZNS1_13preprocessing6passes12_GLOBAL__N_117intToBVMakeBinaryES3_RSt13unordered_mapINS2_ILb1EEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEEE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %_M_invoker.i.i, align 8, !noalias !4
   store ptr @"_ZNSt17_Function_handlerIFbN4cvc58internal12NodeTemplateILb0EEEEZNS1_13preprocessing6passes12_GLOBAL__N_117intToBVMakeBinaryES3_RSt13unordered_mapINS2_ILb1EEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8, !noalias !4
   invoke void @_ZN4cvc58internal15NodeDfsIterableC1ENS0_12NodeTemplateILb0EEENS0_10VisitOrderESt8functionIFbS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %agg.tmp.i, i32 noundef 1, ptr noundef nonnull %agg.tmp1.i)
@@ -1917,12 +1917,12 @@ invoke.cont48:                                    ; preds = %if.then13.i.i553.i,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp157.i)
   %160 = load ptr, ptr %n_binary, align 8
   store ptr %160, ptr %agg.tmp50, align 8
+  %161 = ptrtoint ptr %cache to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp53, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp53, i64 24
-  %161 = getelementptr inbounds i8, ptr %agg.tmp53, i64 8
-  store i64 0, ptr %161, align 8
-  %162 = ptrtoint ptr %cache to i64
-  store i64 %162, ptr %agg.tmp53, align 8
+  %162 = getelementptr inbounds i8, ptr %agg.tmp53, i64 8
+  store i64 0, ptr %162, align 8
+  store i64 %161, ptr %agg.tmp53, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN4cvc58internal12NodeTemplateILb0EEEEZNS1_13preprocessing6passes7IntToBV7intToBVES3_RSt13unordered_mapINS2_ILb1EEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEEE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN4cvc58internal12NodeTemplateILb0EEEEZNS1_13preprocessing6passes7IntToBV7intToBVES3_RSt13unordered_mapINS2_ILb1EEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN4cvc58internal15NodeDfsIterableC1ENS0_12NodeTemplateILb0EEENS0_10VisitOrderESt8functionIFbS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp49, ptr noundef nonnull %agg.tmp50, i32 noundef 1, ptr noundef nonnull %agg.tmp53)

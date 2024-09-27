@@ -2173,20 +2173,20 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i.i: ; preds = %112, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i
   %113 = load ptr, ptr %14, align 8, !noalias !52
   %114 = load ptr, ptr %58, align 8, !noalias !52
-  %.not46.i.i.i.i = icmp eq ptr %113, %114
-  br i1 %.not46.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i40.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.not4.i.i.i.i = icmp eq ptr %113, %114
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i40.i.i.i.i, label %.lr.ph.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %148
   %.pre.i.i.i.i = load ptr, ptr %14, align 8, !noalias !52
-  %.pre48.i.i.i.i = load ptr, ptr %58, align 8, !noalias !52
-  %.not4.i.i.i.i34.i.i.i.i = icmp eq ptr %.pre.i.i.i.i, %.pre48.i.i.i.i
+  %.pre6.i.i.i.i = load ptr, ptr %58, align 8, !noalias !52
+  %.not4.i.i.i.i34.i.i.i.i = icmp eq ptr %.pre.i.i.i.i, %.pre6.i.i.i.i
   br i1 %.not4.i.i.i.i34.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i40.i.i.i.i, label %.lr.ph.i.i.i.i35.i.i.i.i
 
 .lr.ph.i.i.i.i35.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i.i.i.i35.i.i.i.i
   %.05.i.i.i.i36.i.i.i.i = phi ptr [ %115, %.lr.ph.i.i.i.i35.i.i.i.i ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i36.i.i.i.i) #20, !noalias !52
   %115 = getelementptr inbounds i8, ptr %.05.i.i.i.i36.i.i.i.i, i64 32
-  %.not.i.i.i.i37.i.i.i.i = icmp eq ptr %115, %.pre48.i.i.i.i
+  %.not.i.i.i.i37.i.i.i.i = icmp eq ptr %115, %.pre6.i.i.i.i
   br i1 %.not.i.i.i.i37.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i38.i.i.i.i, label %.lr.ph.i.i.i.i35.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i38.i.i.i.i: ; preds = %.lr.ph.i.i.i.i35.i.i.i.i
@@ -2244,8 +2244,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %150
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i.i, %148
-  %.sroa.043.047.i.i.i.i = phi ptr [ %149, %148 ], [ %113, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i.i ]
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.043.047.i.i.i.i) #20, !noalias !52
+  %.sroa.01.05.i.i.i.i = phi ptr [ %149, %148 ], [ %113, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i.i ]
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i.i.i.i) #20, !noalias !52
   %131 = load ptr, ptr %16, align 8, !noalias !52
   %132 = load i64, ptr %59, align 8, !noalias !52
   %133 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr %131, i64 %132, ptr nonnull @.str.36, i64 4) #20, !noalias !52
@@ -2256,7 +2256,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %148
 
 135:                                              ; preds = %.lr.ph.i.i.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.043.047.i.i.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i.i.i.i)
           to label %136 unwind label %144, !noalias !52
 
 136:                                              ; preds = %135
@@ -2297,7 +2297,7 @@ _ZNSt6vectorIN5vcpkg26DependencyRequestedFeatureESaIS1_EE9push_backEOS1_.exit.i.
   br label %150
 
 148:                                              ; preds = %_ZNSt6vectorIN5vcpkg26DependencyRequestedFeatureESaIS1_EE9push_backEOS1_.exit.i.i.i.i, %134
-  %149 = getelementptr inbounds i8, ptr %.sroa.043.047.i.i.i.i, i64 32
+  %149 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i.i, i64 32
   %.not.i.i.i22.i = icmp eq ptr %149, %114
   br i1 %.not.i.i.i22.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 

@@ -2029,13 +2029,13 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %432 = getelementptr inbounds i8, ptr %11, i64 1520
   %433 = getelementptr inbounds i8, ptr %11, i64 1524
   %434 = getelementptr inbounds i8, ptr %11, i64 1528
-  %435 = getelementptr inbounds i8, ptr %14, i64 16
-  %436 = getelementptr inbounds i8, ptr %14, i64 24
-  %437 = ptrtoint ptr %13 to i64
-  %438 = getelementptr inbounds i8, ptr %11, i64 121
-  %439 = getelementptr inbounds i8, ptr %17, i64 16
-  %440 = getelementptr inbounds i8, ptr %17, i64 24
-  %441 = getelementptr inbounds i8, ptr %14, i64 8
+  %435 = ptrtoint ptr %13 to i64
+  %436 = getelementptr inbounds i8, ptr %14, i64 16
+  %437 = getelementptr inbounds i8, ptr %14, i64 24
+  %438 = getelementptr inbounds i8, ptr %14, i64 8
+  %439 = getelementptr inbounds i8, ptr %11, i64 121
+  %440 = getelementptr inbounds i8, ptr %17, i64 16
+  %441 = getelementptr inbounds i8, ptr %17, i64 24
   br label %442
 
 442:                                              ; preds = %.critedge.i.i, %.noexc.i
@@ -3309,10 +3309,10 @@ _ZN12_GLOBAL__N_112ice40_dsp_pmC2EPN5Yosys5RTLIL6ModuleERKSt6vectorIPNS2_4CellES
 
 963:                                              ; preds = %920
   store i8 0, ptr %13, align 1
-  store i64 0, ptr %441, align 8
-  store i64 %437, ptr %14, align 8
-  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_12ice40_dsp_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %436, align 8
-  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_12ice40_dsp_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %435, align 8
+  store i64 0, ptr %438, align 8
+  store i64 %435, ptr %14, align 8
+  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_12ice40_dsp_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %437, align 8
+  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_12ice40_dsp_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %436, align 8
   %964 = load ptr, ptr %360, align 8
   %.not.i.i102.i.i = icmp eq ptr %964, null
   br i1 %.not.i.i102.i.i, label %965, label %966
@@ -3330,7 +3330,7 @@ _ZN12_GLOBAL__N_112ice40_dsp_pmC2EPN5Yosys5RTLIL6ModuleERKSt6vectorIPNS2_4CellES
           to label %_ZNKSt8functionIFvRN12_GLOBAL__N_112ice40_dsp_pmES_IFvvEEEEclES2_S4_.exit.i.i unwind label %.loopexit43.i.i
 
 _ZNKSt8functionIFvRN12_GLOBAL__N_112ice40_dsp_pmES_IFvvEEEEclES2_S4_.exit.i.i: ; preds = %966
-  %968 = load ptr, ptr %435, align 8
+  %968 = load ptr, ptr %436, align 8
   %.not.i.i104.i.i = icmp eq ptr %968, null
   br i1 %.not.i.i104.i.i, label %974, label %969
 
@@ -3520,7 +3520,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit.i.i: ; preds = 
 
 1037:                                             ; preds = %.loopexit.split-lp44.i.i, %.loopexit43.i.i
   %lpad.phi47.i.i = phi { ptr, i32 } [ %lpad.loopexit45.i.i, %.loopexit43.i.i ], [ %lpad.loopexit.split-lp46.i.i, %.loopexit.split-lp44.i.i ]
-  %1038 = load ptr, ptr %435, align 8
+  %1038 = load ptr, ptr %436, align 8
   %.not.i.i117.i.i = icmp eq ptr %1038, null
   br i1 %.not.i.i117.i.i, label %_ZNSt8functionIFvvEED2Ev.exit118.i.i, label %1039
 
@@ -3559,10 +3559,10 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit.i.i: ; preds = 
   %.157.i.i = phi i32 [ %.0562465.i.i, %920 ], [ %1034, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit.i.i ], [ %.0562465.i.i, %974 ]
   %.255.i.i = phi i32 [ %471, %920 ], [ 0, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit.i.i ], [ %471, %974 ]
   %.2.i.i = phi i32 [ %.12467.i.i, %920 ], [ %985, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit.i.i ], [ %.12467.i.i, %974 ]
-  store i8 1, ptr %438, align 1
+  store i8 1, ptr %439, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_12ice40_dsp_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %440, align 8
-  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_12ice40_dsp_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE0_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %439, align 8
+  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_12ice40_dsp_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %441, align 8
+  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_12ice40_dsp_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE0_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %440, align 8
   %1050 = load ptr, ptr %360, align 8
   %.not.i.i119.i.i = icmp eq ptr %1050, null
   br i1 %.not.i.i119.i.i, label %1051, label %1052
@@ -3580,7 +3580,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit.i.i: ; preds = 
           to label %_ZNKSt8functionIFvRN12_GLOBAL__N_112ice40_dsp_pmES_IFvvEEEEclES2_S4_.exit122.i.i unwind label %.loopexit53.i.i
 
 _ZNKSt8functionIFvRN12_GLOBAL__N_112ice40_dsp_pmES_IFvvEEEEclES2_S4_.exit122.i.i: ; preds = %1052
-  %1054 = load ptr, ptr %439, align 8
+  %1054 = load ptr, ptr %440, align 8
   %.not.i.i123.i.i = icmp eq ptr %1054, null
   br i1 %.not.i.i123.i.i, label %_ZNSt8functionIFvvEED2Ev.exit124.i.i, label %1055
 
@@ -3614,7 +3614,7 @@ _ZNSt8functionIFvvEED2Ev.exit124.i.i:             ; preds = %1055, %_ZNKSt8funct
 
 1062:                                             ; preds = %.loopexit.split-lp54.i.i, %.loopexit53.i.i
   %lpad.phi57.i.i = phi { ptr, i32 } [ %lpad.loopexit55.i.i, %.loopexit53.i.i ], [ %lpad.loopexit.split-lp56.i.i, %.loopexit.split-lp54.i.i ]
-  %1063 = load ptr, ptr %439, align 8
+  %1063 = load ptr, ptr %440, align 8
   %.not.i.i125.i.i = icmp eq ptr %1063, null
   br i1 %.not.i.i125.i.i, label %_ZNSt8functionIFvvEED2Ev.exit118.i.i, label %1064
 
@@ -45098,15 +45098,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_116generate_patternINS_13test_pmgen
   %29 = getelementptr inbounds i8, ptr %12, i64 16
   %30 = getelementptr inbounds i8, ptr %12, i64 8
   %31 = getelementptr inbounds i8, ptr %11, i64 128
-  %32 = getelementptr inbounds i8, ptr %14, i64 16
-  %33 = getelementptr inbounds i8, ptr %14, i64 24
-  %34 = ptrtoint ptr %13 to i64
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
-  %37 = getelementptr inbounds i8, ptr %11, i64 121
-  %38 = getelementptr inbounds i8, ptr %17, i64 16
-  %39 = getelementptr inbounds i8, ptr %17, i64 24
-  %40 = getelementptr inbounds i8, ptr %14, i64 8
+  %32 = ptrtoint ptr %13 to i64
+  %33 = getelementptr inbounds i8, ptr %14, i64 16
+  %34 = getelementptr inbounds i8, ptr %14, i64 24
+  %35 = getelementptr inbounds i8, ptr %14, i64 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds i8, ptr %11, i64 121
+  %39 = getelementptr inbounds i8, ptr %17, i64 16
+  %40 = getelementptr inbounds i8, ptr %17, i64 24
   br label %41
 
 41:                                               ; preds = %.critedge, %3
@@ -45476,11 +45476,11 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZN
 
 182:                                              ; preds = %139
   store i8 0, ptr %13, align 1
-  store i64 0, ptr %40, align 8
-  store i64 %34, ptr %14, align 8
-  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13test_pmgen_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %33, align 8
-  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13test_pmgen_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %32, align 8
-  %183 = load ptr, ptr %35, align 8
+  store i64 0, ptr %35, align 8
+  store i64 %32, ptr %14, align 8
+  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13test_pmgen_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %34, align 8
+  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13test_pmgen_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %33, align 8
+  %183 = load ptr, ptr %36, align 8
   %.not.i.i98 = icmp eq ptr %183, null
   br i1 %.not.i.i98, label %184, label %185
 
@@ -45492,12 +45492,12 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZN
   unreachable
 
 185:                                              ; preds = %182
-  %186 = load ptr, ptr %36, align 8
+  %186 = load ptr, ptr %37, align 8
   invoke void %186(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(1236) %11, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %_ZNKSt8functionIFvRN12_GLOBAL__N_113test_pmgen_pmES_IFvvEEEEclES2_S4_.exit unwind label %.loopexit35
 
 _ZNKSt8functionIFvRN12_GLOBAL__N_113test_pmgen_pmES_IFvvEEEEclES2_S4_.exit: ; preds = %185
-  %187 = load ptr, ptr %32, align 8
+  %187 = load ptr, ptr %33, align 8
   %.not.i.i100 = icmp eq ptr %187, null
   br i1 %.not.i.i100, label %193, label %188
 
@@ -45687,7 +45687,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZN
 
 257:                                              ; preds = %.loopexit.split-lp36, %.loopexit35
   %lpad.phi39 = phi { ptr, i32 } [ %lpad.loopexit37, %.loopexit35 ], [ %lpad.loopexit.split-lp38, %.loopexit.split-lp36 ]
-  %258 = load ptr, ptr %32, align 8
+  %258 = load ptr, ptr %33, align 8
   %.not.i.i113 = icmp eq ptr %258, null
   br i1 %.not.i.i113, label %_ZNSt8functionIFvvEED2Ev.exit114, label %259
 
@@ -45726,11 +45726,11 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZN
   %.157 = phi i32 [ %.056280, %139 ], [ %253, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit ], [ %.056280, %193 ]
   %.255 = phi i32 [ %70, %139 ], [ 0, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit ], [ %70, %193 ]
   %.2 = phi i32 [ %.1282, %139 ], [ %204, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit ], [ %.1282, %193 ]
-  store i8 1, ptr %37, align 1
+  store i8 1, ptr %38, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13test_pmgen_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %39, align 8
-  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13test_pmgen_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE0_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %38, align 8
-  %270 = load ptr, ptr %35, align 8
+  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13test_pmgen_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %40, align 8
+  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13test_pmgen_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE0_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %39, align 8
+  %270 = load ptr, ptr %36, align 8
   %.not.i.i115 = icmp eq ptr %270, null
   br i1 %.not.i.i115, label %271, label %272
 
@@ -45742,12 +45742,12 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZN
   unreachable
 
 272:                                              ; preds = %269
-  %273 = load ptr, ptr %36, align 8
+  %273 = load ptr, ptr %37, align 8
   invoke void %273(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(1236) %11, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %_ZNKSt8functionIFvRN12_GLOBAL__N_113test_pmgen_pmES_IFvvEEEEclES2_S4_.exit118 unwind label %.loopexit45
 
 _ZNKSt8functionIFvRN12_GLOBAL__N_113test_pmgen_pmES_IFvvEEEEclES2_S4_.exit118: ; preds = %272
-  %274 = load ptr, ptr %38, align 8
+  %274 = load ptr, ptr %39, align 8
   %.not.i.i119 = icmp eq ptr %274, null
   br i1 %.not.i.i119, label %_ZNSt8functionIFvvEED2Ev.exit120, label %275
 
@@ -45781,7 +45781,7 @@ _ZNSt8functionIFvvEED2Ev.exit120:                 ; preds = %_ZNKSt8functionIFvR
 
 282:                                              ; preds = %.loopexit.split-lp46, %.loopexit45
   %lpad.phi49 = phi { ptr, i32 } [ %lpad.loopexit47, %.loopexit45 ], [ %lpad.loopexit.split-lp48, %.loopexit.split-lp46 ]
-  %283 = load ptr, ptr %38, align 8
+  %283 = load ptr, ptr %39, align 8
   %.not.i.i121 = icmp eq ptr %283, null
   br i1 %.not.i.i121, label %_ZNSt8functionIFvvEED2Ev.exit114, label %284
 
@@ -46666,15 +46666,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_116generate_patternINS_13xilinx_srl
   %83 = getelementptr inbounds i8, ptr %11, i64 1124
   %84 = getelementptr inbounds i8, ptr %11, i64 1128
   %85 = getelementptr inbounds i8, ptr %11, i64 1132
-  %86 = getelementptr inbounds i8, ptr %14, i64 16
-  %87 = getelementptr inbounds i8, ptr %14, i64 24
-  %88 = ptrtoint ptr %13 to i64
-  %89 = getelementptr inbounds i8, ptr %0, i64 16
-  %90 = getelementptr inbounds i8, ptr %0, i64 24
-  %91 = getelementptr inbounds i8, ptr %11, i64 121
-  %92 = getelementptr inbounds i8, ptr %17, i64 16
-  %93 = getelementptr inbounds i8, ptr %17, i64 24
-  %94 = getelementptr inbounds i8, ptr %14, i64 8
+  %86 = ptrtoint ptr %13 to i64
+  %87 = getelementptr inbounds i8, ptr %14, i64 16
+  %88 = getelementptr inbounds i8, ptr %14, i64 24
+  %89 = getelementptr inbounds i8, ptr %14, i64 8
+  %90 = getelementptr inbounds i8, ptr %0, i64 16
+  %91 = getelementptr inbounds i8, ptr %0, i64 24
+  %92 = getelementptr inbounds i8, ptr %11, i64 121
+  %93 = getelementptr inbounds i8, ptr %17, i64 16
+  %94 = getelementptr inbounds i8, ptr %17, i64 24
   br label %95
 
 95:                                               ; preds = %.critedge, %3
@@ -47660,11 +47660,11 @@ _ZN12_GLOBAL__N_113xilinx_srl_pmC2EPN5Yosys5RTLIL6ModuleERKSt6vectorIPNS2_4CellE
 
 421:                                              ; preds = %378
   store i8 0, ptr %13, align 1
-  store i64 0, ptr %94, align 8
-  store i64 %88, ptr %14, align 8
-  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13xilinx_srl_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %87, align 8
-  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13xilinx_srl_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %86, align 8
-  %422 = load ptr, ptr %89, align 8
+  store i64 0, ptr %89, align 8
+  store i64 %86, ptr %14, align 8
+  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13xilinx_srl_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %88, align 8
+  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13xilinx_srl_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %87, align 8
+  %422 = load ptr, ptr %90, align 8
   %.not.i.i102 = icmp eq ptr %422, null
   br i1 %.not.i.i102, label %423, label %424
 
@@ -47676,12 +47676,12 @@ _ZN12_GLOBAL__N_113xilinx_srl_pmC2EPN5Yosys5RTLIL6ModuleERKSt6vectorIPNS2_4CellE
   unreachable
 
 424:                                              ; preds = %421
-  %425 = load ptr, ptr %90, align 8
+  %425 = load ptr, ptr %91, align 8
   invoke void %425(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(1136) %11, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %_ZNKSt8functionIFvRN12_GLOBAL__N_113xilinx_srl_pmES_IFvvEEEEclES2_S4_.exit unwind label %.loopexit43
 
 _ZNKSt8functionIFvRN12_GLOBAL__N_113xilinx_srl_pmES_IFvvEEEEclES2_S4_.exit: ; preds = %424
-  %426 = load ptr, ptr %86, align 8
+  %426 = load ptr, ptr %87, align 8
   %.not.i.i104 = icmp eq ptr %426, null
   br i1 %.not.i.i104, label %432, label %427
 
@@ -47871,7 +47871,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZN
 
 495:                                              ; preds = %.loopexit.split-lp44, %.loopexit43
   %lpad.phi47 = phi { ptr, i32 } [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ]
-  %496 = load ptr, ptr %86, align 8
+  %496 = load ptr, ptr %87, align 8
   %.not.i.i117 = icmp eq ptr %496, null
   br i1 %.not.i.i117, label %_ZNSt8functionIFvvEED2Ev.exit118, label %497
 
@@ -47910,11 +47910,11 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZN
   %.157 = phi i32 [ %.0562013, %378 ], [ %492, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit ], [ %.0562013, %432 ]
   %.255 = phi i32 [ %124, %378 ], [ 0, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit ], [ %124, %432 ]
   %.2 = phi i32 [ %.12015, %378 ], [ %443, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit ], [ %.12015, %432 ]
-  store i8 1, ptr %91, align 1
+  store i8 1, ptr %92, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13xilinx_srl_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %93, align 8
-  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13xilinx_srl_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE0_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %92, align 8
-  %508 = load ptr, ptr %89, align 8
+  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13xilinx_srl_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %94, align 8
+  store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_116generate_patternINS1_13xilinx_srl_pmEEEvSt8functionIFvRT_S4_IS0_EEEPKcSB_PN5Yosys5RTLIL6DesignEEUlvE0_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %93, align 8
+  %508 = load ptr, ptr %90, align 8
   %.not.i.i119 = icmp eq ptr %508, null
   br i1 %.not.i.i119, label %509, label %510
 
@@ -47926,12 +47926,12 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZN
   unreachable
 
 510:                                              ; preds = %507
-  %511 = load ptr, ptr %90, align 8
+  %511 = load ptr, ptr %91, align 8
   invoke void %511(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(1136) %11, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %_ZNKSt8functionIFvRN12_GLOBAL__N_113xilinx_srl_pmES_IFvvEEEEclES2_S4_.exit122 unwind label %.loopexit53
 
 _ZNKSt8functionIFvRN12_GLOBAL__N_113xilinx_srl_pmES_IFvvEEEEclES2_S4_.exit122: ; preds = %510
-  %512 = load ptr, ptr %92, align 8
+  %512 = load ptr, ptr %93, align 8
   %.not.i.i123 = icmp eq ptr %512, null
   br i1 %.not.i.i123, label %_ZNSt8functionIFvvEED2Ev.exit124, label %513
 
@@ -47965,7 +47965,7 @@ _ZNSt8functionIFvvEED2Ev.exit124:                 ; preds = %_ZNKSt8functionIFvR
 
 520:                                              ; preds = %.loopexit.split-lp54, %.loopexit53
   %lpad.phi57 = phi { ptr, i32 } [ %lpad.loopexit55, %.loopexit53 ], [ %lpad.loopexit.split-lp56, %.loopexit.split-lp54 ]
-  %521 = load ptr, ptr %92, align 8
+  %521 = load ptr, ptr %93, align 8
   %.not.i.i125 = icmp eq ptr %521, null
   br i1 %.not.i.i125, label %_ZNSt8functionIFvvEED2Ev.exit118, label %522
 

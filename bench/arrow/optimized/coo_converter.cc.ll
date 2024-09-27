@@ -17779,16 +17779,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !260
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -18015,12 +18015,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -18028,9 +18028,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -18058,10 +18058,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !262
 
@@ -18080,27 +18080,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -18127,14 +18127,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !115
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !263
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -18183,16 +18183,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !266
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -18419,12 +18419,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -18432,9 +18432,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -18462,10 +18462,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !268
 
@@ -18484,27 +18484,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -18531,14 +18531,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !122
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !269
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -18584,16 +18584,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !272
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -18820,12 +18820,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -18833,9 +18833,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -18863,10 +18863,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !274
 
@@ -18885,27 +18885,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -18932,14 +18932,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !129
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !275
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -18985,16 +18985,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !278
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -19221,12 +19221,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -19234,9 +19234,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -19264,10 +19264,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !280
 
@@ -19286,27 +19286,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -19333,14 +19333,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !136
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !281
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -19386,16 +19386,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !284
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -19622,12 +19622,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -19635,9 +19635,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -19665,10 +19665,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !286
 
@@ -19687,27 +19687,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -19734,14 +19734,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !143
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !287
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -19787,16 +19787,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !290
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -20023,12 +20023,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -20036,9 +20036,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -20066,10 +20066,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !292
 
@@ -20088,27 +20088,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -20135,14 +20135,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !150
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !293
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -20188,16 +20188,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !296
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -20424,12 +20424,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -20437,9 +20437,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -20467,10 +20467,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !298
 
@@ -20489,27 +20489,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -20536,14 +20536,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !157
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !299
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -20589,16 +20589,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !302
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -20825,12 +20825,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -20838,9 +20838,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -20868,10 +20868,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !304
 
@@ -20890,27 +20890,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -20937,14 +20937,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !164
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !305
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -20990,16 +20990,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !308
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -21226,12 +21226,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -21239,9 +21239,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -21269,10 +21269,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !310
 
@@ -21291,27 +21291,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -21338,14 +21338,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !171
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !311
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -21391,16 +21391,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !314
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -21627,12 +21627,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -21640,9 +21640,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -21670,10 +21670,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !316
 
@@ -21692,27 +21692,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -21739,14 +21739,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !178
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !317
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -21792,16 +21792,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !320
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -22028,12 +22028,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -22041,9 +22041,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -22071,10 +22071,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !322
 
@@ -22093,27 +22093,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -22140,14 +22140,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !185
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !323
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -22193,16 +22193,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !326
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -22429,12 +22429,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -22442,9 +22442,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -22472,10 +22472,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !328
 
@@ -22494,27 +22494,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -22541,14 +22541,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !192
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !329
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -22594,16 +22594,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !332
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -22830,12 +22830,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -22843,9 +22843,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -22873,10 +22873,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !334
 
@@ -22895,27 +22895,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -22942,14 +22942,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !199
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !335
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -22995,16 +22995,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !338
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -23231,12 +23231,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -23244,9 +23244,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -23274,10 +23274,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !340
 
@@ -23296,27 +23296,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -23343,14 +23343,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !206
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !341
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -23396,16 +23396,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !344
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -23632,12 +23632,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -23645,9 +23645,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -23675,10 +23675,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !346
 
@@ -23697,27 +23697,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -23744,14 +23744,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !213
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !347
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }
@@ -23797,16 +23797,16 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
 while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
-  %1 = load i64, ptr %incdec.ptr.i.i1.i, align 8
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %while.body.i.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_RSI_.exit.i.i ]
+  %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
+  %1 = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %2 = load i64, ptr %__first.coerce, align 8
-  store i64 %2, ptr %incdec.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
-  %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i4.i = ashr exact i64 %sub.ptr.sub.i.i.i3.i, 3
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i4.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
-  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
+  store i64 %2, ptr %incdec.ptr.i.i2.i, align 8
+  %sub.ptr.lhs.cast.i.i.i3.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
+  %sub.ptr.sub.i.i.i4.i = sub i64 %sub.ptr.lhs.cast.i.i.i3.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i.i5.i = ashr exact i64 %sub.ptr.sub.i.i.i4.i, 3
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, i64 noundef %1, ptr readonly %__comp.coerce0, ptr readonly %__comp.coerce1)
+  %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !350
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
@@ -24033,12 +24033,12 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp31, label %while.body, label %while.end
+  %cmp32 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.032, 1
+  %__holeIndex.addr.033 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
@@ -24046,9 +24046,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
-  %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
+  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
   %add.ptr.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %mul
-  %0 = load i64, ptr %add.ptr.i18, align 8
+  %0 = load i64, ptr %add.ptr.i19, align 8
   %1 = load i64, ptr %add.ptr.i, align 8
   %conv.i.i = zext nneg i32 %__comp.val.val to i64
   %mul3.i.i = mul nsw i64 %0, %conv.i.i
@@ -24076,10 +24076,10 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
-  %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
-  %8 = load i64, ptr %add.ptr.i19, align 8
-  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.032
-  store i64 %8, ptr %add.ptr.i20, align 8
+  %add.ptr.i20 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
+  %8 = load i64, ptr %add.ptr.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.033
+  store i64 %8, ptr %add.ptr.i21, align 8
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !352
 
@@ -24098,27 +24098,27 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
-  %9 = load i64, ptr %add.ptr.i21, align 8
-  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  store i64 %9, ptr %add.ptr.i22, align 8
+  %add.ptr.i22 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
+  %9 = load i64, ptr %add.ptr.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  store i64 %9, ptr %add.ptr.i23, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
+  %cmp11.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp11.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 land.rhs.i:                                       ; preds = %if.end33, %while.body.i
-  %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
-  %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
-  %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
+  %__holeIndex.addr.012.i = phi i64 [ %__parent.013.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end33 ]
+  %__parent.013.in.i = add nsw i64 %__holeIndex.addr.012.i, -1
+  %__parent.013.i = sdiv i64 %__parent.013.in.i, 2
   %__comp.val.val.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i = icmp sgt i32 %__comp.val.val.i, 0
   br i1 %cmp1.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.013.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
   %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
@@ -24145,14 +24145,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, label %for.body.i.i.i, !llvm.loop !220
 
 while.body.i:                                     ; preds = %for.body.i.i.i
-  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i9.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.012.i
   store i64 %10, ptr %add.ptr.i9.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.013.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit, !llvm.loop !353
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops14_Iter_comp_valIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SI_SI_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end.i.i.i, %if.end33
-  %__holeIndex.addr.018.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %if.end.i.i.i ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.012.i, %if.end.i.i.i ], [ %__holeIndex.addr.012.i, %land.rhs.i ], [ %__parent.013.i, %while.body.i ]
+  %add.ptr.i10.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i64 %__value, ptr %add.ptr.i10.i, align 8
   ret void
 }

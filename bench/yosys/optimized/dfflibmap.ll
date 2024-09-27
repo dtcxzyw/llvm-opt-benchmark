@@ -12836,40 +12836,40 @@ _ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_112cell_mappingESt4lessIS2_ESaISt
   br i1 %31, label %.thread.i, label %32
 
 32:                                               ; preds = %27, %25
-  %.01315.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 16), align 8
-  %.not16.i.i.i = icmp eq ptr %.01315.i.i.i, null
-  br i1 %.not16.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i10
+  %.01113.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 16), align 8
+  %.not14.i.i.i = icmp eq ptr %.01113.i.i.i, null
+  br i1 %.not14.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i10
 
 .lr.ph.i.i.i10:                                   ; preds = %32, %.lr.ph.i.i.i10
-  %.01317.i.i.i = phi ptr [ %.013.i.i.i, %.lr.ph.i.i.i10 ], [ %.01315.i.i.i, %32 ]
-  %33 = getelementptr inbounds i8, ptr %.01317.i.i.i, i64 32
+  %.01115.i.i.i = phi ptr [ %.011.i.i.i, %.lr.ph.i.i.i10 ], [ %.01113.i.i.i, %32 ]
+  %33 = getelementptr inbounds i8, ptr %.01115.i.i.i, i64 32
   %34 = load i32, ptr %33, align 4
   %35 = icmp slt i32 %.val, %34
   %.in.v.i.i.i = select i1 %35, i64 16, i64 24
-  %.in.i.i.i = getelementptr i8, ptr %.01317.i.i.i, i64 %.in.v.i.i.i
-  %.013.i.i.i = load ptr, ptr %.in.i.i.i, align 8
-  %.not.i.i.i11 = icmp eq ptr %.013.i.i.i, null
+  %.in.i.i.i = getelementptr i8, ptr %.01115.i.i.i, i64 %.in.v.i.i.i
+  %.011.i.i.i = load ptr, ptr %.in.i.i.i, align 8
+  %.not.i.i.i11 = icmp eq ptr %.011.i.i.i, null
   br i1 %.not.i.i.i11, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i10, !llvm.loop !166
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i10
   br i1 %35, label %._crit_edge.thread.i.i.i, label %40
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %32
-  %.012.lcssa21.i.i.i = phi ptr [ %.01317.i.i.i, %._crit_edge.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 8), %32 ]
+  %.010.lcssa19.i.i.i = phi ptr [ %.01115.i.i.i, %._crit_edge.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 8), %32 ]
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 24), align 8
-  %37 = icmp eq ptr %.012.lcssa21.i.i.i, %36
+  %37 = icmp eq ptr %.010.lcssa19.i.i.i, %36
   br i1 %37, label %.thread.i, label %38
 
 38:                                               ; preds = %._crit_edge.thread.i.i.i
-  %39 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.012.lcssa21.i.i.i) #31
+  %39 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i.i.i) #31
   %.phi.trans.insert31.i.i = getelementptr inbounds i8, ptr %39, i64 32
   %.pre32.i.i = load i32, ptr %.phi.trans.insert31.i.i, align 4
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge.i.i.i
   %41 = phi i32 [ %.pre32.i.i, %38 ], [ %34, %._crit_edge.i.i.i ]
-  %.012.lcssa22.i.i.i = phi ptr [ %.012.lcssa21.i.i.i, %38 ], [ %.01317.i.i.i, %._crit_edge.i.i.i ]
-  %.sroa.01.0.i.i.i = phi ptr [ %39, %38 ], [ %.01317.i.i.i, %._crit_edge.i.i.i ]
+  %.010.lcssa20.i.i.i = phi ptr [ %.010.lcssa19.i.i.i, %38 ], [ %.01115.i.i.i, %._crit_edge.i.i.i ]
+  %.sroa.01.0.i.i.i = phi ptr [ %39, %38 ], [ %.01115.i.i.i, %._crit_edge.i.i.i ]
   %42 = icmp slt i32 %41, %.val
   br i1 %42, label %.thread.i, label %.thread15.i
 
@@ -12898,39 +12898,39 @@ _ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_112cell_mappingESt4lessIS2_ESaISt
   br i1 %57, label %.thread.i, label %.thread.thread.i
 
 58:                                               ; preds = %50
-  %.01315.i15.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 16), align 8
-  %.not16.i16.i.i = icmp eq ptr %.01315.i15.i.i, null
-  br i1 %.not16.i16.i.i, label %._crit_edge.thread.i32.i.i, label %.lr.ph.i17.i.i
+  %.01113.i15.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 16), align 8
+  %.not14.i16.i.i = icmp eq ptr %.01113.i15.i.i, null
+  br i1 %.not14.i16.i.i, label %._crit_edge.thread.i32.i.i, label %.lr.ph.i17.i.i
 
 .lr.ph.i17.i.i:                                   ; preds = %58, %.lr.ph.i17.i.i
-  %.01317.i18.i.i = phi ptr [ %.013.i21.i.i, %.lr.ph.i17.i.i ], [ %.01315.i15.i.i, %58 ]
-  %59 = getelementptr inbounds i8, ptr %.01317.i18.i.i, i64 32
+  %.01115.i18.i.i = phi ptr [ %.011.i21.i.i, %.lr.ph.i17.i.i ], [ %.01113.i15.i.i, %58 ]
+  %59 = getelementptr inbounds i8, ptr %.01115.i18.i.i, i64 32
   %60 = load i32, ptr %59, align 4
   %61 = icmp slt i32 %.val, %60
   %.in.v.i19.i.i = select i1 %61, i64 16, i64 24
-  %.in.i20.i.i = getelementptr i8, ptr %.01317.i18.i.i, i64 %.in.v.i19.i.i
-  %.013.i21.i.i = load ptr, ptr %.in.i20.i.i, align 8
-  %.not.i22.i.i = icmp eq ptr %.013.i21.i.i, null
+  %.in.i20.i.i = getelementptr i8, ptr %.01115.i18.i.i, i64 %.in.v.i19.i.i
+  %.011.i21.i.i = load ptr, ptr %.in.i20.i.i, align 8
+  %.not.i22.i.i = icmp eq ptr %.011.i21.i.i, null
   br i1 %.not.i22.i.i, label %._crit_edge.i23.i.i, label %.lr.ph.i17.i.i, !llvm.loop !166
 
 ._crit_edge.i23.i.i:                              ; preds = %.lr.ph.i17.i.i
   br i1 %61, label %._crit_edge.thread.i32.i.i, label %65
 
 ._crit_edge.thread.i32.i.i:                       ; preds = %._crit_edge.i23.i.i, %58
-  %.012.lcssa21.i33.i.i = phi ptr [ %.01317.i18.i.i, %._crit_edge.i23.i.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 8), %58 ]
-  %62 = icmp eq ptr %.012.lcssa21.i33.i.i, %48
+  %.010.lcssa19.i33.i.i = phi ptr [ %.01115.i18.i.i, %._crit_edge.i23.i.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 8), %58 ]
+  %62 = icmp eq ptr %.010.lcssa19.i33.i.i, %48
   br i1 %62, label %.thread.i, label %63
 
 63:                                               ; preds = %._crit_edge.thread.i32.i.i
-  %64 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.012.lcssa21.i33.i.i) #31
+  %64 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i33.i.i) #31
   %.phi.trans.insert29.i.i = getelementptr inbounds i8, ptr %64, i64 32
   %.pre30.i.i = load i32, ptr %.phi.trans.insert29.i.i, align 4
   br label %65
 
 65:                                               ; preds = %63, %._crit_edge.i23.i.i
   %66 = phi i32 [ %.pre30.i.i, %63 ], [ %60, %._crit_edge.i23.i.i ]
-  %.012.lcssa22.i24.i.i = phi ptr [ %.012.lcssa21.i33.i.i, %63 ], [ %.01317.i18.i.i, %._crit_edge.i23.i.i ]
-  %.sroa.01.0.i25.i.i = phi ptr [ %64, %63 ], [ %.01317.i18.i.i, %._crit_edge.i23.i.i ]
+  %.010.lcssa20.i24.i.i = phi ptr [ %.010.lcssa19.i33.i.i, %63 ], [ %.01115.i18.i.i, %._crit_edge.i23.i.i ]
+  %.sroa.01.0.i25.i.i = phi ptr [ %64, %63 ], [ %.01115.i18.i.i, %._crit_edge.i23.i.i ]
   %67 = icmp slt i32 %66, %.val
   br i1 %67, label %.thread.i, label %.thread15.i
 
@@ -12957,40 +12957,40 @@ _ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_112cell_mappingESt4lessIS2_ESaISt
   br i1 %80, label %.thread.i, label %.thread.thread.i
 
 81:                                               ; preds = %73
-  %.01315.i35.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 16), align 8
-  %.not16.i36.i.i = icmp eq ptr %.01315.i35.i.i, null
-  br i1 %.not16.i36.i.i, label %._crit_edge.thread.i52.i.i, label %.lr.ph.i37.i.i
+  %.01113.i35.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 16), align 8
+  %.not14.i36.i.i = icmp eq ptr %.01113.i35.i.i, null
+  br i1 %.not14.i36.i.i, label %._crit_edge.thread.i52.i.i, label %.lr.ph.i37.i.i
 
 .lr.ph.i37.i.i:                                   ; preds = %81, %.lr.ph.i37.i.i
-  %.01317.i38.i.i = phi ptr [ %.013.i41.i.i, %.lr.ph.i37.i.i ], [ %.01315.i35.i.i, %81 ]
-  %82 = getelementptr inbounds i8, ptr %.01317.i38.i.i, i64 32
+  %.01115.i38.i.i = phi ptr [ %.011.i41.i.i, %.lr.ph.i37.i.i ], [ %.01113.i35.i.i, %81 ]
+  %82 = getelementptr inbounds i8, ptr %.01115.i38.i.i, i64 32
   %83 = load i32, ptr %82, align 4
   %84 = icmp slt i32 %.val, %83
   %.in.v.i39.i.i = select i1 %84, i64 16, i64 24
-  %.in.i40.i.i = getelementptr i8, ptr %.01317.i38.i.i, i64 %.in.v.i39.i.i
-  %.013.i41.i.i = load ptr, ptr %.in.i40.i.i, align 8
-  %.not.i42.i.i = icmp eq ptr %.013.i41.i.i, null
+  %.in.i40.i.i = getelementptr i8, ptr %.01115.i38.i.i, i64 %.in.v.i39.i.i
+  %.011.i41.i.i = load ptr, ptr %.in.i40.i.i, align 8
+  %.not.i42.i.i = icmp eq ptr %.011.i41.i.i, null
   br i1 %.not.i42.i.i, label %._crit_edge.i43.i.i, label %.lr.ph.i37.i.i, !llvm.loop !166
 
 ._crit_edge.i43.i.i:                              ; preds = %.lr.ph.i37.i.i
   br i1 %84, label %._crit_edge.thread.i52.i.i, label %89
 
 ._crit_edge.thread.i52.i.i:                       ; preds = %._crit_edge.i43.i.i, %81
-  %.012.lcssa21.i53.i.i = phi ptr [ %.01317.i38.i.i, %._crit_edge.i43.i.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 8), %81 ]
+  %.010.lcssa19.i53.i.i = phi ptr [ %.01115.i38.i.i, %._crit_edge.i43.i.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 8), %81 ]
   %85 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 24), align 8
-  %86 = icmp eq ptr %.012.lcssa21.i53.i.i, %85
+  %86 = icmp eq ptr %.010.lcssa19.i53.i.i, %85
   br i1 %86, label %.thread.i, label %87
 
 87:                                               ; preds = %._crit_edge.thread.i52.i.i
-  %88 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.012.lcssa21.i53.i.i) #31
+  %88 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i53.i.i) #31
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %88, i64 32
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %89
 
 89:                                               ; preds = %87, %._crit_edge.i43.i.i
   %90 = phi i32 [ %.pre.i.i, %87 ], [ %83, %._crit_edge.i43.i.i ]
-  %.012.lcssa22.i44.i.i = phi ptr [ %.012.lcssa21.i53.i.i, %87 ], [ %.01317.i38.i.i, %._crit_edge.i43.i.i ]
-  %.sroa.01.0.i45.i.i = phi ptr [ %88, %87 ], [ %.01317.i38.i.i, %._crit_edge.i43.i.i ]
+  %.010.lcssa20.i44.i.i = phi ptr [ %.010.lcssa19.i53.i.i, %87 ], [ %.01115.i38.i.i, %._crit_edge.i43.i.i ]
+  %.sroa.01.0.i45.i.i = phi ptr [ %88, %87 ], [ %.01115.i38.i.i, %._crit_edge.i43.i.i ]
   %91 = icmp slt i32 %90, %.val
   br i1 %91, label %.thread.i, label %.thread15.i
 
@@ -13001,7 +13001,7 @@ select.unfold2.i:                                 ; preds = %70, %47
   br i1 %.not.i, label %.thread15.i, label %.thread.i
 
 .thread.i:                                        ; preds = %78, %select.unfold2.i, %89, %._crit_edge.thread.i52.i.i, %65, %._crit_edge.thread.i32.i.i, %55, %40, %._crit_edge.thread.i.i.i, %27
-  %.sroa.12.0.i12.i = phi ptr [ %.sroa.12.0.i.i, %select.unfold2.i ], [ %.012.lcssa21.i53.i.i, %._crit_edge.thread.i52.i.i ], [ %.012.lcssa21.i33.i.i, %._crit_edge.thread.i32.i.i ], [ %.012.lcssa21.i.i.i, %._crit_edge.thread.i.i.i ], [ %28, %27 ], [ %51, %55 ], [ %.012.lcssa22.i.i.i, %40 ], [ %.012.lcssa22.i24.i.i, %65 ], [ %.012.lcssa22.i44.i.i, %89 ], [ %.08.lcssa.i.i.i5, %78 ]
+  %.sroa.12.0.i12.i = phi ptr [ %.sroa.12.0.i.i, %select.unfold2.i ], [ %.010.lcssa19.i53.i.i, %._crit_edge.thread.i52.i.i ], [ %.010.lcssa19.i33.i.i, %._crit_edge.thread.i32.i.i ], [ %.010.lcssa19.i.i.i, %._crit_edge.thread.i.i.i ], [ %28, %27 ], [ %51, %55 ], [ %.010.lcssa20.i.i.i, %40 ], [ %.010.lcssa20.i24.i.i, %65 ], [ %.010.lcssa20.i44.i.i, %89 ], [ %.08.lcssa.i.i.i5, %78 ]
   %.sroa.021.0.i11.i = phi ptr [ %.sroa.021.0.i.i, %select.unfold2.i ], [ null, %._crit_edge.thread.i52.i.i ], [ null, %._crit_edge.thread.i32.i.i ], [ null, %._crit_edge.thread.i.i.i ], [ null, %27 ], [ null, %55 ], [ null, %40 ], [ null, %65 ], [ null, %89 ], [ null, %78 ]
   %.not.i.i12.i = icmp ne ptr %.sroa.021.0.i11.i, null
   %92 = icmp eq ptr %.sroa.12.0.i12.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113cell_mappingsE, i64 8)

@@ -201,15 +201,15 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %pBegin.0306 = phi ptr [ @__const._Z17TestSpanIteratorsRi.arr, %entry ], [ %incdec.ptr, %for.body ]
-  %__begin1.0.idx305 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.body ]
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @__const._Z17TestSpanIteratorsRi.arr, i64 %__begin1.0.idx305
+  %pBegin.0266 = phi ptr [ @__const._Z17TestSpanIteratorsRi.arr, %entry ], [ %incdec.ptr, %for.body ]
+  %__begin1.0.idx265 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.body ]
+  %__begin1.0.ptr = getelementptr inbounds i8, ptr @__const._Z17TestSpanIteratorsRi.arr, i64 %__begin1.0.idx265
   %0 = load i32, ptr %__begin1.0.ptr, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %pBegin.0306, i64 4
-  %1 = load i32, ptr %pBegin.0306, align 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %pBegin.0266, i64 4
+  %1 = load i32, ptr %pBegin.0266, align 4
   %cmp3 = icmp eq i32 %0, %1
   %call = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @.str.31)
-  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx305, 4
+  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx265, 4
   %cmp.not = icmp eq i64 %__begin1.0.add, 40
   br i1 %cmp.not, label %for.end, label %for.body
 

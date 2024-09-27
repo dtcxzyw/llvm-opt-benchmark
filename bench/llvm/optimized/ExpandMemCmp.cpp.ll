@@ -1039,16 +1039,16 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_115MemCmpExpansion9LoadEntryELj8EED2Ev.exit2
   %.val12.i.i.i.i = load ptr, ptr %82, align 8
   %354 = getelementptr %"struct.(anonymous namespace)::MemCmpExpansion::LoadEntry", ptr %.val12.i.i.i.i, i64 %353
   %355 = getelementptr i8, ptr %354, i64 -32
-  %.sroa.0.0.copyload18.i.i.i.i = load i32, ptr %355, align 8
-  %.sroa.219.0..sroa_idx.i.i.i.i = getelementptr i8, ptr %354, i64 -24
-  %.sroa.219.0.copyload.i.i.i.i = load i64, ptr %.sroa.219.0..sroa_idx.i.i.i.i, align 8
-  %356 = zext i32 %.sroa.0.0.copyload18.i.i.i.i to i64
-  %357 = add i64 %.sroa.219.0.copyload.i.i.i.i, %356
+  %.sroa.0.0.copyload19.i.i.i.i = load i32, ptr %355, align 8
+  %.sroa.220.0..sroa_idx.i.i.i.i = getelementptr i8, ptr %354, i64 -24
+  %.sroa.220.0.copyload.i.i.i.i = load i64, ptr %.sroa.220.0..sroa_idx.i.i.i.i, align 8
+  %356 = zext i32 %.sroa.0.0.copyload19.i.i.i.i to i64
+  %357 = add i64 %.sroa.220.0.copyload.i.i.i.i, %356
   %.not.i28.i.i.i = icmp eq i64 %357, %.sroa.21.0.copyload.i.i.i.i
   br i1 %.not.i28.i.i.i, label %358, label %_ZN12_GLOBAL__N_115MemCmpExpansionC2EPN4llvm8CallInstEmRKNS1_19TargetTransformInfo22MemCmpExpansionOptionsEbRKNS1_10DataLayoutEPNS1_14DomTreeUpdaterE.exit.i.i
 
 358:                                              ; preds = %.lr.ph.i27.i.i.i
-  %359 = add i32 %.sroa.0.0.copyload18.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i
+  %359 = add i32 %.sroa.0.0.copyload19.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i
   %360 = load ptr, ptr %90, align 8
   %361 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %90) #16
   %.idx3.i.i.i.i.i = shl nsw i64 %361, 2
@@ -1179,7 +1179,7 @@ _ZN4llvm4findIRKNS_11SmallVectorIjLj4EEEjEEDaOT_RKT0_.exit.i.i.i.i: ; preds = %3
 
 _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115MemCmpExpansion9LoadEntryELb1EE18growAndEmplaceBackIJRmRjEEERS3_DpOT_.exit.i.i.i.i.i: ; preds = %416, %412
   %417 = zext i32 %359 to i64
-  %418 = trunc i64 %.sroa.219.0.copyload.i.i.i.i to i32
+  %418 = trunc i64 %.sroa.220.0.copyload.i.i.i.i to i32
   %.val.i.i.i.i.i.i.i.i = load ptr, ptr %82, align 8
   %419 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %82) #16
   %420 = getelementptr inbounds %"struct.(anonymous namespace)::MemCmpExpansion::LoadEntry", ptr %.val.i.i.i.i.i.i.i.i, i64 %419
@@ -1192,7 +1192,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115MemCmpExpansion9LoadEntryELb1
   %.val.i.i.i30.i.i.i = load ptr, ptr %82, align 8
   %422 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %82) #16
   %423 = getelementptr inbounds %"struct.(anonymous namespace)::MemCmpExpansion::LoadEntry", ptr %.val.i.i.i30.i.i.i, i64 %422
-  %424 = trunc i64 %.sroa.219.0.copyload.i.i.i.i to i32
+  %424 = trunc i64 %.sroa.220.0.copyload.i.i.i.i to i32
   %425 = zext i32 %359 to i64
   store i32 %424, ptr %423, align 8
   %426 = getelementptr inbounds nuw i8, ptr %423, i64 8

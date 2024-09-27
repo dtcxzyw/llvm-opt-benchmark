@@ -245,119 +245,119 @@ grpc_lb_v1_LoadBalanceRequest_new.exit:           ; preds = %upb_Arena_Malloc.ex
   br i1 %cmp.i13.i.i, label %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i, label %if.then.i
 
 grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i: ; preds = %grpc_lb_v1_LoadBalanceRequest_new.exit
-  %add.ptr.i.i.i38 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
-  %4 = load i64, ptr %add.ptr.i.i.i38, align 1
+  %add.ptr.i.i.i39 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %4 = load i64, ptr %add.ptr.i.i.i39, align 1
   %5 = inttoptr i64 %4 to ptr
   %cmp.i = icmp eq i64 %4, 0
   br i1 %cmp.i, label %if.then.i, label %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit
 
 if.then.i:                                        ; preds = %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i, %grpc_lb_v1_LoadBalanceRequest_new.exit
   %6 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__ClientStats_msg_init, i64 16), align 8
-  %conv.i.i.i22 = zext i16 %6 to i64
-  %add.i.i.i23 = add nuw nsw i64 %conv.i.i.i22, 8
-  %sub.i.i.i24 = add nuw nsw i64 %conv.i.i.i22, 23
-  %div7.i.i.i25 = and i64 %sub.i.i.i24, 131064
+  %conv.i.i.i23 = zext i16 %6 to i64
+  %add.i.i.i24 = add nuw nsw i64 %conv.i.i.i23, 8
+  %sub.i.i.i25 = add nuw nsw i64 %conv.i.i.i23, 23
+  %div7.i.i.i26 = and i64 %sub.i.i.i25, 131064
   %7 = load ptr, ptr %end.i.i.i.i, align 8
   %8 = load ptr, ptr %arena, align 8
-  %sub.ptr.lhs.cast.i.i.i.i27 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i.i.i28 = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i.i.i29 = sub i64 %sub.ptr.lhs.cast.i.i.i.i27, %sub.ptr.rhs.cast.i.i.i.i28
-  %cmp.i.i.i30 = icmp ult i64 %sub.ptr.sub.i.i.i.i29, %div7.i.i.i25
-  br i1 %cmp.i.i.i30, label %if.then.i.i.i36, label %if.end.i.i.i31
+  %sub.ptr.lhs.cast.i.i.i.i28 = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i.i.i.i29 = ptrtoint ptr %8 to i64
+  %sub.ptr.sub.i.i.i.i30 = sub i64 %sub.ptr.lhs.cast.i.i.i.i28, %sub.ptr.rhs.cast.i.i.i.i29
+  %cmp.i.i.i31 = icmp ult i64 %sub.ptr.sub.i.i.i.i30, %div7.i.i.i26
+  br i1 %cmp.i.i.i31, label %if.then.i.i.i37, label %if.end.i.i.i32
 
-if.then.i.i.i36:                                  ; preds = %if.then.i
-  %call2.i.i.i37 = tail call ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %arena, i64 noundef %div7.i.i.i25)
-  br label %upb_Arena_Malloc.exit.i.i32
+if.then.i.i.i37:                                  ; preds = %if.then.i
+  %call2.i.i.i38 = tail call ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %arena, i64 noundef %div7.i.i.i26)
+  br label %upb_Arena_Malloc.exit.i.i33
 
-if.end.i.i.i31:                                   ; preds = %if.then.i
-  %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %8, i64 %div7.i.i.i25
+if.end.i.i.i32:                                   ; preds = %if.then.i
+  %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %8, i64 %div7.i.i.i26
   store ptr %add.ptr.i.i5.i, ptr %arena, align 8
-  br label %upb_Arena_Malloc.exit.i.i32
+  br label %upb_Arena_Malloc.exit.i.i33
 
-upb_Arena_Malloc.exit.i.i32:                      ; preds = %if.end.i.i.i31, %if.then.i.i.i36
-  %retval.0.i.i.i33 = phi ptr [ %call2.i.i.i37, %if.then.i.i.i36 ], [ %8, %if.end.i.i.i31 ]
-  %tobool.not.i.i34 = icmp eq ptr %retval.0.i.i.i33, null
-  br i1 %tobool.not.i.i34, label %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit, label %if.then2.i
+upb_Arena_Malloc.exit.i.i33:                      ; preds = %if.end.i.i.i32, %if.then.i.i.i37
+  %retval.0.i.i.i34 = phi ptr [ %call2.i.i.i38, %if.then.i.i.i37 ], [ %8, %if.end.i.i.i32 ]
+  %tobool.not.i.i35 = icmp eq ptr %retval.0.i.i.i34, null
+  br i1 %tobool.not.i.i35, label %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit, label %if.then2.i
 
-if.then2.i:                                       ; preds = %upb_Arena_Malloc.exit.i.i32
-  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %retval.0.i.i.i33, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i33, i8 0, i64 %add.i.i.i23, i1 false)
+if.then2.i:                                       ; preds = %upb_Arena_Malloc.exit.i.i33
+  %add.ptr.i.i36 = getelementptr inbounds i8, ptr %retval.0.i.i.i34, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i34, i8 0, i64 %add.i.i.i24, i1 false)
   store i32 2, ptr %retval.0.i.i, align 4
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
-  %9 = ptrtoint ptr %add.ptr.i.i35 to i64
+  %9 = ptrtoint ptr %add.ptr.i.i36 to i64
   store i64 %9, ptr %add.ptr.i.i.i.i, align 1
   br label %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit
 
-grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit: ; preds = %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i, %upb_Arena_Malloc.exit.i.i32, %if.then2.i
-  %sub.0.i = phi ptr [ %add.ptr.i.i35, %if.then2.i ], [ %5, %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i ], [ null, %upb_Arena_Malloc.exit.i.i32 ]
-  %add.ptr.i.i.i39 = getelementptr inbounds i8, ptr %sub.0.i, i64 8
-  %10 = load i64, ptr %add.ptr.i.i.i39, align 1
+grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit: ; preds = %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i, %upb_Arena_Malloc.exit.i.i33, %if.then2.i
+  %sub.0.i = phi ptr [ %add.ptr.i.i36, %if.then2.i ], [ %5, %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i ], [ null, %upb_Arena_Malloc.exit.i.i33 ]
+  %add.ptr.i.i.i40 = getelementptr inbounds i8, ptr %sub.0.i, i64 8
+  %10 = load i64, ptr %add.ptr.i.i.i40, align 1
   %11 = inttoptr i64 %10 to ptr
-  %cmp.i40 = icmp eq i64 %10, 0
-  br i1 %cmp.i40, label %if.then.i42, label %grpc_lb_v1_ClientStats_mutable_timestamp.exit
+  %cmp.i41 = icmp eq i64 %10, 0
+  br i1 %cmp.i41, label %if.then.i43, label %grpc_lb_v1_ClientStats_mutable_timestamp.exit
 
-if.then.i42:                                      ; preds = %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit
+if.then.i43:                                      ; preds = %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit
   %12 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Timestamp_msg_init, i64 16), align 8
-  %conv.i.i.i43 = zext i16 %12 to i64
-  %add.i.i.i44 = add nuw nsw i64 %conv.i.i.i43, 8
-  %sub.i.i.i45 = add nuw nsw i64 %conv.i.i.i43, 23
-  %div7.i.i.i46 = and i64 %sub.i.i.i45, 131064
+  %conv.i.i.i44 = zext i16 %12 to i64
+  %add.i.i.i45 = add nuw nsw i64 %conv.i.i.i44, 8
+  %sub.i.i.i46 = add nuw nsw i64 %conv.i.i.i44, 23
+  %div7.i.i.i47 = and i64 %sub.i.i.i46, 131064
   %13 = load ptr, ptr %end.i.i.i.i, align 8
   %14 = load ptr, ptr %arena, align 8
-  %sub.ptr.lhs.cast.i.i.i.i48 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i.i.i49 = ptrtoint ptr %14 to i64
-  %sub.ptr.sub.i.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i.i48, %sub.ptr.rhs.cast.i.i.i.i49
-  %cmp.i.i.i51 = icmp ult i64 %sub.ptr.sub.i.i.i.i50, %div7.i.i.i46
-  br i1 %cmp.i.i.i51, label %if.then.i.i.i59, label %if.end.i.i.i52
+  %sub.ptr.lhs.cast.i.i.i.i49 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i.i.i50 = ptrtoint ptr %14 to i64
+  %sub.ptr.sub.i.i.i.i51 = sub i64 %sub.ptr.lhs.cast.i.i.i.i49, %sub.ptr.rhs.cast.i.i.i.i50
+  %cmp.i.i.i52 = icmp ult i64 %sub.ptr.sub.i.i.i.i51, %div7.i.i.i47
+  br i1 %cmp.i.i.i52, label %if.then.i.i.i60, label %if.end.i.i.i53
 
-if.then.i.i.i59:                                  ; preds = %if.then.i42
-  %call2.i.i.i60 = tail call ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %arena, i64 noundef %div7.i.i.i46)
-  br label %upb_Arena_Malloc.exit.i.i54
+if.then.i.i.i60:                                  ; preds = %if.then.i43
+  %call2.i.i.i61 = tail call ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %arena, i64 noundef %div7.i.i.i47)
+  br label %upb_Arena_Malloc.exit.i.i55
 
-if.end.i.i.i52:                                   ; preds = %if.then.i42
-  %add.ptr.i.i5.i53 = getelementptr inbounds i8, ptr %14, i64 %div7.i.i.i46
-  store ptr %add.ptr.i.i5.i53, ptr %arena, align 8
-  br label %upb_Arena_Malloc.exit.i.i54
+if.end.i.i.i53:                                   ; preds = %if.then.i43
+  %add.ptr.i.i5.i54 = getelementptr inbounds i8, ptr %14, i64 %div7.i.i.i47
+  store ptr %add.ptr.i.i5.i54, ptr %arena, align 8
+  br label %upb_Arena_Malloc.exit.i.i55
 
-upb_Arena_Malloc.exit.i.i54:                      ; preds = %if.end.i.i.i52, %if.then.i.i.i59
-  %retval.0.i.i.i55 = phi ptr [ %call2.i.i.i60, %if.then.i.i.i59 ], [ %14, %if.end.i.i.i52 ]
-  %tobool.not.i.i56 = icmp eq ptr %retval.0.i.i.i55, null
-  br i1 %tobool.not.i.i56, label %grpc_lb_v1_ClientStats_mutable_timestamp.exit, label %if.then2.i57
+upb_Arena_Malloc.exit.i.i55:                      ; preds = %if.end.i.i.i53, %if.then.i.i.i60
+  %retval.0.i.i.i56 = phi ptr [ %call2.i.i.i61, %if.then.i.i.i60 ], [ %14, %if.end.i.i.i53 ]
+  %tobool.not.i.i57 = icmp eq ptr %retval.0.i.i.i56, null
+  br i1 %tobool.not.i.i57, label %grpc_lb_v1_ClientStats_mutable_timestamp.exit, label %if.then2.i58
 
-if.then2.i57:                                     ; preds = %upb_Arena_Malloc.exit.i.i54
-  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %retval.0.i.i.i55, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i55, i8 0, i64 %add.i.i.i44, i1 false)
+if.then2.i58:                                     ; preds = %upb_Arena_Malloc.exit.i.i55
+  %add.ptr.i.i59 = getelementptr inbounds i8, ptr %retval.0.i.i.i56, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i56, i8 0, i64 %add.i.i.i45, i1 false)
   %15 = load i8, ptr %sub.0.i, align 1
   %or2.i.i.i.i.i.i = or i8 %15, 2
   store i8 %or2.i.i.i.i.i.i, ptr %sub.0.i, align 1
-  %16 = ptrtoint ptr %add.ptr.i.i58 to i64
-  store i64 %16, ptr %add.ptr.i.i.i39, align 1
+  %16 = ptrtoint ptr %add.ptr.i.i59 to i64
+  store i64 %16, ptr %add.ptr.i.i.i40, align 1
   br label %grpc_lb_v1_ClientStats_mutable_timestamp.exit
 
-grpc_lb_v1_ClientStats_mutable_timestamp.exit:    ; preds = %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit, %upb_Arena_Malloc.exit.i.i54, %if.then2.i57
-  %sub.0.i41 = phi ptr [ %add.ptr.i.i58, %if.then2.i57 ], [ %11, %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit ], [ null, %upb_Arena_Malloc.exit.i.i54 ]
+grpc_lb_v1_ClientStats_mutable_timestamp.exit:    ; preds = %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit, %upb_Arena_Malloc.exit.i.i55, %if.then2.i58
+  %sub.0.i42 = phi ptr [ %add.ptr.i.i59, %if.then2.i58 ], [ %11, %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit ], [ null, %upb_Arena_Malloc.exit.i.i55 ]
   %call3 = tail call { i64, i64 } @gpr_now(i32 noundef 1)
   %17 = extractvalue { i64, i64 } %call3, 0
   %18 = extractvalue { i64, i64 } %call3, 1
   %ref.tmp.sroa.2.8.extract.trunc = trunc i64 %18 to i32
-  %add.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %sub.0.i41, i64 8
-  store i64 %17, ptr %add.ptr.i.i.i.i61, align 1
-  store i32 %ref.tmp.sroa.2.8.extract.trunc, ptr %sub.0.i41, align 1
-  %add.ptr.i.i.i62 = getelementptr inbounds i8, ptr %sub.0.i, i64 16
-  store i64 %num_calls_started, ptr %add.ptr.i.i.i62, align 1
-  %add.ptr.i.i.i63 = getelementptr inbounds i8, ptr %sub.0.i, i64 24
-  store i64 %num_calls_finished, ptr %add.ptr.i.i.i63, align 1
-  %add.ptr.i.i.i64 = getelementptr inbounds i8, ptr %sub.0.i, i64 32
-  store i64 %num_calls_finished_with_client_failed_to_send, ptr %add.ptr.i.i.i64, align 1
-  %add.ptr.i.i.i65 = getelementptr inbounds i8, ptr %sub.0.i, i64 40
-  store i64 %num_calls_finished_known_received, ptr %add.ptr.i.i.i65, align 1
+  %add.ptr.i.i.i.i62 = getelementptr inbounds i8, ptr %sub.0.i42, i64 8
+  store i64 %17, ptr %add.ptr.i.i.i.i62, align 1
+  store i32 %ref.tmp.sroa.2.8.extract.trunc, ptr %sub.0.i42, align 1
+  %add.ptr.i.i.i63 = getelementptr inbounds i8, ptr %sub.0.i, i64 16
+  store i64 %num_calls_started, ptr %add.ptr.i.i.i63, align 1
+  %add.ptr.i.i.i64 = getelementptr inbounds i8, ptr %sub.0.i, i64 24
+  store i64 %num_calls_finished, ptr %add.ptr.i.i.i64, align 1
+  %add.ptr.i.i.i65 = getelementptr inbounds i8, ptr %sub.0.i, i64 32
+  store i64 %num_calls_finished_with_client_failed_to_send, ptr %add.ptr.i.i.i65, align 1
+  %add.ptr.i.i.i66 = getelementptr inbounds i8, ptr %sub.0.i, i64 40
+  store i64 %num_calls_finished_known_received, ptr %add.ptr.i.i.i66, align 1
   %cmp.not = icmp eq ptr %drop_token_counts, null
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %grpc_lb_v1_ClientStats_mutable_timestamp.exit
   %19 = load i64, ptr %drop_token_counts, align 8
-  %cmp589.not = icmp ult i64 %19, 2
-  br i1 %cmp589.not, label %if.end, label %for.body.lr.ph
+  %cmp590.not = icmp ult i64 %19, 2
+  br i1 %cmp590.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %data_.i.i.i = getelementptr inbounds i8, ptr %drop_token_counts, i64 8
@@ -365,12 +365,12 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %upb_Arena_Malloc.exit
   %20 = phi i64 [ %19, %for.body.lr.ph ], [ %36, %upb_Arena_Malloc.exit ]
-  %i.090 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %upb_Arena_Malloc.exit ]
+  %i.091 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %upb_Arena_Malloc.exit ]
   %and.i.i.i = and i64 %20, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
   %21 = load ptr, ptr %data_.i.i.i, align 8
   %cond.i.i = select i1 %tobool.i.not.i.i, ptr %data_.i.i.i, ptr %21
-  %arrayidx.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %cond.i.i, i64 %i.090
+  %arrayidx.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %cond.i.i, i64 %i.091
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %field.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %field.i, ptr noundef nonnull align 4 dereferenceable(12) @__const.grpc_lb_v1_ClientStats_add_calls_finished_with_drop.field, i64 12, i1 false)
   %call.i = call ptr @upb_Message_GetOrCreateMutableArray(ptr noundef %sub.0.i, ptr noundef nonnull %field.i, ptr noundef nonnull %arena)
@@ -383,8 +383,8 @@ lor.lhs.false.i:                                  ; preds = %for.body
   %add.i = add i64 %22, 1
   %capacity.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %23 = load i64, ptr %capacity.i.i.i, align 8
-  %cmp.i.i.i66 = icmp ult i64 %23, %add.i
-  br i1 %cmp.i.i.i66, label %_upb_array_reserve.exit.i.i, label %if.end.i
+  %cmp.i.i.i67 = icmp ult i64 %23, %add.i
+  br i1 %cmp.i.i.i67, label %_upb_array_reserve.exit.i.i, label %if.end.i
 
 _upb_array_reserve.exit.i.i:                      ; preds = %lor.lhs.false.i
   %call.i.i.i = call zeroext i1 @_upb_array_realloc(ptr noundef nonnull %call.i, i64 noundef %add.i, ptr noundef nonnull %arena)
@@ -393,35 +393,35 @@ _upb_array_reserve.exit.i.i:                      ; preds = %lor.lhs.false.i
 if.end.i:                                         ; preds = %_upb_array_reserve.exit.i.i, %lor.lhs.false.i
   store i64 %add.i, ptr %size.i, align 8
   %24 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__ClientStatsPerToken_msg_init, i64 16), align 8
-  %conv.i.i.i67 = zext i16 %24 to i64
-  %add.i.i.i68 = add nuw nsw i64 %conv.i.i.i67, 8
-  %sub.i.i.i69 = add nuw nsw i64 %conv.i.i.i67, 23
-  %div7.i.i.i70 = and i64 %sub.i.i.i69, 131064
+  %conv.i.i.i68 = zext i16 %24 to i64
+  %add.i.i.i69 = add nuw nsw i64 %conv.i.i.i68, 8
+  %sub.i.i.i70 = add nuw nsw i64 %conv.i.i.i68, 23
+  %div7.i.i.i71 = and i64 %sub.i.i.i70, 131064
   %25 = load ptr, ptr %end.i.i.i.i, align 8
   %26 = load ptr, ptr %arena, align 8
-  %sub.ptr.lhs.cast.i.i.i.i72 = ptrtoint ptr %25 to i64
-  %sub.ptr.rhs.cast.i.i.i.i73 = ptrtoint ptr %26 to i64
-  %sub.ptr.sub.i.i.i.i74 = sub i64 %sub.ptr.lhs.cast.i.i.i.i72, %sub.ptr.rhs.cast.i.i.i.i73
-  %cmp.i.i8.i = icmp ult i64 %sub.ptr.sub.i.i.i.i74, %div7.i.i.i70
-  br i1 %cmp.i.i8.i, label %if.then.i.i.i81, label %if.end.i.i.i75
+  %sub.ptr.lhs.cast.i.i.i.i73 = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast.i.i.i.i74 = ptrtoint ptr %26 to i64
+  %sub.ptr.sub.i.i.i.i75 = sub i64 %sub.ptr.lhs.cast.i.i.i.i73, %sub.ptr.rhs.cast.i.i.i.i74
+  %cmp.i.i8.i = icmp ult i64 %sub.ptr.sub.i.i.i.i75, %div7.i.i.i71
+  br i1 %cmp.i.i8.i, label %if.then.i.i.i82, label %if.end.i.i.i76
 
-if.then.i.i.i81:                                  ; preds = %if.end.i
-  %call2.i.i.i82 = call ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %arena, i64 noundef %div7.i.i.i70)
-  br label %upb_Arena_Malloc.exit.i.i77
+if.then.i.i.i82:                                  ; preds = %if.end.i
+  %call2.i.i.i83 = call ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %arena, i64 noundef %div7.i.i.i71)
+  br label %upb_Arena_Malloc.exit.i.i78
 
-if.end.i.i.i75:                                   ; preds = %if.end.i
-  %add.ptr.i.i.i76 = getelementptr inbounds i8, ptr %26, i64 %div7.i.i.i70
-  store ptr %add.ptr.i.i.i76, ptr %arena, align 8
-  br label %upb_Arena_Malloc.exit.i.i77
+if.end.i.i.i76:                                   ; preds = %if.end.i
+  %add.ptr.i.i.i77 = getelementptr inbounds i8, ptr %26, i64 %div7.i.i.i71
+  store ptr %add.ptr.i.i.i77, ptr %arena, align 8
+  br label %upb_Arena_Malloc.exit.i.i78
 
-upb_Arena_Malloc.exit.i.i77:                      ; preds = %if.end.i.i.i75, %if.then.i.i.i81
-  %retval.0.i.i.i78 = phi ptr [ %call2.i.i.i82, %if.then.i.i.i81 ], [ %26, %if.end.i.i.i75 ]
-  %tobool.not.i.i79 = icmp eq ptr %retval.0.i.i.i78, null
-  br i1 %tobool.not.i.i79, label %grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit, label %if.end7.i
+upb_Arena_Malloc.exit.i.i78:                      ; preds = %if.end.i.i.i76, %if.then.i.i.i82
+  %retval.0.i.i.i79 = phi ptr [ %call2.i.i.i83, %if.then.i.i.i82 ], [ %26, %if.end.i.i.i76 ]
+  %tobool.not.i.i80 = icmp eq ptr %retval.0.i.i.i79, null
+  br i1 %tobool.not.i.i80, label %grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit, label %if.end7.i
 
-if.end7.i:                                        ; preds = %upb_Arena_Malloc.exit.i.i77
-  %add.ptr.i.i80 = getelementptr inbounds i8, ptr %retval.0.i.i.i78, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i78, i8 0, i64 %add.i.i.i68, i1 false)
+if.end7.i:                                        ; preds = %upb_Arena_Malloc.exit.i.i78
+  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %retval.0.i.i.i79, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i79, i8 0, i64 %add.i.i.i69, i1 false)
   %27 = load i64, ptr %size.i, align 8
   %28 = load i64, ptr %call.i, align 8
   %and.i.i.i.i = and i64 %28, -8
@@ -429,11 +429,11 @@ if.end7.i:                                        ; preds = %upb_Arena_Malloc.ex
   %sub9.i = shl i64 %27, 3
   %30 = getelementptr i8, ptr %29, i64 %sub9.i
   %add.ptr.i10.i = getelementptr i8, ptr %30, i64 -8
-  store ptr %add.ptr.i.i80, ptr %add.ptr.i10.i, align 8
+  store ptr %add.ptr.i.i81, ptr %add.ptr.i10.i, align 8
   br label %grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit
 
-grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit: ; preds = %for.body, %_upb_array_reserve.exit.i.i, %upb_Arena_Malloc.exit.i.i77, %if.end7.i
-  %retval.0.i = phi ptr [ %add.ptr.i.i80, %if.end7.i ], [ null, %for.body ], [ null, %_upb_array_reserve.exit.i.i ], [ null, %upb_Arena_Malloc.exit.i.i77 ]
+grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit: ; preds = %for.body, %_upb_array_reserve.exit.i.i, %upb_Arena_Malloc.exit.i.i78, %if.end7.i
+  %retval.0.i = phi ptr [ %add.ptr.i.i81, %if.end7.i ], [ null, %for.body ], [ null, %_upb_array_reserve.exit.i.i ], [ null, %upb_Arena_Malloc.exit.i.i78 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %field.i)
   %31 = load ptr, ptr %arrayidx.i, align 8
   %call9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #16
@@ -444,30 +444,30 @@ grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit: ; preds = %for.body, %
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %32 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i83 = icmp ult i64 %sub.ptr.sub.i.i, %div7.i
-  br i1 %cmp.i83, label %if.then.i86, label %if.end.i84
+  %cmp.i84 = icmp ult i64 %sub.ptr.sub.i.i, %div7.i
+  br i1 %cmp.i84, label %if.then.i87, label %if.end.i85
 
-if.then.i86:                                      ; preds = %grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit
+if.then.i87:                                      ; preds = %grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit
   %call2.i = call ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %arena, i64 noundef %div7.i)
   br label %upb_Arena_Malloc.exit
 
-if.end.i84:                                       ; preds = %grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit
+if.end.i85:                                       ; preds = %grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit
   %add.ptr.i = getelementptr inbounds i8, ptr %33, i64 %div7.i
   store ptr %add.ptr.i, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit
 
-upb_Arena_Malloc.exit:                            ; preds = %if.then.i86, %if.end.i84
-  %retval.0.i85 = phi ptr [ %call2.i, %if.then.i86 ], [ %33, %if.end.i84 ]
+upb_Arena_Malloc.exit:                            ; preds = %if.then.i87, %if.end.i85
+  %retval.0.i86 = phi ptr [ %call2.i, %if.then.i87 ], [ %33, %if.end.i85 ]
   %34 = load ptr, ptr %arrayidx.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i85, ptr align 1 %34, i64 %call9, i1 false)
-  store ptr %retval.0.i85, ptr %retval.0.i, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i86, ptr align 1 %34, i64 %call9, i1 false)
+  store ptr %retval.0.i86, ptr %retval.0.i, align 1
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   store i64 %call9, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i, align 1
   %count = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %35 = load i64, ptr %count, align 8
-  %add.ptr.i.i.i87 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
-  store i64 %35, ptr %add.ptr.i.i.i87, align 1
-  %inc = add nuw nsw i64 %i.090, 1
+  %add.ptr.i.i.i88 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  store i64 %35, ptr %add.ptr.i.i.i88, align 1
+  %inc = add nuw nsw i64 %i.091, 1
   %36 = load i64, ptr %drop_token_counts, align 8
   %shr.i.i = lshr i64 %36, 1
   %cmp5 = icmp ult i64 %inc, %shr.i.i

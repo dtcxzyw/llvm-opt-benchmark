@@ -268,7 +268,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pci_check_type1() unnamed_ad
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %0
-  %7 = call fastcc i32 @pci_sanity_check(ptr noundef nonnull @pci_direct_conf1) #7, !range !11
+  %7 = call fastcc i32 @pci_sanity_check(ptr nonnull @pci_conf1_read) #7
   br label %8
 
 8:                                                ; preds = %6, %0
@@ -311,7 +311,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pci_check_type2() unnamed_ad
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = call fastcc i32 @pci_sanity_check(ptr noundef nonnull @pci_direct_conf2) #7, !range !11
+  %9 = call fastcc i32 @pci_sanity_check(ptr nonnull @pci_conf2_read) #7
   br label %10
 
 10:                                               ; preds = %8, %5, %0
@@ -496,56 +496,54 @@ define internal noundef range(i32 -22, 135) i32 @pci_conf2_write(i32 noundef %0,
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 0, 2) i32 @pci_sanity_check(ptr nocapture noundef readonly %0) unnamed_addr #1 section ".init.text" align 16 {
-  %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
-  store i32 0, ptr %2, align 4
-  %3 = load i32, ptr @pci_probe, align 4
-  %4 = and i32 %3, 1024
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %.loopexit
+define internal fastcc noundef range(i32 0, 2) i32 @pci_sanity_check(ptr nocapture readonly %.0.val) unnamed_addr #1 section ".init.text" align 16 {
+  %1 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #5
+  store i32 0, ptr %1, align 4
+  %2 = load i32, ptr @pci_probe, align 4
+  %3 = and i32 %2, 1024
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %5, label %.loopexit
 
-6:                                                ; preds = %1
-  %7 = tail call i32 @dmi_get_bios_year() #5
-  %8 = icmp sgt i32 %7, 2000
-  br i1 %8, label %.loopexit, label %.preheader
+5:                                                ; preds = %0
+  %6 = tail call i32 @dmi_get_bios_year() #5
+  %7 = icmp sgt i32 %6, 2000
+  br i1 %7, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %6, %21
-  %9 = phi i32 [ %22, %21 ], [ 0, %6 ]
-  %10 = load ptr, ptr %0, align 8
-  %11 = call i32 %10(i32 noundef 0, i32 noundef 0, i32 noundef %9, i32 noundef 10, i32 noundef 2, ptr noundef nonnull %2) #5
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %21
+.preheader:                                       ; preds = %5, %18
+  %8 = phi i32 [ %19, %18 ], [ 0, %5 ]
+  %9 = call i32 %.0.val(i32 noundef 0, i32 noundef 0, i32 noundef %8, i32 noundef 10, i32 noundef 2, ptr noundef nonnull %1) #5
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %18
 
-13:                                               ; preds = %.preheader
-  %14 = load i32, ptr %2, align 4
-  switch i32 %14, label %15 [
+11:                                               ; preds = %.preheader
+  %12 = load i32, ptr %1, align 4
+  switch i32 %12, label %13 [
     i32 1536, label %.loopexit
     i32 768, label %.loopexit
   ]
 
-15:                                               ; preds = %13
-  %16 = load ptr, ptr %0, align 8
-  %17 = call i32 %16(i32 noundef 0, i32 noundef 0, i32 noundef %9, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %2) #5
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %21
+13:                                               ; preds = %11
+  %14 = call i32 %.0.val(i32 noundef 0, i32 noundef 0, i32 noundef %8, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %1) #5
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %18
 
-19:                                               ; preds = %15
-  %20 = load i32, ptr %2, align 4
-  switch i32 %20, label %21 [
+16:                                               ; preds = %13
+  %17 = load i32, ptr %1, align 4
+  switch i32 %17, label %18 [
     i32 32902, label %.loopexit
     i32 3601, label %.loopexit
   ]
 
-21:                                               ; preds = %19, %15, %.preheader
-  %22 = add nuw nsw i32 %9, 1
-  %23 = icmp eq i32 %22, 256
-  br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !23
+18:                                               ; preds = %16, %13, %.preheader
+  %19 = add nuw nsw i32 %8, 1
+  %20 = icmp eq i32 %19, 256
+  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !23
 
-.loopexit:                                        ; preds = %21, %19, %19, %13, %13, %6, %1
-  %24 = phi i32 [ 1, %1 ], [ 1, %6 ], [ 0, %21 ], [ 1, %19 ], [ 1, %19 ], [ 1, %13 ], [ 1, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
-  ret i32 %24
+.loopexit:                                        ; preds = %18, %16, %16, %11, %11, %5, %0
+  %21 = phi i32 [ 1, %0 ], [ 1, %5 ], [ 0, %18 ], [ 1, %16 ], [ 1, %16 ], [ 1, %11 ], [ 1, %11 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #5
+  ret i32 %21
 }
 
 ; Function Attrs: null_pointer_is_valid

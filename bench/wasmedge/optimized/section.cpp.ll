@@ -1325,7 +1325,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13CustomSectionE(pt
   call void @_ZN8WasmEdge7FileMgr7readU32Ev(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.190") align 4 %12, ptr noundef nonnull align 8 dereferenceable(88) %19), !noalias !4
   %23 = load i8, ptr %12, align 4, !noalias !4
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %25, label %128
+  br i1 %24, label %25, label %127
 
 25:                                               ; preds = %3
   %26 = getelementptr inbounds i8, ptr %1, i64 192
@@ -1395,118 +1395,117 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13CustomSectionE(pt
   br label %_ZN8WasmEdge3AST13CustomSection7setNameESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
 
 _ZN8WasmEdge3AST13CustomSection7setNameESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds = %55, %44
-  %.sroa.58.0.i = phi i32 [ undef, %44 ], [ %59, %55 ]
+  %.sroa.52.0.i = phi i32 [ undef, %44 ], [ %59, %55 ]
   %60 = load i8, ptr %4, align 8, !noalias !7
   %61 = trunc i8 %60 to i1
   br i1 %61, label %62, label %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit16.i.i
 
 62:                                               ; preds = %_ZN8WasmEdge3AST13CustomSection7setNameESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
-  %63 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #18, !noalias !7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #18, !noalias !7
   br label %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit16.i.i
 
 _ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit16.i.i: ; preds = %62, %_ZN8WasmEdge3AST13CustomSection7setNameESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
-  br i1 %42, label %64, label %119
+  br i1 %42, label %63, label %118
 
-64:                                               ; preds = %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit16.i.i
-  %65 = load i64, ptr %20, align 8, !noalias !7
-  %66 = sub i64 %65, %40
-  %67 = load i64, ptr %2, align 8, !noalias !7
-  %68 = icmp ult i64 %67, %66
-  br i1 %68, label %69, label %73
+63:                                               ; preds = %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit16.i.i
+  %64 = load i64, ptr %20, align 8, !noalias !7
+  %65 = sub i64 %64, %40
+  %66 = load i64, ptr %2, align 8, !noalias !7
+  %67 = icmp ult i64 %66, %65
+  br i1 %67, label %68, label %72
 
-69:                                               ; preds = %64
+68:                                               ; preds = %63
   store i32 258, ptr %8, align 4, !noalias !7
-  %70 = getelementptr inbounds i8, ptr %1, i64 176
-  %71 = load i64, ptr %70, align 8, !noalias !7
-  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %7, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %8, i64 noundef %71, i8 noundef zeroext 25) #18, !noalias !7
-  %72 = load i32, ptr %7, align 4, !noalias !7
-  br label %119
+  %69 = getelementptr inbounds i8, ptr %1, i64 176
+  %70 = load i64, ptr %69, align 8, !noalias !7
+  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %7, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %8, i64 noundef %70, i8 noundef zeroext 25) #18, !noalias !7
+  %71 = load i32, ptr %7, align 4, !noalias !7
+  br label %118
 
-73:                                               ; preds = %64
-  %74 = sub nuw i64 %67, %66
-  call void @_ZN8WasmEdge7FileMgr9readBytesEm(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.235") align 8 %9, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 noundef %74), !noalias !7
-  %75 = load i8, ptr %9, align 8, !noalias !7
-  %76 = trunc i8 %75 to i1
-  br i1 %76, label %77, label %102
+72:                                               ; preds = %63
+  %73 = sub nuw i64 %66, %65
+  call void @_ZN8WasmEdge7FileMgr9readBytesEm(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.235") align 8 %9, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 noundef %73), !noalias !7
+  %74 = load i8, ptr %9, align 8, !noalias !7
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %101
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %2, i64 48
-  %79 = getelementptr inbounds i8, ptr %2, i64 56
-  %80 = load ptr, ptr %79, align 8, !noalias !7
-  %81 = getelementptr inbounds i8, ptr %9, i64 8
-  %82 = load ptr, ptr %81, align 8, !noalias !7
-  %83 = getelementptr inbounds i8, ptr %9, i64 16
-  %84 = load ptr, ptr %83, align 8, !noalias !7
-  %85 = load ptr, ptr %78, align 8, !noalias !7
-  %86 = ptrtoint ptr %80 to i64
-  %87 = ptrtoint ptr %85 to i64
-  %88 = sub i64 %86, %87
-  %89 = getelementptr inbounds i8, ptr %85, i64 %88
-  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr %89, ptr %82, ptr %84)
-          to label %_ZNSt6vectorIhSaIhEE6insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEvEES6_NS4_IPKhS1_EET_SA_.exit.i.i unwind label %90, !noalias !7
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds i8, ptr %2, i64 48
+  %78 = getelementptr inbounds i8, ptr %2, i64 56
+  %79 = load ptr, ptr %78, align 8, !noalias !7
+  %80 = getelementptr inbounds i8, ptr %9, i64 8
+  %81 = load ptr, ptr %80, align 8, !noalias !7
+  %82 = getelementptr inbounds i8, ptr %9, i64 16
+  %83 = load ptr, ptr %82, align 8, !noalias !7
+  %84 = load ptr, ptr %77, align 8, !noalias !7
+  %85 = ptrtoint ptr %79 to i64
+  %86 = ptrtoint ptr %84 to i64
+  %87 = sub i64 %85, %86
+  %88 = getelementptr inbounds i8, ptr %84, i64 %87
+  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr %88, ptr %81, ptr %83)
+          to label %_ZNSt6vectorIhSaIhEE6insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEvEES6_NS4_IPKhS1_EET_SA_.exit.i.i unwind label %89, !noalias !7
 
-90:                                               ; preds = %77
-  %91 = landingpad { ptr, i32 }
+89:                                               ; preds = %76
+  %90 = landingpad { ptr, i32 }
           cleanup
-  %92 = load i8, ptr %9, align 8, !noalias !7
-  %93 = trunc i8 %92 to i1
-  br i1 %93, label %94, label %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit.i.i
+  %91 = load i8, ptr %9, align 8, !noalias !7
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit.i.i
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr %81, align 8, !noalias !7
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %95, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit.i.i, label %96
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %80, align 8, !noalias !7
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %94, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit.i.i, label %95
 
-96:                                               ; preds = %94
-  %97 = getelementptr inbounds i8, ptr %9, i64 24
-  %98 = load ptr, ptr %97, align 8, !noalias !7
-  %99 = ptrtoint ptr %98 to i64
-  %100 = ptrtoint ptr %95 to i64
-  %101 = sub i64 %99, %100
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %101) #19, !noalias !7
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds i8, ptr %9, i64 24
+  %97 = load ptr, ptr %96, align 8, !noalias !7
+  %98 = ptrtoint ptr %97 to i64
+  %99 = ptrtoint ptr %94 to i64
+  %100 = sub i64 %98, %99
+  call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef %100) #19, !noalias !7
   br label %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit.i.i
 
-102:                                              ; preds = %73
-  %103 = getelementptr inbounds i8, ptr %9, i64 8
-  %104 = load i32, ptr %103, align 8, !noalias !7
-  store i32 %104, ptr %11, align 4, !noalias !7
-  %105 = getelementptr inbounds i8, ptr %1, i64 176
-  %106 = load i64, ptr %105, align 8, !noalias !7
-  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %10, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %11, i64 noundef %106, i8 noundef zeroext 25) #18, !noalias !7
-  %107 = load i32, ptr %10, align 4, !noalias !7
+101:                                              ; preds = %72
+  %102 = getelementptr inbounds i8, ptr %9, i64 8
+  %103 = load i32, ptr %102, align 8, !noalias !7
+  store i32 %103, ptr %11, align 4, !noalias !7
+  %104 = getelementptr inbounds i8, ptr %1, i64 176
+  %105 = load i64, ptr %104, align 8, !noalias !7
+  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %10, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %11, i64 noundef %105, i8 noundef zeroext 25) #18, !noalias !7
+  %106 = load i32, ptr %10, align 4, !noalias !7
   br label %_ZNSt6vectorIhSaIhEE6insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEvEES6_NS4_IPKhS1_EET_SA_.exit.i.i
 
-_ZNSt6vectorIhSaIhEE6insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEvEES6_NS4_IPKhS1_EET_SA_.exit.i.i: ; preds = %102, %77
-  %.sroa.58.1.i = phi i32 [ %.sroa.58.0.i, %77 ], [ %107, %102 ]
-  %108 = load i8, ptr %9, align 8, !noalias !7
-  %109 = trunc i8 %108 to i1
-  br i1 %109, label %110, label %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit18.i.i
+_ZNSt6vectorIhSaIhEE6insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEvEES6_NS4_IPKhS1_EET_SA_.exit.i.i: ; preds = %101, %76
+  %.sroa.52.1.i = phi i32 [ %.sroa.52.0.i, %76 ], [ %106, %101 ]
+  %107 = load i8, ptr %9, align 8, !noalias !7
+  %108 = trunc i8 %107 to i1
+  br i1 %108, label %109, label %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit18.i.i
 
-110:                                              ; preds = %_ZNSt6vectorIhSaIhEE6insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEvEES6_NS4_IPKhS1_EET_SA_.exit.i.i
-  %111 = getelementptr inbounds i8, ptr %9, i64 8
-  %112 = load ptr, ptr %111, align 8, !noalias !7
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i17.i.i = icmp eq ptr %112, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i17.i.i, label %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit18.i.i, label %113
+109:                                              ; preds = %_ZNSt6vectorIhSaIhEE6insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEvEES6_NS4_IPKhS1_EET_SA_.exit.i.i
+  %110 = getelementptr inbounds i8, ptr %9, i64 8
+  %111 = load ptr, ptr %110, align 8, !noalias !7
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i17.i.i = icmp eq ptr %111, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i17.i.i, label %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit18.i.i, label %112
 
-113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %9, i64 24
-  %115 = load ptr, ptr %114, align 8, !noalias !7
-  %116 = ptrtoint ptr %115 to i64
-  %117 = ptrtoint ptr %112 to i64
-  %118 = sub i64 %116, %117
-  call void @_ZdlPvm(ptr noundef nonnull %112, i64 noundef %118) #19, !noalias !7
+112:                                              ; preds = %109
+  %113 = getelementptr inbounds i8, ptr %9, i64 24
+  %114 = load ptr, ptr %113, align 8, !noalias !7
+  %115 = ptrtoint ptr %114 to i64
+  %116 = ptrtoint ptr %111 to i64
+  %117 = sub i64 %115, %116
+  call void @_ZdlPvm(ptr noundef nonnull %111, i64 noundef %117) #19, !noalias !7
   br label %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit18.i.i
 
-_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit18.i.i: ; preds = %113, %110, %_ZNSt6vectorIhSaIhEE6insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEvEES6_NS4_IPKhS1_EET_SA_.exit.i.i
-  br i1 %76, label %121, label %119
+_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit18.i.i: ; preds = %112, %109, %_ZNSt6vectorIhSaIhEE6insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEvEES6_NS4_IPKhS1_EET_SA_.exit.i.i
+  br i1 %75, label %120, label %118
 
-_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit.i.i: ; preds = %96, %94, %90, %54, %50
-  %.pn.i.i = phi { ptr, i32 } [ %51, %50 ], [ %51, %54 ], [ %91, %90 ], [ %91, %94 ], [ %91, %96 ]
+_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit.i.i: ; preds = %95, %93, %89, %54, %50
+  %.pn.i.i = phi { ptr, i32 } [ %51, %50 ], [ %51, %54 ], [ %90, %89 ], [ %90, %93 ], [ %90, %95 ]
   resume { ptr, i32 } %.pn.i.i
 
-119:                                              ; preds = %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit18.i.i, %69, %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit16.i.i
-  %.sroa.58.2.ph.i = phi i32 [ %.sroa.58.0.i, %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit16.i.i ], [ %.sroa.58.1.i, %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit18.i.i ], [ %72, %69 ]
+118:                                              ; preds = %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit18.i.i, %68, %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit16.i.i
+  %.sroa.52.2.ph.i = phi i32 [ %.sroa.52.0.i, %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit16.i.i ], [ %.sroa.52.1.i, %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit18.i.i ], [ %71, %68 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !4
@@ -1516,11 +1515,11 @@ _ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdg
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11), !noalias !4
   store i8 0, ptr %0, align 4, !alias.scope !4
-  %120 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.58.2.ph.i, ptr %120, align 4, !alias.scope !4
+  %119 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sroa.52.2.ph.i, ptr %119, align 4, !alias.scope !4
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST13CustomSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
-121:                                              ; preds = %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit18.i.i
+120:                                              ; preds = %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit18.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !4
@@ -1529,39 +1528,39 @@ _ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdg
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11), !noalias !4
-  %122 = load i64, ptr %20, align 8, !noalias !4
-  %123 = sub i64 %122, %40
-  %124 = load i64, ptr %2, align 8, !noalias !4
-  %.not.i = icmp eq i64 %123, %124
-  br i1 %.not.i, label %135, label %125
+  %121 = load i64, ptr %20, align 8, !noalias !4
+  %122 = sub i64 %121, %40
+  %123 = load i64, ptr %2, align 8, !noalias !4
+  %.not.i = icmp eq i64 %122, %123
+  br i1 %.not.i, label %134, label %124
 
-125:                                              ; preds = %121
+124:                                              ; preds = %120
   store i32 262, ptr %16, align 4, !noalias !4
-  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %15, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %16, i64 noundef %122, i8 noundef zeroext 25) #18, !noalias !4
+  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %15, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %16, i64 noundef %121, i8 noundef zeroext 25) #18, !noalias !4
   store i8 0, ptr %0, align 4, !alias.scope !4
-  %126 = getelementptr inbounds i8, ptr %0, i64 4
-  %127 = load i32, ptr %15, align 4, !noalias !4
-  store i32 %127, ptr %126, align 4, !alias.scope !4
+  %125 = getelementptr inbounds i8, ptr %0, i64 4
+  %126 = load i32, ptr %15, align 4, !noalias !4
+  store i32 %126, ptr %125, align 4, !alias.scope !4
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST13CustomSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
-128:                                              ; preds = %3
-  %129 = getelementptr inbounds i8, ptr %12, i64 4
-  %130 = load i32, ptr %129, align 4, !noalias !4
-  store i32 %130, ptr %18, align 4, !noalias !4
-  %131 = getelementptr inbounds i8, ptr %1, i64 176
-  %132 = load i64, ptr %131, align 8, !noalias !4
-  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %17, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %18, i64 noundef %132, i8 noundef zeroext 25) #18, !noalias !4
+127:                                              ; preds = %3
+  %128 = getelementptr inbounds i8, ptr %12, i64 4
+  %129 = load i32, ptr %128, align 4, !noalias !4
+  store i32 %129, ptr %18, align 4, !noalias !4
+  %130 = getelementptr inbounds i8, ptr %1, i64 176
+  %131 = load i64, ptr %130, align 8, !noalias !4
+  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %17, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %18, i64 noundef %131, i8 noundef zeroext 25) #18, !noalias !4
   store i8 0, ptr %0, align 4, !alias.scope !4
-  %133 = getelementptr inbounds i8, ptr %0, i64 4
-  %134 = load i32, ptr %17, align 4, !noalias !4
-  store i32 %134, ptr %133, align 4, !alias.scope !4
+  %132 = getelementptr inbounds i8, ptr %0, i64 4
+  %133 = load i32, ptr %17, align 4, !noalias !4
+  store i32 %133, ptr %132, align 4, !alias.scope !4
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST13CustomSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
-135:                                              ; preds = %121
+134:                                              ; preds = %120
   store i64 1, ptr %0, align 4, !alias.scope !4
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST13CustomSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
-"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST13CustomSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit": ; preds = %34, %119, %125, %128, %135
+"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST13CustomSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit": ; preds = %34, %118, %124, %127, %134
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
@@ -1822,11 +1821,11 @@ _ZNSt6vectorIN8WasmEdge3AST7SubTypeESaIS2_EE5clearEv.exit.i.i: ; preds = %_ZSt8_
 
 121:                                              ; preds = %115
   call void @_ZNSt6vectorIN8WasmEdge3AST7SubTypeESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr %116), !noalias !13
-  %.pre10 = load ptr, ptr %63, align 8, !noalias !13
+  %.pre6.i = load ptr, ptr %63, align 8, !noalias !13
   br label %_ZNSt6vectorIN8WasmEdge3AST7SubTypeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge3AST7SubTypeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i.i: ; preds = %121, %118
-  %122 = phi ptr [ %.pre10, %121 ], [ %120, %118 ]
+  %122 = phi ptr [ %.pre6.i, %121 ], [ %120, %118 ]
   %123 = getelementptr inbounds i8, ptr %122, i64 -144
   call void @_ZN8WasmEdge6Loader6Loader8loadTypeERNS_3AST7SubTypeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(140) %123), !noalias !13
   %124 = load i8, ptr %14, align 4, !noalias !13
@@ -1884,11 +1883,11 @@ _ZN8WasmEdge3AST7SubType16setRecursiveInfoEjj.exit.i.i: ; preds = %135, %130
 
 146:                                              ; preds = %140
   call void @_ZNSt6vectorIN8WasmEdge3AST7SubTypeESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr %141), !noalias !13
-  %.pre = load ptr, ptr %63, align 8, !noalias !13
+  %.pre.i = load ptr, ptr %63, align 8, !noalias !13
   br label %_ZNSt6vectorIN8WasmEdge3AST7SubTypeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit21.i.i
 
 _ZNSt6vectorIN8WasmEdge3AST7SubTypeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit21.i.i: ; preds = %146, %143
-  %147 = phi ptr [ %.pre, %146 ], [ %145, %143 ]
+  %147 = phi ptr [ %.pre.i, %146 ], [ %145, %143 ]
   %148 = getelementptr inbounds i8, ptr %147, i64 -12
   %.sroa.0.0.insert.ext.i22.i.i = zext i32 %.01439.i.i to i64
   %.sroa.0.0.insert.insert.i23.i.i = or disjoint i64 %.sroa.0.0.insert.ext.i22.i.i, 4294967296
@@ -1928,7 +1927,7 @@ _ZNSt6vectorIN8WasmEdge3AST7SubTypeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit21.
   br i1 %exitcond44.not.i.i, label %.loopexit.i, label %93, !llvm.loop !31
 
 164:                                              ; preds = %158, %154, %126, %111, %89
-  %.sroa.78.0.ph.i = phi i32 [ %162, %158 ], [ %157, %154 ], [ %129, %126 ], [ %114, %111 ], [ %92, %89 ]
+  %.sroa.72.0.ph.i = phi i32 [ %162, %158 ], [ %157, %154 ], [ %129, %126 ], [ %114, %111 ], [ %92, %89 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !10
@@ -1943,7 +1942,7 @@ _ZNSt6vectorIN8WasmEdge3AST7SubTypeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit21.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19), !noalias !10
   store i8 0, ptr %0, align 4, !alias.scope !10
   %165 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.78.0.ph.i, ptr %165, align 4, !alias.scope !10
+  store i32 %.sroa.72.0.ph.i, ptr %165, align 4, !alias.scope !10
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST11TypeSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %.loopexit.i.i, %_ZNSt6vectorIN8WasmEdge3AST7SubTypeESaIS2_EE5clearEv.exit.i.i
@@ -2163,14 +2162,14 @@ _ZNSt6vectorIN8WasmEdge3AST10ImportDescESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds 
   br label %83
 
 83:                                               ; preds = %79, %70
-  %.sroa.49.0.i = phi i32 [ %73, %70 ], [ %82, %79 ]
+  %.sroa.42.0.i = phi i32 [ %73, %70 ], [ %82, %79 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !35
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !35
   store i8 0, ptr %0, align 4, !alias.scope !32
   %84 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %84, align 4, !alias.scope !32
+  store i32 %.sroa.42.0.i, ptr %84, align 4, !alias.scope !32
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST13ImportSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %74, %_ZNSt6vectorIN8WasmEdge3AST10ImportDescESaIS2_EE6resizeEm.exit.i.i.i.i
@@ -2398,13 +2397,13 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.i.i.i.i:       ; preds = %70, %68, %66, %64
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i, label %76, !llvm.loop !71
 
 90:                                               ; preds = %80, %72
-  %.sroa.49.0.i = phi i32 [ %75, %72 ], [ %85, %80 ]
+  %.sroa.42.0.i = phi i32 [ %75, %72 ], [ %85, %80 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11), !noalias !54
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12), !noalias !54
   store i8 0, ptr %0, align 4, !alias.scope !51
   %91 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %91, align 4, !alias.scope !51
+  store i32 %.sroa.42.0.i, ptr %91, align 4, !alias.scope !51
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST15FunctionSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %87, %_ZNSt6vectorIjSaIjEE6resizeEm.exit.i.i.i.i
@@ -2616,14 +2615,14 @@ _ZNSt6vectorIN8WasmEdge3AST12TableSegmentESaIS2_EE6resizeEm.exit.i.i.i.i: ; pred
   br label %84
 
 84:                                               ; preds = %80, %71
-  %.sroa.49.0.i = phi i32 [ %74, %71 ], [ %83, %80 ]
+  %.sroa.42.0.i = phi i32 [ %74, %71 ], [ %83, %80 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !75
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !75
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !75
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !75
   store i8 0, ptr %0, align 4, !alias.scope !72
   %85 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %85, align 4, !alias.scope !72
+  store i32 %.sroa.42.0.i, ptr %85, align 4, !alias.scope !72
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST12TableSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %75, %_ZNSt6vectorIN8WasmEdge3AST12TableSegmentESaIS2_EE6resizeEm.exit.i.i.i.i
@@ -2825,14 +2824,14 @@ _ZNSt6vectorIN8WasmEdge3AST10MemoryTypeESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds 
   br label %81
 
 81:                                               ; preds = %77, %68
-  %.sroa.49.0.i = phi i32 [ %71, %68 ], [ %80, %77 ]
+  %.sroa.42.0.i = phi i32 [ %71, %68 ], [ %80, %77 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !93
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !93
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !93
   store i8 0, ptr %0, align 4, !alias.scope !90
   %82 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %82, align 4, !alias.scope !90
+  store i32 %.sroa.42.0.i, ptr %82, align 4, !alias.scope !90
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST13MemorySectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %72, %_ZNSt6vectorIN8WasmEdge3AST10MemoryTypeESaIS2_EE6resizeEm.exit.i.i.i.i
@@ -3045,14 +3044,14 @@ _ZNSt6vectorIN8WasmEdge3AST13GlobalSegmentESaIS2_EE6resizeEm.exit.i.i.i.i: ; pre
   br label %84
 
 84:                                               ; preds = %80, %71
-  %.sroa.49.0.i = phi i32 [ %74, %71 ], [ %83, %80 ]
+  %.sroa.42.0.i = phi i32 [ %74, %71 ], [ %83, %80 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !111
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !111
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !111
   store i8 0, ptr %0, align 4, !alias.scope !108
   %85 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %85, align 4, !alias.scope !108
+  store i32 %.sroa.42.0.i, ptr %85, align 4, !alias.scope !108
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST13GlobalSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %75, %_ZNSt6vectorIN8WasmEdge3AST13GlobalSegmentESaIS2_EE6resizeEm.exit.i.i.i.i
@@ -3262,14 +3261,14 @@ _ZNSt6vectorIN8WasmEdge3AST10ExportDescESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds 
   br label %82
 
 82:                                               ; preds = %78, %69
-  %.sroa.49.0.i = phi i32 [ %72, %69 ], [ %81, %78 ]
+  %.sroa.42.0.i = phi i32 [ %72, %69 ], [ %81, %78 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !129
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !129
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !129
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !129
   store i8 0, ptr %0, align 4, !alias.scope !126
   %83 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %83, align 4, !alias.scope !126
+  store i32 %.sroa.42.0.i, ptr %83, align 4, !alias.scope !126
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST13ExportSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %73, %_ZNSt6vectorIN8WasmEdge3AST10ExportDescESaIS2_EE6resizeEm.exit.i.i.i.i
@@ -3602,14 +3601,14 @@ _ZNSt6vectorIN8WasmEdge3AST14ElementSegmentESaIS2_EE6resizeEm.exit.i.i.i.i: ; pr
   br label %81
 
 81:                                               ; preds = %77, %68
-  %.sroa.49.0.i = phi i32 [ %71, %68 ], [ %80, %77 ]
+  %.sroa.42.0.i = phi i32 [ %71, %68 ], [ %80, %77 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !154
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !154
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !154
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !154
   store i8 0, ptr %0, align 4, !alias.scope !151
   %82 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %82, align 4, !alias.scope !151
+  store i32 %.sroa.42.0.i, ptr %82, align 4, !alias.scope !151
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST14ElementSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %72, %_ZNSt6vectorIN8WasmEdge3AST14ElementSegmentESaIS2_EE6resizeEm.exit.i.i.i.i
@@ -3818,14 +3817,14 @@ _ZNSt6vectorIN8WasmEdge3AST11CodeSegmentESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds
   br label %81
 
 81:                                               ; preds = %77, %68
-  %.sroa.49.0.i = phi i32 [ %71, %68 ], [ %80, %77 ]
+  %.sroa.42.0.i = phi i32 [ %71, %68 ], [ %80, %77 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !173
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !173
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !173
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !173
   store i8 0, ptr %0, align 4, !alias.scope !170
   %82 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %82, align 4, !alias.scope !170
+  store i32 %.sroa.42.0.i, ptr %82, align 4, !alias.scope !170
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST11CodeSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %72, %_ZNSt6vectorIN8WasmEdge3AST11CodeSegmentESaIS2_EE6resizeEm.exit.i.i.i.i
@@ -4038,14 +4037,14 @@ _ZNSt6vectorIN8WasmEdge3AST11DataSegmentESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds
   br label %84
 
 84:                                               ; preds = %80, %71
-  %.sroa.49.0.i = phi i32 [ %74, %71 ], [ %83, %80 ]
+  %.sroa.42.0.i = phi i32 [ %74, %71 ], [ %83, %80 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !192
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !192
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !192
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !192
   store i8 0, ptr %0, align 4, !alias.scope !189
   %85 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %85, align 4, !alias.scope !189
+  store i32 %.sroa.42.0.i, ptr %85, align 4, !alias.scope !189
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST11DataSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %75, %_ZNSt6vectorIN8WasmEdge3AST11DataSegmentESaIS2_EE6resizeEm.exit.i.i.i.i
@@ -4371,14 +4370,14 @@ _ZNSt6vectorIN8WasmEdge3AST7TagTypeESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds = %6
   br label %81
 
 81:                                               ; preds = %77, %68
-  %.sroa.49.0.i = phi i32 [ %71, %68 ], [ %80, %77 ]
+  %.sroa.42.0.i = phi i32 [ %71, %68 ], [ %80, %77 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !216
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !216
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !216
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !216
   store i8 0, ptr %0, align 4, !alias.scope !213
   %82 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %82, align 4, !alias.scope !213
+  store i32 %.sroa.42.0.i, ptr %82, align 4, !alias.scope !213
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST10TagSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %72, %_ZNSt6vectorIN8WasmEdge3AST7TagTypeESaIS2_EE6resizeEm.exit.i.i.i.i
@@ -5734,13 +5733,13 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i41.i.i: ; preds = %_ZNSt12_
           to label %134 unwind label %139, !noalias !249
 
 134:                                              ; preds = %131, %128
-  %.sroa.58.2.i = phi i32 [ %130, %128 ], [ 0, %131 ]
+  %.sroa.52.0.i = phi i32 [ %130, %128 ], [ 0, %131 ]
   call void @_ZN8WasmEdge3AST6ModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(705) %10) #18, !noalias !249
   br label %135
 
 135:                                              ; preds = %134, %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i
-  %.sroa.07.1.i = phi i1 [ %125, %134 ], [ false, %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i ]
-  %.sroa.58.1.i = phi i32 [ %.sroa.58.2.i, %134 ], [ %93, %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i ]
+  %.sroa.01.1.i = phi i1 [ %125, %134 ], [ false, %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i ]
+  %.sroa.52.1.i = phi i32 [ %.sroa.52.0.i, %134 ], [ %93, %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i ]
   %136 = phi ptr [ %96, %134 ], [ %90, %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i ]
   %.not.i.i.i.i.i = icmp eq ptr %136, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i, label %137
@@ -5778,8 +5777,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit51.i.i:              ; preds = %141, %139, %94
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit53.i.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit49.i.i:              ; preds = %138, %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i, %46
-  %.sroa.07.0.i = phi i1 [ %.sroa.07.1.i, %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i ], [ %.sroa.07.1.i, %138 ], [ false, %46 ]
-  %.sroa.58.0.i = phi i32 [ %.sroa.58.1.i, %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i ], [ %.sroa.58.1.i, %138 ], [ %48, %46 ]
+  %.sroa.01.2.i = phi i1 [ %.sroa.01.1.i, %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i ], [ %.sroa.01.1.i, %138 ], [ false, %46 ]
+  %.sroa.52.2.i = phi i32 [ %.sroa.52.1.i, %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i ], [ %.sroa.52.1.i, %138 ], [ %48, %46 ]
   %143 = load i8, ptr %6, align 8, !noalias !249
   %144 = trunc i8 %143 to i1
   br i1 %144, label %145, label %"_ZZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST17CoreModuleSectionEENK3$_0clEv.exit.i"
@@ -5827,12 +5826,12 @@ _ZNSt6vectorIhSaIhEED2Ev.exit53.i.i:              ; preds = %142, %_ZNSt6vectorI
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %10), !noalias !246
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !246
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12), !noalias !246
-  br i1 %.sroa.07.0.i, label %164, label %162
+  br i1 %.sroa.01.2.i, label %164, label %162
 
 162:                                              ; preds = %"_ZZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST17CoreModuleSectionEENK3$_0clEv.exit.i"
   store i8 0, ptr %0, align 4, !alias.scope !246
   %163 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.58.0.i, ptr %163, align 4, !alias.scope !246
+  store i32 %.sroa.52.2.i, ptr %163, align 4, !alias.scope !246
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST17CoreModuleSectionEZNS1_11loadSectionERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 164:                                              ; preds = %"_ZZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST17CoreModuleSectionEENK3$_0clEv.exit.i"
@@ -6053,14 +6052,14 @@ _ZNSt6vectorIN8WasmEdge3AST9Component5AliasESaIS3_EE6resizeEm.exit.i.i.i.i: ; pr
   br label %85
 
 85:                                               ; preds = %81, %72
-  %.sroa.49.0.i = phi i32 [ %75, %72 ], [ %84, %81 ]
+  %.sroa.42.0.i = phi i32 [ %75, %72 ], [ %84, %81 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !261
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !261
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !261
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !261
   store i8 0, ptr %0, align 4, !alias.scope !258
   %86 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %86, align 4, !alias.scope !258
+  store i32 %.sroa.42.0.i, ptr %86, align 4, !alias.scope !258
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST9Component12AliasSectionEZNS1_11loadSectionERS5_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %76, %_ZNSt6vectorIN8WasmEdge3AST9Component5AliasESaIS3_EE6resizeEm.exit.i.i.i.i
@@ -6234,14 +6233,14 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component19CoreIns
   br label %66
 
 66:                                               ; preds = %62, %53
-  %.sroa.49.0.i = phi i32 [ %56, %53 ], [ %65, %62 ]
+  %.sroa.42.0.i = phi i32 [ %56, %53 ], [ %65, %62 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !280
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !280
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !280
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !280
   store i8 0, ptr %0, align 4, !alias.scope !277
   %67 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %67, align 4, !alias.scope !277
+  store i32 %.sroa.42.0.i, ptr %67, align 4, !alias.scope !277
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST9Component19CoreInstanceSectionEZNS1_11loadSectionERS5_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %57, %51
@@ -6454,14 +6453,14 @@ _ZNSt6vectorISt7variantIJN8WasmEdge3AST12FunctionTypeENS2_9Component10ModuleType
   br label %84
 
 84:                                               ; preds = %80, %71
-  %.sroa.49.0.i = phi i32 [ %74, %71 ], [ %83, %80 ]
+  %.sroa.42.0.i = phi i32 [ %74, %71 ], [ %83, %80 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !298
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !298
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !298
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !298
   store i8 0, ptr %0, align 4, !alias.scope !295
   %85 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %85, align 4, !alias.scope !295
+  store i32 %.sroa.42.0.i, ptr %85, align 4, !alias.scope !295
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST9Component15CoreTypeSectionEZNS1_11loadSectionERS5_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %75, %_ZNSt6vectorISt7variantIJN8WasmEdge3AST12FunctionTypeENS2_9Component10ModuleTypeEEESaIS6_EE6resizeEm.exit.i.i.i.i
@@ -6693,14 +6692,14 @@ _ZNSt6vectorISt7variantIJS0_IJN8WasmEdge3AST9Component11PrimValTypeENS3_6RecordE
   br label %88
 
 88:                                               ; preds = %84, %75
-  %.sroa.49.0.i = phi i32 [ %78, %75 ], [ %87, %84 ]
+  %.sroa.42.0.i = phi i32 [ %78, %75 ], [ %87, %84 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !316
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !316
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !316
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !316
   store i8 0, ptr %0, align 4, !alias.scope !313
   %89 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %89, align 4, !alias.scope !313
+  store i32 %.sroa.42.0.i, ptr %89, align 4, !alias.scope !313
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST9Component11TypeSectionEZNS1_11loadSectionERS5_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %79, %_ZNSt6vectorISt7variantIJS0_IJN8WasmEdge3AST9Component11PrimValTypeENS3_6RecordENS3_9VariantTyENS3_4ListENS3_5TupleENS3_5FlagsENS3_4EnumENS3_6OptionENS3_6ResultENS3_3OwnENS3_6BorrowEEENS3_8FuncTypeENS3_13ComponentTypeENS3_12InstanceTypeEEESaISJ_EE6resizeEm.exit.i.i.i.i
@@ -7062,14 +7061,14 @@ _ZNSt6vectorISt7variantIJN8WasmEdge3AST9Component4LiftENS3_5LowerENS3_11Resource
   br label %95
 
 95:                                               ; preds = %91, %82
-  %.sroa.49.0.i = phi i32 [ %85, %82 ], [ %94, %91 ]
+  %.sroa.42.0.i = phi i32 [ %85, %82 ], [ %94, %91 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !341
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !341
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !341
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !341
   store i8 0, ptr %0, align 4, !alias.scope !338
   %96 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %96, align 4, !alias.scope !338
+  store i32 %.sroa.42.0.i, ptr %96, align 4, !alias.scope !338
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST9Component12CanonSectionEZNS1_11loadSectionERS5_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %86, %_ZNSt6vectorISt7variantIJN8WasmEdge3AST9Component4LiftENS3_5LowerENS3_11ResourceNewENS3_12ResourceDropENS3_11ResourceRepEEESaIS9_EE6resizeEm.exit.i.i.i.i
@@ -7278,14 +7277,14 @@ _ZNSt6vectorIN8WasmEdge3AST9Component6ImportESaIS3_EE6resizeEm.exit.i.i.i.i: ; p
   br label %81
 
 81:                                               ; preds = %77, %68
-  %.sroa.49.0.i = phi i32 [ %71, %68 ], [ %80, %77 ]
+  %.sroa.42.0.i = phi i32 [ %71, %68 ], [ %80, %77 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !360
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !360
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !360
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !360
   store i8 0, ptr %0, align 4, !alias.scope !357
   %82 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %82, align 4, !alias.scope !357
+  store i32 %.sroa.42.0.i, ptr %82, align 4, !alias.scope !357
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST9Component13ImportSectionEZNS1_11loadSectionERS5_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %72, %_ZNSt6vectorIN8WasmEdge3AST9Component6ImportESaIS3_EE6resizeEm.exit.i.i.i.i
@@ -7494,14 +7493,14 @@ _ZNSt6vectorIN8WasmEdge3AST9Component6ExportESaIS3_EE6resizeEm.exit.i.i.i.i: ; p
   br label %81
 
 81:                                               ; preds = %77, %68
-  %.sroa.49.0.i = phi i32 [ %71, %68 ], [ %80, %77 ]
+  %.sroa.42.0.i = phi i32 [ %71, %68 ], [ %80, %77 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !379
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !379
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !379
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !379
   store i8 0, ptr %0, align 4, !alias.scope !376
   %82 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %82, align 4, !alias.scope !376
+  store i32 %.sroa.42.0.i, ptr %82, align 4, !alias.scope !376
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST9Component13ExportSectionEZNS1_11loadSectionERS5_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %72, %_ZNSt6vectorIN8WasmEdge3AST9Component6ExportESaIS3_EE6resizeEm.exit.i.i.i.i
@@ -7675,14 +7674,14 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component15Instanc
   br label %66
 
 66:                                               ; preds = %62, %53
-  %.sroa.49.0.i = phi i32 [ %56, %53 ], [ %65, %62 ]
+  %.sroa.42.0.i = phi i32 [ %56, %53 ], [ %65, %62 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !398
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !398
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !398
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !398
   store i8 0, ptr %0, align 4, !alias.scope !395
   %67 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.49.0.i, ptr %67, align 4, !alias.scope !395
+  store i32 %.sroa.42.0.i, ptr %67, align 4, !alias.scope !395
   br label %"_ZN8WasmEdge6Loader6Loader18loadSectionContentINS_3AST9Component15InstanceSectionEZNS1_11loadSectionERS5_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERT_OT0_.exit"
 
 .loopexit.i:                                      ; preds = %57, %51

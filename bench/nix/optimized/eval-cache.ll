@@ -31129,8 +31129,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %19, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10eval_cache10AttrCursor8getAttrsEvE3$_0EEEvT_SF_SF_T0_.exit"
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10eval_cache10AttrCursor8getAttrsEvE3$_0EEEvT_SF_RT0_.exit.i.i", %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %20, %.lr.ph.i9.i ], [ %storemerge66.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10eval_cache10AttrCursor8getAttrsEvE3$_0EEEvT_SF_RT0_.exit.i.i" ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -4
+  %.sroa.0.03.i.i = phi ptr [ %20, %.lr.ph.i9.i ], [ %storemerge66.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10eval_cache10AttrCursor8getAttrsEvE3$_0EEEvT_SF_RT0_.exit.i.i" ]
+  %20 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -4
   %.sroa.03.0.copyload.i.i10.i = load i32, ptr %20, align 4
   %21 = load i32, ptr %0, align 4
   store i32 %21, ptr %20, align 4
@@ -31556,8 +31556,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br label %10
 
 10:                                               ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3nix10eval_cache10AttrCursor8getAttrsEvE3$_0EclINS_17__normal_iteratorIPNS2_6SymbolESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit"
-  %.040 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3nix10eval_cache10AttrCursor8getAttrsEvE3$_0EclINS_17__normal_iteratorIPNS2_6SymbolESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit" ]
-  %11 = shl i64 %.040, 1
+  %.041 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3nix10eval_cache10AttrCursor8getAttrsEvE3$_0EclINS_17__normal_iteratorIPNS2_6SymbolESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit" ]
+  %11 = shl i64 %.041, 1
   %12 = add i64 %11, 2
   %13 = getelementptr inbounds %"class.nix::Symbol", ptr %0, i64 %12
   %14 = or disjoint i64 %11, 1
@@ -31629,7 +31629,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %48 = icmp slt i32 %.0.i.i.i.i, 0
   %spec.select = select i1 %48, i64 %14, i64 %12
   %49 = getelementptr inbounds %"class.nix::Symbol", ptr %0, i64 %spec.select
-  %50 = getelementptr inbounds %"class.nix::Symbol", ptr %0, i64 %.040
+  %50 = getelementptr inbounds %"class.nix::Symbol", ptr %0, i64 %.041
   %51 = load i32, ptr %49, align 4
   store i32 %51, ptr %50, align 4
   %52 = icmp slt i64 %spec.select, %7
@@ -31662,19 +31662,19 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   br i1 %66, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_10eval_cache10AttrCursor8getAttrsEvE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %65
-  %67 = add i32 %3, -1
-  %68 = zext i32 %67 to i64
-  %69 = lshr i64 %68, 13
-  %70 = and i64 %68, 8191
-  %71 = getelementptr i8, ptr %4, i64 16
+  %67 = getelementptr i8, ptr %4, i64 16
+  %68 = add i32 %3, -1
+  %69 = zext i32 %68 to i64
+  %70 = lshr i64 %69, 13
+  %71 = and i64 %69, 8191
   br label %72
 
 72:                                               ; preds = %103, %.lr.ph.i
-  %.023.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0924.i, %103 ]
-  %.0924.in.i = add nsw i64 %.023.i, -1
-  %.0924.i = sdiv i64 %.0924.in.i, 2
-  %73 = getelementptr inbounds %"class.nix::Symbol", ptr %0, i64 %.0924.i
-  %.val.val.i = load ptr, ptr %71, align 8
+  %.013.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0914.i, %103 ]
+  %.0914.in.i = add nsw i64 %.013.i, -1
+  %.0914.i = sdiv i64 %.0914.in.i, 2
+  %73 = getelementptr inbounds %"class.nix::Symbol", ptr %0, i64 %.0914.i
+  %.val.val.i = load ptr, ptr %67, align 8
   %74 = getelementptr i8, ptr %.val.val.i, i64 32
   %.val.val.val.i = load ptr, ptr %74, align 8
   %.sroa.01.0.copyload.i.i = load i32, ptr %73, align 4
@@ -31701,7 +31701,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.i:   ; preds = %72
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %87, i64 8
   %90 = load i64, ptr %89, align 8
-  %or.cond.not.i12.i.i.i = icmp ult i32 %67, %77
+  %or.cond.not.i12.i.i.i = icmp ult i32 %68, %77
   br i1 %or.cond.not.i12.i.i.i, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i.i, label %91
 
 91:                                               ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.i
@@ -31709,9 +31709,9 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.i:   ; preds = %72
   unreachable
 
 _ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i.i: ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.i
-  %92 = getelementptr inbounds %"class.std::vector.329", ptr %83, i64 %69
+  %92 = getelementptr inbounds %"class.std::vector.329", ptr %83, i64 %70
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %93, i64 %70
+  %94 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %93, i64 %71
   %95 = getelementptr inbounds i8, ptr %94, i64 8
   %96 = load i64, ptr %95, align 8
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %96, i64 %90)
@@ -31737,13 +31737,13 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11c
   br i1 %102, label %103, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_10eval_cache10AttrCursor8getAttrsEvE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 103:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3nix10eval_cache10AttrCursor8getAttrsEvE3$_0EclINS_17__normal_iteratorIPNS2_6SymbolESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i"
-  %104 = getelementptr inbounds %"class.nix::Symbol", ptr %0, i64 %.023.i
+  %104 = getelementptr inbounds %"class.nix::Symbol", ptr %0, i64 %.013.i
   store i32 %.sroa.01.0.copyload.i.i, ptr %104, align 4
-  %105 = icmp sgt i64 %.0924.i, %1
+  %105 = icmp sgt i64 %.0914.i, %1
   br i1 %105, label %72, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_10eval_cache10AttrCursor8getAttrsEvE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !231
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_10eval_cache10AttrCursor8getAttrsEvE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3nix10eval_cache10AttrCursor8getAttrsEvE3$_0EclINS_17__normal_iteratorIPNS2_6SymbolESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i", %103, %65
-  %.0.lcssa.i = phi i64 [ %.1, %65 ], [ %.023.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3nix10eval_cache10AttrCursor8getAttrsEvE3$_0EclINS_17__normal_iteratorIPNS2_6SymbolESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i" ], [ %.0924.i, %103 ]
+  %.0.lcssa.i = phi i64 [ %.1, %65 ], [ %.013.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3nix10eval_cache10AttrCursor8getAttrsEvE3$_0EclINS_17__normal_iteratorIPNS2_6SymbolESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i" ], [ %.0914.i, %103 ]
   %106 = getelementptr inbounds %"class.nix::Symbol", ptr %0, i64 %.0.lcssa.i
   store i32 %3, ptr %106, align 4
   ret void

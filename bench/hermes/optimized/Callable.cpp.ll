@@ -2063,7 +2063,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %elemIdx.082.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i22, %for.inc.i ]
+  %elemIdx.020.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i22, %for.inc.i ]
   %19 = load ptr, ptr %chunks_.i.i, align 8
   %20 = load ptr, ptr %19, align 8
   %add.ptr.i.i20 = getelementptr inbounds i8, ptr %20, i64 128
@@ -2073,7 +2073,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
   %21 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %conv.i = trunc nuw i64 %elemIdx.082.i to i32
+  %conv.i = trunc nuw i64 %elemIdx.020.i to i32
   %beginIndex_.i.i = getelementptr inbounds i8, ptr %21, i64 20
   %22 = load i32, ptr %beginIndex_.i.i, align 4
   %cmp.not.i.i = icmp ule i32 %22, %conv.i
@@ -2208,7 +2208,7 @@ _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i: ; preds = %s
   br i1 %cmp.i.i24, label %if.end31.i, label %for.inc.i
 
 if.end31.i:                                       ; preds = %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i, %for.body.i
-  %conv.i38.i = uitofp nneg i64 %elemIdx.082.i to double
+  %conv.i38.i = uitofp nneg i64 %elemIdx.020.i to double
   store double %conv.i38.i, ptr %inlineStorage_.i.i, align 8
   %call.i.i21 = call { i32, i64 } @_ZN6hermes2vm8JSObject27getComputedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_(ptr nonnull %arrayLike.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %inlineStorage_.i.i, ptr nonnull %arrayLike.coerce) #11
   %34 = extractvalue { i32, i64 } %call.i.i21, 0
@@ -2221,24 +2221,24 @@ if.end47.i:                                       ; preds = %if.end31.i
 
 for.inc.i:                                        ; preds = %if.end47.i, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i, %sw.bb39.i.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
   %.sink.i = phi i64 [ %35, %if.end47.i ], [ %retval.sroa.0.0.i32.i, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i ], [ -1548112371908608, %sw.bb39.i.i ]
-  %sext.i41.i = shl nuw i64 %elemIdx.082.i, 32
+  %sext.i41.i = shl nuw i64 %elemIdx.020.i, 32
   %conv.i.i42.i = ashr exact i64 %sext.i41.i, 32
   %idx.neg.i.i.i.i43.i = sub nsw i64 0, %conv.i.i42.i
   %gep45 = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %invariant.gep44, i64 %idx.neg.i.i.i.i43.i
   store i64 %.sink.i, ptr %gep45, align 8
-  %inc.i22 = add nuw nsw i64 %elemIdx.082.i, 1
-  %exitcond87.not.i = icmp eq i64 %inc.i22, %6
-  br i1 %exitcond87.not.i, label %if.end46, label %for.body.i, !llvm.loop !15
+  %inc.i22 = add nuw nsw i64 %elemIdx.020.i, 1
+  %exitcond25.not.i = icmp eq i64 %inc.i22, %6
+  br i1 %exitcond25.not.i, label %if.end46, label %for.body.i, !llvm.loop !15
 
 for.body60.i:                                     ; preds = %for.body60.i.preheader, %if.end78.i
-  %elemIdx57.079.i = phi i64 [ %inc89.i, %if.end78.i ], [ 0, %for.body60.i.preheader ]
+  %elemIdx57.017.i = phi i64 [ %inc89.i, %if.end78.i ], [ 0, %for.body60.i.preheader ]
   %36 = load ptr, ptr %chunks_.i.i, align 8
   %37 = load ptr, ptr %36, align 8
   %add.ptr.i49.i = getelementptr inbounds i8, ptr %37, i64 128
   store i32 0, ptr %curChunkIndex_.i.i, align 8
   store ptr %add.ptr.i49.i, ptr %curChunkEnd_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i18, ptr %next_.i.i, align 8
-  %conv.i53.i = uitofp nneg i64 %elemIdx57.079.i to double
+  %conv.i53.i = uitofp nneg i64 %elemIdx57.017.i to double
   store double %conv.i53.i, ptr %inlineStorage_.i.i, align 8
   %call.i54.i = call { i32, i64 } @_ZN6hermes2vm8JSObject27getComputedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_(ptr nonnull %arrayLike.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %inlineStorage_.i.i, ptr nonnull %arrayLike.coerce) #11
   %38 = extractvalue { i32, i64 } %call.i54.i, 0
@@ -2247,12 +2247,12 @@ for.body60.i:                                     ; preds = %for.body60.i.prehea
 
 if.end78.i:                                       ; preds = %for.body60.i
   %39 = extractvalue { i32, i64 } %call.i54.i, 1
-  %sext.i58.i = shl nuw i64 %elemIdx57.079.i, 32
+  %sext.i58.i = shl nuw i64 %elemIdx57.017.i, 32
   %conv.i.i59.i = ashr exact i64 %sext.i58.i, 32
   %idx.neg.i.i.i.i60.i = sub nsw i64 0, %conv.i.i59.i
   %gep = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %invariant.gep, i64 %idx.neg.i.i.i.i60.i
   store i64 %39, ptr %gep, align 8
-  %inc89.i = add nuw nsw i64 %elemIdx57.079.i, 1
+  %inc89.i = add nuw nsw i64 %elemIdx57.017.i, 1
   %exitcond.not.i = icmp eq i64 %inc89.i, %6
   br i1 %exitcond.not.i, label %if.end46, label %for.body60.i, !llvm.loop !16
 

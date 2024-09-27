@@ -1328,8 +1328,8 @@ define hidden void @_ZN14VLoopVPointers27compute_and_cache_vpointersEv(ptr nocap
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 31
   %18 = icmp ne i32 %17, 16
-  %.not10.i = icmp eq ptr %14, null
-  %.not.i = or i1 %.not10.i, %18
+  %.not9.i = icmp eq ptr %14, null
+  %.not.i = or i1 %.not9.i, %18
   br i1 %.not.i, label %_ZNK5VLoop5in_bbEPK4Node.exit.thread.i, label %19
 
 19:                                               ; preds = %11

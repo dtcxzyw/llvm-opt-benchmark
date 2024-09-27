@@ -1229,15 +1229,15 @@ init.end:                                         ; preds = %invoke.cont, %init.
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK8QuantLib19HazardRateStructure23survivalProbabilityImplEdE8integral, i64 8), align 8, !tbaa !45
   %conv.i = trunc i64 %3 to i32
   %cmp1.i = icmp sgt i32 %conv.i, 0
-  br i1 %cmp1.i, label %for.body.lr.ph.i, label %"_ZNK8QuantLib18GaussianQuadratureclINS_12_GLOBAL__N_18remapperIZNKS_19HazardRateStructure23survivalProbabilityImplEdE3$_0EEEEdRKT_.exit"
+  br i1 %cmp1.i, label %for.body.preheader.i, label %"_ZNK8QuantLib18GaussianQuadratureclINS_12_GLOBAL__N_18remapperIZNKS_19HazardRateStructure23survivalProbabilityImplEdE3$_0EEEEdRKT_.exit"
 
-for.body.lr.ph.i:                                 ; preds = %init.end
+for.body.preheader.i:                             ; preds = %init.end
   %4 = and i64 %3, 2147483647
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %4, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %sum.02.i = phi double [ 0.000000e+00, %for.body.lr.ph.i ], [ %10, %for.body.i ]
+for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
+  %indvars.iv.i = phi i64 [ %4, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %sum.02.i = phi double [ 0.000000e+00, %for.body.preheader.i ], [ %10, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK8QuantLib19HazardRateStructure23survivalProbabilityImplEdE8integral, i64 16), align 8, !tbaa !15
   %arrayidx.i.i = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.next.i

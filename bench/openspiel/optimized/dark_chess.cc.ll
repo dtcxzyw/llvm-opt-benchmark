@@ -1870,21 +1870,21 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i8 1, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %11, align 8
-  %12 = ptrtoint ptr %0 to i64
-  store i64 %12, ptr %2, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS0_10dark_chess14DarkChessState25MaybeGenerateLegalActionsEvE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %10, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS0_10dark_chess14DarkChessState25MaybeGenerateLegalActionsEvE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %9, align 8
+  %9 = ptrtoint ptr %0 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %12, align 8
+  store i64 %9, ptr %2, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS0_10dark_chess14DarkChessState25MaybeGenerateLegalActionsEvE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %11, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS0_10dark_chess14DarkChessState25MaybeGenerateLegalActionsEvE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 390
   %14 = load i8, ptr %13, align 2
   invoke void @_ZNK10open_spiel5chess10ChessBoard18GenerateLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorE(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext %14)
           to label %_ZNK10open_spiel5chess10ChessBoard18GenerateLegalMovesERKSt8functionIFbRKNS0_4MoveEEE.exit unwind label %26
 
 _ZNK10open_spiel5chess10ChessBoard18GenerateLegalMovesERKSt8functionIFbRKNS0_4MoveEEE.exit: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
-  %15 = load ptr, ptr %9, align 8
+  %15 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit, label %16
 
@@ -1917,7 +1917,7 @@ _ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit: ; preds = %_ZNSt8functio
 26:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
   %27 = landingpad { ptr, i32 }
           cleanup
-  %28 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
   %.not.i.i6 = icmp eq ptr %28, null
   br i1 %.not.i.i6, label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit7, label %29
 

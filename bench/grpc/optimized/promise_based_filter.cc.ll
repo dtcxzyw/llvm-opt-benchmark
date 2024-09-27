@@ -867,14 +867,14 @@ $_ZTIN9grpc_core21promise_filter_detail12BaseCallData15SendInterceptorE = comdat
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.137, ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_promise_based_filter.cc, ptr null }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E], section "llvm.metadata"
 @switch.table._ZNK9grpc_core21promise_filter_detail14ClientCallData11DebugStringB5cxx11Ev = private unnamed_addr constant [4 x ptr] [ptr @.str.14, ptr @.str.71, ptr @.str.72, ptr @.str.21], align 8
-@switch.table._ZNK9grpc_core21promise_filter_detail14ClientCallData11DebugStringB5cxx11Ev.65 = private unnamed_addr constant [10 x ptr] [ptr @.str.14, ptr @.str.148, ptr @.str.149, ptr @.str.150, ptr @.str.151, ptr @.str.152, ptr @.str.153, ptr @.str.154, ptr @.str.74, ptr @.str.155], align 8
+@switch.table._ZNK9grpc_core21promise_filter_detail14ClientCallData11DebugStringB5cxx11Ev.69 = private unnamed_addr constant [10 x ptr] [ptr @.str.14, ptr @.str.148, ptr @.str.149, ptr @.str.150, ptr @.str.151, ptr @.str.152, ptr @.str.153, ptr @.str.154, ptr @.str.74, ptr @.str.155], align 8
 @switch.table._ZN9grpc_core21promise_filter_detail14ClientCallData25RecvTrailingMetadataReadyEN4absl12lts_202308026StatusE = private unnamed_addr constant [6 x ptr] [ptr @.str.14, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.21], align 8
 @switch.table._ZNK9grpc_core21promise_filter_detail14ServerCallData11DebugStringB5cxx11Ev = private unnamed_addr constant [4 x ptr] [ptr @.str.14, ptr @.str.72, ptr @.str.73, ptr @.str.74], align 8
 @switch.table._ZN9grpc_core21promise_filter_detail12BaseCallData11SendMessage7GotPipeINS_10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEEEvPT_ = private unnamed_addr constant [10 x ptr] [ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.22, ptr @.str.21, ptr @.str.23], align 8
 @switch.table._ZN9grpc_core21promise_filter_detail12BaseCallData14ReceiveMessage7GotPipeINS_12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEEEvPT_ = private unnamed_addr constant [17 x ptr] [ptr @.str.14, ptr @.str.15, ptr @.str.43, ptr @.str.19, ptr @.str.44, ptr @.str.20, ptr @.str.18, ptr @.str.45, ptr @.str.21, ptr @.str.50, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.52, ptr @.str.51, ptr @.str.53], align 8
 @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE = private unnamed_addr constant [10 x ptr] [ptr @.str.37, ptr @.str.37, ptr @.str.38, ptr @.str.38, ptr @.str.38, ptr @.str.37, ptr @.str.38, ptr @.str.37, ptr @.str.37, ptr @.str.37], align 8
-@switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.69 = private unnamed_addr constant [7 x ptr] [ptr @.str.14, ptr @.str.148, ptr @.str.174, ptr @.str.175, ptr @.str.176, ptr @.str.72, ptr @.str.21], align 8
-@switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.70 = private unnamed_addr constant [6 x ptr] [ptr @.str.14, ptr @.str.103, ptr @.str.104, ptr @.str.71, ptr @.str.72, ptr @.str.21], align 8
+@switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.73 = private unnamed_addr constant [7 x ptr] [ptr @.str.14, ptr @.str.148, ptr @.str.174, ptr @.str.175, ptr @.str.176, ptr @.str.72, ptr @.str.21], align 8
+@switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.74 = private unnamed_addr constant [6 x ptr] [ptr @.str.14, ptr @.str.103, ptr @.str.104, ptr @.str.71, ptr @.str.72, ptr @.str.21], align 8
 
 @_ZN9grpc_core21promise_filter_detail12BaseCallDataD1Ev = unnamed_addr alias void (ptr), ptr @_ZN9grpc_core21promise_filter_detail12BaseCallDataD2Ev
 @_ZN9grpc_core21promise_filter_detail12BaseCallData13CapturedBatchC1Ev = unnamed_addr alias void (ptr), ptr @_ZN9grpc_core21promise_filter_detail12BaseCallData13CapturedBatchC2Ev
@@ -7172,7 +7172,7 @@ invoke.cont39:                                    ; preds = %invoke.cont29
 
 switch.lookup98:                                  ; preds = %invoke.cont39
   %36 = zext nneg i32 %34 to i64
-  %switch.gep99 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK9grpc_core21promise_filter_detail14ClientCallData11DebugStringB5cxx11Ev.65, i64 0, i64 %36
+  %switch.gep99 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK9grpc_core21promise_filter_detail14ClientCallData11DebugStringB5cxx11Ev.69, i64 0, i64 %36
   %switch.load100 = load ptr, ptr %switch.gep99, align 8
   br label %invoke.cont43
 
@@ -10095,12 +10095,12 @@ cond.false28:                                     ; preds = %cond.end22
 cond.end37:                                       ; preds = %cond.false28, %cond.end22
   %cond38 = phi ptr [ null, %cond.end22 ], [ %call36, %cond.false28 ]
   store ptr %cond38, ptr %server_to_client_messages, align 8
+  %22 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp39, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp39, i64 24
-  %22 = getelementptr inbounds i8, ptr %agg.tmp39, i64 8
-  store i64 0, ptr %22, align 8
-  %23 = ptrtoint ptr %this to i64
-  store i64 %23, ptr %agg.tmp39, align 8
+  %23 = getelementptr inbounds i8, ptr %agg.tmp39, i64 8
+  store i64 0, ptr %23, align 8
+  store i64 %22, ptr %agg.tmp39, align 8
   store ptr @"_ZNSt17_Function_handlerIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEZNS0_21promise_filter_detail14ClientCallData12StartPromiseEPNSA_12BaseCallData7FlusherEE3$_0E9_M_invokeERKSt9_Any_dataOS8_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEZNS0_21promise_filter_detail14ClientCallData12StartPromiseEPNSA_12BaseCallData7FlusherEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %vtable41 = load ptr, ptr %2, align 8
@@ -10967,9 +10967,9 @@ if.then82:                                        ; preds = %do.body78
   unreachable
 
 if.end85:                                         ; preds = %do.body78, %if.then75
+  %21 = ptrtoint ptr %this to i64
   %arg.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr @"_ZN9grpc_core20arena_promise_detail7InlinedISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail14ClientCallData15MakeNextPromiseENS_8CallArgsEE3$_0E6vtableE", ptr %agg.result, align 16
-  %21 = ptrtoint ptr %this to i64
   store i64 %21, ptr %arg.i, align 16
   ret void
 
@@ -12297,7 +12297,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %state to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.70, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.74, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -12776,7 +12776,7 @@ invoke.cont25:                                    ; preds = %invoke.cont20, %swi
 
 switch.lookup88:                                  ; preds = %invoke.cont25
   %20 = zext nneg i32 %18 to i64
-  %switch.gep89 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.70, i64 0, i64 %20
+  %switch.gep89 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.74, i64 0, i64 %20
   %switch.load90 = load ptr, ptr %switch.gep89, align 8
   br label %_ZN9grpc_core21promise_filter_detail14ServerCallData11StateStringENS1_17SendTrailingStateE.exit
 
@@ -12863,7 +12863,7 @@ invoke.cont35:                                    ; preds = %invoke.cont29
 
 switch.lookup91:                                  ; preds = %invoke.cont35
   %34 = zext nneg i32 %32 to i64
-  %switch.gep92 = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.69, i64 0, i64 %34
+  %switch.gep92 = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.73, i64 0, i64 %34
   %switch.load93 = load ptr, ptr %switch.gep92, align 8
   br label %invoke.cont40
 
@@ -13853,7 +13853,7 @@ if.then:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %if.then
   %3 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.70, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.74, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN9grpc_core21promise_filter_detail14ServerCallData11StateStringENS1_17SendTrailingStateE.exit
 
@@ -13871,7 +13871,7 @@ cond.false:                                       ; preds = %_ZN9grpc_core21prom
 
 switch.lookup98:                                  ; preds = %cond.false
   %7 = zext nneg i32 %5 to i64
-  %switch.gep99 = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.69, i64 0, i64 %7
+  %switch.gep99 = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.73, i64 0, i64 %7
   %switch.load100 = load ptr, ptr %switch.gep99, align 8
   br label %cond.end
 
@@ -14621,9 +14621,9 @@ if.then72:                                        ; preds = %do.body68
   unreachable
 
 if.end75:                                         ; preds = %do.body68, %if.then65
+  %16 = ptrtoint ptr %this to i64
   %arg.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr @"_ZN9grpc_core20arena_promise_detail7InlinedISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail14ServerCallData15MakeNextPromiseENS_8CallArgsEE3$_0E6vtableE", ptr %agg.result, align 16
-  %16 = ptrtoint ptr %this to i64
   store i64 %16, ptr %arg.i, align 16
   ret void
 }
@@ -14927,7 +14927,7 @@ if.then:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %if.then
   %3 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.70, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.74, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN9grpc_core21promise_filter_detail14ServerCallData11StateStringENS1_17SendTrailingStateE.exit
 
@@ -15415,12 +15415,12 @@ cond.false15.i.i.i.i.i:                           ; preds = %cond.end10.i.i.i.i.
 cond.end22.i.i.i.i.i:                             ; preds = %cond.false15.i.i.i.i.i, %cond.end10.i.i.i.i.i
   %cond23.i.i.i.i.i = phi ptr [ null, %cond.end10.i.i.i.i.i ], [ %call21.i.i.i.i.i, %cond.false15.i.i.i.i.i ]
   store ptr %cond23.i.i.i.i.i, ptr %server_to_client_messages.i.i.i.i.i, align 8
+  %48 = ptrtoint ptr %this to i64
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i, i64 16
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i, i64 24
-  %48 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i, i64 8
-  store i64 0, ptr %48, align 8
-  %49 = ptrtoint ptr %this to i64
-  store i64 %49, ptr %agg.tmp24.i.i.i.i.i, align 8
+  %49 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i, i64 8
+  store i64 0, ptr %49, align 8
+  store i64 %48, ptr %agg.tmp24.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEZZNS0_21promise_filter_detail14ServerCallData24RecvInitialMetadataReadyEN4absl12lts_202308026StatusEENK3$_0clEvEUlS8_E_E9_M_invokeERKSt9_Any_dataOS8_", ptr %_M_invoker.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEZZNS0_21promise_filter_detail14ServerCallData24RecvInitialMetadataReadyEN4absl12lts_202308026StatusEENK3$_0clEvEUlS8_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i, align 8
   %vtable26.i.i.i.i.i = load ptr, ptr %32, align 8
@@ -16369,7 +16369,7 @@ cond.false:                                       ; preds = %invoke.cont212
 
 switch.lookup250:                                 ; preds = %cond.false
   %95 = zext nneg i32 %93 to i64
-  %switch.gep251 = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.69, i64 0, i64 %95
+  %switch.gep251 = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.73, i64 0, i64 %95
   %switch.load252 = load ptr, ptr %switch.gep251, align 8
   br label %cond.end
 
@@ -16382,7 +16382,7 @@ cond.end:                                         ; preds = %cond.false, %switch
 
 switch.lookup253:                                 ; preds = %cond.end
   %98 = zext nneg i32 %96 to i64
-  %switch.gep254 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.70, i64 0, i64 %98
+  %switch.gep254 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.74, i64 0, i64 %98
   %switch.load255 = load ptr, ptr %switch.gep254, align 8
   br label %_ZN9grpc_core21promise_filter_detail14ServerCallData11StateStringENS1_17SendTrailingStateE.exit
 

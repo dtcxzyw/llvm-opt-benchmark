@@ -3714,12 +3714,12 @@ invoke.cont8.i.i:                                 ; preds = %.noexc.i
   store i64 %15, ptr %41, align 8
   %call9.val.i.i = load ptr, ptr %storage_.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
+  %42 = ptrtoint ptr %agg.tmp.i.i to i64
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 24
-  %42 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
-  store i64 0, ptr %42, align 8
-  %43 = ptrtoint ptr %agg.tmp.i.i to i64
-  store i64 %43, ptr %ref.tmp.i.i.i, align 8
+  %43 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
+  store i64 0, ptr %43, align 8
+  store i64 %42, ptr %ref.tmp.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEEvEZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZNS0_4util12_GLOBAL__N_122AsyncTaskSchedulerImpl12DoSubmitTaskESt10unique_ptrINSD_18AsyncTaskScheduler4TaskESt14default_deleteISI_EEEUlvE_ZZNSF_12DoSubmitTaskESL_ENSM_clEvEUlRKNS0_6StatusEE_NSB_21WrapStatusyOnComplete8CallbackISQ_EEEEbT_NS0_15CallbackOptionsEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEEvEZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZNS0_4util12_GLOBAL__N_122AsyncTaskSchedulerImpl12DoSubmitTaskESt10unique_ptrINSD_18AsyncTaskScheduler4TaskESt14default_deleteISI_EEEUlvE_ZZNSF_12DoSubmitTaskESL_ENSM_clEvEUlRKNS0_6StatusEE_NSB_21WrapStatusyOnComplete8CallbackISQ_EEEEbT_NS0_15CallbackOptionsEEUlvE_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i, align 8
   %call3.i.i.i = invoke noundef zeroext i1 @_ZN5arrow10FutureImpl14TryAddCallbackERKSt8functionIFNS_8internal6FnOnceIFvRKS0_EEEvEENS_15CallbackOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %call9.val.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, i32 0, ptr null)
@@ -7737,13 +7737,13 @@ lpad.i:                                           ; preds = %call.i.i.noexc
   %22 = landingpad { ptr, i32 }
           cleanup
   %23 = load ptr, ptr %agg.tmp.i, align 8
-  %cmp.not.i4.i = icmp eq ptr %23, null
-  br i1 %cmp.not.i4.i, label %lpad5.body, label %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i5.i
+  %cmp.not.i5.i = icmp eq ptr %23, null
+  br i1 %cmp.not.i5.i, label %lpad5.body, label %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i6.i
 
-_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i5.i: ; preds = %lpad.i
-  %vtable.i.i6.i = load ptr, ptr %23, align 8
-  %vfn.i.i7.i = getelementptr inbounds i8, ptr %vtable.i.i6.i, i64 8
-  %24 = load ptr, ptr %vfn.i.i7.i, align 8
+_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i6.i: ; preds = %lpad.i
+  %vtable.i.i7.i = load ptr, ptr %23, align 8
+  %vfn.i.i8.i = getelementptr inbounds i8, ptr %vtable.i.i7.i, i64 8
+  %24 = load ptr, ptr %vfn.i.i8.i, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %23) #22
   br label %lpad5.body
 
@@ -7770,8 +7770,8 @@ lpad5:                                            ; preds = %invoke.cont
           cleanup
   br label %lpad5.body
 
-lpad5.body:                                       ; preds = %lpad.i, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i5.i, %lpad5
-  %eh.lpad-body = phi { ptr, i32 } [ %28, %lpad5 ], [ %22, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i5.i ], [ %22, %lpad.i ]
+lpad5.body:                                       ; preds = %lpad.i, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i6.i, %lpad5
+  %eh.lpad-body = phi { ptr, i32 } [ %28, %lpad5 ], [ %22, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i6.i ], [ %22, %lpad.i ]
   call fastcc void @_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_D2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
   br label %eh.resume
 
@@ -8090,10 +8090,10 @@ while.cond.preheader:                             ; preds = %entry
   %queue_ = getelementptr inbounds i8, ptr %this, i64 40
   %throttle_ = getelementptr inbounds i8, ptr %this, i64 32
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %maybe_backoff, i64 16
+  %0 = ptrtoint ptr %callback_factory.i to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %0 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %1 = ptrtoint ptr %callback_factory.i to i64
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %maybe_backoff, i64 8
   br label %while.cond
 
@@ -8167,8 +8167,8 @@ invoke.cont27:                                    ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %callback_factory.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   store ptr %this, ptr %callback_factory.i, align 8
-  store i64 0, ptr %0, align 8
-  store i64 %1, ptr %ref.tmp.i, align 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %ref.tmp.i, align 8
   store ptr @_ZNSt17_Function_handlerIFN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEEvEZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNSF_13ContinueTasksEvENKSG_clEvEUlRKNS0_6StatusEE_NSB_21WrapStatusyOnComplete8CallbackISK_EEEEbT_NS0_15CallbackOptionsEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEEvEZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNSF_13ContinueTasksEvENKSG_clEvEUlRKNS0_6StatusEE_NSB_21WrapStatusyOnComplete8CallbackISK_EEEEbT_NS0_15CallbackOptionsEEUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
   %call3.i = invoke noundef zeroext i1 @_ZN5arrow10FutureImpl14TryAddCallbackERKSt8functionIFNS_8internal6FnOnceIFvRKS0_EEEvEENS_15CallbackOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %call28.val, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 0, ptr null)
@@ -9105,12 +9105,12 @@ invoke.cont.i:                                    ; preds = %entry
   store ptr %6, ptr %callback_factory.i.i, align 8, !noalias !117
   %7 = getelementptr inbounds i8, ptr %callback_factory.i.i, i64 8
   store ptr %callable, ptr %7, align 8, !noalias !117
+  %8 = ptrtoint ptr %callback_factory.i.i to i64
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store i64 0, ptr %8, align 8, !noalias !117
-  %9 = ptrtoint ptr %callback_factory.i.i to i64
-  store i64 %9, ptr %ref.tmp.i.i, align 8, !noalias !117
+  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  store i64 0, ptr %9, align 8, !noalias !117
+  store i64 %8, ptr %ref.tmp.i.i, align 8, !noalias !117
   store ptr @_ZNSt17_Function_handlerIFN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEEvEZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSD_18AsyncTaskScheduler4TaskESt14default_deleteISI_EEibENUlvE_clEvEUlvE_ZZZNSF_10SubmitTaskESL_ibENSM_clEvENKSN_clEvEUlRKNS0_6StatusEE_NSB_21WrapStatusyOnComplete8CallbackISR_EEEEbT_NS0_15CallbackOptionsEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i.i.i, align 8, !noalias !117
   store ptr @_ZNSt17_Function_handlerIFN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEEvEZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSD_18AsyncTaskScheduler4TaskESt14default_deleteISI_EEibENUlvE_clEvEUlvE_ZZZNSF_10SubmitTaskESL_ibENSM_clEvENKSN_clEvEUlRKNS0_6StatusEE_NSB_21WrapStatusyOnComplete8CallbackISR_EEEEbT_NS0_15CallbackOptionsEEUlvE_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %_M_manager.i.i.i.i, align 8, !noalias !117
   %call3.i.i = invoke noundef zeroext i1 @_ZN5arrow10FutureImpl14TryAddCallbackERKSt8functionIFNS_8internal6FnOnceIFvRKS0_EEEvEENS_15CallbackOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i32 0, ptr null)
@@ -9800,13 +9800,13 @@ lpad.i:                                           ; preds = %call.i.i.noexc
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = load ptr, ptr %agg.tmp.i, align 8
-  %cmp.not.i4.i = icmp eq ptr %13, null
-  br i1 %cmp.not.i4.i, label %terminate.lpad.body, label %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i5.i
+  %cmp.not.i5.i = icmp eq ptr %13, null
+  br i1 %cmp.not.i5.i, label %terminate.lpad.body, label %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i6.i
 
-_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i5.i: ; preds = %lpad.i
-  %vtable.i.i6.i = load ptr, ptr %13, align 8
-  %vfn.i.i7.i = getelementptr inbounds i8, ptr %vtable.i.i6.i, i64 8
-  %14 = load ptr, ptr %vfn.i.i7.i, align 8
+_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i6.i: ; preds = %lpad.i
+  %vtable.i.i7.i = load ptr, ptr %13, align 8
+  %vfn.i.i8.i = getelementptr inbounds i8, ptr %vtable.i.i7.i, i64 8
+  %14 = load ptr, ptr %vfn.i.i8.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %13) #22
   br label %terminate.lpad.body
 
@@ -9979,8 +9979,8 @@ terminate.lpad:                                   ; preds = %if.then6
           catch ptr null
   br label %terminate.lpad.body
 
-terminate.lpad.body:                              ; preds = %terminate.lpad, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i5.i, %lpad.i, %_ZNSt10unique_ptrIN5arrow8internal6FnOnceIFNS0_6StatusEvEE4ImplESt14default_deleteIS6_EED2Ev.exit5.i
-  %eh.lpad-body = phi { ptr, i32 } [ %4, %_ZNSt10unique_ptrIN5arrow8internal6FnOnceIFNS0_6StatusEvEE4ImplESt14default_deleteIS6_EED2Ev.exit5.i ], [ %37, %terminate.lpad ], [ %12, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i5.i ], [ %12, %lpad.i ]
+terminate.lpad.body:                              ; preds = %terminate.lpad, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i6.i, %lpad.i, %_ZNSt10unique_ptrIN5arrow8internal6FnOnceIFNS0_6StatusEvEE4ImplESt14default_deleteIS6_EED2Ev.exit5.i
+  %eh.lpad-body = phi { ptr, i32 } [ %4, %_ZNSt10unique_ptrIN5arrow8internal6FnOnceIFNS0_6StatusEvEE4ImplESt14default_deleteIS6_EED2Ev.exit5.i ], [ %37, %terminate.lpad ], [ %12, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i6.i ], [ %12, %lpad.i ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   call void @__clang_call_terminate(ptr %38) #26
   unreachable

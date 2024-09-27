@@ -4793,12 +4793,12 @@ common.resume:                                    ; preds = %33, %14
   %19 = getelementptr inbounds i8, ptr %2, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %2, i64 8
-  %.not7.i.i.i.i = icmp eq ptr %20, %21
-  br i1 %.not7.i.i.i.i, label %"_ZSt6all_ofISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNK23cmCommonTargetGenerator21HaveRequiredLanguagesERKSt6vectorIPK12cmSourceFileSaISC_EERSt3setIS6_St4lessIS6_ESaIS6_EEE3$_0EbT_SO_T0_.exit", label %.lr.ph.i.i.i.i
+  %.not8.i.i.i.i = icmp eq ptr %20, %21
+  br i1 %.not8.i.i.i.i, label %"_ZSt6all_ofISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNK23cmCommonTargetGenerator21HaveRequiredLanguagesERKSt6vectorIPK12cmSourceFileSaISC_EERSt3setIS6_St4lessIS6_ESaIS6_EEE3$_0EbT_SO_T0_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %35
-  %.sroa.03.08.i.i.i.i = phi ptr [ %36, %35 ], [ %20, %._crit_edge ]
-  %22 = getelementptr inbounds i8, ptr %.sroa.03.08.i.i.i.i, i64 32
+  %.sroa.04.09.i.i.i.i = phi ptr [ %36, %35 ], [ %20, %._crit_edge ]
+  %22 = getelementptr inbounds i8, ptr %.sroa.04.09.i.i.i.i, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %23 = call noundef zeroext i1 @_ZNK7cmState18GetLanguageEnabledERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(705) %18, ptr noundef nonnull align 8 dereferenceable(32) %22)
   br i1 %23, label %35, label %24
@@ -4842,13 +4842,13 @@ common.resume:                                    ; preds = %33, %14
 
 35:                                               ; preds = %.lr.ph.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %36 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.08.i.i.i.i) #26
+  %36 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.04.09.i.i.i.i) #26
   %.not.i.i.i.i = icmp eq ptr %36, %21
   br i1 %.not.i.i.i.i, label %"_ZSt6all_ofISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNK23cmCommonTargetGenerator21HaveRequiredLanguagesERKSt6vectorIPK12cmSourceFileSaISC_EERSt3setIS6_St4lessIS6_ESaIS6_EEE3$_0EbT_SO_T0_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !196
 
 "_ZSt6all_ofISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNK23cmCommonTargetGenerator21HaveRequiredLanguagesERKSt6vectorIPK12cmSourceFileSaISC_EERSt3setIS6_St4lessIS6_ESaIS6_EEE3$_0EbT_SO_T0_.exit": ; preds = %35, %._crit_edge, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK23cmCommonTargetGenerator21HaveRequiredLanguagesERKSt6vectorIPK12cmSourceFileSaIS6_EERSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISH_ESaISH_EEE3$_0EclISt23_Rb_tree_const_iteratorISH_EEEbT_.exit.thread.i.i.i.i"
-  %.sroa.03.06.i.i.i.i = phi ptr [ %.sroa.03.08.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK23cmCommonTargetGenerator21HaveRequiredLanguagesERKSt6vectorIPK12cmSourceFileSaIS6_EERSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISH_ESaISH_EEE3$_0EclISt23_Rb_tree_const_iteratorISH_EEEbT_.exit.thread.i.i.i.i" ], [ %20, %._crit_edge ], [ %21, %35 ]
-  %37 = icmp eq ptr %21, %.sroa.03.06.i.i.i.i
+  %.sroa.04.07.i.i.i.i = phi ptr [ %.sroa.04.09.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK23cmCommonTargetGenerator21HaveRequiredLanguagesERKSt6vectorIPK12cmSourceFileSaIS6_EERSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISH_ESaISH_EEE3$_0EclISt23_Rb_tree_const_iteratorISH_EEEbT_.exit.thread.i.i.i.i" ], [ %20, %._crit_edge ], [ %21, %35 ]
+  %37 = icmp eq ptr %21, %.sroa.04.07.i.i.i.i
   ret i1 %37
 }
 

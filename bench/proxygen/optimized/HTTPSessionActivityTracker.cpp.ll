@@ -125,9 +125,9 @@ if.end:                                           ; preds = %lor.lhs.false3
   br i1 %cmp15.not10, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit", label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
+  %2 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %2 = ptrtoint ptr %this to i64
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   br label %while.body
 

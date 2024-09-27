@@ -1694,10 +1694,10 @@ init:                                             ; preds = %init.check
 
 init.end:                                         ; preds = %init, %init.check, %if.end
   %call3 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN12_GLOBAL__N_116check_utf8stringEbiiiiE11json_stringB5cxx11, ptr noundef nonnull @.str.22)
+  %4 = ptrtoint ptr %byte1.addr to i64
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_24)
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_0EE", i64 16), ptr %DOCTEST_CAPTURE_24, align 8, !alias.scope !29
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_24, i64 16
-  %4 = ptrtoint ptr %byte1.addr to i64
   store i64 %4, ptr %lambda_.i.i, align 8, !alias.scope !29
   %5 = load i32, ptr %byte1.addr, align 4
   %conv = trunc i32 %5 to i8
@@ -2397,10 +2397,10 @@ init:                                             ; preds = %init.check
 
 init.end:                                         ; preds = %init, %init.check, %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN12_GLOBAL__N_114check_utf8dumpEbiiiiE11json_stringB5cxx11) #24
+  %3 = ptrtoint ptr %byte1.addr to i64
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_9)
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_0EE", i64 16), ptr %DOCTEST_CAPTURE_9, align 8, !alias.scope !46
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_9, i64 16
-  %3 = ptrtoint ptr %byte1.addr to i64
   store i64 %3, ptr %lambda_.i.i, align 8, !alias.scope !46
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_12)
           to label %invoke.cont unwind label %lpad

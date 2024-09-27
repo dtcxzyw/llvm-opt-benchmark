@@ -809,16 +809,16 @@ _ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS
 _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_13DominatorTreeENS_23df_iterator_default_setIPNS_15DomTreeNodeBaseINS_10BasicBlockEEELj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS5_EESaISA_EED2Ev.exit.i2.i, %163
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %167 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %168 = getelementptr inbounds i8, ptr %17, i64 8
-  store i64 0, ptr %168, align 8
-  %169 = ptrtoint ptr %0 to i64
-  store i64 %169, ptr %17, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm5ValueEEZNS0_19NaryReassociatePass14doOneIterationERNS0_8FunctionEE3$_0E9_M_invokeERKSt9_Any_dataOS2_", ptr %167, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm5ValueEEZNS0_19NaryReassociatePass14doOneIterationERNS0_8FunctionEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %166, align 8
+  %166 = ptrtoint ptr %0 to i64
+  %167 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %169 = getelementptr inbounds i8, ptr %17, i64 8
+  store i64 0, ptr %169, align 8
+  store i64 %166, ptr %17, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm5ValueEEZNS0_19NaryReassociatePass14doOneIterationERNS0_8FunctionEE3$_0E9_M_invokeERKSt9_Any_dataOS2_", ptr %168, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN4llvm5ValueEEZNS0_19NaryReassociatePass14doOneIterationERNS0_8FunctionEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %167, align 8
   %170 = call noundef zeroext i1 @_ZN4llvm52RecursivelyDeleteTriviallyDeadInstructionsPermissiveERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_17TargetLibraryInfoEPNS_16MemorySSAUpdaterESt8functionIFvPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %165, ptr noundef null, ptr noundef nonnull %17) #17
-  %171 = load ptr, ptr %166, align 8
+  %171 = load ptr, ptr %167, align 8
   %.not.i.i = icmp eq ptr %171, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvPN4llvm5ValueEEED2Ev.exit, label %172
 

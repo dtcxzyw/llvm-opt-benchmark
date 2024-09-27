@@ -1038,20 +1038,20 @@ freeNodes.exit:                                   ; preds = %.lr.ph.i37, %117
   br label %394
 
 127:                                              ; preds = %109
-  %.not50.i = icmp eq i64 %115, 0
-  br i1 %.not50.i, label %._crit_edge.i, label %.lr.ph.i38
+  %.not52.i = icmp eq i64 %115, 0
+  br i1 %.not52.i, label %._crit_edge.i, label %.lr.ph.i38
 
 .lr.ph.i38:                                       ; preds = %127
   %128 = load ptr, ptr @nodeInfo, align 8
   br label %129
 
 129:                                              ; preds = %129, %.lr.ph.i38
-  %.046.i = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i38 ], [ %138, %129 ]
-  %.03345.i = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i38 ], [ %142, %129 ]
-  %.03444.i = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph.i38 ], [ %146, %129 ]
-  %.03543.i = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph.i38 ], [ %150, %129 ]
-  %.03642.i = phi i64 [ 0, %.lr.ph.i38 ], [ %151, %129 ]
-  %130 = getelementptr inbounds %struct.Info_t, ptr %128, i64 %.03642.i
+  %.048.i = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i38 ], [ %138, %129 ]
+  %.03347.i = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i38 ], [ %142, %129 ]
+  %.03446.i = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph.i38 ], [ %146, %129 ]
+  %.03545.i = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph.i38 ], [ %150, %129 ]
+  %.03644.i = phi i64 [ 0, %.lr.ph.i38 ], [ %151, %129 ]
+  %130 = getelementptr inbounds %struct.Info_t, ptr %128, i64 %.03644.i
   %131 = getelementptr inbounds i8, ptr %130, i64 48
   %132 = getelementptr inbounds i8, ptr %130, i64 8
   %133 = load double, ptr %132, align 8
@@ -1059,20 +1059,20 @@ freeNodes.exit:                                   ; preds = %.lr.ph.i37, %117
   %135 = load double, ptr %134, align 8
   %136 = load double, ptr %131, align 8
   %137 = fadd double %133, %136
-  %138 = call double @llvm.minnum.f64(double %.046.i, double %137)
+  %138 = call double @llvm.minnum.f64(double %.048.i, double %137)
   %139 = getelementptr inbounds i8, ptr %130, i64 56
   %140 = load double, ptr %139, align 8
   %141 = fadd double %135, %140
-  %142 = call double @llvm.minnum.f64(double %.03345.i, double %141)
+  %142 = call double @llvm.minnum.f64(double %.03347.i, double %141)
   %143 = getelementptr inbounds i8, ptr %130, i64 64
   %144 = load double, ptr %143, align 8
   %145 = fadd double %133, %144
-  %146 = call double @llvm.maxnum.f64(double %.03444.i, double %145)
+  %146 = call double @llvm.maxnum.f64(double %.03446.i, double %145)
   %147 = getelementptr inbounds i8, ptr %130, i64 72
   %148 = load double, ptr %147, align 8
   %149 = fadd double %135, %148
-  %150 = call double @llvm.maxnum.f64(double %.03543.i, double %149)
-  %151 = add nuw i64 %.03642.i, 1
+  %150 = call double @llvm.maxnum.f64(double %.03545.i, double %149)
+  %151 = add nuw i64 %.03644.i, 1
   %exitcond.not.i = icmp eq i64 %151, %115
   br i1 %exitcond.not.i, label %._crit_edge.i, label %129
 

@@ -61376,71 +61376,87 @@ define dso_local void @_ZN5Catch15ConsoleReporter17benchmarkStartingERKNS_13Benc
   %19 = getelementptr inbounds i8, ptr %18, i64 192
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %17)
-  br i1 %21, label %59, label %22
+  br i1 %21, label %35, label %22
 
 22:                                               ; preds = %2
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 32
   %25 = load double, ptr %24, align 8
   %26 = fcmp olt double %25, 1.000000e+03
-  br i1 %26, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i.thread, label %30
+  br i1 %26, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit, label %27
 
-_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i.thread: ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %23, i64 40
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %28, double noundef %25)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit
+27:                                               ; preds = %22
+  %28 = fcmp olt double %25, 1.000000e+06
+  br i1 %28, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit, label %29
 
-30:                                               ; preds = %22
-  %31 = fcmp olt double %25, 1.000000e+06
-  br i1 %31, label %38, label %32
+29:                                               ; preds = %27
+  %30 = fcmp olt double %25, 1.000000e+09
+  br i1 %30, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit, label %31
 
-32:                                               ; preds = %30
-  %33 = fcmp olt double %25, 1.000000e+09
-  br i1 %33, label %43, label %34
+31:                                               ; preds = %29
+  %32 = fcmp olt double %25, 6.000000e+10
+  %..i = select i1 %32, i32 4, i32 5
+  br label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit
 
-34:                                               ; preds = %32
-  %35 = fcmp olt double %25, 6.000000e+10
-  %36 = getelementptr inbounds i8, ptr %23, i64 40
-  %37 = load ptr, ptr %36, align 8
-  br i1 %35, label %48, label %51
+_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit: ; preds = %22, %27, %29, %31
+  %.sink.i = phi i32 [ 1, %22 ], [ 2, %27 ], [ 3, %29 ], [ %..i, %31 ]
+  %33 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_(ptr noundef nonnull align 8 dereferenceable(53) %23, double %25, i32 %.sink.i)
+  %34 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %23)
+  br label %35
 
-38:                                               ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %23, i64 40
-  %40 = load ptr, ptr %39, align 8
-  %41 = fdiv double %25, 1.000000e+03
-  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %40, double noundef %41)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit
-
-43:                                               ; preds = %32
-  %44 = getelementptr inbounds i8, ptr %23, i64 40
-  %45 = load ptr, ptr %44, align 8
-  %46 = fdiv double %25, 1.000000e+06
-  %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %45, double noundef %46)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit
-
-48:                                               ; preds = %34
-  %49 = fdiv double %25, 1.000000e+09
-  %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %37, double noundef %49)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit
-
-51:                                               ; preds = %34
-  %52 = fdiv double %25, 6.000000e+10
-  %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %37, double noundef %52)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit
-
-_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit: ; preds = %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i.thread, %38, %43, %48, %51
-  %.sink = phi ptr [ %29, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i.thread ], [ %42, %38 ], [ %47, %43 ], [ %50, %48 ], [ %53, %51 ]
-  %.pn.i.i.i.i = phi { ptr, i64 } [ { ptr @.str.781, i64 2 }, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i.thread ], [ { ptr @.str.782, i64 2 }, %38 ], [ { ptr @.str.783, i64 2 }, %43 ], [ { ptr @.str.639, i64 1 }, %48 ], [ { ptr @.str.764, i64 1 }, %51 ]
-  %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %.sink, i8 noundef signext 32)
-  %55 = extractvalue { ptr, i64 } %.pn.i.i.i.i, 0
-  %56 = extractvalue { ptr, i64 } %.pn.i.i.i.i, 1
-  %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %55, i64 noundef %56)
-  %58 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %23)
-  br label %59
-
-59:                                               ; preds = %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit, %2
+35:                                               ; preds = %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit, %2
   ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_(ptr noundef nonnull readonly returned align 8 dereferenceable(53) %0, double %.0.val, i32 %.8.val) unnamed_addr #6 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = load ptr, ptr %2, align 8
+  switch i32 %.8.val, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i [
+    i32 2, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread
+    i32 3, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread2
+    i32 4, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread4
+    i32 5, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread6
+  ]
+
+_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread: ; preds = %1
+  %4 = fdiv double %.0.val, 1.000000e+03
+  %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %4)
+  %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef signext 32)
+  br label %_ZN5Catch20ReusableStringStreamlsINS_12_GLOBAL__N_18DurationEEERS0_RKT_.exit
+
+_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread2: ; preds = %1
+  %7 = fdiv double %.0.val, 1.000000e+06
+  %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %7)
+  %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %8, i8 noundef signext 32)
+  br label %_ZN5Catch20ReusableStringStreamlsINS_12_GLOBAL__N_18DurationEEERS0_RKT_.exit
+
+_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread4: ; preds = %1
+  %10 = fdiv double %.0.val, 1.000000e+09
+  %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %10)
+  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext 32)
+  br label %_ZN5Catch20ReusableStringStreamlsINS_12_GLOBAL__N_18DurationEEERS0_RKT_.exit
+
+_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread6: ; preds = %1
+  %13 = fdiv double %.0.val, 6.000000e+10
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %13)
+  %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %14, i8 noundef signext 32)
+  br label %_ZN5Catch20ReusableStringStreamlsINS_12_GLOBAL__N_18DurationEEERS0_RKT_.exit
+
+_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i: ; preds = %1
+  %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %.0.val)
+  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %16, i8 noundef signext 32)
+  %cond = icmp eq i32 %.8.val, 1
+  %spec.select = select i1 %cond, { ptr, i64 } { ptr @.str.781, i64 2 }, { ptr, i64 } { ptr @.str.512, i64 20 }
+  br label %_ZN5Catch20ReusableStringStreamlsINS_12_GLOBAL__N_18DurationEEERS0_RKT_.exit
+
+_ZN5Catch20ReusableStringStreamlsINS_12_GLOBAL__N_18DurationEEERS0_RKT_.exit: ; preds = %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread6, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread4, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread2, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread
+  %18 = phi ptr [ %6, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread ], [ %9, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread2 ], [ %12, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread4 ], [ %15, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread6 ], [ %17, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i ]
+  %.pn.i.i.i = phi { ptr, i64 } [ { ptr @.str.782, i64 2 }, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread ], [ { ptr @.str.783, i64 2 }, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread2 ], [ { ptr @.str.639, i64 1 }, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread4 ], [ { ptr @.str.764, i64 1 }, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.thread6 ], [ %spec.select, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i ]
+  %19 = extractvalue { ptr, i64 } %.pn.i.i.i, 0
+  %20 = extractvalue { ptr, i64 } %.pn.i.i.i, 1
+  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %19, i64 noundef %20)
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -61453,419 +61469,174 @@ define dso_local void @_ZN5Catch15ConsoleReporter14benchmarkEndedERKNS_14Benchma
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %9 = getelementptr inbounds i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8
-  br i1 %8, label %11, label %46
+  br i1 %8, label %11, label %22
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %1, i64 96
   %13 = load double, ptr %12, align 8
   %14 = fcmp olt double %13, 1.000000e+03
-  br i1 %14, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i.thread, label %18
-
-_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i.thread: ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %10, i64 40
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %16, double noundef %13)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit
-
-18:                                               ; preds = %11
-  %19 = fcmp olt double %13, 1.000000e+06
-  br i1 %19, label %26, label %20
-
-20:                                               ; preds = %18
-  %21 = fcmp olt double %13, 1.000000e+09
-  br i1 %21, label %31, label %22
-
-22:                                               ; preds = %20
-  %23 = fcmp olt double %13, 6.000000e+10
-  %24 = getelementptr inbounds i8, ptr %10, i64 40
-  %25 = load ptr, ptr %24, align 8
-  br i1 %23, label %36, label %39
-
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %10, i64 40
-  %28 = load ptr, ptr %27, align 8
-  %29 = fdiv double %13, 1.000000e+03
-  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %28, double noundef %29)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit
-
-31:                                               ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %10, i64 40
-  %33 = load ptr, ptr %32, align 8
-  %34 = fdiv double %13, 1.000000e+06
-  %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %33, double noundef %34)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit
-
-36:                                               ; preds = %22
-  %37 = fdiv double %13, 1.000000e+09
-  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %25, double noundef %37)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit
-
-39:                                               ; preds = %22
-  %40 = fdiv double %13, 6.000000e+10
-  %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %25, double noundef %40)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit
-
-_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit: ; preds = %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i.thread, %26, %31, %36, %39
-  %.sink = phi ptr [ %17, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i.thread ], [ %30, %26 ], [ %35, %31 ], [ %38, %36 ], [ %41, %39 ]
-  %.pn.i.i.i.i = phi { ptr, i64 } [ { ptr @.str.781, i64 2 }, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i.thread ], [ { ptr @.str.782, i64 2 }, %26 ], [ { ptr @.str.783, i64 2 }, %31 ], [ { ptr @.str.639, i64 1 }, %36 ], [ { ptr @.str.764, i64 1 }, %39 ]
-  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %.sink, i8 noundef signext 32)
-  %43 = extractvalue { ptr, i64 } %.pn.i.i.i.i, 0
-  %44 = extractvalue { ptr, i64 } %.pn.i.i.i.i, 1
-  %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %43, i64 noundef %44)
-  br label %262
-
-46:                                               ; preds = %2
-  %47 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
-  %48 = getelementptr inbounds i8, ptr %1, i64 96
-  %49 = load double, ptr %48, align 8
-  %50 = fcmp olt double %49, 1.000000e+03
-  br i1 %50, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i13.thread, label %54
-
-_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i13.thread: ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %10, i64 40
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %52, double noundef %49)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit17
-
-54:                                               ; preds = %46
-  %55 = fcmp olt double %49, 1.000000e+06
-  br i1 %55, label %62, label %56
-
-56:                                               ; preds = %54
-  %57 = fcmp olt double %49, 1.000000e+09
-  br i1 %57, label %67, label %58
-
-58:                                               ; preds = %56
-  %59 = fcmp olt double %49, 6.000000e+10
-  %60 = getelementptr inbounds i8, ptr %10, i64 40
-  %61 = load ptr, ptr %60, align 8
-  br i1 %59, label %72, label %75
-
-62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %10, i64 40
-  %64 = load ptr, ptr %63, align 8
-  %65 = fdiv double %49, 1.000000e+03
-  %66 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %64, double noundef %65)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit17
-
-67:                                               ; preds = %56
-  %68 = getelementptr inbounds i8, ptr %10, i64 40
-  %69 = load ptr, ptr %68, align 8
-  %70 = fdiv double %49, 1.000000e+06
-  %71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %69, double noundef %70)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit17
-
-72:                                               ; preds = %58
-  %73 = fdiv double %49, 1.000000e+09
-  %74 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %61, double noundef %73)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit17
-
-75:                                               ; preds = %58
-  %76 = fdiv double %49, 6.000000e+10
-  %77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %61, double noundef %76)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit17
-
-_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit17: ; preds = %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i13.thread, %62, %67, %72, %75
-  %.sink247 = phi ptr [ %53, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i13.thread ], [ %66, %62 ], [ %71, %67 ], [ %74, %72 ], [ %77, %75 ]
-  %.pn.i.i.i.i16 = phi { ptr, i64 } [ { ptr @.str.781, i64 2 }, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i13.thread ], [ { ptr @.str.782, i64 2 }, %62 ], [ { ptr @.str.783, i64 2 }, %67 ], [ { ptr @.str.639, i64 1 }, %72 ], [ { ptr @.str.764, i64 1 }, %75 ]
-  %78 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %.sink247, i8 noundef signext 32)
-  %79 = extractvalue { ptr, i64 } %.pn.i.i.i.i16, 0
-  %80 = extractvalue { ptr, i64 } %.pn.i.i.i.i16, 1
-  %81 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef %79, i64 noundef %80)
-  %82 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
-  %83 = getelementptr inbounds i8, ptr %1, i64 104
-  %84 = load double, ptr %83, align 8
-  %85 = fcmp olt double %84, 1.000000e+03
-  br i1 %85, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i23.thread, label %89
-
-_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i23.thread: ; preds = %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit17
-  %86 = getelementptr inbounds i8, ptr %10, i64 40
-  %87 = load ptr, ptr %86, align 8
-  %88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %87, double noundef %84)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit27
-
-89:                                               ; preds = %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit17
-  %90 = fcmp olt double %84, 1.000000e+06
-  br i1 %90, label %97, label %91
-
-91:                                               ; preds = %89
-  %92 = fcmp olt double %84, 1.000000e+09
-  br i1 %92, label %102, label %93
-
-93:                                               ; preds = %91
-  %94 = fcmp olt double %84, 6.000000e+10
-  %95 = getelementptr inbounds i8, ptr %10, i64 40
-  %96 = load ptr, ptr %95, align 8
-  br i1 %94, label %107, label %110
-
-97:                                               ; preds = %89
-  %98 = getelementptr inbounds i8, ptr %10, i64 40
-  %99 = load ptr, ptr %98, align 8
-  %100 = fdiv double %84, 1.000000e+03
-  %101 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %99, double noundef %100)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit27
-
-102:                                              ; preds = %91
-  %103 = getelementptr inbounds i8, ptr %10, i64 40
-  %104 = load ptr, ptr %103, align 8
-  %105 = fdiv double %84, 1.000000e+06
-  %106 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %104, double noundef %105)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit27
-
-107:                                              ; preds = %93
-  %108 = fdiv double %84, 1.000000e+09
-  %109 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %96, double noundef %108)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit27
-
-110:                                              ; preds = %93
-  %111 = fdiv double %84, 6.000000e+10
-  %112 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %96, double noundef %111)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit27
-
-_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit27: ; preds = %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i23.thread, %97, %102, %107, %110
-  %.sink248 = phi ptr [ %88, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i23.thread ], [ %101, %97 ], [ %106, %102 ], [ %109, %107 ], [ %112, %110 ]
-  %.pn.i.i.i.i26 = phi { ptr, i64 } [ { ptr @.str.781, i64 2 }, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i23.thread ], [ { ptr @.str.782, i64 2 }, %97 ], [ { ptr @.str.783, i64 2 }, %102 ], [ { ptr @.str.639, i64 1 }, %107 ], [ { ptr @.str.764, i64 1 }, %110 ]
-  %113 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %.sink248, i8 noundef signext 32)
-  %114 = extractvalue { ptr, i64 } %.pn.i.i.i.i26, 0
-  %115 = extractvalue { ptr, i64 } %.pn.i.i.i.i26, 1
-  %116 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef %114, i64 noundef %115)
-  %117 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
-  %118 = getelementptr inbounds i8, ptr %1, i64 112
-  %119 = load double, ptr %118, align 8
-  %120 = fcmp olt double %119, 1.000000e+03
-  br i1 %120, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i33.thread, label %124
-
-_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i33.thread: ; preds = %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit27
-  %121 = getelementptr inbounds i8, ptr %10, i64 40
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %122, double noundef %119)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit37
-
-124:                                              ; preds = %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit27
-  %125 = fcmp olt double %119, 1.000000e+06
-  br i1 %125, label %132, label %126
-
-126:                                              ; preds = %124
-  %127 = fcmp olt double %119, 1.000000e+09
-  br i1 %127, label %137, label %128
-
-128:                                              ; preds = %126
-  %129 = fcmp olt double %119, 6.000000e+10
-  %130 = getelementptr inbounds i8, ptr %10, i64 40
-  %131 = load ptr, ptr %130, align 8
-  br i1 %129, label %142, label %145
-
-132:                                              ; preds = %124
-  %133 = getelementptr inbounds i8, ptr %10, i64 40
-  %134 = load ptr, ptr %133, align 8
-  %135 = fdiv double %119, 1.000000e+03
-  %136 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %134, double noundef %135)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit37
-
-137:                                              ; preds = %126
-  %138 = getelementptr inbounds i8, ptr %10, i64 40
-  %139 = load ptr, ptr %138, align 8
-  %140 = fdiv double %119, 1.000000e+06
-  %141 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %139, double noundef %140)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit37
-
-142:                                              ; preds = %128
-  %143 = fdiv double %119, 1.000000e+09
-  %144 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %131, double noundef %143)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit37
-
-145:                                              ; preds = %128
-  %146 = fdiv double %119, 6.000000e+10
-  %147 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %131, double noundef %146)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit37
-
-_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit37: ; preds = %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i33.thread, %132, %137, %142, %145
-  %.sink249 = phi ptr [ %123, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i33.thread ], [ %136, %132 ], [ %141, %137 ], [ %144, %142 ], [ %147, %145 ]
-  %.pn.i.i.i.i36 = phi { ptr, i64 } [ { ptr @.str.781, i64 2 }, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i33.thread ], [ { ptr @.str.782, i64 2 }, %132 ], [ { ptr @.str.783, i64 2 }, %137 ], [ { ptr @.str.639, i64 1 }, %142 ], [ { ptr @.str.764, i64 1 }, %145 ]
-  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %.sink249, i8 noundef signext 32)
-  %149 = extractvalue { ptr, i64 } %.pn.i.i.i.i36, 0
-  %150 = extractvalue { ptr, i64 } %.pn.i.i.i.i36, 1
-  %151 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef %149, i64 noundef %150)
-  %152 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
-  %153 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
-  %154 = getelementptr inbounds i8, ptr %1, i64 128
-  %155 = load double, ptr %154, align 8
-  %156 = fcmp olt double %155, 1.000000e+03
-  br i1 %156, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i43.thread, label %160
-
-_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i43.thread: ; preds = %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit37
-  %157 = getelementptr inbounds i8, ptr %10, i64 40
-  %158 = load ptr, ptr %157, align 8
-  %159 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %158, double noundef %155)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit47
-
-160:                                              ; preds = %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit37
-  %161 = fcmp olt double %155, 1.000000e+06
-  br i1 %161, label %168, label %162
-
-162:                                              ; preds = %160
-  %163 = fcmp olt double %155, 1.000000e+09
-  br i1 %163, label %173, label %164
-
-164:                                              ; preds = %162
-  %165 = fcmp olt double %155, 6.000000e+10
-  %166 = getelementptr inbounds i8, ptr %10, i64 40
-  %167 = load ptr, ptr %166, align 8
-  br i1 %165, label %178, label %181
-
-168:                                              ; preds = %160
-  %169 = getelementptr inbounds i8, ptr %10, i64 40
-  %170 = load ptr, ptr %169, align 8
-  %171 = fdiv double %155, 1.000000e+03
-  %172 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %170, double noundef %171)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit47
-
-173:                                              ; preds = %162
-  %174 = getelementptr inbounds i8, ptr %10, i64 40
-  %175 = load ptr, ptr %174, align 8
-  %176 = fdiv double %155, 1.000000e+06
-  %177 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %175, double noundef %176)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit47
-
-178:                                              ; preds = %164
-  %179 = fdiv double %155, 1.000000e+09
-  %180 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %167, double noundef %179)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit47
-
-181:                                              ; preds = %164
-  %182 = fdiv double %155, 6.000000e+10
-  %183 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %167, double noundef %182)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit47
-
-_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit47: ; preds = %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i43.thread, %168, %173, %178, %181
-  %.sink250 = phi ptr [ %159, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i43.thread ], [ %172, %168 ], [ %177, %173 ], [ %180, %178 ], [ %183, %181 ]
-  %.pn.i.i.i.i46 = phi { ptr, i64 } [ { ptr @.str.781, i64 2 }, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i43.thread ], [ { ptr @.str.782, i64 2 }, %168 ], [ { ptr @.str.783, i64 2 }, %173 ], [ { ptr @.str.639, i64 1 }, %178 ], [ { ptr @.str.764, i64 1 }, %181 ]
-  %184 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %.sink250, i8 noundef signext 32)
-  %185 = extractvalue { ptr, i64 } %.pn.i.i.i.i46, 0
-  %186 = extractvalue { ptr, i64 } %.pn.i.i.i.i46, 1
-  %187 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %184, ptr noundef %185, i64 noundef %186)
-  %188 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
-  %189 = getelementptr inbounds i8, ptr %1, i64 136
-  %190 = load double, ptr %189, align 8
-  %191 = fcmp olt double %190, 1.000000e+03
-  br i1 %191, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i53.thread, label %195
-
-_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i53.thread: ; preds = %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit47
-  %192 = getelementptr inbounds i8, ptr %10, i64 40
-  %193 = load ptr, ptr %192, align 8
-  %194 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %193, double noundef %190)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit57
-
-195:                                              ; preds = %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit47
-  %196 = fcmp olt double %190, 1.000000e+06
-  br i1 %196, label %203, label %197
-
-197:                                              ; preds = %195
-  %198 = fcmp olt double %190, 1.000000e+09
-  br i1 %198, label %208, label %199
-
-199:                                              ; preds = %197
-  %200 = fcmp olt double %190, 6.000000e+10
-  %201 = getelementptr inbounds i8, ptr %10, i64 40
-  %202 = load ptr, ptr %201, align 8
-  br i1 %200, label %213, label %216
-
-203:                                              ; preds = %195
-  %204 = getelementptr inbounds i8, ptr %10, i64 40
-  %205 = load ptr, ptr %204, align 8
-  %206 = fdiv double %190, 1.000000e+03
-  %207 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %205, double noundef %206)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit57
-
-208:                                              ; preds = %197
-  %209 = getelementptr inbounds i8, ptr %10, i64 40
-  %210 = load ptr, ptr %209, align 8
-  %211 = fdiv double %190, 1.000000e+06
-  %212 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %210, double noundef %211)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit57
-
-213:                                              ; preds = %199
-  %214 = fdiv double %190, 1.000000e+09
-  %215 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %202, double noundef %214)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit57
-
-216:                                              ; preds = %199
-  %217 = fdiv double %190, 6.000000e+10
-  %218 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %202, double noundef %217)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit57
-
-_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit57: ; preds = %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i53.thread, %203, %208, %213, %216
-  %.sink251 = phi ptr [ %194, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i53.thread ], [ %207, %203 ], [ %212, %208 ], [ %215, %213 ], [ %218, %216 ]
-  %.pn.i.i.i.i56 = phi { ptr, i64 } [ { ptr @.str.781, i64 2 }, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i53.thread ], [ { ptr @.str.782, i64 2 }, %203 ], [ { ptr @.str.783, i64 2 }, %208 ], [ { ptr @.str.639, i64 1 }, %213 ], [ { ptr @.str.764, i64 1 }, %216 ]
-  %219 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %.sink251, i8 noundef signext 32)
-  %220 = extractvalue { ptr, i64 } %.pn.i.i.i.i56, 0
-  %221 = extractvalue { ptr, i64 } %.pn.i.i.i.i56, 1
-  %222 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %219, ptr noundef %220, i64 noundef %221)
-  %223 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
-  %224 = getelementptr inbounds i8, ptr %1, i64 144
-  %225 = load double, ptr %224, align 8
-  %226 = fcmp olt double %225, 1.000000e+03
-  br i1 %226, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i63.thread, label %230
-
-_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i63.thread: ; preds = %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit57
-  %227 = getelementptr inbounds i8, ptr %10, i64 40
-  %228 = load ptr, ptr %227, align 8
-  %229 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %228, double noundef %225)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit67
-
-230:                                              ; preds = %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit57
-  %231 = fcmp olt double %225, 1.000000e+06
-  br i1 %231, label %238, label %232
-
-232:                                              ; preds = %230
-  %233 = fcmp olt double %225, 1.000000e+09
-  br i1 %233, label %243, label %234
-
-234:                                              ; preds = %232
-  %235 = fcmp olt double %225, 6.000000e+10
-  %236 = getelementptr inbounds i8, ptr %10, i64 40
-  %237 = load ptr, ptr %236, align 8
-  br i1 %235, label %248, label %251
-
-238:                                              ; preds = %230
-  %239 = getelementptr inbounds i8, ptr %10, i64 40
-  %240 = load ptr, ptr %239, align 8
-  %241 = fdiv double %225, 1.000000e+03
-  %242 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %240, double noundef %241)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit67
-
-243:                                              ; preds = %232
-  %244 = getelementptr inbounds i8, ptr %10, i64 40
-  %245 = load ptr, ptr %244, align 8
-  %246 = fdiv double %225, 1.000000e+06
-  %247 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %245, double noundef %246)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit67
-
-248:                                              ; preds = %234
-  %249 = fdiv double %225, 1.000000e+09
-  %250 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %237, double noundef %249)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit67
-
-251:                                              ; preds = %234
-  %252 = fdiv double %225, 6.000000e+10
-  %253 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %237, double noundef %252)
-  br label %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit67
-
-_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit67: ; preds = %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i63.thread, %238, %243, %248, %251
-  %.sink252 = phi ptr [ %229, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i63.thread ], [ %242, %238 ], [ %247, %243 ], [ %250, %248 ], [ %253, %251 ]
-  %.pn.i.i.i.i66 = phi { ptr, i64 } [ { ptr @.str.781, i64 2 }, %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i.i63.thread ], [ { ptr @.str.782, i64 2 }, %238 ], [ { ptr @.str.783, i64 2 }, %243 ], [ { ptr @.str.639, i64 1 }, %248 ], [ { ptr @.str.764, i64 1 }, %251 ]
-  %254 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %.sink252, i8 noundef signext 32)
-  %255 = extractvalue { ptr, i64 } %.pn.i.i.i.i66, 0
-  %256 = extractvalue { ptr, i64 } %.pn.i.i.i.i66, 1
-  %257 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %254, ptr noundef %255, i64 noundef %256)
-  %258 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
-  %259 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
-  %260 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
-  %261 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
-  br label %262
-
-262:                                              ; preds = %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit67, %_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_.exit
-  %263 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
+  br i1 %14, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit, label %15
+
+15:                                               ; preds = %11
+  %16 = fcmp olt double %13, 1.000000e+06
+  br i1 %16, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit, label %17
+
+17:                                               ; preds = %15
+  %18 = fcmp olt double %13, 1.000000e+09
+  br i1 %18, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit, label %19
+
+19:                                               ; preds = %17
+  %20 = fcmp olt double %13, 6.000000e+10
+  %..i = select i1 %20, i32 4, i32 5
+  br label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit
+
+_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit: ; preds = %11, %15, %17, %19
+  %.sink.i = phi i32 [ 1, %11 ], [ 2, %15 ], [ 3, %17 ], [ %..i, %19 ]
+  %21 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_(ptr noundef nonnull align 8 dereferenceable(53) %10, double %13, i32 %.sink.i)
+  br label %94
+
+22:                                               ; preds = %2
+  %23 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
+  %24 = getelementptr inbounds i8, ptr %1, i64 96
+  %25 = load double, ptr %24, align 8
+  %26 = fcmp olt double %25, 1.000000e+03
+  br i1 %26, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit23, label %27
+
+27:                                               ; preds = %22
+  %28 = fcmp olt double %25, 1.000000e+06
+  br i1 %28, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit23, label %29
+
+29:                                               ; preds = %27
+  %30 = fcmp olt double %25, 1.000000e+09
+  br i1 %30, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit23, label %31
+
+31:                                               ; preds = %29
+  %32 = fcmp olt double %25, 6.000000e+10
+  %..i21 = select i1 %32, i32 4, i32 5
+  br label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit23
+
+_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit23: ; preds = %22, %27, %29, %31
+  %.sink.i22 = phi i32 [ 1, %22 ], [ 2, %27 ], [ 3, %29 ], [ %..i21, %31 ]
+  %33 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_(ptr noundef nonnull align 8 dereferenceable(53) %10, double %25, i32 %.sink.i22)
+  %34 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
+  %35 = getelementptr inbounds i8, ptr %1, i64 104
+  %36 = load double, ptr %35, align 8
+  %37 = fcmp olt double %36, 1.000000e+03
+  br i1 %37, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit26, label %38
+
+38:                                               ; preds = %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit23
+  %39 = fcmp olt double %36, 1.000000e+06
+  br i1 %39, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit26, label %40
+
+40:                                               ; preds = %38
+  %41 = fcmp olt double %36, 1.000000e+09
+  br i1 %41, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit26, label %42
+
+42:                                               ; preds = %40
+  %43 = fcmp olt double %36, 6.000000e+10
+  %..i24 = select i1 %43, i32 4, i32 5
+  br label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit26
+
+_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit26: ; preds = %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit23, %38, %40, %42
+  %.sink.i25 = phi i32 [ 1, %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit23 ], [ 2, %38 ], [ 3, %40 ], [ %..i24, %42 ]
+  %44 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_(ptr noundef nonnull align 8 dereferenceable(53) %10, double %36, i32 %.sink.i25)
+  %45 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
+  %46 = getelementptr inbounds i8, ptr %1, i64 112
+  %47 = load double, ptr %46, align 8
+  %48 = fcmp olt double %47, 1.000000e+03
+  br i1 %48, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit29, label %49
+
+49:                                               ; preds = %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit26
+  %50 = fcmp olt double %47, 1.000000e+06
+  br i1 %50, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit29, label %51
+
+51:                                               ; preds = %49
+  %52 = fcmp olt double %47, 1.000000e+09
+  br i1 %52, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit29, label %53
+
+53:                                               ; preds = %51
+  %54 = fcmp olt double %47, 6.000000e+10
+  %..i27 = select i1 %54, i32 4, i32 5
+  br label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit29
+
+_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit29: ; preds = %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit26, %49, %51, %53
+  %.sink.i28 = phi i32 [ 1, %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit26 ], [ 2, %49 ], [ 3, %51 ], [ %..i27, %53 ]
+  %55 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_(ptr noundef nonnull align 8 dereferenceable(53) %10, double %47, i32 %.sink.i28)
+  %56 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
+  %57 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
+  %58 = getelementptr inbounds i8, ptr %1, i64 128
+  %59 = load double, ptr %58, align 8
+  %60 = fcmp olt double %59, 1.000000e+03
+  br i1 %60, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit32, label %61
+
+61:                                               ; preds = %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit29
+  %62 = fcmp olt double %59, 1.000000e+06
+  br i1 %62, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit32, label %63
+
+63:                                               ; preds = %61
+  %64 = fcmp olt double %59, 1.000000e+09
+  br i1 %64, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit32, label %65
+
+65:                                               ; preds = %63
+  %66 = fcmp olt double %59, 6.000000e+10
+  %..i30 = select i1 %66, i32 4, i32 5
+  br label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit32
+
+_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit32: ; preds = %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit29, %61, %63, %65
+  %.sink.i31 = phi i32 [ 1, %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit29 ], [ 2, %61 ], [ 3, %63 ], [ %..i30, %65 ]
+  %67 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_(ptr noundef nonnull align 8 dereferenceable(53) %10, double %59, i32 %.sink.i31)
+  %68 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
+  %69 = getelementptr inbounds i8, ptr %1, i64 136
+  %70 = load double, ptr %69, align 8
+  %71 = fcmp olt double %70, 1.000000e+03
+  br i1 %71, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit35, label %72
+
+72:                                               ; preds = %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit32
+  %73 = fcmp olt double %70, 1.000000e+06
+  br i1 %73, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit35, label %74
+
+74:                                               ; preds = %72
+  %75 = fcmp olt double %70, 1.000000e+09
+  br i1 %75, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit35, label %76
+
+76:                                               ; preds = %74
+  %77 = fcmp olt double %70, 6.000000e+10
+  %..i33 = select i1 %77, i32 4, i32 5
+  br label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit35
+
+_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit35: ; preds = %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit32, %72, %74, %76
+  %.sink.i34 = phi i32 [ 1, %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit32 ], [ 2, %72 ], [ 3, %74 ], [ %..i33, %76 ]
+  %78 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_(ptr noundef nonnull align 8 dereferenceable(53) %10, double %70, i32 %.sink.i34)
+  %79 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
+  %80 = getelementptr inbounds i8, ptr %1, i64 144
+  %81 = load double, ptr %80, align 8
+  %82 = fcmp olt double %81, 1.000000e+03
+  br i1 %82, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit38, label %83
+
+83:                                               ; preds = %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit35
+  %84 = fcmp olt double %81, 1.000000e+06
+  br i1 %84, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit38, label %85
+
+85:                                               ; preds = %83
+  %86 = fcmp olt double %81, 1.000000e+09
+  br i1 %86, label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit38, label %87
+
+87:                                               ; preds = %85
+  %88 = fcmp olt double %81, 6.000000e+10
+  %..i36 = select i1 %88, i32 4, i32 5
+  br label %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit38
+
+_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit38: ; preds = %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit35, %83, %85, %87
+  %.sink.i37 = phi i32 [ 1, %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit35 ], [ 2, %83 ], [ 3, %85 ], [ %..i36, %87 ]
+  %89 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_(ptr noundef nonnull align 8 dereferenceable(53) %10, double %81, i32 %.sink.i37)
+  %90 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
+  %91 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
+  %92 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
+  %93 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
+  br label %94
+
+94:                                               ; preds = %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit38, %_ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit
+  %95 = tail call fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsERNS_12TablePrinterENS_12_GLOBAL__N_111ColumnBreakE(ptr noundef nonnull align 8 dereferenceable(53) %10)
   ret void
 }
 

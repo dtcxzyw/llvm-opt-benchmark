@@ -38643,14 +38643,14 @@ _ZN3ade10TypedGraphIJN2cv5gimpl8NodeKindENS2_11FusedIslandENS2_8DataSlotENS2_10I
 _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratorneERKSK_.exit.i.i: ; preds = %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeKindENS2_11FusedIslandENS2_8DataSlotENS2_10IslandExecENS2_7EmitterENS2_4SinkENS2_15IslandsCompiledENS2_13DesyncIslEdgeENS_6passes19TopologicalSortDataEEE5nodesEv.exit32, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEEUlRKSH_E_EclINS4_4util5Range13IterableRangeINSS_8MapRangeINSS_9IterRangeINS_17__normal_iteratorIPSt10shared_ptrISG_ES8_ISY_SaISY_EEEES12_EENS5_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i
   %.0.i.i97 = phi i64 [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEEUlRKSH_E_EclINS4_4util5Range13IterableRangeINSS_8MapRangeINSS_9IterRangeINS_17__normal_iteratorIPSt10shared_ptrISG_ES8_ISY_SaISY_EEEES12_EENS5_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i ], [ 0, %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeKindENS2_11FusedIslandENS2_8DataSlotENS2_10IslandExecENS2_7EmitterENS2_4SinkENS2_15IslandsCompiledENS2_13DesyncIslEdgeENS_6passes19TopologicalSortDataEEE5nodesEv.exit32 ]
   %.sroa.0.0.i96 = phi ptr [ %207, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEEUlRKSH_E_EclINS4_4util5Range13IterableRangeINSS_8MapRangeINSS_9IterRangeINS_17__normal_iteratorIPSt10shared_ptrISG_ES8_ISY_SaISY_EEEES12_EENS5_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i ], [ %.sroa.069.sroa.0.0.copyload, %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeKindENS2_11FusedIslandENS2_8DataSlotENS2_10IslandExecENS2_7EmitterENS2_4SinkENS2_15IslandsCompiledENS2_13DesyncIslEdgeENS_6passes19TopologicalSortDataEEE5nodesEv.exit32 ]
-  %.val.val.i.i = load ptr, ptr %.sroa.0.0.i96, align 8, !noalias !635
+  %.val2.val.i.i = load ptr, ptr %.sroa.0.0.i96, align 8, !noalias !635
   %91 = getelementptr i8, ptr %.sroa.0.0.i96, i64 8
-  %.val.val2.i.i = load ptr, ptr %91, align 8, !noalias !635
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.val2.i.i, null
+  %.val2.val3.i.i = load ptr, ptr %91, align 8, !noalias !635
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val2.val3.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit.i.i.i, label %92
 
 92:                                               ; preds = %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratorneERKSK_.exit.i.i
-  %93 = getelementptr inbounds i8, ptr %.val.val2.i.i, i64 12
+  %93 = getelementptr inbounds i8, ptr %.val2.val3.i.i, i64 12
   %94 = load i8, ptr @__libc_single_threaded, align 1, !noalias !11
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %94, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %99, label %.thread.i.i.i
@@ -38661,14 +38661,14 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__n
   store i32 %96, ptr %93, align 4, !noalias !642
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %97 = load i64, ptr %19, align 8, !noalias !649
-  store ptr %.val.val.i.i, ptr %13, align 8, !noalias !649
-  store ptr %.val.val2.i.i, ptr %89, align 8, !noalias !649
+  store ptr %.val2.val.i.i, ptr %13, align 8, !noalias !649
+  store ptr %.val2.val3.i.i, ptr %89, align 8, !noalias !649
   br label %103
 
 _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit.i.i.i: ; preds = %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratorneERKSK_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %98 = load i64, ptr %19, align 8, !noalias !649
-  store ptr %.val.val.i.i, ptr %13, align 8, !noalias !649
+  store ptr %.val2.val.i.i, ptr %13, align 8, !noalias !649
   store ptr null, ptr %89, align 8, !noalias !649
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i.i.i.i.i
 
@@ -38678,8 +38678,8 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
   %101 = icmp eq i8 %.pre.i.i.i, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %102 = load i64, ptr %19, align 8, !noalias !649
-  store ptr %.val.val.i.i, ptr %13, align 8, !noalias !649
-  store ptr %.val.val2.i.i, ptr %89, align 8, !noalias !649
+  store ptr %.val2.val.i.i, ptr %13, align 8, !noalias !649
+  store ptr %.val2.val3.i.i, ptr %89, align 8, !noalias !649
   br i1 %101, label %107, label %103
 
 103:                                              ; preds = %99, %.thread.i.i.i
@@ -38789,7 +38789,7 @@ _ZN3ade10TypedGraphIJN2cv5gimpl8NodeKindENS2_11FusedIslandENS2_8DataSlotENS2_10I
           to label %.noexc.i.i.i unwind label %.loopexit.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %148
-  br i1 %150, label %.loopexit5.i.i.i, label %148, !llvm.loop !286
+  br i1 %150, label %.loopexit2.i.i.i, label %148, !llvm.loop !286
 
 151:                                              ; preds = %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeKindENS2_11FusedIslandENS2_8DataSlotENS2_10IslandExecENS2_7EmitterENS2_4SinkENS2_15IslandsCompiledENS2_13DesyncIslEdgeENS_6passes19TopologicalSortDataEEE8metadataERKNS_6HandleINS_4NodeEEE.exit.i.i.i.i
   %152 = invoke noundef i64 @_ZNK3ade7details8Metadata6IdHashclERKNS0_10MetadataIdE(ptr noundef nonnull align 1 dereferenceable(1) %110, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -38840,9 +38840,9 @@ _ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10uniqu
 
 _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Metadata18MetadataHolderBaseESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ENS6_6IdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %.noexc6.i.i.i
   %172 = load ptr, ptr %.013.i.i.i.i.i.i.i.i.i.i, align 8
-  br label %.loopexit5.i.i.i
+  br label %.loopexit2.i.i.i
 
-.loopexit5.i.i.i:                                 ; preds = %.noexc.i.i.i, %_ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Metadata18MetadataHolderBaseESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ENS6_6IdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i.i.i.i.i.i.i
+.loopexit2.i.i.i:                                 ; preds = %.noexc.i.i.i, %_ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Metadata18MetadataHolderBaseESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ENS6_6IdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i.i.i.i.i.i.i
   %.sroa.06.1.i.i.i.i.i.i.i.i = phi ptr [ %172, %_ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Metadata18MetadataHolderBaseESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ENS6_6IdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i.i.i.i.i.i.i ], [ %.sroa.06.0.i.i.i.i.i.i.i.i, %.noexc.i.i.i ]
   %173 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i.i.i.i.i.i, i64 16
   %174 = load ptr, ptr %173, align 8
@@ -38851,8 +38851,8 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   %176 = load i32, ptr %175, align 4
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEEUlRKSH_E_EclINS4_4util5Range13IterableRangeINSS_8MapRangeINSS_9IterRangeINS_17__normal_iteratorIPSt10shared_ptrISG_ES8_ISY_SaISY_EEEES12_EENS5_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i, label %177
 
-177:                                              ; preds = %.loopexit5.i.i.i
-  %178 = getelementptr inbounds i8, ptr %.val.val2.i.i, i64 12
+177:                                              ; preds = %.loopexit2.i.i.i
+  %178 = getelementptr inbounds i8, ptr %.val2.val3.i.i, i64 12
   %179 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %179, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %183, label %180
@@ -38873,10 +38873,10 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br i1 %186, label %187, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEEUlRKSH_E_EclINS4_4util5Range13IterableRangeINSS_8MapRangeINSS_9IterRangeINS_17__normal_iteratorIPSt10shared_ptrISG_ES8_ISY_SaISY_EEEES12_EENS5_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i
 
 187:                                              ; preds = %185
-  %188 = load ptr, ptr %.val.val2.i.i, align 8
+  %188 = load ptr, ptr %.val2.val3.i.i, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 24
   %190 = load ptr, ptr %189, align 8
-  call void %190(ptr noundef nonnull align 8 dereferenceable(16) %.val.val2.i.i) #29
+  call void %190(ptr noundef nonnull align 8 dereferenceable(16) %.val2.val3.i.i) #29
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEEUlRKSH_E_EclINS4_4util5Range13IterableRangeINSS_8MapRangeINSS_9IterRangeINS_17__normal_iteratorIPSt10shared_ptrISG_ES8_ISY_SaISY_EEEES12_EENS5_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %148
@@ -38885,21 +38885,21 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br label %.body.i.i.i
 
 .loopexit.split-lp.loopexit.i.i.i:                ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10unique_ptrINS2_8Metadata18MetadataHolderBaseESt14default_deleteIS8_EEENS_10_Select1stESt8equal_toIS3_ENS7_6IdHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.i.i.i.i.i.i.i.i.i.i
-  %lpad.loopexit6.i.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit3.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
 
 .loopexit.split-lp.loopexit.split-lp.i.i.i:       ; preds = %151
-  %lpad.loopexit.split-lp7.i.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp4.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
 
 .body.i.i.i:                                      ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i.i, %.loopexit.split-lp.loopexit.i.i.i, %.loopexit.i.i.i, %140, %138, %127
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %128, %140 ], [ %128, %138 ], [ %128, %127 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit6.i.i.i, %.loopexit.split-lp.loopexit.i.i.i ], [ %lpad.loopexit.split-lp7.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %128, %140 ], [ %128, %138 ], [ %128, %127 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit3.i.i.i, %.loopexit.split-lp.loopexit.i.i.i ], [ %lpad.loopexit.split-lp4.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i ]
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %.body, label %191
 
 191:                                              ; preds = %.body.i.i.i
-  %192 = getelementptr inbounds i8, ptr %.val.val2.i.i, i64 12
+  %192 = getelementptr inbounds i8, ptr %.val2.val3.i.i, i64 12
   %193 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i8.i.i.i = icmp eq i8 %193, 0
   br i1 %.not.i.i.i.i.i8.i.i.i, label %197, label %194
@@ -38920,13 +38920,13 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br i1 %200, label %201, label %.body
 
 201:                                              ; preds = %199
-  %202 = load ptr, ptr %.val.val2.i.i, align 8
+  %202 = load ptr, ptr %.val2.val3.i.i, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 24
   %204 = load ptr, ptr %203, align 8
-  call void %204(ptr noundef nonnull align 8 dereferenceable(16) %.val.val2.i.i) #29
+  call void %204(ptr noundef nonnull align 8 dereferenceable(16) %.val2.val3.i.i) #29
   br label %.body
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEEUlRKSH_E_EclINS4_4util5Range13IterableRangeINSS_8MapRangeINSS_9IterRangeINS_17__normal_iteratorIPSt10shared_ptrISG_ES8_ISY_SaISY_EEEES12_EENS5_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i: ; preds = %187, %185, %.loopexit5.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEEUlRKSH_E_EclINS4_4util5Range13IterableRangeINSS_8MapRangeINSS_9IterRangeINS_17__normal_iteratorIPSt10shared_ptrISG_ES8_ISY_SaISY_EEEES12_EENS5_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i: ; preds = %187, %185, %.loopexit2.i.i.i
   %205 = icmp eq i32 %176, 0
   %206 = zext i1 %205 to i64
   %spec.select.i.i = add nuw nsw i64 %.0.i.i97, %206
@@ -47126,27 +47126,27 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.body.i.i.i.i.i.i.i.i.i
 
 .loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i.i:    ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10unique_ptrINS2_8Metadata18MetadataHolderBaseESt14default_deleteIS8_EEENS_10_Select1stESt8equal_toIS3_ENS7_6IdHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.i.i.i.i.i.i51.i.i.i.i.i.i.i.i.i.i
-  %lpad.loopexit15.i.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit1.i.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i.i.i.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i.i: ; preds = %840
-  %lpad.loopexit18.i.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit4.i.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i.i.i.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10unique_ptrINS2_8Metadata18MetadataHolderBaseESt14default_deleteIS8_EEENS_10_Select1stESt8equal_toIS3_ENS7_6IdHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %lpad.loopexit20.i.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit6.i.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i.i.i.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i.i: ; preds = %932, %843, %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeKindENS2_11FusedIslandENS2_8DataSlotENS2_10IslandExecENS2_7EmitterENS2_4SinkENS2_15IslandsCompiledENS2_13DesyncIslEdgeENS_6passes19TopologicalSortDataEEE8metadataERKNS_6HandleINS_4NodeEEE.exit.i.i.i.i.i.i.i.i.i.i
-  %lpad.loopexit.split-lp21.i.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp7.i.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i.i.i.i
 
 .body.i.i.i.i.i.i.i.i.i:                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i.i, %1085, %921, %919, %908, %877, %832, %830, %819, %784, %782, %771
-  %eh.lpad-body.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %772, %784 ], [ %772, %782 ], [ %772, %771 ], [ %820, %832 ], [ %820, %830 ], [ %820, %819 ], [ %909, %921 ], [ %909, %919 ], [ %909, %908 ], [ %.pn16.i.i.i.i.i.i.i.i.i.i, %877 ], [ %.pn.pn.i.i.i.i.i.i.i.i.i.i, %1085 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit15.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit18.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit20.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp21.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %772, %784 ], [ %772, %782 ], [ %772, %771 ], [ %820, %832 ], [ %820, %830 ], [ %820, %819 ], [ %909, %921 ], [ %909, %919 ], [ %909, %908 ], [ %.pn16.i.i.i.i.i.i.i.i.i.i, %877 ], [ %.pn.pn.i.i.i.i.i.i.i.i.i.i, %1085 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit1.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit4.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit6.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp7.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i.i ]
   %1102 = load ptr, ptr %164, align 8, !noalias !742
   %.not.i.i.i.i11.i.i.i.i.i.i.i.i.i = icmp eq ptr %1102, null
   br i1 %.not.i.i.i.i11.i.i.i.i.i.i.i.i.i, label %.body.thread.i.i, label %1103
@@ -51587,12 +51587,12 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx
   br i1 %421, label %common.resume.sink.split.i.i.i.i.i.i.i, label %.body.thread.i.i
 
 common.resume.sink.split.i.i.i.i.i.i.i:           ; preds = %574, %420
-  %.sink24.i.i.i.i.i.i.i = phi ptr [ %565, %574 ], [ %411, %420 ]
+  %.sink13.i.i.i.i.i.i.i = phi ptr [ %565, %574 ], [ %411, %420 ]
   %common.resume.op.ph.i.i.i.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i.i.i, %574 ], [ %410, %420 ]
-  %422 = load ptr, ptr %.sink24.i.i.i.i.i.i.i, align 8, !noalias !835
+  %422 = load ptr, ptr %.sink13.i.i.i.i.i.i.i, align 8, !noalias !835
   %423 = getelementptr inbounds i8, ptr %422, i64 24
   %424 = load ptr, ptr %423, align 8, !noalias !835
-  call void %424(ptr noundef nonnull align 8 dereferenceable(16) %.sink24.i.i.i.i.i.i.i) #29, !noalias !835
+  call void %424(ptr noundef nonnull align 8 dereferenceable(16) %.sink13.i.i.i.i.i.i.i) #29, !noalias !835
   br label %.body.thread.i.i
 
 _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_13OutEdgeMapperEEEE8iteratordeEv.exit.i.i.i.i.i.i.i: ; preds = %405, %403, %393
@@ -51927,17 +51927,17 @@ _ZNK3ade13TypedMetadataILb0EJN2cv5gimpl9FluidUnitENS2_9FluidDataENS2_8ProtocolEN
   br label %.body.i.i.i.i.i.i.i
 
 .loopexit.split-lp.loopexit.i.i.i.i.i.i.i:        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10unique_ptrINS2_8Metadata18MetadataHolderBaseESt14default_deleteIS8_EEENS_10_Select1stESt8equal_toIS3_ENS7_6IdHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %lpad.loopexit12.i.i.i.i.i.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit1.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i.i
 
 .loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i: ; preds = %521, %_ZN3ade10TypedGraphIJN2cv5gimpl9FluidUnitENS2_9FluidDataENS2_8ProtocolENS2_23FluidUseOwnBorderBufferEEE8metadataERKNS_6HandleINS_4NodeEEE.exit.i.i.i.i.i.i.i.i
-  %lpad.loopexit.split-lp13.i.i.i.i.i.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp2.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i.i
 
 .body.i.i.i.i.i.i.i:                              ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i, %512, %501, %common.resume.sink.split.i.i.i.i.i.i.i.i, %465, %454
-  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %455, %465 ], [ %455, %454 ], [ %502, %512 ], [ %502, %501 ], [ %common.resume.op.ph.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit12.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp13.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %455, %465 ], [ %455, %454 ], [ %502, %512 ], [ %502, %501 ], [ %common.resume.op.ph.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit1.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp2.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i ]
   %565 = load ptr, ptr %193, align 8, !noalias !835
   %.not.i.i.i.i8.i.i.i.i.i.i.i = icmp eq ptr %565, null
   br i1 %.not.i.i.i.i8.i.i.i.i.i.i.i, label %.body.thread.i.i, label %566

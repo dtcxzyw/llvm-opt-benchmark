@@ -104075,8 +104075,8 @@ define internal fastcc void @_ZNSt3setIN12_GLOBAL__N_19SatHelper14ModelBlockInfo
 
 11:                                               ; preds = %9, %._crit_edge.i.i
   %.023.lcssa33.i.i = phi ptr [ %.023.lcssa32.i.i, %9 ], [ %.02428.i.i, %._crit_edge.i.i ]
-  %.sroa.012.0.i.i = phi ptr [ %10, %9 ], [ %.02428.i.i, %._crit_edge.i.i ]
-  %12 = getelementptr inbounds i8, ptr %.sroa.012.0.i.i, i64 32
+  %.sroa.014.0.i.i = phi ptr [ %10, %9 ], [ %.02428.i.i, %._crit_edge.i.i ]
+  %12 = getelementptr inbounds i8, ptr %.sroa.014.0.i.i, i64 32
   %13 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN12_GLOBAL__N_19SatHelper14ModelBlockInfoEEclERKS2_S5_(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br i1 %13, label %select.unfold.i, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_19SatHelper14ModelBlockInfoES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIRKS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_.exit
 

@@ -4876,19 +4876,19 @@ lor.lhs.false:                                    ; preds = %lor.lhs.false.i
   tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str.2, i32 noundef 454) #8
   %cmp.i = icmp eq i8 %10, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pha_context, i8 0, i64 16, i1 false)
-  br i1 %cmp.i, label %if.end43, label %if.end.i49
+  br i1 %cmp.i, label %if.end43, label %if.end.i51
 
-if.end.i49:                                       ; preds = %lor.lhs.false
+if.end.i51:                                       ; preds = %lor.lhs.false
   %call1.i = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %add.ptr.i.i.i, i64 noundef %conv.i, ptr noundef nonnull @.str.2, i32 noundef 463) #8
   store ptr %call1.i, ptr %pha_context, align 8
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %if.then42, label %if.end4.i
 
-if.end4.i:                                        ; preds = %if.end.i49
+if.end4.i:                                        ; preds = %if.end.i51
   store i64 %conv.i, ptr %pha_context_len, align 8
   br label %if.end43
 
-if.then42:                                        ; preds = %lor.lhs.false.i, %if.end27, %if.end.i49
+if.then42:                                        ; preds = %lor.lhs.false.i, %if.end27, %if.end.i51
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2598, ptr noundef nonnull @__func__.tls_process_certificate_request) #8
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 50, i32 noundef 159, ptr noundef null) #8
@@ -4896,37 +4896,37 @@ if.then42:                                        ; preds = %lor.lhs.false.i, %i
 
 if.end43:                                         ; preds = %if.end4.i, %lor.lhs.false
   %tmp.sroa.8.0.copyload.i = load i64, ptr %tmp.sroa.7.0.pkt.sroa_idx.i, align 8
-  %cmp.i.i.i51 = icmp ult i64 %tmp.sroa.8.0.copyload.i, 2
-  br i1 %cmp.i.i.i51, label %if.then46, label %lor.lhs.false.i52
+  %cmp.i.i.i53 = icmp ult i64 %tmp.sroa.8.0.copyload.i, 2
+  br i1 %cmp.i.i.i53, label %if.then46, label %lor.lhs.false.i54
 
-lor.lhs.false.i52:                                ; preds = %if.end43
-  %tmp.sroa.0.0.copyload.i53 = load ptr, ptr %pkt, align 8
-  %12 = load i8, ptr %tmp.sroa.0.0.copyload.i53, align 1
+lor.lhs.false.i54:                                ; preds = %if.end43
+  %tmp.sroa.0.0.copyload.i55 = load ptr, ptr %pkt, align 8
+  %12 = load i8, ptr %tmp.sroa.0.0.copyload.i55, align 1
   %conv.i.i.i = zext i8 %12 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 8
-  %add.ptr.i.i.i54 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i53, i64 1
-  %13 = load i8, ptr %add.ptr.i.i.i54, align 1
+  %add.ptr.i.i.i56 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i55, i64 1
+  %13 = load i8, ptr %add.ptr.i.i.i56, align 1
   %conv2.i.i.i = zext i8 %13 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv2.i.i.i
-  %sub.i.i.i55 = add i64 %tmp.sroa.8.0.copyload.i, -2
-  %cmp.i.i4.i = icmp ult i64 %sub.i.i.i55, %or.i.i.i
+  %sub.i.i.i57 = add i64 %tmp.sroa.8.0.copyload.i, -2
+  %cmp.i.i4.i = icmp ult i64 %sub.i.i.i57, %or.i.i.i
   br i1 %cmp.i.i4.i, label %if.then46, label %if.end47
 
-if.then46:                                        ; preds = %if.end43, %lor.lhs.false.i52
+if.then46:                                        ; preds = %if.end43, %lor.lhs.false.i54
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2603, ptr noundef nonnull @__func__.tls_process_certificate_request) #8
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 50, i32 noundef 271, ptr noundef null) #8
   br label %return
 
-if.end47:                                         ; preds = %lor.lhs.false.i52
-  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i53, i64 2
+if.end47:                                         ; preds = %lor.lhs.false.i54
+  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i55, i64 2
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
-  %sub.i.i7.i = sub nuw i64 %sub.i.i.i55, %or.i.i.i
+  %sub.i.i7.i = sub nuw i64 %sub.i.i.i57, %or.i.i.i
   store ptr %add.ptr.i.i6.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i, ptr %tmp.sroa.7.0.pkt.sroa_idx.i, align 8
   store ptr %add.ptr.i2.i.i, ptr %extensions, align 8
-  %remaining.i57 = getelementptr inbounds i8, ptr %extensions, i64 8
-  store i64 %or.i.i.i, ptr %remaining.i57, align 8
+  %remaining.i59 = getelementptr inbounds i8, ptr %extensions, i64 8
+  store i64 %or.i.i.i, ptr %remaining.i59, align 8
   %call48 = call i32 @tls_collect_extensions(ptr noundef nonnull %s, ptr noundef nonnull %extensions, i32 noundef 16384, ptr noundef nonnull %rawexts, ptr noundef null, i32 noundef 1) #8
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %if.then53, label %lor.lhs.false50
@@ -4956,56 +4956,56 @@ if.then57:                                        ; preds = %if.end54
   br label %return
 
 if.else59:                                        ; preds = %land.lhs.true, %if.end14
-  %tmp.sroa.7.0.pkt.sroa_idx.i59 = getelementptr inbounds i8, ptr %pkt, i64 8
-  %tmp.sroa.7.0.copyload.i60 = load i64, ptr %tmp.sroa.7.0.pkt.sroa_idx.i59, align 8
-  %tobool.not.i.i.i61 = icmp eq i64 %tmp.sroa.7.0.copyload.i60, 0
-  br i1 %tobool.not.i.i.i61, label %if.then62, label %lor.lhs.false.i62
+  %tmp.sroa.7.0.pkt.sroa_idx.i61 = getelementptr inbounds i8, ptr %pkt, i64 8
+  %tmp.sroa.7.0.copyload.i62 = load i64, ptr %tmp.sroa.7.0.pkt.sroa_idx.i61, align 8
+  %tobool.not.i.i.i63 = icmp eq i64 %tmp.sroa.7.0.copyload.i62, 0
+  br i1 %tobool.not.i.i.i63, label %if.then62, label %lor.lhs.false.i64
 
-lor.lhs.false.i62:                                ; preds = %if.else59
-  %tmp.sroa.0.0.copyload.i63 = load ptr, ptr %pkt, align 8
-  %17 = load i8, ptr %tmp.sroa.0.0.copyload.i63, align 1
-  %sub.i.i.i64 = add i64 %tmp.sroa.7.0.copyload.i60, -1
-  %conv.i65 = zext i8 %17 to i64
-  %cmp.i.i.i66 = icmp ult i64 %sub.i.i.i64, %conv.i65
-  br i1 %cmp.i.i.i66, label %if.then62, label %if.end63
+lor.lhs.false.i64:                                ; preds = %if.else59
+  %tmp.sroa.0.0.copyload.i65 = load ptr, ptr %pkt, align 8
+  %17 = load i8, ptr %tmp.sroa.0.0.copyload.i65, align 1
+  %sub.i.i.i66 = add i64 %tmp.sroa.7.0.copyload.i62, -1
+  %conv.i67 = zext i8 %17 to i64
+  %cmp.i.i.i68 = icmp ult i64 %sub.i.i.i66, %conv.i67
+  br i1 %cmp.i.i.i68, label %if.then62, label %if.end63
 
-if.then62:                                        ; preds = %if.else59, %lor.lhs.false.i62
+if.then62:                                        ; preds = %if.else59, %lor.lhs.false.i64
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2625, ptr noundef nonnull @__func__.tls_process_certificate_request) #8
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 50, i32 noundef 159, ptr noundef null) #8
   br label %return
 
-if.end63:                                         ; preds = %lor.lhs.false.i62
-  %add.ptr.i.i.i68 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i63, i64 1
-  %add.ptr.i.i5.i69 = getelementptr inbounds i8, ptr %add.ptr.i.i.i68, i64 %conv.i65
-  %sub.i.i6.i70 = sub nuw i64 %sub.i.i.i64, %conv.i65
-  store ptr %add.ptr.i.i5.i69, ptr %pkt, align 8
-  store i64 %sub.i.i6.i70, ptr %tmp.sroa.7.0.pkt.sroa_idx.i59, align 8
+if.end63:                                         ; preds = %lor.lhs.false.i64
+  %add.ptr.i.i.i70 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i65, i64 1
+  %add.ptr.i.i5.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i.i70, i64 %conv.i67
+  %sub.i.i6.i72 = sub nuw i64 %sub.i.i.i66, %conv.i67
+  store ptr %add.ptr.i.i5.i71, ptr %pkt, align 8
+  store i64 %sub.i.i6.i72, ptr %tmp.sroa.7.0.pkt.sroa_idx.i61, align 8
   %ctype66 = getelementptr inbounds i8, ptr %s, i64 720
   %ctype_len69 = getelementptr inbounds i8, ptr %s, i64 728
   %18 = load ptr, ptr %ctype66, align 8
   tail call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str.2, i32 noundef 454) #8
-  %cmp.i75 = icmp eq i8 %17, 0
+  %cmp.i76 = icmp eq i8 %17, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctype66, i8 0, i64 16, i1 false)
-  br i1 %cmp.i75, label %if.end73, label %if.end.i76
+  br i1 %cmp.i76, label %if.end73, label %if.end.i77
 
-if.end.i76:                                       ; preds = %if.end63
-  %call1.i77 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %add.ptr.i.i.i68, i64 noundef %conv.i65, ptr noundef nonnull @.str.2, i32 noundef 463) #8
-  store ptr %call1.i77, ptr %ctype66, align 8
-  %cmp2.i78 = icmp eq ptr %call1.i77, null
-  br i1 %cmp2.i78, label %if.then72, label %if.end4.i79
+if.end.i77:                                       ; preds = %if.end63
+  %call1.i78 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %add.ptr.i.i.i70, i64 noundef %conv.i67, ptr noundef nonnull @.str.2, i32 noundef 463) #8
+  store ptr %call1.i78, ptr %ctype66, align 8
+  %cmp2.i79 = icmp eq ptr %call1.i78, null
+  br i1 %cmp2.i79, label %if.then72, label %if.end4.i80
 
-if.end4.i79:                                      ; preds = %if.end.i76
-  store i64 %conv.i65, ptr %ctype_len69, align 8
+if.end4.i80:                                      ; preds = %if.end.i77
+  store i64 %conv.i67, ptr %ctype_len69, align 8
   br label %if.end73
 
-if.then72:                                        ; preds = %if.end.i76
+if.then72:                                        ; preds = %if.end.i77
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2630, ptr noundef nonnull @__func__.tls_process_certificate_request) #8
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %return
 
-if.end73:                                         ; preds = %if.end4.i79, %if.end63
+if.end73:                                         ; preds = %if.end4.i80, %if.end63
   %19 = load ptr, ptr %method, align 8
   %ssl3_enc76 = getelementptr inbounds i8, ptr %19, i64 216
   %20 = load ptr, ptr %ssl3_enc76, align 8
@@ -5016,38 +5016,38 @@ if.end73:                                         ; preds = %if.end4.i79, %if.en
   br i1 %tobool79.not, label %if.end93, label %if.then80
 
 if.then80:                                        ; preds = %if.end73
-  %tmp.sroa.8.0.copyload.i83 = load i64, ptr %tmp.sroa.7.0.pkt.sroa_idx.i59, align 8
-  %cmp.i.i.i84 = icmp ult i64 %tmp.sroa.8.0.copyload.i83, 2
-  br i1 %cmp.i.i.i84, label %if.then83, label %lor.lhs.false.i85
+  %tmp.sroa.8.0.copyload.i84 = load i64, ptr %tmp.sroa.7.0.pkt.sroa_idx.i61, align 8
+  %cmp.i.i.i85 = icmp ult i64 %tmp.sroa.8.0.copyload.i84, 2
+  br i1 %cmp.i.i.i85, label %if.then83, label %lor.lhs.false.i86
 
-lor.lhs.false.i85:                                ; preds = %if.then80
-  %tmp.sroa.0.0.copyload.i86 = load ptr, ptr %pkt, align 8
-  %22 = load i8, ptr %tmp.sroa.0.0.copyload.i86, align 1
-  %conv.i.i.i87 = zext i8 %22 to i64
-  %shl.i.i.i88 = shl nuw nsw i64 %conv.i.i.i87, 8
-  %add.ptr.i.i.i89 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i86, i64 1
-  %23 = load i8, ptr %add.ptr.i.i.i89, align 1
-  %conv2.i.i.i90 = zext i8 %23 to i64
-  %or.i.i.i91 = or disjoint i64 %shl.i.i.i88, %conv2.i.i.i90
-  %sub.i.i.i92 = add i64 %tmp.sroa.8.0.copyload.i83, -2
-  %cmp.i.i4.i93 = icmp ult i64 %sub.i.i.i92, %or.i.i.i91
-  br i1 %cmp.i.i4.i93, label %if.then83, label %if.end84
+lor.lhs.false.i86:                                ; preds = %if.then80
+  %tmp.sroa.0.0.copyload.i87 = load ptr, ptr %pkt, align 8
+  %22 = load i8, ptr %tmp.sroa.0.0.copyload.i87, align 1
+  %conv.i.i.i88 = zext i8 %22 to i64
+  %shl.i.i.i89 = shl nuw nsw i64 %conv.i.i.i88, 8
+  %add.ptr.i.i.i90 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i87, i64 1
+  %23 = load i8, ptr %add.ptr.i.i.i90, align 1
+  %conv2.i.i.i91 = zext i8 %23 to i64
+  %or.i.i.i92 = or disjoint i64 %shl.i.i.i89, %conv2.i.i.i91
+  %sub.i.i.i93 = add i64 %tmp.sroa.8.0.copyload.i84, -2
+  %cmp.i.i4.i94 = icmp ult i64 %sub.i.i.i93, %or.i.i.i92
+  br i1 %cmp.i.i4.i94, label %if.then83, label %if.end84
 
-if.then83:                                        ; preds = %if.then80, %lor.lhs.false.i85
+if.then83:                                        ; preds = %if.then80, %lor.lhs.false.i86
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2638, ptr noundef nonnull @__func__.tls_process_certificate_request) #8
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 50, i32 noundef 159, ptr noundef null) #8
   br label %return
 
-if.end84:                                         ; preds = %lor.lhs.false.i85
-  %add.ptr.i2.i.i95 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i86, i64 2
-  %add.ptr.i.i6.i96 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i95, i64 %or.i.i.i91
-  %sub.i.i7.i97 = sub nuw i64 %sub.i.i.i92, %or.i.i.i91
-  store ptr %add.ptr.i.i6.i96, ptr %pkt, align 8
-  store i64 %sub.i.i7.i97, ptr %tmp.sroa.7.0.pkt.sroa_idx.i59, align 8
-  store ptr %add.ptr.i2.i.i95, ptr %sigalgs, align 8
-  %remaining.i98 = getelementptr inbounds i8, ptr %sigalgs, i64 8
-  store i64 %or.i.i.i91, ptr %remaining.i98, align 8
+if.end84:                                         ; preds = %lor.lhs.false.i86
+  %add.ptr.i2.i.i96 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i87, i64 2
+  %add.ptr.i.i6.i97 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i96, i64 %or.i.i.i92
+  %sub.i.i7.i98 = sub nuw i64 %sub.i.i.i93, %or.i.i.i92
+  store ptr %add.ptr.i.i6.i97, ptr %pkt, align 8
+  store i64 %sub.i.i7.i98, ptr %tmp.sroa.7.0.pkt.sroa_idx.i61, align 8
+  store ptr %add.ptr.i2.i.i96, ptr %sigalgs, align 8
+  %remaining.i99 = getelementptr inbounds i8, ptr %sigalgs, i64 8
+  store i64 %or.i.i.i92, ptr %remaining.i99, align 8
   %call85 = call i32 @tls1_save_sigalgs(ptr noundef nonnull %s, ptr noundef nonnull %sigalgs, i32 noundef 0) #8
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %if.then87, label %if.end88

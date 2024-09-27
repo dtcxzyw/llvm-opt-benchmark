@@ -2821,11 +2821,11 @@ invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
   %capacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %14 = load i64, ptr %capacity.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %13, %14
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i.i.i.i.i
-  %metadata18.i.i.i.i.i.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre.i = load ptr, ptr %metadata18.i.i.i.i.i.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i.i.i.i.i
+  %metadata18.i.i.i.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre.i.i = load ptr, ptr %metadata18.i.i.i.i.i.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i.i.i.i.i.i.i.i
@@ -2856,9 +2856,9 @@ lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %17 = phi ptr [ %call14.i2.i.i.i.i.i.i.i.i, %call14.i.noexc.i.i.i.i.i.i.i.i ], [ %.pre.i, %invoke.cont.i.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %18 = phi i64 [ %.pre4.i.i.i.i.i.i.i.i.i, %call14.i.noexc.i.i.i.i.i.i.i.i ], [ %13, %invoke.cont.i.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %17 = phi ptr [ %call14.i2.i.i.i.i.i.i.i.i, %call14.i.noexc.i.i.i.i.i.i.i.i ], [ %.pre.i.i, %invoke.cont.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %18 = phi i64 [ %.pre4.i.i.i.i.i.i.i.i.i, %call14.i.noexc.i.i.i.i.i.i.i.i ], [ %13, %invoke.cont.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i.i.i.i.i = add i64 %18, 1
   store i64 %inc.i.i.i.i.i.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %17, i64 %18
@@ -2901,11 +2901,11 @@ invoke.cont.i.i.i.i32.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   %capacity.i.i.i.i.i33.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %23 = load i64, ptr %capacity.i.i.i.i.i33.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i34.i.i.i.i = icmp eq i64 %22, %23
-  br i1 %cmp.i.i.i.i.i34.i.i.i.i, label %if.then.i.i.i.i.i39.i.i.i.i, label %invoke.cont.i.i.i.i32.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i34.i.i.i.i, label %if.then.i.i.i.i.i39.i.i.i.i, label %invoke.cont.i.i.i.i32.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i32.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i32.i.i.i.i
-  %metadata18.i.i.i.i.i35.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre72.i = load ptr, ptr %metadata18.i.i.i.i.i35.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i32.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i32.i.i.i.i
+  %metadata18.i.i.i.i.i35.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre7.i.i = load ptr, ptr %metadata18.i.i.i.i.i35.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i39.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i32.i.i.i.i
@@ -2930,9 +2930,9 @@ lpad4.i.i.i.i47.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i39
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i24.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i48.i.i.i.i, %invoke.cont.i.i.i.i32.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %26 = phi ptr [ %call14.i2.i.i.i.i46.i.i.i.i, %call14.i.noexc.i.i.i.i48.i.i.i.i ], [ %.pre72.i, %invoke.cont.i.i.i.i32.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %27 = phi i64 [ %.pre4.i.i.i.i.i51.i.i.i.i, %call14.i.noexc.i.i.i.i48.i.i.i.i ], [ %22, %invoke.cont.i.i.i.i32.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i48.i.i.i.i, %invoke.cont.i.i.i.i32.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %26 = phi ptr [ %call14.i2.i.i.i.i46.i.i.i.i, %call14.i.noexc.i.i.i.i48.i.i.i.i ], [ %.pre7.i.i, %invoke.cont.i.i.i.i32.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %27 = phi i64 [ %.pre4.i.i.i.i.i51.i.i.i.i, %call14.i.noexc.i.i.i.i48.i.i.i.i ], [ %22, %invoke.cont.i.i.i.i32.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i36.i.i.i.i = add i64 %27, 1
   store i64 %inc.i.i.i.i.i36.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i37.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %26, i64 %27
@@ -2981,11 +2981,11 @@ invoke.cont.i.i.i.i63.i.i.i.i:                    ; preds = %call.i.i.noexc.i.i.
   %capacity.i.i.i.i.i64.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %30 = load i64, ptr %capacity.i.i.i.i.i64.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i65.i.i.i.i = icmp eq i64 %29, %30
-  br i1 %cmp.i.i.i.i.i65.i.i.i.i, label %if.then.i.i.i.i.i70.i.i.i.i, label %invoke.cont.i.i.i.i63.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i65.i.i.i.i, label %if.then.i.i.i.i.i70.i.i.i.i, label %invoke.cont.i.i.i.i63.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i63.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i63.i.i.i.i
-  %metadata18.i.i.i.i.i66.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre73.i = load ptr, ptr %metadata18.i.i.i.i.i66.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i63.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i63.i.i.i.i
+  %metadata18.i.i.i.i.i66.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre8.i.i = load ptr, ptr %metadata18.i.i.i.i.i66.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i70.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i63.i.i.i.i
@@ -3015,9 +3015,9 @@ lpad4.i.i.i.i77.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i70
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i56.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i78.i.i.i.i, %invoke.cont.i.i.i.i63.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %34 = phi ptr [ %call14.i3.i.i.i.i.i.i.i.i, %call14.i.noexc.i.i.i.i78.i.i.i.i ], [ %.pre73.i, %invoke.cont.i.i.i.i63.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %35 = phi i64 [ %.pre4.i.i.i.i.i81.i.i.i.i, %call14.i.noexc.i.i.i.i78.i.i.i.i ], [ %29, %invoke.cont.i.i.i.i63.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i78.i.i.i.i, %invoke.cont.i.i.i.i63.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %34 = phi ptr [ %call14.i3.i.i.i.i.i.i.i.i, %call14.i.noexc.i.i.i.i78.i.i.i.i ], [ %.pre8.i.i, %invoke.cont.i.i.i.i63.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %35 = phi i64 [ %.pre4.i.i.i.i.i81.i.i.i.i, %call14.i.noexc.i.i.i.i78.i.i.i.i ], [ %29, %invoke.cont.i.i.i.i63.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i67.i.i.i.i = add i64 %35, 1
   store i64 %inc.i.i.i.i.i67.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i68.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %34, i64 %35
@@ -3058,11 +3058,11 @@ invoke.cont5.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i89.i.i.i.i
   %capacity.i.i.i.i.i97.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %38 = load i64, ptr %capacity.i.i.i.i.i97.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i98.i.i.i.i = icmp eq i64 %37, %38
-  br i1 %cmp.i.i.i.i.i98.i.i.i.i, label %if.then.i.i.i.i.i103.i.i.i.i, label %invoke.cont5.i.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpSchemeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i98.i.i.i.i, label %if.then.i.i.i.i.i103.i.i.i.i, label %invoke.cont5.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpSchemeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont5.i.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpSchemeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont5.i.i.i.i.i.i.i.i
-  %metadata18.i.i.i.i.i99.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre74.i = load ptr, ptr %metadata18.i.i.i.i.i99.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont5.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpSchemeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont5.i.i.i.i.i.i.i.i
+  %metadata18.i.i.i.i.i99.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre9.i.i = load ptr, ptr %metadata18.i.i.i.i.i99.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpSchemeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i103.i.i.i.i:                     ; preds = %invoke.cont5.i.i.i.i.i.i.i.i
@@ -3092,9 +3092,9 @@ lpad6.i.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i10
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i85.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpSchemeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i111.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpSchemeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %42 = phi ptr [ %call14.i3.i.i.i.i110.i.i.i.i, %call14.i.noexc.i.i.i.i111.i.i.i.i ], [ %.pre74.i, %invoke.cont5.i.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpSchemeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %43 = phi i64 [ %.pre4.i.i.i.i.i114.i.i.i.i, %call14.i.noexc.i.i.i.i111.i.i.i.i ], [ %37, %invoke.cont5.i.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpSchemeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpSchemeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i111.i.i.i.i, %invoke.cont5.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpSchemeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %42 = phi ptr [ %call14.i3.i.i.i.i110.i.i.i.i, %call14.i.noexc.i.i.i.i111.i.i.i.i ], [ %.pre9.i.i, %invoke.cont5.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpSchemeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %43 = phi i64 [ %.pre4.i.i.i.i.i114.i.i.i.i, %call14.i.noexc.i.i.i.i111.i.i.i.i ], [ %37, %invoke.cont5.i.i.i.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18HttpSchemeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i100.i.i.i.i = add i64 %43, 1
   store i64 %inc.i.i.i.i.i100.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i101.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %42, i64 %43
@@ -3136,11 +3136,11 @@ invoke.cont5.i.i.i.i131.i.i.i.i:                  ; preds = %if.then.i123.i.i.i.
   %capacity.i.i.i.i.i132.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %46 = load i64, ptr %capacity.i.i.i.i.i132.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i133.i.i.i.i = icmp eq i64 %45, %46
-  br i1 %cmp.i.i.i.i.i133.i.i.i.i, label %if.then.i.i.i.i.i138.i.i.i.i, label %invoke.cont5.i.i.i.i131.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19ContentTypeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i133.i.i.i.i, label %if.then.i.i.i.i.i138.i.i.i.i, label %invoke.cont5.i.i.i.i131.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19ContentTypeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont5.i.i.i.i131.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19ContentTypeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont5.i.i.i.i131.i.i.i.i
-  %metadata18.i.i.i.i.i134.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre75.i = load ptr, ptr %metadata18.i.i.i.i.i134.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont5.i.i.i.i131.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19ContentTypeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont5.i.i.i.i131.i.i.i.i
+  %metadata18.i.i.i.i.i134.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre10.i.i = load ptr, ptr %metadata18.i.i.i.i.i134.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19ContentTypeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i138.i.i.i.i:                     ; preds = %invoke.cont5.i.i.i.i131.i.i.i.i
@@ -3170,9 +3170,9 @@ lpad6.i.i.i.i146.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i13
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i118.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19ContentTypeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i147.i.i.i.i, %invoke.cont5.i.i.i.i131.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19ContentTypeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %50 = phi ptr [ %call14.i3.i.i.i.i145.i.i.i.i, %call14.i.noexc.i.i.i.i147.i.i.i.i ], [ %.pre75.i, %invoke.cont5.i.i.i.i131.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19ContentTypeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %51 = phi i64 [ %.pre4.i.i.i.i.i150.i.i.i.i, %call14.i.noexc.i.i.i.i147.i.i.i.i ], [ %45, %invoke.cont5.i.i.i.i131.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19ContentTypeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19ContentTypeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i147.i.i.i.i, %invoke.cont5.i.i.i.i131.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19ContentTypeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %50 = phi ptr [ %call14.i3.i.i.i.i145.i.i.i.i, %call14.i.noexc.i.i.i.i147.i.i.i.i ], [ %.pre10.i.i, %invoke.cont5.i.i.i.i131.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19ContentTypeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %51 = phi i64 [ %.pre4.i.i.i.i.i150.i.i.i.i, %call14.i.noexc.i.i.i.i147.i.i.i.i ], [ %45, %invoke.cont5.i.i.i.i131.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19ContentTypeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i135.i.i.i.i = add i64 %51, 1
   store i64 %inc.i.i.i.i.i135.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i136.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %50, i64 %51
@@ -3225,11 +3225,11 @@ invoke.cont5.i.i.i.i167.i.i.i.i:                  ; preds = %if.then.i158.i.i.i.
   %capacity.i.i.i.i.i168.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %54 = load i64, ptr %capacity.i.i.i.i.i168.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i169.i.i.i.i = icmp eq i64 %53, %54
-  br i1 %cmp.i.i.i.i.i169.i.i.i.i, label %if.then.i3.i.i.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i167.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i169.i.i.i.i, label %if.then.i3.i.i.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i167.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont5.i.i.i.i167.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont5.i.i.i.i167.i.i.i.i
-  %metadata18.i.i.i.i.i170.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre76.i = load ptr, ptr %metadata18.i.i.i.i.i170.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont5.i.i.i.i167.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont5.i.i.i.i167.i.i.i.i
+  %metadata18.i.i.i.i.i170.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre11.i.i = load ptr, ptr %metadata18.i.i.i.i.i170.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i3.i.i.i.i.i.i.i.i:                       ; preds = %invoke.cont5.i.i.i.i167.i.i.i.i
@@ -3259,9 +3259,9 @@ lpad6.i.i.i.i180.i.i.i.i:                         ; preds = %if.then.i3.i.i.i.i.
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i154.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i181.i.i.i.i, %invoke.cont5.i.i.i.i167.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %58 = phi ptr [ %call14.i4.i.i.i.i.i.i.i.i, %call14.i.noexc.i.i.i.i181.i.i.i.i ], [ %.pre76.i, %invoke.cont5.i.i.i.i167.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %59 = phi i64 [ %.pre4.i.i.i.i.i184.i.i.i.i, %call14.i.noexc.i.i.i.i181.i.i.i.i ], [ %53, %invoke.cont5.i.i.i.i167.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i181.i.i.i.i, %invoke.cont5.i.i.i.i167.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %58 = phi ptr [ %call14.i4.i.i.i.i.i.i.i.i, %call14.i.noexc.i.i.i.i181.i.i.i.i ], [ %.pre11.i.i, %invoke.cont5.i.i.i.i167.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %59 = phi i64 [ %.pre4.i.i.i.i.i184.i.i.i.i, %call14.i.noexc.i.i.i.i181.i.i.i.i ], [ %53, %invoke.cont5.i.i.i.i167.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_10TeMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i171.i.i.i.i = add i64 %59, 1
   store i64 %inc.i.i.i.i.i171.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i172.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %58, i64 %59
@@ -3318,11 +3318,11 @@ invoke.cont.i.i.i.i201.i.i.i.i:                   ; preds = %do.end.i.i.i.i.i.i.
   %capacity.i.i.i.i.i202.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %62 = load i64, ptr %capacity.i.i.i.i.i202.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i203.i.i.i.i = icmp eq i64 %61, %62
-  br i1 %cmp.i.i.i.i.i203.i.i.i.i, label %if.then.i3.i.i.i.i208.i.i.i.i, label %invoke.cont.i.i.i.i201.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i203.i.i.i.i, label %if.then.i3.i.i.i.i208.i.i.i.i, label %invoke.cont.i.i.i.i201.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i201.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i201.i.i.i.i
-  %metadata18.i.i.i.i.i204.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre77.i = load ptr, ptr %metadata18.i.i.i.i.i204.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i201.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i201.i.i.i.i
+  %metadata18.i.i.i.i.i204.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre12.i.i = load ptr, ptr %metadata18.i.i.i.i.i204.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i3.i.i.i.i208.i.i.i.i:                    ; preds = %invoke.cont.i.i.i.i201.i.i.i.i
@@ -3352,9 +3352,9 @@ lpad4.i.i.i.i216.i.i.i.i:                         ; preds = %if.then.i3.i.i.i.i2
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i188.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i217.i.i.i.i, %invoke.cont.i.i.i.i201.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %66 = phi ptr [ %call14.i4.i.i.i.i215.i.i.i.i, %call14.i.noexc.i.i.i.i217.i.i.i.i ], [ %.pre77.i, %invoke.cont.i.i.i.i201.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %67 = phi i64 [ %.pre4.i.i.i.i.i220.i.i.i.i, %call14.i.noexc.i.i.i.i217.i.i.i.i ], [ %61, %invoke.cont.i.i.i.i201.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i217.i.i.i.i, %invoke.cont.i.i.i.i201.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %66 = phi ptr [ %call14.i4.i.i.i.i215.i.i.i.i, %call14.i.noexc.i.i.i.i217.i.i.i.i ], [ %.pre12.i.i, %invoke.cont.i.i.i.i201.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %67 = phi i64 [ %.pre4.i.i.i.i.i220.i.i.i.i, %call14.i.noexc.i.i.i.i217.i.i.i.i ], [ %61, %invoke.cont.i.i.i.i201.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i205.i.i.i.i = add i64 %67, 1
   store i64 %inc.i.i.i.i.i205.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i206.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %66, i64 %67
@@ -3411,11 +3411,11 @@ invoke.cont.i.i.i.i241.i.i.i.i:                   ; preds = %do.end.i.i.i.i.i236
   %capacity.i.i.i.i.i245.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %70 = load i64, ptr %capacity.i.i.i.i.i245.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i246.i.i.i.i = icmp eq i64 %69, %70
-  br i1 %cmp.i.i.i.i.i246.i.i.i.i, label %if.then.i3.i.i.i.i251.i.i.i.i, label %invoke.cont.i.i.i.i241.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i246.i.i.i.i, label %if.then.i3.i.i.i.i251.i.i.i.i, label %invoke.cont.i.i.i.i241.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i241.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i241.i.i.i.i
-  %metadata18.i.i.i.i.i247.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre78.i = load ptr, ptr %metadata18.i.i.i.i.i247.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i241.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i241.i.i.i.i
+  %metadata18.i.i.i.i.i247.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre13.i.i = load ptr, ptr %metadata18.i.i.i.i.i247.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i3.i.i.i.i251.i.i.i.i:                    ; preds = %invoke.cont.i.i.i.i241.i.i.i.i
@@ -3445,9 +3445,9 @@ lpad4.i.i.i.i259.i.i.i.i:                         ; preds = %if.then.i3.i.i.i.i2
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i226.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i260.i.i.i.i, %invoke.cont.i.i.i.i241.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %74 = phi ptr [ %call14.i4.i.i.i.i258.i.i.i.i, %call14.i.noexc.i.i.i.i260.i.i.i.i ], [ %.pre78.i, %invoke.cont.i.i.i.i241.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %75 = phi i64 [ %.pre4.i.i.i.i.i263.i.i.i.i, %call14.i.noexc.i.i.i.i260.i.i.i.i ], [ %69, %invoke.cont.i.i.i.i241.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i260.i.i.i.i, %invoke.cont.i.i.i.i241.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %74 = phi ptr [ %call14.i4.i.i.i.i258.i.i.i.i, %call14.i.noexc.i.i.i.i260.i.i.i.i ], [ %.pre13.i.i, %invoke.cont.i.i.i.i241.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %75 = phi i64 [ %.pre4.i.i.i.i.i263.i.i.i.i, %call14.i.noexc.i.i.i.i260.i.i.i.i ], [ %69, %invoke.cont.i.i.i.i241.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i248.i.i.i.i = add i64 %75, 1
   store i64 %inc.i.i.i.i.i248.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i249.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %74, i64 %75
@@ -3490,11 +3490,11 @@ invoke.cont.i.i.i.i281.i.i.i.i:                   ; preds = %if.then.i273.i.i.i.
   %capacity.i.i.i.i.i282.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %78 = load i64, ptr %capacity.i.i.i.i.i282.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i283.i.i.i.i = icmp eq i64 %77, %78
-  br i1 %cmp.i.i.i.i.i283.i.i.i.i, label %if.then.i.i.i.i.i290.i.i.i.i, label %invoke.cont.i.i.i.i281.i.i.i.invoke.cont7.i.i.i.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i283.i.i.i.i, label %if.then.i.i.i.i.i290.i.i.i.i, label %invoke.cont.i.i.i.i281.i.i.invoke.cont7.i.i.i.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i281.i.i.i.invoke.cont7.i.i.i.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i281.i.i.i.i
-  %metadata18.i.i.i.i.i284.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre79.i = load ptr, ptr %metadata18.i.i.i.i.i284.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i281.i.i.invoke.cont7.i.i.i.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i281.i.i.i.i
+  %metadata18.i.i.i.i.i284.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre14.i.i = load ptr, ptr %metadata18.i.i.i.i.i284.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %invoke.cont7.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i290.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i281.i.i.i.i
@@ -3513,9 +3513,9 @@ call14.i.noexc.i.i.i.i299.i.i.i.i:                ; preds = %if.then.i.i.i.i.i29
   %.pre4.i.i.i.i.i302.i.i.i.i = load i64, ptr %md, align 8, !alias.scope !40
   br label %invoke.cont7.i.i.i.i.i.i.i.i
 
-invoke.cont7.i.i.i.i.i.i.i.i:                     ; preds = %call14.i.noexc.i.i.i.i299.i.i.i.i, %invoke.cont.i.i.i.i281.i.i.i.invoke.cont7.i.i.i.i.i.i.i_crit_edge.i
-  %80 = phi ptr [ %call14.i2.i.i.i.i297.i.i.i.i, %call14.i.noexc.i.i.i.i299.i.i.i.i ], [ %.pre79.i, %invoke.cont.i.i.i.i281.i.i.i.invoke.cont7.i.i.i.i.i.i.i_crit_edge.i ]
-  %81 = phi i64 [ %.pre4.i.i.i.i.i302.i.i.i.i, %call14.i.noexc.i.i.i.i299.i.i.i.i ], [ %77, %invoke.cont.i.i.i.i281.i.i.i.invoke.cont7.i.i.i.i.i.i.i_crit_edge.i ]
+invoke.cont7.i.i.i.i.i.i.i.i:                     ; preds = %call14.i.noexc.i.i.i.i299.i.i.i.i, %invoke.cont.i.i.i.i281.i.i.invoke.cont7.i.i.i.i.i.i_crit_edge.i.i
+  %80 = phi ptr [ %call14.i2.i.i.i.i297.i.i.i.i, %call14.i.noexc.i.i.i.i299.i.i.i.i ], [ %.pre14.i.i, %invoke.cont.i.i.i.i281.i.i.invoke.cont7.i.i.i.i.i.i_crit_edge.i.i ]
+  %81 = phi i64 [ %.pre4.i.i.i.i.i302.i.i.i.i, %call14.i.noexc.i.i.i.i299.i.i.i.i ], [ %77, %invoke.cont.i.i.i.i281.i.i.invoke.cont7.i.i.i.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i285.i.i.i.i = add i64 %81, 1
   store i64 %inc.i.i.i.i.i285.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i286.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %80, i64 %81
@@ -3627,11 +3627,11 @@ invoke.cont.i.i.i.i324.i.i.i.i:                   ; preds = %call.i.i.noexc.i.i.
   %capacity.i.i.i.i.i325.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %96 = load i64, ptr %capacity.i.i.i.i.i325.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i326.i.i.i.i = icmp eq i64 %95, %96
-  br i1 %cmp.i.i.i.i.i326.i.i.i.i, label %if.then.i.i.i.i.i331.i.i.i.i, label %invoke.cont.i.i.i.i324.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i326.i.i.i.i, label %if.then.i.i.i.i.i331.i.i.i.i, label %invoke.cont.i.i.i.i324.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i324.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i324.i.i.i.i
-  %metadata18.i.i.i.i.i327.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre80.i = load ptr, ptr %metadata18.i.i.i.i.i327.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i324.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i324.i.i.i.i
+  %metadata18.i.i.i.i.i327.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre15.i.i = load ptr, ptr %metadata18.i.i.i.i.i327.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i331.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i324.i.i.i.i
@@ -3661,9 +3661,9 @@ lpad4.i.i.i.i339.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i33
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i308.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i340.i.i.i.i, %invoke.cont.i.i.i.i324.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %100 = phi ptr [ %call14.i3.i.i.i.i338.i.i.i.i, %call14.i.noexc.i.i.i.i340.i.i.i.i ], [ %.pre80.i, %invoke.cont.i.i.i.i324.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %101 = phi i64 [ %.pre4.i.i.i.i.i343.i.i.i.i, %call14.i.noexc.i.i.i.i340.i.i.i.i ], [ %95, %invoke.cont.i.i.i.i324.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i340.i.i.i.i, %invoke.cont.i.i.i.i324.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %100 = phi ptr [ %call14.i3.i.i.i.i338.i.i.i.i, %call14.i.noexc.i.i.i.i340.i.i.i.i ], [ %.pre15.i.i, %invoke.cont.i.i.i.i324.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %101 = phi i64 [ %.pre4.i.i.i.i.i343.i.i.i.i, %call14.i.noexc.i.i.i.i340.i.i.i.i ], [ %95, %invoke.cont.i.i.i.i324.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i328.i.i.i.i = add i64 %101, 1
   store i64 %inc.i.i.i.i.i328.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i329.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %100, i64 %101
@@ -3701,11 +3701,11 @@ invoke.cont.i.i.i.i358.i.i.i.i:                   ; preds = %if.then.i350.i.i.i.
   %capacity.i.i.i.i.i359.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %104 = load i64, ptr %capacity.i.i.i.i.i359.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i360.i.i.i.i = icmp eq i64 %103, %104
-  br i1 %cmp.i.i.i.i.i360.i.i.i.i, label %if.then.i.i.i.i.i378.i.i.i.i, label %invoke.cont.i.i.i.i358.i.i.i.invoke.cont6.i.i.i.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i360.i.i.i.i, label %if.then.i.i.i.i.i378.i.i.i.i, label %invoke.cont.i.i.i.i358.i.i.invoke.cont6.i.i.i.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i358.i.i.i.invoke.cont6.i.i.i.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i358.i.i.i.i
-  %metadata18.i.i.i.i.i361.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre81.i = load ptr, ptr %metadata18.i.i.i.i.i361.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i358.i.i.invoke.cont6.i.i.i.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i358.i.i.i.i
+  %metadata18.i.i.i.i.i361.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre16.i.i = load ptr, ptr %metadata18.i.i.i.i.i361.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %invoke.cont6.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i378.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i358.i.i.i.i
@@ -3724,9 +3724,9 @@ call14.i.noexc.i.i.i.i386.i.i.i.i:                ; preds = %if.then.i.i.i.i.i37
   %.pre4.i.i.i.i.i389.i.i.i.i = load i64, ptr %md, align 8, !alias.scope !40
   br label %invoke.cont6.i.i.i.i.i.i.i.i
 
-invoke.cont6.i.i.i.i.i.i.i.i:                     ; preds = %call14.i.noexc.i.i.i.i386.i.i.i.i, %invoke.cont.i.i.i.i358.i.i.i.invoke.cont6.i.i.i.i.i.i.i_crit_edge.i
-  %106 = phi ptr [ %call14.i2.i.i.i.i385.i.i.i.i, %call14.i.noexc.i.i.i.i386.i.i.i.i ], [ %.pre81.i, %invoke.cont.i.i.i.i358.i.i.i.invoke.cont6.i.i.i.i.i.i.i_crit_edge.i ]
-  %107 = phi i64 [ %.pre4.i.i.i.i.i389.i.i.i.i, %call14.i.noexc.i.i.i.i386.i.i.i.i ], [ %103, %invoke.cont.i.i.i.i358.i.i.i.invoke.cont6.i.i.i.i.i.i.i_crit_edge.i ]
+invoke.cont6.i.i.i.i.i.i.i.i:                     ; preds = %call14.i.noexc.i.i.i.i386.i.i.i.i, %invoke.cont.i.i.i.i358.i.i.invoke.cont6.i.i.i.i.i.i_crit_edge.i.i
+  %106 = phi ptr [ %call14.i2.i.i.i.i385.i.i.i.i, %call14.i.noexc.i.i.i.i386.i.i.i.i ], [ %.pre16.i.i, %invoke.cont.i.i.i.i358.i.i.invoke.cont6.i.i.i.i.i.i_crit_edge.i.i ]
+  %107 = phi i64 [ %.pre4.i.i.i.i.i389.i.i.i.i, %call14.i.noexc.i.i.i.i386.i.i.i.i ], [ %103, %invoke.cont.i.i.i.i358.i.i.invoke.cont6.i.i.i.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i362.i.i.i.i = add i64 %107, 1
   store i64 %inc.i.i.i.i.i362.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i363.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %106, i64 %107
@@ -3837,11 +3837,11 @@ invoke.cont.i.i.i.i411.i.i.i.i:                   ; preds = %call.i.i.noexc.i.i.
   %capacity.i.i.i.i.i412.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %122 = load i64, ptr %capacity.i.i.i.i.i412.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i413.i.i.i.i = icmp eq i64 %121, %122
-  br i1 %cmp.i.i.i.i.i413.i.i.i.i, label %if.then.i.i.i.i.i418.i.i.i.i, label %invoke.cont.i.i.i.i411.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i413.i.i.i.i, label %if.then.i.i.i.i.i418.i.i.i.i, label %invoke.cont.i.i.i.i411.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i411.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i411.i.i.i.i
-  %metadata18.i.i.i.i.i414.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre82.i = load ptr, ptr %metadata18.i.i.i.i.i414.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i411.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i411.i.i.i.i
+  %metadata18.i.i.i.i.i414.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre17.i.i = load ptr, ptr %metadata18.i.i.i.i.i414.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i418.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i411.i.i.i.i
@@ -3871,9 +3871,9 @@ lpad4.i.i.i.i426.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i41
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i395.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i427.i.i.i.i, %invoke.cont.i.i.i.i411.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %126 = phi ptr [ %call14.i3.i.i.i.i425.i.i.i.i, %call14.i.noexc.i.i.i.i427.i.i.i.i ], [ %.pre82.i, %invoke.cont.i.i.i.i411.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %127 = phi i64 [ %.pre4.i.i.i.i.i430.i.i.i.i, %call14.i.noexc.i.i.i.i427.i.i.i.i ], [ %121, %invoke.cont.i.i.i.i411.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i427.i.i.i.i, %invoke.cont.i.i.i.i411.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %126 = phi ptr [ %call14.i3.i.i.i.i425.i.i.i.i, %call14.i.noexc.i.i.i.i427.i.i.i.i ], [ %.pre17.i.i, %invoke.cont.i.i.i.i411.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %127 = phi i64 [ %.pre4.i.i.i.i.i430.i.i.i.i, %call14.i.noexc.i.i.i.i427.i.i.i.i ], [ %121, %invoke.cont.i.i.i.i411.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i415.i.i.i.i = add i64 %127, 1
   store i64 %inc.i.i.i.i.i415.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i416.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %126, i64 %127
@@ -3920,11 +3920,11 @@ invoke.cont.i.i.i.i450.i.i.i.i:                   ; preds = %call.i.i.noexc.i.i.
   %capacity.i.i.i.i.i451.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %130 = load i64, ptr %capacity.i.i.i.i.i451.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i452.i.i.i.i = icmp eq i64 %129, %130
-  br i1 %cmp.i.i.i.i.i452.i.i.i.i, label %if.then.i.i.i.i.i457.i.i.i.i, label %invoke.cont.i.i.i.i450.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i452.i.i.i.i, label %if.then.i.i.i.i.i457.i.i.i.i, label %invoke.cont.i.i.i.i450.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i450.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i450.i.i.i.i
-  %metadata18.i.i.i.i.i453.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre83.i = load ptr, ptr %metadata18.i.i.i.i.i453.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i450.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i450.i.i.i.i
+  %metadata18.i.i.i.i.i453.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre18.i.i = load ptr, ptr %metadata18.i.i.i.i.i453.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i457.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i450.i.i.i.i
@@ -3954,9 +3954,9 @@ lpad5.i.i.i.i465.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i45
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i436.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i466.i.i.i.i, %invoke.cont.i.i.i.i450.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %134 = phi ptr [ %call14.i3.i.i.i.i464.i.i.i.i, %call14.i.noexc.i.i.i.i466.i.i.i.i ], [ %.pre83.i, %invoke.cont.i.i.i.i450.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %135 = phi i64 [ %.pre4.i.i.i.i.i469.i.i.i.i, %call14.i.noexc.i.i.i.i466.i.i.i.i ], [ %129, %invoke.cont.i.i.i.i450.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i466.i.i.i.i, %invoke.cont.i.i.i.i450.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %134 = phi ptr [ %call14.i3.i.i.i.i464.i.i.i.i, %call14.i.noexc.i.i.i.i466.i.i.i.i ], [ %.pre18.i.i, %invoke.cont.i.i.i.i450.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %135 = phi i64 [ %.pre4.i.i.i.i.i469.i.i.i.i, %call14.i.noexc.i.i.i.i466.i.i.i.i ], [ %129, %invoke.cont.i.i.i.i450.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i454.i.i.i.i = add i64 %135, 1
   store i64 %inc.i.i.i.i.i454.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i455.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %134, i64 %135
@@ -3999,11 +3999,11 @@ invoke.cont.i.i.i.i481.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   %capacity.i.i.i.i.i482.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %140 = load i64, ptr %capacity.i.i.i.i.i482.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i483.i.i.i.i = icmp eq i64 %139, %140
-  br i1 %cmp.i.i.i.i.i483.i.i.i.i, label %if.then.i.i.i.i.i488.i.i.i.i, label %invoke.cont.i.i.i.i481.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i483.i.i.i.i, label %if.then.i.i.i.i.i488.i.i.i.i, label %invoke.cont.i.i.i.i481.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i481.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i481.i.i.i.i
-  %metadata18.i.i.i.i.i484.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre84.i = load ptr, ptr %metadata18.i.i.i.i.i484.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i481.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i481.i.i.i.i
+  %metadata18.i.i.i.i.i484.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre19.i.i = load ptr, ptr %metadata18.i.i.i.i.i484.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i488.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i481.i.i.i.i
@@ -4028,9 +4028,9 @@ lpad4.i.i.i.i496.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i48
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i473.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i497.i.i.i.i, %invoke.cont.i.i.i.i481.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %143 = phi ptr [ %call14.i2.i.i.i.i495.i.i.i.i, %call14.i.noexc.i.i.i.i497.i.i.i.i ], [ %.pre84.i, %invoke.cont.i.i.i.i481.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %144 = phi i64 [ %.pre4.i.i.i.i.i500.i.i.i.i, %call14.i.noexc.i.i.i.i497.i.i.i.i ], [ %139, %invoke.cont.i.i.i.i481.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i497.i.i.i.i, %invoke.cont.i.i.i.i481.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %143 = phi ptr [ %call14.i2.i.i.i.i495.i.i.i.i, %call14.i.noexc.i.i.i.i497.i.i.i.i ], [ %.pre19.i.i, %invoke.cont.i.i.i.i481.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %144 = phi i64 [ %.pre4.i.i.i.i.i500.i.i.i.i, %call14.i.noexc.i.i.i.i497.i.i.i.i ], [ %139, %invoke.cont.i.i.i.i481.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i485.i.i.i.i = add i64 %144, 1
   store i64 %inc.i.i.i.i.i485.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i486.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %143, i64 %144
@@ -4073,11 +4073,11 @@ invoke.cont.i.i.i.i513.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   %capacity.i.i.i.i.i514.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %149 = load i64, ptr %capacity.i.i.i.i.i514.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i515.i.i.i.i = icmp eq i64 %148, %149
-  br i1 %cmp.i.i.i.i.i515.i.i.i.i, label %if.then.i.i.i.i.i520.i.i.i.i, label %invoke.cont.i.i.i.i513.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i515.i.i.i.i, label %if.then.i.i.i.i.i520.i.i.i.i, label %invoke.cont.i.i.i.i513.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i513.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i513.i.i.i.i
-  %metadata18.i.i.i.i.i516.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre85.i = load ptr, ptr %metadata18.i.i.i.i.i516.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i513.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i513.i.i.i.i
+  %metadata18.i.i.i.i.i516.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre20.i.i = load ptr, ptr %metadata18.i.i.i.i.i516.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i520.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i513.i.i.i.i
@@ -4102,9 +4102,9 @@ lpad4.i.i.i.i528.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i52
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i505.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i529.i.i.i.i, %invoke.cont.i.i.i.i513.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %152 = phi ptr [ %call14.i2.i.i.i.i527.i.i.i.i, %call14.i.noexc.i.i.i.i529.i.i.i.i ], [ %.pre85.i, %invoke.cont.i.i.i.i513.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %153 = phi i64 [ %.pre4.i.i.i.i.i532.i.i.i.i, %call14.i.noexc.i.i.i.i529.i.i.i.i ], [ %148, %invoke.cont.i.i.i.i513.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i529.i.i.i.i, %invoke.cont.i.i.i.i513.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %152 = phi ptr [ %call14.i2.i.i.i.i527.i.i.i.i, %call14.i.noexc.i.i.i.i529.i.i.i.i ], [ %.pre20.i.i, %invoke.cont.i.i.i.i513.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %153 = phi i64 [ %.pre4.i.i.i.i.i532.i.i.i.i, %call14.i.noexc.i.i.i.i529.i.i.i.i ], [ %148, %invoke.cont.i.i.i.i513.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i517.i.i.i.i = add i64 %153, 1
   store i64 %inc.i.i.i.i.i517.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i518.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %152, i64 %153
@@ -4147,11 +4147,11 @@ invoke.cont.i.i.i.i545.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   %capacity.i.i.i.i.i546.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %158 = load i64, ptr %capacity.i.i.i.i.i546.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i547.i.i.i.i = icmp eq i64 %157, %158
-  br i1 %cmp.i.i.i.i.i547.i.i.i.i, label %if.then.i.i.i.i.i552.i.i.i.i, label %invoke.cont.i.i.i.i545.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i547.i.i.i.i, label %if.then.i.i.i.i.i552.i.i.i.i, label %invoke.cont.i.i.i.i545.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i545.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i545.i.i.i.i
-  %metadata18.i.i.i.i.i548.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre86.i = load ptr, ptr %metadata18.i.i.i.i.i548.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i545.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i545.i.i.i.i
+  %metadata18.i.i.i.i.i548.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre21.i.i = load ptr, ptr %metadata18.i.i.i.i.i548.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i552.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i545.i.i.i.i
@@ -4176,9 +4176,9 @@ lpad4.i.i.i.i560.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i55
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i537.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i561.i.i.i.i, %invoke.cont.i.i.i.i545.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %161 = phi ptr [ %call14.i2.i.i.i.i559.i.i.i.i, %call14.i.noexc.i.i.i.i561.i.i.i.i ], [ %.pre86.i, %invoke.cont.i.i.i.i545.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %162 = phi i64 [ %.pre4.i.i.i.i.i564.i.i.i.i, %call14.i.noexc.i.i.i.i561.i.i.i.i ], [ %157, %invoke.cont.i.i.i.i545.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i561.i.i.i.i, %invoke.cont.i.i.i.i545.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %161 = phi ptr [ %call14.i2.i.i.i.i559.i.i.i.i, %call14.i.noexc.i.i.i.i561.i.i.i.i ], [ %.pre21.i.i, %invoke.cont.i.i.i.i545.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %162 = phi i64 [ %.pre4.i.i.i.i.i564.i.i.i.i, %call14.i.noexc.i.i.i.i561.i.i.i.i ], [ %157, %invoke.cont.i.i.i.i545.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i549.i.i.i.i = add i64 %162, 1
   store i64 %inc.i.i.i.i.i549.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i550.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %161, i64 %162
@@ -4221,11 +4221,11 @@ invoke.cont.i.i.i.i577.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   %capacity.i.i.i.i.i578.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %167 = load i64, ptr %capacity.i.i.i.i.i578.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i579.i.i.i.i = icmp eq i64 %166, %167
-  br i1 %cmp.i.i.i.i.i579.i.i.i.i, label %if.then.i.i.i.i.i584.i.i.i.i, label %invoke.cont.i.i.i.i577.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i579.i.i.i.i, label %if.then.i.i.i.i.i584.i.i.i.i, label %invoke.cont.i.i.i.i577.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i577.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i577.i.i.i.i
-  %metadata18.i.i.i.i.i580.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre87.i = load ptr, ptr %metadata18.i.i.i.i.i580.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i577.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i577.i.i.i.i
+  %metadata18.i.i.i.i.i580.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre22.i.i = load ptr, ptr %metadata18.i.i.i.i.i580.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i584.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i577.i.i.i.i
@@ -4250,9 +4250,9 @@ lpad4.i.i.i.i592.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i58
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i569.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i593.i.i.i.i, %invoke.cont.i.i.i.i577.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %170 = phi ptr [ %call14.i2.i.i.i.i591.i.i.i.i, %call14.i.noexc.i.i.i.i593.i.i.i.i ], [ %.pre87.i, %invoke.cont.i.i.i.i577.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %171 = phi i64 [ %.pre4.i.i.i.i.i596.i.i.i.i, %call14.i.noexc.i.i.i.i593.i.i.i.i ], [ %166, %invoke.cont.i.i.i.i577.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i593.i.i.i.i, %invoke.cont.i.i.i.i577.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %170 = phi ptr [ %call14.i2.i.i.i.i591.i.i.i.i, %call14.i.noexc.i.i.i.i593.i.i.i.i ], [ %.pre22.i.i, %invoke.cont.i.i.i.i577.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %171 = phi i64 [ %.pre4.i.i.i.i.i596.i.i.i.i, %call14.i.noexc.i.i.i.i593.i.i.i.i ], [ %166, %invoke.cont.i.i.i.i577.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i581.i.i.i.i = add i64 %171, 1
   store i64 %inc.i.i.i.i.i581.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i582.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %170, i64 %171
@@ -4295,11 +4295,11 @@ invoke.cont.i.i.i.i609.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   %capacity.i.i.i.i.i610.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %176 = load i64, ptr %capacity.i.i.i.i.i610.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i611.i.i.i.i = icmp eq i64 %175, %176
-  br i1 %cmp.i.i.i.i.i611.i.i.i.i, label %if.then.i.i.i.i.i616.i.i.i.i, label %invoke.cont.i.i.i.i609.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i611.i.i.i.i, label %if.then.i.i.i.i.i616.i.i.i.i, label %invoke.cont.i.i.i.i609.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i609.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i609.i.i.i.i
-  %metadata18.i.i.i.i.i612.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre88.i = load ptr, ptr %metadata18.i.i.i.i.i612.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i609.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i609.i.i.i.i
+  %metadata18.i.i.i.i.i612.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre23.i.i = load ptr, ptr %metadata18.i.i.i.i.i612.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i616.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i609.i.i.i.i
@@ -4324,9 +4324,9 @@ lpad4.i.i.i.i624.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i61
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i601.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i625.i.i.i.i, %invoke.cont.i.i.i.i609.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %179 = phi ptr [ %call14.i2.i.i.i.i623.i.i.i.i, %call14.i.noexc.i.i.i.i625.i.i.i.i ], [ %.pre88.i, %invoke.cont.i.i.i.i609.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %180 = phi i64 [ %.pre4.i.i.i.i.i628.i.i.i.i, %call14.i.noexc.i.i.i.i625.i.i.i.i ], [ %175, %invoke.cont.i.i.i.i609.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i625.i.i.i.i, %invoke.cont.i.i.i.i609.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %179 = phi ptr [ %call14.i2.i.i.i.i623.i.i.i.i, %call14.i.noexc.i.i.i.i625.i.i.i.i ], [ %.pre23.i.i, %invoke.cont.i.i.i.i609.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %180 = phi i64 [ %.pre4.i.i.i.i.i628.i.i.i.i, %call14.i.noexc.i.i.i.i625.i.i.i.i ], [ %175, %invoke.cont.i.i.i.i609.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i613.i.i.i.i = add i64 %180, 1
   store i64 %inc.i.i.i.i.i613.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i614.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %179, i64 %180
@@ -4369,11 +4369,11 @@ invoke.cont.i.i.i.i641.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   %capacity.i.i.i.i.i642.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %185 = load i64, ptr %capacity.i.i.i.i.i642.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i643.i.i.i.i = icmp eq i64 %184, %185
-  br i1 %cmp.i.i.i.i.i643.i.i.i.i, label %if.then.i.i.i.i.i648.i.i.i.i, label %invoke.cont.i.i.i.i641.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i643.i.i.i.i, label %if.then.i.i.i.i.i648.i.i.i.i, label %invoke.cont.i.i.i.i641.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i641.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i641.i.i.i.i
-  %metadata18.i.i.i.i.i644.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre89.i = load ptr, ptr %metadata18.i.i.i.i.i644.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i641.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i641.i.i.i.i
+  %metadata18.i.i.i.i.i644.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre24.i.i = load ptr, ptr %metadata18.i.i.i.i.i644.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i648.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i641.i.i.i.i
@@ -4398,9 +4398,9 @@ lpad4.i.i.i.i656.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i64
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i633.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i657.i.i.i.i, %invoke.cont.i.i.i.i641.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %188 = phi ptr [ %call14.i2.i.i.i.i655.i.i.i.i, %call14.i.noexc.i.i.i.i657.i.i.i.i ], [ %.pre89.i, %invoke.cont.i.i.i.i641.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %189 = phi i64 [ %.pre4.i.i.i.i.i660.i.i.i.i, %call14.i.noexc.i.i.i.i657.i.i.i.i ], [ %184, %invoke.cont.i.i.i.i641.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i657.i.i.i.i, %invoke.cont.i.i.i.i641.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %188 = phi ptr [ %call14.i2.i.i.i.i655.i.i.i.i, %call14.i.noexc.i.i.i.i657.i.i.i.i ], [ %.pre24.i.i, %invoke.cont.i.i.i.i641.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %189 = phi i64 [ %.pre4.i.i.i.i.i660.i.i.i.i, %call14.i.noexc.i.i.i.i657.i.i.i.i ], [ %184, %invoke.cont.i.i.i.i641.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i645.i.i.i.i = add i64 %189, 1
   store i64 %inc.i.i.i.i.i645.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i646.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %188, i64 %189
@@ -4443,11 +4443,11 @@ invoke.cont.i.i.i.i673.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   %capacity.i.i.i.i.i674.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %194 = load i64, ptr %capacity.i.i.i.i.i674.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i675.i.i.i.i = icmp eq i64 %193, %194
-  br i1 %cmp.i.i.i.i.i675.i.i.i.i, label %if.then.i.i.i.i.i680.i.i.i.i, label %invoke.cont.i.i.i.i673.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i675.i.i.i.i, label %if.then.i.i.i.i.i680.i.i.i.i, label %invoke.cont.i.i.i.i673.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i673.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i673.i.i.i.i
-  %metadata18.i.i.i.i.i676.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre90.i = load ptr, ptr %metadata18.i.i.i.i.i676.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i673.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i673.i.i.i.i
+  %metadata18.i.i.i.i.i676.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre25.i.i = load ptr, ptr %metadata18.i.i.i.i.i676.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i680.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i673.i.i.i.i
@@ -4472,9 +4472,9 @@ lpad4.i.i.i.i688.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i68
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i665.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i689.i.i.i.i, %invoke.cont.i.i.i.i673.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %197 = phi ptr [ %call14.i2.i.i.i.i687.i.i.i.i, %call14.i.noexc.i.i.i.i689.i.i.i.i ], [ %.pre90.i, %invoke.cont.i.i.i.i673.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %198 = phi i64 [ %.pre4.i.i.i.i.i692.i.i.i.i, %call14.i.noexc.i.i.i.i689.i.i.i.i ], [ %193, %invoke.cont.i.i.i.i673.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i689.i.i.i.i, %invoke.cont.i.i.i.i673.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %197 = phi ptr [ %call14.i2.i.i.i.i687.i.i.i.i, %call14.i.noexc.i.i.i.i689.i.i.i.i ], [ %.pre25.i.i, %invoke.cont.i.i.i.i673.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %198 = phi i64 [ %.pre4.i.i.i.i.i692.i.i.i.i, %call14.i.noexc.i.i.i.i689.i.i.i.i ], [ %193, %invoke.cont.i.i.i.i673.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i677.i.i.i.i = add i64 %198, 1
   store i64 %inc.i.i.i.i.i677.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i678.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %197, i64 %198
@@ -4539,7 +4539,7 @@ invoke.cont.i.i.i.i715.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i.
   %203 = load i64, ptr %md, align 8, !alias.scope !40
   %204 = load i64, ptr %capacity.i.i.i.i.i716.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i717.i.i.i.i = icmp eq i64 %203, %204
-  %.pre91.i = load ptr, ptr %metadata.i.i.i.i.i740.i.i.i.i, align 8, !alias.scope !40
+  %.pre26.i.i = load ptr, ptr %metadata.i.i.i.i.i740.i.i.i.i, align 8, !alias.scope !40
   br i1 %cmp.i.i.i.i.i717.i.i.i.i, label %if.then.i.i.i.i.i736.i.i.i.i, label %invoke.cont5.i.i.i.i718.i.i.i.i
 
 if.then.i.i.i.i.i736.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i715.i.i.i.i
@@ -4548,7 +4548,7 @@ if.then.i.i.i.i.i736.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i
   %.sroa.speculated.i.i.i.i.i739.i.i.i.i = call i64 @llvm.umax.i64(i64 %add.i.i.i.i.i737.i.i.i.i, i64 %mul.i.i.i.i.i738.i.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i.i739.i.i.i.i, ptr %capacity.i.i.i.i.i716.i.i.i.i, align 8, !alias.scope !40
   %mul13.i.i.i.i.i742.i.i.i.i = mul i64 %.sroa.speculated.i.i.i.i.i739.i.i.i.i, 96
-  %call14.i2.i.i.i.i743.i.i.i.i = invoke ptr @gpr_realloc(ptr noundef %.pre91.i, i64 noundef %mul13.i.i.i.i.i742.i.i.i.i)
+  %call14.i2.i.i.i.i743.i.i.i.i = invoke ptr @gpr_realloc(ptr noundef %.pre26.i.i, i64 noundef %mul13.i.i.i.i.i742.i.i.i.i)
           to label %call14.i.noexc.i.i.i.i745.i.i.i.i unwind label %lpad4.i.i.i.i744.i.i.i.i
 
 call14.i.noexc.i.i.i.i745.i.i.i.i:                ; preds = %if.then.i.i.i.i.i736.i.i.i.i
@@ -4557,7 +4557,7 @@ call14.i.noexc.i.i.i.i745.i.i.i.i:                ; preds = %if.then.i.i.i.i.i73
   br label %invoke.cont5.i.i.i.i718.i.i.i.i
 
 invoke.cont5.i.i.i.i718.i.i.i.i:                  ; preds = %call14.i.noexc.i.i.i.i745.i.i.i.i, %invoke.cont.i.i.i.i715.i.i.i.i
-  %205 = phi ptr [ %call14.i2.i.i.i.i743.i.i.i.i, %call14.i.noexc.i.i.i.i745.i.i.i.i ], [ %.pre91.i, %invoke.cont.i.i.i.i715.i.i.i.i ]
+  %205 = phi ptr [ %call14.i2.i.i.i.i743.i.i.i.i, %call14.i.noexc.i.i.i.i745.i.i.i.i ], [ %.pre26.i.i, %invoke.cont.i.i.i.i715.i.i.i.i ]
   %206 = phi i64 [ %.pre4.i.i.i.i.i748.i.i.i.i, %call14.i.noexc.i.i.i.i745.i.i.i.i ], [ %203, %invoke.cont.i.i.i.i715.i.i.i.i ]
   %inc.i.i.i.i.i720.i.i.i.i = add i64 %206, 1
   store i64 %inc.i.i.i.i.i720.i.i.i.i, ptr %md, align 8, !alias.scope !40
@@ -4669,11 +4669,11 @@ invoke.cont.i.i.i.i760.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   %capacity.i.i.i.i.i761.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %223 = load i64, ptr %capacity.i.i.i.i.i761.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i762.i.i.i.i = icmp eq i64 %222, %223
-  br i1 %cmp.i.i.i.i.i762.i.i.i.i, label %if.then.i.i.i.i.i767.i.i.i.i, label %invoke.cont.i.i.i.i760.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i762.i.i.i.i, label %if.then.i.i.i.i.i767.i.i.i.i, label %invoke.cont.i.i.i.i760.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i760.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i760.i.i.i.i
-  %metadata18.i.i.i.i.i763.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre92.i = load ptr, ptr %metadata18.i.i.i.i.i763.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i760.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i760.i.i.i.i
+  %metadata18.i.i.i.i.i763.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre27.i.i = load ptr, ptr %metadata18.i.i.i.i.i763.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i767.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i760.i.i.i.i
@@ -4698,9 +4698,9 @@ lpad4.i.i.i.i775.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i76
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i752.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i776.i.i.i.i, %invoke.cont.i.i.i.i760.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %226 = phi ptr [ %call14.i2.i.i.i.i774.i.i.i.i, %call14.i.noexc.i.i.i.i776.i.i.i.i ], [ %.pre92.i, %invoke.cont.i.i.i.i760.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %227 = phi i64 [ %.pre4.i.i.i.i.i779.i.i.i.i, %call14.i.noexc.i.i.i.i776.i.i.i.i ], [ %222, %invoke.cont.i.i.i.i760.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i776.i.i.i.i, %invoke.cont.i.i.i.i760.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %226 = phi ptr [ %call14.i2.i.i.i.i774.i.i.i.i, %call14.i.noexc.i.i.i.i776.i.i.i.i ], [ %.pre27.i.i, %invoke.cont.i.i.i.i760.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %227 = phi i64 [ %.pre4.i.i.i.i.i779.i.i.i.i, %call14.i.noexc.i.i.i.i776.i.i.i.i ], [ %222, %invoke.cont.i.i.i.i760.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i764.i.i.i.i = add i64 %227, 1
   store i64 %inc.i.i.i.i.i764.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i765.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %226, i64 %227
@@ -4743,11 +4743,11 @@ invoke.cont.i.i.i.i792.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   %capacity.i.i.i.i.i793.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %232 = load i64, ptr %capacity.i.i.i.i.i793.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i.i.i.i794.i.i.i.i = icmp eq i64 %231, %232
-  br i1 %cmp.i.i.i.i.i794.i.i.i.i, label %if.then.i.i.i.i.i799.i.i.i.i, label %invoke.cont.i.i.i.i792.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
+  br i1 %cmp.i.i.i.i.i794.i.i.i.i, label %if.then.i.i.i.i.i799.i.i.i.i, label %invoke.cont.i.i.i.i792.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
 
-invoke.cont.i.i.i.i792.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i: ; preds = %invoke.cont.i.i.i.i792.i.i.i.i
-  %metadata18.i.i.i.i.i795.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 96
-  %.pre93.i = load ptr, ptr %metadata18.i.i.i.i.i795.i.i.i.phi.trans.insert.i, align 8, !alias.scope !40
+invoke.cont.i.i.i.i792.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i: ; preds = %invoke.cont.i.i.i.i792.i.i.i.i
+  %metadata18.i.i.i.i.i795.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %.pre28.i.i = load ptr, ptr %metadata18.i.i.i.i.i795.i.i.phi.trans.insert.i.i, align 8, !alias.scope !40
   br label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i799.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i792.i.i.i.i
@@ -4772,9 +4772,9 @@ lpad4.i.i.i.i807.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i79
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i784.i.i.i.i) #25
   br label %common.resume.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i808.i.i.i.i, %invoke.cont.i.i.i.i792.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i
-  %235 = phi ptr [ %call14.i2.i.i.i.i806.i.i.i.i, %call14.i.noexc.i.i.i.i808.i.i.i.i ], [ %.pre93.i, %invoke.cont.i.i.i.i792.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
-  %236 = phi i64 [ %.pre4.i.i.i.i.i811.i.i.i.i, %call14.i.noexc.i.i.i.i808.i.i.i.i ], [ %231, %invoke.cont.i.i.i.i792.i.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i_crit_edge.i ]
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i.i: ; preds = %call14.i.noexc.i.i.i.i808.i.i.i.i, %invoke.cont.i.i.i.i792.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i
+  %235 = phi ptr [ %call14.i2.i.i.i.i806.i.i.i.i, %call14.i.noexc.i.i.i.i808.i.i.i.i ], [ %.pre28.i.i, %invoke.cont.i.i.i.i792.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
+  %236 = phi i64 [ %.pre4.i.i.i.i.i811.i.i.i.i, %call14.i.noexc.i.i.i.i808.i.i.i.i ], [ %231, %invoke.cont.i.i.i.i792.i.i._ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i_crit_edge.i.i ]
   %inc.i.i.i.i.i796.i.i.i.i = add i64 %236, 1
   store i64 %inc.i.i.i.i.i796.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i797.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %235, i64 %236
@@ -4795,18 +4795,18 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %_ZNK9grpc_core5Tabl
   %count.i.i.i.i.i = getelementptr inbounds i8, ptr %237, i64 8
   %238 = load i64, ptr %count.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i = icmp eq i64 %238, 0
-  br i1 %cmp3.i.i.i.i.i, label %invoke.cont8, label %for.body.i.preheader.i
+  br i1 %cmp3.i.i.i.i.i, label %invoke.cont8, label %for.body.lr.ph.i.i
 
-for.body.i.preheader.i:                           ; preds = %land.lhs.true.i.i.i.i.i
+for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i.i.i.i.i
   %capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %metadata.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i, %for.body.i.preheader.i
-  %__begin3.sroa.5.015.i.i = phi i64 [ %__begin3.sroa.5.2.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i ], [ 0, %for.body.i.preheader.i ]
-  %__begin3.sroa.0.014.i.i = phi ptr [ %__begin3.sroa.0.2.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i ], [ %237, %for.body.i.preheader.i ]
-  %data.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.014.i.i, i64 16
-  %arrayidx.i.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor"], ptr %data.i.i.i, i64 0, i64 %__begin3.sroa.5.015.i.i
+for.body.i.i:                                     ; preds = %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i, %for.body.lr.ph.i.i
+  %__begin3.sroa.5.06.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %__begin3.sroa.5.2.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i ]
+  %__begin3.sroa.0.05.i.i = phi ptr [ %237, %for.body.lr.ph.i.i ], [ %__begin3.sroa.0.2.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i ]
+  %data.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.05.i.i, i64 16
+  %arrayidx.i.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor"], ptr %data.i.i.i, i64 0, i64 %__begin3.sroa.5.06.i.i
   %second.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !40
@@ -4833,7 +4833,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i3.i.i.i,
   %243 = load i64, ptr %md, align 8, !alias.scope !40
   %244 = load i64, ptr %capacity.i.i.i.i, align 8, !alias.scope !40
   %cmp.i.i6.i.i = icmp eq i64 %243, %244
-  %.pre94.i = load ptr, ptr %metadata.i.i.i.i, align 8, !alias.scope !40
+  %.pre29.i.i = load ptr, ptr %metadata.i.i.i.i, align 8, !alias.scope !40
   br i1 %cmp.i.i6.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i.i
@@ -4842,7 +4842,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i.i
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %add.i.i.i.i, i64 %mul.i.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %capacity.i.i.i.i, align 8, !alias.scope !40
   %mul13.i.i.i.i = mul i64 %.sroa.speculated.i.i.i.i, 96
-  %call14.i5.i.i.i = invoke ptr @gpr_realloc(ptr noundef %.pre94.i, i64 noundef %mul13.i.i.i.i)
+  %call14.i5.i.i.i = invoke ptr @gpr_realloc(ptr noundef %.pre29.i.i, i64 noundef %mul13.i.i.i.i)
           to label %call14.i.noexc.i.i.i unwind label %lpad3.i.i.i
 
 call14.i.noexc.i.i.i:                             ; preds = %if.then.i.i.i.i
@@ -4857,7 +4857,7 @@ lpad3.i.i.i:                                      ; preds = %if.then.i.i.i.i
   br label %common.resume.i.i
 
 _ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i: ; preds = %call14.i.noexc.i.i.i, %invoke.cont.i.i.i
-  %246 = phi ptr [ %call14.i5.i.i.i, %call14.i.noexc.i.i.i ], [ %.pre94.i, %invoke.cont.i.i.i ]
+  %246 = phi ptr [ %call14.i5.i.i.i, %call14.i.noexc.i.i.i ], [ %.pre29.i.i, %invoke.cont.i.i.i ]
   %247 = phi i64 [ %.pre4.i.i.i.i, %call14.i.noexc.i.i.i ], [ %243, %invoke.cont.i.i.i ]
   %inc.i.i.i.i = add i64 %247, 1
   store i64 %inc.i.i.i.i, ptr %md, align 8, !alias.scope !40
@@ -4867,11 +4867,11 @@ _ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i: ; pre
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !40
-  %inc.i.i.i = add i64 %__begin3.sroa.5.015.i.i, 1
+  %inc.i.i.i = add i64 %__begin3.sroa.5.06.i.i, 1
   br label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %_ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i
-  %__begin3.sroa.0.1.i.i = phi ptr [ %__begin3.sroa.0.014.i.i, %_ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i ], [ %249, %while.body.i.i.i ]
+  %__begin3.sroa.0.1.i.i = phi ptr [ %__begin3.sroa.0.05.i.i, %_ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i ], [ %249, %while.body.i.i.i ]
   %__begin3.sroa.5.1.i.i = phi i64 [ %inc.i.i.i, %_ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i ], [ 0, %while.body.i.i.i ]
   %count.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.1.i.i, i64 8
   %248 = load i64, ptr %count.i.i.i, align 8

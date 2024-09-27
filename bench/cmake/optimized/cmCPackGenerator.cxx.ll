@@ -10325,19 +10325,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit253: ;
           to label %159 unwind label %196
 
 159:                                              ; preds = %157
-  %160 = getelementptr inbounds i8, ptr %24, i64 16
-  %161 = getelementptr inbounds i8, ptr %24, i64 24
-  %162 = getelementptr inbounds i8, ptr %24, i64 8
-  store i64 0, ptr %162, align 8
-  %163 = ptrtoint ptr %0 to i64
-  store i64 %163, ptr %24, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEZN16cmCPackGenerator19InstallCMakeProjectEbS7_S7_PKjS7_bS7_S7_RS5_E3$_0E9_M_invokeERKSt9_Any_dataS7_Of", ptr %161, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEZN16cmCPackGenerator19InstallCMakeProjectEbS7_S7_PKjS7_bS7_S7_RS5_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %160, align 8
+  %160 = ptrtoint ptr %0 to i64
+  %161 = getelementptr inbounds i8, ptr %24, i64 16
+  %162 = getelementptr inbounds i8, ptr %24, i64 24
+  %163 = getelementptr inbounds i8, ptr %24, i64 8
+  store i64 0, ptr %163, align 8
+  store i64 %160, ptr %24, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEZN16cmCPackGenerator19InstallCMakeProjectEbS7_S7_PKjS7_bS7_S7_RS5_E3$_0E9_M_invokeERKSt9_Any_dataS7_Of", ptr %162, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEZN16cmCPackGenerator19InstallCMakeProjectEbS7_S7_PKjS7_bS7_S7_RS5_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %161, align 8
   invoke void @_ZN5cmake19SetProgressCallbackESt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEE(ptr noundef nonnull align 8 dereferenceable(2216) %18, ptr noundef nonnull %24)
           to label %164 unwind label %198
 
 164:                                              ; preds = %159
-  %165 = load ptr, ptr %160, align 8
+  %165 = load ptr, ptr %161, align 8
   %.not.i.i = icmp eq ptr %165, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEED2Ev.exit, label %166
 
@@ -10429,7 +10429,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEED2Ev.e
 198:                                              ; preds = %159
   %199 = landingpad { ptr, i32 }
           cleanup
-  %200 = load ptr, ptr %160, align 8
+  %200 = load ptr, ptr %161, align 8
   %.not.i.i254 = icmp eq ptr %200, null
   br i1 %.not.i.i254, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEED2Ev.exit255, label %201
 

@@ -370,8 +370,8 @@ define internal i32 @dissect_mux27010(ptr noundef %0, ptr noundef %1, ptr nounde
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
   %.not.i = icmp eq i8 %17, 0
   %switch = icmp ult i8 %17, 7
-  %.pre238 = zext i8 %17 to i32
-  %.pre239 = add nuw nsw i32 %.pre238, 1
+  %.pre237 = zext i8 %17 to i32
+  %.pre238 = add nuw nsw i32 %.pre237, 1
   br i1 %switch, label %getExtendedHeader.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %4
@@ -397,7 +397,7 @@ define internal i32 @dissect_mux27010(ptr noundef %0, ptr noundef %1, ptr nounde
   %28 = add i32 %.0156.i, 4
   %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %28) #2
   %30 = zext i8 %29 to i32
-  %31 = add nuw nsw i32 %.pre239, %30
+  %31 = add nuw nsw i32 %.pre238, %30
   %32 = load i32, ptr @hf_mux27010_extended_header_start_pos_I, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %32, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef 0) #2
   %34 = load i32, ptr @hf_mux27010_extended_header_start_byte_I, align 4
@@ -405,7 +405,7 @@ define internal i32 @dissect_mux27010(ptr noundef %0, ptr noundef %1, ptr nounde
   %36 = add i32 %.0156.i, 5
   %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %36) #2
   %38 = zext i8 %37 to i32
-  %39 = add nuw nsw i32 %.pre239, %38
+  %39 = add nuw nsw i32 %.pre238, %38
   %40 = load i32, ptr @hf_mux27010_extended_header_end_pos_I, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %40, ptr noundef %0, i32 noundef %36, i32 noundef 1, i32 noundef 0) #2
   %42 = load i32, ptr @hf_mux27010_extended_header_end_byte_I, align 4
@@ -437,7 +437,7 @@ define internal i32 @dissect_mux27010(ptr noundef %0, ptr noundef %1, ptr nounde
   %61 = add i32 %.0156.i, 5
   %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %61) #2
   %63 = zext i8 %62 to i32
-  %64 = add nuw nsw i32 %.pre239, %63
+  %64 = add nuw nsw i32 %.pre238, %63
   %65 = load i32, ptr @hf_mux27010_extended_header_start_pos_II, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %65, ptr noundef %0, i32 noundef %61, i32 noundef 1, i32 noundef 0) #2
   %67 = load i32, ptr @hf_mux27010_extended_header_start_byte_II, align 4
@@ -445,7 +445,7 @@ define internal i32 @dissect_mux27010(ptr noundef %0, ptr noundef %1, ptr nounde
   %69 = add i32 %.0156.i, 6
   %70 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %69) #2
   %71 = zext i8 %70 to i32
-  %72 = add nuw nsw i32 %.pre239, %71
+  %72 = add nuw nsw i32 %.pre238, %71
   %73 = load i32, ptr @hf_mux27010_extended_header_end_pos_II, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %73, ptr noundef %0, i32 noundef %69, i32 noundef 1, i32 noundef 0) #2
   %75 = load i32, ptr @hf_mux27010_extended_header_end_byte_II, align 4
@@ -477,7 +477,7 @@ define internal i32 @dissect_mux27010(ptr noundef %0, ptr noundef %1, ptr nounde
   %94 = add i32 %.0156.i, 5
   %95 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %94) #2
   %96 = zext i8 %95 to i32
-  %97 = add nuw nsw i32 %.pre239, %96
+  %97 = add nuw nsw i32 %.pre238, %96
   %98 = load i32, ptr @hf_mux27010_extended_header_start_pos_III, align 4
   %99 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %98, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef 0) #2
   %100 = load i32, ptr @hf_mux27010_extended_header_start_byte_III, align 4
@@ -485,7 +485,7 @@ define internal i32 @dissect_mux27010(ptr noundef %0, ptr noundef %1, ptr nounde
   %102 = add i32 %.0156.i, 6
   %103 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %102) #2
   %104 = zext i8 %103 to i32
-  %105 = add nuw nsw i32 %.pre239, %104
+  %105 = add nuw nsw i32 %.pre238, %104
   %106 = load i32, ptr @hf_mux27010_extended_header_end_pos_III, align 4
   %107 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %106, ptr noundef %0, i32 noundef %102, i32 noundef 1, i32 noundef 0) #2
   %108 = load i32, ptr @hf_mux27010_extended_header_end_byte_III, align 4
@@ -514,11 +514,11 @@ define internal i32 @dissect_mux27010(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %exitcond.not, label %getExtendedHeader.exit, label %.lr.ph.i, !llvm.loop !4
 
 getExtendedHeader.exit:                           ; preds = %120, %4
-  %122 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.pre239) #2
+  %122 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.pre238) #2
   %123 = load i32, ptr @hf_mux27010_direction, align 4
   %124 = and i8 %122, 3
   %125 = zext nneg i8 %124 to i32
-  %126 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %123, ptr noundef %0, i32 noundef %.pre239, i32 noundef 1, i32 noundef %125) #2
+  %126 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %123, ptr noundef %0, i32 noundef %.pre238, i32 noundef 1, i32 noundef %125) #2
   %127 = load ptr, ptr %6, align 8
   switch i8 %124, label %129 [
     i8 0, label %getFrameDirection.exit
@@ -537,10 +537,10 @@ getFrameDirection.exit:                           ; preds = %getExtendedHeader.e
   tail call void @col_set_str(ptr noundef %127, i32 noundef 36, ptr noundef nonnull %.str.194.sink12.i) #2
   %130 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %130, i32 noundef 11, ptr noundef nonnull %.str.194.sink.i) #2
-  %131 = add nuw nsw i32 %.pre238, 2
+  %131 = add nuw nsw i32 %.pre237, 2
   %132 = load i32, ptr @hf_mux27010, align 4
   %133 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %132, ptr noundef %0, i32 noundef %131, i32 noundef 1, i32 noundef 0) #2
-  %134 = add nuw nsw i32 %.pre238, 3
+  %134 = add nuw nsw i32 %.pre237, 3
   %135 = load i32, ptr @hf_mux27010_address, align 4
   %136 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %135, ptr noundef %0, i32 noundef %134, i32 noundef 1, i32 noundef 0) #2
   %137 = load i32, ptr @ett_mux27010_address, align 4
@@ -556,7 +556,7 @@ getFrameDirection.exit:                           ; preds = %getExtendedHeader.e
   %146 = tail call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %145, ptr noundef %0, i32 noundef %134, i32 noundef 1, i32 noundef 0) #2
   %147 = load i32, ptr @hf_mux27010_dlciaddressflag, align 4
   %148 = tail call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %147, ptr noundef %0, i32 noundef %134, i32 noundef 1, i32 noundef 0) #2
-  %149 = add nuw nsw i32 %.pre238, 4
+  %149 = add nuw nsw i32 %.pre237, 4
   %150 = load i32, ptr @hf_mux27010_control, align 4
   %151 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %150, ptr noundef %0, i32 noundef %149, i32 noundef 1, i32 noundef 0) #2
   %152 = load i32, ptr @ett_mux27010_control, align 4
@@ -624,21 +624,21 @@ getFrameDirection.exit:                           ; preds = %getExtendedHeader.e
   br label %getFrameControlData.exit
 
 getFrameControlData.exit:                         ; preds = %.thread, %172, %.thread58.i, %156, %.thread.i, %182
-  %.2212 = phi i8 [ 9, %.thread.i ], [ 5, %.thread58.i ], [ %155, %182 ], [ %155, %156 ], [ 0, %.thread ], [ 1, %172 ]
+  %.2211 = phi i8 [ 9, %.thread.i ], [ 5, %.thread58.i ], [ %155, %182 ], [ %155, %156 ], [ 0, %.thread ], [ 1, %172 ]
   %185 = load ptr, ptr %6, align 8
-  %186 = zext i8 %.2212 to i32
+  %186 = zext i8 %.2211 to i32
   %187 = tail call ptr @val_to_str_const(i32 noundef %186, ptr noundef nonnull @frame_type_vals, ptr noundef nonnull @.str.197) #2
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %185, i32 noundef 25, ptr noundef nonnull @.str.196, ptr noundef %187) #2
   %188 = load i32, ptr @hf_mux27010_controlframetype, align 4
   %189 = tail call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %188, ptr noundef %0, i32 noundef %149, i32 noundef 1, i32 noundef 0) #2
   %190 = load i32, ptr @hf_mux27010_pfcontrolflag, align 4
   %191 = tail call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %190, ptr noundef %0, i32 noundef %149, i32 noundef 1, i32 noundef 0) #2
-  %192 = add nuw nsw i32 %.pre238, 5
+  %192 = add nuw nsw i32 %.pre237, 5
   store i32 0, ptr %5, align 4
-  switch i8 %.2212, label %193 [
-    i8 9, label %.thread241
-    i8 5, label %.thread241
-    i8 1, label %.thread241
+  switch i8 %.2211, label %193 [
+    i8 9, label %.thread240
+    i8 5, label %.thread240
+    i8 1, label %.thread240
   ]
 
 193:                                              ; preds = %getFrameControlData.exit
@@ -650,8 +650,8 @@ getFrameControlData.exit:                         ; preds = %.thread, %172, %.th
   %199 = and i8 %198, 1
   %200 = load i32, ptr @hf_mux27010_ealengthflag, align 4
   %201 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %200, ptr noundef %0, i32 noundef %192, i32 noundef 1, i32 noundef 0) #2
-  %.not.i172 = icmp eq i8 %199, 0
-  br i1 %.not.i172, label %208, label %202
+  %.not.i174 = icmp eq i8 %199, 0
+  br i1 %.not.i174, label %208, label %202
 
 202:                                              ; preds = %193
   %203 = load i32, ptr @hf_mux27010_lengthframesize, align 4
@@ -670,12 +670,12 @@ getFrameControlData.exit:                         ; preds = %.thread, %172, %.th
 
 211:                                              ; preds = %208, %202
   %.pre = phi i32 [ %207, %202 ], [ %.pre.pre, %208 ]
-  %.0.i173 = phi i32 [ 1, %202 ], [ 2, %208 ]
-  %212 = add nuw nsw i32 %.0.i173, %192
+  %.0.i175 = phi i32 [ 1, %202 ], [ 2, %208 ]
+  %212 = add nuw nsw i32 %.0.i175, %192
   %213 = icmp ne i32 %.pre, 0
   %214 = icmp ult i8 %139, 4
   %or.cond9 = select i1 %214, i1 %213, i1 false
-  br i1 %or.cond9, label %215, label %.thread241
+  br i1 %or.cond9, label %215, label %.thread240
 
 215:                                              ; preds = %211
   %216 = load i32, ptr @hf_mux27010_controlchannel, align 4
@@ -691,19 +691,19 @@ getFrameControlData.exit:                         ; preds = %.thread, %172, %.th
   %spec.select.i = zext nneg i8 %225 to i32
   %invariant.op.i = add nuw nsw i32 %212, 1
   %226 = icmp eq i8 %225, 0
-  br i1 %226, label %.lr.ph.i174, label %getControlChannelFrameType.exit
+  br i1 %226, label %.lr.ph.i176, label %getControlChannelFrameType.exit
 
-.lr.ph.i174:                                      ; preds = %215, %.lr.ph.i174
-  %.sroa.6.0 = phi i32 [ %227, %.lr.ph.i174 ], [ 0, %215 ]
+.lr.ph.i176:                                      ; preds = %215, %.lr.ph.i176
+  %.sroa.6.0 = phi i32 [ %227, %.lr.ph.i176 ], [ 0, %215 ]
   %227 = add i32 %.sroa.6.0, 1
   %.reass.i = add i32 %invariant.op.i, %.sroa.6.0
   %228 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass.i) #2
   %229 = and i8 %228, 1
   %230 = icmp eq i8 %229, 0
-  br i1 %230, label %.lr.ph.i174, label %getControlChannelFrameType.exit, !llvm.loop !6
+  br i1 %230, label %.lr.ph.i176, label %getControlChannelFrameType.exit, !llvm.loop !6
 
-getControlChannelFrameType.exit:                  ; preds = %.lr.ph.i174, %215
-  %.sroa.6.1 = phi i32 [ %spec.select.i, %215 ], [ %227, %.lr.ph.i174 ]
+getControlChannelFrameType.exit:                  ; preds = %.lr.ph.i176, %215
+  %.sroa.6.1 = phi i32 [ %spec.select.i, %215 ], [ %227, %.lr.ph.i176 ]
   %231 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %212) #2
   %232 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %212) #2
   %233 = load i32, ptr @hf_mux27010_controlchanneleaframetype, align 4
@@ -718,9 +718,9 @@ getControlChannelFrameType.exit:                  ; preds = %.lr.ph.i174, %215
   %242 = call ptr @val_to_str_const(i32 noundef %241, ptr noundef nonnull @command_vals, ptr noundef nonnull @.str.197) #2
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %239, i32 noundef 25, ptr noundef nonnull @.str.198, ptr noundef %242) #2
   %243 = and i8 %231, 2
-  %.not229 = icmp eq i8 %243, 0
+  %.not228 = icmp eq i8 %243, 0
   %244 = load ptr, ptr %6, align 8
-  %.str.199..str.200.i = select i1 %.not229, ptr @.str.200, ptr @.str.199
+  %.str.199..str.200.i = select i1 %.not228, ptr @.str.200, ptr @.str.199
   call void @col_append_str(ptr noundef %244, i32 noundef 25, ptr noundef nonnull %.str.199..str.200.i) #2
   %245 = add i32 %.sroa.6.1, %212
   call void @proto_item_set_len(ptr noundef %221, i32 noundef %.sroa.6.1) #2
@@ -730,32 +730,32 @@ getControlChannelFrameType.exit:                  ; preds = %.lr.ph.i174, %215
   %249 = call ptr @proto_item_add_subtree(ptr noundef %247, i32 noundef %248) #2
   %250 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %245) #2
   %251 = and i8 %250, 1
-  %spec.select.i175 = zext nneg i8 %251 to i32
-  %invariant.op.i176 = add i32 %245, 1
+  %spec.select.i177 = zext nneg i8 %251 to i32
+  %invariant.op.i178 = add i32 %245, 1
   %252 = icmp eq i8 %251, 0
-  br i1 %252, label %.lr.ph.i177, label %getControlChannelLength.exit
+  br i1 %252, label %.lr.ph.i179, label %getControlChannelLength.exit
 
-.lr.ph.i177:                                      ; preds = %getControlChannelFrameType.exit, %.lr.ph.i177
-  %.sroa.7.0 = phi i32 [ %253, %.lr.ph.i177 ], [ 0, %getControlChannelFrameType.exit ]
-  %253 = add i32 %.sroa.7.0, 1
-  %.reass.i178 = add i32 %invariant.op.i176, %.sroa.7.0
-  %254 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass.i178) #2
+.lr.ph.i179:                                      ; preds = %getControlChannelFrameType.exit, %.lr.ph.i179
+  %.sroa.3.0 = phi i32 [ %253, %.lr.ph.i179 ], [ 0, %getControlChannelFrameType.exit ]
+  %253 = add i32 %.sroa.3.0, 1
+  %.reass.i180 = add i32 %invariant.op.i178, %.sroa.3.0
+  %254 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass.i180) #2
   %255 = and i8 %254, 1
   %256 = icmp eq i8 %255, 0
-  br i1 %256, label %.lr.ph.i177, label %getControlChannelLength.exit, !llvm.loop !7
+  br i1 %256, label %.lr.ph.i179, label %getControlChannelLength.exit, !llvm.loop !7
 
-getControlChannelLength.exit:                     ; preds = %.lr.ph.i177, %getControlChannelFrameType.exit
-  %.sroa.7.1 = phi i32 [ %spec.select.i175, %getControlChannelFrameType.exit ], [ %253, %.lr.ph.i177 ]
+getControlChannelLength.exit:                     ; preds = %.lr.ph.i179, %getControlChannelFrameType.exit
+  %.sroa.3.1 = phi i32 [ %spec.select.i177, %getControlChannelFrameType.exit ], [ %253, %.lr.ph.i179 ]
   %257 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %245) #2
   %258 = lshr i8 %257, 1
   %259 = load i32, ptr @hf_mux27010_controlchannelealength, align 4
   %260 = call ptr @proto_tree_add_item(ptr noundef %249, i32 noundef %259, ptr noundef %0, i32 noundef %245, i32 noundef 1, i32 noundef 0) #2
   %261 = load i32, ptr @hf_mux27010_controlchannellengthfield, align 4
   %262 = call ptr @proto_tree_add_item(ptr noundef %249, i32 noundef %261, ptr noundef %0, i32 noundef %245, i32 noundef 1, i32 noundef 0) #2
-  %263 = add i32 %.sroa.7.1, %245
-  call void @proto_item_set_len(ptr noundef %247, i32 noundef %.sroa.7.1) #2
+  %263 = add i32 %.sroa.3.1, %245
+  call void @proto_item_set_len(ptr noundef %247, i32 noundef %.sroa.3.1) #2
   %.not = icmp ult i8 %257, 2
-  br i1 %.not, label %.thread241, label %264
+  br i1 %.not, label %.thread240, label %264
 
 264:                                              ; preds = %getControlChannelLength.exit
   %265 = zext nneg i8 %258 to i32
@@ -796,17 +796,17 @@ getControlChannelLength.exit:                     ; preds = %.lr.ph.i177, %getCo
   %283 = call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %282, ptr noundef %0, i32 noundef %263, i32 noundef 1, i32 noundef 0) #2
   %284 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %263) #2
   %285 = icmp eq i8 %284, 0
-  %or.cond5.i = select i1 %.not229, i1 %285, i1 false
-  br i1 %or.cond5.i, label %.thread.i179, label %288
+  %or.cond5.i = select i1 %.not228, i1 %285, i1 false
+  br i1 %or.cond5.i, label %.thread.i181, label %288
 
-.thread.i179:                                     ; preds = %281
+.thread.i181:                                     ; preds = %281
   %286 = load i32, ptr @hf_mux27010_controlchannel_detailedvalue_response, align 4
   %287 = call ptr @proto_tree_add_uint(ptr noundef %267, i32 noundef %286, ptr noundef %0, i32 noundef %263, i32 noundef %265, i32 noundef 0) #2
   br label %getControlChannelValues.exit
 
 288:                                              ; preds = %281
   %289 = icmp eq i8 %284, 1
-  %or.cond8.i = select i1 %.not229, i1 %289, i1 false
+  %or.cond8.i = select i1 %.not228, i1 %289, i1 false
   br i1 %or.cond8.i, label %290, label %getControlChannelValues.exit
 
 290:                                              ; preds = %288
@@ -867,11 +867,11 @@ getControlChannelLength.exit:                     ; preds = %.lr.ph.i177, %getCo
   %337 = call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %335, ptr noundef %0, i32 noundef %336, i32 noundef 1, i32 noundef 0) #2
   br label %getControlChannelValues.exit
 
-getControlChannelValues.exit:                     ; preds = %264, %276, %.thread.i179, %288, %290, %293, %296, %311, %315
+getControlChannelValues.exit:                     ; preds = %264, %276, %.thread.i181, %288, %290, %293, %296, %311, %315
   %338 = add i32 %263, %265
-  br label %.thread241
+  br label %.thread240
 
-.thread241:                                       ; preds = %getFrameControlData.exit, %getFrameControlData.exit, %getFrameControlData.exit, %getControlChannelValues.exit, %getControlChannelLength.exit, %211
+.thread240:                                       ; preds = %getFrameControlData.exit, %getFrameControlData.exit, %getFrameControlData.exit, %getControlChannelValues.exit, %getControlChannelLength.exit, %211
   %.1 = phi i32 [ %338, %getControlChannelValues.exit ], [ %263, %getControlChannelLength.exit ], [ %212, %211 ], [ %192, %getFrameControlData.exit ], [ %192, %getFrameControlData.exit ], [ %192, %getFrameControlData.exit ]
   %339 = icmp ugt i8 %139, 3
   %340 = load i32, ptr %5, align 4
@@ -879,7 +879,7 @@ getControlChannelValues.exit:                     ; preds = %264, %276, %.thread
   %or.cond7 = select i1 %339, i1 %341, i1 false
   br i1 %or.cond7, label %342, label %394
 
-342:                                              ; preds = %.thread241
+342:                                              ; preds = %.thread240
   %343 = load i32, ptr @hf_mux27010_information, align 4
   %344 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %343, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #2
   %345 = load i32, ptr @ett_mux27010_information, align 4
@@ -896,8 +896,8 @@ getControlChannelValues.exit:                     ; preds = %264, %276, %.thread
   br label %350
 
 350:                                              ; preds = %.lr.ph, %383
-  %.0233 = phi i32 [ 0, %.lr.ph ], [ %384, %383 ]
-  %351 = mul nuw nsw i32 %.0233, 7
+  %.0232 = phi i32 [ 0, %.lr.ph ], [ %384, %383 ]
+  %351 = mul nuw nsw i32 %.0232, 7
   %352 = add nuw nsw i32 %351, 1
   %353 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %352) #2
   %354 = add nuw nsw i32 %351, 3
@@ -917,7 +917,7 @@ getControlChannelValues.exit:                     ; preds = %264, %276, %.thread
 
 364:                                              ; preds = %350
   %365 = zext i8 %357 to i32
-  %366 = add nuw nsw i32 %.pre239, %365
+  %366 = add nuw nsw i32 %.pre238, %365
   %367 = load i32, ptr %349, align 8
   store i32 1, ptr %349, align 8
   %368 = zext i16 %353 to i32
@@ -951,9 +951,9 @@ getControlChannelValues.exit:                     ; preds = %264, %276, %.thread
   br label %383
 
 383:                                              ; preds = %382, %362
-  %384 = add nuw nsw i32 %.0233, 1
-  %exitcond236.not = icmp eq i32 %384, %348
-  br i1 %exitcond236.not, label %.loopexit, label %350, !llvm.loop !8
+  %384 = add nuw nsw i32 %.0232, 1
+  %exitcond235.not = icmp eq i32 %384, %348
+  br i1 %exitcond235.not, label %.loopexit, label %350, !llvm.loop !8
 
 .loopexit:                                        ; preds = %383, %.preheader, %342
   %385 = load i32, ptr %5, align 4
@@ -968,15 +968,15 @@ getControlChannelValues.exit:                     ; preds = %264, %276, %.thread
   %393 = add i32 %385, %.1
   br label %394
 
-394:                                              ; preds = %.loopexit, %.thread241
-  %.2 = phi i32 [ %393, %.loopexit ], [ %.1, %.thread241 ]
+394:                                              ; preds = %.loopexit, %.thread240
+  %.2 = phi i32 [ %393, %.loopexit ], [ %.1, %.thread240 ]
   %395 = load i32, ptr @hf_mux27010_checksum, align 4
   %396 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %395, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #2
   %397 = load i32, ptr @ett_mux27010_checksum, align 4
   %398 = call ptr @proto_item_add_subtree(ptr noundef %396, i32 noundef %397) #2
   %399 = load i32, ptr %5, align 4
   %400 = add i32 %.2, 253
-  %401 = add i32 %399, %.pre238
+  %401 = add i32 %399, %.pre237
   %402 = sub i32 %400, %401
   %403 = trunc i32 %402 to i8
   %404 = add i8 %17, 3

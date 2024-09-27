@@ -1784,19 +1784,19 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i:        ; preds = %_ZNSt3__112basic_st
   store ptr %248, ptr %250, align 16
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #41
   %251 = load ptr, ptr %250, align 16
-  %252 = getelementptr inbounds i8, ptr %48, i64 32
+  %252 = ptrtoint ptr %0 to i64
+  %253 = getelementptr inbounds i8, ptr %48, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %48, align 16
-  %253 = getelementptr inbounds i8, ptr %48, i64 8
-  %254 = ptrtoint ptr %0 to i64
-  store i64 %254, ptr %253, align 8
-  store ptr %48, ptr %252, align 16
+  %254 = getelementptr inbounds i8, ptr %48, i64 8
+  store i64 %252, ptr %254, align 8
+  store ptr %48, ptr %253, align 16
   %255 = getelementptr inbounds i8, ptr %251, i64 256
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %36)
   %256 = getelementptr inbounds i8, ptr %36, i64 32
   store ptr %36, ptr %256, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %36, align 16
   %257 = getelementptr inbounds i8, ptr %36, i64 8
-  store i64 %254, ptr %257, align 8
+  store i64 %252, ptr %257, align 8
   call void @_ZNSt3__110__function12__value_funcIFvbEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %36, ptr noundef nonnull align 16 dereferenceable(40) %255) #41
   %258 = load ptr, ptr %256, align 16
   %259 = icmp eq ptr %258, %36
@@ -1816,7 +1816,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i:        ; preds = %_ZNSt3__112basic_st
 
 264:                                              ; preds = %.sink.split.i.i.i.i, %260
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36)
-  %265 = load ptr, ptr %252, align 16
+  %265 = load ptr, ptr %253, align 16
   %266 = icmp eq ptr %265, %48
   br i1 %266, label %.sink.split.i.i, label %267
 
@@ -2069,7 +2069,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i:        ; preds = %339
   %343 = getelementptr inbounds i8, ptr %55, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %55, align 16
   %344 = getelementptr inbounds i8, ptr %55, i64 8
-  store i64 %254, ptr %344, align 8
+  store i64 %252, ptr %344, align 8
   store ptr %55, ptr %343, align 16
   %345 = getelementptr inbounds i8, ptr %338, i64 144
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
@@ -2077,7 +2077,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i:        ; preds = %339
   store ptr %35, ptr %346, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %35, align 16
   %347 = getelementptr inbounds i8, ptr %35, i64 8
-  store i64 %254, ptr %347, align 8
+  store i64 %252, ptr %347, align 8
   call void @_ZNSt3__110__function12__value_funcIFvfEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %35, ptr noundef nonnull align 16 dereferenceable(40) %345) #41
   %348 = load ptr, ptr %346, align 16
   %349 = icmp eq ptr %348, %35
@@ -2227,7 +2227,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i431:     ; preds = %390
   %394 = getelementptr inbounds i8, ptr %59, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %59, align 16
   %395 = getelementptr inbounds i8, ptr %59, i64 8
-  store i64 %254, ptr %395, align 8
+  store i64 %252, ptr %395, align 8
   store ptr %59, ptr %394, align 16
   %396 = getelementptr inbounds i8, ptr %389, i64 144
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34)
@@ -2235,7 +2235,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i431:     ; preds = %390
   store ptr %34, ptr %397, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %34, align 16
   %398 = getelementptr inbounds i8, ptr %34, i64 8
-  store i64 %254, ptr %398, align 8
+  store i64 %252, ptr %398, align 8
   call void @_ZNSt3__110__function12__value_funcIFvfEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %34, ptr noundef nonnull align 16 dereferenceable(40) %396) #41
   %399 = load ptr, ptr %397, align 16
   %400 = icmp eq ptr %399, %34
@@ -2313,7 +2313,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i448:     ; preds = %418
   %422 = getelementptr inbounds i8, ptr %62, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %62, align 16
   %423 = getelementptr inbounds i8, ptr %62, i64 8
-  store i64 %254, ptr %423, align 8
+  store i64 %252, ptr %423, align 8
   store ptr %62, ptr %422, align 16
   %424 = getelementptr inbounds i8, ptr %417, i64 144
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33)
@@ -2321,7 +2321,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i448:     ; preds = %418
   store ptr %33, ptr %425, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %33, align 16
   %426 = getelementptr inbounds i8, ptr %33, i64 8
-  store i64 %254, ptr %426, align 8
+  store i64 %252, ptr %426, align 8
   call void @_ZNSt3__110__function12__value_funcIFvfEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %33, ptr noundef nonnull align 16 dereferenceable(40) %424) #41
   %427 = load ptr, ptr %425, align 16
   %428 = icmp eq ptr %427, %33
@@ -2445,7 +2445,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit469: ; preds = %448, %463
   %468 = getelementptr inbounds i8, ptr %66, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %66, align 16
   %469 = getelementptr inbounds i8, ptr %66, i64 8
-  store i64 %254, ptr %469, align 8
+  store i64 %252, ptr %469, align 8
   store ptr %66, ptr %468, align 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull @.str.12, i64 noundef 11)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit473 unwind label %632
@@ -2556,7 +2556,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %504, %.sink.split.i
   %509 = getelementptr inbounds i8, ptr %69, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %69, align 16
   %510 = getelementptr inbounds i8, ptr %69, i64 8
-  store i64 %254, ptr %510, align 8
+  store i64 %252, ptr %510, align 8
   store ptr %69, ptr %509, align 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull @.str.14, i64 noundef 11)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit483 unwind label %643
@@ -2612,7 +2612,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i490:     ; preds = %_ZNSt3__112basic_st
   %528 = getelementptr inbounds i8, ptr %72, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %72, align 16
   %529 = getelementptr inbounds i8, ptr %72, i64 8
-  store i64 %254, ptr %529, align 8
+  store i64 %252, ptr %529, align 8
   store ptr %72, ptr %528, align 16
   %530 = getelementptr inbounds i8, ptr %527, i64 256
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32)
@@ -2620,7 +2620,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i490:     ; preds = %_ZNSt3__112basic_st
   store ptr %32, ptr %531, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %32, align 16
   %532 = getelementptr inbounds i8, ptr %32, i64 8
-  store i64 %254, ptr %532, align 8
+  store i64 %252, ptr %532, align 8
   call void @_ZNSt3__110__function12__value_funcIFvbEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %32, ptr noundef nonnull align 16 dereferenceable(40) %530) #41
   %533 = load ptr, ptr %531, align 16
   %534 = icmp eq ptr %533, %32
@@ -3155,7 +3155,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i554:     ; preds = %699
   %702 = getelementptr inbounds i8, ptr %81, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %81, align 16
   %703 = getelementptr inbounds i8, ptr %81, i64 8
-  store i64 %254, ptr %703, align 8
+  store i64 %252, ptr %703, align 8
   store ptr %81, ptr %702, align 16
   %704 = getelementptr inbounds i8, ptr %698, i64 144
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31)
@@ -3163,7 +3163,7 @@ _ZNSt3__18functionIFvfEEC2ERKS2_.exit.i.i554:     ; preds = %699
   store ptr %31, ptr %705, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %31, align 16
   %706 = getelementptr inbounds i8, ptr %31, i64 8
-  store i64 %254, ptr %706, align 8
+  store i64 %252, ptr %706, align 8
   call void @_ZNSt3__110__function12__value_funcIFvfEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %31, ptr noundef nonnull align 16 dereferenceable(40) %704) #41
   %707 = load ptr, ptr %705, align 16
   %708 = icmp eq ptr %707, %31
@@ -3323,7 +3323,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit580: ; preds = %745, %757
   %762 = getelementptr inbounds i8, ptr %84, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %84, align 16
   %763 = getelementptr inbounds i8, ptr %84, i64 8
-  store i64 %254, ptr %763, align 8
+  store i64 %252, ptr %763, align 8
   store ptr %84, ptr %762, align 16
   invoke fastcc void @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_10clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef %84)
           to label %764 unwind label %1756
@@ -3354,7 +3354,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit586:             ; preds = %767, %.sink.split.i
   %772 = getelementptr inbounds i8, ptr %86, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %86, align 16
   %773 = getelementptr inbounds i8, ptr %86, i64 8
-  store i64 %254, ptr %773, align 8
+  store i64 %252, ptr %773, align 8
   store ptr %86, ptr %772, align 16
   invoke fastcc void @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_10clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef %86)
           to label %774 unwind label %1764
@@ -3385,7 +3385,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit592:             ; preds = %777, %.sink.split.i
   %782 = getelementptr inbounds i8, ptr %88, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %88, align 16
   %783 = getelementptr inbounds i8, ptr %88, i64 8
-  store i64 %254, ptr %783, align 8
+  store i64 %252, ptr %783, align 8
   store ptr %88, ptr %782, align 16
   invoke fastcc void @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_10clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef %88)
           to label %784 unwind label %1772
@@ -3416,7 +3416,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit598:             ; preds = %787, %.sink.split.i
   %792 = getelementptr inbounds i8, ptr %90, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %90, align 16
   %793 = getelementptr inbounds i8, ptr %90, i64 8
-  store i64 %254, ptr %793, align 8
+  store i64 %252, ptr %793, align 8
   store ptr %90, ptr %792, align 16
   invoke fastcc void @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_10clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef %90)
           to label %794 unwind label %1780
@@ -3585,7 +3585,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit616: ; preds = %846, %858
   %863 = getelementptr inbounds i8, ptr %93, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %93, align 16
   %864 = getelementptr inbounds i8, ptr %93, i64 8
-  store i64 %254, ptr %864, align 8
+  store i64 %252, ptr %864, align 8
   store ptr %93, ptr %863, align 16
   invoke fastcc void @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef %93)
           to label %865 unwind label %1792
@@ -3616,7 +3616,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit622:             ; preds = %868, %.sink.split.i
   %873 = getelementptr inbounds i8, ptr %95, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %95, align 16
   %874 = getelementptr inbounds i8, ptr %95, i64 8
-  store i64 %254, ptr %874, align 8
+  store i64 %252, ptr %874, align 8
   store ptr %95, ptr %873, align 16
   invoke fastcc void @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef %95)
           to label %875 unwind label %1800
@@ -3647,7 +3647,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit628:             ; preds = %878, %.sink.split.i
   %883 = getelementptr inbounds i8, ptr %97, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %97, align 16
   %884 = getelementptr inbounds i8, ptr %97, i64 8
-  store i64 %254, ptr %884, align 8
+  store i64 %252, ptr %884, align 8
   store ptr %97, ptr %883, align 16
   invoke fastcc void @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef %97)
           to label %885 unwind label %1808
@@ -3678,7 +3678,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit634:             ; preds = %888, %.sink.split.i
   %893 = getelementptr inbounds i8, ptr %99, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %99, align 16
   %894 = getelementptr inbounds i8, ptr %99, i64 8
-  store i64 %254, ptr %894, align 8
+  store i64 %252, ptr %894, align 8
   store ptr %99, ptr %893, align 16
   invoke fastcc void @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %98, ptr noundef %99)
           to label %895 unwind label %1816
@@ -3709,7 +3709,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit640:             ; preds = %898, %.sink.split.i
   %903 = getelementptr inbounds i8, ptr %101, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %101, align 16
   %904 = getelementptr inbounds i8, ptr %101, i64 8
-  store i64 %254, ptr %904, align 8
+  store i64 %252, ptr %904, align 8
   store ptr %101, ptr %903, align 16
   invoke fastcc void @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef %101)
           to label %905 unwind label %1824
@@ -4018,7 +4018,7 @@ _ZNSt3__18functionIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE
   %1011 = getelementptr inbounds i8, ptr %108, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i64 16), ptr %108, align 16
   %1012 = getelementptr inbounds i8, ptr %108, i64 8
-  store i64 %254, ptr %1012, align 8
+  store i64 %252, ptr %1012, align 8
   store ptr %108, ptr %1011, align 16
   %1013 = getelementptr inbounds i8, ptr %1010, i64 256
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %28)
@@ -4026,7 +4026,7 @@ _ZNSt3__18functionIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE
   store ptr %28, ptr %1014, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i64 16), ptr %28, align 16
   %1015 = getelementptr inbounds i8, ptr %28, i64 8
-  store i64 %254, ptr %1015, align 8
+  store i64 %252, ptr %1015, align 8
   call void @_ZNSt3__110__function12__value_funcIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEE4swapB8ne190000ERSB_(ptr noundef nonnull align 16 dereferenceable(40) %28, ptr noundef nonnull align 16 dereferenceable(40) %1013) #41
   %1016 = load ptr, ptr %1014, align 16
   %1017 = icmp eq ptr %1016, %28
@@ -4237,7 +4237,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i703:     ; preds = %_ZNSt3__112basic_st
   %1089 = getelementptr inbounds i8, ptr %113, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %113, align 16
   %1090 = getelementptr inbounds i8, ptr %113, i64 8
-  store i64 %254, ptr %1090, align 8
+  store i64 %252, ptr %1090, align 8
   store ptr %113, ptr %1089, align 16
   %1091 = getelementptr inbounds i8, ptr %1088, i64 256
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25)
@@ -4245,7 +4245,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i703:     ; preds = %_ZNSt3__112basic_st
   store ptr %25, ptr %1092, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %25, align 16
   %1093 = getelementptr inbounds i8, ptr %25, i64 8
-  store i64 %254, ptr %1093, align 8
+  store i64 %252, ptr %1093, align 8
   call void @_ZNSt3__110__function12__value_funcIFvbEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %25, ptr noundef nonnull align 16 dereferenceable(40) %1091) #41
   %1094 = load ptr, ptr %1092, align 16
   %1095 = icmp eq ptr %1094, %25
@@ -4388,7 +4388,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i729:     ; preds = %.sink.split.i.i726,
   %1142 = getelementptr inbounds i8, ptr %118, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %118, align 16
   %1143 = getelementptr inbounds i8, ptr %118, i64 8
-  store i64 %254, ptr %1143, align 8
+  store i64 %252, ptr %1143, align 8
   store ptr %118, ptr %1142, align 16
   %1144 = getelementptr inbounds i8, ptr %1141, i64 256
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
@@ -4396,7 +4396,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i729:     ; preds = %.sink.split.i.i726,
   store ptr %24, ptr %1145, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %24, align 16
   %1146 = getelementptr inbounds i8, ptr %24, i64 8
-  store i64 %254, ptr %1146, align 8
+  store i64 %252, ptr %1146, align 8
   call void @_ZNSt3__110__function12__value_funcIFvbEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %24, ptr noundef nonnull align 16 dereferenceable(40) %1144) #41
   %1147 = load ptr, ptr %1145, align 16
   %1148 = icmp eq ptr %1147, %24
@@ -4440,7 +4440,7 @@ _ZNSt3__18functionIFvbEED2Ev.exit739:             ; preds = %1156, %.sink.split.
   %1161 = getelementptr inbounds i8, ptr %120, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %120, align 16
   %1162 = getelementptr inbounds i8, ptr %120, i64 8
-  store i64 %254, ptr %1162, align 8
+  store i64 %252, ptr %1162, align 8
   store ptr %120, ptr %1161, align 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull @.str.37, i64 noundef 12)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit743 unwind label %1890
@@ -4551,7 +4551,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit760:             ; preds = %1197, %.sink.split.
   %1202 = getelementptr inbounds i8, ptr %123, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %123, align 16
   %1203 = getelementptr inbounds i8, ptr %123, i64 8
-  store i64 %254, ptr %1203, align 8
+  store i64 %252, ptr %1203, align 8
   store ptr %123, ptr %1202, align 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull @.str.38, i64 noundef 10)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit764 unwind label %1901
@@ -4770,7 +4770,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit794: ; preds = %1263, %1275
   %1280 = getelementptr inbounds i8, ptr %129, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %129, align 16
   %1281 = getelementptr inbounds i8, ptr %129, i64 8
-  store i64 %254, ptr %1281, align 8
+  store i64 %252, ptr %1281, align 8
   store ptr %129, ptr %1280, align 16
   %1282 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8
   %1283 = and i8 %1282, 1
@@ -4861,7 +4861,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit809:             ; preds = %1312, %.sink.split.
   %1317 = getelementptr inbounds i8, ptr %132, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %132, align 16
   %1318 = getelementptr inbounds i8, ptr %132, i64 8
-  store i64 %254, ptr %1318, align 8
+  store i64 %252, ptr %1318, align 8
   store ptr %132, ptr %1317, align 16
   %1319 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8
   %1320 = and i8 %1319, 1
@@ -5025,7 +5025,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit837:             ; preds = %1377, %.sink.split.
   %1382 = getelementptr inbounds i8, ptr %135, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %135, align 16
   %1383 = getelementptr inbounds i8, ptr %135, i64 8
-  store i64 %254, ptr %1383, align 8
+  store i64 %252, ptr %1383, align 8
   store ptr %135, ptr %1382, align 16
   %1384 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8
   %1385 = and i8 %1384, 1
@@ -5189,7 +5189,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit865:             ; preds = %1442, %.sink.split.
   %1447 = getelementptr inbounds i8, ptr %138, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %138, align 16
   %1448 = getelementptr inbounds i8, ptr %138, i64 8
-  store i64 %254, ptr %1448, align 8
+  store i64 %252, ptr %1448, align 8
   store ptr %138, ptr %1447, align 16
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %1449 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !50
@@ -5451,7 +5451,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i901:     ; preds = %.sink.split.i.i898,
   %1537 = getelementptr inbounds i8, ptr %143, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %143, align 16
   %1538 = getelementptr inbounds i8, ptr %143, i64 8
-  store i64 %254, ptr %1538, align 8
+  store i64 %252, ptr %1538, align 8
   store ptr %143, ptr %1537, align 16
   %1539 = getelementptr inbounds i8, ptr %1536, i64 256
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
@@ -5459,7 +5459,7 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i901:     ; preds = %.sink.split.i.i898,
   store ptr %15, ptr %1540, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %15, align 16
   %1541 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 %254, ptr %1541, align 8
+  store i64 %252, ptr %1541, align 8
   call void @_ZNSt3__110__function12__value_funcIFvbEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %15, ptr noundef nonnull align 16 dereferenceable(40) %1539) #41
   %1542 = load ptr, ptr %1540, align 16
   %1543 = icmp eq ptr %1542, %15
@@ -5503,7 +5503,7 @@ _ZNSt3__18functionIFvbEED2Ev.exit911:             ; preds = %1551, %.sink.split.
   %1556 = getelementptr inbounds i8, ptr %145, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %145, align 16
   %1557 = getelementptr inbounds i8, ptr %145, i64 8
-  store i64 %254, ptr %1557, align 8
+  store i64 %252, ptr %1557, align 8
   store ptr %145, ptr %1556, align 16
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %1558 = load i8, ptr @_ZN3tev10HelpWindow7COMMANDE, align 8, !noalias !59
@@ -5918,7 +5918,7 @@ _ZNSt3__18functionIFvN7nanogui5ArrayIiLm2EEEEEC2ERKS5_.exit.i.i: ; preds = %1694
   %1704 = getelementptr inbounds i8, ptr %147, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i64 16), ptr %147, align 16
   %1705 = getelementptr inbounds i8, ptr %147, i64 8
-  store i64 %254, ptr %1705, align 8
+  store i64 %252, ptr %1705, align 8
   store ptr %147, ptr %1704, align 16
   %1706 = getelementptr inbounds i8, ptr %0, i64 336
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
@@ -5926,7 +5926,7 @@ _ZNSt3__18functionIFvN7nanogui5ArrayIiLm2EEEEEC2ERKS5_.exit.i.i: ; preds = %1694
   store ptr %12, ptr %1707, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i64 16), ptr %12, align 16
   %1708 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %254, ptr %1708, align 8
+  store i64 %252, ptr %1708, align 8
   call void @_ZNSt3__110__function12__value_funcIFvN7nanogui5ArrayIiLm2EEEEE4swapB8ne190000ERS6_(ptr noundef nonnull align 16 dereferenceable(40) %12, ptr noundef nonnull align 16 dereferenceable(40) %1706) #41
   %1709 = load ptr, ptr %1707, align 16
   %1710 = icmp eq ptr %1709, %12
@@ -14357,19 +14357,19 @@ define dso_local void @_ZN3tev11ImageViewer16toggleHelpWindowEv(ptr noundef nonn
   %7 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #43
   %8 = getelementptr inbounds i8, ptr %0, i64 952
   %9 = load i8, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = ptrtoint ptr %0 to i64
+  %11 = getelementptr inbounds i8, ptr %2, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i64 16), ptr %2, align 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = ptrtoint ptr %0 to i64
-  store i64 %12, ptr %11, align 8
-  store ptr %2, ptr %10, align 16
+  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %10, ptr %12, align 8
+  store ptr %2, ptr %11, align 16
   %13 = trunc i8 %9 to i1
   invoke void @_ZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNSt3__18functionIFvvEEE(ptr noundef nonnull align 16 dereferenceable(224) %7, ptr noundef nonnull %0, i1 noundef zeroext %13, ptr noundef nonnull %2)
           to label %14 unwind label %23
 
 14:                                               ; preds = %6
   store ptr %7, ptr %3, align 16
-  %15 = load ptr, ptr %10, align 16
+  %15 = load ptr, ptr %11, align 16
   %16 = icmp eq ptr %15, %2
   br i1 %16, label %.sink.split.i.i, label %17
 
@@ -14396,7 +14396,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %17, %.sink.split.i.
 23:                                               ; preds = %6
   %24 = landingpad { ptr, i32 }
           cleanup
-  %25 = load ptr, ptr %10, align 16
+  %25 = load ptr, ptr %11, align 16
   %26 = icmp eq ptr %25, %2
   br i1 %26, label %.sink.split.i.i7, label %27
 
@@ -20562,19 +20562,19 @@ _ZNSt3__18functionIFvbEEC2ERKS2_.exit.i.i:        ; preds = %72, %"_ZZN3tev11Ima
   br label %_ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i41
 
 _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i41:      ; preds = %.sink.split.i.i38, %96
-  %100 = getelementptr inbounds i8, ptr %11, i64 32
+  %100 = ptrtoint ptr %0 to i64
+  %101 = getelementptr inbounds i8, ptr %11, i64 32
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %11, align 16
-  %101 = getelementptr inbounds i8, ptr %11, i64 8
-  %102 = ptrtoint ptr %0 to i64
-  store i64 %102, ptr %101, align 8
-  store ptr %11, ptr %100, align 16
+  %102 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %100, ptr %102, align 8
+  store ptr %11, ptr %101, align 16
   %103 = getelementptr inbounds i8, ptr %29, i64 288
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   %104 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %5, ptr %104, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %5, align 16
   %105 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %102, ptr %105, align 8
+  store i64 %100, ptr %105, align 8
   call void @_ZNSt3__110__function12__value_funcIFvvEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 16 dereferenceable(40) %103) #41
   %106 = load ptr, ptr %104, align 16
   %107 = icmp eq ptr %106, %5
@@ -20594,7 +20594,7 @@ _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i41:      ; preds = %.sink.split.i.i38, 
 
 112:                                              ; preds = %.sink.split.i.i.i.i43, %108
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  %113 = load ptr, ptr %100, align 16
+  %113 = load ptr, ptr %101, align 16
   %114 = icmp eq ptr %113, %11
   br i1 %114, label %.sink.split.i.i48, label %115
 

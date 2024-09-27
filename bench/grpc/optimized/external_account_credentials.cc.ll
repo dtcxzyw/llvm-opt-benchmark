@@ -3923,12 +3923,12 @@ do.end:                                           ; preds = %entry
   %response_cb_ = getelementptr inbounds i8, ptr %this, i64 552
   store ptr %response_cb, ptr %response_cb_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 120
+  %1 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 24
-  %1 = getelementptr inbounds i8, ptr %agg.tmp5, i64 8
-  store i64 0, ptr %1, align 8
-  %2 = ptrtoint ptr %this to i64
-  store i64 %2, ptr %agg.tmp5, align 8
+  %2 = getelementptr inbounds i8, ptr %agg.tmp5, i64 8
+  store i64 0, ptr %2, align 8
+  store i64 %1, ptr %agg.tmp5, align 8
   store ptr @"_ZNSt17_Function_handlerIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEZN9grpc_core26ExternalAccountCredentials12fetch_oauth2EP33grpc_credentials_metadata_requestP19grpc_polling_entityPFvPvS8_ENSA_9TimestampEE3$_0E9_M_invokeERKSt9_Any_dataOS5_OS8_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEZN9grpc_core26ExternalAccountCredentials12fetch_oauth2EP33grpc_credentials_metadata_requestP19grpc_polling_entityPFvPvS8_ENSA_9TimestampEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %vtable = load ptr, ptr %this, align 8

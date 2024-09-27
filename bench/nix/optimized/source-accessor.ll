@@ -656,14 +656,14 @@ define void @_ZN3nix14SourceAccessor8readFileB5cxx11ERKNS_9CanonPathE(ptr dead_o
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %12 = getelementptr inbounds i8, ptr %6, i64 8
   store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 0, ptr %15, align 8
-  %16 = ptrtoint ptr %6 to i64
-  store i64 %16, ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvmEZN3nix14SourceAccessor8readFileB5cxx11ERKNS1_9CanonPathEE3$_0E9_M_invokeERKSt9_Any_dataOm", ptr %14, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvmEZN3nix14SourceAccessor8readFileB5cxx11ERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %13, align 8
+  %13 = ptrtoint ptr %6 to i64
+  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 0, ptr %16, align 8
+  store i64 %13, ptr %7, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvmEZN3nix14SourceAccessor8readFileB5cxx11ERKNS1_9CanonPathEE3$_0E9_M_invokeERKSt9_Any_dataOm", ptr %15, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvmEZN3nix14SourceAccessor8readFileB5cxx11ERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %14, align 8
   %17 = load ptr, ptr %1, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
@@ -671,7 +671,7 @@ define void @_ZN3nix14SourceAccessor8readFileB5cxx11ERKNS_9CanonPathE(ptr dead_o
           to label %20 unwind label %37
 
 20:                                               ; preds = %3
-  %21 = load ptr, ptr %13, align 8
+  %21 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvmEED2Ev.exit, label %22
 
@@ -723,7 +723,7 @@ _ZN3nix10StringSinkD2Ev.exit:                     ; preds = %30, %_ZNKSt7__cxx11
 37:                                               ; preds = %3
   %38 = landingpad { ptr, i32 }
           cleanup
-  %39 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %14, align 8
   %.not.i.i3 = icmp eq ptr %39, null
   br i1 %.not.i.i3, label %_ZNSt8functionIFvmEED2Ev.exit4, label %40
 

@@ -70,11 +70,11 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
   %21 = alloca %"class.std::allocator.14", align 1
   %22 = alloca %"class.std::__cxx11::basic_string.13", align 8
   %23 = load i32, ptr %1, align 4
-  switch i32 %23, label %103 [
+  switch i32 %23, label %102 [
     i32 1, label %24
     i32 128, label %41
-    i32 4096, label %52
-    i32 8192, label %68
+    i32 4096, label %51
+    i32 8192, label %67
     i32 2, label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD13CodabarWriterEEEDaOT_.exit"
     i32 4, label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD12Code39WriterEEEDaOT_.exit"
     i32 8, label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD12Code93WriterEEEDaOT_.exit"
@@ -123,266 +123,266 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
 
 "_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_5Aztec6WriterEZNKS0_6encodeES8_iiE3$_2EEDaOT_T0_.exit": ; preds = %35, %39
   call void @_ZNK5ZXing5Aztec6Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
-  br label %120
+  br label %119
 
 41:                                               ; preds = %5
   call void @_ZN5ZXing10DataMatrix6WriterC1Ev(ptr noundef nonnull align 4 dereferenceable(25) %7)
   %42 = getelementptr inbounds i8, ptr %1, i64 4
-  %43 = load i8, ptr %42, align 4, !noalias !10
-  %.not.i16 = icmp eq i8 %43, 0
-  br i1 %.not.i16, label %46, label %44
+  %.val.val = load i8, ptr %42, align 4
+  %.not.i19 = icmp eq i8 %.val.val, 0
+  br i1 %.not.i19, label %45, label %43
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %7, i64 24
-  store i8 %43, ptr %45, align 4, !noalias !10
-  br label %46
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds i8, ptr %7, i64 24
+  store i8 %.val.val, ptr %44, align 4, !noalias !10
+  br label %45
 
-46:                                               ; preds = %44, %41
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
-  %48 = load i32, ptr %47, align 4, !noalias !13
-  %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_3clINS_10DataMatrix6WriterEEEDaOT_.exit"
+45:                                               ; preds = %43, %41
+  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = load i32, ptr %46, align 4, !noalias !13
+  %48 = icmp sgt i32 %47, -1
+  br i1 %48, label %49, label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_3clINS_10DataMatrix6WriterEEEDaOT_.exit"
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %48, ptr %51, align 4, !noalias !13
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %47, ptr %50, align 4, !noalias !13
   br label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_3clINS_10DataMatrix6WriterEEEDaOT_.exit"
 
-"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_3clINS_10DataMatrix6WriterEEEDaOT_.exit": ; preds = %46, %50
+"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_3clINS_10DataMatrix6WriterEEEDaOT_.exit": ; preds = %45, %49
   call void @_ZNK5ZXing10DataMatrix6Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(25) %7, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
-  br label %120
+  br label %119
 
-52:                                               ; preds = %5
+51:                                               ; preds = %5
   call void @_ZN5ZXing6Pdf4176WriterC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %53 = getelementptr inbounds i8, ptr %1, i64 4
-  %54 = load i8, ptr %53, align 4, !noalias !16
-  %.not.i17 = icmp eq i8 %54, 0
-  br i1 %.not.i17, label %.noexc, label %55
+  %52 = getelementptr inbounds i8, ptr %1, i64 4
+  %53 = load i8, ptr %52, align 4, !noalias !16
+  %.not.i20 = icmp eq i8 %53, 0
+  br i1 %.not.i20, label %.noexc, label %54
 
-55:                                               ; preds = %52
-  %56 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing6Pdf4176Writer11setEncodingENS_12CharacterSetE(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 noundef zeroext %54)
-          to label %.noexc unwind label %66
+54:                                               ; preds = %51
+  %55 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing6Pdf4176Writer11setEncodingENS_12CharacterSetE(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 noundef zeroext %53)
+          to label %.noexc unwind label %65
 
-.noexc:                                           ; preds = %55, %52
-  %57 = getelementptr inbounds i8, ptr %1, i64 12
-  %58 = load i32, ptr %57, align 4, !noalias !16
-  %or.cond.i18 = icmp ult i32 %58, 9
-  br i1 %or.cond.i18, label %59, label %61
+.noexc:                                           ; preds = %54, %51
+  %56 = getelementptr inbounds i8, ptr %1, i64 12
+  %57 = load i32, ptr %56, align 4, !noalias !16
+  %or.cond.i21 = icmp ult i32 %57, 9
+  br i1 %or.cond.i21, label %58, label %60
 
-59:                                               ; preds = %.noexc
-  %60 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 %58, ptr %60, align 4, !noalias !16
-  br label %61
+58:                                               ; preds = %.noexc
+  %59 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %57, ptr %59, align 4, !noalias !16
+  br label %60
 
-61:                                               ; preds = %59, %.noexc
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
-  %63 = load i32, ptr %62, align 4, !noalias !19
-  %64 = icmp sgt i32 %63, -1
-  br i1 %64, label %65, label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_6Pdf4176WriterEEEDaOT_.exit.i"
+60:                                               ; preds = %58, %.noexc
+  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = load i32, ptr %61, align 4, !noalias !19
+  %63 = icmp sgt i32 %62, -1
+  br i1 %63, label %64, label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_6Pdf4176WriterEEEDaOT_.exit.i"
 
-65:                                               ; preds = %61
-  store i32 %63, ptr %8, align 8, !noalias !19
+64:                                               ; preds = %60
+  store i32 %62, ptr %8, align 8, !noalias !19
   br label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_6Pdf4176WriterEEEDaOT_.exit.i"
 
-"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_6Pdf4176WriterEEEDaOT_.exit.i": ; preds = %65, %61
+"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_6Pdf4176WriterEEEDaOT_.exit.i": ; preds = %64, %60
   invoke void @_ZNK5ZXing6Pdf4176Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
-          to label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6Pdf4176WriterEZNKS0_6encodeES8_iiE3$_4EEDaOT_T0_.exit" unwind label %66
+          to label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6Pdf4176WriterEZNKS0_6encodeES8_iiE3$_4EEDaOT_T0_.exit" unwind label %65
 
 "_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6Pdf4176WriterEZNKS0_6encodeES8_iiE3$_4EEDaOT_T0_.exit": ; preds = %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_6Pdf4176WriterEEEDaOT_.exit.i"
   call void @_ZN5ZXing6Pdf4176WriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #10
-  br label %120
-
-66:                                               ; preds = %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_6Pdf4176WriterEEEDaOT_.exit.i", %55
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN5ZXing6Pdf4176WriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #10
-  br label %121
-
-68:                                               ; preds = %5
-  call void @_ZN5ZXing6QRCode6WriterC1Ev(ptr noundef nonnull align 4 dereferenceable(24) %9)
-  %69 = getelementptr inbounds i8, ptr %1, i64 4
-  %70 = load i8, ptr %69, align 4, !noalias !22
-  %.not.i20 = icmp eq i8 %70, 0
-  br i1 %.not.i20, label %73, label %71
-
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %9, i64 8
-  store i8 %70, ptr %72, align 4, !noalias !22
-  br label %73
-
-73:                                               ; preds = %71, %68
-  %74 = getelementptr inbounds i8, ptr %1, i64 12
-  %75 = load i32, ptr %74, align 4, !noalias !22
-  %or.cond.i21 = icmp ult i32 %75, 9
-  br i1 %or.cond.i21, label %76, label %80
-
-76:                                               ; preds = %73
-  %77 = trunc nuw nsw i32 %75 to i8
-  %.lhs.trunc.i.i = add nsw i8 %77, -1
-  %78 = sdiv i8 %.lhs.trunc.i.i, 2
-  %.sext.i.i = zext nneg i8 %78 to i32
-  %79 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 %.sext.i.i, ptr %79, align 4, !noalias !22
-  br label %80
-
-80:                                               ; preds = %76, %73
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
-  %82 = load i32, ptr %81, align 4, !noalias !25
-  %83 = icmp sgt i32 %82, -1
-  br i1 %83, label %84, label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6QRCode6WriterEZNKS0_6encodeES8_iiE3$_5EEDaOT_T0_.exit"
-
-84:                                               ; preds = %80
-  store i32 %82, ptr %9, align 4, !noalias !25
-  br label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6QRCode6WriterEZNKS0_6encodeES8_iiE3$_5EEDaOT_T0_.exit"
-
-"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6QRCode6WriterEZNKS0_6encodeES8_iiE3$_5EEDaOT_T0_.exit": ; preds = %80, %84
-  call void @_ZNK5ZXing6QRCode6Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
-  br label %120
-
-"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD13CodabarWriterEEEDaOT_.exit": ; preds = %5
-  %85 = getelementptr inbounds i8, ptr %1, i64 8
-  %86 = load i32, ptr %85, align 4, !noalias !28
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %86, i32 -1)
-  store i32 %spec.store.select, ptr %10, align 4
-  call void @_ZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
-  br label %120
-
-"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD12Code39WriterEEEDaOT_.exit": ; preds = %5
-  %87 = getelementptr inbounds i8, ptr %1, i64 8
-  %88 = load i32, ptr %87, align 4, !noalias !31
-  %spec.store.select103 = tail call i32 @llvm.smax.i32(i32 %88, i32 -1)
-  store i32 %spec.store.select103, ptr %11, align 4
-  call void @_ZNK5ZXing4OneD12Code39Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
-  br label %120
-
-"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD12Code93WriterEEEDaOT_.exit": ; preds = %5
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
-  %90 = load i32, ptr %89, align 4, !noalias !34
-  %spec.store.select104 = tail call i32 @llvm.smax.i32(i32 %90, i32 -1)
-  store i32 %spec.store.select104, ptr %12, align 4
-  call void @_ZNK5ZXing4OneD12Code93Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
-  br label %120
-
-"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD13Code128WriterEEEDaOT_.exit": ; preds = %5
-  %91 = getelementptr inbounds i8, ptr %1, i64 8
-  %92 = load i32, ptr %91, align 4, !noalias !37
-  %spec.store.select105 = tail call i32 @llvm.smax.i32(i32 %92, i32 -1)
-  store i32 %spec.store.select105, ptr %13, align 4
-  call void @_ZNK5ZXing4OneD13Code128Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
-  br label %120
-
-"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10EAN8WriterEEEDaOT_.exit": ; preds = %5
-  %93 = getelementptr inbounds i8, ptr %1, i64 8
-  %94 = load i32, ptr %93, align 4, !noalias !40
-  %spec.store.select106 = tail call i32 @llvm.smax.i32(i32 %94, i32 -1)
-  store i32 %spec.store.select106, ptr %14, align 4
-  call void @_ZNK5ZXing4OneD10EAN8Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
-  br label %120
-
-"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD11EAN13WriterEEEDaOT_.exit": ; preds = %5
-  %95 = getelementptr inbounds i8, ptr %1, i64 8
-  %96 = load i32, ptr %95, align 4, !noalias !43
-  %spec.store.select107 = tail call i32 @llvm.smax.i32(i32 %96, i32 -1)
-  store i32 %spec.store.select107, ptr %15, align 4
-  call void @_ZNK5ZXing4OneD11EAN13Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
-  br label %120
-
-"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD9ITFWriterEEEDaOT_.exit": ; preds = %5
-  %97 = getelementptr inbounds i8, ptr %1, i64 8
-  %98 = load i32, ptr %97, align 4, !noalias !46
-  %spec.store.select108 = tail call i32 @llvm.smax.i32(i32 %98, i32 -1)
-  store i32 %spec.store.select108, ptr %16, align 4
-  call void @_ZNK5ZXing4OneD9ITFWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
-  br label %120
-
-"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10UPCAWriterEEEDaOT_.exit": ; preds = %5
-  %99 = getelementptr inbounds i8, ptr %1, i64 8
-  %100 = load i32, ptr %99, align 4, !noalias !49
-  %spec.store.select109 = tail call i32 @llvm.smax.i32(i32 %100, i32 -1)
-  store i32 %spec.store.select109, ptr %17, align 4
-  call void @_ZNK5ZXing4OneD10UPCAWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
-  br label %120
-
-"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10UPCEWriterEEEDaOT_.exit": ; preds = %5
-  %101 = getelementptr inbounds i8, ptr %1, i64 8
-  %102 = load i32, ptr %101, align 4, !noalias !52
-  %spec.store.select110 = tail call i32 @llvm.smax.i32(i32 %102, i32 -1)
-  store i32 %spec.store.select110, ptr %18, align 4
-  call void @_ZNK5ZXing4OneD10UPCEWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
-  br label %120
-
-103:                                              ; preds = %5
-  %104 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %21)
-          to label %105 unwind label %.thread
-
-105:                                              ; preds = %103
-  %106 = load i32, ptr %1, align 4
-  invoke void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.13") align 8 %22, i32 noundef %106)
-          to label %107 unwind label %111
-
-107:                                              ; preds = %105
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.13") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %108 unwind label %113
-
-108:                                              ; preds = %107
-  invoke void @_ZNSt16invalid_argumentC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %109 unwind label %115
-
-109:                                              ; preds = %108
-  invoke void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #11
-          to label %122 unwind label %115
-
-.thread:                                          ; preds = %103
-  %110 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #10
   br label %119
 
-111:                                              ; preds = %105
-  %112 = landingpad { ptr, i32 }
+65:                                               ; preds = %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_6Pdf4176WriterEEEDaOT_.exit.i", %54
+  %66 = landingpad { ptr, i32 }
           cleanup
+  call void @_ZN5ZXing6Pdf4176WriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #10
+  br label %120
+
+67:                                               ; preds = %5
+  call void @_ZN5ZXing6QRCode6WriterC1Ev(ptr noundef nonnull align 4 dereferenceable(24) %9)
+  %68 = getelementptr inbounds i8, ptr %1, i64 4
+  %69 = load i8, ptr %68, align 4, !noalias !22
+  %.not.i23 = icmp eq i8 %69, 0
+  br i1 %.not.i23, label %72, label %70
+
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds i8, ptr %9, i64 8
+  store i8 %69, ptr %71, align 4, !noalias !22
+  br label %72
+
+72:                                               ; preds = %70, %67
+  %73 = getelementptr inbounds i8, ptr %1, i64 12
+  %74 = load i32, ptr %73, align 4, !noalias !22
+  %or.cond.i24 = icmp ult i32 %74, 9
+  br i1 %or.cond.i24, label %75, label %79
+
+75:                                               ; preds = %72
+  %76 = trunc nuw nsw i32 %74 to i8
+  %.lhs.trunc.i.i = add nsw i8 %76, -1
+  %77 = sdiv i8 %.lhs.trunc.i.i, 2
+  %.sext.i.i = zext nneg i8 %77 to i32
+  %78 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %.sext.i.i, ptr %78, align 4, !noalias !22
+  br label %79
+
+79:                                               ; preds = %75, %72
+  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = load i32, ptr %80, align 4, !noalias !25
+  %82 = icmp sgt i32 %81, -1
+  br i1 %82, label %83, label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6QRCode6WriterEZNKS0_6encodeES8_iiE3$_5EEDaOT_T0_.exit"
+
+83:                                               ; preds = %79
+  store i32 %81, ptr %9, align 4, !noalias !25
+  br label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6QRCode6WriterEZNKS0_6encodeES8_iiE3$_5EEDaOT_T0_.exit"
+
+"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6QRCode6WriterEZNKS0_6encodeES8_iiE3$_5EEDaOT_T0_.exit": ; preds = %79, %83
+  call void @_ZNK5ZXing6QRCode6Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
+  br label %119
+
+"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD13CodabarWriterEEEDaOT_.exit": ; preds = %5
+  %84 = getelementptr inbounds i8, ptr %1, i64 8
+  %85 = load i32, ptr %84, align 4, !noalias !28
+  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %85, i32 -1)
+  store i32 %spec.store.select, ptr %10, align 4
+  call void @_ZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
+  br label %119
+
+"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD12Code39WriterEEEDaOT_.exit": ; preds = %5
+  %86 = getelementptr inbounds i8, ptr %1, i64 8
+  %87 = load i32, ptr %86, align 4, !noalias !31
+  %spec.store.select104 = tail call i32 @llvm.smax.i32(i32 %87, i32 -1)
+  store i32 %spec.store.select104, ptr %11, align 4
+  call void @_ZNK5ZXing4OneD12Code39Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
+  br label %119
+
+"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD12Code93WriterEEEDaOT_.exit": ; preds = %5
+  %88 = getelementptr inbounds i8, ptr %1, i64 8
+  %89 = load i32, ptr %88, align 4, !noalias !34
+  %spec.store.select105 = tail call i32 @llvm.smax.i32(i32 %89, i32 -1)
+  store i32 %spec.store.select105, ptr %12, align 4
+  call void @_ZNK5ZXing4OneD12Code93Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
+  br label %119
+
+"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD13Code128WriterEEEDaOT_.exit": ; preds = %5
+  %90 = getelementptr inbounds i8, ptr %1, i64 8
+  %91 = load i32, ptr %90, align 4, !noalias !37
+  %spec.store.select106 = tail call i32 @llvm.smax.i32(i32 %91, i32 -1)
+  store i32 %spec.store.select106, ptr %13, align 4
+  call void @_ZNK5ZXing4OneD13Code128Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
+  br label %119
+
+"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10EAN8WriterEEEDaOT_.exit": ; preds = %5
+  %92 = getelementptr inbounds i8, ptr %1, i64 8
+  %93 = load i32, ptr %92, align 4, !noalias !40
+  %spec.store.select107 = tail call i32 @llvm.smax.i32(i32 %93, i32 -1)
+  store i32 %spec.store.select107, ptr %14, align 4
+  call void @_ZNK5ZXing4OneD10EAN8Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
+  br label %119
+
+"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD11EAN13WriterEEEDaOT_.exit": ; preds = %5
+  %94 = getelementptr inbounds i8, ptr %1, i64 8
+  %95 = load i32, ptr %94, align 4, !noalias !43
+  %spec.store.select108 = tail call i32 @llvm.smax.i32(i32 %95, i32 -1)
+  store i32 %spec.store.select108, ptr %15, align 4
+  call void @_ZNK5ZXing4OneD11EAN13Writer6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
+  br label %119
+
+"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD9ITFWriterEEEDaOT_.exit": ; preds = %5
+  %96 = getelementptr inbounds i8, ptr %1, i64 8
+  %97 = load i32, ptr %96, align 4, !noalias !46
+  %spec.store.select109 = tail call i32 @llvm.smax.i32(i32 %97, i32 -1)
+  store i32 %spec.store.select109, ptr %16, align 4
+  call void @_ZNK5ZXing4OneD9ITFWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
+  br label %119
+
+"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10UPCAWriterEEEDaOT_.exit": ; preds = %5
+  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  %99 = load i32, ptr %98, align 4, !noalias !49
+  %spec.store.select110 = tail call i32 @llvm.smax.i32(i32 %99, i32 -1)
+  store i32 %spec.store.select110, ptr %17, align 4
+  call void @_ZNK5ZXing4OneD10UPCAWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
+  br label %119
+
+"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10UPCEWriterEEEDaOT_.exit": ; preds = %5
+  %100 = getelementptr inbounds i8, ptr %1, i64 8
+  %101 = load i32, ptr %100, align 4, !noalias !52
+  %spec.store.select111 = tail call i32 @llvm.smax.i32(i32 %101, i32 -1)
+  store i32 %spec.store.select111, ptr %18, align 4
+  call void @_ZNK5ZXing4OneD10UPCEWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4)
+  br label %119
+
+102:                                              ; preds = %5
+  %103 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #10
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %21)
+          to label %104 unwind label %.thread
+
+104:                                              ; preds = %102
+  %105 = load i32, ptr %1, align 4
+  invoke void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.13") align 8 %22, i32 noundef %105)
+          to label %106 unwind label %110
+
+106:                                              ; preds = %104
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.13") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %22)
+          to label %107 unwind label %112
+
+107:                                              ; preds = %106
+  invoke void @_ZNSt16invalid_argumentC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(32) %19)
+          to label %108 unwind label %114
+
+108:                                              ; preds = %107
+  invoke void @__cxa_throw(ptr nonnull %103, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #11
+          to label %121 unwind label %114
+
+.thread:                                          ; preds = %102
+  %109 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #10
   br label %118
 
-113:                                              ; preds = %107
-  %114 = landingpad { ptr, i32 }
+110:                                              ; preds = %104
+  %111 = landingpad { ptr, i32 }
           cleanup
   br label %117
 
-115:                                              ; preds = %109, %108
-  %.0 = phi i1 [ false, %109 ], [ true, %108 ]
-  %116 = landingpad { ptr, i32 }
+112:                                              ; preds = %106
+  %113 = landingpad { ptr, i32 }
+          cleanup
+  br label %116
+
+114:                                              ; preds = %108, %107
+  %.0 = phi i1 [ false, %108 ], [ true, %107 ]
+  %115 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #10
+  br label %116
+
+116:                                              ; preds = %114, %112
+  %.pn = phi { ptr, i32 } [ %115, %114 ], [ %113, %112 ]
+  %.3 = phi i1 [ %.0, %114 ], [ true, %112 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #10
   br label %117
 
-117:                                              ; preds = %115, %113
-  %.pn = phi { ptr, i32 } [ %116, %115 ], [ %114, %113 ]
-  %.3 = phi i1 [ %.0, %115 ], [ true, %113 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #10
-  br label %118
-
-118:                                              ; preds = %111, %117
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %117 ], [ %112, %111 ]
-  %.2 = phi i1 [ %.3, %117 ], [ true, %111 ]
+117:                                              ; preds = %110, %116
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %116 ], [ %111, %110 ]
+  %.2 = phi i1 [ %.3, %116 ], [ true, %110 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #10
-  br i1 %.2, label %119, label %121
+  br i1 %.2, label %118, label %120
 
-119:                                              ; preds = %.thread, %118
-  %.pn.pn.pn102 = phi { ptr, i32 } [ %110, %.thread ], [ %.pn.pn, %118 ]
-  call void @__cxa_free_exception(ptr %104) #10
-  br label %121
+118:                                              ; preds = %.thread, %117
+  %.pn.pn.pn103 = phi { ptr, i32 } [ %109, %.thread ], [ %.pn.pn, %117 ]
+  call void @__cxa_free_exception(ptr %103) #10
+  br label %120
 
-120:                                              ; preds = %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10UPCEWriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10UPCAWriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD9ITFWriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD11EAN13WriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10EAN8WriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD13Code128WriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD12Code93WriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD12Code39WriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD13CodabarWriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6QRCode6WriterEZNKS0_6encodeES8_iiE3$_5EEDaOT_T0_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6Pdf4176WriterEZNKS0_6encodeES8_iiE3$_4EEDaOT_T0_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_3clINS_10DataMatrix6WriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_5Aztec6WriterEZNKS0_6encodeES8_iiE3$_2EEDaOT_T0_.exit"
+119:                                              ; preds = %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10UPCEWriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10UPCAWriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD9ITFWriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD11EAN13WriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10EAN8WriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD13Code128WriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD12Code93WriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD12Code39WriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD13CodabarWriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6QRCode6WriterEZNKS0_6encodeES8_iiE3$_5EEDaOT_T0_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6Pdf4176WriterEZNKS0_6encodeES8_iiE3$_4EEDaOT_T0_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_3clINS_10DataMatrix6WriterEEEDaOT_.exit", %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_5Aztec6WriterEZNKS0_6encodeES8_iiE3$_2EEDaOT_T0_.exit"
   ret void
 
-121:                                              ; preds = %118, %119, %66
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn102, %119 ], [ %.pn.pn, %118 ], [ %67, %66 ]
+120:                                              ; preds = %117, %118, %65
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn103, %118 ], [ %.pn.pn, %117 ], [ %66, %65 ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 
-122:                                              ; preds = %109
+121:                                              ; preds = %108
   unreachable
 }
 

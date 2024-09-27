@@ -4901,8 +4901,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %19, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_T0_.exit"
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_RT0_.exit.i.i", %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %20, %.lr.ph.i9.i ], [ %storemerge25.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_RT0_.exit.i.i" ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -4
+  %.sroa.0.03.i.i = phi ptr [ %20, %.lr.ph.i9.i ], [ %storemerge25.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_RT0_.exit.i.i" ]
+  %20 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -4
   %21 = load i32, ptr %20, align 4
   %22 = load i32, ptr %0, align 4
   store i32 %22, ptr %20, align 4
@@ -5258,8 +5258,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit"
-  %.037 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit" ], [ %1, %5 ]
-  %9 = shl i64 %.037, 1
+  %.038 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit" ], [ %1, %5 ]
+  %9 = shl i64 %.038, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds i32, ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -5308,7 +5308,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %spec.select = select i1 %.0.i.i, i64 %12, i64 %10
   %41 = getelementptr inbounds i32, ptr %0, i64 %spec.select
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i32, ptr %0, i64 %.037
+  %43 = getelementptr inbounds i32, ptr %0, i64 %.038
   store i32 %42, ptr %43, align 4
   %44 = icmp slt i64 %spec.select, %7
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !19
@@ -5344,10 +5344,10 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br label %60
 
 60:                                               ; preds = %86, %.lr.ph.i
-  %.020.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0921.i, %86 ]
-  %.0921.in.i = add nsw i64 %.020.i, -1
-  %.0921.i = sdiv i64 %.0921.in.i, 2
-  %61 = getelementptr inbounds i32, ptr %0, i64 %.0921.i
+  %.010.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0911.i, %86 ]
+  %.0911.in.i = add nsw i64 %.010.i, -1
+  %.0911.i = sdiv i64 %.0911.in.i, 2
+  %61 = getelementptr inbounds i32, ptr %0, i64 %.0911.i
   %.val.val.i = load ptr, ptr %4, align 8
   %62 = load i32, ptr %61, align 4
   %63 = zext i32 %62 to i64
@@ -5386,13 +5386,13 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %85, label %86, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 86:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.i", %79, %71
-  %87 = getelementptr inbounds i32, ptr %0, i64 %.020.i
+  %87 = getelementptr inbounds i32, ptr %0, i64 %.010.i
   store i32 %62, ptr %87, align 4
-  %88 = icmp sgt i64 %.0921.i, %1
+  %88 = icmp sgt i64 %.0911.i, %1
   br i1 %88, label %60, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !20
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %71, %79, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.i", %86, %57
-  %.0.lcssa.i = phi i64 [ %.1, %57 ], [ %.020.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.i" ], [ %.0921.i, %86 ], [ %.020.i, %71 ], [ %.020.i, %79 ]
+  %.0.lcssa.i = phi i64 [ %.1, %57 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.i" ], [ %.0911.i, %86 ], [ %.010.i, %71 ], [ %.010.i, %79 ]
   %89 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i
   store i32 %3, ptr %89, align 4
   ret void

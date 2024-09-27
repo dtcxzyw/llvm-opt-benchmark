@@ -8249,12 +8249,12 @@ land.end129:                                      ; preds = %land.rhs127, %if.en
   %60 = load i32, ptr %res.sroa.4.0.res4.sroa_idx.i, align 8
   %mul135 = mul nsw i32 %mul, %60
   %conv136 = sext i32 %mul135 to i64
+  %61 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp137, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp137, i64 24
-  %61 = getelementptr inbounds i8, ptr %agg.tmp137, i64 8
-  store i64 0, ptr %61, align 8
-  %62 = ptrtoint ptr %this to i64
-  store i64 %62, ptr %agg.tmp137, align 8
+  %62 = getelementptr inbounds i8, ptr %agg.tmp137, i64 8
+  store i64 0, ptr %62, align 8
+  store i64 %61, ptr %agg.tmp137, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt13NanoVDBMediumC1ERKNS1_9TransformENS1_8SpectrumES6_ffN7nanovdb10GridHandleINS1_13NanoVDBBufferEEESA_fffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt13NanoVDBMediumC1ERKNS1_9TransformENS1_8SpectrumES6_ffN7nanovdb10GridHandleINS1_13NanoVDBBufferEEESA_fffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i122)

@@ -1309,72 +1309,72 @@ _ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i: ; pred
   %80 = load ptr, ptr %79, align 8
   %81 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %79) #18
   %82 = getelementptr inbounds %"struct.std::pair.73", ptr %80, i64 %81
-  %.not19.i13 = icmp eq i64 %81, 0
-  br i1 %.not19.i13, label %"_ZZNK4llvm5MachO12RecordsSlice12findObjCIVarEbNS_9StringRefEENK3$_0clIKNS_9MapVectorIS2_St10unique_ptrINS0_19ObjCInterfaceRecordESt14default_deleteIS7_EENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_SA_ELj0EEEEEEEPNS0_14ObjCIVarRecordERT_.exit", label %.lr.ph.i14
+  %.not3.i = icmp eq i64 %81, 0
+  br i1 %.not3.i, label %"_ZZNK4llvm5MachO12RecordsSlice12findObjCIVarEbNS_9StringRefEENK3$_0clIKNS_9MapVectorIS2_St10unique_ptrINS0_19ObjCInterfaceRecordESt14default_deleteIS7_EENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_SA_ELj0EEEEEEEPNS0_14ObjCIVarRecordERT_.exit", label %.lr.ph.i14
 
 .lr.ph.i14:                                       ; preds = %.loopexit
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %84
 
 84:                                               ; preds = %111, %.lr.ph.i14
-  %.01420.i16 = phi ptr [ %80, %.lr.ph.i14 ], [ %112, %111 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.01420.i16, i64 32
+  %.0144.i = phi ptr [ %80, %.lr.ph.i14 ], [ %112, %111 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.0144.i, i64 32
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %2, ptr %5, align 8
   store i64 %3, ptr %83, align 8
   %88 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6doFindIS2_EEPS7_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %87, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %.not.i.i.i.i.i19 = icmp eq ptr %88, null
+  %.not.i.i.i.i.i15 = icmp eq ptr %88, null
   %89 = load ptr, ptr %87, align 8
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %91 = load i32, ptr %90, align 8
   %92 = zext i32 %91 to i64
   %93 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %89, i64 %92
   %94 = icmp eq ptr %88, %93
-  %95 = select i1 %.not.i.i.i.i.i19, i1 true, i1 %94
+  %95 = select i1 %.not.i.i.i.i.i15, i1 true, i1 %94
   %96 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %97 = load ptr, ptr %96, align 8
   br i1 %95, label %98, label %100
 
 98:                                               ; preds = %84
   %99 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %96) #18
-  %.pre.i.i.i27 = load ptr, ptr %96, align 8
-  br label %_ZNK4llvm9MapVectorINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS4_EENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S7_ELj0EEEE4findERKS1_.exit.i.i.i20
+  %.pre.i.i.i23 = load ptr, ptr %96, align 8
+  br label %_ZNK4llvm9MapVectorINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS4_EENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S7_ELj0EEEE4findERKS1_.exit.i.i.i16
 
 100:                                              ; preds = %84
   %101 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %102 = load i32, ptr %101, align 8
   %103 = zext i32 %102 to i64
-  br label %_ZNK4llvm9MapVectorINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS4_EENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S7_ELj0EEEE4findERKS1_.exit.i.i.i20
+  br label %_ZNK4llvm9MapVectorINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS4_EENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S7_ELj0EEEE4findERKS1_.exit.i.i.i16
 
-_ZNK4llvm9MapVectorINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS4_EENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S7_ELj0EEEE4findERKS1_.exit.i.i.i20: ; preds = %100, %98
-  %104 = phi ptr [ %97, %100 ], [ %.pre.i.i.i27, %98 ]
-  %.sink.i.i.i.i21 = phi i64 [ %103, %100 ], [ %99, %98 ]
-  %105 = getelementptr inbounds %"struct.std::pair.86", ptr %97, i64 %.sink.i.i.i.i21
+_ZNK4llvm9MapVectorINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS4_EENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S7_ELj0EEEE4findERKS1_.exit.i.i.i16: ; preds = %100, %98
+  %104 = phi ptr [ %97, %100 ], [ %.pre.i.i.i23, %98 ]
+  %.sink.i.i.i.i17 = phi i64 [ %103, %100 ], [ %99, %98 ]
+  %105 = getelementptr inbounds %"struct.std::pair.86", ptr %97, i64 %.sink.i.i.i.i17
   %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %96) #18
   %107 = getelementptr inbounds %"struct.std::pair.86", ptr %104, i64 %106
   %108 = icmp eq ptr %105, %107
-  br i1 %108, label %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.thread.i26, label %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i22
+  br i1 %108, label %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.thread.i22, label %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i18
 
-_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.thread.i26: ; preds = %_ZNK4llvm9MapVectorINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS4_EENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S7_ELj0EEEE4findERKS1_.exit.i.i.i20
+_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.thread.i22: ; preds = %_ZNK4llvm9MapVectorINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS4_EENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S7_ELj0EEEE4findERKS1_.exit.i.i.i16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %111
 
-_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i22: ; preds = %_ZNK4llvm9MapVectorINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS4_EENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S7_ELj0EEEE4findERKS1_.exit.i.i.i20
+_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i18: ; preds = %_ZNK4llvm9MapVectorINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS4_EENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S7_ELj0EEEE4findERKS1_.exit.i.i.i16
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %110 = load ptr, ptr %109, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %.not16.i23 = icmp eq ptr %110, null
-  br i1 %.not16.i23, label %111, label %"_ZZNK4llvm5MachO12RecordsSlice12findObjCIVarEbNS_9StringRefEENK3$_0clIKNS_9MapVectorIS2_St10unique_ptrINS0_19ObjCInterfaceRecordESt14default_deleteIS7_EENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_SA_ELj0EEEEEEEPNS0_14ObjCIVarRecordERT_.exit"
+  %.not16.i19 = icmp eq ptr %110, null
+  br i1 %.not16.i19, label %111, label %"_ZZNK4llvm5MachO12RecordsSlice12findObjCIVarEbNS_9StringRefEENK3$_0clIKNS_9MapVectorIS2_St10unique_ptrINS0_19ObjCInterfaceRecordESt14default_deleteIS7_EENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_SA_ELj0EEEEEEEPNS0_14ObjCIVarRecordERT_.exit"
 
-111:                                              ; preds = %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i22, %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.thread.i26
-  %112 = getelementptr inbounds i8, ptr %.01420.i16, i64 40
-  %.not.i25 = icmp eq ptr %112, %82
-  br i1 %.not.i25, label %"_ZZNK4llvm5MachO12RecordsSlice12findObjCIVarEbNS_9StringRefEENK3$_0clIKNS_9MapVectorIS2_St10unique_ptrINS0_19ObjCInterfaceRecordESt14default_deleteIS7_EENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_SA_ELj0EEEEEEEPNS0_14ObjCIVarRecordERT_.exit", label %84
+111:                                              ; preds = %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i18, %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.thread.i22
+  %112 = getelementptr inbounds i8, ptr %.0144.i, i64 40
+  %.not.i21 = icmp eq ptr %112, %82
+  br i1 %.not.i21, label %"_ZZNK4llvm5MachO12RecordsSlice12findObjCIVarEbNS_9StringRefEENK3$_0clIKNS_9MapVectorIS2_St10unique_ptrINS0_19ObjCInterfaceRecordESt14default_deleteIS7_EENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_SA_ELj0EEEEEEEPNS0_14ObjCIVarRecordERT_.exit", label %84
 
-"_ZZNK4llvm5MachO12RecordsSlice12findObjCIVarEbNS_9StringRefEENK3$_0clIKNS_9MapVectorIS2_St10unique_ptrINS0_19ObjCInterfaceRecordESt14default_deleteIS7_EENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_SA_ELj0EEEEEEEPNS0_14ObjCIVarRecordERT_.exit": ; preds = %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i, %111, %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i22, %.loopexit, %8, %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit
-  %.0 = phi ptr [ %.0.i.i, %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit ], [ null, %8 ], [ null, %.loopexit ], [ %110, %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i22 ], [ null, %111 ], [ %76, %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i ]
+"_ZZNK4llvm5MachO12RecordsSlice12findObjCIVarEbNS_9StringRefEENK3$_0clIKNS_9MapVectorIS2_St10unique_ptrINS0_19ObjCInterfaceRecordESt14default_deleteIS7_EENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_SA_ELj0EEEEEEEPNS0_14ObjCIVarRecordERT_.exit": ; preds = %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i, %111, %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i18, %.loopexit, %8, %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit
+  %.0 = phi ptr [ %.0.i.i, %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit ], [ null, %8 ], [ null, %.loopexit ], [ %110, %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i18 ], [ null, %111 ], [ %76, %_ZNK4llvm5MachO19ObjCContainerRecord12findObjCIVarENS_9StringRefE.exit.i ]
   ret ptr %.0
 }
 

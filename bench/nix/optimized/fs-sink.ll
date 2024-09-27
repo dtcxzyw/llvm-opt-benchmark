@@ -11746,14 +11746,14 @@ define internal void @"_ZNSt17_Function_handlerIFvRN3nix21CreateRegularFileSinkE
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %.val, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
-  %18 = getelementptr inbounds i8, ptr %3, i64 24
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %19, align 8
-  %20 = ptrtoint ptr %1 to i64
-  store i64 %20, ptr %3, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvmEZZN3nix13copyRecursiveERNS1_14SourceAccessorERKNS1_9CanonPathERNS1_20FileSystemObjectSinkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERNS1_21CreateRegularFileSinkEEUlmE_E9_M_invokeERKSt9_Any_dataOm", ptr %18, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvmEZZN3nix13copyRecursiveERNS1_14SourceAccessorERKNS1_9CanonPathERNS1_20FileSystemObjectSinkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERNS1_21CreateRegularFileSinkEEUlmE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %17, align 8
+  %17 = ptrtoint ptr %1 to i64
+  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %20, align 8
+  store i64 %17, ptr %3, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvmEZZN3nix13copyRecursiveERNS1_14SourceAccessorERKNS1_9CanonPathERNS1_20FileSystemObjectSinkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERNS1_21CreateRegularFileSinkEEUlmE_E9_M_invokeERKSt9_Any_dataOm", ptr %19, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvmEZZN3nix13copyRecursiveERNS1_14SourceAccessorERKNS1_9CanonPathERNS1_20FileSystemObjectSinkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERNS1_21CreateRegularFileSinkEEUlmE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %18, align 8
   %21 = load ptr, ptr %14, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
@@ -11761,7 +11761,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN3nix21CreateRegularFileSinkE
           to label %24 unwind label %31
 
 24:                                               ; preds = %12
-  %25 = load ptr, ptr %17, align 8
+  %25 = load ptr, ptr %18, align 8
   %.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3nix13copyRecursiveERNS0_14SourceAccessorERKNS0_9CanonPathERNS0_20FileSystemObjectSinkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRNS0_21CreateRegularFileSinkEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit", label %26
 
@@ -11779,7 +11779,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN3nix21CreateRegularFileSinkE
 31:                                               ; preds = %12
   %32 = landingpad { ptr, i32 }
           cleanup
-  %33 = load ptr, ptr %17, align 8
+  %33 = load ptr, ptr %18, align 8
   %.not.i.i5.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i5.i.i.i, label %_ZNSt8functionIFvmEED2Ev.exit6.i.i.i, label %34
 

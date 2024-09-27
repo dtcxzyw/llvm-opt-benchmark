@@ -538,15 +538,15 @@ define dso_local void @_ZN4llvm15AssumptionCache20updateAffectedValuesEPNS_10Ass
   %17 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm15AssumptionCache25getOrInsertAffectedValuesEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(185) %0, ptr noundef %16)
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
-  %.idx4.i = shl nsw i64 %19, 5
-  %20 = getelementptr inbounds i8, ptr %18, i64 %.idx4.i
+  %.idx1.i = shl nsw i64 %19, 5
+  %20 = getelementptr inbounds i8, ptr %18, i64 %.idx1.i
   %21 = ashr i64 %19, 2
   %22 = icmp sgt i64 %21, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %.019, i64 24
-  %24 = and i64 %.idx4.i, -128
+  %24 = and i64 %.idx1.i, -128
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %18, i64 %24
   br label %25
 
@@ -641,7 +641,7 @@ define dso_local void @_ZN4llvm15AssumptionCache20updateAffectedValuesEPNS_10Ass
   %57 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 32
   br label %._crit_edge._crit_edge.i.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit57.thread.i.i.i.i.i"
+._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit57.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
   %.1.i.i.i.i.i = phi ptr [ %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit57.thread.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %58 = getelementptr i8, ptr %.1.i.i.i.i.i, i64 16
   %.1.val.i.i.i.i.i = load ptr, ptr %58, align 8
@@ -660,7 +660,7 @@ define dso_local void @_ZN4llvm15AssumptionCache20updateAffectedValuesEPNS_10Ass
   %64 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 32
   br label %._crit_edge._crit_edge77.i.i.i.i.i
 
-._crit_edge._crit_edge77.i.i.i.i.i:               ; preds = %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit58.thread.i.i.i.i.i"
+._crit_edge._crit_edge77.i.i.i.i.i:               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit58.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
   %.2.i.i.i.i.i = phi ptr [ %64, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit58.thread.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %65 = getelementptr i8, ptr %.2.i.i.i.i.i, i64 16
   %.2.val.i.i.i.i.i = load ptr, ptr %65, align 8

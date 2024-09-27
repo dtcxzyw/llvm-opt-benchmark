@@ -833,16 +833,16 @@ define dso_local void @_ZNK4llvm20BalancedPartitioning6bisectENS_14iterator_rang
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0101 = phi i32 [ %34, %.lr.ph ], [ %5, %.lr.ph.preheader ]
-  %.sroa.087.0100 = phi ptr [ %36, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %34 = add i32 %.0101, 1
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.087.0100, i64 40
-  %.sroa.083.0.insert.ext = zext i32 %.0101 to i64
-  %.sroa.083.0.insert.insert = or disjoint i64 %.sroa.083.0.insert.ext, 4294967296
-  store i64 %.sroa.083.0.insert.insert, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.sroa.087.0100, i64 56
-  %.not92 = icmp eq ptr %36, %2
-  br i1 %.not92, label %"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_3EEvOT_.exit", label %.lr.ph
+  %.0102 = phi i32 [ %34, %.lr.ph ], [ %5, %.lr.ph.preheader ]
+  %.sroa.088.0101 = phi ptr [ %36, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %34 = add i32 %.0102, 1
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.088.0101, i64 40
+  %.sroa.084.0.insert.ext = zext i32 %.0102 to i64
+  %.sroa.084.0.insert.insert = or disjoint i64 %.sroa.084.0.insert.ext, 4294967296
+  store i64 %.sroa.084.0.insert.insert, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %.sroa.088.0101, i64 56
+  %.not93 = icmp eq ptr %36, %2
+  br i1 %.not93, label %"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_3EEvOT_.exit", label %.lr.ph
 
 37:                                               ; preds = %21
   %38 = zext i32 %4 to i64
@@ -1018,8 +1018,8 @@ _ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !29
   %114 = load ptr, ptr %89, align 8, !noalias !29
-  %.not.i.i.i.i51 = icmp eq ptr %114, null
-  br i1 %.not.i.i.i.i51, label %"_ZN4llvm19ThreadPoolInterface5asyncIZNS_20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_EESt13shared_futureIDTclfp_EEESK_.exit.i", label %115
+  %.not.i.i.i.i52 = icmp eq ptr %114, null
+  br i1 %.not.i.i.i.i52, label %"_ZN4llvm19ThreadPoolInterface5asyncIZNS_20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_2EEvOT_EUlvE_EESt13shared_futureIDTclfp_EEESK_.exit.i", label %115
 
 115:                                              ; preds = %_ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_vEEPNS_19ThreadPoolTaskGroupE.exit.i.i
   %116 = call noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3) #22, !noalias !29
@@ -1107,20 +1107,20 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i64 0, ptr %155, align 8, !noalias !38
   %156 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24, !noalias !38
   store ptr %6, ptr %156, align 16, !noalias !38
-  %.sroa.0.i52.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 8
-  store ptr %0, ptr %.sroa.0.i52.sroa.4.0..sroa_idx, align 8, !noalias !38
-  %.sroa.0.i52.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 16
-  store ptr %.sroa.014.121.i.i.i, ptr %.sroa.0.i52.sroa.5.0..sroa_idx, align 16, !noalias !38
-  %.sroa.0.i52.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 24
-  store ptr %2, ptr %.sroa.0.i52.sroa.6.0..sroa_idx, align 8, !noalias !38
-  %.sroa.0.i52.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 32
-  store i32 %3, ptr %.sroa.0.i52.sroa.7.0..sroa_idx, align 16, !noalias !38
-  %.sroa.0.i52.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 36
-  store i32 %50, ptr %.sroa.0.i52.sroa.8.0..sroa_idx, align 4, !noalias !38
-  %.sroa.0.i52.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 40
-  store i32 %75, ptr %.sroa.0.i52.sroa.9.0..sroa_idx, align 8, !noalias !38
-  %.sroa.2.0..sroa_idx.i53 = getelementptr inbounds i8, ptr %156, i64 48
-  store ptr %6, ptr %.sroa.2.0..sroa_idx.i53, align 16, !noalias !38
+  %.sroa.0.i53.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 8
+  store ptr %0, ptr %.sroa.0.i53.sroa.4.0..sroa_idx, align 8, !noalias !38
+  %.sroa.0.i53.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 16
+  store ptr %.sroa.014.121.i.i.i, ptr %.sroa.0.i53.sroa.5.0..sroa_idx, align 16, !noalias !38
+  %.sroa.0.i53.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 24
+  store ptr %2, ptr %.sroa.0.i53.sroa.6.0..sroa_idx, align 8, !noalias !38
+  %.sroa.0.i53.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 32
+  store i32 %3, ptr %.sroa.0.i53.sroa.7.0..sroa_idx, align 16, !noalias !38
+  %.sroa.0.i53.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 36
+  store i32 %50, ptr %.sroa.0.i53.sroa.8.0..sroa_idx, align 4, !noalias !38
+  %.sroa.0.i53.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 40
+  store i32 %75, ptr %.sroa.0.i53.sroa.9.0..sroa_idx, align 8, !noalias !38
+  %.sroa.2.0..sroa_idx.i54 = getelementptr inbounds i8, ptr %156, i64 48
+  store ptr %6, ptr %.sroa.2.0..sroa_idx.i54, align 16, !noalias !38
   store ptr %156, ptr %10, align 8, !noalias !38
   store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E9_M_invokeERKSt9_Any_data", ptr %154, align 8, !noalias !38
   store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS1_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS1_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %153, align 8, !noalias !38
@@ -1130,27 +1130,27 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %157 = load ptr, ptr %8, align 8, !noalias !44
   %158 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %159 = load ptr, ptr %158, align 8, !noalias !44
-  %.not.i.i.i.i.i3.i.i.i54 = icmp eq ptr %159, null
+  %.not.i.i.i.i.i3.i.i.i55 = icmp eq ptr %159, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  br i1 %.not.i.i.i.i.i3.i.i.i54, label %_ZNSt13shared_futureIvEC2ERKS0_.exit.i.i.i56, label %160
+  br i1 %.not.i.i.i.i.i3.i.i.i55, label %_ZNSt13shared_futureIvEC2ERKS0_.exit.i.i.i57, label %160
 
 160:                                              ; preds = %"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_2EEvOT_.exit"
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %162 = load i8, ptr @__libc_single_threaded, align 1, !noalias !41
-  %.not.i.i.i.i.i.i4.i.i.i55 = icmp eq i8 %162, 0
-  br i1 %.not.i.i.i.i.i.i4.i.i.i55, label %166, label %163
+  %.not.i.i.i.i.i.i4.i.i.i56 = icmp eq i8 %162, 0
+  br i1 %.not.i.i.i.i.i.i4.i.i.i56, label %166, label %163
 
 163:                                              ; preds = %160
   %164 = load i32, ptr %161, align 4, !noalias !41
   %165 = add nsw i32 %164, 1
   store i32 %165, ptr %161, align 4, !noalias !41
-  br label %_ZNSt13shared_futureIvEC2ERKS0_.exit.i.i.i56
+  br label %_ZNSt13shared_futureIvEC2ERKS0_.exit.i.i.i57
 
 166:                                              ; preds = %160
   %167 = atomicrmw volatile add ptr %161, i32 1 acq_rel, align 4, !noalias !41
-  br label %_ZNSt13shared_futureIvEC2ERKS0_.exit.i.i.i56
+  br label %_ZNSt13shared_futureIvEC2ERKS0_.exit.i.i.i57
 
-_ZNSt13shared_futureIvEC2ERKS0_.exit.i.i.i56:     ; preds = %166, %163, %"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_2EEvOT_.exit"
+_ZNSt13shared_futureIvEC2ERKS0_.exit.i.i.i57:     ; preds = %166, %163, %"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_2EEvOT_.exit"
   %168 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %169 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %170 = getelementptr inbounds i8, ptr %9, i64 8
@@ -1166,27 +1166,27 @@ _ZNSt13shared_futureIvEC2ERKS0_.exit.i.i.i56:     ; preds = %166, %163, %"_ZN4ll
   %174 = load ptr, ptr %173, align 8, !noalias !41
   call void %174(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull %9, ptr noundef null) #22, !noalias !41
   %175 = load ptr, ptr %168, align 8, !noalias !41
-  %.not.i.i.i.i.i57 = icmp eq ptr %175, null
-  br i1 %.not.i.i.i.i.i57, label %_ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_vEEPNS_19ThreadPoolTaskGroupE.exit.i.i58, label %176
+  %.not.i.i.i.i.i58 = icmp eq ptr %175, null
+  br i1 %.not.i.i.i.i.i58, label %_ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_vEEPNS_19ThreadPoolTaskGroupE.exit.i.i59, label %176
 
-176:                                              ; preds = %_ZNSt13shared_futureIvEC2ERKS0_.exit.i.i.i56
+176:                                              ; preds = %_ZNSt13shared_futureIvEC2ERKS0_.exit.i.i.i57
   %177 = call noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3) #22, !noalias !41
-  br label %_ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_vEEPNS_19ThreadPoolTaskGroupE.exit.i.i58
+  br label %_ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_vEEPNS_19ThreadPoolTaskGroupE.exit.i.i59
 
-_ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_vEEPNS_19ThreadPoolTaskGroupE.exit.i.i58: ; preds = %176, %_ZNSt13shared_futureIvEC2ERKS0_.exit.i.i.i56
+_ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_vEEPNS_19ThreadPoolTaskGroupE.exit.i.i59: ; preds = %176, %_ZNSt13shared_futureIvEC2ERKS0_.exit.i.i.i57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !38
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !38
   %178 = load ptr, ptr %153, align 8, !noalias !38
-  %.not.i.i.i.i59 = icmp eq ptr %178, null
-  br i1 %.not.i.i.i.i59, label %"_ZN4llvm19ThreadPoolInterface5asyncIZNS_20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_EESt13shared_futureIDTclfp_EEESK_.exit.i", label %179
+  %.not.i.i.i.i60 = icmp eq ptr %178, null
+  br i1 %.not.i.i.i.i60, label %"_ZN4llvm19ThreadPoolInterface5asyncIZNS_20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_EESt13shared_futureIDTclfp_EEESK_.exit.i", label %179
 
-179:                                              ; preds = %_ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_vEEPNS_19ThreadPoolTaskGroupE.exit.i.i58
+179:                                              ; preds = %_ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_vEEPNS_19ThreadPoolTaskGroupE.exit.i.i59
   %180 = call noundef zeroext i1 %178(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3) #22, !noalias !38
   br label %"_ZN4llvm19ThreadPoolInterface5asyncIZNS_20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_EESt13shared_futureIDTclfp_EEESK_.exit.i"
 
-"_ZN4llvm19ThreadPoolInterface5asyncIZNS_20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_EESt13shared_futureIDTclfp_EEESK_.exit.i": ; preds = %179, %_ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_vEEPNS_19ThreadPoolTaskGroupE.exit.i.i58
+"_ZN4llvm19ThreadPoolInterface5asyncIZNS_20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_EESt13shared_futureIDTclfp_EEESK_.exit.i": ; preds = %179, %_ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_vEEPNS_19ThreadPoolTaskGroupE.exit.i.i59
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  br i1 %.not.i.i.i.i.i3.i.i.i54, label %"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_3EEvOT_.exit", label %181
+  br i1 %.not.i.i.i.i.i3.i.i.i55, label %"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_3EEvOT_.exit", label %181
 
 181:                                              ; preds = %"_ZN4llvm19ThreadPoolInterface5asyncIZNS_20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_EESt13shared_futureIDTclfp_EEESK_.exit.i"
   %182 = getelementptr inbounds nuw i8, ptr %159, i64 8
@@ -1203,12 +1203,12 @@ _ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_
   %189 = getelementptr inbounds i8, ptr %188, i64 16
   %190 = load ptr, ptr %189, align 8
   call void %190(ptr noundef nonnull align 8 dereferenceable(16) %159) #22
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i64
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i65
 
 191:                                              ; preds = %181
   %192 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i60 = icmp eq i8 %192, 0
-  br i1 %.not.i.i.i.i.i.i.i60, label %195, label %193
+  %.not.i.i.i.i.i.i.i61 = icmp eq i8 %192, 0
+  br i1 %.not.i.i.i.i.i.i.i61, label %195, label %193
 
 193:                                              ; preds = %191
   %194 = add nsw i32 %185, -1
@@ -1220,8 +1220,8 @@ _ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_
   br label %197
 
 197:                                              ; preds = %195, %193
-  %.0.i.i.i.i.i.i.i61 = phi i32 [ %185, %193 ], [ %196, %195 ]
-  %198 = icmp eq i32 %.0.i.i.i.i.i.i.i61, 1
+  %.0.i.i.i.i.i.i.i62 = phi i32 [ %185, %193 ], [ %196, %195 ]
+  %198 = icmp eq i32 %.0.i.i.i.i.i.i.i62, 1
   br i1 %198, label %199, label %"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_3EEvOT_.exit"
 
 199:                                              ; preds = %197
@@ -1231,8 +1231,8 @@ _ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_
   call void %202(ptr noundef nonnull align 8 dereferenceable(16) %159) #22
   %203 = getelementptr inbounds nuw i8, ptr %159, i64 12
   %204 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i62 = icmp eq i8 %204, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i62, label %208, label %205
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq i8 %204, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i63, label %208, label %205
 
 205:                                              ; preds = %199
   %206 = load i32, ptr %203, align 4
@@ -1245,11 +1245,11 @@ _ZN4llvm19ThreadPoolInterface9asyncImplIvEESt13shared_futureIT_ESt8functionIFS3_
   br label %210
 
 210:                                              ; preds = %208, %205
-  %.0.i.i.i.i.i.i.i.i.i63 = phi i32 [ %206, %205 ], [ %209, %208 ]
-  %211 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i63, 1
-  br i1 %211, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i64, label %"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_3EEvOT_.exit"
+  %.0.i.i.i.i.i.i.i.i.i64 = phi i32 [ %206, %205 ], [ %209, %208 ]
+  %211 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i64, 1
+  br i1 %211, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i65, label %"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_3EEvOT_.exit"
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i64: ; preds = %210, %186
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i65: ; preds = %210, %186
   %212 = load ptr, ptr %159, align 8
   %213 = getelementptr inbounds i8, ptr %212, i64 24
   %214 = load ptr, ptr %213, align 8
@@ -1262,7 +1262,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @_ZNK4llvm20BalancedPartitioning6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEjjjRSt8optionalINS0_12BPThreadPoolEE(ptr noundef nonnull align 8 dereferenceable(65544) %0, ptr %.sroa.014.121.i.i.i, ptr %2, i32 noundef %216, i32 noundef %50, i32 noundef %75, ptr noundef nonnull align 8 dereferenceable(112) %6)
   br label %"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_3EEvOT_.exit"
 
-"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_3EEvOT_.exit": ; preds = %.lr.ph, %24, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i64, %210, %197, %"_ZN4llvm19ThreadPoolInterface5asyncIZNS_20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_EESt13shared_futureIDTclfp_EEESK_.exit.i", %215
+"_ZN4llvm20BalancedPartitioning12BPThreadPool5asyncIZNKS0_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjjRSt8optionalIS1_EE3$_3EEvOT_.exit": ; preds = %.lr.ph, %24, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i65, %210, %197, %"_ZN4llvm19ThreadPoolInterface5asyncIZNS_20BalancedPartitioning12BPThreadPool5asyncIZNKS2_6bisectENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjjRSt8optionalIS3_EE3$_3EEvOT_EUlvE_EESt13shared_futureIDTclfp_EEESK_.exit.i", %215
   ret void
 }
 

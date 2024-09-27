@@ -325,8 +325,8 @@ switch.early.test35.i:                            ; preds = %39
 77:                                               ; preds = %71
   %78 = getelementptr inbounds i8, ptr %72, i64 68
   %79 = load i32, ptr %78, align 4
-  %.not10.i.i = icmp eq i32 %79, %47
-  br i1 %.not10.i.i, label %80, label %85
+  %.not4.i.i = icmp eq i32 %79, %47
+  br i1 %.not4.i.i, label %80, label %85
 
 80:                                               ; preds = %77
   %81 = tail call noundef ptr @_ZNK4llvm15TargetInstrInfo18commuteInstructionERNS_12MachineInstrEbjj(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.016.028, i1 noundef zeroext false, i32 noundef 1, i32 noundef 2) #11
@@ -383,8 +383,8 @@ _ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT
 
 101:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i.i
   %102 = load i16, ptr %.1.i.i.i.i.i, align 2
-  %.not.i36.i = icmp eq i16 %41, %102
-  br i1 %.not.i36.i, label %103, label %_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit
+  %.not.i39.i = icmp eq i16 %41, %102
+  br i1 %.not.i39.i, label %103, label %_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit
 
 103:                                              ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.016.028, i64 32

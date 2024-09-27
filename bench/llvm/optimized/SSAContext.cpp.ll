@@ -272,8 +272,8 @@ _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_17GenericSSAContextINS0_8FunctionEE5printEPKNS0_5ValueEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %3, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_17GenericSSAContextINS0_8FunctionEE5printEPKNS0_5ValueEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %5, align 8
   ret void
 }
@@ -285,8 +285,8 @@ define dso_local void @_ZNK4llvm17GenericSSAContextINS_8FunctionEE5printEPKNS_11
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_17GenericSSAContextINS0_8FunctionEE5printEPKNS0_5ValueEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %5, align 8, !alias.scope !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %0, align 8, !alias.scope !4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !4
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_17GenericSSAContextINS0_8FunctionEE5printEPKNS0_5ValueEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %6, align 8, !alias.scope !4
   ret void
 }
@@ -312,24 +312,24 @@ _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit: ; preds = %3
   %10 = ptrtoint ptr %2 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not14, label %_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit10, label %_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit5
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not14, label %_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit10, label %_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit6
 
-_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit5: ; preds = %6
+_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit6: ; preds = %6
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_17GenericSSAContextINS0_8FunctionEE5printEPKNS0_10BasicBlockEE3$_1E9_M_invokeERKSt9_Any_dataS2_", ptr %11, align 8
   store i64 %10, ptr %0, align 8
-  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_17GenericSSAContextINS0_8FunctionEE5printEPKNS0_10BasicBlockEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %12, align 8
   br label %_ZNSt8functionIFvRN4llvm11raw_ostreamEEED2Ev.exit
 
 _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit10: ; preds = %6
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_17GenericSSAContextINS0_8FunctionEE5printEPKNS0_10BasicBlockEE3$_2E9_M_invokeERKSt9_Any_dataS2_", ptr %11, align 8
   store i64 %10, ptr %0, align 8
-  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_17GenericSSAContextINS0_8FunctionEE5printEPKNS0_10BasicBlockEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %12, align 8
   br label %_ZNSt8functionIFvRN4llvm11raw_ostreamEEED2Ev.exit
 
-_ZNSt8functionIFvRN4llvm11raw_ostreamEEED2Ev.exit: ; preds = %_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit, %_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit10, %_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit5
+_ZNSt8functionIFvRN4llvm11raw_ostreamEEED2Ev.exit: ; preds = %_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit, %_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit10, %_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit6
   ret void
 }
 
@@ -341,8 +341,8 @@ _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_17GenericSSAContextINS0_8FunctionEE14printAsOperandEPKNS0_10BasicBlockEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %3, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_17GenericSSAContextINS0_8FunctionEE14printAsOperandEPKNS0_10BasicBlockEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %5, align 8
   ret void
 }

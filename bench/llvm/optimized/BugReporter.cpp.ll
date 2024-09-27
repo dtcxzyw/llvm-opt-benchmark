@@ -12288,10 +12288,10 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIPN5clang4ento22Path
   br i1 %22, label %.lr.ph.i5.i, label %.split20.i.i.i, !llvm.loop !236
 
 .lr.ph.i5.i:                                      ; preds = %.split20.i.i.i, %.lr.ph.i5.i
-  %.07.i.i = phi ptr [ %23, %.lr.ph.i5.i ], [ %.027, %.split20.i.i.i ]
-  %23 = getelementptr inbounds i8, ptr %.07.i.i, i64 -16
+  %.01.i.i = phi ptr [ %23, %.lr.ph.i5.i ], [ %.027, %.split20.i.i.i ]
+  %23 = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
   %.sroa.02.0.copyload.i.i6.i = load ptr, ptr %23, align 8
-  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.07.i.i, i64 -8
+  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
   %.sroa.23.0.copyload.i.i.i = load ptr, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8
   %24 = load ptr, ptr %0, align 8
   store ptr %24, ptr %23, align 8
@@ -13026,9 +13026,9 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIPN5clang4ento22PathSen
   %10 = getelementptr i8, ptr %5, i64 16
   br label %11
 
-11:                                               ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37
-  %.043 = phi i64 [ %1, %.lr.ph ], [ %70, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37 ]
-  %12 = shl i64 %.043, 1
+11:                                               ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread38
+  %.044 = phi i64 [ %1, %.lr.ph ], [ %70, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread38 ]
+  %12 = shl i64 %.044, 1
   %13 = add i64 %12, 2
   %14 = or disjoint i64 %12, 1
   %15 = getelementptr %"struct.std::pair.1017", ptr %0, i64 %13, i32 1
@@ -13132,7 +13132,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
 
 63:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i
   %64 = icmp eq ptr %.0.i.i.pn.i11.i.i.i, %61
-  br i1 %64, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit
+  br i1 %64, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread38, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit: ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i13.i.i.i, i64 8
@@ -13141,15 +13141,15 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %68 = load i32, ptr %67, align 8
   %69 = icmp ugt i32 %66, %68
   %cond.fr = freeze i1 %69
-  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread38
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread38
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37: ; preds = %63, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread38: ; preds = %63, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread
   %70 = phi i64 [ %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread ], [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit ], [ %13, %63 ]
   %71 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %70
-  %72 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.043
+  %72 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.044
   %73 = load ptr, ptr %71, align 8
   store ptr %73, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -13159,8 +13159,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %77 = icmp slt i64 %70, %8
   br i1 %77, label %11, label %._crit_edge, !llvm.loop !241
 
-._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37, %6
-  %.0.lcssa = phi i64 [ %1, %6 ], [ %70, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37 ]
+._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread38, %6
+  %.0.lcssa = phi i64 [ %1, %6 ], [ %70, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread38 ]
   %78 = and i64 %2, 1
   %79 = icmp eq i64 %78, 0
   br i1 %79, label %80, label %93
@@ -13190,23 +13190,23 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   br i1 %94, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit
 
 .lr.ph.i:                                         ; preds = %93
-  %95 = ptrtoint ptr %4 to i64
-  %96 = trunc i64 %95 to i32
-  %97 = lshr i32 %96, 4
-  %98 = lshr i32 %96, 9
-  %99 = xor i32 %97, %98
-  %100 = getelementptr i8, ptr %5, i64 16
+  %95 = getelementptr i8, ptr %5, i64 16
+  %96 = ptrtoint ptr %4 to i64
+  %97 = trunc i64 %96 to i32
+  %98 = lshr i32 %97, 4
+  %99 = lshr i32 %97, 9
+  %100 = xor i32 %98, %99
   br label %101
 
 101:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i, %.lr.ph.i
-  %.01323.i = phi i64 [ %.1, %.lr.ph.i ], [ %.024.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i ]
-  %.024.in.i = add nsw i64 %.01323.i, -1
-  %.024.i = sdiv i64 %.024.in.i, 2
-  %102 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.024.i
+  %.0137.i = phi i64 [ %.1, %.lr.ph.i ], [ %.08.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i ]
+  %.08.in.i = add nsw i64 %.0137.i, -1
+  %.08.i = sdiv i64 %.08.in.i, 2
+  %102 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.08.i
   %103 = getelementptr i8, ptr %102, i64 8
   %.val14.i = load ptr, ptr %103, align 8
   %.val.val.i = load ptr, ptr %5, align 8
-  %.val.val16.i = load i32, ptr %100, align 8
+  %.val.val16.i = load i32, ptr %95, align 8
   %104 = icmp eq i32 %.val.val16.i, 0
   br i1 %104, label %.loopexit.i.i.i.i.i, label %105
 
@@ -13257,7 +13257,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i_crit_edge.i.i.i, %105
   %.pre-phi.i.i.i = phi i32 [ %.pre.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i_crit_edge.i.i.i ], [ %111, %105 ]
   %.0.i.i.pn.i14.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i_crit_edge.i.i.i ], [ %113, %105 ]
-  %.01618.i.i.i4.i.i.i.i = and i32 %.pre-phi.i.i.i, %99
+  %.01618.i.i.i4.i.i.i.i = and i32 %.pre-phi.i.i.i, %100
   %127 = zext nneg i32 %.01618.i.i.i4.i.i.i.i to i64
   %128 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1055", ptr %.val.val.i, i64 %127
   %129 = load ptr, ptr %128, align 8
@@ -13308,16 +13308,16 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityComp
   br i1 %151, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i
-  %152 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.01323.i
+  %152 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.0137.i
   %153 = load ptr, ptr %102, align 8
   store ptr %153, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr %.val14.i, ptr %154, align 8
-  %155 = icmp sgt i64 %.024.i, %1
+  %155 = icmp sgt i64 %.08.i, %1
   br i1 %155, label %101, label %_ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit, !llvm.loop !242
 
 _ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit: ; preds = %145, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i, %93
-  %.013.lcssa.i = phi i64 [ %.1, %93 ], [ %.01323.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.i ], [ %.024.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i ], [ %.01323.i, %145 ]
+  %.013.lcssa.i = phi i64 [ %.1, %93 ], [ %.0137.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.i ], [ %.08.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i ], [ %.0137.i, %145 ]
   %156 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8

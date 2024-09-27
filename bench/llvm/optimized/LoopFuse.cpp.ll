@@ -813,8 +813,8 @@ _ZNK12_GLOBAL__N_122FusionCandidateCompareclERKNS_15FusionCandidateES3_.exit68.i
 
 ._crit_edge.i.i.i38.thread.i:                     ; preds = %.thread.i, %169, %171
   %.027.lcssa37.i.i.i39.i = phi ptr [ %.027.lcssa36.i.i.i53.i, %171 ], [ %.02832.i.i.i31.i, %169 ], [ %.02832.i.i.i31.i, %.thread.i ]
-  %.sroa.016.0.i.i.i40.i = phi ptr [ %172, %171 ], [ %.02832.i.i.i31.i, %169 ], [ %.02832.i.i.i31.i, %.thread.i ]
-  %173 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.i.i.i40.i, i64 32
+  %.sroa.018.0.i.i.i40.i = phi ptr [ %172, %171 ], [ %.02832.i.i.i31.i, %169 ], [ %.02832.i.i.i31.i, %.thread.i ]
+  %173 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.i.i.i40.i, i64 32
   %.val7.i.i.i41.i = load ptr, ptr %9, align 8
   %.val8.i.i.i42.i = load ptr, ptr %83, align 8
   %174 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_122FusionCandidateCompareclERKNS_15FusionCandidateES3_(ptr noundef nonnull align 8 dereferenceable(392) %173, ptr %.val7.i.i.i41.i, ptr %.val8.i.i.i42.i)
@@ -6732,12 +6732,12 @@ _ZNK12_GLOBAL__N_122FusionCandidateCompareclERKNS_15FusionCandidateES3_.exit282:
 
 ._crit_edge.i.i.i161.thread:                      ; preds = %.thread428, %2098, %2100
   %.027.lcssa37.i.i.i = phi ptr [ %.027.lcssa36.i.i.i, %2100 ], [ %.02832.i.i.i, %2098 ], [ %.02832.i.i.i, %.thread428 ]
-  %.sroa.016.0.i.i.i = phi ptr [ %2101, %2100 ], [ %.02832.i.i.i, %2098 ], [ %.02832.i.i.i, %.thread428 ]
-  %2102 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.i.i.i, i64 32
+  %.sroa.018.0.i.i.i = phi ptr [ %2101, %2100 ], [ %.02832.i.i.i, %2098 ], [ %.02832.i.i.i, %.thread428 ]
+  %2102 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.i.i.i, i64 32
   %.val8.i.i.i = load ptr, ptr %117, align 8
-  %2103 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.i.i.i, i64 400
+  %2103 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.i.i.i, i64 400
   %2104 = load ptr, ptr %2103, align 8
-  %2105 = getelementptr inbounds i8, ptr %.sroa.016.0.i.i.i, i64 376
+  %2105 = getelementptr inbounds i8, ptr %.sroa.018.0.i.i.i, i64 376
   %.val30.i260 = load ptr, ptr %2105, align 8
   %.not.i.i261 = icmp eq ptr %.val30.i260, null
   %2106 = getelementptr inbounds i8, ptr %.val30.i260, i64 40
@@ -6755,7 +6755,7 @@ _ZNK12_GLOBAL__N_122FusionCandidateCompareclERKNS_15FusionCandidateES3_.exit282:
   br i1 %2110, label %select.unfold.i.i, label %2111
 
 2111:                                             ; preds = %2109
-  %2112 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.i.i.i, i64 408
+  %2112 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.i.i.i, i64 408
   %2113 = load ptr, ptr %2112, align 8
   %2114 = call noundef zeroext i1 @_ZN4llvm23nonStrictlyPostDominateEPKNS_10BasicBlockES2_PKNS_13DominatorTreeEPKNS_17PostDominatorTreeE(ptr noundef %.0.i.i263, ptr noundef %.0.i32.i266, ptr noundef nonnull %2104, ptr noundef %2113) #17
   %2115 = load ptr, ptr %2112, align 8
@@ -6982,7 +6982,7 @@ _ZNKSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22Fusio
   br label %_ZNSt3setIN12_GLOBAL__N_115FusionCandidateENS0_22FusionCandidateCompareESaIS1_EE6insertERKS1_.exit
 
 _ZNSt3setIN12_GLOBAL__N_115FusionCandidateENS0_22FusionCandidateCompareESaIS1_EE6insertERKS1_.exit: ; preds = %._crit_edge.i.i.i161.thread, %2117, %_ZNK12_GLOBAL__N_122FusionCandidateCompareclERKNS_15FusionCandidateES3_.exit270, %_ZNKSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE11_Alloc_nodeclIRKS1_EEPSt13_Rb_tree_nodeIS1_EOT_.exit
-  %.sroa.010.0.i.i = phi ptr [ %2149, %_ZNKSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE11_Alloc_nodeclIRKS1_EEPSt13_Rb_tree_nodeIS1_EOT_.exit ], [ %.sroa.016.0.i.i.i, %_ZNK12_GLOBAL__N_122FusionCandidateCompareclERKNS_15FusionCandidateES3_.exit270 ], [ %.sroa.016.0.i.i.i, %2117 ], [ %.sroa.016.0.i.i.i, %._crit_edge.i.i.i161.thread ]
+  %.sroa.012.0.i.i = phi ptr [ %2149, %_ZNKSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE11_Alloc_nodeclIRKS1_EEPSt13_Rb_tree_nodeIS1_EOT_.exit ], [ %.sroa.018.0.i.i.i, %_ZNK12_GLOBAL__N_122FusionCandidateCompareclERKNS_15FusionCandidateES3_.exit270 ], [ %.sroa.018.0.i.i.i, %2117 ], [ %.sroa.018.0.i.i.i, %._crit_edge.i.i.i161.thread ]
   %2210 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %120) #17
   %2211 = load ptr, ptr %120, align 8
   %2212 = icmp eq ptr %2211, %122
@@ -7023,8 +7023,8 @@ _ZN4llvm11SmallVectorIPNS_11InstructionELj16EED2Ev.exit.i163: ; preds = %2221, %
   br label %_ZN12_GLOBAL__N_115FusionCandidateD2Ev.exit164
 
 _ZN12_GLOBAL__N_115FusionCandidateD2Ev.exit164:   ; preds = %2225, %_ZN4llvm11SmallVectorIPNS_11InstructionELj16EED2Ev.exit.i163, %_ZNK12_GLOBAL__N_19LoopFuser28collectMovablePreheaderInstsERKNS_15FusionCandidateES3_RN4llvm11SmallVectorIPNS4_11InstructionELj4EEES9_.exit
-  %.sroa.0405.2 = phi ptr [ %.sroa.0405.0473, %_ZNK12_GLOBAL__N_19LoopFuser28collectMovablePreheaderInstsERKNS_15FusionCandidateES3_RN4llvm11SmallVectorIPNS4_11InstructionELj4EEES9_.exit ], [ %.sroa.010.0.i.i, %_ZN4llvm11SmallVectorIPNS_11InstructionELj16EED2Ev.exit.i163 ], [ %.sroa.010.0.i.i, %2225 ]
-  %.sroa.0408.3 = phi ptr [ %.sroa.0408.1474, %_ZNK12_GLOBAL__N_19LoopFuser28collectMovablePreheaderInstsERKNS_15FusionCandidateES3_RN4llvm11SmallVectorIPNS4_11InstructionELj4EEES9_.exit ], [ %.sroa.010.0.i.i, %_ZN4llvm11SmallVectorIPNS_11InstructionELj16EED2Ev.exit.i163 ], [ %.sroa.010.0.i.i, %2225 ]
+  %.sroa.0405.2 = phi ptr [ %.sroa.0405.0473, %_ZNK12_GLOBAL__N_19LoopFuser28collectMovablePreheaderInstsERKNS_15FusionCandidateES3_RN4llvm11SmallVectorIPNS4_11InstructionELj4EEES9_.exit ], [ %.sroa.012.0.i.i, %_ZN4llvm11SmallVectorIPNS_11InstructionELj16EED2Ev.exit.i163 ], [ %.sroa.012.0.i.i, %2225 ]
+  %.sroa.0408.3 = phi ptr [ %.sroa.0408.1474, %_ZNK12_GLOBAL__N_19LoopFuser28collectMovablePreheaderInstsERKNS_15FusionCandidateES3_RN4llvm11SmallVectorIPNS4_11InstructionELj4EEES9_.exit ], [ %.sroa.012.0.i.i, %_ZN4llvm11SmallVectorIPNS_11InstructionELj16EED2Ev.exit.i163 ], [ %.sroa.012.0.i.i, %2225 ]
   %.5 = phi i1 [ %.3475, %_ZNK12_GLOBAL__N_19LoopFuser28collectMovablePreheaderInstsERKNS_15FusionCandidateES3_RN4llvm11SmallVectorIPNS4_11InstructionELj4EEES9_.exit ], [ true, %_ZN4llvm11SmallVectorIPNS_11InstructionELj16EED2Ev.exit.i163 ], [ true, %2225 ]
   %2226 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #17
   %2227 = load ptr, ptr %53, align 8

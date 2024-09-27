@@ -4547,20 +4547,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_RT0_.exit.i.i": ; preds = %.split10.i.i.i
   %18 = icmp sgt i64 %.lcssa, 4
-  br i1 %18, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_SL_T0_.exit"
+  br i1 %18, label %.lr.ph.i10.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_SL_T0_.exit"
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_RT0_.exit.i.i", %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %19, %.lr.ph.i9.i ], [ %storemerge26.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_RT0_.exit.i.i" ]
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -4
-  %.sroa.03.0.copyload.i.i10.i = load i32, ptr %19, align 1
+.lr.ph.i10.i:                                     ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_RT0_.exit.i.i", %.lr.ph.i10.i
+  %.sroa.0.03.i.i = phi ptr [ %19, %.lr.ph.i10.i ], [ %storemerge26.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_RT0_.exit.i.i" ]
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -4
+  %.sroa.03.0.copyload.i.i11.i = load i32, ptr %19, align 1
   %20 = load i32, ptr %0, align 1
   store i32 %20, ptr %19, align 1
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %21, %5
   %23 = ashr exact i64 %22, 2
-  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %23, i32 %.sroa.03.0.copyload.i.i10.i, ptr readonly %3)
+  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %23, i32 %.sroa.03.0.copyload.i.i11.i, ptr readonly %3)
   %24 = icmp sgt i64 %22, 4
-  br i1 %24, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_SL_T0_.exit", !llvm.loop !88
+  br i1 %24, label %.lr.ph.i10.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_SL_T0_.exit", !llvm.loop !88
 
 .lr.ph8:                                          ; preds = %.lr.ph8.preheader, %12
   %storemerge267 = phi ptr [ %.sroa.023.1.i.i, %12 ], [ %1, %.lr.ph8.preheader ]
@@ -4978,7 +4978,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i14.i.i: ; preds = %203
   %221 = icmp sgt i64 %220, 16
   br i1 %221, label %12, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_SL_T0_.exit", !llvm.loop !86
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_SL_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEET_SL_SL_T0_.exit", %.lr.ph.i9.i, %4, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_RT0_.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_SL_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEET_SL_SL_T0_.exit", %.lr.ph.i10.i, %4, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_SL_RT0_.exit.i.i"
   ret void
 }
 
@@ -4990,8 +4990,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL14computeAddrMapN4llvm8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EclINS_17__normal_iteratorIPNS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorISF_SaISF_EEEESK_EEbT_T0_.exit"
-  %.037 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL14computeAddrMapN4llvm8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EclINS_17__normal_iteratorIPNS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorISF_SaISF_EEEESK_EEbT_T0_.exit" ], [ %1, %5 ]
-  %9 = shl i64 %.037, 1
+  %.038 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL14computeAddrMapN4llvm8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EclINS_17__normal_iteratorIPNS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorISF_SaISF_EEEESK_EEbT_T0_.exit" ], [ %1, %5 ]
+  %9 = shl i64 %.038, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -5056,7 +5056,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZN4ll
   %.0.i.i = phi i1 [ %23, %22 ], [ %30, %29 ], [ %.inv.i.i.i.i, %41 ], [ %42, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i ]
   %spec.select = select i1 %.0.i.i, i64 %12, i64 %10
   %43 = getelementptr inbounds %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %spec.select
-  %44 = getelementptr inbounds %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %.037
+  %44 = getelementptr inbounds %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %.038
   %45 = load i32, ptr %43, align 1
   store i32 %45, ptr %44, align 1
   %46 = icmp slt i64 %spec.select, %7
@@ -5097,10 +5097,10 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZN4ll
   br label %66
 
 66:                                               ; preds = %92, %.lr.ph.i
-  %.020.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0921.i, %92 ]
-  %.0921.in.i = add nsw i64 %.020.i, -1
-  %.0921.i = sdiv i64 %.0921.in.i, 2
-  %67 = getelementptr inbounds %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %.0921.i
+  %.011.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0912.i, %92 ]
+  %.0912.in.i = add nsw i64 %.011.i, -1
+  %.0912.i = sdiv i64 %.0912.in.i, 2
+  %67 = getelementptr inbounds %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %.0912.i
   call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %67, align 1
   %68 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -5151,13 +5151,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %81
   br i1 %91, label %92, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops14_Iter_comp_valIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_T0_SM_T1_RT2_.exit"
 
 92:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL14computeAddrMapN4llvm8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EclINS_17__normal_iteratorIPNS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorISF_SaISF_EEEESF_EEbT_RT0_.exit.i", %90, %79, %73
-  %93 = getelementptr inbounds %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %.020.i
+  %93 = getelementptr inbounds %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %.011.i
   store i32 %.0.copyload.i.i.i.i.i.i, ptr %93, align 1
-  %94 = icmp sgt i64 %.0921.i, %1
+  %94 = icmp sgt i64 %.0912.i, %1
   br i1 %94, label %66, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops14_Iter_comp_valIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_T0_SM_T1_RT2_.exit", !llvm.loop !93
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops14_Iter_comp_valIZL14computeAddrMapNS2_8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EEEvT_T0_SM_T1_RT2_.exit": ; preds = %73, %79, %90, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL14computeAddrMapN4llvm8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EclINS_17__normal_iteratorIPNS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorISF_SaISF_EEEESF_EEbT_RT0_.exit.i", %92, %59
-  %.0.lcssa.i = phi i64 [ %.1, %59 ], [ %.020.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL14computeAddrMapN4llvm8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EclINS_17__normal_iteratorIPNS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorISF_SaISF_EEEESF_EEbT_RT0_.exit.i" ], [ %.0921.i, %92 ], [ %.020.i, %73 ], [ %.020.i, %79 ], [ %.020.i, %90 ]
+  %.0.lcssa.i = phi i64 [ %.1, %59 ], [ %.011.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL14computeAddrMapN4llvm8ArrayRefINS2_3pdb10BulkPublicEEEE3$_0EclINS_17__normal_iteratorIPNS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESt6vectorISF_SaISF_EEEESF_EEbT_RT0_.exit.i" ], [ %.0912.i, %92 ], [ %.011.i, %73 ], [ %.011.i, %79 ], [ %.011.i, %90 ]
   %95 = getelementptr inbounds %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %.0.lcssa.i
   store i32 %3, ptr %95, align 1
   ret void
@@ -5710,8 +5710,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_T0_SM_T1_T2_.exit.us.i.i.i"
 
 .lr.ph.i.us.i.i.i:                                ; preds = %.split.split.us.i.i.i, %.lr.ph.i.us.i.i.i
-  %.037.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %.lr.ph.i.us.i.i.i ], [ %.0.us.i.i.i, %.split.split.us.i.i.i ]
-  %27 = shl i64 %.037.i.us.i.i.i, 1
+  %.038.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %.lr.ph.i.us.i.i.i ], [ %.0.us.i.i.i, %.split.split.us.i.i.i ]
+  %27 = shl i64 %.038.i.us.i.i.i, 1
   %28 = add i64 %27, 2
   %29 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %28
   %30 = or disjoint i64 %27, 1
@@ -5719,7 +5719,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %32 = call fastcc noundef zeroext i1 @"_ZZZN4llvm3pdb20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS0_10BulkPublicEEEENK3$_1clEmENKUlRKNS0_12PSHashRecordES8_E_clES8_S8_"(ptr readonly %3, ptr noundef nonnull align 1 dereferenceable(8) %29, ptr noundef nonnull align 1 dereferenceable(8) %31)
   %spec.select.i.us.i.i.i = select i1 %32, i64 %30, i64 %28
   %33 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %spec.select.i.us.i.i.i
-  %34 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.037.i.us.i.i.i
+  %34 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.038.i.us.i.i.i
   %35 = load i64, ptr %33, align 1
   store i64 %35, ptr %34, align 1
   %36 = icmp slt i64 %spec.select.i.us.i.i.i, %20
@@ -5731,22 +5731,22 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %.lr.ph.i.i.us.i.i.i
 
 .lr.ph.i.i.us.i.i.i:                              ; preds = %39, %._crit_edge.i.us.i.i.i
-  %.018.i.i.us.i.i.i = phi i64 [ %.0919.i.i.us.i.i.i, %39 ], [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ]
-  %.0919.in.i.i.us.i.i.i = add nsw i64 %.018.i.i.us.i.i.i, -1
-  %.0919.i.i.us.i.i.i = sdiv i64 %.0919.in.i.i.us.i.i.i, 2
-  %37 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.0919.i.i.us.i.i.i
+  %.010.i.i.us.i.i.i = phi i64 [ %.0911.i.i.us.i.i.i, %39 ], [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ]
+  %.0911.in.i.i.us.i.i.i = add nsw i64 %.010.i.i.us.i.i.i, -1
+  %.0911.i.i.us.i.i.i = sdiv i64 %.0911.in.i.i.us.i.i.i, 2
+  %37 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.0911.i.i.us.i.i.i
   %38 = call fastcc noundef zeroext i1 @"_ZZZN4llvm3pdb20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS0_10BulkPublicEEEENK3$_1clEmENKUlRKNS0_12PSHashRecordES8_E_clES8_S8_"(ptr readonly %3, ptr noundef nonnull align 1 dereferenceable(8) %37, ptr noundef nonnull align 1 dereferenceable(8) %6)
   br i1 %38, label %39, label %.critedge.loopexit.i.i.us.i.i.i
 
 39:                                               ; preds = %.lr.ph.i.i.us.i.i.i
-  %40 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.018.i.i.us.i.i.i
+  %40 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.010.i.i.us.i.i.i
   %41 = load i64, ptr %37, align 1
   store i64 %41, ptr %40, align 1
-  %42 = icmp sgt i64 %.0919.i.i.us.i.i.i, %.0.us.i.i.i
+  %42 = icmp sgt i64 %.0911.i.i.us.i.i.i, %.0.us.i.i.i
   br i1 %42, label %.lr.ph.i.i.us.i.i.i, label %.critedge.loopexit.i.i.us.i.i.i, !llvm.loop !101
 
 .critedge.loopexit.i.i.us.i.i.i:                  ; preds = %39, %.lr.ph.i.i.us.i.i.i
-  %.0.lcssa.ph.i.i.us.i.i.i = phi i64 [ %.018.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.0919.i.i.us.i.i.i, %39 ]
+  %.0.lcssa.ph.i.i.us.i.i.i = phi i64 [ %.010.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.0911.i.i.us.i.i.i, %39 ]
   %.pre.i.i.us.i.i.i = load i64, ptr %6, align 8
   br label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_T0_SM_T1_T2_.exit.us.i.i.i"
 
@@ -5768,8 +5768,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %47, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.split.i.i.i, %.lr.ph.i.i.i.i
-  %.037.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.split.split.i.i.i ]
-  %48 = shl i64 %.037.i.i.i.i, 1
+  %.038.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.split.split.i.i.i ]
+  %48 = shl i64 %.038.i.i.i.i, 1
   %49 = add i64 %48, 2
   %50 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %49
   %51 = or disjoint i64 %48, 1
@@ -5777,7 +5777,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %53 = call fastcc noundef zeroext i1 @"_ZZZN4llvm3pdb20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS0_10BulkPublicEEEENK3$_1clEmENKUlRKNS0_12PSHashRecordES8_E_clES8_S8_"(ptr readonly %3, ptr noundef nonnull align 1 dereferenceable(8) %50, ptr noundef nonnull align 1 dereferenceable(8) %52)
   %spec.select.i.i.i.i = select i1 %53, i64 %51, i64 %49
   %54 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %spec.select.i.i.i.i
-  %55 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.037.i.i.i.i
+  %55 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.038.i.i.i.i
   %56 = load i64, ptr %54, align 1
   store i64 %56, ptr %55, align 1
   %57 = icmp slt i64 %spec.select.i.i.i.i, %20
@@ -5801,22 +5801,22 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %62, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_T0_SM_T1_T2_.exit.i.i.i"
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %61, %65
-  %.018.i.i.i.i.i = phi i64 [ %.0919.i.i.i.i.i, %65 ], [ %.1.i.i.i.i, %61 ]
-  %.0919.in.i.i.i.i.i = add nsw i64 %.018.i.i.i.i.i, -1
-  %.0919.i.i.i.i.i = sdiv i64 %.0919.in.i.i.i.i.i, 2
-  %63 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.0919.i.i.i.i.i
+  %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %65 ], [ %.1.i.i.i.i, %61 ]
+  %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
+  %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
+  %63 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.0911.i.i.i.i.i
   %64 = call fastcc noundef zeroext i1 @"_ZZZN4llvm3pdb20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS0_10BulkPublicEEEENK3$_1clEmENKUlRKNS0_12PSHashRecordES8_E_clES8_S8_"(ptr readonly %3, ptr noundef nonnull align 1 dereferenceable(8) %63, ptr noundef nonnull align 1 dereferenceable(8) %6)
   br i1 %64, label %65, label %.critedge.loopexit.i.i.i.i.i
 
 65:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %66 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.018.i.i.i.i.i
+  %66 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.010.i.i.i.i.i
   %67 = load i64, ptr %63, align 1
   store i64 %67, ptr %66, align 1
-  %68 = icmp sgt i64 %.0919.i.i.i.i.i, %.0.i.i.i
+  %68 = icmp sgt i64 %.0911.i.i.i.i.i, %.0.i.i.i
   br i1 %68, label %.lr.ph.i.i.i.i.i, label %.critedge.loopexit.i.i.i.i.i, !llvm.loop !101
 
 .critedge.loopexit.i.i.i.i.i:                     ; preds = %65, %.lr.ph.i.i.i.i.i
-  %.0.lcssa.ph.i.i.i.i.i = phi i64 [ %.018.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0919.i.i.i.i.i, %65 ]
+  %.0.lcssa.ph.i.i.i.i.i = phi i64 [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %65 ]
   %.pre.i.i.i.i.i = load i64, ptr %6, align 8
   br label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_T0_SM_T1_T2_.exit.i.i.i"
 
@@ -5835,8 +5835,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %73, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_SL_T0_.exit"
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_SL_RT0_.exit.i14.i"
-  %.sroa.0.05.i.i = phi ptr [ %74, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_SL_RT0_.exit.i14.i" ], [ %storemerge26.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_RT0_.exit.i.i" ]
-  %74 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
+  %.sroa.0.03.i.i = phi ptr [ %74, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_SL_RT0_.exit.i14.i" ], [ %storemerge26.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_RT0_.exit.i.i" ]
+  %74 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %.sroa.03.0.copyload.i.i10.i = load i64, ptr %74, align 1
   %75 = load i64, ptr %.fr29, align 1
   store i64 %75, ptr %74, align 1
@@ -5849,8 +5849,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %81, label %.lr.ph.i.i.i24.i, label %._crit_edge.i.i.i11.i
 
 .lr.ph.i.i.i24.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i24.i
-  %.037.i.i.i25.i = phi i64 [ %spec.select.i.i.i26.i, %.lr.ph.i.i.i24.i ], [ 0, %.lr.ph.i9.i ]
-  %82 = shl i64 %.037.i.i.i25.i, 1
+  %.038.i.i.i25.i = phi i64 [ %spec.select.i.i.i26.i, %.lr.ph.i.i.i24.i ], [ 0, %.lr.ph.i9.i ]
+  %82 = shl i64 %.038.i.i.i25.i, 1
   %83 = add i64 %82, 2
   %84 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %83
   %85 = or disjoint i64 %82, 1
@@ -5858,7 +5858,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %87 = call fastcc noundef zeroext i1 @"_ZZZN4llvm3pdb20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS0_10BulkPublicEEEENK3$_1clEmENKUlRKNS0_12PSHashRecordES8_E_clES8_S8_"(ptr readonly %3, ptr noundef nonnull align 1 dereferenceable(8) %84, ptr noundef nonnull align 1 dereferenceable(8) %86)
   %spec.select.i.i.i26.i = select i1 %87, i64 %85, i64 %83
   %88 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %spec.select.i.i.i26.i
-  %89 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.037.i.i.i25.i
+  %89 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.038.i.i.i25.i
   %90 = load i64, ptr %88, align 1
   store i64 %90, ptr %89, align 1
   %91 = icmp slt i64 %spec.select.i.i.i26.i, %80
@@ -5893,22 +5893,22 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %105, label %.lr.ph.i.i.i.i16.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_SL_RT0_.exit.i14.i"
 
 .lr.ph.i.i.i.i16.i:                               ; preds = %104, %108
-  %.018.i.i.i.i17.i = phi i64 [ %.0919.i.i89.i.i19.i, %108 ], [ %.1.i.i.i13.i, %104 ]
-  %.0919.in.i.i.i.i18.i = add nsw i64 %.018.i.i.i.i17.i, -1
-  %.0919.i.i89.i.i19.i = lshr i64 %.0919.in.i.i.i.i18.i, 1
-  %106 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.0919.i.i89.i.i19.i
+  %.010.i.i.i.i17.i = phi i64 [ %.0911.i.i89.i.i19.i, %108 ], [ %.1.i.i.i13.i, %104 ]
+  %.0911.in.i.i.i.i18.i = add nsw i64 %.010.i.i.i.i17.i, -1
+  %.0911.i.i89.i.i19.i = lshr i64 %.0911.in.i.i.i.i18.i, 1
+  %106 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.0911.i.i89.i.i19.i
   %107 = call fastcc noundef zeroext i1 @"_ZZZN4llvm3pdb20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS0_10BulkPublicEEEENK3$_1clEmENKUlRKNS0_12PSHashRecordES8_E_clES8_S8_"(ptr readonly %3, ptr noundef nonnull align 1 dereferenceable(8) %106, ptr noundef nonnull align 1 dereferenceable(8) %5)
   br i1 %107, label %108, label %.critedge.loopexit.i.i.i.i20.i
 
 108:                                              ; preds = %.lr.ph.i.i.i.i16.i
-  %109 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.018.i.i.i.i17.i
+  %109 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr29, i64 %.010.i.i.i.i17.i
   %110 = load i64, ptr %106, align 1
   store i64 %110, ptr %109, align 1
-  %.not.i.i23.i = icmp ult i64 %.0919.in.i.i.i.i18.i, 2
+  %.not.i.i23.i = icmp ult i64 %.0911.in.i.i.i.i18.i, 2
   br i1 %.not.i.i23.i, label %.critedge.loopexit.i.i.i.i20.i, label %.lr.ph.i.i.i.i16.i, !llvm.loop !101
 
 .critedge.loopexit.i.i.i.i20.i:                   ; preds = %108, %.lr.ph.i.i.i.i16.i
-  %.0.lcssa.ph.i.i.i.i21.i = phi i64 [ %.018.i.i.i.i17.i, %.lr.ph.i.i.i.i16.i ], [ 0, %108 ]
+  %.0.lcssa.ph.i.i.i.i21.i = phi i64 [ %.010.i.i.i.i17.i, %.lr.ph.i.i.i.i16.i ], [ 0, %108 ]
   %.pre.i.i.i.i22.i = load i64, ptr %5, align 8
   br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_SL_RT0_.exit.i14.i"
 

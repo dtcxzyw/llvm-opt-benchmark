@@ -997,10 +997,10 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
   br label %22
 
 22:                                               ; preds = %41, %.lr.ph.i.i.i.i.i.i
-  %.061.i.i.i.i.i.i = phi i64 [ %16, %.lr.ph.i.i.i.i.i.i ], [ %43, %41 ]
-  %.sroa.050.060.i.i.i.i.i.i = phi ptr [ %.val, %.lr.ph.i.i.i.i.i.i ], [ %42, %41 ]
+  %.056.i.i.i.i.i.i = phi i64 [ %16, %.lr.ph.i.i.i.i.i.i ], [ %43, %41 ]
+  %.sroa.045.055.i.i.i.i.i.i = phi ptr [ %.val, %.lr.ph.i.i.i.i.i.i ], [ %42, %41 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.060.i.i.i.i.i.i) #21
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.045.055.i.i.i.i.i.i) #21
   %23 = load ptr, ptr %10, align 8
   %24 = load i64, ptr %18, align 8
   %25 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr %23, i64 %24, ptr %1, i64 %2) #21
@@ -1008,7 +1008,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
   br i1 %25, label %"_ZN5vcpkg4Util6any_ofIRKSt6vectorINS_11TripletFileESaIS3_EEZNKS_15TripletDatabase31is_valid_triplet_canonical_nameENS_10StringViewEE3$_0EEbOT_T0_.exit", label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i.i.i.i, i64 64
+  %27 = getelementptr inbounds i8, ptr %.sroa.045.055.i.i.i.i.i.i, i64 64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(32) %27) #21
   %28 = load ptr, ptr %9, align 8
@@ -1018,7 +1018,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
   br i1 %30, label %"_ZN5vcpkg4Util6any_ofIRKSt6vectorINS_11TripletFileESaIS3_EEZNKS_15TripletDatabase31is_valid_triplet_canonical_nameENS_10StringViewEE3$_0EEbOT_T0_.exit", label %31
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i.i.i.i, i64 128
+  %32 = getelementptr inbounds i8, ptr %.sroa.045.055.i.i.i.i.i.i, i64 128
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %32) #21
   %33 = load ptr, ptr %8, align 8
@@ -1028,7 +1028,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
   br i1 %35, label %"_ZN5vcpkg4Util6any_ofIRKSt6vectorINS_11TripletFileESaIS3_EEZNKS_15TripletDatabase31is_valid_triplet_canonical_nameENS_10StringViewEE3$_0EEbOT_T0_.exit", label %36
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i.i.i.i, i64 192
+  %37 = getelementptr inbounds i8, ptr %.sroa.045.055.i.i.i.i.i.i, i64 192
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %37) #21
   %38 = load ptr, ptr %7, align 8
@@ -1038,20 +1038,20 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
   br i1 %40, label %"_ZN5vcpkg4Util6any_ofIRKSt6vectorINS_11TripletFileESaIS3_EEZNKS_15TripletDatabase31is_valid_triplet_canonical_nameENS_10StringViewEE3$_0EEbOT_T0_.exit", label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i.i.i.i, i64 256
-  %43 = add nsw i64 %.061.i.i.i.i.i.i, -1
-  %44 = icmp sgt i64 %.061.i.i.i.i.i.i, 1
+  %42 = getelementptr inbounds i8, ptr %.sroa.045.055.i.i.i.i.i.i, i64 256
+  %43 = add nsw i64 %.056.i.i.i.i.i.i, -1
+  %44 = icmp sgt i64 %.056.i.i.i.i.i.i, 1
   br i1 %44, label %22, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %41
   %.pre.i.i.i.i.i.i = ptrtoint ptr %42 to i64
-  %.pre62.i.i.i.i.i.i = sub i64 %13, %.pre.i.i.i.i.i.i
+  %.pre57.i.i.i.i.i.i = sub i64 %13, %.pre.i.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %3
-  %.pre-phi63.i.i.i.i.i.i = phi i64 [ %.pre62.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %15, %3 ]
-  %.sroa.050.0.lcssa.i.i.i.i.i.i = phi ptr [ %42, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val, %3 ]
-  %45 = ashr exact i64 %.pre-phi63.i.i.i.i.i.i, 6
+  %.pre-phi58.i.i.i.i.i.i = phi i64 [ %.pre57.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %15, %3 ]
+  %.sroa.045.0.lcssa.i.i.i.i.i.i = phi ptr [ %42, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val, %3 ]
+  %45 = ashr exact i64 %.pre-phi58.i.i.i.i.i.i, 6
   switch i64 %45, label %"_ZN5vcpkg4Util6any_ofIRKSt6vectorINS_11TripletFileESaIS3_EEZNKS_15TripletDatabase31is_valid_triplet_canonical_nameENS_10StringViewEE3$_0EEbOT_T0_.exit" [
     i64 3, label %46
     i64 2, label %53
@@ -1060,7 +1060,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
 
 46:                                               ; preds = %._crit_edge.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.0.lcssa.i.i.i.i.i.i) #21
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.045.0.lcssa.i.i.i.i.i.i) #21
   %47 = load ptr, ptr %6, align 8
   %48 = getelementptr inbounds i8, ptr %6, i64 8
   %49 = load i64, ptr %48, align 8
@@ -1069,13 +1069,13 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
   br i1 %50, label %"_ZN5vcpkg4Util6any_ofIRKSt6vectorINS_11TripletFileESaIS3_EEZNKS_15TripletDatabase31is_valid_triplet_canonical_nameENS_10StringViewEE3$_0EEbOT_T0_.exit", label %51
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %.sroa.050.0.lcssa.i.i.i.i.i.i, i64 64
+  %52 = getelementptr inbounds i8, ptr %.sroa.045.0.lcssa.i.i.i.i.i.i, i64 64
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge.i.i.i.i.i.i
-  %.sroa.050.1.i.i.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %52, %51 ]
+  %.sroa.045.1.i.i.i.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %52, %51 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.1.i.i.i.i.i.i) #21
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.045.1.i.i.i.i.i.i) #21
   %54 = load ptr, ptr %5, align 8
   %55 = getelementptr inbounds i8, ptr %5, i64 8
   %56 = load i64, ptr %55, align 8
@@ -1084,23 +1084,23 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
   br i1 %57, label %"_ZN5vcpkg4Util6any_ofIRKSt6vectorINS_11TripletFileESaIS3_EEZNKS_15TripletDatabase31is_valid_triplet_canonical_nameENS_10StringViewEE3$_0EEbOT_T0_.exit", label %58
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %.sroa.050.1.i.i.i.i.i.i, i64 64
+  %59 = getelementptr inbounds i8, ptr %.sroa.045.1.i.i.i.i.i.i, i64 64
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge.i.i.i.i.i.i
-  %.sroa.050.2.i.i.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %59, %58 ]
+  %.sroa.045.2.i.i.i.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %59, %58 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.2.i.i.i.i.i.i) #21
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.045.2.i.i.i.i.i.i) #21
   %61 = load ptr, ptr %4, align 8
   %62 = getelementptr inbounds i8, ptr %4, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr %61, i64 %63, ptr %1, i64 %2) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %spec.select.i.i.i.i.i.i = select i1 %64, ptr %.sroa.050.2.i.i.i.i.i.i, ptr %.val3
+  %spec.select.i.i.i.i.i.i = select i1 %64, ptr %.sroa.045.2.i.i.i.i.i.i, ptr %.val3
   br label %"_ZN5vcpkg4Util6any_ofIRKSt6vectorINS_11TripletFileESaIS3_EEZNKS_15TripletDatabase31is_valid_triplet_canonical_nameENS_10StringViewEE3$_0EEbOT_T0_.exit"
 
 "_ZN5vcpkg4Util6any_ofIRKSt6vectorINS_11TripletFileESaIS3_EEZNKS_15TripletDatabase31is_valid_triplet_canonical_nameENS_10StringViewEE3$_0EEbOT_T0_.exit": ; preds = %22, %26, %31, %36, %._crit_edge.i.i.i.i.i.i, %46, %53, %60
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i.i.i, %46 ], [ %.sroa.050.1.i.i.i.i.i.i, %53 ], [ %.val3, %._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %60 ], [ %37, %36 ], [ %32, %31 ], [ %27, %26 ], [ %.sroa.050.060.i.i.i.i.i.i, %22 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i.i.i.i, %46 ], [ %.sroa.045.1.i.i.i.i.i.i, %53 ], [ %.val3, %._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %60 ], [ %37, %36 ], [ %32, %31 ], [ %27, %26 ], [ %.sroa.045.055.i.i.i.i.i.i, %22 ]
   %65 = icmp ne ptr %.val3, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   ret i1 %65
 }

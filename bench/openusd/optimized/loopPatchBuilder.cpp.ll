@@ -4986,15 +4986,15 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE26c
   %106 = load i16, ptr %30, align 8
   %107 = and i16 %106, 64
   %.not.i = icmp eq i16 %107, 0
-  br i1 %.not.i, label %.preheader69.i, label %108
+  br i1 %.not.i, label %.preheader9.i, label %108
 
-.preheader69.i:                                   ; preds = %78
-  %.not6671.i = icmp slt i32 %80, 1
-  br i1 %.not6671.i, label %.loopexit70.i, label %.lr.ph.preheader.i
+.preheader9.i:                                    ; preds = %78
+  %.not6611.i = icmp slt i32 %80, 1
+  br i1 %.not6611.i, label %.loopexit10.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader69.i
-  %wide.trip.count.i29 = zext nneg i32 %81 to i64
-  br label %.lr.ph.i30
+.lr.ph.preheader.i:                               ; preds = %.preheader9.i
+  %wide.trip.count.i34 = zext nneg i32 %81 to i64
+  br label %.lr.ph.i35
 
 108:                                              ; preds = %78
   %109 = getelementptr inbounds i8, ptr %83, i64 4
@@ -5007,25 +5007,25 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE26c
   store i32 %95, ptr %113, align 4
   %114 = getelementptr inbounds i8, ptr %22, i64 8
   store float 0.000000e+00, ptr %114, align 4
-  br label %.loopexit70.i
+  br label %.loopexit10.i
 
-.lr.ph.i30:                                       ; preds = %.lr.ph.i30, %.lr.ph.preheader.i
-  %indvars.iv.i31 = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i32, %.lr.ph.i30 ]
+.lr.ph.i35:                                       ; preds = %.lr.ph.i35, %.lr.ph.preheader.i
+  %indvars.iv.i36 = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i37, %.lr.ph.i35 ]
   %115 = load ptr, ptr %89, align 8
-  %116 = getelementptr i32, ptr %115, i64 %indvars.iv.i31
+  %116 = getelementptr i32, ptr %115, i64 %indvars.iv.i36
   %117 = getelementptr i8, ptr %116, i64 -4
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr inbounds float, ptr %83, i64 %indvars.iv.i31
+  %119 = getelementptr inbounds float, ptr %83, i64 %indvars.iv.i36
   %120 = load float, ptr %119, align 4
-  %121 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv.i31
+  %121 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv.i36
   store i32 %118, ptr %121, align 4
-  %122 = getelementptr inbounds float, ptr %22, i64 %indvars.iv.i31
+  %122 = getelementptr inbounds float, ptr %22, i64 %indvars.iv.i36
   store float %120, ptr %122, align 4
-  %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
-  %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i29
-  br i1 %exitcond.not.i33, label %.loopexit70.i, label %.lr.ph.i30, !llvm.loop !37
+  %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
+  %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i34
+  br i1 %exitcond.not.i38, label %.loopexit10.i, label %.lr.ph.i35, !llvm.loop !37
 
-.loopexit70.i:                                    ; preds = %.lr.ph.i30, %108, %.preheader69.i
+.loopexit10.i:                                    ; preds = %.lr.ph.i35, %108, %.preheader9.i
   %123 = load float, ptr %86, align 4
   store i32 %1, ptr %26, align 4
   store float %123, ptr %27, align 4
@@ -5034,15 +5034,15 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE26c
   %.not67.i = icmp eq i16 %125, 0
   br i1 %.not67.i, label %.preheader.i, label %126
 
-.preheader.i:                                     ; preds = %.loopexit70.i
-  %.not6873.i = icmp slt i32 %80, 1
-  br i1 %.not6873.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit, label %.lr.ph75.preheader.i
+.preheader.i:                                     ; preds = %.loopexit10.i
+  %.not6813.i = icmp slt i32 %80, 1
+  br i1 %.not6813.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit, label %.lr.ph15.preheader.i
 
-.lr.ph75.preheader.i:                             ; preds = %.preheader.i
-  %wide.trip.count80.i = zext nneg i32 %81 to i64
-  br label %.lr.ph75.i
+.lr.ph15.preheader.i:                             ; preds = %.preheader.i
+  %wide.trip.count20.i = zext nneg i32 %81 to i64
+  br label %.lr.ph15.i
 
-126:                                              ; preds = %.loopexit70.i
+126:                                              ; preds = %.loopexit10.i
   %127 = getelementptr inbounds float, ptr %86, i64 %92
   %128 = load float, ptr %127, align 4
   %129 = getelementptr inbounds i8, ptr %26, i64 4
@@ -5051,21 +5051,21 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE26c
   store float %128, ptr %130, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit.sink.split
 
-.lr.ph75.i:                                       ; preds = %.lr.ph75.i, %.lr.ph75.preheader.i
-  %indvars.iv77.i = phi i64 [ 1, %.lr.ph75.preheader.i ], [ %indvars.iv.next78.i, %.lr.ph75.i ]
+.lr.ph15.i:                                       ; preds = %.lr.ph15.i, %.lr.ph15.preheader.i
+  %indvars.iv17.i = phi i64 [ 1, %.lr.ph15.preheader.i ], [ %indvars.iv.next18.i, %.lr.ph15.i ]
   %131 = load ptr, ptr %89, align 8
-  %132 = getelementptr i32, ptr %131, i64 %indvars.iv77.i
+  %132 = getelementptr i32, ptr %131, i64 %indvars.iv17.i
   %133 = getelementptr i8, ptr %132, i64 -4
   %134 = load i32, ptr %133, align 4
-  %135 = getelementptr inbounds float, ptr %86, i64 %indvars.iv77.i
+  %135 = getelementptr inbounds float, ptr %86, i64 %indvars.iv17.i
   %136 = load float, ptr %135, align 4
-  %137 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv77.i
+  %137 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv17.i
   store i32 %134, ptr %137, align 4
-  %138 = getelementptr inbounds float, ptr %27, i64 %indvars.iv77.i
+  %138 = getelementptr inbounds float, ptr %27, i64 %indvars.iv17.i
   store float %136, ptr %138, align 4
-  %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
-  %exitcond81.not.i = icmp eq i64 %indvars.iv.next78.i, %wide.trip.count80.i
-  br i1 %exitcond81.not.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit, label %.lr.ph75.i, !llvm.loop !38
+  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
+  %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count20.i
+  br i1 %exitcond21.not.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit, label %.lr.ph15.i, !llvm.loop !38
 
 139:                                              ; preds = %74
   store i32 %1, ptr %14, align 4
@@ -5101,16 +5101,16 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE26c
   br label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit.sink.split
 
 _ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit.sink.split: ; preds = %33, %139, %126
-  %.sink102 = phi i64 [ 8, %126 ], [ 8, %139 ], [ 4, %33 ]
-  %.sink100 = phi i32 [ %91, %126 ], [ %141, %139 ], [ %39, %33 ]
+  %.sink85 = phi i64 [ 8, %126 ], [ 8, %139 ], [ 4, %33 ]
+  %.sink83 = phi i32 [ %91, %126 ], [ %141, %139 ], [ %39, %33 ]
   %.sink = phi float [ 0.000000e+00, %126 ], [ 0.000000e+00, %139 ], [ 0x3FD5555560000000, %33 ]
-  %154 = getelementptr inbounds i8, ptr %26, i64 %.sink102
-  store i32 %.sink100, ptr %154, align 4
-  %155 = getelementptr inbounds i8, ptr %27, i64 %.sink102
+  %154 = getelementptr inbounds i8, ptr %26, i64 %.sink85
+  store i32 %.sink83, ptr %154, align 4
+  %155 = getelementptr inbounds i8, ptr %27, i64 %.sink85
   store float %.sink, ptr %155, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit
 
-_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit: ; preds = %.lr.ph75.i, %57, %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit.sink.split, %.preheader.i, %42
+_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit: ; preds = %.lr.ph15.i, %57, %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit.sink.split, %.preheader.i, %42
   ret void
 }
 
@@ -5405,11 +5405,11 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE26c
   %109 = load i32, ptr %108, align 4
   %110 = srem i32 %107, %109
   call fastcc void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25computeIrregularFacePointEiiiRKNS1_12_GLOBAL__N_115SparseMatrixRowIfEES8_S8_RS6_fPfPi(ptr noundef nonnull align 8 dereferenceable(528) %0, i32 noundef %1, i32 noundef %110, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %12, float noundef -1.000000e+00, ptr noundef %3, ptr noundef %4)
-  %.pre44 = load i16, ptr %15, align 8
+  %.pre47 = load i16, ptr %15, align 8
   br label %111
 
 111:                                              ; preds = %104, %101
-  %112 = phi i16 [ %.pre44, %104 ], [ %102, %101 ]
+  %112 = phi i16 [ %.pre47, %104 ], [ %102, %101 ]
   %113 = and i16 %112, 1024
   %.not41 = icmp eq i16 %113, 0
   br i1 %.not41, label %117, label %114
@@ -5417,13 +5417,13 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE26c
 114:                                              ; preds = %111
   %115 = sext i32 %82 to i64
   %116 = shl nsw i64 %115, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %85, ptr align 4 %93, i64 %116, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %87, ptr align 4 %95, i64 %116, i1 false)
-  %.pre45 = load i16, ptr %15, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %85, ptr readonly align 4 %93, i64 %116, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %87, ptr readonly align 4 %95, i64 %116, i1 false)
+  %.pre48 = load i16, ptr %15, align 8
   br label %117
 
 117:                                              ; preds = %114, %111
-  %118 = phi i16 [ %.pre45, %114 ], [ %112, %111 ]
+  %118 = phi i16 [ %.pre48, %114 ], [ %112, %111 ]
   %119 = and i16 %118, 2048
   %.not42 = icmp eq i16 %119, 0
   br i1 %.not42, label %123, label %120
@@ -5431,8 +5431,8 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE26c
 120:                                              ; preds = %117
   %121 = sext i32 %90 to i64
   %122 = shl nsw i64 %121, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %93, ptr align 4 %85, i64 %122, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %95, ptr align 4 %87, i64 %122, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %93, ptr readonly align 4 %85, i64 %122, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %95, ptr readonly align 4 %87, i64 %122, i1 false)
   br label %123
 
 123:                                              ; preds = %120, %117
@@ -10586,15 +10586,15 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE26c
   %106 = load i16, ptr %30, align 8
   %107 = and i16 %106, 64
   %.not.i = icmp eq i16 %107, 0
-  br i1 %.not.i, label %.preheader69.i, label %108
+  br i1 %.not.i, label %.preheader9.i, label %108
 
-.preheader69.i:                                   ; preds = %78
-  %.not6671.i = icmp slt i32 %80, 1
-  br i1 %.not6671.i, label %.loopexit70.i, label %.lr.ph.preheader.i
+.preheader9.i:                                    ; preds = %78
+  %.not6611.i = icmp slt i32 %80, 1
+  br i1 %.not6611.i, label %.loopexit10.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader69.i
-  %wide.trip.count.i29 = zext nneg i32 %81 to i64
-  br label %.lr.ph.i30
+.lr.ph.preheader.i:                               ; preds = %.preheader9.i
+  %wide.trip.count.i34 = zext nneg i32 %81 to i64
+  br label %.lr.ph.i35
 
 108:                                              ; preds = %78
   %109 = getelementptr inbounds i8, ptr %83, i64 8
@@ -10607,25 +10607,25 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE26c
   store i32 %95, ptr %113, align 4
   %114 = getelementptr inbounds i8, ptr %22, i64 16
   store double 0.000000e+00, ptr %114, align 8
-  br label %.loopexit70.i
+  br label %.loopexit10.i
 
-.lr.ph.i30:                                       ; preds = %.lr.ph.i30, %.lr.ph.preheader.i
-  %indvars.iv.i31 = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i32, %.lr.ph.i30 ]
+.lr.ph.i35:                                       ; preds = %.lr.ph.i35, %.lr.ph.preheader.i
+  %indvars.iv.i36 = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i37, %.lr.ph.i35 ]
   %115 = load ptr, ptr %89, align 8
-  %116 = getelementptr i32, ptr %115, i64 %indvars.iv.i31
+  %116 = getelementptr i32, ptr %115, i64 %indvars.iv.i36
   %117 = getelementptr i8, ptr %116, i64 -4
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr inbounds double, ptr %83, i64 %indvars.iv.i31
+  %119 = getelementptr inbounds double, ptr %83, i64 %indvars.iv.i36
   %120 = load double, ptr %119, align 8
-  %121 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv.i31
+  %121 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv.i36
   store i32 %118, ptr %121, align 4
-  %122 = getelementptr inbounds double, ptr %22, i64 %indvars.iv.i31
+  %122 = getelementptr inbounds double, ptr %22, i64 %indvars.iv.i36
   store double %120, ptr %122, align 8
-  %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
-  %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i29
-  br i1 %exitcond.not.i33, label %.loopexit70.i, label %.lr.ph.i30, !llvm.loop !77
+  %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
+  %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i34
+  br i1 %exitcond.not.i38, label %.loopexit10.i, label %.lr.ph.i35, !llvm.loop !77
 
-.loopexit70.i:                                    ; preds = %.lr.ph.i30, %108, %.preheader69.i
+.loopexit10.i:                                    ; preds = %.lr.ph.i35, %108, %.preheader9.i
   %123 = load double, ptr %86, align 8
   store i32 %1, ptr %26, align 4
   store double %123, ptr %27, align 8
@@ -10634,15 +10634,15 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE26c
   %.not67.i = icmp eq i16 %125, 0
   br i1 %.not67.i, label %.preheader.i, label %126
 
-.preheader.i:                                     ; preds = %.loopexit70.i
-  %.not6873.i = icmp slt i32 %80, 1
-  br i1 %.not6873.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit, label %.lr.ph75.preheader.i
+.preheader.i:                                     ; preds = %.loopexit10.i
+  %.not6813.i = icmp slt i32 %80, 1
+  br i1 %.not6813.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit, label %.lr.ph15.preheader.i
 
-.lr.ph75.preheader.i:                             ; preds = %.preheader.i
-  %wide.trip.count80.i = zext nneg i32 %81 to i64
-  br label %.lr.ph75.i
+.lr.ph15.preheader.i:                             ; preds = %.preheader.i
+  %wide.trip.count20.i = zext nneg i32 %81 to i64
+  br label %.lr.ph15.i
 
-126:                                              ; preds = %.loopexit70.i
+126:                                              ; preds = %.loopexit10.i
   %127 = getelementptr inbounds double, ptr %86, i64 %92
   %128 = load double, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %26, i64 4
@@ -10651,21 +10651,21 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE26c
   store double %128, ptr %130, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit.sink.split
 
-.lr.ph75.i:                                       ; preds = %.lr.ph75.i, %.lr.ph75.preheader.i
-  %indvars.iv77.i = phi i64 [ 1, %.lr.ph75.preheader.i ], [ %indvars.iv.next78.i, %.lr.ph75.i ]
+.lr.ph15.i:                                       ; preds = %.lr.ph15.i, %.lr.ph15.preheader.i
+  %indvars.iv17.i = phi i64 [ 1, %.lr.ph15.preheader.i ], [ %indvars.iv.next18.i, %.lr.ph15.i ]
   %131 = load ptr, ptr %89, align 8
-  %132 = getelementptr i32, ptr %131, i64 %indvars.iv77.i
+  %132 = getelementptr i32, ptr %131, i64 %indvars.iv17.i
   %133 = getelementptr i8, ptr %132, i64 -4
   %134 = load i32, ptr %133, align 4
-  %135 = getelementptr inbounds double, ptr %86, i64 %indvars.iv77.i
+  %135 = getelementptr inbounds double, ptr %86, i64 %indvars.iv17.i
   %136 = load double, ptr %135, align 8
-  %137 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv77.i
+  %137 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv17.i
   store i32 %134, ptr %137, align 4
-  %138 = getelementptr inbounds double, ptr %27, i64 %indvars.iv77.i
+  %138 = getelementptr inbounds double, ptr %27, i64 %indvars.iv17.i
   store double %136, ptr %138, align 8
-  %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
-  %exitcond81.not.i = icmp eq i64 %indvars.iv.next78.i, %wide.trip.count80.i
-  br i1 %exitcond81.not.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit, label %.lr.ph75.i, !llvm.loop !78
+  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
+  %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count20.i
+  br i1 %exitcond21.not.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit, label %.lr.ph15.i, !llvm.loop !78
 
 139:                                              ; preds = %74
   store i32 %1, ptr %14, align 4
@@ -10701,17 +10701,17 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE26c
   br label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit.sink.split
 
 _ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit.sink.split: ; preds = %33, %139, %126
-  %.sink102 = phi i64 [ 8, %126 ], [ 8, %139 ], [ 4, %33 ]
-  %.sink100 = phi i32 [ %91, %126 ], [ %141, %139 ], [ %39, %33 ]
-  %.sink99 = phi i64 [ 16, %126 ], [ 16, %139 ], [ 8, %33 ]
+  %.sink85 = phi i64 [ 8, %126 ], [ 8, %139 ], [ 4, %33 ]
+  %.sink83 = phi i32 [ %91, %126 ], [ %141, %139 ], [ %39, %33 ]
+  %.sink82 = phi i64 [ 16, %126 ], [ 16, %139 ], [ 8, %33 ]
   %.sink = phi double [ 0.000000e+00, %126 ], [ 0.000000e+00, %139 ], [ 0x3FD5555555555555, %33 ]
-  %154 = getelementptr inbounds i8, ptr %26, i64 %.sink102
-  store i32 %.sink100, ptr %154, align 4
-  %155 = getelementptr inbounds i8, ptr %27, i64 %.sink99
+  %154 = getelementptr inbounds i8, ptr %26, i64 %.sink85
+  store i32 %.sink83, ptr %154, align 4
+  %155 = getelementptr inbounds i8, ptr %27, i64 %.sink82
   store double %.sink, ptr %155, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit
 
-_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit: ; preds = %.lr.ph75.i, %57, %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit.sink.split, %.preheader.i, %42
+_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit: ; preds = %.lr.ph15.i, %57, %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit.sink.split, %.preheader.i, %42
   ret void
 }
 
@@ -11007,11 +11007,11 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE26c
   %109 = load i32, ptr %108, align 4
   %110 = srem i32 %107, %109
   call fastcc void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25computeIrregularFacePointEiiiRKNS1_12_GLOBAL__N_115SparseMatrixRowIdEES8_S8_RS6_dPdPi(ptr noundef nonnull align 8 dereferenceable(552) %0, i32 noundef %1, i32 noundef %110, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %12, double noundef -1.000000e+00, ptr noundef %3, ptr noundef %4)
-  %.pre44 = load i16, ptr %15, align 8
+  %.pre47 = load i16, ptr %15, align 8
   br label %111
 
 111:                                              ; preds = %104, %101
-  %112 = phi i16 [ %.pre44, %104 ], [ %102, %101 ]
+  %112 = phi i16 [ %.pre47, %104 ], [ %102, %101 ]
   %113 = and i16 %112, 1024
   %.not41 = icmp eq i16 %113, 0
   br i1 %.not41, label %118, label %114
@@ -11019,14 +11019,14 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE26c
 114:                                              ; preds = %111
   %115 = sext i32 %82 to i64
   %116 = shl nsw i64 %115, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %85, ptr align 4 %93, i64 %116, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %85, ptr readonly align 4 %93, i64 %116, i1 false)
   %117 = shl nsw i64 %115, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %87, ptr align 8 %95, i64 %117, i1 false)
-  %.pre45 = load i16, ptr %15, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %87, ptr readonly align 8 %95, i64 %117, i1 false)
+  %.pre48 = load i16, ptr %15, align 8
   br label %118
 
 118:                                              ; preds = %114, %111
-  %119 = phi i16 [ %.pre45, %114 ], [ %112, %111 ]
+  %119 = phi i16 [ %.pre48, %114 ], [ %112, %111 ]
   %120 = and i16 %119, 2048
   %.not42 = icmp eq i16 %120, 0
   br i1 %.not42, label %125, label %121
@@ -11034,9 +11034,9 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE26c
 121:                                              ; preds = %118
   %122 = sext i32 %90 to i64
   %123 = shl nsw i64 %122, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %93, ptr align 4 %85, i64 %123, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %93, ptr readonly align 4 %85, i64 %123, i1 false)
   %124 = shl nsw i64 %122, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %95, ptr align 8 %87, i64 %124, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %95, ptr readonly align 8 %87, i64 %124, i1 false)
   br label %125
 
 125:                                              ; preds = %121, %118

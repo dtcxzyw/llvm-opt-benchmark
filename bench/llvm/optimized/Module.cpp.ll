@@ -4731,35 +4731,35 @@ define dso_local { i64, i64 } @_ZNK4llvm6Module13getSDKVersionEv(ptr nocapture n
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc { i64, i64 } @_ZL15getSDKVersionMDPN4llvm8MetadataE(ptr noundef readonly %0) unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %0, null
-  br i1 %.not.i.i, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit11", label %2
+  br i1 %.not.i.i, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit13", label %2
 
 2:                                                ; preds = %1
   %3 = load i8, ptr %0, align 4
   %4 = icmp eq i8 %3, 1
-  br i1 %4, label %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit11"
+  br i1 %4, label %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit13"
 
 _ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit: ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
-  %.not.i.i4 = icmp eq ptr %6, null
-  br i1 %.not.i.i4, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit11", label %7
+  %.not.i.i6 = icmp eq ptr %6, null
+  br i1 %.not.i.i6, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit13", label %7
 
 7:                                                ; preds = %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit
   %8 = load i8, ptr %6, align 8
   %9 = icmp eq i8 %8, 15
-  br i1 %9, label %_ZN4llvm16dyn_cast_or_nullINS_17ConstantDataArrayENS_8ConstantEEEDaPT0_.exit, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit11"
+  br i1 %9, label %_ZN4llvm16dyn_cast_or_nullINS_17ConstantDataArrayENS_8ConstantEEEDaPT0_.exit, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit13"
 
 _ZN4llvm16dyn_cast_or_nullINS_17ConstantDataArrayENS_8ConstantEEEDaPT0_.exit: ; preds = %7
   %10 = tail call noundef i32 @_ZNK4llvm22ConstantDataSequential14getNumElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
   %.not.i.not.not = icmp eq i32 %10, 0
-  br i1 %.not.i.not.not, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit11", label %11
+  br i1 %.not.i.not.not, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit13", label %11
 
 11:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_17ConstantDataArrayENS_8ConstantEEEDaPT0_.exit
   %12 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 0) #18
   %13 = and i64 %12, 4294967295
   %14 = tail call noundef i32 @_ZNK4llvm22ConstantDataSequential14getNumElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
-  %.not.i7 = icmp ugt i32 %14, 1
-  br i1 %.not.i7, label %15, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit11"
+  %.not.i9 = icmp ugt i32 %14, 1
+  br i1 %.not.i9, label %15, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit13"
 
 15:                                               ; preds = %11
   %16 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #18
@@ -4767,19 +4767,19 @@ _ZN4llvm16dyn_cast_or_nullINS_17ConstantDataArrayENS_8ConstantEEEDaPT0_.exit: ; 
   %18 = or disjoint i64 %13, %17
   %19 = or i64 %18, -9223372036854775808
   %20 = tail call noundef i32 @_ZNK4llvm22ConstantDataSequential14getNumElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
-  %.not.i12 = icmp ugt i32 %20, 2
-  br i1 %.not.i12, label %21, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit11"
+  %.not.i14 = icmp ugt i32 %20, 2
+  br i1 %.not.i14, label %21, label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit13"
 
 21:                                               ; preds = %15
   %22 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 2) #18
   %23 = and i64 %22, 2147483647
   %24 = or disjoint i64 %23, 2147483648
-  br label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit11"
+  br label %"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit13"
 
-"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit11": ; preds = %_ZN4llvm16dyn_cast_or_nullINS_17ConstantDataArrayENS_8ConstantEEEDaPT0_.exit, %21, %15, %11, %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit, %7, %1, %2
+"_ZZL15getSDKVersionMDPN4llvm8MetadataEENK3$_0clEj.exit13": ; preds = %_ZN4llvm16dyn_cast_or_nullINS_17ConstantDataArrayENS_8ConstantEEEDaPT0_.exit, %21, %15, %11, %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit, %7, %1, %2
   %.sroa.7.0 = phi i64 [ 0, %2 ], [ 0, %1 ], [ 0, %7 ], [ 0, %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit ], [ 0, %11 ], [ %24, %21 ], [ 0, %15 ], [ 0, %_ZN4llvm16dyn_cast_or_nullINS_17ConstantDataArrayENS_8ConstantEEEDaPT0_.exit ]
-  %.sroa.036.0 = phi i64 [ 0, %2 ], [ 0, %1 ], [ 0, %7 ], [ 0, %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit ], [ %13, %11 ], [ %19, %21 ], [ %19, %15 ], [ 0, %_ZN4llvm16dyn_cast_or_nullINS_17ConstantDataArrayENS_8ConstantEEEDaPT0_.exit ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.036.0, 0
+  %.sroa.033.0 = phi i64 [ 0, %2 ], [ 0, %1 ], [ 0, %7 ], [ 0, %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit ], [ %13, %11 ], [ %19, %21 ], [ %19, %15 ], [ 0, %_ZN4llvm16dyn_cast_or_nullINS_17ConstantDataArrayENS_8ConstantEEEDaPT0_.exit ]
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.033.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { i64, i64 } %.fca.1.insert
 }

@@ -1359,7 +1359,7 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit170: ; preds = 
   %.not138 = icmp eq i32 %.0.val.fr.i.i.i, 0
   br i1 %.not138, label %.outer.backedge, label %406
 
-.outer.backedge:                                  ; preds = %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit, %438, %501, %503, %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit21.i.i.i, %_ZNSt8_Rb_treeIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintS6_St9_IdentityIS6_ESt4lessIS6_ESaIS6_EE10_M_insert_IS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i, %404, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit170
+.outer.backedge:                                  ; preds = %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit, %438, %501, %503, %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit23.i.i.i, %_ZNSt8_Rb_treeIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintS6_St9_IdentityIS6_ESt4lessIS6_ESaIS6_EE10_M_insert_IS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i, %404, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit170
   %.not229263268 = icmp eq ptr %storemerge.i.i.i159, null
   br i1 %.not229263268, label %.outer239._crit_edge, label %.lr.ph.lr.ph, !llvm.loop !23
 
@@ -1458,19 +1458,19 @@ _ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit: ; preds = %
   br i1 %.not.i173, label %463, label %.outer.backedge
 
 463:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjfNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjfEEEEjfS3_S6_EixEOj.exit
-  %.01317.i.i.i = load ptr, ptr %149, align 8
-  %.not18.i.i.i = icmp eq ptr %.01317.i.i.i, null
-  br i1 %.not18.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i174
+  %.01115.i.i.i = load ptr, ptr %149, align 8
+  %.not16.i.i.i = icmp eq ptr %.01115.i.i.i, null
+  br i1 %.not16.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i174
 
 .lr.ph.i.i.i174:                                  ; preds = %463
   %464 = icmp ult i32 %.0.val.fr.i.i.i, 1073741824
   br i1 %464, label %.lr.ph.split.us.i.i.i, label %.lr.ph.split.i.i.i
 
 .lr.ph.split.us.i.i.i:                            ; preds = %.lr.ph.i.i.i174, %475
-  %.01319.us.i.i.i = phi ptr [ %.013.us.i.i.i, %475 ], [ %.01317.i.i.i, %.lr.ph.i.i.i174 ]
-  %465 = getelementptr inbounds nuw i8, ptr %.01319.us.i.i.i, i64 32
+  %.01117.us.i.i.i = phi ptr [ %.011.us.i.i.i, %475 ], [ %.01115.i.i.i, %.lr.ph.i.i.i174 ]
+  %465 = getelementptr inbounds nuw i8, ptr %.01117.us.i.i.i, i64 32
   %.val7.us.i.i.i = load i32, ptr %465, align 4
-  %466 = getelementptr i8, ptr %.01319.us.i.i.i, i64 36
+  %466 = getelementptr i8, ptr %.01117.us.i.i.i, i64 36
   %.val8.us.i.i.i = load float, ptr %466, align 4
   %467 = add i32 %.val7.us.i.i.i, -1073741824
   %468 = icmp ult i32 %467, -1073741823
@@ -1493,17 +1493,17 @@ _ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9
 
 475:                                              ; preds = %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit.us.i.i.i, %473, %471
   %.sink.i.i.i = phi i64 [ 16, %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit.us.i.i.i ], [ 24, %473 ], [ 24, %471 ]
-  %.0.i.i14.us.i.i.i = phi i1 [ true, %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit.us.i.i.i ], [ false, %473 ], [ false, %471 ]
-  %476 = getelementptr i8, ptr %.01319.us.i.i.i, i64 %.sink.i.i.i
-  %.013.us.i.i.i = load ptr, ptr %476, align 8
-  %.not.us.i.i.i = icmp eq ptr %.013.us.i.i.i, null
+  %.0.i.i12.us.i.i.i = phi i1 [ true, %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit.us.i.i.i ], [ false, %473 ], [ false, %471 ]
+  %476 = getelementptr i8, ptr %.01117.us.i.i.i, i64 %.sink.i.i.i
+  %.011.us.i.i.i = load ptr, ptr %476, align 8
+  %.not.us.i.i.i = icmp eq ptr %.011.us.i.i.i, null
   br i1 %.not.us.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.split.us.i.i.i, !llvm.loop !35
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i174, %487
-  %.01319.i.i.i = phi ptr [ %.013.i.i.i, %487 ], [ %.01317.i.i.i, %.lr.ph.i.i.i174 ]
-  %477 = getelementptr inbounds nuw i8, ptr %.01319.i.i.i, i64 32
+  %.01117.i.i.i = phi ptr [ %.011.i.i.i, %487 ], [ %.01115.i.i.i, %.lr.ph.i.i.i174 ]
+  %477 = getelementptr inbounds nuw i8, ptr %.01117.i.i.i, i64 32
   %.val7.i.i.i = load i32, ptr %477, align 4
-  %478 = getelementptr i8, ptr %.01319.i.i.i, i64 36
+  %478 = getelementptr i8, ptr %.01117.i.i.i, i64 36
   %.val8.i.i.i = load float, ptr %478, align 4
   %479 = add i32 %.val7.i.i.i, -1
   %480 = icmp ult i32 %479, 1073741823
@@ -1525,31 +1525,31 @@ _ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9
   br label %487
 
 487:                                              ; preds = %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit.i.i.i, %485, %483
-  %.sink29.i.i.i = phi i64 [ 24, %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit.i.i.i ], [ 16, %485 ], [ 16, %483 ]
-  %.0.i.i14.i.i.i = phi i1 [ false, %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit.i.i.i ], [ true, %485 ], [ true, %483 ]
-  %488 = getelementptr i8, ptr %.01319.i.i.i, i64 %.sink29.i.i.i
-  %.013.i.i.i = load ptr, ptr %488, align 8
-  %.not.i.i.i175 = icmp eq ptr %.013.i.i.i, null
+  %.sink27.i.i.i = phi i64 [ 24, %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit.i.i.i ], [ 16, %485 ], [ 16, %483 ]
+  %.0.i.i12.i.i.i = phi i1 [ false, %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit.i.i.i ], [ true, %485 ], [ true, %483 ]
+  %488 = getelementptr i8, ptr %.01117.i.i.i, i64 %.sink27.i.i.i
+  %.011.i.i.i = load ptr, ptr %488, align 8
+  %.not.i.i.i175 = icmp eq ptr %.011.i.i.i, null
   br i1 %.not.i.i.i175, label %._crit_edge.i.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !35
 
 ._crit_edge.i.i.i:                                ; preds = %487, %475
-  %.012.lcssa.i.i.i = phi ptr [ %.01319.us.i.i.i, %475 ], [ %.01319.i.i.i, %487 ]
-  %.0.lcssa.i.i.i = phi i1 [ %.0.i.i14.us.i.i.i, %475 ], [ %.0.i.i14.i.i.i, %487 ]
+  %.010.lcssa.i.i.i = phi ptr [ %.01117.us.i.i.i, %475 ], [ %.01117.i.i.i, %487 ]
+  %.0.lcssa.i.i.i = phi i1 [ %.0.i.i12.us.i.i.i, %475 ], [ %.0.i.i12.i.i.i, %487 ]
   br i1 %.0.lcssa.i.i.i, label %._crit_edge.thread.i.i.i, label %492
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %463
-  %.012.lcssa27.i.i.i = phi ptr [ %.012.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %148, %463 ]
+  %.010.lcssa25.i.i.i = phi ptr [ %.010.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %148, %463 ]
   %.val15.i.i.i = load ptr, ptr %150, align 8
-  %489 = icmp eq ptr %.012.lcssa27.i.i.i, %.val15.i.i.i
+  %489 = icmp eq ptr %.010.lcssa25.i.i.i, %.val15.i.i.i
   br i1 %489, label %505, label %490
 
 490:                                              ; preds = %._crit_edge.thread.i.i.i
-  %491 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.012.lcssa27.i.i.i) #14
+  %491 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa25.i.i.i) #14
   br label %492
 
 492:                                              ; preds = %490, %._crit_edge.i.i.i
-  %.012.lcssa26.i.i.i = phi ptr [ %.012.lcssa27.i.i.i, %490 ], [ %.012.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %.sroa.01.0.i.i.i = phi ptr [ %491, %490 ], [ %.012.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %.010.lcssa24.i.i.i = phi ptr [ %.010.lcssa25.i.i.i, %490 ], [ %.010.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %.sroa.01.0.i.i.i = phi ptr [ %491, %490 ], [ %.010.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %493 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i.i.i, i64 32
   %.val9.i.i.i = load i32, ptr %493, align 4
   %494 = getelementptr i8, ptr %.sroa.01.0.i.i.i, i64 36
@@ -1558,7 +1558,7 @@ _ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9
   %496 = icmp ult i32 %495, 1073741823
   %497 = icmp ult i32 %.0.val.fr.i.i.i, 1073741824
   %498 = xor i1 %497, %496
-  br i1 %498, label %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit21.i.i.i, label %499
+  br i1 %498, label %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit23.i.i.i, label %499
 
 499:                                              ; preds = %492
   %500 = fcmp une float %.val10.i.i.i, %436
@@ -1572,11 +1572,11 @@ _ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9
   %504 = icmp ult i32 %.val9.i.i.i, %.0.val.fr.i.i.i
   br i1 %504, label %505, label %.outer.backedge
 
-_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit21.i.i.i: ; preds = %492
+_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit23.i.i.i: ; preds = %492
   br i1 %496, label %505, label %.outer.backedge
 
-505:                                              ; preds = %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit21.i.i.i, %503, %501, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.012.lcssa26.i.i.i, %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit21.i.i.i ], [ %.012.lcssa26.i.i.i, %501 ], [ %.012.lcssa26.i.i.i, %503 ], [ %.012.lcssa27.i.i.i, %._crit_edge.thread.i.i.i ]
+505:                                              ; preds = %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit23.i.i.i, %503, %501, %._crit_edge.thread.i.i.i
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.010.lcssa24.i.i.i, %_ZNKSt4lessIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintEclERKS6_S9_.exit23.i.i.i ], [ %.010.lcssa24.i.i.i, %501 ], [ %.010.lcssa24.i.i.i, %503 ], [ %.010.lcssa25.i.i.i, %._crit_edge.thread.i.i.i ]
   %506 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %148
   br i1 %506, label %_ZNSt8_Rb_treeIZN4llvm14VirtRegAuxInfo16weightCalcHelperERNS0_12LiveIntervalEPNS0_9SlotIndexES5_E8CopyHintS6_St9_IdentityIS6_ESt4lessIS6_ESaIS6_EE10_M_insert_IS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i, label %507
 

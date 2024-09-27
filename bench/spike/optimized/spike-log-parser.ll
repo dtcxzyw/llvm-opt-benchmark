@@ -1069,19 +1069,19 @@ define noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 p
   store ptr @.str, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  %19 = getelementptr inbounds i8, ptr %8, i64 16
-  %20 = getelementptr inbounds i8, ptr %8, i64 24
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 0, ptr %21, align 8
-  %22 = ptrtoint ptr %6 to i64
-  store i64 %22, ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %20, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %19, align 8
+  %19 = ptrtoint ptr %6 to i64
+  %20 = getelementptr inbounds i8, ptr %8, i64 16
+  %21 = getelementptr inbounds i8, ptr %8, i64 24
+  %22 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 0, ptr %22, align 8
+  store i64 %19, ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %21, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %20, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext 0, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull %8)
           to label %23 unwind label %53
 
 23:                                               ; preds = %2
-  %24 = load ptr, ptr %19, align 8
+  %24 = load ptr, ptr %20, align 8
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvPKcEED2Ev.exit, label %25
 
@@ -1097,19 +1097,19 @@ define noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 p
   unreachable
 
 _ZNSt8functionIFvPKcEED2Ev.exit:                  ; preds = %23, %25
-  %30 = getelementptr inbounds i8, ptr %9, i64 16
-  %31 = getelementptr inbounds i8, ptr %9, i64 24
-  %32 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 0, ptr %32, align 8
-  %33 = ptrtoint ptr %5 to i64
-  store i64 %33, ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_1E9_M_invokeERKSt9_Any_dataOS1_", ptr %31, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %30, align 8
+  %30 = ptrtoint ptr %5 to i64
+  %31 = getelementptr inbounds i8, ptr %9, i64 16
+  %32 = getelementptr inbounds i8, ptr %9, i64 24
+  %33 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 0, ptr %33, align 8
+  store i64 %30, ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_1E9_M_invokeERKSt9_Any_dataOS1_", ptr %32, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %31, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext 0, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef nonnull %9)
           to label %34 unwind label %61
 
 34:                                               ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit
-  %35 = load ptr, ptr %30, align 8
+  %35 = load ptr, ptr %31, align 8
   %.not.i.i24 = icmp eq ptr %35, null
   br i1 %.not.i.i24, label %_ZNSt8functionIFvPKcEED2Ev.exit25, label %36
 
@@ -1160,7 +1160,7 @@ _ZNKSt8functionIFP11extension_tvEEclEv.exit:      ; preds = %49
 53:                                               ; preds = %2
   %54 = landingpad { ptr, i32 }
           cleanup
-  %55 = load ptr, ptr %19, align 8
+  %55 = load ptr, ptr %20, align 8
   %.not.i.i29 = icmp eq ptr %55, null
   br i1 %.not.i.i29, label %_ZNSt8functionIFvPKcEED2Ev.exit30, label %56
 
@@ -1178,7 +1178,7 @@ _ZNKSt8functionIFP11extension_tvEEclEv.exit:      ; preds = %49
 61:                                               ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit
   %62 = landingpad { ptr, i32 }
           cleanup
-  %63 = load ptr, ptr %30, align 8
+  %63 = load ptr, ptr %31, align 8
   %.not.i.i31 = icmp eq ptr %63, null
   br i1 %.not.i.i31, label %_ZNSt8functionIFvPKcEED2Ev.exit30, label %64
 

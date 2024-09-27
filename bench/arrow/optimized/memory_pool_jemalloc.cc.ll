@@ -689,12 +689,12 @@ _ZN5arrow6StatusD2Ev.exit:
   %stats = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::function", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %stats) #17
+  %0 = ptrtoint ptr %stats to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %stats to i64
-  store i64 %1, ptr %agg.tmp, align 8
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZN5arrow21jemalloc_stats_stringB5cxx11ES1_E3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZN5arrow21jemalloc_stats_stringB5cxx11ES1_E3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   call void @je_arrow_malloc_stats_print(ptr noundef nonnull @"_ZZN5arrow20jemalloc_stats_printESt8functionIFvPKcEES2_EN3$_08__invokeEPvS2_", ptr noundef nonnull %agg.tmp, ptr noundef %opts) #17, !noalias !34

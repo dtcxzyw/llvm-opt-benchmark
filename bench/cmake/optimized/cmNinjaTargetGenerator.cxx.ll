@@ -13513,14 +13513,14 @@ _ZNK7cmValue4IsOnEv.exit.thread:                  ; preds = %302, %_ZNK7cmValue4
           to label %313 unwind label %377
 
 313:                                              ; preds = %309
-  %314 = getelementptr inbounds i8, ptr %64, i64 16
-  %315 = getelementptr inbounds i8, ptr %64, i64 24
-  %316 = getelementptr inbounds i8, ptr %64, i64 8
-  store i64 0, ptr %316, align 8
-  %317 = ptrtoint ptr %0 to i64
-  store i64 %317, ptr %64, align 8
-  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileS7_S7_bE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %315, align 8
-  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileS7_S7_bE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %314, align 8
+  %314 = ptrtoint ptr %0 to i64
+  %315 = getelementptr inbounds i8, ptr %64, i64 16
+  %316 = getelementptr inbounds i8, ptr %64, i64 24
+  %317 = getelementptr inbounds i8, ptr %64, i64 8
+  store i64 0, ptr %317, align 8
+  store i64 %314, ptr %64, align 8
+  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileS7_S7_bE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %316, align 8
+  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileS7_S7_bE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %315, align 8
   invoke void @_ZN23cmCommonTargetGenerator22GenerateCodeCheckRulesERK12cmSourceFileRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS8_SB_RKSt8functionIFS8_SB_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %63, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(370) %1, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %64)
           to label %318 unwind label %379
 
@@ -13552,7 +13552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit447: ;
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %66) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #25
-  %325 = load ptr, ptr %314, align 8
+  %325 = load ptr, ptr %315, align 8
   %.not.i.i = icmp eq ptr %325, null
   br i1 %.not.i.i, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EED2Ev.exit, label %326
 
@@ -13755,7 +13755,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EED2Ev.
 
 385:                                              ; preds = %.body445, %379
   %.pn297.pn = phi { ptr, i32 } [ %.pn297, %.body445 ], [ %380, %379 ]
-  %386 = load ptr, ptr %314, align 8
+  %386 = load ptr, ptr %315, align 8
   %.not.i.i448 = icmp eq ptr %386, null
   br i1 %.not.i.i448, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EED2Ev.exit449, label %387
 

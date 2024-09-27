@@ -5710,10 +5710,10 @@ if.end:                                           ; preds = %entry
   %1 = getelementptr i8, ptr %scopeDesc, i64 152
   %scopeDesc.val = load ptr, ptr %1, align 8
   %2 = getelementptr i8, ptr %scopeDesc, i64 160
-  %scopeDesc.val7 = load i32, ptr %2, align 8
-  %conv.i.i = zext i32 %scopeDesc.val7 to i64
+  %scopeDesc.val8 = load i32, ptr %2, align 8
+  %conv.i.i = zext i32 %scopeDesc.val8 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %scopeDesc.val, i64 %conv.i.i
-  %cmp.not1.i = icmp eq i32 %scopeDesc.val7, 0
+  %cmp.not1.i = icmp eq i32 %scopeDesc.val8, 0
   br i1 %cmp.not1.i, label %"_ZZN12_GLOBAL__N_113runOnFunctionEPN6hermes8FunctionERN4llvh9SetVectorIS2_St6vectorIS2_SaIS2_EENS3_8DenseSetIS2_NS3_12DenseMapInfoIS2_EEEEEEENK3$_0clEPNS0_9ScopeDescE.exit", label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end
@@ -6852,22 +6852,22 @@ if.end:                                           ; preds = %entry
   %2 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %2 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %1, i64 %conv.i.i
-  %cmp.not7.i = icmp eq i32 %2, 0
-  br i1 %cmp.not7.i, label %"_ZZN12_GLOBAL__N_116promoteVariablesEPN6hermes8FunctionERN4llvh9SetVectorIS2_St6vectorIS2_SaIS2_EENS3_8DenseSetIS2_NS3_12DenseMapInfoIS2_EEEEEEENK3$_0clEPNS0_9ScopeDescE.exit", label %for.body.lr.ph.i
+  %cmp.not4.i = icmp eq i32 %2, 0
+  br i1 %cmp.not4.i, label %"_ZZN12_GLOBAL__N_116promoteVariablesEPN6hermes8FunctionERN4llvh9SetVectorIS2_St6vectorIS2_SaIS2_EENS3_8DenseSetIS2_NS3_12DenseMapInfoIS2_EEEEEEENK3$_0clEPNS0_9ScopeDescE.exit", label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end
   %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %NumBuckets.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %handler.coerce1, i64 16
   %4 = ptrtoint ptr %scopeDesc to i64
   %conv.i.i.i.i.i.i.i = trunc i64 %4 to i32
   %shr.i.i.i.i.i.i.i = lshr i32 %conv.i.i.i.i.i.i.i, 4
   %shr2.i.i.i.i.i.i.i = lshr i32 %conv.i.i.i.i.i.i.i, 9
   %xor.i.i.i.i.i.i.i = xor i32 %shr.i.i.i.i.i.i.i, %shr2.i.i.i.i.i.i.i
-  %NumBuckets.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %handler.coerce1, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %__begin2.08.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
-  %5 = load ptr, ptr %__begin2.08.i, align 8
+  %__begin2.05.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
+  %5 = load ptr, ptr %__begin2.05.i, align 8
   %6 = icmp eq ptr %5, null
   %add.ptr.i7 = getelementptr inbounds i8, ptr %5, i64 16
   %spec.select.i = select i1 %6, ptr null, ptr %add.ptr.i7
@@ -6938,7 +6938,7 @@ if.end.i.i.i:                                     ; preds = %if.then12.i.i.i.i.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end13.i.i.i.i.i, %if.end.i.i.i, %if.end.i.i.i.i.i, %if.then.i, %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.08.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.05.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %"_ZZN12_GLOBAL__N_116promoteVariablesEPN6hermes8FunctionERN4llvh9SetVectorIS2_St6vectorIS2_SaIS2_EENS3_8DenseSetIS2_NS3_12DenseMapInfoIS2_EEEEEEENK3$_0clEPNS0_9ScopeDescE.exit", label %for.body.i
 

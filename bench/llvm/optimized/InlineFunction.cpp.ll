@@ -7807,12 +7807,12 @@ _ZN4llvm2at20getAssignmentMarkersEPKNS_11InstructionE.exit.i.i: ; preds = %_ZNK4
   %2605 = call { ptr, ptr } @_ZN4llvm2at20getAssignmentMarkersEPNS_10DIAssignIDE(ptr noundef nonnull %2604) #19
   %2606 = extractvalue { ptr, ptr } %2605, 0
   %2607 = extractvalue { ptr, ptr } %2605, 1
-  %.not8.i.i.i.i = icmp eq ptr %2606, %2607
-  br i1 %.not8.i.i.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_2at11DbgAssignItEEEZL20collectEscapedLocalsRKNS_10DataLayoutERKNS_8CallBaseEE3$_0EET0_OT_SC_.exit.i.i", label %.lr.ph.i.i26.i.i
+  %.not9.i.i.i.i = icmp eq ptr %2606, %2607
+  br i1 %.not9.i.i.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_2at11DbgAssignItEEEZL20collectEscapedLocalsRKNS_10DataLayoutERKNS_8CallBaseEE3$_0EET0_OT_SC_.exit.i.i", label %.lr.ph.i.i26.i.i
 
 .lr.ph.i.i26.i.i:                                 ; preds = %_ZN4llvm2at20getAssignmentMarkersEPKNS_11InstructionE.exit.i.i, %"_ZZL20collectEscapedLocalsRKN4llvm10DataLayoutERKNS_8CallBaseEENK3$_0clINS_18DbgAssignIntrinsicEEEDaPT_.exit.i.i.i.i"
-  %.sroa.02.09.i.i.i.i = phi ptr [ %2663, %"_ZZL20collectEscapedLocalsRKN4llvm10DataLayoutERKNS_8CallBaseEENK3$_0clINS_18DbgAssignIntrinsicEEEDaPT_.exit.i.i.i.i" ], [ %2606, %_ZN4llvm2at20getAssignmentMarkersEPKNS_11InstructionE.exit.i.i ]
-  %2608 = getelementptr inbounds nuw i8, ptr %.sroa.02.09.i.i.i.i, i64 24
+  %.sroa.03.010.i.i.i.i = phi ptr [ %2663, %"_ZZL20collectEscapedLocalsRKN4llvm10DataLayoutERKNS_8CallBaseEENK3$_0clINS_18DbgAssignIntrinsicEEEDaPT_.exit.i.i.i.i" ], [ %2606, %_ZN4llvm2at20getAssignmentMarkersEPKNS_11InstructionE.exit.i.i ]
+  %2608 = getelementptr inbounds nuw i8, ptr %.sroa.03.010.i.i.i.i, i64 24
   %2609 = load ptr, ptr %2608, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %90), !noalias !139
   %2610 = getelementptr inbounds nuw i8, ptr %2609, i64 48
@@ -7914,7 +7914,7 @@ _ZN4llvm2at9VarRecordC2EPNS_20DbgVariableIntrinsicE.exit.i.i.i.i.i: ; preds = %2
 
 "_ZZL20collectEscapedLocalsRKN4llvm10DataLayoutERKNS_8CallBaseEENK3$_0clINS_18DbgAssignIntrinsicEEEDaPT_.exit.i.i.i.i": ; preds = %_ZN4llvm2at9VarRecordC2EPNS_20DbgVariableIntrinsicE.exit.i.i.i.i.i, %.lr.ph.i.i26.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90), !noalias !139
-  %2662 = getelementptr inbounds nuw i8, ptr %.sroa.02.09.i.i.i.i, i64 8
+  %2662 = getelementptr inbounds nuw i8, ptr %.sroa.03.010.i.i.i.i, i64 8
   %2663 = load ptr, ptr %2662, align 8
   %.not.i.i28.i.i = icmp eq ptr %2663, %2607
   br i1 %.not.i.i28.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_2at11DbgAssignItEEEZL20collectEscapedLocalsRKNS_10DataLayoutERKNS_8CallBaseEE3$_0EET0_OT_SC_.exit.i.i", label %.lr.ph.i.i26.i.i, !llvm.loop !148
@@ -7951,12 +7951,12 @@ _ZN4llvm2at23getDVRAssignmentMarkersEPKNS_11InstructionE.exit.i.i: ; preds = %_Z
   %2674 = load ptr, ptr %95, align 8, !noalias !139
   %2675 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %95) #19
   %2676 = getelementptr inbounds ptr, ptr %2674, i64 %2675
-  %.not7.i.i.i.i = icmp eq i64 %2675, 0
-  br i1 %.not7.i.i.i.i, label %"_ZN4llvm8for_eachINS_11SmallVectorIPNS_17DbgVariableRecordELj6EEEZL20collectEscapedLocalsRKNS_10DataLayoutERKNS_8CallBaseEE3$_0EET0_OT_SC_.exit.i.i", label %.lr.ph.i.i34.i.i
+  %.not8.i.i.i.i = icmp eq i64 %2675, 0
+  br i1 %.not8.i.i.i.i, label %"_ZN4llvm8for_eachINS_11SmallVectorIPNS_17DbgVariableRecordELj6EEEZL20collectEscapedLocalsRKNS_10DataLayoutERKNS_8CallBaseEE3$_0EET0_OT_SC_.exit.i.i", label %.lr.ph.i.i34.i.i
 
 .lr.ph.i.i34.i.i:                                 ; preds = %_ZN4llvm2at23getDVRAssignmentMarkersEPKNS_11InstructionE.exit.i.i, %"_ZZL20collectEscapedLocalsRKN4llvm10DataLayoutERKNS_8CallBaseEENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit.i.i.i.i"
-  %.08.i.i.i.i = phi ptr [ %2727, %"_ZZL20collectEscapedLocalsRKN4llvm10DataLayoutERKNS_8CallBaseEENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit.i.i.i.i" ], [ %2674, %_ZN4llvm2at23getDVRAssignmentMarkersEPKNS_11InstructionE.exit.i.i ]
-  %2677 = load ptr, ptr %.08.i.i.i.i, align 8
+  %.09.i.i.i.i = phi ptr [ %2727, %"_ZZL20collectEscapedLocalsRKN4llvm10DataLayoutERKNS_8CallBaseEENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit.i.i.i.i" ], [ %2674, %_ZN4llvm2at23getDVRAssignmentMarkersEPKNS_11InstructionE.exit.i.i ]
+  %2677 = load ptr, ptr %.09.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87), !noalias !139
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %88), !noalias !139
   call void @llvm.experimental.noalias.scope.decl(metadata !155)
@@ -8071,7 +8071,7 @@ _ZN4llvm2at9VarRecordC2EPNS_17DbgVariableRecordE.exit.i.i.i.i.i: ; preds = %2725
 "_ZZL20collectEscapedLocalsRKN4llvm10DataLayoutERKNS_8CallBaseEENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit.i.i.i.i": ; preds = %_ZN4llvm2at9VarRecordC2EPNS_17DbgVariableRecordE.exit.i.i.i.i.i, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87), !noalias !139
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %88), !noalias !139
-  %2727 = getelementptr inbounds i8, ptr %.08.i.i.i.i, i64 8
+  %2727 = getelementptr inbounds i8, ptr %.09.i.i.i.i, i64 8
   %.not.i.i38.i.i = icmp eq ptr %2727, %2676
   br i1 %.not.i.i38.i.i, label %"_ZN4llvm8for_eachINS_11SmallVectorIPNS_17DbgVariableRecordELj6EEEZL20collectEscapedLocalsRKNS_10DataLayoutERKNS_8CallBaseEE3$_0EET0_OT_SC_.exit.i.i", label %.lr.ph.i.i34.i.i, !llvm.loop !158
 

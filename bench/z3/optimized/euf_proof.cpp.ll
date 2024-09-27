@@ -6051,12 +6051,12 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   %call6 = tail call noundef zeroext i1 @_ZN3euf6solver12visit_clauseERSojPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 noundef %n, ptr noundef %lits)
+  %2 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ppth, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ppth, i64 24
-  %2 = getelementptr inbounds i8, ptr %ppth, i64 8
-  store i64 0, ptr %2, align 8
-  %3 = ptrtoint ptr %this to i64
-  store i64 %3, ptr %ppth, align 8
+  %3 = getelementptr inbounds i8, ptr %ppth, i64 8
+  store i64 0, ptr %3, align 8
+  store i64 %2, ptr %ppth, align 8
   store ptr @"_ZNSt17_Function_handlerIF6symboliEZN3euf6solver8on_lemmaEjPKN3sat7literalENS4_6statusEE3$_0E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIF6symboliEZN3euf6solver8on_lemmaEjPKN3sat7literalENS4_6statusEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %m_orig.i = getelementptr inbounds i8, ptr %st, i64 4

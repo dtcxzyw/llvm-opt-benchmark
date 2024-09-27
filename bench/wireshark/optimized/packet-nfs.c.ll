@@ -3530,7 +3530,7 @@ target triple = "x86_64-pc-linux-gnu"
 @dissect_fhandle_data_PRIMARY_DATA.fh_sites = internal constant [3 x ptr] [ptr @hf_nfs4_fh_pd_sites_inum, ptr @hf_nfs4_fh_pd_sites_siteid, ptr null], align 16
 @dissect_fhandle_data_PRIMARY_DATA.fh_spaces = internal constant [3 x ptr] [ptr @hf_nfs4_fh_pd_spaces_snapid, ptr @hf_nfs4_fh_pd_spaces_container, ptr null], align 16
 @switch.table.dissect_access_reply = private unnamed_addr constant [9 x ptr] [ptr @hf_nfs_access_supp_read, ptr @hf_nfs_access_supp_lookup, ptr @hf_nfs_access_supp_modify, ptr @hf_nfs_access_supp_extend, ptr @hf_nfs_access_supp_delete, ptr @hf_nfs_access_supp_execute, ptr @hf_nfs_access_supp_xattr_read, ptr @hf_nfs_access_supp_xattr_write, ptr @hf_nfs_access_supp_xattr_list], align 8
-@switch.table.dissect_access_reply.21 = private unnamed_addr constant [9 x ptr] [ptr @hf_nfs_access_read, ptr @hf_nfs_access_lookup, ptr @hf_nfs_access_modify, ptr @hf_nfs_access_extend, ptr @hf_nfs_access_delete, ptr @hf_nfs_access_execute, ptr @hf_nfs_access_xattr_read, ptr @hf_nfs_access_xattr_write, ptr @hf_nfs_access_xattr_list], align 8
+@switch.table.dissect_access_reply.22 = private unnamed_addr constant [9 x ptr] [ptr @hf_nfs_access_read, ptr @hf_nfs_access_lookup, ptr @hf_nfs_access_modify, ptr @hf_nfs_access_extend, ptr @hf_nfs_access_delete, ptr @hf_nfs_access_execute, ptr @hf_nfs_access_xattr_read, ptr @hf_nfs_access_xattr_write, ptr @hf_nfs_access_xattr_list], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @nfs_name_snoop_add_name(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -3781,8 +3781,8 @@ store_nfs_file_handle.exit:                       ; preds = %27, %39
 53:                                               ; preds = %51
   %54 = load i32, ptr @hf_nfs_fh_hash, align 4
   %55 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %54, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %52) #18
-  %.not.i45 = icmp eq ptr %55, null
-  br i1 %.not.i45, label %proto_item_set_generated.exit, label %56
+  %.not.i46 = icmp eq ptr %55, null
+  br i1 %.not.i46, label %proto_item_set_generated.exit, label %56
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %55, i64 32
@@ -3801,16 +3801,16 @@ proto_item_set_hidden.exit:                       ; preds = %51, %.thread
   %63 = phi i32 [ %50, %.thread ], [ %52, %51 ]
   %64 = load i32, ptr @hf_nfs_fh_hash, align 4
   %65 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %64, ptr noundef %0, i32 noundef %1, i32 noundef %4, i32 noundef %63) #18
-  %.not.i46 = icmp eq ptr %65, null
-  br i1 %.not.i46, label %proto_item_set_generated.exit, label %proto_item_set_hidden.exit.thread
+  %.not.i47 = icmp eq ptr %65, null
+  br i1 %.not.i47, label %proto_item_set_generated.exit, label %proto_item_set_hidden.exit.thread
 
 proto_item_set_hidden.exit.thread:                ; preds = %59, %56, %proto_item_set_hidden.exit
-  %.055 = phi ptr [ %65, %proto_item_set_hidden.exit ], [ %55, %56 ], [ %55, %59 ]
+  %.052 = phi ptr [ %65, %proto_item_set_hidden.exit ], [ %55, %56 ], [ %55, %59 ]
   %66 = phi i32 [ %63, %proto_item_set_hidden.exit ], [ %52, %56 ], [ %52, %59 ]
-  %67 = getelementptr inbounds i8, ptr %.055, i64 32
+  %67 = getelementptr inbounds i8, ptr %.052, i64 32
   %68 = load ptr, ptr %67, align 8
-  %.not5.i47 = icmp eq ptr %68, null
-  br i1 %.not5.i47, label %proto_item_set_generated.exit, label %69
+  %.not5.i48 = icmp eq ptr %68, null
+  br i1 %.not5.i48, label %proto_item_set_generated.exit, label %69
 
 69:                                               ; preds = %proto_item_set_hidden.exit.thread
   %70 = getelementptr inbounds i8, ptr %68, i64 28
@@ -3847,8 +3847,8 @@ proto_item_set_generated.exit:                    ; preds = %53, %proto_item_set
   %80 = getelementptr inbounds i8, ptr %79, i64 50
   %81 = load i16, ptr %80, align 2
   %82 = and i16 %81, 8
-  %.not.i48 = icmp eq i16 %82, 0
-  br i1 %.not.i48, label %83, label %108
+  %.not.i49 = icmp eq i16 %82, 0
+  br i1 %.not.i49, label %83, label %108
 
 83:                                               ; preds = %77
   store i32 0, ptr %8, align 8
@@ -4619,7 +4619,7 @@ switch.lookup:                                    ; preds = %55, %55, %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   %sext113 = shl i64 %indvars.iv, 32
   %57 = ashr exact i64 %sext113, 32
-  %switch.gep111 = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_access_reply.21, i64 0, i64 %57
+  %switch.gep111 = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_access_reply.22, i64 0, i64 %57
   %switch.load112 = load ptr, ptr %switch.gep111, align 8
   %58 = load i32, ptr %switch.load, align 4
   %59 = load i32, ptr %switch.load112, align 4
@@ -4825,7 +4825,7 @@ display_access_items.exit84:                      ; preds = %54, %.thread100, %2
 switch.lookup111:                                 ; preds = %71
   %sext114 = shl i64 %indvars.iv.i85, 32
   %75 = ashr exact i64 %sext114, 32
-  %switch.gep112 = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_access_reply.21, i64 0, i64 %75
+  %switch.gep112 = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_access_reply.22, i64 0, i64 %75
   %switch.load113 = load ptr, ptr %switch.gep112, align 8
   %76 = load i32, ptr %switch.load113, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %76, ptr noundef %0, i32 noundef %.0108, i32 noundef 4, i32 noundef 0) #18

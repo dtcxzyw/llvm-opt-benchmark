@@ -847,15 +847,15 @@ init.end:                                         ; preds = %invoke.cont, %init.
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK8QuantLib23DefaultDensityStructure23survivalProbabilityImplEdE8integral, i64 8), align 8, !tbaa !27
   %conv.i = trunc i64 %3 to i32
   %cmp1.i = icmp sgt i32 %conv.i, 0
-  br i1 %cmp1.i, label %for.body.lr.ph.i, label %"_ZNK8QuantLib18GaussianQuadratureclINS_12_GLOBAL__N_110t_remapperIZNKS_23DefaultDensityStructure23survivalProbabilityImplEdE3$_0EEEEdRKT_.exit"
+  br i1 %cmp1.i, label %for.body.preheader.i, label %"_ZNK8QuantLib18GaussianQuadratureclINS_12_GLOBAL__N_110t_remapperIZNKS_23DefaultDensityStructure23survivalProbabilityImplEdE3$_0EEEEdRKT_.exit"
 
-for.body.lr.ph.i:                                 ; preds = %init.end
+for.body.preheader.i:                             ; preds = %init.end
   %4 = and i64 %3, 2147483647
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %4, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %sum.02.i = phi double [ 0.000000e+00, %for.body.lr.ph.i ], [ %10, %for.body.i ]
+for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
+  %indvars.iv.i = phi i64 [ %4, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %sum.02.i = phi double [ 0.000000e+00, %for.body.preheader.i ], [ %10, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK8QuantLib23DefaultDensityStructure23survivalProbabilityImplEdE8integral, i64 16), align 8, !tbaa !15
   %arrayidx.i.i = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.next.i
@@ -879,8 +879,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %mul = fmul double %t, %sum.0.lcssa.i
   %div = fmul double %mul, 5.000000e-01
   %sub = fsub double 1.000000e+00, %div
-  %cmp.i2 = fcmp olt double %sub, 0.000000e+00
-  %.sroa.speculated = select i1 %cmp.i2, double 0.000000e+00, double %sub
+  %cmp.i3 = fcmp olt double %sub, 0.000000e+00
+  %.sroa.speculated = select i1 %cmp.i3, double 0.000000e+00, double %sub
   ret double %.sroa.speculated
 
 lpad:                                             ; preds = %init

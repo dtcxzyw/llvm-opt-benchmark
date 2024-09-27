@@ -613,17 +613,17 @@ _ZNKSt8functionIFbN4llvm9Attribute8AttrKindEEEclES2_.exit49: ; preds = %113
 define dso_local { i64, i64 } @_ZNK4llvm12CallLowering22getAttributesForReturnERKNS_8CallBaseE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"struct.llvm::ISD::ArgFlagsTy", align 8
   %4 = alloca %"class.std::function", align 8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %5 = ptrtoint ptr %1 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %7, align 8
-  %8 = ptrtoint ptr %1 to i64
-  store i64 %8, ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9Attribute8AttrKindEEZNKS0_12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0E9_M_invokeERKSt9_Any_dataOS2_", ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9Attribute8AttrKindEEZNKS0_12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %5, align 8
+  store i64 0, ptr %8, align 8
+  store i64 %5, ptr %4, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9Attribute8AttrKindEEZNKS0_12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0E9_M_invokeERKSt9_Any_dataOS2_", ptr %7, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9Attribute8AttrKindEEZNKS0_12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %6, align 8
   call fastcc void @_ZL19addFlagsUsingAttrFnRN4llvm3ISD10ArgFlagsTyERKSt8functionIFbNS_9Attribute8AttrKindEEE(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbN4llvm9Attribute8AttrKindEEED2Ev.exit, label %10
 
@@ -1089,17 +1089,17 @@ _ZNKSt8functionIFjvEEclEv.exit:                   ; preds = %212
 219:                                              ; preds = %211, %_ZNKSt8functionIFjvEEclEv.exit, %198, %209
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  %220 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %221 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %220 = ptrtoint ptr %2 to i64
+  %221 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %223 = getelementptr inbounds i8, ptr %14, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %222 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 0, ptr %222, align 8
-  %223 = ptrtoint ptr %2 to i64
-  store i64 %223, ptr %14, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9Attribute8AttrKindEEZNKS0_12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0E9_M_invokeERKSt9_Any_dataOS2_", ptr %221, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9Attribute8AttrKindEEZNKS0_12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %220, align 8
+  store i64 0, ptr %223, align 8
+  store i64 %220, ptr %14, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9Attribute8AttrKindEEZNKS0_12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0E9_M_invokeERKSt9_Any_dataOS2_", ptr %222, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9Attribute8AttrKindEEZNKS0_12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %221, align 8
   call fastcc void @_ZL19addFlagsUsingAttrFnRN4llvm3ISD10ArgFlagsTyERKSt8functionIFbNS_9Attribute8AttrKindEEE(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
-  %224 = load ptr, ptr %220, align 8
+  %224 = load ptr, ptr %221, align 8
   %.not.i.i.i92 = icmp eq ptr %224, null
   br i1 %.not.i.i.i92, label %_ZNK4llvm12CallLowering22getAttributesForReturnERKNS_8CallBaseE.exit, label %225
 

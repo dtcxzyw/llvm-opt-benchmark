@@ -528,18 +528,18 @@ _ZN5clang4Decl14getDeclContextEv.exit.i:          ; preds = %27, %20
 _ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit: ; preds = %47, %32, %37
   %48 = load ptr, ptr %33, align 8
   call void @free(ptr noundef %48) #14
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %51 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %51, align 8
-  %52 = ptrtoint ptr %0 to i64
-  store i64 %52, ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN5clang13CXXRecordDeclEEZNS0_22HLSLExternalSemaSource38defineHLSLTypesWithForwardDeclarationsEvE3$_0E9_M_invokeERKSt9_Any_dataOS2_", ptr %50, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN5clang13CXXRecordDeclEEZNS0_22HLSLExternalSemaSource38defineHLSLTypesWithForwardDeclarationsEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %49, align 8
+  %49 = ptrtoint ptr %0 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %52 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %52, align 8
+  store i64 %49, ptr %4, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN5clang13CXXRecordDeclEEZNS0_22HLSLExternalSemaSource38defineHLSLTypesWithForwardDeclarationsEvE3$_0E9_M_invokeERKSt9_Any_dataOS2_", ptr %51, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN5clang13CXXRecordDeclEEZNS0_22HLSLExternalSemaSource38defineHLSLTypesWithForwardDeclarationsEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %50, align 8
   call void @_ZN5clang22HLSLExternalSemaSource12onCompletionEPNS_13CXXRecordDeclESt8functionIFvS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %15, ptr noundef nonnull %4)
-  %53 = load ptr, ptr %49, align 8
-  %.not.i.i3 = icmp eq ptr %53, null
-  br i1 %.not.i.i3, label %_ZNSt8functionIFvPN5clang13CXXRecordDeclEEED2Ev.exit, label %54
+  %53 = load ptr, ptr %50, align 8
+  %.not.i.i4 = icmp eq ptr %53, null
+  br i1 %.not.i.i4, label %_ZNSt8functionIFvPN5clang13CXXRecordDeclEEED2Ev.exit, label %54
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit
   %55 = call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3) #14
@@ -557,84 +557,84 @@ _ZNSt8functionIFvPN5clang13CXXRecordDeclEEED2Ev.exit: ; preds = %_ZN12_GLOBAL__N
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %63 = load ptr, ptr %62, align 8
-  %.not.i5 = icmp ne ptr %63, null
+  %.not.i6 = icmp ne ptr %63, null
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %65 = load ptr, ptr %64, align 8
-  %.not1.i6 = icmp eq ptr %65, null
-  %or.cond.i7 = select i1 %.not.i5, i1 %.not1.i6, i1 false
-  br i1 %or.cond.i7, label %66, label %78
+  %.not1.i7 = icmp eq ptr %65, null
+  %or.cond.i8 = select i1 %.not.i6, i1 %.not1.i7, i1 false
+  br i1 %or.cond.i8, label %66, label %78
 
 66:                                               ; preds = %_ZNSt8functionIFvPN5clang13CXXRecordDeclEEED2Ev.exit
   %67 = load ptr, ptr %5, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i15 = load i64, ptr %68, align 8
-  %69 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i15, 4
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i16 = load i64, ptr %68, align 8
+  %69 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i16, 4
   %70 = icmp eq i64 %69, 0
-  %71 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i15, -8
+  %71 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i16, -8
   %72 = inttoptr i64 %71 to ptr
-  br i1 %70, label %_ZN5clang4Decl14getDeclContextEv.exit.i16, label %73
+  br i1 %70, label %_ZN5clang4Decl14getDeclContextEv.exit.i17, label %73
 
 73:                                               ; preds = %66
   %74 = load ptr, ptr %72, align 8
-  br label %_ZN5clang4Decl14getDeclContextEv.exit.i16
+  br label %_ZN5clang4Decl14getDeclContextEv.exit.i17
 
-_ZN5clang4Decl14getDeclContextEv.exit.i16:        ; preds = %73, %66
-  %.0.i.i17 = phi ptr [ %74, %73 ], [ %72, %66 ]
+_ZN5clang4Decl14getDeclContextEv.exit.i17:        ; preds = %73, %66
+  %.0.i.i18 = phi ptr [ %74, %73 ], [ %72, %66 ]
   %75 = getelementptr inbounds i8, ptr %63, i64 48
-  %76 = icmp eq ptr %.0.i.i17, %75
+  %76 = icmp eq ptr %.0.i.i18, %75
   br i1 %76, label %77, label %78
 
-77:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit.i16
+77:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit.i17
   call void @_ZN5clang11DeclContext7addDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull %67) #14
   br label %78
 
-78:                                               ; preds = %77, %_ZN5clang4Decl14getDeclContextEv.exit.i16, %_ZNSt8functionIFvPN5clang13CXXRecordDeclEEED2Ev.exit
+78:                                               ; preds = %77, %_ZN5clang4Decl14getDeclContextEv.exit.i17, %_ZNSt8functionIFvPN5clang13CXXRecordDeclEEED2Ev.exit
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit18, label %83
+  br i1 %82, label %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit19, label %83
 
 83:                                               ; preds = %78
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %85 = load i32, ptr %84, align 8
-  %.not10.i.i8 = icmp eq i32 %85, 0
-  br i1 %.not10.i.i8, label %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit18, label %.lr.ph.preheader.i.i9
+  %.not10.i.i9 = icmp eq i32 %85, 0
+  br i1 %.not10.i.i9, label %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit19, label %.lr.ph.preheader.i.i10
 
-.lr.ph.preheader.i.i9:                            ; preds = %83
+.lr.ph.preheader.i.i10:                           ; preds = %83
   %86 = zext i32 %85 to i64
-  br label %.lr.ph.i.i10
+  br label %.lr.ph.i.i11
 
-.lr.ph.i.i10:                                     ; preds = %93, %.lr.ph.preheader.i.i9
-  %indvars.iv.i.i11 = phi i64 [ 0, %.lr.ph.preheader.i.i9 ], [ %indvars.iv.next.i.i13, %93 ]
+.lr.ph.i.i11:                                     ; preds = %93, %.lr.ph.preheader.i.i10
+  %indvars.iv.i.i12 = phi i64 [ 0, %.lr.ph.preheader.i.i10 ], [ %indvars.iv.next.i.i14, %93 ]
   %87 = load ptr, ptr %79, align 8
-  %88 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv.i.i11
+  %88 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv.i.i12
   %89 = load ptr, ptr %88, align 8
-  %magicptr.i.i12 = ptrtoint ptr %89 to i64
-  switch i64 %magicptr.i.i12, label %90 [
+  %magicptr.i.i13 = ptrtoint ptr %89 to i64
+  switch i64 %magicptr.i.i13, label %90 [
     i64 0, label %93
     i64 -8, label %93
   ]
 
-90:                                               ; preds = %.lr.ph.i.i10
+90:                                               ; preds = %.lr.ph.i.i11
   %91 = load i64, ptr %89, align 8
   %92 = add i64 %91, 17
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %89, i64 noundef %92, i64 noundef 8) #14
   br label %93
 
-93:                                               ; preds = %90, %.lr.ph.i.i10, %.lr.ph.i.i10
-  %indvars.iv.next.i.i13 = add nuw nsw i64 %indvars.iv.i.i11, 1
-  %.not.i.i14 = icmp eq i64 %indvars.iv.next.i.i13, %86
-  br i1 %.not.i.i14, label %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit18, label %.lr.ph.i.i10, !llvm.loop !6
+93:                                               ; preds = %90, %.lr.ph.i.i11, %.lr.ph.i.i11
+  %indvars.iv.next.i.i14 = add nuw nsw i64 %indvars.iv.i.i12, 1
+  %.not.i.i15 = icmp eq i64 %indvars.iv.next.i.i14, %86
+  br i1 %.not.i.i15, label %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit19, label %.lr.ph.i.i11, !llvm.loop !6
 
-_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit18: ; preds = %93, %78, %83
+_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit19: ; preds = %93, %78, %83
   %94 = load ptr, ptr %79, align 8
   call void @free(ptr noundef %94) #14
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %97 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 0, ptr %97, align 8
-  store i64 %52, ptr %7, align 8
+  store i64 %49, ptr %7, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN5clang13CXXRecordDeclEEZNS0_22HLSLExternalSemaSource38defineHLSLTypesWithForwardDeclarationsEvE3$_1E9_M_invokeERKSt9_Any_dataOS2_", ptr %96, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN5clang13CXXRecordDeclEEZNS0_22HLSLExternalSemaSource38defineHLSLTypesWithForwardDeclarationsEvE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %95, align 8
   call void @_ZN5clang22HLSLExternalSemaSource12onCompletionEPNS_13CXXRecordDeclESt8functionIFvS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %61, ptr noundef nonnull %7)
@@ -642,11 +642,11 @@ _ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit18: ; preds = %93, %78, %83
   %.not.i.i20 = icmp eq ptr %98, null
   br i1 %.not.i.i20, label %_ZNSt8functionIFvPN5clang13CXXRecordDeclEEED2Ev.exit21, label %99
 
-99:                                               ; preds = %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit18
+99:                                               ; preds = %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit19
   %100 = call noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3) #14
   br label %_ZNSt8functionIFvPN5clang13CXXRecordDeclEEED2Ev.exit21
 
-_ZNSt8functionIFvPN5clang13CXXRecordDeclEEED2Ev.exit21: ; preds = %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit18, %99
+_ZNSt8functionIFvPN5clang13CXXRecordDeclEEED2Ev.exit21: ; preds = %_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilderD2Ev.exit19, %99
   ret void
 }
 

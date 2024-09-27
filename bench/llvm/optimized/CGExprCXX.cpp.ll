@@ -10284,8 +10284,8 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction17EmitCXXTypeidE
   br i1 %39, label %119, label %40
 
 40:                                               ; preds = %35
-  %.0.copyload.i.i.i.i.i.i.i.i.i13 = load i64, ptr %16, align 8
-  %41 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i13, -8
+  %.0.copyload.i.i.i.i.i.i.i.i.i14 = load i64, ptr %16, align 8
+  %41 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i14, -8
   %42 = inttoptr i64 %41 to ptr
   %43 = tail call noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr12hasNullCheckEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.435.i)
@@ -10461,8 +10461,8 @@ _ZL20EmitTypeidFromVTableRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprEPN4llvm4Ty
   br label %"_ZZN5clang7CodeGen15CodeGenFunction17EmitCXXTypeidExprEPKNS_13CXXTypeidExprEENK3$_0clIRPN4llvm8ConstantEEEDaOT_.exit"
 
 119:                                              ; preds = %35, %33
-  %.0.copyload.i.i.i.i.i.i.i.i.i14 = load i64, ptr %16, align 8
-  %120 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i14, -8
+  %.0.copyload.i.i.i.i.i.i.i.i.i15 = load i64, ptr %16, align 8
+  %120 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i15, -8
   %121 = inttoptr i64 %120 to ptr
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %122, align 8

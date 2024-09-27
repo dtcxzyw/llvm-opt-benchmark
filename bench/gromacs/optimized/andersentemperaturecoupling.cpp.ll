@@ -1371,19 +1371,19 @@ common.resume:                                    ; preds = %_ZNKSt14default_del
   br label %common.resume
 
 _ZSt11make_uniqueIN3gmx27AndersenTemperatureCouplingEJRKdbRKiNS0_8ArrayRefIKfEES8_RPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP9t_commrecEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %20
-  %44 = getelementptr inbounds i8, ptr %9, i64 16
-  %45 = getelementptr inbounds i8, ptr %9, i64 24
-  %46 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 0, ptr %46, align 8
-  %47 = ptrtoint ptr %36 to i64
-  store i64 %47, ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_27AndersenTemperatureCoupling21getElementPointerImplEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_19StatePropagatorDataEPNS0_10EnergyDataEPNS0_26FreeEnergyPerturbationDataEPNS0_25GlobalCommunicationHelperEPNS0_18ObservablesReducerEE3$_0E9_M_invokeERKSt9_Any_dataOS3_OS4_", ptr %45, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_27AndersenTemperatureCoupling21getElementPointerImplEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_19StatePropagatorDataEPNS0_10EnergyDataEPNS0_26FreeEnergyPerturbationDataEPNS0_25GlobalCommunicationHelperEPNS0_18ObservablesReducerEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %44, align 8
+  %44 = ptrtoint ptr %36 to i64
+  %45 = getelementptr inbounds i8, ptr %9, i64 16
+  %46 = getelementptr inbounds i8, ptr %9, i64 24
+  %47 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 0, ptr %47, align 8
+  store i64 %44, ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_27AndersenTemperatureCoupling21getElementPointerImplEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_19StatePropagatorDataEPNS0_10EnergyDataEPNS0_26FreeEnergyPerturbationDataEPNS0_25GlobalCommunicationHelperEPNS0_18ObservablesReducerEE3$_0E9_M_invokeERKSt9_Any_dataOS3_OS4_", ptr %46, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_27AndersenTemperatureCoupling21getElementPointerImplEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_19StatePropagatorDataEPNS0_10EnergyDataEPNS0_26FreeEnergyPerturbationDataEPNS0_25GlobalCommunicationHelperEPNS0_18ObservablesReducerEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %45, align 8
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper34registerReferenceTemperatureUpdateESt8functionIFvNS_8ArrayRefIKfEENS_35ReferenceTemperatureChangeAlgorithmEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %9)
           to label %48 unwind label %148
 
 48:                                               ; preds = %_ZSt11make_uniqueIN3gmx27AndersenTemperatureCouplingEJRKdbRKiNS0_8ArrayRefIKfEES8_RPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP9t_commrecEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %49 = load ptr, ptr %44, align 8
+  %49 = load ptr, ptr %45, align 8
   %.not.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i, label %55, label %50
 
@@ -1636,7 +1636,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 148:                                              ; preds = %_ZSt11make_uniqueIN3gmx27AndersenTemperatureCouplingEJRKdbRKiNS0_8ArrayRefIKfEES8_RPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP9t_commrecEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %149 = landingpad { ptr, i32 }
           cleanup
-  %150 = load ptr, ptr %44, align 8
+  %150 = load ptr, ptr %45, align 8
   %.not.i.i44 = icmp eq ptr %150, null
   br i1 %.not.i.i44, label %_ZNKSt14default_deleteIN3gmx27AndersenTemperatureCouplingEEclEPS1_.exit.i59, label %151
 

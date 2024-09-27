@@ -4,17 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.facebook::velox::CpuWallTiming" = type { i64, i64, i64 }
-%"class.facebook::velox::DeltaCpuWallTimer" = type <{ i64, %"class.std::chrono::time_point", %class.anon, [7 x i8] }>
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%class.anon = type { i8 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %"struct.facebook::velox::RuntimeCounter" = type <{ i64, i32, [4 x i8] }>
-%"class.facebook::velox::DeltaCpuWallTimer.0" = type <{ i64, %"class.std::chrono::time_point", %class.anon.1, [7 x i8] }>
-%class.anon.1 = type { i8 }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
@@ -223,15 +217,11 @@ $_ZTVSt19bad_optional_access = comdat any
 define void @_ZN8facebook5velox12VectorLoader4loadEN5folly5RangeIPKiEEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr %rows.coerce0, ptr %rows.coerce1, ptr noundef %hook, i32 noundef %resultSize, ptr noundef %result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %deltaTiming.i = alloca %"struct.facebook::velox::CpuWallTiming", align 8
-  %timer = alloca %"class.facebook::velox::DeltaCpuWallTimer", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
   %ref.tmp6 = alloca %"struct.facebook::velox::RuntimeCounter", align 8
   %call.i = tail call noundef i64 @_ZN8facebook5velox7process14threadCpuNanosEv()
-  store i64 %call.i, ptr %timer, align 8
-  %wallTimeStart_.i = getelementptr inbounds i8, ptr %timer, i64 8
   %call2.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
-  store i64 %call2.i, ptr %wallTimeStart_.i, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
@@ -242,8 +232,8 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %deltaTiming.i)
   store i64 1, ptr %deltaTiming.i, align 8
   %wallNanos.i = getelementptr inbounds i8, ptr %deltaTiming.i, i64 8
-  %call.i4 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
-  %sub.i.i.i = sub nsw i64 %call.i4, %call2.i
+  %call.i7 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
+  %sub.i.i.i = sub nsw i64 %call.i7, %call2.i
   store i64 %sub.i.i.i, ptr %wallNanos.i, align 8
   %call13.i = invoke noundef i64 @_ZN8facebook5velox7process14threadCpuNanosEv()
           to label %invoke.cont12.i unwind label %terminate.lpad.i
@@ -269,14 +259,14 @@ terminate.lpad.i:                                 ; preds = %invoke.cont12.i, %i
 
 if.then:                                          ; preds = %"_ZN8facebook5velox17DeltaCpuWallTimerIZNS0_12VectorLoader4loadEN5folly5RangeIPKiEEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEEE3$_0ED2Ev.exit"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #23
-  %call.i67 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
-          to label %call.i6.noexc unwind label %lpad4
+  %call.i89 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
+          to label %call.i8.noexc unwind label %lpad4
 
-call.i6.noexc:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef %call.i67, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
+call.i8.noexc:                                    ; preds = %if.then
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef %call.i89, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %.noexc unwind label %lpad4
 
-.noexc:                                           ; preds = %call.i6.noexc
+.noexc:                                           ; preds = %call.i8.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 17))
           to label %invoke.cont5 unwind label %lpad.i
 
@@ -305,10 +295,10 @@ invoke.cont10:                                    ; preds = %invoke.cont5
 lpad:                                             ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN8facebook5velox17DeltaCpuWallTimerIZNS0_12VectorLoader4loadEN5folly5RangeIPKiEEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(17) %timer) #23
+  tail call fastcc void @"_ZN8facebook5velox17DeltaCpuWallTimerIZNS0_12VectorLoader4loadEN5folly5RangeIPKiEEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEEE3$_0ED2Ev"(i64 %call.i, i64 %call2.i) #23
   br label %eh.resume
 
-lpad4:                                            ; preds = %call.i6.noexc, %if.then
+lpad4:                                            ; preds = %call.i8.noexc, %if.then
   %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -338,23 +328,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN8facebook5velox17DeltaCpuWallTimerIZNS0_12VectorLoader4loadEN5folly5RangeIPKiEEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEEE3$_0ED2Ev"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN8facebook5velox17DeltaCpuWallTimerIZNS0_12VectorLoader4loadEN5folly5RangeIPKiEEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEEE3$_0ED2Ev"(i64 %this.0.val, i64 %this.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   %deltaTiming = alloca %"struct.facebook::velox::CpuWallTiming", align 8
   store i64 1, ptr %deltaTiming, align 8
   %wallNanos = getelementptr inbounds i8, ptr %deltaTiming, i64 8
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
-  %wallTimeStart_ = getelementptr inbounds i8, ptr %this, i64 8
-  %retval.sroa.0.0.copyload.i1.i = load i64, ptr %wallTimeStart_, align 8
-  %sub.i.i = sub nsw i64 %call, %retval.sroa.0.0.copyload.i1.i
+  %sub.i.i = sub nsw i64 %call, %this.8.val
   store i64 %sub.i.i, ptr %wallNanos, align 8
   %call13 = invoke noundef i64 @_ZN8facebook5velox7process14threadCpuNanosEv()
           to label %invoke.cont12 unwind label %terminate.lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont7
   %cpuNanos = getelementptr inbounds i8, ptr %deltaTiming, i64 16
-  %0 = load i64, ptr %this, align 8
-  %sub = sub i64 %call13, %0
+  %sub = sub i64 %call13, %this.0.val
   store i64 %sub, ptr %cpuNanos, align 8
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_113writeIOTimingERKNS0_13CpuWallTimingE(ptr noundef nonnull readonly align 8 dereferenceable(24) %deltaTiming)
           to label %invoke.cont14 unwind label %terminate.lpad
@@ -363,10 +350,10 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont12, %invoke.cont7
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #24
+  %1 = extractvalue { ptr, i32 } %0, 0
+  tail call void @__clang_call_terminate(ptr %1) #24
   unreachable
 }
 
@@ -385,15 +372,11 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define void @_ZN8facebook5velox12VectorLoader4loadERKNS0_17SelectivityVectorEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %hook, i32 noundef %resultSize, ptr noundef %result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %deltaTiming.i = alloca %"struct.facebook::velox::CpuWallTiming", align 8
-  %timer = alloca %"class.facebook::velox::DeltaCpuWallTimer.0", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
   %ref.tmp6 = alloca %"struct.facebook::velox::RuntimeCounter", align 8
   %call.i = tail call noundef i64 @_ZN8facebook5velox7process14threadCpuNanosEv()
-  store i64 %call.i, ptr %timer, align 8
-  %wallTimeStart_.i = getelementptr inbounds i8, ptr %timer, i64 8
   %call2.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
-  store i64 %call2.i, ptr %wallTimeStart_.i, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
@@ -404,8 +387,8 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %deltaTiming.i)
   store i64 1, ptr %deltaTiming.i, align 8
   %wallNanos.i = getelementptr inbounds i8, ptr %deltaTiming.i, i64 8
-  %call.i5 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
-  %sub.i.i.i = sub nsw i64 %call.i5, %call2.i
+  %call.i8 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
+  %sub.i.i.i = sub nsw i64 %call.i8, %call2.i
   store i64 %sub.i.i.i, ptr %wallNanos.i, align 8
   %call12.i = invoke noundef i64 @_ZN8facebook5velox7process14threadCpuNanosEv()
           to label %invoke.cont11.i unwind label %terminate.lpad.i
@@ -431,14 +414,14 @@ terminate.lpad.i:                                 ; preds = %invoke.cont11.i, %i
 
 if.then:                                          ; preds = %"_ZN8facebook5velox17DeltaCpuWallTimerIZNS0_12VectorLoader4loadERKNS0_17SelectivityVectorEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEEE3$_0ED2Ev.exit"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #23
-  %call.i78 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
-          to label %call.i7.noexc unwind label %lpad4
+  %call.i910 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
+          to label %call.i9.noexc unwind label %lpad4
 
-call.i7.noexc:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef %call.i78, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
+call.i9.noexc:                                    ; preds = %if.then
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef %call.i910, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %.noexc unwind label %lpad4
 
-.noexc:                                           ; preds = %call.i7.noexc
+.noexc:                                           ; preds = %call.i9.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 17))
           to label %invoke.cont5 unwind label %lpad.i
 
@@ -466,10 +449,10 @@ invoke.cont10:                                    ; preds = %invoke.cont5
 lpad:                                             ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN8facebook5velox17DeltaCpuWallTimerIZNS0_12VectorLoader4loadERKNS0_17SelectivityVectorEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(17) %timer) #23
+  tail call fastcc void @"_ZN8facebook5velox17DeltaCpuWallTimerIZNS0_12VectorLoader4loadERKNS0_17SelectivityVectorEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEEE3$_0ED2Ev"(i64 %call.i, i64 %call2.i) #23
   br label %eh.resume
 
-lpad4:                                            ; preds = %call.i7.noexc, %if.then
+lpad4:                                            ; preds = %call.i9.noexc, %if.then
   %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -494,23 +477,20 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN8facebook5velox17DeltaCpuWallTimerIZNS0_12VectorLoader4loadERKNS0_17SelectivityVectorEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEEE3$_0ED2Ev"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN8facebook5velox17DeltaCpuWallTimerIZNS0_12VectorLoader4loadERKNS0_17SelectivityVectorEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEEE3$_0ED2Ev"(i64 %this.0.val, i64 %this.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   %deltaTiming = alloca %"struct.facebook::velox::CpuWallTiming", align 8
   store i64 1, ptr %deltaTiming, align 8
   %wallNanos = getelementptr inbounds i8, ptr %deltaTiming, i64 8
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
-  %wallTimeStart_ = getelementptr inbounds i8, ptr %this, i64 8
-  %retval.sroa.0.0.copyload.i1.i = load i64, ptr %wallTimeStart_, align 8
-  %sub.i.i = sub nsw i64 %call, %retval.sroa.0.0.copyload.i1.i
+  %sub.i.i = sub nsw i64 %call, %this.8.val
   store i64 %sub.i.i, ptr %wallNanos, align 8
   %call12 = invoke noundef i64 @_ZN8facebook5velox7process14threadCpuNanosEv()
           to label %invoke.cont11 unwind label %terminate.lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont7
   %cpuNanos = getelementptr inbounds i8, ptr %deltaTiming, i64 16
-  %0 = load i64, ptr %this, align 8
-  %sub = sub i64 %call12, %0
+  %sub = sub i64 %call12, %this.0.val
   store i64 %sub, ptr %cpuNanos, align 8
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_113writeIOTimingERKNS0_13CpuWallTimingE(ptr noundef nonnull readonly align 8 dereferenceable(24) %deltaTiming)
           to label %invoke.cont13 unwind label %terminate.lpad
@@ -519,10 +499,10 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont11, %invoke.cont7
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #24
+  %1 = extractvalue { ptr, i32 } %0, 0
+  tail call void @__clang_call_terminate(ptr %1) #24
   unreachable
 }
 

@@ -4004,8 +4004,8 @@ $_ZTIN7testing8internal16AllOfMatcherImplIRKNSt7__cxx1112basic_stringIcSt11char_
 @.str.544 = private unnamed_addr constant [112 x i8] c"Test can not provide both TearDownTestSuite and TearDownTestCase, please make sure there is only one present at\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_statusor_test.cc, ptr null }]
 @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE = private unnamed_addr constant [3 x ptr] [ptr @.str.399, ptr @.str.400, ptr @.str.401], align 8
-@switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.916 = private unnamed_addr constant [3 x ptr] [ptr @.str.402, ptr @.str.403, ptr @.str.404], align 8
-@switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917 = private unnamed_addr constant [3 x i64] [i64 2, i64 1, i64 2], align 8
+@switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917 = private unnamed_addr constant [3 x ptr] [ptr @.str.402, ptr @.str.403, ptr @.str.404], align 8
+@switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918 = private unnamed_addr constant [3 x i64] [i64 2, i64 1, i64 2], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -60599,7 +60599,7 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %9
+  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %9
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -60632,10 +60632,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6: ; preds = 
 
 switch.lookup21:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6
   %15 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep23 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.916, i64 0, i64 %15
+  %switch.gep23 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %15
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   %16 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep25 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %16
+  %switch.gep25 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %16
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
@@ -68150,7 +68150,7 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %9
+  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %9
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -68183,10 +68183,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6: ; preds = 
 
 switch.lookup21:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6
   %15 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep23 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.916, i64 0, i64 %15
+  %switch.gep23 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %15
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   %16 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep25 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %16
+  %switch.gep25 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %16
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
@@ -69091,7 +69091,7 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %8
+  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %8
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -69124,10 +69124,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6: ; preds = 
 
 switch.lookup21:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6
   %14 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep23 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.916, i64 0, i64 %14
+  %switch.gep23 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %14
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   %15 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep25 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %15
+  %switch.gep25 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %15
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
@@ -70071,7 +70071,7 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %8
+  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %8
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -70104,10 +70104,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6: ; preds = 
 
 switch.lookup21:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6
   %14 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep23 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.916, i64 0, i64 %14
+  %switch.gep23 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %14
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   %15 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep25 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %15
+  %switch.gep25 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %15
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
@@ -71756,7 +71756,7 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %9
+  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %9
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -71789,10 +71789,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6: ; preds = 
 
 switch.lookup21:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6
   %15 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep23 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.916, i64 0, i64 %15
+  %switch.gep23 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %15
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   %16 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep25 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %16
+  %switch.gep25 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %16
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
@@ -123861,7 +123861,7 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %6
+  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %6
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -123894,10 +123894,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6: ; preds = 
 
 switch.lookup21:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6
   %12 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep23 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.916, i64 0, i64 %12
+  %switch.gep23 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %12
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   %13 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep25 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %13
+  %switch.gep25 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %13
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
@@ -123962,7 +123962,7 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %7
+  %switch.gep1 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %7
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit.i.i
 
@@ -123996,10 +123996,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i9.i.i: ; pred
 
 switch.lookup3:                                   ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i9.i.i
   %14 = zext nneg i32 %switch.tableidx4 to i64
-  %switch.gep5 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.916, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   %15 = zext nneg i32 %switch.tableidx4 to i64
-  %switch.gep7 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.917, i64 0, i64 %15
+  %switch.gep7 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.918, i64 0, i64 %15
   %switch.load8 = load i64, ptr %switch.gep7, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit.i.i
 

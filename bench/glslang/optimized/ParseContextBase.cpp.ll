@@ -734,8 +734,8 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.401 = private unnamed_addr constant [25 x i8] c"basic_string::_M_replace\00", align 1
 @_ZTVN7glslang14TParseVersionsE = external unnamed_addr constant { [49 x ptr] }, align 8
 @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ = private unnamed_addr constant [5 x ptr] [ptr @.str.147, ptr @.str.145, ptr @.str.148, ptr @.str.146, ptr @.str.149], align 8
-@switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.1 = private unnamed_addr constant [31 x ptr] [ptr @.str.196, ptr @.str.197, ptr @.str.198, ptr @.str.201, ptr @.str.202, ptr @.str.33, ptr @.str.36, ptr @.str.147, ptr @.str.200, ptr @.str.215, ptr @.str.216, ptr @.str.217, ptr @.str.218, ptr @.str.219, ptr @.str.221, ptr @.str.220, ptr @.str.201, ptr @.str.202, ptr @.str.203, ptr @.str.199, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.208, ptr @.str.209, ptr @.str.210, ptr @.str.211, ptr @.str.212, ptr @.str.213, ptr @.str.214], align 8
-@switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.3 = private unnamed_addr constant [4 x ptr] [ptr @.str.17, ptr @.str.223, ptr @.str.224, ptr @.str.225], align 8
+@switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.2 = private unnamed_addr constant [31 x ptr] [ptr @.str.196, ptr @.str.197, ptr @.str.198, ptr @.str.201, ptr @.str.202, ptr @.str.33, ptr @.str.36, ptr @.str.147, ptr @.str.200, ptr @.str.215, ptr @.str.216, ptr @.str.217, ptr @.str.218, ptr @.str.219, ptr @.str.221, ptr @.str.220, ptr @.str.201, ptr @.str.202, ptr @.str.203, ptr @.str.199, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.208, ptr @.str.209, ptr @.str.210, ptr @.str.211, ptr @.str.212, ptr @.str.213, ptr @.str.214], align 8
+@switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.4 = private unnamed_addr constant [4 x ptr] [ptr @.str.17, ptr @.str.223, ptr @.str.224, ptr @.str.225], align 8
 @switch.table._ZN7glslang10TQualifier21getLayoutFormatStringENS_13TLayoutFormatE = private unnamed_addr constant [52 x ptr] [ptr @.str.150, ptr @.str.151, ptr @.str.155, ptr @.str.159, ptr @.str.165, ptr @.str.144, ptr @.str.152, ptr @.str.153, ptr @.str.154, ptr @.str.156, ptr @.str.157, ptr @.str.158, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.166, ptr @.str.167, ptr @.str.168, ptr @.str.169, ptr @.str.144, ptr @.str.170, ptr @.str.171, ptr @.str.172, ptr @.str.176, ptr @.str.144, ptr @.str.173, ptr @.str.174, ptr @.str.175, ptr @.str.177, ptr @.str.178, ptr @.str.190, ptr @.str.144, ptr @.str.179, ptr @.str.180, ptr @.str.181, ptr @.str.186, ptr @.str.144, ptr @.str.182, ptr @.str.183, ptr @.str.184, ptr @.str.185, ptr @.str.187, ptr @.str.188, ptr @.str.189, ptr @.str.144, ptr @.str.191, ptr @.str.192, ptr @.str.193, ptr @.str.194, ptr @.str.195], align 8
 @switch.table._ZNK7glslang5TType18getBasicTypeStringB5cxx11Ev = private unnamed_addr constant [24 x ptr] [ptr @.str.253, ptr @.str.129, ptr @.str.125, ptr @.str.254, ptr @.str.255, ptr @.str.256, ptr @.str.257, ptr @.str.258, ptr @.str.126, ptr @.str.127, ptr @.str.259, ptr @.str.260, ptr @.str.128, ptr @.str.261, ptr @.str.252, ptr @.str.262, ptr @.str.263, ptr @.str.264, ptr @.str.266, ptr @.str.265, ptr @.str.269, ptr @.str.136, ptr @.str.268, ptr @.str.267], align 8
 @switch.table._ZNK7glslang8TSampler9getStringB5cxx11Ev = private unnamed_addr constant [8 x ptr] [ptr @.str.245, ptr @.str.242, ptr @.str.243, ptr @.str.244, ptr @.str.246, ptr @.str.247, ptr @.str.248, ptr @.str.17], align 8
@@ -7951,7 +7951,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup952:                                 ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit482
   %1627 = and i64 %1624, 127
-  %switch.gep953 = getelementptr inbounds [31 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.1, i64 0, i64 %1627
+  %switch.gep953 = getelementptr inbounds [31 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.2, i64 0, i64 %1627
   %switch.load954 = load ptr, ptr %switch.gep953, align 8
   br label %_ZNK7glslang5TType25getStorageQualifierStringEv.exit
 
@@ -8086,7 +8086,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup955:                                 ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit494
   %1685 = zext nneg i32 %1683 to i64
-  %switch.gep956 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.3, i64 0, i64 %1685
+  %switch.gep956 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.4, i64 0, i64 %1685
   %switch.load957 = load ptr, ptr %switch.gep956, align 8
   br label %_ZNK7glslang5TType27getPrecisionQualifierStringEv.exit
 
@@ -10049,7 +10049,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup958:                                 ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit696
   %2592 = zext nneg i32 %2590 to i64
-  %switch.gep959 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.3, i64 0, i64 %2592
+  %switch.gep959 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.4, i64 0, i64 %2592
   %switch.load960 = load ptr, ptr %switch.gep959, align 8
   br label %_ZNK7glslang5TType27getPrecisionQualifierStringEv.exit698
 

@@ -1221,14 +1221,14 @@ define void @_ZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallback
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %1 to i64
-  store i64 %9, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %6, align 8
+  %6 = ptrtoint ptr %1 to i64
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %6, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %7, align 8
   br label %10
 
 10:                                               ; preds = %3, %5
@@ -1295,14 +1295,14 @@ define void @_ZThn16_N3gmx34VelocityScalingTemperatureCoupling22registerEnergyCa
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 -16
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %9, align 8, !alias.scope !5
-  %10 = ptrtoint ptr %6 to i64
-  store i64 %10, ptr %0, align 8, !alias.scope !5
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %8, align 8, !alias.scope !5
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %7, align 8, !alias.scope !5
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %10, align 8, !alias.scope !5
+  store i64 %7, ptr %0, align 8, !alias.scope !5
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %9, align 8, !alias.scope !5
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %8, align 8, !alias.scope !5
   br label %_ZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS_20EnergySignallerEventE.exit
 
 _ZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS_20EnergySignallerEventE.exit: ; preds = %3, %5
@@ -1698,19 +1698,19 @@ _ZNSt10unique_ptrIN3gmx27VRescaleTemperatureCouplingESt14default_deleteIS1_EED2E
   br label %_ZNSt10unique_ptrIN3gmx27VRescaleTemperatureCouplingESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx27VRescaleTemperatureCouplingESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx27VRescaleTemperatureCouplingESt14default_deleteIS1_EED2Ev.exit.sink.split, %_ZSt11make_uniqueIN3gmx29NoseHooverTemperatureCouplingEJRKiRSt6vectorIfSaIfEERKS6_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %115, %103
-  %165 = getelementptr inbounds i8, ptr %20, i64 16
-  %166 = getelementptr inbounds i8, ptr %20, i64 24
-  %167 = getelementptr inbounds i8, ptr %20, i64 8
-  store i64 0, ptr %167, align 8
-  %168 = ptrtoint ptr %0 to i64
-  store i64 %168, ptr %20, align 8
-  store ptr @"_ZNSt17_Function_handlerIFfldEZN3gmx34VelocityScalingTemperatureCouplingC1EiiNS1_13UseFullStepKEENS1_33ReportPreviousStepConservedEnergyElidPKfS6_S6_PNS1_10EnergyDataE19TemperatureCouplingE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %166, align 8
-  store ptr @"_ZNSt17_Function_handlerIFfldEZN3gmx34VelocityScalingTemperatureCouplingC1EiiNS1_13UseFullStepKEENS1_33ReportPreviousStepConservedEnergyElidPKfS6_S6_PNS1_10EnergyDataE19TemperatureCouplingE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %165, align 8
+  %165 = ptrtoint ptr %0 to i64
+  %166 = getelementptr inbounds i8, ptr %20, i64 16
+  %167 = getelementptr inbounds i8, ptr %20, i64 24
+  %168 = getelementptr inbounds i8, ptr %20, i64 8
+  store i64 0, ptr %168, align 8
+  store i64 %165, ptr %20, align 8
+  store ptr @"_ZNSt17_Function_handlerIFfldEZN3gmx34VelocityScalingTemperatureCouplingC1EiiNS1_13UseFullStepKEENS1_33ReportPreviousStepConservedEnergyElidPKfS6_S6_PNS1_10EnergyDataE19TemperatureCouplingE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %167, align 8
+  store ptr @"_ZNSt17_Function_handlerIFfldEZN3gmx34VelocityScalingTemperatureCouplingC1EiiNS1_13UseFullStepKEENS1_33ReportPreviousStepConservedEnergyElidPKfS6_S6_PNS1_10EnergyDataE19TemperatureCouplingE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %166, align 8
   invoke void @_ZN3gmx10EnergyData30addConservedEnergyContributionEOSt8functionIFfldEE(ptr noundef nonnull align 8 dereferenceable(552) %11, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %169 unwind label %176
 
 169:                                              ; preds = %_ZNSt10unique_ptrIN3gmx27VRescaleTemperatureCouplingESt14default_deleteIS1_EED2Ev.exit
-  %170 = load ptr, ptr %165, align 8
+  %170 = load ptr, ptr %166, align 8
   %.not.i.i = icmp eq ptr %170, null
   br i1 %.not.i.i, label %_ZNSt8functionIFfldEED2Ev.exit, label %171
 
@@ -1731,7 +1731,7 @@ _ZNSt8functionIFfldEED2Ev.exit:                   ; preds = %169, %171
 176:                                              ; preds = %_ZNSt10unique_ptrIN3gmx27VRescaleTemperatureCouplingESt14default_deleteIS1_EED2Ev.exit
   %177 = landingpad { ptr, i32 }
           cleanup
-  %178 = load ptr, ptr %165, align 8
+  %178 = load ptr, ptr %166, align 8
   %.not.i.i96 = icmp eq ptr %178, null
   br i1 %.not.i.i96, label %.body87, label %179
 
@@ -8328,19 +8328,19 @@ _ZNSt10unique_ptrIN3gmx34VelocityScalingTemperatureCouplingESt14default_deleteIS
 
 _ZNSt8functionIFvRKN3gmx20PropagatorConnectionEEED2Ev.exit: ; preds = %55, %57
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #32
-  %62 = getelementptr inbounds i8, ptr %15, i64 16
-  %63 = getelementptr inbounds i8, ptr %15, i64 24
-  %64 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 0, ptr %64, align 8
-  %65 = ptrtoint ptr %39 to i64
-  store i64 %65, ptr %15, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_34VelocityScalingTemperatureCoupling21getElementPointerImplEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_19StatePropagatorDataEPNS0_10EnergyDataEPNS0_26FreeEnergyPerturbationDataEPNS0_25GlobalCommunicationHelperEPNS0_18ObservablesReducerENS0_6OffsetENS0_13UseFullStepKEENS0_33ReportPreviousStepConservedEnergyERKNS0_13PropagatorTagEE3$_1E9_M_invokeERKSt9_Any_dataOS3_OS4_", ptr %63, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_34VelocityScalingTemperatureCoupling21getElementPointerImplEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_19StatePropagatorDataEPNS0_10EnergyDataEPNS0_26FreeEnergyPerturbationDataEPNS0_25GlobalCommunicationHelperEPNS0_18ObservablesReducerENS0_6OffsetENS0_13UseFullStepKEENS0_33ReportPreviousStepConservedEnergyERKNS0_13PropagatorTagEE3$_1E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation", ptr %62, align 8
+  %62 = ptrtoint ptr %39 to i64
+  %63 = getelementptr inbounds i8, ptr %15, i64 16
+  %64 = getelementptr inbounds i8, ptr %15, i64 24
+  %65 = getelementptr inbounds i8, ptr %15, i64 8
+  store i64 0, ptr %65, align 8
+  store i64 %62, ptr %15, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_34VelocityScalingTemperatureCoupling21getElementPointerImplEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_19StatePropagatorDataEPNS0_10EnergyDataEPNS0_26FreeEnergyPerturbationDataEPNS0_25GlobalCommunicationHelperEPNS0_18ObservablesReducerENS0_6OffsetENS0_13UseFullStepKEENS0_33ReportPreviousStepConservedEnergyERKNS0_13PropagatorTagEE3$_1E9_M_invokeERKSt9_Any_dataOS3_OS4_", ptr %64, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_34VelocityScalingTemperatureCoupling21getElementPointerImplEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_19StatePropagatorDataEPNS0_10EnergyDataEPNS0_26FreeEnergyPerturbationDataEPNS0_25GlobalCommunicationHelperEPNS0_18ObservablesReducerENS0_6OffsetENS0_13UseFullStepKEENS0_33ReportPreviousStepConservedEnergyERKNS0_13PropagatorTagEE3$_1E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation", ptr %63, align 8
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper34registerReferenceTemperatureUpdateESt8functionIFvNS_8ArrayRefIKfEENS_35ReferenceTemperatureChangeAlgorithmEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %15)
           to label %66 unwind label %85
 
 66:                                               ; preds = %_ZNSt8functionIFvRKN3gmx20PropagatorConnectionEEED2Ev.exit
-  %67 = load ptr, ptr %62, align 8
+  %67 = load ptr, ptr %63, align 8
   %.not.i.i25 = icmp eq ptr %67, null
   br i1 %.not.i.i25, label %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit, label %68
 
@@ -8395,7 +8395,7 @@ _ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEE
 85:                                               ; preds = %_ZNSt8functionIFvRKN3gmx20PropagatorConnectionEEED2Ev.exit
   %86 = landingpad { ptr, i32 }
           cleanup
-  %87 = load ptr, ptr %62, align 8
+  %87 = load ptr, ptr %63, align 8
   %.not.i.i30 = icmp eq ptr %87, null
   br i1 %.not.i.i30, label %common.resume, label %88
 

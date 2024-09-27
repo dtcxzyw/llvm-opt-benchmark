@@ -10394,22 +10394,22 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit206: 
   br i1 %366, label %.lr.ph.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_EC2ES2_l.exit.thread.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %365, %select.unfold.i.i.i.i.i
-  %storemerge26.i.i.in.in.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %362, %365 ]
-  %storemerge26.i.i.in.i.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i, 1
-  %storemerge26.i.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i.i, 1
-  %367 = shl i64 %storemerge26.i.i.i.i.i, 4
+  %storemerge28.i.i.in.in.i.i.i = phi i64 [ %storemerge28.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %362, %365 ]
+  %storemerge28.i.i.in.i.i.i = add nuw nsw i64 %storemerge28.i.i.in.in.i.i.i, 1
+  %storemerge28.i.i.i.i.i = lshr i64 %storemerge28.i.i.in.i.i.i, 1
+  %367 = shl i64 %storemerge28.i.i.i.i.i, 4
   %368 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %367, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #25
   %.not.i.i.i.i.i207 = icmp eq ptr %368, null
   br i1 %.not.i.i.i.i.i207, label %select.unfold.i.i.i.i.i, label %369
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
-  br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_EC2ES2_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !52
+  %.not12.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i, 3
+  br i1 %.not12.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_EC2ES2_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !52
 
 369:                                              ; preds = %.lr.ph.i.i.i.i.i
   %370 = getelementptr inbounds i8, ptr %368, i64 %367
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %368, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val.i, i64 16, i1 false)
-  %.not19.i.i.i.i.i.i = icmp eq i64 %storemerge26.i.i.i.i.i, 1
+  %.not19.i.i.i.i.i.i = icmp eq i64 %storemerge28.i.i.i.i.i, 1
   br i1 %.not19.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_EC2ES2_l.exit.thread21.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %369
@@ -10434,7 +10434,7 @@ _ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_EC2ES2_l.exit.
   br label %372
 
 _ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_EC2ES2_l.exit.thread21.i.i.i: ; preds = %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_EC2ES2_l.exit.i.i.i, %369
-  call fastcc void @_ZSt22__stable_sort_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_(ptr noundef nonnull %.val.i, ptr noundef nonnull %363, ptr noundef nonnull %368, i64 noundef %storemerge26.i.i.i.i.i)
+  call fastcc void @_ZSt22__stable_sort_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_(ptr noundef nonnull %.val.i, ptr noundef nonnull %363, ptr noundef nonnull %368, i64 noundef %storemerge28.i.i.i.i.i)
   br label %372
 
 372:                                              ; preds = %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_EC2ES2_l.exit.thread21.i.i.i, %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_EC2ES2_l.exit.thread.i.i.i

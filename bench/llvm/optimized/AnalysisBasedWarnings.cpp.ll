@@ -1450,7 +1450,7 @@ $_ZGVZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEvE7NoneLoc = comdat
 @switch.table._ZN12_GLOBAL__N_122UnreachableCodeHandler17HandleUnreachableEN5clang14reachable_code15UnreachableKindENS1_14SourceLocationENS1_11SourceRangeES5_S5_b = private unnamed_addr constant [3 x i32] [i32 7028, i32 7024, i32 7027], align 4
 @switch.table._ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter25handleMutexHeldEndOfScopeEN4llvm9StringRefES4_NS_14SourceLocationES5_NS0_13LockErrorKindE = private unnamed_addr constant [4 x i32] [i32 6451, i32 6621, i32 6678, i32 6452], align 4
 @switch.table._ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter18handleMutexNotHeldEN4llvm9StringRefEPKNS_9NamedDeclENS0_22ProtectedOperationKindES4_NS0_8LockKindENS_14SourceLocationEPS4_ = private unnamed_addr constant [7 x i32] [i32 7078, i32 7082, i32 6509, i32 6523, i32 6838, i32 6524, i32 6839], align 4
-@switch.table._ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter18handleMutexNotHeldEN4llvm9StringRefEPKNS_9NamedDeclENS0_22ProtectedOperationKindES4_NS0_8LockKindENS_14SourceLocationEPS4_.1742 = private unnamed_addr constant [7 x i32] [i32 7077, i32 7081, i32 6508, i32 6523, i32 6838, i32 6524, i32 6839], align 4
+@switch.table._ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter18handleMutexNotHeldEN4llvm9StringRefEPKNS_9NamedDeclENS0_22ProtectedOperationKindES4_NS0_8LockKindENS_14SourceLocationEPS4_.1744 = private unnamed_addr constant [7 x i32] [i32 7077, i32 7081, i32 6508, i32 6523, i32 6838, i32 6524, i32 6839], align 4
 
 @_ZN5clang4sema21AnalysisBasedWarnings6PolicyC1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang4sema21AnalysisBasedWarnings6PolicyC2Ev
 @_ZN5clang4sema21AnalysisBasedWarningsC1ERNS_4SemaE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang4sema21AnalysisBasedWarningsC2ERNS_4SemaE
@@ -15446,7 +15446,7 @@ _ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit: ; preds =
 
 switch.lookup190:                                 ; preds = %395
   %396 = zext nneg i32 %4 to i64
-  %switch.gep191 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter18handleMutexNotHeldEN4llvm9StringRefEPKNS_9NamedDeclENS0_22ProtectedOperationKindES4_NS0_8LockKindENS_14SourceLocationEPS4_.1742, i64 0, i64 %396
+  %switch.gep191 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter18handleMutexNotHeldEN4llvm9StringRefEPKNS_9NamedDeclENS0_22ProtectedOperationKindES4_NS0_8LockKindENS_14SourceLocationEPS4_.1744, i64 0, i64 %396
   %switch.load192 = load i32, ptr %switch.gep191, align 4
   br label %397
 
@@ -57744,13 +57744,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPKN5clang4StmtEN4l
   br i1 %29, label %.lr.ph.i5.i, label %27, !llvm.loop !419
 
 .lr.ph.i5.i:                                      ; preds = %27, %.lr.ph.i5.i
-  %.07.i.i = phi ptr [ %31, %.lr.ph.i5.i ], [ %.023, %27 ]
-  %31 = getelementptr inbounds i8, ptr %.07.i.i, i64 -24
+  %.01.i.i = phi ptr [ %31, %.lr.ph.i5.i ], [ %.023, %27 ]
+  %31 = getelementptr inbounds i8, ptr %.01.i.i, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
   %32 = load ptr, ptr %0, align 8
   store ptr %32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.07.i.i, i64 -16
+  %33 = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   %34 = ptrtoint ptr %31 to i64
   %35 = sub i64 %34, %13
@@ -57941,8 +57941,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN5clang4StmtEN4llvm
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.034 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %5 ]
-  %9 = shl i64 %.034, 1
+  %.035 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %5 ]
+  %9 = shl i64 %.035, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -57954,7 +57954,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN5clang4StmtEN4llvm
   %16 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %14, i32 %15) #22
   %spec.select = select i1 %16, i64 %12, i64 %10
   %17 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %spec.select
-  %18 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %.034
+  %18 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %.035
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -57989,36 +57989,36 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN5clang4StmtEN4llvm
 
 37:                                               ; preds = %29, %25, %._crit_edge
   %.127 = phi i64 [ %31, %29 ], [ %.0.lcssa, %25 ], [ %.0.lcssa, %._crit_edge ]
-  %.sroa.033.0.copyload = load ptr, ptr %3, align 8
+  %.sroa.034.0.copyload = load ptr, ptr %3, align 8
   %38 = icmp sgt i64 %.127, %1
   br i1 %38, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPKN5clang4StmtEN4llvm16DenseMapIteratorINS1_4sema17FunctionScopeInfo19WeakObjectProfileTyENS5_11SmallVectorINS8_9WeakUseTyELj4EEENS9_12DenseMapInfoENS5_6detail12DenseMapPairIS9_SC_EELb1EEEElSI_N9__gnu_cxx5__ops14_Iter_comp_valIZL25diagnoseRepeatedUseOfWeakRNS1_4SemaEPKS8_PKNS1_4DeclERKNS1_9ParentMapEE3$_0EEEvT_T0_S10_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %37, %43
-  %.01318.i = phi i64 [ %.019.i, %43 ], [ %.127, %37 ]
-  %.019.in.i = add nsw i64 %.01318.i, -1
-  %.019.i = sdiv i64 %.019.in.i, 2
-  %39 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %.019.i
+  %.0133.i = phi i64 [ %.04.i, %43 ], [ %.127, %37 ]
+  %.04.in.i = add nsw i64 %.0133.i, -1
+  %.04.i = sdiv i64 %.04.in.i, 2
+  %39 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %.04.i
   %.val14.i = load ptr, ptr %39, align 8
   %40 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val14.i) #24
-  %41 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.033.0.copyload) #24
+  %41 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.034.0.copyload) #24
   %42 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %40, i32 %41) #22
   br i1 %42, label %43, label %"_ZSt11__push_heapIPSt4pairIPKN5clang4StmtEN4llvm16DenseMapIteratorINS1_4sema17FunctionScopeInfo19WeakObjectProfileTyENS5_11SmallVectorINS8_9WeakUseTyELj4EEENS9_12DenseMapInfoENS5_6detail12DenseMapPairIS9_SC_EELb1EEEElSI_N9__gnu_cxx5__ops14_Iter_comp_valIZL25diagnoseRepeatedUseOfWeakRNS1_4SemaEPKS8_PKNS1_4DeclERKNS1_9ParentMapEE3$_0EEEvT_T0_S10_T1_RT2_.exit"
 
 43:                                               ; preds = %.lr.ph.i
-  %44 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %.01318.i
+  %44 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %.0133.i
   %45 = load ptr, ptr %39, align 8
   store ptr %45, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false)
-  %48 = icmp sgt i64 %.019.i, %1
+  %48 = icmp sgt i64 %.04.i, %1
   br i1 %48, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPKN5clang4StmtEN4llvm16DenseMapIteratorINS1_4sema17FunctionScopeInfo19WeakObjectProfileTyENS5_11SmallVectorINS8_9WeakUseTyELj4EEENS9_12DenseMapInfoENS5_6detail12DenseMapPairIS9_SC_EELb1EEEElSI_N9__gnu_cxx5__ops14_Iter_comp_valIZL25diagnoseRepeatedUseOfWeakRNS1_4SemaEPKS8_PKNS1_4DeclERKNS1_9ParentMapEE3$_0EEEvT_T0_S10_T1_RT2_.exit", !llvm.loop !426
 
 "_ZSt11__push_heapIPSt4pairIPKN5clang4StmtEN4llvm16DenseMapIteratorINS1_4sema17FunctionScopeInfo19WeakObjectProfileTyENS5_11SmallVectorINS8_9WeakUseTyELj4EEENS9_12DenseMapInfoENS5_6detail12DenseMapPairIS9_SC_EELb1EEEElSI_N9__gnu_cxx5__ops14_Iter_comp_valIZL25diagnoseRepeatedUseOfWeakRNS1_4SemaEPKS8_PKNS1_4DeclERKNS1_9ParentMapEE3$_0EEEvT_T0_S10_T1_RT2_.exit": ; preds = %.lr.ph.i, %43, %37
-  %.013.lcssa.i = phi i64 [ %.127, %37 ], [ %.01318.i, %.lr.ph.i ], [ %.019.i, %43 ]
+  %.013.lcssa.i = phi i64 [ %.127, %37 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %43 ]
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %49 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %.013.lcssa.i
-  store ptr %.sroa.033.0.copyload, ptr %49, align 8
+  store ptr %.sroa.034.0.copyload, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i64 16, i1 false)
   ret void

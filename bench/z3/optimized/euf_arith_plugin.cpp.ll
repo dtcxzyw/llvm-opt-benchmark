@@ -79,8 +79,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3euf12arith_pluginC2ERNS_6egraphE(ptr noundef nonnull align 8 dereferenceable(904) %this, ptr noundef nonnull align 8 dereferenceable(536) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %__tmp.sroa.0.i.i.i.i37 = alloca { i64, i64 }, align 8
-  %ref.tmp.i.i38 = alloca %"class.std::function", align 8
+  %__tmp.sroa.0.i.i.i.i36 = alloca { i64, i64 }, align 8
+  %ref.tmp.i.i37 = alloca %"class.std::function", align 8
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function", align 8
   %g2.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -152,42 +152,42 @@ terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
 
 if.then.i.i14:                                    ; preds = %if.then.i.i5.i.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  %m_undo_notify.i39 = getelementptr inbounds i8, ptr %this, i64 720
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i38)
-  %_M_manager.i.i.i.i40 = getelementptr inbounds i8, ptr %ref.tmp.i.i38, i64 16
-  %_M_invoker.i.i.i41 = getelementptr inbounds i8, ptr %ref.tmp.i.i38, i64 24
-  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i38, i64 8
+  %m_undo_notify.i38 = getelementptr inbounds i8, ptr %this, i64 720
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i37)
+  %_M_manager.i.i.i.i39 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 16
+  %_M_invoker.i.i.i40 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 24
+  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
-  store i64 %3, ptr %ref.tmp.i.i38, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i37)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i39, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i39, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i37, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i37)
-  %_M_manager3.i.i.i55 = getelementptr inbounds i8, ptr %this, i64 736
-  %10 = load ptr, ptr %_M_manager3.i.i.i55, align 8
-  store ptr %10, ptr %_M_manager.i.i.i.i40, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager3.i.i.i55, align 8
-  %_M_invoker4.i2.i.i56 = getelementptr inbounds i8, ptr %this, i64 744
-  %11 = load ptr, ptr %_M_invoker4.i2.i.i56, align 8
-  store ptr %11, ptr %_M_invoker.i.i.i41, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i2.i.i56, align 8
-  %tobool.not.i.i4.i.i57 = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i4.i.i57, label %if.then.i.i65, label %if.then.i.i5.i.i58
+  store i64 %3, ptr %ref.tmp.i.i37, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i36)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i36, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i37, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i37, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i38, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i36, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i36)
+  %_M_manager3.i.i.i54 = getelementptr inbounds i8, ptr %this, i64 736
+  %10 = load ptr, ptr %_M_manager3.i.i.i54, align 8
+  store ptr %10, ptr %_M_manager.i.i.i.i39, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager3.i.i.i54, align 8
+  %_M_invoker4.i2.i.i55 = getelementptr inbounds i8, ptr %this, i64 744
+  %11 = load ptr, ptr %_M_invoker4.i2.i.i55, align 8
+  store ptr %11, ptr %_M_invoker.i.i.i40, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i2.i.i55, align 8
+  %tobool.not.i.i4.i.i56 = icmp eq ptr %10, null
+  br i1 %tobool.not.i.i4.i.i56, label %if.then.i.i64, label %if.then.i.i5.i.i57
 
-if.then.i.i5.i.i58:                               ; preds = %if.then.i.i14
-  %call.i.i6.i.i59 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, i32 noundef 3)
-          to label %if.then.i.i65 unwind label %terminate.lpad.i.i7.i.i60
+if.then.i.i5.i.i57:                               ; preds = %if.then.i.i14
+  %call.i.i6.i.i58 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i37, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i37, i32 noundef 3)
+          to label %if.then.i.i64 unwind label %terminate.lpad.i.i7.i.i59
 
-terminate.lpad.i.i7.i.i60:                        ; preds = %if.then.i.i5.i.i58
+terminate.lpad.i.i7.i.i59:                        ; preds = %if.then.i.i5.i.i57
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
   call void @__clang_call_terminate(ptr %13) #18
   unreachable
 
-if.then.i.i65:                                    ; preds = %if.then.i.i5.i.i58, %if.then.i.i14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i38)
+if.then.i.i64:                                    ; preds = %if.then.i.i5.i.i57, %if.then.i.i14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i37)
   ret void
 
 lpad4:                                            ; preds = %invoke.cont5, %entry

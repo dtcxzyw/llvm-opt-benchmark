@@ -1138,16 +1138,16 @@ declare noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm13TargetMachine19getTargetIRAnalysisEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::TargetIRAnalysis") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1232) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::function.273", align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %6, align 8
-  %7 = ptrtoint ptr %1 to i64
-  store i64 %7, ptr %3, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm19TargetTransformInfoERKNS0_8FunctionEEZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm19TargetTransformInfoERKNS0_8FunctionEEZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %4, align 8
+  %4 = ptrtoint ptr %1 to i64
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %7, align 8
+  store i64 %4, ptr %3, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm19TargetTransformInfoERKNS0_8FunctionEEZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm19TargetTransformInfoERKNS0_8FunctionEEZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %5, align 8
   call void @_ZN4llvm16TargetIRAnalysisC1ESt8functionIFNS_19TargetTransformInfoERKNS_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3) #15
-  %8 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %_ZNSt8functionIFN4llvm19TargetTransformInfoERKNS0_8FunctionEEED2Ev.exit, label %9
 

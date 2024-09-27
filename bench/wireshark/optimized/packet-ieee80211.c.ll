@@ -37016,9 +37016,9 @@ define internal i32 @dissect_hs20_osen(ptr noundef %0, ptr nocapture readnone %1
 
 23:                                               ; preds = %20, %26
   %indvars.iv = phi i32 [ 0, %20 ], [ %indvars.iv.next, %26 ]
-  %.1121 = phi i32 [ 6, %20 ], [ %35, %26 ]
-  %.0102119 = phi i16 [ %17, %20 ], [ %36, %26 ]
-  %24 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1121) #22
+  %.1128 = phi i32 [ 6, %20 ], [ %35, %26 ]
+  %.0102126 = phi i16 [ %17, %20 ], [ %36, %26 ]
+  %24 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1128) #22
   %25 = icmp sgt i32 %24, 3
   br i1 %25, label %26, label %37
 
@@ -37027,30 +37027,30 @@ define internal i32 @dissect_hs20_osen(ptr noundef %0, ptr nocapture readnone %1
   %28 = load i32, ptr @hf_ieee80211_osen_pairwise_cipher_suite_type, align 4
   %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.9879, i32 noundef %indvars.iv) #22
   %30 = load i32, ptr @ett_osen_pairwise_cipher_suite, align 4
-  %31 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %0, i32 noundef %.1121, i32 noundef 4, i32 noundef %30, ptr noundef null, ptr noundef nonnull %6) #22
-  %32 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %27, ptr noundef %0, i32 noundef %.1121, i32 noundef 3, i32 noundef 0) #22
-  %33 = add nuw nsw i32 %.1121, 3
+  %31 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %0, i32 noundef %.1128, i32 noundef 4, i32 noundef %30, ptr noundef null, ptr noundef nonnull %6) #22
+  %32 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %27, ptr noundef %0, i32 noundef %.1128, i32 noundef 3, i32 noundef 0) #22
+  %33 = add nuw nsw i32 %.1128, 3
   %34 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %28, ptr noundef %0, i32 noundef %33, i32 noundef 1, i32 noundef 0) #22
-  %35 = add nuw nsw i32 %.1121, 4
+  %35 = add nuw nsw i32 %.1128, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %36 = add i16 %.0102119, -1
+  %36 = add i16 %.0102126, -1
   %.not104 = icmp eq i16 %36, 0
-  br i1 %.not104, label %.loopexit116, label %23, !llvm.loop !152
+  br i1 %.not104, label %.loopexit123, label %23, !llvm.loop !152
 
 37:                                               ; preds = %23
-  %38 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1121) #22
-  %39 = add i32 %38, %.1121
-  br label %.loopexit116
+  %38 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1128) #22
+  %39 = add i32 %38, %.1128
+  br label %.loopexit123
 
-.loopexit116:                                     ; preds = %26, %37
+.loopexit123:                                     ; preds = %26, %37
   %.2 = phi i32 [ %39, %37 ], [ %35, %26 ]
   %40 = load ptr, ptr %5, align 8
   %41 = add i32 %.2, -6
   call void @proto_item_set_len(ptr noundef %40, i32 noundef %41) #22
   br label %42
 
-42:                                               ; preds = %.loopexit116, %4
-  %.096 = phi i32 [ %.2, %.loopexit116 ], [ 6, %4 ]
+42:                                               ; preds = %.loopexit123, %4
+  %.096 = phi i32 [ %.2, %.loopexit123 ], [ 6, %4 ]
   %43 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.096) #22
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %47
@@ -37074,42 +37074,42 @@ define internal i32 @dissect_hs20_osen(ptr noundef %0, ptr nocapture readnone %1
   br label %55
 
 55:                                               ; preds = %52, %58
-  %indvars.iv133 = phi i32 [ 0, %52 ], [ %indvars.iv.next134, %58 ]
-  %.4124 = phi i32 [ %51, %52 ], [ %67, %58 ]
-  %.0100122 = phi i16 [ %48, %52 ], [ %68, %58 ]
-  %56 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4124) #22
+  %indvars.iv140 = phi i32 [ 0, %52 ], [ %indvars.iv.next141, %58 ]
+  %.4131 = phi i32 [ %51, %52 ], [ %67, %58 ]
+  %.0100129 = phi i16 [ %48, %52 ], [ %68, %58 ]
+  %56 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4131) #22
   %57 = icmp sgt i32 %56, 3
   br i1 %57, label %58, label %69
 
 58:                                               ; preds = %55
   %59 = load i32, ptr @hf_ieee80211_osen_akm_cipher_suite_oui, align 4
   %60 = load i32, ptr @hf_ieee80211_osen_akm_cipher_suite_type, align 4
-  %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.9881, i32 noundef %indvars.iv133) #22
+  %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.9881, i32 noundef %indvars.iv140) #22
   %62 = load i32, ptr @ett_osen_akm_cipher_suite, align 4
-  %63 = call ptr @proto_tree_add_subtree(ptr noundef %54, ptr noundef %0, i32 noundef %.4124, i32 noundef 4, i32 noundef %62, ptr noundef null, ptr noundef nonnull %8) #22
-  %64 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %59, ptr noundef %0, i32 noundef %.4124, i32 noundef 3, i32 noundef 0) #22
-  %65 = add i32 %.4124, 3
+  %63 = call ptr @proto_tree_add_subtree(ptr noundef %54, ptr noundef %0, i32 noundef %.4131, i32 noundef 4, i32 noundef %62, ptr noundef null, ptr noundef nonnull %8) #22
+  %64 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %59, ptr noundef %0, i32 noundef %.4131, i32 noundef 3, i32 noundef 0) #22
+  %65 = add i32 %.4131, 3
   %66 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %60, ptr noundef %0, i32 noundef %65, i32 noundef 1, i32 noundef 0) #22
-  %67 = add i32 %.4124, 4
-  %indvars.iv.next134 = add nuw nsw i32 %indvars.iv133, 1
-  %68 = add i16 %.0100122, -1
+  %67 = add i32 %.4131, 4
+  %indvars.iv.next141 = add nuw nsw i32 %indvars.iv140, 1
+  %68 = add i16 %.0100129, -1
   %.not106 = icmp eq i16 %68, 0
-  br i1 %.not106, label %.loopexit115, label %55, !llvm.loop !153
+  br i1 %.not106, label %.loopexit122, label %55, !llvm.loop !153
 
 69:                                               ; preds = %55
-  %70 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4124) #22
-  %71 = add i32 %70, %.4124
-  br label %.loopexit115
+  %70 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4131) #22
+  %71 = add i32 %70, %.4131
+  br label %.loopexit122
 
-.loopexit115:                                     ; preds = %58, %69
+.loopexit122:                                     ; preds = %58, %69
   %.5 = phi i32 [ %71, %69 ], [ %67, %58 ]
   %72 = load ptr, ptr %7, align 8
   %73 = sub i32 %.5, %51
   call void @proto_item_set_len(ptr noundef %72, i32 noundef %73) #22
   br label %74
 
-74:                                               ; preds = %.loopexit115, %47
-  %.3 = phi i32 [ %.5, %.loopexit115 ], [ %51, %47 ]
+74:                                               ; preds = %.loopexit122, %47
+  %.3 = phi i32 [ %.5, %.loopexit122 ], [ %51, %47 ]
   %75 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3) #22
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %79
@@ -37147,16 +37147,16 @@ define internal i32 @dissect_hs20_osen(ptr noundef %0, ptr nocapture readnone %1
   br label %98
 
 98:                                               ; preds = %93, %98
-  %indvars.iv136 = phi i32 [ 0, %93 ], [ %indvars.iv.next137, %98 ]
-  %.7127 = phi i32 [ %92, %93 ], [ %103, %98 ]
-  %.098125 = phi i16 [ %89, %93 ], [ %104, %98 ]
+  %indvars.iv143 = phi i32 [ 0, %93 ], [ %indvars.iv.next144, %98 ]
+  %.7134 = phi i32 [ %92, %93 ], [ %103, %98 ]
+  %.098132 = phi i16 [ %89, %93 ], [ %104, %98 ]
   %99 = load i32, ptr @ett_osen_pmkid_tree, align 4
-  %100 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %97, ptr noundef %0, i32 noundef %.7127, i32 noundef 16, i32 noundef %99, ptr noundef null, ptr noundef nonnull @.str.9883, i32 noundef %indvars.iv136) #22
+  %100 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %97, ptr noundef %0, i32 noundef %.7134, i32 noundef 16, i32 noundef %99, ptr noundef null, ptr noundef nonnull @.str.9883, i32 noundef %indvars.iv143) #22
   %101 = load i32, ptr @hf_ieee80211_osen_pmkid, align 4
-  %102 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %101, ptr noundef %0, i32 noundef %.7127, i32 noundef 16, i32 noundef 0) #22
-  %103 = add i32 %.7127, 16
-  %indvars.iv.next137 = add nuw nsw i32 %indvars.iv136, 1
-  %104 = add i16 %.098125, -1
+  %102 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %101, ptr noundef %0, i32 noundef %.7134, i32 noundef 16, i32 noundef 0) #22
+  %103 = add i32 %.7134, 16
+  %indvars.iv.next144 = add nuw nsw i32 %indvars.iv143, 1
+  %104 = add i16 %.098132, -1
   %.not108 = icmp eq i16 %104, 0
   br i1 %.not108, label %.loopexit, label %98, !llvm.loop !154
 

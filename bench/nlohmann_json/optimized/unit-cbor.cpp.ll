@@ -30350,12 +30350,12 @@ invoke.cont7468:                                  ; preds = %if.then7452
   store i8 0, ptr %j7470, align 8
   %m_value.i.i.i5759 = getelementptr inbounds i8, ptr %j7470, i64 8
   store ptr null, ptr %m_value.i.i.i5759, align 8
+  %2808 = ptrtoint ptr %binary_seen to i64
   %_M_manager.i.i5760 = getelementptr inbounds i8, ptr %agg.tmp7471, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7471, i64 24
-  %2808 = getelementptr inbounds i8, ptr %agg.tmp7471, i64 8
-  store i64 0, ptr %2808, align 8
-  %2809 = ptrtoint ptr %binary_seen to i64
-  store i64 %2809, ptr %agg.tmp7471, align 8
+  %2809 = getelementptr inbounds i8, ptr %agg.tmp7471, i64 8
+  store i64 0, ptr %2809, align 8
+  store i64 %2808, ptr %agg.tmp7471, align 8
   store ptr @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_0E9_M_invokeERKSt9_Any_dataOiOS3_SH_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %_M_manager.i.i5760, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail28json_sax_dom_callback_parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEC2ERSF_St8functionIFbiNS1_13parse_event_tESH_EEb(ptr noundef nonnull align 8 dereferenceable(184) %cbp, ptr noundef nonnull align 8 dereferenceable(16) %j7470, ptr noundef nonnull %agg.tmp7471, i1 noundef zeroext true)

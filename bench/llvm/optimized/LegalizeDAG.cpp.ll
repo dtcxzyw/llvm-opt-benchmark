@@ -325,7 +325,7 @@ $_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup = comdat any
 @.str.8 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.10 = private unnamed_addr constant [26 x i8] c"no libcall available for \00", align 1
 @switch.table._ZN12_GLOBAL__N_120SelectionDAGLegalize10ExpandNodeEPN4llvm6SDNodeE = private unnamed_addr constant [4 x i32] [i32 20, i32 18, i32 12, i32 10], align 4
-@switch.table._ZN12_GLOBAL__N_120SelectionDAGLegalize10ExpandNodeEPN4llvm6SDNodeE.17 = private unnamed_addr constant [10 x i64] [i64 273, i64 274, i64 275, i64 276, i64 282, i64 281, i64 225, i64 226, i64 219, i64 220], align 8
+@switch.table._ZN12_GLOBAL__N_120SelectionDAGLegalize10ExpandNodeEPN4llvm6SDNodeE.18 = private unnamed_addr constant [10 x i64] [i64 273, i64 274, i64 275, i64 276, i64 282, i64 281, i64 225, i64 226, i64 219, i64 220], align 8
 @switch.table._ZNK4llvm18TargetLoweringBase26getStrictFPOperationActionEjNS_3EVTE = private unnamed_addr constant [47 x i64] [i64 96, i64 97, i64 98, i64 99, i64 100, i64 149, i64 245, i64 256, i64 257, i64 258, i64 247, i64 248, i64 249, i64 250, i64 251, i64 252, i64 253, i64 254, i64 255, i64 263, i64 264, i64 260, i64 262, i64 261, i64 268, i64 269, i64 278, i64 277, i64 266, i64 272, i64 270, i64 271, i64 267, i64 273, i64 274, i64 275, i64 276, i64 282, i64 281, i64 225, i64 226, i64 219, i64 220, i64 229, i64 232, i64 207, i64 207], align 8
 @switch.table._ZN12_GLOBAL__N_120SelectionDAGLegalize20ExpandLegalINT_TO_FPEPN4llvm6SDNodeERNS1_7SDValueE = private unnamed_addr constant [4 x i64] [i64 1132462080, i64 1199570944, i64 1333788672, i64 1602224128], align 8
 
@@ -360,8 +360,8 @@ _ZN4llvm12SelectionDAG22DAGNodeDeletedListenerC2ERS0_St8functionIFvPNS_6SDNodeES
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm6SDNodeES2_EZNS0_12SelectionDAG8LegalizeEvE3$_0E9_M_invokeERKSt9_Any_dataOS2_SA_", ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %10, ptr %15, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
-  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm6SDNodeES2_EZNS0_12SelectionDAG8LegalizeEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %17, align 8
   %18 = load ptr, ptr %0, align 8
   store ptr %18, ptr %3, align 8
@@ -10947,7 +10947,7 @@ switch.lookup4346:                                ; preds = %2452, %2452, %2452,
 _ZNK4llvm18TargetLoweringBase26getStrictFPOperationActionEjNS_3EVTE.exit3642: ; preds = %switch.lookup4346
   %switch.tableidx4347 = add nsw i32 %2453, -134
   %2500 = sext i32 %switch.tableidx4347 to i64
-  %switch.gep4348 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN12_GLOBAL__N_120SelectionDAGLegalize10ExpandNodeEPN4llvm6SDNodeE.17, i64 0, i64 %2500
+  %switch.gep4348 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN12_GLOBAL__N_120SelectionDAGLegalize10ExpandNodeEPN4llvm6SDNodeE.18, i64 0, i64 %2500
   %switch.load4349 = load i64, ptr %switch.gep4348, align 8
   %2501 = load ptr, ptr %2443, align 8
   %2502 = getelementptr inbounds nuw i8, ptr %2501, i64 5468

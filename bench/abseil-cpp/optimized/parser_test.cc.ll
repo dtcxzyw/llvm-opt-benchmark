@@ -23133,8 +23133,8 @@ entry:
   %1 = load ptr, ptr %items_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %pc, i64 24
   %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.not29.i = icmp eq ptr %1, %2
-  br i1 %cmp.i.not29.i, label %invoke.cont1, label %for.body.lr.ph.i
+  %cmp.i.not28.i = icmp eq ptr %1, %2
+  br i1 %cmp.i.not28.i, label %invoke.cont1, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %agg.tmp.i.i8.i, i64 8
@@ -23142,22 +23142,22 @@ for.body.lr.ph.i:                                 ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %text.sroa.5.032.i = phi ptr [ %0, %for.body.lr.ph.i ], [ %add.ptr.i, %for.inc.i ]
-  %text.sroa.0.031.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %sub.ptr.sub.i, %for.inc.i ]
-  %__begin3.sroa.0.030.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %for.inc.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %text.sroa.5.032.i, i64 %text.sroa.0.031.i
-  %text_end.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.030.i, i64 8
+  %text.sroa.5.031.i = phi ptr [ %0, %for.body.lr.ph.i ], [ %add.ptr.i, %for.inc.i ]
+  %text.sroa.0.030.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %sub.ptr.sub.i, %for.inc.i ]
+  %__begin3.sroa.0.029.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %for.inc.i ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %text.sroa.5.031.i, i64 %text.sroa.0.030.i
+  %text_end.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.029.i, i64 8
   %5 = load i64, ptr %text_end.i, align 8
   %add.ptr10.i = getelementptr inbounds i8, ptr %0, i64 %5
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr10.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %6 = load i8, ptr %__begin3.sroa.0.030.i, align 8
+  %6 = load i8, ptr %__begin3.sroa.0.029.i, align 8
   %tobool.i = trunc i8 %6 to i1
   br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %conv.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.030.i, i64 16
+  %conv.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.029.i, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp9.i.i)
@@ -23207,7 +23207,7 @@ invoke.cont12.i.i:                                ; preds = %call8.i.i.noexc
 invoke.cont15.i.i:                                ; preds = %invoke.cont12.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i.i) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i.i) #20
-  %width.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.030.i, i64 20
+  %width.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.029.i, i64 20
   %12 = load i32, ptr %width.i.i, align 4
   %cmp.i.i.i = icmp slt i32 %12, -1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
@@ -23277,7 +23277,7 @@ ehcleanup31.i.i:                                  ; preds = %lpad27.i.i, %lpad24
   br label %lpad.body
 
 if.end.i.i:                                       ; preds = %invoke.cont28.i.i, %invoke.cont15.i.i
-  %precision.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.030.i, i64 24
+  %precision.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.029.i, i64 24
   %19 = load i32, ptr %precision.i.i, align 4
   %cmp.i20.i.i = icmp slt i32 %19, -1
   br i1 %cmp.i20.i.i, label %if.then33.i.i, label %if.end50.i.i
@@ -23331,7 +23331,7 @@ ehcleanup49.i.i:                                  ; preds = %ehcleanup48.i.i, %l
   br label %lpad.body
 
 if.end50.i.i:                                     ; preds = %invoke.cont45.i.i, %if.end.i.i
-  %conv51.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.030.i, i64 30
+  %conv51.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.029.i, i64 30
   %23 = load i8, ptr %conv51.i.i, align 2
   %24 = icmp ult i8 %23, 19
   br i1 %24, label %switch.lookup, label %_ZN4absl19str_format_internal12_GLOBAL__N_117SummarizeConsumer10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
@@ -23442,7 +23442,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117SummarizeConsumer6AppendESt17basic_
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117SummarizeConsumer6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %call56.i.i.noexc
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.030.i, i64 32
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.029.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %2
   br i1 %cmp.i.not.i, label %invoke.cont1, label %for.body.i
 

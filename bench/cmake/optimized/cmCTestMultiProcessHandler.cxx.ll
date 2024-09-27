@@ -3176,14 +3176,14 @@ define dso_local void @_ZN26cmCTestMultiProcessHandler14InitializeLoopEv(ptr nou
   %13 = tail call noundef nonnull align 8 dereferenceable(848) ptr @_ZNK2cm11uv_loop_ptrdeEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
   %14 = tail call noundef i32 @_ZN2cm12uv_timer_ptr4initER9uv_loop_sPv(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(848) %13, ptr noundef nonnull %0)
   %15 = tail call noundef nonnull align 8 dereferenceable(848) ptr @_ZNK2cm11uv_loop_ptrdeEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %18, align 8
-  %19 = ptrtoint ptr %0 to i64
-  store i64 %19, ptr %3, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN26cmCTestMultiProcessHandler14InitializeLoopEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %17, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN26cmCTestMultiProcessHandler14InitializeLoopEvE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation", ptr %16, align 8
+  %16 = ptrtoint ptr %0 to i64
+  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %19, align 8
+  store i64 %16, ptr %3, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN26cmCTestMultiProcessHandler14InitializeLoopEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %18, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN26cmCTestMultiProcessHandler14InitializeLoopEvE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation", ptr %17, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   invoke void @_ZN19cmUVJobServerClient7ConnectER9uv_loop_sSt8functionIFvvEES2_IFviEE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.64") align 8 %2, ptr noundef nonnull align 8 dereferenceable(848) %15, ptr noundef nonnull %3, ptr noundef nonnull %4)
           to label %20 unwind label %61
@@ -3246,7 +3246,7 @@ _ZNSt8optionalI19cmUVJobServerClientED2Ev.exit:   ; preds = %_ZNSt8optionalI19cm
   unreachable
 
 _ZNSt8functionIFviEED2Ev.exit:                    ; preds = %_ZNSt8optionalI19cmUVJobServerClientED2Ev.exit, %38
-  %43 = load ptr, ptr %16, align 8
+  %43 = load ptr, ptr %17, align 8
   %.not.i.i6 = icmp eq ptr %43, null
   br i1 %.not.i.i6, label %_ZNSt8functionIFvvEED2Ev.exit, label %44
 
@@ -3311,7 +3311,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt8functionIFviE
   unreachable
 
 _ZNSt8functionIFviEED2Ev.exit8:                   ; preds = %61, %65
-  %70 = load ptr, ptr %16, align 8
+  %70 = load ptr, ptr %17, align 8
   %.not.i.i9 = icmp eq ptr %70, null
   br i1 %.not.i.i9, label %_ZNSt8functionIFvvEED2Ev.exit10, label %71
 

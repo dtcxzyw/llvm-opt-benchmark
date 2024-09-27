@@ -993,12 +993,12 @@ invoke.cont4:                                     ; preds = %_ZN4absl18profiling
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5, i8 0, i64 24, i1 false), !alias.scope !8
+  %2 = ptrtoint ptr %ref.tmp5 to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %2, align 8, !noalias !8
-  %3 = ptrtoint ptr %ref.tmp5 to i64
-  store i64 %3, ptr %ref.tmp.i, align 8, !noalias !8
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %3, align 8, !noalias !8
+  store i64 %2, ptr %ref.tmp.i, align 8, !noalias !8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i, align 8, !noalias !8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8, !noalias !8
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
@@ -1172,12 +1172,12 @@ invoke.cont27:                                    ; preds = %if.end, %_ZNKSt14de
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i37)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp28, i8 0, i64 24, i1 false), !alias.scope !14
+  %26 = ptrtoint ptr %ref.tmp28 to i64
   %_M_manager.i.i.i38 = getelementptr inbounds i8, ptr %ref.tmp.i37, i64 16
   %_M_invoker.i.i39 = getelementptr inbounds i8, ptr %ref.tmp.i37, i64 24
-  %26 = getelementptr inbounds i8, ptr %ref.tmp.i37, i64 8
-  store i64 0, ptr %26, align 8, !noalias !14
-  %27 = ptrtoint ptr %ref.tmp28 to i64
-  store i64 %27, ptr %ref.tmp.i37, align 8, !noalias !14
+  %27 = getelementptr inbounds i8, ptr %ref.tmp.i37, i64 8
+  store i64 0, ptr %27, align 8, !noalias !14
+  store i64 %26, ptr %ref.tmp.i37, align 8, !noalias !14
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_10GetWeightsEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i39, align 8, !noalias !14
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_10GetWeightsEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i38, align 8, !noalias !14
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i37)
@@ -1355,12 +1355,12 @@ invoke.cont59:                                    ; preds = %_ZN7testing15Assert
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i85)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp60, i8 0, i64 24, i1 false), !alias.scope !20
+  %49 = ptrtoint ptr %ref.tmp60 to i64
   %_M_manager.i.i.i86 = getelementptr inbounds i8, ptr %ref.tmp.i85, i64 16
   %_M_invoker.i.i87 = getelementptr inbounds i8, ptr %ref.tmp.i85, i64 24
-  %49 = getelementptr inbounds i8, ptr %ref.tmp.i85, i64 8
-  store i64 0, ptr %49, align 8, !noalias !20
-  %50 = ptrtoint ptr %ref.tmp60 to i64
-  store i64 %50, ptr %ref.tmp.i85, align 8, !noalias !20
+  %50 = getelementptr inbounds i8, ptr %ref.tmp.i85, i64 8
+  store i64 0, ptr %50, align 8, !noalias !20
+  store i64 %49, ptr %ref.tmp.i85, align 8, !noalias !20
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i87, align 8, !noalias !20
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i86, align 8, !noalias !20
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i85)
@@ -1536,12 +1536,12 @@ invoke.cont89:                                    ; preds = %if.end81, %_ZNKSt14
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i140)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp90, i8 0, i64 24, i1 false), !alias.scope !26
+  %72 = ptrtoint ptr %ref.tmp90 to i64
   %_M_manager.i.i.i141 = getelementptr inbounds i8, ptr %ref.tmp.i140, i64 16
   %_M_invoker.i.i142 = getelementptr inbounds i8, ptr %ref.tmp.i140, i64 24
-  %72 = getelementptr inbounds i8, ptr %ref.tmp.i140, i64 8
-  store i64 0, ptr %72, align 8, !noalias !26
-  %73 = ptrtoint ptr %ref.tmp90 to i64
-  store i64 %73, ptr %ref.tmp.i140, align 8, !noalias !26
+  %73 = getelementptr inbounds i8, ptr %ref.tmp.i140, i64 8
+  store i64 0, ptr %73, align 8, !noalias !26
+  store i64 %72, ptr %ref.tmp.i140, align 8, !noalias !26
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i142, align 8, !noalias !26
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i141, align 8, !noalias !26
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i140)
@@ -1715,12 +1715,12 @@ invoke.cont119:                                   ; preds = %if.end111, %_ZNKSt1
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i194)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp120, i8 0, i64 24, i1 false), !alias.scope !32
+  %95 = ptrtoint ptr %ref.tmp120 to i64
   %_M_manager.i.i.i195 = getelementptr inbounds i8, ptr %ref.tmp.i194, i64 16
   %_M_invoker.i.i196 = getelementptr inbounds i8, ptr %ref.tmp.i194, i64 24
-  %95 = getelementptr inbounds i8, ptr %ref.tmp.i194, i64 8
-  store i64 0, ptr %95, align 8, !noalias !32
-  %96 = ptrtoint ptr %ref.tmp120 to i64
-  store i64 %96, ptr %ref.tmp.i194, align 8, !noalias !32
+  %96 = getelementptr inbounds i8, ptr %ref.tmp.i194, i64 8
+  store i64 0, ptr %96, align 8, !noalias !32
+  store i64 %95, ptr %ref.tmp.i194, align 8, !noalias !32
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_10GetWeightsEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i196, align 8, !noalias !32
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_10GetWeightsEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i195, align 8, !noalias !32
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i194)
@@ -8756,12 +8756,12 @@ invoke.cont8:                                     ; preds = %for.inc
   call void @llvm.experimental.noalias.scope.decl(metadata !149)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9, i8 0, i64 24, i1 false), !alias.scope !149
+  %3 = ptrtoint ptr %ref.tmp9 to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %3, align 8, !noalias !149
-  %4 = ptrtoint ptr %ref.tmp9 to i64
-  store i64 %4, ptr %ref.tmp.i, align 8, !noalias !149
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %4, align 8, !noalias !149
+  store i64 %3, ptr %ref.tmp.i, align 8, !noalias !149
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i, align 8, !noalias !149
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8, !noalias !149
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
@@ -8934,12 +8934,12 @@ invoke.cont32:                                    ; preds = %if.end, %_ZNKSt14de
   call void @llvm.experimental.noalias.scope.decl(metadata !152)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i61)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp33, i8 0, i64 24, i1 false), !alias.scope !152
+  %26 = ptrtoint ptr %ref.tmp33 to i64
   %_M_manager.i.i.i62 = getelementptr inbounds i8, ptr %ref.tmp.i61, i64 16
   %_M_invoker.i.i63 = getelementptr inbounds i8, ptr %ref.tmp.i61, i64 24
-  %26 = getelementptr inbounds i8, ptr %ref.tmp.i61, i64 8
-  store i64 0, ptr %26, align 8, !noalias !152
-  %27 = ptrtoint ptr %ref.tmp33 to i64
-  store i64 %27, ptr %ref.tmp.i61, align 8, !noalias !152
+  %27 = getelementptr inbounds i8, ptr %ref.tmp.i61, i64 8
+  store i64 0, ptr %27, align 8, !noalias !152
+  store i64 %26, ptr %ref.tmp.i61, align 8, !noalias !152
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_10GetWeightsEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i63, align 8, !noalias !152
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_10GetWeightsEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i62, align 8, !noalias !152
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i61)
@@ -9119,12 +9119,12 @@ invoke.cont63:                                    ; preds = %_ZN7testing15Assert
   call void @llvm.experimental.noalias.scope.decl(metadata !158)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i109)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp64, i8 0, i64 24, i1 false), !alias.scope !158
+  %50 = ptrtoint ptr %ref.tmp64 to i64
   %_M_manager.i.i.i110 = getelementptr inbounds i8, ptr %ref.tmp.i109, i64 16
   %_M_invoker.i.i111 = getelementptr inbounds i8, ptr %ref.tmp.i109, i64 24
-  %50 = getelementptr inbounds i8, ptr %ref.tmp.i109, i64 8
-  store i64 0, ptr %50, align 8, !noalias !158
-  %51 = ptrtoint ptr %ref.tmp64 to i64
-  store i64 %51, ptr %ref.tmp.i109, align 8, !noalias !158
+  %51 = getelementptr inbounds i8, ptr %ref.tmp.i109, i64 8
+  store i64 0, ptr %51, align 8, !noalias !158
+  store i64 %50, ptr %ref.tmp.i109, align 8, !noalias !158
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i111, align 8, !noalias !158
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i110, align 8, !noalias !158
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i109)
@@ -9298,12 +9298,12 @@ invoke.cont92:                                    ; preds = %if.end84, %_ZNKSt14
   call void @llvm.experimental.noalias.scope.decl(metadata !164)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i164)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp93, i8 0, i64 24, i1 false), !alias.scope !164
+  %73 = ptrtoint ptr %ref.tmp93 to i64
   %_M_manager.i.i.i165 = getelementptr inbounds i8, ptr %ref.tmp.i164, i64 16
   %_M_invoker.i.i166 = getelementptr inbounds i8, ptr %ref.tmp.i164, i64 24
-  %73 = getelementptr inbounds i8, ptr %ref.tmp.i164, i64 8
-  store i64 0, ptr %73, align 8, !noalias !164
-  %74 = ptrtoint ptr %ref.tmp93 to i64
-  store i64 %74, ptr %ref.tmp.i164, align 8, !noalias !164
+  %74 = getelementptr inbounds i8, ptr %ref.tmp.i164, i64 8
+  store i64 0, ptr %74, align 8, !noalias !164
+  store i64 %73, ptr %ref.tmp.i164, align 8, !noalias !164
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_10GetWeightsEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i166, align 8, !noalias !164
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_10GetWeightsEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i165, align 8, !noalias !164
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i164)
@@ -9604,12 +9604,12 @@ invoke.cont131:                                   ; preds = %_ZNSt6vectorIPN4abs
   call void @llvm.experimental.noalias.scope.decl(metadata !167)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i293)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp132, i8 0, i64 24, i1 false), !alias.scope !167
+  %98 = ptrtoint ptr %ref.tmp132 to i64
   %_M_manager.i.i.i294 = getelementptr inbounds i8, ptr %ref.tmp.i293, i64 16
   %_M_invoker.i.i295 = getelementptr inbounds i8, ptr %ref.tmp.i293, i64 24
-  %98 = getelementptr inbounds i8, ptr %ref.tmp.i293, i64 8
-  store i64 0, ptr %98, align 8, !noalias !167
-  %99 = ptrtoint ptr %ref.tmp132 to i64
-  store i64 %99, ptr %ref.tmp.i293, align 8, !noalias !167
+  %99 = getelementptr inbounds i8, ptr %ref.tmp.i293, i64 8
+  store i64 0, ptr %99, align 8, !noalias !167
+  store i64 %98, ptr %ref.tmp.i293, align 8, !noalias !167
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i295, align 8, !noalias !167
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i294, align 8, !noalias !167
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i293)
@@ -9789,12 +9789,12 @@ invoke.cont162:                                   ; preds = %if.end152, %_ZNKSt1
   call void @llvm.experimental.noalias.scope.decl(metadata !170)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i347)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp163, i8 0, i64 24, i1 false), !alias.scope !170
+  %121 = ptrtoint ptr %ref.tmp163 to i64
   %_M_manager.i.i.i348 = getelementptr inbounds i8, ptr %ref.tmp.i347, i64 16
   %_M_invoker.i.i349 = getelementptr inbounds i8, ptr %ref.tmp.i347, i64 24
-  %121 = getelementptr inbounds i8, ptr %ref.tmp.i347, i64 8
-  store i64 0, ptr %121, align 8, !noalias !170
-  %122 = ptrtoint ptr %ref.tmp163 to i64
-  store i64 %122, ptr %ref.tmp.i347, align 8, !noalias !170
+  %122 = getelementptr inbounds i8, ptr %ref.tmp.i347, i64 8
+  store i64 0, ptr %122, align 8, !noalias !170
+  store i64 %121, ptr %ref.tmp.i347, align 8, !noalias !170
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_10GetWeightsEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i349, align 8, !noalias !170
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_10GetWeightsEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i348, align 8, !noalias !170
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i347)
@@ -9978,12 +9978,12 @@ invoke.cont194:                                   ; preds = %_ZN7testing15Assert
   call void @llvm.experimental.noalias.scope.decl(metadata !173)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i401)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp195, i8 0, i64 24, i1 false), !alias.scope !173
+  %145 = ptrtoint ptr %ref.tmp195 to i64
   %_M_manager.i.i.i402 = getelementptr inbounds i8, ptr %ref.tmp.i401, i64 16
   %_M_invoker.i.i403 = getelementptr inbounds i8, ptr %ref.tmp.i401, i64 24
-  %145 = getelementptr inbounds i8, ptr %ref.tmp.i401, i64 8
-  store i64 0, ptr %145, align 8, !noalias !173
-  %146 = ptrtoint ptr %ref.tmp195 to i64
-  store i64 %146, ptr %ref.tmp.i401, align 8, !noalias !173
+  %146 = getelementptr inbounds i8, ptr %ref.tmp.i401, i64 8
+  store i64 0, ptr %146, align 8, !noalias !173
+  store i64 %145, ptr %ref.tmp.i401, align 8, !noalias !173
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i403, align 8, !noalias !173
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i402, align 8, !noalias !173
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i401)
@@ -10161,12 +10161,12 @@ invoke.cont224:                                   ; preds = %if.end215, %_ZNKSt1
   call void @llvm.experimental.noalias.scope.decl(metadata !176)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i454)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp225, i8 0, i64 24, i1 false), !alias.scope !176
+  %168 = ptrtoint ptr %ref.tmp225 to i64
   %_M_manager.i.i.i455 = getelementptr inbounds i8, ptr %ref.tmp.i454, i64 16
   %_M_invoker.i.i456 = getelementptr inbounds i8, ptr %ref.tmp.i454, i64 24
-  %168 = getelementptr inbounds i8, ptr %ref.tmp.i454, i64 8
-  store i64 0, ptr %168, align 8, !noalias !176
-  %169 = ptrtoint ptr %ref.tmp225 to i64
-  store i64 %169, ptr %ref.tmp.i454, align 8, !noalias !176
+  %169 = getelementptr inbounds i8, ptr %ref.tmp.i454, i64 8
+  store i64 0, ptr %169, align 8, !noalias !176
+  store i64 %168, ptr %ref.tmp.i454, align 8, !noalias !176
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_10GetWeightsEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i456, align 8, !noalias !176
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_10GetWeightsEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i455, align 8, !noalias !176
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i454)
@@ -10356,12 +10356,12 @@ invoke.cont257:                                   ; preds = %invoke.cont250
   call void @llvm.experimental.noalias.scope.decl(metadata !179)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i507)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp259, i8 0, i64 24, i1 false), !alias.scope !179
+  %194 = ptrtoint ptr %ref.tmp259 to i64
   %_M_manager.i.i.i508 = getelementptr inbounds i8, ptr %ref.tmp.i507, i64 16
   %_M_invoker.i.i509 = getelementptr inbounds i8, ptr %ref.tmp.i507, i64 24
-  %194 = getelementptr inbounds i8, ptr %ref.tmp.i507, i64 8
-  store i64 0, ptr %194, align 8, !noalias !179
-  %195 = ptrtoint ptr %ref.tmp259 to i64
-  store i64 %195, ptr %ref.tmp.i507, align 8, !noalias !179
+  %195 = getelementptr inbounds i8, ptr %ref.tmp.i507, i64 8
+  store i64 0, ptr %195, align 8, !noalias !179
+  store i64 %194, ptr %ref.tmp.i507, align 8, !noalias !179
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %_M_invoker.i.i509, align 8, !noalias !179
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl18profiling_internal12_GLOBAL__N_14InfoEEZNS2_8GetSizesEPNS1_14SampleRecorderIS3_EEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i508, align 8, !noalias !179
   invoke fastcc void @_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEE7IterateERKSt8functionIFvRKS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(96) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i507)
@@ -15214,14 +15214,14 @@ while.body.lr.ph.i.i.i.i.i:                       ; preds = %invoke.cont2.i.i.i.
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %_M_b.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10.i.i.i.i.i, i64 4
   %tmp.coerce.sroa.2.0.oldest.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %oldest.i.i.i.i.i, i64 8
+  %6 = ptrtoint ptr %oldest.i.i.i.i.i to i64
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp47.i.i.i.i.i, i64 16
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp47.i.i.i.i.i, i64 24
-  %6 = ptrtoint ptr %oldest.i.i.i.i.i to i64
+  %7 = getelementptr inbounds i8, ptr %ref.tmp47.i.i.i.i.i, i64 8
   %tmp.coerce56.sroa.2.0.ref.tmp54.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp54.i.i.i.i.i, i64 8
   %message_.i107.i.i.i.i.i = getelementptr inbounds i8, ptr %gtest_ar53.i.i.i.i.i, i64 8
   %_M_b.i.i61.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp19.i.i.i.i.i, i64 4
   %message_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gtest_ar.i.i.i.i.i, i64 8
-  %7 = getelementptr inbounds i8, ptr %ref.tmp47.i.i.i.i.i, i64 8
   br label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %sw.epilog.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i

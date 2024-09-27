@@ -19098,19 +19098,19 @@ define dso_local void @_ZNK5cmake15PrintPresetListERK19cmCMakePresetsGraph(ptr n
           to label %5 unwind label %17
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %3 to i64
-  store i64 %9, ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph15ConfigurePresetEEZNK5cmake15PrintPresetListERKS0_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph15ConfigurePresetEEZNK5cmake15PrintPresetListERKS0_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %6, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %6, ptr %4, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph15ConfigurePresetEEZNK5cmake15PrintPresetListERKS0_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph15ConfigurePresetEEZNK5cmake15PrintPresetListERKS0_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %7, align 8
   invoke void @_ZNK19cmCMakePresetsGraph24PrintConfigurePresetListERKSt8functionIFbRKNS_15ConfigurePresetEEEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(528) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef null)
           to label %10 unwind label %19
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbRKN19cmCMakePresetsGraph15ConfigurePresetEEED2Ev.exit, label %12
 
@@ -19137,7 +19137,7 @@ _ZNSt8functionIFbRKN19cmCMakePresetsGraph15ConfigurePresetEEED2Ev.exit: ; preds 
 19:                                               ; preds = %5
   %20 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %7, align 8
   %.not.i.i5 = icmp eq ptr %21, null
   br i1 %.not.i.i5, label %_ZNSt8functionIFbRKN19cmCMakePresetsGraph15ConfigurePresetEEED2Ev.exit6, label %22
 

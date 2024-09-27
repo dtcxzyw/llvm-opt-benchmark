@@ -733,25 +733,25 @@ define void @_ZN6google8protobuf11JoinStringsERKSt6vectorINSt7__cxx1112basic_str
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
   %14 = trunc i64 %13 to i32
-  %.not3034.i = icmp eq ptr %8, %6
-  br i1 %.not3034.i, label %._crit_edge.i.thread, label %.lr.ph.i
+  %.not913.i = icmp eq ptr %8, %6
+  br i1 %.not913.i, label %._crit_edge.i.thread, label %.lr.ph.i
 
 ._crit_edge.i.thread:                             ; preds = %.critedge.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0)
   br label %_ZN6google8protobufL19JoinStringsIteratorIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEEEvRKT_SI_PKcPS9_.exit
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.i
-  %.036.i = phi i32 [ %18, %.lr.ph.i ], [ 0, %.critedge.i ]
-  %.sroa.026.035.i = phi ptr [ %19, %.lr.ph.i ], [ %6, %.critedge.i ]
-  %.not33.i = icmp eq ptr %.sroa.026.035.i, %6
-  %15 = select i1 %.not33.i, i32 0, i32 %14
-  %spec.select.i = add nsw i32 %15, %.036.i
-  %16 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.026.035.i) #28
+  %.015.i = phi i32 [ %18, %.lr.ph.i ], [ 0, %.critedge.i ]
+  %.sroa.05.014.i = phi ptr [ %19, %.lr.ph.i ], [ %6, %.critedge.i ]
+  %.not12.i = icmp eq ptr %.sroa.05.014.i, %6
+  %15 = select i1 %.not12.i, i32 0, i32 %14
+  %spec.select.i = add nsw i32 %15, %.015.i
+  %16 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.014.i) #28
   %17 = trunc i64 %16 to i32
   %18 = add i32 %spec.select.i, %17
-  %19 = getelementptr inbounds i8, ptr %.sroa.026.035.i, i64 32
-  %.not30.i = icmp eq ptr %19, %8
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  %19 = getelementptr inbounds i8, ptr %.sroa.05.014.i, i64 32
+  %.not9.i = icmp eq ptr %19, %8
+  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 20:                                               ; preds = %11, %9
   %21 = landingpad { ptr, i32 }
@@ -767,21 +767,21 @@ define void @_ZN6google8protobuf11JoinStringsERKSt6vectorINSt7__cxx1112basic_str
   br label %24
 
 24:                                               ; preds = %27, %._crit_edge.i
-  %.sroa.0.038.i = phi ptr [ %6, %._crit_edge.i ], [ %31, %27 ]
-  %.not32.i = icmp eq ptr %.sroa.0.038.i, %6
-  br i1 %.not32.i, label %27, label %25
+  %.sroa.0.017.i = phi ptr [ %6, %._crit_edge.i ], [ %31, %27 ]
+  %.not11.i = icmp eq ptr %.sroa.0.017.i, %6
+  br i1 %.not11.i, label %27, label %25
 
 25:                                               ; preds = %24
   %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %1, i64 noundef %23)
   br label %27
 
 27:                                               ; preds = %25, %24
-  %28 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.038.i) #28
-  %29 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.038.i) #28
+  %28 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.017.i) #28
+  %29 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.017.i) #28
   %30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %28, i64 noundef %29)
-  %31 = getelementptr inbounds i8, ptr %.sroa.0.038.i, i64 32
-  %.not31.i = icmp eq ptr %31, %8
-  br i1 %.not31.i, label %_ZN6google8protobufL19JoinStringsIteratorIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEEEvRKT_SI_PKcPS9_.exit, label %24, !llvm.loop !14
+  %31 = getelementptr inbounds i8, ptr %.sroa.0.017.i, i64 32
+  %.not10.i = icmp eq ptr %31, %8
+  br i1 %.not10.i, label %_ZN6google8protobufL19JoinStringsIteratorIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEEEvRKT_SI_PKcPS9_.exit, label %24, !llvm.loop !14
 
 _ZN6google8protobufL19JoinStringsIteratorIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEEEvRKT_SI_PKcPS9_.exit: ; preds = %27, %._crit_edge.i.thread
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)

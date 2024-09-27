@@ -271,8 +271,8 @@ $_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag = comdat any
 @_ZN10TestObject12sTODtorCountE = external local_unnamed_addr global i64, align 8
 @_ZN10TestObject16sTOMoveCtorCountE = external local_unnamed_addr global i64, align 8
 @_ZN10TestObject16sTOCopyCtorCountE = external local_unnamed_addr global i64, align 8
-@switch.table._ZL32CompareSmallInputSortPerformancev.271 = private unnamed_addr constant [15 x ptr] [ptr @.str.38, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.39, ptr @.str.40, ptr @.str.37], align 8
-@switch.table._ZL32CompareSmallInputSortPerformancev.272 = private unnamed_addr constant [4 x ptr] [ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45], align 8
+@switch.table._ZL32CompareSmallInputSortPerformancev.277 = private unnamed_addr constant [15 x ptr] [ptr @.str.38, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.39, ptr @.str.40, ptr @.str.37], align 8
+@switch.table._ZL32CompareSmallInputSortPerformancev.278 = private unnamed_addr constant [4 x ptr] [ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_Z10VPCompareCPKvS0_(ptr nocapture noundef readonly %elem1, ptr nocapture noundef readonly %elem2) local_unnamed_addr #0 {
@@ -2078,7 +2078,7 @@ delete.notnull:                                   ; preds = %invoke.cont182
 for.cond190.preheader:                            ; preds = %delete.notnull, %for.inc231
   %indvars.iv2343 = phi i64 [ 0, %delete.notnull ], [ %indvars.iv.next2344, %for.inc231 ]
   %160 = icmp ult i64 %indvars.iv2343, 4
-  %switch.gep2496 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.272, i64 0, i64 %indvars.iv2343
+  %switch.gep2496 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.278, i64 0, i64 %indvars.iv2343
   br label %for.body192
 
 for.body192:                                      ; preds = %for.cond190.preheader, %for.inc228
@@ -2100,7 +2100,7 @@ for.body199:                                      ; preds = %for.body199.lr.ph, 
 
 switch.lookup:                                    ; preds = %for.body199
   %164 = zext nneg i32 %162 to i64
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.271, i64 0, i64 %164
+  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.277, i64 0, i64 %164
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit
 
@@ -4639,7 +4639,7 @@ lpad250.loopexit.split-lp.loopexit.split.us.split.us: ; preds = %for.body451.us.
 for.cond449.preheader:                            ; preds = %delete.notnull442, %for.inc490.split
   %indvars.iv2356 = phi i64 [ %indvars.iv.next2357, %for.inc490.split ], [ 0, %delete.notnull442 ]
   %522 = icmp ult i64 %indvars.iv2356, 4
-  %switch.gep2502 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.272, i64 0, i64 %indvars.iv2356
+  %switch.gep2502 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.278, i64 0, i64 %indvars.iv2356
   br label %for.body451
 
 for.body451:                                      ; preds = %for.cond449.preheader, %for.inc487
@@ -4657,7 +4657,7 @@ for.body461:                                      ; preds = %for.body451, %for.i
 
 switch.lookup2498:                                ; preds = %for.body461
   %526 = zext nneg i32 %524 to i64
-  %switch.gep2499 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.271, i64 0, i64 %526
+  %switch.gep2499 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.277, i64 0, i64 %526
   %switch.load2500 = load ptr, ptr %switch.gep2499, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit1133
 
@@ -6717,7 +6717,7 @@ lpad511.loopexit.split-lp.loopexit.split.us.split.us: ; preds = %for.body716.us.
 for.cond714.preheader:                            ; preds = %delete.notnull707, %for.inc755.split
   %indvars.iv2372 = phi i64 [ %indvars.iv.next2373, %for.inc755.split ], [ 0, %delete.notnull707 ]
   %651 = icmp ult i64 %indvars.iv2372, 4
-  %switch.gep2508 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.272, i64 0, i64 %indvars.iv2372
+  %switch.gep2508 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.278, i64 0, i64 %indvars.iv2372
   br label %for.body716
 
 for.body716:                                      ; preds = %for.cond714.preheader, %for.inc752
@@ -6735,7 +6735,7 @@ for.body726:                                      ; preds = %for.body716, %for.i
 
 switch.lookup2504:                                ; preds = %for.body726
   %655 = zext nneg i32 %653 to i64
-  %switch.gep2505 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.271, i64 0, i64 %655
+  %switch.gep2505 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.277, i64 0, i64 %655
   %switch.load2506 = load ptr, ptr %switch.gep2505, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit1848
 
@@ -9810,7 +9810,7 @@ for.body.i:                                       ; preds = %_ZN2EA4StdC9Stopwat
   %i.0518.i = phi i32 [ %inc266.i, %for.inc265.i ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i ]
   %12 = icmp ult i32 %i.0518.i, 4
   %13 = zext nneg i32 %i.0518.i to i64
-  %switch.gep55 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.272, i64 0, i64 %13
+  %switch.gep55 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.278, i64 0, i64 %13
   br label %for.body23.lr.ph.i
 
 for.body23.lr.ph.i:                               ; preds = %for.inc262.i, %for.body.i
@@ -11403,7 +11403,7 @@ for.end254.i:                                     ; preds = %_ZN5eastl6vectorIjN
 
 switch.lookup:                                    ; preds = %for.end254.i
   %163 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.271, i64 0, i64 %163
+  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.277, i64 0, i64 %163
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit425.i
 
@@ -11664,7 +11664,7 @@ for.body.i95:                                     ; preds = %_ZN2EA4StdC9Stopwat
   %i.0744.i = phi i32 [ %inc263.i, %for.inc262.i132 ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i89 ]
   %191 = icmp ult i32 %i.0744.i, 4
   %192 = zext nneg i32 %i.0744.i to i64
-  %switch.gep61 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.272, i64 0, i64 %192
+  %switch.gep61 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.278, i64 0, i64 %192
   br label %for.body20.lr.ph.i
 
 for.body20.lr.ph.i:                               ; preds = %for.inc259.i, %for.body.i95
@@ -14039,7 +14039,7 @@ for.end251.i:                                     ; preds = %_ZN5eastl6vectorIiN
 
 switch.lookup57:                                  ; preds = %for.end251.i
   %517 = zext nneg i32 %211 to i64
-  %switch.gep58 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.271, i64 0, i64 %517
+  %switch.gep58 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.277, i64 0, i64 %517
   %switch.load59 = load ptr, ptr %switch.gep58, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit430.i
 
@@ -14316,7 +14316,7 @@ for.body.i333:                                    ; preds = %_ZN2EA4StdC9Stopwat
   %i.0568.i = phi i32 [ %inc265.i, %for.inc264.i ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i328 ]
   %545 = icmp ult i32 %i.0568.i, 4
   %546 = zext nneg i32 %i.0568.i to i64
-  %switch.gep67 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.272, i64 0, i64 %546
+  %switch.gep67 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.278, i64 0, i64 %546
   br label %for.body22.lr.ph.i
 
 for.body22.lr.ph.i:                               ; preds = %for.inc261.i, %for.body.i333
@@ -16154,7 +16154,7 @@ for.end253.i:                                     ; preds = %_ZN5eastl6vectorIN1
 
 switch.lookup63:                                  ; preds = %for.end253.i
   %640 = zext nneg i32 %554 to i64
-  %switch.gep64 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.271, i64 0, i64 %640
+  %switch.gep64 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.277, i64 0, i64 %640
   %switch.load65 = load ptr, ptr %switch.gep64, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit476.i
 
@@ -19026,8 +19026,8 @@ while.body.us.i.i.i:                              ; preds = %if.then, %_ZSt13__a
   %__parent.0.us.i.i.i = phi i64 [ %dec.us.i.i.i, %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.us.i.i.i ], [ %div9.i.i.i, %if.then ]
   %add.ptr.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__parent.0.us.i.i.i
   %add.ptr.val.us.i.i.i = load i32, ptr %add.ptr.us.i.i.i, align 4
-  %cmp27.i.us.i.i.i = icmp slt i64 %__parent.0.us.i.i.i, %div.i710.i.i.i
-  br i1 %cmp27.i.us.i.i.i, label %while.body.i.us.i.preheader.i.i, label %while.end.i.us.thread.i.i.i
+  %cmp2.i.us.i.i.i = icmp slt i64 %__parent.0.us.i.i.i, %div.i710.i.i.i
+  br i1 %cmp2.i.us.i.i.i, label %while.body.i.us.i.preheader.i.i, label %while.end.i.us.thread.i.i.i
 
 while.body.i.us.i.preheader.i.i:                  ; preds = %while.body.us.i.i.i
   %inc.i10.us.i.i.i = add nsw i32 %inc.i12.i.i1.us.i.i.i, 2
@@ -19038,9 +19038,9 @@ while.end.i.us.thread.i.i.i:                      ; preds = %while.body.us.i.i.i
   br label %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.us.i.i.i
 
 while.body.i.us.i.i.i:                            ; preds = %while.body.i.us.i.i.i, %while.body.i.us.i.preheader.i.i
-  %__secondChild.029.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %while.body.i.us.i.i.i ], [ %__parent.0.us.i.i.i, %while.body.i.us.i.preheader.i.i ]
-  %inc.i2628.i.us.i.i.i = phi i32 [ %inc.i.i.us.i.i.i, %while.body.i.us.i.i.i ], [ %inc.i10.us.i.i.i, %while.body.i.us.i.preheader.i.i ]
-  %add.i.us.i.i.i = shl i64 %__secondChild.029.i.us.i.i.i, 1
+  %__secondChild.04.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %while.body.i.us.i.i.i ], [ %__parent.0.us.i.i.i, %while.body.i.us.i.preheader.i.i ]
+  %inc.i13.i.us.i.i.i = phi i32 [ %inc.i.i.us.i.i.i, %while.body.i.us.i.i.i ], [ %inc.i10.us.i.i.i, %while.body.i.us.i.preheader.i.i ]
+  %add.i.us.i.i.i = shl i64 %__secondChild.04.i.us.i.i.i, 1
   %mul.i.us.i.i.i = add i64 %add.i.us.i.i.i, 2
   %add.ptr.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %mul.i.us.i.i.i
   %sub1.i.us.i.i.i = or disjoint i64 %add.i.us.i.i.i, 1
@@ -19050,15 +19050,15 @@ while.body.i.us.i.i.i:                            ; preds = %while.body.i.us.i.i
   %cmp.i.i.i.i.us.i.i.i = icmp ult i32 %add.ptr.val.i.us.i.i.i, %add.ptr2.val.i.us.i.i.i
   %spec.select.i.us.i.i.i = select i1 %cmp.i.i.i.i.us.i.i.i, i64 %sub1.i.us.i.i.i, i64 %mul.i.us.i.i.i
   %add.ptr3.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %spec.select.i.us.i.i.i
-  %add.ptr4.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.029.i.us.i.i.i
+  %add.ptr4.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.04.i.us.i.i.i
   %add.ptr3.val.i.us.i.i.i = load i32, ptr %add.ptr3.i.us.i.i.i, align 4
-  %inc.i.i.us.i.i.i = add nsw i32 %inc.i2628.i.us.i.i.i, 1
+  %inc.i.i.us.i.i.i = add nsw i32 %inc.i13.i.us.i.i.i, 1
   store i32 %add.ptr3.val.i.us.i.i.i, ptr %add.ptr4.i.us.i.i.i, align 4
   %cmp.i.us.i.i.i = icmp slt i64 %spec.select.i.us.i.i.i, %div.i710.i.i.i
   br i1 %cmp.i.us.i.i.i, label %while.body.i.us.i.i.i, label %while.end.i.us.i.i.i, !llvm.loop !217
 
 while.end.i.us.i.i.i:                             ; preds = %while.body.i.us.i.i.i
-  %inc.i24.i.us.i.i.i = add nsw i32 %inc.i2628.i.us.i.i.i, 2
+  %inc.i24.i.us.i.i.i = add nsw i32 %inc.i13.i.us.i.i.i, 2
   br label %land.rhs.i.i.us.i.i.i
 
 land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i.i.i, %while.end.i.us.i.i.i
@@ -19094,13 +19094,13 @@ while.body.i.i.i:                                 ; preds = %_ZSt13__adjust_heap
   %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__parent.0.i.i.i
   %add.ptr.val.i.i.i = load i32, ptr %add.ptr.i.i.i, align 4
   %inc.i10.i.i.i = add nsw i32 %inc.i12.i.i1.i.i.i, 2
-  %cmp27.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i710.i.i.i
-  br i1 %cmp27.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
+  %cmp2.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i710.i.i.i
+  br i1 %cmp2.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i.i
-  %__secondChild.029.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
-  %inc.i2628.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %while.body.i.i.i.i ], [ %inc.i10.i.i.i, %while.body.i.i.i ]
-  %add.i.i.i.i = shl i64 %__secondChild.029.i.i.i.i, 1
+  %__secondChild.04.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
+  %inc.i13.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %while.body.i.i.i.i ], [ %inc.i10.i.i.i, %while.body.i.i.i ]
+  %add.i.i.i.i = shl i64 %__secondChild.04.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %mul.i.i.i.i
   %sub1.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
@@ -19110,9 +19110,9 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %cmp.i.i.i.i.i.i.i = icmp ult i32 %add.ptr.val.i.i.i.i, %add.ptr2.val.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 %sub1.i.i.i.i, i64 %mul.i.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %spec.select.i.i.i.i
-  %add.ptr4.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.029.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.04.i.i.i.i
   %add.ptr3.val.i.i.i.i = load i32, ptr %add.ptr3.i.i.i.i, align 4
-  %inc.i.i.i.i.i = add nsw i32 %inc.i2628.i.i.i.i, 1
+  %inc.i.i.i.i.i = add nsw i32 %inc.i13.i.i.i.i, 1
   store i32 %add.ptr3.val.i.i.i.i, ptr %add.ptr4.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i710.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !217
@@ -19180,13 +19180,13 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   %inc.i5.i.i.i = add nsw i32 %inc.i12.i.i.i15.i.i, 3
   %sub.i.i.i8.i = add nsw i64 %sub.ptr.div.i.i7.i, -1
   %div.i.i.i9.i = sdiv i64 %sub.i.i.i8.i, 2
-  %cmp27.i.i.i10.i = icmp sgt i64 %sub.ptr.div.i.i7.i, 2
-  br i1 %cmp27.i.i.i10.i, label %while.body.i.i.i43.i, label %while.end.i.i.i11.i
+  %cmp2.i.i.i10.i = icmp sgt i64 %sub.ptr.div.i.i7.i, 2
+  br i1 %cmp2.i.i.i10.i, label %while.body.i.i.i43.i, label %while.end.i.i.i11.i
 
 while.body.i.i.i43.i:                             ; preds = %while.body.i.i, %while.body.i.i.i43.i
-  %__secondChild.029.i.i.i44.i = phi i64 [ %spec.select.i.i.i54.i, %while.body.i.i.i43.i ], [ 0, %while.body.i.i ]
-  %inc.i2628.i.i.i45.i = phi i32 [ %inc.i.i.i.i58.i, %while.body.i.i.i43.i ], [ %inc.i5.i.i.i, %while.body.i.i ]
-  %add.i.i.i46.i = shl i64 %__secondChild.029.i.i.i44.i, 1
+  %__secondChild.04.i.i.i44.i = phi i64 [ %spec.select.i.i.i54.i, %while.body.i.i.i43.i ], [ 0, %while.body.i.i ]
+  %inc.i13.i.i.i45.i = phi i32 [ %inc.i.i.i.i58.i, %while.body.i.i.i43.i ], [ %inc.i5.i.i.i, %while.body.i.i ]
+  %add.i.i.i46.i = shl i64 %__secondChild.04.i.i.i44.i, 1
   %mul.i.i.i47.i = add i64 %add.i.i.i46.i, 2
   %add.ptr.i.i.i48.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %mul.i.i.i47.i
   %sub1.i.i.i49.i = or disjoint i64 %add.i.i.i46.i, 1
@@ -19196,9 +19196,9 @@ while.body.i.i.i43.i:                             ; preds = %while.body.i.i, %wh
   %cmp.i.i.i.i.i.i53.i = icmp ult i32 %add.ptr.val.i.i.i51.i, %add.ptr2.val.i.i.i52.i
   %spec.select.i.i.i54.i = select i1 %cmp.i.i.i.i.i.i53.i, i64 %sub1.i.i.i49.i, i64 %mul.i.i.i47.i
   %add.ptr3.i.i.i55.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %spec.select.i.i.i54.i
-  %add.ptr4.i.i.i56.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.029.i.i.i44.i
+  %add.ptr4.i.i.i56.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.04.i.i.i44.i
   %add.ptr3.val.i.i.i57.i = load i32, ptr %add.ptr3.i.i.i55.i, align 4
-  %inc.i.i.i.i58.i = add nsw i32 %inc.i2628.i.i.i45.i, 1
+  %inc.i.i.i.i58.i = add nsw i32 %inc.i13.i.i.i45.i, 1
   store i32 %add.ptr3.val.i.i.i57.i, ptr %add.ptr4.i.i.i56.i, align 4
   %cmp.i.i.i59.i = icmp slt i64 %spec.select.i.i.i54.i, %div.i.i.i9.i
   br i1 %cmp.i.i.i59.i, label %while.body.i.i.i43.i, label %while.end.i.i.i11.i, !llvm.loop !217
@@ -27837,7 +27837,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit
   %sub.ptr.div29 = phi i64 [ %sub.ptr.div, %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit ], [ %sub.ptr.div24, %entry ]
-  %last.addr.028 = phi ptr [ %.us-phi49.i.i, %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit ], [ %last, %entry ]
+  %last.addr.028 = phi ptr [ %.us-phi24.i.i, %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit ], [ %last, %entry ]
   %kRecursionCount.addr.027 = phi i64 [ %dec, %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit ], [ %kRecursionCount, %entry ]
   %div15 = lshr i64 %sub.ptr.div29, 1
   %add.ptr = getelementptr inbounds i32, ptr %first, i64 %div15
@@ -27847,16 +27847,16 @@ while.body:                                       ; preds = %entry, %_ZN5eastl13
   %3 = load i32, ptr @_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE, align 4
   %cmp.i.i.i = icmp slt i32 %1, %2
   %4 = load i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, align 16
-  %.fr86.i.i = freeze i8 %4
+  %.fr61.i.i = freeze i8 %4
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i64 1), align 1
-  %.fr85.i.i = freeze i8 %5
-  %6 = or i8 %.fr86.i.i, %.fr85.i.i
+  %.fr60.i.i = freeze i8 %5
+  %6 = or i8 %.fr61.i.i, %.fr60.i.i
   %7 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i64 2), align 2
-  %.fr84.i.i = freeze i8 %7
-  %8 = or i8 %6, %.fr84.i.i
+  %.fr59.i.i = freeze i8 %7
+  %8 = or i8 %6, %.fr59.i.i
   %9 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i64 4), align 4
-  %.fr83.i.i = freeze i8 %9
-  %10 = or i8 %8, %.fr83.i.i
+  %.fr58.i.i = freeze i8 %9
+  %10 = or i8 %8, %.fr58.i.i
   %11 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i64 5), align 1
   %.fr.i.i = freeze i8 %11
   %12 = or i8 %10, %.fr.i.i
@@ -27893,55 +27893,55 @@ _ZN5eastl6medianIiN12_GLOBAL__N_111SlowCompareIiEEEEOT_S5_S5_S5_T0_.exit: ; pred
 
 entry.split.us.i.i:                               ; preds = %if.else9.i.i, %if.else.i.i, %if.then.i.i, %_ZN5eastl6medianIiN12_GLOBAL__N_111SlowCompareIiEEEEOT_S5_S5_S5_T0_.exit
   %call10.val45.in = phi ptr [ %spec.select70.i.i, %_ZN5eastl6medianIiN12_GLOBAL__N_111SlowCompareIiEEEEOT_S5_S5_S5_T0_.exit ], [ %spec.select.i.i, %if.else.i.i ], [ %first, %if.else9.i.i ], [ %add.ptr, %if.then.i.i ]
-  %_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE.promoted41.i.i44 = phi i32 [ %inc.i53.i.i, %_ZN5eastl6medianIiN12_GLOBAL__N_111SlowCompareIiEEEEOT_S5_S5_S5_T0_.exit ], [ %inc.i27.i.i, %if.else.i.i ], [ %inc.i14.i.i, %if.else9.i.i ], [ %inc.i14.i.i, %if.then.i.i ]
+  %_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE.promoted16.i.i44 = phi i32 [ %inc.i53.i.i, %_ZN5eastl6medianIiN12_GLOBAL__N_111SlowCompareIiEEEEOT_S5_S5_S5_T0_.exit ], [ %inc.i27.i.i, %if.else.i.i ], [ %inc.i14.i.i, %if.else9.i.i ], [ %inc.i14.i.i, %if.then.i.i ]
   %call10.val45 = load i32, ptr %call10.val45.in, align 4
   %cmp16.i22.i.i = icmp eq i8 %.fr.i.i, 0
   br i1 %cmp16.i22.i.i, label %for.cond.us.us.i.i, label %for.cond.us.i.i
 
 for.cond.us.us.i.i:                               ; preds = %entry.split.us.i.i, %if.end.us.us.i.i
-  %.us-phi3842.us.us.i.i = phi i32 [ %inc.i11.us45.us.i.i, %if.end.us.us.i.i ], [ %_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE.promoted41.i.i44, %entry.split.us.i.i ]
-  %last.addr.0.us.us.i.i = phi ptr [ %last.addr.1.us44.us.i.i, %if.end.us.us.i.i ], [ %last.addr.028, %entry.split.us.i.i ]
+  %.us-phi1317.us.us.i.i = phi i32 [ %inc.i11.us20.us.i.i, %if.end.us.us.i.i ], [ %_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE.promoted16.i.i44, %entry.split.us.i.i ]
+  %last.addr.0.us.us.i.i = phi ptr [ %last.addr.1.us19.us.i.i, %if.end.us.us.i.i ], [ %last.addr.028, %entry.split.us.i.i ]
   %first.addr.0.us.us.i.i = phi ptr [ %incdec.ptr.us.us.i.i, %if.end.us.us.i.i ], [ %first, %entry.split.us.i.i ]
   br label %while.cond.us.us.i.i
 
 while.cond.us.us.i.i:                             ; preds = %while.cond.us.us.i.i, %for.cond.us.us.i.i
-  %inc.i27.us.us.i.i = phi i32 [ %.us-phi3842.us.us.i.i, %for.cond.us.us.i.i ], [ %inc.i.us43.us.i.i, %while.cond.us.us.i.i ]
+  %inc.i3.us.us.i.i = phi i32 [ %.us-phi1317.us.us.i.i, %for.cond.us.us.i.i ], [ %inc.i.us18.us.i.i, %while.cond.us.us.i.i ]
   %first.addr.1.us.us.i.i = phi ptr [ %first.addr.0.us.us.i.i, %for.cond.us.us.i.i ], [ %incdec.ptr.us.us.i.i, %while.cond.us.us.i.i ]
   %15 = load i32, ptr %first.addr.1.us.us.i.i, align 4
-  %inc.i.us43.us.i.i = add nsw i32 %inc.i27.us.us.i.i, 1
+  %inc.i.us18.us.i.i = add nsw i32 %inc.i3.us.us.i.i, 1
   %cmp.i.us.us.i.i = icmp slt i32 %15, %call10.val45
   %incdec.ptr.us.us.i.i = getelementptr inbounds i8, ptr %first.addr.1.us.us.i.i, i64 4
   br i1 %cmp.i.us.us.i.i, label %while.cond.us.us.i.i, label %while.cond2.us.us.i.i, !llvm.loop !336
 
 while.cond2.us.us.i.i:                            ; preds = %while.cond.us.us.i.i, %while.cond2.us.us.i.i
-  %inc.i1136.us.us.i.i = phi i32 [ %inc.i11.us45.us.i.i, %while.cond2.us.us.i.i ], [ %inc.i.us43.us.i.i, %while.cond.us.us.i.i ]
-  %last.addr.0.pn.us.us.i.i = phi ptr [ %last.addr.1.us44.us.i.i, %while.cond2.us.us.i.i ], [ %last.addr.0.us.us.i.i, %while.cond.us.us.i.i ]
-  %last.addr.1.us44.us.i.i = getelementptr inbounds i8, ptr %last.addr.0.pn.us.us.i.i, i64 -4
-  %16 = load i32, ptr %last.addr.1.us44.us.i.i, align 4
-  %inc.i11.us45.us.i.i = add nsw i32 %inc.i1136.us.us.i.i, 1
+  %inc.i1111.us.us.i.i = phi i32 [ %inc.i11.us20.us.i.i, %while.cond2.us.us.i.i ], [ %inc.i.us18.us.i.i, %while.cond.us.us.i.i ]
+  %last.addr.0.pn.us.us.i.i = phi ptr [ %last.addr.1.us19.us.i.i, %while.cond2.us.us.i.i ], [ %last.addr.0.us.us.i.i, %while.cond.us.us.i.i ]
+  %last.addr.1.us19.us.i.i = getelementptr inbounds i8, ptr %last.addr.0.pn.us.us.i.i, i64 -4
+  %16 = load i32, ptr %last.addr.1.us19.us.i.i, align 4
+  %inc.i11.us20.us.i.i = add nsw i32 %inc.i1111.us.us.i.i, 1
   %cmp.i12.us.us.i.i = icmp slt i32 %call10.val45, %16
   br i1 %cmp.i12.us.us.i.i, label %while.cond2.us.us.i.i, label %while.end6.split.us.us.i.i, !llvm.loop !337
 
 while.end6.split.us.us.i.i:                       ; preds = %while.cond2.us.us.i.i
-  %cmp.not.us.us.i.i = icmp ult ptr %first.addr.1.us.us.i.i, %last.addr.1.us44.us.i.i
+  %cmp.not.us.us.i.i = icmp ult ptr %first.addr.1.us.us.i.i, %last.addr.1.us19.us.i.i
   br i1 %cmp.not.us.us.i.i, label %if.end.us.us.i.i, label %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit
 
 if.end.us.us.i.i:                                 ; preds = %while.end6.split.us.us.i.i
   store i32 %16, ptr %first.addr.1.us.us.i.i, align 4
-  store i32 %15, ptr %last.addr.1.us44.us.i.i, align 4
+  store i32 %15, ptr %last.addr.1.us19.us.i.i, align 4
   br label %for.cond.us.us.i.i, !llvm.loop !338
 
 for.cond.us.i.i:                                  ; preds = %entry.split.us.i.i, %if.end.us.i.i
-  %.us-phi3842.us.i.i = phi i32 [ %inc.i11.us.us.i.i, %if.end.us.i.i ], [ %_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE.promoted41.i.i44, %entry.split.us.i.i ]
+  %.us-phi1317.us.i.i = phi i32 [ %inc.i11.us.us.i.i, %if.end.us.i.i ], [ %_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE.promoted16.i.i44, %entry.split.us.i.i ]
   %last.addr.0.us.i.i = phi ptr [ %last.addr.1.us.us.i.i, %if.end.us.i.i ], [ %last.addr.028, %entry.split.us.i.i ]
   %first.addr.0.us.i.i = phi ptr [ %incdec.ptr.us.i.i, %if.end.us.i.i ], [ %first, %entry.split.us.i.i ]
   br label %while.cond.us.i.i
 
 while.cond.us.i.i:                                ; preds = %while.cond.us.i.i, %for.cond.us.i.i
-  %inc.i27.us.i.i = phi i32 [ %.us-phi3842.us.i.i, %for.cond.us.i.i ], [ %inc.i.us43.i.i, %while.cond.us.i.i ]
+  %inc.i3.us.i.i = phi i32 [ %.us-phi1317.us.i.i, %for.cond.us.i.i ], [ %inc.i.us18.i.i, %while.cond.us.i.i ]
   %first.addr.1.us.i.i = phi ptr [ %first.addr.0.us.i.i, %for.cond.us.i.i ], [ %incdec.ptr.us.i.i, %while.cond.us.i.i ]
   %17 = load i32, ptr %first.addr.1.us.i.i, align 4
-  %inc.i.us43.i.i = add nsw i32 %inc.i27.us.i.i, 1
+  %inc.i.us18.i.i = add nsw i32 %inc.i3.us.i.i, 1
   %cmp.i.us.i.i = icmp slt i32 %17, %call10.val45
   %incdec.ptr.us.i.i = getelementptr inbounds i8, ptr %first.addr.1.us.i.i, i64 4
   br i1 %cmp.i.us.i.i, label %while.cond.us.i.i, label %while.cond2.preheader.split.us.i.i, !llvm.loop !336
@@ -27954,36 +27954,36 @@ if.end.us.i.i:                                    ; preds = %while.cond2.prehead
 
 while.cond2.preheader.split.us.i.i:               ; preds = %while.cond.us.i.i
   %last.addr.1.us.us.i.i = getelementptr inbounds i8, ptr %last.addr.0.us.i.i, i64 -4
-  %inc.i11.us.us.i.i = add nsw i32 %inc.i27.us.i.i, 2
+  %inc.i11.us.us.i.i = add nsw i32 %inc.i3.us.i.i, 2
   %cmp.not.us.i.i = icmp ult ptr %first.addr.1.us.i.i, %last.addr.1.us.us.i.i
   br i1 %cmp.not.us.i.i, label %if.end.us.i.i, label %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit
 
 entry.split.split.i.i:                            ; preds = %_ZN5eastl6medianIiN12_GLOBAL__N_111SlowCompareIiEEEEOT_S5_S5_S5_T0_.exit
-  %inc.i11.us.reass75.i.i = add i32 %3, 5
-  %cmp.not76.i.i = icmp ult ptr %first, %add.ptr7
-  br i1 %cmp.not76.i.i, label %if.end.i.i, label %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit
+  %inc.i11.us.reass50.i.i = add i32 %3, 5
+  %cmp.not51.i.i = icmp ult ptr %first, %add.ptr7
+  br i1 %cmp.not51.i.i, label %if.end.i.i, label %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit
 
 if.end.i.i:                                       ; preds = %entry.split.split.i.i, %if.end.i.i
-  %inc.i11.us.reass79.i.i = phi i32 [ %inc.i11.us.reass.i.i, %if.end.i.i ], [ %inc.i11.us.reass75.i.i, %entry.split.split.i.i ]
-  %last.addr.1.us78.i.i = phi ptr [ %last.addr.1.us.i.i, %if.end.i.i ], [ %add.ptr7, %entry.split.split.i.i ]
-  %first.addr.077.i.i = phi ptr [ %incdec.ptr7.i.i, %if.end.i.i ], [ %first, %entry.split.split.i.i ]
-  %19 = load i32, ptr %first.addr.077.i.i, align 4
-  %20 = load i32, ptr %last.addr.1.us78.i.i, align 4
-  store i32 %20, ptr %first.addr.077.i.i, align 4
-  store i32 %19, ptr %last.addr.1.us78.i.i, align 4
-  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %first.addr.077.i.i, i64 4
-  %last.addr.1.us.i.i = getelementptr inbounds i8, ptr %last.addr.1.us78.i.i, i64 -4
-  %inc.i11.us.reass.i.i = add i32 %inc.i11.us.reass79.i.i, 2
+  %inc.i11.us.reass54.i.i = phi i32 [ %inc.i11.us.reass.i.i, %if.end.i.i ], [ %inc.i11.us.reass50.i.i, %entry.split.split.i.i ]
+  %last.addr.1.us53.i.i = phi ptr [ %last.addr.1.us.i.i, %if.end.i.i ], [ %add.ptr7, %entry.split.split.i.i ]
+  %first.addr.052.i.i = phi ptr [ %incdec.ptr7.i.i, %if.end.i.i ], [ %first, %entry.split.split.i.i ]
+  %19 = load i32, ptr %first.addr.052.i.i, align 4
+  %20 = load i32, ptr %last.addr.1.us53.i.i, align 4
+  store i32 %20, ptr %first.addr.052.i.i, align 4
+  store i32 %19, ptr %last.addr.1.us53.i.i, align 4
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %first.addr.052.i.i, i64 4
+  %last.addr.1.us.i.i = getelementptr inbounds i8, ptr %last.addr.1.us53.i.i, i64 -4
+  %inc.i11.us.reass.i.i = add i32 %inc.i11.us.reass54.i.i, 2
   %cmp.not.i.i = icmp ult ptr %incdec.ptr7.i.i, %last.addr.1.us.i.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit, !llvm.loop !338
 
 _ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit: ; preds = %if.end.i.i, %while.cond2.preheader.split.us.i.i, %while.end6.split.us.us.i.i, %entry.split.split.i.i
-  %.us-phi48.i.i = phi i32 [ %inc.i11.us.reass75.i.i, %entry.split.split.i.i ], [ %inc.i11.us45.us.i.i, %while.end6.split.us.us.i.i ], [ %inc.i11.us.us.i.i, %while.cond2.preheader.split.us.i.i ], [ %inc.i11.us.reass.i.i, %if.end.i.i ]
-  %.us-phi49.i.i = phi ptr [ %first, %entry.split.split.i.i ], [ %first.addr.1.us.us.i.i, %while.end6.split.us.us.i.i ], [ %first.addr.1.us.i.i, %while.cond2.preheader.split.us.i.i ], [ %incdec.ptr7.i.i, %if.end.i.i ]
-  store i32 %.us-phi48.i.i, ptr @_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE, align 4
+  %.us-phi23.i.i = phi i32 [ %inc.i11.us.reass50.i.i, %entry.split.split.i.i ], [ %inc.i11.us20.us.i.i, %while.end6.split.us.us.i.i ], [ %inc.i11.us.us.i.i, %while.cond2.preheader.split.us.i.i ], [ %inc.i11.us.reass.i.i, %if.end.i.i ]
+  %.us-phi24.i.i = phi ptr [ %first, %entry.split.split.i.i ], [ %first.addr.1.us.us.i.i, %while.end6.split.us.us.i.i ], [ %first.addr.1.us.i.i, %while.cond2.preheader.split.us.i.i ], [ %incdec.ptr7.i.i, %if.end.i.i ]
+  store i32 %.us-phi23.i.i, ptr @_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE, align 4
   %dec = add nsw i64 %kRecursionCount.addr.027, -1
-  tail call fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperIPilN12_GLOBAL__N_111SlowCompareIiEEKiEEvT_S7_T0_T1_(ptr noundef nonnull %.us-phi49.i.i, ptr noundef %last.addr.028, i64 noundef %dec)
-  %sub.ptr.lhs.cast = ptrtoint ptr %.us-phi49.i.i to i64
+  tail call fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperIPilN12_GLOBAL__N_111SlowCompareIiEEKiEEvT_S7_T0_T1_(ptr noundef nonnull %.us-phi24.i.i, ptr noundef %last.addr.028, i64 noundef %dec)
+  %sub.ptr.lhs.cast = ptrtoint ptr %.us-phi24.i.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %cmp = icmp sgt i64 %sub.ptr.div, 28
@@ -27993,7 +27993,7 @@ _ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.e
 
 while.end:                                        ; preds = %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit, %entry
   %kRecursionCount.addr.0.lcssa = phi i64 [ %kRecursionCount, %entry ], [ %dec, %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit ]
-  %last.addr.0.lcssa = phi ptr [ %last, %entry ], [ %.us-phi49.i.i, %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit ]
+  %last.addr.0.lcssa = phi ptr [ %last, %entry ], [ %.us-phi24.i.i, %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit ]
   %sub.ptr.sub.lcssa = phi i64 [ %sub.ptr.sub23, %entry ], [ %sub.ptr.sub, %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit ]
   %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div24, %entry ], [ %sub.ptr.div, %_ZN5eastl13get_partitionIPiiN12_GLOBAL__N_111SlowCompareIiEEEET_S5_S5_RKT0_T1_.exit ]
   %cmp14 = icmp eq i64 %kRecursionCount.addr.0.lcssa, 0
@@ -31120,7 +31120,7 @@ _ZN5eastl6medianIN12_GLOBAL__N_110SlowAssignIjEEEEOT_S5_S5_S5_.exit: ; preds = %
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end.i.i, %_ZN5eastl6medianIN12_GLOBAL__N_110SlowAssignIjEEEEOT_S5_S5_S5_.exit
-  %inc.i4.i.i.i13.i.i = phi i32 [ %inc.i.i, %_ZN5eastl6medianIN12_GLOBAL__N_110SlowAssignIjEEEEOT_S5_S5_S5_.exit ], [ %inc.i4.i.i.i.i.i, %if.end.i.i ]
+  %inc.i4.i.i.i1.i.i = phi i32 [ %inc.i.i, %_ZN5eastl6medianIN12_GLOBAL__N_110SlowAssignIjEEEEOT_S5_S5_S5_.exit ], [ %inc.i4.i.i.i.i.i, %if.end.i.i ]
   %last.addr.0.i.i = phi ptr [ %last.addr.025, %_ZN5eastl6medianIN12_GLOBAL__N_110SlowAssignIjEEEEOT_S5_S5_S5_.exit ], [ %last.addr.1.i.i, %if.end.i.i ]
   %first.addr.0.i.i = phi ptr [ %first, %_ZN5eastl6medianIN12_GLOBAL__N_110SlowAssignIjEEEEOT_S5_S5_S5_.exit ], [ %incdec.ptr.i.i, %if.end.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i8 0, i64 256, i1 false)
@@ -31146,7 +31146,7 @@ while.end6.i.i:                                   ; preds = %while.cond2.i.i
 
 if.end.i.i:                                       ; preds = %while.end6.i.i
   store i32 %last.addr.1.val.i.i, ptr %first.addr.1.i.i, align 4
-  %inc.i4.i.i.i.i.i = add nsw i32 %inc.i4.i.i.i13.i.i, 3
+  %inc.i4.i.i.i.i.i = add nsw i32 %inc.i4.i.i.i1.i.i, 3
   store i32 %inc.i4.i.i.i.i.i, ptr @_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE, align 4
   store i32 %first.addr.1.val.i.i, ptr %last.addr.1.i.i, align 4
   br label %for.cond.i.i, !llvm.loop !370
@@ -31426,7 +31426,7 @@ _ZN5eastl6medianIN12_GLOBAL__N_110SlowAssignIjEENS_4lessIS3_EEEEOT_S7_S7_S7_T0_.
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end.i.i, %_ZN5eastl6medianIN12_GLOBAL__N_110SlowAssignIjEENS_4lessIS3_EEEEOT_S7_S7_S7_T0_.exit
-  %inc.i4.i.i.i13.i.i = phi i32 [ %inc.i.i, %_ZN5eastl6medianIN12_GLOBAL__N_110SlowAssignIjEENS_4lessIS3_EEEEOT_S7_S7_S7_T0_.exit ], [ %inc.i4.i.i.i.i.i, %if.end.i.i ]
+  %inc.i4.i.i.i1.i.i = phi i32 [ %inc.i.i, %_ZN5eastl6medianIN12_GLOBAL__N_110SlowAssignIjEENS_4lessIS3_EEEEOT_S7_S7_S7_T0_.exit ], [ %inc.i4.i.i.i.i.i, %if.end.i.i ]
   %last.addr.0.i.i = phi ptr [ %last.addr.026, %_ZN5eastl6medianIN12_GLOBAL__N_110SlowAssignIjEENS_4lessIS3_EEEEOT_S7_S7_S7_T0_.exit ], [ %last.addr.1.i.i, %if.end.i.i ]
   %first.addr.0.i.i = phi ptr [ %first, %_ZN5eastl6medianIN12_GLOBAL__N_110SlowAssignIjEENS_4lessIS3_EEEEOT_S7_S7_S7_T0_.exit ], [ %incdec.ptr.i.i, %if.end.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i8 0, i64 256, i1 false)
@@ -31452,7 +31452,7 @@ while.end6.i.i:                                   ; preds = %while.cond2.i.i
 
 if.end.i.i:                                       ; preds = %while.end6.i.i
   store i32 %last.addr.1.val.i.i, ptr %first.addr.1.i.i, align 4
-  %inc.i4.i.i.i.i.i = add nsw i32 %inc.i4.i.i.i13.i.i, 3
+  %inc.i4.i.i.i.i.i = add nsw i32 %inc.i4.i.i.i1.i.i, 3
   store i32 %inc.i4.i.i.i.i.i, ptr @_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE, align 4
   store i32 %first.addr.1.val.i.i, ptr %last.addr.1.i.i, align 4
   br label %for.cond.i.i, !llvm.loop !378
@@ -32651,8 +32651,8 @@ while.body.us.i.i.i:                              ; preds = %if.then, %_ZSt13__a
   %__parent.0.us.i.i.i = phi i64 [ %dec.us.i.i.i, %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.us.i.i.i ], [ %div9.i.i.i, %if.then ]
   %add.ptr.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__parent.0.us.i.i.i
   %add.ptr.val.us.i.i.i = load i32, ptr %add.ptr.us.i.i.i, align 4
-  %cmp27.i.us.i.i.i = icmp slt i64 %__parent.0.us.i.i.i, %div.i710.i.i.i
-  br i1 %cmp27.i.us.i.i.i, label %while.body.i.us.i.preheader.i.i, label %while.end.i.us.thread.i.i.i
+  %cmp2.i.us.i.i.i = icmp slt i64 %__parent.0.us.i.i.i, %div.i710.i.i.i
+  br i1 %cmp2.i.us.i.i.i, label %while.body.i.us.i.preheader.i.i, label %while.end.i.us.thread.i.i.i
 
 while.body.i.us.i.preheader.i.i:                  ; preds = %while.body.us.i.i.i
   %inc.i10.us.i.i.i = add nsw i32 %inc.i12.i.i1.us.i.i.i, 2
@@ -32663,9 +32663,9 @@ while.end.i.us.thread.i.i.i:                      ; preds = %while.body.us.i.i.i
   br label %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.us.i.i.i
 
 while.body.i.us.i.i.i:                            ; preds = %while.body.i.us.i.i.i, %while.body.i.us.i.preheader.i.i
-  %__secondChild.029.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %while.body.i.us.i.i.i ], [ %__parent.0.us.i.i.i, %while.body.i.us.i.preheader.i.i ]
-  %inc.i2628.i.us.i.i.i = phi i32 [ %inc.i.i.us.i.i.i, %while.body.i.us.i.i.i ], [ %inc.i10.us.i.i.i, %while.body.i.us.i.preheader.i.i ]
-  %add.i.us.i.i.i = shl i64 %__secondChild.029.i.us.i.i.i, 1
+  %__secondChild.04.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %while.body.i.us.i.i.i ], [ %__parent.0.us.i.i.i, %while.body.i.us.i.preheader.i.i ]
+  %inc.i13.i.us.i.i.i = phi i32 [ %inc.i.i.us.i.i.i, %while.body.i.us.i.i.i ], [ %inc.i10.us.i.i.i, %while.body.i.us.i.preheader.i.i ]
+  %add.i.us.i.i.i = shl i64 %__secondChild.04.i.us.i.i.i, 1
   %mul.i.us.i.i.i = add i64 %add.i.us.i.i.i, 2
   %add.ptr.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %mul.i.us.i.i.i
   %sub1.i.us.i.i.i = or disjoint i64 %add.i.us.i.i.i, 1
@@ -32675,15 +32675,15 @@ while.body.i.us.i.i.i:                            ; preds = %while.body.i.us.i.i
   %cmp.i.i.i.i.us.i.i.i = icmp ult i32 %add.ptr.val.i.us.i.i.i, %add.ptr2.val.i.us.i.i.i
   %spec.select.i.us.i.i.i = select i1 %cmp.i.i.i.i.us.i.i.i, i64 %sub1.i.us.i.i.i, i64 %mul.i.us.i.i.i
   %add.ptr3.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %spec.select.i.us.i.i.i
-  %add.ptr4.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.029.i.us.i.i.i
+  %add.ptr4.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.04.i.us.i.i.i
   %add.ptr3.val.i.us.i.i.i = load i32, ptr %add.ptr3.i.us.i.i.i, align 4
-  %inc.i.i.us.i.i.i = add nsw i32 %inc.i2628.i.us.i.i.i, 1
+  %inc.i.i.us.i.i.i = add nsw i32 %inc.i13.i.us.i.i.i, 1
   store i32 %add.ptr3.val.i.us.i.i.i, ptr %add.ptr4.i.us.i.i.i, align 4
   %cmp.i.us.i.i.i = icmp slt i64 %spec.select.i.us.i.i.i, %div.i710.i.i.i
   br i1 %cmp.i.us.i.i.i, label %while.body.i.us.i.i.i, label %while.end.i.us.i.i.i, !llvm.loop !388
 
 while.end.i.us.i.i.i:                             ; preds = %while.body.i.us.i.i.i
-  %inc.i24.i.us.i.i.i = add nsw i32 %inc.i2628.i.us.i.i.i, 2
+  %inc.i24.i.us.i.i.i = add nsw i32 %inc.i13.i.us.i.i.i, 2
   br label %land.rhs.i.i.us.i.i.i
 
 land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i.i.i, %while.end.i.us.i.i.i
@@ -32719,13 +32719,13 @@ while.body.i.i.i:                                 ; preds = %_ZSt13__adjust_heap
   %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__parent.0.i.i.i
   %add.ptr.val.i.i.i = load i32, ptr %add.ptr.i.i.i, align 4
   %inc.i10.i.i.i = add nsw i32 %inc.i12.i.i1.i.i.i, 2
-  %cmp27.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i710.i.i.i
-  br i1 %cmp27.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
+  %cmp2.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i710.i.i.i
+  br i1 %cmp2.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i.i
-  %__secondChild.029.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
-  %inc.i2628.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %while.body.i.i.i.i ], [ %inc.i10.i.i.i, %while.body.i.i.i ]
-  %add.i.i.i.i = shl i64 %__secondChild.029.i.i.i.i, 1
+  %__secondChild.04.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
+  %inc.i13.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %while.body.i.i.i.i ], [ %inc.i10.i.i.i, %while.body.i.i.i ]
+  %add.i.i.i.i = shl i64 %__secondChild.04.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %mul.i.i.i.i
   %sub1.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
@@ -32735,9 +32735,9 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %cmp.i.i.i.i.i.i.i = icmp ult i32 %add.ptr.val.i.i.i.i, %add.ptr2.val.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 %sub1.i.i.i.i, i64 %mul.i.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %spec.select.i.i.i.i
-  %add.ptr4.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.029.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.04.i.i.i.i
   %add.ptr3.val.i.i.i.i = load i32, ptr %add.ptr3.i.i.i.i, align 4
-  %inc.i.i.i.i.i = add nsw i32 %inc.i2628.i.i.i.i, 1
+  %inc.i.i.i.i.i = add nsw i32 %inc.i13.i.i.i.i, 1
   store i32 %add.ptr3.val.i.i.i.i, ptr %add.ptr4.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i710.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !388
@@ -32805,13 +32805,13 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   %inc.i5.i.i.i = add nsw i32 %inc.i12.i.i.i15.i.i, 3
   %sub.i.i.i8.i = add nsw i64 %sub.ptr.div.i.i7.i, -1
   %div.i.i.i9.i = sdiv i64 %sub.i.i.i8.i, 2
-  %cmp27.i.i.i10.i = icmp sgt i64 %sub.ptr.div.i.i7.i, 2
-  br i1 %cmp27.i.i.i10.i, label %while.body.i.i.i43.i, label %while.end.i.i.i11.i
+  %cmp2.i.i.i10.i = icmp sgt i64 %sub.ptr.div.i.i7.i, 2
+  br i1 %cmp2.i.i.i10.i, label %while.body.i.i.i43.i, label %while.end.i.i.i11.i
 
 while.body.i.i.i43.i:                             ; preds = %while.body.i.i, %while.body.i.i.i43.i
-  %__secondChild.029.i.i.i44.i = phi i64 [ %spec.select.i.i.i54.i, %while.body.i.i.i43.i ], [ 0, %while.body.i.i ]
-  %inc.i2628.i.i.i45.i = phi i32 [ %inc.i.i.i.i58.i, %while.body.i.i.i43.i ], [ %inc.i5.i.i.i, %while.body.i.i ]
-  %add.i.i.i46.i = shl i64 %__secondChild.029.i.i.i44.i, 1
+  %__secondChild.04.i.i.i44.i = phi i64 [ %spec.select.i.i.i54.i, %while.body.i.i.i43.i ], [ 0, %while.body.i.i ]
+  %inc.i13.i.i.i45.i = phi i32 [ %inc.i.i.i.i58.i, %while.body.i.i.i43.i ], [ %inc.i5.i.i.i, %while.body.i.i ]
+  %add.i.i.i46.i = shl i64 %__secondChild.04.i.i.i44.i, 1
   %mul.i.i.i47.i = add i64 %add.i.i.i46.i, 2
   %add.ptr.i.i.i48.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %mul.i.i.i47.i
   %sub1.i.i.i49.i = or disjoint i64 %add.i.i.i46.i, 1
@@ -32821,9 +32821,9 @@ while.body.i.i.i43.i:                             ; preds = %while.body.i.i, %wh
   %cmp.i.i.i.i.i.i53.i = icmp ult i32 %add.ptr.val.i.i.i51.i, %add.ptr2.val.i.i.i52.i
   %spec.select.i.i.i54.i = select i1 %cmp.i.i.i.i.i.i53.i, i64 %sub1.i.i.i49.i, i64 %mul.i.i.i47.i
   %add.ptr3.i.i.i55.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %spec.select.i.i.i54.i
-  %add.ptr4.i.i.i56.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.029.i.i.i44.i
+  %add.ptr4.i.i.i56.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.04.i.i.i44.i
   %add.ptr3.val.i.i.i57.i = load i32, ptr %add.ptr3.i.i.i55.i, align 4
-  %inc.i.i.i.i58.i = add nsw i32 %inc.i2628.i.i.i45.i, 1
+  %inc.i.i.i.i58.i = add nsw i32 %inc.i13.i.i.i45.i, 1
   store i32 %add.ptr3.val.i.i.i57.i, ptr %add.ptr4.i.i.i56.i, align 4
   %cmp.i.i.i59.i = icmp slt i64 %spec.select.i.i.i54.i, %div.i.i.i9.i
   br i1 %cmp.i.i.i59.i, label %while.body.i.i.i43.i, label %while.end.i.i.i11.i, !llvm.loop !388

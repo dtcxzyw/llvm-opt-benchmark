@@ -754,8 +754,8 @@ if.then:                                          ; preds = %_ZNK4mold3elf12Inpu
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNK4mold3elf12InputSectionINS0_4M68KEE8get_relsERNS0_7ContextIS2_EE.exit
-  %cmp258.not = icmp eq i64 %retval.sroa.3.0.i, 0
-  br i1 %cmp258.not, label %for.end, label %for.body.lr.ph
+  %cmp262.not = icmp eq i64 %retval.sroa.3.0.i, 0
+  br i1 %cmp262.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %11 = getelementptr inbounds i8, ptr %check, i64 8
@@ -770,8 +770,8 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0259 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %retval.sroa.0.0.i, i64 %i.0259
+  %i.0263 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %retval.sroa.0.0.i, i64 %i.0263
   %r_type = getelementptr inbounds i8, ptr %add.ptr.i, i64 7
   %14 = load i8, ptr %r_type, align 1
   %cmp10 = icmp eq i8 %14, 0
@@ -782,8 +782,8 @@ if.end12:                                         ; preds = %for.body
   %symbols = getelementptr inbounds i8, ptr %15, i64 48
   %r_sym = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %16 = load i8, ptr %r_sym, align 1
-  %conv.i102 = zext i8 %16 to i64
-  %shl.i = shl nuw nsw i64 %conv.i102, 16
+  %conv.i134 = zext i8 %16 to i64
+  %shl.i = shl nuw nsw i64 %conv.i134, 16
   %arrayidx3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
   %17 = load i8, ptr %arrayidx3.i, align 1
   %conv4.i = zext i8 %17 to i64
@@ -794,10 +794,10 @@ if.end12:                                         ; preds = %for.body
   %conv8.i = zext i8 %18 to i64
   %or9.i = or disjoint i64 %or.i, %conv8.i
   %19 = load ptr, ptr %symbols, align 8
-  %add.ptr.i103 = getelementptr inbounds ptr, ptr %19, i64 %or9.i
-  %20 = load ptr, ptr %add.ptr.i103, align 8
-  %x.0.copyload.i104 = load i32, ptr %add.ptr.i, align 1
-  %21 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i104)
+  %add.ptr.i135 = getelementptr inbounds ptr, ptr %19, i64 %or9.i
+  %20 = load ptr, ptr %add.ptr.i135, align 8
+  %x.0.copyload.i136 = load i32, ptr %add.ptr.i, align 1
+  %21 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i136)
   %idx.ext18 = zext i32 %21 to i64
   %add.ptr19 = getelementptr inbounds i8, ptr %base, i64 %idx.ext18
   store ptr %ctx, ptr %check, align 8
@@ -806,30 +806,30 @@ if.end12:                                         ; preds = %for.body
   store ptr %20, ptr %13, align 8
   %call20 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_4M68KEE8get_addrERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(51) %20, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 noundef 0)
   %r_addend = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  %x.0.copyload.i105 = load i32, ptr %r_addend, align 1
-  %22 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i105)
+  %x.0.copyload.i137 = load i32, ptr %r_addend, align 1
+  %22 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i137)
   %conv22 = sext i32 %22 to i64
   %23 = load ptr, ptr %output_section.i, align 8
   %sh_addr.i = getelementptr inbounds i8, ptr %23, i64 36
   %x.0.copyload.i.i = load i32, ptr %sh_addr.i, align 1
   %24 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i)
-  %conv.i106 = zext i32 %24 to i64
+  %conv.i138 = zext i32 %24 to i64
   %25 = load i64, ptr %offset.i, align 8
-  %add.i = add i64 %25, %conv.i106
-  %x.0.copyload.i107 = load i32, ptr %add.ptr.i, align 1
-  %26 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i107)
+  %add.i = add i64 %25, %conv.i138
+  %x.0.copyload.i139 = load i32, ptr %add.ptr.i, align 1
+  %26 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i139)
   %conv26 = zext i32 %26 to i64
   %add = add i64 %add.i, %conv26
   %aux_idx.i = getelementptr inbounds i8, ptr %20, i64 40
   %27 = load i32, ptr %aux_idx.i, align 8
-  %cmp.i108 = icmp eq i32 %27, -1
-  br i1 %cmp.i108, label %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit, label %cond.false.i
+  %cmp.i140 = icmp eq i32 %27, -1
+  br i1 %cmp.i140, label %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end12
-  %conv.i109 = sext i32 %27 to i64
+  %conv.i141 = sext i32 %27 to i64
   %28 = load ptr, ptr %symbol_aux.i, align 8
-  %add.ptr.i.i110 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %28, i64 %conv.i109
-  %29 = load i32, ptr %add.ptr.i.i110, align 4
+  %add.ptr.i.i142 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %28, i64 %conv.i141
+  %29 = load i32, ptr %add.ptr.i.i142, align 4
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 2
   br label %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
@@ -838,8 +838,8 @@ _ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit: ; preds 
   %cond.i = phi i64 [ %31, %cond.false.i ], [ -4, %if.end12 ]
   %32 = load ptr, ptr %got, align 8
   %sh_addr = getelementptr inbounds i8, ptr %32, i64 36
-  %x.0.copyload.i111 = load i32, ptr %sh_addr, align 1
-  %33 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i111)
+  %x.0.copyload.i143 = load i32, ptr %sh_addr, align 1
+  %33 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i143)
   %conv31 = zext i32 %33 to i64
   %34 = load i8, ptr %r_type, align 1
   switch i8 %34, label %sw.default [
@@ -881,17 +881,17 @@ sw.bb:                                            ; preds = %_ZNK4mold3elf6Symbo
 
 sw.bb34:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add35 = add i64 %call20, %conv22
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %add35, i64 noundef 0, i64 noundef 65536)
-  %conv.i112 = trunc i64 %add35 to i16
-  %35 = call noundef i16 @llvm.bswap.i16(i16 %conv.i112)
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %add35, i64 noundef 0, i64 noundef 65536)
+  %conv.i144 = trunc i64 %add35 to i16
+  %35 = call noundef i16 @llvm.bswap.i16(i16 %conv.i144)
   store i16 %35, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb36:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add37 = add i64 %call20, %conv22
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %add37, i64 noundef 0, i64 noundef 256)
-  %conv.i113 = trunc i64 %add37 to i8
-  store i8 %conv.i113, ptr %add.ptr19, align 1
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %add37, i64 noundef 0, i64 noundef 256)
+  %conv.i145 = trunc i64 %add37 to i8
+  store i8 %conv.i145, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb38:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
@@ -905,18 +905,18 @@ sw.bb38:                                          ; preds = %_ZNK4mold3elf6Symbo
 sw.bb42:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add43 = add i64 %call20, %conv22
   %sub44 = sub i64 %add43, %add
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub44, i64 noundef -32768, i64 noundef 32768)
-  %conv.i114 = trunc i64 %sub44 to i16
-  %37 = call noundef i16 @llvm.bswap.i16(i16 %conv.i114)
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub44, i64 noundef -32768, i64 noundef 32768)
+  %conv.i146 = trunc i64 %sub44 to i16
+  %37 = call noundef i16 @llvm.bswap.i16(i16 %conv.i146)
   store i16 %37, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb45:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add46 = add i64 %call20, %conv22
   %sub47 = sub i64 %add46, %add
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub47, i64 noundef -128, i64 noundef 128)
-  %conv.i115 = trunc i64 %sub47 to i8
-  store i8 %conv.i115, ptr %add.ptr19, align 1
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub47, i64 noundef -128, i64 noundef 128)
+  %conv.i147 = trunc i64 %sub47 to i8
+  store i8 %conv.i147, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb48:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
@@ -930,18 +930,18 @@ sw.bb48:                                          ; preds = %_ZNK4mold3elf6Symbo
 sw.bb53:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add54 = sub i64 %conv22, %add
   %sub55 = add i64 %add54, %conv31
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub55, i64 noundef -32768, i64 noundef 32768)
-  %conv.i116 = trunc i64 %sub55 to i16
-  %41 = call noundef i16 @llvm.bswap.i16(i16 %conv.i116)
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub55, i64 noundef -32768, i64 noundef 32768)
+  %conv.i148 = trunc i64 %sub55 to i16
+  %41 = call noundef i16 @llvm.bswap.i16(i16 %conv.i148)
   store i16 %41, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb56:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add57 = sub i64 %conv22, %add
   %sub58 = add i64 %add57, %conv31
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub58, i64 noundef -128, i64 noundef 128)
-  %conv.i117 = trunc i64 %sub58 to i8
-  store i8 %conv.i117, ptr %add.ptr19, align 1
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub58, i64 noundef -128, i64 noundef 128)
+  %conv.i149 = trunc i64 %sub58 to i8
+  store i8 %conv.i149, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb59:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
@@ -953,21 +953,21 @@ sw.bb59:                                          ; preds = %_ZNK4mold3elf6Symbo
 
 sw.bb63:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add64 = add nsw i64 %cond.i, %conv22
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %add64, i64 noundef 0, i64 noundef 65536)
-  %conv.i118 = trunc i64 %add64 to i16
-  %44 = call noundef i16 @llvm.bswap.i16(i16 %conv.i118)
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %add64, i64 noundef 0, i64 noundef 65536)
+  %conv.i150 = trunc i64 %add64 to i16
+  %44 = call noundef i16 @llvm.bswap.i16(i16 %conv.i150)
   store i16 %44, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb65:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
   %add66 = add nsw i64 %cond.i, %conv22
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %add66, i64 noundef 0, i64 noundef 256)
-  %conv.i119 = trunc i64 %add66 to i8
-  store i8 %conv.i119, ptr %add.ptr19, align 1
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %add66, i64 noundef 0, i64 noundef 256)
+  %conv.i151 = trunc i64 %add66 to i8
+  store i8 %conv.i151, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb67:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
-  br i1 %cmp.i108, label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit, label %cond.false.i.i
+  br i1 %cmp.i140, label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %sw.bb67
   %conv.i.i = sext i32 %27 to i64
@@ -985,44 +985,44 @@ _ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit: ; pre
   br label %for.inc
 
 sw.bb73:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
-  br i1 %cmp.i108, label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit136, label %cond.false.i.i129
+  br i1 %cmp.i140, label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit168, label %cond.false.i.i161
 
-cond.false.i.i129:                                ; preds = %sw.bb73
-  %conv.i.i131 = sext i32 %27 to i64
+cond.false.i.i161:                                ; preds = %sw.bb73
+  %conv.i.i163 = sext i32 %27 to i64
   %49 = load ptr, ptr %symbol_aux.i, align 8
-  %tlsgd_idx.i.i132 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %49, i64 %conv.i.i131, i32 2
-  %50 = load i32, ptr %tlsgd_idx.i.i132, align 4
+  %tlsgd_idx.i.i164 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %49, i64 %conv.i.i163, i32 2
+  %50 = load i32, ptr %tlsgd_idx.i.i164, align 4
   %51 = sext i32 %50 to i64
   %52 = shl nsw i64 %51, 2
-  br label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit136
+  br label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit168
 
-_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit136: ; preds = %sw.bb73, %cond.false.i.i129
-  %cond.i.i133 = phi i64 [ %52, %cond.false.i.i129 ], [ -4, %sw.bb73 ]
-  %sub76 = add nsw i64 %cond.i.i133, %conv22
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub76, i64 noundef 0, i64 noundef 65536)
-  %conv.i137 = trunc i64 %sub76 to i16
-  %53 = call noundef i16 @llvm.bswap.i16(i16 %conv.i137)
+_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit168: ; preds = %sw.bb73, %cond.false.i.i161
+  %cond.i.i165 = phi i64 [ %52, %cond.false.i.i161 ], [ -4, %sw.bb73 ]
+  %sub76 = add nsw i64 %cond.i.i165, %conv22
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub76, i64 noundef 0, i64 noundef 65536)
+  %conv.i169 = trunc i64 %sub76 to i16
+  %53 = call noundef i16 @llvm.bswap.i16(i16 %conv.i169)
   store i16 %53, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb77:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
-  br i1 %cmp.i108, label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit150, label %cond.false.i.i143
+  br i1 %cmp.i140, label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit182, label %cond.false.i.i175
 
-cond.false.i.i143:                                ; preds = %sw.bb77
-  %conv.i.i145 = sext i32 %27 to i64
+cond.false.i.i175:                                ; preds = %sw.bb77
+  %conv.i.i177 = sext i32 %27 to i64
   %54 = load ptr, ptr %symbol_aux.i, align 8
-  %tlsgd_idx.i.i146 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %54, i64 %conv.i.i145, i32 2
-  %55 = load i32, ptr %tlsgd_idx.i.i146, align 4
+  %tlsgd_idx.i.i178 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %54, i64 %conv.i.i177, i32 2
+  %55 = load i32, ptr %tlsgd_idx.i.i178, align 4
   %56 = sext i32 %55 to i64
   %57 = shl nsw i64 %56, 2
-  br label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit150
+  br label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit182
 
-_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit150: ; preds = %sw.bb77, %cond.false.i.i143
-  %cond.i.i147 = phi i64 [ %57, %cond.false.i.i143 ], [ -4, %sw.bb77 ]
-  %sub80 = add nsw i64 %cond.i.i147, %conv22
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub80, i64 noundef 0, i64 noundef 256)
-  %conv.i151 = trunc i64 %sub80 to i8
-  store i8 %conv.i151, ptr %add.ptr19, align 1
+_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit182: ; preds = %sw.bb77, %cond.false.i.i175
+  %cond.i.i179 = phi i64 [ %57, %cond.false.i.i175 ], [ -4, %sw.bb77 ]
+  %sub80 = add nsw i64 %cond.i.i179, %conv22
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub80, i64 noundef 0, i64 noundef 256)
+  %conv.i183 = trunc i64 %sub80 to i8
+  store i8 %conv.i183, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb81:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
@@ -1038,9 +1038,9 @@ sw.bb88:                                          ; preds = %_ZNK4mold3elf6Symbo
   %call90 = call noundef i64 @_ZNK4mold3elf10GotSectionINS0_4M68KEE14get_tlsld_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(276) %32, ptr noundef nonnull align 8 dereferenceable(4568) %ctx) #18
   %add91 = sub nsw i64 %conv22, %conv31
   %sub92 = add i64 %add91, %call90
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub92, i64 noundef 0, i64 noundef 65536)
-  %conv.i152 = trunc i64 %sub92 to i16
-  %61 = call noundef i16 @llvm.bswap.i16(i16 %conv.i152)
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub92, i64 noundef 0, i64 noundef 65536)
+  %conv.i184 = trunc i64 %sub92 to i16
+  %61 = call noundef i16 @llvm.bswap.i16(i16 %conv.i184)
   store i16 %61, ptr %add.ptr19, align 1
   br label %for.inc
 
@@ -1048,9 +1048,9 @@ sw.bb93:                                          ; preds = %_ZNK4mold3elf6Symbo
   %call95 = call noundef i64 @_ZNK4mold3elf10GotSectionINS0_4M68KEE14get_tlsld_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(276) %32, ptr noundef nonnull align 8 dereferenceable(4568) %ctx) #18
   %add96 = sub nsw i64 %conv22, %conv31
   %sub97 = add i64 %add96, %call95
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub97, i64 noundef 0, i64 noundef 256)
-  %conv.i153 = trunc i64 %sub97 to i8
-  store i8 %conv.i153, ptr %add.ptr19, align 1
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub97, i64 noundef 0, i64 noundef 256)
+  %conv.i185 = trunc i64 %sub97 to i8
+  store i8 %conv.i185, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb98:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
@@ -1066,9 +1066,9 @@ sw.bb103:                                         ; preds = %_ZNK4mold3elf6Symbo
   %add104 = add i64 %call20, %conv22
   %64 = load i64, ptr %dtp_addr109, align 8
   %sub106 = sub i64 %add104, %64
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub106, i64 noundef -32768, i64 noundef 32768)
-  %conv.i154 = trunc i64 %sub106 to i16
-  %65 = call noundef i16 @llvm.bswap.i16(i16 %conv.i154)
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub106, i64 noundef -32768, i64 noundef 32768)
+  %conv.i186 = trunc i64 %sub106 to i16
+  %65 = call noundef i16 @llvm.bswap.i16(i16 %conv.i186)
   store i16 %65, ptr %add.ptr19, align 1
   br label %for.inc
 
@@ -1076,68 +1076,68 @@ sw.bb107:                                         ; preds = %_ZNK4mold3elf6Symbo
   %add108 = add i64 %call20, %conv22
   %66 = load i64, ptr %dtp_addr109, align 8
   %sub110 = sub i64 %add108, %66
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub110, i64 noundef -128, i64 noundef 128)
-  %conv.i155 = trunc i64 %sub110 to i8
-  store i8 %conv.i155, ptr %add.ptr19, align 1
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub110, i64 noundef -128, i64 noundef 128)
+  %conv.i187 = trunc i64 %sub110 to i8
+  store i8 %conv.i187, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb111:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
-  br i1 %cmp.i108, label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit, label %cond.false.i.i161
+  br i1 %cmp.i140, label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit, label %cond.false.i.i193
 
-cond.false.i.i161:                                ; preds = %sw.bb111
-  %conv.i.i163 = sext i32 %27 to i64
+cond.false.i.i193:                                ; preds = %sw.bb111
+  %conv.i.i195 = sext i32 %27 to i64
   %67 = load ptr, ptr %symbol_aux.i, align 8
-  %gottp_idx.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %67, i64 %conv.i.i163, i32 1
+  %gottp_idx.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %67, i64 %conv.i.i195, i32 1
   %68 = load i32, ptr %gottp_idx.i.i, align 4
   %69 = shl i32 %68, 2
   br label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit
 
-_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit: ; preds = %sw.bb111, %cond.false.i.i161
-  %cond.i.i164 = phi i32 [ %69, %cond.false.i.i161 ], [ -4, %sw.bb111 ]
-  %conv115 = add i32 %cond.i.i164, %22
+_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit: ; preds = %sw.bb111, %cond.false.i.i193
+  %cond.i.i196 = phi i32 [ %69, %cond.false.i.i193 ], [ -4, %sw.bb111 ]
+  %conv115 = add i32 %cond.i.i196, %22
   %70 = call noundef i32 @llvm.bswap.i32(i32 %conv115)
   store i32 %70, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb117:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
-  br i1 %cmp.i108, label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit179, label %cond.false.i.i172
+  br i1 %cmp.i140, label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit211, label %cond.false.i.i204
 
-cond.false.i.i172:                                ; preds = %sw.bb117
-  %conv.i.i174 = sext i32 %27 to i64
+cond.false.i.i204:                                ; preds = %sw.bb117
+  %conv.i.i206 = sext i32 %27 to i64
   %71 = load ptr, ptr %symbol_aux.i, align 8
-  %gottp_idx.i.i175 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %71, i64 %conv.i.i174, i32 1
-  %72 = load i32, ptr %gottp_idx.i.i175, align 4
+  %gottp_idx.i.i207 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %71, i64 %conv.i.i206, i32 1
+  %72 = load i32, ptr %gottp_idx.i.i207, align 4
   %73 = sext i32 %72 to i64
   %74 = shl nsw i64 %73, 2
-  br label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit179
+  br label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit211
 
-_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit179: ; preds = %sw.bb117, %cond.false.i.i172
-  %cond.i.i176 = phi i64 [ %74, %cond.false.i.i172 ], [ -4, %sw.bb117 ]
-  %sub120 = add nsw i64 %cond.i.i176, %conv22
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub120, i64 noundef 0, i64 noundef 65536)
-  %conv.i180 = trunc i64 %sub120 to i16
-  %75 = call noundef i16 @llvm.bswap.i16(i16 %conv.i180)
+_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit211: ; preds = %sw.bb117, %cond.false.i.i204
+  %cond.i.i208 = phi i64 [ %74, %cond.false.i.i204 ], [ -4, %sw.bb117 ]
+  %sub120 = add nsw i64 %cond.i.i208, %conv22
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub120, i64 noundef 0, i64 noundef 65536)
+  %conv.i212 = trunc i64 %sub120 to i16
+  %75 = call noundef i16 @llvm.bswap.i16(i16 %conv.i212)
   store i16 %75, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb121:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
-  br i1 %cmp.i108, label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit193, label %cond.false.i.i186
+  br i1 %cmp.i140, label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit225, label %cond.false.i.i218
 
-cond.false.i.i186:                                ; preds = %sw.bb121
-  %conv.i.i188 = sext i32 %27 to i64
+cond.false.i.i218:                                ; preds = %sw.bb121
+  %conv.i.i220 = sext i32 %27 to i64
   %76 = load ptr, ptr %symbol_aux.i, align 8
-  %gottp_idx.i.i189 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %76, i64 %conv.i.i188, i32 1
-  %77 = load i32, ptr %gottp_idx.i.i189, align 4
+  %gottp_idx.i.i221 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %76, i64 %conv.i.i220, i32 1
+  %77 = load i32, ptr %gottp_idx.i.i221, align 4
   %78 = sext i32 %77 to i64
   %79 = shl nsw i64 %78, 2
-  br label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit193
+  br label %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit225
 
-_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit193: ; preds = %sw.bb121, %cond.false.i.i186
-  %cond.i.i190 = phi i64 [ %79, %cond.false.i.i186 ], [ -4, %sw.bb121 ]
-  %sub124 = add nsw i64 %cond.i.i190, %conv22
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub124, i64 noundef 0, i64 noundef 256)
-  %conv.i194 = trunc i64 %sub124 to i8
-  store i8 %conv.i194, ptr %add.ptr19, align 1
+_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit225: ; preds = %sw.bb121, %cond.false.i.i218
+  %cond.i.i222 = phi i64 [ %79, %cond.false.i.i218 ], [ -4, %sw.bb121 ]
+  %sub124 = add nsw i64 %cond.i.i222, %conv22
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub124, i64 noundef 0, i64 noundef 256)
+  %conv.i226 = trunc i64 %sub124 to i8
+  store i8 %conv.i226, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.bb125:                                         ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
@@ -1153,9 +1153,9 @@ sw.bb130:                                         ; preds = %_ZNK4mold3elf6Symbo
   %add131 = add i64 %call20, %conv22
   %82 = load i64, ptr %tp_addr136, align 8
   %sub133 = sub i64 %add131, %82
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub133, i64 noundef 0, i64 noundef 65536)
-  %conv.i195 = trunc i64 %sub133 to i16
-  %83 = call noundef i16 @llvm.bswap.i16(i16 %conv.i195)
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub133, i64 noundef 0, i64 noundef 65536)
+  %conv.i227 = trunc i64 %sub133 to i16
+  %83 = call noundef i16 @llvm.bswap.i16(i16 %conv.i227)
   store i16 %83, ptr %add.ptr19, align 1
   br label %for.inc
 
@@ -1163,16 +1163,16 @@ sw.bb134:                                         ; preds = %_ZNK4mold3elf6Symbo
   %add135 = add i64 %call20, %conv22
   %84 = load i64, ptr %tp_addr136, align 8
   %sub137 = sub i64 %add135, %84
-  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull align 8 dereferenceable(32) %check, i64 noundef %sub137, i64 noundef 0, i64 noundef 256)
-  %conv.i196 = trunc i64 %sub137 to i8
-  store i8 %conv.i196, ptr %add.ptr19, align 1
+  call fastcc void @"_ZZN4mold3elf12InputSectionINS0_4M68KEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_4clElll"(ptr noundef nonnull readonly align 8 dereferenceable(32) %check, i64 noundef %sub137, i64 noundef 0, i64 noundef 256)
+  %conv.i228 = trunc i64 %sub137 to i8
+  store i8 %conv.i228, ptr %add.ptr19, align 1
   br label %for.inc
 
 sw.default:                                       ; preds = %_ZNK4mold3elf6SymbolINS0_4M68KEE11get_got_idxERNS0_7ContextIS2_EE.exit
   unreachable
 
-for.inc:                                          ; preds = %sw.bb, %sw.bb34, %sw.bb36, %sw.bb38, %sw.bb42, %sw.bb45, %sw.bb48, %sw.bb53, %sw.bb56, %sw.bb59, %sw.bb63, %sw.bb65, %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit136, %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit150, %sw.bb81, %sw.bb88, %sw.bb93, %sw.bb98, %sw.bb103, %sw.bb107, %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit179, %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit193, %sw.bb125, %sw.bb130, %sw.bb134, %for.body
-  %inc = add nuw i64 %i.0259, 1
+for.inc:                                          ; preds = %sw.bb, %sw.bb34, %sw.bb36, %sw.bb38, %sw.bb42, %sw.bb45, %sw.bb48, %sw.bb53, %sw.bb56, %sw.bb59, %sw.bb63, %sw.bb65, %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit168, %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit182, %sw.bb81, %sw.bb88, %sw.bb93, %sw.bb98, %sw.bb103, %sw.bb107, %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit211, %_ZNK4mold3elf6SymbolINS0_4M68KEE14get_gottp_addrERNS0_7ContextIS2_EE.exit225, %sw.bb125, %sw.bb130, %sw.bb134, %for.body
+  %inc = add nuw i64 %i.0263, 1
   %exitcond.not = icmp eq i64 %inc, %retval.sroa.3.0.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 

@@ -5022,12 +5022,12 @@ entry:
   %rnd.addr = alloca ptr, align 8
   %agg.tmp = alloca %"class.std::function", align 8
   store ptr %rnd, ptr %rnd.addr, align 8
+  %0 = ptrtoint ptr %rnd.addr to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %rnd.addr to i64
-  store i64 %1, ptr %agg.tmp, align 8
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusEPNS0_3EnvENS0_9FileStateEEZNS0_21FaultInjectionTestEnv26DropRandomUnsyncedFileDataEPNS0_6RandomEE3$_0E9_M_invokeERKSt9_Any_dataOS3_OS4_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusEPNS0_3EnvENS0_9FileStateEEZNS0_21FaultInjectionTestEnv26DropRandomUnsyncedFileDataEPNS0_6RandomEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN7rocksdb21FaultInjectionTestEnv12DropFileDataESt8functionIFNS_6StatusEPNS_3EnvENS_9FileStateEEE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull %agg.tmp)

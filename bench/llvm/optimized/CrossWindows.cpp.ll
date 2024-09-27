@@ -1873,8 +1873,8 @@ define hidden void @_ZNK5clang6driver10toolchains21CrossWindowsToolChain25AddCla
   %23 = load ptr, ptr %6, align 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load ptr, ptr %24, align 8
-  %.not8.i = icmp eq ptr %23, %25
-  br i1 %.not8.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i
+  %.not5.i = icmp eq ptr %23, %25
+  br i1 %.not5.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1883,15 +1883,15 @@ define hidden void @_ZNK5clang6driver10toolchains21CrossWindowsToolChain25AddCla
 
 ._crit_edge.i:                                    ; preds = %36
   %.pre.i = load ptr, ptr %6, align 8
-  %.pre10.i = load ptr, ptr %24, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %.pre.i, %.pre10.i
+  %.pre7.i = load ptr, ptr %24, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %.pre.i, %.pre7.i
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge.i, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i.i ], [ %.pre.i, %._crit_edge.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #11
   %28 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i = icmp eq ptr %28, %.pre10.i
+  %.not.i.i.i.i.i = icmp eq ptr %28, %.pre7.i
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
@@ -1913,12 +1913,12 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %"_ZZNK5clang6driver10toolchains21CrossWindowsToolChain25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEv.exit"
 
 36:                                               ; preds = %36, %.lr.ph.i
-  %.sroa.04.09.i = phi ptr [ %23, %.lr.ph.i ], [ %37, %36 ]
+  %.sroa.01.06.i = phi ptr [ %23, %.lr.ph.i ], [ %37, %36 ]
   store i8 4, ptr %26, align 8
   store i8 1, ptr %27, align 1
-  store ptr %.sroa.04.09.i, ptr %7, align 8
+  store ptr %.sroa.01.06.i, ptr %7, align 8
   call void @_ZN5clang6driver9ToolChain16addSystemIncludeERKN4llvm3opt7ArgListERNS2_11SmallVectorIPKcLj16EEERKNS2_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(34) %7) #11
-  %37 = getelementptr inbounds i8, ptr %.sroa.04.09.i, i64 32
+  %37 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 32
   %.not.i = icmp eq ptr %37, %25
   br i1 %.not.i, label %._crit_edge.i, label %36
 
@@ -1938,8 +1938,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   call void @_ZN5clang6driver9ToolChain16addSystemIncludeERKN4llvm3opt7ArgListERNS2_11SmallVectorIPKcLj16EEERKNS2_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(34) %8) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
   %42 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 2902)
-  %.not36 = icmp eq ptr %42, null
-  br i1 %.not36, label %43, label %_ZN4llvm11SmallStringILj128EED2Ev.exit
+  %.not35 = icmp eq ptr %42, null
+  br i1 %.not35, label %43, label %_ZN4llvm11SmallStringILj128EED2Ev.exit
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %19, i64 224
@@ -1987,56 +1987,56 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %62, %43, %38
   %63 = load ptr, ptr %4, align 8
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %65 = load ptr, ptr %64, align 8
-  %.not8.i15 = icmp eq ptr %63, %65
-  br i1 %.not8.i15, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i28, label %.lr.ph.i16
+  %.not5.i18 = icmp eq ptr %63, %65
+  br i1 %.not5.i18, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i31, label %.lr.ph.i19
 
-.lr.ph.i16:                                       ; preds = %_ZN4llvm11SmallStringILj128EED2Ev.exit
+.lr.ph.i19:                                       ; preds = %_ZN4llvm11SmallStringILj128EED2Ev.exit
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 33
   br label %76
 
-._crit_edge.i19:                                  ; preds = %76
-  %.pre.i20 = load ptr, ptr %4, align 8
-  %.pre10.i21 = load ptr, ptr %64, align 8
-  %.not4.i.i.i.i.i22 = icmp eq ptr %.pre.i20, %.pre10.i21
-  br i1 %.not4.i.i.i.i.i22, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i28, label %.lr.ph.i.i.i.i.i23
+._crit_edge.i22:                                  ; preds = %76
+  %.pre.i23 = load ptr, ptr %4, align 8
+  %.pre7.i24 = load ptr, ptr %64, align 8
+  %.not4.i.i.i.i.i25 = icmp eq ptr %.pre.i23, %.pre7.i24
+  br i1 %.not4.i.i.i.i.i25, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i31, label %.lr.ph.i.i.i.i.i26
 
-.lr.ph.i.i.i.i.i23:                               ; preds = %._crit_edge.i19, %.lr.ph.i.i.i.i.i23
-  %.05.i.i.i.i.i24 = phi ptr [ %68, %.lr.ph.i.i.i.i.i23 ], [ %.pre.i20, %._crit_edge.i19 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i24) #11
-  %68 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i24, i64 32
-  %.not.i.i.i.i.i25 = icmp eq ptr %68, %.pre10.i21
-  br i1 %.not.i.i.i.i.i25, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i26, label %.lr.ph.i.i.i.i.i23, !llvm.loop !25
+.lr.ph.i.i.i.i.i26:                               ; preds = %._crit_edge.i22, %.lr.ph.i.i.i.i.i26
+  %.05.i.i.i.i.i27 = phi ptr [ %68, %.lr.ph.i.i.i.i.i26 ], [ %.pre.i23, %._crit_edge.i22 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i27) #11
+  %68 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i27, i64 32
+  %.not.i.i.i.i.i28 = icmp eq ptr %68, %.pre7.i24
+  br i1 %.not.i.i.i.i.i28, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i29, label %.lr.ph.i.i.i.i.i26, !llvm.loop !25
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i26: ; preds = %.lr.ph.i.i.i.i.i23
-  %.pr.i.i27 = load ptr, ptr %4, align 8
-  br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i28
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i29: ; preds = %.lr.ph.i.i.i.i.i26
+  %.pr.i.i30 = load ptr, ptr %4, align 8
+  br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i31
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i28: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i26, %._crit_edge.i19, %_ZN4llvm11SmallStringILj128EED2Ev.exit
-  %69 = phi ptr [ %.pr.i.i27, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i26 ], [ %.pre.i20, %._crit_edge.i19 ], [ %63, %_ZN4llvm11SmallStringILj128EED2Ev.exit ]
-  %.not.i.i.i.i29 = icmp eq ptr %69, null
-  br i1 %.not.i.i.i.i29, label %"_ZZNK5clang6driver10toolchains21CrossWindowsToolChain25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEv.exit30", label %70
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i31: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i29, %._crit_edge.i22, %_ZN4llvm11SmallStringILj128EED2Ev.exit
+  %69 = phi ptr [ %.pr.i.i30, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i29 ], [ %.pre.i23, %._crit_edge.i22 ], [ %63, %_ZN4llvm11SmallStringILj128EED2Ev.exit ]
+  %.not.i.i.i.i32 = icmp eq ptr %69, null
+  br i1 %.not.i.i.i.i32, label %"_ZZNK5clang6driver10toolchains21CrossWindowsToolChain25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEv.exit33", label %70
 
-70:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i28
+70:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i31
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %72 = load ptr, ptr %71, align 8
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #13
-  br label %"_ZZNK5clang6driver10toolchains21CrossWindowsToolChain25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEv.exit30"
+  br label %"_ZZNK5clang6driver10toolchains21CrossWindowsToolChain25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEv.exit33"
 
-76:                                               ; preds = %76, %.lr.ph.i16
-  %.sroa.04.09.i17 = phi ptr [ %63, %.lr.ph.i16 ], [ %77, %76 ]
+76:                                               ; preds = %76, %.lr.ph.i19
+  %.sroa.01.06.i20 = phi ptr [ %63, %.lr.ph.i19 ], [ %77, %76 ]
   store i8 4, ptr %66, align 8
   store i8 1, ptr %67, align 1
-  store ptr %.sroa.04.09.i17, ptr %5, align 8
+  store ptr %.sroa.01.06.i20, ptr %5, align 8
   call void @_ZN5clang6driver9ToolChain16addSystemIncludeERKN4llvm3opt7ArgListERNS2_11SmallVectorIPKcLj16EEERKNS2_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(34) %5) #11
-  %77 = getelementptr inbounds i8, ptr %.sroa.04.09.i17, i64 32
-  %.not.i18 = icmp eq ptr %77, %65
-  br i1 %.not.i18, label %._crit_edge.i19, label %76
+  %77 = getelementptr inbounds i8, ptr %.sroa.01.06.i20, i64 32
+  %.not.i21 = icmp eq ptr %77, %65
+  br i1 %.not.i21, label %._crit_edge.i22, label %76
 
-"_ZZNK5clang6driver10toolchains21CrossWindowsToolChain25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEv.exit30": ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i28, %70
+"_ZZNK5clang6driver10toolchains21CrossWindowsToolChain25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEv.exit33": ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i31, %70
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %20) #11
@@ -2050,7 +2050,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #11
   br label %81
 
-81:                                               ; preds = %"_ZZNK5clang6driver10toolchains21CrossWindowsToolChain25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEv.exit30", %"_ZZNK5clang6driver10toolchains21CrossWindowsToolChain25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEv.exit"
+81:                                               ; preds = %"_ZZNK5clang6driver10toolchains21CrossWindowsToolChain25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEv.exit33", %"_ZZNK5clang6driver10toolchains21CrossWindowsToolChain25AddClangSystemIncludeArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEv.exit"
   ret void
 }
 

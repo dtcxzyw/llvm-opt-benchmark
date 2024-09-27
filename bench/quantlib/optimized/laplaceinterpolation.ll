@@ -1456,12 +1456,12 @@ _ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit361:    ; preds = %_ZNSt6vectorImSaImE
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %__begin1150) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp478) #25
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp479) #25
+  %122 = ptrtoint ptr %g to i64
   %_M_manager.i.i362 = getelementptr inbounds nuw i8, ptr %agg.tmp480, i64 16
   %_M_invoker.i363 = getelementptr inbounds nuw i8, ptr %agg.tmp480, i64 24
-  %122 = getelementptr inbounds i8, ptr %agg.tmp480, i64 8
-  store i64 0, ptr %122, align 8
-  %123 = ptrtoint ptr %g to i64
-  store i64 %123, ptr %agg.tmp480, align 8, !tbaa !43
+  %123 = getelementptr inbounds i8, ptr %agg.tmp480, i64 8
+  store i64 0, ptr %123, align 8
+  store i64 %122, ptr %agg.tmp480, align 8, !tbaa !43
   store ptr @_ZNSt17_Function_handlerIFN8QuantLib5ArrayERKS1_EZNS0_20LaplaceInterpolationC1ESt8functionIFdRKSt6vectorImSaImEEEES7_IS7_IdSaIdEESaISF_EEdmE3f_AE9_M_invokeERKSt9_Any_dataS3_, ptr %_M_invoker.i363, align 8, !tbaa !92
   store ptr @_ZNSt17_Function_handlerIFN8QuantLib5ArrayERKS1_EZNS0_20LaplaceInterpolationC1ESt8functionIFdRKSt6vectorImSaImEEEES7_IS7_IdSaIdEESaISF_EEdmE3f_AE10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation, ptr %_M_manager.i.i362, align 8, !tbaa !9
   %124 = load i64, ptr %maxIterMultiplier_, align 8, !tbaa !39
@@ -6128,12 +6128,12 @@ for.body.i88:                                     ; preds = %invoke.cont20, %for
 if.end32:                                         ; preds = %for.body.i88, %invoke.cont20, %if.end
   %22 = phi ptr [ %21, %invoke.cont20 ], [ %.pre176, %if.end ], [ %21, %for.body.i88 ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %interpolation) #25
+  %23 = ptrtoint ptr %A to i64
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp33, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp33, i64 24
-  %23 = getelementptr inbounds i8, ptr %agg.tmp33, i64 8
-  store i64 0, ptr %23, align 8
-  %24 = ptrtoint ptr %A to i64
-  store i64 %24, ptr %agg.tmp33, align 8, !tbaa !43
+  %24 = getelementptr inbounds i8, ptr %agg.tmp33, i64 8
+  store i64 0, ptr %24, align 8
+  store i64 %23, ptr %agg.tmp33, align 8, !tbaa !43
   store ptr @"_ZNSt17_Function_handlerIFdRKSt6vectorImSaImEEEZN8QuantLib20laplaceInterpolationERNS6_6MatrixERKS0_IdSaIdEESC_dmE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %_M_invoker.i, align 8, !tbaa !3
   store ptr @"_ZNSt17_Function_handlerIFdRKSt6vectorImSaImEEEZN8QuantLib20laplaceInterpolationERNS6_6MatrixERKS0_IdSaIdEESC_dmE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i, align 8, !tbaa !9
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !43

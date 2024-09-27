@@ -324,7 +324,7 @@ $_ZTVN4llvm2cl11OptionValueIiEE = comdat any
 @_ZN4llvm25OuterAnalysisManagerProxyINS_15AnalysisManagerINS_6ModuleEJEEENS_13LazyCallGraph3SCCEJRS4_EE3KeyE = external global %"struct.llvm::AnalysisKey", align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_InlineAdvisor.cpp, ptr null }]
 @switch.table._ZN4llvm22AnnotateInlinePassNameB5cxx11ENS_13InlineContextE = private unnamed_addr constant [5 x ptr] [ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.30, ptr @.str.31], align 8
-@switch.table._ZN4llvm22AnnotateInlinePassNameB5cxx11ENS_13InlineContextE.34 = private unnamed_addr constant [8 x ptr] [ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.36, ptr @.str.35, ptr @.str.37, ptr @.str.38, ptr @.str.39], align 8
+@switch.table._ZN4llvm22AnnotateInlinePassNameB5cxx11ENS_13InlineContextE.36 = private unnamed_addr constant [8 x ptr] [ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.36, ptr @.str.35, ptr @.str.37, ptr @.str.38, ptr @.str.39], align 8
 
 @_ZN4llvm12InlineAdviceC1EPNS_13InlineAdvisorERNS_8CallBaseERNS_25OptimizationRemarkEmitterEb = unnamed_addr alias void (ptr, ptr, ptr, ptr, i1), ptr @_ZN4llvm12InlineAdviceC2EPNS_13InlineAdvisorERNS_8CallBaseERNS_25OptimizationRemarkEmitterEb
 @_ZN4llvm13InlineAdvisorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm13InlineAdvisorD2Ev
@@ -3878,7 +3878,7 @@ switch.lookup:
   %11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.26) #18, !noalias !51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   %12 = ashr i64 %1, 32
-  %switch.gep3 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvm22AnnotateInlinePassNameB5cxx11ENS_13InlineContextE.34, i64 0, i64 %12
+  %switch.gep3 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvm22AnnotateInlinePassNameB5cxx11ENS_13InlineContextE.36, i64 0, i64 %12
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18

@@ -3166,19 +3166,19 @@ _ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE0E
   store ptr null, ptr %8, align 8
   %37 = getelementptr inbounds i8, ptr %34, i64 472
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %9, i64 16
-  %40 = getelementptr inbounds i8, ptr %9, i64 24
-  %41 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 0, ptr %41, align 8, !alias.scope !35
-  %42 = ptrtoint ptr %38 to i64
-  store i64 %42, ptr %9, align 8, !alias.scope !35
-  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS8_18ObservablesReducerEE3$_0E9_M_invokeERKSt9_Any_dataOlOdS6_", ptr %40, align 8, !alias.scope !35
-  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS8_18ObservablesReducerEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %39, align 8, !alias.scope !35
+  %39 = ptrtoint ptr %38 to i64
+  %40 = getelementptr inbounds i8, ptr %9, i64 16
+  %41 = getelementptr inbounds i8, ptr %9, i64 24
+  %42 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 0, ptr %42, align 8, !alias.scope !35
+  store i64 %39, ptr %9, align 8, !alias.scope !35
+  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS8_18ObservablesReducerEE3$_0E9_M_invokeERKSt9_Any_dataOlOdS6_", ptr %41, align 8, !alias.scope !35
+  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS8_18ObservablesReducerEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %40, align 8, !alias.scope !35
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper26registerPostStepSchedulingESt8functionIFvldRKS1_IFvS1_IFvvEEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %9)
           to label %43 unwind label %53
 
 43:                                               ; preds = %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE0EEESt14default_deleteIS3_EED2Ev.exit
-  %44 = load ptr, ptr %39, align 8
+  %44 = load ptr, ptr %40, align 8
   %.not.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit, label %45
 
@@ -3211,7 +3211,7 @@ _ZNKSt14default_deleteIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorit
 53:                                               ; preds = %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE0EEESt14default_deleteIS3_EED2Ev.exit
   %54 = landingpad { ptr, i32 }
           cleanup
-  %55 = load ptr, ptr %39, align 8
+  %55 = load ptr, ptr %40, align 8
   %.not.i.i22 = icmp eq ptr %55, null
   br i1 %.not.i.i22, label %common.resume, label %56
 
@@ -4437,19 +4437,19 @@ define internal void @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEE
   %6 = alloca %"class.std::function.243", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %9, align 8
-  %10 = ptrtoint ptr %0 to i64
-  store i64 %10, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS1_18ObservablesReducerEENK3$_0clEldRKSt8functionIFvS6_IS0_EEEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS1_18ObservablesReducerEENK3$_0clEldRKSt8functionIFvS6_IS0_EEEEUlvE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %7, align 8
+  %7 = ptrtoint ptr %0 to i64
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %10, align 8
+  store i64 %7, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS1_18ObservablesReducerEENK3$_0clEldRKSt8functionIFvS6_IS0_EEEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS1_18ObservablesReducerEENK3$_0clEldRKSt8functionIFvS6_IS0_EEEEUlvE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 16
   %12 = getelementptr inbounds i8, ptr %6, i64 24
   %13 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %13, align 8
-  store i64 %10, ptr %6, align 8
+  store i64 %7, ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS1_18ObservablesReducerEENK3$_0clEldRKSt8functionIFvS6_IS0_EEEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %12, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS1_18ObservablesReducerEENK3$_0clEldRKSt8functionIFvS6_IS0_EEEEUlvE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 16
@@ -4487,7 +4487,7 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit.i.i.i:    ; preds = %17
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit.i.i.i:              ; preds = %21, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit.i.i.i
-  %26 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %8, align 8
   %.not.i.i9.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i9.i.i.i, label %"_ZSt10__invoke_rIvRZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS0_18ObservablesReducerEE3$_0JldRKSt8functionIFvS6_IFvvEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %27
 
@@ -4521,7 +4521,7 @@ _ZNSt8functionIFvvEED2Ev.exit.i.i.i:              ; preds = %21, %_ZNKSt8functio
   unreachable
 
 .body.i.i.i:                                      ; preds = %35, %32
-  %40 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
   %.not.i.i15.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i15.i.i.i, label %_ZNSt8functionIFvvEED2Ev.exit17.i.i.i, label %41
 
@@ -4772,19 +4772,19 @@ _ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1E
   %80 = load ptr, ptr %11, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 472
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %13, i64 16
-  %84 = getelementptr inbounds i8, ptr %13, i64 24
-  %85 = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 0, ptr %85, align 8, !alias.scope !49
-  %86 = ptrtoint ptr %82 to i64
-  store i64 %86, ptr %13, align 8, !alias.scope !49
-  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS8_18ObservablesReducerEE3$_0E9_M_invokeERKSt9_Any_dataOlOdS6_", ptr %84, align 8, !alias.scope !49
-  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS8_18ObservablesReducerEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %83, align 8, !alias.scope !49
+  %83 = ptrtoint ptr %82 to i64
+  %84 = getelementptr inbounds i8, ptr %13, i64 16
+  %85 = getelementptr inbounds i8, ptr %13, i64 24
+  %86 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 0, ptr %86, align 8, !alias.scope !49
+  store i64 %83, ptr %13, align 8, !alias.scope !49
+  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS8_18ObservablesReducerEE3$_0E9_M_invokeERKSt9_Any_dataOlOdS6_", ptr %85, align 8, !alias.scope !49
+  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS8_18ObservablesReducerEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %84, align 8, !alias.scope !49
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper26registerPostStepSchedulingESt8functionIFvldRKS1_IFvS1_IFvvEEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %13)
           to label %87 unwind label %98
 
 87:                                               ; preds = %79
-  %88 = load ptr, ptr %83, align 8
+  %88 = load ptr, ptr %84, align 8
   %.not.i.i = icmp eq ptr %88, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit, label %89
 
@@ -4822,7 +4822,7 @@ _ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1E
 98:                                               ; preds = %79
   %99 = landingpad { ptr, i32 }
           cleanup
-  %100 = load ptr, ptr %83, align 8
+  %100 = load ptr, ptr %84, align 8
   %.not.i.i28 = icmp eq ptr %100, null
   br i1 %.not.i.i28, label %.body, label %101
 

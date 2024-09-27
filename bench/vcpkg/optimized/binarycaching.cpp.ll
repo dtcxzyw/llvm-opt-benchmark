@@ -2523,8 +2523,8 @@ define dso_local void @_ZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17In
   unreachable
 
 11:                                               ; preds = %4
-  %.not24.i = icmp eq i64 %3, 0
-  br i1 %.not24.i, label %"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNS_17InstallPlanActionEEEZNS_19ReadOnlyBinaryCache8precheckES5_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit", label %_ZNSt12_Vector_baseIPN5vcpkg11CacheStatusESaIS2_EE11_M_allocateEm.exit.i.i
+  %.not4.i = icmp eq i64 %3, 0
+  br i1 %.not4.i, label %"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNS_17InstallPlanActionEEEZNS_19ReadOnlyBinaryCache8precheckES5_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit", label %_ZNSt12_Vector_baseIPN5vcpkg11CacheStatusESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN5vcpkg11CacheStatusESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %11
   %12 = shl nuw nsw i64 %3, 3
@@ -2541,9 +2541,9 @@ _ZNSt12_Vector_baseIPN5vcpkg11CacheStatusESaIS2_EE11_M_allocateEm.exit.i.i: ; pr
   %.sroa.13.0 = phi ptr [ %14, %.lr.ph.i ], [ %.sroa.13.1, %_ZNSt6vectorIPN5vcpkg11CacheStatusESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit.i ]
   %.sroa.0129.2 = phi ptr [ %13, %.lr.ph.i ], [ %.sroa.0129.3, %_ZNSt6vectorIPN5vcpkg11CacheStatusESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit.i ]
   %18 = phi ptr [ %13, %.lr.ph.i ], [ %.sroa.9135.0, %_ZNSt6vectorIPN5vcpkg11CacheStatusESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit.i ]
-  %.023.i = phi ptr [ %2, %.lr.ph.i ], [ %47, %_ZNSt6vectorIPN5vcpkg11CacheStatusESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit.i ]
+  %.03.i = phi ptr [ %2, %.lr.ph.i ], [ %47, %_ZNSt6vectorIPN5vcpkg11CacheStatusESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !23
-  %19 = invoke ptr @_ZNK5vcpkg17InstallPlanAction11package_abiB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(528) %.023.i)
+  %19 = invoke ptr @_ZNK5vcpkg17InstallPlanAction11package_abiB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(528) %.03.i)
           to label %.noexc13.i unwind label %.loopexit.i, !noalias !23
 
 .noexc13.i:                                       ; preds = %17
@@ -2561,7 +2561,7 @@ _ZNSt12_Vector_baseIPN5vcpkg11CacheStatusESaIS2_EE11_M_allocateEm.exit.i.i: ; pr
   unreachable
 
 22:                                               ; preds = %.noexc13.i
-  %23 = invoke ptr @_ZNK5vcpkg17InstallPlanAction11package_abiB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(528) %.023.i)
+  %23 = invoke ptr @_ZNK5vcpkg17InstallPlanAction11package_abiB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(528) %.03.i)
           to label %.noexc15.i unwind label %.loopexit.i, !noalias !23
 
 .noexc15.i:                                       ; preds = %22
@@ -2628,7 +2628,7 @@ _ZNSt6vectorIPN5vcpkg11CacheStatusESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit.
   %.pn = phi ptr [ %44, %_ZNSt6vectorIPN5vcpkg11CacheStatusESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %18, %26 ]
   %.sroa.0129.3 = phi ptr [ %40, %_ZNSt6vectorIPN5vcpkg11CacheStatusESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.0129.2, %26 ]
   %.sroa.9135.0 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %47 = getelementptr inbounds i8, ptr %.023.i, i64 528
+  %47 = getelementptr inbounds i8, ptr %.03.i, i64 528
   %.not.i = icmp eq ptr %47, %15
   br i1 %.not.i, label %"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNS_17InstallPlanActionEEEZNS_19ReadOnlyBinaryCache8precheckES5_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit", label %17
 
@@ -2678,7 +2678,7 @@ _ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader: ; pre
   %.sroa.096.0276 = phi ptr [ %50, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %283, %.loopexit ]
   %.sroa.12.0275 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.12.1.lcssa364, %.loopexit ]
   %.sroa.099.0274 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.099.1.lcssa363, %.loopexit ]
-  br i1 %.not24.i, label %.loopexit, label %.lr.ph
+  br i1 %.not4.i, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader, %_ZNSt6vectorImSaImEE9push_backERKm.exit
   %storemerge255 = phi i64 [ %180, %_ZNSt6vectorImSaImEE9push_backERKm.exit ], [ 0, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader ]

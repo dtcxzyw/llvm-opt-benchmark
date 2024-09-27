@@ -8710,11 +8710,11 @@ define dso_local noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic
   %8 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %9 = tail call { ptr, i8 } @_ZN4Luau7Fixture7getTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %10 = extractvalue { ptr, i8 } %9, 1
+  %11 = ptrtoint ptr %1 to i64
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EE", i64 16), ptr %3, align 8, !alias.scope !66
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
-  %12 = ptrtoint ptr %1 to i64
-  store i64 %12, ptr %11, align 8, !alias.scope !66
+  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %11, ptr %12, align 8, !alias.scope !66
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull @.str)
           to label %13 unwind label %21
 
@@ -9372,11 +9372,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit
 
 _ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit:        ; preds = %37, %56, %69, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+  %74 = ptrtoint ptr %2 to i64
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %7)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKSt10shared_ptrINS2_5ScopeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EE", i64 16), ptr %7, align 8, !alias.scope !72
-  %74 = getelementptr inbounds i8, ptr %7, i64 16
-  %75 = ptrtoint ptr %2 to i64
-  store i64 %75, ptr %74, align 8, !alias.scope !72
+  %75 = getelementptr inbounds i8, ptr %7, i64 16
+  store i64 %74, ptr %75, align 8, !alias.scope !72
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
           to label %76 unwind label %86
 
@@ -9850,11 +9850,11 @@ define dso_local noundef ptr @_ZN4Luau7Fixture21requireTypeAtPositionENS_8Positi
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   %14 = extractvalue { ptr, i8 } %11, 1
   store i8 %14, ptr %13, align 8
+  %15 = ptrtoint ptr %3 to i64
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture21requireTypeAtPositionENS2_8PositionEE3$_0EE", i64 16), ptr %5, align 8, !alias.scope !83
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
-  %16 = ptrtoint ptr %3 to i64
-  store i64 %16, ptr %15, align 8, !alias.scope !83
+  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 %15, ptr %16, align 8, !alias.scope !83
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull @.str)
           to label %17 unwind label %25
 

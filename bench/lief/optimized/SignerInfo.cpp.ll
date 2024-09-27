@@ -1828,9 +1828,9 @@ define noundef ptr @_ZNK4LIEF2PE10SignerInfo18get_auth_attributeENS0_9Attribute4
   br i1 %11, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2, %38
-  %.058.i.i.i = phi i64 [ %40, %38 ], [ %10, %2 ]
-  %.sroa.038.057.i.i.i = phi ptr [ %39, %38 ], [ %4, %2 ]
-  %.val.i.i.i.i = load ptr, ptr %.sroa.038.057.i.i.i, align 8
+  %.064.i.i.i = phi i64 [ %40, %38 ], [ %10, %2 ]
+  %.sroa.044.063.i.i.i = phi ptr [ %39, %38 ], [ %4, %2 ]
+  %.val.i.i.i.i = load ptr, ptr %.sroa.044.063.i.i.i, align 8
   %12 = load ptr, ptr %.val.i.i.i.i, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
@@ -1839,50 +1839,50 @@ define noundef ptr @_ZNK4LIEF2PE10SignerInfo18get_auth_attributeENS0_9Attribute4
   br i1 %16, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit", label %17
 
 17:                                               ; preds = %.lr.ph.i.i.i
-  %18 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 8
-  %.val.i16.i.i.i = load ptr, ptr %18, align 8
-  %19 = load ptr, ptr %.val.i16.i.i.i, align 8
+  %18 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 8
+  %.val.i22.i.i.i = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %.val.i22.i.i.i, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(12) %.val.i16.i.i.i)
+  %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(12) %.val.i22.i.i.i)
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit", label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 16
-  %.val.i17.i.i.i = load ptr, ptr %25, align 8
-  %26 = load ptr, ptr %.val.i17.i.i.i, align 8
+  %25 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 16
+  %.val.i23.i.i.i = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %.val.i23.i.i.i, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(12) %.val.i17.i.i.i)
+  %29 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(12) %.val.i23.i.i.i)
   %30 = icmp eq i32 %29, %1
   br i1 %30, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit18", label %31
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 24
-  %.val.i18.i.i.i = load ptr, ptr %32, align 8
-  %33 = load ptr, ptr %.val.i18.i.i.i, align 8
+  %32 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 24
+  %.val.i24.i.i.i = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %.val.i24.i.i.i, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(12) %.val.i18.i.i.i)
+  %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(12) %.val.i24.i.i.i)
   %37 = icmp eq i32 %36, %1
   br i1 %37, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit20", label %38
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 32
-  %40 = add nsw i64 %.058.i.i.i, -1
-  %41 = icmp sgt i64 %.058.i.i.i, 1
+  %39 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 32
+  %40 = add nsw i64 %.064.i.i.i, -1
+  %41 = icmp sgt i64 %.064.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !20
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %38
   %.pre.i.i.i = ptrtoint ptr %39 to i64
-  %.pre63.i.i.i = sub i64 %7, %.pre.i.i.i
+  %.pre69.i.i.i = sub i64 %7, %.pre.i.i.i
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %2
-  %.pre-phi64.i.i.i = phi i64 [ %.pre63.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %9, %2 ]
-  %.sroa.038.0.lcssa.i.i.i = phi ptr [ %39, %._crit_edge.loopexit.i.i.i ], [ %4, %2 ]
-  %42 = ashr exact i64 %.pre-phi64.i.i.i, 3
+  %.pre-phi70.i.i.i = phi i64 [ %.pre69.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %9, %2 ]
+  %.sroa.044.0.lcssa.i.i.i = phi ptr [ %39, %._crit_edge.loopexit.i.i.i ], [ %4, %2 ]
+  %42 = ashr exact i64 %.pre-phi70.i.i.i, 3
   switch i64 %42, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit" [
     i64 3, label %43
     i64 2, label %51
@@ -1890,57 +1890,57 @@ define noundef ptr @_ZNK4LIEF2PE10SignerInfo18get_auth_attributeENS0_9Attribute4
   ]
 
 43:                                               ; preds = %._crit_edge.i.i.i
-  %.val.i19.i.i.i = load ptr, ptr %.sroa.038.0.lcssa.i.i.i, align 8
-  %44 = load ptr, ptr %.val.i19.i.i.i, align 8
+  %.val.i25.i.i.i = load ptr, ptr %.sroa.044.0.lcssa.i.i.i, align 8
+  %44 = load ptr, ptr %.val.i25.i.i.i, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(12) %.val.i19.i.i.i)
+  %47 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(12) %.val.i25.i.i.i)
   %48 = icmp eq i32 %47, %1
   br i1 %48, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit", label %49
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %.sroa.038.0.lcssa.i.i.i, i64 8
+  %50 = getelementptr inbounds i8, ptr %.sroa.044.0.lcssa.i.i.i, i64 8
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i
-  %.sroa.038.1.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %50, %49 ]
-  %.val.i20.i.i.i = load ptr, ptr %.sroa.038.1.i.i.i, align 8
-  %52 = load ptr, ptr %.val.i20.i.i.i, align 8
+  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %50, %49 ]
+  %.val.i26.i.i.i = load ptr, ptr %.sroa.044.1.i.i.i, align 8
+  %52 = load ptr, ptr %.val.i26.i.i.i, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 48
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(12) %.val.i20.i.i.i)
+  %55 = tail call noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(12) %.val.i26.i.i.i)
   %56 = icmp eq i32 %55, %1
   br i1 %56, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit", label %57
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %.sroa.038.1.i.i.i, i64 8
+  %58 = getelementptr inbounds i8, ptr %.sroa.044.1.i.i.i, i64 8
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge.i.i.i
-  %.sroa.038.2.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %58, %57 ]
-  %.val.i21.i.i.i = load ptr, ptr %.sroa.038.2.i.i.i, align 8
-  %60 = load ptr, ptr %.val.i21.i.i.i, align 8
+  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %58, %57 ]
+  %.val.i27.i.i.i = load ptr, ptr %.sroa.044.2.i.i.i, align 8
+  %60 = load ptr, ptr %.val.i27.i.i.i, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 48
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(12) %.val.i21.i.i.i)
+  %63 = tail call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(12) %.val.i27.i.i.i)
   %64 = icmp eq i32 %63, %1
-  %spec.select.i.i.i = select i1 %64, ptr %.sroa.038.2.i.i.i, ptr %6
+  %spec.select.i.i.i = select i1 %64, ptr %.sroa.044.2.i.i.i, ptr %6
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit": ; preds = %17
-  %65 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 8
+  %65 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 8
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit18": ; preds = %24
-  %66 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 16
+  %66 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 16
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit20": ; preds = %31
-  %67 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 24
+  %67 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 24
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit18", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit20", %._crit_edge.i.i.i, %43, %51, %59
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %43 ], [ %.sroa.038.1.i.i.i, %51 ], [ %6, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %59 ], [ %65, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit" ], [ %66, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit18" ], [ %67, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit20" ], [ %.sroa.038.057.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %43 ], [ %.sroa.044.1.i.i.i, %51 ], [ %6, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %59 ], [ %65, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit" ], [ %66, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit18" ], [ %67, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo18get_auth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit20" ], [ %.sroa.044.063.i.i.i, %.lr.ph.i.i.i ]
   %68 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %68
   br i1 %.not, label %71, label %69
@@ -1968,9 +1968,9 @@ define noundef ptr @_ZNK4LIEF2PE10SignerInfo20get_unauth_attributeENS0_9Attribut
   br i1 %11, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2, %38
-  %.058.i.i.i = phi i64 [ %40, %38 ], [ %10, %2 ]
-  %.sroa.038.057.i.i.i = phi ptr [ %39, %38 ], [ %4, %2 ]
-  %.val.i.i.i.i = load ptr, ptr %.sroa.038.057.i.i.i, align 8
+  %.064.i.i.i = phi i64 [ %40, %38 ], [ %10, %2 ]
+  %.sroa.044.063.i.i.i = phi ptr [ %39, %38 ], [ %4, %2 ]
+  %.val.i.i.i.i = load ptr, ptr %.sroa.044.063.i.i.i, align 8
   %12 = load ptr, ptr %.val.i.i.i.i, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
@@ -1979,50 +1979,50 @@ define noundef ptr @_ZNK4LIEF2PE10SignerInfo20get_unauth_attributeENS0_9Attribut
   br i1 %16, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit", label %17
 
 17:                                               ; preds = %.lr.ph.i.i.i
-  %18 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 8
-  %.val.i16.i.i.i = load ptr, ptr %18, align 8
-  %19 = load ptr, ptr %.val.i16.i.i.i, align 8
+  %18 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 8
+  %.val.i22.i.i.i = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %.val.i22.i.i.i, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(12) %.val.i16.i.i.i)
+  %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(12) %.val.i22.i.i.i)
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit", label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 16
-  %.val.i17.i.i.i = load ptr, ptr %25, align 8
-  %26 = load ptr, ptr %.val.i17.i.i.i, align 8
+  %25 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 16
+  %.val.i23.i.i.i = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %.val.i23.i.i.i, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(12) %.val.i17.i.i.i)
+  %29 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(12) %.val.i23.i.i.i)
   %30 = icmp eq i32 %29, %1
   br i1 %30, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit18", label %31
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 24
-  %.val.i18.i.i.i = load ptr, ptr %32, align 8
-  %33 = load ptr, ptr %.val.i18.i.i.i, align 8
+  %32 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 24
+  %.val.i24.i.i.i = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %.val.i24.i.i.i, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(12) %.val.i18.i.i.i)
+  %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(12) %.val.i24.i.i.i)
   %37 = icmp eq i32 %36, %1
   br i1 %37, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit20", label %38
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 32
-  %40 = add nsw i64 %.058.i.i.i, -1
-  %41 = icmp sgt i64 %.058.i.i.i, 1
+  %39 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 32
+  %40 = add nsw i64 %.064.i.i.i, -1
+  %41 = icmp sgt i64 %.064.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !21
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %38
   %.pre.i.i.i = ptrtoint ptr %39 to i64
-  %.pre63.i.i.i = sub i64 %7, %.pre.i.i.i
+  %.pre69.i.i.i = sub i64 %7, %.pre.i.i.i
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %2
-  %.pre-phi64.i.i.i = phi i64 [ %.pre63.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %9, %2 ]
-  %.sroa.038.0.lcssa.i.i.i = phi ptr [ %39, %._crit_edge.loopexit.i.i.i ], [ %4, %2 ]
-  %42 = ashr exact i64 %.pre-phi64.i.i.i, 3
+  %.pre-phi70.i.i.i = phi i64 [ %.pre69.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %9, %2 ]
+  %.sroa.044.0.lcssa.i.i.i = phi ptr [ %39, %._crit_edge.loopexit.i.i.i ], [ %4, %2 ]
+  %42 = ashr exact i64 %.pre-phi70.i.i.i, 3
   switch i64 %42, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit" [
     i64 3, label %43
     i64 2, label %51
@@ -2030,57 +2030,57 @@ define noundef ptr @_ZNK4LIEF2PE10SignerInfo20get_unauth_attributeENS0_9Attribut
   ]
 
 43:                                               ; preds = %._crit_edge.i.i.i
-  %.val.i19.i.i.i = load ptr, ptr %.sroa.038.0.lcssa.i.i.i, align 8
-  %44 = load ptr, ptr %.val.i19.i.i.i, align 8
+  %.val.i25.i.i.i = load ptr, ptr %.sroa.044.0.lcssa.i.i.i, align 8
+  %44 = load ptr, ptr %.val.i25.i.i.i, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(12) %.val.i19.i.i.i)
+  %47 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(12) %.val.i25.i.i.i)
   %48 = icmp eq i32 %47, %1
   br i1 %48, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit", label %49
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %.sroa.038.0.lcssa.i.i.i, i64 8
+  %50 = getelementptr inbounds i8, ptr %.sroa.044.0.lcssa.i.i.i, i64 8
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i
-  %.sroa.038.1.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %50, %49 ]
-  %.val.i20.i.i.i = load ptr, ptr %.sroa.038.1.i.i.i, align 8
-  %52 = load ptr, ptr %.val.i20.i.i.i, align 8
+  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %50, %49 ]
+  %.val.i26.i.i.i = load ptr, ptr %.sroa.044.1.i.i.i, align 8
+  %52 = load ptr, ptr %.val.i26.i.i.i, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 48
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(12) %.val.i20.i.i.i)
+  %55 = tail call noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(12) %.val.i26.i.i.i)
   %56 = icmp eq i32 %55, %1
   br i1 %56, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit", label %57
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %.sroa.038.1.i.i.i, i64 8
+  %58 = getelementptr inbounds i8, ptr %.sroa.044.1.i.i.i, i64 8
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge.i.i.i
-  %.sroa.038.2.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %58, %57 ]
-  %.val.i21.i.i.i = load ptr, ptr %.sroa.038.2.i.i.i, align 8
-  %60 = load ptr, ptr %.val.i21.i.i.i, align 8
+  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %58, %57 ]
+  %.val.i27.i.i.i = load ptr, ptr %.sroa.044.2.i.i.i, align 8
+  %60 = load ptr, ptr %.val.i27.i.i.i, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 48
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(12) %.val.i21.i.i.i)
+  %63 = tail call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(12) %.val.i27.i.i.i)
   %64 = icmp eq i32 %63, %1
-  %spec.select.i.i.i = select i1 %64, ptr %.sroa.038.2.i.i.i, ptr %6
+  %spec.select.i.i.i = select i1 %64, ptr %.sroa.044.2.i.i.i, ptr %6
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit": ; preds = %17
-  %65 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 8
+  %65 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 8
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit18": ; preds = %24
-  %66 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 16
+  %66 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 16
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit20": ; preds = %31
-  %67 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 24
+  %67 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 24
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit18", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit20", %._crit_edge.i.i.i, %43, %51, %59
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %43 ], [ %.sroa.038.1.i.i.i, %51 ], [ %6, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %59 ], [ %65, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit" ], [ %66, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit18" ], [ %67, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit20" ], [ %.sroa.038.057.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %43 ], [ %.sroa.044.1.i.i.i, %51 ], [ %6, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %59 ], [ %65, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit" ], [ %66, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit18" ], [ %67, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_10SignerInfo20get_unauth_attributeENS5_4TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit20" ], [ %.sroa.044.063.i.i.i, %.lr.ph.i.i.i ]
   %68 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %68
   br i1 %.not, label %71, label %69

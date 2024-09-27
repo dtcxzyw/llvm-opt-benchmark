@@ -3544,14 +3544,14 @@ if.then9.i.i:                                     ; preds = %call2.i.i.noexc.i
   br label %invoke.cont7.i
 
 if.else.i.i:                                      ; preds = %call2.i.i.noexc.i, %if.then.i.i
-  %__x.022.i.i.i = load ptr, ptr %0, align 8
-  %cmp.not23.i.i.i = icmp eq ptr %__x.022.i.i.i, null
-  br i1 %cmp.not23.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i10
+  %__x.021.i.i.i = load ptr, ptr %0, align 8
+  %cmp.not22.i.i.i = icmp eq ptr %__x.021.i.i.i, null
+  br i1 %cmp.not22.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i10
 
 while.body.i.i.i10:                               ; preds = %if.else.i.i, %call2.i.i.i.noexc.i
-  %__x.024.i.i.i = phi ptr [ %__x.0.i.i.i, %call2.i.i.i.noexc.i ], [ %__x.022.i.i.i, %if.else.i.i ]
+  %__x.023.i.i.i = phi ptr [ %__x.0.i.i.i, %call2.i.i.i.noexc.i ], [ %__x.021.i.i.i, %if.else.i.i ]
   %16 = load ptr, ptr %_M_storage.i.i.i.i.i7, align 8
-  %_M_storage.i.i.i11.i.i = getelementptr inbounds i8, ptr %__x.024.i.i.i, i64 32
+  %_M_storage.i.i.i11.i.i = getelementptr inbounds i8, ptr %__x.023.i.i.i, i64 32
   %17 = load ptr, ptr %_M_storage.i.i.i11.i.i, align 8
   %18 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8
   %call.i.i.i6.i = invoke noundef ptr %18(ptr noundef %16)
@@ -3566,7 +3566,7 @@ call2.i.i.i.noexc.i:                              ; preds = %call.i.i.i.noexc.i
   %call3.i.i.i.i11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i.i.i6.i, ptr noundef nonnull dereferenceable(1) %call2.i.i.i7.i) #23
   %cmp.i.i.i.i12 = icmp slt i32 %call3.i.i.i.i11, 0
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i12, i64 16, i64 24
-  %cond.in.i.i.i = getelementptr i8, ptr %__x.024.i.i.i, i64 %cond.in.v.i.i.i
+  %cond.in.i.i.i = getelementptr i8, ptr %__x.023.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i13 = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i13, label %while.end.i.i.i, label %while.body.i.i.i10, !llvm.loop !56
@@ -3575,35 +3575,35 @@ while.end.i.i.i:                                  ; preds = %call2.i.i.i.noexc.i
   br i1 %cmp.i.i.i.i12, label %if.then.i.i.i, label %if.end12.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i, %if.else.i.i
-  %__y.0.lcssa28.i.i.i = phi ptr [ %__x.024.i.i.i, %while.end.i.i.i ], [ %add.ptr.i.i.i, %if.else.i.i ]
+  %__y.0.lcssa27.i.i.i = phi ptr [ %__x.023.i.i.i, %while.end.i.i.i ], [ %add.ptr.i.i.i, %if.else.i.i ]
   %20 = getelementptr inbounds i8, ptr %this, i64 24
   %this.val4.i.i.i = load ptr, ptr %20, align 8
-  %cmp.i6.i.i.i = icmp eq ptr %__y.0.lcssa28.i.i.i, %this.val4.i.i.i
-  br i1 %cmp.i6.i.i.i, label %if.then.i, label %if.else.i.i.i
+  %cmp.i7.i.i.i = icmp eq ptr %__y.0.lcssa27.i.i.i, %this.val4.i.i.i
+  br i1 %cmp.i7.i.i.i, label %if.then.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %call.i7.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa28.i.i.i) #23
+  %call.i8.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa27.i.i.i) #23
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %while.end.i.i.i
-  %__y.0.lcssa29.i.i.i = phi ptr [ %__y.0.lcssa28.i.i.i, %if.else.i.i.i ], [ %__x.024.i.i.i, %while.end.i.i.i ]
-  %__j.sroa.0.0.i.i.i = phi ptr [ %call.i7.i.i.i, %if.else.i.i.i ], [ %__x.024.i.i.i, %while.end.i.i.i ]
+  %__y.0.lcssa28.i.i.i = phi ptr [ %__y.0.lcssa27.i.i.i, %if.else.i.i.i ], [ %__x.023.i.i.i, %while.end.i.i.i ]
+  %__j.sroa.0.0.i.i.i = phi ptr [ %call.i8.i.i.i, %if.else.i.i.i ], [ %__x.023.i.i.i, %while.end.i.i.i ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i, i64 32
   %21 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8
   %22 = load ptr, ptr %_M_storage.i.i.i.i.i7, align 8
   %23 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8
-  %call.i8.i.i8.i = invoke noundef ptr %23(ptr noundef %21)
-          to label %call.i8.i.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+  %call.i9.i.i8.i = invoke noundef ptr %23(ptr noundef %21)
+          to label %call.i9.i.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
-call.i8.i.i.noexc.i:                              ; preds = %if.end12.i.i.i
+call.i9.i.i.noexc.i:                              ; preds = %if.end12.i.i.i
   %24 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8
-  %call2.i9.i.i9.i = invoke noundef ptr %24(ptr noundef %22)
-          to label %call2.i9.i.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+  %call2.i10.i.i9.i = invoke noundef ptr %24(ptr noundef %22)
+          to label %call2.i10.i.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
-call2.i9.i.i.noexc.i:                             ; preds = %call.i8.i.i.noexc.i
-  %call3.i10.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i8.i.i8.i, ptr noundef nonnull dereferenceable(1) %call2.i9.i.i9.i) #23
-  %cmp.i11.i.i.i = icmp slt i32 %call3.i10.i.i.i, 0
-  br i1 %cmp.i11.i.i.i, label %if.then.i, label %if.then.i36.i
+call2.i10.i.i.noexc.i:                            ; preds = %call.i9.i.i.noexc.i
+  %call3.i11.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i9.i.i8.i, ptr noundef nonnull dereferenceable(1) %call2.i10.i.i9.i) #23
+  %cmp.i12.i.i.i = icmp slt i32 %call3.i11.i.i.i, 0
+  br i1 %cmp.i12.i.i.i, label %if.then.i, label %if.then.i36.i
 
 if.else12.i.i:                                    ; preds = %if.then
   %_M_storage.i.i.i12.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i19, i64 32
@@ -3656,14 +3656,14 @@ if.then32.i.i:                                    ; preds = %call2.i23.i.noexc.i
   br label %if.then.i
 
 if.else42.i.i:                                    ; preds = %call2.i23.i.noexc.i
-  %__x.022.i29.i.i = load ptr, ptr %0, align 8
-  %cmp.not23.i30.i.i = icmp eq ptr %__x.022.i29.i.i, null
-  br i1 %cmp.not23.i30.i.i, label %if.then.i57.i.i, label %while.body.i31.i.i
+  %__x.021.i29.i.i = load ptr, ptr %0, align 8
+  %cmp.not22.i30.i.i = icmp eq ptr %__x.021.i29.i.i, null
+  br i1 %cmp.not22.i30.i.i, label %if.then.i57.i.i, label %while.body.i31.i.i
 
 while.body.i31.i.i:                               ; preds = %if.else42.i.i, %call2.i.i35.i.noexc.i
-  %__x.024.i32.i.i = phi ptr [ %__x.0.i40.i.i, %call2.i.i35.i.noexc.i ], [ %__x.022.i29.i.i, %if.else42.i.i ]
+  %__x.023.i32.i.i = phi ptr [ %__x.0.i40.i.i, %call2.i.i35.i.noexc.i ], [ %__x.021.i29.i.i, %if.else42.i.i ]
   %34 = load ptr, ptr %_M_storage.i.i.i.i.i7, align 8
-  %_M_storage.i.i.i33.i.i = getelementptr inbounds i8, ptr %__x.024.i32.i.i, i64 32
+  %_M_storage.i.i.i33.i.i = getelementptr inbounds i8, ptr %__x.023.i32.i.i, i64 32
   %35 = load ptr, ptr %_M_storage.i.i.i33.i.i, align 8
   %36 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8
   %call.i.i34.i14.i = invoke noundef ptr %36(ptr noundef %34)
@@ -3678,7 +3678,7 @@ call2.i.i35.i.noexc.i:                            ; preds = %call.i.i34.i.noexc.
   %call3.i.i36.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i.i34.i14.i, ptr noundef nonnull dereferenceable(1) %call2.i.i35.i15.i) #23
   %cmp.i.i37.i.i = icmp slt i32 %call3.i.i36.i.i, 0
   %cond.in.v.i38.i.i = select i1 %cmp.i.i37.i.i, i64 16, i64 24
-  %cond.in.i39.i.i = getelementptr i8, ptr %__x.024.i32.i.i, i64 %cond.in.v.i38.i.i
+  %cond.in.i39.i.i = getelementptr i8, ptr %__x.023.i32.i.i, i64 %cond.in.v.i38.i.i
   %__x.0.i40.i.i = load ptr, ptr %cond.in.i39.i.i, align 8
   %cmp.not.i41.i.i = icmp eq ptr %__x.0.i40.i.i, null
   br i1 %cmp.not.i41.i.i, label %while.end.i42.i.i, label %while.body.i31.i.i, !llvm.loop !56
@@ -3687,34 +3687,34 @@ while.end.i42.i.i:                                ; preds = %call2.i.i35.i.noexc
   br i1 %cmp.i.i37.i.i, label %if.then.i57.i.i, label %if.end12.i43.i.i
 
 if.then.i57.i.i:                                  ; preds = %while.end.i42.i.i, %if.else42.i.i
-  %__y.0.lcssa28.i58.i.i = phi ptr [ %__x.024.i32.i.i, %while.end.i42.i.i ], [ %add.ptr.i.i.i, %if.else42.i.i ]
+  %__y.0.lcssa27.i58.i.i = phi ptr [ %__x.023.i32.i.i, %while.end.i42.i.i ], [ %add.ptr.i.i.i, %if.else42.i.i ]
   %this.val4.i59.i.i = load ptr, ptr %_M_left.i.i.i, align 8
-  %cmp.i6.i60.i.i = icmp eq ptr %__y.0.lcssa28.i58.i.i, %this.val4.i59.i.i
-  br i1 %cmp.i6.i60.i.i, label %if.then.i, label %if.else.i61.i.i
+  %cmp.i7.i60.i.i = icmp eq ptr %__y.0.lcssa27.i58.i.i, %this.val4.i59.i.i
+  br i1 %cmp.i7.i60.i.i, label %if.then.i, label %if.else.i61.i.i
 
 if.else.i61.i.i:                                  ; preds = %if.then.i57.i.i
-  %call.i7.i62.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa28.i58.i.i) #23
+  %call.i8.i62.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa27.i58.i.i) #23
   br label %if.end12.i43.i.i
 
 if.end12.i43.i.i:                                 ; preds = %if.else.i61.i.i, %while.end.i42.i.i
-  %__y.0.lcssa29.i44.i.i = phi ptr [ %__y.0.lcssa28.i58.i.i, %if.else.i61.i.i ], [ %__x.024.i32.i.i, %while.end.i42.i.i ]
-  %__j.sroa.0.0.i45.i.i = phi ptr [ %call.i7.i62.i.i, %if.else.i61.i.i ], [ %__x.024.i32.i.i, %while.end.i42.i.i ]
+  %__y.0.lcssa28.i44.i.i = phi ptr [ %__y.0.lcssa27.i58.i.i, %if.else.i61.i.i ], [ %__x.023.i32.i.i, %while.end.i42.i.i ]
+  %__j.sroa.0.0.i45.i.i = phi ptr [ %call.i8.i62.i.i, %if.else.i61.i.i ], [ %__x.023.i32.i.i, %while.end.i42.i.i ]
   %_M_storage.i.i.i.i46.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i45.i.i, i64 32
   %38 = load ptr, ptr %_M_storage.i.i.i.i46.i.i, align 8
   %39 = load ptr, ptr %_M_storage.i.i.i.i.i7, align 8
   %40 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8
-  %call.i8.i47.i16.i = invoke noundef ptr %40(ptr noundef %38)
-          to label %call.i8.i47.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+  %call.i9.i47.i16.i = invoke noundef ptr %40(ptr noundef %38)
+          to label %call.i9.i47.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
-call.i8.i47.i.noexc.i:                            ; preds = %if.end12.i43.i.i
+call.i9.i47.i.noexc.i:                            ; preds = %if.end12.i43.i.i
   %41 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8
-  %call2.i9.i48.i17.i = invoke noundef ptr %41(ptr noundef %39)
-          to label %call2.i9.i48.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+  %call2.i10.i48.i17.i = invoke noundef ptr %41(ptr noundef %39)
+          to label %call2.i10.i48.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
-call2.i9.i48.i.noexc.i:                           ; preds = %call.i8.i47.i.noexc.i
-  %call3.i10.i49.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i8.i47.i16.i, ptr noundef nonnull dereferenceable(1) %call2.i9.i48.i17.i) #23
-  %cmp.i11.i50.i.i = icmp slt i32 %call3.i10.i49.i.i, 0
-  br i1 %cmp.i11.i50.i.i, label %if.then.i, label %if.then.i36.i
+call2.i10.i48.i.noexc.i:                          ; preds = %call.i9.i47.i.noexc.i
+  %call3.i11.i49.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i9.i47.i16.i, ptr noundef nonnull dereferenceable(1) %call2.i10.i48.i17.i) #23
+  %cmp.i12.i50.i.i = icmp slt i32 %call3.i11.i49.i.i, 0
+  br i1 %cmp.i12.i50.i.i, label %if.then.i, label %if.then.i36.i
 
 if.else44.i.i:                                    ; preds = %call2.i14.i.noexc.i
   %42 = load ptr, ptr %_M_storage.i.i.i12.i.i, align 8
@@ -3767,14 +3767,14 @@ if.then64.i.i:                                    ; preds = %call2.i75.i.noexc.i
   br label %if.then.i
 
 if.else74.i.i:                                    ; preds = %call2.i75.i.noexc.i
-  %__x.022.i81.i.i = load ptr, ptr %0, align 8
-  %cmp.not23.i82.i.i = icmp eq ptr %__x.022.i81.i.i, null
-  br i1 %cmp.not23.i82.i.i, label %if.then.i109.i.i, label %while.body.i83.i.i
+  %__x.021.i81.i.i = load ptr, ptr %0, align 8
+  %cmp.not22.i82.i.i = icmp eq ptr %__x.021.i81.i.i, null
+  br i1 %cmp.not22.i82.i.i, label %if.then.i109.i.i, label %while.body.i83.i.i
 
 while.body.i83.i.i:                               ; preds = %if.else74.i.i, %call2.i.i87.i.noexc.i
-  %__x.024.i84.i.i = phi ptr [ %__x.0.i92.i.i, %call2.i.i87.i.noexc.i ], [ %__x.022.i81.i.i, %if.else74.i.i ]
+  %__x.023.i84.i.i = phi ptr [ %__x.0.i92.i.i, %call2.i.i87.i.noexc.i ], [ %__x.021.i81.i.i, %if.else74.i.i ]
   %52 = load ptr, ptr %_M_storage.i.i.i.i.i7, align 8
-  %_M_storage.i.i.i85.i.i = getelementptr inbounds i8, ptr %__x.024.i84.i.i, i64 32
+  %_M_storage.i.i.i85.i.i = getelementptr inbounds i8, ptr %__x.023.i84.i.i, i64 32
   %53 = load ptr, ptr %_M_storage.i.i.i85.i.i, align 8
   %54 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8
   %call.i.i86.i22.i = invoke noundef ptr %54(ptr noundef %52)
@@ -3789,7 +3789,7 @@ call2.i.i87.i.noexc.i:                            ; preds = %call.i.i86.i.noexc.
   %call3.i.i88.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i.i86.i22.i, ptr noundef nonnull dereferenceable(1) %call2.i.i87.i23.i) #23
   %cmp.i.i89.i.i = icmp slt i32 %call3.i.i88.i.i, 0
   %cond.in.v.i90.i.i = select i1 %cmp.i.i89.i.i, i64 16, i64 24
-  %cond.in.i91.i.i = getelementptr i8, ptr %__x.024.i84.i.i, i64 %cond.in.v.i90.i.i
+  %cond.in.i91.i.i = getelementptr i8, ptr %__x.023.i84.i.i, i64 %cond.in.v.i90.i.i
   %__x.0.i92.i.i = load ptr, ptr %cond.in.i91.i.i, align 8
   %cmp.not.i93.i.i = icmp eq ptr %__x.0.i92.i.i, null
   br i1 %cmp.not.i93.i.i, label %while.end.i94.i.i, label %while.body.i83.i.i, !llvm.loop !56
@@ -3798,35 +3798,35 @@ while.end.i94.i.i:                                ; preds = %call2.i.i87.i.noexc
   br i1 %cmp.i.i89.i.i, label %if.then.i109.i.i, label %if.end12.i95.i.i
 
 if.then.i109.i.i:                                 ; preds = %while.end.i94.i.i, %if.else74.i.i
-  %__y.0.lcssa28.i110.i.i = phi ptr [ %__x.024.i84.i.i, %while.end.i94.i.i ], [ %add.ptr.i.i.i, %if.else74.i.i ]
+  %__y.0.lcssa27.i110.i.i = phi ptr [ %__x.023.i84.i.i, %while.end.i94.i.i ], [ %add.ptr.i.i.i, %if.else74.i.i ]
   %56 = getelementptr inbounds i8, ptr %this, i64 24
   %this.val4.i111.i.i = load ptr, ptr %56, align 8
-  %cmp.i6.i112.i.i = icmp eq ptr %__y.0.lcssa28.i110.i.i, %this.val4.i111.i.i
-  br i1 %cmp.i6.i112.i.i, label %if.then.i, label %if.else.i113.i.i
+  %cmp.i7.i112.i.i = icmp eq ptr %__y.0.lcssa27.i110.i.i, %this.val4.i111.i.i
+  br i1 %cmp.i7.i112.i.i, label %if.then.i, label %if.else.i113.i.i
 
 if.else.i113.i.i:                                 ; preds = %if.then.i109.i.i
-  %call.i7.i114.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa28.i110.i.i) #23
+  %call.i8.i114.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa27.i110.i.i) #23
   br label %if.end12.i95.i.i
 
 if.end12.i95.i.i:                                 ; preds = %if.else.i113.i.i, %while.end.i94.i.i
-  %__y.0.lcssa29.i96.i.i = phi ptr [ %__y.0.lcssa28.i110.i.i, %if.else.i113.i.i ], [ %__x.024.i84.i.i, %while.end.i94.i.i ]
-  %__j.sroa.0.0.i97.i.i = phi ptr [ %call.i7.i114.i.i, %if.else.i113.i.i ], [ %__x.024.i84.i.i, %while.end.i94.i.i ]
+  %__y.0.lcssa28.i96.i.i = phi ptr [ %__y.0.lcssa27.i110.i.i, %if.else.i113.i.i ], [ %__x.023.i84.i.i, %while.end.i94.i.i ]
+  %__j.sroa.0.0.i97.i.i = phi ptr [ %call.i8.i114.i.i, %if.else.i113.i.i ], [ %__x.023.i84.i.i, %while.end.i94.i.i ]
   %_M_storage.i.i.i.i98.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i97.i.i, i64 32
   %57 = load ptr, ptr %_M_storage.i.i.i.i98.i.i, align 8
   %58 = load ptr, ptr %_M_storage.i.i.i.i.i7, align 8
   %59 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8
-  %call.i8.i99.i24.i = invoke noundef ptr %59(ptr noundef %57)
-          to label %call.i8.i99.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+  %call.i9.i99.i24.i = invoke noundef ptr %59(ptr noundef %57)
+          to label %call.i9.i99.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
-call.i8.i99.i.noexc.i:                            ; preds = %if.end12.i95.i.i
+call.i9.i99.i.noexc.i:                            ; preds = %if.end12.i95.i.i
   %60 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8
-  %call2.i9.i100.i25.i = invoke noundef ptr %60(ptr noundef %58)
-          to label %call2.i9.i100.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+  %call2.i10.i100.i25.i = invoke noundef ptr %60(ptr noundef %58)
+          to label %call2.i10.i100.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
-call2.i9.i100.i.noexc.i:                          ; preds = %call.i8.i99.i.noexc.i
-  %call3.i10.i101.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i8.i99.i24.i, ptr noundef nonnull dereferenceable(1) %call2.i9.i100.i25.i) #23
-  %cmp.i11.i102.i.i = icmp slt i32 %call3.i10.i101.i.i, 0
-  br i1 %cmp.i11.i102.i.i, label %if.then.i, label %if.then.i36.i
+call2.i10.i100.i.noexc.i:                         ; preds = %call.i9.i99.i.noexc.i
+  %call3.i11.i101.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i9.i99.i24.i, ptr noundef nonnull dereferenceable(1) %call2.i10.i100.i25.i) #23
+  %cmp.i12.i102.i.i = icmp slt i32 %call3.i11.i101.i.i, 0
+  br i1 %cmp.i12.i102.i.i, label %if.then.i, label %if.then.i36.i
 
 invoke.cont7.i:                                   ; preds = %if.then50.i.i, %if.then18.i.i, %if.then9.i.i
   %retval.sroa.0.0.i.i = phi ptr [ null, %if.then9.i.i ], [ %28, %if.then18.i.i ], [ null, %if.then50.i.i ]
@@ -3834,9 +3834,9 @@ invoke.cont7.i:                                   ; preds = %if.then50.i.i, %if.
   %tobool.not.i = icmp eq ptr %retval.sroa.12.0.i.i, null
   br i1 %tobool.not.i, label %if.then.i36.i, label %if.then.i
 
-if.then.i:                                        ; preds = %invoke.cont7.i, %call2.i9.i100.i.noexc.i, %if.then.i109.i.i, %if.then64.i.i, %call2.i9.i48.i.noexc.i, %if.then.i57.i.i, %if.then32.i.i, %call2.i9.i.i.noexc.i, %if.then.i.i.i
-  %retval.sroa.12.0.i9.i = phi ptr [ %retval.sroa.12.0.i.i, %invoke.cont7.i ], [ %__y.0.lcssa28.i110.i.i, %if.then.i109.i.i ], [ %__y.0.lcssa28.i58.i.i, %if.then.i57.i.i ], [ %__y.0.lcssa28.i.i.i, %if.then.i.i.i ], [ %spec.select132.i.i, %if.then64.i.i ], [ %spec.select130.i.i, %if.then32.i.i ], [ %__y.0.lcssa29.i.i.i, %call2.i9.i.i.noexc.i ], [ %__y.0.lcssa29.i44.i.i, %call2.i9.i48.i.noexc.i ], [ %__y.0.lcssa29.i96.i.i, %call2.i9.i100.i.noexc.i ]
-  %retval.sroa.0.0.i8.i = phi ptr [ %retval.sroa.0.0.i.i, %invoke.cont7.i ], [ null, %if.then.i109.i.i ], [ null, %if.then.i57.i.i ], [ null, %if.then.i.i.i ], [ %spec.select131.i.i, %if.then64.i.i ], [ %spec.select.i.i, %if.then32.i.i ], [ null, %call2.i9.i.i.noexc.i ], [ null, %call2.i9.i48.i.noexc.i ], [ null, %call2.i9.i100.i.noexc.i ]
+if.then.i:                                        ; preds = %invoke.cont7.i, %call2.i10.i100.i.noexc.i, %if.then.i109.i.i, %if.then64.i.i, %call2.i10.i48.i.noexc.i, %if.then.i57.i.i, %if.then32.i.i, %call2.i10.i.i.noexc.i, %if.then.i.i.i
+  %retval.sroa.12.0.i9.i = phi ptr [ %retval.sroa.12.0.i.i, %invoke.cont7.i ], [ %__y.0.lcssa27.i110.i.i, %if.then.i109.i.i ], [ %__y.0.lcssa27.i58.i.i, %if.then.i57.i.i ], [ %__y.0.lcssa27.i.i.i, %if.then.i.i.i ], [ %spec.select132.i.i, %if.then64.i.i ], [ %spec.select130.i.i, %if.then32.i.i ], [ %__y.0.lcssa28.i.i.i, %call2.i10.i.i.noexc.i ], [ %__y.0.lcssa28.i44.i.i, %call2.i10.i48.i.noexc.i ], [ %__y.0.lcssa28.i96.i.i, %call2.i10.i100.i.noexc.i ]
+  %retval.sroa.0.0.i8.i = phi ptr [ %retval.sroa.0.0.i.i, %invoke.cont7.i ], [ null, %if.then.i109.i.i ], [ null, %if.then.i57.i.i ], [ null, %if.then.i.i.i ], [ %spec.select131.i.i, %if.then64.i.i ], [ %spec.select.i.i, %if.then32.i.i ], [ null, %call2.i10.i.i.noexc.i ], [ null, %call2.i10.i48.i.noexc.i ], [ null, %call2.i10.i100.i.noexc.i ]
   %cmp.not.i.i27.i = icmp ne ptr %retval.sroa.0.0.i8.i, null
   %cmp2.i.i.i = icmp eq ptr %retval.sroa.12.0.i9.i, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i27.i, i1 true, i1 %cmp2.i.i.i
@@ -3875,7 +3875,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %call.i.i86.i.noe
           cleanup
   br label %lpad.i
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %call.i.i.i.noexc32.i, %lor.rhs.i.i.i, %call.i8.i99.i.noexc.i, %if.end12.i95.i.i, %call.i74.i.noexc.i, %if.else57.i.i, %call.i65.i.noexc.i, %if.else44.i.i, %call.i8.i47.i.noexc.i, %if.end12.i43.i.i, %call.i22.i.noexc.i, %if.else25.i.i, %call.i13.i.noexc.i, %if.else12.i.i, %call.i8.i.i.noexc.i, %if.end12.i.i.i, %call.i.i.noexc.i, %land.lhs.true.i.i
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %call.i.i.i.noexc32.i, %lor.rhs.i.i.i, %call.i9.i99.i.noexc.i, %if.end12.i95.i.i, %call.i74.i.noexc.i, %if.else57.i.i, %call.i65.i.noexc.i, %if.else44.i.i, %call.i9.i47.i.noexc.i, %if.end12.i43.i.i, %call.i22.i.noexc.i, %if.else25.i.i, %call.i13.i.noexc.i, %if.else12.i.i, %call.i9.i.i.noexc.i, %if.end12.i.i.i, %call.i.i.noexc.i, %land.lhs.true.i.i
   %lpad.loopexit.split-lp31.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
@@ -3897,8 +3897,8 @@ cleanup.i:                                        ; preds = %call2.i.i.i.noexc34
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8
   br label %if.end
 
-if.then.i36.i:                                    ; preds = %invoke.cont7.i, %call2.i9.i100.i.noexc.i, %call2.i66.i.noexc.i, %call2.i9.i48.i.noexc.i, %call2.i9.i.i.noexc.i
-  %retval.sroa.0.0.ph.i = phi ptr [ %retval.sroa.0.0.i.i, %invoke.cont7.i ], [ %__j.sroa.0.0.i97.i.i, %call2.i9.i100.i.noexc.i ], [ %__j.sroa.0.0.i45.i.i, %call2.i9.i48.i.noexc.i ], [ %__j.sroa.0.0.i.i.i, %call2.i9.i.i.noexc.i ], [ %__y.addr.0.lcssa.i.i.i19, %call2.i66.i.noexc.i ]
+if.then.i36.i:                                    ; preds = %invoke.cont7.i, %call2.i10.i100.i.noexc.i, %call2.i66.i.noexc.i, %call2.i10.i48.i.noexc.i, %call2.i10.i.i.noexc.i
+  %retval.sroa.0.0.ph.i = phi ptr [ %retval.sroa.0.0.i.i, %invoke.cont7.i ], [ %__j.sroa.0.0.i97.i.i, %call2.i10.i100.i.noexc.i ], [ %__j.sroa.0.0.i45.i.i, %call2.i10.i48.i.noexc.i ], [ %__j.sroa.0.0.i.i.i, %call2.i10.i.i.noexc.i ], [ %__y.addr.0.lcssa.i.i.i19, %call2.i66.i.noexc.i ]
   %68 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 56
   %__p.val.i.i.i = load ptr, ptr %68, align 8
   tail call fastcc void @_ZNSt8_Rb_treeIPK19grpc_channel_filterS2_St9_IdentityIS2_EN9grpc_core12_GLOBAL__N_127CompareChannelFiltersByNameESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %__p.val.i.i.i)

@@ -87,23 +87,23 @@ $_ZN4llvm11raw_ostreamlsEc = comdat any
 @.str.73 = private unnamed_addr constant [7 x i8] c"strict\00", align 1
 @_ZN4llvm3ompL13OMPD_parallelE = internal constant i32 47, align 4
 @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj = private unnamed_addr constant [5 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.1 = private unnamed_addr constant [6 x ptr] [ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.2 = private unnamed_addr constant [10 x ptr] [ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.4, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.4 = private unnamed_addr constant [5 x ptr] [ptr @.str.23, ptr @.str.24, ptr @.str.28, ptr @.str.29, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.5 = private unnamed_addr constant [5 x ptr] [ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.6 = private unnamed_addr constant [14 x ptr] [ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.4, ptr @.str.40, ptr @.str.6, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.7 = private unnamed_addr constant [3 x ptr] [ptr @.str.41, ptr @.str.43, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.8 = private unnamed_addr constant [14 x ptr] [ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.4, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.3, ptr @.str, ptr @.str.9, ptr @.str.43, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.9 = private unnamed_addr constant [4 x ptr] [ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.10 = private unnamed_addr constant [4 x ptr] [ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.11 = private unnamed_addr constant [3 x ptr] [ptr @.str.56, ptr @.str.57, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.12 = private unnamed_addr constant [3 x ptr] [ptr @.str.58, ptr @.str.59, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.13 = private unnamed_addr constant [5 x ptr] [ptr @.str.61, ptr @.str.4, ptr @.str.62, ptr @.str.63, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.14 = private unnamed_addr constant [11 x ptr] [ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.15 = private unnamed_addr constant [3 x ptr] [ptr @.str.64, ptr @.str.65, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.16 = private unnamed_addr constant [4 x ptr] [ptr @.str.9, ptr @.str.66, ptr @.str.67, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.17 = private unnamed_addr constant [3 x ptr] [ptr @.str.68, ptr @.str.69, ptr @.str.4], align 8
-@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.18 = private unnamed_addr constant [4 x ptr] [ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.2 = private unnamed_addr constant [6 x ptr] [ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.3 = private unnamed_addr constant [10 x ptr] [ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.4, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.5 = private unnamed_addr constant [5 x ptr] [ptr @.str.23, ptr @.str.24, ptr @.str.28, ptr @.str.29, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.6 = private unnamed_addr constant [5 x ptr] [ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.7 = private unnamed_addr constant [14 x ptr] [ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.4, ptr @.str.40, ptr @.str.6, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.8 = private unnamed_addr constant [3 x ptr] [ptr @.str.41, ptr @.str.43, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.9 = private unnamed_addr constant [14 x ptr] [ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.4, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.3, ptr @.str, ptr @.str.9, ptr @.str.43, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.10 = private unnamed_addr constant [4 x ptr] [ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.11 = private unnamed_addr constant [4 x ptr] [ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.12 = private unnamed_addr constant [3 x ptr] [ptr @.str.56, ptr @.str.57, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.13 = private unnamed_addr constant [3 x ptr] [ptr @.str.58, ptr @.str.59, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.14 = private unnamed_addr constant [5 x ptr] [ptr @.str.61, ptr @.str.4, ptr @.str.62, ptr @.str.63, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.15 = private unnamed_addr constant [11 x ptr] [ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.16 = private unnamed_addr constant [3 x ptr] [ptr @.str.64, ptr @.str.65, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.17 = private unnamed_addr constant [4 x ptr] [ptr @.str.9, ptr @.str.66, ptr @.str.67, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.18 = private unnamed_addr constant [3 x ptr] [ptr @.str.68, ptr @.str.69, ptr @.str.4], align 8
+@switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.19 = private unnamed_addr constant [4 x ptr] [ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.4], align 8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 0, 102) i32 @_ZN5clang25getOpenMPSimpleClauseTypeEN4llvm3omp6ClauseENS0_9StringRefERKNS_11LangOptionsE(i32 noundef %0, ptr readonly %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %3) local_unnamed_addr #0 {
@@ -1028,7 +1028,7 @@ define dso_local noundef ptr @_ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3om
 switch.lookup33:                                  ; preds = %2
   %switch.tableidx = add nsw i32 %1, -2
   %3 = sext i32 %switch.tableidx to i64
-  %switch.gep34 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.1, i64 0, i64 %3
+  %switch.gep34 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.2, i64 0, i64 %3
   %switch.load35 = load ptr, ptr %switch.gep34, align 8
   br label %30
 
@@ -1068,103 +1068,103 @@ switch.lookup:                                    ; preds = %2
 
 switch.lookup36:                                  ; preds = %2
   %13 = sext i32 %1 to i64
-  %switch.gep37 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.2, i64 0, i64 %13
+  %switch.gep37 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.3, i64 0, i64 %13
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   br label %30
 
 switch.lookup39:                                  ; preds = %2
   %14 = sext i32 %1 to i64
-  %switch.gep40 = getelementptr inbounds [11 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.14, i64 0, i64 %14
+  %switch.gep40 = getelementptr inbounds [11 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.15, i64 0, i64 %14
   %switch.load41 = load ptr, ptr %switch.gep40, align 8
   br label %30
 
 switch.lookup42:                                  ; preds = %2
   %15 = sext i32 %1 to i64
-  %switch.gep43 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.4, i64 0, i64 %15
+  %switch.gep43 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.5, i64 0, i64 %15
   %switch.load44 = load ptr, ptr %switch.gep43, align 8
   br label %30
 
 switch.lookup45:                                  ; preds = %2
   %16 = sext i32 %1 to i64
-  %switch.gep46 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.5, i64 0, i64 %16
+  %switch.gep46 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.6, i64 0, i64 %16
   %switch.load47 = load ptr, ptr %switch.gep46, align 8
   br label %30
 
 switch.lookup48:                                  ; preds = %2
   %17 = sext i32 %1 to i64
-  %switch.gep49 = getelementptr inbounds [14 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.6, i64 0, i64 %17
+  %switch.gep49 = getelementptr inbounds [14 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.7, i64 0, i64 %17
   %switch.load50 = load ptr, ptr %switch.gep49, align 8
   br label %30
 
 switch.lookup51:                                  ; preds = %2, %2
   %18 = sext i32 %1 to i64
-  %switch.gep52 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.7, i64 0, i64 %18
+  %switch.gep52 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.8, i64 0, i64 %18
   %switch.load53 = load ptr, ptr %switch.gep52, align 8
   br label %30
 
 switch.lookup54:                                  ; preds = %2
   %19 = sext i32 %1 to i64
-  %switch.gep55 = getelementptr inbounds [14 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.8, i64 0, i64 %19
+  %switch.gep55 = getelementptr inbounds [14 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.9, i64 0, i64 %19
   %switch.load56 = load ptr, ptr %switch.gep55, align 8
   br label %30
 
 switch.lookup57:                                  ; preds = %2
   %20 = sext i32 %1 to i64
-  %switch.gep58 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.9, i64 0, i64 %20
+  %switch.gep58 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.10, i64 0, i64 %20
   %switch.load59 = load ptr, ptr %switch.gep58, align 8
   br label %30
 
 switch.lookup60:                                  ; preds = %2
   %21 = sext i32 %1 to i64
-  %switch.gep61 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.10, i64 0, i64 %21
+  %switch.gep61 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.11, i64 0, i64 %21
   %switch.load62 = load ptr, ptr %switch.gep61, align 8
   br label %30
 
 switch.lookup63:                                  ; preds = %2
   %22 = sext i32 %1 to i64
-  %switch.gep64 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.11, i64 0, i64 %22
+  %switch.gep64 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.12, i64 0, i64 %22
   %switch.load65 = load ptr, ptr %switch.gep64, align 8
   br label %30
 
 switch.lookup66:                                  ; preds = %2
   %23 = sext i32 %1 to i64
-  %switch.gep67 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.12, i64 0, i64 %23
+  %switch.gep67 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.13, i64 0, i64 %23
   %switch.load68 = load ptr, ptr %switch.gep67, align 8
   br label %30
 
 switch.lookup69:                                  ; preds = %2
   %24 = sext i32 %1 to i64
-  %switch.gep70 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.13, i64 0, i64 %24
+  %switch.gep70 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.14, i64 0, i64 %24
   %switch.load71 = load ptr, ptr %switch.gep70, align 8
   br label %30
 
 switch.lookup72:                                  ; preds = %2
   %25 = sext i32 %1 to i64
-  %switch.gep73 = getelementptr inbounds [11 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.14, i64 0, i64 %25
+  %switch.gep73 = getelementptr inbounds [11 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.15, i64 0, i64 %25
   %switch.load74 = load ptr, ptr %switch.gep73, align 8
   br label %30
 
 switch.lookup75:                                  ; preds = %2
   %26 = sext i32 %1 to i64
-  %switch.gep76 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.15, i64 0, i64 %26
+  %switch.gep76 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.16, i64 0, i64 %26
   %switch.load77 = load ptr, ptr %switch.gep76, align 8
   br label %30
 
 switch.lookup78:                                  ; preds = %2
   %27 = sext i32 %1 to i64
-  %switch.gep79 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.16, i64 0, i64 %27
+  %switch.gep79 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.17, i64 0, i64 %27
   %switch.load80 = load ptr, ptr %switch.gep79, align 8
   br label %30
 
 switch.lookup81:                                  ; preds = %2
   %28 = sext i32 %1 to i64
-  %switch.gep82 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.17, i64 0, i64 %28
+  %switch.gep82 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.18, i64 0, i64 %28
   %switch.load83 = load ptr, ptr %switch.gep82, align 8
   br label %30
 
 switch.lookup84:                                  ; preds = %2
   %29 = sext i32 %1 to i64
-  %switch.gep85 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.18, i64 0, i64 %29
+  %switch.gep85 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.19, i64 0, i64 %29
   %switch.load86 = load ptr, ptr %switch.gep85, align 8
   br label %30
 
@@ -2268,8 +2268,8 @@ define dso_local void @_ZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorIm
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
   %6 = getelementptr inbounds i32, ptr %4, i64 %5
-  %.not29 = icmp eq i64 %5, 0
-  br i1 %.not29, label %._crit_edge.thread, label %.lr.ph
+  %.not19 = icmp eq i64 %5, 0
+  br i1 %.not19, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6
@@ -2280,9 +2280,9 @@ define dso_local void @_ZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorIm
   br label %9
 
 9:                                                ; preds = %.lr.ph, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit"
-  %.031 = phi i1 [ false, %.lr.ph ], [ %112, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit" ]
-  %.01230 = phi ptr [ %4, %.lr.ph ], [ %113, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit" ]
-  %10 = load i32, ptr %.01230, align 4
+  %.021 = phi i1 [ false, %.lr.ph ], [ %112, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit" ]
+  %.01220 = phi ptr [ %4, %.lr.ph ], [ %113, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit" ]
+  %10 = load i32, ptr %.01220, align 4
   switch i32 %10, label %105 [
     i32 44, label %11
     i32 45, label %21
@@ -2517,8 +2517,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit15: 
 
 "_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit": ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit4.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit6.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit10.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit12.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit14.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit16.i, %90, %92, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit15, %104
   %.0.i = phi i1 [ false, %104 ], [ true, %92 ], [ true, %90 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit15 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit16.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit14.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit12.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit10.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit6.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit4.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit.i ]
-  %112 = or i1 %.031, %.0.i
-  %113 = getelementptr inbounds i8, ptr %.01230, i64 4
+  %112 = or i1 %.021, %.0.i
+  %113 = getelementptr inbounds i8, ptr %.01220, i64 4
   %.not = icmp eq ptr %113, %6
   br i1 %.not, label %._crit_edge, label %9
 

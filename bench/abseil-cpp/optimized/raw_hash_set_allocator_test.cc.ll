@@ -11351,12 +11351,12 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i.i.i.i.
   %arrayidx7.i.i.i.i.i.i.i.i = getelementptr i8, ptr %25, i64 %and6.i.i.i.i.i.i.i.i
   store i8 %conv.i.i.i.i.i.i, ptr %arrayidx7.i.i.i.i.i.i.i.i, align 1, !noalias !306
   %.val.i.i.i.i = load ptr, ptr %3, align 8, !noalias !306
-  %add.ptr.i3.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i
-  store i32 %value.0.val, ptr %add.ptr.i3.i.i.i.i, align 8, !noalias !306
-  %num_moves_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3.i.i.i.i, i64 8
+  %add.ptr.i4.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i
+  store i32 %value.0.val, ptr %add.ptr.i4.i.i.i.i, align 8, !noalias !306
+  %num_moves_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i4.i.i.i.i, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !311)
   store ptr null, ptr %num_moves_.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !311, !noalias !306
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3.i.i.i.i, i64 16
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i4.i.i.i.i, i64 16
   %call5.i.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30, !noalias !314
   %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !314
@@ -11367,7 +11367,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i.i.i.i.
   store i64 0, ptr %_M_impl.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !314
   store ptr %call5.i.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !311, !noalias !306
   store ptr %_M_impl.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_moves_.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !311, !noalias !306
-  %num_copies_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3.i.i.i.i, i64 24
+  %num_copies_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i4.i.i.i.i, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !315)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !315, !noalias !306
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
@@ -11380,7 +11380,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
   resume { ptr, i32 } %26
 
 _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
-  %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3.i.i.i.i, i64 32
+  %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i4.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !318
   %_M_weak_count.i.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i, i64 12
@@ -11399,9 +11399,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %.val1.i.i.i.i = phi ptr [ %.val1.pre.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i ], [ %this.val7.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %retval.sroa.3.0.i9.i.i.i.i = phi i8 [ 1, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i ], [ 0, %for.body.i.i.i.i.i ]
   %retval.sroa.0.0.i8.i.i.i.i = phi i64 [ %target.sroa.0.0.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i ], [ %and.i.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %add.ptr.i4.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i
+  %add.ptr.i5.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i
   %add.ptr3.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i
-  store ptr %add.ptr.i4.i.i.i.i, ptr %agg.result, align 8, !alias.scope !306
+  store ptr %add.ptr.i5.i.i.i.i, ptr %agg.result, align 8, !alias.scope !306
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr3.i.i.i.i.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !306
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -21010,8 +21010,8 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.i.i.i.i.noexc
   %20 = extractvalue { i64, i8 } %call.i.i.i.i.i.i7, 0
-  %.val2.i.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx, align 8, !noalias !550
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i.i.i, i64 %20
+  %.val3.i.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx, align 8, !noalias !550
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val3.i.i.i.i.i.i, i64 %20
   %21 = load i32, ptr %it.sroa.6.032.i, align 4, !noalias !550
   store i32 %21, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !550
   %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
@@ -21720,8 +21720,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %wh
 
 if.then.i.i.i.i.i:                                ; preds = %for.body
   %14 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
-  %.val2.i.i.i.i.i = load ptr, ptr %12, align 8, !noalias !589
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i.i, i64 %14
+  %.val3.i.i.i.i.i = load ptr, ptr %12, align 8, !noalias !589
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val3.i.i.i.i.i, i64 %14
   %15 = load i32, ptr %it.sroa.6.032, align 4, !noalias !589
   store i32 %15, ptr %add.ptr.i.i.i.i.i.i, align 8, !noalias !589
   %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8

@@ -10368,12 +10368,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 invoke.cont149:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit117, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i133, %if.end142
   store ptr null, ptr %message_.i119, align 8
   store i32 3, ptr %value144, align 4
+  %50 = ptrtoint ptr %value144 to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %is_zero145, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %is_zero145, i64 24
-  %50 = getelementptr inbounds i8, ptr %is_zero145, i64 8
-  store i64 0, ptr %50, align 8
-  %51 = ptrtoint ptr %value144 to i64
-  store i64 %51, ptr %is_zero145, align 8
+  %51 = getelementptr inbounds i8, ptr %is_zero145, i64 8
+  store i64 0, ptr %51, align 8
+  store i64 %50, ptr %is_zero145, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZN12_GLOBAL__N_127Mutex_FunctorCondition_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZN12_GLOBAL__N_127Mutex_FunctorCondition_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %arrayinit.end.i.i135 = getelementptr inbounds i8, ptr %c147, i64 16

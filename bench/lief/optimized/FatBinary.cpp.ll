@@ -414,53 +414,53 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_9CPU_TYPESE(ptr dead_on_unwind no
   br i1 %12, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %31
-  %.058.i.i.i = phi i64 [ %33, %31 ], [ %11, %3 ]
-  %.sroa.038.057.i.i.i = phi ptr [ %32, %31 ], [ %5, %3 ]
-  %.val.i.i.i.i = load ptr, ptr %.sroa.038.057.i.i.i, align 8
+  %.064.i.i.i = phi i64 [ %33, %31 ], [ %11, %3 ]
+  %.sroa.044.063.i.i.i = phi ptr [ %32, %31 ], [ %5, %3 ]
+  %.val.i.i.i.i = load ptr, ptr %.sroa.044.063.i.i.i, align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %.val.i.i.i.i)
   %14 = tail call noundef i32 @_ZNK4LIEF5MachO6Header8cpu_typeEv(ptr noundef nonnull align 8 dereferenceable(48) %13)
   %15 = icmp eq i32 %14, %2
   br i1 %15, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit", label %16
 
 16:                                               ; preds = %.lr.ph.i.i.i
-  %17 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 8
-  %.val.i16.i.i.i = load ptr, ptr %17, align 8
-  %18 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %.val.i16.i.i.i)
+  %17 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 8
+  %.val.i22.i.i.i = load ptr, ptr %17, align 8
+  %18 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %.val.i22.i.i.i)
   %19 = tail call noundef i32 @_ZNK4LIEF5MachO6Header8cpu_typeEv(ptr noundef nonnull align 8 dereferenceable(48) %18)
   %20 = icmp eq i32 %19, %2
   br i1 %20, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit", label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 16
-  %.val.i17.i.i.i = load ptr, ptr %22, align 8
-  %23 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %.val.i17.i.i.i)
+  %22 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 16
+  %.val.i23.i.i.i = load ptr, ptr %22, align 8
+  %23 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %.val.i23.i.i.i)
   %24 = tail call noundef i32 @_ZNK4LIEF5MachO6Header8cpu_typeEv(ptr noundef nonnull align 8 dereferenceable(48) %23)
   %25 = icmp eq i32 %24, %2
   br i1 %25, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit23", label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 24
-  %.val.i18.i.i.i = load ptr, ptr %27, align 8
-  %28 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %.val.i18.i.i.i)
+  %27 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 24
+  %.val.i24.i.i.i = load ptr, ptr %27, align 8
+  %28 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %.val.i24.i.i.i)
   %29 = tail call noundef i32 @_ZNK4LIEF5MachO6Header8cpu_typeEv(ptr noundef nonnull align 8 dereferenceable(48) %28)
   %30 = icmp eq i32 %29, %2
   br i1 %30, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit25", label %31
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 32
-  %33 = add nsw i64 %.058.i.i.i, -1
-  %34 = icmp sgt i64 %.058.i.i.i, 1
+  %32 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 32
+  %33 = add nsw i64 %.064.i.i.i, -1
+  %34 = icmp sgt i64 %.064.i.i.i, 1
   br i1 %34, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !12
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %31
   %.pre.i.i.i = ptrtoint ptr %32 to i64
-  %.pre63.i.i.i = sub i64 %8, %.pre.i.i.i
+  %.pre69.i.i.i = sub i64 %8, %.pre.i.i.i
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %3
-  %.pre-phi64.i.i.i = phi i64 [ %.pre63.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %10, %3 ]
-  %.sroa.038.0.lcssa.i.i.i = phi ptr [ %32, %._crit_edge.loopexit.i.i.i ], [ %5, %3 ]
-  %35 = ashr exact i64 %.pre-phi64.i.i.i, 3
+  %.pre-phi70.i.i.i = phi i64 [ %.pre69.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %10, %3 ]
+  %.sroa.044.0.lcssa.i.i.i = phi ptr [ %32, %._crit_edge.loopexit.i.i.i ], [ %5, %3 ]
+  %35 = ashr exact i64 %.pre-phi70.i.i.i, 3
   switch i64 %35, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit" [
     i64 3, label %36
     i64 2, label %42
@@ -468,51 +468,51 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_9CPU_TYPESE(ptr dead_on_unwind no
   ]
 
 36:                                               ; preds = %._crit_edge.i.i.i
-  %.val.i19.i.i.i = load ptr, ptr %.sroa.038.0.lcssa.i.i.i, align 8
-  %37 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %.val.i19.i.i.i)
+  %.val.i25.i.i.i = load ptr, ptr %.sroa.044.0.lcssa.i.i.i, align 8
+  %37 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %.val.i25.i.i.i)
   %38 = tail call noundef i32 @_ZNK4LIEF5MachO6Header8cpu_typeEv(ptr noundef nonnull align 8 dereferenceable(48) %37)
   %39 = icmp eq i32 %38, %2
   br i1 %39, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit", label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %.sroa.038.0.lcssa.i.i.i, i64 8
+  %41 = getelementptr inbounds i8, ptr %.sroa.044.0.lcssa.i.i.i, i64 8
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i
-  %.sroa.038.1.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %41, %40 ]
-  %.val.i20.i.i.i = load ptr, ptr %.sroa.038.1.i.i.i, align 8
-  %43 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %.val.i20.i.i.i)
+  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %41, %40 ]
+  %.val.i26.i.i.i = load ptr, ptr %.sroa.044.1.i.i.i, align 8
+  %43 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %.val.i26.i.i.i)
   %44 = tail call noundef i32 @_ZNK4LIEF5MachO6Header8cpu_typeEv(ptr noundef nonnull align 8 dereferenceable(48) %43)
   %45 = icmp eq i32 %44, %2
   br i1 %45, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit", label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %.sroa.038.1.i.i.i, i64 8
+  %47 = getelementptr inbounds i8, ptr %.sroa.044.1.i.i.i, i64 8
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i
-  %.sroa.038.2.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %47, %46 ]
-  %.val.i21.i.i.i = load ptr, ptr %.sroa.038.2.i.i.i, align 8
-  %49 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %.val.i21.i.i.i)
+  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %47, %46 ]
+  %.val.i27.i.i.i = load ptr, ptr %.sroa.044.2.i.i.i, align 8
+  %49 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF5MachO6Binary6headerEv(ptr noundef nonnull align 8 dereferenceable(384) %.val.i27.i.i.i)
   %50 = tail call noundef i32 @_ZNK4LIEF5MachO6Header8cpu_typeEv(ptr noundef nonnull align 8 dereferenceable(48) %49)
   %51 = icmp eq i32 %50, %2
-  %spec.select.i.i.i = select i1 %51, ptr %.sroa.038.2.i.i.i, ptr %7
+  %spec.select.i.i.i = select i1 %51, ptr %.sroa.044.2.i.i.i, ptr %7
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit": ; preds = %16
-  %52 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 8
+  %52 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 8
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit23": ; preds = %21
-  %53 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 16
+  %53 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 16
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit25": ; preds = %26
-  %54 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 24
+  %54 = getelementptr inbounds i8, ptr %.sroa.044.063.i.i.i, i64 24
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit23", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit25", %._crit_edge.i.i.i, %36, %42, %48
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %36 ], [ %.sroa.038.1.i.i.i, %42 ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %48 ], [ %52, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit" ], [ %53, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit23" ], [ %54, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit25" ], [ %.sroa.038.057.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %36 ], [ %.sroa.044.1.i.i.i, %42 ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %48 ], [ %52, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit" ], [ %53, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit23" ], [ %54, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_9CPU_TYPESEE3$_0ET_SH_SH_T0_.exit.loopexit.split.loop.exit25" ], [ %.sroa.044.063.i.i.i, %.lr.ph.i.i.i ]
   %55 = load ptr, ptr %6, align 8
   %56 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %55
   br i1 %56, label %57, label %58

@@ -344,10 +344,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::f14::detail::F14Chunk" = type { %"struct.std::array.771", i8, i8, %"struct.std::array.772" }
 %"struct.std::array.771" = type { [14 x i8] }
 %"struct.std::array.772" = type { [14 x %"union.std::aligned_storage<8, 8>::type"] }
-%"class.std::vector.817" = type { %"struct.std::_Vector_base.818" }
-%"struct.std::_Vector_base.818" = type { %"struct.std::_Vector_base<folly::jsonschema::(anonymous namespace)::SchemaError, std::allocator<folly::jsonschema::(anonymous namespace)::SchemaError>>::_Vector_impl" }
-%"struct.std::_Vector_base<folly::jsonschema::(anonymous namespace)::SchemaError, std::allocator<folly::jsonschema::(anonymous namespace)::SchemaError>>::_Vector_impl" = type { %"struct.std::_Vector_base<folly::jsonschema::(anonymous namespace)::SchemaError, std::allocator<folly::jsonschema::(anonymous namespace)::SchemaError>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<folly::jsonschema::(anonymous namespace)::SchemaError, std::allocator<folly::jsonschema::(anonymous namespace)::SchemaError>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN5folly9SingletonINS_10jsonschema9ValidatorENS_6detail10DefaultTagES4_EC2ESt8functionIFPS2_vEES6_IFvS7_EE = comdat any
 
@@ -85568,10 +85564,7 @@ define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_114AnyOfValidator8valid
 entry:
   %ref.tmp.i65 = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
   %ref.tmp.i = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
-  %errors = alloca %"class.std::vector.817", align 8
   %se = alloca %"class.folly::Optional", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %errors) #41
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %errors, i8 0, i64 24, i1 false)
   %validators_ = getelementptr inbounds i8, ptr %this, i64 16
   %validators_.val = load ptr, ptr %validators_, align 8, !tbaa !22
   %0 = getelementptr inbounds i8, ptr %this, i64 24
@@ -85581,34 +85574,35 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %se, i64 16
-  %_M_finish.i = getelementptr inbounds i8, ptr %errors, i64 8
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %errors, i64 16
   br label %for.body
 
 for.cond.cleanup.loopexit:                        ; preds = %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit61
   %validators_.val44.pre = load ptr, ptr %validators_, align 8, !tbaa !467
   %validators_.val45.pre = load ptr, ptr %0, align 8, !tbaa !452
-  %errors.val.pre = load ptr, ptr %errors, align 8, !tbaa !2528
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup.loopexit, %entry
-  %errors.val46 = phi ptr [ %9, %for.cond.cleanup.loopexit ], [ null, %entry ]
-  %errors.val = phi ptr [ %errors.val.pre, %for.cond.cleanup.loopexit ], [ null, %entry ]
-  %validators_.val45 = phi ptr [ %validators_.val45.pre, %for.cond.cleanup.loopexit ], [ %validators_.val, %entry ]
-  %validators_.val44 = phi ptr [ %validators_.val44.pre, %for.cond.cleanup.loopexit ], [ %validators_.val, %entry ]
+  %errors.sroa.0.0 = phi ptr [ null, %entry ], [ %errors.sroa.0.2, %for.cond.cleanup.loopexit ]
+  %errors.sroa.8.0 = phi ptr [ null, %entry ], [ %errors.sroa.8.2, %for.cond.cleanup.loopexit ]
+  %errors.val46 = phi ptr [ null, %entry ], [ %7, %for.cond.cleanup.loopexit ]
+  %validators_.val45 = phi ptr [ %validators_.val, %entry ], [ %validators_.val45.pre, %for.cond.cleanup.loopexit ]
+  %validators_.val44 = phi ptr [ %validators_.val, %entry ], [ %validators_.val44.pre, %for.cond.cleanup.loopexit ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %validators_.val45 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %validators_.val44 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %sub.ptr.lhs.cast.i47 = ptrtoint ptr %errors.val46 to i64
-  %sub.ptr.rhs.cast.i48 = ptrtoint ptr %errors.val to i64
+  %sub.ptr.rhs.cast.i48 = ptrtoint ptr %errors.sroa.0.0 to i64
   %sub.ptr.sub.i49 = sub i64 %sub.ptr.lhs.cast.i47, %sub.ptr.rhs.cast.i48
   %sub.ptr.div.i50 = ashr exact i64 %sub.ptr.sub.i49, 4
   %cmp = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i50
   br i1 %cmp, label %if.then21, label %if.else
 
 for.body:                                         ; preds = %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit61, %for.body.lr.ph
-  %2 = phi ptr [ null, %for.body.lr.ph ], [ %9, %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit61 ]
+  %errors.sroa.0.1 = phi ptr [ null, %for.body.lr.ph ], [ %errors.sroa.0.2, %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit61 ]
+  %errors.sroa.8.1 = phi ptr [ null, %for.body.lr.ph ], [ %errors.sroa.8.2, %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit61 ]
+  %errors.sroa.11.0 = phi ptr [ null, %for.body.lr.ph ], [ %errors.sroa.11.1, %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit61 ]
+  %2 = phi ptr [ null, %for.body.lr.ph ], [ %7, %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit61 ]
   %__begin3.sroa.0.075 = phi ptr [ %validators_.val, %for.body.lr.ph ], [ %incdec.ptr.i62, %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit61 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %se) #41
   %call5.val = load ptr, ptr %__begin3.sroa.0.075, align 8, !tbaa !22
@@ -85621,21 +85615,17 @@ invoke.cont:                                      ; preds = %for.body
   br i1 %tobool.i.i.not, label %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit61, label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %invoke.cont
-  %3 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !2530
-  %cmp.not.i = icmp eq ptr %2, %3
+  %cmp.not.i = icmp eq ptr %2, %errors.sroa.11.0
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont9
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %se) #41
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 16), ptr %2, align 8, !tbaa !26
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !2531
   br label %if.end
 
 if.else.i:                                        ; preds = %invoke.cont9
-  %this.val.i.i51 = load ptr, ptr %errors, align 8, !tbaa !22
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %this.val.i.i51 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %errors.sroa.11.0 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %errors.sroa.0.1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775792
   br i1 %cmp.i.i.i, label %if.then.i.i.i53, label %_ZNKSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -85649,12 +85639,12 @@ if.then.i.i.i53:                                  ; preds = %if.else.i
 
 _ZNKSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
-  %cmp.i.i.i.i = icmp eq ptr %2, %this.val.i.i51
+  %cmp.i.i.i.i = icmp eq ptr %errors.sroa.11.0, %errors.sroa.0.1
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %4 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %4
+  %3 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %3
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -85672,38 +85662,34 @@ _ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_M_
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i
   %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i33.i.i, %_ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_M_allocateEm.exit.i.i ]
-  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val.i.i51, %_ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_M_allocateEm.exit.i.i ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !2532)
-  call void @llvm.experimental.noalias.scope.decl(metadata !2535)
+  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %errors.sroa.0.1, %_ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_M_allocateEm.exit.i.i ]
+  call void @llvm.experimental.noalias.scope.decl(metadata !2528)
+  call void @llvm.experimental.noalias.scope.decl(metadata !2531)
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i) #41
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 16), ptr %__cur.03.i.i.i.i.i, align 8, !tbaa !26, !alias.scope !2532, !noalias !2535
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.02.i.i.i.i.i, align 8, !tbaa !26, !alias.scope !2535, !noalias !2532
-  %5 = load ptr, ptr %vtable.i.i.i.i.i.i.i.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i) #41
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 16), ptr %__cur.03.i.i.i.i.i, align 8, !tbaa !26, !alias.scope !2528, !noalias !2531
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.02.i.i.i.i.i, align 8, !tbaa !26, !alias.scope !2531, !noalias !2528
+  %4 = load ptr, ptr %vtable.i.i.i.i.i.i.i.i, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i) #41
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %2
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit43.i.i, label %for.body.i.i.i.i.i, !llvm.loop !2537
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %errors.sroa.11.0
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit43.i.i, label %for.body.i.i.i.i.i, !llvm.loop !2533
 
 _ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit43.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i33.i.i, %_ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
-  %tobool.not.i.i.i52 = icmp eq ptr %this.val.i.i51, null
+  %tobool.not.i.i.i52 = icmp eq ptr %errors.sroa.0.1, null
   br i1 %tobool.not.i.i.i52, label %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i44.i.i
 
 if.then.i44.i.i:                                  ; preds = %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit43.i.i
-  call void @_ZdlPv(ptr noundef nonnull %this.val.i.i51) #43
+  call void @_ZdlPv(ptr noundef nonnull %errors.sroa.0.1) #43
   br label %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i44.i.i, %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit43.i.i
-  store ptr %cond.i33.i.i, ptr %errors, align 8, !tbaa !2528
-  store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !2531
   %add.ptr19.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", ptr %cond.i33.i.i, i64 %cond.i.i.i
-  store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !2530
   br label %if.end
 
 lpad:                                             ; preds = %for.body
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -85716,8 +85702,8 @@ lpad8:                                            ; preds = %if.then.i.i.i53
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   %.pre = load i8, ptr %1, align 8, !tbaa !964, !range !137
-  %7 = icmp eq i8 %.pre, 0
-  br i1 %7, label %ehcleanup, label %if.then.i.i.i57
+  %6 = icmp eq i8 %.pre, 0
+  br i1 %6, label %ehcleanup, label %if.then.i.i.i57
 
 if.then.i.i.i57:                                  ; preds = %lpad8, %lpad8.thread
   %lpad.phi82 = phi { ptr, i32 } [ %lpad.loopexit, %lpad8.thread ], [ %lpad.loopexit.split-lp, %lpad8 ]
@@ -85726,7 +85712,10 @@ if.then.i.i.i57:                                  ; preds = %lpad8, %lpad8.threa
   br label %ehcleanup
 
 if.end:                                           ; preds = %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i
-  %8 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
+  %errors.sroa.0.3 = phi ptr [ %cond.i33.i.i, %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %errors.sroa.0.1, %if.then.i ]
+  %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %2, %if.then.i ]
+  %errors.sroa.11.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %errors.sroa.11.0, %if.then.i ]
+  %errors.sroa.8.3 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 16
   %.pr = load i8, ptr %1, align 8, !tbaa !964
   %tobool.not.i.i.i59 = icmp eq i8 %.pr, 0
   br i1 %tobool.not.i.i.i59, label %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit61, label %if.then.i.i.i60
@@ -85737,35 +85726,38 @@ if.then.i.i.i60:                                  ; preds = %if.end
   br label %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit61
 
 _ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit61: ; preds = %if.then.i.i.i60, %if.end, %invoke.cont
-  %9 = phi ptr [ %2, %invoke.cont ], [ %8, %if.end ], [ %8, %if.then.i.i.i60 ]
+  %errors.sroa.0.2 = phi ptr [ %errors.sroa.0.1, %invoke.cont ], [ %errors.sroa.0.3, %if.end ], [ %errors.sroa.0.3, %if.then.i.i.i60 ]
+  %errors.sroa.8.2 = phi ptr [ %errors.sroa.8.1, %invoke.cont ], [ %errors.sroa.8.3, %if.end ], [ %errors.sroa.8.3, %if.then.i.i.i60 ]
+  %errors.sroa.11.1 = phi ptr [ %errors.sroa.11.0, %invoke.cont ], [ %errors.sroa.11.2, %if.end ], [ %errors.sroa.11.2, %if.then.i.i.i60 ]
+  %7 = phi ptr [ %2, %invoke.cont ], [ %errors.sroa.8.3, %if.end ], [ %errors.sroa.8.3, %if.then.i.i.i60 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %se) #41
   %incdec.ptr.i62 = getelementptr inbounds i8, ptr %__begin3.sroa.0.075, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i62, %validators_.val42
   br i1 %cmp.i.not, label %for.cond.cleanup.loopexit, label %for.body
 
 ehcleanup:                                        ; preds = %if.then.i.i.i57, %lpad8, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %lpad ], [ %lpad.loopexit.split-lp, %lpad8 ], [ %lpad.phi82, %if.then.i.i.i57 ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad ], [ %lpad.loopexit.split-lp, %lpad8 ], [ %lpad.phi82, %if.then.i.i.i57 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %se) #41
   br label %ehcleanup32
 
 if.then21:                                        ; preds = %for.cond.cleanup
-  call void @llvm.experimental.noalias.scope.decl(metadata !2538)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #41, !noalias !2538
+  call void @llvm.experimental.noalias.scope.decl(metadata !2534)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #41, !noalias !2534
   invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_111SchemaErrorC2ENS_5RangeIPKcEERKNS_7dynamicE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr nonnull @.str.345, ptr nonnull getelementptr inbounds (i8, ptr @.str.345, i64 25), ptr noundef nonnull align 8 dereferenceable(40) %value)
           to label %_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA26_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_.exit unwind label %lpad22
 
 _ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA26_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_.exit: ; preds = %if.then21
   %hasValue.i.i.i63 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i8 0, ptr %hasValue.i.i.i63, align 8, !tbaa !964, !alias.scope !2538
+  store i8 0, ptr %hasValue.i.i.i63, align 8, !tbaa !964, !alias.scope !2534
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #41
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 16), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2538
-  store i8 1, ptr %hasValue.i.i.i63, align 8, !tbaa !972, !alias.scope !2538
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 16), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2534
+  store i8 1, ptr %hasValue.i.i.i63, align 8, !tbaa !972, !alias.scope !2534
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #41, !noalias !2538
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #41, !noalias !2534
   br label %cleanup
 
 lpad22:                                           ; preds = %if.then26, %if.then21
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup32
 
@@ -85773,25 +85765,25 @@ if.else:                                          ; preds = %for.cond.cleanup
   %sub = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i50
   %cmp24 = icmp ugt i64 %sub, 1
   %type_ = getelementptr inbounds i8, ptr %this, i64 8
-  %11 = load i32, ptr %type_, align 8
-  %cmp25 = icmp eq i32 %11, 0
+  %9 = load i32, ptr %type_, align 8
+  %cmp25 = icmp eq i32 %9, 0
   %or.cond = select i1 %cmp24, i1 %cmp25, i1 false
   br i1 %or.cond, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %if.else
-  call void @llvm.experimental.noalias.scope.decl(metadata !2541)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i65) #41, !noalias !2541
+  call void @llvm.experimental.noalias.scope.decl(metadata !2537)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i65) #41, !noalias !2537
   invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_111SchemaErrorC2ENS_5RangeIPKcEERKNS_7dynamicE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, ptr nonnull @.str.346, ptr nonnull getelementptr inbounds (i8, ptr @.str.346, i64 24), ptr noundef nonnull align 8 dereferenceable(40) %value)
           to label %_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA25_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_.exit unwind label %lpad22
 
 _ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA25_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_.exit: ; preds = %if.then26
   %hasValue.i.i.i67 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i8 0, ptr %hasValue.i.i.i67, align 8, !tbaa !964, !alias.scope !2541
+  store i8 0, ptr %hasValue.i.i.i67, align 8, !tbaa !964, !alias.scope !2537
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65) #41
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 16), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2541
-  store i8 1, ptr %hasValue.i.i.i67, align 8, !tbaa !972, !alias.scope !2541
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 16), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2537
+  store i8 1, ptr %hasValue.i.i.i67, align 8, !tbaa !972, !alias.scope !2537
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65) #41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i65) #41, !noalias !2541
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i65) #41, !noalias !2537
   br label %cleanup
 
 if.end29:                                         ; preds = %if.else
@@ -85800,66 +85792,58 @@ if.end29:                                         ; preds = %if.else
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end29, %_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA25_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_.exit, %_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA26_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_.exit
-  %cmp.not3.i.i.i.i = icmp eq ptr %errors.val, %errors.val46
+  %cmp.not3.i.i.i.i = icmp eq ptr %errors.sroa.0.0, %errors.val46
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %errors.val, %cleanup ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %errors.sroa.0.0, %cleanup ]
   %vtable.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i, align 8, !tbaa !26
-  %12 = load ptr, ptr %vtable.i.i.i.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i) #41
+  %10 = load ptr, ptr %vtable.i.i.i.i.i, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i) #41
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %errors.val46
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !2544
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !2540
 
 invoke.cont.i:                                    ; preds = %for.body.i.i.i.i, %cleanup
-  %tobool.not.i.i.i70 = icmp eq ptr %errors.val, null
+  %tobool.not.i.i.i70 = icmp eq ptr %errors.sroa.0.0, null
   br i1 %tobool.not.i.i.i70, label %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EED2Ev.exit, label %if.then.i.i.i71
 
 if.then.i.i.i71:                                  ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %errors.val) #43
+  call void @_ZdlPv(ptr noundef nonnull %errors.sroa.0.0) #43
   br label %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EED2Ev.exit: ; preds = %if.then.i.i.i71, %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %errors) #41
   ret void
 
 ehcleanup32:                                      ; preds = %lpad22, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad22 ]
-  call fastcc void @_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %errors) #41
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %errors) #41
+  %errors.sroa.0.4 = phi ptr [ %errors.sroa.0.0, %lpad22 ], [ %errors.sroa.0.1, %ehcleanup ]
+  %errors.sroa.8.4 = phi ptr [ %errors.sroa.8.0, %lpad22 ], [ %errors.sroa.8.1, %ehcleanup ]
+  %.pn.pn = phi { ptr, i32 } [ %8, %lpad22 ], [ %.pn, %ehcleanup ]
+  call fastcc void @_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EED2Ev(ptr %errors.sroa.0.4, ptr %errors.sroa.8.4) #41
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EED2Ev(ptr %this.0.val, ptr readnone %this.8.val) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !2528
-  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !2531
-  %cmp.not3.i.i.i = icmp eq ptr %0, %1
+  %cmp.not3.i.i.i = icmp eq ptr %this.0.val, %this.8.val
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
-  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
+  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %this.0.val, %entry ]
   %vtable.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i, align 8, !tbaa !26
-  %2 = load ptr, ptr %vtable.i.i.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i) #41
+  %0 = load ptr, ptr %vtable.i.i.i.i, align 8
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i) #41
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !2545
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %this.8.val
+  br i1 %cmp.not.i.i.i, label %invoke.cont, label %for.body.i.i.i, !llvm.loop !2541
 
-invoke.contthread-pre-split:                      ; preds = %for.body.i.i.i
-  %this.val.pr = load ptr, ptr %this, align 8, !tbaa !2528
-  br label %invoke.cont
-
-invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
-  %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
-  %tobool.not.i.i = icmp eq ptr %this.val, null
+invoke.cont:                                      ; preds = %for.body.i.i.i, %entry
+  %tobool.not.i.i = icmp eq ptr %this.0.val, null
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %this.val) #43
+  tail call void @_ZdlPv(ptr noundef nonnull %this.0.val) #43
   br label %_ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EED2Ev.exit: ; preds = %if.then.i.i, %invoke.cont
@@ -85930,16 +85914,16 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #41
-  call void @llvm.experimental.noalias.scope.decl(metadata !2546)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #41, !noalias !2546
-  call fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_111SchemaErrorC2ENS_5RangeIPKcEERKNS_7dynamicE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr nonnull @.str.347, ptr nonnull getelementptr inbounds (i8, ptr @.str.347, i64 34), ptr noundef nonnull align 8 dereferenceable(40) %value), !noalias !2546
+  call void @llvm.experimental.noalias.scope.decl(metadata !2542)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #41, !noalias !2542
+  call fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_111SchemaErrorC2ENS_5RangeIPKcEERKNS_7dynamicE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr nonnull @.str.347, ptr nonnull getelementptr inbounds (i8, ptr @.str.347, i64 34), ptr noundef nonnull align 8 dereferenceable(40) %value), !noalias !2542
   %hasValue.i.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i8 0, ptr %hasValue.i.i.i4, align 8, !tbaa !964, !alias.scope !2546
+  store i8 0, ptr %hasValue.i.i.i4, align 8, !tbaa !964, !alias.scope !2542
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #41
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 16), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2546
-  store i8 1, ptr %hasValue.i.i.i4, align 8, !tbaa !972, !alias.scope !2546
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 16), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2542
+  store i8 1, ptr %hasValue.i.i.i4, align 8, !tbaa !972, !alias.scope !2542
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #41, !noalias !2546
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #41, !noalias !2542
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -85968,54 +85952,54 @@ cond.false.i.i.i:                                 ; preds = %entry
 
 _ZN5folly9SingletonINS_10jsonschema9ValidatorENS_6detail10DefaultTagES4_E8getEntryEv.exit: ; preds = %cond.false.i.i.i, %entry
   %cond.i.i.i = phi ptr [ %call3.i.i.i, %cond.false.i.i.i ], [ %atomic-temp.0.i.i.i.i, %entry ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2549)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2545)
   %state_.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 72
-  %1 = load atomic i32, ptr %state_.i acquire, align 4, !noalias !2549
+  %1 = load atomic i32, ptr %state_.i acquire, align 4, !noalias !2545
   %cmp.not.i = icmp eq i32 %1, 2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i, !prof !189
 
 if.then.i:                                        ; preds = %_ZN5folly9SingletonINS_10jsonschema9ValidatorENS_6detail10DefaultTagES4_E8getEntryEv.exit
-  %vtable.i = load ptr, ptr %cond.i.i.i, align 8, !tbaa !26, !noalias !2549
+  %vtable.i = load ptr, ptr %cond.i.i.i, align 8, !tbaa !26, !noalias !2545
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
-  %2 = load ptr, ptr %vfn.i, align 8, !noalias !2549
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i), !noalias !2549
+  %2 = load ptr, ptr %vfn.i, align 8, !noalias !2545
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i), !noalias !2545
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %_ZN5folly9SingletonINS_10jsonschema9ValidatorENS_6detail10DefaultTagES4_E8getEntryEv.exit
   %instance_weak_core_cached_.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 1176
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2552)
-  %3 = load atomic i64, ptr @_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE4num_E monotonic, align 8, !noalias !2555
-  %4 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) acquire, align 8, !noalias !2555
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2548)
+  %3 = load atomic i64, ptr @_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE4num_E monotonic, align 8, !noalias !2551
+  %4 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) acquire, align 8, !noalias !2551
   %tobool.not.i.i.i1 = icmp eq i64 %4, 0
   br i1 %tobool.not.i.i.i1, label %if.then.i.i.i, label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i.i, !prof !12
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN5folly6detail18AccessSpreaderBase10initializeERNS1_11GlobalStateERFPFiPjS4_PvEvERFRKNS_13CacheLocalityEvE(ptr noundef nonnull align 8 dereferenceable(65800) @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, ptr noundef nonnull @_ZN5folly14AccessSpreaderISt6atomicE14pickGetcpuFuncEv, ptr noundef nonnull @_ZN5folly13CacheLocality6systemISt6atomicEERKS0_v), !noalias !2555
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN5folly6detail18AccessSpreaderBase10initializeERNS1_11GlobalStateERFPFiPjS4_PvEvERFRKNS_13CacheLocalityEvE(ptr noundef nonnull align 8 dereferenceable(65800) @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, ptr noundef nonnull @_ZN5folly14AccessSpreaderISt6atomicE14pickGetcpuFuncEv, ptr noundef nonnull @_ZN5folly13CacheLocality6systemISt6atomicEERKS0_v), !noalias !2551
   br label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i.i
 
 _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i.i: ; preds = %if.then.i.i.i, %if.end.i
   %5 = tail call noundef nonnull align 4 dereferenceable(8) ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZZN5folly14AccessSpreaderISt6atomicE8cpuCacheEvE8cpuCache)
   %cachedCpuUses_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 4
-  %6 = load i32, ptr %cachedCpuUses_.i.i.i.i, align 4, !tbaa !2556, !noalias !2555
+  %6 = load i32, ptr %cachedCpuUses_.i.i.i.i, align 4, !tbaa !2552, !noalias !2551
   %dec.i.i.i.i = add i32 %6, -1
-  store i32 %dec.i.i.i.i, ptr %cachedCpuUses_.i.i.i.i, align 4, !tbaa !2556, !noalias !2555
+  store i32 %dec.i.i.i.i, ptr %cachedCpuUses_.i.i.i.i, align 4, !tbaa !2552, !noalias !2551
   %cmp.i.i.i.i = icmp eq i32 %6, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %entry.if.end_crit_edge.i.i.i.i, !prof !12
 
 entry.if.end_crit_edge.i.i.i.i:                   ; preds = %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i.i
-  %.pre.i.i.i.i = load i32, ptr %5, align 4, !tbaa !2558, !noalias !2555
+  %.pre.i.i.i.i = load i32, ptr %5, align 4, !tbaa !2554, !noalias !2551
   br label %_ZN5folly14AccessSpreaderISt6atomicE13cachedCurrentEmRKNS2_11GlobalStateE.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cpu.i.i.i.i) #41, !noalias !2555
-  %7 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) monotonic, align 8, !noalias !2555
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cpu.i.i.i.i) #41, !noalias !2551
+  %7 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) monotonic, align 8, !noalias !2551
   %atomic-temp.0.i.i.i.i.i.i = inttoptr i64 %7 to ptr
-  %call2.i.i.i.i = call noundef i32 %atomic-temp.0.i.i.i.i.i.i(ptr noundef nonnull %cpu.i.i.i.i, ptr noundef null, ptr noundef null), !noalias !2555
-  %8 = load i32, ptr %cpu.i.i.i.i, align 4, !tbaa !62, !noalias !2555
+  %call2.i.i.i.i = call noundef i32 %atomic-temp.0.i.i.i.i.i.i(ptr noundef nonnull %cpu.i.i.i.i, ptr noundef null, ptr noundef null), !noalias !2551
+  %8 = load i32, ptr %cpu.i.i.i.i, align 4, !tbaa !62, !noalias !2551
   %rem.i.i.i.i = and i32 %8, 255
-  store i32 %rem.i.i.i.i, ptr %5, align 4, !tbaa !2558, !noalias !2555
-  store i32 31, ptr %cachedCpuUses_.i.i.i.i, align 4, !tbaa !2556, !noalias !2555
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cpu.i.i.i.i) #41, !noalias !2555
+  store i32 %rem.i.i.i.i, ptr %5, align 4, !tbaa !2554, !noalias !2551
+  store i32 31, ptr %cachedCpuUses_.i.i.i.i, align 4, !tbaa !2552, !noalias !2551
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cpu.i.i.i.i) #41, !noalias !2551
   br label %_ZN5folly14AccessSpreaderISt6atomicE13cachedCurrentEmRKNS2_11GlobalStateE.exit.i.i
 
 _ZN5folly14AccessSpreaderISt6atomicE13cachedCurrentEmRKNS2_11GlobalStateE.exit.i.i: ; preds = %if.then.i.i.i.i, %entry.if.end_crit_edge.i.i.i.i
@@ -86023,20 +86007,20 @@ _ZN5folly14AccessSpreaderISt6atomicE13cachedCurrentEmRKNS2_11GlobalStateE.exit.i
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %3, i64 256)
   %idxprom.i.i.i = zext i32 %9 to i64
   %arrayidx3.i.i.i = getelementptr inbounds [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %.sroa.speculated.i.i.i, i64 %idxprom.i.i.i
-  %10 = load atomic i8, ptr %arrayidx3.i.i.i monotonic, align 1, !noalias !2555
+  %10 = load atomic i8, ptr %arrayidx3.i.i.i monotonic, align 1, !noalias !2551
   %conv.i.i.i = zext i8 %10 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [64 x %"class.std::weak_ptr"], ptr %instance_weak_core_cached_.i, i64 0, i64 %conv.i.i.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !2559)
+  call void @llvm.experimental.noalias.scope.decl(metadata !2555)
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 8
-  %11 = load ptr, ptr %_M_refcount2.i.i.i.i.i, align 8, !tbaa !63, !noalias !2562
-  store ptr %11, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !56, !alias.scope !2562
+  %11 = load ptr, ptr %_M_refcount2.i.i.i.i.i, align 8, !tbaa !63, !noalias !2558
+  store ptr %11, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !56, !alias.scope !2558
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %_ZN5folly14AccessSpreaderISt6atomicE13cachedCurrentEmRKNS2_11GlobalStateE.exit.i.i
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i.i.i monotonic, align 8, !noalias !2562
+  %12 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i.i.i monotonic, align 8, !noalias !2558
   br label %do.body.i.i.i.i.i.i.i
 
 do.body.i.i.i.i.i.i.i:                            ; preds = %do.cond.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i
@@ -86046,26 +86030,26 @@ do.body.i.i.i.i.i.i.i:                            ; preds = %do.cond.i.i.i.i.i.i
 
 do.cond.i.i.i.i.i.i.i:                            ; preds = %do.body.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i.i.i, 1
-  %13 = cmpxchg weak ptr %_M_use_count.i.i.i.i.i.i.i.i, i32 %__count.0.i.i.i.i.i.i.i, i32 %add.i.i.i.i.i.i.i acq_rel monotonic, align 8, !noalias !2562
+  %13 = cmpxchg weak ptr %_M_use_count.i.i.i.i.i.i.i.i, i32 %__count.0.i.i.i.i.i.i.i, i32 %add.i.i.i.i.i.i.i acq_rel monotonic, align 8, !noalias !2558
   %14 = extractvalue { i32, i1 } %13, 1
   %15 = extractvalue { i32, i1 } %13, 0
-  br i1 %14, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i.i.i, label %do.body.i.i.i.i.i.i.i, !llvm.loop !2563
+  br i1 %14, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i.i.i, label %do.body.i.i.i.i.i.i.i, !llvm.loop !2559
 
 if.then.i.i.i.i.i.i:                              ; preds = %do.body.i.i.i.i.i.i.i
-  store ptr null, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !56, !alias.scope !2562
+  store ptr null, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !56, !alias.scope !2558
   br label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i.i.i
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i.i.i: ; preds = %do.cond.i.i.i.i.i.i.i
-  %.pr.i.i.i.i.i = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !56, !alias.scope !2562
+  %.pr.i.i.i.i.i = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !56, !alias.scope !2558
   %tobool.not.i6.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i, null
   br i1 %tobool.not.i6.i.i.i.i.i, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i.i.i, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i: ; preds = %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i.i.i
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i.i.i, i64 8
-  %16 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i.i monotonic, align 8, !noalias !2562
+  %16 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i.i monotonic, align 8, !noalias !2558
   %.fr.i.i.i.i.i = freeze i32 %16
   %tobool.not.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i, 0
-  %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !noalias !2562
+  %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !noalias !2558
   br i1 %tobool.not.i.i.i.i.i, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i.i.i, label %_ZN5folly6detail15SingletonHolderINS_10jsonschema9ValidatorEE7try_getEv.exit
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i.i.i: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZN5folly14AccessSpreaderISt6atomicE13cachedCurrentEmRKNS2_11GlobalStateE.exit.i.i
@@ -86073,7 +86057,7 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.t
 
 _ZN5folly6detail15SingletonHolderINS_10jsonschema9ValidatorEE7try_getEv.exit: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i.i.i, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i
   %18 = phi ptr [ null, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i.i.i ], [ %17, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i ]
-  store ptr %18, ptr %agg.result, align 8, !tbaa !176, !alias.scope !2562
+  store ptr %18, ptr %agg.result, align 8, !tbaa !176, !alias.scope !2558
   ret void
 }
 
@@ -88788,39 +88772,35 @@ attributes #47 = { allocsize(0) }
 !2525 = distinct !{!2525, !44, !464}
 !2526 = distinct !{!2526, !44}
 !2527 = distinct !{!2527, !44}
-!2528 = !{!2529, !11, i64 0}
-!2529 = !{!"_ZTSNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE17_Vector_impl_dataE", !11, i64 0, !11, i64 8, !11, i64 16}
-!2530 = !{!2529, !11, i64 16}
-!2531 = !{!2529, !11, i64 8}
-!2532 = !{!2533}
-!2533 = distinct !{!2533, !2534, !"_ZSt19__relocate_object_aIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
-!2534 = distinct !{!2534, !"_ZSt19__relocate_object_aIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorES3_SaIS3_EEvPT_PT0_RT1_"}
-!2535 = !{!2536}
-!2536 = distinct !{!2536, !2534, !"_ZSt19__relocate_object_aIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
-!2537 = distinct !{!2537, !44}
-!2538 = !{!2539}
-!2539 = distinct !{!2539, !2540, !"_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA26_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_: %agg.result"}
-!2540 = distinct !{!2540, !"_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA26_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_"}
-!2541 = !{!2542}
-!2542 = distinct !{!2542, !2543, !"_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA25_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_: %agg.result"}
-!2543 = distinct !{!2543, !"_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA25_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_"}
-!2544 = distinct !{!2544, !44}
-!2545 = distinct !{!2545, !44}
-!2546 = !{!2547}
-!2547 = distinct !{!2547, !2548, !"_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA35_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_: %agg.result"}
-!2548 = distinct !{!2548, !"_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA35_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_"}
-!2549 = !{!2550}
-!2550 = distinct !{!2550, !2551, !"_ZN5folly6detail15SingletonHolderINS_10jsonschema9ValidatorEE7try_getEv: %agg.result"}
-!2551 = distinct !{!2551, !"_ZN5folly6detail15SingletonHolderINS_10jsonschema9ValidatorEE7try_getEv"}
-!2552 = !{!2553}
-!2553 = distinct !{!2553, !2554, !"_ZNK5folly17CoreCachedWeakPtrINS_10jsonschema9ValidatorELm64EE4lockEv: %agg.result"}
-!2554 = distinct !{!2554, !"_ZNK5folly17CoreCachedWeakPtrINS_10jsonschema9ValidatorELm64EE4lockEv"}
-!2555 = !{!2553, !2550}
-!2556 = !{!2557, !60, i64 4}
-!2557 = !{!"_ZTSN5folly14AccessSpreaderISt6atomicE8CpuCacheE", !60, i64 0, !60, i64 4}
-!2558 = !{!2557, !60, i64 0}
-!2559 = !{!2560}
-!2560 = distinct !{!2560, !2561, !"_ZNKSt8weak_ptrIN5folly10jsonschema9ValidatorEE4lockEv: %agg.result"}
-!2561 = distinct !{!2561, !"_ZNKSt8weak_ptrIN5folly10jsonschema9ValidatorEE4lockEv"}
-!2562 = !{!2560, !2553, !2550}
-!2563 = distinct !{!2563, !44}
+!2528 = !{!2529}
+!2529 = distinct !{!2529, !2530, !"_ZSt19__relocate_object_aIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
+!2530 = distinct !{!2530, !"_ZSt19__relocate_object_aIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorES3_SaIS3_EEvPT_PT0_RT1_"}
+!2531 = !{!2532}
+!2532 = distinct !{!2532, !2530, !"_ZSt19__relocate_object_aIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
+!2533 = distinct !{!2533, !44}
+!2534 = !{!2535}
+!2535 = distinct !{!2535, !2536, !"_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA26_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_: %agg.result"}
+!2536 = distinct !{!2536, !"_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA26_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_"}
+!2537 = !{!2538}
+!2538 = distinct !{!2538, !2539, !"_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA25_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_: %agg.result"}
+!2539 = distinct !{!2539, !"_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA25_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_"}
+!2540 = distinct !{!2540, !44}
+!2541 = distinct !{!2541, !44}
+!2542 = !{!2543}
+!2543 = distinct !{!2543, !2544, !"_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA35_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_: %agg.result"}
+!2544 = distinct !{!2544, !"_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA35_KcRKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_"}
+!2545 = !{!2546}
+!2546 = distinct !{!2546, !2547, !"_ZN5folly6detail15SingletonHolderINS_10jsonschema9ValidatorEE7try_getEv: %agg.result"}
+!2547 = distinct !{!2547, !"_ZN5folly6detail15SingletonHolderINS_10jsonschema9ValidatorEE7try_getEv"}
+!2548 = !{!2549}
+!2549 = distinct !{!2549, !2550, !"_ZNK5folly17CoreCachedWeakPtrINS_10jsonschema9ValidatorELm64EE4lockEv: %agg.result"}
+!2550 = distinct !{!2550, !"_ZNK5folly17CoreCachedWeakPtrINS_10jsonschema9ValidatorELm64EE4lockEv"}
+!2551 = !{!2549, !2546}
+!2552 = !{!2553, !60, i64 4}
+!2553 = !{!"_ZTSN5folly14AccessSpreaderISt6atomicE8CpuCacheE", !60, i64 0, !60, i64 4}
+!2554 = !{!2553, !60, i64 0}
+!2555 = !{!2556}
+!2556 = distinct !{!2556, !2557, !"_ZNKSt8weak_ptrIN5folly10jsonschema9ValidatorEE4lockEv: %agg.result"}
+!2557 = distinct !{!2557, !"_ZNKSt8weak_ptrIN5folly10jsonschema9ValidatorEE4lockEv"}
+!2558 = !{!2556, !2549, !2546}
+!2559 = distinct !{!2559, !44}

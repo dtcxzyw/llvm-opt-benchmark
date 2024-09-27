@@ -457,19 +457,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @qdist_bin__internal(ptr noundef nonnull %binned, ptr noundef nonnull %dist, i64 noundef %n)
+  %binned.val = load ptr, ptr %binned, align 8
+  %1 = getelementptr inbounds i8, ptr %binned, i64 8
+  %binned.val2 = load i64, ptr %1, align 8
   %call.i = tail call ptr @g_string_new(ptr noundef nonnull @.str.2) #12
-  %n.i = getelementptr inbounds i8, ptr %binned, i64 8
-  %1 = load i64, ptr %n.i, align 8
-  %2 = load ptr, ptr %binned, align 8
-  %count.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load i64, ptr %count.i, align 8
-  switch i64 %1, label %for.body.i.preheader [
+  %count.i = getelementptr inbounds i8, ptr %binned.val, i64 8
+  %2 = load i64, ptr %count.i, align 8
+  switch i64 %binned.val2, label %for.body.i.preheader [
     i64 1, label %if.then.i
     i64 0, label %qdist_pr_internal.exit
   ]
 
 if.then.i:                                        ; preds = %if.end
-  %tobool.not.i = icmp eq i64 %3, 0
+  %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i
@@ -478,21 +478,21 @@ if.then1.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.then.i
   %len.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %4 = load i64, ptr %len.i.i, align 8
-  %add.i.i = add i64 %4, 1
+  %3 = load i64, ptr %len.i.i, align 8
+  %add.i.i = add i64 %3, 1
   %allocated_len.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %5 = load i64, ptr %allocated_len.i.i, align 8
-  %cmp.i.i = icmp ult i64 %add.i.i, %5
+  %4 = load i64, ptr %allocated_len.i.i, align 8
+  %cmp.i.i = icmp ult i64 %add.i.i, %4
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %6 = load ptr, ptr %call.i, align 8
+  %5 = load ptr, ptr %call.i, align 8
   store i64 %add.i.i, ptr %len.i.i, align 8
-  %arrayidx.i.i = getelementptr i8, ptr %6, i64 %4
+  %arrayidx.i.i = getelementptr i8, ptr %5, i64 %3
   store i8 32, ptr %arrayidx.i.i, align 1
-  %7 = load ptr, ptr %call.i, align 8
-  %8 = load i64, ptr %len.i.i, align 8
-  %arrayidx4.i.i = getelementptr i8, ptr %7, i64 %8
+  %6 = load ptr, ptr %call.i, align 8
+  %7 = load i64, ptr %len.i.i, align 8
+  %arrayidx4.i.i = getelementptr i8, ptr %6, i64 %7
   store i8 0, ptr %arrayidx4.i.i, align 1
   br label %qdist_pr_internal.exit
 
@@ -501,7 +501,7 @@ if.else.i.i:                                      ; preds = %if.else.i
   br label %qdist_pr_internal.exit
 
 for.body.i.preheader:                             ; preds = %if.end
-  %conv.i = uitofp i64 %3 to double
+  %conv.i = uitofp i64 %2 to double
   br label %for.body.i
 
 for.body33.lr.ph.i:                               ; preds = %for.body.i
@@ -511,54 +511,54 @@ for.body33.lr.ph.i:                               ; preds = %for.body.i
   br label %for.body33.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %min.037.i = phi double [ %min.1.i, %for.body.i ], [ %conv.i, %for.body.i.preheader ]
-  %max.036.i = phi double [ %max.1.i, %for.body.i ], [ %conv.i, %for.body.i.preheader ]
-  %i.035.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %count13.i = getelementptr %struct.qdist_entry, ptr %2, i64 %i.035.i, i32 1
-  %9 = load i64, ptr %count13.i, align 8
-  %conv14.i = uitofp i64 %9 to double
-  %cmp15.i = fcmp ogt double %min.037.i, %conv14.i
-  %min.1.i = select i1 %cmp15.i, double %conv14.i, double %min.037.i
-  %cmp23.i = fcmp olt double %max.036.i, %conv14.i
-  %max.1.i = select i1 %cmp23.i, double %conv14.i, double %max.036.i
-  %inc.i = add nuw i64 %i.035.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %1
+  %min.04.i = phi double [ %min.1.i, %for.body.i ], [ %conv.i, %for.body.i.preheader ]
+  %max.03.i = phi double [ %max.1.i, %for.body.i ], [ %conv.i, %for.body.i.preheader ]
+  %i.02.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
+  %count13.i = getelementptr %struct.qdist_entry, ptr %binned.val, i64 %i.02.i, i32 1
+  %8 = load i64, ptr %count13.i, align 8
+  %conv14.i = uitofp i64 %8 to double
+  %cmp15.i = fcmp ogt double %min.04.i, %conv14.i
+  %min.1.i = select i1 %cmp15.i, double %conv14.i, double %min.04.i
+  %cmp23.i = fcmp olt double %max.03.i, %conv14.i
+  %max.1.i = select i1 %cmp23.i, double %conv14.i, double %max.03.i
+  %inc.i = add nuw i64 %i.02.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i, %binned.val2
   br i1 %exitcond.not.i, label %for.body33.lr.ph.i, label %for.body.i, !llvm.loop !9
 
 for.body33.i:                                     ; preds = %for.inc49.i, %for.body33.lr.ph.i
-  %i.140.i = phi i64 [ 0, %for.body33.lr.ph.i ], [ %inc50.i, %for.inc49.i ]
-  %count37.i = getelementptr %struct.qdist_entry, ptr %2, i64 %i.140.i, i32 1
-  %10 = load i64, ptr %count37.i, align 8
-  %tobool38.not.i = icmp eq i64 %10, 0
+  %i.17.i = phi i64 [ 0, %for.body33.lr.ph.i ], [ %inc50.i, %for.inc49.i ]
+  %count37.i = getelementptr %struct.qdist_entry, ptr %binned.val, i64 %i.17.i, i32 1
+  %9 = load i64, ptr %count37.i, align 8
+  %tobool38.not.i = icmp eq i64 %9, 0
   br i1 %tobool38.not.i, label %if.else46.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %for.body33.i
-  %conv41.i = uitofp i64 %10 to double
+  %conv41.i = uitofp i64 %9 to double
   %sub.i = fsub double %conv41.i, %min.1.i
   %div.i = fdiv double %sub.i, %sub42.i
   %mul.i = fmul double %div.i, 7.000000e+00
   %conv43.i = fptosi double %mul.i to i32
   %idxprom.i = sext i32 %conv43.i to i64
   %arrayidx44.i = getelementptr [8 x i32], ptr @qdist_blocks, i64 0, i64 %idxprom.i
-  %11 = load i32, ptr %arrayidx44.i, align 4
-  %call45.i = tail call ptr @g_string_append_unichar(ptr noundef %call.i, i32 noundef %11) #12
+  %10 = load i32, ptr %arrayidx44.i, align 4
+  %call45.i = tail call ptr @g_string_append_unichar(ptr noundef %call.i, i32 noundef %10) #12
   br label %for.inc49.i
 
 if.else46.i:                                      ; preds = %for.body33.i
-  %12 = load i64, ptr %len.i24.i, align 8
-  %add.i25.i = add i64 %12, 1
-  %13 = load i64, ptr %allocated_len.i26.i, align 8
-  %cmp.i27.i = icmp ult i64 %add.i25.i, %13
+  %11 = load i64, ptr %len.i24.i, align 8
+  %add.i25.i = add i64 %11, 1
+  %12 = load i64, ptr %allocated_len.i26.i, align 8
+  %cmp.i27.i = icmp ult i64 %add.i25.i, %12
   br i1 %cmp.i27.i, label %if.then.i30.i, label %if.else.i28.i
 
 if.then.i30.i:                                    ; preds = %if.else46.i
-  %14 = load ptr, ptr %call.i, align 8
+  %13 = load ptr, ptr %call.i, align 8
   store i64 %add.i25.i, ptr %len.i24.i, align 8
-  %arrayidx.i31.i = getelementptr i8, ptr %14, i64 %12
+  %arrayidx.i31.i = getelementptr i8, ptr %13, i64 %11
   store i8 32, ptr %arrayidx.i31.i, align 1
-  %15 = load ptr, ptr %call.i, align 8
-  %16 = load i64, ptr %len.i24.i, align 8
-  %arrayidx4.i32.i = getelementptr i8, ptr %15, i64 %16
+  %14 = load ptr, ptr %call.i, align 8
+  %15 = load i64, ptr %len.i24.i, align 8
+  %arrayidx4.i32.i = getelementptr i8, ptr %14, i64 %15
   store i8 0, ptr %arrayidx4.i32.i, align 1
   br label %for.inc49.i
 
@@ -567,13 +567,13 @@ if.else.i28.i:                                    ; preds = %if.else46.i
   br label %for.inc49.i
 
 for.inc49.i:                                      ; preds = %if.else.i28.i, %if.then.i30.i, %if.then39.i
-  %inc50.i = add nuw i64 %i.140.i, 1
-  %exitcond.not = icmp eq i64 %inc50.i, %1
-  br i1 %exitcond.not, label %qdist_pr_internal.exit, label %for.body33.i, !llvm.loop !10
+  %inc50.i = add nuw i64 %i.17.i, 1
+  %exitcond8.not.i = icmp eq i64 %inc50.i, %binned.val2
+  br i1 %exitcond8.not.i, label %qdist_pr_internal.exit, label %for.body33.i, !llvm.loop !10
 
 qdist_pr_internal.exit:                           ; preds = %for.inc49.i, %if.end, %if.then1.i, %if.then.i.i, %if.else.i.i
   %call52.i = tail call ptr @g_string_free(ptr noundef %call.i, i32 noundef 0) #12
-  tail call void @g_free(ptr noundef nonnull %2) #12
+  tail call void @g_free(ptr noundef nonnull %binned.val) #12
   br label %return
 
 return:                                           ; preds = %qdist_pr_internal.exit, %if.then

@@ -4014,19 +4014,19 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
           to label %114 unwind label %135
 
 114:                                              ; preds = %113
-  %115 = getelementptr inbounds i8, ptr %12, i64 16
-  %116 = getelementptr inbounds i8, ptr %12, i64 24
-  %117 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 0, ptr %117, align 8
-  %118 = ptrtoint ptr %4 to i64
-  store i64 %118, ptr %12, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix3git9TreeEntryEEZZNS8_22GitTest_tree_read_Test8TestBodyEvENK3$_0clIS5_EEDaRKT_EUlRSF_T0_E_E9_M_invokeERKSt9_Any_dataS7_OSA_", ptr %116, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix3git9TreeEntryEEZZNS8_22GitTest_tree_read_Test8TestBodyEvENK3$_0clIS5_EEDaRKT_EUlRSF_T0_E_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %115, align 8
+  %115 = ptrtoint ptr %4 to i64
+  %116 = getelementptr inbounds i8, ptr %12, i64 16
+  %117 = getelementptr inbounds i8, ptr %12, i64 24
+  %118 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 0, ptr %118, align 8
+  store i64 %115, ptr %12, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix3git9TreeEntryEEZZNS8_22GitTest_tree_read_Test8TestBodyEvENK3$_0clIS5_EEDaRKT_EUlRSF_T0_E_E9_M_invokeERKSt9_Any_dataS7_OSA_", ptr %117, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix3git9TreeEntryEEZZNS8_22GitTest_tree_read_Test8TestBodyEvENK3$_0clIS5_EEDaRKT_EUlRSF_T0_E_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %116, align 8
   invoke void @_ZN3nix3git9parseTreeERNS_20FileSystemObjectSinkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6SourceESt8functionIFvSA_NS0_9TreeEntryEEERKNS_27ExperimentalFeatureSettingsE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(344) %62)
           to label %119 unwind label %137
 
 119:                                              ; preds = %114
-  %120 = load ptr, ptr %115, align 8
+  %120 = load ptr, ptr %116, align 8
   %.not.i.i33.i.i = icmp eq ptr %120, null
   br i1 %.not.i.i33.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix3git9TreeEntryEEED2Ev.exit.i.i, label %121
 
@@ -4082,7 +4082,7 @@ _ZN7testing8internal8EqHelper7CompareISt3mapINSt7__cxx1112basic_stringIcSt11char
 137:                                              ; preds = %114
   %138 = landingpad { ptr, i32 }
           cleanup
-  %139 = load ptr, ptr %115, align 8
+  %139 = load ptr, ptr %116, align 8
   %.not.i.i35.i.i = icmp eq ptr %139, null
   br i1 %.not.i.i35.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix3git9TreeEntryEEED2Ev.exit36.i.i, label %140
 

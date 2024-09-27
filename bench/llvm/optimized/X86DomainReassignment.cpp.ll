@@ -643,17 +643,17 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit
   %125 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %87)
   %126 = load ptr, ptr %125, align 8
   store ptr %122, ptr %125, align 8
-  %.not.i.i.i93.i = icmp eq ptr %126, null
-  br i1 %.not.i.i.i93.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit98.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i94.i
+  %.not.i.i.i97.i = icmp eq ptr %126, null
+  br i1 %.not.i.i.i97.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit102.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i98.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i94.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i98.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit.i
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8
   tail call void %129(ptr noundef nonnull align 8 dereferenceable(12) %126) #17
-  br label %_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit98.i
+  br label %_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit102.i
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit98.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i94.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit102.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i98.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit.i
   %130 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !12
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i32 9, ptr %131, align 8, !noalias !12
@@ -666,17 +666,17 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit
   %134 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %88)
   %135 = load ptr, ptr %134, align 8
   store ptr %130, ptr %134, align 8
-  %.not.i.i.i99.i = icmp eq ptr %135, null
-  br i1 %.not.i.i.i99.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_120InstrReplaceWithCopyESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i100.i
+  %.not.i.i.i103.i = icmp eq ptr %135, null
+  br i1 %.not.i.i.i103.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_120InstrReplaceWithCopyESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i104.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i100.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit98.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i104.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit102.i
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8
   tail call void %138(ptr noundef nonnull align 8 dereferenceable(12) %135) #17
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_120InstrReplaceWithCopyESt14default_deleteIS1_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_120InstrReplaceWithCopyESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i100.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit98.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_120InstrReplaceWithCopyESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i104.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_111InstrIgnoreESt14default_deleteIS1_EED2Ev.exit102.i
   %139 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19, !noalias !15
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i32 19, ptr %140, align 8, !noalias !15
@@ -691,17 +691,17 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120InstrReplaceWithCopyESt14default_deleteIS1_EE
   %144 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %89)
   %145 = load ptr, ptr %144, align 8
   store ptr %139, ptr %144, align 8
-  %.not.i.i.i102.i = icmp eq ptr %145, null
-  br i1 %.not.i.i.i102.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_117InstrCOPYReplacerESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i103.i
+  %.not.i.i.i106.i = icmp eq ptr %145, null
+  br i1 %.not.i.i.i106.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_117InstrCOPYReplacerESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i107.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i103.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_120InstrReplaceWithCopyESt14default_deleteIS1_EED2Ev.exit.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i107.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_120InstrReplaceWithCopyESt14default_deleteIS1_EED2Ev.exit.i
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8
   tail call void %148(ptr noundef nonnull align 8 dereferenceable(12) %145) #17
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_117InstrCOPYReplacerESt14default_deleteIS1_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_117InstrCOPYReplacerESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i103.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_120InstrReplaceWithCopyESt14default_deleteIS1_EED2Ev.exit.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_117InstrCOPYReplacerESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i107.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_120InstrReplaceWithCopyESt14default_deleteIS1_EED2Ev.exit.i
   %149 = load ptr, ptr %99, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 350
   %151 = load i8, ptr %150, align 2
@@ -750,17 +750,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %172 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %84)
   %173 = load ptr, ptr %172, align 8
   store ptr %168, ptr %172, align 8
-  %.not.i.i.i.i105.i = icmp eq ptr %173, null
-  br i1 %.not.i.i.i.i105.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit107.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i106.i
+  %.not.i.i.i.i109.i = icmp eq ptr %173, null
+  br i1 %.not.i.i.i.i109.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit111.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i110.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i106.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i110.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit.i"
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 8
   %176 = load ptr, ptr %175, align 8
   tail call void %176(ptr noundef nonnull align 8 dereferenceable(12) %173) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit107.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit111.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit107.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i106.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit111.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i110.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84)
   %177 = load ptr, ptr %99, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 350
@@ -780,17 +780,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %186 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %83)
   %187 = load ptr, ptr %186, align 8
   store ptr %182, ptr %186, align 8
-  %.not.i.i.i.i108.i = icmp eq ptr %187, null
-  br i1 %.not.i.i.i.i108.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit110.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i109.i
+  %.not.i.i.i.i112.i = icmp eq ptr %187, null
+  br i1 %.not.i.i.i.i112.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit114.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i113.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i109.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit107.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i113.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit111.i"
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 8
   %190 = load ptr, ptr %189, align 8
   tail call void %190(ptr noundef nonnull align 8 dereferenceable(12) %187) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit110.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit114.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit110.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i109.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit107.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit114.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i113.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit111.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83)
   %191 = load ptr, ptr %99, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 350
@@ -810,17 +810,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %200 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %82)
   %201 = load ptr, ptr %200, align 8
   store ptr %196, ptr %200, align 8
-  %.not.i.i.i.i111.i = icmp eq ptr %201, null
-  br i1 %.not.i.i.i.i111.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit113.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i112.i
+  %.not.i.i.i.i115.i = icmp eq ptr %201, null
+  br i1 %.not.i.i.i.i115.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit117.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i116.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i112.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit110.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i116.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit114.i"
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 8
   %204 = load ptr, ptr %203, align 8
   tail call void %204(ptr noundef nonnull align 8 dereferenceable(12) %201) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit113.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit117.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit113.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i112.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit110.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit117.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i116.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit114.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82)
   %205 = load ptr, ptr %99, align 8
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 349
@@ -828,7 +828,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %208 = trunc i8 %207 to i1
   br i1 %208, label %209, label %293
 
-209:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit113.i"
+209:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit117.i"
   %210 = getelementptr inbounds nuw i8, ptr %205, i64 350
   %211 = load i8, ptr %210, align 2
   %212 = trunc i8 %211 to i1
@@ -846,17 +846,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %218 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %81)
   %219 = load ptr, ptr %218, align 8
   store ptr %214, ptr %218, align 8
-  %.not.i.i.i.i114.i = icmp eq ptr %219, null
-  br i1 %.not.i.i.i.i114.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit116.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i115.i
+  %.not.i.i.i.i118.i = icmp eq ptr %219, null
+  br i1 %.not.i.i.i.i118.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit120.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i119.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i115.i: ; preds = %209
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i119.i: ; preds = %209
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds i8, ptr %220, i64 8
   %222 = load ptr, ptr %221, align 8
   tail call void %222(ptr noundef nonnull align 8 dereferenceable(12) %219) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit116.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit120.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit116.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i115.i, %209
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit120.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i119.i, %209
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81)
   %223 = load ptr, ptr %99, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 350
@@ -876,17 +876,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %232 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %80)
   %233 = load ptr, ptr %232, align 8
   store ptr %228, ptr %232, align 8
-  %.not.i.i.i.i117.i = icmp eq ptr %233, null
-  br i1 %.not.i.i.i.i117.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit119.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i118.i
+  %.not.i.i.i.i121.i = icmp eq ptr %233, null
+  br i1 %.not.i.i.i.i121.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit123.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i122.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i118.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit116.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i122.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit120.i"
   %234 = load ptr, ptr %233, align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 8
   %236 = load ptr, ptr %235, align 8
   tail call void %236(ptr noundef nonnull align 8 dereferenceable(12) %233) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit119.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit123.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit119.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i118.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit116.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit123.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i122.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit120.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80)
   %237 = load ptr, ptr %99, align 8
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 350
@@ -906,17 +906,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %246 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %79)
   %247 = load ptr, ptr %246, align 8
   store ptr %242, ptr %246, align 8
-  %.not.i.i.i.i120.i = icmp eq ptr %247, null
-  br i1 %.not.i.i.i.i120.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit122.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i121.i
+  %.not.i.i.i.i124.i = icmp eq ptr %247, null
+  br i1 %.not.i.i.i.i124.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit126.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i125.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i121.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit119.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i125.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit123.i"
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds i8, ptr %248, i64 8
   %250 = load ptr, ptr %249, align 8
   tail call void %250(ptr noundef nonnull align 8 dereferenceable(12) %247) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit122.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit126.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit122.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i121.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit119.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit126.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i125.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit123.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79)
   %251 = load ptr, ptr %99, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 350
@@ -936,17 +936,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %260 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %78)
   %261 = load ptr, ptr %260, align 8
   store ptr %256, ptr %260, align 8
-  %.not.i.i.i.i123.i = icmp eq ptr %261, null
-  br i1 %.not.i.i.i.i123.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit125.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i124.i
+  %.not.i.i.i.i127.i = icmp eq ptr %261, null
+  br i1 %.not.i.i.i.i127.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit129.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i128.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i124.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit122.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i128.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit126.i"
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 8
   %264 = load ptr, ptr %263, align 8
   tail call void %264(ptr noundef nonnull align 8 dereferenceable(12) %261) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit125.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit129.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit125.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i124.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit122.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit129.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i128.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit126.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78)
   %265 = load ptr, ptr %99, align 8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 350
@@ -966,17 +966,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %274 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %77)
   %275 = load ptr, ptr %274, align 8
   store ptr %270, ptr %274, align 8
-  %.not.i.i.i.i126.i = icmp eq ptr %275, null
-  br i1 %.not.i.i.i.i126.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit128.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i127.i
+  %.not.i.i.i.i130.i = icmp eq ptr %275, null
+  br i1 %.not.i.i.i.i130.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit132.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i131.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i127.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit125.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i131.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit129.i"
   %276 = load ptr, ptr %275, align 8
   %277 = getelementptr inbounds i8, ptr %276, i64 8
   %278 = load ptr, ptr %277, align 8
   tail call void %278(ptr noundef nonnull align 8 dereferenceable(12) %275) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit128.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit132.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit128.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i127.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit125.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit132.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i131.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit129.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77)
   %279 = load ptr, ptr %99, align 8
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 350
@@ -996,23 +996,23 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %288 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %76)
   %289 = load ptr, ptr %288, align 8
   store ptr %284, ptr %288, align 8
-  %.not.i.i.i.i129.i = icmp eq ptr %289, null
-  br i1 %.not.i.i.i.i129.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit131.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i130.i
+  %.not.i.i.i.i133.i = icmp eq ptr %289, null
+  br i1 %.not.i.i.i.i133.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit135.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i134.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i130.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit128.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i134.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit132.i"
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds i8, ptr %290, i64 8
   %292 = load ptr, ptr %291, align 8
   tail call void %292(ptr noundef nonnull align 8 dereferenceable(12) %289) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit131.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit135.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit131.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i130.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit128.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit135.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i134.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit132.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76)
   %.pre.i = load ptr, ptr %99, align 8
   br label %293
 
-293:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit131.i", %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit113.i"
-  %294 = phi ptr [ %.pre.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit131.i" ], [ %205, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit113.i" ]
+293:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit135.i", %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit117.i"
+  %294 = phi ptr [ %.pre.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit135.i" ], [ %205, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_0clEjj.exit117.i" ]
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 350
   %296 = load i8, ptr %295, align 2
   %297 = trunc i8 %296 to i1
@@ -1030,17 +1030,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %303 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %75)
   %304 = load ptr, ptr %303, align 8
   store ptr %299, ptr %303, align 8
-  %.not.i.i.i.i132.i = icmp eq ptr %304, null
-  br i1 %.not.i.i.i.i132.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i133.i
+  %.not.i.i.i.i136.i = icmp eq ptr %304, null
+  br i1 %.not.i.i.i.i136.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i137.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i133.i: ; preds = %293
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i137.i: ; preds = %293
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds i8, ptr %305, i64 8
   %307 = load ptr, ptr %306, align 8
   tail call void %307(ptr noundef nonnull align 8 dereferenceable(12) %304) #17
   br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i133.i, %293
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i137.i, %293
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75)
   %308 = load ptr, ptr %99, align 8
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 350
@@ -1060,17 +1060,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %317 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %74)
   %318 = load ptr, ptr %317, align 8
   store ptr %313, ptr %317, align 8
-  %.not.i.i.i.i134.i = icmp eq ptr %318, null
-  br i1 %.not.i.i.i.i134.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit136.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i135.i
+  %.not.i.i.i.i138.i = icmp eq ptr %318, null
+  br i1 %.not.i.i.i.i138.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit140.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i139.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i135.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i139.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit.i"
   %319 = load ptr, ptr %318, align 8
   %320 = getelementptr inbounds i8, ptr %319, i64 8
   %321 = load ptr, ptr %320, align 8
   tail call void %321(ptr noundef nonnull align 8 dereferenceable(12) %318) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit136.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit140.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit136.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i135.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit140.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i139.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
   %322 = load ptr, ptr %99, align 8
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 350
@@ -1090,17 +1090,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %331 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %73)
   %332 = load ptr, ptr %331, align 8
   store ptr %327, ptr %331, align 8
-  %.not.i.i.i.i137.i = icmp eq ptr %332, null
-  br i1 %.not.i.i.i.i137.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit139.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i138.i
+  %.not.i.i.i.i141.i = icmp eq ptr %332, null
+  br i1 %.not.i.i.i.i141.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit143.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i142.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i138.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit136.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i142.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit140.i"
   %333 = load ptr, ptr %332, align 8
   %334 = getelementptr inbounds i8, ptr %333, i64 8
   %335 = load ptr, ptr %334, align 8
   tail call void %335(ptr noundef nonnull align 8 dereferenceable(12) %332) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit139.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit143.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit139.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i138.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit136.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit143.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i142.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit140.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72)
   %336 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !57
@@ -1115,17 +1115,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %340 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %72)
   %341 = load ptr, ptr %340, align 8
   store ptr %336, ptr %340, align 8
-  %.not.i.i.i.i140.i = icmp eq ptr %341, null
-  br i1 %.not.i.i.i.i140.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit142.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i141.i
+  %.not.i.i.i.i144.i = icmp eq ptr %341, null
+  br i1 %.not.i.i.i.i144.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit146.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i145.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i141.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit139.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i145.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit143.i"
   %342 = load ptr, ptr %341, align 8
   %343 = getelementptr inbounds i8, ptr %342, i64 8
   %344 = load ptr, ptr %343, align 8
   tail call void %344(ptr noundef nonnull align 8 dereferenceable(12) %341) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit142.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit146.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit142.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i141.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit139.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit146.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i145.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit143.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71)
   %345 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !60
@@ -1140,17 +1140,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %349 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %71)
   %350 = load ptr, ptr %349, align 8
   store ptr %345, ptr %349, align 8
-  %.not.i.i.i.i143.i = icmp eq ptr %350, null
-  br i1 %.not.i.i.i.i143.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit145.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i144.i
+  %.not.i.i.i.i147.i = icmp eq ptr %350, null
+  br i1 %.not.i.i.i.i147.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit149.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i148.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i144.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit142.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i148.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit146.i"
   %351 = load ptr, ptr %350, align 8
   %352 = getelementptr inbounds i8, ptr %351, i64 8
   %353 = load ptr, ptr %352, align 8
   tail call void %353(ptr noundef nonnull align 8 dereferenceable(12) %350) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit145.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit149.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit145.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i144.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit142.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit149.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i148.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit146.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70)
   %354 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !63
@@ -1165,17 +1165,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %358 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %70)
   %359 = load ptr, ptr %358, align 8
   store ptr %354, ptr %358, align 8
-  %.not.i.i.i.i146.i = icmp eq ptr %359, null
-  br i1 %.not.i.i.i.i146.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit148.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i147.i
+  %.not.i.i.i.i150.i = icmp eq ptr %359, null
+  br i1 %.not.i.i.i.i150.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit152.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i151.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i147.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit145.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i151.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit149.i"
   %360 = load ptr, ptr %359, align 8
   %361 = getelementptr inbounds i8, ptr %360, i64 8
   %362 = load ptr, ptr %361, align 8
   tail call void %362(ptr noundef nonnull align 8 dereferenceable(12) %359) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit148.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit152.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit148.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i147.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit145.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit152.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i151.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit149.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69)
   %363 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !66
@@ -1190,17 +1190,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %367 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %69)
   %368 = load ptr, ptr %367, align 8
   store ptr %363, ptr %367, align 8
-  %.not.i.i.i.i149.i = icmp eq ptr %368, null
-  br i1 %.not.i.i.i.i149.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit151.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i150.i
+  %.not.i.i.i.i153.i = icmp eq ptr %368, null
+  br i1 %.not.i.i.i.i153.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit155.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i154.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i150.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit148.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i154.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit152.i"
   %369 = load ptr, ptr %368, align 8
   %370 = getelementptr inbounds i8, ptr %369, i64 8
   %371 = load ptr, ptr %370, align 8
   tail call void %371(ptr noundef nonnull align 8 dereferenceable(12) %368) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit151.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit155.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit151.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i150.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit148.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit155.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i154.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit152.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68)
   %372 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !69
@@ -1215,17 +1215,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %376 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %68)
   %377 = load ptr, ptr %376, align 8
   store ptr %372, ptr %376, align 8
-  %.not.i.i.i.i152.i = icmp eq ptr %377, null
-  br i1 %.not.i.i.i.i152.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit154.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i153.i
+  %.not.i.i.i.i156.i = icmp eq ptr %377, null
+  br i1 %.not.i.i.i.i156.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit158.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i157.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i153.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit151.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i157.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit155.i"
   %378 = load ptr, ptr %377, align 8
   %379 = getelementptr inbounds i8, ptr %378, i64 8
   %380 = load ptr, ptr %379, align 8
   tail call void %380(ptr noundef nonnull align 8 dereferenceable(12) %377) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit154.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit158.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit154.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i153.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit151.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit158.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i157.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit155.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67)
   %381 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !72
@@ -1240,17 +1240,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %385 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %67)
   %386 = load ptr, ptr %385, align 8
   store ptr %381, ptr %385, align 8
-  %.not.i.i.i.i155.i = icmp eq ptr %386, null
-  br i1 %.not.i.i.i.i155.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit157.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i156.i
+  %.not.i.i.i.i159.i = icmp eq ptr %386, null
+  br i1 %.not.i.i.i.i159.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit161.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i160.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i156.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit154.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i160.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit158.i"
   %387 = load ptr, ptr %386, align 8
   %388 = getelementptr inbounds i8, ptr %387, i64 8
   %389 = load ptr, ptr %388, align 8
   tail call void %389(ptr noundef nonnull align 8 dereferenceable(12) %386) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit157.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit161.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit157.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i156.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit154.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit161.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i160.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit158.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67)
   %390 = load ptr, ptr %99, align 8
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 396
@@ -1258,7 +1258,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %393 = trunc i8 %392 to i1
   br i1 %393, label %394, label %449
 
-394:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit157.i"
+394:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit161.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66)
   %395 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !75
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
@@ -1272,17 +1272,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %399 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %66)
   %400 = load ptr, ptr %399, align 8
   store ptr %395, ptr %399, align 8
-  %.not.i.i.i.i158.i = icmp eq ptr %400, null
-  br i1 %.not.i.i.i.i158.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit160.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i159.i
+  %.not.i.i.i.i162.i = icmp eq ptr %400, null
+  br i1 %.not.i.i.i.i162.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit164.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i163.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i159.i: ; preds = %394
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i163.i: ; preds = %394
   %401 = load ptr, ptr %400, align 8
   %402 = getelementptr inbounds i8, ptr %401, i64 8
   %403 = load ptr, ptr %402, align 8
   tail call void %403(ptr noundef nonnull align 8 dereferenceable(12) %400) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit160.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit164.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit160.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i159.i, %394
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit164.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i163.i, %394
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65)
   %404 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !78
@@ -1297,17 +1297,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %408 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %65)
   %409 = load ptr, ptr %408, align 8
   store ptr %404, ptr %408, align 8
-  %.not.i.i.i.i161.i = icmp eq ptr %409, null
-  br i1 %.not.i.i.i.i161.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit163.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i162.i
+  %.not.i.i.i.i165.i = icmp eq ptr %409, null
+  br i1 %.not.i.i.i.i165.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit167.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i166.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i162.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit160.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i166.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit164.i"
   %410 = load ptr, ptr %409, align 8
   %411 = getelementptr inbounds i8, ptr %410, i64 8
   %412 = load ptr, ptr %411, align 8
   tail call void %412(ptr noundef nonnull align 8 dereferenceable(12) %409) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit163.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit167.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit163.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i162.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit160.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit167.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i166.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit164.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64)
   %413 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !81
@@ -1322,17 +1322,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %417 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %64)
   %418 = load ptr, ptr %417, align 8
   store ptr %413, ptr %417, align 8
-  %.not.i.i.i.i164.i = icmp eq ptr %418, null
-  br i1 %.not.i.i.i.i164.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit166.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i165.i
+  %.not.i.i.i.i168.i = icmp eq ptr %418, null
+  br i1 %.not.i.i.i.i168.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit170.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i169.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i165.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit163.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i169.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit167.i"
   %419 = load ptr, ptr %418, align 8
   %420 = getelementptr inbounds i8, ptr %419, i64 8
   %421 = load ptr, ptr %420, align 8
   tail call void %421(ptr noundef nonnull align 8 dereferenceable(12) %418) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit166.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit170.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit166.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i165.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit163.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit170.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i169.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit167.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
   %422 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !84
@@ -1347,17 +1347,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %426 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %63)
   %427 = load ptr, ptr %426, align 8
   store ptr %422, ptr %426, align 8
-  %.not.i.i.i.i167.i = icmp eq ptr %427, null
-  br i1 %.not.i.i.i.i167.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit169.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i168.i
+  %.not.i.i.i.i171.i = icmp eq ptr %427, null
+  br i1 %.not.i.i.i.i171.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit173.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i172.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i168.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit166.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i172.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit170.i"
   %428 = load ptr, ptr %427, align 8
   %429 = getelementptr inbounds i8, ptr %428, i64 8
   %430 = load ptr, ptr %429, align 8
   tail call void %430(ptr noundef nonnull align 8 dereferenceable(12) %427) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit169.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit173.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit169.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i168.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit166.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit173.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i172.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit170.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62)
   %431 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !87
@@ -1372,17 +1372,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %435 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %62)
   %436 = load ptr, ptr %435, align 8
   store ptr %431, ptr %435, align 8
-  %.not.i.i.i.i170.i = icmp eq ptr %436, null
-  br i1 %.not.i.i.i.i170.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit172.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i171.i
+  %.not.i.i.i.i174.i = icmp eq ptr %436, null
+  br i1 %.not.i.i.i.i174.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit176.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i175.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i171.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit169.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i175.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit173.i"
   %437 = load ptr, ptr %436, align 8
   %438 = getelementptr inbounds i8, ptr %437, i64 8
   %439 = load ptr, ptr %438, align 8
   tail call void %439(ptr noundef nonnull align 8 dereferenceable(12) %436) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit172.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit176.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit172.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i171.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit169.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit176.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i175.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit173.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61)
   %440 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !90
@@ -1397,23 +1397,23 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %444 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %61)
   %445 = load ptr, ptr %444, align 8
   store ptr %440, ptr %444, align 8
-  %.not.i.i.i.i173.i = icmp eq ptr %445, null
-  br i1 %.not.i.i.i.i173.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit175.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i174.i
+  %.not.i.i.i.i177.i = icmp eq ptr %445, null
+  br i1 %.not.i.i.i.i177.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit179.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i178.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i174.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit172.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i178.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit176.i"
   %446 = load ptr, ptr %445, align 8
   %447 = getelementptr inbounds i8, ptr %446, i64 8
   %448 = load ptr, ptr %447, align 8
   tail call void %448(ptr noundef nonnull align 8 dereferenceable(12) %445) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit175.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit179.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit175.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i174.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit172.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit179.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i178.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit176.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61)
-  %.pre364.i = load ptr, ptr %99, align 8
+  %.pre368.i = load ptr, ptr %99, align 8
   br label %449
 
-449:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit175.i", %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit157.i"
-  %450 = phi ptr [ %.pre364.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit175.i" ], [ %390, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit157.i" ]
+449:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit179.i", %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit161.i"
+  %450 = phi ptr [ %.pre368.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit179.i" ], [ %390, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit161.i" ]
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 334
   %452 = load i8, ptr %451, align 2
   %453 = trunc i8 %452 to i1
@@ -1437,17 +1437,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %463 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %60)
   %464 = load ptr, ptr %463, align 8
   store ptr %459, ptr %463, align 8
-  %.not.i.i.i.i176.i = icmp eq ptr %464, null
-  br i1 %.not.i.i.i.i176.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit178.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i177.i
+  %.not.i.i.i.i180.i = icmp eq ptr %464, null
+  br i1 %.not.i.i.i.i180.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit182.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i181.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i177.i: ; preds = %454
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i181.i: ; preds = %454
   %465 = load ptr, ptr %464, align 8
   %466 = getelementptr inbounds i8, ptr %465, i64 8
   %467 = load ptr, ptr %466, align 8
   tail call void %467(ptr noundef nonnull align 8 dereferenceable(12) %464) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit178.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit182.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit178.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i177.i, %454
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit182.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i181.i, %454
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60)
   %468 = load ptr, ptr %99, align 8
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 350
@@ -1467,17 +1467,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %477 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %59)
   %478 = load ptr, ptr %477, align 8
   store ptr %473, ptr %477, align 8
-  %.not.i.i.i.i179.i = icmp eq ptr %478, null
-  br i1 %.not.i.i.i.i179.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit181.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i180.i
+  %.not.i.i.i.i183.i = icmp eq ptr %478, null
+  br i1 %.not.i.i.i.i183.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit185.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i184.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i180.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit178.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i184.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit182.i"
   %479 = load ptr, ptr %478, align 8
   %480 = getelementptr inbounds i8, ptr %479, i64 8
   %481 = load ptr, ptr %480, align 8
   tail call void %481(ptr noundef nonnull align 8 dereferenceable(12) %478) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit181.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit185.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit181.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i180.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit178.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit185.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i184.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit182.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
   %482 = load ptr, ptr %99, align 8
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 350
@@ -1497,17 +1497,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %491 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %58)
   %492 = load ptr, ptr %491, align 8
   store ptr %487, ptr %491, align 8
-  %.not.i.i.i.i182.i = icmp eq ptr %492, null
-  br i1 %.not.i.i.i.i182.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit184.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i183.i
+  %.not.i.i.i.i186.i = icmp eq ptr %492, null
+  br i1 %.not.i.i.i.i186.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit188.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i187.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i183.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit181.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i187.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit185.i"
   %493 = load ptr, ptr %492, align 8
   %494 = getelementptr inbounds i8, ptr %493, i64 8
   %495 = load ptr, ptr %494, align 8
   tail call void %495(ptr noundef nonnull align 8 dereferenceable(12) %492) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit184.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit188.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit184.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i183.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit181.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit188.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i187.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit185.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
   %496 = load ptr, ptr %99, align 8
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 350
@@ -1527,17 +1527,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %505 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %57)
   %506 = load ptr, ptr %505, align 8
   store ptr %501, ptr %505, align 8
-  %.not.i.i.i.i185.i = icmp eq ptr %506, null
-  br i1 %.not.i.i.i.i185.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit187.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i186.i
+  %.not.i.i.i.i189.i = icmp eq ptr %506, null
+  br i1 %.not.i.i.i.i189.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit191.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i190.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i186.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit184.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i190.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit188.i"
   %507 = load ptr, ptr %506, align 8
   %508 = getelementptr inbounds i8, ptr %507, i64 8
   %509 = load ptr, ptr %508, align 8
   tail call void %509(ptr noundef nonnull align 8 dereferenceable(12) %506) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit187.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit191.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit187.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i186.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit184.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit191.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i190.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit188.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
   %510 = load ptr, ptr %99, align 8
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 350
@@ -1557,17 +1557,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %519 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %56)
   %520 = load ptr, ptr %519, align 8
   store ptr %515, ptr %519, align 8
-  %.not.i.i.i.i188.i = icmp eq ptr %520, null
-  br i1 %.not.i.i.i.i188.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit190.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i189.i
+  %.not.i.i.i.i192.i = icmp eq ptr %520, null
+  br i1 %.not.i.i.i.i192.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit194.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i193.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i189.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit187.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i193.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit191.i"
   %521 = load ptr, ptr %520, align 8
   %522 = getelementptr inbounds i8, ptr %521, i64 8
   %523 = load ptr, ptr %522, align 8
   tail call void %523(ptr noundef nonnull align 8 dereferenceable(12) %520) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit190.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit194.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit190.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i189.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit187.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit194.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i193.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit191.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
   %524 = load ptr, ptr %99, align 8
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 350
@@ -1587,17 +1587,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %533 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %55)
   %534 = load ptr, ptr %533, align 8
   store ptr %529, ptr %533, align 8
-  %.not.i.i.i.i191.i = icmp eq ptr %534, null
-  br i1 %.not.i.i.i.i191.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit193.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i192.i
+  %.not.i.i.i.i195.i = icmp eq ptr %534, null
+  br i1 %.not.i.i.i.i195.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit197.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i196.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i192.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit190.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i196.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit194.i"
   %535 = load ptr, ptr %534, align 8
   %536 = getelementptr inbounds i8, ptr %535, i64 8
   %537 = load ptr, ptr %536, align 8
   tail call void %537(ptr noundef nonnull align 8 dereferenceable(12) %534) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit193.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit197.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit193.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i192.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit190.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit197.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i196.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit194.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54)
   %538 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !111
@@ -1612,17 +1612,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %542 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %54)
   %543 = load ptr, ptr %542, align 8
   store ptr %538, ptr %542, align 8
-  %.not.i.i.i.i194.i = icmp eq ptr %543, null
-  br i1 %.not.i.i.i.i194.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit196.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i195.i
+  %.not.i.i.i.i198.i = icmp eq ptr %543, null
+  br i1 %.not.i.i.i.i198.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit200.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i199.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i195.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit193.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i199.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit197.i"
   %544 = load ptr, ptr %543, align 8
   %545 = getelementptr inbounds i8, ptr %544, i64 8
   %546 = load ptr, ptr %545, align 8
   tail call void %546(ptr noundef nonnull align 8 dereferenceable(12) %543) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit196.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit200.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit196.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i195.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit193.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit200.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i199.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit197.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53)
   %547 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !114
@@ -1637,17 +1637,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %551 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %53)
   %552 = load ptr, ptr %551, align 8
   store ptr %547, ptr %551, align 8
-  %.not.i.i.i.i197.i = icmp eq ptr %552, null
-  br i1 %.not.i.i.i.i197.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit199.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i198.i
+  %.not.i.i.i.i201.i = icmp eq ptr %552, null
+  br i1 %.not.i.i.i.i201.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit203.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i202.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i198.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit196.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i202.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit200.i"
   %553 = load ptr, ptr %552, align 8
   %554 = getelementptr inbounds i8, ptr %553, i64 8
   %555 = load ptr, ptr %554, align 8
   tail call void %555(ptr noundef nonnull align 8 dereferenceable(12) %552) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit199.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit203.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit199.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i198.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit196.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit203.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i202.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit200.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52)
   %556 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !117
@@ -1662,17 +1662,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %560 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %52)
   %561 = load ptr, ptr %560, align 8
   store ptr %556, ptr %560, align 8
-  %.not.i.i.i.i200.i = icmp eq ptr %561, null
-  br i1 %.not.i.i.i.i200.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit202.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i201.i
+  %.not.i.i.i.i204.i = icmp eq ptr %561, null
+  br i1 %.not.i.i.i.i204.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit206.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i205.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i201.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit199.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i205.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit203.i"
   %562 = load ptr, ptr %561, align 8
   %563 = getelementptr inbounds i8, ptr %562, i64 8
   %564 = load ptr, ptr %563, align 8
   tail call void %564(ptr noundef nonnull align 8 dereferenceable(12) %561) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit202.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit206.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit202.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i201.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit199.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit206.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i205.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit203.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51)
   %565 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !120
@@ -1687,17 +1687,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %569 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %51)
   %570 = load ptr, ptr %569, align 8
   store ptr %565, ptr %569, align 8
-  %.not.i.i.i.i203.i = icmp eq ptr %570, null
-  br i1 %.not.i.i.i.i203.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit205.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i204.i
+  %.not.i.i.i.i207.i = icmp eq ptr %570, null
+  br i1 %.not.i.i.i.i207.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit209.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i208.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i204.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit202.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i208.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit206.i"
   %571 = load ptr, ptr %570, align 8
   %572 = getelementptr inbounds i8, ptr %571, i64 8
   %573 = load ptr, ptr %572, align 8
   tail call void %573(ptr noundef nonnull align 8 dereferenceable(12) %570) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit205.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit209.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit205.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i204.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit202.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit209.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i208.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit206.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50)
   %574 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !123
@@ -1712,17 +1712,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %578 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %50)
   %579 = load ptr, ptr %578, align 8
   store ptr %574, ptr %578, align 8
-  %.not.i.i.i.i206.i = icmp eq ptr %579, null
-  br i1 %.not.i.i.i.i206.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit208.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i207.i
+  %.not.i.i.i.i210.i = icmp eq ptr %579, null
+  br i1 %.not.i.i.i.i210.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit212.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i211.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i207.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit205.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i211.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit209.i"
   %580 = load ptr, ptr %579, align 8
   %581 = getelementptr inbounds i8, ptr %580, i64 8
   %582 = load ptr, ptr %581, align 8
   tail call void %582(ptr noundef nonnull align 8 dereferenceable(12) %579) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit208.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit212.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit208.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i207.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit205.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit212.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i211.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit209.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49)
   %583 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !126
@@ -1737,17 +1737,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %587 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %49)
   %588 = load ptr, ptr %587, align 8
   store ptr %583, ptr %587, align 8
-  %.not.i.i.i.i209.i = icmp eq ptr %588, null
-  br i1 %.not.i.i.i.i209.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit211.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i210.i
+  %.not.i.i.i.i213.i = icmp eq ptr %588, null
+  br i1 %.not.i.i.i.i213.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit215.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i214.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i210.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit208.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i214.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit212.i"
   %589 = load ptr, ptr %588, align 8
   %590 = getelementptr inbounds i8, ptr %589, i64 8
   %591 = load ptr, ptr %590, align 8
   tail call void %591(ptr noundef nonnull align 8 dereferenceable(12) %588) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit211.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit215.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit211.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i210.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit208.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit215.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i214.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit212.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
   %592 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !129
@@ -1762,17 +1762,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %596 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %48)
   %597 = load ptr, ptr %596, align 8
   store ptr %592, ptr %596, align 8
-  %.not.i.i.i.i212.i = icmp eq ptr %597, null
-  br i1 %.not.i.i.i.i212.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit214.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i213.i
+  %.not.i.i.i.i216.i = icmp eq ptr %597, null
+  br i1 %.not.i.i.i.i216.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit218.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i217.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i213.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit211.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i217.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit215.i"
   %598 = load ptr, ptr %597, align 8
   %599 = getelementptr inbounds i8, ptr %598, i64 8
   %600 = load ptr, ptr %599, align 8
   tail call void %600(ptr noundef nonnull align 8 dereferenceable(12) %597) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit214.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit218.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit214.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i213.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit211.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit218.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i217.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit215.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
   %601 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !132
@@ -1787,17 +1787,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %605 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %47)
   %606 = load ptr, ptr %605, align 8
   store ptr %601, ptr %605, align 8
-  %.not.i.i.i.i215.i = icmp eq ptr %606, null
-  br i1 %.not.i.i.i.i215.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit217.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i216.i
+  %.not.i.i.i.i219.i = icmp eq ptr %606, null
+  br i1 %.not.i.i.i.i219.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit221.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i220.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i216.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit214.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i220.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit218.i"
   %607 = load ptr, ptr %606, align 8
   %608 = getelementptr inbounds i8, ptr %607, i64 8
   %609 = load ptr, ptr %608, align 8
   tail call void %609(ptr noundef nonnull align 8 dereferenceable(12) %606) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit217.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit221.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit217.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i216.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit214.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit221.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i220.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit218.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
   %610 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !135
@@ -1812,17 +1812,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %614 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %46)
   %615 = load ptr, ptr %614, align 8
   store ptr %610, ptr %614, align 8
-  %.not.i.i.i.i218.i = icmp eq ptr %615, null
-  br i1 %.not.i.i.i.i218.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit220.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i219.i
+  %.not.i.i.i.i222.i = icmp eq ptr %615, null
+  br i1 %.not.i.i.i.i222.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit224.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i223.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i219.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit217.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i223.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit221.i"
   %616 = load ptr, ptr %615, align 8
   %617 = getelementptr inbounds i8, ptr %616, i64 8
   %618 = load ptr, ptr %617, align 8
   tail call void %618(ptr noundef nonnull align 8 dereferenceable(12) %615) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit220.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit224.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit220.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i219.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit217.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit224.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i223.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit221.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
   %619 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !138
@@ -1837,17 +1837,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %623 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %45)
   %624 = load ptr, ptr %623, align 8
   store ptr %619, ptr %623, align 8
-  %.not.i.i.i.i221.i = icmp eq ptr %624, null
-  br i1 %.not.i.i.i.i221.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit223.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i222.i
+  %.not.i.i.i.i225.i = icmp eq ptr %624, null
+  br i1 %.not.i.i.i.i225.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit227.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i226.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i222.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit220.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i226.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit224.i"
   %625 = load ptr, ptr %624, align 8
   %626 = getelementptr inbounds i8, ptr %625, i64 8
   %627 = load ptr, ptr %626, align 8
   tail call void %627(ptr noundef nonnull align 8 dereferenceable(12) %624) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit223.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit227.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit223.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i222.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit220.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit227.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i226.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit224.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
   %628 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !141
@@ -1862,17 +1862,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %632 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %44)
   %633 = load ptr, ptr %632, align 8
   store ptr %628, ptr %632, align 8
-  %.not.i.i.i.i224.i = icmp eq ptr %633, null
-  br i1 %.not.i.i.i.i224.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit226.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i225.i
+  %.not.i.i.i.i228.i = icmp eq ptr %633, null
+  br i1 %.not.i.i.i.i228.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit230.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i229.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i225.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit223.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i229.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit227.i"
   %634 = load ptr, ptr %633, align 8
   %635 = getelementptr inbounds i8, ptr %634, i64 8
   %636 = load ptr, ptr %635, align 8
   tail call void %636(ptr noundef nonnull align 8 dereferenceable(12) %633) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit226.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit230.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit226.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i225.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit223.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit230.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i229.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit227.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
   %637 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !144
@@ -1887,17 +1887,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %641 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %43)
   %642 = load ptr, ptr %641, align 8
   store ptr %637, ptr %641, align 8
-  %.not.i.i.i.i227.i = icmp eq ptr %642, null
-  br i1 %.not.i.i.i.i227.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit229.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i228.i
+  %.not.i.i.i.i231.i = icmp eq ptr %642, null
+  br i1 %.not.i.i.i.i231.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit233.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i232.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i228.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit226.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i232.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit230.i"
   %643 = load ptr, ptr %642, align 8
   %644 = getelementptr inbounds i8, ptr %643, i64 8
   %645 = load ptr, ptr %644, align 8
   tail call void %645(ptr noundef nonnull align 8 dereferenceable(12) %642) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit229.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit233.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit229.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i228.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit226.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit233.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i232.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit230.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
   %646 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !147
@@ -1912,17 +1912,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %650 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %42)
   %651 = load ptr, ptr %650, align 8
   store ptr %646, ptr %650, align 8
-  %.not.i.i.i.i230.i = icmp eq ptr %651, null
-  br i1 %.not.i.i.i.i230.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit232.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i231.i
+  %.not.i.i.i.i234.i = icmp eq ptr %651, null
+  br i1 %.not.i.i.i.i234.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit236.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i235.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i231.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit229.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i235.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit233.i"
   %652 = load ptr, ptr %651, align 8
   %653 = getelementptr inbounds i8, ptr %652, i64 8
   %654 = load ptr, ptr %653, align 8
   tail call void %654(ptr noundef nonnull align 8 dereferenceable(12) %651) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit232.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit236.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit232.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i231.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit229.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit236.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i235.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit233.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41)
   %655 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !150
@@ -1937,17 +1937,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %659 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %41)
   %660 = load ptr, ptr %659, align 8
   store ptr %655, ptr %659, align 8
-  %.not.i.i.i.i233.i = icmp eq ptr %660, null
-  br i1 %.not.i.i.i.i233.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit235.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i234.i
+  %.not.i.i.i.i237.i = icmp eq ptr %660, null
+  br i1 %.not.i.i.i.i237.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit239.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i238.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i234.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit232.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i238.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit236.i"
   %661 = load ptr, ptr %660, align 8
   %662 = getelementptr inbounds i8, ptr %661, i64 8
   %663 = load ptr, ptr %662, align 8
   tail call void %663(ptr noundef nonnull align 8 dereferenceable(12) %660) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit235.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit239.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit235.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i234.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit232.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit239.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i238.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit236.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
   %664 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !153
@@ -1962,17 +1962,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %668 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %40)
   %669 = load ptr, ptr %668, align 8
   store ptr %664, ptr %668, align 8
-  %.not.i.i.i.i236.i = icmp eq ptr %669, null
-  br i1 %.not.i.i.i.i236.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit238.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i237.i
+  %.not.i.i.i.i240.i = icmp eq ptr %669, null
+  br i1 %.not.i.i.i.i240.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit242.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i241.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i237.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit235.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i241.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit239.i"
   %670 = load ptr, ptr %669, align 8
   %671 = getelementptr inbounds i8, ptr %670, i64 8
   %672 = load ptr, ptr %671, align 8
   tail call void %672(ptr noundef nonnull align 8 dereferenceable(12) %669) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit238.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit242.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit238.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i237.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit235.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit242.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i241.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit239.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
   %673 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !156
@@ -1987,21 +1987,21 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %677 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %39)
   %678 = load ptr, ptr %677, align 8
   store ptr %673, ptr %677, align 8
-  %.not.i.i.i.i239.i = icmp eq ptr %678, null
-  br i1 %.not.i.i.i.i239.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit241.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i240.i
+  %.not.i.i.i.i243.i = icmp eq ptr %678, null
+  br i1 %.not.i.i.i.i243.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit245.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i244.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i240.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit238.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i244.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit242.i"
   %679 = load ptr, ptr %678, align 8
   %680 = getelementptr inbounds i8, ptr %679, i64 8
   %681 = load ptr, ptr %680, align 8
   tail call void %681(ptr noundef nonnull align 8 dereferenceable(12) %678) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit241.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit245.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit241.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i240.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit238.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit245.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i244.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit242.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   br i1 %393, label %682, label %809
 
-682:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit241.i"
+682:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit245.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
   %683 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !159
   %684 = getelementptr inbounds nuw i8, ptr %683, i64 8
@@ -2015,17 +2015,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %687 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %38)
   %688 = load ptr, ptr %687, align 8
   store ptr %683, ptr %687, align 8
-  %.not.i.i.i.i242.i = icmp eq ptr %688, null
-  br i1 %.not.i.i.i.i242.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit244.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i243.i
+  %.not.i.i.i.i246.i = icmp eq ptr %688, null
+  br i1 %.not.i.i.i.i246.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit248.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i247.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i243.i: ; preds = %682
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i247.i: ; preds = %682
   %689 = load ptr, ptr %688, align 8
   %690 = getelementptr inbounds i8, ptr %689, i64 8
   %691 = load ptr, ptr %690, align 8
   tail call void %691(ptr noundef nonnull align 8 dereferenceable(12) %688) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit244.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit248.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit244.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i243.i, %682
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit248.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i247.i, %682
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
   %692 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !162
@@ -2040,17 +2040,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %696 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %37)
   %697 = load ptr, ptr %696, align 8
   store ptr %692, ptr %696, align 8
-  %.not.i.i.i.i245.i = icmp eq ptr %697, null
-  br i1 %.not.i.i.i.i245.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit247.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i246.i
+  %.not.i.i.i.i249.i = icmp eq ptr %697, null
+  br i1 %.not.i.i.i.i249.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit251.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i250.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i246.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit244.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i250.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit248.i"
   %698 = load ptr, ptr %697, align 8
   %699 = getelementptr inbounds i8, ptr %698, i64 8
   %700 = load ptr, ptr %699, align 8
   tail call void %700(ptr noundef nonnull align 8 dereferenceable(12) %697) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit247.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit251.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit247.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i246.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit244.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit251.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i250.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit248.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
   %701 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !165
@@ -2065,17 +2065,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %705 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %36)
   %706 = load ptr, ptr %705, align 8
   store ptr %701, ptr %705, align 8
-  %.not.i.i.i.i248.i = icmp eq ptr %706, null
-  br i1 %.not.i.i.i.i248.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit250.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i249.i
+  %.not.i.i.i.i252.i = icmp eq ptr %706, null
+  br i1 %.not.i.i.i.i252.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit254.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i253.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i249.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit247.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i253.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit251.i"
   %707 = load ptr, ptr %706, align 8
   %708 = getelementptr inbounds i8, ptr %707, i64 8
   %709 = load ptr, ptr %708, align 8
   tail call void %709(ptr noundef nonnull align 8 dereferenceable(12) %706) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit250.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit254.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit250.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i249.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit247.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit254.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i253.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit251.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
   %710 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !168
@@ -2090,17 +2090,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %714 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %35)
   %715 = load ptr, ptr %714, align 8
   store ptr %710, ptr %714, align 8
-  %.not.i.i.i.i251.i = icmp eq ptr %715, null
-  br i1 %.not.i.i.i.i251.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit253.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i252.i
+  %.not.i.i.i.i255.i = icmp eq ptr %715, null
+  br i1 %.not.i.i.i.i255.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit257.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i256.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i252.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit250.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i256.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit254.i"
   %716 = load ptr, ptr %715, align 8
   %717 = getelementptr inbounds i8, ptr %716, i64 8
   %718 = load ptr, ptr %717, align 8
   tail call void %718(ptr noundef nonnull align 8 dereferenceable(12) %715) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit253.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit257.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit253.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i252.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit250.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit257.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i256.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit254.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
   %719 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !171
@@ -2115,17 +2115,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %723 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %34)
   %724 = load ptr, ptr %723, align 8
   store ptr %719, ptr %723, align 8
-  %.not.i.i.i.i254.i = icmp eq ptr %724, null
-  br i1 %.not.i.i.i.i254.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit256.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i255.i
+  %.not.i.i.i.i258.i = icmp eq ptr %724, null
+  br i1 %.not.i.i.i.i258.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit260.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i259.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i255.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit253.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i259.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit257.i"
   %725 = load ptr, ptr %724, align 8
   %726 = getelementptr inbounds i8, ptr %725, i64 8
   %727 = load ptr, ptr %726, align 8
   tail call void %727(ptr noundef nonnull align 8 dereferenceable(12) %724) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit256.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit260.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit256.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i255.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit253.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit260.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i259.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit257.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
   %728 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !174
@@ -2140,17 +2140,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %732 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %33)
   %733 = load ptr, ptr %732, align 8
   store ptr %728, ptr %732, align 8
-  %.not.i.i.i.i257.i = icmp eq ptr %733, null
-  br i1 %.not.i.i.i.i257.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit259.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i258.i
+  %.not.i.i.i.i261.i = icmp eq ptr %733, null
+  br i1 %.not.i.i.i.i261.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit263.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i262.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i258.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit256.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i262.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit260.i"
   %734 = load ptr, ptr %733, align 8
   %735 = getelementptr inbounds i8, ptr %734, i64 8
   %736 = load ptr, ptr %735, align 8
   tail call void %736(ptr noundef nonnull align 8 dereferenceable(12) %733) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit259.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit263.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit259.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i258.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit256.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit263.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i262.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit260.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
   %737 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !177
@@ -2165,17 +2165,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %741 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %32)
   %742 = load ptr, ptr %741, align 8
   store ptr %737, ptr %741, align 8
-  %.not.i.i.i.i260.i = icmp eq ptr %742, null
-  br i1 %.not.i.i.i.i260.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit262.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i261.i
+  %.not.i.i.i.i264.i = icmp eq ptr %742, null
+  br i1 %.not.i.i.i.i264.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit266.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i265.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i261.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit259.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i265.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit263.i"
   %743 = load ptr, ptr %742, align 8
   %744 = getelementptr inbounds i8, ptr %743, i64 8
   %745 = load ptr, ptr %744, align 8
   tail call void %745(ptr noundef nonnull align 8 dereferenceable(12) %742) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit262.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit266.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit262.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i261.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit259.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit266.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i265.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit263.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
   %746 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !180
@@ -2190,17 +2190,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %750 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %31)
   %751 = load ptr, ptr %750, align 8
   store ptr %746, ptr %750, align 8
-  %.not.i.i.i.i263.i = icmp eq ptr %751, null
-  br i1 %.not.i.i.i.i263.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit265.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i264.i
+  %.not.i.i.i.i267.i = icmp eq ptr %751, null
+  br i1 %.not.i.i.i.i267.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit269.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i268.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i264.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit262.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i268.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit266.i"
   %752 = load ptr, ptr %751, align 8
   %753 = getelementptr inbounds i8, ptr %752, i64 8
   %754 = load ptr, ptr %753, align 8
   tail call void %754(ptr noundef nonnull align 8 dereferenceable(12) %751) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit265.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit269.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit265.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i264.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit262.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit269.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i268.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit266.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
   %755 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !183
@@ -2215,17 +2215,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %759 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %30)
   %760 = load ptr, ptr %759, align 8
   store ptr %755, ptr %759, align 8
-  %.not.i.i.i.i266.i = icmp eq ptr %760, null
-  br i1 %.not.i.i.i.i266.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit268.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i267.i
+  %.not.i.i.i.i270.i = icmp eq ptr %760, null
+  br i1 %.not.i.i.i.i270.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit272.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i271.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i267.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit265.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i271.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit269.i"
   %761 = load ptr, ptr %760, align 8
   %762 = getelementptr inbounds i8, ptr %761, i64 8
   %763 = load ptr, ptr %762, align 8
   tail call void %763(ptr noundef nonnull align 8 dereferenceable(12) %760) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit268.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit272.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit268.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i267.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit265.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit272.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i271.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit269.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
   %764 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !186
@@ -2240,17 +2240,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %768 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %29)
   %769 = load ptr, ptr %768, align 8
   store ptr %764, ptr %768, align 8
-  %.not.i.i.i.i269.i = icmp eq ptr %769, null
-  br i1 %.not.i.i.i.i269.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit271.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i270.i
+  %.not.i.i.i.i273.i = icmp eq ptr %769, null
+  br i1 %.not.i.i.i.i273.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit275.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i274.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i270.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit268.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i274.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit272.i"
   %770 = load ptr, ptr %769, align 8
   %771 = getelementptr inbounds i8, ptr %770, i64 8
   %772 = load ptr, ptr %771, align 8
   tail call void %772(ptr noundef nonnull align 8 dereferenceable(12) %769) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit271.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit275.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit271.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i270.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit268.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit275.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i274.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit272.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   %773 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !189
@@ -2265,17 +2265,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %777 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %28)
   %778 = load ptr, ptr %777, align 8
   store ptr %773, ptr %777, align 8
-  %.not.i.i.i.i272.i = icmp eq ptr %778, null
-  br i1 %.not.i.i.i.i272.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit274.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i273.i
+  %.not.i.i.i.i276.i = icmp eq ptr %778, null
+  br i1 %.not.i.i.i.i276.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit278.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i277.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i273.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit271.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i277.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit275.i"
   %779 = load ptr, ptr %778, align 8
   %780 = getelementptr inbounds i8, ptr %779, i64 8
   %781 = load ptr, ptr %780, align 8
   tail call void %781(ptr noundef nonnull align 8 dereferenceable(12) %778) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit274.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit278.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit274.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i273.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit271.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit278.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i277.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit275.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   %782 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !192
@@ -2290,17 +2290,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %786 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %27)
   %787 = load ptr, ptr %786, align 8
   store ptr %782, ptr %786, align 8
-  %.not.i.i.i.i275.i = icmp eq ptr %787, null
-  br i1 %.not.i.i.i.i275.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit277.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i276.i
+  %.not.i.i.i.i279.i = icmp eq ptr %787, null
+  br i1 %.not.i.i.i.i279.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit281.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i280.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i276.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit274.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i280.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit278.i"
   %788 = load ptr, ptr %787, align 8
   %789 = getelementptr inbounds i8, ptr %788, i64 8
   %790 = load ptr, ptr %789, align 8
   tail call void %790(ptr noundef nonnull align 8 dereferenceable(12) %787) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit277.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit281.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit277.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i276.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit274.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit281.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i280.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit278.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   %791 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !195
@@ -2315,17 +2315,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %795 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %26)
   %796 = load ptr, ptr %795, align 8
   store ptr %791, ptr %795, align 8
-  %.not.i.i.i.i278.i = icmp eq ptr %796, null
-  br i1 %.not.i.i.i.i278.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit280.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i279.i
+  %.not.i.i.i.i282.i = icmp eq ptr %796, null
+  br i1 %.not.i.i.i.i282.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit284.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i283.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i279.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit277.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i283.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit281.i"
   %797 = load ptr, ptr %796, align 8
   %798 = getelementptr inbounds i8, ptr %797, i64 8
   %799 = load ptr, ptr %798, align 8
   tail call void %799(ptr noundef nonnull align 8 dereferenceable(12) %796) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit280.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit284.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit280.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i279.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit277.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit284.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i283.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit281.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   %800 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !198
@@ -2340,21 +2340,21 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %804 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %25)
   %805 = load ptr, ptr %804, align 8
   store ptr %800, ptr %804, align 8
-  %.not.i.i.i.i281.i = icmp eq ptr %805, null
-  br i1 %.not.i.i.i.i281.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit283.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i282.i
+  %.not.i.i.i.i285.i = icmp eq ptr %805, null
+  br i1 %.not.i.i.i.i285.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit287.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i286.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i282.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit280.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i286.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit284.i"
   %806 = load ptr, ptr %805, align 8
   %807 = getelementptr inbounds i8, ptr %806, i64 8
   %808 = load ptr, ptr %807, align 8
   tail call void %808(ptr noundef nonnull align 8 dereferenceable(12) %805) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit283.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit287.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit283.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i282.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit280.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit287.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i286.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit284.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   br label %809
 
-809:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit283.i", %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit241.i", %449
+809:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit287.i", %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit245.i", %449
   %810 = load ptr, ptr %99, align 8
   %811 = getelementptr inbounds nuw i8, ptr %810, i64 349
   %812 = load i8, ptr %811, align 1
@@ -2375,17 +2375,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %819 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %24)
   %820 = load ptr, ptr %819, align 8
   store ptr %815, ptr %819, align 8
-  %.not.i.i.i.i284.i = icmp eq ptr %820, null
-  br i1 %.not.i.i.i.i284.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit286.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i285.i
+  %.not.i.i.i.i288.i = icmp eq ptr %820, null
+  br i1 %.not.i.i.i.i288.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit290.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i289.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i285.i: ; preds = %814
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i289.i: ; preds = %814
   %821 = load ptr, ptr %820, align 8
   %822 = getelementptr inbounds i8, ptr %821, i64 8
   %823 = load ptr, ptr %822, align 8
   tail call void %823(ptr noundef nonnull align 8 dereferenceable(12) %820) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit286.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit290.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit286.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i285.i, %814
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit290.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i289.i, %814
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   %824 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !204
@@ -2400,17 +2400,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %828 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %23)
   %829 = load ptr, ptr %828, align 8
   store ptr %824, ptr %828, align 8
-  %.not.i.i.i.i287.i = icmp eq ptr %829, null
-  br i1 %.not.i.i.i.i287.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit289.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i288.i
+  %.not.i.i.i.i291.i = icmp eq ptr %829, null
+  br i1 %.not.i.i.i.i291.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit293.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i292.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i288.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit286.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i292.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit290.i"
   %830 = load ptr, ptr %829, align 8
   %831 = getelementptr inbounds i8, ptr %830, i64 8
   %832 = load ptr, ptr %831, align 8
   tail call void %832(ptr noundef nonnull align 8 dereferenceable(12) %829) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit289.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit293.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit289.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i288.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit286.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit293.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i292.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit290.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   %833 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !207
@@ -2425,17 +2425,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %837 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %22)
   %838 = load ptr, ptr %837, align 8
   store ptr %833, ptr %837, align 8
-  %.not.i.i.i.i290.i = icmp eq ptr %838, null
-  br i1 %.not.i.i.i.i290.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit292.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i291.i
+  %.not.i.i.i.i294.i = icmp eq ptr %838, null
+  br i1 %.not.i.i.i.i294.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit296.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i295.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i291.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit289.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i295.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit293.i"
   %839 = load ptr, ptr %838, align 8
   %840 = getelementptr inbounds i8, ptr %839, i64 8
   %841 = load ptr, ptr %840, align 8
   tail call void %841(ptr noundef nonnull align 8 dereferenceable(12) %838) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit292.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit296.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit292.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i291.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit289.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit296.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i295.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit293.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   %842 = load ptr, ptr %99, align 8
   %843 = getelementptr inbounds nuw i8, ptr %842, i64 350
@@ -2455,17 +2455,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %851 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %21)
   %852 = load ptr, ptr %851, align 8
   store ptr %847, ptr %851, align 8
-  %.not.i.i.i.i293.i = icmp eq ptr %852, null
-  br i1 %.not.i.i.i.i293.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit295.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i294.i
+  %.not.i.i.i.i297.i = icmp eq ptr %852, null
+  br i1 %.not.i.i.i.i297.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit299.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i298.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i294.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit292.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i298.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit296.i"
   %853 = load ptr, ptr %852, align 8
   %854 = getelementptr inbounds i8, ptr %853, i64 8
   %855 = load ptr, ptr %854, align 8
   tail call void %855(ptr noundef nonnull align 8 dereferenceable(12) %852) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit295.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit299.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit295.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i294.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit292.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit299.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i298.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit296.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   %856 = load ptr, ptr %99, align 8
   %857 = getelementptr inbounds nuw i8, ptr %856, i64 350
@@ -2485,17 +2485,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %865 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %20)
   %866 = load ptr, ptr %865, align 8
   store ptr %861, ptr %865, align 8
-  %.not.i.i.i.i296.i = icmp eq ptr %866, null
-  br i1 %.not.i.i.i.i296.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit298.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i297.i
+  %.not.i.i.i.i300.i = icmp eq ptr %866, null
+  br i1 %.not.i.i.i.i300.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit302.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i301.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i297.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit295.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i301.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit299.i"
   %867 = load ptr, ptr %866, align 8
   %868 = getelementptr inbounds i8, ptr %867, i64 8
   %869 = load ptr, ptr %868, align 8
   tail call void %869(ptr noundef nonnull align 8 dereferenceable(12) %866) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit298.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit302.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit298.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i297.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit295.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit302.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i301.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit299.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   %870 = load ptr, ptr %99, align 8
   %871 = getelementptr inbounds nuw i8, ptr %870, i64 350
@@ -2515,17 +2515,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %879 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %19)
   %880 = load ptr, ptr %879, align 8
   store ptr %875, ptr %879, align 8
-  %.not.i.i.i.i299.i = icmp eq ptr %880, null
-  br i1 %.not.i.i.i.i299.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit301.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i300.i
+  %.not.i.i.i.i303.i = icmp eq ptr %880, null
+  br i1 %.not.i.i.i.i303.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit305.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i304.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i300.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit298.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i304.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit302.i"
   %881 = load ptr, ptr %880, align 8
   %882 = getelementptr inbounds i8, ptr %881, i64 8
   %883 = load ptr, ptr %882, align 8
   tail call void %883(ptr noundef nonnull align 8 dereferenceable(12) %880) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit301.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit305.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit301.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i300.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit298.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit305.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i304.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit302.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   %884 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !219
@@ -2540,17 +2540,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %888 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %18)
   %889 = load ptr, ptr %888, align 8
   store ptr %884, ptr %888, align 8
-  %.not.i.i.i.i302.i = icmp eq ptr %889, null
-  br i1 %.not.i.i.i.i302.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit304.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i303.i
+  %.not.i.i.i.i306.i = icmp eq ptr %889, null
+  br i1 %.not.i.i.i.i306.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit308.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i307.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i303.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit301.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i307.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit305.i"
   %890 = load ptr, ptr %889, align 8
   %891 = getelementptr inbounds i8, ptr %890, i64 8
   %892 = load ptr, ptr %891, align 8
   tail call void %892(ptr noundef nonnull align 8 dereferenceable(12) %889) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit304.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit308.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit304.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i303.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit301.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit308.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i307.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit305.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   %893 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !222
@@ -2565,17 +2565,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %897 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %17)
   %898 = load ptr, ptr %897, align 8
   store ptr %893, ptr %897, align 8
-  %.not.i.i.i.i305.i = icmp eq ptr %898, null
-  br i1 %.not.i.i.i.i305.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit307.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i306.i
+  %.not.i.i.i.i309.i = icmp eq ptr %898, null
+  br i1 %.not.i.i.i.i309.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit311.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i310.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i306.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit304.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i310.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit308.i"
   %899 = load ptr, ptr %898, align 8
   %900 = getelementptr inbounds i8, ptr %899, i64 8
   %901 = load ptr, ptr %900, align 8
   tail call void %901(ptr noundef nonnull align 8 dereferenceable(12) %898) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit307.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit311.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit307.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i306.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit304.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit311.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i310.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit308.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   %902 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !225
@@ -2590,17 +2590,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %906 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %16)
   %907 = load ptr, ptr %906, align 8
   store ptr %902, ptr %906, align 8
-  %.not.i.i.i.i308.i = icmp eq ptr %907, null
-  br i1 %.not.i.i.i.i308.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit310.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i309.i
+  %.not.i.i.i.i312.i = icmp eq ptr %907, null
+  br i1 %.not.i.i.i.i312.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit314.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i313.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i309.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit307.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i313.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit311.i"
   %908 = load ptr, ptr %907, align 8
   %909 = getelementptr inbounds i8, ptr %908, i64 8
   %910 = load ptr, ptr %909, align 8
   tail call void %910(ptr noundef nonnull align 8 dereferenceable(12) %907) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit310.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit314.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit310.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i309.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit307.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit314.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i313.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit311.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   %911 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !228
@@ -2615,17 +2615,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %915 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %15)
   %916 = load ptr, ptr %915, align 8
   store ptr %911, ptr %915, align 8
-  %.not.i.i.i.i311.i = icmp eq ptr %916, null
-  br i1 %.not.i.i.i.i311.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit313.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i312.i
+  %.not.i.i.i.i315.i = icmp eq ptr %916, null
+  br i1 %.not.i.i.i.i315.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit317.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i316.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i312.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit310.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i316.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit314.i"
   %917 = load ptr, ptr %916, align 8
   %918 = getelementptr inbounds i8, ptr %917, i64 8
   %919 = load ptr, ptr %918, align 8
   tail call void %919(ptr noundef nonnull align 8 dereferenceable(12) %916) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit313.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit317.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit313.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i312.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit310.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit317.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i316.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit314.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   %920 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !231
@@ -2640,21 +2640,21 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %924 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %14)
   %925 = load ptr, ptr %924, align 8
   store ptr %920, ptr %924, align 8
-  %.not.i.i.i.i314.i = icmp eq ptr %925, null
-  br i1 %.not.i.i.i.i314.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit316.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i315.i
+  %.not.i.i.i.i318.i = icmp eq ptr %925, null
+  br i1 %.not.i.i.i.i318.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit320.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i319.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i315.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit313.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i319.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit317.i"
   %926 = load ptr, ptr %925, align 8
   %927 = getelementptr inbounds i8, ptr %926, i64 8
   %928 = load ptr, ptr %927, align 8
   tail call void %928(ptr noundef nonnull align 8 dereferenceable(12) %925) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit316.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit320.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit316.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i315.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit313.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit320.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i319.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit317.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   br i1 %393, label %929, label %_ZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEv.exit
 
-929:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit316.i"
+929:                                              ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit320.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   %930 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !234
   %931 = getelementptr inbounds nuw i8, ptr %930, i64 8
@@ -2668,17 +2668,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %934 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %13)
   %935 = load ptr, ptr %934, align 8
   store ptr %930, ptr %934, align 8
-  %.not.i.i.i.i317.i = icmp eq ptr %935, null
-  br i1 %.not.i.i.i.i317.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit319.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i318.i
+  %.not.i.i.i.i321.i = icmp eq ptr %935, null
+  br i1 %.not.i.i.i.i321.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit323.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i322.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i318.i: ; preds = %929
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i322.i: ; preds = %929
   %936 = load ptr, ptr %935, align 8
   %937 = getelementptr inbounds i8, ptr %936, i64 8
   %938 = load ptr, ptr %937, align 8
   tail call void %938(ptr noundef nonnull align 8 dereferenceable(12) %935) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit319.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit323.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit319.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i318.i, %929
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit323.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i322.i, %929
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   %939 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !237
@@ -2693,17 +2693,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %943 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %12)
   %944 = load ptr, ptr %943, align 8
   store ptr %939, ptr %943, align 8
-  %.not.i.i.i.i320.i = icmp eq ptr %944, null
-  br i1 %.not.i.i.i.i320.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit322.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i321.i
+  %.not.i.i.i.i324.i = icmp eq ptr %944, null
+  br i1 %.not.i.i.i.i324.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit326.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i325.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i321.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit319.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i325.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit323.i"
   %945 = load ptr, ptr %944, align 8
   %946 = getelementptr inbounds i8, ptr %945, i64 8
   %947 = load ptr, ptr %946, align 8
   tail call void %947(ptr noundef nonnull align 8 dereferenceable(12) %944) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit322.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit326.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit322.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i321.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit319.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit326.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i325.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit323.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %948 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !240
@@ -2718,17 +2718,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %952 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %11)
   %953 = load ptr, ptr %952, align 8
   store ptr %948, ptr %952, align 8
-  %.not.i.i.i.i323.i = icmp eq ptr %953, null
-  br i1 %.not.i.i.i.i323.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit325.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i324.i
+  %.not.i.i.i.i327.i = icmp eq ptr %953, null
+  br i1 %.not.i.i.i.i327.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit329.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i328.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i324.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit322.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i328.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit326.i"
   %954 = load ptr, ptr %953, align 8
   %955 = getelementptr inbounds i8, ptr %954, i64 8
   %956 = load ptr, ptr %955, align 8
   tail call void %956(ptr noundef nonnull align 8 dereferenceable(12) %953) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit325.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit329.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit325.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i324.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit322.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit329.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i328.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit326.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %957 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !243
@@ -2743,17 +2743,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %961 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %10)
   %962 = load ptr, ptr %961, align 8
   store ptr %957, ptr %961, align 8
-  %.not.i.i.i.i326.i = icmp eq ptr %962, null
-  br i1 %.not.i.i.i.i326.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit328.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i327.i
+  %.not.i.i.i.i330.i = icmp eq ptr %962, null
+  br i1 %.not.i.i.i.i330.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit332.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i331.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i327.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit325.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i331.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit329.i"
   %963 = load ptr, ptr %962, align 8
   %964 = getelementptr inbounds i8, ptr %963, i64 8
   %965 = load ptr, ptr %964, align 8
   tail call void %965(ptr noundef nonnull align 8 dereferenceable(12) %962) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit328.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit332.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit328.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i327.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit325.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit332.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i331.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit329.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %966 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !246
@@ -2768,17 +2768,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %970 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %9)
   %971 = load ptr, ptr %970, align 8
   store ptr %966, ptr %970, align 8
-  %.not.i.i.i.i329.i = icmp eq ptr %971, null
-  br i1 %.not.i.i.i.i329.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit331.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i330.i
+  %.not.i.i.i.i333.i = icmp eq ptr %971, null
+  br i1 %.not.i.i.i.i333.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit335.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i334.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i330.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit328.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i334.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit332.i"
   %972 = load ptr, ptr %971, align 8
   %973 = getelementptr inbounds i8, ptr %972, i64 8
   %974 = load ptr, ptr %973, align 8
   tail call void %974(ptr noundef nonnull align 8 dereferenceable(12) %971) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit331.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit335.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit331.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i330.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit328.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit335.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i334.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit332.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %975 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !249
@@ -2793,17 +2793,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %979 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %8)
   %980 = load ptr, ptr %979, align 8
   store ptr %975, ptr %979, align 8
-  %.not.i.i.i.i332.i = icmp eq ptr %980, null
-  br i1 %.not.i.i.i.i332.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit334.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i333.i
+  %.not.i.i.i.i336.i = icmp eq ptr %980, null
+  br i1 %.not.i.i.i.i336.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit338.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i337.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i333.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit331.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i337.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit335.i"
   %981 = load ptr, ptr %980, align 8
   %982 = getelementptr inbounds i8, ptr %981, i64 8
   %983 = load ptr, ptr %982, align 8
   tail call void %983(ptr noundef nonnull align 8 dereferenceable(12) %980) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit334.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit338.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit334.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i333.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit331.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit338.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i337.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit335.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %984 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !252
@@ -2818,17 +2818,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %988 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %7)
   %989 = load ptr, ptr %988, align 8
   store ptr %984, ptr %988, align 8
-  %.not.i.i.i.i335.i = icmp eq ptr %989, null
-  br i1 %.not.i.i.i.i335.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit337.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i336.i
+  %.not.i.i.i.i339.i = icmp eq ptr %989, null
+  br i1 %.not.i.i.i.i339.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit341.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i340.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i336.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit334.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i340.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit338.i"
   %990 = load ptr, ptr %989, align 8
   %991 = getelementptr inbounds i8, ptr %990, i64 8
   %992 = load ptr, ptr %991, align 8
   tail call void %992(ptr noundef nonnull align 8 dereferenceable(12) %989) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit337.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit341.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit337.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i336.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit334.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit341.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i340.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit338.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %993 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !255
@@ -2843,21 +2843,21 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i
   %997 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(8) %6)
   %998 = load ptr, ptr %997, align 8
   store ptr %993, ptr %997, align 8
-  %.not.i.i.i.i338.i = icmp eq ptr %998, null
-  br i1 %.not.i.i.i.i338.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit340.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i339.i
+  %.not.i.i.i.i342.i = icmp eq ptr %998, null
+  br i1 %.not.i.i.i.i342.i, label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit344.i", label %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i343.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i339.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit337.i"
+_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i343.i: ; preds = %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit341.i"
   %999 = load ptr, ptr %998, align 8
   %1000 = getelementptr inbounds i8, ptr %999, i64 8
   %1001 = load ptr, ptr %1000, align 8
   tail call void %1001(ptr noundef nonnull align 8 dereferenceable(12) %998) #17
-  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit340.i"
+  br label %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit344.i"
 
-"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit340.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i339.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit337.i"
+"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit344.i": ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_118InstrConverterBaseEEclEPS1_.exit.i.i.i.i343.i, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit341.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %_ZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEv.exit
 
-_ZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEv.exit: ; preds = %809, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit316.i", %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit340.i"
+_ZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEv.exit: ; preds = %809, %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit320.i", %"_ZZN12_GLOBAL__N_121X86DomainReassignment14initConvertersEvENK3$_1clEjj.exit344.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88)
@@ -4231,19 +4231,19 @@ _ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit.thread: ; pre
   %1687 = load ptr, ptr %1686, align 8
   %1688 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1686) #17
   %1689 = getelementptr inbounds ptr, ptr %1687, i64 %1688
-  %.not24.i.i = icmp eq i64 %1688, 0
-  br i1 %.not24.i.i, label %_ZNK12_GLOBAL__N_121X86DomainReassignment24isReassignmentProfitableERKNS_7ClosureENS_9RegDomainE.exit.thread, label %.lr.ph.i.i46
+  %.not25.i.i = icmp eq i64 %1688, 0
+  br i1 %.not25.i.i, label %_ZNK12_GLOBAL__N_121X86DomainReassignment24isReassignmentProfitableERKNS_7ClosureENS_9RegDomainE.exit.thread, label %.lr.ph.i.i46
 
 .lr.ph.i.i46:                                     ; preds = %1685, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i.i
-  %.026.i.i = phi double [ %1736, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i.i ], [ 0.000000e+00, %1685 ]
-  %.01225.i.i = phi ptr [ %1737, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i.i ], [ %1687, %1685 ]
-  %1690 = load ptr, ptr %.01225.i.i, align 8
+  %.027.i.i = phi double [ %1736, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i.i ], [ 0.000000e+00, %1685 ]
+  %.01226.i.i = phi ptr [ %1737, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i.i ], [ %1687, %1685 ]
+  %1690 = load ptr, ptr %.01226.i.i, align 8
   %1691 = getelementptr inbounds nuw i8, ptr %1690, i64 68
   %1692 = load i16, ptr %1691, align 4
   %1693 = zext i16 %1692 to i32
-  %.val14.i.i = load ptr, ptr %115, align 8
-  %.val15.i.i = load i32, ptr %1069, align 8
-  %1694 = icmp eq i32 %.val15.i.i, 0
+  %.val15.i.i = load ptr, ptr %115, align 8
+  %.val16.i.i = load i32, ptr %1069, align 8
+  %1694 = icmp eq i32 %.val16.i.i, 0
   br i1 %1694, label %.loopexit.i.i.i, label %1695
 
 1695:                                             ; preds = %.lr.ph.i.i46
@@ -4254,10 +4254,10 @@ _ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit.thread: ; pre
   %1700 = lshr i64 %1699, 31
   %1701 = xor i64 %1700, %1698
   %1702 = trunc i64 %1701 to i32
-  %1703 = add i32 %.val15.i.i, -1
+  %1703 = add i32 %.val16.i.i, -1
   %.0153.i.i.i.i.i = and i32 %1703, %1702
   %1704 = zext i32 %.0153.i.i.i.i.i to i64
-  %1705 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.18", ptr %.val14.i.i, i64 %1704
+  %1705 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.18", ptr %.val15.i.i, i64 %1704
   %1706 = load i32, ptr %1705, align 4
   %1707 = icmp eq i32 %1706, 1
   %1708 = getelementptr inbounds nuw i8, ptr %1705, i64 4
@@ -4281,7 +4281,7 @@ _ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit.thread: ; pre
   %1719 = add i32 %.0144.i.i.i.i.i, %.0155.i.i.i.i.i
   %.015.i.i.i.i.i = and i32 %1719, %1703
   %1720 = zext i32 %.015.i.i.i.i.i to i64
-  %1721 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.18", ptr %.val14.i.i, i64 %1720
+  %1721 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.18", ptr %.val15.i.i, i64 %1720
   %1722 = load i32, ptr %1721, align 4
   %1723 = icmp eq i32 %1722, 1
   %1724 = getelementptr inbounds nuw i8, ptr %1721, i64 4
@@ -4291,8 +4291,8 @@ _ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit.thread: ; pre
   br i1 %1727, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !274
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i46
-  %1728 = zext i32 %.val15.i.i to i64
-  %1729 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.18", ptr %.val14.i.i, i64 %1728
+  %1728 = zext i32 %.val16.i.i to i64
+  %1729 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.18", ptr %.val15.i.i, i64 %1728
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i.i
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i.i: ; preds = %1717, %.loopexit.i.i.i, %1695
@@ -4304,8 +4304,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118
   %1733 = getelementptr inbounds i8, ptr %1732, i64 32
   %1734 = load ptr, ptr %1733, align 8
   %1735 = call noundef double %1734(ptr noundef nonnull align 8 dereferenceable(12) %.val.i.i, ptr noundef nonnull %1690, ptr noundef %1731) #17
-  %1736 = fadd double %.026.i.i, %1735
-  %1737 = getelementptr inbounds i8, ptr %.01225.i.i, i64 8
+  %1736 = fadd double %.027.i.i, %1735
+  %1737 = getelementptr inbounds i8, ptr %.01226.i.i, i64 8
   %.not.i.i47 = icmp eq ptr %1737, %1689
   br i1 %.not.i.i47, label %_ZNK12_GLOBAL__N_121X86DomainReassignment24isReassignmentProfitableERKNS_7ClosureENS_9RegDomainE.exit, label %.lr.ph.i.i46
 
@@ -4319,18 +4319,18 @@ _ZNK12_GLOBAL__N_121X86DomainReassignment24isReassignmentProfitableERKNS_7Closur
   %1740 = load ptr, ptr %1686, align 8
   %1741 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1686) #17
   %1742 = getelementptr inbounds ptr, ptr %1740, i64 %1741
-  %.not72.i = icmp eq i64 %1741, 0
-  br i1 %.not72.i, label %._crit_edge.i51, label %.lr.ph.i48
+  %.not73.i = icmp eq i64 %1741, 0
+  br i1 %.not73.i, label %._crit_edge.i51, label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %1739, %1801
-  %.073.i = phi ptr [ %1802, %1801 ], [ %1740, %1739 ]
-  %1743 = load ptr, ptr %.073.i, align 8
+  %.074.i = phi ptr [ %1802, %1801 ], [ %1740, %1739 ]
+  %1743 = load ptr, ptr %.074.i, align 8
   %1744 = getelementptr inbounds nuw i8, ptr %1743, i64 68
   %1745 = load i16, ptr %1744, align 4
   %1746 = zext i16 %1745 to i32
-  %.val33.i = load ptr, ptr %115, align 8
-  %.val34.i = load i32, ptr %1069, align 8
-  %1747 = icmp eq i32 %.val34.i, 0
+  %.val34.i = load ptr, ptr %115, align 8
+  %.val35.i = load i32, ptr %1069, align 8
+  %1747 = icmp eq i32 %.val35.i, 0
   br i1 %1747, label %.loopexit.i.i, label %1748
 
 1748:                                             ; preds = %.lr.ph.i48
@@ -4341,10 +4341,10 @@ _ZNK12_GLOBAL__N_121X86DomainReassignment24isReassignmentProfitableERKNS_7Closur
   %1753 = lshr i64 %1752, 31
   %1754 = xor i64 %1753, %1751
   %1755 = trunc i64 %1754 to i32
-  %1756 = add i32 %.val34.i, -1
+  %1756 = add i32 %.val35.i, -1
   %.0153.i.i.i.i = and i32 %1756, %1755
   %1757 = zext i32 %.0153.i.i.i.i to i64
-  %1758 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.18", ptr %.val33.i, i64 %1757
+  %1758 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.18", ptr %.val34.i, i64 %1757
   %1759 = load i32, ptr %1758, align 4
   %1760 = icmp eq i32 %1759, 1
   %1761 = getelementptr inbounds nuw i8, ptr %1758, i64 4
@@ -4368,7 +4368,7 @@ _ZNK12_GLOBAL__N_121X86DomainReassignment24isReassignmentProfitableERKNS_7Closur
   %1772 = add i32 %.0144.i.i.i.i, %.0155.i.i.i.i
   %.015.i.i.i.i = and i32 %1772, %1756
   %1773 = zext i32 %.015.i.i.i.i to i64
-  %1774 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.18", ptr %.val33.i, i64 %1773
+  %1774 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.18", ptr %.val34.i, i64 %1773
   %1775 = load i32, ptr %1774, align 4
   %1776 = icmp eq i32 %1775, 1
   %1777 = getelementptr inbounds nuw i8, ptr %1774, i64 4
@@ -4378,8 +4378,8 @@ _ZNK12_GLOBAL__N_121X86DomainReassignment24isReassignmentProfitableERKNS_7Closur
   br i1 %1780, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !274
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i48
-  %1781 = zext i32 %.val34.i to i64
-  %1782 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.18", ptr %.val33.i, i64 %1781
+  %1781 = zext i32 %.val35.i to i64
+  %1782 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.18", ptr %.val34.i, i64 %1781
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i: ; preds = %1770, %.loopexit.i.i, %1748
@@ -4417,7 +4417,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i:
   br label %1801
 
 1801:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIijESt10unique_ptrIN12_GLOBAL__N_118InstrConverterBaseESt14default_deleteIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i
-  %1802 = getelementptr inbounds i8, ptr %.073.i, i64 8
+  %1802 = getelementptr inbounds i8, ptr %.074.i, i64 8
   %.not.i50 = icmp eq ptr %1802, %1742
   br i1 %.not.i50, label %._crit_edge.i51, label %.lr.ph.i48
 
@@ -4430,7 +4430,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i:
   %1808 = load i32, ptr %1807, align 8, !noalias !275
   %1809 = zext i32 %1808 to i64
   %1810 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %1806, i64 %1809
-  br i1 %1805, label %._crit_edge81.i, label %1811
+  br i1 %1805, label %._crit_edge82.i, label %1811
 
 1811:                                             ; preds = %._crit_edge.i51
   %.not4.i5.i10.i2.i.i.i.i = icmp eq i32 %1808, 0
@@ -4445,16 +4445,16 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i:
 .critedge2.i8.i14.i9.i.i.i.i:                     ; preds = %.lr.ph.i6.i12.i3.i.i.i.i
   %1813 = getelementptr inbounds i8, ptr %.sroa.0.3.i4.i.i.i.i, i64 4
   %.not.i9.i15.i10.i.i.i.i = icmp eq ptr %1813, %1810
-  br i1 %.not.i9.i15.i10.i.i.i.i, label %._crit_edge81.i, label %.lr.ph.i6.i12.i3.i.i.i.i, !llvm.loop !278
+  br i1 %.not.i9.i15.i10.i.i.i.i, label %._crit_edge82.i, label %.lr.ph.i6.i12.i3.i.i.i.i, !llvm.loop !278
 
 _ZNK12_GLOBAL__N_17Closure5edgesEv.exit.i:        ; preds = %.lr.ph.i6.i12.i3.i.i.i.i, %1811
   %.pn14.i.i.i.i = phi ptr [ %1806, %1811 ], [ %.sroa.0.3.i4.i.i.i.i, %.lr.ph.i6.i12.i3.i.i.i.i ]
-  %.not7078.i = icmp eq ptr %.pn14.i.i.i.i, %1810
-  br i1 %.not7078.i, label %._crit_edge81.i, label %.lr.ph80.i
+  %.not7179.i = icmp eq ptr %.pn14.i.i.i.i, %1810
+  br i1 %.not7179.i, label %._crit_edge82.i, label %.lr.ph81.i
 
-.lr.ph80.i:                                       ; preds = %_ZNK12_GLOBAL__N_17Closure5edgesEv.exit.i, %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E13ConstIteratorppEv.exit.i
-  %.sroa.056.079.i = phi ptr [ %.sroa.056.1.i, %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E13ConstIteratorppEv.exit.i ], [ %.pn14.i.i.i.i, %_ZNK12_GLOBAL__N_17Closure5edgesEv.exit.i ]
-  %.sroa.013.0.copyload.i = load i32, ptr %.sroa.056.079.i, align 4
+.lr.ph81.i:                                       ; preds = %_ZNK12_GLOBAL__N_17Closure5edgesEv.exit.i, %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E13ConstIteratorppEv.exit.i
+  %.sroa.057.080.i = phi ptr [ %.sroa.057.1.i, %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E13ConstIteratorppEv.exit.i ], [ %.pn14.i.i.i.i, %_ZNK12_GLOBAL__N_17Closure5edgesEv.exit.i ]
+  %.sroa.013.0.copyload.i = load i32, ptr %.sroa.057.080.i, align 4
   %1814 = load ptr, ptr %110, align 8
   %1815 = getelementptr inbounds nuw i8, ptr %1814, i64 56
   %1816 = and i32 %.sroa.013.0.copyload.i, 2147483647
@@ -4464,10 +4464,10 @@ _ZNK12_GLOBAL__N_17Closure5edgesEv.exit.i:        ; preds = %.lr.ph.i6.i12.i3.i.
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %1819, align 8
   %1820 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %1821 = inttoptr i64 %1820 to ptr
-  %.val38.i = load ptr, ptr %1821, align 8
-  %1822 = getelementptr i8, ptr %.val38.i, i64 24
-  %.val38.val.i = load i16, ptr %1822, align 8
-  %1823 = zext i16 %.val38.val.i to i32
+  %.val39.i = load ptr, ptr %1821, align 8
+  %1822 = getelementptr i8, ptr %.val39.i, i64 24
+  %.val39.val.i = load i16, ptr %1822, align 8
+  %1823 = zext i16 %.val39.val.i to i32
   %1824 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm3X8611GR8RegClassE, i64 8), align 8
   %1825 = lshr i32 %1823, 5
   %1826 = zext nneg i32 %1825 to i64
@@ -4479,7 +4479,7 @@ _ZNK12_GLOBAL__N_17Closure5edgesEv.exit.i:        ; preds = %.lr.ph.i6.i12.i3.i.
   %.not.i.i52 = icmp eq i32 %1831, 0
   br i1 %.not.i.i52, label %1832, label %_ZN12_GLOBAL__N_18getDstRCEPKN4llvm19TargetRegisterClassENS_9RegDomainE.exit.i
 
-1832:                                             ; preds = %.lr.ph80.i
+1832:                                             ; preds = %.lr.ph81.i
   %1833 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm3X8612GR16RegClassE, i64 8), align 8
   %1834 = getelementptr inbounds i32, ptr %1833, i64 %1826
   %1835 = load i32, ptr %1834, align 4
@@ -4496,8 +4496,8 @@ _ZNK12_GLOBAL__N_17Closure5edgesEv.exit.i:        ; preds = %.lr.ph.i6.i12.i3.i.
   %spec.select.i.i = select i1 %.not2.i.i, ptr @_ZN4llvm3X8612VK64RegClassE, ptr @_ZN4llvm3X8612VK32RegClassE
   br label %_ZN12_GLOBAL__N_18getDstRCEPKN4llvm19TargetRegisterClassENS_9RegDomainE.exit.i
 
-_ZN12_GLOBAL__N_18getDstRCEPKN4llvm19TargetRegisterClassENS_9RegDomainE.exit.i: ; preds = %1837, %1832, %.lr.ph80.i
-  %.0.i.i53 = phi ptr [ @_ZN4llvm3X8611VK8RegClassE, %.lr.ph80.i ], [ @_ZN4llvm3X8612VK16RegClassE, %1832 ], [ %spec.select.i.i, %1837 ]
+_ZN12_GLOBAL__N_18getDstRCEPKN4llvm19TargetRegisterClassENS_9RegDomainE.exit.i: ; preds = %1837, %1832, %.lr.ph81.i
+  %.0.i.i53 = phi ptr [ @_ZN4llvm3X8611VK8RegClassE, %.lr.ph81.i ], [ @_ZN4llvm3X8612VK16RegClassE, %1832 ], [ %spec.select.i.i, %1837 ]
   call void @_ZN4llvm19MachineRegisterInfo11setRegClassENS_8RegisterEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(512) %1814, i32 %.sroa.013.0.copyload.i, ptr noundef nonnull %.0.i.i53) #17
   %1842 = load ptr, ptr %110, align 8
   %1843 = icmp slt i32 %.sroa.013.0.copyload.i, 0
@@ -4509,111 +4509,111 @@ _ZN12_GLOBAL__N_18getDstRCEPKN4llvm19TargetRegisterClassENS_9RegDomainE.exit.i: 
   %1849 = load ptr, ptr %1847, align 8
   %1850 = getelementptr inbounds ptr, ptr %1849, i64 %1848
   %.0.in.i.i.i.i54 = select i1 %1843, ptr %1846, ptr %1850
-  %.0.i.i.i46.i = load ptr, ptr %.0.in.i.i.i.i54, align 8
-  %.not.i.i.i47.i = icmp eq ptr %.0.i.i.i46.i, null
-  br i1 %.not.i.i.i47.i, label %._crit_edge77.i, label %1851
+  %.0.i.i.i47.i = load ptr, ptr %.0.in.i.i.i.i54, align 8
+  %.not.i.i.i48.i = icmp eq ptr %.0.i.i.i47.i, null
+  br i1 %.not.i.i.i48.i, label %._crit_edge78.i, label %1851
 
 1851:                                             ; preds = %_ZN12_GLOBAL__N_18getDstRCEPKN4llvm19TargetRegisterClassENS_9RegDomainE.exit.i
-  %1852 = load i32, ptr %.0.i.i.i46.i, align 8
+  %1852 = load i32, ptr %.0.i.i.i47.i, align 8
   %1853 = and i32 %1852, 16777216
   %.not4.i.i.i.i = icmp eq i32 %1853, 0
-  br i1 %.not4.i.i.i.i, label %.lr.ph76.i.preheader, label %.preheader.i.i.i.i
+  br i1 %.not4.i.i.i.i, label %.lr.ph77.i.preheader, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %1851, %1854
-  %.pn.i.i.i.i.i55 = phi ptr [ %storemerge.i.i.i.i.i57, %1854 ], [ %.0.i.i.i46.i, %1851 ]
+  %.pn.i.i.i.i.i55 = phi ptr [ %storemerge.i.i.i.i.i57, %1854 ], [ %.0.i.i.i47.i, %1851 ]
   %storemerge.in.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i55, i64 24
   %storemerge.i.i.i.i.i57 = load ptr, ptr %storemerge.in.i.i.i.i.i56, align 8
   %.not.i.i.i.i.i58 = icmp eq ptr %storemerge.i.i.i.i.i57, null
-  br i1 %.not.i.i.i.i.i58, label %._crit_edge77.i, label %1854
+  br i1 %.not.i.i.i.i.i58, label %._crit_edge78.i, label %1854
 
 1854:                                             ; preds = %.preheader.i.i.i.i
   %1855 = load i32, ptr %storemerge.i.i.i.i.i57, align 8
   %1856 = and i32 %1855, 16777216
   %.not1.i.i.i.i.i = icmp eq i32 %1856, 0
-  br i1 %.not1.i.i.i.i.i, label %.lr.ph76.i.preheader, label %.preheader.i.i.i.i, !llvm.loop !279
+  br i1 %.not1.i.i.i.i.i, label %.lr.ph77.i.preheader, label %.preheader.i.i.i.i, !llvm.loop !279
 
-.lr.ph76.i.preheader:                             ; preds = %1854, %1851
+.lr.ph77.i.preheader:                             ; preds = %1854, %1851
   %.ph = phi i32 [ %1852, %1851 ], [ %1855, %1854 ]
-  %.sroa.050.075.i.ph = phi ptr [ %.0.i.i.i46.i, %1851 ], [ %storemerge.i.i.i.i.i57, %1854 ]
-  br label %.lr.ph76.i
+  %.sroa.051.076.i.ph = phi ptr [ %.0.i.i.i47.i, %1851 ], [ %storemerge.i.i.i.i.i57, %1854 ]
+  br label %.lr.ph77.i
 
-.lr.ph76.i.loopexit:                              ; preds = %1863
-  br label %.lr.ph76.i, !llvm.loop !279
+.lr.ph77.i.loopexit:                              ; preds = %1863
+  br label %.lr.ph77.i, !llvm.loop !279
 
-.lr.ph76.i:                                       ; preds = %.lr.ph76.i.preheader, %.lr.ph76.i.loopexit
-  %1857 = phi i32 [ %1864, %.lr.ph76.i.loopexit ], [ %.ph, %.lr.ph76.i.preheader ]
-  %.sroa.050.075.i = phi ptr [ %storemerge.i.i.i62, %.lr.ph76.i.loopexit ], [ %.sroa.050.075.i.ph, %.lr.ph76.i.preheader ]
+.lr.ph77.i:                                       ; preds = %.lr.ph77.i.preheader, %.lr.ph77.i.loopexit
+  %1857 = phi i32 [ %1864, %.lr.ph77.i.loopexit ], [ %.ph, %.lr.ph77.i.preheader ]
+  %.sroa.051.076.i = phi ptr [ %storemerge.i.i.i62, %.lr.ph77.i.loopexit ], [ %.sroa.051.076.i.ph, %.lr.ph77.i.preheader ]
   %1858 = and i32 %1857, 255
   %1859 = icmp eq i32 %1858, 0
   br i1 %1859, label %1860, label %.preheader204
 
-1860:                                             ; preds = %.lr.ph76.i
+1860:                                             ; preds = %.lr.ph77.i
   %1861 = and i32 %1857, -1048576
-  store i32 %1861, ptr %.sroa.050.075.i, align 8
+  store i32 %1861, ptr %.sroa.051.076.i, align 8
   br label %.preheader204
 
-.preheader204:                                    ; preds = %1860, %.lr.ph76.i
+.preheader204:                                    ; preds = %1860, %.lr.ph77.i
   br label %1862
 
 1862:                                             ; preds = %.preheader204, %1863
-  %.pn.i.i.i60 = phi ptr [ %storemerge.i.i.i62, %1863 ], [ %.sroa.050.075.i, %.preheader204 ]
+  %.pn.i.i.i60 = phi ptr [ %storemerge.i.i.i62, %1863 ], [ %.sroa.051.076.i, %.preheader204 ]
   %storemerge.in.i.i.i61 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i60, i64 24
   %storemerge.i.i.i62 = load ptr, ptr %storemerge.in.i.i.i61, align 8
   %.not.i.i.i63 = icmp eq ptr %storemerge.i.i.i62, null
-  br i1 %.not.i.i.i63, label %._crit_edge77.i, label %1863
+  br i1 %.not.i.i.i63, label %._crit_edge78.i, label %1863
 
 1863:                                             ; preds = %1862
   %1864 = load i32, ptr %storemerge.i.i.i62, align 8
   %1865 = and i32 %1864, 16777216
   %.not1.i.i.i = icmp eq i32 %1865, 0
-  br i1 %.not1.i.i.i, label %.lr.ph76.i.loopexit, label %1862, !llvm.loop !279
+  br i1 %.not1.i.i.i, label %.lr.ph77.i.loopexit, label %1862, !llvm.loop !279
 
-._crit_edge77.i:                                  ; preds = %.preheader.i.i.i.i, %1862, %_ZN12_GLOBAL__N_18getDstRCEPKN4llvm19TargetRegisterClassENS_9RegDomainE.exit.i
-  %1866 = getelementptr inbounds i8, ptr %.sroa.056.079.i, i64 4
+._crit_edge78.i:                                  ; preds = %.preheader.i.i.i.i, %1862, %_ZN12_GLOBAL__N_18getDstRCEPKN4llvm19TargetRegisterClassENS_9RegDomainE.exit.i
+  %1866 = getelementptr inbounds i8, ptr %.sroa.057.080.i, i64 4
   %.not4.i3.i.i.i = icmp eq ptr %1866, %1810
-  br i1 %.not4.i3.i.i.i, label %._crit_edge81.i, label %.lr.ph.i4.i.i.i
+  br i1 %.not4.i3.i.i.i, label %._crit_edge82.i, label %.lr.ph.i4.i.i.i
 
-.lr.ph.i4.i.i.i:                                  ; preds = %._crit_edge77.i, %.critedge2.i6.i.i.i
-  %.sroa.056.1.i = phi ptr [ %1868, %.critedge2.i6.i.i.i ], [ %1866, %._crit_edge77.i ]
-  %1867 = load i32, ptr %.sroa.056.1.i, align 4
+.lr.ph.i4.i.i.i:                                  ; preds = %._crit_edge78.i, %.critedge2.i6.i.i.i
+  %.sroa.057.1.i = phi ptr [ %1868, %.critedge2.i6.i.i.i ], [ %1866, %._crit_edge78.i ]
+  %1867 = load i32, ptr %.sroa.057.1.i, align 4
   %switch.i5.i.i.i = icmp ugt i32 %1867, -3
   br i1 %switch.i5.i.i.i, label %.critedge2.i6.i.i.i, label %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E13ConstIteratorppEv.exit.i
 
 .critedge2.i6.i.i.i:                              ; preds = %.lr.ph.i4.i.i.i
-  %1868 = getelementptr inbounds i8, ptr %.sroa.056.1.i, i64 4
+  %1868 = getelementptr inbounds i8, ptr %.sroa.057.1.i, i64 4
   %.not.i7.i.i.i = icmp eq ptr %1868, %1810
-  br i1 %.not.i7.i.i.i, label %._crit_edge81.i, label %.lr.ph.i4.i.i.i, !llvm.loop !278
+  br i1 %.not.i7.i.i.i, label %._crit_edge82.i, label %.lr.ph.i4.i.i.i, !llvm.loop !278
 
 _ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E13ConstIteratorppEv.exit.i: ; preds = %.lr.ph.i4.i.i.i
-  %.not70.i = icmp eq ptr %.sroa.056.1.i, %1810
-  br i1 %.not70.i, label %._crit_edge81.i, label %.lr.ph80.i
+  %.not71.i = icmp eq ptr %.sroa.057.1.i, %1810
+  br i1 %.not71.i, label %._crit_edge82.i, label %.lr.ph81.i
 
-._crit_edge81.i:                                  ; preds = %.critedge2.i8.i14.i9.i.i.i.i, %._crit_edge77.i, %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E13ConstIteratorppEv.exit.i, %.critedge2.i6.i.i.i, %_ZNK12_GLOBAL__N_17Closure5edgesEv.exit.i, %._crit_edge.i51
+._crit_edge82.i:                                  ; preds = %.critedge2.i8.i14.i9.i.i.i.i, %._crit_edge78.i, %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E13ConstIteratorppEv.exit.i, %.critedge2.i6.i.i.i, %_ZNK12_GLOBAL__N_17Closure5edgesEv.exit.i, %._crit_edge.i51
   %1869 = load ptr, ptr %3, align 8
   %1870 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   %1871 = getelementptr inbounds ptr, ptr %1869, i64 %1870
-  %.not3182.i = icmp eq i64 %1870, 0
-  br i1 %.not3182.i, label %._crit_edge86.i, label %.lr.ph85.i
+  %.not3183.i = icmp eq i64 %1870, 0
+  br i1 %.not3183.i, label %._crit_edge87.i, label %.lr.ph86.i
 
-.lr.ph85.i:                                       ; preds = %._crit_edge81.i, %.lr.ph85.i
-  %.03083.i = phi ptr [ %1873, %.lr.ph85.i ], [ %1869, %._crit_edge81.i ]
-  %1872 = load ptr, ptr %.03083.i, align 8
+.lr.ph86.i:                                       ; preds = %._crit_edge82.i, %.lr.ph86.i
+  %.03084.i = phi ptr [ %1873, %.lr.ph86.i ], [ %1869, %._crit_edge82.i ]
+  %1872 = load ptr, ptr %.03084.i, align 8
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1872) #17
-  %1873 = getelementptr inbounds i8, ptr %.03083.i, i64 8
+  %1873 = getelementptr inbounds i8, ptr %.03084.i, i64 8
   %.not31.i = icmp eq ptr %1873, %1871
-  br i1 %.not31.i, label %._crit_edge86.i, label %.lr.ph85.i
+  br i1 %.not31.i, label %._crit_edge87.i, label %.lr.ph86.i
 
-._crit_edge86.i:                                  ; preds = %.lr.ph85.i, %._crit_edge81.i
+._crit_edge87.i:                                  ; preds = %.lr.ph86.i, %._crit_edge82.i
   %1874 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   %1875 = load ptr, ptr %3, align 8
   %1876 = icmp eq ptr %1875, %1070
   br i1 %1876, label %_ZNK12_GLOBAL__N_121X86DomainReassignment8reassignERKNS_7ClosureENS_9RegDomainE.exit, label %1877
 
-1877:                                             ; preds = %._crit_edge86.i
+1877:                                             ; preds = %._crit_edge87.i
   call void @free(ptr noundef %1875) #17
   br label %_ZNK12_GLOBAL__N_121X86DomainReassignment8reassignERKNS_7ClosureENS_9RegDomainE.exit
 
-_ZNK12_GLOBAL__N_121X86DomainReassignment8reassignERKNS_7ClosureENS_9RegDomainE.exit: ; preds = %._crit_edge86.i, %1877
+_ZNK12_GLOBAL__N_121X86DomainReassignment8reassignERKNS_7ClosureENS_9RegDomainE.exit: ; preds = %._crit_edge87.i, %1877
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   br label %_ZNK12_GLOBAL__N_121X86DomainReassignment24isReassignmentProfitableERKNS_7ClosureENS_9RegDomainE.exit.thread
 

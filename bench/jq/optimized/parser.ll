@@ -296,12 +296,12 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %8 = alloca [200 x %union.YYSTYPE], align 16
   %9 = alloca [200 x %struct.location], align 16
   %.sroa.0616 = alloca { i8, i8, i16, i32 }, align 8
-  %10 = alloca %struct.location, align 8
-  %11 = alloca [128 x i8], align 16
-  %12 = alloca i64, align 8
+  %10 = alloca [128 x i8], align 16
+  %11 = alloca i64, align 8
+  %12 = alloca %struct.location, align 8
   %13 = alloca %struct.location, align 8
-  %14 = alloca %struct.location, align 8
-  %15 = alloca %struct.block, align 8
+  %14 = alloca %struct.block, align 8
+  %15 = alloca %struct.location, align 8
   %16 = alloca %struct.location, align 8
   %17 = alloca %struct.location, align 8
   %18 = alloca %struct.location, align 8
@@ -313,3252 +313,3314 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %24 = alloca %struct.location, align 8
   %25 = alloca %struct.location, align 8
   %26 = alloca %struct.location, align 8
-  %27 = alloca %struct.location, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i64 0, ptr %6, align 8
-  store i64 128, ptr %12, align 8
+  store i64 128, ptr %11, align 8
   store i64 0, ptr %9, align 16
-  %28 = getelementptr inbounds i8, ptr %10, i64 4
-  %29 = getelementptr inbounds i8, ptr %15, i64 8
+  %27 = getelementptr inbounds i8, ptr %14, i64 8
   %.sroa.2563.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.6.16..sroa_idx = getelementptr inbounds i8, ptr %6, i64 4
-  br label %32
-
-30:                                               ; preds = %2050, %2054, %2117, %108
-  %.11248 = phi ptr [ %.3, %2117 ], [ %.01247, %2050 ], [ %.01247, %2054 ], [ %.01247, %108 ]
-  %.11184 = phi ptr [ %2120, %2117 ], [ %2033, %2050 ], [ %2033, %2054 ], [ %110, %108 ]
-  %.11174 = phi ptr [ %2119, %2117 ], [ %2032, %2050 ], [ %2032, %2054 ], [ %109, %108 ]
-  %.11164 = phi ptr [ %.51168, %2117 ], [ %2030, %2050 ], [ %2030, %2054 ], [ %.21165, %108 ]
-  %.11154 = phi i32 [ 3, %2117 ], [ %.01153, %2050 ], [ %.01153, %2054 ], [ %spec.select, %108 ]
-  %.11151 = phi i32 [ %2118, %2117 ], [ %2053, %2050 ], [ %2057, %2054 ], [ %102, %108 ]
-  %.1 = phi i32 [ %.7, %2117 ], [ %.9, %2050 ], [ %.9, %2054 ], [ -2, %108 ]
-  %31 = getelementptr inbounds i8, ptr %.11164, i64 2
-  br label %32
-
-32:                                               ; preds = %30, %4
-  %.01247 = phi ptr [ %11, %4 ], [ %.11248, %30 ]
-  %.01183 = phi ptr [ %9, %4 ], [ %.11184, %30 ]
-  %.01181 = phi ptr [ %9, %4 ], [ %.11182, %30 ]
-  %.01173 = phi ptr [ %8, %4 ], [ %.11174, %30 ]
-  %.01171 = phi ptr [ %8, %4 ], [ %.11172, %30 ]
-  %.01163 = phi ptr [ %7, %4 ], [ %31, %30 ]
-  %.01158 = phi ptr [ %7, %4 ], [ %.11159, %30 ]
-  %.01156 = phi i64 [ 200, %4 ], [ %.11157, %30 ]
-  %.01153 = phi i32 [ 0, %4 ], [ %.11154, %30 ]
-  %.01150 = phi i32 [ 0, %4 ], [ %.11151, %30 ]
-  %.01145 = phi i32 [ -2, %4 ], [ %.1, %30 ]
-  %33 = trunc nsw i32 %.01150 to i16
-  store i16 %33, ptr %.01163, align 2
-  %34 = getelementptr inbounds i16, ptr %.01158, i64 %.01156
-  %35 = getelementptr inbounds i8, ptr %34, i64 -2
-  %.not = icmp ugt ptr %35, %.01163
-  br i1 %.not, label %68, label %36
-
-36:                                               ; preds = %32
-  %37 = ptrtoint ptr %.01163 to i64
-  %38 = ptrtoint ptr %.01158 to i64
-  %39 = sub i64 %37, %38
-  %40 = ashr exact i64 %39, 1
-  %41 = add nsw i64 %40, 1
-  %42 = icmp sgt i64 %.01156, 9999
-  br i1 %42, label %2122, label %43
-
-43:                                               ; preds = %36
-  %44 = shl nsw i64 %.01156, 1
-  %spec.store.select = call i64 @llvm.smin.i64(i64 %44, i64 10000)
-  %45 = mul nsw i64 %spec.store.select, 26
-  %46 = add nsw i64 %45, 30
-  %47 = call ptr @jv_mem_alloc(i64 noundef %46) #9
-  %.not1215 = icmp eq ptr %47, null
-  br i1 %.not1215, label %2122, label %48
-
-48:                                               ; preds = %43
-  %49 = shl i64 %41, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr align 2 %.01158, i64 %49, i1 false)
-  %50 = shl nsw i64 %spec.store.select, 1
-  %51 = add nsw i64 %50, 15
-  %52 = sdiv i64 %51, 16
-  %53 = getelementptr inbounds %union.yyalloc, ptr %47, i64 %52
-  %54 = shl i64 %41, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %.01171, i64 %54, i1 false)
-  %55 = shl nsw i64 %spec.store.select, 4
-  %56 = or disjoint i64 %55, 15
-  %57 = sdiv i64 %56, 16
-  %58 = getelementptr inbounds %union.yyalloc, ptr %53, i64 %57
-  %59 = shl i64 %41, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %58, ptr align 4 %.01181, i64 %59, i1 false)
-  %.not1216 = icmp eq ptr %.01158, %7
-  br i1 %.not1216, label %61, label %60
-
-60:                                               ; preds = %48
-  call void @jv_mem_free(ptr noundef %.01158) #9
-  br label %61
-
-61:                                               ; preds = %60, %48
-  %62 = getelementptr inbounds i16, ptr %47, i64 %41
-  %63 = getelementptr inbounds i8, ptr %62, i64 -2
-  %64 = getelementptr inbounds %union.YYSTYPE, ptr %53, i64 %41
-  %65 = getelementptr inbounds i8, ptr %64, i64 -16
-  %66 = getelementptr inbounds %struct.location, ptr %58, i64 %41
-  %67 = getelementptr inbounds i8, ptr %66, i64 -8
-  %.not1217 = icmp sgt i64 %spec.store.select, %41
-  br i1 %.not1217, label %68, label %.loopexit
-
-68:                                               ; preds = %61, %32
-  %.21185 = phi ptr [ %67, %61 ], [ %.01183, %32 ]
-  %.11182 = phi ptr [ %58, %61 ], [ %.01181, %32 ]
-  %.21175 = phi ptr [ %65, %61 ], [ %.01173, %32 ]
-  %.11172 = phi ptr [ %53, %61 ], [ %.01171, %32 ]
-  %.21165 = phi ptr [ %63, %61 ], [ %.01163, %32 ]
-  %.11159 = phi ptr [ %47, %61 ], [ %.01158, %32 ]
-  %.11157 = phi i64 [ %spec.store.select, %61 ], [ %.01156, %32 ]
-  %69 = icmp eq i32 %.01150, 30
-  br i1 %69, label %.loopexit, label %70
-
-70:                                               ; preds = %68
-  %71 = sext i32 %.01150 to i64
-  %72 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %71
-  %73 = load i16, ptr %72, align 2
-  %74 = sext i16 %73 to i32
-  %75 = icmp eq i16 %73, -157
-  br i1 %75, label %112, label %76
-
-76:                                               ; preds = %70
-  %77 = icmp eq i32 %.01145, -2
-  br i1 %77, label %78, label %80
-
-78:                                               ; preds = %76
-  %79 = call i32 @yylex(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr poison, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  br label %80
-
-80:                                               ; preds = %78, %76
-  %.5 = phi i32 [ %79, %78 ], [ %.01145, %76 ]
-  %81 = icmp slt i32 %.5, 1
-  br i1 %81, label %92, label %82
-
-82:                                               ; preds = %80
-  %83 = icmp eq i32 %.5, 256
-  br i1 %83, label %84, label %85
-
-84:                                               ; preds = %82
-  %.sroa.0606.8.copyload = load i32, ptr %6, align 8
-  br label %2091
-
-85:                                               ; preds = %82
-  %86 = icmp ult i32 %.5, 304
-  br i1 %86, label %87, label %92
-
-87:                                               ; preds = %85
-  %88 = zext nneg i32 %.5 to i64
-  %89 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %88
-  %90 = load i8, ptr %89, align 1
-  %91 = sext i8 %90 to i32
-  br label %92
-
-92:                                               ; preds = %87, %85, %80
-  %.01193 = phi i32 [ 0, %80 ], [ %91, %87 ], [ 2, %85 ]
-  %.6 = phi i32 [ 0, %80 ], [ %.5, %87 ], [ %.5, %85 ]
-  %93 = add nsw i32 %.01193, %74
-  %or.cond3 = icmp ugt i32 %93, 2051
-  br i1 %or.cond3, label %112, label %94
-
-94:                                               ; preds = %92
-  %95 = zext nneg i32 %93 to i64
-  %96 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %95
-  %97 = load i16, ptr %96, align 2
-  %98 = sext i16 %97 to i32
-  %.not1218 = icmp eq i32 %.01193, %98
-  br i1 %.not1218, label %99, label %112
-
-99:                                               ; preds = %94
-  %100 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %95
-  %101 = load i16, ptr %100, align 2
-  %102 = sext i16 %101 to i32
-  %103 = icmp slt i16 %101, 1
-  br i1 %103, label %104, label %108
-
-104:                                              ; preds = %99
-  %105 = icmp eq i16 %101, -156
-  br i1 %105, label %.thread, label %106
-
-106:                                              ; preds = %104
-  %107 = sub nsw i32 0, %102
-  br label %117
-
-108:                                              ; preds = %99
-  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.01153, i32 1)
-  %109 = getelementptr inbounds i8, ptr %.21175, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  %110 = getelementptr inbounds i8, ptr %.21185, i64 8
-  %111 = load i64, ptr %6, align 8
-  store i64 %111, ptr %110, align 4
   br label %30
 
-112:                                              ; preds = %92, %94, %70
-  %.4 = phi i32 [ %.01145, %70 ], [ %.6, %92 ], [ %.6, %94 ]
-  %113 = getelementptr inbounds [315 x i8], ptr @yydefact, i64 0, i64 %71
-  %114 = load i8, ptr %113, align 1
-  %115 = zext i8 %114 to i32
-  %116 = icmp eq i8 %114, 0
-  br i1 %116, label %2058, label %117
+28:                                               ; preds = %2026, %2030, %2093, %106
+  %.11440 = phi ptr [ %.3, %2093 ], [ %.01439, %2026 ], [ %.01439, %2030 ], [ %.01439, %106 ]
+  %.11184 = phi ptr [ %2096, %2093 ], [ %2010, %2026 ], [ %2010, %2030 ], [ %108, %106 ]
+  %.11174 = phi ptr [ %2095, %2093 ], [ %2009, %2026 ], [ %2009, %2030 ], [ %107, %106 ]
+  %.11164 = phi ptr [ %.51168, %2093 ], [ %2007, %2026 ], [ %2007, %2030 ], [ %.21165, %106 ]
+  %.11154 = phi i32 [ 3, %2093 ], [ %.01153, %2026 ], [ %.01153, %2030 ], [ %spec.select, %106 ]
+  %.11151 = phi i32 [ %2094, %2093 ], [ %2029, %2026 ], [ %2033, %2030 ], [ %100, %106 ]
+  %.1 = phi i32 [ %.7, %2093 ], [ %.9, %2026 ], [ %.9, %2030 ], [ -2, %106 ]
+  %29 = getelementptr inbounds i8, ptr %.11164, i64 2
+  br label %30
 
-117:                                              ; preds = %112, %106
-  %.01191 = phi i32 [ %115, %112 ], [ %107, %106 ]
-  %.9 = phi i32 [ %.4, %112 ], [ %.6, %106 ]
-  %118 = zext nneg i32 %.01191 to i64
-  %119 = getelementptr inbounds [170 x i8], ptr @yyr2, i64 0, i64 %118
-  %120 = load i8, ptr %119, align 1
-  %121 = sext i8 %120 to i64
-  %122 = sub nsw i64 1, %121
-  %123 = getelementptr inbounds %union.YYSTYPE, ptr %.21175, i64 %122
-  %124 = load i64, ptr %123, align 8
-  store i64 %124, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx = getelementptr inbounds i8, ptr %123, i64 8
+30:                                               ; preds = %28, %4
+  %.01439 = phi ptr [ %10, %4 ], [ %.11440, %28 ]
+  %.01183 = phi ptr [ %9, %4 ], [ %.11184, %28 ]
+  %.01181 = phi ptr [ %9, %4 ], [ %.11182, %28 ]
+  %.01173 = phi ptr [ %8, %4 ], [ %.11174, %28 ]
+  %.01171 = phi ptr [ %8, %4 ], [ %.11172, %28 ]
+  %.01163 = phi ptr [ %7, %4 ], [ %29, %28 ]
+  %.01158 = phi ptr [ %7, %4 ], [ %.11159, %28 ]
+  %.01156 = phi i64 [ 200, %4 ], [ %.11157, %28 ]
+  %.01153 = phi i32 [ 0, %4 ], [ %.11154, %28 ]
+  %.01150 = phi i32 [ 0, %4 ], [ %.11151, %28 ]
+  %.01145 = phi i32 [ -2, %4 ], [ %.1, %28 ]
+  %31 = trunc nsw i32 %.01150 to i16
+  store i16 %31, ptr %.01163, align 2
+  %32 = getelementptr inbounds i16, ptr %.01158, i64 %.01156
+  %33 = getelementptr inbounds i8, ptr %32, i64 -2
+  %.not = icmp ugt ptr %33, %.01163
+  br i1 %.not, label %66, label %34
+
+34:                                               ; preds = %30
+  %35 = ptrtoint ptr %.01163 to i64
+  %36 = ptrtoint ptr %.01158 to i64
+  %37 = sub i64 %35, %36
+  %38 = ashr exact i64 %37, 1
+  %39 = add nsw i64 %38, 1
+  %40 = icmp sgt i64 %.01156, 9999
+  br i1 %40, label %2098, label %41
+
+41:                                               ; preds = %34
+  %42 = shl nsw i64 %.01156, 1
+  %spec.store.select = call i64 @llvm.smin.i64(i64 %42, i64 10000)
+  %43 = mul nsw i64 %spec.store.select, 26
+  %44 = add nsw i64 %43, 30
+  %45 = call ptr @jv_mem_alloc(i64 noundef %44) #9
+  %.not1215 = icmp eq ptr %45, null
+  br i1 %.not1215, label %2098, label %46
+
+46:                                               ; preds = %41
+  %47 = shl i64 %39, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr align 2 %.01158, i64 %47, i1 false)
+  %48 = shl nsw i64 %spec.store.select, 1
+  %49 = add nsw i64 %48, 15
+  %50 = sdiv i64 %49, 16
+  %51 = getelementptr inbounds %union.yyalloc, ptr %45, i64 %50
+  %52 = shl i64 %39, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr align 8 %.01171, i64 %52, i1 false)
+  %53 = shl nsw i64 %spec.store.select, 4
+  %54 = or disjoint i64 %53, 15
+  %55 = sdiv i64 %54, 16
+  %56 = getelementptr inbounds %union.yyalloc, ptr %51, i64 %55
+  %57 = shl i64 %39, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %56, ptr align 4 %.01181, i64 %57, i1 false)
+  %.not1216 = icmp eq ptr %.01158, %7
+  br i1 %.not1216, label %59, label %58
+
+58:                                               ; preds = %46
+  call void @jv_mem_free(ptr noundef %.01158) #9
+  br label %59
+
+59:                                               ; preds = %58, %46
+  %60 = getelementptr inbounds i16, ptr %45, i64 %39
+  %61 = getelementptr inbounds i8, ptr %60, i64 -2
+  %62 = getelementptr inbounds %union.YYSTYPE, ptr %51, i64 %39
+  %63 = getelementptr inbounds i8, ptr %62, i64 -16
+  %64 = getelementptr inbounds %struct.location, ptr %56, i64 %39
+  %65 = getelementptr inbounds i8, ptr %64, i64 -8
+  %.not1217 = icmp sgt i64 %spec.store.select, %39
+  br i1 %.not1217, label %66, label %.loopexit
+
+66:                                               ; preds = %59, %30
+  %.21185 = phi ptr [ %65, %59 ], [ %.01183, %30 ]
+  %.11182 = phi ptr [ %56, %59 ], [ %.01181, %30 ]
+  %.21175 = phi ptr [ %63, %59 ], [ %.01173, %30 ]
+  %.11172 = phi ptr [ %51, %59 ], [ %.01171, %30 ]
+  %.21165 = phi ptr [ %61, %59 ], [ %.01163, %30 ]
+  %.11159 = phi ptr [ %45, %59 ], [ %.01158, %30 ]
+  %.11157 = phi i64 [ %spec.store.select, %59 ], [ %.01156, %30 ]
+  %67 = icmp eq i32 %.01150, 30
+  br i1 %67, label %.loopexit, label %68
+
+68:                                               ; preds = %66
+  %69 = sext i32 %.01150 to i64
+  %70 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %69
+  %71 = load i16, ptr %70, align 2
+  %72 = sext i16 %71 to i32
+  %73 = icmp eq i16 %71, -157
+  br i1 %73, label %110, label %74
+
+74:                                               ; preds = %68
+  %75 = icmp eq i32 %.01145, -2
+  br i1 %75, label %76, label %78
+
+76:                                               ; preds = %74
+  %77 = call i32 @yylex(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr poison, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  br label %78
+
+78:                                               ; preds = %76, %74
+  %.5 = phi i32 [ %77, %76 ], [ %.01145, %74 ]
+  %79 = icmp slt i32 %.5, 1
+  br i1 %79, label %90, label %80
+
+80:                                               ; preds = %78
+  %81 = icmp eq i32 %.5, 256
+  br i1 %81, label %82, label %83
+
+82:                                               ; preds = %80
+  %.sroa.0606.8.copyload = load i32, ptr %6, align 8
+  br label %2067
+
+83:                                               ; preds = %80
+  %84 = icmp ult i32 %.5, 304
+  br i1 %84, label %85, label %90
+
+85:                                               ; preds = %83
+  %86 = zext nneg i32 %.5 to i64
+  %87 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %86
+  %88 = load i8, ptr %87, align 1
+  %89 = sext i8 %88 to i32
+  br label %90
+
+90:                                               ; preds = %85, %83, %78
+  %.01193 = phi i32 [ 0, %78 ], [ %89, %85 ], [ 2, %83 ]
+  %.6 = phi i32 [ 0, %78 ], [ %.5, %85 ], [ %.5, %83 ]
+  %91 = add nsw i32 %.01193, %72
+  %or.cond3 = icmp ugt i32 %91, 2051
+  br i1 %or.cond3, label %110, label %92
+
+92:                                               ; preds = %90
+  %93 = zext nneg i32 %91 to i64
+  %94 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %93
+  %95 = load i16, ptr %94, align 2
+  %96 = sext i16 %95 to i32
+  %.not1218 = icmp eq i32 %.01193, %96
+  br i1 %.not1218, label %97, label %110
+
+97:                                               ; preds = %92
+  %98 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %93
+  %99 = load i16, ptr %98, align 2
+  %100 = sext i16 %99 to i32
+  %101 = icmp slt i16 %99, 1
+  br i1 %101, label %102, label %106
+
+102:                                              ; preds = %97
+  %103 = icmp eq i16 %99, -156
+  br i1 %103, label %.thread, label %104
+
+104:                                              ; preds = %102
+  %105 = sub nsw i32 0, %100
+  br label %115
+
+106:                                              ; preds = %97
+  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.01153, i32 1)
+  %107 = getelementptr inbounds i8, ptr %.21175, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  %108 = getelementptr inbounds i8, ptr %.21185, i64 8
+  %109 = load i64, ptr %6, align 8
+  store i64 %109, ptr %108, align 4
+  br label %28
+
+110:                                              ; preds = %90, %92, %68
+  %.4 = phi i32 [ %.01145, %68 ], [ %.6, %90 ], [ %.6, %92 ]
+  %111 = getelementptr inbounds [315 x i8], ptr @yydefact, i64 0, i64 %69
+  %112 = load i8, ptr %111, align 1
+  %113 = zext i8 %112 to i32
+  %114 = icmp eq i8 %112, 0
+  br i1 %114, label %2034, label %115
+
+115:                                              ; preds = %110, %104
+  %.01191 = phi i32 [ %113, %110 ], [ %105, %104 ]
+  %.9 = phi i32 [ %.4, %110 ], [ %.6, %104 ]
+  %116 = zext nneg i32 %.01191 to i64
+  %117 = getelementptr inbounds [170 x i8], ptr @yyr2, i64 0, i64 %116
+  %118 = load i8, ptr %117, align 1
+  %119 = sext i8 %118 to i64
+  %120 = sub nsw i64 1, %119
+  %121 = getelementptr inbounds %union.YYSTYPE, ptr %.21175, i64 %120
+  %122 = load i64, ptr %121, align 8
+  store i64 %122, ptr %.sroa.0616, align 8
+  %.sroa.179.0..sroa_idx = getelementptr inbounds i8, ptr %121, i64 8
   %.sroa.179.0.copyload = load ptr, ptr %.sroa.179.0..sroa_idx, align 8
-  %.not1220 = icmp eq i8 %120, 0
-  br i1 %.not1220, label %132, label %125
+  %.not1220 = icmp eq i8 %118, 0
+  br i1 %.not1220, label %130, label %123
 
-125:                                              ; preds = %117
-  %126 = sub nsw i64 0, %121
-  %127 = getelementptr inbounds %struct.location, ptr %.21185, i64 %126
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
+123:                                              ; preds = %115
+  %124 = sub nsw i64 0, %119
+  %125 = getelementptr inbounds %struct.location, ptr %.21185, i64 %124
+  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  %127 = load i32, ptr %126, align 4
+  %128 = getelementptr inbounds i8, ptr %.21185, i64 4
   %129 = load i32, ptr %128, align 4
-  store i32 %129, ptr %10, align 8
-  %130 = getelementptr inbounds i8, ptr %.21185, i64 4
-  %131 = load i32, ptr %130, align 4
-  br label %135
+  br label %133
 
-132:                                              ; preds = %117
-  %133 = getelementptr inbounds i8, ptr %.21185, i64 4
-  %134 = load i32, ptr %133, align 4
-  store i32 %134, ptr %10, align 8
-  br label %135
+130:                                              ; preds = %115
+  %131 = getelementptr inbounds i8, ptr %.21185, i64 4
+  %132 = load i32, ptr %131, align 4
+  br label %133
 
-135:                                              ; preds = %125, %132
-  %storemerge = phi i32 [ %131, %125 ], [ %134, %132 ]
-  store i32 %storemerge, ptr %28, align 4
-  switch i32 %.01191, label %2027 [
-    i32 2, label %136
-    i32 3, label %160
-    i32 4, label %178
-    i32 5, label %182
-    i32 6, label %212
-    i32 7, label %216
-    i32 8, label %227
-    i32 9, label %231
-    i32 10, label %242
-    i32 11, label %253
-    i32 12, label %268
-    i32 13, label %285
-    i32 14, label %303
-    i32 15, label %323
-    i32 16, label %338
-    i32 17, label %342
-    i32 18, label %353
-    i32 19, label %363
-    i32 20, label %367
-    i32 21, label %389
-    i32 22, label %400
-    i32 23, label %420
-    i32 24, label %431
-    i32 25, label %442
-    i32 26, label %453
-    i32 27, label %464
-    i32 28, label %484
-    i32 29, label %495
-    i32 30, label %506
-    i32 31, label %517
-    i32 32, label %528
-    i32 33, label %541
-    i32 34, label %552
-    i32 35, label %563
-    i32 36, label %574
-    i32 37, label %585
-    i32 38, label %596
-    i32 39, label %607
-    i32 40, label %618
-    i32 41, label %629
-    i32 42, label %640
-    i32 43, label %651
-    i32 44, label %662
-    i32 45, label %673
-    i32 46, label %684
-    i32 47, label %695
-    i32 48, label %697
-    i32 49, label %700
-    i32 50, label %742
-    i32 51, label %762
-    i32 52, label %782
-    i32 53, label %795
-    i32 54, label %812
-    i32 55, label %830
-    i32 56, label %849
-    i32 57, label %851
-    i32 58, label %862
-    i32 59, label %872
-    i32 60, label %882
-    i32 61, label %885
-    i32 62, label %889
-    i32 63, label %896
-    i32 64, label %903
-    i32 65, label %917
-    i32 66, label %939
-    i32 67, label %954
-    i32 68, label %957
-    i32 69, label %961
-    i32 70, label %972
-    i32 71, label %985
-    i32 72, label %987
-    i32 73, label %991
-    i32 74, label %998
-    i32 75, label %1025
-    i32 76, label %1030
-    i32 77, label %1045
-    i32 78, label %1059
-    i32 79, label %1071
-    i32 80, label %1082
-    i32 81, label %1096
-    i32 82, label %1109
-    i32 83, label %1120
-    i32 84, label %1130
-    i32 85, label %1135
-    i32 86, label %1144
-    i32 87, label %1156
-    i32 88, label %1168
-    i32 89, label %1180
-    i32 90, label %1192
-    i32 91, label %1203
-    i32 92, label %1214
-    i32 93, label %1225
-    i32 94, label %1236
-    i32 95, label %1252
-    i32 96, label %1270
-    i32 97, label %1288
-    i32 98, label %1304
-    i32 99, label %1322
-    i32 100, label %1340
-    i32 101, label %1347
-    i32 102, label %1349
-    i32 103, label %1359
-    i32 104, label %1362
-    i32 105, label %1370
-    i32 106, label %1377
-    i32 107, label %1407
-    i32 108, label %1421
-    i32 109, label %1435
-    i32 110, label %1439
-    i32 111, label %1480
-    i32 112, label %1500
-    i32 113, label %1504
-    i32 114, label %1508
-    i32 115, label %1511
-    i32 116, label %1515
-    i32 117, label %1517
-    i32 118, label %1528
-    i32 119, label %1535
-    i32 120, label %1549
-    i32 121, label %1556
-    i32 122, label %1567
-    i32 123, label %1569
-    i32 124, label %1579
-    i32 125, label %1590
-    i32 126, label %1601
-    i32 127, label %1611
-    i32 128, label %1622
-    i32 129, label %1624
-    i32 130, label %1635
-    i32 131, label %1651
-    i32 132, label %1680
-    i32 133, label %1694
-    i32 134, label %1708
-    i32 135, label %1719
-    i32 136, label %1740
-    i32 137, label %1743
-    i32 138, label %1747
-    i32 139, label %1751
-    i32 140, label %1755
-    i32 141, label %1759
-    i32 142, label %1763
-    i32 143, label %1767
-    i32 144, label %1771
-    i32 145, label %1775
-    i32 146, label %1779
-    i32 147, label %1783
-    i32 148, label %1787
-    i32 149, label %1791
-    i32 150, label %1795
-    i32 151, label %1799
-    i32 152, label %1803
-    i32 153, label %1807
-    i32 154, label %1811
-    i32 155, label %1815
-    i32 156, label %1819
-    i32 157, label %1821
-    i32 158, label %1832
-    i32 159, label %1834
-    i32 160, label %1848
-    i32 161, label %1862
-    i32 162, label %1873
-    i32 163, label %1901
-    i32 164, label %1922
-    i32 165, label %1942
-    i32 166, label %1966
-    i32 167, label %1979
-    i32 168, label %2003
-    i32 169, label %2024
+133:                                              ; preds = %123, %130
+  %.sroa.01249.0 = phi i32 [ %132, %130 ], [ %127, %123 ]
+  %.sroa.26.0 = phi i32 [ %132, %130 ], [ %129, %123 ]
+  switch i32 %.01191, label %2004 [
+    i32 2, label %134
+    i32 3, label %158
+    i32 4, label %176
+    i32 5, label %180
+    i32 6, label %208
+    i32 7, label %212
+    i32 8, label %223
+    i32 9, label %227
+    i32 10, label %238
+    i32 11, label %249
+    i32 12, label %264
+    i32 13, label %281
+    i32 14, label %299
+    i32 15, label %319
+    i32 16, label %334
+    i32 17, label %337
+    i32 18, label %348
+    i32 19, label %358
+    i32 20, label %361
+    i32 21, label %382
+    i32 22, label %393
+    i32 23, label %413
+    i32 24, label %424
+    i32 25, label %435
+    i32 26, label %446
+    i32 27, label %457
+    i32 28, label %477
+    i32 29, label %488
+    i32 30, label %499
+    i32 31, label %510
+    i32 32, label %521
+    i32 33, label %534
+    i32 34, label %545
+    i32 35, label %556
+    i32 36, label %567
+    i32 37, label %578
+    i32 38, label %589
+    i32 39, label %600
+    i32 40, label %611
+    i32 41, label %622
+    i32 42, label %633
+    i32 43, label %644
+    i32 44, label %655
+    i32 45, label %666
+    i32 46, label %677
+    i32 47, label %688
+    i32 48, label %690
+    i32 49, label %693
+    i32 50, label %733
+    i32 51, label %753
+    i32 52, label %773
+    i32 53, label %786
+    i32 54, label %802
+    i32 55, label %820
+    i32 56, label %839
+    i32 57, label %841
+    i32 58, label %852
+    i32 59, label %862
+    i32 60, label %872
+    i32 61, label %875
+    i32 62, label %879
+    i32 63, label %886
+    i32 64, label %893
+    i32 65, label %907
+    i32 66, label %929
+    i32 67, label %944
+    i32 68, label %947
+    i32 69, label %951
+    i32 70, label %962
+    i32 71, label %975
+    i32 72, label %977
+    i32 73, label %981
+    i32 74, label %988
+    i32 75, label %1014
+    i32 76, label %1018
+    i32 77, label %1033
+    i32 78, label %1047
+    i32 79, label %1059
+    i32 80, label %1070
+    i32 81, label %1084
+    i32 82, label %1097
+    i32 83, label %1108
+    i32 84, label %1118
+    i32 85, label %1122
+    i32 86, label %1130
+    i32 87, label %1142
+    i32 88, label %1154
+    i32 89, label %1166
+    i32 90, label %1178
+    i32 91, label %1189
+    i32 92, label %1200
+    i32 93, label %1211
+    i32 94, label %1222
+    i32 95, label %1238
+    i32 96, label %1256
+    i32 97, label %1274
+    i32 98, label %1290
+    i32 99, label %1308
+    i32 100, label %1326
+    i32 101, label %1333
+    i32 102, label %1335
+    i32 103, label %1345
+    i32 104, label %1348
+    i32 105, label %1356
+    i32 106, label %1363
+    i32 107, label %1393
+    i32 108, label %1406
+    i32 109, label %1419
+    i32 110, label %1423
+    i32 111, label %1463
+    i32 112, label %1483
+    i32 113, label %1487
+    i32 114, label %1491
+    i32 115, label %1494
+    i32 116, label %1498
+    i32 117, label %1500
+    i32 118, label %1511
+    i32 119, label %1518
+    i32 120, label %1532
+    i32 121, label %1539
+    i32 122, label %1550
+    i32 123, label %1552
+    i32 124, label %1562
+    i32 125, label %1573
+    i32 126, label %1584
+    i32 127, label %1594
+    i32 128, label %1605
+    i32 129, label %1607
+    i32 130, label %1618
+    i32 131, label %1634
+    i32 132, label %1663
+    i32 133, label %1677
+    i32 134, label %1691
+    i32 135, label %1702
+    i32 136, label %1722
+    i32 137, label %1724
+    i32 138, label %1728
+    i32 139, label %1732
+    i32 140, label %1736
+    i32 141, label %1740
+    i32 142, label %1744
+    i32 143, label %1748
+    i32 144, label %1752
+    i32 145, label %1756
+    i32 146, label %1760
+    i32 147, label %1764
+    i32 148, label %1768
+    i32 149, label %1772
+    i32 150, label %1776
+    i32 151, label %1780
+    i32 152, label %1784
+    i32 153, label %1788
+    i32 154, label %1792
+    i32 155, label %1796
+    i32 156, label %1800
+    i32 157, label %1802
+    i32 158, label %1813
+    i32 159, label %1815
+    i32 160, label %1829
+    i32 161, label %1843
+    i32 162, label %1854
+    i32 163, label %1882
+    i32 164, label %1902
+    i32 165, label %1921
+    i32 166, label %1945
+    i32 167, label %1958
+    i32 168, label %1982
+    i32 169, label %2002
   ]
 
-136:                                              ; preds = %135
-  %137 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %138 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %139 = load ptr, ptr %137, align 8
-  %140 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %141 = load ptr, ptr %140, align 8
-  %142 = load ptr, ptr %138, align 8
-  %143 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %144 = load ptr, ptr %143, align 8
-  %145 = call { ptr, ptr } @block_join(ptr %139, ptr %141, ptr %142, ptr %144) #9
-  %146 = extractvalue { ptr, ptr } %145, 0
-  %147 = extractvalue { ptr, ptr } %145, 1
-  %148 = call { ptr, ptr } @gen_op_simple(i32 noundef 35) #9
-  %149 = extractvalue { ptr, ptr } %148, 0
-  %150 = extractvalue { ptr, ptr } %148, 1
-  %151 = call { ptr, ptr } @block_join(ptr %146, ptr %147, ptr %149, ptr %150) #9
-  %152 = extractvalue { ptr, ptr } %151, 0
-  %153 = extractvalue { ptr, ptr } %151, 1
-  %154 = load ptr, ptr %.21175, align 8
-  %155 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %156 = load ptr, ptr %155, align 8
-  %157 = call { ptr, ptr } @block_join(ptr %152, ptr %153, ptr %154, ptr %156) #9
-  %158 = extractvalue { ptr, ptr } %157, 0
-  %159 = extractvalue { ptr, ptr } %157, 1
-  store ptr %158, ptr %0, align 8
-  store ptr %159, ptr %.sroa.2563.0..sroa_idx, align 8
-  br label %2027
+134:                                              ; preds = %133
+  %135 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %136 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %137 = load ptr, ptr %135, align 8
+  %138 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %139 = load ptr, ptr %138, align 8
+  %140 = load ptr, ptr %136, align 8
+  %141 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %142 = load ptr, ptr %141, align 8
+  %143 = call { ptr, ptr } @block_join(ptr %137, ptr %139, ptr %140, ptr %142) #9
+  %144 = extractvalue { ptr, ptr } %143, 0
+  %145 = extractvalue { ptr, ptr } %143, 1
+  %146 = call { ptr, ptr } @gen_op_simple(i32 noundef 35) #9
+  %147 = extractvalue { ptr, ptr } %146, 0
+  %148 = extractvalue { ptr, ptr } %146, 1
+  %149 = call { ptr, ptr } @block_join(ptr %144, ptr %145, ptr %147, ptr %148) #9
+  %150 = extractvalue { ptr, ptr } %149, 0
+  %151 = extractvalue { ptr, ptr } %149, 1
+  %152 = load ptr, ptr %.21175, align 8
+  %153 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %154 = load ptr, ptr %153, align 8
+  %155 = call { ptr, ptr } @block_join(ptr %150, ptr %151, ptr %152, ptr %154) #9
+  %156 = extractvalue { ptr, ptr } %155, 0
+  %157 = extractvalue { ptr, ptr } %155, 1
+  store ptr %156, ptr %0, align 8
+  store ptr %157, ptr %.sroa.2563.0..sroa_idx, align 8
+  br label %2004
 
-160:                                              ; preds = %135
-  %161 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %162 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %163 = load ptr, ptr %161, align 8
-  %164 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %165 = load ptr, ptr %164, align 8
-  %166 = load ptr, ptr %162, align 8
-  %167 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %168 = load ptr, ptr %167, align 8
-  %169 = call { ptr, ptr } @block_join(ptr %163, ptr %165, ptr %166, ptr %168) #9
-  %170 = extractvalue { ptr, ptr } %169, 0
-  %171 = extractvalue { ptr, ptr } %169, 1
-  %172 = load ptr, ptr %.21175, align 8
-  %173 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %174 = load ptr, ptr %173, align 8
-  %175 = call { ptr, ptr } @block_join(ptr %170, ptr %171, ptr %172, ptr %174) #9
-  %176 = extractvalue { ptr, ptr } %175, 0
-  %177 = extractvalue { ptr, ptr } %175, 1
-  store ptr %176, ptr %0, align 8
-  store ptr %177, ptr %.sroa.2563.0..sroa_idx, align 8
-  br label %2027
+158:                                              ; preds = %133
+  %159 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %160 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %161 = load ptr, ptr %159, align 8
+  %162 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %163 = load ptr, ptr %162, align 8
+  %164 = load ptr, ptr %160, align 8
+  %165 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %166 = load ptr, ptr %165, align 8
+  %167 = call { ptr, ptr } @block_join(ptr %161, ptr %163, ptr %164, ptr %166) #9
+  %168 = extractvalue { ptr, ptr } %167, 0
+  %169 = extractvalue { ptr, ptr } %167, 1
+  %170 = load ptr, ptr %.21175, align 8
+  %171 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %172 = load ptr, ptr %171, align 8
+  %173 = call { ptr, ptr } @block_join(ptr %168, ptr %169, ptr %170, ptr %172) #9
+  %174 = extractvalue { ptr, ptr } %173, 0
+  %175 = extractvalue { ptr, ptr } %173, 1
+  store ptr %174, ptr %0, align 8
+  store ptr %175, ptr %.sroa.2563.0..sroa_idx, align 8
+  br label %2004
 
-178:                                              ; preds = %135
-  %179 = call { ptr, ptr } (...) @gen_noop() #9
-  %180 = extractvalue { ptr, ptr } %179, 0
-  %181 = extractvalue { ptr, ptr } %179, 1
-  store ptr %180, ptr %.sroa.0616, align 8
-  br label %2027
+176:                                              ; preds = %133
+  %177 = call { ptr, ptr } (...) @gen_noop() #9
+  %178 = extractvalue { ptr, ptr } %177, 0
+  %179 = extractvalue { ptr, ptr } %177, 1
+  store ptr %178, ptr %.sroa.0616, align 8
+  br label %2004
 
-182:                                              ; preds = %135
-  %183 = getelementptr inbounds i8, ptr %.21175, i64 -16
+180:                                              ; preds = %133
+  %181 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %182 = load ptr, ptr %181, align 8
+  %183 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %186 = load ptr, ptr %185, align 8
-  %187 = call i32 @block_is_const(ptr %184, ptr %186) #9
-  %.not1227 = icmp eq i32 %187, 0
-  br i1 %.not1227, label %188, label %195
+  %185 = call i32 @block_is_const(ptr %182, ptr %184) #9
+  %.not1227 = icmp eq i32 %185, 0
+  br i1 %.not1227, label %186, label %192
 
-188:                                              ; preds = %182
-  %189 = load i64, ptr %10, align 8
-  store i64 %189, ptr %13, align 8
-  call void @yyerror(ptr noundef nonnull %13, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.4)
-  %190 = call { ptr, ptr } (...) @gen_noop() #9
-  %191 = extractvalue { ptr, ptr } %190, 0
-  %192 = extractvalue { ptr, ptr } %190, 1
-  store ptr %191, ptr %.sroa.0616, align 8
-  %193 = load ptr, ptr %183, align 8
-  %194 = load ptr, ptr %185, align 8
-  call void @block_free(ptr %193, ptr %194) #9
-  br label %2027
+186:                                              ; preds = %180
+  %.sroa.26.0.insert.ext1425 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1426 = shl nuw i64 %.sroa.26.0.insert.ext1425, 32
+  %.sroa.01249.0.insert.ext1323 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1325 = or disjoint i64 %.sroa.26.0.insert.shift1426, %.sroa.01249.0.insert.ext1323
+  store i64 %.sroa.01249.0.insert.insert1325, ptr %12, align 8
+  call void @yyerror(ptr noundef nonnull %12, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.4)
+  %187 = call { ptr, ptr } (...) @gen_noop() #9
+  %188 = extractvalue { ptr, ptr } %187, 0
+  %189 = extractvalue { ptr, ptr } %187, 1
+  store ptr %188, ptr %.sroa.0616, align 8
+  %190 = load ptr, ptr %181, align 8
+  %191 = load ptr, ptr %183, align 8
+  call void @block_free(ptr %190, ptr %191) #9
+  br label %2004
 
-195:                                              ; preds = %182
-  %196 = load ptr, ptr %183, align 8
-  %197 = load ptr, ptr %185, align 8
-  %198 = call i32 @block_const_kind(ptr %196, ptr %197) #9
-  %.not1228 = icmp eq i32 %198, 7
-  br i1 %.not1228, label %206, label %199
+192:                                              ; preds = %180
+  %193 = load ptr, ptr %181, align 8
+  %194 = load ptr, ptr %183, align 8
+  %195 = call i32 @block_const_kind(ptr %193, ptr %194) #9
+  %.not1228 = icmp eq i32 %195, 7
+  br i1 %.not1228, label %202, label %196
 
-199:                                              ; preds = %195
-  %200 = load i64, ptr %10, align 8
-  store i64 %200, ptr %14, align 8
-  call void @yyerror(ptr noundef nonnull %14, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.5)
-  %201 = call { ptr, ptr } (...) @gen_noop() #9
-  %202 = extractvalue { ptr, ptr } %201, 0
-  %203 = extractvalue { ptr, ptr } %201, 1
-  store ptr %202, ptr %.sroa.0616, align 8
+196:                                              ; preds = %192
+  %.sroa.26.0.insert.ext1430 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1431 = shl nuw i64 %.sroa.26.0.insert.ext1430, 32
+  %.sroa.01249.0.insert.ext1327 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1329 = or disjoint i64 %.sroa.26.0.insert.shift1431, %.sroa.01249.0.insert.ext1327
+  store i64 %.sroa.01249.0.insert.insert1329, ptr %13, align 8
+  call void @yyerror(ptr noundef nonnull %13, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.5)
+  %197 = call { ptr, ptr } (...) @gen_noop() #9
+  %198 = extractvalue { ptr, ptr } %197, 0
+  %199 = extractvalue { ptr, ptr } %197, 1
+  store ptr %198, ptr %.sroa.0616, align 8
+  %200 = load ptr, ptr %181, align 8
+  %201 = load ptr, ptr %183, align 8
+  call void @block_free(ptr %200, ptr %201) #9
+  br label %2004
+
+202:                                              ; preds = %192
+  %203 = load ptr, ptr %181, align 8
   %204 = load ptr, ptr %183, align 8
-  %205 = load ptr, ptr %185, align 8
-  call void @block_free(ptr %204, ptr %205) #9
-  br label %2027
+  %205 = call { ptr, ptr } @gen_module(ptr %203, ptr %204) #9
+  %206 = extractvalue { ptr, ptr } %205, 0
+  %207 = extractvalue { ptr, ptr } %205, 1
+  store ptr %206, ptr %.sroa.0616, align 8
+  br label %2004
 
-206:                                              ; preds = %195
-  %207 = load ptr, ptr %183, align 8
-  %208 = load ptr, ptr %185, align 8
-  %209 = call { ptr, ptr } @gen_module(ptr %207, ptr %208) #9
+208:                                              ; preds = %133
+  %209 = call { ptr, ptr } (...) @gen_noop() #9
   %210 = extractvalue { ptr, ptr } %209, 0
   %211 = extractvalue { ptr, ptr } %209, 1
   store ptr %210, ptr %.sroa.0616, align 8
-  br label %2027
+  br label %2004
 
-212:                                              ; preds = %135
-  %213 = call { ptr, ptr } (...) @gen_noop() #9
-  %214 = extractvalue { ptr, ptr } %213, 0
-  %215 = extractvalue { ptr, ptr } %213, 1
-  store ptr %214, ptr %.sroa.0616, align 8
-  br label %2027
+212:                                              ; preds = %133
+  %213 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %214 = load ptr, ptr %213, align 8
+  %215 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %216 = load ptr, ptr %215, align 8
+  %217 = load ptr, ptr %.21175, align 8
+  %218 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %219 = load ptr, ptr %218, align 8
+  %220 = call { ptr, ptr } @block_join(ptr %214, ptr %216, ptr %217, ptr %219) #9
+  %221 = extractvalue { ptr, ptr } %220, 0
+  %222 = extractvalue { ptr, ptr } %220, 1
+  store ptr %221, ptr %.sroa.0616, align 8
+  br label %2004
 
-216:                                              ; preds = %135
-  %217 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %220 = load ptr, ptr %219, align 8
-  %221 = load ptr, ptr %.21175, align 8
-  %222 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %223 = load ptr, ptr %222, align 8
-  %224 = call { ptr, ptr } @block_join(ptr %218, ptr %220, ptr %221, ptr %223) #9
+223:                                              ; preds = %133
+  %224 = call { ptr, ptr } (...) @gen_noop() #9
   %225 = extractvalue { ptr, ptr } %224, 0
   %226 = extractvalue { ptr, ptr } %224, 1
   store ptr %225, ptr %.sroa.0616, align 8
-  br label %2027
+  br label %2004
 
-227:                                              ; preds = %135
-  %228 = call { ptr, ptr } (...) @gen_noop() #9
-  %229 = extractvalue { ptr, ptr } %228, 0
-  %230 = extractvalue { ptr, ptr } %228, 1
-  store ptr %229, ptr %.sroa.0616, align 8
-  br label %2027
+227:                                              ; preds = %133
+  %228 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %229 = load ptr, ptr %228, align 8
+  %230 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %231 = load ptr, ptr %230, align 8
+  %232 = load ptr, ptr %.21175, align 8
+  %233 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %234 = load ptr, ptr %233, align 8
+  %235 = call { ptr, ptr } @block_join(ptr %229, ptr %231, ptr %232, ptr %234) #9
+  %236 = extractvalue { ptr, ptr } %235, 0
+  %237 = extractvalue { ptr, ptr } %235, 1
+  store ptr %236, ptr %.sroa.0616, align 8
+  br label %2004
 
-231:                                              ; preds = %135
-  %232 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %235 = load ptr, ptr %234, align 8
-  %236 = load ptr, ptr %.21175, align 8
-  %237 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %238 = load ptr, ptr %237, align 8
-  %239 = call { ptr, ptr } @block_join(ptr %233, ptr %235, ptr %236, ptr %238) #9
-  %240 = extractvalue { ptr, ptr } %239, 0
-  %241 = extractvalue { ptr, ptr } %239, 1
-  store ptr %240, ptr %.sroa.0616, align 8
-  br label %2027
+238:                                              ; preds = %133
+  %239 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %240 = load ptr, ptr %239, align 8
+  %241 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %242 = load ptr, ptr %241, align 8
+  %243 = load ptr, ptr %.21175, align 8
+  %244 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %245 = load ptr, ptr %244, align 8
+  %246 = call { ptr, ptr } @block_bind_referenced(ptr %240, ptr %242, ptr %243, ptr %245, i32 noundef 128) #9
+  %247 = extractvalue { ptr, ptr } %246, 0
+  %248 = extractvalue { ptr, ptr } %246, 1
+  store ptr %247, ptr %.sroa.0616, align 8
+  br label %2004
 
-242:                                              ; preds = %135
-  %243 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %244 = load ptr, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %246 = load ptr, ptr %245, align 8
-  %247 = load ptr, ptr %.21175, align 8
-  %248 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %249 = load ptr, ptr %248, align 8
-  %250 = call { ptr, ptr } @block_bind_referenced(ptr %244, ptr %246, ptr %247, ptr %249, i32 noundef 128) #9
-  %251 = extractvalue { ptr, ptr } %250, 0
-  %252 = extractvalue { ptr, ptr } %250, 1
-  store ptr %251, ptr %.sroa.0616, align 8
-  br label %2027
+249:                                              ; preds = %133
+  %250 = getelementptr inbounds i8, ptr %.21175, i64 -64
+  %251 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %252 = load ptr, ptr %250, align 8
+  %253 = getelementptr inbounds i8, ptr %.21175, i64 -56
+  %254 = load ptr, ptr %253, align 8
+  %255 = load ptr, ptr %251, align 8
+  %256 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %257 = load ptr, ptr %256, align 8
+  %258 = load ptr, ptr %.21175, align 8
+  %259 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %260 = load ptr, ptr %259, align 8
+  %261 = call { ptr, ptr } @gen_destructure(ptr %252, ptr %254, ptr %255, ptr %257, ptr %258, ptr %260) #9
+  %262 = extractvalue { ptr, ptr } %261, 0
+  %263 = extractvalue { ptr, ptr } %261, 1
+  store ptr %262, ptr %.sroa.0616, align 8
+  br label %2004
 
-253:                                              ; preds = %135
-  %254 = getelementptr inbounds i8, ptr %.21175, i64 -64
-  %255 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %256 = load ptr, ptr %254, align 8
-  %257 = getelementptr inbounds i8, ptr %.21175, i64 -56
-  %258 = load ptr, ptr %257, align 8
-  %259 = load ptr, ptr %255, align 8
-  %260 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %261 = load ptr, ptr %260, align 8
-  %262 = load ptr, ptr %.21175, align 8
-  %263 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %264 = load ptr, ptr %263, align 8
-  %265 = call { ptr, ptr } @gen_destructure(ptr %256, ptr %258, ptr %259, ptr %261, ptr %262, ptr %264) #9
-  %266 = extractvalue { ptr, ptr } %265, 0
-  %267 = extractvalue { ptr, ptr } %265, 1
-  store ptr %266, ptr %.sroa.0616, align 8
-  br label %2027
+264:                                              ; preds = %133
+  %265 = getelementptr inbounds i8, ptr %.21175, i64 -112
+  %266 = getelementptr inbounds i8, ptr %.21175, i64 -80
+  %267 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %268 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %269 = load ptr, ptr %265, align 8
+  %270 = getelementptr inbounds i8, ptr %.21175, i64 -104
+  %271 = load ptr, ptr %270, align 8
+  %272 = load ptr, ptr %266, align 8
+  %273 = getelementptr inbounds i8, ptr %.21175, i64 -72
+  %274 = load ptr, ptr %273, align 8
+  %275 = load ptr, ptr %267, align 8
+  %276 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %277 = load ptr, ptr %276, align 8
+  %278 = call { ptr, ptr } @gen_reduce(ptr %269, ptr %271, ptr %272, ptr %274, ptr %275, ptr %277, ptr noundef nonnull byval(%struct.block) align 8 %268) #9
+  %279 = extractvalue { ptr, ptr } %278, 0
+  %280 = extractvalue { ptr, ptr } %278, 1
+  store ptr %279, ptr %.sroa.0616, align 8
+  br label %2004
 
-268:                                              ; preds = %135
-  %269 = getelementptr inbounds i8, ptr %.21175, i64 -112
-  %270 = getelementptr inbounds i8, ptr %.21175, i64 -80
-  %271 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %272 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %273 = load ptr, ptr %269, align 8
-  %274 = getelementptr inbounds i8, ptr %.21175, i64 -104
-  %275 = load ptr, ptr %274, align 8
-  %276 = load ptr, ptr %270, align 8
-  %277 = getelementptr inbounds i8, ptr %.21175, i64 -72
-  %278 = load ptr, ptr %277, align 8
-  %279 = load ptr, ptr %271, align 8
-  %280 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %281 = load ptr, ptr %280, align 8
-  %282 = call { ptr, ptr } @gen_reduce(ptr %273, ptr %275, ptr %276, ptr %278, ptr %279, ptr %281, ptr noundef nonnull byval(%struct.block) align 8 %272) #9
-  %283 = extractvalue { ptr, ptr } %282, 0
-  %284 = extractvalue { ptr, ptr } %282, 1
-  store ptr %283, ptr %.sroa.0616, align 8
-  br label %2027
+281:                                              ; preds = %133
+  %282 = getelementptr inbounds i8, ptr %.21175, i64 -144
+  %283 = getelementptr inbounds i8, ptr %.21175, i64 -112
+  %284 = getelementptr inbounds i8, ptr %.21175, i64 -80
+  %285 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %286 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %287 = load ptr, ptr %282, align 8
+  %288 = getelementptr inbounds i8, ptr %.21175, i64 -136
+  %289 = load ptr, ptr %288, align 8
+  %290 = load ptr, ptr %283, align 8
+  %291 = getelementptr inbounds i8, ptr %.21175, i64 -104
+  %292 = load ptr, ptr %291, align 8
+  %293 = load ptr, ptr %284, align 8
+  %294 = getelementptr inbounds i8, ptr %.21175, i64 -72
+  %295 = load ptr, ptr %294, align 8
+  %296 = call { ptr, ptr } @gen_foreach(ptr %287, ptr %289, ptr %290, ptr %292, ptr %293, ptr %295, ptr noundef nonnull byval(%struct.block) align 8 %285, ptr noundef nonnull byval(%struct.block) align 8 %286) #9
+  %297 = extractvalue { ptr, ptr } %296, 0
+  %298 = extractvalue { ptr, ptr } %296, 1
+  store ptr %297, ptr %.sroa.0616, align 8
+  br label %2004
 
-285:                                              ; preds = %135
-  %286 = getelementptr inbounds i8, ptr %.21175, i64 -144
-  %287 = getelementptr inbounds i8, ptr %.21175, i64 -112
-  %288 = getelementptr inbounds i8, ptr %.21175, i64 -80
-  %289 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %290 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %291 = load ptr, ptr %286, align 8
-  %292 = getelementptr inbounds i8, ptr %.21175, i64 -136
-  %293 = load ptr, ptr %292, align 8
-  %294 = load ptr, ptr %287, align 8
-  %295 = getelementptr inbounds i8, ptr %.21175, i64 -104
-  %296 = load ptr, ptr %295, align 8
-  %297 = load ptr, ptr %288, align 8
-  %298 = getelementptr inbounds i8, ptr %.21175, i64 -72
-  %299 = load ptr, ptr %298, align 8
-  %300 = call { ptr, ptr } @gen_foreach(ptr %291, ptr %293, ptr %294, ptr %296, ptr %297, ptr %299, ptr noundef nonnull byval(%struct.block) align 8 %289, ptr noundef nonnull byval(%struct.block) align 8 %290) #9
-  %301 = extractvalue { ptr, ptr } %300, 0
-  %302 = extractvalue { ptr, ptr } %300, 1
-  store ptr %301, ptr %.sroa.0616, align 8
-  br label %2027
+299:                                              ; preds = %133
+  %300 = getelementptr inbounds i8, ptr %.21175, i64 -112
+  %301 = getelementptr inbounds i8, ptr %.21175, i64 -80
+  %302 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %303 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %304 = call { ptr, ptr } (...) @gen_noop() #9
+  %305 = extractvalue { ptr, ptr } %304, 0
+  store ptr %305, ptr %14, align 8
+  %306 = extractvalue { ptr, ptr } %304, 1
+  store ptr %306, ptr %27, align 8
+  %307 = load ptr, ptr %300, align 8
+  %308 = getelementptr inbounds i8, ptr %.21175, i64 -104
+  %309 = load ptr, ptr %308, align 8
+  %310 = load ptr, ptr %301, align 8
+  %311 = getelementptr inbounds i8, ptr %.21175, i64 -72
+  %312 = load ptr, ptr %311, align 8
+  %313 = load ptr, ptr %302, align 8
+  %314 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %315 = load ptr, ptr %314, align 8
+  %316 = call { ptr, ptr } @gen_foreach(ptr %307, ptr %309, ptr %310, ptr %312, ptr %313, ptr %315, ptr noundef nonnull byval(%struct.block) align 8 %303, ptr noundef nonnull byval(%struct.block) align 8 %14) #9
+  %317 = extractvalue { ptr, ptr } %316, 0
+  %318 = extractvalue { ptr, ptr } %316, 1
+  store ptr %317, ptr %.sroa.0616, align 8
+  br label %2004
 
-303:                                              ; preds = %135
-  %304 = getelementptr inbounds i8, ptr %.21175, i64 -112
-  %305 = getelementptr inbounds i8, ptr %.21175, i64 -80
-  %306 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %307 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %308 = call { ptr, ptr } (...) @gen_noop() #9
-  %309 = extractvalue { ptr, ptr } %308, 0
-  store ptr %309, ptr %15, align 8
-  %310 = extractvalue { ptr, ptr } %308, 1
-  store ptr %310, ptr %29, align 8
-  %311 = load ptr, ptr %304, align 8
-  %312 = getelementptr inbounds i8, ptr %.21175, i64 -104
-  %313 = load ptr, ptr %312, align 8
-  %314 = load ptr, ptr %305, align 8
-  %315 = getelementptr inbounds i8, ptr %.21175, i64 -72
-  %316 = load ptr, ptr %315, align 8
-  %317 = load ptr, ptr %306, align 8
-  %318 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %319 = load ptr, ptr %318, align 8
-  %320 = call { ptr, ptr } @gen_foreach(ptr %311, ptr %313, ptr %314, ptr %316, ptr %317, ptr %319, ptr noundef nonnull byval(%struct.block) align 8 %307, ptr noundef nonnull byval(%struct.block) align 8 %15) #9
-  %321 = extractvalue { ptr, ptr } %320, 0
-  %322 = extractvalue { ptr, ptr } %320, 1
-  store ptr %321, ptr %.sroa.0616, align 8
-  br label %2027
+319:                                              ; preds = %133
+  %320 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %321 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %322 = load ptr, ptr %320, align 8
+  %323 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %324 = load ptr, ptr %323, align 8
+  %325 = load ptr, ptr %321, align 8
+  %326 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %327 = load ptr, ptr %326, align 8
+  %328 = load ptr, ptr %.21175, align 8
+  %329 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %330 = load ptr, ptr %329, align 8
+  %331 = call { ptr, ptr } @gen_cond(ptr %322, ptr %324, ptr %325, ptr %327, ptr %328, ptr %330) #9
+  %332 = extractvalue { ptr, ptr } %331, 0
+  %333 = extractvalue { ptr, ptr } %331, 1
+  store ptr %332, ptr %.sroa.0616, align 8
+  br label %2004
 
-323:                                              ; preds = %135
-  %324 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %325 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %326 = load ptr, ptr %324, align 8
-  %327 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %328 = load ptr, ptr %327, align 8
-  %329 = load ptr, ptr %325, align 8
-  %330 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %331 = load ptr, ptr %330, align 8
-  %332 = load ptr, ptr %.21175, align 8
-  %333 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %334 = load ptr, ptr %333, align 8
-  %335 = call { ptr, ptr } @gen_cond(ptr %326, ptr %328, ptr %329, ptr %331, ptr %332, ptr %334) #9
-  %336 = extractvalue { ptr, ptr } %335, 0
-  %337 = extractvalue { ptr, ptr } %335, 1
-  store ptr %336, ptr %.sroa.0616, align 8
-  br label %2027
-
-338:                                              ; preds = %135
-  %339 = load i64, ptr %10, align 8
-  store i64 %339, ptr %16, align 8
-  call void @yyerror(ptr noundef nonnull %16, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.6)
-  %340 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %341 = load i64, ptr %340, align 8
-  store i64 %341, ptr %.sroa.0616, align 8
+334:                                              ; preds = %133
+  %.sroa.26.0.insert.ext1420 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1421 = shl nuw i64 %.sroa.26.0.insert.ext1420, 32
+  %.sroa.01249.0.insert.ext1319 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1321 = or disjoint i64 %.sroa.26.0.insert.shift1421, %.sroa.01249.0.insert.ext1319
+  store i64 %.sroa.01249.0.insert.insert1321, ptr %15, align 8
+  call void @yyerror(ptr noundef nonnull %15, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.6)
+  %335 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %336 = load i64, ptr %335, align 8
+  store i64 %336, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx617 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %.sroa.179.0.copyload618 = load ptr, ptr %.sroa.179.0..sroa_idx617, align 8
-  br label %2027
+  br label %2004
 
-342:                                              ; preds = %135
-  %343 = getelementptr inbounds i8, ptr %.21175, i64 -32
+337:                                              ; preds = %133
+  %338 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %339 = load ptr, ptr %338, align 8
+  %340 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %341 = load ptr, ptr %340, align 8
+  %342 = load ptr, ptr %.21175, align 8
+  %343 = getelementptr inbounds i8, ptr %.21175, i64 8
   %344 = load ptr, ptr %343, align 8
-  %345 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %346 = load ptr, ptr %345, align 8
-  %347 = load ptr, ptr %.21175, align 8
-  %348 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %349 = load ptr, ptr %348, align 8
-  %350 = call { ptr, ptr } @gen_try(ptr %344, ptr %346, ptr %347, ptr %349) #9
-  %351 = extractvalue { ptr, ptr } %350, 0
-  %352 = extractvalue { ptr, ptr } %350, 1
-  store ptr %351, ptr %.sroa.0616, align 8
-  br label %2027
+  %345 = call { ptr, ptr } @gen_try(ptr %339, ptr %341, ptr %342, ptr %344) #9
+  %346 = extractvalue { ptr, ptr } %345, 0
+  %347 = extractvalue { ptr, ptr } %345, 1
+  store ptr %346, ptr %.sroa.0616, align 8
+  br label %2004
 
-353:                                              ; preds = %135
-  %354 = call { ptr, ptr } @gen_op_simple(i32 noundef 19) #9
-  %355 = extractvalue { ptr, ptr } %354, 0
-  %356 = extractvalue { ptr, ptr } %354, 1
-  %357 = load ptr, ptr %.21175, align 8
-  %358 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %359 = load ptr, ptr %358, align 8
-  %360 = call { ptr, ptr } @gen_try(ptr %357, ptr %359, ptr %355, ptr %356) #9
-  %361 = extractvalue { ptr, ptr } %360, 0
-  %362 = extractvalue { ptr, ptr } %360, 1
-  store ptr %361, ptr %.sroa.0616, align 8
-  br label %2027
+348:                                              ; preds = %133
+  %349 = call { ptr, ptr } @gen_op_simple(i32 noundef 19) #9
+  %350 = extractvalue { ptr, ptr } %349, 0
+  %351 = extractvalue { ptr, ptr } %349, 1
+  %352 = load ptr, ptr %.21175, align 8
+  %353 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %354 = load ptr, ptr %353, align 8
+  %355 = call { ptr, ptr } @gen_try(ptr %352, ptr %354, ptr %350, ptr %351) #9
+  %356 = extractvalue { ptr, ptr } %355, 0
+  %357 = extractvalue { ptr, ptr } %355, 1
+  store ptr %356, ptr %.sroa.0616, align 8
+  br label %2004
 
-363:                                              ; preds = %135
-  %364 = load i64, ptr %10, align 8
-  store i64 %364, ptr %17, align 8
-  call void @yyerror(ptr noundef nonnull %17, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.7)
-  %365 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %366 = load i64, ptr %365, align 8
-  store i64 %366, ptr %.sroa.0616, align 8
+358:                                              ; preds = %133
+  %.sroa.26.0.insert.ext1415 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1416 = shl nuw i64 %.sroa.26.0.insert.ext1415, 32
+  %.sroa.01249.0.insert.ext1315 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1317 = or disjoint i64 %.sroa.26.0.insert.shift1416, %.sroa.01249.0.insert.ext1315
+  store i64 %.sroa.01249.0.insert.insert1317, ptr %16, align 8
+  call void @yyerror(ptr noundef nonnull %16, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.7)
+  %359 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %360 = load i64, ptr %359, align 8
+  store i64 %360, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx619 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %.sroa.179.0.copyload620 = load ptr, ptr %.sroa.179.0..sroa_idx619, align 8
-  br label %2027
+  br label %2004
 
-367:                                              ; preds = %135
-  %368 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %369 = load i64, ptr %368, align 8
-  %370 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %371 = load ptr, ptr %370, align 8
-  %372 = call ptr @jv_string_value(i64 %369, ptr %371) #9
-  %373 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %372) #9
-  %374 = extractvalue { i64, ptr } %373, 0
-  %375 = extractvalue { i64, ptr } %373, 1
-  %376 = call ptr @jv_string_value(i64 %374, ptr %375) #9
-  %377 = load ptr, ptr %.21175, align 8
-  %378 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %379 = load ptr, ptr %378, align 8
-  %380 = call { ptr, ptr } @gen_label(ptr noundef %376, ptr %377, ptr %379) #9
-  %381 = extractvalue { ptr, ptr } %380, 0
-  %382 = extractvalue { ptr, ptr } %380, 1
-  %383 = load i64, ptr %10, align 8
-  %384 = call { ptr, ptr } @gen_location(i64 %383, ptr noundef %2, ptr %381, ptr %382) #9
+361:                                              ; preds = %133
+  %362 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %363 = load i64, ptr %362, align 8
+  %364 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %365 = load ptr, ptr %364, align 8
+  %366 = call ptr @jv_string_value(i64 %363, ptr %365) #9
+  %367 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %366) #9
+  %368 = extractvalue { i64, ptr } %367, 0
+  %369 = extractvalue { i64, ptr } %367, 1
+  %370 = call ptr @jv_string_value(i64 %368, ptr %369) #9
+  %371 = load ptr, ptr %.21175, align 8
+  %372 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %373 = load ptr, ptr %372, align 8
+  %374 = call { ptr, ptr } @gen_label(ptr noundef %370, ptr %371, ptr %373) #9
+  %375 = extractvalue { ptr, ptr } %374, 0
+  %376 = extractvalue { ptr, ptr } %374, 1
+  %.sroa.26.0.insert.ext = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift = shl nuw i64 %.sroa.26.0.insert.ext, 32
+  %.sroa.01249.0.insert.ext = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert = or disjoint i64 %.sroa.26.0.insert.shift, %.sroa.01249.0.insert.ext
+  %377 = call { ptr, ptr } @gen_location(i64 %.sroa.01249.0.insert.insert, ptr noundef %2, ptr %375, ptr %376) #9
+  %378 = extractvalue { ptr, ptr } %377, 0
+  %379 = extractvalue { ptr, ptr } %377, 1
+  store ptr %378, ptr %.sroa.0616, align 8
+  %380 = load i64, ptr %362, align 8
+  %381 = load ptr, ptr %364, align 8
+  call void @jv_free(i64 %380, ptr %381) #9
+  call void @jv_free(i64 %368, ptr %369) #9
+  br label %2004
+
+382:                                              ; preds = %133
+  %383 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %384 = call { ptr, ptr } @gen_op_simple(i32 noundef 19) #9
   %385 = extractvalue { ptr, ptr } %384, 0
   %386 = extractvalue { ptr, ptr } %384, 1
-  store ptr %385, ptr %.sroa.0616, align 8
-  %387 = load i64, ptr %368, align 8
-  %388 = load ptr, ptr %370, align 8
-  call void @jv_free(i64 %387, ptr %388) #9
-  call void @jv_free(i64 %374, ptr %375) #9
-  br label %2027
+  %387 = load ptr, ptr %383, align 8
+  %388 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %389 = load ptr, ptr %388, align 8
+  %390 = call { ptr, ptr } @gen_try(ptr %387, ptr %389, ptr %385, ptr %386) #9
+  %391 = extractvalue { ptr, ptr } %390, 0
+  %392 = extractvalue { ptr, ptr } %390, 1
+  store ptr %391, ptr %.sroa.0616, align 8
+  br label %2004
 
-389:                                              ; preds = %135
-  %390 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %391 = call { ptr, ptr } @gen_op_simple(i32 noundef 19) #9
-  %392 = extractvalue { ptr, ptr } %391, 0
-  %393 = extractvalue { ptr, ptr } %391, 1
-  %394 = load ptr, ptr %390, align 8
-  %395 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %396 = load ptr, ptr %395, align 8
-  %397 = call { ptr, ptr } @gen_try(ptr %394, ptr %396, ptr %392, ptr %393) #9
-  %398 = extractvalue { ptr, ptr } %397, 0
-  %399 = extractvalue { ptr, ptr } %397, 1
-  store ptr %398, ptr %.sroa.0616, align 8
-  br label %2027
+393:                                              ; preds = %133
+  %394 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %395 = load ptr, ptr %394, align 8
+  %396 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %397 = load ptr, ptr %396, align 8
+  %398 = call { ptr, ptr } @gen_lambda(ptr %395, ptr %397) #9
+  %399 = extractvalue { ptr, ptr } %398, 0
+  %400 = extractvalue { ptr, ptr } %398, 1
+  %401 = load ptr, ptr %.21175, align 8
+  %402 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %403 = load ptr, ptr %402, align 8
+  %404 = call { ptr, ptr } @gen_lambda(ptr %401, ptr %403) #9
+  %405 = extractvalue { ptr, ptr } %404, 0
+  %406 = extractvalue { ptr, ptr } %404, 1
+  %407 = call { ptr, ptr } @block_join(ptr %399, ptr %400, ptr %405, ptr %406) #9
+  %408 = extractvalue { ptr, ptr } %407, 0
+  %409 = extractvalue { ptr, ptr } %407, 1
+  %410 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.9, ptr %408, ptr %409) #9
+  %411 = extractvalue { ptr, ptr } %410, 0
+  %412 = extractvalue { ptr, ptr } %410, 1
+  store ptr %411, ptr %.sroa.0616, align 8
+  br label %2004
 
-400:                                              ; preds = %135
-  %401 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %402 = load ptr, ptr %401, align 8
-  %403 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %404 = load ptr, ptr %403, align 8
-  %405 = call { ptr, ptr } @gen_lambda(ptr %402, ptr %404) #9
-  %406 = extractvalue { ptr, ptr } %405, 0
-  %407 = extractvalue { ptr, ptr } %405, 1
-  %408 = load ptr, ptr %.21175, align 8
-  %409 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %410 = load ptr, ptr %409, align 8
-  %411 = call { ptr, ptr } @gen_lambda(ptr %408, ptr %410) #9
-  %412 = extractvalue { ptr, ptr } %411, 0
-  %413 = extractvalue { ptr, ptr } %411, 1
-  %414 = call { ptr, ptr } @block_join(ptr %406, ptr %407, ptr %412, ptr %413) #9
-  %415 = extractvalue { ptr, ptr } %414, 0
-  %416 = extractvalue { ptr, ptr } %414, 1
-  %417 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.9, ptr %415, ptr %416) #9
-  %418 = extractvalue { ptr, ptr } %417, 0
-  %419 = extractvalue { ptr, ptr } %417, 1
-  store ptr %418, ptr %.sroa.0616, align 8
-  br label %2027
+413:                                              ; preds = %133
+  %414 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %415 = load ptr, ptr %414, align 8
+  %416 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %417 = load ptr, ptr %416, align 8
+  %418 = load ptr, ptr %.21175, align 8
+  %419 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %420 = load ptr, ptr %419, align 8
+  %421 = call { ptr, ptr } @gen_or(ptr %415, ptr %417, ptr %418, ptr %420) #9
+  %422 = extractvalue { ptr, ptr } %421, 0
+  %423 = extractvalue { ptr, ptr } %421, 1
+  store ptr %422, ptr %.sroa.0616, align 8
+  br label %2004
 
-420:                                              ; preds = %135
-  %421 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %422 = load ptr, ptr %421, align 8
-  %423 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %424 = load ptr, ptr %423, align 8
-  %425 = load ptr, ptr %.21175, align 8
-  %426 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %427 = load ptr, ptr %426, align 8
-  %428 = call { ptr, ptr } @gen_or(ptr %422, ptr %424, ptr %425, ptr %427) #9
-  %429 = extractvalue { ptr, ptr } %428, 0
-  %430 = extractvalue { ptr, ptr } %428, 1
-  store ptr %429, ptr %.sroa.0616, align 8
-  br label %2027
+424:                                              ; preds = %133
+  %425 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %426 = load ptr, ptr %425, align 8
+  %427 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %428 = load ptr, ptr %427, align 8
+  %429 = load ptr, ptr %.21175, align 8
+  %430 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %431 = load ptr, ptr %430, align 8
+  %432 = call { ptr, ptr } @gen_and(ptr %426, ptr %428, ptr %429, ptr %431) #9
+  %433 = extractvalue { ptr, ptr } %432, 0
+  %434 = extractvalue { ptr, ptr } %432, 1
+  store ptr %433, ptr %.sroa.0616, align 8
+  br label %2004
 
-431:                                              ; preds = %135
-  %432 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %433 = load ptr, ptr %432, align 8
-  %434 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %435 = load ptr, ptr %434, align 8
-  %436 = load ptr, ptr %.21175, align 8
-  %437 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %438 = load ptr, ptr %437, align 8
-  %439 = call { ptr, ptr } @gen_and(ptr %433, ptr %435, ptr %436, ptr %438) #9
-  %440 = extractvalue { ptr, ptr } %439, 0
-  %441 = extractvalue { ptr, ptr } %439, 1
-  store ptr %440, ptr %.sroa.0616, align 8
-  br label %2027
+435:                                              ; preds = %133
+  %436 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %437 = load ptr, ptr %436, align 8
+  %438 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %439 = load ptr, ptr %438, align 8
+  %440 = load ptr, ptr %.21175, align 8
+  %441 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %442 = load ptr, ptr %441, align 8
+  %443 = call { ptr, ptr } @gen_definedor(ptr %437, ptr %439, ptr %440, ptr %442) #9
+  %444 = extractvalue { ptr, ptr } %443, 0
+  %445 = extractvalue { ptr, ptr } %443, 1
+  store ptr %444, ptr %.sroa.0616, align 8
+  br label %2004
 
-442:                                              ; preds = %135
-  %443 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %444 = load ptr, ptr %443, align 8
-  %445 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %446 = load ptr, ptr %445, align 8
-  %447 = load ptr, ptr %.21175, align 8
-  %448 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %449 = load ptr, ptr %448, align 8
-  %450 = call { ptr, ptr } @gen_definedor(ptr %444, ptr %446, ptr %447, ptr %449) #9
-  %451 = extractvalue { ptr, ptr } %450, 0
-  %452 = extractvalue { ptr, ptr } %450, 1
-  store ptr %451, ptr %.sroa.0616, align 8
-  br label %2027
+446:                                              ; preds = %133
+  %447 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %448 = load ptr, ptr %447, align 8
+  %449 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %450 = load ptr, ptr %449, align 8
+  %451 = load ptr, ptr %.21175, align 8
+  %452 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %453 = load ptr, ptr %452, align 8
+  %454 = call fastcc { ptr, ptr } @gen_definedor_assign(ptr %448, ptr %450, ptr %451, ptr %453)
+  %455 = extractvalue { ptr, ptr } %454, 0
+  %456 = extractvalue { ptr, ptr } %454, 1
+  store ptr %455, ptr %.sroa.0616, align 8
+  br label %2004
 
-453:                                              ; preds = %135
-  %454 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %455 = load ptr, ptr %454, align 8
-  %456 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %457 = load ptr, ptr %456, align 8
-  %458 = load ptr, ptr %.21175, align 8
-  %459 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %460 = load ptr, ptr %459, align 8
-  %461 = call fastcc { ptr, ptr } @gen_definedor_assign(ptr %455, ptr %457, ptr %458, ptr %460)
-  %462 = extractvalue { ptr, ptr } %461, 0
-  %463 = extractvalue { ptr, ptr } %461, 1
-  store ptr %462, ptr %.sroa.0616, align 8
-  br label %2027
+457:                                              ; preds = %133
+  %458 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %459 = load ptr, ptr %458, align 8
+  %460 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %461 = load ptr, ptr %460, align 8
+  %462 = call { ptr, ptr } @gen_lambda(ptr %459, ptr %461) #9
+  %463 = extractvalue { ptr, ptr } %462, 0
+  %464 = extractvalue { ptr, ptr } %462, 1
+  %465 = load ptr, ptr %.21175, align 8
+  %466 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %467 = load ptr, ptr %466, align 8
+  %468 = call { ptr, ptr } @gen_lambda(ptr %465, ptr %467) #9
+  %469 = extractvalue { ptr, ptr } %468, 0
+  %470 = extractvalue { ptr, ptr } %468, 1
+  %471 = call { ptr, ptr } @block_join(ptr %463, ptr %464, ptr %469, ptr %470) #9
+  %472 = extractvalue { ptr, ptr } %471, 0
+  %473 = extractvalue { ptr, ptr } %471, 1
+  %474 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.10, ptr %472, ptr %473) #9
+  %475 = extractvalue { ptr, ptr } %474, 0
+  %476 = extractvalue { ptr, ptr } %474, 1
+  store ptr %475, ptr %.sroa.0616, align 8
+  br label %2004
 
-464:                                              ; preds = %135
-  %465 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %466 = load ptr, ptr %465, align 8
-  %467 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %468 = load ptr, ptr %467, align 8
-  %469 = call { ptr, ptr } @gen_lambda(ptr %466, ptr %468) #9
-  %470 = extractvalue { ptr, ptr } %469, 0
-  %471 = extractvalue { ptr, ptr } %469, 1
-  %472 = load ptr, ptr %.21175, align 8
-  %473 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %474 = load ptr, ptr %473, align 8
-  %475 = call { ptr, ptr } @gen_lambda(ptr %472, ptr %474) #9
-  %476 = extractvalue { ptr, ptr } %475, 0
-  %477 = extractvalue { ptr, ptr } %475, 1
-  %478 = call { ptr, ptr } @block_join(ptr %470, ptr %471, ptr %476, ptr %477) #9
-  %479 = extractvalue { ptr, ptr } %478, 0
-  %480 = extractvalue { ptr, ptr } %478, 1
-  %481 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.10, ptr %479, ptr %480) #9
-  %482 = extractvalue { ptr, ptr } %481, 0
-  %483 = extractvalue { ptr, ptr } %481, 1
-  store ptr %482, ptr %.sroa.0616, align 8
-  br label %2027
+477:                                              ; preds = %133
+  %478 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %479 = load ptr, ptr %478, align 8
+  %480 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %481 = load ptr, ptr %480, align 8
+  %482 = load ptr, ptr %.21175, align 8
+  %483 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %484 = load ptr, ptr %483, align 8
+  %485 = call { ptr, ptr } @block_join(ptr %479, ptr %481, ptr %482, ptr %484) #9
+  %486 = extractvalue { ptr, ptr } %485, 0
+  %487 = extractvalue { ptr, ptr } %485, 1
+  store ptr %486, ptr %.sroa.0616, align 8
+  br label %2004
 
-484:                                              ; preds = %135
-  %485 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %486 = load ptr, ptr %485, align 8
-  %487 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %488 = load ptr, ptr %487, align 8
-  %489 = load ptr, ptr %.21175, align 8
-  %490 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %491 = load ptr, ptr %490, align 8
-  %492 = call { ptr, ptr } @block_join(ptr %486, ptr %488, ptr %489, ptr %491) #9
-  %493 = extractvalue { ptr, ptr } %492, 0
-  %494 = extractvalue { ptr, ptr } %492, 1
-  store ptr %493, ptr %.sroa.0616, align 8
-  br label %2027
+488:                                              ; preds = %133
+  %489 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %490 = load ptr, ptr %489, align 8
+  %491 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %492 = load ptr, ptr %491, align 8
+  %493 = load ptr, ptr %.21175, align 8
+  %494 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %495 = load ptr, ptr %494, align 8
+  %496 = call { ptr, ptr } @gen_both(ptr %490, ptr %492, ptr %493, ptr %495) #9
+  %497 = extractvalue { ptr, ptr } %496, 0
+  %498 = extractvalue { ptr, ptr } %496, 1
+  store ptr %497, ptr %.sroa.0616, align 8
+  br label %2004
 
-495:                                              ; preds = %135
-  %496 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %497 = load ptr, ptr %496, align 8
-  %498 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %499 = load ptr, ptr %498, align 8
-  %500 = load ptr, ptr %.21175, align 8
-  %501 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %502 = load ptr, ptr %501, align 8
-  %503 = call { ptr, ptr } @gen_both(ptr %497, ptr %499, ptr %500, ptr %502) #9
-  %504 = extractvalue { ptr, ptr } %503, 0
-  %505 = extractvalue { ptr, ptr } %503, 1
-  store ptr %504, ptr %.sroa.0616, align 8
-  br label %2027
+499:                                              ; preds = %133
+  %500 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %501 = load ptr, ptr %500, align 8
+  %502 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %503 = load ptr, ptr %502, align 8
+  %504 = load ptr, ptr %.21175, align 8
+  %505 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %506 = load ptr, ptr %505, align 8
+  %507 = call fastcc { ptr, ptr } @gen_binop(ptr %501, ptr %503, ptr %504, ptr %506, i32 noundef 43)
+  %508 = extractvalue { ptr, ptr } %507, 0
+  %509 = extractvalue { ptr, ptr } %507, 1
+  store ptr %508, ptr %.sroa.0616, align 8
+  br label %2004
 
-506:                                              ; preds = %135
-  %507 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %508 = load ptr, ptr %507, align 8
-  %509 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %510 = load ptr, ptr %509, align 8
-  %511 = load ptr, ptr %.21175, align 8
-  %512 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %513 = load ptr, ptr %512, align 8
-  %514 = call fastcc { ptr, ptr } @gen_binop(ptr %508, ptr %510, ptr %511, ptr %513, i32 noundef 43)
-  %515 = extractvalue { ptr, ptr } %514, 0
-  %516 = extractvalue { ptr, ptr } %514, 1
-  store ptr %515, ptr %.sroa.0616, align 8
-  br label %2027
+510:                                              ; preds = %133
+  %511 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %512 = load ptr, ptr %511, align 8
+  %513 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %514 = load ptr, ptr %513, align 8
+  %515 = load ptr, ptr %.21175, align 8
+  %516 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %517 = load ptr, ptr %516, align 8
+  %518 = call fastcc { ptr, ptr } @gen_update(ptr %512, ptr %514, ptr %515, ptr %517, i32 noundef 43)
+  %519 = extractvalue { ptr, ptr } %518, 0
+  %520 = extractvalue { ptr, ptr } %518, 1
+  store ptr %519, ptr %.sroa.0616, align 8
+  br label %2004
 
-517:                                              ; preds = %135
-  %518 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %519 = load ptr, ptr %518, align 8
-  %520 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %521 = load ptr, ptr %520, align 8
-  %522 = load ptr, ptr %.21175, align 8
-  %523 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %524 = load ptr, ptr %523, align 8
-  %525 = call fastcc { ptr, ptr } @gen_update(ptr %519, ptr %521, ptr %522, ptr %524, i32 noundef 43)
+521:                                              ; preds = %133
+  %522 = call { ptr, ptr } (...) @gen_noop() #9
+  %523 = extractvalue { ptr, ptr } %522, 0
+  %524 = extractvalue { ptr, ptr } %522, 1
+  %525 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.11, ptr %523, ptr %524) #9
   %526 = extractvalue { ptr, ptr } %525, 0
   %527 = extractvalue { ptr, ptr } %525, 1
-  store ptr %526, ptr %.sroa.0616, align 8
-  br label %2027
+  %528 = load ptr, ptr %.21175, align 8
+  %529 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %530 = load ptr, ptr %529, align 8
+  %531 = call { ptr, ptr } @block_join(ptr %528, ptr %530, ptr %526, ptr %527) #9
+  %532 = extractvalue { ptr, ptr } %531, 0
+  %533 = extractvalue { ptr, ptr } %531, 1
+  store ptr %532, ptr %.sroa.0616, align 8
+  br label %2004
 
-528:                                              ; preds = %135
-  %529 = call { ptr, ptr } (...) @gen_noop() #9
-  %530 = extractvalue { ptr, ptr } %529, 0
-  %531 = extractvalue { ptr, ptr } %529, 1
-  %532 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.11, ptr %530, ptr %531) #9
-  %533 = extractvalue { ptr, ptr } %532, 0
-  %534 = extractvalue { ptr, ptr } %532, 1
-  %535 = load ptr, ptr %.21175, align 8
-  %536 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %537 = load ptr, ptr %536, align 8
-  %538 = call { ptr, ptr } @block_join(ptr %535, ptr %537, ptr %533, ptr %534) #9
-  %539 = extractvalue { ptr, ptr } %538, 0
-  %540 = extractvalue { ptr, ptr } %538, 1
-  store ptr %539, ptr %.sroa.0616, align 8
-  br label %2027
+534:                                              ; preds = %133
+  %535 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %536 = load ptr, ptr %535, align 8
+  %537 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %538 = load ptr, ptr %537, align 8
+  %539 = load ptr, ptr %.21175, align 8
+  %540 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %541 = load ptr, ptr %540, align 8
+  %542 = call fastcc { ptr, ptr } @gen_binop(ptr %536, ptr %538, ptr %539, ptr %541, i32 noundef 45)
+  %543 = extractvalue { ptr, ptr } %542, 0
+  %544 = extractvalue { ptr, ptr } %542, 1
+  store ptr %543, ptr %.sroa.0616, align 8
+  br label %2004
 
-541:                                              ; preds = %135
-  %542 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %545 = load ptr, ptr %544, align 8
-  %546 = load ptr, ptr %.21175, align 8
-  %547 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %548 = load ptr, ptr %547, align 8
-  %549 = call fastcc { ptr, ptr } @gen_binop(ptr %543, ptr %545, ptr %546, ptr %548, i32 noundef 45)
-  %550 = extractvalue { ptr, ptr } %549, 0
-  %551 = extractvalue { ptr, ptr } %549, 1
-  store ptr %550, ptr %.sroa.0616, align 8
-  br label %2027
+545:                                              ; preds = %133
+  %546 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %547 = load ptr, ptr %546, align 8
+  %548 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %549 = load ptr, ptr %548, align 8
+  %550 = load ptr, ptr %.21175, align 8
+  %551 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %552 = load ptr, ptr %551, align 8
+  %553 = call fastcc { ptr, ptr } @gen_update(ptr %547, ptr %549, ptr %550, ptr %552, i32 noundef 45)
+  %554 = extractvalue { ptr, ptr } %553, 0
+  %555 = extractvalue { ptr, ptr } %553, 1
+  store ptr %554, ptr %.sroa.0616, align 8
+  br label %2004
 
-552:                                              ; preds = %135
-  %553 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %554 = load ptr, ptr %553, align 8
-  %555 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %556 = load ptr, ptr %555, align 8
-  %557 = load ptr, ptr %.21175, align 8
-  %558 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %559 = load ptr, ptr %558, align 8
-  %560 = call fastcc { ptr, ptr } @gen_update(ptr %554, ptr %556, ptr %557, ptr %559, i32 noundef 45)
-  %561 = extractvalue { ptr, ptr } %560, 0
-  %562 = extractvalue { ptr, ptr } %560, 1
-  store ptr %561, ptr %.sroa.0616, align 8
-  br label %2027
+556:                                              ; preds = %133
+  %557 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %558 = load ptr, ptr %557, align 8
+  %559 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %560 = load ptr, ptr %559, align 8
+  %561 = load ptr, ptr %.21175, align 8
+  %562 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %563 = load ptr, ptr %562, align 8
+  %564 = call fastcc { ptr, ptr } @gen_binop(ptr %558, ptr %560, ptr %561, ptr %563, i32 noundef 42)
+  %565 = extractvalue { ptr, ptr } %564, 0
+  %566 = extractvalue { ptr, ptr } %564, 1
+  store ptr %565, ptr %.sroa.0616, align 8
+  br label %2004
 
-563:                                              ; preds = %135
-  %564 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %565 = load ptr, ptr %564, align 8
-  %566 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %567 = load ptr, ptr %566, align 8
-  %568 = load ptr, ptr %.21175, align 8
-  %569 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %570 = load ptr, ptr %569, align 8
-  %571 = call fastcc { ptr, ptr } @gen_binop(ptr %565, ptr %567, ptr %568, ptr %570, i32 noundef 42)
-  %572 = extractvalue { ptr, ptr } %571, 0
-  %573 = extractvalue { ptr, ptr } %571, 1
-  store ptr %572, ptr %.sroa.0616, align 8
-  br label %2027
+567:                                              ; preds = %133
+  %568 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %569 = load ptr, ptr %568, align 8
+  %570 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %571 = load ptr, ptr %570, align 8
+  %572 = load ptr, ptr %.21175, align 8
+  %573 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %574 = load ptr, ptr %573, align 8
+  %575 = call fastcc { ptr, ptr } @gen_update(ptr %569, ptr %571, ptr %572, ptr %574, i32 noundef 42)
+  %576 = extractvalue { ptr, ptr } %575, 0
+  %577 = extractvalue { ptr, ptr } %575, 1
+  store ptr %576, ptr %.sroa.0616, align 8
+  br label %2004
 
-574:                                              ; preds = %135
-  %575 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %576 = load ptr, ptr %575, align 8
-  %577 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %578 = load ptr, ptr %577, align 8
-  %579 = load ptr, ptr %.21175, align 8
-  %580 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %581 = load ptr, ptr %580, align 8
-  %582 = call fastcc { ptr, ptr } @gen_update(ptr %576, ptr %578, ptr %579, ptr %581, i32 noundef 42)
-  %583 = extractvalue { ptr, ptr } %582, 0
-  %584 = extractvalue { ptr, ptr } %582, 1
-  store ptr %583, ptr %.sroa.0616, align 8
-  br label %2027
+578:                                              ; preds = %133
+  %579 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %580 = load ptr, ptr %579, align 8
+  %581 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %582 = load ptr, ptr %581, align 8
+  %583 = load ptr, ptr %.21175, align 8
+  %584 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %585 = load ptr, ptr %584, align 8
+  %586 = call fastcc { ptr, ptr } @gen_binop(ptr %580, ptr %582, ptr %583, ptr %585, i32 noundef 47)
+  %587 = extractvalue { ptr, ptr } %586, 0
+  %588 = extractvalue { ptr, ptr } %586, 1
+  store ptr %587, ptr %.sroa.0616, align 8
+  br label %2004
 
-585:                                              ; preds = %135
-  %586 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %587 = load ptr, ptr %586, align 8
-  %588 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %589 = load ptr, ptr %588, align 8
-  %590 = load ptr, ptr %.21175, align 8
-  %591 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %592 = load ptr, ptr %591, align 8
-  %593 = call fastcc { ptr, ptr } @gen_binop(ptr %587, ptr %589, ptr %590, ptr %592, i32 noundef 47)
-  %594 = extractvalue { ptr, ptr } %593, 0
-  %595 = extractvalue { ptr, ptr } %593, 1
-  store ptr %594, ptr %.sroa.0616, align 8
-  br label %2027
+589:                                              ; preds = %133
+  %590 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %591 = load ptr, ptr %590, align 8
+  %592 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %593 = load ptr, ptr %592, align 8
+  %594 = load ptr, ptr %.21175, align 8
+  %595 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %596 = load ptr, ptr %595, align 8
+  %597 = call fastcc { ptr, ptr } @gen_binop(ptr %591, ptr %593, ptr %594, ptr %596, i32 noundef 37)
+  %598 = extractvalue { ptr, ptr } %597, 0
+  %599 = extractvalue { ptr, ptr } %597, 1
+  store ptr %598, ptr %.sroa.0616, align 8
+  br label %2004
 
-596:                                              ; preds = %135
-  %597 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %598 = load ptr, ptr %597, align 8
-  %599 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %600 = load ptr, ptr %599, align 8
-  %601 = load ptr, ptr %.21175, align 8
-  %602 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %603 = load ptr, ptr %602, align 8
-  %604 = call fastcc { ptr, ptr } @gen_binop(ptr %598, ptr %600, ptr %601, ptr %603, i32 noundef 37)
-  %605 = extractvalue { ptr, ptr } %604, 0
-  %606 = extractvalue { ptr, ptr } %604, 1
-  store ptr %605, ptr %.sroa.0616, align 8
-  br label %2027
+600:                                              ; preds = %133
+  %601 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %602 = load ptr, ptr %601, align 8
+  %603 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %604 = load ptr, ptr %603, align 8
+  %605 = load ptr, ptr %.21175, align 8
+  %606 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %607 = load ptr, ptr %606, align 8
+  %608 = call fastcc { ptr, ptr } @gen_update(ptr %602, ptr %604, ptr %605, ptr %607, i32 noundef 47)
+  %609 = extractvalue { ptr, ptr } %608, 0
+  %610 = extractvalue { ptr, ptr } %608, 1
+  store ptr %609, ptr %.sroa.0616, align 8
+  br label %2004
 
-607:                                              ; preds = %135
-  %608 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %609 = load ptr, ptr %608, align 8
-  %610 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %611 = load ptr, ptr %610, align 8
-  %612 = load ptr, ptr %.21175, align 8
-  %613 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %614 = load ptr, ptr %613, align 8
-  %615 = call fastcc { ptr, ptr } @gen_update(ptr %609, ptr %611, ptr %612, ptr %614, i32 noundef 47)
-  %616 = extractvalue { ptr, ptr } %615, 0
-  %617 = extractvalue { ptr, ptr } %615, 1
-  store ptr %616, ptr %.sroa.0616, align 8
-  br label %2027
+611:                                              ; preds = %133
+  %612 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %613 = load ptr, ptr %612, align 8
+  %614 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %615 = load ptr, ptr %614, align 8
+  %616 = load ptr, ptr %.21175, align 8
+  %617 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %618 = load ptr, ptr %617, align 8
+  %619 = call fastcc { ptr, ptr } @gen_update(ptr %613, ptr %615, ptr %616, ptr %618, i32 noundef 37)
+  %620 = extractvalue { ptr, ptr } %619, 0
+  %621 = extractvalue { ptr, ptr } %619, 1
+  store ptr %620, ptr %.sroa.0616, align 8
+  br label %2004
 
-618:                                              ; preds = %135
-  %619 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %620 = load ptr, ptr %619, align 8
-  %621 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %622 = load ptr, ptr %621, align 8
-  %623 = load ptr, ptr %.21175, align 8
-  %624 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %625 = load ptr, ptr %624, align 8
-  %626 = call fastcc { ptr, ptr } @gen_update(ptr %620, ptr %622, ptr %623, ptr %625, i32 noundef 37)
-  %627 = extractvalue { ptr, ptr } %626, 0
-  %628 = extractvalue { ptr, ptr } %626, 1
-  store ptr %627, ptr %.sroa.0616, align 8
-  br label %2027
+622:                                              ; preds = %133
+  %623 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %624 = load ptr, ptr %623, align 8
+  %625 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %626 = load ptr, ptr %625, align 8
+  %627 = load ptr, ptr %.21175, align 8
+  %628 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %629 = load ptr, ptr %628, align 8
+  %630 = call fastcc { ptr, ptr } @gen_binop(ptr %624, ptr %626, ptr %627, ptr %629, i32 noundef 266)
+  %631 = extractvalue { ptr, ptr } %630, 0
+  %632 = extractvalue { ptr, ptr } %630, 1
+  store ptr %631, ptr %.sroa.0616, align 8
+  br label %2004
 
-629:                                              ; preds = %135
-  %630 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %631 = load ptr, ptr %630, align 8
-  %632 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %633 = load ptr, ptr %632, align 8
-  %634 = load ptr, ptr %.21175, align 8
-  %635 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %636 = load ptr, ptr %635, align 8
-  %637 = call fastcc { ptr, ptr } @gen_binop(ptr %631, ptr %633, ptr %634, ptr %636, i32 noundef 266)
-  %638 = extractvalue { ptr, ptr } %637, 0
-  %639 = extractvalue { ptr, ptr } %637, 1
-  store ptr %638, ptr %.sroa.0616, align 8
-  br label %2027
+633:                                              ; preds = %133
+  %634 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %635 = load ptr, ptr %634, align 8
+  %636 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %637 = load ptr, ptr %636, align 8
+  %638 = load ptr, ptr %.21175, align 8
+  %639 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %640 = load ptr, ptr %639, align 8
+  %641 = call fastcc { ptr, ptr } @gen_binop(ptr %635, ptr %637, ptr %638, ptr %640, i32 noundef 267)
+  %642 = extractvalue { ptr, ptr } %641, 0
+  %643 = extractvalue { ptr, ptr } %641, 1
+  store ptr %642, ptr %.sroa.0616, align 8
+  br label %2004
 
-640:                                              ; preds = %135
-  %641 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %642 = load ptr, ptr %641, align 8
-  %643 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %644 = load ptr, ptr %643, align 8
-  %645 = load ptr, ptr %.21175, align 8
-  %646 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %647 = load ptr, ptr %646, align 8
-  %648 = call fastcc { ptr, ptr } @gen_binop(ptr %642, ptr %644, ptr %645, ptr %647, i32 noundef 267)
-  %649 = extractvalue { ptr, ptr } %648, 0
-  %650 = extractvalue { ptr, ptr } %648, 1
-  store ptr %649, ptr %.sroa.0616, align 8
-  br label %2027
+644:                                              ; preds = %133
+  %645 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %646 = load ptr, ptr %645, align 8
+  %647 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %648 = load ptr, ptr %647, align 8
+  %649 = load ptr, ptr %.21175, align 8
+  %650 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %651 = load ptr, ptr %650, align 8
+  %652 = call fastcc { ptr, ptr } @gen_binop(ptr %646, ptr %648, ptr %649, ptr %651, i32 noundef 60)
+  %653 = extractvalue { ptr, ptr } %652, 0
+  %654 = extractvalue { ptr, ptr } %652, 1
+  store ptr %653, ptr %.sroa.0616, align 8
+  br label %2004
 
-651:                                              ; preds = %135
-  %652 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %653 = load ptr, ptr %652, align 8
-  %654 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %655 = load ptr, ptr %654, align 8
-  %656 = load ptr, ptr %.21175, align 8
-  %657 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %658 = load ptr, ptr %657, align 8
-  %659 = call fastcc { ptr, ptr } @gen_binop(ptr %653, ptr %655, ptr %656, ptr %658, i32 noundef 60)
-  %660 = extractvalue { ptr, ptr } %659, 0
-  %661 = extractvalue { ptr, ptr } %659, 1
-  store ptr %660, ptr %.sroa.0616, align 8
-  br label %2027
+655:                                              ; preds = %133
+  %656 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %657 = load ptr, ptr %656, align 8
+  %658 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %659 = load ptr, ptr %658, align 8
+  %660 = load ptr, ptr %.21175, align 8
+  %661 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %662 = load ptr, ptr %661, align 8
+  %663 = call fastcc { ptr, ptr } @gen_binop(ptr %657, ptr %659, ptr %660, ptr %662, i32 noundef 62)
+  %664 = extractvalue { ptr, ptr } %663, 0
+  %665 = extractvalue { ptr, ptr } %663, 1
+  store ptr %664, ptr %.sroa.0616, align 8
+  br label %2004
 
-662:                                              ; preds = %135
-  %663 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %664 = load ptr, ptr %663, align 8
-  %665 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %666 = load ptr, ptr %665, align 8
-  %667 = load ptr, ptr %.21175, align 8
-  %668 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %669 = load ptr, ptr %668, align 8
-  %670 = call fastcc { ptr, ptr } @gen_binop(ptr %664, ptr %666, ptr %667, ptr %669, i32 noundef 62)
-  %671 = extractvalue { ptr, ptr } %670, 0
-  %672 = extractvalue { ptr, ptr } %670, 1
-  store ptr %671, ptr %.sroa.0616, align 8
-  br label %2027
+666:                                              ; preds = %133
+  %667 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %668 = load ptr, ptr %667, align 8
+  %669 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %670 = load ptr, ptr %669, align 8
+  %671 = load ptr, ptr %.21175, align 8
+  %672 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %673 = load ptr, ptr %672, align 8
+  %674 = call fastcc { ptr, ptr } @gen_binop(ptr %668, ptr %670, ptr %671, ptr %673, i32 noundef 294)
+  %675 = extractvalue { ptr, ptr } %674, 0
+  %676 = extractvalue { ptr, ptr } %674, 1
+  store ptr %675, ptr %.sroa.0616, align 8
+  br label %2004
 
-673:                                              ; preds = %135
-  %674 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %675 = load ptr, ptr %674, align 8
-  %676 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %677 = load ptr, ptr %676, align 8
-  %678 = load ptr, ptr %.21175, align 8
-  %679 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %680 = load ptr, ptr %679, align 8
-  %681 = call fastcc { ptr, ptr } @gen_binop(ptr %675, ptr %677, ptr %678, ptr %680, i32 noundef 294)
-  %682 = extractvalue { ptr, ptr } %681, 0
-  %683 = extractvalue { ptr, ptr } %681, 1
-  store ptr %682, ptr %.sroa.0616, align 8
-  br label %2027
+677:                                              ; preds = %133
+  %678 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %679 = load ptr, ptr %678, align 8
+  %680 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %681 = load ptr, ptr %680, align 8
+  %682 = load ptr, ptr %.21175, align 8
+  %683 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %684 = load ptr, ptr %683, align 8
+  %685 = call fastcc { ptr, ptr } @gen_binop(ptr %679, ptr %681, ptr %682, ptr %684, i32 noundef 295)
+  %686 = extractvalue { ptr, ptr } %685, 0
+  %687 = extractvalue { ptr, ptr } %685, 1
+  store ptr %686, ptr %.sroa.0616, align 8
+  br label %2004
 
-684:                                              ; preds = %135
-  %685 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %686 = load ptr, ptr %685, align 8
-  %687 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %688 = load ptr, ptr %687, align 8
-  %689 = load ptr, ptr %.21175, align 8
-  %690 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %691 = load ptr, ptr %690, align 8
-  %692 = call fastcc { ptr, ptr } @gen_binop(ptr %686, ptr %688, ptr %689, ptr %691, i32 noundef 295)
-  %693 = extractvalue { ptr, ptr } %692, 0
-  %694 = extractvalue { ptr, ptr } %692, 1
-  store ptr %693, ptr %.sroa.0616, align 8
-  br label %2027
-
-695:                                              ; preds = %135
-  %696 = load i64, ptr %.21175, align 8
-  store i64 %696, ptr %.sroa.0616, align 8
+688:                                              ; preds = %133
+  %689 = load i64, ptr %.21175, align 8
+  store i64 %689, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx621 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload622 = load ptr, ptr %.sroa.179.0..sroa_idx621, align 8
-  br label %2027
+  br label %2004
 
-697:                                              ; preds = %135
-  %698 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %699 = load i64, ptr %698, align 8
-  store i64 %699, ptr %.sroa.0616, align 8
+690:                                              ; preds = %133
+  %691 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %692 = load i64, ptr %691, align 8
+  store i64 %692, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx623 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %.sroa.179.0.copyload624 = load ptr, ptr %.sroa.179.0..sroa_idx623, align 8
-  br label %2027
+  br label %2004
 
-700:                                              ; preds = %135
-  %701 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %702 = load ptr, ptr %701, align 8
-  %703 = getelementptr inbounds i8, ptr %.21175, i64 -8
+693:                                              ; preds = %133
+  %694 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %695 = load ptr, ptr %694, align 8
+  %696 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %697 = load ptr, ptr %696, align 8
+  %698 = call i32 @block_is_const(ptr %695, ptr %697) #9
+  %.not1225 = icmp eq i32 %698, 0
+  br i1 %.not1225, label %699, label %709
+
+699:                                              ; preds = %693
+  %.sroa.26.0.insert.ext1405 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1406 = shl nuw i64 %.sroa.26.0.insert.ext1405, 32
+  %.sroa.01249.0.insert.ext1307 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1309 = or disjoint i64 %.sroa.26.0.insert.shift1406, %.sroa.01249.0.insert.ext1307
+  store i64 %.sroa.01249.0.insert.insert1309, ptr %17, align 8
+  call void @yyerror(ptr noundef nonnull %17, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.4)
+  %700 = call { ptr, ptr } (...) @gen_noop() #9
+  %701 = extractvalue { ptr, ptr } %700, 0
+  %702 = extractvalue { ptr, ptr } %700, 1
+  store ptr %701, ptr %.sroa.0616, align 8
+  %703 = getelementptr inbounds i8, ptr %.21175, i64 -32
   %704 = load ptr, ptr %703, align 8
-  %705 = call i32 @block_is_const(ptr %702, ptr %704) #9
-  %.not1225 = icmp eq i32 %705, 0
-  br i1 %.not1225, label %706, label %717
+  %705 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %706 = load ptr, ptr %705, align 8
+  call void @block_free(ptr %704, ptr %706) #9
+  %707 = load ptr, ptr %694, align 8
+  %708 = load ptr, ptr %696, align 8
+  call void @block_free(ptr %707, ptr %708) #9
+  br label %2004
 
-706:                                              ; preds = %700
-  %707 = load i64, ptr %10, align 8
-  store i64 %707, ptr %18, align 8
-  call void @yyerror(ptr noundef nonnull %18, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.4)
-  %708 = call { ptr, ptr } (...) @gen_noop() #9
-  %709 = extractvalue { ptr, ptr } %708, 0
-  %710 = extractvalue { ptr, ptr } %708, 1
-  store ptr %709, ptr %.sroa.0616, align 8
-  %711 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %712 = load ptr, ptr %711, align 8
-  %713 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %714 = load ptr, ptr %713, align 8
-  call void @block_free(ptr %712, ptr %714) #9
-  %715 = load ptr, ptr %701, align 8
-  %716 = load ptr, ptr %703, align 8
-  call void @block_free(ptr %715, ptr %716) #9
-  br label %2027
+709:                                              ; preds = %693
+  %710 = load ptr, ptr %694, align 8
+  %711 = load ptr, ptr %696, align 8
+  %712 = call i32 @block_const_kind(ptr %710, ptr %711) #9
+  %.not1226 = icmp eq i32 %712, 7
+  br i1 %.not1226, label %723, label %713
 
-717:                                              ; preds = %700
-  %718 = load ptr, ptr %701, align 8
-  %719 = load ptr, ptr %703, align 8
-  %720 = call i32 @block_const_kind(ptr %718, ptr %719) #9
-  %.not1226 = icmp eq i32 %720, 7
-  br i1 %.not1226, label %732, label %721
+713:                                              ; preds = %709
+  %.sroa.26.0.insert.ext1410 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1411 = shl nuw i64 %.sroa.26.0.insert.ext1410, 32
+  %.sroa.01249.0.insert.ext1311 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1313 = or disjoint i64 %.sroa.26.0.insert.shift1411, %.sroa.01249.0.insert.ext1311
+  store i64 %.sroa.01249.0.insert.insert1313, ptr %18, align 8
+  call void @yyerror(ptr noundef nonnull %18, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.5)
+  %714 = call { ptr, ptr } (...) @gen_noop() #9
+  %715 = extractvalue { ptr, ptr } %714, 0
+  %716 = extractvalue { ptr, ptr } %714, 1
+  store ptr %715, ptr %.sroa.0616, align 8
+  %717 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %718 = load ptr, ptr %717, align 8
+  %719 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %720 = load ptr, ptr %719, align 8
+  call void @block_free(ptr %718, ptr %720) #9
+  %721 = load ptr, ptr %694, align 8
+  %722 = load ptr, ptr %696, align 8
+  call void @block_free(ptr %721, ptr %722) #9
+  br label %2004
 
-721:                                              ; preds = %717
-  %722 = load i64, ptr %10, align 8
-  store i64 %722, ptr %19, align 8
-  call void @yyerror(ptr noundef nonnull %19, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.5)
-  %723 = call { ptr, ptr } (...) @gen_noop() #9
-  %724 = extractvalue { ptr, ptr } %723, 0
-  %725 = extractvalue { ptr, ptr } %723, 1
-  store ptr %724, ptr %.sroa.0616, align 8
-  %726 = getelementptr inbounds i8, ptr %.21175, i64 -32
+723:                                              ; preds = %709
+  %724 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %725 = load ptr, ptr %724, align 8
+  %726 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %727 = load ptr, ptr %726, align 8
-  %728 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %729 = load ptr, ptr %728, align 8
-  call void @block_free(ptr %727, ptr %729) #9
-  %730 = load ptr, ptr %701, align 8
-  %731 = load ptr, ptr %703, align 8
-  call void @block_free(ptr %730, ptr %731) #9
-  br label %2027
+  %728 = load ptr, ptr %694, align 8
+  %729 = load ptr, ptr %696, align 8
+  %730 = call { ptr, ptr } @gen_import_meta(ptr %725, ptr %727, ptr %728, ptr %729) #9
+  %731 = extractvalue { ptr, ptr } %730, 0
+  %732 = extractvalue { ptr, ptr } %730, 1
+  store ptr %731, ptr %.sroa.0616, align 8
+  br label %2004
 
-732:                                              ; preds = %717
-  %733 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %734 = load ptr, ptr %733, align 8
-  %735 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %736 = load ptr, ptr %735, align 8
-  %737 = load ptr, ptr %701, align 8
-  %738 = load ptr, ptr %703, align 8
-  %739 = call { ptr, ptr } @gen_import_meta(ptr %734, ptr %736, ptr %737, ptr %738) #9
-  %740 = extractvalue { ptr, ptr } %739, 0
-  %741 = extractvalue { ptr, ptr } %739, 1
-  store ptr %740, ptr %.sroa.0616, align 8
-  br label %2027
-
-742:                                              ; preds = %135
-  %743 = getelementptr inbounds i8, ptr %.21175, i64 -32
+733:                                              ; preds = %133
+  %734 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %735 = load ptr, ptr %734, align 8
+  %736 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %737 = load ptr, ptr %736, align 8
+  %738 = call { i64, ptr } @block_const(ptr %735, ptr %737) #9
+  %739 = extractvalue { i64, ptr } %738, 0
+  %740 = extractvalue { i64, ptr } %738, 1
+  %741 = call ptr @jv_string_value(i64 %739, ptr %740) #9
+  %742 = load i64, ptr %.21175, align 8
+  %743 = getelementptr inbounds i8, ptr %.21175, i64 8
   %744 = load ptr, ptr %743, align 8
-  %745 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %746 = load ptr, ptr %745, align 8
-  %747 = call { i64, ptr } @block_const(ptr %744, ptr %746) #9
-  %748 = extractvalue { i64, ptr } %747, 0
-  %749 = extractvalue { i64, ptr } %747, 1
-  %750 = call ptr @jv_string_value(i64 %748, ptr %749) #9
+  %745 = call ptr @jv_string_value(i64 %742, ptr %744) #9
+  %746 = call { ptr, ptr } @gen_import(ptr noundef %741, ptr noundef %745, i32 noundef 1) #9
+  %747 = extractvalue { ptr, ptr } %746, 0
+  %748 = extractvalue { ptr, ptr } %746, 1
+  store ptr %747, ptr %.sroa.0616, align 8
+  %749 = load ptr, ptr %734, align 8
+  %750 = load ptr, ptr %736, align 8
+  call void @block_free(ptr %749, ptr %750) #9
   %751 = load i64, ptr %.21175, align 8
-  %752 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %753 = load ptr, ptr %752, align 8
-  %754 = call ptr @jv_string_value(i64 %751, ptr %753) #9
-  %755 = call { ptr, ptr } @gen_import(ptr noundef %750, ptr noundef %754, i32 noundef 1) #9
-  %756 = extractvalue { ptr, ptr } %755, 0
-  %757 = extractvalue { ptr, ptr } %755, 1
-  store ptr %756, ptr %.sroa.0616, align 8
-  %758 = load ptr, ptr %743, align 8
-  %759 = load ptr, ptr %745, align 8
-  call void @block_free(ptr %758, ptr %759) #9
-  %760 = load i64, ptr %.21175, align 8
-  %761 = load ptr, ptr %752, align 8
-  call void @jv_free(i64 %760, ptr %761) #9
-  call void @jv_free(i64 %748, ptr %749) #9
-  br label %2027
+  %752 = load ptr, ptr %743, align 8
+  call void @jv_free(i64 %751, ptr %752) #9
+  call void @jv_free(i64 %739, ptr %740) #9
+  br label %2004
 
-762:                                              ; preds = %135
-  %763 = getelementptr inbounds i8, ptr %.21175, i64 -32
+753:                                              ; preds = %133
+  %754 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %755 = load ptr, ptr %754, align 8
+  %756 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %757 = load ptr, ptr %756, align 8
+  %758 = call { i64, ptr } @block_const(ptr %755, ptr %757) #9
+  %759 = extractvalue { i64, ptr } %758, 0
+  %760 = extractvalue { i64, ptr } %758, 1
+  %761 = call ptr @jv_string_value(i64 %759, ptr %760) #9
+  %762 = load i64, ptr %.21175, align 8
+  %763 = getelementptr inbounds i8, ptr %.21175, i64 8
   %764 = load ptr, ptr %763, align 8
-  %765 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %766 = load ptr, ptr %765, align 8
-  %767 = call { i64, ptr } @block_const(ptr %764, ptr %766) #9
-  %768 = extractvalue { i64, ptr } %767, 0
-  %769 = extractvalue { i64, ptr } %767, 1
-  %770 = call ptr @jv_string_value(i64 %768, ptr %769) #9
+  %765 = call ptr @jv_string_value(i64 %762, ptr %764) #9
+  %766 = call { ptr, ptr } @gen_import(ptr noundef %761, ptr noundef %765, i32 noundef 0) #9
+  %767 = extractvalue { ptr, ptr } %766, 0
+  %768 = extractvalue { ptr, ptr } %766, 1
+  store ptr %767, ptr %.sroa.0616, align 8
+  %769 = load ptr, ptr %754, align 8
+  %770 = load ptr, ptr %756, align 8
+  call void @block_free(ptr %769, ptr %770) #9
   %771 = load i64, ptr %.21175, align 8
-  %772 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %773 = load ptr, ptr %772, align 8
-  %774 = call ptr @jv_string_value(i64 %771, ptr %773) #9
-  %775 = call { ptr, ptr } @gen_import(ptr noundef %770, ptr noundef %774, i32 noundef 0) #9
-  %776 = extractvalue { ptr, ptr } %775, 0
-  %777 = extractvalue { ptr, ptr } %775, 1
-  store ptr %776, ptr %.sroa.0616, align 8
-  %778 = load ptr, ptr %763, align 8
-  %779 = load ptr, ptr %765, align 8
-  call void @block_free(ptr %778, ptr %779) #9
-  %780 = load i64, ptr %.21175, align 8
-  %781 = load ptr, ptr %772, align 8
-  call void @jv_free(i64 %780, ptr %781) #9
-  call void @jv_free(i64 %768, ptr %769) #9
-  br label %2027
+  %772 = load ptr, ptr %763, align 8
+  call void @jv_free(i64 %771, ptr %772) #9
+  call void @jv_free(i64 %759, ptr %760) #9
+  br label %2004
 
-782:                                              ; preds = %135
-  %783 = load ptr, ptr %.21175, align 8
-  %784 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %785 = load ptr, ptr %784, align 8
-  %786 = call { i64, ptr } @block_const(ptr %783, ptr %785) #9
-  %787 = extractvalue { i64, ptr } %786, 0
-  %788 = extractvalue { i64, ptr } %786, 1
-  %789 = call ptr @jv_string_value(i64 %787, ptr %788) #9
-  %790 = call { ptr, ptr } @gen_import(ptr noundef %789, ptr noundef null, i32 noundef 0) #9
-  %791 = extractvalue { ptr, ptr } %790, 0
-  %792 = extractvalue { ptr, ptr } %790, 1
-  store ptr %791, ptr %.sroa.0616, align 8
-  %793 = load ptr, ptr %.21175, align 8
-  %794 = load ptr, ptr %784, align 8
-  call void @block_free(ptr %793, ptr %794) #9
-  call void @jv_free(i64 %787, ptr %788) #9
-  br label %2027
+773:                                              ; preds = %133
+  %774 = load ptr, ptr %.21175, align 8
+  %775 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %776 = load ptr, ptr %775, align 8
+  %777 = call { i64, ptr } @block_const(ptr %774, ptr %776) #9
+  %778 = extractvalue { i64, ptr } %777, 0
+  %779 = extractvalue { i64, ptr } %777, 1
+  %780 = call ptr @jv_string_value(i64 %778, ptr %779) #9
+  %781 = call { ptr, ptr } @gen_import(ptr noundef %780, ptr noundef null, i32 noundef 0) #9
+  %782 = extractvalue { ptr, ptr } %781, 0
+  %783 = extractvalue { ptr, ptr } %781, 1
+  store ptr %782, ptr %.sroa.0616, align 8
+  %784 = load ptr, ptr %.21175, align 8
+  %785 = load ptr, ptr %775, align 8
+  call void @block_free(ptr %784, ptr %785) #9
+  call void @jv_free(i64 %778, ptr %779) #9
+  br label %2004
 
-795:                                              ; preds = %135
-  %796 = load ptr, ptr %.21175, align 8
-  %797 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %798 = load ptr, ptr %797, align 8
-  %799 = call i32 @block_is_const(ptr %796, ptr %798) #9
-  %.not1224 = icmp eq i32 %799, 0
-  br i1 %.not1224, label %800, label %810
+786:                                              ; preds = %133
+  %787 = load ptr, ptr %.21175, align 8
+  %788 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %789 = load ptr, ptr %788, align 8
+  %790 = call i32 @block_is_const(ptr %787, ptr %789) #9
+  %.not1224 = icmp eq i32 %790, 0
+  br i1 %.not1224, label %791, label %800
 
-800:                                              ; preds = %795
-  %801 = load i64, ptr %10, align 8
-  store i64 %801, ptr %20, align 8
-  call void @yyerror(ptr noundef nonnull %20, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.12)
-  %802 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.13) #9
-  %803 = extractvalue { i64, ptr } %802, 0
-  %804 = extractvalue { i64, ptr } %802, 1
-  %805 = call { ptr, ptr } @gen_const(i64 %803, ptr %804) #9
-  %806 = extractvalue { ptr, ptr } %805, 0
-  %807 = extractvalue { ptr, ptr } %805, 1
-  store ptr %806, ptr %.sroa.0616, align 8
-  %808 = load ptr, ptr %.21175, align 8
-  %809 = load ptr, ptr %797, align 8
-  call void @block_free(ptr %808, ptr %809) #9
-  br label %2027
+791:                                              ; preds = %786
+  %.sroa.26.0.insert.ext1400 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1401 = shl nuw i64 %.sroa.26.0.insert.ext1400, 32
+  %.sroa.01249.0.insert.ext1303 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1305 = or disjoint i64 %.sroa.26.0.insert.shift1401, %.sroa.01249.0.insert.ext1303
+  store i64 %.sroa.01249.0.insert.insert1305, ptr %19, align 8
+  call void @yyerror(ptr noundef nonnull %19, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.12)
+  %792 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.13) #9
+  %793 = extractvalue { i64, ptr } %792, 0
+  %794 = extractvalue { i64, ptr } %792, 1
+  %795 = call { ptr, ptr } @gen_const(i64 %793, ptr %794) #9
+  %796 = extractvalue { ptr, ptr } %795, 0
+  %797 = extractvalue { ptr, ptr } %795, 1
+  store ptr %796, ptr %.sroa.0616, align 8
+  %798 = load ptr, ptr %.21175, align 8
+  %799 = load ptr, ptr %788, align 8
+  call void @block_free(ptr %798, ptr %799) #9
+  br label %2004
 
-810:                                              ; preds = %795
-  %811 = load i64, ptr %.21175, align 8
-  store i64 %811, ptr %.sroa.0616, align 8
-  %.sroa.179.0.copyload626 = load ptr, ptr %797, align 8
-  br label %2027
+800:                                              ; preds = %786
+  %801 = load i64, ptr %.21175, align 8
+  store i64 %801, ptr %.sroa.0616, align 8
+  %.sroa.179.0.copyload626 = load ptr, ptr %788, align 8
+  br label %2004
 
-812:                                              ; preds = %135
-  %813 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %814 = load i64, ptr %813, align 8
-  %815 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %816 = load ptr, ptr %815, align 8
-  %817 = call ptr @jv_string_value(i64 %814, ptr %816) #9
-  %818 = call { ptr, ptr } (...) @gen_noop() #9
-  %819 = extractvalue { ptr, ptr } %818, 0
-  %820 = extractvalue { ptr, ptr } %818, 1
-  %821 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %822 = load ptr, ptr %821, align 8
-  %823 = getelementptr inbounds i8, ptr %.21175, i64 -8
+802:                                              ; preds = %133
+  %803 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %804 = load i64, ptr %803, align 8
+  %805 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %806 = load ptr, ptr %805, align 8
+  %807 = call ptr @jv_string_value(i64 %804, ptr %806) #9
+  %808 = call { ptr, ptr } (...) @gen_noop() #9
+  %809 = extractvalue { ptr, ptr } %808, 0
+  %810 = extractvalue { ptr, ptr } %808, 1
+  %811 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %812 = load ptr, ptr %811, align 8
+  %813 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %814 = load ptr, ptr %813, align 8
+  %815 = call { ptr, ptr } @gen_function(ptr noundef %807, ptr %809, ptr %810, ptr %812, ptr %814) #9
+  %816 = extractvalue { ptr, ptr } %815, 0
+  %817 = extractvalue { ptr, ptr } %815, 1
+  store ptr %816, ptr %.sroa.0616, align 8
+  %818 = load i64, ptr %803, align 8
+  %819 = load ptr, ptr %805, align 8
+  call void @jv_free(i64 %818, ptr %819) #9
+  br label %2004
+
+820:                                              ; preds = %133
+  %821 = getelementptr inbounds i8, ptr %.21175, i64 -96
+  %822 = load i64, ptr %821, align 8
+  %823 = getelementptr inbounds i8, ptr %.21175, i64 -88
   %824 = load ptr, ptr %823, align 8
-  %825 = call { ptr, ptr } @gen_function(ptr noundef %817, ptr %819, ptr %820, ptr %822, ptr %824) #9
-  %826 = extractvalue { ptr, ptr } %825, 0
-  %827 = extractvalue { ptr, ptr } %825, 1
-  store ptr %826, ptr %.sroa.0616, align 8
-  %828 = load i64, ptr %813, align 8
-  %829 = load ptr, ptr %815, align 8
-  call void @jv_free(i64 %828, ptr %829) #9
-  br label %2027
+  %825 = call ptr @jv_string_value(i64 %822, ptr %824) #9
+  %826 = getelementptr inbounds i8, ptr %.21175, i64 -64
+  %827 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %828 = load ptr, ptr %826, align 8
+  %829 = getelementptr inbounds i8, ptr %.21175, i64 -56
+  %830 = load ptr, ptr %829, align 8
+  %831 = load ptr, ptr %827, align 8
+  %832 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %833 = load ptr, ptr %832, align 8
+  %834 = call { ptr, ptr } @gen_function(ptr noundef %825, ptr %828, ptr %830, ptr %831, ptr %833) #9
+  %835 = extractvalue { ptr, ptr } %834, 0
+  %836 = extractvalue { ptr, ptr } %834, 1
+  store ptr %835, ptr %.sroa.0616, align 8
+  %837 = load i64, ptr %821, align 8
+  %838 = load ptr, ptr %823, align 8
+  call void @jv_free(i64 %837, ptr %838) #9
+  br label %2004
 
-830:                                              ; preds = %135
-  %831 = getelementptr inbounds i8, ptr %.21175, i64 -96
-  %832 = load i64, ptr %831, align 8
-  %833 = getelementptr inbounds i8, ptr %.21175, i64 -88
-  %834 = load ptr, ptr %833, align 8
-  %835 = call ptr @jv_string_value(i64 %832, ptr %834) #9
-  %836 = getelementptr inbounds i8, ptr %.21175, i64 -64
-  %837 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %838 = load ptr, ptr %836, align 8
-  %839 = getelementptr inbounds i8, ptr %.21175, i64 -56
-  %840 = load ptr, ptr %839, align 8
-  %841 = load ptr, ptr %837, align 8
-  %842 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %843 = load ptr, ptr %842, align 8
-  %844 = call { ptr, ptr } @gen_function(ptr noundef %835, ptr %838, ptr %840, ptr %841, ptr %843) #9
-  %845 = extractvalue { ptr, ptr } %844, 0
-  %846 = extractvalue { ptr, ptr } %844, 1
-  store ptr %845, ptr %.sroa.0616, align 8
-  %847 = load i64, ptr %831, align 8
-  %848 = load ptr, ptr %833, align 8
-  call void @jv_free(i64 %847, ptr %848) #9
-  br label %2027
-
-849:                                              ; preds = %135
-  %850 = load i64, ptr %.21175, align 8
-  store i64 %850, ptr %.sroa.0616, align 8
+839:                                              ; preds = %133
+  %840 = load i64, ptr %.21175, align 8
+  store i64 %840, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx627 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload628 = load ptr, ptr %.sroa.179.0..sroa_idx627, align 8
-  br label %2027
+  br label %2004
 
-851:                                              ; preds = %135
-  %852 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %853 = load ptr, ptr %852, align 8
-  %854 = getelementptr inbounds i8, ptr %.21175, i64 -24
+841:                                              ; preds = %133
+  %842 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %843 = load ptr, ptr %842, align 8
+  %844 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %845 = load ptr, ptr %844, align 8
+  %846 = load ptr, ptr %.21175, align 8
+  %847 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %848 = load ptr, ptr %847, align 8
+  %849 = call { ptr, ptr } @block_join(ptr %843, ptr %845, ptr %846, ptr %848) #9
+  %850 = extractvalue { ptr, ptr } %849, 0
+  %851 = extractvalue { ptr, ptr } %849, 1
+  store ptr %850, ptr %.sroa.0616, align 8
+  br label %2004
+
+852:                                              ; preds = %133
+  %853 = load i64, ptr %.21175, align 8
+  %854 = getelementptr inbounds i8, ptr %.21175, i64 8
   %855 = load ptr, ptr %854, align 8
-  %856 = load ptr, ptr %.21175, align 8
-  %857 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %858 = load ptr, ptr %857, align 8
-  %859 = call { ptr, ptr } @block_join(ptr %853, ptr %855, ptr %856, ptr %858) #9
-  %860 = extractvalue { ptr, ptr } %859, 0
-  %861 = extractvalue { ptr, ptr } %859, 1
-  store ptr %860, ptr %.sroa.0616, align 8
-  br label %2027
+  %856 = call ptr @jv_string_value(i64 %853, ptr %855) #9
+  %857 = call { ptr, ptr } @gen_param_regular(ptr noundef %856) #9
+  %858 = extractvalue { ptr, ptr } %857, 0
+  %859 = extractvalue { ptr, ptr } %857, 1
+  store ptr %858, ptr %.sroa.0616, align 8
+  %860 = load i64, ptr %.21175, align 8
+  %861 = load ptr, ptr %854, align 8
+  call void @jv_free(i64 %860, ptr %861) #9
+  br label %2004
 
-862:                                              ; preds = %135
+862:                                              ; preds = %133
   %863 = load i64, ptr %.21175, align 8
   %864 = getelementptr inbounds i8, ptr %.21175, i64 8
   %865 = load ptr, ptr %864, align 8
   %866 = call ptr @jv_string_value(i64 %863, ptr %865) #9
-  %867 = call { ptr, ptr } @gen_param_regular(ptr noundef %866) #9
+  %867 = call { ptr, ptr } @gen_param(ptr noundef %866) #9
   %868 = extractvalue { ptr, ptr } %867, 0
   %869 = extractvalue { ptr, ptr } %867, 1
   store ptr %868, ptr %.sroa.0616, align 8
   %870 = load i64, ptr %.21175, align 8
   %871 = load ptr, ptr %864, align 8
   call void @jv_free(i64 %870, ptr %871) #9
-  br label %2027
+  br label %2004
 
-872:                                              ; preds = %135
-  %873 = load i64, ptr %.21175, align 8
-  %874 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %875 = load ptr, ptr %874, align 8
-  %876 = call ptr @jv_string_value(i64 %873, ptr %875) #9
-  %877 = call { ptr, ptr } @gen_param(ptr noundef %876) #9
-  %878 = extractvalue { ptr, ptr } %877, 0
-  %879 = extractvalue { ptr, ptr } %877, 1
-  store ptr %878, ptr %.sroa.0616, align 8
-  %880 = load i64, ptr %.21175, align 8
-  %881 = load ptr, ptr %874, align 8
-  call void @jv_free(i64 %880, ptr %881) #9
-  br label %2027
-
-882:                                              ; preds = %135
-  %883 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %884 = load i64, ptr %883, align 8
-  store i64 %884, ptr %.sroa.0616, align 8
+872:                                              ; preds = %133
+  %873 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %874 = load i64, ptr %873, align 8
+  store i64 %874, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx629 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %.sroa.179.0.copyload630 = load ptr, ptr %.sroa.179.0..sroa_idx629, align 8
-  br label %2027
+  br label %2004
 
-885:                                              ; preds = %135
-  %886 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.14) #9
-  %887 = extractvalue { i64, ptr } %886, 0
-  %888 = extractvalue { i64, ptr } %886, 1
-  store i64 %887, ptr %.sroa.0616, align 8
-  br label %2027
+875:                                              ; preds = %133
+  %876 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.14) #9
+  %877 = extractvalue { i64, ptr } %876, 0
+  %878 = extractvalue { i64, ptr } %876, 1
+  store i64 %877, ptr %.sroa.0616, align 8
+  br label %2004
 
-889:                                              ; preds = %135
-  %890 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %891 = load i64, ptr %890, align 8
-  store i64 %891, ptr %.sroa.0616, align 8
+879:                                              ; preds = %133
+  %880 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %881 = load i64, ptr %880, align 8
+  store i64 %881, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx631 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %.sroa.179.0.copyload632 = load ptr, ptr %.sroa.179.0..sroa_idx631, align 8
-  %892 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %893 = load i64, ptr %892, align 8
-  %894 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %895 = load ptr, ptr %894, align 8
-  call void @jv_free(i64 %893, ptr %895) #9
-  br label %2027
+  %882 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %883 = load i64, ptr %882, align 8
+  %884 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %885 = load ptr, ptr %884, align 8
+  call void @jv_free(i64 %883, ptr %885) #9
+  br label %2004
 
-896:                                              ; preds = %135
-  %897 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.13) #9
-  %898 = extractvalue { i64, ptr } %897, 0
-  %899 = extractvalue { i64, ptr } %897, 1
-  %900 = call { ptr, ptr } @gen_const(i64 %898, ptr %899) #9
-  %901 = extractvalue { ptr, ptr } %900, 0
-  %902 = extractvalue { ptr, ptr } %900, 1
-  store ptr %901, ptr %.sroa.0616, align 8
-  br label %2027
+886:                                              ; preds = %133
+  %887 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.13) #9
+  %888 = extractvalue { i64, ptr } %887, 0
+  %889 = extractvalue { i64, ptr } %887, 1
+  %890 = call { ptr, ptr } @gen_const(i64 %888, ptr %889) #9
+  %891 = extractvalue { ptr, ptr } %890, 0
+  %892 = extractvalue { ptr, ptr } %890, 1
+  store ptr %891, ptr %.sroa.0616, align 8
+  br label %2004
 
-903:                                              ; preds = %135
-  %904 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %905 = load i64, ptr %.21175, align 8
-  %906 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %907 = load ptr, ptr %906, align 8
-  %908 = call { ptr, ptr } @gen_const(i64 %905, ptr %907) #9
-  %909 = extractvalue { ptr, ptr } %908, 0
-  %910 = extractvalue { ptr, ptr } %908, 1
-  %911 = load ptr, ptr %904, align 8
-  %912 = getelementptr inbounds i8, ptr %.21175, i64 -8
+893:                                              ; preds = %133
+  %894 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %895 = load i64, ptr %.21175, align 8
+  %896 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %897 = load ptr, ptr %896, align 8
+  %898 = call { ptr, ptr } @gen_const(i64 %895, ptr %897) #9
+  %899 = extractvalue { ptr, ptr } %898, 0
+  %900 = extractvalue { ptr, ptr } %898, 1
+  %901 = load ptr, ptr %894, align 8
+  %902 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %903 = load ptr, ptr %902, align 8
+  %904 = call fastcc { ptr, ptr } @gen_binop(ptr %901, ptr %903, ptr %899, ptr %900, i32 noundef 43)
+  %905 = extractvalue { ptr, ptr } %904, 0
+  %906 = extractvalue { ptr, ptr } %904, 1
+  store ptr %905, ptr %.sroa.0616, align 8
+  br label %2004
+
+907:                                              ; preds = %133
+  %908 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %909 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %910 = getelementptr inbounds i8, ptr %.21175, i64 -64
+  %911 = load i64, ptr %910, align 8
+  %912 = getelementptr inbounds i8, ptr %.21175, i64 -56
   %913 = load ptr, ptr %912, align 8
-  %914 = call fastcc { ptr, ptr } @gen_binop(ptr %911, ptr %913, ptr %909, ptr %910, i32 noundef 43)
-  %915 = extractvalue { ptr, ptr } %914, 0
-  %916 = extractvalue { ptr, ptr } %914, 1
-  store ptr %915, ptr %.sroa.0616, align 8
-  br label %2027
+  %914 = call { i64, ptr } @jv_copy(i64 %911, ptr %913) #9
+  %915 = extractvalue { i64, ptr } %914, 0
+  %916 = extractvalue { i64, ptr } %914, 1
+  %917 = load ptr, ptr %909, align 8
+  %918 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %919 = load ptr, ptr %918, align 8
+  %920 = call fastcc { ptr, ptr } @gen_format(ptr %917, ptr %919, i64 %915, ptr %916)
+  %921 = extractvalue { ptr, ptr } %920, 0
+  %922 = extractvalue { ptr, ptr } %920, 1
+  %923 = load ptr, ptr %908, align 8
+  %924 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %925 = load ptr, ptr %924, align 8
+  %926 = call fastcc { ptr, ptr } @gen_binop(ptr %923, ptr %925, ptr %921, ptr %922, i32 noundef 43)
+  %927 = extractvalue { ptr, ptr } %926, 0
+  %928 = extractvalue { ptr, ptr } %926, 1
+  store ptr %927, ptr %.sroa.0616, align 8
+  br label %2004
 
-917:                                              ; preds = %135
-  %918 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %919 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %920 = getelementptr inbounds i8, ptr %.21175, i64 -64
-  %921 = load i64, ptr %920, align 8
-  %922 = getelementptr inbounds i8, ptr %.21175, i64 -56
-  %923 = load ptr, ptr %922, align 8
-  %924 = call { i64, ptr } @jv_copy(i64 %921, ptr %923) #9
-  %925 = extractvalue { i64, ptr } %924, 0
-  %926 = extractvalue { i64, ptr } %924, 1
-  %927 = load ptr, ptr %919, align 8
-  %928 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %929 = load ptr, ptr %928, align 8
-  %930 = call fastcc { ptr, ptr } @gen_format(ptr %927, ptr %929, i64 %925, ptr %926)
-  %931 = extractvalue { ptr, ptr } %930, 0
-  %932 = extractvalue { ptr, ptr } %930, 1
-  %933 = load ptr, ptr %918, align 8
-  %934 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %935 = load ptr, ptr %934, align 8
-  %936 = call fastcc { ptr, ptr } @gen_binop(ptr %933, ptr %935, ptr %931, ptr %932, i32 noundef 43)
-  %937 = extractvalue { ptr, ptr } %936, 0
-  %938 = extractvalue { ptr, ptr } %936, 1
-  store ptr %937, ptr %.sroa.0616, align 8
-  br label %2027
+929:                                              ; preds = %133
+  %930 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %931 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %932 = load ptr, ptr %930, align 8
+  %933 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %934 = load ptr, ptr %933, align 8
+  %935 = load ptr, ptr %931, align 8
+  %936 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %937 = load ptr, ptr %936, align 8
+  %938 = load ptr, ptr %.21175, align 8
+  %939 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %940 = load ptr, ptr %939, align 8
+  %941 = call { ptr, ptr } @gen_cond(ptr %932, ptr %934, ptr %935, ptr %937, ptr %938, ptr %940) #9
+  %942 = extractvalue { ptr, ptr } %941, 0
+  %943 = extractvalue { ptr, ptr } %941, 1
+  store ptr %942, ptr %.sroa.0616, align 8
+  br label %2004
 
-939:                                              ; preds = %135
-  %940 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %941 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %942 = load ptr, ptr %940, align 8
-  %943 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %944 = load ptr, ptr %943, align 8
-  %945 = load ptr, ptr %941, align 8
-  %946 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %947 = load ptr, ptr %946, align 8
-  %948 = load ptr, ptr %.21175, align 8
-  %949 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %950 = load ptr, ptr %949, align 8
-  %951 = call { ptr, ptr } @gen_cond(ptr %942, ptr %944, ptr %945, ptr %947, ptr %948, ptr %950) #9
-  %952 = extractvalue { ptr, ptr } %951, 0
-  %953 = extractvalue { ptr, ptr } %951, 1
-  store ptr %952, ptr %.sroa.0616, align 8
-  br label %2027
-
-954:                                              ; preds = %135
-  %955 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %956 = load i64, ptr %955, align 8
-  store i64 %956, ptr %.sroa.0616, align 8
+944:                                              ; preds = %133
+  %945 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %946 = load i64, ptr %945, align 8
+  store i64 %946, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx633 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %.sroa.179.0.copyload634 = load ptr, ptr %.sroa.179.0..sroa_idx633, align 8
-  br label %2027
+  br label %2004
 
-957:                                              ; preds = %135
-  %958 = call { ptr, ptr } (...) @gen_noop() #9
-  %959 = extractvalue { ptr, ptr } %958, 0
-  %960 = extractvalue { ptr, ptr } %958, 1
-  store ptr %959, ptr %.sroa.0616, align 8
-  br label %2027
+947:                                              ; preds = %133
+  %948 = call { ptr, ptr } (...) @gen_noop() #9
+  %949 = extractvalue { ptr, ptr } %948, 0
+  %950 = extractvalue { ptr, ptr } %948, 1
+  store ptr %949, ptr %.sroa.0616, align 8
+  br label %2004
 
-961:                                              ; preds = %135
-  %962 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %963 = load ptr, ptr %962, align 8
-  %964 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %965 = load ptr, ptr %964, align 8
-  %966 = load ptr, ptr %.21175, align 8
-  %967 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %968 = load ptr, ptr %967, align 8
-  %969 = call { ptr, ptr } @block_join(ptr %963, ptr %965, ptr %966, ptr %968) #9
-  %970 = extractvalue { ptr, ptr } %969, 0
-  %971 = extractvalue { ptr, ptr } %969, 1
-  store ptr %970, ptr %.sroa.0616, align 8
-  br label %2027
+951:                                              ; preds = %133
+  %952 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %953 = load ptr, ptr %952, align 8
+  %954 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %955 = load ptr, ptr %954, align 8
+  %956 = load ptr, ptr %.21175, align 8
+  %957 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %958 = load ptr, ptr %957, align 8
+  %959 = call { ptr, ptr } @block_join(ptr %953, ptr %955, ptr %956, ptr %958) #9
+  %960 = extractvalue { ptr, ptr } %959, 0
+  %961 = extractvalue { ptr, ptr } %959, 1
+  store ptr %960, ptr %.sroa.0616, align 8
+  br label %2004
 
-972:                                              ; preds = %135
-  %973 = call { ptr, ptr } (...) @gen_noop() #9
-  %974 = extractvalue { ptr, ptr } %973, 0
-  %975 = extractvalue { ptr, ptr } %973, 1
-  %976 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.11, ptr %974, ptr %975) #9
-  %977 = extractvalue { ptr, ptr } %976, 0
-  %978 = extractvalue { ptr, ptr } %976, 1
-  %979 = load ptr, ptr %.21175, align 8
-  %980 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %981 = load ptr, ptr %980, align 8
-  %982 = call { ptr, ptr } @block_join(ptr %979, ptr %981, ptr %977, ptr %978) #9
-  %983 = extractvalue { ptr, ptr } %982, 0
-  %984 = extractvalue { ptr, ptr } %982, 1
-  store ptr %983, ptr %.sroa.0616, align 8
-  br label %2027
+962:                                              ; preds = %133
+  %963 = call { ptr, ptr } (...) @gen_noop() #9
+  %964 = extractvalue { ptr, ptr } %963, 0
+  %965 = extractvalue { ptr, ptr } %963, 1
+  %966 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.11, ptr %964, ptr %965) #9
+  %967 = extractvalue { ptr, ptr } %966, 0
+  %968 = extractvalue { ptr, ptr } %966, 1
+  %969 = load ptr, ptr %.21175, align 8
+  %970 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %971 = load ptr, ptr %970, align 8
+  %972 = call { ptr, ptr } @block_join(ptr %969, ptr %971, ptr %967, ptr %968) #9
+  %973 = extractvalue { ptr, ptr } %972, 0
+  %974 = extractvalue { ptr, ptr } %972, 1
+  store ptr %973, ptr %.sroa.0616, align 8
+  br label %2004
 
-985:                                              ; preds = %135
-  %986 = load i64, ptr %.21175, align 8
-  store i64 %986, ptr %.sroa.0616, align 8
+975:                                              ; preds = %133
+  %976 = load i64, ptr %.21175, align 8
+  store i64 %976, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx635 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload636 = load ptr, ptr %.sroa.179.0..sroa_idx635, align 8
-  br label %2027
+  br label %2004
 
-987:                                              ; preds = %135
-  %988 = call { ptr, ptr } (...) @gen_noop() #9
-  %989 = extractvalue { ptr, ptr } %988, 0
-  %990 = extractvalue { ptr, ptr } %988, 1
-  store ptr %989, ptr %.sroa.0616, align 8
-  br label %2027
+977:                                              ; preds = %133
+  %978 = call { ptr, ptr } (...) @gen_noop() #9
+  %979 = extractvalue { ptr, ptr } %978, 0
+  %980 = extractvalue { ptr, ptr } %978, 1
+  store ptr %979, ptr %.sroa.0616, align 8
+  br label %2004
 
-991:                                              ; preds = %135
-  %992 = call { ptr, ptr } (...) @gen_noop() #9
-  %993 = extractvalue { ptr, ptr } %992, 0
-  %994 = extractvalue { ptr, ptr } %992, 1
-  %995 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.15, ptr %993, ptr %994) #9
-  %996 = extractvalue { ptr, ptr } %995, 0
-  %997 = extractvalue { ptr, ptr } %995, 1
-  store ptr %996, ptr %.sroa.0616, align 8
-  br label %2027
+981:                                              ; preds = %133
+  %982 = call { ptr, ptr } (...) @gen_noop() #9
+  %983 = extractvalue { ptr, ptr } %982, 0
+  %984 = extractvalue { ptr, ptr } %982, 1
+  %985 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.15, ptr %983, ptr %984) #9
+  %986 = extractvalue { ptr, ptr } %985, 0
+  %987 = extractvalue { ptr, ptr } %985, 1
+  store ptr %986, ptr %.sroa.0616, align 8
+  br label %2004
 
-998:                                              ; preds = %135
-  %999 = load i64, ptr %.21175, align 8
-  %1000 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1001 = load ptr, ptr %1000, align 8
-  %1002 = call ptr @jv_string_value(i64 %999, ptr %1001) #9
-  %1003 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %1002) #9
-  %1004 = extractvalue { i64, ptr } %1003, 0
-  %1005 = extractvalue { i64, ptr } %1003, 1
-  %1006 = call ptr @jv_string_value(i64 %1004, ptr %1005) #9
-  %1007 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %1006) #9
-  %1008 = extractvalue { ptr, ptr } %1007, 0
-  %1009 = extractvalue { ptr, ptr } %1007, 1
-  %1010 = call { ptr, ptr } (...) @gen_noop() #9
-  %1011 = extractvalue { ptr, ptr } %1010, 0
-  %1012 = extractvalue { ptr, ptr } %1010, 1
-  %1013 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.16, ptr %1011, ptr %1012) #9
-  %1014 = extractvalue { ptr, ptr } %1013, 0
-  %1015 = extractvalue { ptr, ptr } %1013, 1
-  %1016 = call { ptr, ptr } @block_join(ptr %1008, ptr %1009, ptr %1014, ptr %1015) #9
-  %1017 = extractvalue { ptr, ptr } %1016, 0
-  %1018 = extractvalue { ptr, ptr } %1016, 1
-  %1019 = load i64, ptr %10, align 8
-  %1020 = call { ptr, ptr } @gen_location(i64 %1019, ptr noundef %2, ptr %1017, ptr %1018) #9
-  %1021 = extractvalue { ptr, ptr } %1020, 0
-  %1022 = extractvalue { ptr, ptr } %1020, 1
-  store ptr %1021, ptr %.sroa.0616, align 8
-  call void @jv_free(i64 %1004, ptr %1005) #9
-  %1023 = load i64, ptr %.21175, align 8
-  %1024 = load ptr, ptr %1000, align 8
-  call void @jv_free(i64 %1023, ptr %1024) #9
-  br label %2027
+988:                                              ; preds = %133
+  %989 = load i64, ptr %.21175, align 8
+  %990 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %991 = load ptr, ptr %990, align 8
+  %992 = call ptr @jv_string_value(i64 %989, ptr %991) #9
+  %993 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %992) #9
+  %994 = extractvalue { i64, ptr } %993, 0
+  %995 = extractvalue { i64, ptr } %993, 1
+  %996 = call ptr @jv_string_value(i64 %994, ptr %995) #9
+  %997 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %996) #9
+  %998 = extractvalue { ptr, ptr } %997, 0
+  %999 = extractvalue { ptr, ptr } %997, 1
+  %1000 = call { ptr, ptr } (...) @gen_noop() #9
+  %1001 = extractvalue { ptr, ptr } %1000, 0
+  %1002 = extractvalue { ptr, ptr } %1000, 1
+  %1003 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.16, ptr %1001, ptr %1002) #9
+  %1004 = extractvalue { ptr, ptr } %1003, 0
+  %1005 = extractvalue { ptr, ptr } %1003, 1
+  %1006 = call { ptr, ptr } @block_join(ptr %998, ptr %999, ptr %1004, ptr %1005) #9
+  %1007 = extractvalue { ptr, ptr } %1006, 0
+  %1008 = extractvalue { ptr, ptr } %1006, 1
+  %.sroa.26.0.insert.ext1335 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1336 = shl nuw i64 %.sroa.26.0.insert.ext1335, 32
+  %.sroa.01249.0.insert.ext1251 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1253 = or disjoint i64 %.sroa.26.0.insert.shift1336, %.sroa.01249.0.insert.ext1251
+  %1009 = call { ptr, ptr } @gen_location(i64 %.sroa.01249.0.insert.insert1253, ptr noundef %2, ptr %1007, ptr %1008) #9
+  %1010 = extractvalue { ptr, ptr } %1009, 0
+  %1011 = extractvalue { ptr, ptr } %1009, 1
+  store ptr %1010, ptr %.sroa.0616, align 8
+  call void @jv_free(i64 %994, ptr %995) #9
+  %1012 = load i64, ptr %.21175, align 8
+  %1013 = load ptr, ptr %990, align 8
+  call void @jv_free(i64 %1012, ptr %1013) #9
+  br label %2004
 
-1025:                                             ; preds = %135
-  %1026 = load i64, ptr %10, align 8
-  store i64 %1026, ptr %21, align 8
-  call void @yyerror(ptr noundef nonnull %21, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.17)
-  %1027 = call { ptr, ptr } (...) @gen_noop() #9
-  %1028 = extractvalue { ptr, ptr } %1027, 0
-  %1029 = extractvalue { ptr, ptr } %1027, 1
-  store ptr %1028, ptr %.sroa.0616, align 8
-  br label %2027
+1014:                                             ; preds = %133
+  %.sroa.26.0.insert.ext1395 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1396 = shl nuw i64 %.sroa.26.0.insert.ext1395, 32
+  %.sroa.01249.0.insert.ext1299 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1301 = or disjoint i64 %.sroa.26.0.insert.shift1396, %.sroa.01249.0.insert.ext1299
+  store i64 %.sroa.01249.0.insert.insert1301, ptr %20, align 8
+  call void @yyerror(ptr noundef nonnull %20, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.17)
+  %1015 = call { ptr, ptr } (...) @gen_noop() #9
+  %1016 = extractvalue { ptr, ptr } %1015, 0
+  %1017 = extractvalue { ptr, ptr } %1015, 1
+  store ptr %1016, ptr %.sroa.0616, align 8
+  br label %2004
 
-1030:                                             ; preds = %135
-  %1031 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1032 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1033 = load i64, ptr %1032, align 8
-  %1034 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1035 = load ptr, ptr %1034, align 8
-  %1036 = call { ptr, ptr } @gen_const(i64 %1033, ptr %1035) #9
-  %1037 = extractvalue { ptr, ptr } %1036, 0
-  %1038 = extractvalue { ptr, ptr } %1036, 1
-  %1039 = load ptr, ptr %1031, align 8
-  %1040 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1041 = load ptr, ptr %1040, align 8
-  %1042 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1039, ptr %1041, ptr %1037, ptr %1038)
-  %1043 = extractvalue { ptr, ptr } %1042, 0
-  %1044 = extractvalue { ptr, ptr } %1042, 1
-  store ptr %1043, ptr %.sroa.0616, align 8
-  br label %2027
+1018:                                             ; preds = %133
+  %1019 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1020 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1021 = load i64, ptr %1020, align 8
+  %1022 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1023 = load ptr, ptr %1022, align 8
+  %1024 = call { ptr, ptr } @gen_const(i64 %1021, ptr %1023) #9
+  %1025 = extractvalue { ptr, ptr } %1024, 0
+  %1026 = extractvalue { ptr, ptr } %1024, 1
+  %1027 = load ptr, ptr %1019, align 8
+  %1028 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1029 = load ptr, ptr %1028, align 8
+  %1030 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1027, ptr %1029, ptr %1025, ptr %1026)
+  %1031 = extractvalue { ptr, ptr } %1030, 0
+  %1032 = extractvalue { ptr, ptr } %1030, 1
+  store ptr %1031, ptr %.sroa.0616, align 8
+  br label %2004
 
-1045:                                             ; preds = %135
-  %1046 = call { ptr, ptr } (...) @gen_noop() #9
-  %1047 = extractvalue { ptr, ptr } %1046, 0
-  %1048 = extractvalue { ptr, ptr } %1046, 1
+1033:                                             ; preds = %133
+  %1034 = call { ptr, ptr } (...) @gen_noop() #9
+  %1035 = extractvalue { ptr, ptr } %1034, 0
+  %1036 = extractvalue { ptr, ptr } %1034, 1
+  %1037 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1038 = load i64, ptr %1037, align 8
+  %1039 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1040 = load ptr, ptr %1039, align 8
+  %1041 = call { ptr, ptr } @gen_const(i64 %1038, ptr %1040) #9
+  %1042 = extractvalue { ptr, ptr } %1041, 0
+  %1043 = extractvalue { ptr, ptr } %1041, 1
+  %1044 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1035, ptr %1036, ptr %1042, ptr %1043)
+  %1045 = extractvalue { ptr, ptr } %1044, 0
+  %1046 = extractvalue { ptr, ptr } %1044, 1
+  store ptr %1045, ptr %.sroa.0616, align 8
+  br label %2004
+
+1047:                                             ; preds = %133
+  %1048 = getelementptr inbounds i8, ptr %.21175, i64 -48
   %1049 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1050 = load i64, ptr %1049, align 8
-  %1051 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1050 = load ptr, ptr %1048, align 8
+  %1051 = getelementptr inbounds i8, ptr %.21175, i64 -40
   %1052 = load ptr, ptr %1051, align 8
-  %1053 = call { ptr, ptr } @gen_const(i64 %1050, ptr %1052) #9
-  %1054 = extractvalue { ptr, ptr } %1053, 0
-  %1055 = extractvalue { ptr, ptr } %1053, 1
-  %1056 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1047, ptr %1048, ptr %1054, ptr %1055)
+  %1053 = load ptr, ptr %1049, align 8
+  %1054 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1055 = load ptr, ptr %1054, align 8
+  %1056 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1050, ptr %1052, ptr %1053, ptr %1055)
   %1057 = extractvalue { ptr, ptr } %1056, 0
   %1058 = extractvalue { ptr, ptr } %1056, 1
   store ptr %1057, ptr %.sroa.0616, align 8
-  br label %2027
+  br label %2004
 
-1059:                                             ; preds = %135
-  %1060 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %1061 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1062 = load ptr, ptr %1060, align 8
-  %1063 = getelementptr inbounds i8, ptr %.21175, i64 -40
+1059:                                             ; preds = %133
+  %1060 = call { ptr, ptr } (...) @gen_noop() #9
+  %1061 = extractvalue { ptr, ptr } %1060, 0
+  %1062 = extractvalue { ptr, ptr } %1060, 1
+  %1063 = getelementptr inbounds i8, ptr %.21175, i64 -16
   %1064 = load ptr, ptr %1063, align 8
-  %1065 = load ptr, ptr %1061, align 8
-  %1066 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1067 = load ptr, ptr %1066, align 8
-  %1068 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1062, ptr %1064, ptr %1065, ptr %1067)
-  %1069 = extractvalue { ptr, ptr } %1068, 0
-  %1070 = extractvalue { ptr, ptr } %1068, 1
-  store ptr %1069, ptr %.sroa.0616, align 8
-  br label %2027
+  %1065 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1066 = load ptr, ptr %1065, align 8
+  %1067 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1061, ptr %1062, ptr %1064, ptr %1066)
+  %1068 = extractvalue { ptr, ptr } %1067, 0
+  %1069 = extractvalue { ptr, ptr } %1067, 1
+  store ptr %1068, ptr %.sroa.0616, align 8
+  br label %2004
 
-1071:                                             ; preds = %135
-  %1072 = call { ptr, ptr } (...) @gen_noop() #9
-  %1073 = extractvalue { ptr, ptr } %1072, 0
-  %1074 = extractvalue { ptr, ptr } %1072, 1
-  %1075 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1076 = load ptr, ptr %1075, align 8
-  %1077 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1078 = load ptr, ptr %1077, align 8
-  %1079 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1073, ptr %1074, ptr %1076, ptr %1078)
-  %1080 = extractvalue { ptr, ptr } %1079, 0
-  %1081 = extractvalue { ptr, ptr } %1079, 1
-  store ptr %1080, ptr %.sroa.0616, align 8
-  br label %2027
+1070:                                             ; preds = %133
+  %1071 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1072 = load i64, ptr %.21175, align 8
+  %1073 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1074 = load ptr, ptr %1073, align 8
+  %1075 = call { ptr, ptr } @gen_const(i64 %1072, ptr %1074) #9
+  %1076 = extractvalue { ptr, ptr } %1075, 0
+  %1077 = extractvalue { ptr, ptr } %1075, 1
+  %1078 = load ptr, ptr %1071, align 8
+  %1079 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1080 = load ptr, ptr %1079, align 8
+  %1081 = call fastcc { ptr, ptr } @gen_index(ptr %1078, ptr %1080, ptr %1076, ptr %1077)
+  %1082 = extractvalue { ptr, ptr } %1081, 0
+  %1083 = extractvalue { ptr, ptr } %1081, 1
+  store ptr %1082, ptr %.sroa.0616, align 8
+  br label %2004
 
-1082:                                             ; preds = %135
-  %1083 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1084 = load i64, ptr %.21175, align 8
-  %1085 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1086 = load ptr, ptr %1085, align 8
-  %1087 = call { ptr, ptr } @gen_const(i64 %1084, ptr %1086) #9
-  %1088 = extractvalue { ptr, ptr } %1087, 0
-  %1089 = extractvalue { ptr, ptr } %1087, 1
-  %1090 = load ptr, ptr %1083, align 8
-  %1091 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1092 = load ptr, ptr %1091, align 8
-  %1093 = call fastcc { ptr, ptr } @gen_index(ptr %1090, ptr %1092, ptr %1088, ptr %1089)
-  %1094 = extractvalue { ptr, ptr } %1093, 0
-  %1095 = extractvalue { ptr, ptr } %1093, 1
-  store ptr %1094, ptr %.sroa.0616, align 8
-  br label %2027
+1084:                                             ; preds = %133
+  %1085 = call { ptr, ptr } (...) @gen_noop() #9
+  %1086 = extractvalue { ptr, ptr } %1085, 0
+  %1087 = extractvalue { ptr, ptr } %1085, 1
+  %1088 = load i64, ptr %.21175, align 8
+  %1089 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1090 = load ptr, ptr %1089, align 8
+  %1091 = call { ptr, ptr } @gen_const(i64 %1088, ptr %1090) #9
+  %1092 = extractvalue { ptr, ptr } %1091, 0
+  %1093 = extractvalue { ptr, ptr } %1091, 1
+  %1094 = call fastcc { ptr, ptr } @gen_index(ptr %1086, ptr %1087, ptr %1092, ptr %1093)
+  %1095 = extractvalue { ptr, ptr } %1094, 0
+  %1096 = extractvalue { ptr, ptr } %1094, 1
+  store ptr %1095, ptr %.sroa.0616, align 8
+  br label %2004
 
-1096:                                             ; preds = %135
-  %1097 = call { ptr, ptr } (...) @gen_noop() #9
-  %1098 = extractvalue { ptr, ptr } %1097, 0
-  %1099 = extractvalue { ptr, ptr } %1097, 1
-  %1100 = load i64, ptr %.21175, align 8
-  %1101 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1102 = load ptr, ptr %1101, align 8
-  %1103 = call { ptr, ptr } @gen_const(i64 %1100, ptr %1102) #9
-  %1104 = extractvalue { ptr, ptr } %1103, 0
-  %1105 = extractvalue { ptr, ptr } %1103, 1
-  %1106 = call fastcc { ptr, ptr } @gen_index(ptr %1098, ptr %1099, ptr %1104, ptr %1105)
-  %1107 = extractvalue { ptr, ptr } %1106, 0
-  %1108 = extractvalue { ptr, ptr } %1106, 1
-  store ptr %1107, ptr %.sroa.0616, align 8
-  br label %2027
+1097:                                             ; preds = %133
+  %1098 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1099 = load ptr, ptr %1098, align 8
+  %1100 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1101 = load ptr, ptr %1100, align 8
+  %1102 = load ptr, ptr %.21175, align 8
+  %1103 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1104 = load ptr, ptr %1103, align 8
+  %1105 = call fastcc { ptr, ptr } @gen_index(ptr %1099, ptr %1101, ptr %1102, ptr %1104)
+  %1106 = extractvalue { ptr, ptr } %1105, 0
+  %1107 = extractvalue { ptr, ptr } %1105, 1
+  store ptr %1106, ptr %.sroa.0616, align 8
+  br label %2004
 
-1109:                                             ; preds = %135
-  %1110 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1111 = load ptr, ptr %1110, align 8
-  %1112 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1113 = load ptr, ptr %1112, align 8
-  %1114 = load ptr, ptr %.21175, align 8
-  %1115 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1116 = load ptr, ptr %1115, align 8
-  %1117 = call fastcc { ptr, ptr } @gen_index(ptr %1111, ptr %1113, ptr %1114, ptr %1116)
-  %1118 = extractvalue { ptr, ptr } %1117, 0
-  %1119 = extractvalue { ptr, ptr } %1117, 1
-  store ptr %1118, ptr %.sroa.0616, align 8
-  br label %2027
+1108:                                             ; preds = %133
+  %1109 = call { ptr, ptr } (...) @gen_noop() #9
+  %1110 = extractvalue { ptr, ptr } %1109, 0
+  %1111 = extractvalue { ptr, ptr } %1109, 1
+  %1112 = load ptr, ptr %.21175, align 8
+  %1113 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1114 = load ptr, ptr %1113, align 8
+  %1115 = call fastcc { ptr, ptr } @gen_index(ptr %1110, ptr %1111, ptr %1112, ptr %1114)
+  %1116 = extractvalue { ptr, ptr } %1115, 0
+  %1117 = extractvalue { ptr, ptr } %1115, 1
+  store ptr %1116, ptr %.sroa.0616, align 8
+  br label %2004
 
-1120:                                             ; preds = %135
-  %1121 = call { ptr, ptr } (...) @gen_noop() #9
-  %1122 = extractvalue { ptr, ptr } %1121, 0
-  %1123 = extractvalue { ptr, ptr } %1121, 1
-  %1124 = load ptr, ptr %.21175, align 8
-  %1125 = getelementptr inbounds i8, ptr %.21175, i64 8
+1118:                                             ; preds = %133
+  %.sroa.26.0.insert.ext1390 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1391 = shl nuw i64 %.sroa.26.0.insert.ext1390, 32
+  %.sroa.01249.0.insert.ext1295 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1297 = or disjoint i64 %.sroa.26.0.insert.shift1391, %.sroa.01249.0.insert.ext1295
+  store i64 %.sroa.01249.0.insert.insert1297, ptr %21, align 8
+  call void @yyerror(ptr noundef nonnull %21, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.18)
+  %1119 = call { ptr, ptr } (...) @gen_noop() #9
+  %1120 = extractvalue { ptr, ptr } %1119, 0
+  %1121 = extractvalue { ptr, ptr } %1119, 1
+  store ptr %1120, ptr %.sroa.0616, align 8
+  br label %2004
+
+1122:                                             ; preds = %133
+  %1123 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1124 = load i64, ptr %1123, align 8
+  %1125 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %1126 = load ptr, ptr %1125, align 8
-  %1127 = call fastcc { ptr, ptr } @gen_index(ptr %1122, ptr %1123, ptr %1124, ptr %1126)
+  call void @jv_free(i64 %1124, ptr %1126) #9
+  %.sroa.26.0.insert.ext1385 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1386 = shl nuw i64 %.sroa.26.0.insert.ext1385, 32
+  %.sroa.01249.0.insert.ext1291 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1293 = or disjoint i64 %.sroa.26.0.insert.shift1386, %.sroa.01249.0.insert.ext1291
+  store i64 %.sroa.01249.0.insert.insert1293, ptr %22, align 8
+  call void @yyerror(ptr noundef nonnull %22, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.18)
+  %1127 = call { ptr, ptr } (...) @gen_noop() #9
   %1128 = extractvalue { ptr, ptr } %1127, 0
   %1129 = extractvalue { ptr, ptr } %1127, 1
   store ptr %1128, ptr %.sroa.0616, align 8
-  br label %2027
+  br label %2004
 
-1130:                                             ; preds = %135
-  %1131 = load i64, ptr %10, align 8
-  store i64 %1131, ptr %22, align 8
-  call void @yyerror(ptr noundef nonnull %22, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.18)
-  %1132 = call { ptr, ptr } (...) @gen_noop() #9
-  %1133 = extractvalue { ptr, ptr } %1132, 0
-  %1134 = extractvalue { ptr, ptr } %1132, 1
-  store ptr %1133, ptr %.sroa.0616, align 8
-  br label %2027
+1130:                                             ; preds = %133
+  %1131 = getelementptr inbounds i8, ptr %.21175, i64 -64
+  %1132 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1133 = load ptr, ptr %1131, align 8
+  %1134 = getelementptr inbounds i8, ptr %.21175, i64 -56
+  %1135 = load ptr, ptr %1134, align 8
+  %1136 = load ptr, ptr %1132, align 8
+  %1137 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1138 = load ptr, ptr %1137, align 8
+  %1139 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1133, ptr %1135, ptr %1136, ptr %1138)
+  %1140 = extractvalue { ptr, ptr } %1139, 0
+  %1141 = extractvalue { ptr, ptr } %1139, 1
+  store ptr %1140, ptr %.sroa.0616, align 8
+  br label %2004
 
-1135:                                             ; preds = %135
-  %1136 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1137 = load i64, ptr %1136, align 8
-  %1138 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1139 = load ptr, ptr %1138, align 8
-  call void @jv_free(i64 %1137, ptr %1139) #9
-  %1140 = load i64, ptr %10, align 8
-  store i64 %1140, ptr %23, align 8
-  call void @yyerror(ptr noundef nonnull %23, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.18)
-  %1141 = call { ptr, ptr } (...) @gen_noop() #9
-  %1142 = extractvalue { ptr, ptr } %1141, 0
-  %1143 = extractvalue { ptr, ptr } %1141, 1
-  store ptr %1142, ptr %.sroa.0616, align 8
-  br label %2027
+1142:                                             ; preds = %133
+  %1143 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %1144 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1145 = load ptr, ptr %1143, align 8
+  %1146 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %1147 = load ptr, ptr %1146, align 8
+  %1148 = load ptr, ptr %1144, align 8
+  %1149 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1150 = load ptr, ptr %1149, align 8
+  %1151 = call fastcc { ptr, ptr } @gen_index(ptr %1145, ptr %1147, ptr %1148, ptr %1150)
+  %1152 = extractvalue { ptr, ptr } %1151, 0
+  %1153 = extractvalue { ptr, ptr } %1151, 1
+  store ptr %1152, ptr %.sroa.0616, align 8
+  br label %2004
 
-1144:                                             ; preds = %135
-  %1145 = getelementptr inbounds i8, ptr %.21175, i64 -64
-  %1146 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1147 = load ptr, ptr %1145, align 8
-  %1148 = getelementptr inbounds i8, ptr %.21175, i64 -56
-  %1149 = load ptr, ptr %1148, align 8
-  %1150 = load ptr, ptr %1146, align 8
-  %1151 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1152 = load ptr, ptr %1151, align 8
-  %1153 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1147, ptr %1149, ptr %1150, ptr %1152)
-  %1154 = extractvalue { ptr, ptr } %1153, 0
-  %1155 = extractvalue { ptr, ptr } %1153, 1
-  store ptr %1154, ptr %.sroa.0616, align 8
-  br label %2027
+1154:                                             ; preds = %133
+  %1155 = getelementptr inbounds i8, ptr %.21175, i64 -80
+  %1156 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1157 = load ptr, ptr %1155, align 8
+  %1158 = getelementptr inbounds i8, ptr %.21175, i64 -72
+  %1159 = load ptr, ptr %1158, align 8
+  %1160 = load ptr, ptr %1156, align 8
+  %1161 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1162 = load ptr, ptr %1161, align 8
+  %1163 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1157, ptr %1159, ptr %1160, ptr %1162)
+  %1164 = extractvalue { ptr, ptr } %1163, 0
+  %1165 = extractvalue { ptr, ptr } %1163, 1
+  store ptr %1164, ptr %.sroa.0616, align 8
+  br label %2004
 
-1156:                                             ; preds = %135
-  %1157 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %1158 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1159 = load ptr, ptr %1157, align 8
-  %1160 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %1161 = load ptr, ptr %1160, align 8
-  %1162 = load ptr, ptr %1158, align 8
-  %1163 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1164 = load ptr, ptr %1163, align 8
-  %1165 = call fastcc { ptr, ptr } @gen_index(ptr %1159, ptr %1161, ptr %1162, ptr %1164)
-  %1166 = extractvalue { ptr, ptr } %1165, 0
-  %1167 = extractvalue { ptr, ptr } %1165, 1
-  store ptr %1166, ptr %.sroa.0616, align 8
-  br label %2027
+1166:                                             ; preds = %133
+  %1167 = getelementptr inbounds i8, ptr %.21175, i64 -64
+  %1168 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1169 = load ptr, ptr %1167, align 8
+  %1170 = getelementptr inbounds i8, ptr %.21175, i64 -56
+  %1171 = load ptr, ptr %1170, align 8
+  %1172 = load ptr, ptr %1168, align 8
+  %1173 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1174 = load ptr, ptr %1173, align 8
+  %1175 = call fastcc { ptr, ptr } @gen_index(ptr %1169, ptr %1171, ptr %1172, ptr %1174)
+  %1176 = extractvalue { ptr, ptr } %1175, 0
+  %1177 = extractvalue { ptr, ptr } %1175, 1
+  store ptr %1176, ptr %.sroa.0616, align 8
+  br label %2004
 
-1168:                                             ; preds = %135
-  %1169 = getelementptr inbounds i8, ptr %.21175, i64 -80
-  %1170 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1171 = load ptr, ptr %1169, align 8
-  %1172 = getelementptr inbounds i8, ptr %.21175, i64 -72
-  %1173 = load ptr, ptr %1172, align 8
-  %1174 = load ptr, ptr %1170, align 8
-  %1175 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1176 = load ptr, ptr %1175, align 8
-  %1177 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1171, ptr %1173, ptr %1174, ptr %1176)
-  %1178 = extractvalue { ptr, ptr } %1177, 0
-  %1179 = extractvalue { ptr, ptr } %1177, 1
-  store ptr %1178, ptr %.sroa.0616, align 8
-  br label %2027
-
-1180:                                             ; preds = %135
-  %1181 = getelementptr inbounds i8, ptr %.21175, i64 -64
-  %1182 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1183 = load ptr, ptr %1181, align 8
-  %1184 = getelementptr inbounds i8, ptr %.21175, i64 -56
+1178:                                             ; preds = %133
+  %1179 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %1180 = call { ptr, ptr } @gen_op_simple(i32 noundef 13) #9
+  %1181 = extractvalue { ptr, ptr } %1180, 0
+  %1182 = extractvalue { ptr, ptr } %1180, 1
+  %1183 = load ptr, ptr %1179, align 8
+  %1184 = getelementptr inbounds i8, ptr %.21175, i64 -40
   %1185 = load ptr, ptr %1184, align 8
-  %1186 = load ptr, ptr %1182, align 8
-  %1187 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1188 = load ptr, ptr %1187, align 8
-  %1189 = call fastcc { ptr, ptr } @gen_index(ptr %1183, ptr %1185, ptr %1186, ptr %1188)
-  %1190 = extractvalue { ptr, ptr } %1189, 0
-  %1191 = extractvalue { ptr, ptr } %1189, 1
-  store ptr %1190, ptr %.sroa.0616, align 8
-  br label %2027
+  %1186 = call { ptr, ptr } @block_join(ptr %1183, ptr %1185, ptr %1181, ptr %1182) #9
+  %1187 = extractvalue { ptr, ptr } %1186, 0
+  %1188 = extractvalue { ptr, ptr } %1186, 1
+  store ptr %1187, ptr %.sroa.0616, align 8
+  br label %2004
 
-1192:                                             ; preds = %135
-  %1193 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %1194 = call { ptr, ptr } @gen_op_simple(i32 noundef 13) #9
-  %1195 = extractvalue { ptr, ptr } %1194, 0
-  %1196 = extractvalue { ptr, ptr } %1194, 1
-  %1197 = load ptr, ptr %1193, align 8
-  %1198 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %1199 = load ptr, ptr %1198, align 8
-  %1200 = call { ptr, ptr } @block_join(ptr %1197, ptr %1199, ptr %1195, ptr %1196) #9
-  %1201 = extractvalue { ptr, ptr } %1200, 0
-  %1202 = extractvalue { ptr, ptr } %1200, 1
-  store ptr %1201, ptr %.sroa.0616, align 8
-  br label %2027
+1189:                                             ; preds = %133
+  %1190 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1191 = call { ptr, ptr } @gen_op_simple(i32 noundef 12) #9
+  %1192 = extractvalue { ptr, ptr } %1191, 0
+  %1193 = extractvalue { ptr, ptr } %1191, 1
+  %1194 = load ptr, ptr %1190, align 8
+  %1195 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1196 = load ptr, ptr %1195, align 8
+  %1197 = call { ptr, ptr } @block_join(ptr %1194, ptr %1196, ptr %1192, ptr %1193) #9
+  %1198 = extractvalue { ptr, ptr } %1197, 0
+  %1199 = extractvalue { ptr, ptr } %1197, 1
+  store ptr %1198, ptr %.sroa.0616, align 8
+  br label %2004
 
-1203:                                             ; preds = %135
-  %1204 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1205 = call { ptr, ptr } @gen_op_simple(i32 noundef 12) #9
-  %1206 = extractvalue { ptr, ptr } %1205, 0
-  %1207 = extractvalue { ptr, ptr } %1205, 1
-  %1208 = load ptr, ptr %1204, align 8
-  %1209 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1210 = load ptr, ptr %1209, align 8
-  %1211 = call { ptr, ptr } @block_join(ptr %1208, ptr %1210, ptr %1206, ptr %1207) #9
-  %1212 = extractvalue { ptr, ptr } %1211, 0
-  %1213 = extractvalue { ptr, ptr } %1211, 1
-  store ptr %1212, ptr %.sroa.0616, align 8
-  br label %2027
+1200:                                             ; preds = %133
+  %1201 = getelementptr inbounds i8, ptr %.21175, i64 -64
+  %1202 = call { ptr, ptr } @gen_op_simple(i32 noundef 13) #9
+  %1203 = extractvalue { ptr, ptr } %1202, 0
+  %1204 = extractvalue { ptr, ptr } %1202, 1
+  %1205 = load ptr, ptr %1201, align 8
+  %1206 = getelementptr inbounds i8, ptr %.21175, i64 -56
+  %1207 = load ptr, ptr %1206, align 8
+  %1208 = call { ptr, ptr } @block_join(ptr %1205, ptr %1207, ptr %1203, ptr %1204) #9
+  %1209 = extractvalue { ptr, ptr } %1208, 0
+  %1210 = extractvalue { ptr, ptr } %1208, 1
+  store ptr %1209, ptr %.sroa.0616, align 8
+  br label %2004
 
-1214:                                             ; preds = %135
-  %1215 = getelementptr inbounds i8, ptr %.21175, i64 -64
-  %1216 = call { ptr, ptr } @gen_op_simple(i32 noundef 13) #9
-  %1217 = extractvalue { ptr, ptr } %1216, 0
-  %1218 = extractvalue { ptr, ptr } %1216, 1
-  %1219 = load ptr, ptr %1215, align 8
-  %1220 = getelementptr inbounds i8, ptr %.21175, i64 -56
-  %1221 = load ptr, ptr %1220, align 8
-  %1222 = call { ptr, ptr } @block_join(ptr %1219, ptr %1221, ptr %1217, ptr %1218) #9
-  %1223 = extractvalue { ptr, ptr } %1222, 0
-  %1224 = extractvalue { ptr, ptr } %1222, 1
-  store ptr %1223, ptr %.sroa.0616, align 8
-  br label %2027
+1211:                                             ; preds = %133
+  %1212 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %1213 = call { ptr, ptr } @gen_op_simple(i32 noundef 12) #9
+  %1214 = extractvalue { ptr, ptr } %1213, 0
+  %1215 = extractvalue { ptr, ptr } %1213, 1
+  %1216 = load ptr, ptr %1212, align 8
+  %1217 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %1218 = load ptr, ptr %1217, align 8
+  %1219 = call { ptr, ptr } @block_join(ptr %1216, ptr %1218, ptr %1214, ptr %1215) #9
+  %1220 = extractvalue { ptr, ptr } %1219, 0
+  %1221 = extractvalue { ptr, ptr } %1219, 1
+  store ptr %1220, ptr %.sroa.0616, align 8
+  br label %2004
 
-1225:                                             ; preds = %135
-  %1226 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %1227 = call { ptr, ptr } @gen_op_simple(i32 noundef 12) #9
-  %1228 = extractvalue { ptr, ptr } %1227, 0
-  %1229 = extractvalue { ptr, ptr } %1227, 1
-  %1230 = load ptr, ptr %1226, align 8
-  %1231 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %1232 = load ptr, ptr %1231, align 8
-  %1233 = call { ptr, ptr } @block_join(ptr %1230, ptr %1232, ptr %1228, ptr %1229) #9
-  %1234 = extractvalue { ptr, ptr } %1233, 0
-  %1235 = extractvalue { ptr, ptr } %1233, 1
-  store ptr %1234, ptr %.sroa.0616, align 8
-  br label %2027
+1222:                                             ; preds = %133
+  %1223 = getelementptr inbounds i8, ptr %.21175, i64 -96
+  %1224 = getelementptr inbounds i8, ptr %.21175, i64 -64
+  %1225 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1226 = load ptr, ptr %1223, align 8
+  %1227 = getelementptr inbounds i8, ptr %.21175, i64 -88
+  %1228 = load ptr, ptr %1227, align 8
+  %1229 = load ptr, ptr %1224, align 8
+  %1230 = getelementptr inbounds i8, ptr %.21175, i64 -56
+  %1231 = load ptr, ptr %1230, align 8
+  %1232 = load ptr, ptr %1225, align 8
+  %1233 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1234 = load ptr, ptr %1233, align 8
+  %1235 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1226, ptr %1228, ptr %1229, ptr %1231, ptr %1232, ptr %1234, i32 noundef 11)
+  %1236 = extractvalue { ptr, ptr } %1235, 0
+  %1237 = extractvalue { ptr, ptr } %1235, 1
+  store ptr %1236, ptr %.sroa.0616, align 8
+  br label %2004
 
-1236:                                             ; preds = %135
-  %1237 = getelementptr inbounds i8, ptr %.21175, i64 -96
-  %1238 = getelementptr inbounds i8, ptr %.21175, i64 -64
-  %1239 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1240 = load ptr, ptr %1237, align 8
-  %1241 = getelementptr inbounds i8, ptr %.21175, i64 -88
-  %1242 = load ptr, ptr %1241, align 8
-  %1243 = load ptr, ptr %1238, align 8
-  %1244 = getelementptr inbounds i8, ptr %.21175, i64 -56
-  %1245 = load ptr, ptr %1244, align 8
-  %1246 = load ptr, ptr %1239, align 8
-  %1247 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1248 = load ptr, ptr %1247, align 8
-  %1249 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1240, ptr %1242, ptr %1243, ptr %1245, ptr %1246, ptr %1248, i32 noundef 11)
-  %1250 = extractvalue { ptr, ptr } %1249, 0
-  %1251 = extractvalue { ptr, ptr } %1249, 1
-  store ptr %1250, ptr %.sroa.0616, align 8
-  br label %2027
+1238:                                             ; preds = %133
+  %1239 = getelementptr inbounds i8, ptr %.21175, i64 -80
+  %1240 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %1241 = call { i64, ptr } @jv_null() #9
+  %1242 = extractvalue { i64, ptr } %1241, 0
+  %1243 = extractvalue { i64, ptr } %1241, 1
+  %1244 = call { ptr, ptr } @gen_const(i64 %1242, ptr %1243) #9
+  %1245 = extractvalue { ptr, ptr } %1244, 0
+  %1246 = extractvalue { ptr, ptr } %1244, 1
+  %1247 = load ptr, ptr %1239, align 8
+  %1248 = getelementptr inbounds i8, ptr %.21175, i64 -72
+  %1249 = load ptr, ptr %1248, align 8
+  %1250 = load ptr, ptr %1240, align 8
+  %1251 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %1252 = load ptr, ptr %1251, align 8
+  %1253 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1247, ptr %1249, ptr %1250, ptr %1252, ptr %1245, ptr %1246, i32 noundef 11)
+  %1254 = extractvalue { ptr, ptr } %1253, 0
+  %1255 = extractvalue { ptr, ptr } %1253, 1
+  store ptr %1254, ptr %.sroa.0616, align 8
+  br label %2004
 
-1252:                                             ; preds = %135
-  %1253 = getelementptr inbounds i8, ptr %.21175, i64 -80
-  %1254 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %1255 = call { i64, ptr } @jv_null() #9
-  %1256 = extractvalue { i64, ptr } %1255, 0
-  %1257 = extractvalue { i64, ptr } %1255, 1
-  %1258 = call { ptr, ptr } @gen_const(i64 %1256, ptr %1257) #9
-  %1259 = extractvalue { ptr, ptr } %1258, 0
-  %1260 = extractvalue { ptr, ptr } %1258, 1
-  %1261 = load ptr, ptr %1253, align 8
-  %1262 = getelementptr inbounds i8, ptr %.21175, i64 -72
-  %1263 = load ptr, ptr %1262, align 8
-  %1264 = load ptr, ptr %1254, align 8
-  %1265 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %1266 = load ptr, ptr %1265, align 8
-  %1267 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1261, ptr %1263, ptr %1264, ptr %1266, ptr %1259, ptr %1260, i32 noundef 11)
-  %1268 = extractvalue { ptr, ptr } %1267, 0
-  %1269 = extractvalue { ptr, ptr } %1267, 1
-  store ptr %1268, ptr %.sroa.0616, align 8
-  br label %2027
+1256:                                             ; preds = %133
+  %1257 = getelementptr inbounds i8, ptr %.21175, i64 -80
+  %1258 = call { i64, ptr } @jv_null() #9
+  %1259 = extractvalue { i64, ptr } %1258, 0
+  %1260 = extractvalue { i64, ptr } %1258, 1
+  %1261 = call { ptr, ptr } @gen_const(i64 %1259, ptr %1260) #9
+  %1262 = extractvalue { ptr, ptr } %1261, 0
+  %1263 = extractvalue { ptr, ptr } %1261, 1
+  %1264 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1265 = load ptr, ptr %1257, align 8
+  %1266 = getelementptr inbounds i8, ptr %.21175, i64 -72
+  %1267 = load ptr, ptr %1266, align 8
+  %1268 = load ptr, ptr %1264, align 8
+  %1269 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1270 = load ptr, ptr %1269, align 8
+  %1271 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1265, ptr %1267, ptr %1262, ptr %1263, ptr %1268, ptr %1270, i32 noundef 11)
+  %1272 = extractvalue { ptr, ptr } %1271, 0
+  %1273 = extractvalue { ptr, ptr } %1271, 1
+  store ptr %1272, ptr %.sroa.0616, align 8
+  br label %2004
 
-1270:                                             ; preds = %135
-  %1271 = getelementptr inbounds i8, ptr %.21175, i64 -80
-  %1272 = call { i64, ptr } @jv_null() #9
-  %1273 = extractvalue { i64, ptr } %1272, 0
-  %1274 = extractvalue { i64, ptr } %1272, 1
-  %1275 = call { ptr, ptr } @gen_const(i64 %1273, ptr %1274) #9
-  %1276 = extractvalue { ptr, ptr } %1275, 0
-  %1277 = extractvalue { ptr, ptr } %1275, 1
-  %1278 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1279 = load ptr, ptr %1271, align 8
-  %1280 = getelementptr inbounds i8, ptr %.21175, i64 -72
-  %1281 = load ptr, ptr %1280, align 8
-  %1282 = load ptr, ptr %1278, align 8
-  %1283 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1284 = load ptr, ptr %1283, align 8
-  %1285 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1279, ptr %1281, ptr %1276, ptr %1277, ptr %1282, ptr %1284, i32 noundef 11)
-  %1286 = extractvalue { ptr, ptr } %1285, 0
-  %1287 = extractvalue { ptr, ptr } %1285, 1
-  store ptr %1286, ptr %.sroa.0616, align 8
-  br label %2027
+1274:                                             ; preds = %133
+  %1275 = getelementptr inbounds i8, ptr %.21175, i64 -80
+  %1276 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %1277 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1278 = load ptr, ptr %1275, align 8
+  %1279 = getelementptr inbounds i8, ptr %.21175, i64 -72
+  %1280 = load ptr, ptr %1279, align 8
+  %1281 = load ptr, ptr %1276, align 8
+  %1282 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %1283 = load ptr, ptr %1282, align 8
+  %1284 = load ptr, ptr %1277, align 8
+  %1285 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1286 = load ptr, ptr %1285, align 8
+  %1287 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1278, ptr %1280, ptr %1281, ptr %1283, ptr %1284, ptr %1286, i32 noundef 10)
+  %1288 = extractvalue { ptr, ptr } %1287, 0
+  %1289 = extractvalue { ptr, ptr } %1287, 1
+  store ptr %1288, ptr %.sroa.0616, align 8
+  br label %2004
 
-1288:                                             ; preds = %135
-  %1289 = getelementptr inbounds i8, ptr %.21175, i64 -80
-  %1290 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %1291 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1292 = load ptr, ptr %1289, align 8
-  %1293 = getelementptr inbounds i8, ptr %.21175, i64 -72
-  %1294 = load ptr, ptr %1293, align 8
-  %1295 = load ptr, ptr %1290, align 8
-  %1296 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %1297 = load ptr, ptr %1296, align 8
-  %1298 = load ptr, ptr %1291, align 8
-  %1299 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1300 = load ptr, ptr %1299, align 8
-  %1301 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1292, ptr %1294, ptr %1295, ptr %1297, ptr %1298, ptr %1300, i32 noundef 10)
-  %1302 = extractvalue { ptr, ptr } %1301, 0
-  %1303 = extractvalue { ptr, ptr } %1301, 1
-  store ptr %1302, ptr %.sroa.0616, align 8
-  br label %2027
+1290:                                             ; preds = %133
+  %1291 = getelementptr inbounds i8, ptr %.21175, i64 -64
+  %1292 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1293 = call { i64, ptr } @jv_null() #9
+  %1294 = extractvalue { i64, ptr } %1293, 0
+  %1295 = extractvalue { i64, ptr } %1293, 1
+  %1296 = call { ptr, ptr } @gen_const(i64 %1294, ptr %1295) #9
+  %1297 = extractvalue { ptr, ptr } %1296, 0
+  %1298 = extractvalue { ptr, ptr } %1296, 1
+  %1299 = load ptr, ptr %1291, align 8
+  %1300 = getelementptr inbounds i8, ptr %.21175, i64 -56
+  %1301 = load ptr, ptr %1300, align 8
+  %1302 = load ptr, ptr %1292, align 8
+  %1303 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1304 = load ptr, ptr %1303, align 8
+  %1305 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1299, ptr %1301, ptr %1302, ptr %1304, ptr %1297, ptr %1298, i32 noundef 10)
+  %1306 = extractvalue { ptr, ptr } %1305, 0
+  %1307 = extractvalue { ptr, ptr } %1305, 1
+  store ptr %1306, ptr %.sroa.0616, align 8
+  br label %2004
 
-1304:                                             ; preds = %135
-  %1305 = getelementptr inbounds i8, ptr %.21175, i64 -64
-  %1306 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1307 = call { i64, ptr } @jv_null() #9
-  %1308 = extractvalue { i64, ptr } %1307, 0
-  %1309 = extractvalue { i64, ptr } %1307, 1
-  %1310 = call { ptr, ptr } @gen_const(i64 %1308, ptr %1309) #9
-  %1311 = extractvalue { ptr, ptr } %1310, 0
-  %1312 = extractvalue { ptr, ptr } %1310, 1
-  %1313 = load ptr, ptr %1305, align 8
-  %1314 = getelementptr inbounds i8, ptr %.21175, i64 -56
-  %1315 = load ptr, ptr %1314, align 8
-  %1316 = load ptr, ptr %1306, align 8
-  %1317 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1318 = load ptr, ptr %1317, align 8
-  %1319 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1313, ptr %1315, ptr %1316, ptr %1318, ptr %1311, ptr %1312, i32 noundef 10)
-  %1320 = extractvalue { ptr, ptr } %1319, 0
-  %1321 = extractvalue { ptr, ptr } %1319, 1
-  store ptr %1320, ptr %.sroa.0616, align 8
-  br label %2027
+1308:                                             ; preds = %133
+  %1309 = getelementptr inbounds i8, ptr %.21175, i64 -64
+  %1310 = call { i64, ptr } @jv_null() #9
+  %1311 = extractvalue { i64, ptr } %1310, 0
+  %1312 = extractvalue { i64, ptr } %1310, 1
+  %1313 = call { ptr, ptr } @gen_const(i64 %1311, ptr %1312) #9
+  %1314 = extractvalue { ptr, ptr } %1313, 0
+  %1315 = extractvalue { ptr, ptr } %1313, 1
+  %1316 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1317 = load ptr, ptr %1309, align 8
+  %1318 = getelementptr inbounds i8, ptr %.21175, i64 -56
+  %1319 = load ptr, ptr %1318, align 8
+  %1320 = load ptr, ptr %1316, align 8
+  %1321 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1322 = load ptr, ptr %1321, align 8
+  %1323 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1317, ptr %1319, ptr %1314, ptr %1315, ptr %1320, ptr %1322, i32 noundef 10)
+  %1324 = extractvalue { ptr, ptr } %1323, 0
+  %1325 = extractvalue { ptr, ptr } %1323, 1
+  store ptr %1324, ptr %.sroa.0616, align 8
+  br label %2004
 
-1322:                                             ; preds = %135
-  %1323 = getelementptr inbounds i8, ptr %.21175, i64 -64
-  %1324 = call { i64, ptr } @jv_null() #9
-  %1325 = extractvalue { i64, ptr } %1324, 0
-  %1326 = extractvalue { i64, ptr } %1324, 1
-  %1327 = call { ptr, ptr } @gen_const(i64 %1325, ptr %1326) #9
-  %1328 = extractvalue { ptr, ptr } %1327, 0
-  %1329 = extractvalue { ptr, ptr } %1327, 1
-  %1330 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1331 = load ptr, ptr %1323, align 8
-  %1332 = getelementptr inbounds i8, ptr %.21175, i64 -56
-  %1333 = load ptr, ptr %1332, align 8
-  %1334 = load ptr, ptr %1330, align 8
-  %1335 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1336 = load ptr, ptr %1335, align 8
-  %1337 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1331, ptr %1333, ptr %1328, ptr %1329, ptr %1334, ptr %1336, i32 noundef 10)
-  %1338 = extractvalue { ptr, ptr } %1337, 0
-  %1339 = extractvalue { ptr, ptr } %1337, 1
-  store ptr %1338, ptr %.sroa.0616, align 8
-  br label %2027
+1326:                                             ; preds = %133
+  %1327 = load i64, ptr %.21175, align 8
+  %1328 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1329 = load ptr, ptr %1328, align 8
+  %1330 = call { ptr, ptr } @gen_const(i64 %1327, ptr %1329) #9
+  %1331 = extractvalue { ptr, ptr } %1330, 0
+  %1332 = extractvalue { ptr, ptr } %1330, 1
+  store ptr %1331, ptr %.sroa.0616, align 8
+  br label %2004
 
-1340:                                             ; preds = %135
-  %1341 = load i64, ptr %.21175, align 8
-  %1342 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1343 = load ptr, ptr %1342, align 8
-  %1344 = call { ptr, ptr } @gen_const(i64 %1341, ptr %1343) #9
-  %1345 = extractvalue { ptr, ptr } %1344, 0
-  %1346 = extractvalue { ptr, ptr } %1344, 1
-  store ptr %1345, ptr %.sroa.0616, align 8
-  br label %2027
-
-1347:                                             ; preds = %135
-  %1348 = load i64, ptr %.21175, align 8
-  store i64 %1348, ptr %.sroa.0616, align 8
+1333:                                             ; preds = %133
+  %1334 = load i64, ptr %.21175, align 8
+  store i64 %1334, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx637 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload638 = load ptr, ptr %.sroa.179.0..sroa_idx637, align 8
-  br label %2027
+  br label %2004
 
-1349:                                             ; preds = %135
-  %1350 = call { ptr, ptr } (...) @gen_noop() #9
-  %1351 = extractvalue { ptr, ptr } %1350, 0
-  %1352 = extractvalue { ptr, ptr } %1350, 1
-  %1353 = load i64, ptr %.21175, align 8
-  %1354 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1355 = load ptr, ptr %1354, align 8
-  %1356 = call fastcc { ptr, ptr } @gen_format(ptr %1351, ptr %1352, i64 %1353, ptr %1355)
-  %1357 = extractvalue { ptr, ptr } %1356, 0
-  %1358 = extractvalue { ptr, ptr } %1356, 1
-  store ptr %1357, ptr %.sroa.0616, align 8
-  br label %2027
+1335:                                             ; preds = %133
+  %1336 = call { ptr, ptr } (...) @gen_noop() #9
+  %1337 = extractvalue { ptr, ptr } %1336, 0
+  %1338 = extractvalue { ptr, ptr } %1336, 1
+  %1339 = load i64, ptr %.21175, align 8
+  %1340 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1341 = load ptr, ptr %1340, align 8
+  %1342 = call fastcc { ptr, ptr } @gen_format(ptr %1337, ptr %1338, i64 %1339, ptr %1341)
+  %1343 = extractvalue { ptr, ptr } %1342, 0
+  %1344 = extractvalue { ptr, ptr } %1342, 1
+  store ptr %1343, ptr %.sroa.0616, align 8
+  br label %2004
 
-1359:                                             ; preds = %135
-  %1360 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1361 = load i64, ptr %1360, align 8
-  store i64 %1361, ptr %.sroa.0616, align 8
+1345:                                             ; preds = %133
+  %1346 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1347 = load i64, ptr %1346, align 8
+  store i64 %1347, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx639 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %.sroa.179.0.copyload640 = load ptr, ptr %.sroa.179.0..sroa_idx639, align 8
-  br label %2027
+  br label %2004
 
-1362:                                             ; preds = %135
-  %1363 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1364 = load ptr, ptr %1363, align 8
-  %1365 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1366 = load ptr, ptr %1365, align 8
-  %1367 = call { ptr, ptr } @gen_collect(ptr %1364, ptr %1366) #9
-  %1368 = extractvalue { ptr, ptr } %1367, 0
-  %1369 = extractvalue { ptr, ptr } %1367, 1
-  store ptr %1368, ptr %.sroa.0616, align 8
-  br label %2027
+1348:                                             ; preds = %133
+  %1349 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1350 = load ptr, ptr %1349, align 8
+  %1351 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1352 = load ptr, ptr %1351, align 8
+  %1353 = call { ptr, ptr } @gen_collect(ptr %1350, ptr %1352) #9
+  %1354 = extractvalue { ptr, ptr } %1353, 0
+  %1355 = extractvalue { ptr, ptr } %1353, 1
+  store ptr %1354, ptr %.sroa.0616, align 8
+  br label %2004
 
-1370:                                             ; preds = %135
-  %1371 = call { i64, ptr } @jv_array() #9
-  %1372 = extractvalue { i64, ptr } %1371, 0
-  %1373 = extractvalue { i64, ptr } %1371, 1
-  %1374 = call { ptr, ptr } @gen_const(i64 %1372, ptr %1373) #9
-  %1375 = extractvalue { ptr, ptr } %1374, 0
-  %1376 = extractvalue { ptr, ptr } %1374, 1
-  store ptr %1375, ptr %.sroa.0616, align 8
-  br label %2027
+1356:                                             ; preds = %133
+  %1357 = call { i64, ptr } @jv_array() #9
+  %1358 = extractvalue { i64, ptr } %1357, 0
+  %1359 = extractvalue { i64, ptr } %1357, 1
+  %1360 = call { ptr, ptr } @gen_const(i64 %1358, ptr %1359) #9
+  %1361 = extractvalue { ptr, ptr } %1360, 0
+  %1362 = extractvalue { ptr, ptr } %1360, 1
+  store ptr %1361, ptr %.sroa.0616, align 8
+  br label %2004
 
-1377:                                             ; preds = %135
-  %1378 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1379 = load ptr, ptr %1378, align 8
-  %1380 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1381 = load ptr, ptr %1380, align 8
-  %1382 = call { ptr, ptr } @gen_const_object(ptr %1379, ptr %1381) #9
-  %1383 = extractvalue { ptr, ptr } %1382, 0
-  %.not1223 = icmp eq ptr %1383, null
-  br i1 %.not1223, label %1386, label %1384
+1363:                                             ; preds = %133
+  %1364 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1365 = load ptr, ptr %1364, align 8
+  %1366 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1367 = load ptr, ptr %1366, align 8
+  %1368 = call { ptr, ptr } @gen_const_object(ptr %1365, ptr %1367) #9
+  %1369 = extractvalue { ptr, ptr } %1368, 0
+  %.not1223 = icmp eq ptr %1369, null
+  br i1 %.not1223, label %1372, label %1370
 
-1384:                                             ; preds = %1377
-  %1385 = extractvalue { ptr, ptr } %1382, 1
-  store ptr %1383, ptr %.sroa.0616, align 8
-  br label %2027
+1370:                                             ; preds = %1363
+  %1371 = extractvalue { ptr, ptr } %1368, 1
+  store ptr %1369, ptr %.sroa.0616, align 8
+  br label %2004
 
-1386:                                             ; preds = %1377
-  %1387 = call { i64, ptr } @jv_object() #9
-  %1388 = extractvalue { i64, ptr } %1387, 0
-  %1389 = extractvalue { i64, ptr } %1387, 1
-  %1390 = call { ptr, ptr } @gen_const(i64 %1388, ptr %1389) #9
+1372:                                             ; preds = %1363
+  %1373 = call { i64, ptr } @jv_object() #9
+  %1374 = extractvalue { i64, ptr } %1373, 0
+  %1375 = extractvalue { i64, ptr } %1373, 1
+  %1376 = call { ptr, ptr } @gen_const(i64 %1374, ptr %1375) #9
+  %1377 = extractvalue { ptr, ptr } %1376, 0
+  %1378 = extractvalue { ptr, ptr } %1376, 1
+  %1379 = call { ptr, ptr } @gen_subexp(ptr %1377, ptr %1378) #9
+  %1380 = extractvalue { ptr, ptr } %1379, 0
+  %1381 = extractvalue { ptr, ptr } %1379, 1
+  %1382 = load ptr, ptr %1364, align 8
+  %1383 = load ptr, ptr %1366, align 8
+  %1384 = call { ptr, ptr } @block_join(ptr %1380, ptr %1381, ptr %1382, ptr %1383) #9
+  %1385 = extractvalue { ptr, ptr } %1384, 0
+  %1386 = extractvalue { ptr, ptr } %1384, 1
+  %1387 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
+  %1388 = extractvalue { ptr, ptr } %1387, 0
+  %1389 = extractvalue { ptr, ptr } %1387, 1
+  %1390 = call { ptr, ptr } @block_join(ptr %1385, ptr %1386, ptr %1388, ptr %1389) #9
   %1391 = extractvalue { ptr, ptr } %1390, 0
   %1392 = extractvalue { ptr, ptr } %1390, 1
-  %1393 = call { ptr, ptr } @gen_subexp(ptr %1391, ptr %1392) #9
-  %1394 = extractvalue { ptr, ptr } %1393, 0
-  %1395 = extractvalue { ptr, ptr } %1393, 1
-  %1396 = load ptr, ptr %1378, align 8
-  %1397 = load ptr, ptr %1380, align 8
-  %1398 = call { ptr, ptr } @block_join(ptr %1394, ptr %1395, ptr %1396, ptr %1397) #9
+  store ptr %1391, ptr %.sroa.0616, align 8
+  br label %2004
+
+1393:                                             ; preds = %133
+  %1394 = load i64, ptr %.21175, align 8
+  %1395 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1396 = load ptr, ptr %1395, align 8
+  %1397 = call ptr @jv_string_value(i64 %1394, ptr %1396) #9
+  %1398 = call { ptr, ptr } @gen_op_unbound(i32 noundef 7, ptr noundef %1397) #9
   %1399 = extractvalue { ptr, ptr } %1398, 0
   %1400 = extractvalue { ptr, ptr } %1398, 1
-  %1401 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
+  %.sroa.26.0.insert.ext1340 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1341 = shl nuw i64 %.sroa.26.0.insert.ext1340, 32
+  %.sroa.01249.0.insert.ext1255 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1257 = or disjoint i64 %.sroa.26.0.insert.shift1341, %.sroa.01249.0.insert.ext1255
+  %1401 = call { ptr, ptr } @gen_location(i64 %.sroa.01249.0.insert.insert1257, ptr noundef %2, ptr %1399, ptr %1400) #9
   %1402 = extractvalue { ptr, ptr } %1401, 0
   %1403 = extractvalue { ptr, ptr } %1401, 1
-  %1404 = call { ptr, ptr } @block_join(ptr %1399, ptr %1400, ptr %1402, ptr %1403) #9
-  %1405 = extractvalue { ptr, ptr } %1404, 0
-  %1406 = extractvalue { ptr, ptr } %1404, 1
-  store ptr %1405, ptr %.sroa.0616, align 8
-  br label %2027
+  store ptr %1402, ptr %.sroa.0616, align 8
+  %1404 = load i64, ptr %.21175, align 8
+  %1405 = load ptr, ptr %1395, align 8
+  call void @jv_free(i64 %1404, ptr %1405) #9
+  br label %2004
 
-1407:                                             ; preds = %135
-  %1408 = load i64, ptr %.21175, align 8
-  %1409 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1410 = load ptr, ptr %1409, align 8
-  %1411 = call ptr @jv_string_value(i64 %1408, ptr %1410) #9
-  %1412 = call { ptr, ptr } @gen_op_unbound(i32 noundef 7, ptr noundef %1411) #9
-  %1413 = extractvalue { ptr, ptr } %1412, 0
-  %1414 = extractvalue { ptr, ptr } %1412, 1
-  %1415 = load i64, ptr %10, align 8
-  %1416 = call { ptr, ptr } @gen_location(i64 %1415, ptr noundef %2, ptr %1413, ptr %1414) #9
-  %1417 = extractvalue { ptr, ptr } %1416, 0
-  %1418 = extractvalue { ptr, ptr } %1416, 1
-  store ptr %1417, ptr %.sroa.0616, align 8
-  %1419 = load i64, ptr %.21175, align 8
-  %1420 = load ptr, ptr %1409, align 8
-  call void @jv_free(i64 %1419, ptr %1420) #9
-  br label %2027
+1406:                                             ; preds = %133
+  %1407 = load i64, ptr %.21175, align 8
+  %1408 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1409 = load ptr, ptr %1408, align 8
+  %1410 = call ptr @jv_string_value(i64 %1407, ptr %1409) #9
+  %1411 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %1410) #9
+  %1412 = extractvalue { ptr, ptr } %1411, 0
+  %1413 = extractvalue { ptr, ptr } %1411, 1
+  %.sroa.26.0.insert.ext1345 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1346 = shl nuw i64 %.sroa.26.0.insert.ext1345, 32
+  %.sroa.01249.0.insert.ext1259 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1261 = or disjoint i64 %.sroa.26.0.insert.shift1346, %.sroa.01249.0.insert.ext1259
+  %1414 = call { ptr, ptr } @gen_location(i64 %.sroa.01249.0.insert.insert1261, ptr noundef %2, ptr %1412, ptr %1413) #9
+  %1415 = extractvalue { ptr, ptr } %1414, 0
+  %1416 = extractvalue { ptr, ptr } %1414, 1
+  store ptr %1415, ptr %.sroa.0616, align 8
+  %1417 = load i64, ptr %.21175, align 8
+  %1418 = load ptr, ptr %1408, align 8
+  call void @jv_free(i64 %1417, ptr %1418) #9
+  br label %2004
 
-1421:                                             ; preds = %135
-  %1422 = load i64, ptr %.21175, align 8
-  %1423 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1424 = load ptr, ptr %1423, align 8
-  %1425 = call ptr @jv_string_value(i64 %1422, ptr %1424) #9
-  %1426 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %1425) #9
-  %1427 = extractvalue { ptr, ptr } %1426, 0
-  %1428 = extractvalue { ptr, ptr } %1426, 1
-  %1429 = load i64, ptr %10, align 8
-  %1430 = call { ptr, ptr } @gen_location(i64 %1429, ptr noundef %2, ptr %1427, ptr %1428) #9
-  %1431 = extractvalue { ptr, ptr } %1430, 0
-  %1432 = extractvalue { ptr, ptr } %1430, 1
-  store ptr %1431, ptr %.sroa.0616, align 8
-  %1433 = load i64, ptr %.21175, align 8
-  %1434 = load ptr, ptr %1423, align 8
-  call void @jv_free(i64 %1433, ptr %1434) #9
-  br label %2027
+1419:                                             ; preds = %133
+  %1420 = call fastcc { ptr, ptr } @gen_loc_object(i32 %.sroa.01249.0, ptr noundef %2)
+  %1421 = extractvalue { ptr, ptr } %1420, 0
+  %1422 = extractvalue { ptr, ptr } %1420, 1
+  store ptr %1421, ptr %.sroa.0616, align 8
+  br label %2004
 
-1435:                                             ; preds = %135
-  %1436 = call fastcc { ptr, ptr } @gen_loc_object(ptr noundef %10, ptr noundef %2)
-  %1437 = extractvalue { ptr, ptr } %1436, 0
-  %1438 = extractvalue { ptr, ptr } %1436, 1
-  store ptr %1437, ptr %.sroa.0616, align 8
-  br label %2027
+1423:                                             ; preds = %133
+  %1424 = load i64, ptr %.21175, align 8
+  %1425 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1426 = load ptr, ptr %1425, align 8
+  %1427 = call ptr @jv_string_value(i64 %1424, ptr %1426) #9
+  %1428 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1427, ptr noundef nonnull dereferenceable(6) @.str.19) #8
+  %1429 = icmp eq i32 %1428, 0
+  br i1 %1429, label %1430, label %1435
 
-1439:                                             ; preds = %135
-  %1440 = load i64, ptr %.21175, align 8
-  %1441 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1442 = load ptr, ptr %1441, align 8
-  %1443 = call ptr @jv_string_value(i64 %1440, ptr %1442) #9
-  %1444 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1443, ptr noundef nonnull dereferenceable(6) @.str.19) #8
+1430:                                             ; preds = %1423
+  %1431 = call { i64, ptr } @jv_false() #9
+  %1432 = extractvalue { i64, ptr } %1431, 0
+  %1433 = extractvalue { i64, ptr } %1431, 1
+  %1434 = call { ptr, ptr } @gen_const(i64 %1432, ptr %1433) #9
+  br label %1459
+
+1435:                                             ; preds = %1423
+  %1436 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1427, ptr noundef nonnull dereferenceable(5) @.str.20) #8
+  %1437 = icmp eq i32 %1436, 0
+  br i1 %1437, label %1438, label %1443
+
+1438:                                             ; preds = %1435
+  %1439 = call { i64, ptr } @jv_true() #9
+  %1440 = extractvalue { i64, ptr } %1439, 0
+  %1441 = extractvalue { i64, ptr } %1439, 1
+  %1442 = call { ptr, ptr } @gen_const(i64 %1440, ptr %1441) #9
+  br label %1459
+
+1443:                                             ; preds = %1435
+  %1444 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1427, ptr noundef nonnull dereferenceable(5) @.str.21) #8
   %1445 = icmp eq i32 %1444, 0
   br i1 %1445, label %1446, label %1451
 
-1446:                                             ; preds = %1439
-  %1447 = call { i64, ptr } @jv_false() #9
+1446:                                             ; preds = %1443
+  %1447 = call { i64, ptr } @jv_null() #9
   %1448 = extractvalue { i64, ptr } %1447, 0
   %1449 = extractvalue { i64, ptr } %1447, 1
   %1450 = call { ptr, ptr } @gen_const(i64 %1448, ptr %1449) #9
-  br label %1476
+  br label %1459
 
-1451:                                             ; preds = %1439
-  %1452 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1443, ptr noundef nonnull dereferenceable(5) @.str.20) #8
-  %1453 = icmp eq i32 %1452, 0
-  br i1 %1453, label %1454, label %1459
+1451:                                             ; preds = %1443
+  %1452 = call { ptr, ptr } (...) @gen_noop() #9
+  %1453 = extractvalue { ptr, ptr } %1452, 0
+  %1454 = extractvalue { ptr, ptr } %1452, 1
+  %1455 = call { ptr, ptr } @gen_call(ptr noundef %1427, ptr %1453, ptr %1454) #9
+  %1456 = extractvalue { ptr, ptr } %1455, 0
+  %1457 = extractvalue { ptr, ptr } %1455, 1
+  %.sroa.26.0.insert.ext1350 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1351 = shl nuw i64 %.sroa.26.0.insert.ext1350, 32
+  %.sroa.01249.0.insert.ext1263 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1265 = or disjoint i64 %.sroa.26.0.insert.shift1351, %.sroa.01249.0.insert.ext1263
+  %1458 = call { ptr, ptr } @gen_location(i64 %.sroa.01249.0.insert.insert1265, ptr noundef %2, ptr %1456, ptr %1457) #9
+  br label %1459
 
-1454:                                             ; preds = %1451
-  %1455 = call { i64, ptr } @jv_true() #9
-  %1456 = extractvalue { i64, ptr } %1455, 0
-  %1457 = extractvalue { i64, ptr } %1455, 1
-  %1458 = call { ptr, ptr } @gen_const(i64 %1456, ptr %1457) #9
-  br label %1476
+1459:                                             ; preds = %1438, %1451, %1446, %1430
+  %.sink1544 = phi { ptr, ptr } [ %1442, %1438 ], [ %1458, %1451 ], [ %1450, %1446 ], [ %1434, %1430 ]
+  %1460 = extractvalue { ptr, ptr } %.sink1544, 0
+  store ptr %1460, ptr %.sroa.0616, align 8
+  %.sroa.179.1 = extractvalue { ptr, ptr } %.sink1544, 1
+  %1461 = load i64, ptr %.21175, align 8
+  %1462 = load ptr, ptr %1425, align 8
+  call void @jv_free(i64 %1461, ptr %1462) #9
+  br label %2004
 
-1459:                                             ; preds = %1451
-  %1460 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1443, ptr noundef nonnull dereferenceable(5) @.str.21) #8
-  %1461 = icmp eq i32 %1460, 0
-  br i1 %1461, label %1462, label %1467
+1463:                                             ; preds = %133
+  %1464 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %1465 = load i64, ptr %1464, align 8
+  %1466 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %1467 = load ptr, ptr %1466, align 8
+  %1468 = call ptr @jv_string_value(i64 %1465, ptr %1467) #9
+  %1469 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1470 = load ptr, ptr %1469, align 8
+  %1471 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1472 = load ptr, ptr %1471, align 8
+  %1473 = call { ptr, ptr } @gen_call(ptr noundef %1468, ptr %1470, ptr %1472) #9
+  %1474 = extractvalue { ptr, ptr } %1473, 0
+  %1475 = extractvalue { ptr, ptr } %1473, 1
+  store ptr %1474, ptr %.sroa.0616, align 8
+  %1476 = getelementptr inbounds i8, ptr %.21185, i64 -24
+  %1477 = load i64, ptr %1476, align 4
+  %1478 = call { ptr, ptr } @gen_location(i64 %1477, ptr noundef %2, ptr %1474, ptr %1475) #9
+  %1479 = extractvalue { ptr, ptr } %1478, 0
+  %1480 = extractvalue { ptr, ptr } %1478, 1
+  store ptr %1479, ptr %.sroa.0616, align 8
+  %1481 = load i64, ptr %1464, align 8
+  %1482 = load ptr, ptr %1466, align 8
+  call void @jv_free(i64 %1481, ptr %1482) #9
+  br label %2004
 
-1462:                                             ; preds = %1459
-  %1463 = call { i64, ptr } @jv_null() #9
-  %1464 = extractvalue { i64, ptr } %1463, 0
-  %1465 = extractvalue { i64, ptr } %1463, 1
-  %1466 = call { ptr, ptr } @gen_const(i64 %1464, ptr %1465) #9
-  br label %1476
+1483:                                             ; preds = %133
+  %1484 = call { ptr, ptr } (...) @gen_noop() #9
+  %1485 = extractvalue { ptr, ptr } %1484, 0
+  %1486 = extractvalue { ptr, ptr } %1484, 1
+  store ptr %1485, ptr %.sroa.0616, align 8
+  br label %2004
 
-1467:                                             ; preds = %1459
-  %1468 = call { ptr, ptr } (...) @gen_noop() #9
-  %1469 = extractvalue { ptr, ptr } %1468, 0
-  %1470 = extractvalue { ptr, ptr } %1468, 1
-  %1471 = call { ptr, ptr } @gen_call(ptr noundef %1443, ptr %1469, ptr %1470) #9
-  %1472 = extractvalue { ptr, ptr } %1471, 0
-  %1473 = extractvalue { ptr, ptr } %1471, 1
-  %1474 = load i64, ptr %10, align 8
-  %1475 = call { ptr, ptr } @gen_location(i64 %1474, ptr noundef %2, ptr %1472, ptr %1473) #9
-  br label %1476
+1487:                                             ; preds = %133
+  %1488 = call { ptr, ptr } (...) @gen_noop() #9
+  %1489 = extractvalue { ptr, ptr } %1488, 0
+  %1490 = extractvalue { ptr, ptr } %1488, 1
+  store ptr %1489, ptr %.sroa.0616, align 8
+  br label %2004
 
-1476:                                             ; preds = %1454, %1467, %1462, %1446
-  %.sink1352 = phi { ptr, ptr } [ %1458, %1454 ], [ %1475, %1467 ], [ %1466, %1462 ], [ %1450, %1446 ]
-  %1477 = extractvalue { ptr, ptr } %.sink1352, 0
-  store ptr %1477, ptr %.sroa.0616, align 8
-  %.sroa.179.1 = extractvalue { ptr, ptr } %.sink1352, 1
-  %1478 = load i64, ptr %.21175, align 8
-  %1479 = load ptr, ptr %1441, align 8
-  call void @jv_free(i64 %1478, ptr %1479) #9
-  br label %2027
+1491:                                             ; preds = %133
+  %1492 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %1493 = load i64, ptr %1492, align 8
+  store i64 %1493, ptr %.sroa.0616, align 8
+  %.sroa.179.0..sroa_idx641 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %.sroa.179.0.copyload642 = load ptr, ptr %.sroa.179.0..sroa_idx641, align 8
+  br label %2004
 
-1480:                                             ; preds = %135
-  %1481 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %1482 = load i64, ptr %1481, align 8
-  %1483 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %1484 = load ptr, ptr %1483, align 8
-  %1485 = call ptr @jv_string_value(i64 %1482, ptr %1484) #9
-  %1486 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1487 = load ptr, ptr %1486, align 8
-  %1488 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1489 = load ptr, ptr %1488, align 8
-  %1490 = call { ptr, ptr } @gen_call(ptr noundef %1485, ptr %1487, ptr %1489) #9
-  %1491 = extractvalue { ptr, ptr } %1490, 0
-  %1492 = extractvalue { ptr, ptr } %1490, 1
-  store ptr %1491, ptr %.sroa.0616, align 8
-  %1493 = getelementptr inbounds i8, ptr %.21185, i64 -24
-  %1494 = load i64, ptr %1493, align 4
-  %1495 = call { ptr, ptr } @gen_location(i64 %1494, ptr noundef %2, ptr %1491, ptr %1492) #9
+1494:                                             ; preds = %133
+  %1495 = call { ptr, ptr } (...) @gen_noop() #9
   %1496 = extractvalue { ptr, ptr } %1495, 0
   %1497 = extractvalue { ptr, ptr } %1495, 1
   store ptr %1496, ptr %.sroa.0616, align 8
-  %1498 = load i64, ptr %1481, align 8
-  %1499 = load ptr, ptr %1483, align 8
-  call void @jv_free(i64 %1498, ptr %1499) #9
-  br label %2027
+  br label %2004
 
-1500:                                             ; preds = %135
-  %1501 = call { ptr, ptr } (...) @gen_noop() #9
-  %1502 = extractvalue { ptr, ptr } %1501, 0
-  %1503 = extractvalue { ptr, ptr } %1501, 1
-  store ptr %1502, ptr %.sroa.0616, align 8
-  br label %2027
-
-1504:                                             ; preds = %135
-  %1505 = call { ptr, ptr } (...) @gen_noop() #9
-  %1506 = extractvalue { ptr, ptr } %1505, 0
-  %1507 = extractvalue { ptr, ptr } %1505, 1
-  store ptr %1506, ptr %.sroa.0616, align 8
-  br label %2027
-
-1508:                                             ; preds = %135
-  %1509 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %1510 = load i64, ptr %1509, align 8
-  store i64 %1510, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx641 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %.sroa.179.0.copyload642 = load ptr, ptr %.sroa.179.0..sroa_idx641, align 8
-  br label %2027
-
-1511:                                             ; preds = %135
-  %1512 = call { ptr, ptr } (...) @gen_noop() #9
-  %1513 = extractvalue { ptr, ptr } %1512, 0
-  %1514 = extractvalue { ptr, ptr } %1512, 1
-  store ptr %1513, ptr %.sroa.0616, align 8
-  br label %2027
-
-1515:                                             ; preds = %135
-  %1516 = load i64, ptr %.21175, align 8
-  store i64 %1516, ptr %.sroa.0616, align 8
+1498:                                             ; preds = %133
+  %1499 = load i64, ptr %.21175, align 8
+  store i64 %1499, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx643 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload644 = load ptr, ptr %.sroa.179.0..sroa_idx643, align 8
-  br label %2027
+  br label %2004
 
-1517:                                             ; preds = %135
-  %1518 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1519 = load ptr, ptr %1518, align 8
-  %1520 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1521 = load ptr, ptr %1520, align 8
-  %1522 = load ptr, ptr %.21175, align 8
-  %1523 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1524 = load ptr, ptr %1523, align 8
-  %1525 = call { ptr, ptr } @block_join(ptr %1519, ptr %1521, ptr %1522, ptr %1524) #9
-  %1526 = extractvalue { ptr, ptr } %1525, 0
-  %1527 = extractvalue { ptr, ptr } %1525, 1
-  store ptr %1526, ptr %.sroa.0616, align 8
-  br label %2027
+1500:                                             ; preds = %133
+  %1501 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1502 = load ptr, ptr %1501, align 8
+  %1503 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1504 = load ptr, ptr %1503, align 8
+  %1505 = load ptr, ptr %.21175, align 8
+  %1506 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1507 = load ptr, ptr %1506, align 8
+  %1508 = call { ptr, ptr } @block_join(ptr %1502, ptr %1504, ptr %1505, ptr %1507) #9
+  %1509 = extractvalue { ptr, ptr } %1508, 0
+  %1510 = extractvalue { ptr, ptr } %1508, 1
+  store ptr %1509, ptr %.sroa.0616, align 8
+  br label %2004
 
-1528:                                             ; preds = %135
-  %1529 = load ptr, ptr %.21175, align 8
-  %1530 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1531 = load ptr, ptr %1530, align 8
-  %1532 = call { ptr, ptr } @gen_lambda(ptr %1529, ptr %1531) #9
-  %1533 = extractvalue { ptr, ptr } %1532, 0
-  %1534 = extractvalue { ptr, ptr } %1532, 1
-  store ptr %1533, ptr %.sroa.0616, align 8
-  br label %2027
+1511:                                             ; preds = %133
+  %1512 = load ptr, ptr %.21175, align 8
+  %1513 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1514 = load ptr, ptr %1513, align 8
+  %1515 = call { ptr, ptr } @gen_lambda(ptr %1512, ptr %1514) #9
+  %1516 = extractvalue { ptr, ptr } %1515, 0
+  %1517 = extractvalue { ptr, ptr } %1515, 1
+  store ptr %1516, ptr %.sroa.0616, align 8
+  br label %2004
 
-1535:                                             ; preds = %135
-  %1536 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1537 = load ptr, ptr %.21175, align 8
-  %1538 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1539 = load ptr, ptr %1538, align 8
-  %1540 = call { ptr, ptr } @gen_destructure_alt(ptr %1537, ptr %1539) #9
-  %1541 = extractvalue { ptr, ptr } %1540, 0
-  %1542 = extractvalue { ptr, ptr } %1540, 1
-  %1543 = load ptr, ptr %1536, align 8
-  %1544 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1545 = load ptr, ptr %1544, align 8
-  %1546 = call { ptr, ptr } @block_join(ptr %1543, ptr %1545, ptr %1541, ptr %1542) #9
-  %1547 = extractvalue { ptr, ptr } %1546, 0
-  %1548 = extractvalue { ptr, ptr } %1546, 1
-  store ptr %1547, ptr %.sroa.0616, align 8
-  br label %2027
+1518:                                             ; preds = %133
+  %1519 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1520 = load ptr, ptr %.21175, align 8
+  %1521 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1522 = load ptr, ptr %1521, align 8
+  %1523 = call { ptr, ptr } @gen_destructure_alt(ptr %1520, ptr %1522) #9
+  %1524 = extractvalue { ptr, ptr } %1523, 0
+  %1525 = extractvalue { ptr, ptr } %1523, 1
+  %1526 = load ptr, ptr %1519, align 8
+  %1527 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1528 = load ptr, ptr %1527, align 8
+  %1529 = call { ptr, ptr } @block_join(ptr %1526, ptr %1528, ptr %1524, ptr %1525) #9
+  %1530 = extractvalue { ptr, ptr } %1529, 0
+  %1531 = extractvalue { ptr, ptr } %1529, 1
+  store ptr %1530, ptr %.sroa.0616, align 8
+  br label %2004
 
-1549:                                             ; preds = %135
-  %1550 = load ptr, ptr %.21175, align 8
-  %1551 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1552 = load ptr, ptr %1551, align 8
-  %1553 = call { ptr, ptr } @gen_destructure_alt(ptr %1550, ptr %1552) #9
-  %1554 = extractvalue { ptr, ptr } %1553, 0
-  %1555 = extractvalue { ptr, ptr } %1553, 1
-  store ptr %1554, ptr %.sroa.0616, align 8
-  br label %2027
+1532:                                             ; preds = %133
+  %1533 = load ptr, ptr %.21175, align 8
+  %1534 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1535 = load ptr, ptr %1534, align 8
+  %1536 = call { ptr, ptr } @gen_destructure_alt(ptr %1533, ptr %1535) #9
+  %1537 = extractvalue { ptr, ptr } %1536, 0
+  %1538 = extractvalue { ptr, ptr } %1536, 1
+  store ptr %1537, ptr %.sroa.0616, align 8
+  br label %2004
 
-1556:                                             ; preds = %135
-  %1557 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1558 = load ptr, ptr %1557, align 8
-  %1559 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1560 = load ptr, ptr %1559, align 8
-  %1561 = load ptr, ptr %.21175, align 8
-  %1562 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1563 = load ptr, ptr %1562, align 8
-  %1564 = call { ptr, ptr } @block_join(ptr %1558, ptr %1560, ptr %1561, ptr %1563) #9
-  %1565 = extractvalue { ptr, ptr } %1564, 0
-  %1566 = extractvalue { ptr, ptr } %1564, 1
-  store ptr %1565, ptr %.sroa.0616, align 8
-  br label %2027
+1539:                                             ; preds = %133
+  %1540 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1541 = load ptr, ptr %1540, align 8
+  %1542 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1543 = load ptr, ptr %1542, align 8
+  %1544 = load ptr, ptr %.21175, align 8
+  %1545 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1546 = load ptr, ptr %1545, align 8
+  %1547 = call { ptr, ptr } @block_join(ptr %1541, ptr %1543, ptr %1544, ptr %1546) #9
+  %1548 = extractvalue { ptr, ptr } %1547, 0
+  %1549 = extractvalue { ptr, ptr } %1547, 1
+  store ptr %1548, ptr %.sroa.0616, align 8
+  br label %2004
 
-1567:                                             ; preds = %135
-  %1568 = load i64, ptr %.21175, align 8
-  store i64 %1568, ptr %.sroa.0616, align 8
+1550:                                             ; preds = %133
+  %1551 = load i64, ptr %.21175, align 8
+  store i64 %1551, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx645 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload646 = load ptr, ptr %.sroa.179.0..sroa_idx645, align 8
-  br label %2027
+  br label %2004
 
-1569:                                             ; preds = %135
-  %1570 = load i64, ptr %.21175, align 8
-  %1571 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1572 = load ptr, ptr %1571, align 8
-  %1573 = call ptr @jv_string_value(i64 %1570, ptr %1572) #9
-  %1574 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1573) #9
-  %1575 = extractvalue { ptr, ptr } %1574, 0
-  %1576 = extractvalue { ptr, ptr } %1574, 1
-  store ptr %1575, ptr %.sroa.0616, align 8
-  %1577 = load i64, ptr %.21175, align 8
-  %1578 = load ptr, ptr %1571, align 8
-  call void @jv_free(i64 %1577, ptr %1578) #9
-  br label %2027
+1552:                                             ; preds = %133
+  %1553 = load i64, ptr %.21175, align 8
+  %1554 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1555 = load ptr, ptr %1554, align 8
+  %1556 = call ptr @jv_string_value(i64 %1553, ptr %1555) #9
+  %1557 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1556) #9
+  %1558 = extractvalue { ptr, ptr } %1557, 0
+  %1559 = extractvalue { ptr, ptr } %1557, 1
+  store ptr %1558, ptr %.sroa.0616, align 8
+  %1560 = load i64, ptr %.21175, align 8
+  %1561 = load ptr, ptr %1554, align 8
+  call void @jv_free(i64 %1560, ptr %1561) #9
+  br label %2004
 
-1579:                                             ; preds = %135
-  %1580 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1581 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
+1562:                                             ; preds = %133
+  %1563 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1564 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
+  %1565 = extractvalue { ptr, ptr } %1564, 0
+  %1566 = extractvalue { ptr, ptr } %1564, 1
+  %1567 = load ptr, ptr %1563, align 8
+  %1568 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1569 = load ptr, ptr %1568, align 8
+  %1570 = call { ptr, ptr } @block_join(ptr %1567, ptr %1569, ptr %1565, ptr %1566) #9
+  %1571 = extractvalue { ptr, ptr } %1570, 0
+  %1572 = extractvalue { ptr, ptr } %1570, 1
+  store ptr %1571, ptr %.sroa.0616, align 8
+  br label %2004
+
+1573:                                             ; preds = %133
+  %1574 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1575 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
+  %1576 = extractvalue { ptr, ptr } %1575, 0
+  %1577 = extractvalue { ptr, ptr } %1575, 1
+  %1578 = load ptr, ptr %1574, align 8
+  %1579 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1580 = load ptr, ptr %1579, align 8
+  %1581 = call { ptr, ptr } @block_join(ptr %1578, ptr %1580, ptr %1576, ptr %1577) #9
   %1582 = extractvalue { ptr, ptr } %1581, 0
   %1583 = extractvalue { ptr, ptr } %1581, 1
-  %1584 = load ptr, ptr %1580, align 8
-  %1585 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1586 = load ptr, ptr %1585, align 8
-  %1587 = call { ptr, ptr } @block_join(ptr %1584, ptr %1586, ptr %1582, ptr %1583) #9
-  %1588 = extractvalue { ptr, ptr } %1587, 0
-  %1589 = extractvalue { ptr, ptr } %1587, 1
-  store ptr %1588, ptr %.sroa.0616, align 8
-  br label %2027
+  store ptr %1582, ptr %.sroa.0616, align 8
+  br label %2004
 
-1590:                                             ; preds = %135
-  %1591 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1592 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
-  %1593 = extractvalue { ptr, ptr } %1592, 0
-  %1594 = extractvalue { ptr, ptr } %1592, 1
-  %1595 = load ptr, ptr %1591, align 8
-  %1596 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1597 = load ptr, ptr %1596, align 8
-  %1598 = call { ptr, ptr } @block_join(ptr %1595, ptr %1597, ptr %1593, ptr %1594) #9
-  %1599 = extractvalue { ptr, ptr } %1598, 0
-  %1600 = extractvalue { ptr, ptr } %1598, 1
-  store ptr %1599, ptr %.sroa.0616, align 8
-  br label %2027
+1584:                                             ; preds = %133
+  %1585 = call { ptr, ptr } (...) @gen_noop() #9
+  %1586 = extractvalue { ptr, ptr } %1585, 0
+  %1587 = extractvalue { ptr, ptr } %1585, 1
+  %1588 = load ptr, ptr %.21175, align 8
+  %1589 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1590 = load ptr, ptr %1589, align 8
+  %1591 = call { ptr, ptr } @gen_array_matcher(ptr %1586, ptr %1587, ptr %1588, ptr %1590) #9
+  %1592 = extractvalue { ptr, ptr } %1591, 0
+  %1593 = extractvalue { ptr, ptr } %1591, 1
+  store ptr %1592, ptr %.sroa.0616, align 8
+  br label %2004
 
-1601:                                             ; preds = %135
-  %1602 = call { ptr, ptr } (...) @gen_noop() #9
+1594:                                             ; preds = %133
+  %1595 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1596 = load ptr, ptr %1595, align 8
+  %1597 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1598 = load ptr, ptr %1597, align 8
+  %1599 = load ptr, ptr %.21175, align 8
+  %1600 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1601 = load ptr, ptr %1600, align 8
+  %1602 = call { ptr, ptr } @gen_array_matcher(ptr %1596, ptr %1598, ptr %1599, ptr %1601) #9
   %1603 = extractvalue { ptr, ptr } %1602, 0
   %1604 = extractvalue { ptr, ptr } %1602, 1
-  %1605 = load ptr, ptr %.21175, align 8
-  %1606 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1607 = load ptr, ptr %1606, align 8
-  %1608 = call { ptr, ptr } @gen_array_matcher(ptr %1603, ptr %1604, ptr %1605, ptr %1607) #9
-  %1609 = extractvalue { ptr, ptr } %1608, 0
-  %1610 = extractvalue { ptr, ptr } %1608, 1
-  store ptr %1609, ptr %.sroa.0616, align 8
-  br label %2027
+  store ptr %1603, ptr %.sroa.0616, align 8
+  br label %2004
 
-1611:                                             ; preds = %135
-  %1612 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1613 = load ptr, ptr %1612, align 8
-  %1614 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1615 = load ptr, ptr %1614, align 8
-  %1616 = load ptr, ptr %.21175, align 8
-  %1617 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1618 = load ptr, ptr %1617, align 8
-  %1619 = call { ptr, ptr } @gen_array_matcher(ptr %1613, ptr %1615, ptr %1616, ptr %1618) #9
-  %1620 = extractvalue { ptr, ptr } %1619, 0
-  %1621 = extractvalue { ptr, ptr } %1619, 1
-  store ptr %1620, ptr %.sroa.0616, align 8
-  br label %2027
-
-1622:                                             ; preds = %135
-  %1623 = load i64, ptr %.21175, align 8
-  store i64 %1623, ptr %.sroa.0616, align 8
+1605:                                             ; preds = %133
+  %1606 = load i64, ptr %.21175, align 8
+  store i64 %1606, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx647 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload648 = load ptr, ptr %.sroa.179.0..sroa_idx647, align 8
-  br label %2027
+  br label %2004
 
-1624:                                             ; preds = %135
-  %1625 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1626 = load ptr, ptr %1625, align 8
-  %1627 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1628 = load ptr, ptr %1627, align 8
-  %1629 = load ptr, ptr %.21175, align 8
-  %1630 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1631 = load ptr, ptr %1630, align 8
-  %1632 = call { ptr, ptr } @block_join(ptr %1626, ptr %1628, ptr %1629, ptr %1631) #9
-  %1633 = extractvalue { ptr, ptr } %1632, 0
-  %1634 = extractvalue { ptr, ptr } %1632, 1
-  store ptr %1633, ptr %.sroa.0616, align 8
-  br label %2027
+1607:                                             ; preds = %133
+  %1608 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1609 = load ptr, ptr %1608, align 8
+  %1610 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1611 = load ptr, ptr %1610, align 8
+  %1612 = load ptr, ptr %.21175, align 8
+  %1613 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1614 = load ptr, ptr %1613, align 8
+  %1615 = call { ptr, ptr } @block_join(ptr %1609, ptr %1611, ptr %1612, ptr %1614) #9
+  %1616 = extractvalue { ptr, ptr } %1615, 0
+  %1617 = extractvalue { ptr, ptr } %1615, 1
+  store ptr %1616, ptr %.sroa.0616, align 8
+  br label %2004
 
-1635:                                             ; preds = %135
-  %1636 = load i64, ptr %.21175, align 8
-  %1637 = getelementptr inbounds i8, ptr %.21175, i64 8
+1618:                                             ; preds = %133
+  %1619 = load i64, ptr %.21175, align 8
+  %1620 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1621 = load ptr, ptr %1620, align 8
+  %1622 = call { ptr, ptr } @gen_const(i64 %1619, ptr %1621) #9
+  %1623 = extractvalue { ptr, ptr } %1622, 0
+  %1624 = extractvalue { ptr, ptr } %1622, 1
+  %1625 = load i64, ptr %.21175, align 8
+  %1626 = load ptr, ptr %1620, align 8
+  %1627 = call ptr @jv_string_value(i64 %1625, ptr %1626) #9
+  %1628 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1627) #9
+  %1629 = extractvalue { ptr, ptr } %1628, 0
+  %1630 = extractvalue { ptr, ptr } %1628, 1
+  %1631 = call { ptr, ptr } @gen_object_matcher(ptr %1623, ptr %1624, ptr %1629, ptr %1630) #9
+  %1632 = extractvalue { ptr, ptr } %1631, 0
+  %1633 = extractvalue { ptr, ptr } %1631, 1
+  store ptr %1632, ptr %.sroa.0616, align 8
+  br label %2004
+
+1634:                                             ; preds = %133
+  %1635 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1636 = load i64, ptr %1635, align 8
+  %1637 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %1638 = load ptr, ptr %1637, align 8
   %1639 = call { ptr, ptr } @gen_const(i64 %1636, ptr %1638) #9
   %1640 = extractvalue { ptr, ptr } %1639, 0
   %1641 = extractvalue { ptr, ptr } %1639, 1
-  %1642 = load i64, ptr %.21175, align 8
-  %1643 = load ptr, ptr %1637, align 8
-  %1644 = call ptr @jv_string_value(i64 %1642, ptr %1643) #9
-  %1645 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1644) #9
-  %1646 = extractvalue { ptr, ptr } %1645, 0
-  %1647 = extractvalue { ptr, ptr } %1645, 1
-  %1648 = call { ptr, ptr } @gen_object_matcher(ptr %1640, ptr %1641, ptr %1646, ptr %1647) #9
+  %1642 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #9
+  %1643 = extractvalue { ptr, ptr } %1642, 0
+  %1644 = extractvalue { ptr, ptr } %1642, 1
+  %1645 = load i64, ptr %1635, align 8
+  %1646 = load ptr, ptr %1637, align 8
+  %1647 = call ptr @jv_string_value(i64 %1645, ptr %1646) #9
+  %1648 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1647) #9
   %1649 = extractvalue { ptr, ptr } %1648, 0
   %1650 = extractvalue { ptr, ptr } %1648, 1
-  store ptr %1649, ptr %.sroa.0616, align 8
-  br label %2027
+  %1651 = call { ptr, ptr } @block_join(ptr %1643, ptr %1644, ptr %1649, ptr %1650) #9
+  %1652 = extractvalue { ptr, ptr } %1651, 0
+  %1653 = extractvalue { ptr, ptr } %1651, 1
+  %1654 = load ptr, ptr %.21175, align 8
+  %1655 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1656 = load ptr, ptr %1655, align 8
+  %1657 = call { ptr, ptr } @block_join(ptr %1652, ptr %1653, ptr %1654, ptr %1656) #9
+  %1658 = extractvalue { ptr, ptr } %1657, 0
+  %1659 = extractvalue { ptr, ptr } %1657, 1
+  %1660 = call { ptr, ptr } @gen_object_matcher(ptr %1640, ptr %1641, ptr %1658, ptr %1659) #9
+  %1661 = extractvalue { ptr, ptr } %1660, 0
+  %1662 = extractvalue { ptr, ptr } %1660, 1
+  store ptr %1661, ptr %.sroa.0616, align 8
+  br label %2004
 
-1651:                                             ; preds = %135
-  %1652 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1653 = load i64, ptr %1652, align 8
-  %1654 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1655 = load ptr, ptr %1654, align 8
-  %1656 = call { ptr, ptr } @gen_const(i64 %1653, ptr %1655) #9
-  %1657 = extractvalue { ptr, ptr } %1656, 0
-  %1658 = extractvalue { ptr, ptr } %1656, 1
-  %1659 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #9
-  %1660 = extractvalue { ptr, ptr } %1659, 0
-  %1661 = extractvalue { ptr, ptr } %1659, 1
-  %1662 = load i64, ptr %1652, align 8
-  %1663 = load ptr, ptr %1654, align 8
-  %1664 = call ptr @jv_string_value(i64 %1662, ptr %1663) #9
-  %1665 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1664) #9
-  %1666 = extractvalue { ptr, ptr } %1665, 0
-  %1667 = extractvalue { ptr, ptr } %1665, 1
-  %1668 = call { ptr, ptr } @block_join(ptr %1660, ptr %1661, ptr %1666, ptr %1667) #9
+1663:                                             ; preds = %133
+  %1664 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1665 = load i64, ptr %1664, align 8
+  %1666 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1667 = load ptr, ptr %1666, align 8
+  %1668 = call { ptr, ptr } @gen_const(i64 %1665, ptr %1667) #9
   %1669 = extractvalue { ptr, ptr } %1668, 0
   %1670 = extractvalue { ptr, ptr } %1668, 1
   %1671 = load ptr, ptr %.21175, align 8
   %1672 = getelementptr inbounds i8, ptr %.21175, i64 8
   %1673 = load ptr, ptr %1672, align 8
-  %1674 = call { ptr, ptr } @block_join(ptr %1669, ptr %1670, ptr %1671, ptr %1673) #9
+  %1674 = call { ptr, ptr } @gen_object_matcher(ptr %1669, ptr %1670, ptr %1671, ptr %1673) #9
   %1675 = extractvalue { ptr, ptr } %1674, 0
   %1676 = extractvalue { ptr, ptr } %1674, 1
-  %1677 = call { ptr, ptr } @gen_object_matcher(ptr %1657, ptr %1658, ptr %1675, ptr %1676) #9
-  %1678 = extractvalue { ptr, ptr } %1677, 0
-  %1679 = extractvalue { ptr, ptr } %1677, 1
-  store ptr %1678, ptr %.sroa.0616, align 8
-  br label %2027
+  store ptr %1675, ptr %.sroa.0616, align 8
+  br label %2004
 
-1680:                                             ; preds = %135
-  %1681 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1682 = load i64, ptr %1681, align 8
-  %1683 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1684 = load ptr, ptr %1683, align 8
-  %1685 = call { ptr, ptr } @gen_const(i64 %1682, ptr %1684) #9
-  %1686 = extractvalue { ptr, ptr } %1685, 0
-  %1687 = extractvalue { ptr, ptr } %1685, 1
-  %1688 = load ptr, ptr %.21175, align 8
-  %1689 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1690 = load ptr, ptr %1689, align 8
-  %1691 = call { ptr, ptr } @gen_object_matcher(ptr %1686, ptr %1687, ptr %1688, ptr %1690) #9
-  %1692 = extractvalue { ptr, ptr } %1691, 0
-  %1693 = extractvalue { ptr, ptr } %1691, 1
-  store ptr %1692, ptr %.sroa.0616, align 8
-  br label %2027
+1677:                                             ; preds = %133
+  %1678 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1679 = load i64, ptr %1678, align 8
+  %1680 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1681 = load ptr, ptr %1680, align 8
+  %1682 = call { ptr, ptr } @gen_const(i64 %1679, ptr %1681) #9
+  %1683 = extractvalue { ptr, ptr } %1682, 0
+  %1684 = extractvalue { ptr, ptr } %1682, 1
+  %1685 = load ptr, ptr %.21175, align 8
+  %1686 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1687 = load ptr, ptr %1686, align 8
+  %1688 = call { ptr, ptr } @gen_object_matcher(ptr %1683, ptr %1684, ptr %1685, ptr %1687) #9
+  %1689 = extractvalue { ptr, ptr } %1688, 0
+  %1690 = extractvalue { ptr, ptr } %1688, 1
+  store ptr %1689, ptr %.sroa.0616, align 8
+  br label %2004
 
-1694:                                             ; preds = %135
-  %1695 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1696 = load i64, ptr %1695, align 8
-  %1697 = getelementptr inbounds i8, ptr %.21175, i64 -24
+1691:                                             ; preds = %133
+  %1692 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1693 = load ptr, ptr %1692, align 8
+  %1694 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1695 = load ptr, ptr %1694, align 8
+  %1696 = load ptr, ptr %.21175, align 8
+  %1697 = getelementptr inbounds i8, ptr %.21175, i64 8
   %1698 = load ptr, ptr %1697, align 8
-  %1699 = call { ptr, ptr } @gen_const(i64 %1696, ptr %1698) #9
+  %1699 = call { ptr, ptr } @gen_object_matcher(ptr %1693, ptr %1695, ptr %1696, ptr %1698) #9
   %1700 = extractvalue { ptr, ptr } %1699, 0
   %1701 = extractvalue { ptr, ptr } %1699, 1
-  %1702 = load ptr, ptr %.21175, align 8
-  %1703 = getelementptr inbounds i8, ptr %.21175, i64 8
+  store ptr %1700, ptr %.sroa.0616, align 8
+  br label %2004
+
+1702:                                             ; preds = %133
+  %1703 = getelementptr inbounds i8, ptr %.21175, i64 -48
   %1704 = load ptr, ptr %1703, align 8
-  %1705 = call { ptr, ptr } @gen_object_matcher(ptr %1700, ptr %1701, ptr %1702, ptr %1704) #9
-  %1706 = extractvalue { ptr, ptr } %1705, 0
-  %1707 = extractvalue { ptr, ptr } %1705, 1
-  store ptr %1706, ptr %.sroa.0616, align 8
-  br label %2027
+  %1705 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %1706 = load ptr, ptr %1705, align 8
+  %1707 = call fastcc { i64, ptr } @check_object_key(ptr %1704, ptr %1706)
+  %1708 = extractvalue { i64, ptr } %1707, 0
+  %1709 = extractvalue { i64, ptr } %1707, 1
+  %1710 = call i32 @jv_get_kind(i64 %1708, ptr %1709) #9
+  %.not1497 = icmp eq i32 %1710, 0
+  br i1 %.not1497, label %1713, label %1711
 
-1708:                                             ; preds = %135
-  %1709 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1710 = load ptr, ptr %1709, align 8
-  %1711 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1712 = load ptr, ptr %1711, align 8
-  %1713 = load ptr, ptr %.21175, align 8
-  %1714 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1715 = load ptr, ptr %1714, align 8
-  %1716 = call { ptr, ptr } @gen_object_matcher(ptr %1710, ptr %1712, ptr %1713, ptr %1715) #9
-  %1717 = extractvalue { ptr, ptr } %1716, 0
-  %1718 = extractvalue { ptr, ptr } %1716, 1
-  store ptr %1717, ptr %.sroa.0616, align 8
-  br label %2027
+1711:                                             ; preds = %1702
+  %.sroa.26.0.insert.ext1380 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1381 = shl nuw i64 %.sroa.26.0.insert.ext1380, 32
+  %.sroa.01249.0.insert.ext1287 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1289 = or disjoint i64 %.sroa.26.0.insert.shift1381, %.sroa.01249.0.insert.ext1287
+  store i64 %.sroa.01249.0.insert.insert1289, ptr %23, align 8
+  %1712 = call ptr @jv_string_value(i64 %1708, ptr %1709) #9
+  call void @yyerror(ptr noundef nonnull %23, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef %1712)
+  br label %1713
 
-1719:                                             ; preds = %135
-  %1720 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %1721 = load ptr, ptr %1720, align 8
-  %1722 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %1723 = load ptr, ptr %1722, align 8
-  %1724 = call fastcc { i64, ptr } @check_object_key(ptr %1721, ptr %1723)
-  %1725 = extractvalue { i64, ptr } %1724, 0
-  %1726 = extractvalue { i64, ptr } %1724, 1
-  %1727 = call i32 @jv_get_kind(i64 %1725, ptr %1726) #9
-  %.not1305 = icmp eq i32 %1727, 0
-  br i1 %.not1305, label %1731, label %1728
+1713:                                             ; preds = %1711, %1702
+  call void @jv_free(i64 %1708, ptr %1709) #9
+  %1714 = load ptr, ptr %1703, align 8
+  %1715 = load ptr, ptr %1705, align 8
+  %1716 = load ptr, ptr %.21175, align 8
+  %1717 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1718 = load ptr, ptr %1717, align 8
+  %1719 = call { ptr, ptr } @gen_object_matcher(ptr %1714, ptr %1715, ptr %1716, ptr %1718) #9
+  %1720 = extractvalue { ptr, ptr } %1719, 0
+  %1721 = extractvalue { ptr, ptr } %1719, 1
+  store ptr %1720, ptr %.sroa.0616, align 8
+  br label %2004
 
-1728:                                             ; preds = %1719
-  %1729 = load i64, ptr %10, align 8
-  store i64 %1729, ptr %24, align 8
-  %1730 = call ptr @jv_string_value(i64 %1725, ptr %1726) #9
-  call void @yyerror(ptr noundef nonnull %24, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef %1730)
-  br label %1731
-
-1731:                                             ; preds = %1728, %1719
-  call void @jv_free(i64 %1725, ptr %1726) #9
-  %1732 = load ptr, ptr %1720, align 8
-  %1733 = load ptr, ptr %1722, align 8
-  %1734 = load ptr, ptr %.21175, align 8
-  %1735 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1736 = load ptr, ptr %1735, align 8
-  %1737 = call { ptr, ptr } @gen_object_matcher(ptr %1732, ptr %1733, ptr %1734, ptr %1736) #9
-  %1738 = extractvalue { ptr, ptr } %1737, 0
-  %1739 = extractvalue { ptr, ptr } %1737, 1
-  store ptr %1738, ptr %.sroa.0616, align 8
-  br label %2027
-
-1740:                                             ; preds = %135
-  %1741 = load i64, ptr %10, align 8
-  store i64 %1741, ptr %25, align 8
-  call void @yyerror(ptr noundef nonnull %25, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.22)
-  %1742 = load i64, ptr %.21175, align 8
-  store i64 %1742, ptr %.sroa.0616, align 8
+1722:                                             ; preds = %133
+  %.sroa.26.0.insert.ext1375 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1376 = shl nuw i64 %.sroa.26.0.insert.ext1375, 32
+  %.sroa.01249.0.insert.ext1283 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1285 = or disjoint i64 %.sroa.26.0.insert.shift1376, %.sroa.01249.0.insert.ext1283
+  store i64 %.sroa.01249.0.insert.insert1285, ptr %24, align 8
+  call void @yyerror(ptr noundef nonnull %24, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.22)
+  %1723 = load i64, ptr %.21175, align 8
+  store i64 %1723, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx649 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload650 = load ptr, ptr %.sroa.179.0..sroa_idx649, align 8
-  br label %2027
+  br label %2004
 
-1743:                                             ; preds = %135
-  %1744 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.23) #9
-  %1745 = extractvalue { i64, ptr } %1744, 0
-  %1746 = extractvalue { i64, ptr } %1744, 1
-  store i64 %1745, ptr %.sroa.0616, align 8
-  br label %2027
+1724:                                             ; preds = %133
+  %1725 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.23) #9
+  %1726 = extractvalue { i64, ptr } %1725, 0
+  %1727 = extractvalue { i64, ptr } %1725, 1
+  store i64 %1726, ptr %.sroa.0616, align 8
+  br label %2004
 
-1747:                                             ; preds = %135
-  %1748 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.24) #9
-  %1749 = extractvalue { i64, ptr } %1748, 0
-  %1750 = extractvalue { i64, ptr } %1748, 1
-  store i64 %1749, ptr %.sroa.0616, align 8
-  br label %2027
+1728:                                             ; preds = %133
+  %1729 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.24) #9
+  %1730 = extractvalue { i64, ptr } %1729, 0
+  %1731 = extractvalue { i64, ptr } %1729, 1
+  store i64 %1730, ptr %.sroa.0616, align 8
+  br label %2004
 
-1751:                                             ; preds = %135
-  %1752 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.25) #9
-  %1753 = extractvalue { i64, ptr } %1752, 0
-  %1754 = extractvalue { i64, ptr } %1752, 1
-  store i64 %1753, ptr %.sroa.0616, align 8
-  br label %2027
+1732:                                             ; preds = %133
+  %1733 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.25) #9
+  %1734 = extractvalue { i64, ptr } %1733, 0
+  %1735 = extractvalue { i64, ptr } %1733, 1
+  store i64 %1734, ptr %.sroa.0616, align 8
+  br label %2004
 
-1755:                                             ; preds = %135
-  %1756 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.26) #9
-  %1757 = extractvalue { i64, ptr } %1756, 0
-  %1758 = extractvalue { i64, ptr } %1756, 1
-  store i64 %1757, ptr %.sroa.0616, align 8
-  br label %2027
+1736:                                             ; preds = %133
+  %1737 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.26) #9
+  %1738 = extractvalue { i64, ptr } %1737, 0
+  %1739 = extractvalue { i64, ptr } %1737, 1
+  store i64 %1738, ptr %.sroa.0616, align 8
+  br label %2004
 
-1759:                                             ; preds = %135
-  %1760 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.27) #9
-  %1761 = extractvalue { i64, ptr } %1760, 0
-  %1762 = extractvalue { i64, ptr } %1760, 1
-  store i64 %1761, ptr %.sroa.0616, align 8
-  br label %2027
+1740:                                             ; preds = %133
+  %1741 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.27) #9
+  %1742 = extractvalue { i64, ptr } %1741, 0
+  %1743 = extractvalue { i64, ptr } %1741, 1
+  store i64 %1742, ptr %.sroa.0616, align 8
+  br label %2004
 
-1763:                                             ; preds = %135
-  %1764 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.28) #9
-  %1765 = extractvalue { i64, ptr } %1764, 0
-  %1766 = extractvalue { i64, ptr } %1764, 1
-  store i64 %1765, ptr %.sroa.0616, align 8
-  br label %2027
+1744:                                             ; preds = %133
+  %1745 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.28) #9
+  %1746 = extractvalue { i64, ptr } %1745, 0
+  %1747 = extractvalue { i64, ptr } %1745, 1
+  store i64 %1746, ptr %.sroa.0616, align 8
+  br label %2004
 
-1767:                                             ; preds = %135
-  %1768 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.29) #9
-  %1769 = extractvalue { i64, ptr } %1768, 0
-  %1770 = extractvalue { i64, ptr } %1768, 1
-  store i64 %1769, ptr %.sroa.0616, align 8
-  br label %2027
+1748:                                             ; preds = %133
+  %1749 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.29) #9
+  %1750 = extractvalue { i64, ptr } %1749, 0
+  %1751 = extractvalue { i64, ptr } %1749, 1
+  store i64 %1750, ptr %.sroa.0616, align 8
+  br label %2004
 
-1771:                                             ; preds = %135
-  %1772 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.30) #9
-  %1773 = extractvalue { i64, ptr } %1772, 0
-  %1774 = extractvalue { i64, ptr } %1772, 1
-  store i64 %1773, ptr %.sroa.0616, align 8
-  br label %2027
+1752:                                             ; preds = %133
+  %1753 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.30) #9
+  %1754 = extractvalue { i64, ptr } %1753, 0
+  %1755 = extractvalue { i64, ptr } %1753, 1
+  store i64 %1754, ptr %.sroa.0616, align 8
+  br label %2004
 
-1775:                                             ; preds = %135
-  %1776 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.31) #9
-  %1777 = extractvalue { i64, ptr } %1776, 0
-  %1778 = extractvalue { i64, ptr } %1776, 1
-  store i64 %1777, ptr %.sroa.0616, align 8
-  br label %2027
+1756:                                             ; preds = %133
+  %1757 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.31) #9
+  %1758 = extractvalue { i64, ptr } %1757, 0
+  %1759 = extractvalue { i64, ptr } %1757, 1
+  store i64 %1758, ptr %.sroa.0616, align 8
+  br label %2004
 
-1779:                                             ; preds = %135
-  %1780 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.32) #9
-  %1781 = extractvalue { i64, ptr } %1780, 0
-  %1782 = extractvalue { i64, ptr } %1780, 1
-  store i64 %1781, ptr %.sroa.0616, align 8
-  br label %2027
+1760:                                             ; preds = %133
+  %1761 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.32) #9
+  %1762 = extractvalue { i64, ptr } %1761, 0
+  %1763 = extractvalue { i64, ptr } %1761, 1
+  store i64 %1762, ptr %.sroa.0616, align 8
+  br label %2004
 
-1783:                                             ; preds = %135
-  %1784 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.33) #9
-  %1785 = extractvalue { i64, ptr } %1784, 0
-  %1786 = extractvalue { i64, ptr } %1784, 1
-  store i64 %1785, ptr %.sroa.0616, align 8
-  br label %2027
+1764:                                             ; preds = %133
+  %1765 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.33) #9
+  %1766 = extractvalue { i64, ptr } %1765, 0
+  %1767 = extractvalue { i64, ptr } %1765, 1
+  store i64 %1766, ptr %.sroa.0616, align 8
+  br label %2004
 
-1787:                                             ; preds = %135
-  %1788 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.34) #9
-  %1789 = extractvalue { i64, ptr } %1788, 0
-  %1790 = extractvalue { i64, ptr } %1788, 1
-  store i64 %1789, ptr %.sroa.0616, align 8
-  br label %2027
+1768:                                             ; preds = %133
+  %1769 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.34) #9
+  %1770 = extractvalue { i64, ptr } %1769, 0
+  %1771 = extractvalue { i64, ptr } %1769, 1
+  store i64 %1770, ptr %.sroa.0616, align 8
+  br label %2004
 
-1791:                                             ; preds = %135
-  %1792 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.35) #9
-  %1793 = extractvalue { i64, ptr } %1792, 0
-  %1794 = extractvalue { i64, ptr } %1792, 1
-  store i64 %1793, ptr %.sroa.0616, align 8
-  br label %2027
+1772:                                             ; preds = %133
+  %1773 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.35) #9
+  %1774 = extractvalue { i64, ptr } %1773, 0
+  %1775 = extractvalue { i64, ptr } %1773, 1
+  store i64 %1774, ptr %.sroa.0616, align 8
+  br label %2004
 
-1795:                                             ; preds = %135
-  %1796 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.36) #9
-  %1797 = extractvalue { i64, ptr } %1796, 0
-  %1798 = extractvalue { i64, ptr } %1796, 1
-  store i64 %1797, ptr %.sroa.0616, align 8
-  br label %2027
+1776:                                             ; preds = %133
+  %1777 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.36) #9
+  %1778 = extractvalue { i64, ptr } %1777, 0
+  %1779 = extractvalue { i64, ptr } %1777, 1
+  store i64 %1778, ptr %.sroa.0616, align 8
+  br label %2004
 
-1799:                                             ; preds = %135
-  %1800 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.37) #9
-  %1801 = extractvalue { i64, ptr } %1800, 0
-  %1802 = extractvalue { i64, ptr } %1800, 1
+1780:                                             ; preds = %133
+  %1781 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.37) #9
+  %1782 = extractvalue { i64, ptr } %1781, 0
+  %1783 = extractvalue { i64, ptr } %1781, 1
+  store i64 %1782, ptr %.sroa.0616, align 8
+  br label %2004
+
+1784:                                             ; preds = %133
+  %1785 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.38) #9
+  %1786 = extractvalue { i64, ptr } %1785, 0
+  %1787 = extractvalue { i64, ptr } %1785, 1
+  store i64 %1786, ptr %.sroa.0616, align 8
+  br label %2004
+
+1788:                                             ; preds = %133
+  %1789 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.39) #9
+  %1790 = extractvalue { i64, ptr } %1789, 0
+  %1791 = extractvalue { i64, ptr } %1789, 1
+  store i64 %1790, ptr %.sroa.0616, align 8
+  br label %2004
+
+1792:                                             ; preds = %133
+  %1793 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.40) #9
+  %1794 = extractvalue { i64, ptr } %1793, 0
+  %1795 = extractvalue { i64, ptr } %1793, 1
+  store i64 %1794, ptr %.sroa.0616, align 8
+  br label %2004
+
+1796:                                             ; preds = %133
+  %1797 = call { ptr, ptr } (...) @gen_noop() #9
+  %1798 = extractvalue { ptr, ptr } %1797, 0
+  %1799 = extractvalue { ptr, ptr } %1797, 1
+  store ptr %1798, ptr %.sroa.0616, align 8
+  br label %2004
+
+1800:                                             ; preds = %133
+  %1801 = load i64, ptr %.21175, align 8
   store i64 %1801, ptr %.sroa.0616, align 8
-  br label %2027
-
-1803:                                             ; preds = %135
-  %1804 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.38) #9
-  %1805 = extractvalue { i64, ptr } %1804, 0
-  %1806 = extractvalue { i64, ptr } %1804, 1
-  store i64 %1805, ptr %.sroa.0616, align 8
-  br label %2027
-
-1807:                                             ; preds = %135
-  %1808 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.39) #9
-  %1809 = extractvalue { i64, ptr } %1808, 0
-  %1810 = extractvalue { i64, ptr } %1808, 1
-  store i64 %1809, ptr %.sroa.0616, align 8
-  br label %2027
-
-1811:                                             ; preds = %135
-  %1812 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.40) #9
-  %1813 = extractvalue { i64, ptr } %1812, 0
-  %1814 = extractvalue { i64, ptr } %1812, 1
-  store i64 %1813, ptr %.sroa.0616, align 8
-  br label %2027
-
-1815:                                             ; preds = %135
-  %1816 = call { ptr, ptr } (...) @gen_noop() #9
-  %1817 = extractvalue { ptr, ptr } %1816, 0
-  %1818 = extractvalue { ptr, ptr } %1816, 1
-  store ptr %1817, ptr %.sroa.0616, align 8
-  br label %2027
-
-1819:                                             ; preds = %135
-  %1820 = load i64, ptr %.21175, align 8
-  store i64 %1820, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx651 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload652 = load ptr, ptr %.sroa.179.0..sroa_idx651, align 8
-  br label %2027
+  br label %2004
 
-1821:                                             ; preds = %135
-  %1822 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1823 = load ptr, ptr %1822, align 8
-  %1824 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1825 = load ptr, ptr %1824, align 8
-  %1826 = load ptr, ptr %.21175, align 8
-  %1827 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1828 = load ptr, ptr %1827, align 8
-  %1829 = call { ptr, ptr } @block_join(ptr %1823, ptr %1825, ptr %1826, ptr %1828) #9
-  %1830 = extractvalue { ptr, ptr } %1829, 0
-  %1831 = extractvalue { ptr, ptr } %1829, 1
-  store ptr %1830, ptr %.sroa.0616, align 8
-  br label %2027
+1802:                                             ; preds = %133
+  %1803 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1804 = load ptr, ptr %1803, align 8
+  %1805 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1806 = load ptr, ptr %1805, align 8
+  %1807 = load ptr, ptr %.21175, align 8
+  %1808 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1809 = load ptr, ptr %1808, align 8
+  %1810 = call { ptr, ptr } @block_join(ptr %1804, ptr %1806, ptr %1807, ptr %1809) #9
+  %1811 = extractvalue { ptr, ptr } %1810, 0
+  %1812 = extractvalue { ptr, ptr } %1810, 1
+  store ptr %1811, ptr %.sroa.0616, align 8
+  br label %2004
 
-1832:                                             ; preds = %135
-  %1833 = load i64, ptr %.21175, align 8
-  store i64 %1833, ptr %.sroa.0616, align 8
+1813:                                             ; preds = %133
+  %1814 = load i64, ptr %.21175, align 8
+  store i64 %1814, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx653 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload654 = load ptr, ptr %.sroa.179.0..sroa_idx653, align 8
-  br label %2027
+  br label %2004
 
-1834:                                             ; preds = %135
-  %1835 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1836 = load i64, ptr %1835, align 8
-  %1837 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1838 = load ptr, ptr %1837, align 8
-  %1839 = call { ptr, ptr } @gen_const(i64 %1836, ptr %1838) #9
-  %1840 = extractvalue { ptr, ptr } %1839, 0
-  %1841 = extractvalue { ptr, ptr } %1839, 1
-  %1842 = load ptr, ptr %.21175, align 8
-  %1843 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1844 = load ptr, ptr %1843, align 8
-  %1845 = call { ptr, ptr } @gen_dictpair(ptr %1840, ptr %1841, ptr %1842, ptr %1844) #9
-  %1846 = extractvalue { ptr, ptr } %1845, 0
-  %1847 = extractvalue { ptr, ptr } %1845, 1
-  store ptr %1846, ptr %.sroa.0616, align 8
-  br label %2027
+1815:                                             ; preds = %133
+  %1816 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1817 = load i64, ptr %1816, align 8
+  %1818 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1819 = load ptr, ptr %1818, align 8
+  %1820 = call { ptr, ptr } @gen_const(i64 %1817, ptr %1819) #9
+  %1821 = extractvalue { ptr, ptr } %1820, 0
+  %1822 = extractvalue { ptr, ptr } %1820, 1
+  %1823 = load ptr, ptr %.21175, align 8
+  %1824 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1825 = load ptr, ptr %1824, align 8
+  %1826 = call { ptr, ptr } @gen_dictpair(ptr %1821, ptr %1822, ptr %1823, ptr %1825) #9
+  %1827 = extractvalue { ptr, ptr } %1826, 0
+  %1828 = extractvalue { ptr, ptr } %1826, 1
+  store ptr %1827, ptr %.sroa.0616, align 8
+  br label %2004
 
-1848:                                             ; preds = %135
-  %1849 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1850 = load i64, ptr %1849, align 8
-  %1851 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1852 = load ptr, ptr %1851, align 8
-  %1853 = call { ptr, ptr } @gen_const(i64 %1850, ptr %1852) #9
-  %1854 = extractvalue { ptr, ptr } %1853, 0
-  %1855 = extractvalue { ptr, ptr } %1853, 1
-  %1856 = load ptr, ptr %.21175, align 8
-  %1857 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1858 = load ptr, ptr %1857, align 8
-  %1859 = call { ptr, ptr } @gen_dictpair(ptr %1854, ptr %1855, ptr %1856, ptr %1858) #9
-  %1860 = extractvalue { ptr, ptr } %1859, 0
-  %1861 = extractvalue { ptr, ptr } %1859, 1
-  store ptr %1860, ptr %.sroa.0616, align 8
-  br label %2027
+1829:                                             ; preds = %133
+  %1830 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1831 = load i64, ptr %1830, align 8
+  %1832 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1833 = load ptr, ptr %1832, align 8
+  %1834 = call { ptr, ptr } @gen_const(i64 %1831, ptr %1833) #9
+  %1835 = extractvalue { ptr, ptr } %1834, 0
+  %1836 = extractvalue { ptr, ptr } %1834, 1
+  %1837 = load ptr, ptr %.21175, align 8
+  %1838 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1839 = load ptr, ptr %1838, align 8
+  %1840 = call { ptr, ptr } @gen_dictpair(ptr %1835, ptr %1836, ptr %1837, ptr %1839) #9
+  %1841 = extractvalue { ptr, ptr } %1840, 0
+  %1842 = extractvalue { ptr, ptr } %1840, 1
+  store ptr %1841, ptr %.sroa.0616, align 8
+  br label %2004
 
-1862:                                             ; preds = %135
-  %1863 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1864 = load ptr, ptr %1863, align 8
-  %1865 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1866 = load ptr, ptr %1865, align 8
-  %1867 = load ptr, ptr %.21175, align 8
-  %1868 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1869 = load ptr, ptr %1868, align 8
-  %1870 = call { ptr, ptr } @gen_dictpair(ptr %1864, ptr %1866, ptr %1867, ptr %1869) #9
+1843:                                             ; preds = %133
+  %1844 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1845 = load ptr, ptr %1844, align 8
+  %1846 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1847 = load ptr, ptr %1846, align 8
+  %1848 = load ptr, ptr %.21175, align 8
+  %1849 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1850 = load ptr, ptr %1849, align 8
+  %1851 = call { ptr, ptr } @gen_dictpair(ptr %1845, ptr %1847, ptr %1848, ptr %1850) #9
+  %1852 = extractvalue { ptr, ptr } %1851, 0
+  %1853 = extractvalue { ptr, ptr } %1851, 1
+  store ptr %1852, ptr %.sroa.0616, align 8
+  br label %2004
+
+1854:                                             ; preds = %133
+  %1855 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
+  %1856 = extractvalue { ptr, ptr } %1855, 0
+  %1857 = extractvalue { ptr, ptr } %1855, 1
+  %1858 = call { ptr, ptr } @gen_op_simple(i32 noundef 3) #9
+  %1859 = extractvalue { ptr, ptr } %1858, 0
+  %1860 = extractvalue { ptr, ptr } %1858, 1
+  %1861 = call { ptr, ptr } @block_join(ptr %1856, ptr %1857, ptr %1859, ptr %1860) #9
+  %1862 = extractvalue { ptr, ptr } %1861, 0
+  %1863 = extractvalue { ptr, ptr } %1861, 1
+  %1864 = call { ptr, ptr } @gen_op_simple(i32 noundef 3) #9
+  %1865 = extractvalue { ptr, ptr } %1864, 0
+  %1866 = extractvalue { ptr, ptr } %1864, 1
+  %1867 = call { ptr, ptr } @block_join(ptr %1862, ptr %1863, ptr %1865, ptr %1866) #9
+  %1868 = extractvalue { ptr, ptr } %1867, 0
+  %1869 = extractvalue { ptr, ptr } %1867, 1
+  %1870 = call { ptr, ptr } @gen_op_simple(i32 noundef 10) #9
   %1871 = extractvalue { ptr, ptr } %1870, 0
   %1872 = extractvalue { ptr, ptr } %1870, 1
-  store ptr %1871, ptr %.sroa.0616, align 8
-  br label %2027
+  %1873 = call { ptr, ptr } @block_join(ptr %1868, ptr %1869, ptr %1871, ptr %1872) #9
+  %1874 = extractvalue { ptr, ptr } %1873, 0
+  %1875 = extractvalue { ptr, ptr } %1873, 1
+  %1876 = load ptr, ptr %.21175, align 8
+  %1877 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1878 = load ptr, ptr %1877, align 8
+  %1879 = call { ptr, ptr } @gen_dictpair(ptr %1876, ptr %1878, ptr %1874, ptr %1875) #9
+  %1880 = extractvalue { ptr, ptr } %1879, 0
+  %1881 = extractvalue { ptr, ptr } %1879, 1
+  store ptr %1880, ptr %.sroa.0616, align 8
+  br label %2004
 
-1873:                                             ; preds = %135
-  %1874 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
-  %1875 = extractvalue { ptr, ptr } %1874, 0
-  %1876 = extractvalue { ptr, ptr } %1874, 1
-  %1877 = call { ptr, ptr } @gen_op_simple(i32 noundef 3) #9
-  %1878 = extractvalue { ptr, ptr } %1877, 0
-  %1879 = extractvalue { ptr, ptr } %1877, 1
-  %1880 = call { ptr, ptr } @block_join(ptr %1875, ptr %1876, ptr %1878, ptr %1879) #9
-  %1881 = extractvalue { ptr, ptr } %1880, 0
-  %1882 = extractvalue { ptr, ptr } %1880, 1
-  %1883 = call { ptr, ptr } @gen_op_simple(i32 noundef 3) #9
-  %1884 = extractvalue { ptr, ptr } %1883, 0
-  %1885 = extractvalue { ptr, ptr } %1883, 1
-  %1886 = call { ptr, ptr } @block_join(ptr %1881, ptr %1882, ptr %1884, ptr %1885) #9
-  %1887 = extractvalue { ptr, ptr } %1886, 0
-  %1888 = extractvalue { ptr, ptr } %1886, 1
-  %1889 = call { ptr, ptr } @gen_op_simple(i32 noundef 10) #9
-  %1890 = extractvalue { ptr, ptr } %1889, 0
-  %1891 = extractvalue { ptr, ptr } %1889, 1
-  %1892 = call { ptr, ptr } @block_join(ptr %1887, ptr %1888, ptr %1890, ptr %1891) #9
-  %1893 = extractvalue { ptr, ptr } %1892, 0
-  %1894 = extractvalue { ptr, ptr } %1892, 1
-  %1895 = load ptr, ptr %.21175, align 8
-  %1896 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1897 = load ptr, ptr %1896, align 8
-  %1898 = call { ptr, ptr } @gen_dictpair(ptr %1895, ptr %1897, ptr %1893, ptr %1894) #9
-  %1899 = extractvalue { ptr, ptr } %1898, 0
-  %1900 = extractvalue { ptr, ptr } %1898, 1
-  store ptr %1899, ptr %.sroa.0616, align 8
-  br label %2027
+1882:                                             ; preds = %133
+  %1883 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1884 = load i64, ptr %1883, align 8
+  %1885 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1886 = load ptr, ptr %1885, align 8
+  %1887 = call ptr @jv_string_value(i64 %1884, ptr %1886) #9
+  %1888 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %1887) #9
+  %1889 = extractvalue { ptr, ptr } %1888, 0
+  %1890 = extractvalue { ptr, ptr } %1888, 1
+  %.sroa.26.0.insert.ext1355 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1356 = shl nuw i64 %.sroa.26.0.insert.ext1355, 32
+  %.sroa.01249.0.insert.ext1267 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1269 = or disjoint i64 %.sroa.26.0.insert.shift1356, %.sroa.01249.0.insert.ext1267
+  %1891 = call { ptr, ptr } @gen_location(i64 %.sroa.01249.0.insert.insert1269, ptr noundef %2, ptr %1889, ptr %1890) #9
+  %1892 = extractvalue { ptr, ptr } %1891, 0
+  %1893 = extractvalue { ptr, ptr } %1891, 1
+  %1894 = load ptr, ptr %.21175, align 8
+  %1895 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1896 = load ptr, ptr %1895, align 8
+  %1897 = call { ptr, ptr } @gen_dictpair(ptr %1892, ptr %1893, ptr %1894, ptr %1896) #9
+  %1898 = extractvalue { ptr, ptr } %1897, 0
+  %1899 = extractvalue { ptr, ptr } %1897, 1
+  store ptr %1898, ptr %.sroa.0616, align 8
+  %1900 = load i64, ptr %1883, align 8
+  %1901 = load ptr, ptr %1885, align 8
+  call void @jv_free(i64 %1900, ptr %1901) #9
+  br label %2004
 
-1901:                                             ; preds = %135
-  %1902 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1903 = load i64, ptr %1902, align 8
-  %1904 = getelementptr inbounds i8, ptr %.21175, i64 -24
+1902:                                             ; preds = %133
+  %1903 = load i64, ptr %.21175, align 8
+  %1904 = getelementptr inbounds i8, ptr %.21175, i64 8
   %1905 = load ptr, ptr %1904, align 8
-  %1906 = call ptr @jv_string_value(i64 %1903, ptr %1905) #9
-  %1907 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %1906) #9
-  %1908 = extractvalue { ptr, ptr } %1907, 0
-  %1909 = extractvalue { ptr, ptr } %1907, 1
-  %1910 = load i64, ptr %10, align 8
-  %1911 = call { ptr, ptr } @gen_location(i64 %1910, ptr noundef %2, ptr %1908, ptr %1909) #9
-  %1912 = extractvalue { ptr, ptr } %1911, 0
-  %1913 = extractvalue { ptr, ptr } %1911, 1
-  %1914 = load ptr, ptr %.21175, align 8
-  %1915 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1916 = load ptr, ptr %1915, align 8
-  %1917 = call { ptr, ptr } @gen_dictpair(ptr %1912, ptr %1913, ptr %1914, ptr %1916) #9
-  %1918 = extractvalue { ptr, ptr } %1917, 0
-  %1919 = extractvalue { ptr, ptr } %1917, 1
-  store ptr %1918, ptr %.sroa.0616, align 8
-  %1920 = load i64, ptr %1902, align 8
-  %1921 = load ptr, ptr %1904, align 8
-  call void @jv_free(i64 %1920, ptr %1921) #9
-  br label %2027
+  %1906 = call { ptr, ptr } @gen_const(i64 %1903, ptr %1905) #9
+  %1907 = extractvalue { ptr, ptr } %1906, 0
+  %1908 = extractvalue { ptr, ptr } %1906, 1
+  %1909 = load i64, ptr %.21175, align 8
+  %1910 = load ptr, ptr %1904, align 8
+  %1911 = call ptr @jv_string_value(i64 %1909, ptr %1910) #9
+  %1912 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %1911) #9
+  %1913 = extractvalue { ptr, ptr } %1912, 0
+  %1914 = extractvalue { ptr, ptr } %1912, 1
+  %.sroa.26.0.insert.ext1360 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1361 = shl nuw i64 %.sroa.26.0.insert.ext1360, 32
+  %.sroa.01249.0.insert.ext1271 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1273 = or disjoint i64 %.sroa.26.0.insert.shift1361, %.sroa.01249.0.insert.ext1271
+  %1915 = call { ptr, ptr } @gen_location(i64 %.sroa.01249.0.insert.insert1273, ptr noundef %2, ptr %1913, ptr %1914) #9
+  %1916 = extractvalue { ptr, ptr } %1915, 0
+  %1917 = extractvalue { ptr, ptr } %1915, 1
+  %1918 = call { ptr, ptr } @gen_dictpair(ptr %1907, ptr %1908, ptr %1916, ptr %1917) #9
+  %1919 = extractvalue { ptr, ptr } %1918, 0
+  %1920 = extractvalue { ptr, ptr } %1918, 1
+  store ptr %1919, ptr %.sroa.0616, align 8
+  br label %2004
 
-1922:                                             ; preds = %135
-  %1923 = load i64, ptr %.21175, align 8
-  %1924 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1925 = load ptr, ptr %1924, align 8
-  %1926 = call { ptr, ptr } @gen_const(i64 %1923, ptr %1925) #9
-  %1927 = extractvalue { ptr, ptr } %1926, 0
-  %1928 = extractvalue { ptr, ptr } %1926, 1
-  %1929 = load i64, ptr %.21175, align 8
-  %1930 = load ptr, ptr %1924, align 8
-  %1931 = call ptr @jv_string_value(i64 %1929, ptr %1930) #9
-  %1932 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %1931) #9
-  %1933 = extractvalue { ptr, ptr } %1932, 0
-  %1934 = extractvalue { ptr, ptr } %1932, 1
-  %1935 = load i64, ptr %10, align 8
-  %1936 = call { ptr, ptr } @gen_location(i64 %1935, ptr noundef %2, ptr %1933, ptr %1934) #9
+1921:                                             ; preds = %133
+  %1922 = load i64, ptr %.21175, align 8
+  %1923 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1924 = load ptr, ptr %1923, align 8
+  %1925 = call { i64, ptr } @jv_copy(i64 %1922, ptr %1924) #9
+  %1926 = extractvalue { i64, ptr } %1925, 0
+  %1927 = extractvalue { i64, ptr } %1925, 1
+  %1928 = call { ptr, ptr } @gen_const(i64 %1926, ptr %1927) #9
+  %1929 = extractvalue { ptr, ptr } %1928, 0
+  %1930 = extractvalue { ptr, ptr } %1928, 1
+  %1931 = call { ptr, ptr } (...) @gen_noop() #9
+  %1932 = extractvalue { ptr, ptr } %1931, 0
+  %1933 = extractvalue { ptr, ptr } %1931, 1
+  %1934 = load i64, ptr %.21175, align 8
+  %1935 = load ptr, ptr %1923, align 8
+  %1936 = call { ptr, ptr } @gen_const(i64 %1934, ptr %1935) #9
   %1937 = extractvalue { ptr, ptr } %1936, 0
   %1938 = extractvalue { ptr, ptr } %1936, 1
-  %1939 = call { ptr, ptr } @gen_dictpair(ptr %1927, ptr %1928, ptr %1937, ptr %1938) #9
+  %1939 = call fastcc { ptr, ptr } @gen_index(ptr %1932, ptr %1933, ptr %1937, ptr %1938)
   %1940 = extractvalue { ptr, ptr } %1939, 0
   %1941 = extractvalue { ptr, ptr } %1939, 1
-  store ptr %1940, ptr %.sroa.0616, align 8
-  br label %2027
+  %1942 = call { ptr, ptr } @gen_dictpair(ptr %1929, ptr %1930, ptr %1940, ptr %1941) #9
+  %1943 = extractvalue { ptr, ptr } %1942, 0
+  %1944 = extractvalue { ptr, ptr } %1942, 1
+  store ptr %1943, ptr %.sroa.0616, align 8
+  br label %2004
 
-1942:                                             ; preds = %135
-  %1943 = load i64, ptr %.21175, align 8
-  %1944 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1945 = load ptr, ptr %1944, align 8
-  %1946 = call { i64, ptr } @jv_copy(i64 %1943, ptr %1945) #9
+1945:                                             ; preds = %133
+  %1946 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.41) #9
   %1947 = extractvalue { i64, ptr } %1946, 0
   %1948 = extractvalue { i64, ptr } %1946, 1
   %1949 = call { ptr, ptr } @gen_const(i64 %1947, ptr %1948) #9
   %1950 = extractvalue { ptr, ptr } %1949, 0
   %1951 = extractvalue { ptr, ptr } %1949, 1
-  %1952 = call { ptr, ptr } (...) @gen_noop() #9
+  %1952 = call fastcc { ptr, ptr } @gen_loc_object(i32 %.sroa.01249.0, ptr noundef %2)
   %1953 = extractvalue { ptr, ptr } %1952, 0
   %1954 = extractvalue { ptr, ptr } %1952, 1
-  %1955 = load i64, ptr %.21175, align 8
-  %1956 = load ptr, ptr %1944, align 8
-  %1957 = call { ptr, ptr } @gen_const(i64 %1955, ptr %1956) #9
-  %1958 = extractvalue { ptr, ptr } %1957, 0
-  %1959 = extractvalue { ptr, ptr } %1957, 1
-  %1960 = call fastcc { ptr, ptr } @gen_index(ptr %1953, ptr %1954, ptr %1958, ptr %1959)
-  %1961 = extractvalue { ptr, ptr } %1960, 0
-  %1962 = extractvalue { ptr, ptr } %1960, 1
-  %1963 = call { ptr, ptr } @gen_dictpair(ptr %1950, ptr %1951, ptr %1961, ptr %1962) #9
-  %1964 = extractvalue { ptr, ptr } %1963, 0
-  %1965 = extractvalue { ptr, ptr } %1963, 1
-  store ptr %1964, ptr %.sroa.0616, align 8
-  br label %2027
+  %1955 = call { ptr, ptr } @gen_dictpair(ptr %1950, ptr %1951, ptr %1953, ptr %1954) #9
+  %1956 = extractvalue { ptr, ptr } %1955, 0
+  %1957 = extractvalue { ptr, ptr } %1955, 1
+  store ptr %1956, ptr %.sroa.0616, align 8
+  br label %2004
 
-1966:                                             ; preds = %135
-  %1967 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.41) #9
-  %1968 = extractvalue { i64, ptr } %1967, 0
-  %1969 = extractvalue { i64, ptr } %1967, 1
-  %1970 = call { ptr, ptr } @gen_const(i64 %1968, ptr %1969) #9
-  %1971 = extractvalue { ptr, ptr } %1970, 0
-  %1972 = extractvalue { ptr, ptr } %1970, 1
-  %1973 = call fastcc { ptr, ptr } @gen_loc_object(ptr noundef %10, ptr noundef %2)
+1958:                                             ; preds = %133
+  %1959 = load i64, ptr %.21175, align 8
+  %1960 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1961 = load ptr, ptr %1960, align 8
+  %1962 = call { i64, ptr } @jv_copy(i64 %1959, ptr %1961) #9
+  %1963 = extractvalue { i64, ptr } %1962, 0
+  %1964 = extractvalue { i64, ptr } %1962, 1
+  %1965 = call { ptr, ptr } @gen_const(i64 %1963, ptr %1964) #9
+  %1966 = extractvalue { ptr, ptr } %1965, 0
+  %1967 = extractvalue { ptr, ptr } %1965, 1
+  %1968 = call { ptr, ptr } (...) @gen_noop() #9
+  %1969 = extractvalue { ptr, ptr } %1968, 0
+  %1970 = extractvalue { ptr, ptr } %1968, 1
+  %1971 = load i64, ptr %.21175, align 8
+  %1972 = load ptr, ptr %1960, align 8
+  %1973 = call { ptr, ptr } @gen_const(i64 %1971, ptr %1972) #9
   %1974 = extractvalue { ptr, ptr } %1973, 0
   %1975 = extractvalue { ptr, ptr } %1973, 1
-  %1976 = call { ptr, ptr } @gen_dictpair(ptr %1971, ptr %1972, ptr %1974, ptr %1975) #9
+  %1976 = call fastcc { ptr, ptr } @gen_index(ptr %1969, ptr %1970, ptr %1974, ptr %1975)
   %1977 = extractvalue { ptr, ptr } %1976, 0
   %1978 = extractvalue { ptr, ptr } %1976, 1
-  store ptr %1977, ptr %.sroa.0616, align 8
-  br label %2027
+  %1979 = call { ptr, ptr } @gen_dictpair(ptr %1966, ptr %1967, ptr %1977, ptr %1978) #9
+  %1980 = extractvalue { ptr, ptr } %1979, 0
+  %1981 = extractvalue { ptr, ptr } %1979, 1
+  store ptr %1980, ptr %.sroa.0616, align 8
+  br label %2004
 
-1979:                                             ; preds = %135
-  %1980 = load i64, ptr %.21175, align 8
-  %1981 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1982 = load ptr, ptr %1981, align 8
-  %1983 = call { i64, ptr } @jv_copy(i64 %1980, ptr %1982) #9
-  %1984 = extractvalue { i64, ptr } %1983, 0
-  %1985 = extractvalue { i64, ptr } %1983, 1
-  %1986 = call { ptr, ptr } @gen_const(i64 %1984, ptr %1985) #9
-  %1987 = extractvalue { ptr, ptr } %1986, 0
-  %1988 = extractvalue { ptr, ptr } %1986, 1
-  %1989 = call { ptr, ptr } (...) @gen_noop() #9
-  %1990 = extractvalue { ptr, ptr } %1989, 0
-  %1991 = extractvalue { ptr, ptr } %1989, 1
-  %1992 = load i64, ptr %.21175, align 8
-  %1993 = load ptr, ptr %1981, align 8
-  %1994 = call { ptr, ptr } @gen_const(i64 %1992, ptr %1993) #9
-  %1995 = extractvalue { ptr, ptr } %1994, 0
-  %1996 = extractvalue { ptr, ptr } %1994, 1
-  %1997 = call fastcc { ptr, ptr } @gen_index(ptr %1990, ptr %1991, ptr %1995, ptr %1996)
-  %1998 = extractvalue { ptr, ptr } %1997, 0
-  %1999 = extractvalue { ptr, ptr } %1997, 1
-  %2000 = call { ptr, ptr } @gen_dictpair(ptr %1987, ptr %1988, ptr %1998, ptr %1999) #9
-  %2001 = extractvalue { ptr, ptr } %2000, 0
-  %2002 = extractvalue { ptr, ptr } %2000, 1
-  store ptr %2001, ptr %.sroa.0616, align 8
-  br label %2027
+1982:                                             ; preds = %133
+  %1983 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %1984 = load ptr, ptr %1983, align 8
+  %1985 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %1986 = load ptr, ptr %1985, align 8
+  %1987 = call fastcc { i64, ptr } @check_object_key(ptr %1984, ptr %1986)
+  %1988 = extractvalue { i64, ptr } %1987, 0
+  %1989 = extractvalue { i64, ptr } %1987, 1
+  %1990 = call i32 @jv_get_kind(i64 %1988, ptr %1989) #9
+  %.not1496 = icmp eq i32 %1990, 0
+  br i1 %.not1496, label %1993, label %1991
 
-2003:                                             ; preds = %135
-  %2004 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %2005 = load ptr, ptr %2004, align 8
-  %2006 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %2007 = load ptr, ptr %2006, align 8
-  %2008 = call fastcc { i64, ptr } @check_object_key(ptr %2005, ptr %2007)
-  %2009 = extractvalue { i64, ptr } %2008, 0
-  %2010 = extractvalue { i64, ptr } %2008, 1
-  %2011 = call i32 @jv_get_kind(i64 %2009, ptr %2010) #9
-  %.not1304 = icmp eq i32 %2011, 0
-  br i1 %.not1304, label %2015, label %2012
+1991:                                             ; preds = %1982
+  %.sroa.26.0.insert.ext1370 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1371 = shl nuw i64 %.sroa.26.0.insert.ext1370, 32
+  %.sroa.01249.0.insert.ext1279 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1281 = or disjoint i64 %.sroa.26.0.insert.shift1371, %.sroa.01249.0.insert.ext1279
+  store i64 %.sroa.01249.0.insert.insert1281, ptr %25, align 8
+  %1992 = call ptr @jv_string_value(i64 %1988, ptr %1989) #9
+  call void @yyerror(ptr noundef nonnull %25, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef %1992)
+  br label %1993
 
-2012:                                             ; preds = %2003
-  %2013 = load i64, ptr %10, align 8
-  store i64 %2013, ptr %26, align 8
-  %2014 = call ptr @jv_string_value(i64 %2009, ptr %2010) #9
-  call void @yyerror(ptr noundef nonnull %26, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef %2014)
-  br label %2015
+1993:                                             ; preds = %1991, %1982
+  call void @jv_free(i64 %1988, ptr %1989) #9
+  %1994 = load ptr, ptr %1983, align 8
+  %1995 = load ptr, ptr %1985, align 8
+  %1996 = load ptr, ptr %.21175, align 8
+  %1997 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1998 = load ptr, ptr %1997, align 8
+  %1999 = call { ptr, ptr } @gen_dictpair(ptr %1994, ptr %1995, ptr %1996, ptr %1998) #9
+  %2000 = extractvalue { ptr, ptr } %1999, 0
+  %2001 = extractvalue { ptr, ptr } %1999, 1
+  store ptr %2000, ptr %.sroa.0616, align 8
+  br label %2004
 
-2015:                                             ; preds = %2012, %2003
-  call void @jv_free(i64 %2009, ptr %2010) #9
-  %2016 = load ptr, ptr %2004, align 8
-  %2017 = load ptr, ptr %2006, align 8
-  %2018 = load ptr, ptr %.21175, align 8
-  %2019 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %2020 = load ptr, ptr %2019, align 8
-  %2021 = call { ptr, ptr } @gen_dictpair(ptr %2016, ptr %2017, ptr %2018, ptr %2020) #9
-  %2022 = extractvalue { ptr, ptr } %2021, 0
-  %2023 = extractvalue { ptr, ptr } %2021, 1
-  store ptr %2022, ptr %.sroa.0616, align 8
-  br label %2027
-
-2024:                                             ; preds = %135
-  %2025 = load i64, ptr %10, align 8
-  store i64 %2025, ptr %27, align 8
-  call void @yyerror(ptr noundef nonnull %27, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.22)
-  %2026 = load i64, ptr %.21175, align 8
-  store i64 %2026, ptr %.sroa.0616, align 8
+2002:                                             ; preds = %133
+  %.sroa.26.0.insert.ext1365 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1366 = shl nuw i64 %.sroa.26.0.insert.ext1365, 32
+  %.sroa.01249.0.insert.ext1275 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1277 = or disjoint i64 %.sroa.26.0.insert.shift1366, %.sroa.01249.0.insert.ext1275
+  store i64 %.sroa.01249.0.insert.insert1277, ptr %26, align 8
+  call void @yyerror(ptr noundef nonnull %26, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.22)
+  %2003 = load i64, ptr %.21175, align 8
+  store i64 %2003, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx655 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload656 = load ptr, ptr %.sroa.179.0..sroa_idx655, align 8
-  br label %2027
+  br label %2004
 
-2027:                                             ; preds = %135, %1384, %1386, %800, %810, %706, %732, %721, %188, %206, %199, %2024, %2015, %1979, %1966, %1942, %1922, %1901, %1873, %1862, %1848, %1834, %1832, %1821, %1819, %1815, %1811, %1807, %1803, %1799, %1795, %1791, %1787, %1783, %1779, %1775, %1771, %1767, %1763, %1759, %1755, %1751, %1747, %1743, %1740, %1731, %1708, %1694, %1680, %1651, %1635, %1624, %1622, %1611, %1601, %1590, %1579, %1569, %1567, %1556, %1549, %1535, %1528, %1517, %1515, %1511, %1508, %1504, %1500, %1480, %1476, %1435, %1421, %1407, %1370, %1362, %1359, %1349, %1347, %1340, %1322, %1304, %1288, %1270, %1252, %1236, %1225, %1214, %1203, %1192, %1180, %1168, %1156, %1144, %1135, %1130, %1120, %1109, %1096, %1082, %1071, %1059, %1045, %1030, %1025, %998, %991, %987, %985, %972, %961, %957, %954, %939, %917, %903, %896, %889, %885, %882, %872, %862, %851, %849, %830, %812, %782, %762, %742, %697, %695, %684, %673, %662, %651, %640, %629, %618, %607, %596, %585, %574, %563, %552, %541, %528, %517, %506, %495, %484, %464, %453, %442, %431, %420, %400, %389, %367, %363, %353, %342, %338, %323, %303, %285, %268, %253, %242, %231, %227, %216, %212, %178, %160, %136
-  %.sroa.179.0 = phi ptr [ %.sroa.179.0.copyload, %135 ], [ %.sroa.179.0.copyload656, %2024 ], [ %2023, %2015 ], [ %2002, %1979 ], [ %1978, %1966 ], [ %1965, %1942 ], [ %1941, %1922 ], [ %1919, %1901 ], [ %1900, %1873 ], [ %1872, %1862 ], [ %1861, %1848 ], [ %1847, %1834 ], [ %.sroa.179.0.copyload654, %1832 ], [ %1831, %1821 ], [ %.sroa.179.0.copyload652, %1819 ], [ %1818, %1815 ], [ %1814, %1811 ], [ %1810, %1807 ], [ %1806, %1803 ], [ %1802, %1799 ], [ %1798, %1795 ], [ %1794, %1791 ], [ %1790, %1787 ], [ %1786, %1783 ], [ %1782, %1779 ], [ %1778, %1775 ], [ %1774, %1771 ], [ %1770, %1767 ], [ %1766, %1763 ], [ %1762, %1759 ], [ %1758, %1755 ], [ %1754, %1751 ], [ %1750, %1747 ], [ %1746, %1743 ], [ %.sroa.179.0.copyload650, %1740 ], [ %1739, %1731 ], [ %1718, %1708 ], [ %1707, %1694 ], [ %1693, %1680 ], [ %1679, %1651 ], [ %1650, %1635 ], [ %1634, %1624 ], [ %.sroa.179.0.copyload648, %1622 ], [ %1621, %1611 ], [ %1610, %1601 ], [ %1600, %1590 ], [ %1589, %1579 ], [ %1576, %1569 ], [ %.sroa.179.0.copyload646, %1567 ], [ %1566, %1556 ], [ %1555, %1549 ], [ %1548, %1535 ], [ %1534, %1528 ], [ %1527, %1517 ], [ %.sroa.179.0.copyload644, %1515 ], [ %1514, %1511 ], [ %.sroa.179.0.copyload642, %1508 ], [ %1507, %1504 ], [ %1503, %1500 ], [ %1497, %1480 ], [ %.sroa.179.1, %1476 ], [ %1438, %1435 ], [ %1432, %1421 ], [ %1418, %1407 ], [ %1385, %1384 ], [ %1406, %1386 ], [ %1376, %1370 ], [ %1369, %1362 ], [ %.sroa.179.0.copyload640, %1359 ], [ %1358, %1349 ], [ %.sroa.179.0.copyload638, %1347 ], [ %1346, %1340 ], [ %1339, %1322 ], [ %1321, %1304 ], [ %1303, %1288 ], [ %1287, %1270 ], [ %1269, %1252 ], [ %1251, %1236 ], [ %1235, %1225 ], [ %1224, %1214 ], [ %1213, %1203 ], [ %1202, %1192 ], [ %1191, %1180 ], [ %1179, %1168 ], [ %1167, %1156 ], [ %1155, %1144 ], [ %1143, %1135 ], [ %1134, %1130 ], [ %1129, %1120 ], [ %1119, %1109 ], [ %1108, %1096 ], [ %1095, %1082 ], [ %1081, %1071 ], [ %1070, %1059 ], [ %1058, %1045 ], [ %1044, %1030 ], [ %1029, %1025 ], [ %1022, %998 ], [ %997, %991 ], [ %990, %987 ], [ %.sroa.179.0.copyload636, %985 ], [ %984, %972 ], [ %971, %961 ], [ %960, %957 ], [ %.sroa.179.0.copyload634, %954 ], [ %953, %939 ], [ %938, %917 ], [ %916, %903 ], [ %902, %896 ], [ %.sroa.179.0.copyload632, %889 ], [ %888, %885 ], [ %.sroa.179.0.copyload630, %882 ], [ %879, %872 ], [ %869, %862 ], [ %861, %851 ], [ %.sroa.179.0.copyload628, %849 ], [ %846, %830 ], [ %827, %812 ], [ %.sroa.179.0.copyload626, %810 ], [ %807, %800 ], [ %792, %782 ], [ %777, %762 ], [ %757, %742 ], [ %725, %721 ], [ %741, %732 ], [ %710, %706 ], [ %.sroa.179.0.copyload624, %697 ], [ %.sroa.179.0.copyload622, %695 ], [ %694, %684 ], [ %683, %673 ], [ %672, %662 ], [ %661, %651 ], [ %650, %640 ], [ %639, %629 ], [ %628, %618 ], [ %617, %607 ], [ %606, %596 ], [ %595, %585 ], [ %584, %574 ], [ %573, %563 ], [ %562, %552 ], [ %551, %541 ], [ %540, %528 ], [ %527, %517 ], [ %516, %506 ], [ %505, %495 ], [ %494, %484 ], [ %483, %464 ], [ %463, %453 ], [ %452, %442 ], [ %441, %431 ], [ %430, %420 ], [ %419, %400 ], [ %399, %389 ], [ %386, %367 ], [ %.sroa.179.0.copyload620, %363 ], [ %362, %353 ], [ %352, %342 ], [ %.sroa.179.0.copyload618, %338 ], [ %337, %323 ], [ %322, %303 ], [ %302, %285 ], [ %284, %268 ], [ %267, %253 ], [ %252, %242 ], [ %241, %231 ], [ %230, %227 ], [ %226, %216 ], [ %215, %212 ], [ %203, %199 ], [ %211, %206 ], [ %192, %188 ], [ %181, %178 ], [ %.sroa.179.0.copyload, %160 ], [ %.sroa.179.0.copyload, %136 ]
-  %2028 = sub nsw i64 0, %121
-  %2029 = getelementptr inbounds %union.YYSTYPE, ptr %.21175, i64 %2028
-  %2030 = getelementptr inbounds i16, ptr %.21165, i64 %2028
-  %2031 = getelementptr inbounds %struct.location, ptr %.21185, i64 %2028
-  %2032 = getelementptr inbounds i8, ptr %2029, i64 16
+2004:                                             ; preds = %133, %1370, %1372, %791, %800, %699, %723, %713, %186, %202, %196, %2002, %1993, %1958, %1945, %1921, %1902, %1882, %1854, %1843, %1829, %1815, %1813, %1802, %1800, %1796, %1792, %1788, %1784, %1780, %1776, %1772, %1768, %1764, %1760, %1756, %1752, %1748, %1744, %1740, %1736, %1732, %1728, %1724, %1722, %1713, %1691, %1677, %1663, %1634, %1618, %1607, %1605, %1594, %1584, %1573, %1562, %1552, %1550, %1539, %1532, %1518, %1511, %1500, %1498, %1494, %1491, %1487, %1483, %1463, %1459, %1419, %1406, %1393, %1356, %1348, %1345, %1335, %1333, %1326, %1308, %1290, %1274, %1256, %1238, %1222, %1211, %1200, %1189, %1178, %1166, %1154, %1142, %1130, %1122, %1118, %1108, %1097, %1084, %1070, %1059, %1047, %1033, %1018, %1014, %988, %981, %977, %975, %962, %951, %947, %944, %929, %907, %893, %886, %879, %875, %872, %862, %852, %841, %839, %820, %802, %773, %753, %733, %690, %688, %677, %666, %655, %644, %633, %622, %611, %600, %589, %578, %567, %556, %545, %534, %521, %510, %499, %488, %477, %457, %446, %435, %424, %413, %393, %382, %361, %358, %348, %337, %334, %319, %299, %281, %264, %249, %238, %227, %223, %212, %208, %176, %158, %134
+  %.sroa.179.0 = phi ptr [ %.sroa.179.0.copyload, %133 ], [ %.sroa.179.0.copyload656, %2002 ], [ %2001, %1993 ], [ %1981, %1958 ], [ %1957, %1945 ], [ %1944, %1921 ], [ %1920, %1902 ], [ %1899, %1882 ], [ %1881, %1854 ], [ %1853, %1843 ], [ %1842, %1829 ], [ %1828, %1815 ], [ %.sroa.179.0.copyload654, %1813 ], [ %1812, %1802 ], [ %.sroa.179.0.copyload652, %1800 ], [ %1799, %1796 ], [ %1795, %1792 ], [ %1791, %1788 ], [ %1787, %1784 ], [ %1783, %1780 ], [ %1779, %1776 ], [ %1775, %1772 ], [ %1771, %1768 ], [ %1767, %1764 ], [ %1763, %1760 ], [ %1759, %1756 ], [ %1755, %1752 ], [ %1751, %1748 ], [ %1747, %1744 ], [ %1743, %1740 ], [ %1739, %1736 ], [ %1735, %1732 ], [ %1731, %1728 ], [ %1727, %1724 ], [ %.sroa.179.0.copyload650, %1722 ], [ %1721, %1713 ], [ %1701, %1691 ], [ %1690, %1677 ], [ %1676, %1663 ], [ %1662, %1634 ], [ %1633, %1618 ], [ %1617, %1607 ], [ %.sroa.179.0.copyload648, %1605 ], [ %1604, %1594 ], [ %1593, %1584 ], [ %1583, %1573 ], [ %1572, %1562 ], [ %1559, %1552 ], [ %.sroa.179.0.copyload646, %1550 ], [ %1549, %1539 ], [ %1538, %1532 ], [ %1531, %1518 ], [ %1517, %1511 ], [ %1510, %1500 ], [ %.sroa.179.0.copyload644, %1498 ], [ %1497, %1494 ], [ %.sroa.179.0.copyload642, %1491 ], [ %1490, %1487 ], [ %1486, %1483 ], [ %1480, %1463 ], [ %.sroa.179.1, %1459 ], [ %1422, %1419 ], [ %1416, %1406 ], [ %1403, %1393 ], [ %1371, %1370 ], [ %1392, %1372 ], [ %1362, %1356 ], [ %1355, %1348 ], [ %.sroa.179.0.copyload640, %1345 ], [ %1344, %1335 ], [ %.sroa.179.0.copyload638, %1333 ], [ %1332, %1326 ], [ %1325, %1308 ], [ %1307, %1290 ], [ %1289, %1274 ], [ %1273, %1256 ], [ %1255, %1238 ], [ %1237, %1222 ], [ %1221, %1211 ], [ %1210, %1200 ], [ %1199, %1189 ], [ %1188, %1178 ], [ %1177, %1166 ], [ %1165, %1154 ], [ %1153, %1142 ], [ %1141, %1130 ], [ %1129, %1122 ], [ %1121, %1118 ], [ %1117, %1108 ], [ %1107, %1097 ], [ %1096, %1084 ], [ %1083, %1070 ], [ %1069, %1059 ], [ %1058, %1047 ], [ %1046, %1033 ], [ %1032, %1018 ], [ %1017, %1014 ], [ %1011, %988 ], [ %987, %981 ], [ %980, %977 ], [ %.sroa.179.0.copyload636, %975 ], [ %974, %962 ], [ %961, %951 ], [ %950, %947 ], [ %.sroa.179.0.copyload634, %944 ], [ %943, %929 ], [ %928, %907 ], [ %906, %893 ], [ %892, %886 ], [ %.sroa.179.0.copyload632, %879 ], [ %878, %875 ], [ %.sroa.179.0.copyload630, %872 ], [ %869, %862 ], [ %859, %852 ], [ %851, %841 ], [ %.sroa.179.0.copyload628, %839 ], [ %836, %820 ], [ %817, %802 ], [ %.sroa.179.0.copyload626, %800 ], [ %797, %791 ], [ %783, %773 ], [ %768, %753 ], [ %748, %733 ], [ %716, %713 ], [ %732, %723 ], [ %702, %699 ], [ %.sroa.179.0.copyload624, %690 ], [ %.sroa.179.0.copyload622, %688 ], [ %687, %677 ], [ %676, %666 ], [ %665, %655 ], [ %654, %644 ], [ %643, %633 ], [ %632, %622 ], [ %621, %611 ], [ %610, %600 ], [ %599, %589 ], [ %588, %578 ], [ %577, %567 ], [ %566, %556 ], [ %555, %545 ], [ %544, %534 ], [ %533, %521 ], [ %520, %510 ], [ %509, %499 ], [ %498, %488 ], [ %487, %477 ], [ %476, %457 ], [ %456, %446 ], [ %445, %435 ], [ %434, %424 ], [ %423, %413 ], [ %412, %393 ], [ %392, %382 ], [ %379, %361 ], [ %.sroa.179.0.copyload620, %358 ], [ %357, %348 ], [ %347, %337 ], [ %.sroa.179.0.copyload618, %334 ], [ %333, %319 ], [ %318, %299 ], [ %298, %281 ], [ %280, %264 ], [ %263, %249 ], [ %248, %238 ], [ %237, %227 ], [ %226, %223 ], [ %222, %212 ], [ %211, %208 ], [ %199, %196 ], [ %207, %202 ], [ %189, %186 ], [ %179, %176 ], [ %.sroa.179.0.copyload, %158 ], [ %.sroa.179.0.copyload, %134 ]
+  %2005 = sub nsw i64 0, %119
+  %2006 = getelementptr inbounds %union.YYSTYPE, ptr %.21175, i64 %2005
+  %2007 = getelementptr inbounds i16, ptr %.21165, i64 %2005
+  %2008 = getelementptr inbounds %struct.location, ptr %.21185, i64 %2005
+  %2009 = getelementptr inbounds i8, ptr %2006, i64 16
   %.sroa.0616.0..sroa.0616.0..sroa.0616.0. = load i64, ptr %.sroa.0616, align 8
-  store i64 %.sroa.0616.0..sroa.0616.0..sroa.0616.0., ptr %2032, align 8
-  %.sroa.179.0..sroa_idx657 = getelementptr inbounds i8, ptr %2029, i64 24
+  store i64 %.sroa.0616.0..sroa.0616.0..sroa.0616.0., ptr %2009, align 8
+  %.sroa.179.0..sroa_idx657 = getelementptr inbounds i8, ptr %2006, i64 24
   store ptr %.sroa.179.0, ptr %.sroa.179.0..sroa_idx657, align 8
-  %2033 = getelementptr inbounds i8, ptr %2031, i64 8
-  %2034 = load i64, ptr %10, align 8
-  store i64 %2034, ptr %2033, align 4
-  %2035 = getelementptr inbounds [170 x i8], ptr @yyr1, i64 0, i64 %118
-  %2036 = load i8, ptr %2035, align 1
-  %2037 = sext i8 %2036 to i64
-  %2038 = add nsw i64 %2037, -70
-  %2039 = getelementptr inbounds [29 x i16], ptr @yypgoto, i64 0, i64 %2038
-  %2040 = load i16, ptr %2039, align 2
-  %2041 = sext i16 %2040 to i32
-  %2042 = load i16, ptr %2030, align 2
-  %2043 = sext i16 %2042 to i32
-  %2044 = add nsw i32 %2043, %2041
-  %or.cond5 = icmp ult i32 %2044, 2052
-  br i1 %or.cond5, label %2045, label %2054
+  %2010 = getelementptr inbounds i8, ptr %2008, i64 8
+  %.sroa.26.0.insert.ext1435 = zext i32 %.sroa.26.0 to i64
+  %.sroa.26.0.insert.shift1436 = shl nuw i64 %.sroa.26.0.insert.ext1435, 32
+  %.sroa.01249.0.insert.ext1331 = zext i32 %.sroa.01249.0 to i64
+  %.sroa.01249.0.insert.insert1333 = or disjoint i64 %.sroa.26.0.insert.shift1436, %.sroa.01249.0.insert.ext1331
+  store i64 %.sroa.01249.0.insert.insert1333, ptr %2010, align 4
+  %2011 = getelementptr inbounds [170 x i8], ptr @yyr1, i64 0, i64 %116
+  %2012 = load i8, ptr %2011, align 1
+  %2013 = sext i8 %2012 to i64
+  %2014 = add nsw i64 %2013, -70
+  %2015 = getelementptr inbounds [29 x i16], ptr @yypgoto, i64 0, i64 %2014
+  %2016 = load i16, ptr %2015, align 2
+  %2017 = sext i16 %2016 to i32
+  %2018 = load i16, ptr %2007, align 2
+  %2019 = sext i16 %2018 to i32
+  %2020 = add nsw i32 %2019, %2017
+  %or.cond5 = icmp ult i32 %2020, 2052
+  br i1 %or.cond5, label %2021, label %2030
 
-2045:                                             ; preds = %2027
-  %2046 = zext nneg i32 %2044 to i64
-  %2047 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %2046
-  %2048 = load i16, ptr %2047, align 2
-  %2049 = icmp eq i16 %2048, %2042
-  br i1 %2049, label %2050, label %2054
+2021:                                             ; preds = %2004
+  %2022 = zext nneg i32 %2020 to i64
+  %2023 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %2022
+  %2024 = load i16, ptr %2023, align 2
+  %2025 = icmp eq i16 %2024, %2018
+  br i1 %2025, label %2026, label %2030
 
-2050:                                             ; preds = %2045
-  %2051 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %2046
-  %2052 = load i16, ptr %2051, align 2
-  %2053 = sext i16 %2052 to i32
-  br label %30
+2026:                                             ; preds = %2021
+  %2027 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %2022
+  %2028 = load i16, ptr %2027, align 2
+  %2029 = sext i16 %2028 to i32
+  br label %28
 
-2054:                                             ; preds = %2045, %2027
-  %2055 = getelementptr inbounds [29 x i8], ptr @yydefgoto, i64 0, i64 %2038
-  %2056 = load i8, ptr %2055, align 1
-  %2057 = zext i8 %2056 to i32
-  br label %30
+2030:                                             ; preds = %2021, %2004
+  %2031 = getelementptr inbounds [29 x i8], ptr @yydefgoto, i64 0, i64 %2014
+  %2032 = load i8, ptr %2031, align 1
+  %2033 = zext i8 %2032 to i32
+  br label %28
 
-2058:                                             ; preds = %112
-  %2059 = icmp eq i32 %.4, -2
-  br i1 %2059, label %2065, label %.thread
+2034:                                             ; preds = %110
+  %2035 = icmp eq i32 %.4, -2
+  br i1 %2035, label %2041, label %.thread
 
-.thread:                                          ; preds = %104, %2058
-  %.81254 = phi i32 [ %.4, %2058 ], [ %.6, %104 ]
-  %or.cond7 = icmp ult i32 %.81254, 304
-  br i1 %or.cond7, label %2060, label %2065
+.thread:                                          ; preds = %102, %2034
+  %.81446 = phi i32 [ %.4, %2034 ], [ %.6, %102 ]
+  %or.cond7 = icmp ult i32 %.81446, 304
+  br i1 %or.cond7, label %2036, label %2041
 
-2060:                                             ; preds = %.thread
-  %2061 = zext nneg i32 %.81254 to i64
-  %2062 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %2061
-  %2063 = load i8, ptr %2062, align 1
-  %2064 = sext i8 %2063 to i32
-  br label %2065
+2036:                                             ; preds = %.thread
+  %2037 = zext nneg i32 %.81446 to i64
+  %2038 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %2037
+  %2039 = load i8, ptr %2038, align 1
+  %2040 = sext i8 %2039 to i32
+  br label %2041
 
-2065:                                             ; preds = %2060, %.thread, %2058
-  %.81255 = phi i32 [ -2, %2058 ], [ %.81254, %2060 ], [ %.81254, %.thread ]
-  %2066 = phi i32 [ -2, %2058 ], [ %2064, %2060 ], [ 2, %.thread ]
+2041:                                             ; preds = %2036, %.thread, %2034
+  %.81447 = phi i32 [ -2, %2034 ], [ %.81446, %2036 ], [ %.81446, %.thread ]
+  %2042 = phi i32 [ -2, %2034 ], [ %2040, %2036 ], [ 2, %.thread ]
   %.not1229 = icmp eq i32 %.01153, 0
-  br i1 %.not1229, label %2067, label %2084
+  br i1 %.not1229, label %2043, label %2060
 
-2067:                                             ; preds = %2065
-  %2068 = call fastcc i32 @yysyntax_error(ptr noundef %12, ptr %.01247, ptr nonnull %.21165, i32 %2066)
-  switch i32 %2068, label %2079 [
-    i32 0, label %2069
-    i32 -1, label %2070
+2043:                                             ; preds = %2041
+  %2044 = call fastcc i32 @yysyntax_error(ptr noundef %11, ptr %.01439, ptr nonnull %.21165, i32 %2042)
+  switch i32 %2044, label %2055 [
+    i32 0, label %2045
+    i32 -1, label %2046
   ]
 
-2069:                                             ; preds = %2067
-  br label %2079
+2045:                                             ; preds = %2043
+  br label %2055
 
-2070:                                             ; preds = %2067
-  %.not1230 = icmp eq ptr %.01247, %11
-  br i1 %.not1230, label %2072, label %2071
+2046:                                             ; preds = %2043
+  %.not1230 = icmp eq ptr %.01439, %10
+  br i1 %.not1230, label %2048, label %2047
 
-2071:                                             ; preds = %2070
-  call void @jv_mem_free(ptr noundef %.01247) #9
-  br label %2072
+2047:                                             ; preds = %2046
+  call void @jv_mem_free(ptr noundef %.01439) #9
+  br label %2048
 
-2072:                                             ; preds = %2071, %2070
-  %2073 = load i64, ptr %12, align 8
-  %2074 = call ptr @jv_mem_alloc(i64 noundef %2073) #9
-  %.not1231 = icmp eq ptr %2074, null
-  br i1 %.not1231, label %2078, label %2075
+2048:                                             ; preds = %2047, %2046
+  %2049 = load i64, ptr %11, align 8
+  %2050 = call ptr @jv_mem_alloc(i64 noundef %2049) #9
+  %.not1231 = icmp eq ptr %2050, null
+  br i1 %.not1231, label %2054, label %2051
 
-2075:                                             ; preds = %2072
-  %2076 = call fastcc i32 @yysyntax_error(ptr noundef %12, ptr nonnull %2074, ptr nonnull %.21165, i32 %2066)
-  %2077 = icmp eq i32 %2076, -2
-  br label %2079
+2051:                                             ; preds = %2048
+  %2052 = call fastcc i32 @yysyntax_error(ptr noundef %11, ptr nonnull %2050, ptr nonnull %.21165, i32 %2042)
+  %2053 = icmp eq i32 %2052, -2
+  br label %2055
+
+2054:                                             ; preds = %2048
+  store i64 128, ptr %11, align 8
+  br label %2055
+
+2055:                                             ; preds = %2043, %2054, %2051, %2045
+  %.51443 = phi ptr [ %.01439, %2043 ], [ %10, %2054 ], [ %2050, %2051 ], [ %.01439, %2045 ]
+  %.01144 = phi ptr [ @.str.42, %2043 ], [ @.str.42, %2054 ], [ %2050, %2051 ], [ %.01439, %2045 ]
+  %.0 = phi i1 [ true, %2043 ], [ true, %2054 ], [ %2053, %2051 ], [ false, %2045 ]
+  %2056 = load i32, ptr %1, align 4
+  %2057 = add nsw i32 %2056, 1
+  store i32 %2057, ptr %1, align 4
+  %2058 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01144, ptr noundef nonnull dereferenceable(1) @.str) #8
+  %.not.i = icmp eq ptr %2058, null
+  %2059 = load i64, ptr %6, align 8
+  %.str.2..str.1.i = select i1 %.not.i, ptr @.str.2, ptr @.str.1
+  call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %2, i64 %2059, ptr noundef nonnull %.str.2..str.1.i, ptr noundef %.01144) #9
+  br i1 %.0, label %2098, label %.thread1448
+
+.thread1448:                                      ; preds = %2055
+  %.sroa.0606.8.copyload6081451 = load i32, ptr %6, align 8
+  br label %2067
+
+2060:                                             ; preds = %2041
+  %.sroa.0606.8.copyload608 = load i32, ptr %6, align 8
+  %2061 = icmp eq i32 %.01153, 3
+  br i1 %2061, label %2062, label %2067
+
+2062:                                             ; preds = %2060
+  %2063 = icmp slt i32 %.81447, 1
+  br i1 %2063, label %2064, label %2066
+
+2064:                                             ; preds = %2062
+  %2065 = icmp eq i32 %.81447, 0
+  br i1 %2065, label %.thread1474, label %2067
+
+2066:                                             ; preds = %2062
+  call fastcc void @yydestruct(i32 noundef %2042, ptr noundef %5)
+  br label %2067
+
+2067:                                             ; preds = %.thread1448, %2060, %2064, %2066, %82
+  %.3 = phi ptr [ %.01439, %2064 ], [ %.01439, %2066 ], [ %.01439, %2060 ], [ %.01439, %82 ], [ %.51443, %.thread1448 ]
+  %.sroa.0606.0 = phi i32 [ %.sroa.0606.8.copyload608, %2064 ], [ %.sroa.0606.8.copyload608, %2066 ], [ %.sroa.0606.8.copyload608, %2060 ], [ %.sroa.0606.8.copyload, %82 ], [ %.sroa.0606.8.copyload6081451, %.thread1448 ]
+  %.7 = phi i32 [ %.81447, %2064 ], [ -2, %2066 ], [ %.81447, %2060 ], [ 257, %82 ], [ %.81447, %.thread1448 ]
+  br label %2068
+
+2068:                                             ; preds = %2084, %2067
+  %2069 = phi i16 [ %71, %2067 ], [ %.pre, %2084 ]
+  %.sroa.0606.1 = phi i32 [ %.sroa.0606.0, %2067 ], [ %.sroa.0606.8.copyload609, %2084 ]
+  %.51188 = phi ptr [ %.21185, %2067 ], [ %2090, %2084 ]
+  %.51178 = phi ptr [ %.21175, %2067 ], [ %2088, %2084 ]
+  %.51168 = phi ptr [ %.21165, %2067 ], [ %2089, %2084 ]
+  %.21152 = phi i32 [ %.01150, %2067 ], [ %2092, %2084 ]
+  %2070 = sext i32 %.21152 to i64
+  %2071 = icmp sgt i16 %2069, -2
+  br i1 %2071, label %2072, label %2082
+
+2072:                                             ; preds = %2068
+  %2073 = sext i16 %2069 to i64
+  %2074 = add nsw i64 %2073, 1
+  %2075 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %2074
+  %2076 = load i16, ptr %2075, align 2
+  %2077 = icmp eq i16 %2076, 1
+  br i1 %2077, label %2078, label %2082
 
 2078:                                             ; preds = %2072
-  store i64 128, ptr %12, align 8
-  br label %2079
+  %2079 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %2074
+  %2080 = load i16, ptr %2079, align 2
+  %2081 = icmp sgt i16 %2080, 0
+  br i1 %2081, label %2093, label %2082
 
-2079:                                             ; preds = %2067, %2078, %2075, %2069
-  %.51251 = phi ptr [ %.01247, %2067 ], [ %11, %2078 ], [ %2074, %2075 ], [ %.01247, %2069 ]
-  %.01144 = phi ptr [ @.str.42, %2067 ], [ @.str.42, %2078 ], [ %2074, %2075 ], [ %.01247, %2069 ]
-  %.0 = phi i1 [ true, %2067 ], [ true, %2078 ], [ %2077, %2075 ], [ false, %2069 ]
-  %2080 = load i32, ptr %1, align 4
-  %2081 = add nsw i32 %2080, 1
-  store i32 %2081, ptr %1, align 4
-  %2082 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01144, ptr noundef nonnull dereferenceable(1) @.str) #8
-  %.not.i = icmp eq ptr %2082, null
-  %2083 = load i64, ptr %6, align 8
-  %.str.2..str.1.i = select i1 %.not.i, ptr @.str.2, ptr @.str.1
-  call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %2, i64 %2083, ptr noundef nonnull %.str.2..str.1.i, ptr noundef %.01144) #9
-  br i1 %.0, label %2122, label %.thread1256
+2082:                                             ; preds = %2072, %2078, %2068
+  %2083 = icmp eq ptr %.51168, %.11159
+  br i1 %2083, label %.loopexit, label %2084
 
-.thread1256:                                      ; preds = %2079
-  %.sroa.0606.8.copyload6081259 = load i32, ptr %6, align 8
-  br label %2091
-
-2084:                                             ; preds = %2065
-  %.sroa.0606.8.copyload608 = load i32, ptr %6, align 8
-  %2085 = icmp eq i32 %.01153, 3
-  br i1 %2085, label %2086, label %2091
-
-2086:                                             ; preds = %2084
-  %2087 = icmp slt i32 %.81255, 1
-  br i1 %2087, label %2088, label %2090
-
-2088:                                             ; preds = %2086
-  %2089 = icmp eq i32 %.81255, 0
-  br i1 %2089, label %.thread1282, label %2091
-
-2090:                                             ; preds = %2086
-  call fastcc void @yydestruct(i32 noundef %2066, ptr noundef %5)
-  br label %2091
-
-2091:                                             ; preds = %.thread1256, %2084, %2088, %2090, %84
-  %.3 = phi ptr [ %.01247, %2088 ], [ %.01247, %2090 ], [ %.01247, %2084 ], [ %.01247, %84 ], [ %.51251, %.thread1256 ]
-  %.sroa.0606.0 = phi i32 [ %.sroa.0606.8.copyload608, %2088 ], [ %.sroa.0606.8.copyload608, %2090 ], [ %.sroa.0606.8.copyload608, %2084 ], [ %.sroa.0606.8.copyload, %84 ], [ %.sroa.0606.8.copyload6081259, %.thread1256 ]
-  %.7 = phi i32 [ %.81255, %2088 ], [ -2, %2090 ], [ %.81255, %2084 ], [ 257, %84 ], [ %.81255, %.thread1256 ]
-  br label %2092
-
-2092:                                             ; preds = %2108, %2091
-  %2093 = phi i16 [ %73, %2091 ], [ %.pre, %2108 ]
-  %.sroa.0606.1 = phi i32 [ %.sroa.0606.0, %2091 ], [ %.sroa.0606.8.copyload609, %2108 ]
-  %.51188 = phi ptr [ %.21185, %2091 ], [ %2114, %2108 ]
-  %.51178 = phi ptr [ %.21175, %2091 ], [ %2112, %2108 ]
-  %.51168 = phi ptr [ %.21165, %2091 ], [ %2113, %2108 ]
-  %.21152 = phi i32 [ %.01150, %2091 ], [ %2116, %2108 ]
-  %2094 = sext i32 %.21152 to i64
-  %2095 = icmp sgt i16 %2093, -2
-  br i1 %2095, label %2096, label %2106
-
-2096:                                             ; preds = %2092
-  %2097 = sext i16 %2093 to i64
-  %2098 = add nsw i64 %2097, 1
-  %2099 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %2098
-  %2100 = load i16, ptr %2099, align 2
-  %2101 = icmp eq i16 %2100, 1
-  br i1 %2101, label %2102, label %2106
-
-2102:                                             ; preds = %2096
-  %2103 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %2098
-  %2104 = load i16, ptr %2103, align 2
-  %2105 = icmp sgt i16 %2104, 0
-  br i1 %2105, label %2117, label %2106
-
-2106:                                             ; preds = %2096, %2102, %2092
-  %2107 = icmp eq ptr %.51168, %.11159
-  br i1 %2107, label %.loopexit, label %2108
-
-2108:                                             ; preds = %2106
+2084:                                             ; preds = %2082
   %.sroa.0606.8.copyload609 = load i32, ptr %.51188, align 4
-  %2109 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2094
-  %2110 = load i8, ptr %2109, align 1
-  %2111 = sext i8 %2110 to i32
-  call fastcc void @yydestruct(i32 noundef %2111, ptr noundef %.51178)
-  %2112 = getelementptr inbounds i8, ptr %.51178, i64 -16
-  %2113 = getelementptr inbounds i8, ptr %.51168, i64 -2
-  %2114 = getelementptr inbounds i8, ptr %.51188, i64 -8
-  %2115 = load i16, ptr %2113, align 2
-  %2116 = sext i16 %2115 to i32
-  %.phi.trans.insert = sext i16 %2115 to i64
-  %.phi.trans.insert1337 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
-  %.pre = load i16, ptr %.phi.trans.insert1337, align 2
-  br label %2092
+  %2085 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2070
+  %2086 = load i8, ptr %2085, align 1
+  %2087 = sext i8 %2086 to i32
+  call fastcc void @yydestruct(i32 noundef %2087, ptr noundef %.51178)
+  %2088 = getelementptr inbounds i8, ptr %.51178, i64 -16
+  %2089 = getelementptr inbounds i8, ptr %.51168, i64 -2
+  %2090 = getelementptr inbounds i8, ptr %.51188, i64 -8
+  %2091 = load i16, ptr %2089, align 2
+  %2092 = sext i16 %2091 to i32
+  %.phi.trans.insert = sext i16 %2091 to i64
+  %.phi.trans.insert1529 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.pre = load i16, ptr %.phi.trans.insert1529, align 2
+  br label %2068
 
-2117:                                             ; preds = %2102
-  %2118 = zext nneg i16 %2104 to i32
-  %2119 = getelementptr inbounds i8, ptr %.51178, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2119, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+2093:                                             ; preds = %2078
+  %2094 = zext nneg i16 %2080 to i32
+  %2095 = getelementptr inbounds i8, ptr %.51178, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2095, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %.sroa.6.16.copyload = load i32, ptr %.sroa.6.16..sroa_idx, align 4
-  %2120 = getelementptr inbounds i8, ptr %.51188, i64 8
-  store i32 %.sroa.0606.1, ptr %2120, align 4
-  %2121 = getelementptr inbounds i8, ptr %.51188, i64 12
-  store i32 %.sroa.6.16.copyload, ptr %2121, align 4
-  br label %30
+  %2096 = getelementptr inbounds i8, ptr %.51188, i64 8
+  store i32 %.sroa.0606.1, ptr %2096, align 4
+  %2097 = getelementptr inbounds i8, ptr %.51188, i64 12
+  store i32 %.sroa.6.16.copyload, ptr %2097, align 4
+  br label %28
 
-2122:                                             ; preds = %2079, %43, %36
-  %.21249 = phi ptr [ %.51251, %2079 ], [ %.01247, %36 ], [ %.01247, %43 ]
-  %.31176 = phi ptr [ %.21175, %2079 ], [ %.01173, %36 ], [ %.01173, %43 ]
-  %.31166 = phi ptr [ %.21165, %2079 ], [ %.01163, %36 ], [ %.01163, %43 ]
-  %.21160 = phi ptr [ %.11159, %2079 ], [ %.01158, %36 ], [ %.01158, %43 ]
-  %.2 = phi i32 [ %.81255, %2079 ], [ %.01145, %36 ], [ %.01145, %43 ]
-  %2123 = load i32, ptr %1, align 4
-  %2124 = add nsw i32 %2123, 1
-  store i32 %2124, ptr %1, align 4
-  %2125 = load i64, ptr %6, align 8
-  call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %2, i64 %2125, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.45) #9
+2098:                                             ; preds = %2055, %41, %34
+  %.21441 = phi ptr [ %.51443, %2055 ], [ %.01439, %34 ], [ %.01439, %41 ]
+  %.31176 = phi ptr [ %.21175, %2055 ], [ %.01173, %34 ], [ %.01173, %41 ]
+  %.31166 = phi ptr [ %.21165, %2055 ], [ %.01163, %34 ], [ %.01163, %41 ]
+  %.21160 = phi ptr [ %.11159, %2055 ], [ %.01158, %34 ], [ %.01158, %41 ]
+  %.2 = phi i32 [ %.81447, %2055 ], [ %.01145, %34 ], [ %.01145, %41 ]
+  %2099 = load i32, ptr %1, align 4
+  %2100 = add nsw i32 %2099, 1
+  store i32 %2100, ptr %1, align 4
+  %2101 = load i64, ptr %6, align 8
+  call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %2, i64 %2101, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.45) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %61, %68, %2106, %2122
-  %.61252 = phi ptr [ %.21249, %2122 ], [ %.3, %2106 ], [ %.01247, %68 ], [ %.01247, %61 ]
-  %.01192 = phi i32 [ 2, %2122 ], [ 1, %2106 ], [ 1, %61 ], [ 0, %68 ]
-  %.61179 = phi ptr [ %.31176, %2122 ], [ %.51178, %2106 ], [ %65, %61 ], [ %.21175, %68 ]
-  %.61169 = phi ptr [ %.31166, %2122 ], [ %.51168, %2106 ], [ %63, %61 ], [ %.21165, %68 ]
-  %.41162 = phi ptr [ %.21160, %2122 ], [ %.11159, %2106 ], [ %47, %61 ], [ %.11159, %68 ]
-  %.10 = phi i32 [ %.2, %2122 ], [ %.7, %2106 ], [ %.01145, %68 ], [ %.01145, %61 ]
+.loopexit:                                        ; preds = %59, %66, %2082, %2098
+  %.61444 = phi ptr [ %.21441, %2098 ], [ %.3, %2082 ], [ %.01439, %66 ], [ %.01439, %59 ]
+  %.01192 = phi i32 [ 2, %2098 ], [ 1, %2082 ], [ 1, %59 ], [ 0, %66 ]
+  %.61179 = phi ptr [ %.31176, %2098 ], [ %.51178, %2082 ], [ %63, %59 ], [ %.21175, %66 ]
+  %.61169 = phi ptr [ %.31166, %2098 ], [ %.51168, %2082 ], [ %61, %59 ], [ %.21165, %66 ]
+  %.41162 = phi ptr [ %.21160, %2098 ], [ %.11159, %2082 ], [ %45, %59 ], [ %.11159, %66 ]
+  %.10 = phi i32 [ %.2, %2098 ], [ %.7, %2082 ], [ %.01145, %66 ], [ %.01145, %59 ]
   %.not1232 = icmp eq i32 %.10, -2
-  br i1 %.not1232, label %2133, label %2126
+  br i1 %.not1232, label %2109, label %2102
 
-2126:                                             ; preds = %.loopexit
+2102:                                             ; preds = %.loopexit
   %or.cond11 = icmp ult i32 %.10, 304
-  br i1 %or.cond11, label %.thread1282, label %2131
+  br i1 %or.cond11, label %.thread1474, label %2107
 
-.thread1282:                                      ; preds = %2088, %2126
-  %.6125212691303 = phi ptr [ %.61252, %2126 ], [ %.01247, %2088 ]
-  %.0119212711301 = phi i32 [ %.01192, %2126 ], [ 1, %2088 ]
-  %.6117912751297 = phi ptr [ %.61179, %2126 ], [ %.21175, %2088 ]
-  %.6116912771295 = phi ptr [ %.61169, %2126 ], [ %.21165, %2088 ]
-  %.4116212791293 = phi ptr [ %.41162, %2126 ], [ %.11159, %2088 ]
-  %.1012811291 = phi i32 [ %.10, %2126 ], [ 0, %2088 ]
-  %2127 = zext nneg i32 %.1012811291 to i64
-  %2128 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %2127
-  %2129 = load i8, ptr %2128, align 1
-  %2130 = sext i8 %2129 to i32
-  br label %2131
+.thread1474:                                      ; preds = %2064, %2102
+  %.6144414611495 = phi ptr [ %.61444, %2102 ], [ %.01439, %2064 ]
+  %.0119214631493 = phi i32 [ %.01192, %2102 ], [ 1, %2064 ]
+  %.6117914671489 = phi ptr [ %.61179, %2102 ], [ %.21175, %2064 ]
+  %.6116914691487 = phi ptr [ %.61169, %2102 ], [ %.21165, %2064 ]
+  %.4116214711485 = phi ptr [ %.41162, %2102 ], [ %.11159, %2064 ]
+  %.1014731483 = phi i32 [ %.10, %2102 ], [ 0, %2064 ]
+  %2103 = zext nneg i32 %.1014731483 to i64
+  %2104 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %2103
+  %2105 = load i8, ptr %2104, align 1
+  %2106 = sext i8 %2105 to i32
+  br label %2107
 
-2131:                                             ; preds = %2126, %.thread1282
-  %.6125212691302 = phi ptr [ %.6125212691303, %.thread1282 ], [ %.61252, %2126 ]
-  %.0119212711300 = phi i32 [ %.0119212711301, %.thread1282 ], [ %.01192, %2126 ]
-  %.6117912751296 = phi ptr [ %.6117912751297, %.thread1282 ], [ %.61179, %2126 ]
-  %.6116912771294 = phi ptr [ %.6116912771295, %.thread1282 ], [ %.61169, %2126 ]
-  %.4116212791292 = phi ptr [ %.4116212791293, %.thread1282 ], [ %.41162, %2126 ]
-  %2132 = phi i32 [ %2130, %.thread1282 ], [ 2, %2126 ]
-  call fastcc void @yydestruct(i32 noundef %2132, ptr noundef %5)
-  br label %2133
+2107:                                             ; preds = %2102, %.thread1474
+  %.6144414611494 = phi ptr [ %.6144414611495, %.thread1474 ], [ %.61444, %2102 ]
+  %.0119214631492 = phi i32 [ %.0119214631493, %.thread1474 ], [ %.01192, %2102 ]
+  %.6117914671488 = phi ptr [ %.6117914671489, %.thread1474 ], [ %.61179, %2102 ]
+  %.6116914691486 = phi ptr [ %.6116914691487, %.thread1474 ], [ %.61169, %2102 ]
+  %.4116214711484 = phi ptr [ %.4116214711485, %.thread1474 ], [ %.41162, %2102 ]
+  %2108 = phi i32 [ %2106, %.thread1474 ], [ 2, %2102 ]
+  call fastcc void @yydestruct(i32 noundef %2108, ptr noundef %5)
+  br label %2109
 
-2133:                                             ; preds = %2131, %.loopexit
-  %.411621280 = phi ptr [ %.4116212791292, %2131 ], [ %.41162, %.loopexit ]
-  %.611691278 = phi ptr [ %.6116912771294, %2131 ], [ %.61169, %.loopexit ]
-  %.611791276 = phi ptr [ %.6117912751296, %2131 ], [ %.61179, %.loopexit ]
-  %.011921272 = phi i32 [ %.0119212711300, %2131 ], [ %.01192, %.loopexit ]
-  %.612521270 = phi ptr [ %.6125212691302, %2131 ], [ %.61252, %.loopexit ]
-  %.not12331320 = icmp eq ptr %.611691278, %.411621280
-  br i1 %.not12331320, label %._crit_edge, label %.lr.ph
+2109:                                             ; preds = %2107, %.loopexit
+  %.411621472 = phi ptr [ %.4116214711484, %2107 ], [ %.41162, %.loopexit ]
+  %.611691470 = phi ptr [ %.6116914691486, %2107 ], [ %.61169, %.loopexit ]
+  %.611791468 = phi ptr [ %.6117914671488, %2107 ], [ %.61179, %.loopexit ]
+  %.011921464 = phi i32 [ %.0119214631492, %2107 ], [ %.01192, %.loopexit ]
+  %.614441462 = phi ptr [ %.6144414611494, %2107 ], [ %.61444, %.loopexit ]
+  %.not12331512 = icmp eq ptr %.611691470, %.411621472
+  br i1 %.not12331512, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2133, %.lr.ph
-  %.711701322 = phi ptr [ %2140, %.lr.ph ], [ %.611691278, %2133 ]
-  %.711801321 = phi ptr [ %2139, %.lr.ph ], [ %.611791276, %2133 ]
-  %2134 = load i16, ptr %.711701322, align 2
-  %2135 = sext i16 %2134 to i64
-  %2136 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2135
-  %2137 = load i8, ptr %2136, align 1
-  %2138 = sext i8 %2137 to i32
-  call fastcc void @yydestruct(i32 noundef %2138, ptr noundef %.711801321)
-  %2139 = getelementptr inbounds i8, ptr %.711801321, i64 -16
-  %2140 = getelementptr inbounds i8, ptr %.711701322, i64 -2
-  %.not1233 = icmp eq ptr %2140, %.411621280
+.lr.ph:                                           ; preds = %2109, %.lr.ph
+  %.711701514 = phi ptr [ %2116, %.lr.ph ], [ %.611691470, %2109 ]
+  %.711801513 = phi ptr [ %2115, %.lr.ph ], [ %.611791468, %2109 ]
+  %2110 = load i16, ptr %.711701514, align 2
+  %2111 = sext i16 %2110 to i64
+  %2112 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2111
+  %2113 = load i8, ptr %2112, align 1
+  %2114 = sext i8 %2113 to i32
+  call fastcc void @yydestruct(i32 noundef %2114, ptr noundef %.711801513)
+  %2115 = getelementptr inbounds i8, ptr %.711801513, i64 -16
+  %2116 = getelementptr inbounds i8, ptr %.711701514, i64 -2
+  %.not1233 = icmp eq ptr %2116, %.411621472
   br i1 %.not1233, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %.lr.ph, %2133
-  %.not1234 = icmp eq ptr %.411621280, %7
-  br i1 %.not1234, label %2142, label %2141
+._crit_edge:                                      ; preds = %.lr.ph, %2109
+  %.not1234 = icmp eq ptr %.411621472, %7
+  br i1 %.not1234, label %2118, label %2117
 
-2141:                                             ; preds = %._crit_edge
-  call void @jv_mem_free(ptr noundef %.411621280) #9
-  br label %2142
+2117:                                             ; preds = %._crit_edge
+  call void @jv_mem_free(ptr noundef %.411621472) #9
+  br label %2118
 
-2142:                                             ; preds = %2141, %._crit_edge
-  %.not1235 = icmp eq ptr %.612521270, %11
-  br i1 %.not1235, label %2144, label %2143
+2118:                                             ; preds = %2117, %._crit_edge
+  %.not1235 = icmp eq ptr %.614441462, %10
+  br i1 %.not1235, label %2120, label %2119
 
-2143:                                             ; preds = %2142
-  call void @jv_mem_free(ptr noundef %.612521270) #9
-  br label %2144
+2119:                                             ; preds = %2118
+  call void @jv_mem_free(ptr noundef %.614441462) #9
+  br label %2120
 
-2144:                                             ; preds = %2143, %2142
-  ret i32 %.011921272
+2120:                                             ; preds = %2119, %2118
+  ret i32 %.011921464
 }
 
 declare ptr @jv_mem_alloc(i64 noundef) local_unnamed_addr #2
@@ -4017,37 +4079,36 @@ declare { ptr, ptr } @gen_subexp(ptr, ptr) local_unnamed_addr #2
 declare { i64, ptr } @jv_object() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { ptr, ptr } @gen_loc_object(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call { i64, ptr } @jv_object() #9
-  %4 = extractvalue { i64, ptr } %3, 0
-  %5 = extractvalue { i64, ptr } %3, 1
-  %6 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.63) #9
-  %7 = extractvalue { i64, ptr } %6, 0
-  %8 = extractvalue { i64, ptr } %6, 1
-  %9 = load i64, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call { i64, ptr } @jv_copy(i64 %9, ptr %11) #9
-  %13 = extractvalue { i64, ptr } %12, 0
-  %14 = extractvalue { i64, ptr } %12, 1
-  %15 = tail call { i64, ptr } @jv_object_set(i64 %4, ptr %5, i64 %7, ptr %8, i64 %13, ptr %14) #9
-  %16 = extractvalue { i64, ptr } %15, 0
-  %17 = extractvalue { i64, ptr } %15, 1
-  %18 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.64) #9
-  %19 = extractvalue { i64, ptr } %18, 0
-  %20 = extractvalue { i64, ptr } %18, 1
-  %21 = load i32, ptr %0, align 4
-  %22 = tail call i32 @locfile_get_line(ptr noundef nonnull %1, i32 noundef %21) #9
-  %23 = add nsw i32 %22, 1
-  %24 = sitofp i32 %23 to double
-  %25 = tail call { i64, ptr } @jv_number(double noundef %24) #9
-  %26 = extractvalue { i64, ptr } %25, 0
-  %27 = extractvalue { i64, ptr } %25, 1
-  %28 = tail call { i64, ptr } @jv_object_set(i64 %16, ptr %17, i64 %19, ptr %20, i64 %26, ptr %27) #9
-  %29 = extractvalue { i64, ptr } %28, 0
-  %30 = extractvalue { i64, ptr } %28, 1
-  %31 = tail call { ptr, ptr } @gen_const(i64 %29, ptr %30) #9
-  ret { ptr, ptr } %31
+define internal fastcc { ptr, ptr } @gen_loc_object(i32 %.0.val, ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call { i64, ptr } @jv_object() #9
+  %3 = extractvalue { i64, ptr } %2, 0
+  %4 = extractvalue { i64, ptr } %2, 1
+  %5 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.63) #9
+  %6 = extractvalue { i64, ptr } %5, 0
+  %7 = extractvalue { i64, ptr } %5, 1
+  %8 = load i64, ptr %0, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call { i64, ptr } @jv_copy(i64 %8, ptr %10) #9
+  %12 = extractvalue { i64, ptr } %11, 0
+  %13 = extractvalue { i64, ptr } %11, 1
+  %14 = tail call { i64, ptr } @jv_object_set(i64 %3, ptr %4, i64 %6, ptr %7, i64 %12, ptr %13) #9
+  %15 = extractvalue { i64, ptr } %14, 0
+  %16 = extractvalue { i64, ptr } %14, 1
+  %17 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.64) #9
+  %18 = extractvalue { i64, ptr } %17, 0
+  %19 = extractvalue { i64, ptr } %17, 1
+  %20 = tail call i32 @locfile_get_line(ptr noundef nonnull %0, i32 noundef %.0.val) #9
+  %21 = add nsw i32 %20, 1
+  %22 = sitofp i32 %21 to double
+  %23 = tail call { i64, ptr } @jv_number(double noundef %22) #9
+  %24 = extractvalue { i64, ptr } %23, 0
+  %25 = extractvalue { i64, ptr } %23, 1
+  %26 = tail call { i64, ptr } @jv_object_set(i64 %15, ptr %16, i64 %18, ptr %19, i64 %24, ptr %25) #9
+  %27 = extractvalue { i64, ptr } %26, 0
+  %28 = extractvalue { i64, ptr } %26, 1
+  %29 = tail call { ptr, ptr } @gen_const(i64 %27, ptr %28) #9
+  ret { ptr, ptr } %29
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

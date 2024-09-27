@@ -462,12 +462,12 @@ define void @cli_event_error_str(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %event_string.exit
 
 29:                                               ; preds = %12
+  %30 = ptrtoint ptr %spec.store.select.i to i64
   store ptr %20, ptr %17, align 8
-  %30 = load i32, ptr %13, align 8
-  %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds %union.ev_val, ptr %20, i64 %31
-  %33 = ptrtoint ptr %spec.store.select.i to i64
-  store i64 %33, ptr %32, align 8
+  %31 = load i32, ptr %13, align 8
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds %union.ev_val, ptr %20, i64 %32
+  store i64 %30, ptr %33, align 8
   %34 = load i32, ptr %13, align 8
   %35 = add i32 %34, 1
   store i32 %35, ptr %13, align 8
@@ -1270,12 +1270,12 @@ define void @cli_event_string(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
   br label %cli_event_error_str.exit
 
 67:                                               ; preds = %49
+  %68 = ptrtoint ptr %spec.store.select.i to i64
   store ptr %57, ptr %54, align 8
-  %68 = load i32, ptr %50, align 8
-  %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds %union.ev_val, ptr %57, i64 %69
-  %71 = ptrtoint ptr %spec.store.select.i to i64
-  store i64 %71, ptr %70, align 8
+  %69 = load i32, ptr %50, align 8
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr inbounds %union.ev_val, ptr %57, i64 %70
+  store i64 %68, ptr %71, align 8
   %72 = load i32, ptr %50, align 8
   %73 = add i32 %72, 1
   store i32 %73, ptr %50, align 8

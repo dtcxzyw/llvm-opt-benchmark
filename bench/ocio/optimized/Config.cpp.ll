@@ -135,8 +135,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<OpenColorIO_v2_4dev::View, std::allocator<OpenColorIO_v2_4dev::View>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::View, std::allocator<OpenColorIO_v2_4dev::View>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<OpenColorIO_v2_4dev::View, std::allocator<OpenColorIO_v2_4dev::View>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.anon.291 = type { %"class.std::__cxx11::basic_string" }
-%"struct.__gnu_cxx::__ops::_Iter_pred.485" = type { %class.anon.143 }
-%class.anon.143 = type { ptr }
 %"class.std::shared_ptr.293" = type { %"class.std::__shared_ptr.294" }
 %"class.std::__shared_ptr.294" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.296" = type { %"class.std::__shared_ptr.297" }
@@ -1797,8 +1795,8 @@ $_ZTIN19OpenColorIO_v2_4dev14RangeTransformE = comdat any
 @_ZTIN19OpenColorIO_v2_4dev14RangeTransformE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN19OpenColorIO_v2_4dev14RangeTransformE, ptr @_ZTIN19OpenColorIO_v2_4dev9TransformE }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_Config.cpp, ptr null }]
 @switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE = private unnamed_addr constant [3 x i64] [i64 760, i64 784, i64 736], align 8
-@switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE.5 = private unnamed_addr constant [3 x i64] [i64 768, i64 792, i64 744], align 8
-@switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE.6 = private unnamed_addr constant [3 x i64] [i64 5, i64 5, i64 4], align 8
+@switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE.6 = private unnamed_addr constant [3 x i64] [i64 768, i64 792, i64 744], align 8
+@switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE.7 = private unnamed_addr constant [3 x i64] [i64 5, i64 5, i64 4], align 8
 
 @_ZN19OpenColorIO_v2_4dev6ConfigC1Ev = unnamed_addr alias void (ptr), ptr @_ZN19OpenColorIO_v2_4dev6ConfigC2Ev
 @_ZN19OpenColorIO_v2_4dev6ConfigD1Ev = unnamed_addr alias void (ptr), ptr @_ZN19OpenColorIO_v2_4dev6ConfigD2Ev
@@ -27649,10 +27647,10 @@ switch.lookup:                                    ; preds = %entry
   %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %visibility to i64
-  %switch.gep17 = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE.5, i64 0, i64 %2
+  %switch.gep17 = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE.6, i64 0, i64 %2
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   %3 = zext nneg i32 %visibility to i64
-  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE.6, i64 0, i64 %3
+  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE.7, i64 0, i64 %3
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   %4 = load ptr, ptr %this, align 8
   %m_inactiveNamedTransformNames = getelementptr inbounds i8, ptr %4, i64 %switch.load
@@ -35496,7 +35494,6 @@ terminate.lpad:                                   ; preds = %invoke.cont3, %if.e
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %view) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %__pred.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.485", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
   %ref.tmp53 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -35527,96 +35524,94 @@ invoke.cont5:                                     ; preds = %invoke.cont4
 
 if.then15:                                        ; preds = %invoke.cont5
   %3 = load ptr, ptr %m_views11, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__pred.i.i.i)
-  store ptr %view, ptr %__pred.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 192
   %shr.i.i.i = ashr i64 %sub.ptr.div.i.i.i.i, 2
-  %cmp29.i.i.i = icmp sgt i64 %shr.i.i.i, 0
-  br i1 %cmp29.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
+  %cmp35.i.i.i = icmp sgt i64 %shr.i.i.i, 0
+  br i1 %cmp35.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.then15, %if.end23.i.i.i
-  %__trip_count.031.i.i.i = phi i64 [ %dec.i.i.i, %if.end23.i.i.i ], [ %shr.i.i.i, %if.then15 ]
-  %__first.sroa.0.030.i.i.i = phi ptr [ %incdec.ptr.i11.i.i.i, %if.end23.i.i.i ], [ %3, %if.then15 ]
-  %call5.i.i.i8 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %__first.sroa.0.030.i.i.i)
+  %__trip_count.037.i.i.i = phi i64 [ %dec.i.i.i, %if.end23.i.i.i ], [ %shr.i.i.i, %if.then15 ]
+  %__first.sroa.0.036.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i, %if.end23.i.i.i ], [ %3, %if.then15 ]
+  %call5.i.i.i8 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %view, ptr %__first.sroa.0.036.i.i.i)
           to label %call5.i.i.i.noexc unwind label %terminate.lpad.loopexit
 
 call5.i.i.i.noexc:                                ; preds = %for.body.i.i.i
   br i1 %call5.i.i.i8, label %invoke.cont29, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %call5.i.i.i.noexc
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.030.i.i.i, i64 192
-  %call9.i.i.i9 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %incdec.ptr.i.i.i.i)
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i, i64 192
+  %call9.i.i.i9 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %view, ptr %incdec.ptr.i.i.i.i)
           to label %call9.i.i.i.noexc unwind label %terminate.lpad.loopexit
 
 call9.i.i.i.noexc:                                ; preds = %if.end.i.i.i
   br i1 %call9.i.i.i9, label %invoke.cont29, label %if.end11.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %call9.i.i.i.noexc
-  %incdec.ptr.i9.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.030.i.i.i, i64 384
-  %call15.i.i.i10 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %incdec.ptr.i9.i.i.i)
+  %incdec.ptr.i15.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i, i64 384
+  %call15.i.i.i10 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %view, ptr %incdec.ptr.i15.i.i.i)
           to label %call15.i.i.i.noexc unwind label %terminate.lpad.loopexit
 
 call15.i.i.i.noexc:                               ; preds = %if.end11.i.i.i
   br i1 %call15.i.i.i10, label %invoke.cont29, label %if.end17.i.i.i
 
 if.end17.i.i.i:                                   ; preds = %call15.i.i.i.noexc
-  %incdec.ptr.i10.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.030.i.i.i, i64 576
-  %call21.i.i.i11 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %incdec.ptr.i10.i.i.i)
+  %incdec.ptr.i16.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i, i64 576
+  %call21.i.i.i11 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %view, ptr %incdec.ptr.i16.i.i.i)
           to label %call21.i.i.i.noexc unwind label %terminate.lpad.loopexit
 
 call21.i.i.i.noexc:                               ; preds = %if.end17.i.i.i
   br i1 %call21.i.i.i11, label %invoke.cont29, label %if.end23.i.i.i
 
 if.end23.i.i.i:                                   ; preds = %call21.i.i.i.noexc
-  %incdec.ptr.i11.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.030.i.i.i, i64 768
-  %dec.i.i.i = add nsw i64 %__trip_count.031.i.i.i, -1
-  %cmp.i.i.i = icmp sgt i64 %__trip_count.031.i.i.i, 1
+  %incdec.ptr.i17.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i, i64 768
+  %dec.i.i.i = add nsw i64 %__trip_count.037.i.i.i, -1
+  %cmp.i.i.i = icmp sgt i64 %__trip_count.037.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !276
 
 for.end.loopexit.i.i.i:                           ; preds = %if.end23.i.i.i
-  %.pre.i.i.i = ptrtoint ptr %incdec.ptr.i11.i.i.i to i64
-  %.pre32.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %.pre.i.i.i
+  %.pre.i.i.i = ptrtoint ptr %incdec.ptr.i17.i.i.i to i64
+  %.pre38.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %.pre.i.i.i
   br label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %if.then15
-  %sub.ptr.sub.i14.pre-phi.i.i.i = phi i64 [ %.pre32.i.i.i, %for.end.loopexit.i.i.i ], [ %sub.ptr.sub.i.i.i.i, %if.then15 ]
-  %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %incdec.ptr.i11.i.i.i, %for.end.loopexit.i.i.i ], [ %3, %if.then15 ]
-  %sub.ptr.div.i15.i.i.i = sdiv exact i64 %sub.ptr.sub.i14.pre-phi.i.i.i, 192
-  switch i64 %sub.ptr.div.i15.i.i.i, label %invoke.cont29 [
+  %sub.ptr.sub.i20.pre-phi.i.i.i = phi i64 [ %.pre38.i.i.i, %for.end.loopexit.i.i.i ], [ %sub.ptr.sub.i.i.i.i, %if.then15 ]
+  %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i, %for.end.loopexit.i.i.i ], [ %3, %if.then15 ]
+  %sub.ptr.div.i21.i.i.i = sdiv exact i64 %sub.ptr.sub.i20.pre-phi.i.i.i, 192
+  switch i64 %sub.ptr.div.i21.i.i.i, label %invoke.cont29 [
     i64 3, label %sw.bb.i.i.i
     i64 2, label %sw.bb32.i.i.i
     i64 1, label %sw.bb39.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
-  %call28.i.i.i12 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %__first.sroa.0.0.lcssa.i.i.i)
+  %call28.i.i.i12 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %view, ptr %__first.sroa.0.0.lcssa.i.i.i)
           to label %call28.i.i.i.noexc unwind label %terminate.lpad.loopexit.split-lp
 
 call28.i.i.i.noexc:                               ; preds = %sw.bb.i.i.i
   br i1 %call28.i.i.i12, label %invoke.cont29, label %if.end30.i.i.i
 
 if.end30.i.i.i:                                   ; preds = %call28.i.i.i.noexc
-  %incdec.ptr.i16.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 192
+  %incdec.ptr.i22.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 192
   br label %sw.bb32.i.i.i
 
 sw.bb32.i.i.i:                                    ; preds = %if.end30.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i16.i.i.i, %if.end30.i.i.i ]
-  %call35.i.i.i13 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %__first.sroa.0.1.i.i.i)
+  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i22.i.i.i, %if.end30.i.i.i ]
+  %call35.i.i.i13 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %view, ptr %__first.sroa.0.1.i.i.i)
           to label %call35.i.i.i.noexc unwind label %terminate.lpad.loopexit.split-lp
 
 call35.i.i.i.noexc:                               ; preds = %sw.bb32.i.i.i
   br i1 %call35.i.i.i13, label %invoke.cont29, label %if.end37.i.i.i
 
 if.end37.i.i.i:                                   ; preds = %call35.i.i.i.noexc
-  %incdec.ptr.i17.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 192
+  %incdec.ptr.i23.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 192
   br label %sw.bb39.i.i.i
 
 sw.bb39.i.i.i:                                    ; preds = %if.end37.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i17.i.i.i, %if.end37.i.i.i ]
-  %call42.i.i.i14 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %__first.sroa.0.2.i.i.i)
+  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i23.i.i.i, %if.end37.i.i.i ]
+  %call42.i.i.i14 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %view, ptr %__first.sroa.0.2.i.i.i)
           to label %call42.i.i.i.noexc unwind label %terminate.lpad.loopexit.split-lp
 
 call42.i.i.i.noexc:                               ; preds = %sw.bb39.i.i.i
@@ -35624,8 +35619,7 @@ call42.i.i.i.noexc:                               ; preds = %sw.bb39.i.i.i
   br label %invoke.cont29
 
 invoke.cont29:                                    ; preds = %call21.i.i.i.noexc, %call15.i.i.i.noexc, %call9.i.i.i.noexc, %call5.i.i.i.noexc, %call42.i.i.i.noexc, %call35.i.i.i.noexc, %call28.i.i.i.noexc, %for.end.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %call28.i.i.i.noexc ], [ %__first.sroa.0.1.i.i.i, %call35.i.i.i.noexc ], [ %2, %for.end.i.i.i ], [ %spec.select.i.i.i, %call42.i.i.i.noexc ], [ %__first.sroa.0.030.i.i.i, %call5.i.i.i.noexc ], [ %incdec.ptr.i.i.i.i, %call9.i.i.i.noexc ], [ %incdec.ptr.i9.i.i.i, %call15.i.i.i.noexc ], [ %incdec.ptr.i10.i.i.i, %call21.i.i.i.noexc ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__pred.i.i.i)
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %call28.i.i.i.noexc ], [ %__first.sroa.0.1.i.i.i, %call35.i.i.i.noexc ], [ %2, %for.end.i.i.i ], [ %spec.select.i.i.i, %call42.i.i.i.noexc ], [ %__first.sroa.0.036.i.i.i, %call5.i.i.i.noexc ], [ %incdec.ptr.i.i.i.i, %call9.i.i.i.noexc ], [ %incdec.ptr.i15.i.i.i, %call15.i.i.i.noexc ], [ %incdec.ptr.i16.i.i.i, %call21.i.i.i.noexc ]
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i16.not = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %4
   br i1 %cmp.i16.not, label %invoke.cont29.if.end49_crit_edge, label %if.then36
@@ -84314,7 +84308,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nonnull %__it.coerce) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr %this.0.val, ptr nonnull %__it.coerce) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -84330,9 +84324,8 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %0 = load ptr, ptr %this, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #29
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i, ptr noundef %this.0.val, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i)
           to label %invoke.cont6.i unwind label %lpad5.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont.i
@@ -84340,29 +84333,29 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i
           to label %"_ZZN19OpenColorIO_v2_4dev6Config24removeVirtualDisplayViewEPKcENK3$_0clERKNS_4ViewE.exit" unwind label %lpad7.i
 
 lpad.i:                                           ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup11.i
 
 lpad5.i:                                          ; preds = %invoke.cont.i
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
 lpad7.i:                                          ; preds = %invoke.cont6.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i) #29
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad7.i, %lpad5.i
-  %.pn.i = phi { ptr, i32 } [ %3, %lpad7.i ], [ %2, %lpad5.i ]
+  %.pn.i = phi { ptr, i32 } [ %2, %lpad7.i ], [ %1, %lpad5.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #29
   br label %ehcleanup11.i
 
 ehcleanup11.i:                                    ; preds = %ehcleanup.i, %lpad.i
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %1, %lpad.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %0, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #29
   resume { ptr, i32 } %.pn.pn.i
 

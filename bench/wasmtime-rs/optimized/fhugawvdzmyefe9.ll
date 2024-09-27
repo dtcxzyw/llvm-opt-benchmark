@@ -219,9 +219,9 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h8b0e5372ce4416a3E.ex
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load i64, ptr %66, align 8, !noundef !3
-  %.sroa.0.09.i = and i64 %67, %63
+  %.sroa.0.010.i = and i64 %67, %63
   %68 = load ptr, ptr %65, align 8, !nonnull !3, !noundef !3
-  %69 = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.09.i
+  %69 = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.010.i
   invoke void @_ZN4core9core_arch3x864sse215_mm_loadu_si12817h07ef2e0125c6a621E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %69)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
@@ -243,11 +243,11 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h8b0e5372ce4416a3E.ex
   br i1 %75, label %._crit_edge.i18, label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.noexc20, %.noexc23
-  %.sroa.0.011.i = phi i64 [ %.sroa.0.0.i, %.noexc23 ], [ %.sroa.0.09.i, %.noexc20 ]
-  %.sroa.5.010.i = phi i64 [ %76, %.noexc23 ], [ 0, %.noexc20 ]
+  %.sroa.0.012.i = phi i64 [ %.sroa.0.0.i, %.noexc23 ], [ %.sroa.0.010.i, %.noexc20 ]
+  %.sroa.5.011.i = phi i64 [ %76, %.noexc23 ], [ 0, %.noexc20 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %76 = add i64 %.sroa.5.010.i, 16
-  %77 = add i64 %76, %.sroa.0.011.i
+  %76 = add i64 %.sroa.5.011.i, 16
+  %77 = add i64 %76, %.sroa.0.012.i
   %.sroa.0.0.i = and i64 %77, %67
   %78 = load ptr, ptr %65, align 8, !nonnull !3, !noundef !3
   %79 = getelementptr inbounds i8, ptr %78, i64 %.sroa.0.0.i
@@ -272,23 +272,23 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h8b0e5372ce4416a3E.ex
   br i1 %85, label %._crit_edge.i18, label %.lr.ph.i17
 
 ._crit_edge.i18:                                  ; preds = %.noexc23, %.noexc20
-  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.09.i, %.noexc20 ], [ %.sroa.0.0.i, %.noexc23 ]
+  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.010.i, %.noexc20 ], [ %.sroa.0.0.i, %.noexc23 ]
   %.lcssa.i = phi { i64, i64 } [ %73, %.noexc20 ], [ %83, %.noexc23 ]
   %86 = extractvalue { i64, i64 } %.lcssa.i, 1
   %87 = add i64 %86, %.sroa.0.0.lcssa.i
   %88 = load i64, ptr %66, align 8, !noundef !3
   %89 = and i64 %87, %88
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %.val3.i = load ptr, ptr %65, align 8, !nonnull !3, !noundef !3
+  %.val4.i = load ptr, ptr %65, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %90 = getelementptr inbounds i8, ptr %.val3.i, i64 %89
+  %90 = getelementptr inbounds i8, ptr %.val4.i, i64 %89
   %91 = load i8, ptr %90, align 1, !noundef !3
   %92 = icmp sgt i8 %91, -1
   br i1 %92, label %93, label %101
 
 93:                                               ; preds = %._crit_edge.i18
-  invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817hc37f3a5d95bd5fe0E(ptr nonnull sret(<2 x i64>) align 16 %7, ptr nonnull %.val3.i)
+  invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817hc37f3a5d95bd5fe0E(ptr nonnull sret(<2 x i64>) align 16 %7, ptr nonnull %.val4.i)
           to label %.noexc24 unwind label %.loopexit.split-lp.loopexit
 
 .noexc24:                                         ; preds = %93
@@ -398,9 +398,9 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %.sroa.0.09.i = and i64 %8, %1
+  %.sroa.0.010.i = and i64 %8, %1
   %9 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %10 = getelementptr inbounds i8, ptr %9, i64 %.sroa.0.09.i
+  %10 = getelementptr inbounds i8, ptr %9, i64 %.sroa.0.010.i
   call void @_ZN4core9core_arch3x864sse215_mm_loadu_si12817h07ef2e0125c6a621E(ptr nonnull sret(<2 x i64>) align 16 %6, ptr nonnull %10)
   %11 = load <2 x i64>, ptr %6, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -413,11 +413,11 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
   br i1 %16, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %.sroa.0.011.i = phi i64 [ %.sroa.0.0.i, %.lr.ph.i ], [ %.sroa.0.09.i, %2 ]
-  %.sroa.5.010.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %2 ]
+  %.sroa.0.012.i = phi i64 [ %.sroa.0.0.i, %.lr.ph.i ], [ %.sroa.0.010.i, %2 ]
+  %.sroa.5.011.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %17 = add i64 %.sroa.5.010.i, 16
-  %18 = add i64 %17, %.sroa.0.011.i
+  %17 = add i64 %.sroa.5.011.i, 16
+  %18 = add i64 %17, %.sroa.0.012.i
   %.sroa.0.0.i = and i64 %18, %8
   %19 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %20 = getelementptr inbounds i8, ptr %19, i64 %.sroa.0.0.i
@@ -433,23 +433,23 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
   br i1 %26, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
-  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.09.i, %2 ], [ %.sroa.0.0.i, %.lr.ph.i ]
+  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.010.i, %2 ], [ %.sroa.0.0.i, %.lr.ph.i ]
   %.lcssa.i = phi { i64, i64 } [ %14, %2 ], [ %24, %.lr.ph.i ]
   %27 = extractvalue { i64, i64 } %.lcssa.i, 1
   %28 = add i64 %27, %.sroa.0.0.lcssa.i
   %29 = load i64, ptr %7, align 8, !noundef !3
   %30 = and i64 %28, %29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %.val3.i = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
+  %.val4.i = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %31 = getelementptr inbounds i8, ptr %.val3.i, i64 %30
+  %31 = getelementptr inbounds i8, ptr %.val4.i, i64 %30
   %32 = load i8, ptr %31, align 1, !noundef !3
   %33 = icmp sgt i8 %32, -1
   br i1 %33, label %34, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h84f189b1e8366d70E.exit
 
 34:                                               ; preds = %._crit_edge.i
-  call void @_ZN4core9core_arch3x864sse214_mm_load_si12817hc37f3a5d95bd5fe0E(ptr nonnull sret(<2 x i64>) align 16 %4, ptr nonnull %.val3.i)
+  call void @_ZN4core9core_arch3x864sse214_mm_load_si12817hc37f3a5d95bd5fe0E(ptr nonnull sret(<2 x i64>) align 16 %4, ptr nonnull %.val4.i)
   %35 = load <2 x i64>, ptr %4, align 16
   store <2 x i64> %35, ptr %3, align 16
   %36 = call i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817he7d7ee9818a8ca8bE(ptr nonnull align 16 %3)
@@ -465,7 +465,7 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
 
 _ZN9hashbrown3raw13RawTableInner16find_insert_slot17h84f189b1e8366d70E.exit: ; preds = %._crit_edge.i, %34
   %42 = phi i64 [ %.pre1, %34 ], [ %29, %._crit_edge.i ]
-  %43 = phi ptr [ %.pre, %34 ], [ %.val3.i, %._crit_edge.i ]
+  %43 = phi ptr [ %.pre, %34 ], [ %.val4.i, %._crit_edge.i ]
   %.0.i.i = phi i64 [ %40, %34 ], [ %30, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -515,9 +515,9 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   %.pn = phi i64 [ %1, %4 ], [ %62, %60 ]
   %.sroa.4.0 = phi i64 [ undef, %4 ], [ %.sroa.4.1, %60 ]
   %.sroa.01.0 = phi i64 [ 0, %4 ], [ %.sroa.01.1, %60 ]
-  %.sroa.0.017 = and i64 %.pn, %23
+  %.sroa.0.018 = and i64 %.pn, %23
   %26 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %27 = getelementptr inbounds i8, ptr %26, i64 %.sroa.0.017
+  %27 = getelementptr inbounds i8, ptr %26, i64 %.sroa.0.018
   call void @_ZN4core9core_arch3x864sse215_mm_loadu_si12817h07ef2e0125c6a621E(ptr nonnull sret(<2 x i64>) align 16 %18, ptr nonnull %27)
   %28 = load <2 x i64>, ptr %18, align 16
   call void @_ZN4core9core_arch3x864sse213_mm_set1_epi817h34e7cafdbbfc6469E(ptr nonnull sret(<2 x i64>) align 16 %17, i8 %21)
@@ -544,7 +544,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
 
 38:                                               ; preds = %33
   %39 = extractvalue { i64, i64 } %34, 1
-  %40 = add i64 %39, %.sroa.0.017
+  %40 = add i64 %39, %.sroa.0.018
   %41 = and i64 %40, %23
   %42 = load ptr, ptr %24, align 8, !invariant.load !3, !nonnull !3
   %43 = call zeroext i1 %42(ptr align 1 %2, i64 %41)
@@ -562,7 +562,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
 
 50:                                               ; preds = %44
   %51 = extractvalue { i64, i64 } %47, 1
-  %52 = add i64 %51, %.sroa.0.017
+  %52 = add i64 %51, %.sroa.0.018
   %53 = load i64, ptr %22, align 8, !noundef !3
   %54 = and i64 %53, %52
   br label %_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h099f37201b5632afE.exit
@@ -590,22 +590,22 @@ _ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h099f37201b5632afE.
 
 60:                                               ; preds = %55
   %61 = add i64 %.sroa.6.0, 16
-  %62 = add i64 %.sroa.0.017, %61
+  %62 = add i64 %.sroa.0.018, %61
   br label %25
 
 63:                                               ; preds = %55
   %64 = icmp eq i64 %.sroa.01.1, 1
   call void @llvm.assume(i1 %64)
-  %.val12 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
+  %.val13 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %65 = getelementptr inbounds i8, ptr %.val12, i64 %.sroa.4.1
+  %65 = getelementptr inbounds i8, ptr %.val13, i64 %.sroa.4.1
   %66 = load i8, ptr %65, align 1, !noundef !3
   %67 = icmp sgt i8 %66, -1
   br i1 %67, label %68, label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h6d82d9a8caec4fa8E.exit
 
 68:                                               ; preds = %63
-  call void @_ZN4core9core_arch3x864sse214_mm_load_si12817hc37f3a5d95bd5fe0E(ptr nonnull sret(<2 x i64>) align 16 %6, ptr nonnull %.val12)
+  call void @_ZN4core9core_arch3x864sse214_mm_load_si12817hc37f3a5d95bd5fe0E(ptr nonnull sret(<2 x i64>) align 16 %6, ptr nonnull %.val13)
   %69 = load <2 x i64>, ptr %6, align 16
   store <2 x i64> %69, ptr %5, align 16
   %70 = call i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817he7d7ee9818a8ca8bE(ptr nonnull align 16 %5)

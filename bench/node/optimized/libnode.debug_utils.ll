@@ -3200,9 +3200,9 @@ declare i32 @dl_iterate_phdr(ptr noundef, ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node6FWriteEP8_IO_FILERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef %file, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #3 {
 entry:
-  %call.i1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #17
-  %call2.i2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #17
-  %call3.i3 = tail call i64 @fwrite(ptr noundef %call.i1, i64 noundef %call2.i2, i64 noundef 1, ptr noundef %file)
+  %call.i4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #17
+  %call2.i5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #17
+  %call3.i6 = tail call i64 @fwrite(ptr noundef %call.i4, i64 noundef %call2.i5, i64 noundef 1, ptr noundef %file)
   ret void
 }
 

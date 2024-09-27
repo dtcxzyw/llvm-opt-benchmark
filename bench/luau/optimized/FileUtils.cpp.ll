@@ -1503,11 +1503,11 @@ define dso_local void @_Z14getSourceFilesB5cxx11iPPc(ptr dead_on_unwind noalias 
   %13 = getelementptr inbounds i8, ptr %4, i64 24
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
-  %17 = getelementptr inbounds i8, ptr %9, i64 24
-  %18 = ptrtoint ptr %0 to i64
-  %wide.trip.count = zext nneg i32 %1 to i64
+  %16 = ptrtoint ptr %0 to i64
+  %17 = getelementptr inbounds i8, ptr %9, i64 16
+  %18 = getelementptr inbounds i8, ptr %9, i64 24
   %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %20
 
 20:                                               ; preds = %.lr.ph, %92
@@ -1619,14 +1619,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit33: ; preds = %51
   store i64 0, ptr %19, align 8
-  store i64 %18, ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZ14getSourceFilesiPPcE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %17, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZ14getSourceFilesiPPcE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %16, align 8
+  store i64 %16, ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZ14getSourceFilesiPPcE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %18, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZ14getSourceFilesiPPcE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %17, align 8
   %54 = invoke fastcc noundef zeroext i1 @_ZL20traverseDirectoryRecRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFvS6_EE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %_Z17traverseDirectoryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFvS6_EE.exit unwind label %65
 
 _Z17traverseDirectoryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFvS6_EE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit33
-  %55 = load ptr, ptr %16, align 8
+  %55 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i, label %.sink.split, label %56
 
@@ -1654,7 +1654,7 @@ _Z17traverseDirectoryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8
 65:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit33
   %66 = landingpad { ptr, i32 }
           cleanup
-  %67 = load ptr, ptr %16, align 8
+  %67 = load ptr, ptr %17, align 8
   %.not.i.i35 = icmp eq ptr %67, null
   br i1 %.not.i.i35, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit36, label %68
 

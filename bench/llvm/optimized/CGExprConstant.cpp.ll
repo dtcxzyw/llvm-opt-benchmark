@@ -11490,26 +11490,26 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoELb1EE9p
   br i1 %152, label %.lr.ph.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES2_EC2ES3_l.exit.thread.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %151, %select.unfold.i.i.i.i.i
-  %storemerge26.i.i.in.in.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %148, %151 ]
-  %storemerge26.i.i.in.i.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i, 1
-  %storemerge26.i.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i.i, 1
-  %153 = mul nuw nsw i64 %storemerge26.i.i.i.i.i, 24
+  %storemerge28.i.i.in.in.i.i.i = phi i64 [ %storemerge28.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %148, %151 ]
+  %storemerge28.i.i.in.i.i.i = add nuw nsw i64 %storemerge28.i.i.in.in.i.i.i, 1
+  %storemerge28.i.i.i.i.i = lshr i64 %storemerge28.i.i.in.i.i.i, 1
+  %153 = mul nuw nsw i64 %storemerge28.i.i.i.i.i, 24
   %154 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %153, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #25
   %.not.i.i.i.i.i = icmp eq ptr %154, null
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %155
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i.i, 3
-  br i1 %.not10.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES2_EC2ES3_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !99
+  %.not12.i.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i.i, 3
+  br i1 %.not12.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES2_EC2ES3_l.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !99
 
 155:                                              ; preds = %.lr.ph.i.i.i.i.i
   %156 = getelementptr inbounds i8, ptr %154, i64 %153
-  %157 = icmp eq i64 %storemerge26.i.i.in.in.i.i.i, 0
+  %157 = icmp eq i64 %storemerge28.i.i.in.in.i.i.i, 0
   br i1 %157, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES2_EC2ES3_l.exit.thread21.i.i.i, label %158
 
 158:                                              ; preds = %155
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %154, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val.i, i64 24, i1 false)
-  %.not19.i.i.i.i.i.i = icmp eq i64 %storemerge26.i.i.i.i.i, 1
+  %.not19.i.i.i.i.i.i = icmp eq i64 %storemerge28.i.i.i.i.i, 1
   br i1 %.not19.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES2_EC2ES3_l.exit.thread21.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %158
@@ -11534,7 +11534,7 @@ _ZNSt17_Temporary_bufferIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES2_EC2ES3_l.exi
   br label %160
 
 _ZNSt17_Temporary_bufferIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES2_EC2ES3_l.exit.thread21.i.i.i: ; preds = %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES2_EC2ES3_l.exit.i.i.i, %158, %155
-  call fastcc void @_ZSt22__stable_sort_adaptiveIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES3_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_T2_(ptr noundef %.val.i, ptr noundef nonnull %149, ptr noundef nonnull %154, i64 noundef %storemerge26.i.i.i.i.i)
+  call fastcc void @_ZSt22__stable_sort_adaptiveIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES3_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_T2_(ptr noundef %.val.i, ptr noundef nonnull %149, ptr noundef nonnull %154, i64 noundef %storemerge28.i.i.i.i.i)
   br label %160
 
 160:                                              ; preds = %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES2_EC2ES3_l.exit.thread21.i.i.i, %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES2_EC2ES3_l.exit.thread.i.i.i

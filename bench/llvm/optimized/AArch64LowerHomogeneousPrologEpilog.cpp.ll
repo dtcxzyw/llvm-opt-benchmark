@@ -698,14 +698,14 @@ _ZNSt8optionalIiEaSIlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
   %185 = trunc i64 %184 to i32
   %186 = load ptr, ptr %26, align 8
   %187 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #14
-  %.idx4.i.i.i = shl nsw i64 %187, 2
-  %188 = getelementptr inbounds i8, ptr %186, i64 %.idx4.i.i.i
+  %.idx1.i.i.i = shl nsw i64 %187, 2
+  %188 = getelementptr inbounds i8, ptr %186, i64 %.idx1.i.i.i
   %189 = ashr i64 %187, 2
   %190 = icmp sgt i64 %189, 0
   br i1 %190, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %175
-  %191 = and i64 %.idx4.i.i.i, -16
+  %191 = and i64 %.idx1.i.i.i, -16
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %186, i64 %191
   br label %192
 
@@ -959,14 +959,14 @@ _ZN4llvm10MIMetadataD2Ev.exit.i.i.i.i.i:          ; preds = %261, %_ZN4llvm7Buil
   %275 = trunc i64 %274 to i32
   %276 = load ptr, ptr %26, align 8
   %277 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #14
-  %.idx4.i.i7.i.i = shl nsw i64 %277, 2
-  %278 = getelementptr inbounds i8, ptr %276, i64 %.idx4.i.i7.i.i
+  %.idx1.i.i7.i.i = shl nsw i64 %277, 2
+  %278 = getelementptr inbounds i8, ptr %276, i64 %.idx1.i.i7.i.i
   %279 = ashr i64 %277, 2
   %280 = icmp sgt i64 %279, 0
   br i1 %280, label %.lr.ph.i.i.i.i.i22.i.i, label %._crit_edge.i.i.i.i.i8.i.i
 
 .lr.ph.i.i.i.i.i22.i.i:                           ; preds = %.thread139.i.i.i.i.i
-  %281 = and i64 %.idx4.i.i7.i.i, -16
+  %281 = and i64 %.idx1.i.i7.i.i, -16
   %scevgep.i.i.i.i.i23.i.i = getelementptr i8, ptr %276, i64 %281
   br label %282
 
@@ -1488,14 +1488,14 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i26.i.i.i.i: ; preds =
   %465 = trunc i64 %464 to i32
   %466 = load ptr, ptr %12, align 8
   %467 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
-  %.idx4.i.i.i.i = shl nsw i64 %467, 2
-  %468 = getelementptr inbounds i8, ptr %466, i64 %.idx4.i.i.i.i
+  %.idx1.i.i.i.i = shl nsw i64 %467, 2
+  %468 = getelementptr inbounds i8, ptr %466, i64 %.idx1.i.i.i.i
   %469 = ashr i64 %467, 2
   %470 = icmp sgt i64 %469, 0
   br i1 %470, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %455
-  %471 = and i64 %.idx4.i.i.i.i, -16
+  %471 = and i64 %.idx1.i.i.i.i, -16
   %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %466, i64 %471
   br label %472
 
@@ -1777,14 +1777,14 @@ _ZL20shouldUseFrameHelperRN4llvm17MachineBasicBlockERNS_26MachineInstrBundleIter
   %569 = trunc i64 %568 to i32
   %570 = load ptr, ptr %12, align 8
   %571 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
-  %.idx4.i.i = shl nsw i64 %571, 2
-  %572 = getelementptr inbounds i8, ptr %570, i64 %.idx4.i.i
+  %.idx1.i.i = shl nsw i64 %571, 2
+  %572 = getelementptr inbounds i8, ptr %570, i64 %.idx1.i.i
   %573 = ashr i64 %571, 2
   %574 = icmp sgt i64 %573, 0
   br i1 %574, label %.lr.ph.i.i.i.i.i13, label %._crit_edge.i.i.i.i.i6
 
 .lr.ph.i.i.i.i.i13:                               ; preds = %_ZL20shouldUseFrameHelperRN4llvm17MachineBasicBlockERNS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERNS_15SmallVectorImplIjEE15FrameHelperType.exit.thread.i.i
-  %575 = and i64 %.idx4.i.i, -16
+  %575 = and i64 %.idx1.i.i, -16
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %570, i64 %575
   br label %576
 
@@ -2698,14 +2698,14 @@ _ZL32createFrameHelperMachineFunctionPN4llvm6ModuleEPNS_17MachineModuleInfoENS_9
 116:                                              ; preds = %_ZL32createFrameHelperMachineFunctionPN4llvm6ModuleEPNS_17MachineModuleInfoENS_9StringRefE.exit
   %117 = load ptr, ptr %2, align 8
   %118 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  %.idx3.i = shl nsw i64 %118, 2
-  %119 = getelementptr inbounds i8, ptr %117, i64 %.idx3.i
+  %.idx1.i = shl nsw i64 %118, 2
+  %119 = getelementptr inbounds i8, ptr %117, i64 %.idx1.i
   %120 = ashr i64 %118, 2
   %121 = icmp sgt i64 %120, 0
   br i1 %121, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %116
-  %122 = and i64 %.idx3.i, -16
+  %122 = and i64 %.idx1.i, -16
   %scevgep.i.i.i.i = getelementptr i8, ptr %117, i64 %122
   br label %123
 

@@ -642,14 +642,14 @@ define linkonce_odr void @_ZN3gmx25ModularSimulatorAlgorithm12SignalHelperD0Ev(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx25ModularSimulatorAlgorithm12SignalHelper24registerLastStepCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8
-  %6 = ptrtoint ptr %1 to i64
-  store i64 %6, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx25ModularSimulatorAlgorithm12SignalHelper24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx25ModularSimulatorAlgorithm12SignalHelper24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %3, align 8
+  %3 = ptrtoint ptr %1 to i64
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %6, align 8
+  store i64 %3, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx25ModularSimulatorAlgorithm12SignalHelper24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx25ModularSimulatorAlgorithm12SignalHelper24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %7, align 8
   ret void
@@ -657,14 +657,14 @@ define void @_ZN3gmx25ModularSimulatorAlgorithm12SignalHelper24registerLastStepC
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8
-  %6 = ptrtoint ptr %1 to i64
-  store i64 %6, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %3, align 8
+  %3 = ptrtoint ptr %1 to i64
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %6, align 8
+  store i64 %3, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %7, align 8
   ret void
@@ -685,14 +685,14 @@ define linkonce_odr void @_ZThn8_N3gmx25ModularSimulatorAlgorithm12SignalHelperD
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZThn8_N3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %6, align 8, !alias.scope !5
-  %7 = ptrtoint ptr %3 to i64
-  store i64 %7, ptr %0, align 8, !alias.scope !5
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %5, align 8, !alias.scope !5
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %4, align 8, !alias.scope !5
+  %4 = ptrtoint ptr %3 to i64
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %7, align 8, !alias.scope !5
+  store i64 %4, ptr %0, align 8, !alias.scope !5
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8, !alias.scope !5
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %5, align 8, !alias.scope !5
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %8, align 8, !alias.scope !5
   ret void
@@ -2008,62 +2008,62 @@ define void @_ZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEv(ptr noundef
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
-  %.not112176 = icmp eq ptr %23, %25
-  br i1 %.not112176, label %._crit_edge, label %.lr.ph
+  %.not113177 = icmp eq ptr %23, %25
+  br i1 %.not113177, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.0106.0177 = phi ptr [ %30, %.lr.ph ], [ %23, %1 ]
-  %26 = load ptr, ptr %.sroa.0106.0177, align 8
+  %.sroa.0107.0178 = phi ptr [ %30, %.lr.ph ], [ %23, %1 ]
+  %26 = load ptr, ptr %.sroa.0107.0178, align 8
   %27 = load i64, ptr %18, align 8
   %28 = load ptr, ptr %26, align 8
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef %27, double noundef %21)
-  %30 = getelementptr inbounds i8, ptr %.sroa.0106.0177, i64 8
-  %.not112 = icmp eq ptr %30, %25
-  br i1 %.not112, label %._crit_edge.loopexit, label %.lr.ph
+  %30 = getelementptr inbounds i8, ptr %.sroa.0107.0178, i64 8
+  %.not113 = icmp eq ptr %30, %25
+  br i1 %.not113, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre.pre205.pre207.pre209.pre = load i64, ptr %18, align 8
+  %.pre.pre206.pre208.pre210.pre = load i64, ptr %18, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.pre.pre205.pre207.pre209 = phi i64 [ %.pre.pre205.pre207.pre209.pre, %._crit_edge.loopexit ], [ %19, %1 ]
+  %.pre.pre206.pre208.pre210 = phi i64 [ %.pre.pre206.pre208.pre210.pre, %._crit_edge.loopexit ], [ %19, %1 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 192
   %32 = load ptr, ptr %31, align 8
-  %.not113 = icmp eq ptr %32, null
-  br i1 %.not113, label %34, label %33
+  %.not114 = icmp eq ptr %32, null
+  br i1 %.not114, label %34, label %33
 
 33:                                               ; preds = %._crit_edge
-  tail call void @_ZN3gmx16CheckpointHelper3runEld(ptr noundef nonnull align 8 dereferenceable(120) %32, i64 noundef %.pre.pre205.pre207.pre209, double noundef %21)
-  %.pre.pre205.pre207.pre = load i64, ptr %18, align 8
+  tail call void @_ZN3gmx16CheckpointHelper3runEld(ptr noundef nonnull align 8 dereferenceable(120) %32, i64 noundef %.pre.pre206.pre208.pre210, double noundef %21)
+  %.pre.pre206.pre208.pre = load i64, ptr %18, align 8
   br label %34
 
 34:                                               ; preds = %33, %._crit_edge
-  %.pre.pre205.pre207 = phi i64 [ %.pre.pre205.pre207.pre, %33 ], [ %.pre.pre205.pre207.pre209, %._crit_edge ]
+  %.pre.pre206.pre208 = phi i64 [ %.pre.pre206.pre208.pre, %33 ], [ %.pre.pre206.pre208.pre210, %._crit_edge ]
   %35 = getelementptr inbounds i8, ptr %0, i64 184
   %36 = load ptr, ptr %35, align 8
-  %.not114 = icmp eq ptr %36, null
-  br i1 %.not114, label %38, label %37
+  %.not115 = icmp eq ptr %36, null
+  br i1 %.not115, label %38, label %37
 
 37:                                               ; preds = %34
-  tail call void @_ZN3gmx20PmeLoadBalanceHelper3runEld(ptr noundef nonnull align 8 dereferenceable(88) %36, i64 noundef %.pre.pre205.pre207, double noundef %21)
-  %.pre.pre205.pre = load i64, ptr %18, align 8
+  tail call void @_ZN3gmx20PmeLoadBalanceHelper3runEld(ptr noundef nonnull align 8 dereferenceable(88) %36, i64 noundef %.pre.pre206.pre208, double noundef %21)
+  %.pre.pre206.pre = load i64, ptr %18, align 8
   br label %38
 
 38:                                               ; preds = %37, %34
-  %.pre.pre205 = phi i64 [ %.pre.pre205.pre, %37 ], [ %.pre.pre205.pre207, %34 ]
+  %.pre.pre206 = phi i64 [ %.pre.pre206.pre, %37 ], [ %.pre.pre206.pre208, %34 ]
   %39 = getelementptr inbounds i8, ptr %0, i64 176
   %40 = load ptr, ptr %39, align 8
-  %.not115 = icmp eq ptr %40, null
-  br i1 %.not115, label %42, label %41
+  %.not116 = icmp eq ptr %40, null
+  br i1 %.not116, label %42, label %41
 
 41:                                               ; preds = %38
-  tail call void @_ZN3gmx12DomDecHelper3runEld(ptr noundef nonnull align 8 dereferenceable(168) %40, i64 noundef %.pre.pre205, double noundef %21)
+  tail call void @_ZN3gmx12DomDecHelper3runEld(ptr noundef nonnull align 8 dereferenceable(168) %40, i64 noundef %.pre.pre206, double noundef %21)
   %.pre.pre = load i64, ptr %18, align 8
   br label %42
 
 42:                                               ; preds = %41, %38
-  %.pre = phi i64 [ %.pre.pre, %41 ], [ %.pre.pre205, %38 ]
+  %.pre = phi i64 [ %.pre.pre, %41 ], [ %.pre.pre206, %38 ]
   %43 = getelementptr inbounds i8, ptr %0, i64 320
   %44 = getelementptr inbounds i8, ptr %6, i64 16
   %45 = getelementptr inbounds i8, ptr %6, i64 24
@@ -2071,45 +2071,45 @@ define void @_ZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEv(ptr noundef
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   %48 = getelementptr inbounds i8, ptr %0, i64 128
   %49 = getelementptr inbounds i8, ptr %0, i64 136
-  %50 = getelementptr inbounds i8, ptr %7, i64 16
-  %51 = getelementptr inbounds i8, ptr %7, i64 24
-  %52 = ptrtoint ptr %0 to i64
-  %53 = getelementptr inbounds i8, ptr %0, i64 80
-  %54 = getelementptr inbounds i8, ptr %0, i64 88
-  %55 = getelementptr inbounds i8, ptr %8, i64 16
-  %56 = getelementptr inbounds i8, ptr %8, i64 24
-  %57 = getelementptr inbounds i8, ptr %0, i64 152
-  %58 = getelementptr inbounds i8, ptr %0, i64 160
-  %59 = getelementptr inbounds i8, ptr %9, i64 16
-  %60 = getelementptr inbounds i8, ptr %9, i64 24
-  %61 = getelementptr inbounds i8, ptr %10, i64 16
-  %62 = getelementptr inbounds i8, ptr %10, i64 24
-  %.pre197 = load ptr, ptr %43, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre197, i64 24
-  %.pre198 = load i64, ptr %.phi.trans.insert, align 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 8
-  %64 = getelementptr inbounds i8, ptr %7, i64 8
-  %65 = getelementptr inbounds i8, ptr %8, i64 8
-  %66 = getelementptr inbounds i8, ptr %9, i64 8
+  %50 = ptrtoint ptr %0 to i64
+  %51 = getelementptr inbounds i8, ptr %7, i64 16
+  %52 = getelementptr inbounds i8, ptr %7, i64 24
+  %53 = getelementptr inbounds i8, ptr %7, i64 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 80
+  %55 = getelementptr inbounds i8, ptr %0, i64 88
+  %56 = getelementptr inbounds i8, ptr %8, i64 16
+  %57 = getelementptr inbounds i8, ptr %8, i64 24
+  %58 = getelementptr inbounds i8, ptr %8, i64 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 152
+  %60 = getelementptr inbounds i8, ptr %0, i64 160
+  %61 = getelementptr inbounds i8, ptr %9, i64 16
+  %62 = getelementptr inbounds i8, ptr %9, i64 24
+  %63 = getelementptr inbounds i8, ptr %9, i64 8
+  %64 = getelementptr inbounds i8, ptr %10, i64 16
+  %65 = getelementptr inbounds i8, ptr %10, i64 24
+  %.pre198 = load ptr, ptr %43, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre198, i64 24
+  %.pre199 = load i64, ptr %.phi.trans.insert, align 8
+  %66 = getelementptr inbounds i8, ptr %6, i64 8
   %67 = getelementptr inbounds i8, ptr %10, i64 8
   br label %68
 
-68:                                               ; preds = %._crit_edge195, %42
-  %69 = phi i64 [ %.pre198, %42 ], [ %211, %._crit_edge195 ]
-  %70 = phi i64 [ %.pre, %42 ], [ %208, %._crit_edge195 ]
-  %.0 = phi double [ %21, %42 ], [ %192, %._crit_edge195 ]
+68:                                               ; preds = %._crit_edge196, %42
+  %69 = phi i64 [ %.pre199, %42 ], [ %211, %._crit_edge196 ]
+  %70 = phi i64 [ %.pre, %42 ], [ %208, %._crit_edge196 ]
+  %.0 = phi double [ %21, %42 ], [ %192, %._crit_edge196 ]
   %71 = trunc i64 %70 to i32
   %sext = shl i64 %70, 32
   %72 = ashr exact i64 %sext, 32
   %73 = icmp eq i64 %72, %69
   %74 = zext i1 %73 to i8
-  store i64 0, ptr %63, align 8
+  store i64 0, ptr %66, align 8
   %75 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   store ptr %0, ptr %75, align 16
-  %.sroa.2102.0..sroa_idx = getelementptr inbounds i8, ptr %75, i64 8
-  store i32 %71, ptr %.sroa.2102.0..sroa_idx, align 8
-  %.sroa.3104.0..sroa_idx = getelementptr inbounds i8, ptr %75, i64 16
-  store double %.0, ptr %.sroa.3104.0..sroa_idx, align 16
+  %.sroa.2103.0..sroa_idx = getelementptr inbounds i8, ptr %75, i64 8
+  store i32 %71, ptr %.sroa.2103.0..sroa_idx, align 8
+  %.sroa.3105.0..sroa_idx = getelementptr inbounds i8, ptr %75, i64 16
+  store double %.0, ptr %.sroa.3105.0..sroa_idx, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %75, i64 24
   store i8 %74, ptr %.sroa.4.0..sroa_idx, align 8
   store ptr %75, ptr %6, align 8
@@ -2148,12 +2148,12 @@ define void @_ZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEv(ptr noundef
           to label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit" unwind label %110
 
 "_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit": ; preds = %87
-  %.pre199 = load ptr, ptr %44, align 8
-  %.not.i.i41 = icmp eq ptr %.pre199, null
-  br i1 %.not.i.i41, label %_ZNSt8functionIFvvEED2Ev.exit, label %88
+  %.pre200 = load ptr, ptr %44, align 8
+  %.not.i.i45 = icmp eq ptr %.pre200, null
+  br i1 %.not.i.i45, label %_ZNSt8functionIFvvEED2Ev.exit, label %88
 
 88:                                               ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit"
-  %89 = invoke noundef zeroext i1 %.pre199(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %89 = invoke noundef zeroext i1 %.pre200(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %90
 
 90:                                               ; preds = %88
@@ -2166,44 +2166,44 @@ define void @_ZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEv(ptr noundef
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit.thread", %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit", %88
   %93 = load ptr, ptr %48, align 8
   %94 = load ptr, ptr %49, align 8
-  %.not116178 = icmp eq ptr %93, %94
-  br i1 %.not116178, label %._crit_edge181, label %.lr.ph180
+  %.not117179 = icmp eq ptr %93, %94
+  br i1 %.not117179, label %._crit_edge182, label %.lr.ph181
 
-.lr.ph180:                                        ; preds = %_ZNSt8functionIFvvEED2Ev.exit, %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit
-  %.sroa.098.0179 = phi ptr [ %109, %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit ], [ %93, %_ZNSt8functionIFvvEED2Ev.exit ]
+.lr.ph181:                                        ; preds = %_ZNSt8functionIFvvEED2Ev.exit, %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit
+  %.sroa.099.0180 = phi ptr [ %109, %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit ], [ %93, %_ZNSt8functionIFvvEED2Ev.exit ]
   %95 = load i64, ptr %18, align 8
-  store i64 0, ptr %64, align 8
-  store i64 %52, ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1E9_M_invokeERKSt9_Any_dataOS2_", ptr %51, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %50, align 8
+  store i64 0, ptr %53, align 8
+  store i64 %50, ptr %7, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1E9_M_invokeERKSt9_Any_dataOS2_", ptr %52, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %51, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %95, ptr %4, align 8
   store double %.0, ptr %5, align 8
-  %96 = getelementptr inbounds i8, ptr %.sroa.098.0179, i64 16
+  %96 = getelementptr inbounds i8, ptr %.sroa.099.0180, i64 16
   %97 = load ptr, ptr %96, align 8
-  %.not.i.i42 = icmp eq ptr %97, null
-  br i1 %.not.i.i42, label %98, label %99
+  %.not.i.i46 = icmp eq ptr %97, null
+  br i1 %.not.i.i46, label %98, label %99
 
-98:                                               ; preds = %.lr.ph180
+98:                                               ; preds = %.lr.ph181
   invoke void @_ZSt25__throw_bad_function_callv() #31
-          to label %.noexc43 unwind label %.loopexit.split-lp121
+          to label %.noexc47 unwind label %.loopexit.split-lp122
 
-.noexc43:                                         ; preds = %98
+.noexc47:                                         ; preds = %98
   unreachable
 
-99:                                               ; preds = %.lr.ph180
-  %100 = getelementptr inbounds i8, ptr %.sroa.098.0179, i64 24
+99:                                               ; preds = %.lr.ph181
+  %100 = getelementptr inbounds i8, ptr %.sroa.099.0180, i64 24
   %101 = load ptr, ptr %100, align 8
-  invoke void %101(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.098.0179, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %102 unwind label %.loopexit120
+  invoke void %101(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.099.0180, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %102 unwind label %.loopexit121
 
 102:                                              ; preds = %99
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %103 = load ptr, ptr %50, align 8
-  %.not.i.i45 = icmp eq ptr %103, null
-  br i1 %.not.i.i45, label %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit, label %104
+  %103 = load ptr, ptr %51, align 8
+  %.not.i.i49 = icmp eq ptr %103, null
+  br i1 %.not.i.i49, label %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit, label %104
 
 104:                                              ; preds = %102
   %105 = invoke noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
@@ -2217,20 +2217,20 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %"_ZZN3gmx25ModularS
   unreachable
 
 _ZNSt8functionIFvS_IFvvEEEED2Ev.exit:             ; preds = %102, %104
-  %109 = getelementptr inbounds i8, ptr %.sroa.098.0179, i64 32
-  %.not116 = icmp eq ptr %109, %94
-  br i1 %.not116, label %._crit_edge181, label %.lr.ph180
+  %109 = getelementptr inbounds i8, ptr %.sroa.099.0180, i64 32
+  %.not117 = icmp eq ptr %109, %94
+  br i1 %.not117, label %._crit_edge182, label %.lr.ph181
 
 110:                                              ; preds = %87
   %111 = landingpad { ptr, i32 }
           cleanup
   %112 = load ptr, ptr %44, align 8
-  %.not.i.i46 = icmp eq ptr %112, null
-  br i1 %.not.i.i46, label %_ZNSt8functionIFvvEED2Ev.exit47, label %113
+  %.not.i.i50 = icmp eq ptr %112, null
+  br i1 %.not.i.i50, label %_ZNSt8functionIFvvEED2Ev.exit51, label %113
 
 113:                                              ; preds = %110
   %114 = invoke noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit47 unwind label %115
+          to label %_ZNSt8functionIFvvEED2Ev.exit51 unwind label %115
 
 115:                                              ; preds = %113
   %116 = landingpad { ptr, i32 }
@@ -2239,25 +2239,25 @@ _ZNSt8functionIFvS_IFvvEEEED2Ev.exit:             ; preds = %102, %104
   call void @__clang_call_terminate(ptr %117) #29
   unreachable
 
-.loopexit120:                                     ; preds = %99
-  %lpad.loopexit122 = landingpad { ptr, i32 }
+.loopexit121:                                     ; preds = %99
+  %lpad.loopexit123 = landingpad { ptr, i32 }
           cleanup
   br label %118
 
-.loopexit.split-lp121:                            ; preds = %98
-  %lpad.loopexit.split-lp123 = landingpad { ptr, i32 }
+.loopexit.split-lp122:                            ; preds = %98
+  %lpad.loopexit.split-lp124 = landingpad { ptr, i32 }
           cleanup
   br label %118
 
-118:                                              ; preds = %.loopexit.split-lp121, %.loopexit120
-  %lpad.phi124 = phi { ptr, i32 } [ %lpad.loopexit122, %.loopexit120 ], [ %lpad.loopexit.split-lp123, %.loopexit.split-lp121 ]
-  %119 = load ptr, ptr %50, align 8
-  %.not.i.i48 = icmp eq ptr %119, null
-  br i1 %.not.i.i48, label %_ZNSt8functionIFvvEED2Ev.exit47, label %120
+118:                                              ; preds = %.loopexit.split-lp122, %.loopexit121
+  %lpad.phi125 = phi { ptr, i32 } [ %lpad.loopexit123, %.loopexit121 ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp122 ]
+  %119 = load ptr, ptr %51, align 8
+  %.not.i.i52 = icmp eq ptr %119, null
+  br i1 %.not.i.i52, label %_ZNSt8functionIFvvEED2Ev.exit51, label %120
 
 120:                                              ; preds = %118
   %121 = invoke noundef zeroext i1 %119(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit47 unwind label %122
+          to label %_ZNSt8functionIFvvEED2Ev.exit51 unwind label %122
 
 122:                                              ; preds = %120
   %123 = landingpad { ptr, i32 }
@@ -2266,33 +2266,33 @@ _ZNSt8functionIFvS_IFvvEEEED2Ev.exit:             ; preds = %102, %104
   call void @__clang_call_terminate(ptr %124) #29
   unreachable
 
-._crit_edge181:                                   ; preds = %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit, %_ZNSt8functionIFvvEED2Ev.exit
-  %125 = load ptr, ptr %53, align 8
-  %126 = load ptr, ptr %54, align 8
-  %.not117182 = icmp eq ptr %125, %126
-  br i1 %.not117182, label %._crit_edge186, label %.lr.ph185
+._crit_edge182:                                   ; preds = %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit, %_ZNSt8functionIFvvEED2Ev.exit
+  %125 = load ptr, ptr %54, align 8
+  %126 = load ptr, ptr %55, align 8
+  %.not118183 = icmp eq ptr %125, %126
+  br i1 %.not118183, label %._crit_edge187, label %.lr.ph186
 
-.lr.ph185:                                        ; preds = %._crit_edge181, %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit52
-  %.sroa.094.0183 = phi ptr [ %138, %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit52 ], [ %125, %._crit_edge181 ]
-  %127 = load ptr, ptr %.sroa.094.0183, align 8
+.lr.ph186:                                        ; preds = %._crit_edge182, %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit55
+  %.sroa.095.0184 = phi ptr [ %138, %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit55 ], [ %125, %._crit_edge182 ]
+  %127 = load ptr, ptr %.sroa.095.0184, align 8
   %128 = load i64, ptr %18, align 8
-  store i64 0, ptr %65, align 8
-  store i64 %52, ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1E9_M_invokeERKSt9_Any_dataOS2_", ptr %56, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %55, align 8
+  store i64 0, ptr %58, align 8
+  store i64 %50, ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1E9_M_invokeERKSt9_Any_dataOS2_", ptr %57, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %56, align 8
   %129 = load ptr, ptr %127, align 8
   %130 = load ptr, ptr %129, align 8
   invoke void %130(ptr noundef nonnull align 8 dereferenceable(8) %127, i64 noundef %128, double noundef %.0, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %131 unwind label %139
 
-131:                                              ; preds = %.lr.ph185
-  %132 = load ptr, ptr %55, align 8
-  %.not.i.i51 = icmp eq ptr %132, null
-  br i1 %.not.i.i51, label %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit52, label %133
+131:                                              ; preds = %.lr.ph186
+  %132 = load ptr, ptr %56, align 8
+  %.not.i.i54 = icmp eq ptr %132, null
+  br i1 %.not.i.i54, label %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit55, label %133
 
 133:                                              ; preds = %131
   %134 = invoke noundef zeroext i1 %132(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit52 unwind label %135
+          to label %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit55 unwind label %135
 
 135:                                              ; preds = %133
   %136 = landingpad { ptr, i32 }
@@ -2301,21 +2301,21 @@ _ZNSt8functionIFvS_IFvvEEEED2Ev.exit:             ; preds = %102, %104
   call void @__clang_call_terminate(ptr %137) #29
   unreachable
 
-_ZNSt8functionIFvS_IFvvEEEED2Ev.exit52:           ; preds = %131, %133
-  %138 = getelementptr inbounds i8, ptr %.sroa.094.0183, i64 8
-  %.not117 = icmp eq ptr %138, %126
-  br i1 %.not117, label %._crit_edge186, label %.lr.ph185
+_ZNSt8functionIFvS_IFvvEEEED2Ev.exit55:           ; preds = %131, %133
+  %138 = getelementptr inbounds i8, ptr %.sroa.095.0184, i64 8
+  %.not118 = icmp eq ptr %138, %126
+  br i1 %.not118, label %._crit_edge187, label %.lr.ph186
 
-139:                                              ; preds = %.lr.ph185
+139:                                              ; preds = %.lr.ph186
   %140 = landingpad { ptr, i32 }
           cleanup
-  %141 = load ptr, ptr %55, align 8
-  %.not.i.i53 = icmp eq ptr %141, null
-  br i1 %.not.i.i53, label %_ZNSt8functionIFvvEED2Ev.exit47, label %142
+  %141 = load ptr, ptr %56, align 8
+  %.not.i.i56 = icmp eq ptr %141, null
+  br i1 %.not.i.i56, label %_ZNSt8functionIFvvEED2Ev.exit51, label %142
 
 142:                                              ; preds = %139
   %143 = invoke noundef zeroext i1 %141(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit47 unwind label %144
+          to label %_ZNSt8functionIFvvEED2Ev.exit51 unwind label %144
 
 144:                                              ; preds = %142
   %145 = landingpad { ptr, i32 }
@@ -2324,51 +2324,51 @@ _ZNSt8functionIFvS_IFvvEEEED2Ev.exit52:           ; preds = %131, %133
   call void @__clang_call_terminate(ptr %146) #29
   unreachable
 
-._crit_edge186:                                   ; preds = %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit52, %._crit_edge181
-  %147 = load ptr, ptr %57, align 8
-  %148 = load ptr, ptr %58, align 8
-  %.not118187 = icmp eq ptr %147, %148
-  br i1 %.not118187, label %._crit_edge191, label %.lr.ph190
+._crit_edge187:                                   ; preds = %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit55, %._crit_edge182
+  %147 = load ptr, ptr %59, align 8
+  %148 = load ptr, ptr %60, align 8
+  %.not119188 = icmp eq ptr %147, %148
+  br i1 %.not119188, label %._crit_edge192, label %.lr.ph191
 
-.lr.ph190:                                        ; preds = %._crit_edge186, %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit61
-  %.sroa.090.0188 = phi ptr [ %163, %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit61 ], [ %147, %._crit_edge186 ]
+.lr.ph191:                                        ; preds = %._crit_edge187, %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit63
+  %.sroa.091.0189 = phi ptr [ %163, %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit63 ], [ %147, %._crit_edge187 ]
   %149 = load i64, ptr %18, align 8
-  store i64 0, ptr %66, align 8
-  store i64 %52, ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1E9_M_invokeERKSt9_Any_dataOS2_", ptr %60, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %59, align 8
+  store i64 0, ptr %63, align 8
+  store i64 %50, ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1E9_M_invokeERKSt9_Any_dataOS2_", ptr %62, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %61, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %149, ptr %2, align 8
   store double %.0, ptr %3, align 8
-  %150 = getelementptr inbounds i8, ptr %.sroa.090.0188, i64 16
+  %150 = getelementptr inbounds i8, ptr %.sroa.091.0189, i64 16
   %151 = load ptr, ptr %150, align 8
-  %.not.i.i56 = icmp eq ptr %151, null
-  br i1 %.not.i.i56, label %152, label %153
+  %.not.i.i58 = icmp eq ptr %151, null
+  br i1 %.not.i.i58, label %152, label %153
 
-152:                                              ; preds = %.lr.ph190
+152:                                              ; preds = %.lr.ph191
   invoke void @_ZSt25__throw_bad_function_callv() #31
-          to label %.noexc57 unwind label %.loopexit.split-lp
+          to label %.noexc59 unwind label %.loopexit.split-lp
 
-.noexc57:                                         ; preds = %152
+.noexc59:                                         ; preds = %152
   unreachable
 
-153:                                              ; preds = %.lr.ph190
-  %154 = getelementptr inbounds i8, ptr %.sroa.090.0188, i64 24
+153:                                              ; preds = %.lr.ph191
+  %154 = getelementptr inbounds i8, ptr %.sroa.091.0189, i64 24
   %155 = load ptr, ptr %154, align 8
-  invoke void %155(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.090.0188, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  invoke void %155(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.091.0189, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %156 unwind label %.loopexit
 
 156:                                              ; preds = %153
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %157 = load ptr, ptr %59, align 8
-  %.not.i.i60 = icmp eq ptr %157, null
-  br i1 %.not.i.i60, label %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit61, label %158
+  %157 = load ptr, ptr %61, align 8
+  %.not.i.i62 = icmp eq ptr %157, null
+  br i1 %.not.i.i62, label %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit63, label %158
 
 158:                                              ; preds = %156
   %159 = invoke noundef zeroext i1 %157(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit61 unwind label %160
+          to label %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit63 unwind label %160
 
 160:                                              ; preds = %158
   %161 = landingpad { ptr, i32 }
@@ -2377,10 +2377,10 @@ _ZNSt8functionIFvS_IFvvEEEED2Ev.exit52:           ; preds = %131, %133
   call void @__clang_call_terminate(ptr %162) #29
   unreachable
 
-_ZNSt8functionIFvS_IFvvEEEED2Ev.exit61:           ; preds = %156, %158
-  %163 = getelementptr inbounds i8, ptr %.sroa.090.0188, i64 32
-  %.not118 = icmp eq ptr %163, %148
-  br i1 %.not118, label %._crit_edge191, label %.lr.ph190
+_ZNSt8functionIFvS_IFvvEEEED2Ev.exit63:           ; preds = %156, %158
+  %163 = getelementptr inbounds i8, ptr %.sroa.091.0189, i64 32
+  %.not119 = icmp eq ptr %163, %148
+  br i1 %.not119, label %._crit_edge192, label %.lr.ph191
 
 .loopexit:                                        ; preds = %153
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2394,13 +2394,13 @@ _ZNSt8functionIFvS_IFvvEEEED2Ev.exit61:           ; preds = %156, %158
 
 164:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %165 = load ptr, ptr %59, align 8
-  %.not.i.i62 = icmp eq ptr %165, null
-  br i1 %.not.i.i62, label %_ZNSt8functionIFvvEED2Ev.exit47, label %166
+  %165 = load ptr, ptr %61, align 8
+  %.not.i.i64 = icmp eq ptr %165, null
+  br i1 %.not.i.i64, label %_ZNSt8functionIFvvEED2Ev.exit51, label %166
 
 166:                                              ; preds = %164
   %167 = invoke noundef zeroext i1 %165(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit47 unwind label %168
+          to label %_ZNSt8functionIFvvEED2Ev.exit51 unwind label %168
 
 168:                                              ; preds = %166
   %169 = landingpad { ptr, i32 }
@@ -2409,57 +2409,57 @@ _ZNSt8functionIFvS_IFvvEEEED2Ev.exit61:           ; preds = %156, %158
   call void @__clang_call_terminate(ptr %170) #29
   unreachable
 
-._crit_edge191:                                   ; preds = %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit61, %._crit_edge186
+._crit_edge192:                                   ; preds = %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit63, %._crit_edge187
   store i64 0, ptr %67, align 8
   %171 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   store ptr %0, ptr %171, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %171, i64 8
   store i32 %71, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.388.0..sroa_idx = getelementptr inbounds i8, ptr %171, i64 16
-  store double %.0, ptr %.sroa.388.0..sroa_idx, align 16
+  %.sroa.389.0..sroa_idx = getelementptr inbounds i8, ptr %171, i64 16
+  store double %.0, ptr %.sroa.389.0..sroa_idx, align 16
   store ptr %171, ptr %10, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E9_M_invokeERKSt9_Any_data", ptr %62, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %61, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E9_M_invokeERKSt9_Any_data", ptr %65, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %64, align 8
   %172 = load ptr, ptr %46, align 8
   %173 = load ptr, ptr %47, align 8
-  %.not.i.i64 = icmp eq ptr %172, %173
-  br i1 %.not.i.i64, label %183, label %174
+  %.not.i.i66 = icmp eq ptr %172, %173
+  br i1 %.not.i.i66, label %183, label %174
 
-174:                                              ; preds = %._crit_edge191
+174:                                              ; preds = %._crit_edge192
   %175 = getelementptr inbounds i8, ptr %172, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %172, i8 0, i64 24, i1 false)
-  %176 = load ptr, ptr %62, align 8
+  %176 = load ptr, ptr %65, align 8
   store ptr %176, ptr %175, align 8
-  %177 = load ptr, ptr %61, align 8
-  %.not.i.i.not.i.i.i.i.i65 = icmp eq ptr %177, null
-  br i1 %.not.i.i.not.i.i.i.i.i65, label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68.thread", label %178
+  %177 = load ptr, ptr %64, align 8
+  %.not.i.i.not.i.i.i.i.i67 = icmp eq ptr %177, null
+  br i1 %.not.i.i.not.i.i.i.i.i67, label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit70.thread", label %178
 
 178:                                              ; preds = %174
   %179 = getelementptr inbounds i8, ptr %172, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %172, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
-  %180 = load ptr, ptr %61, align 8
+  %180 = load ptr, ptr %64, align 8
   store ptr %180, ptr %179, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
-  br label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68.thread"
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
+  br label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit70.thread"
 
-"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68.thread": ; preds = %174, %178
+"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit70.thread": ; preds = %174, %178
   %181 = load ptr, ptr %46, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 32
   store ptr %182, ptr %46, align 8
-  br label %_ZNSt8functionIFvvEED2Ev.exit70
+  br label %_ZNSt8functionIFvvEED2Ev.exit72
 
-183:                                              ; preds = %._crit_edge191
+183:                                              ; preds = %._crit_edge192
   invoke void @_ZNSt6vectorISt8functionIFvvEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %172, ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68" unwind label %200
+          to label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit70" unwind label %200
 
-"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68": ; preds = %183
-  %.pre200 = load ptr, ptr %61, align 8
-  %.not.i.i69 = icmp eq ptr %.pre200, null
-  br i1 %.not.i.i69, label %_ZNSt8functionIFvvEED2Ev.exit70, label %184
+"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit70": ; preds = %183
+  %.pre201 = load ptr, ptr %64, align 8
+  %.not.i.i71 = icmp eq ptr %.pre201, null
+  br i1 %.not.i.i71, label %_ZNSt8functionIFvvEED2Ev.exit72, label %184
 
-184:                                              ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68"
-  %185 = invoke noundef zeroext i1 %.pre200(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit70 unwind label %186
+184:                                              ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit70"
+  %185 = invoke noundef zeroext i1 %.pre201(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+          to label %_ZNSt8functionIFvvEED2Ev.exit72 unwind label %186
 
 186:                                              ; preds = %184
   %187 = landingpad { ptr, i32 }
@@ -2468,7 +2468,7 @@ _ZNSt8functionIFvS_IFvvEEEED2Ev.exit61:           ; preds = %156, %158
   call void @__clang_call_terminate(ptr %188) #29
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit70:                  ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68.thread", %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68", %184
+_ZNSt8functionIFvvEED2Ev.exit72:                  ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit70.thread", %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit70", %184
   %189 = load i64, ptr %18, align 8
   %190 = add nsw i64 %189, 1
   store i64 %190, ptr %18, align 8
@@ -2476,30 +2476,30 @@ _ZNSt8functionIFvvEED2Ev.exit70:                  ; preds = %"_ZZN3gmx25ModularS
   %192 = call double @llvm.fmuladd.f64(double %191, double %17, double %15)
   %193 = load ptr, ptr %22, align 8
   %194 = load ptr, ptr %24, align 8
-  %.not119192 = icmp eq ptr %193, %194
-  br i1 %.not119192, label %._crit_edge195, label %.lr.ph194
+  %.not120193 = icmp eq ptr %193, %194
+  br i1 %.not120193, label %._crit_edge196, label %.lr.ph195
 
-.lr.ph194:                                        ; preds = %_ZNSt8functionIFvvEED2Ev.exit70, %.lr.ph194
-  %.sroa.084.0193 = phi ptr [ %199, %.lr.ph194 ], [ %193, %_ZNSt8functionIFvvEED2Ev.exit70 ]
-  %195 = load ptr, ptr %.sroa.084.0193, align 8
+.lr.ph195:                                        ; preds = %_ZNSt8functionIFvvEED2Ev.exit72, %.lr.ph195
+  %.sroa.085.0194 = phi ptr [ %199, %.lr.ph195 ], [ %193, %_ZNSt8functionIFvvEED2Ev.exit72 ]
+  %195 = load ptr, ptr %.sroa.085.0194, align 8
   %196 = load i64, ptr %18, align 8
   %197 = load ptr, ptr %195, align 8
   %198 = load ptr, ptr %197, align 8
   call void %198(ptr noundef nonnull align 8 dereferenceable(8) %195, i64 noundef %196, double noundef %192)
-  %199 = getelementptr inbounds i8, ptr %.sroa.084.0193, i64 8
-  %.not119 = icmp eq ptr %199, %194
-  br i1 %.not119, label %._crit_edge195.loopexit, label %.lr.ph194
+  %199 = getelementptr inbounds i8, ptr %.sroa.085.0194, i64 8
+  %.not120 = icmp eq ptr %199, %194
+  br i1 %.not120, label %._crit_edge196.loopexit, label %.lr.ph195
 
 200:                                              ; preds = %183
   %201 = landingpad { ptr, i32 }
           cleanup
-  %202 = load ptr, ptr %61, align 8
-  %.not.i.i71 = icmp eq ptr %202, null
-  br i1 %.not.i.i71, label %_ZNSt8functionIFvvEED2Ev.exit47, label %203
+  %202 = load ptr, ptr %64, align 8
+  %.not.i.i73 = icmp eq ptr %202, null
+  br i1 %.not.i.i73, label %_ZNSt8functionIFvvEED2Ev.exit51, label %203
 
 203:                                              ; preds = %200
   %204 = invoke noundef zeroext i1 %202(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit47 unwind label %205
+          to label %_ZNSt8functionIFvvEED2Ev.exit51 unwind label %205
 
 205:                                              ; preds = %203
   %206 = landingpad { ptr, i32 }
@@ -2508,43 +2508,43 @@ _ZNSt8functionIFvvEED2Ev.exit70:                  ; preds = %"_ZZN3gmx25ModularS
   call void @__clang_call_terminate(ptr %207) #29
   unreachable
 
-._crit_edge195.loopexit:                          ; preds = %.lr.ph194
-  %.pre201 = load i64, ptr %18, align 8
-  br label %._crit_edge195
+._crit_edge196.loopexit:                          ; preds = %.lr.ph195
+  %.pre202 = load i64, ptr %18, align 8
+  br label %._crit_edge196
 
-._crit_edge195:                                   ; preds = %._crit_edge195.loopexit, %_ZNSt8functionIFvvEED2Ev.exit70
-  %208 = phi i64 [ %.pre201, %._crit_edge195.loopexit ], [ %190, %_ZNSt8functionIFvvEED2Ev.exit70 ]
+._crit_edge196:                                   ; preds = %._crit_edge196.loopexit, %_ZNSt8functionIFvvEED2Ev.exit72
+  %208 = phi i64 [ %.pre202, %._crit_edge196.loopexit ], [ %190, %_ZNSt8functionIFvvEED2Ev.exit72 ]
   %209 = load ptr, ptr %43, align 8
   %210 = getelementptr inbounds i8, ptr %209, i64 24
   %211 = load i64, ptr %210, align 8
   %.not = icmp eq i64 %208, %211
-  %.phi.trans.insert202 = getelementptr inbounds i8, ptr %209, i64 16
-  %.pre203 = load i64, ptr %.phi.trans.insert202, align 8
-  %.not37 = icmp sgt i64 %208, %.pre203
+  %.phi.trans.insert203 = getelementptr inbounds i8, ptr %209, i64 16
+  %.pre204 = load i64, ptr %.phi.trans.insert203, align 8
+  %.not37 = icmp sgt i64 %208, %.pre204
   %or.cond = select i1 %.not, i1 true, i1 %.not37
   br i1 %or.cond, label %.critedge, label %68, !llvm.loop !21
 
-.critedge:                                        ; preds = %._crit_edge195
-  %212 = icmp sgt i64 %208, %.pre203
+.critedge:                                        ; preds = %._crit_edge196
+  %212 = icmp sgt i64 %208, %.pre204
   %213 = getelementptr inbounds i8, ptr %0, i64 312
   %214 = zext i1 %212 to i8
   store i8 %214, ptr %213, align 8
-  br i1 %212, label %215, label %_ZNSt8functionIFvvEED2Ev.exit80
+  br i1 %212, label %215, label %_ZNSt8functionIFvvEED2Ev.exit81
 
 215:                                              ; preds = %.critedge
   %216 = getelementptr inbounds i8, ptr %11, i64 16
   %217 = getelementptr inbounds i8, ptr %11, i64 24
   %218 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 0, ptr %218, align 8
-  store i64 %52, ptr %11, align 8
+  store i64 %50, ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_3E9_M_invokeERKSt9_Any_data", ptr %217, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %216, align 8
   %219 = load ptr, ptr %46, align 8
   %220 = load ptr, ptr %47, align 8
-  %.not.i.i74 = icmp eq ptr %219, %220
-  br i1 %.not.i.i74, label %225, label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78.thread"
+  %.not.i.i75 = icmp eq ptr %219, %220
+  br i1 %.not.i.i75, label %225, label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit79.thread"
 
-"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78.thread": ; preds = %215
+"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit79.thread": ; preds = %215
   %221 = getelementptr inbounds i8, ptr %219, i64 24
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_3E9_M_invokeERKSt9_Any_data", ptr %221, align 8
   %222 = getelementptr inbounds i8, ptr %219, i64 16
@@ -2553,20 +2553,20 @@ _ZNSt8functionIFvvEED2Ev.exit70:                  ; preds = %"_ZZN3gmx25ModularS
   %223 = load ptr, ptr %46, align 8
   %224 = getelementptr inbounds i8, ptr %223, i64 32
   store ptr %224, ptr %46, align 8
-  br label %_ZNSt8functionIFvvEED2Ev.exit80
+  br label %_ZNSt8functionIFvvEED2Ev.exit81
 
 225:                                              ; preds = %215
   invoke void @_ZNSt6vectorISt8functionIFvvEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %219, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78" unwind label %231
+          to label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit79" unwind label %231
 
-"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78": ; preds = %225
-  %.pre204 = load ptr, ptr %216, align 8
-  %.not.i.i79 = icmp eq ptr %.pre204, null
-  br i1 %.not.i.i79, label %_ZNSt8functionIFvvEED2Ev.exit80, label %226
+"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit79": ; preds = %225
+  %.pre205 = load ptr, ptr %216, align 8
+  %.not.i.i80 = icmp eq ptr %.pre205, null
+  br i1 %.not.i.i80, label %_ZNSt8functionIFvvEED2Ev.exit81, label %226
 
-226:                                              ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78"
-  %227 = invoke noundef zeroext i1 %.pre204(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit80 unwind label %228
+226:                                              ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit79"
+  %227 = invoke noundef zeroext i1 %.pre205(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+          to label %_ZNSt8functionIFvvEED2Ev.exit81 unwind label %228
 
 228:                                              ; preds = %226
   %229 = landingpad { ptr, i32 }
@@ -2579,12 +2579,12 @@ _ZNSt8functionIFvvEED2Ev.exit70:                  ; preds = %"_ZZN3gmx25ModularS
   %232 = landingpad { ptr, i32 }
           cleanup
   %233 = load ptr, ptr %216, align 8
-  %.not.i.i81 = icmp eq ptr %233, null
-  br i1 %.not.i.i81, label %_ZNSt8functionIFvvEED2Ev.exit47, label %234
+  %.not.i.i82 = icmp eq ptr %233, null
+  br i1 %.not.i.i82, label %_ZNSt8functionIFvvEED2Ev.exit51, label %234
 
 234:                                              ; preds = %231
   %235 = invoke noundef zeroext i1 %233(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit47 unwind label %236
+          to label %_ZNSt8functionIFvvEED2Ev.exit51 unwind label %236
 
 236:                                              ; preds = %234
   %237 = landingpad { ptr, i32 }
@@ -2593,11 +2593,11 @@ _ZNSt8functionIFvvEED2Ev.exit70:                  ; preds = %"_ZZN3gmx25ModularS
   call void @__clang_call_terminate(ptr %238) #29
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit80:                  ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78.thread", %226, %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78", %.critedge
+_ZNSt8functionIFvvEED2Ev.exit81:                  ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit79.thread", %226, %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit79", %.critedge
   ret void
 
-_ZNSt8functionIFvvEED2Ev.exit47:                  ; preds = %234, %231, %203, %200, %166, %164, %142, %139, %120, %118, %113, %110
-  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %111, %113 ], [ %lpad.phi124, %118 ], [ %lpad.phi124, %120 ], [ %140, %139 ], [ %140, %142 ], [ %lpad.phi, %164 ], [ %lpad.phi, %166 ], [ %201, %200 ], [ %201, %203 ], [ %232, %231 ], [ %232, %234 ]
+_ZNSt8functionIFvvEED2Ev.exit51:                  ; preds = %234, %231, %203, %200, %166, %164, %142, %139, %120, %118, %113, %110
+  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %111, %113 ], [ %lpad.phi125, %118 ], [ %lpad.phi125, %120 ], [ %140, %139 ], [ %140, %142 ], [ %lpad.phi, %164 ], [ %lpad.phi, %166 ], [ %201, %200 ], [ %201, %203 ], [ %232, %231 ], [ %232, %234 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -4210,19 +4210,19 @@ _ZNOSt8optionalIPN3gmx27ReferenceTemperatureManagerEE5valueEv.exit: ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #27
   %214 = load ptr, ptr %15, align 8
-  %215 = getelementptr inbounds i8, ptr %14, i64 16
-  %216 = getelementptr inbounds i8, ptr %14, i64 24
-  %217 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 0, ptr %217, align 8
-  %218 = ptrtoint ptr %214 to i64
-  store i64 %218, ptr %14, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_32ModularSimulatorAlgorithmBuilderC1ENS0_6compat8not_nullIPNS0_19LegacySimulatorDataEEESt10unique_ptrINS0_24ReadCheckpointDataHolderESt14default_deleteISD_EEE3$_0E9_M_invokeERKSt9_Any_dataOS3_OS4_", ptr %216, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_32ModularSimulatorAlgorithmBuilderC1ENS0_6compat8not_nullIPNS0_19LegacySimulatorDataEEESt10unique_ptrINS0_24ReadCheckpointDataHolderESt14default_deleteISD_EEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %215, align 8
+  %215 = ptrtoint ptr %214 to i64
+  %216 = getelementptr inbounds i8, ptr %14, i64 16
+  %217 = getelementptr inbounds i8, ptr %14, i64 24
+  %218 = getelementptr inbounds i8, ptr %14, i64 8
+  store i64 0, ptr %218, align 8
+  store i64 %215, ptr %14, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_32ModularSimulatorAlgorithmBuilderC1ENS0_6compat8not_nullIPNS0_19LegacySimulatorDataEEESt10unique_ptrINS0_24ReadCheckpointDataHolderESt14default_deleteISD_EEE3$_0E9_M_invokeERKSt9_Any_dataOS3_OS4_", ptr %217, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_32ModularSimulatorAlgorithmBuilderC1ENS0_6compat8not_nullIPNS0_19LegacySimulatorDataEEESt10unique_ptrINS0_24ReadCheckpointDataHolderESt14default_deleteISD_EEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %216, align 8
   invoke void @_ZN3gmx27ReferenceTemperatureManager22registerUpdateCallbackESt8functionIFvNS_8ArrayRefIKfEENS_35ReferenceTemperatureChangeAlgorithmEEE(ptr noundef nonnull align 8 dereferenceable(32) %213, ptr noundef nonnull %14)
           to label %219 unwind label %237
 
 219:                                              ; preds = %_ZNOSt8optionalIPN3gmx27ReferenceTemperatureManagerEE5valueEv.exit
-  %220 = load ptr, ptr %215, align 8
+  %220 = load ptr, ptr %216, align 8
   %.not.i.i = icmp eq ptr %220, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit, label %221
 
@@ -4285,7 +4285,7 @@ _ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEE
 237:                                              ; preds = %_ZNOSt8optionalIPN3gmx27ReferenceTemperatureManagerEE5valueEv.exit
   %238 = landingpad { ptr, i32 }
           cleanup
-  %239 = load ptr, ptr %215, align 8
+  %239 = load ptr, ptr %216, align 8
   %.not.i.i42 = icmp eq ptr %239, null
   br i1 %.not.i.i42, label %.body, label %240
 
@@ -17154,14 +17154,14 @@ _ZNOSt8optionalIPN3gmx27ReferenceTemperatureManagerEE5valueEv.exit: ; preds = %_
   %13 = extractvalue { ptr, i8 } %9, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %16, align 8
-  %17 = ptrtoint ptr %13 to i64
-  store i64 %17, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_38ModularSimulatorAlgorithmBuilderHelper34changeReferenceTemperatureCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOS3_OS4_", ptr %15, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_38ModularSimulatorAlgorithmBuilderHelper34changeReferenceTemperatureCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %14, align 8
+  %14 = ptrtoint ptr %13 to i64
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %17, align 8
+  store i64 %14, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_38ModularSimulatorAlgorithmBuilderHelper34changeReferenceTemperatureCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOS3_OS4_", ptr %16, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEZNS0_38ModularSimulatorAlgorithmBuilderHelper34changeReferenceTemperatureCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %15, align 8
   ret void
 
 18:                                               ; preds = %.noexc, %2

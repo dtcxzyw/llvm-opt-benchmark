@@ -943,9 +943,9 @@ define internal fastcc noundef zeroext i1 @"_ZSt6any_ofIN9__gnu_cxx17__normal_it
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(32) %26) #17
   %27 = load ptr, ptr %9, align 8
   %28 = load i64, ptr %18, align 8
-  %.val.val.i17.i.i.i.i = load ptr, ptr %2, align 8
-  %.val.val1.i18.i.i.i.i = load i64, ptr %17, align 8
-  %29 = call noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_containsENS_10StringViewES1_(ptr %27, i64 %28, ptr %.val.val.i17.i.i.i.i, i64 %.val.val1.i18.i.i.i.i)
+  %.val.val.i22.i.i.i.i = load ptr, ptr %2, align 8
+  %.val.val1.i23.i.i.i.i = load i64, ptr %17, align 8
+  %29 = call noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_containsENS_10StringViewES1_(ptr %27, i64 %28, ptr %.val.val.i22.i.i.i.i, i64 %.val.val1.i23.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br i1 %29, label %"_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN5vcpkg26perform_find_port_and_exitERKNSD_10VcpkgPathsEbbNSD_8OptionalINSD_10StringViewEEENSD_4SpanIKS7_EEE3$_1EbT_SO_T0_.exit", label %30
 
@@ -955,9 +955,9 @@ define internal fastcc noundef zeroext i1 @"_ZSt6any_ofIN9__gnu_cxx17__normal_it
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %31) #17
   %32 = load ptr, ptr %8, align 8
   %33 = load i64, ptr %19, align 8
-  %.val.val.i20.i.i.i.i = load ptr, ptr %2, align 8
-  %.val.val1.i21.i.i.i.i = load i64, ptr %17, align 8
-  %34 = call noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_containsENS_10StringViewES1_(ptr %32, i64 %33, ptr %.val.val.i20.i.i.i.i, i64 %.val.val1.i21.i.i.i.i)
+  %.val.val.i24.i.i.i.i = load ptr, ptr %2, align 8
+  %.val.val1.i25.i.i.i.i = load i64, ptr %17, align 8
+  %34 = call noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_containsENS_10StringViewES1_(ptr %32, i64 %33, ptr %.val.val.i24.i.i.i.i, i64 %.val.val1.i25.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %34, label %"_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN5vcpkg26perform_find_port_and_exitERKNSD_10VcpkgPathsEbbNSD_8OptionalINSD_10StringViewEEENSD_4SpanIKS7_EEE3$_1EbT_SO_T0_.exit", label %35
 
@@ -967,9 +967,9 @@ define internal fastcc noundef zeroext i1 @"_ZSt6any_ofIN9__gnu_cxx17__normal_it
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %36) #17
   %37 = load ptr, ptr %7, align 8
   %38 = load i64, ptr %20, align 8
-  %.val.val.i23.i.i.i.i = load ptr, ptr %2, align 8
-  %.val.val1.i24.i.i.i.i = load i64, ptr %17, align 8
-  %39 = call noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_containsENS_10StringViewES1_(ptr %37, i64 %38, ptr %.val.val.i23.i.i.i.i, i64 %.val.val1.i24.i.i.i.i)
+  %.val.val.i26.i.i.i.i = load ptr, ptr %2, align 8
+  %.val.val1.i27.i.i.i.i = load i64, ptr %17, align 8
+  %39 = call noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_containsENS_10StringViewES1_(ptr %37, i64 %38, ptr %.val.val.i26.i.i.i.i, i64 %.val.val1.i27.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br i1 %39, label %"_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN5vcpkg26perform_find_port_and_exitERKNSD_10VcpkgPathsEbbNSD_8OptionalINSD_10StringViewEEENSD_4SpanIKS7_EEE3$_1EbT_SO_T0_.exit", label %40
 
@@ -1000,10 +1000,10 @@ define internal fastcc noundef zeroext i1 @"_ZSt6any_ofIN9__gnu_cxx17__normal_it
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds i8, ptr %6, i64 8
   %48 = load i64, ptr %47, align 8
-  %.val.val.i26.i.i.i.i = load ptr, ptr %2, align 8
+  %.val.val.i28.i.i.i.i = load ptr, ptr %2, align 8
   %49 = getelementptr i8, ptr %2, i64 8
-  %.val.val1.i27.i.i.i.i = load i64, ptr %49, align 8
-  %50 = call noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_containsENS_10StringViewES1_(ptr %46, i64 %48, ptr %.val.val.i26.i.i.i.i, i64 %.val.val1.i27.i.i.i.i)
+  %.val.val1.i29.i.i.i.i = load i64, ptr %49, align 8
+  %50 = call noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_containsENS_10StringViewES1_(ptr %46, i64 %48, ptr %.val.val.i28.i.i.i.i, i64 %.val.val1.i29.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br i1 %50, label %"_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN5vcpkg26perform_find_port_and_exitERKNSD_10VcpkgPathsEbbNSD_8OptionalINSD_10StringViewEEENSD_4SpanIKS7_EEE3$_1EbT_SO_T0_.exit", label %51
 
@@ -1018,10 +1018,10 @@ define internal fastcc noundef zeroext i1 @"_ZSt6any_ofIN9__gnu_cxx17__normal_it
   %54 = load ptr, ptr %5, align 8
   %55 = getelementptr inbounds i8, ptr %5, i64 8
   %56 = load i64, ptr %55, align 8
-  %.val.val.i29.i.i.i.i = load ptr, ptr %2, align 8
+  %.val.val.i30.i.i.i.i = load ptr, ptr %2, align 8
   %57 = getelementptr i8, ptr %2, i64 8
-  %.val.val1.i30.i.i.i.i = load i64, ptr %57, align 8
-  %58 = call noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_containsENS_10StringViewES1_(ptr %54, i64 %56, ptr %.val.val.i29.i.i.i.i, i64 %.val.val1.i30.i.i.i.i)
+  %.val.val1.i31.i.i.i.i = load i64, ptr %57, align 8
+  %58 = call noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_containsENS_10StringViewES1_(ptr %54, i64 %56, ptr %.val.val.i30.i.i.i.i, i64 %.val.val1.i31.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %58, label %"_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN5vcpkg26perform_find_port_and_exitERKNSD_10VcpkgPathsEbbNSD_8OptionalINSD_10StringViewEEENSD_4SpanIKS7_EEE3$_1EbT_SO_T0_.exit", label %59
 

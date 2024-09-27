@@ -1171,12 +1171,12 @@ $_ZTIN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112bas
 @.str.311 = private unnamed_addr constant [24 x i8] c"vector::_M_range_insert\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_commands.build.cpp, ptr null }]
 @switch.table._ZN5vcpkg17to_cmake_variableENS_11BuildPolicyE = private unnamed_addr constant [13 x ptr] [ptr @.str.102, ptr @.str.104, ptr @.str.106, ptr @.str.108, ptr @.str.110, ptr @.str.112, ptr @.str.114, ptr @.str.116, ptr @.str.118, ptr @.str.120, ptr @.str.122, ptr @.str.124, ptr @.str.126], align 8
-@switch.table._ZN5vcpkg17to_cmake_variableENS_11BuildPolicyE.49 = private unnamed_addr constant [13 x i64] [i64 26, i64 30, i64 33, i64 35, i64 42, i64 29, i64 33, i64 34, i64 37, i64 32, i64 36, i64 30, i64 38], align 8
+@switch.table._ZN5vcpkg17to_cmake_variableENS_11BuildPolicyE.51 = private unnamed_addr constant [13 x i64] [i64 26, i64 30, i64 33, i64 35, i64 42, i64 29, i64 33, i64 34, i64 37, i64 32, i64 36, i64 30, i64 38], align 8
 @switch.table._ZN5vcpkg26to_string_locale_invariantENS_11BuildResultE = private unnamed_addr constant [9 x i64] [i64 9, i64 12, i64 24, i64 14, i64 36, i64 8, i64 13, i64 10, i64 7], align 8
-@switch.table._ZN5vcpkg26to_string_locale_invariantENS_11BuildResultE.50 = private unnamed_addr constant [9 x ptr] [ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36], align 8
+@switch.table._ZN5vcpkg26to_string_locale_invariantENS_11BuildResultE.52 = private unnamed_addr constant [9 x ptr] [ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36], align 8
 @switch.table._ZN5vcpkg9to_stringENS_11BuildResultE = private unnamed_addr constant [9 x ptr] [ptr @_ZN5vcpkg23msgBuildResultSucceededE, ptr @_ZN5vcpkg25msgBuildResultBuildFailedE, ptr @_ZN5vcpkg35msgBuildResultPostBuildChecksFailedE, ptr @_ZN5vcpkg27msgBuildResultFileConflictsE, ptr @_ZN5vcpkg45msgBuildResultCascadeDueToMissingDependenciesE, ptr @_ZN5vcpkg22msgBuildResultExcludedE, ptr @_ZN5vcpkg26msgBuildResultCacheMissingE, ptr @_ZN5vcpkg24msgBuildResultDownloadedE, ptr @_ZN5vcpkg21msgBuildResultRemovedE], align 8
 @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE = private unnamed_addr constant [13 x ptr] [ptr @.str.76, ptr @.str.78, ptr @.str.80, ptr @.str.82, ptr @.str.84, ptr @.str.86, ptr @.str.88, ptr @.str.90, ptr @.str.92, ptr @.str.94, ptr @.str.96, ptr @.str.98, ptr @.str.100], align 8
-@switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE.51 = private unnamed_addr constant [13 x i64] [i64 18, i64 21, i64 24, i64 25, i64 32, i64 20, i64 24, i64 25, i64 28, i64 23, i64 27, i64 21, i64 28], align 8
+@switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE.53 = private unnamed_addr constant [13 x i64] [i64 18, i64 21, i64 24, i64 25, i64 32, i64 20, i64 24, i64 25, i64 28, i64 23, i64 27, i64 21, i64 28], align 8
 
 @_ZN5vcpkg12PreBuildInfoC1ERKNS_10VcpkgPathsENS_7TripletERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE = dso_local unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN5vcpkg12PreBuildInfoC2ERKNS_10VcpkgPathsENS_7TripletERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE
 @_ZN5vcpkg19ExtendedBuildResultC1ENS_11BuildResultE = dso_local unnamed_addr alias void (ptr, i32), ptr @_ZN5vcpkg19ExtendedBuildResultC2ENS_11BuildResultE
@@ -5634,7 +5634,7 @@ switch.lookup:                                    ; preds = %3
   %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN5vcpkg26to_string_locale_invariantENS_11BuildResultE, i64 0, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = zext nneg i32 %9 to i64
-  %switch.gep23 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN5vcpkg26to_string_locale_invariantENS_11BuildResultE.50, i64 0, i64 %14
+  %switch.gep23 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN5vcpkg26to_string_locale_invariantENS_11BuildResultE.52, i64 0, i64 %14
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -6491,7 +6491,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %0 to i64
-  %switch.gep25 = getelementptr inbounds [13 x i64], ptr @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE.51, i64 0, i64 %7
+  %switch.gep25 = getelementptr inbounds [13 x i64], ptr @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE.53, i64 0, i64 %7
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load26, 1
@@ -6521,7 +6521,7 @@ switch.lookup:                                    ; preds = %2
   %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %1 to i64
-  %switch.gep1 = getelementptr inbounds [13 x i64], ptr @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE.51, i64 0, i64 %9
+  %switch.gep1 = getelementptr inbounds [13 x i64], ptr @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE.53, i64 0, i64 %9
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   store ptr %switch.load, ptr %4, align 8
@@ -6551,7 +6551,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table._ZN5vcpkg17to_cmake_variableENS_11BuildPolicyE, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %0 to i64
-  %switch.gep25 = getelementptr inbounds [13 x i64], ptr @switch.table._ZN5vcpkg17to_cmake_variableENS_11BuildPolicyE.49, i64 0, i64 %7
+  %switch.gep25 = getelementptr inbounds [13 x i64], ptr @switch.table._ZN5vcpkg17to_cmake_variableENS_11BuildPolicyE.51, i64 0, i64 %7
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load26, 1
@@ -6691,7 +6691,7 @@ _ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S
   br i1 %26, label %.critedge.i, label %"_ZNK5vcpkg5CacheINS_4PathENS_8EnvCache15TripletMapEntryESt4lessIvEE8get_lazyIS1_ZNKS2_17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKS1_E3$_0TnNSt9enable_ifIXaasr3stdE18is_constructible_vIS1_RKT_Esr6detail11is_callableIRS5_SC_SH_EE5valueEiE4typeELi0EEERKS3_SH_OT0_.exit"
 
 .critedge.i:                                      ; preds = %18, %_ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S3_EEE11lower_boundERS7_.exit.i, %3
-  %.08.lcssa.i.i.i15.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S3_EEE11lower_boundERS7_.exit.i ], [ %.19.i.i.i.i, %18 ], [ %9, %3 ]
+  %.08.lcssa.i.i.i8.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S3_EEE11lower_boundERS7_.exit.i ], [ %.19.i.i.i.i, %18 ], [ %9, %3 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -6747,7 +6747,7 @@ _ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %50 = invoke ptr @_ZNSt8_Rb_treeIN5vcpkg4PathESt4pairIKS1_NS0_8EnvCache15TripletMapEntryEESt10_Select1stIS6_ESt4lessIvESaIS6_EE22_M_emplace_hint_uniqueIJRS3_S5_EEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i15.i, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(176) %6)
+  %50 = invoke ptr @_ZNSt8_Rb_treeIN5vcpkg4PathESt4pairIKS1_NS0_8EnvCache15TripletMapEntryEESt10_Select1stIS6_ESt4lessIvESaIS6_EE22_M_emplace_hint_uniqueIJRS3_S5_EEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i8.i, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(176) %6)
           to label %_ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S3_EEE12emplace_hintIJRS7_S3_EEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_.exit.i unwind label %51
 
 _ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S3_EEE12emplace_hintIJRS7_S3_EEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_.exit.i: ; preds = %"_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv.exit.i"
@@ -7740,7 +7740,7 @@ _ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4le
   br i1 %26, label %.critedge.i, label %"_ZNK5vcpkg5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEE8get_lazyIS1_ZNS_L19get_toolchain_cacheERSA_RKS1_RKNS_18ReadOnlyFilesystemEE3$_0TnNSt9enable_ifIXaasr3stdE18is_constructible_vIS1_RKT_Esr6detail11is_callableIRS9_SE_SM_EE5valueEiE4typeELi0EEERKS7_SM_OT0_.exit"
 
 .critedge.i:                                      ; preds = %18, %_ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i, %3
-  %.08.lcssa.i.i.i15.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i ], [ %.19.i.i.i.i, %18 ], [ %9, %3 ]
+  %.08.lcssa.i.i.i8.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i ], [ %.19.i.i.i.i, %18 ], [ %9, %3 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN5vcpkg4Hash13get_file_hashB5cxx11ERKNS_18ReadOnlyFilesystemERKNS_4PathENS0_9AlgorithmE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.487") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 0), !noalias !119
@@ -7772,7 +7772,7 @@ _ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4le
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %37 = invoke ptr @_ZNSt8_Rb_treeIN5vcpkg4PathESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIvESaISA_EE22_M_emplace_hint_uniqueIJRS3_S9_EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i15.i, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %37 = invoke ptr @_ZNSt8_Rb_treeIN5vcpkg4PathESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIvESaISA_EE22_M_emplace_hint_uniqueIJRS3_S9_EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i8.i, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE12emplace_hintIJRSB_S7_EEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EDpOT_.exit.i unwind label %38
 
 _ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE12emplace_hintIJRSB_S7_EEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EDpOT_.exit.i: ; preds = %"_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev.exit.i"
@@ -8869,7 +8869,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN5vcpkg26to_string_locale_invariantENS_11BuildResultE, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN5vcpkg26to_string_locale_invariantENS_11BuildResultE.50, i64 0, i64 %7
+  %switch.gep1 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN5vcpkg26to_string_locale_invariantENS_11BuildResultE.52, i64 0, i64 %7
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -10088,7 +10088,7 @@ switch.lookup:                                    ; preds = %121
   %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE, i64 0, i64 %126
   %switch.load = load ptr, ptr %switch.gep, align 8
   %127 = zext nneg i32 %122 to i64
-  %switch.gep25 = getelementptr inbounds [13 x i64], ptr @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE.51, i64 0, i64 %127
+  %switch.gep25 = getelementptr inbounds [13 x i64], ptr @switch.table._ZN5vcpkg15read_build_infoERKNS_18ReadOnlyFilesystemERKNS_4PathE.53, i64 0, i64 %127
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !190
   invoke void @_ZN5vcpkg15ParagraphParser14optional_fieldB5cxx11ENS_13StringLiteralE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr nonnull %switch.load, i64 %switch.load26)

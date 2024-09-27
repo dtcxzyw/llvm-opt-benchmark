@@ -1109,8 +1109,8 @@ entry:
   %_M_left.i.i = getelementptr inbounds i8, ptr %split_untruncated_iters, i64 24
   %2 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %split_untruncated_iters, i64 8
-  %cmp.i.not4.i = icmp eq ptr %2, %add.ptr.i.i
-  br i1 %cmp.i.not4.i, label %nrvo.skipdtor, label %for.body.lr.ph.i
+  %cmp.i.not5.i = icmp eq ptr %2, %add.ptr.i.i
+  br i1 %cmp.i.not5.i, label %nrvo.skipdtor, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
   %icmp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1119,8 +1119,8 @@ for.body.lr.ph.i:                                 ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %"_ZZN7rocksdb25TruncatedRangeDelIterator15SplitBySnapshotERKSt6vectorImSaImEEENK3$_0clERSt4pairIKmSt10unique_ptrINS_32FragmentedRangeTombstoneIteratorESt14default_deleteISA_EEE.exit.i", %for.body.lr.ph.i
-  %__first.sroa.0.05.i = phi ptr [ %2, %for.body.lr.ph.i ], [ %call.i.i, %"_ZZN7rocksdb25TruncatedRangeDelIterator15SplitBySnapshotERKSt6vectorImSaImEEENK3$_0clERSt4pairIKmSt10unique_ptrINS_32FragmentedRangeTombstoneIteratorESt14default_deleteISA_EEE.exit.i" ]
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.05.i, i64 32
+  %__first.sroa.0.06.i = phi ptr [ %2, %for.body.lr.ph.i ], [ %call.i.i, %"_ZZN7rocksdb25TruncatedRangeDelIterator15SplitBySnapshotERKSt6vectorImSaImEEENK3$_0clERSt4pairIKmSt10unique_ptrINS_32FragmentedRangeTombstoneIteratorESt14default_deleteISA_EEE.exit.i" ]
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %truncated_iter.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
@@ -1128,7 +1128,7 @@ for.body.i:                                       ; preds = %"_ZZN7rocksdb25Trun
           to label %call.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.noexc:                                 ; preds = %for.body.i
-  %second.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.05.i, i64 40
+  %second.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i, i64 40
   %3 = load i64, ptr %second.i.i, align 8, !noalias !33
   store i64 %3, ptr %agg.tmp.i.i.i, align 8, !noalias !33
   store ptr null, ptr %second.i.i, align 8, !noalias !33
@@ -1251,7 +1251,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i.i
 
 "_ZZN7rocksdb25TruncatedRangeDelIterator15SplitBySnapshotERKSt6vectorImSaImEEENK3$_0clERSt4pairIKmSt10unique_ptrINS_32FragmentedRangeTombstoneIteratorESt14default_deleteISA_EEE.exit.i": ; preds = %_ZNKSt14default_deleteIN7rocksdb25TruncatedRangeDelIteratorEEclEPS1_.exit.i.i.i, %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %truncated_iter.i.i)
-  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.05.i) #24
+  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.06.i) #24
   %cmp.i.not.i = icmp eq ptr %call.i.i, %add.ptr.i.i
   br i1 %cmp.i.not.i, label %nrvo.skipdtor, label %for.body.i, !llvm.loop !37
 

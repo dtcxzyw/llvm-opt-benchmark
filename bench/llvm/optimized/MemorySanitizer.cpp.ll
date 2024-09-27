@@ -18791,8 +18791,8 @@ define internal fastcc { i32, i64 } @_ZN12_GLOBAL__N_119VarArgAArch64Helper16cla
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit:         ; preds = %.critedge
   %12 = and i32 %11, 253
-  %spec.select.i20 = icmp eq i32 %12, 4
-  br i1 %spec.select.i20, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %.critedge2
+  %spec.select.i23 = icmp eq i32 %12, 4
+  br i1 %spec.select.i23, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %.critedge2
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %_ZNK4llvm4Type17isFloatingPointTyEv.exit
   %13 = call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
@@ -18814,7 +18814,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread..critedge2_crit_edge: ; preds = 
   %trunc = trunc i32 %16 to i8
   switch i8 %trunc, label %43 [
     i8 16, label %17
-    i8 17, label %_ZNK4llvm4Type13getScalarTypeEv.exit24
+    i8 17, label %_ZNK4llvm4Type13getScalarTypeEv.exit27
   ]
 
 17:                                               ; preds = %.critedge2
@@ -18842,7 +18842,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %17, %27
   %32 = mul i64 %31, %23
   br label %43
 
-_ZNK4llvm4Type13getScalarTypeEv.exit24:           ; preds = %.critedge2
+_ZNK4llvm4Type13getScalarTypeEv.exit27:           ; preds = %.critedge2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
@@ -18855,9 +18855,9 @@ _ZNK4llvm4Type13getScalarTypeEv.exit24:           ; preds = %.critedge2
   %42 = mul i64 %38, %41
   br label %43
 
-43:                                               ; preds = %.critedge2, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, %7, %_ZNK4llvm4Type13getScalarTypeEv.exit24, %_ZNK4llvm4Type13getScalarTypeEv.exit
-  %.sroa.0.0 = phi i32 [ %22, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %37, %_ZNK4llvm4Type13getScalarTypeEv.exit24 ], [ 0, %7 ], [ 1, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread ], [ 2, %.critedge2 ]
-  %.sroa.6.0 = phi i64 [ %32, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %42, %_ZNK4llvm4Type13getScalarTypeEv.exit24 ], [ 1, %7 ], [ 1, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread ], [ 0, %.critedge2 ]
+43:                                               ; preds = %.critedge2, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, %7, %_ZNK4llvm4Type13getScalarTypeEv.exit27, %_ZNK4llvm4Type13getScalarTypeEv.exit
+  %.sroa.0.0 = phi i32 [ %22, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %37, %_ZNK4llvm4Type13getScalarTypeEv.exit27 ], [ 0, %7 ], [ 1, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread ], [ 2, %.critedge2 ]
+  %.sroa.6.0 = phi i64 [ %32, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %42, %_ZNK4llvm4Type13getScalarTypeEv.exit27 ], [ 1, %7 ], [ 1, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread ], [ 0, %.critedge2 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert

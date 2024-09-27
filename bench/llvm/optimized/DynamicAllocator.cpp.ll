@@ -867,14 +867,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_6interp16DynamicAllocator
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #11
-  %.idx3.i = shl nsw i64 %37, 3
-  %38 = getelementptr inbounds i8, ptr %36, i64 %.idx3.i
+  %.idx1.i = shl nsw i64 %37, 3
+  %38 = getelementptr inbounds i8, ptr %36, i64 %.idx1.i
   %39 = ashr i64 %37, 2
   %40 = icmp sgt i64 %39, 0
   br i1 %40, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %34
-  %41 = and i64 %.idx3.i, -32
+  %41 = and i64 %.idx1.i, -32
   %scevgep.i.i.i.i = getelementptr i8, ptr %36, i64 %41
   br label %42
 
@@ -931,7 +931,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_6interp16DynamicAllocator
   %61 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i, %60
+._crit_edge._crit_edge.i.i.i.i:                   ; preds = %60, %._crit_edge.i.i.i.i
   %.1.i.i.i.i = phi ptr [ %61, %60 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load ptr, ptr %.1.i.i.i.i, align 8
   %62 = icmp eq ptr %2, %.1.val.i.i.i.i
@@ -941,7 +941,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_6interp16DynamicAllocator
   %64 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge57.i.i.i.i
 
-._crit_edge._crit_edge57.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i, %63
+._crit_edge._crit_edge57.i.i.i.i:                 ; preds = %63, %._crit_edge.i.i.i.i
   %.2.i.i.i.i = phi ptr [ %64, %63 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load ptr, ptr %.2.i.i.i.i, align 8
   %65 = icmp eq ptr %2, %.2.val.i.i.i.i

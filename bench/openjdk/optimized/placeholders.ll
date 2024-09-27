@@ -998,37 +998,37 @@ define hidden void @_ZN16PlaceholderTable8print_onEP12outputStream(ptr noundef n
   br i1 %8, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE7iterateIZN16PlaceholderTable8print_onEP12outputStreamE3$_0EEvT_.exit"
 
 .preheader.i:                                     ; preds = %1, %._crit_edge.i
-  %.0.idx20.i = phi i64 [ %.0.add.i, %._crit_edge.i ], [ 0, %1 ]
-  %.01219.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %7, %1 ]
-  %.0.ptr21.i = getelementptr inbounds i8, ptr %5, i64 %.0.idx20.i
-  %.01115.i = load ptr, ptr %.0.ptr21.i, align 8
-  %.not16.i = icmp eq ptr %.01115.i, null
-  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
+  %.0.idx18.i = phi i64 [ %.0.add.i, %._crit_edge.i ], [ 0, %1 ]
+  %.01217.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %7, %1 ]
+  %.0.ptr19.i = getelementptr inbounds i8, ptr %5, i64 %.0.idx18.i
+  %.01113.i = load ptr, ptr %.0.ptr19.i, align 8
+  %.not14.i = icmp eq ptr %.01113.i, null
+  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.01118.i = phi ptr [ %.011.i, %.lr.ph.i ], [ %.01115.i, %.preheader.i ]
-  %.117.i = phi i32 [ %15, %.lr.ph.i ], [ %.01219.i, %.preheader.i ]
-  %9 = getelementptr inbounds i8, ptr %.01118.i, i64 8
-  %10 = getelementptr inbounds i8, ptr %.01118.i, i64 24
+  %.01116.i = phi ptr [ %.011.i, %.lr.ph.i ], [ %.01113.i, %.preheader.i ]
+  %.115.i = phi i32 [ %15, %.lr.ph.i ], [ %.01217.i, %.preheader.i ]
+  %9 = getelementptr inbounds i8, ptr %.01116.i, i64 8
+  %10 = getelementptr inbounds i8, ptr %.01116.i, i64 24
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.25) #12
   %11 = load ptr, ptr %9, align 8
   tail call void @_ZNK6Symbol14print_value_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull %0) #12
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.6) #12
-  %12 = getelementptr inbounds i8, ptr %.01118.i, i64 16
+  %12 = getelementptr inbounds i8, ptr %.01116.i, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void @_ZNK15ClassLoaderData14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(160) %13, ptr noundef nonnull %0) #12
   tail call void @_ZNK16PlaceholderEntry8print_onEP12outputStream(ptr noundef nonnull readonly align 8 dereferenceable(48) %10, ptr noundef nonnull %0)
-  %14 = getelementptr inbounds i8, ptr %.01118.i, i64 72
-  %15 = add nsw i32 %.117.i, -1
+  %14 = getelementptr inbounds i8, ptr %.01116.i, i64 72
+  %15 = add nsw i32 %.115.i, -1
   %.011.i = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %.011.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %.1.lcssa.i = phi i32 [ %.01219.i, %.preheader.i ], [ %15, %.lr.ph.i ]
-  %.0.add.i = add nuw nsw i64 %.0.idx20.i, 8
+  %.1.lcssa.i = phi i32 [ %.01217.i, %.preheader.i ], [ %15, %.lr.ph.i ]
+  %.0.add.i = add nuw nsw i64 %.0.idx18.i, 8
   %16 = icmp sgt i32 %.1.lcssa.i, 0
-  %17 = icmp ult i64 %.0.idx20.i, 4016
+  %17 = icmp ult i64 %.0.idx18.i, 4016
   %or.cond.i = and i1 %17, %16
   br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE7iterateIZN16PlaceholderTable8print_onEP12outputStreamE3$_0EEvT_.exit", !llvm.loop !13
 

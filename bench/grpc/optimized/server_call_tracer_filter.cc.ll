@@ -1860,12 +1860,12 @@ if.else.i.i.i.i58.i.i:                            ; preds = %_ZN9grpc_core10GetC
 
 _ZZN9grpc_core22MakePromiseBasedFilterINS_12_GLOBAL__N_122ServerCallTracerFilterELNS_14FilterEndpointE1ELh1EEENSt9enable_ifIXsr3std10is_base_ofINS_22ImplementChannelFilterIT_EES6_EE5valueE19grpc_channel_filterE4typeEPKcENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESE_SG_.exit: ; preds = %if.then.i.i.i.i56.i.i, %if.else.i.i.i.i58.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %if.then.i.i.i.i56.i.i ], [ %call4.i.i.i.i.i.i, %if.else.i.i.i.i58.i.i ]
+  %28 = ptrtoint ptr %t.i.i.i to i64
   %args1.val.i.i.i.i.i = load ptr, ptr %24, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16CallFinalization13FuncFinalizerIZNS_21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPS7_EUlSA_E_EE, i64 16), ptr %retval.0.i.i.i.i.i.i, align 8
   %next_.i.i.i.i.i57.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 8
   store ptr %args1.val.i.i.i.i.i, ptr %next_.i.i.i.i.i57.i.i, align 8
   %f_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
-  %28 = ptrtoint ptr %t.i.i.i to i64
   store i64 %28, ptr %f_.i.i.i.i.i.i.i, align 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %24, align 8
   ret void

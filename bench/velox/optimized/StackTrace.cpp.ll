@@ -1199,17 +1199,17 @@ terminate.lpad.i.i:                               ; preds = %cleanup.i
   unreachable
 
 lpad.loopexit.i:                                  ; preds = %call22.i.noexc.i, %for.body19.i.i
-  %lpad.loopexit7.i = landingpad { ptr, i32 }
+  %lpad.loopexit2.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
 lpad.loopexit.split-lp.i:                         ; preds = %for.end.i.i, %if.end.i2
-  %lpad.loopexit.split-lp8.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp3.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
 lpad.i:                                           ; preds = %lpad.loopexit.split-lp.i, %lpad.loopexit.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit7.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp8.i, %lpad.loopexit.split-lp.i ]
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit2.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp3.i, %lpad.loopexit.split-lp.i ]
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i)
           to label %_ZNSt10lock_guardIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit5.i unwind label %terminate.lpad.i4.i
 

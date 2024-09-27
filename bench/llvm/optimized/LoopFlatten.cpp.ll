@@ -984,21 +984,21 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %280, %272
 
 _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5beginEv.exit.i.i: ; preds = %.lr.ph.i5.i.i7.i5.i.i.i, %287
   %.sroa.0.4.i8.i.i.i = phi ptr [ %288, %287 ], [ %.sroa.0.3.i6.i.i.i, %.lr.ph.i5.i.i7.i5.i.i.i ]
-  %.not6071.i.i = icmp eq ptr %.sroa.0.4.i8.i.i.i, %293
-  br i1 %.not6071.i.i, label %.loopexit86.i, label %.lr.ph73.i.i.preheader
+  %.not6172.i.i = icmp eq ptr %.sroa.0.4.i8.i.i.i, %293
+  br i1 %.not6172.i.i, label %.loopexit86.i, label %.lr.ph74.i.i.preheader
 
-.lr.ph73.i.i.preheader:                           ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5beginEv.exit.i.i
+.lr.ph74.i.i.preheader:                           ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5beginEv.exit.i.i
   %.pre = load ptr, ptr %.sroa.0.4.i8.i.i.i, align 8
-  br label %.lr.ph73.i.i
+  br label %.lr.ph74.i.i
 
-.lr.ph73.i.i:                                     ; preds = %.lr.ph73.i.i.preheader, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i
-  %296 = phi ptr [ %388, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i ], [ %.pre, %.lr.ph73.i.i.preheader ]
-  %.sroa.052.072.i.i = phi ptr [ %.sroa.052.1.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i ], [ %.sroa.0.4.i8.i.i.i, %.lr.ph73.i.i.preheader ]
+.lr.ph74.i.i:                                     ; preds = %.lr.ph74.i.i.preheader, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i
+  %296 = phi ptr [ %388, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i ], [ %.pre, %.lr.ph74.i.i.preheader ]
+  %.sroa.055.073.i.i = phi ptr [ %.sroa.055.1.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i ], [ %.sroa.0.4.i8.i.i.i, %.lr.ph74.i.i.preheader ]
   %297 = load i8, ptr %296, align 8
-  %.not62.i.i = icmp eq i8 %297, 63
-  br i1 %.not62.i.i, label %298, label %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit.thread.i.i"
+  %.not63.i.i = icmp eq i8 %297, 63
+  br i1 %.not63.i.i, label %298, label %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit.thread.i.i"
 
-298:                                              ; preds = %.lr.ph73.i.i
+298:                                              ; preds = %.lr.ph74.i.i
   %299 = getelementptr inbounds nuw i8, ptr %296, i64 4
   %300 = load i32, ptr %299, align 4
   %301 = and i32 %300, 134217727
@@ -1010,17 +1010,17 @@ _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5beginEv.exit.i.i: ; preds = %.lr.ph.i5.i
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds nuw i8, ptr %296, i64 16
   %307 = getelementptr inbounds nuw i8, ptr %305, i64 8
-  %.sroa.014.018.i.i.i = load ptr, ptr %306, align 8
-  %.not22.i.i.i = icmp eq ptr %.sroa.014.018.i.i.i, null
-  br i1 %.not22.i.i.i, label %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit.thread.i.i", label %.lr.ph.i.i.i
+  %.sroa.04.08.i.i.i = load ptr, ptr %306, align 8
+  %.not12.i.i.i = icmp eq ptr %.sroa.04.08.i.i.i, null
+  br i1 %.not12.i.i.i, label %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit.thread.i.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %303
   %308 = getelementptr inbounds nuw i8, ptr %296, i64 8
   br label %309
 
 309:                                              ; preds = %341, %.lr.ph.i.i.i
-  %.sroa.014.019.i.i.i = phi ptr [ %.sroa.014.018.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.014.0.i.i.i, %341 ]
-  %310 = getelementptr inbounds nuw i8, ptr %.sroa.014.019.i.i.i, i64 24
+  %.sroa.04.09.i.i.i = phi ptr [ %.sroa.04.08.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.04.0.i.i.i, %341 ]
+  %310 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i.i, i64 24
   %311 = load ptr, ptr %310, align 8
   %312 = load i8, ptr %311, align 8
   switch i8 %312, label %341 [
@@ -1074,42 +1074,42 @@ _ZNK4llvm4User10getOperandEj.exit.i.i.i:          ; preds = %320, %317
   br i1 %.not.i.i.i, label %341, label %.loopexit.i
 
 341:                                              ; preds = %334, %332, %329, %_ZNK4llvm4User10getOperandEj.exit.i.i.i, %309
-  %342 = getelementptr inbounds nuw i8, ptr %.sroa.014.019.i.i.i, i64 8
-  %.sroa.014.0.i.i.i = load ptr, ptr %342, align 8
-  %.not23.i.i.i = icmp eq ptr %.sroa.014.0.i.i.i, null
-  br i1 %.not23.i.i.i, label %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit.thread.i.i", label %309
+  %342 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i.i, i64 8
+  %.sroa.04.0.i.i.i = load ptr, ptr %342, align 8
+  %.not13.i.i.i = icmp eq ptr %.sroa.04.0.i.i.i, null
+  br i1 %.not13.i.i.i, label %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit.thread.i.i", label %309
 
-"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit.thread.i.i": ; preds = %341, %303, %298, %.lr.ph73.i.i
+"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit.thread.i.i": ; preds = %341, %303, %298, %.lr.ph74.i.i
   %343 = getelementptr inbounds nuw i8, ptr %296, i64 16
-  %.sroa.046.068.i.i = load ptr, ptr %343, align 8
-  %.not6369.i.i = icmp eq ptr %.sroa.046.068.i.i, null
-  br i1 %.not6369.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.sroa.049.069.i.i = load ptr, ptr %343, align 8
+  %.not6470.i.i = icmp eq ptr %.sroa.049.069.i.i, null
+  br i1 %.not6470.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit.thread.i.i"
   %344 = getelementptr inbounds nuw i8, ptr %296, i64 8
   br label %345
 
-345:                                              ; preds = %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit45.thread.i.i", %.lr.ph.i.i
-  %.sroa.046.070.i.i = phi ptr [ %.sroa.046.068.i.i, %.lr.ph.i.i ], [ %.sroa.046.0.i.i, %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit45.thread.i.i" ]
-  %346 = getelementptr inbounds nuw i8, ptr %.sroa.046.070.i.i, i64 24
+345:                                              ; preds = %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit48.thread.i.i", %.lr.ph.i.i
+  %.sroa.049.071.i.i = phi ptr [ %.sroa.049.069.i.i, %.lr.ph.i.i ], [ %.sroa.049.0.i.i, %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit48.thread.i.i" ]
+  %346 = getelementptr inbounds nuw i8, ptr %.sroa.049.071.i.i, i64 24
   %347 = load ptr, ptr %346, align 8
   %348 = load i8, ptr %347, align 8
-  %.not65.i.i = icmp eq i8 %348, 63
-  br i1 %.not65.i.i, label %349, label %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit45.thread.i.i"
+  %.not66.i.i = icmp eq i8 %348, 63
+  br i1 %.not66.i.i, label %349, label %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit48.thread.i.i"
 
 349:                                              ; preds = %345
   %350 = getelementptr inbounds nuw i8, ptr %347, i64 16
-  %.sroa.014.018.i35.i.i = load ptr, ptr %350, align 8
-  %.not22.i36.i.i = icmp eq ptr %.sroa.014.018.i35.i.i, null
-  br i1 %.not22.i36.i.i, label %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit45.thread.i.i", label %.lr.ph.i37.i.i
+  %.sroa.04.08.i38.i.i = load ptr, ptr %350, align 8
+  %.not12.i39.i.i = icmp eq ptr %.sroa.04.08.i38.i.i, null
+  br i1 %.not12.i39.i.i, label %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit48.thread.i.i", label %.lr.ph.i40.i.i
 
-.lr.ph.i37.i.i:                                   ; preds = %349
+.lr.ph.i40.i.i:                                   ; preds = %349
   %351 = getelementptr inbounds nuw i8, ptr %347, i64 8
   br label %352
 
-352:                                              ; preds = %384, %.lr.ph.i37.i.i
-  %.sroa.014.019.i38.i.i = phi ptr [ %.sroa.014.018.i35.i.i, %.lr.ph.i37.i.i ], [ %.sroa.014.0.i41.i.i, %384 ]
-  %353 = getelementptr inbounds nuw i8, ptr %.sroa.014.019.i38.i.i, i64 24
+352:                                              ; preds = %384, %.lr.ph.i40.i.i
+  %.sroa.04.09.i41.i.i = phi ptr [ %.sroa.04.08.i38.i.i, %.lr.ph.i40.i.i ], [ %.sroa.04.0.i44.i.i, %384 ]
+  %353 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i41.i.i, i64 24
   %354 = load ptr, ptr %353, align 8
   %355 = load i8, ptr %354, align 8
   switch i8 %355, label %384 [
@@ -1121,29 +1121,29 @@ _ZNK4llvm4User10getOperandEj.exit.i.i.i:          ; preds = %320, %317
   %357 = getelementptr inbounds nuw i8, ptr %354, i64 4
   %358 = load i32, ptr %357, align 4
   %359 = and i32 %358, 1073741824
-  %.not.i.i.i39.i.i = icmp eq i32 %359, 0
-  br i1 %.not.i.i.i39.i.i, label %363, label %360
+  %.not.i.i.i42.i.i = icmp eq i32 %359, 0
+  br i1 %.not.i.i.i42.i.i, label %363, label %360
 
 360:                                              ; preds = %356
   %361 = getelementptr inbounds i8, ptr %354, i64 -8
   %362 = load ptr, ptr %361, align 8
-  br label %_ZNK4llvm4User10getOperandEj.exit.i40.i.i
+  br label %_ZNK4llvm4User10getOperandEj.exit.i43.i.i
 
 363:                                              ; preds = %356
   %364 = and i32 %358, 134217727
   %365 = zext nneg i32 %364 to i64
   %366 = sub nsw i64 0, %365
   %367 = getelementptr inbounds %"class.llvm::Use", ptr %354, i64 %366
-  br label %_ZNK4llvm4User10getOperandEj.exit.i40.i.i
+  br label %_ZNK4llvm4User10getOperandEj.exit.i43.i.i
 
-_ZNK4llvm4User10getOperandEj.exit.i40.i.i:        ; preds = %363, %360
+_ZNK4llvm4User10getOperandEj.exit.i43.i.i:        ; preds = %363, %360
   %368 = phi ptr [ %362, %360 ], [ %367, %363 ]
   %369 = getelementptr inbounds i8, ptr %368, i64 32
   %370 = load ptr, ptr %369, align 8
   %371 = icmp eq ptr %347, %370
   br i1 %371, label %372, label %384
 
-372:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit.i40.i.i, %352
+372:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit.i43.i.i, %352
   %373 = load ptr, ptr %89, align 8
   %374 = call noundef zeroext i1 @_ZN4llvm38isGuaranteedToExecuteForEveryIterationEPKNS_11InstructionEPKNS_4LoopE(ptr noundef nonnull %354, ptr noundef %373) #14
   br i1 %374, label %375, label %384
@@ -1159,40 +1159,40 @@ _ZNK4llvm4User10getOperandEj.exit.i40.i.i:        ; preds = %363, %360
   %381 = lshr i32 %380, 8
   %382 = load ptr, ptr %351, align 8
   %383 = call noundef i32 @_ZNK4llvm10DataLayout24getPointerTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512) %269, ptr noundef %382) #14
-  %.not.i44.i.i = icmp ult i32 %381, %383
-  br i1 %.not.i44.i.i, label %384, label %.loopexit.i
+  %.not.i47.i.i = icmp ult i32 %381, %383
+  br i1 %.not.i47.i.i, label %384, label %.loopexit.i
 
-384:                                              ; preds = %377, %375, %372, %_ZNK4llvm4User10getOperandEj.exit.i40.i.i, %352
-  %385 = getelementptr inbounds nuw i8, ptr %.sroa.014.019.i38.i.i, i64 8
-  %.sroa.014.0.i41.i.i = load ptr, ptr %385, align 8
-  %.not23.i42.i.i = icmp eq ptr %.sroa.014.0.i41.i.i, null
-  br i1 %.not23.i42.i.i, label %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit45.thread.i.i", label %352
+384:                                              ; preds = %377, %375, %372, %_ZNK4llvm4User10getOperandEj.exit.i43.i.i, %352
+  %385 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i41.i.i, i64 8
+  %.sroa.04.0.i44.i.i = load ptr, ptr %385, align 8
+  %.not13.i45.i.i = icmp eq ptr %.sroa.04.0.i44.i.i, null
+  br i1 %.not13.i45.i.i, label %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit48.thread.i.i", label %352
 
-"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit45.thread.i.i": ; preds = %384, %349, %345
-  %386 = getelementptr inbounds nuw i8, ptr %.sroa.046.070.i.i, i64 8
-  %.sroa.046.0.i.i = load ptr, ptr %386, align 8
-  %.not63.i.i = icmp eq ptr %.sroa.046.0.i.i, null
-  br i1 %.not63.i.i, label %._crit_edge.i.i, label %345
+"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit48.thread.i.i": ; preds = %384, %349, %345
+  %386 = getelementptr inbounds nuw i8, ptr %.sroa.049.071.i.i, i64 8
+  %.sroa.049.0.i.i = load ptr, ptr %386, align 8
+  %.not64.i.i = icmp eq ptr %.sroa.049.0.i.i, null
+  br i1 %.not64.i.i, label %._crit_edge.i.i, label %345
 
-._crit_edge.i.i:                                  ; preds = %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit45.thread.i.i", %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit.thread.i.i"
-  %387 = getelementptr inbounds i8, ptr %.sroa.052.072.i.i, i64 8
+._crit_edge.i.i:                                  ; preds = %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit48.thread.i.i", %"_ZZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheEENK3$_0clEPNS2_17GetElementPtrInstEPNS2_5ValueE.exit.thread.i.i"
+  %387 = getelementptr inbounds i8, ptr %.sroa.055.073.i.i, i64 8
   %.not3.i3.i.i.i = icmp eq ptr %387, %293
   br i1 %.not3.i3.i.i.i, label %.loopexit86.i, label %.lr.ph.i4.i.i.i
 
 .lr.ph.i4.i.i.i:                                  ; preds = %._crit_edge.i.i, %.critedge2.i6.i.i.i
-  %.sroa.052.1.i.i = phi ptr [ %389, %.critedge2.i6.i.i.i ], [ %387, %._crit_edge.i.i ]
-  %388 = load ptr, ptr %.sroa.052.1.i.i, align 8
+  %.sroa.055.1.i.i = phi ptr [ %389, %.critedge2.i6.i.i.i ], [ %387, %._crit_edge.i.i ]
+  %388 = load ptr, ptr %.sroa.055.1.i.i, align 8
   %switch.i5.i.i.i = icmp ugt ptr %388, inttoptr (i64 -3 to ptr)
   br i1 %switch.i5.i.i.i, label %.critedge2.i6.i.i.i, label %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i
 
 .critedge2.i6.i.i.i:                              ; preds = %.lr.ph.i4.i.i.i
-  %389 = getelementptr inbounds i8, ptr %.sroa.052.1.i.i, i64 8
+  %389 = getelementptr inbounds i8, ptr %.sroa.055.1.i.i, i64 8
   %.not.i7.i.i.i = icmp eq ptr %389, %293
   br i1 %.not.i7.i.i.i, label %.loopexit86.i, label %.lr.ph.i4.i.i.i, !llvm.loop !10
 
 _ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i: ; preds = %.lr.ph.i4.i.i.i
-  %.not60.i.i = icmp eq ptr %.sroa.052.1.i.i, %293
-  br i1 %.not60.i.i, label %.loopexit86.i, label %.lr.ph73.i.i
+  %.not61.i.i = icmp eq ptr %.sroa.055.1.i.i, %293
+  br i1 %.not61.i.i, label %.loopexit86.i, label %.lr.ph74.i.i
 
 _ZL13checkOverflowRN12_GLOBAL__N_111FlattenInfoEPN4llvm13DominatorTreeEPNS2_15AssumptionCacheE.exit.i: ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21)

@@ -233,8 +233,8 @@ entry:
 
 while.cond.loopexit.i:                            ; preds = %while.body16.i, %while.cond6.preheader.i
   %1 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
-  %tobool.not.i5 = icmp eq i32 %1, 0
-  br i1 %tobool.not.i5, label %qemu_spin_lock.exit, label %while.cond6.preheader.i, !llvm.loop !5
+  %tobool.not.i6 = icmp eq i32 %1, 0
+  br i1 %tobool.not.i6, label %qemu_spin_lock.exit, label %while.cond6.preheader.i, !llvm.loop !5
 
 while.cond6.preheader.i:                          ; preds = %entry, %while.cond.loopexit.i
   %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
@@ -263,11 +263,11 @@ if.then:                                          ; preds = %qemu_spin_lock.exit
   %asmresult1.i = extractvalue { i32, i32 } %6, 1
   %asmresult1.i.neg = sub i32 0, %asmresult1.i
   %asmresult1.i.neg.z = zext i32 %asmresult1.i.neg to i64
-  %shl.i.neg4 = shl nuw i64 %asmresult1.i.neg.z, 32
+  %shl.i.neg5 = shl nuw i64 %asmresult1.i.neg.z, 32
   %conv2.i = zext i32 %asmresult.i to i64
   %7 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 8), align 8
   %or.i.neg = sub i64 %7, %conv2.i
-  %sub = add i64 %or.i.neg, %shl.i.neg4
+  %sub = add i64 %or.i.neg, %shl.i.neg5
   store i64 %sub, ptr getelementptr inbounds (i8, ptr @timers_state, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
   %8 = load i32, ptr @use_rt_clock, align 4
@@ -291,12 +291,12 @@ if.else.i:                                        ; preds = %if.then
   %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i = mul i64 %12, 1000
-  %add.i.i2 = add i64 %mul1.i.i, %mul.i.i
+  %add.i.i3 = add i64 %mul1.i.i, %mul.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
   br label %get_clock.exit
 
 get_clock.exit:                                   ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi i64 [ %add.i, %if.then.i ], [ %add.i.i2, %if.else.i ]
+  %retval.0.i = phi i64 [ %add.i, %if.then.i ], [ %add.i.i3, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 56), align 8
   %sub3 = sub i64 %13, %retval.0.i
@@ -308,8 +308,8 @@ if.end:                                           ; preds = %get_clock.exit, %qe
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   fence release
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
-  %add.i.i3 = add i32 %14, 1
-  store atomic i32 %add.i.i3, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  %add.i.i4 = add i32 %14, 1
+  store atomic i32 %add.i.i4, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
   store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
   ret void
 }
@@ -325,8 +325,8 @@ entry:
 
 while.cond.loopexit.i:                            ; preds = %while.body16.i, %while.cond6.preheader.i
   %1 = atomicrmw xchg ptr getelementptr inbounds (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
-  %tobool.not.i4 = icmp eq i32 %1, 0
-  br i1 %tobool.not.i4, label %qemu_spin_lock.exit, label %while.cond6.preheader.i, !llvm.loop !5
+  %tobool.not.i5 = icmp eq i32 %1, 0
+  br i1 %tobool.not.i5, label %qemu_spin_lock.exit, label %while.cond6.preheader.i, !llvm.loop !5
 
 while.cond6.preheader.i:                          ; preds = %entry, %while.cond.loopexit.i
   %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
@@ -377,7 +377,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %mul.i.i = mul i64 %11, 1000000000
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
   %12 = load i64, ptr %tv_nsec.i.i, align 8
-  %add.i.i2 = add i64 %mul.i.i, %12
+  %add.i.i3 = add i64 %mul.i.i, %12
   br label %get_clock.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i
@@ -393,7 +393,7 @@ if.else.i.i:                                      ; preds = %if.then.i
   br label %get_clock.exit.i
 
 get_clock.exit.i:                                 ; preds = %if.else.i.i, %if.then.i.i
-  %retval.0.i.i = phi i64 [ %add.i.i2, %if.then.i.i ], [ %add.i.i.i, %if.else.i.i ]
+  %retval.0.i.i = phi i64 [ %add.i.i3, %if.then.i.i ], [ %add.i.i.i, %if.else.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i)
   %add.i = add i64 %retval.0.i.i, %8
   br label %cpu_get_clock_locked.exit
@@ -408,8 +408,8 @@ if.end:                                           ; preds = %cpu_get_clock_locke
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   fence release
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
-  %add.i.i3 = add i32 %15, 1
-  store atomic i32 %add.i.i3, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  %add.i.i4 = add i32 %15, 1
+  store atomic i32 %add.i.i4, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
   store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
   ret void
 }

@@ -389,102 +389,102 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp11.not, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %if.end8
+  %7 = getelementptr inbounds i8, ptr %them, i64 8
+  %them.val10 = load i64, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %divrec.i)
-  %7 = load ptr, ptr @log, align 8
-  store ptr %7, ptr %divrec.i, align 8
+  %8 = load ptr, ptr @log, align 8
+  store ptr %8, ptr %divrec.i, align 8
   %distance.i = getelementptr inbounds i8, ptr %divrec.i, i64 8
   store i32 0, ptr %distance.i, align 8
   %call.i = tail call ptr @g_string_new(ptr noundef nonnull @.str.19) #10
-  %8 = load ptr, ptr @divergence_log, align 8
-  %tobool.not.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr @divergence_log, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %if.end19.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then12
-  %9 = load ptr, ptr %8, align 8
-  %entry1.024.i = load ptr, ptr @log, align 8
-  %tobool2.not25.i = icmp eq ptr %entry1.024.i, null
-  br i1 %tobool2.not25.i, label %if.end19.i, label %cond.true.i.preheader
+  %10 = load ptr, ptr %9, align 8
+  %entry1.06.i = load ptr, ptr @log, align 8
+  %tobool2.not7.i = icmp eq ptr %entry1.06.i, null
+  br i1 %tobool2.not7.i, label %if.end19.i, label %cond.true.i.preheader
 
 cond.true.i.preheader:                            ; preds = %if.then.i
-  %next.i9 = getelementptr inbounds i8, ptr %entry1.024.i, i64 8
-  %10 = load ptr, ptr %next.i9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %if.end19.i, label %for.body.i.preheader
+  %next.i11 = getelementptr inbounds i8, ptr %entry1.06.i, i64 8
+  %11 = load ptr, ptr %next.i11, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %if.end19.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %cond.true.i.preheader
-  %.pre = load ptr, ptr %9, align 8
+  %.pre = load ptr, ptr %10, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %cond.end11.i
-  %12 = phi ptr [ %14, %cond.end11.i ], [ %10, %for.body.i.preheader ]
-  %entry1.026.i10 = phi ptr [ %12, %cond.end11.i ], [ %entry1.024.i, %for.body.i.preheader ]
-  %13 = phi i32 [ %inc.i, %cond.end11.i ], [ 0, %for.body.i.preheader ]
-  %cmp.i = icmp eq ptr %entry1.026.i10, %.pre
+  %13 = phi ptr [ %15, %cond.end11.i ], [ %11, %for.body.i.preheader ]
+  %entry1.08.i12 = phi ptr [ %13, %cond.end11.i ], [ %entry1.06.i, %for.body.i.preheader ]
+  %14 = phi i32 [ %inc.i, %cond.end11.i ], [ 0, %for.body.i.preheader ]
+  %cmp.i = icmp eq ptr %entry1.08.i12, %.pre
   br i1 %cmp.i, label %for.end.i, label %cond.end11.i
 
 cond.end11.i:                                     ; preds = %for.body.i
-  %inc.i = add nuw nsw i32 %13, 1
+  %inc.i = add nuw nsw i32 %14, 1
   store i32 %inc.i, ptr %distance.i, align 8
-  %next.i = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = load ptr, ptr %next.i, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %for.end.i, label %for.body.i
+  %next.i = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = load ptr, ptr %next.i, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %cond.end11.i, %for.body.i
-  %.lcssa.ph = phi i32 [ %inc.i, %cond.end11.i ], [ %13, %for.body.i ]
-  %16 = icmp eq i32 %.lcssa.ph, 1
-  br i1 %16, label %land.lhs.true.i, label %if.end19.i
+  %.lcssa.ph = phi i32 [ %inc.i, %cond.end11.i ], [ %14, %for.body.i ]
+  %17 = icmp eq i32 %.lcssa.ph, 1
+  br i1 %17, label %land.lhs.true.i, label %if.end19.i
 
 land.lhs.true.i:                                  ; preds = %for.end.i
-  %distance15.i = getelementptr inbounds i8, ptr %9, i64 8
-  %17 = load i32, ptr %distance15.i, align 8
-  %cmp16.i = icmp eq i32 %17, 1
+  %distance15.i = getelementptr inbounds i8, ptr %10, i64 8
+  %18 = load i32, ptr %distance15.i, align 8
+  %cmp16.i = icmp eq i32 %18, 1
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %cond.true.i.preheader, %land.lhs.true.i, %for.end.i, %if.then.i, %if.then12
   %diverged.0.i = phi i1 [ false, %for.end.i ], [ false, %if.then12 ], [ %cmp16.i, %land.lhs.true.i ], [ false, %if.then.i ], [ false, %cond.true.i.preheader ]
   %call20.i = call dereferenceable_or_null(16) ptr @g_memdup2(ptr noundef nonnull %divrec.i, i64 noundef 16) #14
-  %call21.i = call ptr @g_slist_prepend(ptr noundef %8, ptr noundef %call20.i) #10
+  %call21.i = call ptr @g_slist_prepend(ptr noundef %9, ptr noundef %call20.i) #10
   store ptr %call21.i, ptr @divergence_log, align 8
-  %18 = load i8, ptr @verbose, align 1
-  %tobool22.i = trunc i8 %18 to i1
-  %19 = load i32, ptr %distance.i, align 8
-  %cmp24.i = icmp eq i32 %19, 1
+  %19 = load i8, ptr @verbose, align 1
+  %tobool22.i = trunc i8 %19 to i1
+  %20 = load i32, ptr %distance.i, align 8
+  %cmp24.i = icmp eq i32 %20, 1
   %or.cond.i = select i1 %tobool22.i, i1 true, i1 %cmp24.i
   %brmerge.i = or i1 %diverged.0.i, %or.cond.i
   br i1 %brmerge.i, label %if.then27.i, label %if.end31.i
 
 if.then27.i:                                      ; preds = %if.end19.i
   %call29.i = call i32 @g_slist_length(ptr noundef %call21.i) #10
-  %20 = load i32, ptr %distance.i, align 8
-  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call.i, ptr noundef nonnull @.str.20, i64 noundef %0, i64 noundef %6, i32 noundef %call29.i, i32 noundef %20) #10
-  %21 = load ptr, ptr %call.i, align 8
-  call void @qemu_plugin_outs(ptr noundef %21) #10
+  %21 = load i32, ptr %distance.i, align 8
+  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call.i, ptr noundef nonnull @.str.20, i64 noundef %0, i64 noundef %6, i32 noundef %call29.i, i32 noundef %21) #10
+  %22 = load ptr, ptr %call.i, align 8
+  call void @qemu_plugin_outs(ptr noundef %22) #10
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.then27.i, %if.end19.i
   br i1 %diverged.0.i, label %if.then33.i, label %if.end60.i
 
 if.then33.i:                                      ; preds = %if.end31.i
-  %insn_count37.i = getelementptr inbounds i8, ptr %them, i64 8
-  %22 = load i64, ptr %insn_count37.i, align 8
-  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call.i, ptr noundef nonnull @.str.21, i64 noundef %0, i64 noundef %1, i64 noundef %6, i64 noundef %22) #10
-  %entry34.027.i = load ptr, ptr @log, align 8
-  %tobool39.not28.i = icmp eq ptr %entry34.027.i, null
-  br i1 %tobool39.not28.i, label %if.end60.thread.i, label %cond.true40.i
+  call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call.i, ptr noundef nonnull @.str.21, i64 noundef %0, i64 noundef %1, i64 noundef %6, i64 noundef %them.val10) #10
+  %entry34.09.i = load ptr, ptr @log, align 8
+  %tobool39.not10.i = icmp eq ptr %entry34.09.i, null
+  br i1 %tobool39.not10.i, label %if.end60.thread.i, label %cond.true40.i
 
 cond.true40.i:                                    ; preds = %if.then33.i, %for.body45.i
-  %entry34.030.i = phi ptr [ %entry34.0.i, %for.body45.i ], [ %entry34.027.i, %if.then33.i ]
-  %i.029.i = phi i32 [ %inc57.i, %for.body45.i ], [ 0, %if.then33.i ]
-  %next41.i = getelementptr inbounds i8, ptr %entry34.030.i, i64 8
+  %entry34.012.i = phi ptr [ %entry34.0.i, %for.body45.i ], [ %entry34.09.i, %if.then33.i ]
+  %i.011.i = phi i32 [ %inc57.i, %for.body45.i ], [ 0, %if.then33.i ]
+  %next41.i = getelementptr inbounds i8, ptr %entry34.012.i, i64 8
   %23 = load ptr, ptr %next41.i, align 8
   %tobool42.i = icmp ne ptr %23, null
-  %cmp44.i = icmp ult i32 %i.029.i, 5
+  %cmp44.i = icmp ult i32 %i.011.i, 5
   %or.cond1.i = select i1 %tobool42.i, i1 %cmp44.i, i1 false
   br i1 %or.cond1.i, label %for.body45.i, label %if.end60.thread.i
 
 for.body45.i:                                     ; preds = %cond.true40.i
-  %24 = load ptr, ptr %entry34.030.i, align 8
+  %24 = load ptr, ptr %entry34.012.i, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = load i64, ptr %25, align 8
   %insns.i = getelementptr inbounds i8, ptr %25, i64 8
@@ -492,7 +492,7 @@ for.body45.i:                                     ; preds = %cond.true40.i
   %insn_count49.i = getelementptr inbounds i8, ptr %24, i64 8
   %28 = load i64, ptr %insn_count49.i, align 8
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call.i, ptr noundef nonnull @.str.22, i64 noundef %26, i64 noundef %27, i64 noundef %28) #10
-  %inc57.i = add nuw nsw i32 %i.029.i, 1
+  %inc57.i = add nuw nsw i32 %i.011.i, 1
   %entry34.0.i = load ptr, ptr %next41.i, align 8
   %tobool39.not.i = icmp eq ptr %entry34.0.i, null
   br i1 %tobool39.not.i, label %if.end60.thread.i, label %cond.true40.i, !llvm.loop !6

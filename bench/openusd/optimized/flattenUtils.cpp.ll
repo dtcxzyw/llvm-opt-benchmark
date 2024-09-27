@@ -9600,19 +9600,19 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__44UsdFlattenLayerStackResolveA
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdFlattenLayerStackERKNS_8TfRefPtrINS_13PcpLayerStackEEERKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9TfWeakPtrINS_8SdfLayerEEERKSB_EESI_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function", align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %2 to i64
-  store i64 %9, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_24__pxrReserved__33UsdFlattenResolveAssetPathContextEEZNS6_20UsdFlattenLayerStackERKNS6_8TfRefPtrINS6_13PcpLayerStackEEERKSt8functionIFS5_RKNS6_9TfWeakPtrINS6_8SdfLayerEEERKS5_EESN_E3$_0E9_M_invokeERKSt9_Any_dataS9_", ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_24__pxrReserved__33UsdFlattenResolveAssetPathContextEEZNS6_20UsdFlattenLayerStackERKNS6_8TfRefPtrINS6_13PcpLayerStackEEERKSt8functionIFS5_RKNS6_9TfWeakPtrINS6_8SdfLayerEEERKS5_EESN_E3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation", ptr %6, align 8
+  %6 = ptrtoint ptr %2 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %6, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_24__pxrReserved__33UsdFlattenResolveAssetPathContextEEZNS6_20UsdFlattenLayerStackERKNS6_8TfRefPtrINS6_13PcpLayerStackEEERKSt8functionIFS5_RKNS6_9TfWeakPtrINS6_8SdfLayerEEERKS5_EESN_E3$_0E9_M_invokeERKSt9_Any_dataS9_", ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_24__pxrReserved__33UsdFlattenResolveAssetPathContextEEZNS6_20UsdFlattenLayerStackERKNS6_8TfRefPtrINS6_13PcpLayerStackEEERKSt8functionIFS5_RKNS6_9TfWeakPtrINS6_8SdfLayerEEERKS5_EESN_E3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation", ptr %7, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdFlattenLayerStackERKNS_8TfRefPtrINS_13PcpLayerStackEEERKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_33UsdFlattenResolveAssetPathContextEEERKSB_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %10 unwind label %17
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_24__pxrReserved__33UsdFlattenResolveAssetPathContextEEED2Ev.exit, label %12
 
@@ -9633,7 +9633,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInte
 17:                                               ; preds = %4
   %18 = landingpad { ptr, i32 }
           cleanup
-  %19 = load ptr, ptr %6, align 8
+  %19 = load ptr, ptr %7, align 8
   %.not.i.i4 = icmp eq ptr %19, null
   br i1 %.not.i.i4, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_24__pxrReserved__33UsdFlattenResolveAssetPathContextEEED2Ev.exit5, label %20
 

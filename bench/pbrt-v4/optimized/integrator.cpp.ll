@@ -624,12 +624,12 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #25
   store i8 0, ptr %call, align 1
   store ptr %call, ptr %exitCopyThread, align 8
+  %0 = ptrtoint ptr %memoryResource to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %memoryResource to i64
-  store i64 %1, ptr %ref.tmp, align 8
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %ref.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEZN4pbrt23WavefrontPathIntegratorC1EPNS1_15memory_resourceERNS6_10BasicSceneEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEZN4pbrt23WavefrontPathIntegratorC1EPNS1_15memory_resourceERNS6_10BasicSceneEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN4pbrt11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEC2EOSt8functionIFS5_vEE(ptr noundef nonnull align 8 dereferenceable(112) %threadAllocators, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -3824,9 +3824,10 @@ invoke.cont53:                                    ; preds = %lor.end
   br i1 %31, label %for.body.lr.ph, label %if.end195
 
 for.body.lr.ph:                                   ; preds = %invoke.cont53
+  %32 = ptrtoint ptr %sampleIndex to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp60, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp60, i64 24
-  %32 = ptrtoint ptr %sampleIndex to i64
+  %33 = getelementptr inbounds i8, ptr %agg.tmp60, i64 8
   %cmp72304 = icmp slt i32 %pixelBounds.sroa.0.sroa.5.0.extract.trunc, %pixelBounds.sroa.6.12.extract.trunc222
   %rayQueues.i = getelementptr inbounds i8, ptr %this, i64 520
   %mInv.i = getelementptr inbounds i8, ptr %cameraMotion, i64 64
@@ -3848,15 +3849,15 @@ for.body.lr.ph:                                   ; preds = %invoke.cont53
   %ref.tmp.sroa.2.0.agg.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
-  %33 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
-  %34 = ptrtoint ptr %agg.tmp.i.i to i64
+  %34 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  %35 = ptrtoint ptr %agg.tmp.i.i to i64
   %_M_manager.i.i.i.i131 = getelementptr inbounds i8, ptr %agg.tmp.i.i124, i64 16
   %_M_invoker.i.i.i132 = getelementptr inbounds i8, ptr %agg.tmp.i.i124, i64 24
   %ref.tmp.sroa.2.0.agg.tmp.sroa_idx.i.i133 = getelementptr inbounds i8, ptr %agg.tmp.i.i124, i64 8
   %_M_manager.i.i.i.i.i134 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i122, i64 16
   %_M_invoker.i.i.i.i135 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i122, i64 24
-  %35 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i122, i64 8
-  %36 = ptrtoint ptr %agg.tmp.i.i124 to i64
+  %36 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i122, i64 8
+  %37 = ptrtoint ptr %agg.tmp.i.i124 to i64
   %maxDepth = getelementptr inbounds i8, ptr %this, i64 96
   %haveMedia.i = getelementptr inbounds i8, ptr %this, i64 2
   %shadowRayQueue.i = getelementptr inbounds i8, ptr %this, i64 592
@@ -3869,20 +3870,19 @@ for.body.lr.ph:                                   ; preds = %invoke.cont53
   %mInv3.i.i173 = getelementptr inbounds i8, ptr %ref.tmp149, i64 64
   %sub182 = add nsw i32 %firstSampleIndex.0, -1
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  %37 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %38 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %mul = mul nsw i32 %sub4.i.i, %resolution.sroa.0.0.extract.trunc
   %conv.i = sext i32 %mul to i64
   %_M_manager.i.i.i.i197 = getelementptr inbounds i8, ptr %agg.tmp.i.i193, i64 16
   %_M_invoker.i.i.i198 = getelementptr inbounds i8, ptr %agg.tmp.i.i193, i64 24
-  %38 = getelementptr inbounds i8, ptr %agg.tmp.i.i193, i64 8
-  %39 = ptrtoint ptr %agg.tmp.i to i64
-  %40 = getelementptr inbounds i8, ptr %agg.tmp60, i64 8
+  %39 = getelementptr inbounds i8, ptr %agg.tmp.i.i193, i64 8
+  %40 = ptrtoint ptr %agg.tmp.i to i64
   %41 = getelementptr inbounds i8, ptr %gui.0, i64 124
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc190
-  store i64 0, ptr %40, align 8
+  store i64 0, ptr %33, align 8
   store i64 %32, ptr %agg.tmp60, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN4pbrt23WavefrontPathIntegrator6RenderEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN4pbrt23WavefrontPathIntegrator6RenderEvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
@@ -4257,8 +4257,8 @@ if.else.i.i:                                      ; preds = %if.end.i
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt12ForAllQueuedIZNS1_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS1_18EscapedRayWorkItemEEEvPKcPKNS1_9WorkQueueIT0_EEiOT_EUliE_E9_M_invokeERKSt9_Any_dataOl", ptr %_M_invoker.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt12ForAllQueuedIZNS1_23WavefrontPathIntegrator17HandleEscapedRaysEvE3$_0NS1_18EscapedRayWorkItemEEEvPKcPKNS1_9WorkQueueIT0_EEiOT_EUliE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
-  store i64 0, ptr %33, align 8
-  store i64 %34, ptr %agg.tmp.i.i.i, align 8
+  store i64 0, ptr %34, align 8
+  store i64 %35, ptr %agg.tmp.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E9_M_invokeERKSt9_Any_dataOlSA_, ptr %_M_invoker.i.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i, align 8
   invoke void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef 0, i64 noundef %conv.i.i117, ptr noundef nonnull %agg.tmp.i.i.i)
@@ -4359,8 +4359,8 @@ if.else.i.i128:                                   ; preds = %invoke.cont115
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt12ForAllQueuedIZNS1_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS1_20HitAreaLightWorkItemEEEvPKcPKNS1_9WorkQueueIT0_EEiOT_EUliE_E9_M_invokeERKSt9_Any_dataOl", ptr %_M_invoker.i.i.i132, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt12ForAllQueuedIZNS1_23WavefrontPathIntegrator26HandleEmissiveIntersectionEvE3$_0NS1_20HitAreaLightWorkItemEEEvPKcPKNS1_9WorkQueueIT0_EEiOT_EUliE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i.i.i131, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i122)
-  store i64 0, ptr %35, align 8
-  store i64 %36, ptr %agg.tmp.i.i.i122, align 8
+  store i64 0, ptr %36, align 8
+  store i64 %37, ptr %agg.tmp.i.i.i122, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E9_M_invokeERKSt9_Any_dataOlSA_, ptr %_M_invoker.i.i.i.i135, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i134, align 8
   invoke void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef 0, i64 noundef %conv.i.i130, ptr noundef nonnull %agg.tmp.i.i.i122)
@@ -4653,7 +4653,7 @@ if.then.i211.cont:                                ; preds = %if.then.i211.invoke
   unreachable
 
 if.else.i196:                                     ; preds = %if.then181
-  store i64 0, ptr %37, align 8
+  store i64 0, ptr %38, align 8
   %call.i.i2.i.i213 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
           to label %call.i.i2.i.i.noexc unwind label %lpad68.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4671,8 +4671,8 @@ call.i.i2.i.i.noexc:                              ; preds = %if.else.i196
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator6RenderEvE3$_5E9_M_invokeERKSt9_Any_dataOl", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator6RenderEvE3$_5E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i193)
-  store i64 0, ptr %38, align 8
-  store i64 %39, ptr %agg.tmp.i.i193, align 8
+  store i64 0, ptr %39, align 8
+  store i64 %40, ptr %agg.tmp.i.i193, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E9_M_invokeERKSt9_Any_dataOlSA_, ptr %_M_invoker.i.i.i198, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i.i.i197, align 8
   invoke void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef 0, i64 noundef %conv.i, ptr noundef nonnull %agg.tmp.i.i193)

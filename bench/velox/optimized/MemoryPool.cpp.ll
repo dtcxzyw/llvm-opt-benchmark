@@ -4667,12 +4667,12 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 if.end13:                                         ; preds = %if.end4.i, %_ZNK8facebook5velox6memory10Allocation5emptyEv.exit.i, %if.end.i, %invoke.cont
   %allocator_ = getelementptr inbounds i8, ptr %this, i64 176
   %17 = load ptr, ptr %allocator_, align 8
+  %18 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %18 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %18, align 8
-  %19 = ptrtoint ptr %this to i64
-  store i64 %19, ptr %agg.tmp, align 8
+  %19 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store i64 0, ptr %19, align 8
+  store i64 %18, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlbEZN8facebook5velox6memory14MemoryPoolImpl21allocateNonContiguousEmRNS3_10AllocationEmE3$_0E9_M_invokeERKSt9_Any_dataOlOb", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlbEZN8facebook5velox6memory14MemoryPoolImpl21allocateNonContiguousEmRNS3_10AllocationEmE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %call17 = invoke noundef zeroext i1 @_ZN8facebook5velox6memory15MemoryAllocator21allocateNonContiguousEmRNS1_10AllocationESt8functionIFvlbEEm(ptr noundef nonnull align 8 dereferenceable(880) %17, i64 noundef %numPages, ptr noundef nonnull align 8 dereferenceable(36) %out, ptr noundef nonnull %agg.tmp, i64 noundef %minSizeClass)
@@ -5351,12 +5351,12 @@ if.end4.i:                                        ; preds = %_ZNK8facebook5velox
 if.end10:                                         ; preds = %if.end4.i, %_ZNK8facebook5velox6memory20ContiguousAllocation5emptyEv.exit.i, %if.end.i, %if.end8
   %allocator_ = getelementptr inbounds i8, ptr %this, i64 176
   %14 = load ptr, ptr %allocator_, align 8
+  %15 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %15 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %15, align 8
-  %16 = ptrtoint ptr %this to i64
-  store i64 %16, ptr %agg.tmp, align 8
+  %16 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store i64 0, ptr %16, align 8
+  store i64 %15, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlbEZN8facebook5velox6memory14MemoryPoolImpl18allocateContiguousEmRNS3_20ContiguousAllocationEmE3$_0E9_M_invokeERKSt9_Any_dataOlOb", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlbEZN8facebook5velox6memory14MemoryPoolImpl18allocateContiguousEmRNS3_20ContiguousAllocationEmE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %call11 = invoke noundef zeroext i1 @_ZN8facebook5velox6memory15MemoryAllocator18allocateContiguousEmPNS1_10AllocationERNS1_20ContiguousAllocationESt8functionIFvlbEEm(ptr noundef nonnull align 8 dereferenceable(880) %14, i64 noundef %numPages, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef nonnull %agg.tmp, i64 noundef %maxPages)
@@ -5902,12 +5902,12 @@ entry:
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %allocator_ = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %allocator_, align 8
+  %1 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %1, align 8
-  %2 = ptrtoint ptr %this to i64
-  store i64 %2, ptr %agg.tmp, align 8
+  %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store i64 0, ptr %2, align 8
+  store i64 %1, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlbEZN8facebook5velox6memory14MemoryPoolImpl14growContiguousEmRNS3_20ContiguousAllocationEE3$_0E9_M_invokeERKSt9_Any_dataOlOb", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlbEZN8facebook5velox6memory14MemoryPoolImpl14growContiguousEmRNS3_20ContiguousAllocationEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %call = invoke noundef zeroext i1 @_ZN8facebook5velox6memory15MemoryAllocator14growContiguousEmRNS1_20ContiguousAllocationESt8functionIFvlbEE(ptr noundef nonnull align 8 dereferenceable(880) %0, i64 noundef %increment, ptr noundef nonnull align 8 dereferenceable(32) %allocation, ptr noundef nonnull %agg.tmp)

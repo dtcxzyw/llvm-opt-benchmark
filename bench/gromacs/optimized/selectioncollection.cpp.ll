@@ -7813,196 +7813,196 @@ define { ptr, i8 } @_ZNK3gmx19SelectionCollection9selectionESt17basic_string_vie
   %11 = sub i64 %9, %10
   %12 = ashr i64 %11, 5
   %13 = icmp sgt i64 %12, 0
-  br i1 %13, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i
+  br i1 %13, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %3
+.lr.ph.i.i.i:                                     ; preds = %3
   %14 = icmp eq i64 %1, 0
-  br label %.lr.ph.i.i.i
+  br label %15
 
-.lr.ph.i.i.i:                                     ; preds = %41, %.lr.ph.preheader.i.i.i
-  %.0104.i.i.i = phi i64 [ %43, %41 ], [ %12, %.lr.ph.preheader.i.i.i ]
-  %.sroa.073.0103.i.i.i = phi ptr [ %42, %41 ], [ %6, %.lr.ph.preheader.i.i.i ]
-  %.val.i.i.i.i = load ptr, ptr %.sroa.073.0103.i.i.i, align 8
-  %15 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i.i.i.i) #24
-  %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #24
-  %17 = icmp eq i64 %16, %1
-  br i1 %17, label %18, label %20
+15:                                               ; preds = %42, %.lr.ph.i.i.i
+  %.099.i.i.i = phi i64 [ %12, %.lr.ph.i.i.i ], [ %44, %42 ]
+  %.sroa.068.098.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %43, %42 ]
+  %.val.i.i.i.i = load ptr, ptr %.sroa.068.098.i.i.i, align 8
+  %16 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i.i.i.i) #24
+  %17 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #24
+  %18 = icmp eq i64 %17, %1
+  br i1 %18, label %19, label %21
 
-18:                                               ; preds = %.lr.ph.i.i.i
+19:                                               ; preds = %15
   br i1 %14, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %18
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr %15, ptr readonly %2, i64 %1)
-  %19 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
-  br i1 %19, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %20
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %19
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr %16, ptr readonly %2, i64 %1)
+  %20 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
+  br i1 %20, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %21
 
-20:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.073.0103.i.i.i, i64 8
-  %.val.i16.i.i.i = load ptr, ptr %21, align 8
-  %22 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i16.i.i.i) #24
-  %23 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #24
-  %24 = icmp eq i64 %23, %1
-  br i1 %24, label %25, label %27
+21:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %15
+  %22 = getelementptr inbounds i8, ptr %.sroa.068.098.i.i.i, i64 8
+  %.val.i29.i.i.i = load ptr, ptr %22, align 8
+  %23 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i29.i.i.i) #24
+  %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #24
+  %25 = icmp eq i64 %24, %1
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %20
-  br i1 %14, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i20.i.i.i
+26:                                               ; preds = %21
+  br i1 %14, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i30.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i20.i.i.i: ; preds = %25
-  %bcmp.i.i.i21.i.i.i = tail call i32 @bcmp(ptr %22, ptr readonly %2, i64 %1)
-  %26 = icmp eq i32 %bcmp.i.i.i21.i.i.i, 0
-  br i1 %26, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit38", label %27
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i30.i.i.i: ; preds = %26
+  %bcmp.i.i.i31.i.i.i = tail call i32 @bcmp(ptr %23, ptr readonly %2, i64 %1)
+  %27 = icmp eq i32 %bcmp.i.i.i31.i.i.i, 0
+  br i1 %27, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit38", label %28
 
-27:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i20.i.i.i, %20
-  %28 = getelementptr inbounds i8, ptr %.sroa.073.0103.i.i.i, i64 16
-  %.val.i24.i.i.i = load ptr, ptr %28, align 8
-  %29 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i24.i.i.i) #24
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #24
-  %31 = icmp eq i64 %30, %1
-  br i1 %31, label %32, label %34
+28:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i30.i.i.i, %21
+  %29 = getelementptr inbounds i8, ptr %.sroa.068.098.i.i.i, i64 16
+  %.val.i34.i.i.i = load ptr, ptr %29, align 8
+  %30 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i34.i.i.i) #24
+  %31 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #24
+  %32 = icmp eq i64 %31, %1
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %27
-  br i1 %14, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit40", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i28.i.i.i
+33:                                               ; preds = %28
+  br i1 %14, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit40", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i35.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i28.i.i.i: ; preds = %32
-  %bcmp.i.i.i29.i.i.i = tail call i32 @bcmp(ptr %29, ptr readonly %2, i64 %1)
-  %33 = icmp eq i32 %bcmp.i.i.i29.i.i.i, 0
-  br i1 %33, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit42", label %34
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i35.i.i.i: ; preds = %33
+  %bcmp.i.i.i36.i.i.i = tail call i32 @bcmp(ptr %30, ptr readonly %2, i64 %1)
+  %34 = icmp eq i32 %bcmp.i.i.i36.i.i.i, 0
+  br i1 %34, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit42", label %35
 
-34:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i28.i.i.i, %27
-  %35 = getelementptr inbounds i8, ptr %.sroa.073.0103.i.i.i, i64 24
-  %.val.i32.i.i.i = load ptr, ptr %35, align 8
-  %36 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i32.i.i.i) #24
-  %37 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #24
-  %38 = icmp eq i64 %37, %1
-  br i1 %38, label %39, label %41
+35:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i35.i.i.i, %28
+  %36 = getelementptr inbounds i8, ptr %.sroa.068.098.i.i.i, i64 24
+  %.val.i39.i.i.i = load ptr, ptr %36, align 8
+  %37 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i39.i.i.i) #24
+  %38 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #24
+  %39 = icmp eq i64 %38, %1
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %34
-  br i1 %14, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit44", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i36.i.i.i
+40:                                               ; preds = %35
+  br i1 %14, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit44", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i40.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i36.i.i.i: ; preds = %39
-  %bcmp.i.i.i37.i.i.i = tail call i32 @bcmp(ptr %36, ptr readonly %2, i64 %1)
-  %40 = icmp eq i32 %bcmp.i.i.i37.i.i.i, 0
-  br i1 %40, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit46", label %41
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i40.i.i.i: ; preds = %40
+  %bcmp.i.i.i41.i.i.i = tail call i32 @bcmp(ptr %37, ptr readonly %2, i64 %1)
+  %41 = icmp eq i32 %bcmp.i.i.i41.i.i.i, 0
+  br i1 %41, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit46", label %42
 
-41:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i36.i.i.i, %34
-  %42 = getelementptr inbounds i8, ptr %.sroa.073.0103.i.i.i, i64 32
-  %43 = add nsw i64 %.0104.i.i.i, -1
-  %44 = icmp sgt i64 %.0104.i.i.i, 1
-  br i1 %44, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !54
+42:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i40.i.i.i, %35
+  %43 = getelementptr inbounds i8, ptr %.sroa.068.098.i.i.i, i64 32
+  %44 = add nsw i64 %.099.i.i.i, -1
+  %45 = icmp sgt i64 %.099.i.i.i, 1
+  br i1 %45, label %15, label %._crit_edge.loopexit.i.i.i, !llvm.loop !54
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %41
-  %.pre.i.i.i = ptrtoint ptr %42 to i64
-  %.pre112.i.i.i = sub i64 %9, %.pre.i.i.i
+._crit_edge.loopexit.i.i.i:                       ; preds = %42
+  %.pre.i.i.i = ptrtoint ptr %43 to i64
+  %.pre107.i.i.i = sub i64 %9, %.pre.i.i.i
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %3
-  %.pre-phi113.i.i.i = phi i64 [ %.pre112.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %11, %3 ]
-  %.sroa.073.0.lcssa.i.i.i = phi ptr [ %42, %._crit_edge.loopexit.i.i.i ], [ %6, %3 ]
-  %45 = ashr exact i64 %.pre-phi113.i.i.i, 3
-  switch i64 %45, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit" [
-    i64 3, label %46
-    i64 2, label %55
-    i64 1, label %64
+  %.pre-phi108.i.i.i = phi i64 [ %.pre107.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %11, %3 ]
+  %.sroa.068.0.lcssa.i.i.i = phi ptr [ %43, %._crit_edge.loopexit.i.i.i ], [ %6, %3 ]
+  %46 = ashr exact i64 %.pre-phi108.i.i.i, 3
+  switch i64 %46, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit" [
+    i64 3, label %47
+    i64 2, label %56
+    i64 1, label %65
   ]
 
-46:                                               ; preds = %._crit_edge.i.i.i
-  %.val.i40.i.i.i = load ptr, ptr %.sroa.073.0.lcssa.i.i.i, align 8
-  %47 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i40.i.i.i) #24
-  %48 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #24
-  %49 = icmp eq i64 %48, %1
-  br i1 %49, label %50, label %53
+47:                                               ; preds = %._crit_edge.i.i.i
+  %.val.i44.i.i.i = load ptr, ptr %.sroa.068.0.lcssa.i.i.i, align 8
+  %48 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i44.i.i.i) #24
+  %49 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #24
+  %50 = icmp eq i64 %49, %1
+  br i1 %50, label %51, label %54
 
-50:                                               ; preds = %46
-  %51 = icmp eq i64 %1, 0
-  br i1 %51, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44.i.i.i
+51:                                               ; preds = %47
+  %52 = icmp eq i64 %1, 0
+  br i1 %52, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i45.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44.i.i.i: ; preds = %50
-  %bcmp.i.i.i45.i.i.i = tail call i32 @bcmp(ptr %47, ptr readonly %2, i64 %1)
-  %52 = icmp eq i32 %bcmp.i.i.i45.i.i.i, 0
-  br i1 %52, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %53
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i45.i.i.i: ; preds = %51
+  %bcmp.i.i.i46.i.i.i = tail call i32 @bcmp(ptr %48, ptr readonly %2, i64 %1)
+  %53 = icmp eq i32 %bcmp.i.i.i46.i.i.i, 0
+  br i1 %53, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %54
 
-53:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44.i.i.i, %46
-  %54 = getelementptr inbounds i8, ptr %.sroa.073.0.lcssa.i.i.i, i64 8
-  br label %55
+54:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i45.i.i.i, %47
+  %55 = getelementptr inbounds i8, ptr %.sroa.068.0.lcssa.i.i.i, i64 8
+  br label %56
 
-55:                                               ; preds = %53, %._crit_edge.i.i.i
-  %.sroa.073.1.i.i.i = phi ptr [ %.sroa.073.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %54, %53 ]
-  %.val.i48.i.i.i = load ptr, ptr %.sroa.073.1.i.i.i, align 8
-  %56 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i48.i.i.i) #24
-  %57 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #24
-  %58 = icmp eq i64 %57, %1
-  br i1 %58, label %59, label %62
+56:                                               ; preds = %54, %._crit_edge.i.i.i
+  %.sroa.068.1.i.i.i = phi ptr [ %.sroa.068.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %55, %54 ]
+  %.val.i49.i.i.i = load ptr, ptr %.sroa.068.1.i.i.i, align 8
+  %57 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i49.i.i.i) #24
+  %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #24
+  %59 = icmp eq i64 %58, %1
+  br i1 %59, label %60, label %63
 
-59:                                               ; preds = %55
-  %60 = icmp eq i64 %1, 0
-  br i1 %60, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i52.i.i.i
+60:                                               ; preds = %56
+  %61 = icmp eq i64 %1, 0
+  br i1 %61, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i52.i.i.i: ; preds = %59
-  %bcmp.i.i.i53.i.i.i = tail call i32 @bcmp(ptr %56, ptr readonly %2, i64 %1)
-  %61 = icmp eq i32 %bcmp.i.i.i53.i.i.i, 0
-  br i1 %61, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %62
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50.i.i.i: ; preds = %60
+  %bcmp.i.i.i51.i.i.i = tail call i32 @bcmp(ptr %57, ptr readonly %2, i64 %1)
+  %62 = icmp eq i32 %bcmp.i.i.i51.i.i.i, 0
+  br i1 %62, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %63
 
-62:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i52.i.i.i, %55
-  %63 = getelementptr inbounds i8, ptr %.sroa.073.1.i.i.i, i64 8
-  br label %64
+63:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50.i.i.i, %56
+  %64 = getelementptr inbounds i8, ptr %.sroa.068.1.i.i.i, i64 8
+  br label %65
 
-64:                                               ; preds = %62, %._crit_edge.i.i.i
-  %.sroa.073.2.i.i.i = phi ptr [ %.sroa.073.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %63, %62 ]
-  %.val.i56.i.i.i = load ptr, ptr %.sroa.073.2.i.i.i, align 8
-  %65 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i56.i.i.i) #24
-  %66 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #24
-  %67 = icmp eq i64 %66, %1
-  br i1 %67, label %68, label %71
+65:                                               ; preds = %63, %._crit_edge.i.i.i
+  %.sroa.068.2.i.i.i = phi ptr [ %.sroa.068.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %64, %63 ]
+  %.val.i54.i.i.i = load ptr, ptr %.sroa.068.2.i.i.i, align 8
+  %66 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i54.i.i.i) #24
+  %67 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #24
+  %68 = icmp eq i64 %67, %1
+  br i1 %68, label %69, label %72
 
-68:                                               ; preds = %64
-  %69 = icmp eq i64 %1, 0
-  br i1 %69, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i60.i.i.i
+69:                                               ; preds = %65
+  %70 = icmp eq i64 %1, 0
+  br i1 %70, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i55.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i60.i.i.i: ; preds = %68
-  %bcmp.i.i.i61.i.i.i = tail call i32 @bcmp(ptr %65, ptr readonly %2, i64 %1)
-  %70 = icmp eq i32 %bcmp.i.i.i61.i.i.i, 0
-  br i1 %70, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %71
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i55.i.i.i: ; preds = %69
+  %bcmp.i.i.i56.i.i.i = tail call i32 @bcmp(ptr %66, ptr readonly %2, i64 %1)
+  %71 = icmp eq i32 %bcmp.i.i.i56.i.i.i, 0
+  br i1 %71, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %72
 
-71:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i60.i.i.i, %64
+72:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i55.i.i.i, %65
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit": ; preds = %25
-  %72 = getelementptr inbounds i8, ptr %.sroa.073.0103.i.i.i, i64 8
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit": ; preds = %26
+  %73 = getelementptr inbounds i8, ptr %.sroa.068.098.i.i.i, i64 8
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit38": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i20.i.i.i
-  %73 = getelementptr inbounds i8, ptr %.sroa.073.0103.i.i.i, i64 8
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit38": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i30.i.i.i
+  %74 = getelementptr inbounds i8, ptr %.sroa.068.098.i.i.i, i64 8
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit40": ; preds = %32
-  %74 = getelementptr inbounds i8, ptr %.sroa.073.0103.i.i.i, i64 16
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit40": ; preds = %33
+  %75 = getelementptr inbounds i8, ptr %.sroa.068.098.i.i.i, i64 16
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit42": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i28.i.i.i
-  %75 = getelementptr inbounds i8, ptr %.sroa.073.0103.i.i.i, i64 16
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit42": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i35.i.i.i
+  %76 = getelementptr inbounds i8, ptr %.sroa.068.098.i.i.i, i64 16
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit44": ; preds = %39
-  %76 = getelementptr inbounds i8, ptr %.sroa.073.0103.i.i.i, i64 24
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit44": ; preds = %40
+  %77 = getelementptr inbounds i8, ptr %.sroa.068.098.i.i.i, i64 24
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit46": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i36.i.i.i
-  %77 = getelementptr inbounds i8, ptr %.sroa.073.0103.i.i.i, i64 24
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit46": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i40.i.i.i
+  %78 = getelementptr inbounds i8, ptr %.sroa.068.098.i.i.i, i64 24
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit": ; preds = %18, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit38", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit40", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit42", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit44", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit46", %._crit_edge.i.i.i, %50, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44.i.i.i, %59, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i52.i.i.i, %68, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i60.i.i.i, %71
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %8, %71 ], [ %8, %._crit_edge.i.i.i ], [ %.sroa.073.0.lcssa.i.i.i, %50 ], [ %.sroa.073.0.lcssa.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44.i.i.i ], [ %.sroa.073.1.i.i.i, %59 ], [ %.sroa.073.1.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i52.i.i.i ], [ %.sroa.073.2.i.i.i, %68 ], [ %.sroa.073.2.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i60.i.i.i ], [ %72, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit" ], [ %73, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit38" ], [ %74, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit40" ], [ %75, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit42" ], [ %76, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit44" ], [ %77, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit46" ], [ %.sroa.073.0103.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.sroa.073.0103.i.i.i, %18 ]
-  %78 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %78
-  br i1 %.not, label %81, label %79
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit": ; preds = %19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit38", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit40", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit42", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit44", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit46", %._crit_edge.i.i.i, %51, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i45.i.i.i, %60, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50.i.i.i, %69, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i55.i.i.i, %72
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %8, %72 ], [ %8, %._crit_edge.i.i.i ], [ %.sroa.068.0.lcssa.i.i.i, %51 ], [ %.sroa.068.0.lcssa.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i45.i.i.i ], [ %.sroa.068.1.i.i.i, %60 ], [ %.sroa.068.1.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50.i.i.i ], [ %.sroa.068.2.i.i.i, %69 ], [ %.sroa.068.2.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i55.i.i.i ], [ %73, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit" ], [ %74, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit38" ], [ %75, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit40" ], [ %76, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit42" ], [ %77, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit44" ], [ %78, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit46" ], [ %.sroa.068.098.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.sroa.068.098.i.i.i, %19 ]
+  %79 = load ptr, ptr %7, align 8
+  %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %79
+  br i1 %.not, label %82, label %80
 
-79:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit"
-  %80 = load ptr, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, align 8
-  br label %81
+80:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit"
+  %81 = load ptr, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, align 8
+  br label %82
 
-81:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", %79
-  %.sroa.011.0 = phi ptr [ %80, %79 ], [ undef, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit" ]
-  %.sroa.2.0 = phi i8 [ 1, %79 ], [ 0, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit" ]
+82:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", %80
+  %.sroa.011.0 = phi ptr [ %81, %80 ], [ undef, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit" ]
+  %.sroa.2.0 = phi i8 [ 1, %80 ], [ 0, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit" ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.011.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { ptr, i8 } %.fca.1.insert

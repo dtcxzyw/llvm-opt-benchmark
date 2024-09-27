@@ -81,17 +81,17 @@ define dso_local void @_ZN4llvm8SCCPPass3runERNS_8FunctionERNS_15AnalysisManager
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %19, align 8
-  %20 = ptrtoint ptr %13 to i64
-  store i64 %20, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFRKN4llvm17TargetLibraryInfoERNS0_8FunctionEEZL7runSCCPS5_RKNS0_10DataLayoutEPS2_RNS0_14DomTreeUpdaterEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %18, align 8
-  store ptr @"_ZNSt17_Function_handlerIFRKN4llvm17TargetLibraryInfoERNS0_8FunctionEEZL7runSCCPS5_RKNS0_10DataLayoutEPS2_RNS0_14DomTreeUpdaterEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %17, align 8
+  %17 = ptrtoint ptr %13 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %20, align 8
+  store i64 %17, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFRKN4llvm17TargetLibraryInfoERNS0_8FunctionEEZL7runSCCPS5_RKNS0_10DataLayoutEPS2_RNS0_14DomTreeUpdaterEE3$_0E9_M_invokeERKSt9_Any_dataS5_", ptr %19, align 8
+  store ptr @"_ZNSt17_Function_handlerIFRKN4llvm17TargetLibraryInfoERNS0_8FunctionEEZL7runSCCPS5_RKNS0_10DataLayoutEPS2_RNS0_14DomTreeUpdaterEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %18, align 8
   %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %2) #9
   call void @_ZN4llvm10SCCPSolverC1ERKNS_10DataLayoutESt8functionIFRKNS_17TargetLibraryInfoERNS_8FunctionEEERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(512) %11, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(8) %21) #9
-  %22 = load ptr, ptr %17, align 8
+  %22 = load ptr, ptr %18, align 8
   %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFRKN4llvm17TargetLibraryInfoERNS0_8FunctionEEED2Ev.exit.i, label %23
 

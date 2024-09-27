@@ -1716,24 +1716,24 @@ _ZNK4llvm4Pass11getAnalysisINS_16TargetPassConfigEEERT_v.exit: ; preds = %.lr.ph
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load ptr, ptr %36, align 8
-  %.not11.i.i.i8 = icmp ne ptr %35, %37
-  tail call void @llvm.assume(i1 %.not11.i.i.i8)
+  %.not11.i.i.i9 = icmp ne ptr %35, %37
+  tail call void @llvm.assume(i1 %.not11.i.i.i9)
   %38 = load ptr, ptr %35, align 8
   %39 = icmp eq ptr %38, @_ZN4llvm19LoopInfoWrapperPass2IDE
-  br i1 %39, label %_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i9
+  br i1 %39, label %_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i10
 
-.lr.ph.i.i.i9:                                    ; preds = %33, %.lr.ph.i.i.i9
-  %.sroa.07.012.i4.i.i10 = phi ptr [ %40, %.lr.ph.i.i.i9 ], [ %35, %33 ]
-  %40 = getelementptr inbounds i8, ptr %.sroa.07.012.i4.i.i10, i64 16
-  %.not.i.i.i11 = icmp ne ptr %40, %37
-  tail call void @llvm.assume(i1 %.not.i.i.i11)
+.lr.ph.i.i.i10:                                   ; preds = %33, %.lr.ph.i.i.i10
+  %.sroa.07.012.i4.i.i11 = phi ptr [ %40, %.lr.ph.i.i.i10 ], [ %35, %33 ]
+  %40 = getelementptr inbounds i8, ptr %.sroa.07.012.i4.i.i11, i64 16
+  %.not.i.i.i12 = icmp ne ptr %40, %37
+  tail call void @llvm.assume(i1 %.not.i.i.i12)
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, @_ZN4llvm19LoopInfoWrapperPass2IDE
-  br i1 %42, label %_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i9
+  br i1 %42, label %_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i10
 
-_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit: ; preds = %.lr.ph.i.i.i9, %33
-  %.sroa.07.012.i.lcssa.i.i12 = phi ptr [ %35, %33 ], [ %40, %.lr.ph.i.i.i9 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i12, i64 8
+_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit: ; preds = %.lr.ph.i.i.i10, %33
+  %.sroa.07.012.i.lcssa.i.i13 = phi ptr [ %35, %33 ], [ %40, %.lr.ph.i.i.i10 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i13, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 96
@@ -1744,24 +1744,24 @@ _ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit: ; preds = %.lr
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load ptr, ptr %52, align 8
-  %.not11.i.i.i13 = icmp ne ptr %51, %53
-  tail call void @llvm.assume(i1 %.not11.i.i.i13)
+  %.not11.i.i.i14 = icmp ne ptr %51, %53
+  tail call void @llvm.assume(i1 %.not11.i.i.i14)
   %54 = load ptr, ptr %51, align 8
   %55 = icmp eq ptr %54, @_ZN4llvm26ScalarEvolutionWrapperPass2IDE
-  br i1 %55, label %_ZNK4llvm4Pass11getAnalysisINS_26ScalarEvolutionWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i14
+  br i1 %55, label %_ZNK4llvm4Pass11getAnalysisINS_26ScalarEvolutionWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i15
 
-.lr.ph.i.i.i14:                                   ; preds = %_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit, %.lr.ph.i.i.i14
-  %.sroa.07.012.i4.i.i15 = phi ptr [ %56, %.lr.ph.i.i.i14 ], [ %51, %_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit ]
-  %56 = getelementptr inbounds i8, ptr %.sroa.07.012.i4.i.i15, i64 16
-  %.not.i.i.i16 = icmp ne ptr %56, %53
-  tail call void @llvm.assume(i1 %.not.i.i.i16)
+.lr.ph.i.i.i15:                                   ; preds = %_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit, %.lr.ph.i.i.i15
+  %.sroa.07.012.i4.i.i16 = phi ptr [ %56, %.lr.ph.i.i.i15 ], [ %51, %_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit ]
+  %56 = getelementptr inbounds i8, ptr %.sroa.07.012.i4.i.i16, i64 16
+  %.not.i.i.i17 = icmp ne ptr %56, %53
+  tail call void @llvm.assume(i1 %.not.i.i.i17)
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, @_ZN4llvm26ScalarEvolutionWrapperPass2IDE
-  br i1 %58, label %_ZNK4llvm4Pass11getAnalysisINS_26ScalarEvolutionWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i14
+  br i1 %58, label %_ZNK4llvm4Pass11getAnalysisINS_26ScalarEvolutionWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i15
 
-_ZNK4llvm4Pass11getAnalysisINS_26ScalarEvolutionWrapperPassEEERT_v.exit: ; preds = %.lr.ph.i.i.i14, %_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit
-  %.sroa.07.012.i.lcssa.i.i17 = phi ptr [ %51, %_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit ], [ %56, %.lr.ph.i.i.i14 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i17, i64 8
+_ZNK4llvm4Pass11getAnalysisINS_26ScalarEvolutionWrapperPassEEERT_v.exit: ; preds = %.lr.ph.i.i.i15, %_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit
+  %.sroa.07.012.i.lcssa.i.i18 = phi ptr [ %51, %_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit ], [ %56, %.lr.ph.i.i.i15 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i18, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 96
@@ -1775,8 +1775,8 @@ _ZNK4llvm4Pass11getAnalysisINS_26ScalarEvolutionWrapperPassEEERT_v.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6)
   %67 = tail call ptr @_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE5beginEv(ptr noundef nonnull align 8 dereferenceable(144) %49) #18
   %68 = tail call ptr @_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE3endEv(ptr noundef nonnull align 8 dereferenceable(144) %49) #18
-  %.not33.i = icmp eq ptr %67, %68
-  br i1 %.not33.i, label %_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses3runEv.exit, label %.lr.ph.i
+  %.not14.i = icmp eq ptr %67, %68
+  br i1 %.not14.i, label %_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses3runEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm4Pass11getAnalysisINS_26ScalarEvolutionWrapperPassEEERT_v.exit
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1801,9 +1801,9 @@ _ZNK4llvm4Pass11getAnalysisINS_26ScalarEvolutionWrapperPassEEERT_v.exit: ; preds
   br label %88
 
 88:                                               ; preds = %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit.i, %.lr.ph.i
-  %.035.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i, %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit.i ]
-  %.sroa.020.034.i = phi ptr [ %67, %.lr.ph.i ], [ %190, %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit.i ]
-  %89 = load ptr, ptr %.sroa.020.034.i, align 8
+  %.016.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i, %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit.i ]
+  %.sroa.01.015.i = phi ptr [ %67, %.lr.ph.i ], [ %190, %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit.i ]
+  %89 = load ptr, ptr %.sroa.01.015.i, align 8
   store ptr %89, ptr %3, align 8
   call void @_ZN4llvm11depth_firstIPNS_4LoopEEENS_14iterator_rangeINS_11df_iteratorIT_NS_23df_iterator_default_setINS_11GraphTraitsIS5_E7NodeRefELj8EEELb0ES8_EEEERKS5_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
@@ -1900,9 +1900,9 @@ _ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_se
   br label %119
 
 119:                                              ; preds = %_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses9runOnLoopERN4llvm4LoopE.exit.i, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i
-  %120 = phi ptr [ %118, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %.pre44.i, %_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses9runOnLoopERN4llvm4LoopE.exit.i ]
+  %120 = phi ptr [ %118, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %.pre25.i, %_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses9runOnLoopERN4llvm4LoopE.exit.i ]
   %121 = phi ptr [ %.0.lcssa.i.i.i.i.i.i.i13.i, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %.pre.i, %_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses9runOnLoopERN4llvm4LoopE.exit.i ]
-  %.1.i = phi i1 [ %.035.i, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %224, %_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses9runOnLoopERN4llvm4LoopE.exit.i ]
+  %.1.i = phi i1 [ %.016.i, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %224, %_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses9runOnLoopERN4llvm4LoopE.exit.i ]
   %122 = load ptr, ptr %73, align 8
   %123 = load ptr, ptr %70, align 8
   %124 = ptrtoint ptr %122 to i64
@@ -2046,7 +2046,7 @@ _ZNSt6vectorISt4pairIPN4llvm4LoopESt8optionalIN9__gnu_cxx17__normal_iteratorIPKS
   br label %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit.i
 
 _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit.i: ; preds = %189, %_ZNSt6vectorISt4pairIPN4llvm4LoopESt8optionalIN9__gnu_cxx17__normal_iteratorIPKS3_S_IS3_SaIS3_EEEEEESaISD_EED2Ev.exit.i2.i.i
-  %190 = getelementptr inbounds i8, ptr %.sroa.020.034.i, i64 8
+  %190 = getelementptr inbounds i8, ptr %.sroa.01.015.i, i64 8
   %.not.i = icmp eq ptr %190, %68
   br i1 %.not.i, label %_ZN12_GLOBAL__N_125FalkorMarkStridedAccesses3runEv.exit, label %88
 
@@ -2128,7 +2128,7 @@ _ZN12_GLOBAL__N_125FalkorMarkStridedAccesses9runOnLoopERN4llvm4LoopE.exit.i: ; p
   %224 = or i1 %.1.i, %.0.i.i
   call void @_ZN4llvm11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEE6toNextEv(ptr noundef nonnull align 8 dereferenceable(120) %5)
   %.pre.i = load ptr, ptr %80, align 8
-  %.pre44.i = load ptr, ptr %77, align 8
+  %.pre25.i = load ptr, ptr %77, align 8
   br label %119
 
 _ZN12_GLOBAL__N_125FalkorMarkStridedAccesses3runEv.exit: ; preds = %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_4LoopENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit.i, %_ZNK4llvm4Pass11getAnalysisINS_26ScalarEvolutionWrapperPassEEERT_v.exit

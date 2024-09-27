@@ -748,58 +748,58 @@ define internal fastcc noundef ptr @"_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang21Te
   br i1 %5, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %20
-  %.050.i.i.i = phi i64 [ %22, %20 ], [ %4, %1 ]
-  %.02949.i.i.i = phi ptr [ %21, %20 ], [ %.0.val, %1 ]
-  %.029.val.i.i.i = load ptr, ptr %.02949.i.i.i, align 8
+  %.057.i.i.i = phi i64 [ %22, %20 ], [ %4, %1 ]
+  %.02956.i.i.i = phi ptr [ %21, %20 ], [ %.0.val, %1 ]
+  %.029.val.i.i.i = load ptr, ptr %.02956.i.i.i, align 8
   %6 = tail call noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %.029.val.i.i.i) #15
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit", label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i
-  %9 = getelementptr inbounds i8, ptr %.02949.i.i.i, i64 8
-  %.val.i.i.i = load ptr, ptr %9, align 8
-  %10 = tail call noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i.i) #15
+  %9 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 8
+  %.val31.i.i.i = load ptr, ptr %9, align 8
+  %10 = tail call noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %.val31.i.i.i) #15
   %11 = icmp eq i32 %10, %0
   br i1 %11, label %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit", label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %.02949.i.i.i, i64 16
-  %.val30.i.i.i = load ptr, ptr %13, align 8
-  %14 = tail call noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %.val30.i.i.i) #15
+  %13 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 16
+  %.val33.i.i.i = load ptr, ptr %13, align 8
+  %14 = tail call noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %.val33.i.i.i) #15
   %15 = icmp eq i32 %14, %0
   br i1 %15, label %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit13", label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02949.i.i.i, i64 24
-  %.val31.i.i.i = load ptr, ptr %17, align 8
-  %18 = tail call noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %.val31.i.i.i) #15
+  %17 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 24
+  %.val35.i.i.i = load ptr, ptr %17, align 8
+  %18 = tail call noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %.val35.i.i.i) #15
   %19 = icmp eq i32 %18, %0
   br i1 %19, label %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit15", label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.02949.i.i.i, i64 32
-  %22 = add nsw i64 %.050.i.i.i, -1
-  %23 = icmp sgt i64 %.050.i.i.i, 1
+  %21 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 32
+  %22 = add nsw i64 %.057.i.i.i, -1
+  %23 = icmp sgt i64 %.057.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !4
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %20
   %.pre.i.i.i = ptrtoint ptr %21 to i64
-  %.pre55.i.i.i = sub i64 %3, %.pre.i.i.i
-  %24 = ashr exact i64 %.pre55.i.i.i, 3
+  %.pre62.i.i.i = sub i64 %3, %.pre.i.i.i
+  %24 = ashr exact i64 %.pre62.i.i.i, 3
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %1
-  %.pre-phi56.i.i.i = phi i64 [ %24, %._crit_edge.loopexit.i.i.i ], [ %.8.val, %1 ]
+  %.pre-phi63.i.i.i = phi i64 [ %24, %._crit_edge.loopexit.i.i.i ], [ %.8.val, %1 ]
   %.029.lcssa.i.i.i = phi ptr [ %21, %._crit_edge.loopexit.i.i.i ], [ %.0.val, %1 ]
-  switch i64 %.pre-phi56.i.i.i, label %38 [
+  switch i64 %.pre-phi63.i.i.i, label %38 [
     i64 3, label %25
     i64 2, label %30
     i64 1, label %35
   ]
 
 25:                                               ; preds = %._crit_edge.i.i.i
-  %.029.val32.i.i.i = load ptr, ptr %.029.lcssa.i.i.i, align 8
-  %26 = tail call noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %.029.val32.i.i.i) #15
+  %.029.val37.i.i.i = load ptr, ptr %.029.lcssa.i.i.i, align 8
+  %26 = tail call noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %.029.val37.i.i.i) #15
   %27 = icmp eq i32 %26, %0
   br i1 %27, label %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit", label %28
 
@@ -829,19 +829,19 @@ define internal fastcc noundef ptr @"_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang21Te
   br label %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit"
 
 "_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit": ; preds = %8
-  %39 = getelementptr inbounds i8, ptr %.02949.i.i.i, i64 8
+  %39 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 8
   br label %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit"
 
 "_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit13": ; preds = %12
-  %40 = getelementptr inbounds i8, ptr %.02949.i.i.i, i64 16
+  %40 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 16
   br label %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit"
 
 "_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit15": ; preds = %16
-  %41 = getelementptr inbounds i8, ptr %.02949.i.i.i, i64 24
+  %41 = getelementptr inbounds i8, ptr %.02956.i.i.i, i64 24
   br label %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit"
 
 "_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit13", %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit15", %25, %30, %35, %38
-  %.028.i.i.i = phi ptr [ %2, %38 ], [ %.029.lcssa.i.i.i, %25 ], [ %.1.i.i.i, %30 ], [ %.2.i.i.i, %35 ], [ %39, %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit" ], [ %40, %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit13" ], [ %41, %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit15" ], [ %.02949.i.i.i, %.lr.ph.i.i.i ]
+  %.028.i.i.i = phi ptr [ %2, %38 ], [ %.029.lcssa.i.i.i, %25 ], [ %.1.i.i.i, %30 ], [ %.2.i.i.i, %35 ], [ %39, %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit" ], [ %40, %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit13" ], [ %41, %"_ZSt7find_ifIPKPN5clang21TemplateParameterListEZNS0_4Sema18computeDeclContextERKNS0_12CXXScopeSpecEbE3$_0ET_SA_SA_T0_.exit.loopexit.split.loop.exit15" ], [ %.02956.i.i.i, %.lr.ph.i.i.i ]
   ret ptr %.028.i.i.i
 }
 

@@ -2622,21 +2622,21 @@ _ZNK10open_spiel5chess10ChessBoard11IsMoveLegalERKNS0_4MoveE.exit: ; preds = %_Z
   store i32 %.sroa.013.0.extract.trunc, ptr %11, align 4
   store i32 %.sroa.2.0.extract.trunc, ptr %12, align 4
   store i32 0, ptr %7, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %54 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 0, ptr %54, align 8
-  %55 = ptrtoint ptr %7 to i64
-  store i64 %55, ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNS0_10kriegspiel16GetUmpireMessageERKNS1_10ChessBoardES4_E3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %53, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNS0_10kriegspiel16GetUmpireMessageERKNS1_10ChessBoardES4_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %52, align 8
+  %52 = ptrtoint ptr %7 to i64
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %55 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 0, ptr %55, align 8
+  store i64 %52, ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNS0_10kriegspiel16GetUmpireMessageERKNS1_10ChessBoardES4_E3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %54, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNS0_10kriegspiel16GetUmpireMessageERKNS1_10ChessBoardES4_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %53, align 8
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 134
   %57 = load i8, ptr %56, align 2
   invoke void @_ZNK10open_spiel5chess10ChessBoard25GenerateLegalPawnCapturesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorE(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i8 noundef signext %57)
           to label %58 unwind label %67
 
 58:                                               ; preds = %50
-  %59 = load ptr, ptr %52, align 8
+  %59 = load ptr, ptr %53, align 8
   %.not.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit, label %60
 
@@ -2660,7 +2660,7 @@ _ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit: ; preds = %58, %60
 67:                                               ; preds = %50
   %68 = landingpad { ptr, i32 }
           cleanup
-  %69 = load ptr, ptr %52, align 8
+  %69 = load ptr, ptr %53, align 8
   %.not.i.i11 = icmp eq ptr %69, null
   br i1 %.not.i.i11, label %common.resume, label %70
 
@@ -2814,21 +2814,21 @@ _ZNK10open_spiel5chess10ChessBoard11IsMoveLegalERKNS0_4MoveE.exit: ; preds = %_Z
 
 56:                                               ; preds = %48
   store i32 0, ptr %7, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %59 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 0, ptr %59, align 8
-  %60 = ptrtoint ptr %7 to i64
-  store i64 %60, ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNS0_10kriegspiel22GeneratesUmpireMessageERKNS1_10ChessBoardES4_RKNS6_23KriegspielUmpireMessageEE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %58, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNS0_10kriegspiel22GeneratesUmpireMessageERKNS1_10ChessBoardES4_RKNS6_23KriegspielUmpireMessageEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %57, align 8
+  %57 = ptrtoint ptr %7 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %60 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 0, ptr %60, align 8
+  store i64 %57, ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNS0_10kriegspiel22GeneratesUmpireMessageERKNS1_10ChessBoardES4_RKNS6_23KriegspielUmpireMessageEE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %59, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNS0_10kriegspiel22GeneratesUmpireMessageERKNS1_10ChessBoardES4_RKNS6_23KriegspielUmpireMessageEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %58, align 8
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 134
   %62 = load i8, ptr %61, align 2
   invoke void @_ZNK10open_spiel5chess10ChessBoard25GenerateLegalPawnCapturesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorE(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i8 noundef signext %62)
           to label %63 unwind label %73
 
 63:                                               ; preds = %56
-  %64 = load ptr, ptr %57, align 8
+  %64 = load ptr, ptr %58, align 8
   %.not.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit, label %65
 
@@ -2853,7 +2853,7 @@ _ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit: ; preds = %63, %65
 73:                                               ; preds = %56
   %74 = landingpad { ptr, i32 }
           cleanup
-  %75 = load ptr, ptr %57, align 8
+  %75 = load ptr, ptr %58, align 8
   %.not.i.i20 = icmp eq ptr %75, null
   br i1 %.not.i.i20, label %common.resume, label %76
 
@@ -3722,21 +3722,21 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i8 1, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %11, align 8
-  %12 = ptrtoint ptr %0 to i64
-  store i64 %12, ptr %2, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS0_10kriegspiel15KriegspielState25MaybeGenerateLegalActionsEvE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %10, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS0_10kriegspiel15KriegspielState25MaybeGenerateLegalActionsEvE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %9, align 8
+  %9 = ptrtoint ptr %0 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %12, align 8
+  store i64 %9, ptr %2, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS0_10kriegspiel15KriegspielState25MaybeGenerateLegalActionsEvE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %11, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS0_10kriegspiel15KriegspielState25MaybeGenerateLegalActionsEvE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 446
   %14 = load i8, ptr %13, align 2
   invoke void @_ZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsE(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext %14, i32 noundef 1)
           to label %15 unwind label %27
 
 15:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
-  %16 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit, label %17
 
@@ -3769,7 +3769,7 @@ _ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit: ; preds = %_ZNSt8functio
 27:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
   %28 = landingpad { ptr, i32 }
           cleanup
-  %29 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
   %.not.i.i6 = icmp eq ptr %29, null
   br i1 %.not.i.i6, label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit7, label %30
 

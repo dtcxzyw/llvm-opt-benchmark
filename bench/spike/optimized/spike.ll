@@ -715,25 +715,25 @@ define noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #4 p
   unreachable
 
 _ZNSt8functionIFvPKcEED2Ev.exit:                  ; preds = %95, %97
-  %102 = getelementptr inbounds i8, ptr %34, i64 16
-  %103 = getelementptr inbounds i8, ptr %34, i64 24
-  %104 = getelementptr inbounds i8, ptr %34, i64 8
-  store i64 0, ptr %104, align 8
-  %105 = ptrtoint ptr %7 to i64
-  store i64 %105, ptr %34, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_1E9_M_invokeERKSt9_Any_dataOS1_", ptr %103, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %102, align 8
+  %102 = ptrtoint ptr %7 to i64
+  %103 = getelementptr inbounds i8, ptr %34, i64 16
+  %104 = getelementptr inbounds i8, ptr %34, i64 24
+  %105 = getelementptr inbounds i8, ptr %34, i64 8
+  store i64 0, ptr %105, align 8
+  store i64 %102, ptr %34, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_1E9_M_invokeERKSt9_Any_dataOS1_", ptr %104, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %103, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 100, ptr noundef null, i32 noundef 0, ptr noundef nonnull %34)
           to label %106 unwind label %620
 
 106:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit
-  %107 = load ptr, ptr %102, align 8
-  %.not.i.i70 = icmp eq ptr %107, null
-  br i1 %.not.i.i70, label %_ZNSt8functionIFvPKcEED2Ev.exit71, label %108
+  %107 = load ptr, ptr %103, align 8
+  %.not.i.i113 = icmp eq ptr %107, null
+  br i1 %.not.i.i113, label %_ZNSt8functionIFvPKcEED2Ev.exit114, label %108
 
 108:                                              ; preds = %106
   %109 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %34, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit71 unwind label %110
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit114 unwind label %110
 
 110:                                              ; preds = %108
   %111 = landingpad { ptr, i32 }
@@ -742,26 +742,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit:                  ; preds = %95, %97
   call void @__clang_call_terminate(ptr %112) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit71:                ; preds = %106, %108
-  %113 = getelementptr inbounds i8, ptr %35, i64 16
-  %114 = getelementptr inbounds i8, ptr %35, i64 24
-  %115 = getelementptr inbounds i8, ptr %35, i64 8
-  store i64 0, ptr %115, align 8
-  %116 = ptrtoint ptr %9 to i64
-  store i64 %116, ptr %35, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_2E9_M_invokeERKSt9_Any_dataOS1_", ptr %114, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %113, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit114:               ; preds = %106, %108
+  %113 = ptrtoint ptr %9 to i64
+  %114 = getelementptr inbounds i8, ptr %35, i64 16
+  %115 = getelementptr inbounds i8, ptr %35, i64 24
+  %116 = getelementptr inbounds i8, ptr %35, i64 8
+  store i64 0, ptr %116, align 8
+  store i64 %113, ptr %35, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_2E9_M_invokeERKSt9_Any_dataOS1_", ptr %115, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %114, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 103, ptr noundef null, i32 noundef 0, ptr noundef nonnull %35)
           to label %117 unwind label %628
 
-117:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit71
-  %118 = load ptr, ptr %113, align 8
-  %.not.i.i73 = icmp eq ptr %118, null
-  br i1 %.not.i.i73, label %_ZNSt8functionIFvPKcEED2Ev.exit74, label %119
+117:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit114
+  %118 = load ptr, ptr %114, align 8
+  %.not.i.i115 = icmp eq ptr %118, null
+  br i1 %.not.i.i115, label %_ZNSt8functionIFvPKcEED2Ev.exit116, label %119
 
 119:                                              ; preds = %117
   %120 = invoke noundef zeroext i1 %118(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit74 unwind label %121
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit116 unwind label %121
 
 121:                                              ; preds = %119
   %122 = landingpad { ptr, i32 }
@@ -770,26 +770,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit71:                ; preds = %106, %108
   call void @__clang_call_terminate(ptr %123) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit74:                ; preds = %117, %119
-  %124 = getelementptr inbounds i8, ptr %36, i64 16
-  %125 = getelementptr inbounds i8, ptr %36, i64 24
-  %126 = getelementptr inbounds i8, ptr %36, i64 8
-  store i64 0, ptr %126, align 8
-  %127 = ptrtoint ptr %10 to i64
-  store i64 %127, ptr %36, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_3E9_M_invokeERKSt9_Any_dataOS1_", ptr %125, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %124, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit116:               ; preds = %117, %119
+  %124 = ptrtoint ptr %10 to i64
+  %125 = getelementptr inbounds i8, ptr %36, i64 16
+  %126 = getelementptr inbounds i8, ptr %36, i64 24
+  %127 = getelementptr inbounds i8, ptr %36, i64 8
+  store i64 0, ptr %127, align 8
+  store i64 %124, ptr %36, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_3E9_M_invokeERKSt9_Any_dataOS1_", ptr %126, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %125, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 108, ptr noundef null, i32 noundef 0, ptr noundef nonnull %36)
           to label %128 unwind label %636
 
-128:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit74
-  %129 = load ptr, ptr %124, align 8
-  %.not.i.i76 = icmp eq ptr %129, null
-  br i1 %.not.i.i76, label %_ZNSt8functionIFvPKcEED2Ev.exit77, label %130
+128:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit116
+  %129 = load ptr, ptr %125, align 8
+  %.not.i.i117 = icmp eq ptr %129, null
+  br i1 %.not.i.i117, label %_ZNSt8functionIFvPKcEED2Ev.exit118, label %130
 
 130:                                              ; preds = %128
   %131 = invoke noundef zeroext i1 %129(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %36, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit77 unwind label %132
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit118 unwind label %132
 
 132:                                              ; preds = %130
   %133 = landingpad { ptr, i32 }
@@ -798,26 +798,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit74:                ; preds = %117, %119
   call void @__clang_call_terminate(ptr %134) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit77:                ; preds = %128, %130
-  %135 = getelementptr inbounds i8, ptr %37, i64 16
-  %136 = getelementptr inbounds i8, ptr %37, i64 24
-  %137 = getelementptr inbounds i8, ptr %37, i64 8
-  store i64 0, ptr %137, align 8
-  %138 = ptrtoint ptr %11 to i64
-  store i64 %138, ptr %37, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_4E9_M_invokeERKSt9_Any_dataOS1_", ptr %136, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %135, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit118:               ; preds = %128, %130
+  %135 = ptrtoint ptr %11 to i64
+  %136 = getelementptr inbounds i8, ptr %37, i64 16
+  %137 = getelementptr inbounds i8, ptr %37, i64 24
+  %138 = getelementptr inbounds i8, ptr %37, i64 8
+  store i64 0, ptr %138, align 8
+  store i64 %135, ptr %37, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_4E9_M_invokeERKSt9_Any_dataOS1_", ptr %137, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %136, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 115, ptr noundef null, i32 noundef 0, ptr noundef nonnull %37)
           to label %139 unwind label %644
 
-139:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit77
-  %140 = load ptr, ptr %135, align 8
-  %.not.i.i79 = icmp eq ptr %140, null
-  br i1 %.not.i.i79, label %_ZNSt8functionIFvPKcEED2Ev.exit80, label %141
+139:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit118
+  %140 = load ptr, ptr %136, align 8
+  %.not.i.i119 = icmp eq ptr %140, null
+  br i1 %.not.i.i119, label %_ZNSt8functionIFvPKcEED2Ev.exit120, label %141
 
 141:                                              ; preds = %139
   %142 = invoke noundef zeroext i1 %140(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %37, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit80 unwind label %143
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit120 unwind label %143
 
 143:                                              ; preds = %141
   %144 = landingpad { ptr, i32 }
@@ -826,26 +826,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit77:                ; preds = %128, %130
   call void @__clang_call_terminate(ptr %145) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit80:                ; preds = %139, %141
-  %146 = getelementptr inbounds i8, ptr %38, i64 16
-  %147 = getelementptr inbounds i8, ptr %38, i64 24
-  %148 = getelementptr inbounds i8, ptr %38, i64 8
-  store i64 0, ptr %148, align 8
-  %149 = ptrtoint ptr %30 to i64
-  store i64 %149, ptr %38, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_5E9_M_invokeERKSt9_Any_dataOS1_", ptr %147, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_5E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %146, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit120:               ; preds = %139, %141
+  %146 = ptrtoint ptr %30 to i64
+  %147 = getelementptr inbounds i8, ptr %38, i64 16
+  %148 = getelementptr inbounds i8, ptr %38, i64 24
+  %149 = getelementptr inbounds i8, ptr %38, i64 8
+  store i64 0, ptr %149, align 8
+  store i64 %146, ptr %38, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_5E9_M_invokeERKSt9_Any_dataOS1_", ptr %148, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_5E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %147, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 112, ptr noundef null, i32 noundef 1, ptr noundef nonnull %38)
           to label %150 unwind label %652
 
-150:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit80
-  %151 = load ptr, ptr %146, align 8
-  %.not.i.i82 = icmp eq ptr %151, null
-  br i1 %.not.i.i82, label %_ZNSt8functionIFvPKcEED2Ev.exit83, label %152
+150:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit120
+  %151 = load ptr, ptr %147, align 8
+  %.not.i.i121 = icmp eq ptr %151, null
+  br i1 %.not.i.i121, label %_ZNSt8functionIFvPKcEED2Ev.exit122, label %152
 
 152:                                              ; preds = %150
   %153 = invoke noundef zeroext i1 %151(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit83 unwind label %154
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit122 unwind label %154
 
 154:                                              ; preds = %152
   %155 = landingpad { ptr, i32 }
@@ -854,26 +854,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit80:                ; preds = %139, %141
   call void @__clang_call_terminate(ptr %156) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit83:                ; preds = %150, %152
-  %157 = getelementptr inbounds i8, ptr %39, i64 16
-  %158 = getelementptr inbounds i8, ptr %39, i64 24
-  %159 = getelementptr inbounds i8, ptr %39, i64 8
-  store i64 0, ptr %159, align 8
-  %160 = ptrtoint ptr %31 to i64
-  store i64 %160, ptr %39, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_6E9_M_invokeERKSt9_Any_dataOS1_", ptr %158, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_6E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %157, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit122:               ; preds = %150, %152
+  %157 = ptrtoint ptr %31 to i64
+  %158 = getelementptr inbounds i8, ptr %39, i64 16
+  %159 = getelementptr inbounds i8, ptr %39, i64 24
+  %160 = getelementptr inbounds i8, ptr %39, i64 8
+  store i64 0, ptr %160, align 8
+  store i64 %157, ptr %39, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_6E9_M_invokeERKSt9_Any_dataOS1_", ptr %159, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_6E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %158, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 109, ptr noundef null, i32 noundef 1, ptr noundef nonnull %39)
           to label %161 unwind label %660
 
-161:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit83
-  %162 = load ptr, ptr %157, align 8
-  %.not.i.i85 = icmp eq ptr %162, null
-  br i1 %.not.i.i85, label %_ZNSt8functionIFvPKcEED2Ev.exit86, label %163
+161:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit122
+  %162 = load ptr, ptr %158, align 8
+  %.not.i.i123 = icmp eq ptr %162, null
+  br i1 %.not.i.i123, label %_ZNSt8functionIFvPKcEED2Ev.exit124, label %163
 
 163:                                              ; preds = %161
   %164 = invoke noundef zeroext i1 %162(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit86 unwind label %165
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit124 unwind label %165
 
 165:                                              ; preds = %163
   %166 = landingpad { ptr, i32 }
@@ -882,26 +882,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit83:                ; preds = %150, %152
   call void @__clang_call_terminate(ptr %167) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit86:                ; preds = %161, %163
-  %168 = getelementptr inbounds i8, ptr %40, i64 16
-  %169 = getelementptr inbounds i8, ptr %40, i64 24
-  %170 = getelementptr inbounds i8, ptr %40, i64 8
-  store i64 0, ptr %170, align 8
-  %171 = ptrtoint ptr %8 to i64
-  store i64 %171, ptr %40, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_7E9_M_invokeERKSt9_Any_dataOS1_", ptr %169, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_7E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %168, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit124:               ; preds = %161, %163
+  %168 = ptrtoint ptr %8 to i64
+  %169 = getelementptr inbounds i8, ptr %40, i64 16
+  %170 = getelementptr inbounds i8, ptr %40, i64 24
+  %171 = getelementptr inbounds i8, ptr %40, i64 8
+  store i64 0, ptr %171, align 8
+  store i64 %168, ptr %40, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_7E9_M_invokeERKSt9_Any_dataOS1_", ptr %170, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_7E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %169, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 72, ptr noundef null, i32 noundef 0, ptr noundef nonnull %40)
           to label %172 unwind label %668
 
-172:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit86
-  %173 = load ptr, ptr %168, align 8
-  %.not.i.i88 = icmp eq ptr %173, null
-  br i1 %.not.i.i88, label %_ZNSt8functionIFvPKcEED2Ev.exit89, label %174
+172:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit124
+  %173 = load ptr, ptr %169, align 8
+  %.not.i.i125 = icmp eq ptr %173, null
+  br i1 %.not.i.i125, label %_ZNSt8functionIFvPKcEED2Ev.exit126, label %174
 
 174:                                              ; preds = %172
   %175 = invoke noundef zeroext i1 %173(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit89 unwind label %176
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit126 unwind label %176
 
 176:                                              ; preds = %174
   %177 = landingpad { ptr, i32 }
@@ -910,7 +910,7 @@ _ZNSt8functionIFvPKcEED2Ev.exit86:                ; preds = %161, %163
   call void @__clang_call_terminate(ptr %178) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit89:                ; preds = %172, %174
+_ZNSt8functionIFvPKcEED2Ev.exit126:               ; preds = %172, %174
   %179 = getelementptr inbounds i8, ptr %41, i64 16
   %180 = getelementptr inbounds i8, ptr %41, i64 24
   store ptr %26, ptr %41, align 8
@@ -921,14 +921,14 @@ _ZNSt8functionIFvPKcEED2Ev.exit89:                ; preds = %172, %174
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull %41)
           to label %181 unwind label %676
 
-181:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit89
+181:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit126
   %182 = load ptr, ptr %179, align 8
-  %.not.i.i90 = icmp eq ptr %182, null
-  br i1 %.not.i.i90, label %_ZNSt8functionIFvPKcEED2Ev.exit91, label %183
+  %.not.i.i127 = icmp eq ptr %182, null
+  br i1 %.not.i.i127, label %_ZNSt8functionIFvPKcEED2Ev.exit128, label %183
 
 183:                                              ; preds = %181
   %184 = invoke noundef zeroext i1 %182(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit91 unwind label %185
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit128 unwind label %185
 
 185:                                              ; preds = %183
   %186 = landingpad { ptr, i32 }
@@ -937,25 +937,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit89:                ; preds = %172, %174
   call void @__clang_call_terminate(ptr %187) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit91:                ; preds = %181, %183
+_ZNSt8functionIFvPKcEED2Ev.exit128:               ; preds = %181, %183
   %188 = getelementptr inbounds i8, ptr %42, i64 16
   %189 = getelementptr inbounds i8, ptr %42, i64 24
   %190 = getelementptr inbounds i8, ptr %42, i64 8
   store i64 0, ptr %190, align 8
-  store i64 %160, ptr %42, align 8
+  store i64 %157, ptr %42, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_9E9_M_invokeERKSt9_Any_dataOS1_", ptr %189, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_9E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %188, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef nonnull %42)
           to label %191 unwind label %684
 
-191:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit91
+191:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit128
   %192 = load ptr, ptr %188, align 8
-  %.not.i.i93 = icmp eq ptr %192, null
-  br i1 %.not.i.i93, label %_ZNSt8functionIFvPKcEED2Ev.exit94, label %193
+  %.not.i.i129 = icmp eq ptr %192, null
+  br i1 %.not.i.i129, label %_ZNSt8functionIFvPKcEED2Ev.exit130, label %193
 
 193:                                              ; preds = %191
   %194 = invoke noundef zeroext i1 %192(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %42, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit94 unwind label %195
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit130 unwind label %195
 
 195:                                              ; preds = %193
   %196 = landingpad { ptr, i32 }
@@ -964,25 +964,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit91:                ; preds = %181, %183
   call void @__clang_call_terminate(ptr %197) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit94:                ; preds = %191, %193
+_ZNSt8functionIFvPKcEED2Ev.exit130:               ; preds = %191, %193
   %198 = getelementptr inbounds i8, ptr %43, i64 16
   %199 = getelementptr inbounds i8, ptr %43, i64 24
   %200 = getelementptr inbounds i8, ptr %43, i64 8
   store i64 0, ptr %200, align 8
-  store i64 %160, ptr %43, align 8
+  store i64 %157, ptr %43, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_10E9_M_invokeERKSt9_Any_dataOS1_", ptr %199, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_10E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %198, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull %43)
           to label %201 unwind label %692
 
-201:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit94
+201:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit130
   %202 = load ptr, ptr %198, align 8
-  %.not.i.i96 = icmp eq ptr %202, null
-  br i1 %.not.i.i96, label %_ZNSt8functionIFvPKcEED2Ev.exit97, label %203
+  %.not.i.i131 = icmp eq ptr %202, null
+  br i1 %.not.i.i131, label %_ZNSt8functionIFvPKcEED2Ev.exit132, label %203
 
 203:                                              ; preds = %201
   %204 = invoke noundef zeroext i1 %202(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %43, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit97 unwind label %205
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit132 unwind label %205
 
 205:                                              ; preds = %203
   %206 = landingpad { ptr, i32 }
@@ -991,26 +991,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit94:                ; preds = %191, %193
   call void @__clang_call_terminate(ptr %207) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit97:                ; preds = %201, %203
-  %208 = getelementptr inbounds i8, ptr %44, i64 16
-  %209 = getelementptr inbounds i8, ptr %44, i64 24
-  %210 = getelementptr inbounds i8, ptr %44, i64 8
-  store i64 0, ptr %210, align 8
-  %211 = ptrtoint ptr %16 to i64
-  store i64 %211, ptr %44, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_11E9_M_invokeERKSt9_Any_dataOS1_", ptr %209, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_11E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %208, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit132:               ; preds = %201, %203
+  %208 = ptrtoint ptr %16 to i64
+  %209 = getelementptr inbounds i8, ptr %44, i64 16
+  %210 = getelementptr inbounds i8, ptr %44, i64 24
+  %211 = getelementptr inbounds i8, ptr %44, i64 8
+  store i64 0, ptr %211, align 8
+  store i64 %208, ptr %44, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_11E9_M_invokeERKSt9_Any_dataOS1_", ptr %210, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_11E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %209, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.4, i32 noundef 1, ptr noundef nonnull %44)
           to label %212 unwind label %700
 
-212:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit97
-  %213 = load ptr, ptr %208, align 8
-  %.not.i.i99 = icmp eq ptr %213, null
-  br i1 %.not.i.i99, label %_ZNSt8functionIFvPKcEED2Ev.exit100, label %214
+212:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit132
+  %213 = load ptr, ptr %209, align 8
+  %.not.i.i133 = icmp eq ptr %213, null
+  br i1 %.not.i.i133, label %_ZNSt8functionIFvPKcEED2Ev.exit134, label %214
 
 214:                                              ; preds = %212
   %215 = invoke noundef zeroext i1 %213(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %44, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit100 unwind label %216
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit134 unwind label %216
 
 216:                                              ; preds = %214
   %217 = landingpad { ptr, i32 }
@@ -1019,26 +1019,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit97:                ; preds = %201, %203
   call void @__clang_call_terminate(ptr %218) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit100:               ; preds = %212, %214
-  %219 = getelementptr inbounds i8, ptr %45, i64 16
-  %220 = getelementptr inbounds i8, ptr %45, i64 24
-  %221 = getelementptr inbounds i8, ptr %45, i64 8
-  store i64 0, ptr %221, align 8
-  %222 = ptrtoint ptr %17 to i64
-  store i64 %222, ptr %45, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_12E9_M_invokeERKSt9_Any_dataOS1_", ptr %220, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_12E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %219, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit134:               ; preds = %212, %214
+  %219 = ptrtoint ptr %17 to i64
+  %220 = getelementptr inbounds i8, ptr %45, i64 16
+  %221 = getelementptr inbounds i8, ptr %45, i64 24
+  %222 = getelementptr inbounds i8, ptr %45, i64 8
+  store i64 0, ptr %222, align 8
+  store i64 %219, ptr %45, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_12E9_M_invokeERKSt9_Any_dataOS1_", ptr %221, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_12E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %220, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %45)
           to label %223 unwind label %708
 
-223:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit100
-  %224 = load ptr, ptr %219, align 8
-  %.not.i.i102 = icmp eq ptr %224, null
-  br i1 %.not.i.i102, label %_ZNSt8functionIFvPKcEED2Ev.exit103, label %225
+223:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit134
+  %224 = load ptr, ptr %220, align 8
+  %.not.i.i135 = icmp eq ptr %224, null
+  br i1 %.not.i.i135, label %_ZNSt8functionIFvPKcEED2Ev.exit136, label %225
 
 225:                                              ; preds = %223
   %226 = invoke noundef zeroext i1 %224(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %45, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit103 unwind label %227
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit136 unwind label %227
 
 227:                                              ; preds = %225
   %228 = landingpad { ptr, i32 }
@@ -1047,26 +1047,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit100:               ; preds = %212, %214
   call void @__clang_call_terminate(ptr %229) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit103:               ; preds = %223, %225
-  %230 = getelementptr inbounds i8, ptr %46, i64 16
-  %231 = getelementptr inbounds i8, ptr %46, i64 24
-  %232 = getelementptr inbounds i8, ptr %46, i64 8
-  store i64 0, ptr %232, align 8
-  %233 = ptrtoint ptr %18 to i64
-  store i64 %233, ptr %46, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_13E9_M_invokeERKSt9_Any_dataOS1_", ptr %231, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_13E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %230, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit136:               ; preds = %223, %225
+  %230 = ptrtoint ptr %18 to i64
+  %231 = getelementptr inbounds i8, ptr %46, i64 16
+  %232 = getelementptr inbounds i8, ptr %46, i64 24
+  %233 = getelementptr inbounds i8, ptr %46, i64 8
+  store i64 0, ptr %233, align 8
+  store i64 %230, ptr %46, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_13E9_M_invokeERKSt9_Any_dataOS1_", ptr %232, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_13E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %231, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.6, i32 noundef 1, ptr noundef nonnull %46)
           to label %234 unwind label %716
 
-234:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit103
-  %235 = load ptr, ptr %230, align 8
-  %.not.i.i105 = icmp eq ptr %235, null
-  br i1 %.not.i.i105, label %_ZNSt8functionIFvPKcEED2Ev.exit106, label %236
+234:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit136
+  %235 = load ptr, ptr %231, align 8
+  %.not.i.i137 = icmp eq ptr %235, null
+  br i1 %.not.i.i137, label %_ZNSt8functionIFvPKcEED2Ev.exit138, label %236
 
 236:                                              ; preds = %234
   %237 = invoke noundef zeroext i1 %235(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %46, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit106 unwind label %238
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit138 unwind label %238
 
 238:                                              ; preds = %236
   %239 = landingpad { ptr, i32 }
@@ -1075,25 +1075,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit103:               ; preds = %223, %225
   call void @__clang_call_terminate(ptr %240) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit106:               ; preds = %234, %236
+_ZNSt8functionIFvPKcEED2Ev.exit138:               ; preds = %234, %236
   %241 = getelementptr inbounds i8, ptr %47, i64 16
   %242 = getelementptr inbounds i8, ptr %47, i64 24
   %243 = getelementptr inbounds i8, ptr %47, i64 8
   store i64 0, ptr %243, align 8
-  store i64 %160, ptr %47, align 8
+  store i64 %157, ptr %47, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_14E9_M_invokeERKSt9_Any_dataOS1_", ptr %242, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_14E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %241, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.7, i32 noundef 0, ptr noundef nonnull %47)
           to label %244 unwind label %724
 
-244:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit106
+244:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit138
   %245 = load ptr, ptr %241, align 8
-  %.not.i.i108 = icmp eq ptr %245, null
-  br i1 %.not.i.i108, label %_ZNSt8functionIFvPKcEED2Ev.exit109, label %246
+  %.not.i.i139 = icmp eq ptr %245, null
+  br i1 %.not.i.i139, label %_ZNSt8functionIFvPKcEED2Ev.exit140, label %246
 
 246:                                              ; preds = %244
   %247 = invoke noundef zeroext i1 %245(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %47, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit109 unwind label %248
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit140 unwind label %248
 
 248:                                              ; preds = %246
   %249 = landingpad { ptr, i32 }
@@ -1102,25 +1102,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit106:               ; preds = %234, %236
   call void @__clang_call_terminate(ptr %250) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit109:               ; preds = %244, %246
+_ZNSt8functionIFvPKcEED2Ev.exit140:               ; preds = %244, %246
   %251 = getelementptr inbounds i8, ptr %48, i64 16
   %252 = getelementptr inbounds i8, ptr %48, i64 24
   %253 = getelementptr inbounds i8, ptr %48, i64 8
   store i64 0, ptr %253, align 8
-  store i64 %160, ptr %48, align 8
+  store i64 %157, ptr %48, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_15E9_M_invokeERKSt9_Any_dataOS1_", ptr %252, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_15E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %251, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.8, i32 noundef 0, ptr noundef nonnull %48)
           to label %254 unwind label %732
 
-254:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit109
+254:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit140
   %255 = load ptr, ptr %251, align 8
-  %.not.i.i111 = icmp eq ptr %255, null
-  br i1 %.not.i.i111, label %_ZNSt8functionIFvPKcEED2Ev.exit112, label %256
+  %.not.i.i141 = icmp eq ptr %255, null
+  br i1 %.not.i.i141, label %_ZNSt8functionIFvPKcEED2Ev.exit142, label %256
 
 256:                                              ; preds = %254
   %257 = invoke noundef zeroext i1 %255(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %48, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit112 unwind label %258
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit142 unwind label %258
 
 258:                                              ; preds = %256
   %259 = landingpad { ptr, i32 }
@@ -1129,26 +1129,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit109:               ; preds = %244, %246
   call void @__clang_call_terminate(ptr %260) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit112:               ; preds = %254, %256
-  %261 = getelementptr inbounds i8, ptr %49, i64 16
-  %262 = getelementptr inbounds i8, ptr %49, i64 24
-  %263 = getelementptr inbounds i8, ptr %49, i64 8
-  store i64 0, ptr %263, align 8
-  %264 = ptrtoint ptr %19 to i64
-  store i64 %264, ptr %49, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_16E9_M_invokeERKSt9_Any_dataOS1_", ptr %262, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_16E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %261, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit142:               ; preds = %254, %256
+  %261 = ptrtoint ptr %19 to i64
+  %262 = getelementptr inbounds i8, ptr %49, i64 16
+  %263 = getelementptr inbounds i8, ptr %49, i64 24
+  %264 = getelementptr inbounds i8, ptr %49, i64 8
+  store i64 0, ptr %264, align 8
+  store i64 %261, ptr %49, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_16E9_M_invokeERKSt9_Any_dataOS1_", ptr %263, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_16E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %262, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.9, i32 noundef 0, ptr noundef nonnull %49)
           to label %265 unwind label %740
 
-265:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit112
-  %266 = load ptr, ptr %261, align 8
-  %.not.i.i114 = icmp eq ptr %266, null
-  br i1 %.not.i.i114, label %_ZNSt8functionIFvPKcEED2Ev.exit115, label %267
+265:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit142
+  %266 = load ptr, ptr %262, align 8
+  %.not.i.i143 = icmp eq ptr %266, null
+  br i1 %.not.i.i143, label %_ZNSt8functionIFvPKcEED2Ev.exit144, label %267
 
 267:                                              ; preds = %265
   %268 = invoke noundef zeroext i1 %266(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %49, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit115 unwind label %269
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit144 unwind label %269
 
 269:                                              ; preds = %267
   %270 = landingpad { ptr, i32 }
@@ -1157,25 +1157,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit112:               ; preds = %254, %256
   call void @__clang_call_terminate(ptr %271) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit115:               ; preds = %265, %267
+_ZNSt8functionIFvPKcEED2Ev.exit144:               ; preds = %265, %267
   %272 = getelementptr inbounds i8, ptr %50, i64 16
   %273 = getelementptr inbounds i8, ptr %50, i64 24
   %274 = getelementptr inbounds i8, ptr %50, i64 8
   store i64 0, ptr %274, align 8
-  store i64 %160, ptr %50, align 8
+  store i64 %157, ptr %50, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_17E9_M_invokeERKSt9_Any_dataOS1_", ptr %273, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_17E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %272, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.10, i32 noundef 1, ptr noundef nonnull %50)
           to label %275 unwind label %748
 
-275:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit115
+275:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit144
   %276 = load ptr, ptr %272, align 8
-  %.not.i.i117 = icmp eq ptr %276, null
-  br i1 %.not.i.i117, label %_ZNSt8functionIFvPKcEED2Ev.exit118, label %277
+  %.not.i.i145 = icmp eq ptr %276, null
+  br i1 %.not.i.i145, label %_ZNSt8functionIFvPKcEED2Ev.exit146, label %277
 
 277:                                              ; preds = %275
   %278 = invoke noundef zeroext i1 %276(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit118 unwind label %279
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit146 unwind label %279
 
 279:                                              ; preds = %277
   %280 = landingpad { ptr, i32 }
@@ -1184,25 +1184,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit115:               ; preds = %265, %267
   call void @__clang_call_terminate(ptr %281) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit118:               ; preds = %275, %277
+_ZNSt8functionIFvPKcEED2Ev.exit146:               ; preds = %275, %277
   %282 = getelementptr inbounds i8, ptr %51, i64 16
   %283 = getelementptr inbounds i8, ptr %51, i64 24
   %284 = getelementptr inbounds i8, ptr %51, i64 8
   store i64 0, ptr %284, align 8
-  store i64 %160, ptr %51, align 8
+  store i64 %157, ptr %51, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_18E9_M_invokeERKSt9_Any_dataOS1_", ptr %283, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_18E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %282, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.11, i32 noundef 1, ptr noundef nonnull %51)
           to label %285 unwind label %756
 
-285:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit118
+285:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit146
   %286 = load ptr, ptr %282, align 8
-  %.not.i.i120 = icmp eq ptr %286, null
-  br i1 %.not.i.i120, label %_ZNSt8functionIFvPKcEED2Ev.exit121, label %287
+  %.not.i.i147 = icmp eq ptr %286, null
+  br i1 %.not.i.i147, label %_ZNSt8functionIFvPKcEED2Ev.exit148, label %287
 
 287:                                              ; preds = %285
   %288 = invoke noundef zeroext i1 %286(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %51, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit121 unwind label %289
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit148 unwind label %289
 
 289:                                              ; preds = %287
   %290 = landingpad { ptr, i32 }
@@ -1211,25 +1211,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit118:               ; preds = %275, %277
   call void @__clang_call_terminate(ptr %291) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit121:               ; preds = %285, %287
+_ZNSt8functionIFvPKcEED2Ev.exit148:               ; preds = %285, %287
   %292 = getelementptr inbounds i8, ptr %52, i64 16
   %293 = getelementptr inbounds i8, ptr %52, i64 24
   %294 = getelementptr inbounds i8, ptr %52, i64 8
   store i64 0, ptr %294, align 8
-  store i64 %160, ptr %52, align 8
+  store i64 %157, ptr %52, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_19E9_M_invokeERKSt9_Any_dataOS1_", ptr %293, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_19E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %292, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.12, i32 noundef 1, ptr noundef nonnull %52)
           to label %295 unwind label %764
 
-295:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit121
+295:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit148
   %296 = load ptr, ptr %292, align 8
-  %.not.i.i123 = icmp eq ptr %296, null
-  br i1 %.not.i.i123, label %_ZNSt8functionIFvPKcEED2Ev.exit124, label %297
+  %.not.i.i149 = icmp eq ptr %296, null
+  br i1 %.not.i.i149, label %_ZNSt8functionIFvPKcEED2Ev.exit150, label %297
 
 297:                                              ; preds = %295
   %298 = invoke noundef zeroext i1 %296(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %52, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit124 unwind label %299
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit150 unwind label %299
 
 299:                                              ; preds = %297
   %300 = landingpad { ptr, i32 }
@@ -1238,25 +1238,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit121:               ; preds = %285, %287
   call void @__clang_call_terminate(ptr %301) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit124:               ; preds = %295, %297
+_ZNSt8functionIFvPKcEED2Ev.exit150:               ; preds = %295, %297
   %302 = getelementptr inbounds i8, ptr %53, i64 16
   %303 = getelementptr inbounds i8, ptr %53, i64 24
   %304 = getelementptr inbounds i8, ptr %53, i64 8
   store i64 0, ptr %304, align 8
-  store i64 %160, ptr %53, align 8
+  store i64 %157, ptr %53, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_20E9_M_invokeERKSt9_Any_dataOS1_", ptr %303, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_20E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %302, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.13, i32 noundef 1, ptr noundef nonnull %53)
           to label %305 unwind label %772
 
-305:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit124
+305:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit150
   %306 = load ptr, ptr %302, align 8
-  %.not.i.i126 = icmp eq ptr %306, null
-  br i1 %.not.i.i126, label %_ZNSt8functionIFvPKcEED2Ev.exit127, label %307
+  %.not.i.i151 = icmp eq ptr %306, null
+  br i1 %.not.i.i151, label %_ZNSt8functionIFvPKcEED2Ev.exit152, label %307
 
 307:                                              ; preds = %305
   %308 = invoke noundef zeroext i1 %306(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %53, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit127 unwind label %309
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit152 unwind label %309
 
 309:                                              ; preds = %307
   %310 = landingpad { ptr, i32 }
@@ -1265,25 +1265,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit124:               ; preds = %295, %297
   call void @__clang_call_terminate(ptr %311) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit127:               ; preds = %305, %307
+_ZNSt8functionIFvPKcEED2Ev.exit152:               ; preds = %305, %307
   %312 = getelementptr inbounds i8, ptr %54, i64 16
   %313 = getelementptr inbounds i8, ptr %54, i64 24
   %314 = getelementptr inbounds i8, ptr %54, i64 8
   store i64 0, ptr %314, align 8
-  store i64 %160, ptr %54, align 8
+  store i64 %157, ptr %54, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_21E9_M_invokeERKSt9_Any_dataOS1_", ptr %313, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_21E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %312, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.14, i32 noundef 1, ptr noundef nonnull %54)
           to label %315 unwind label %780
 
-315:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit127
+315:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit152
   %316 = load ptr, ptr %312, align 8
-  %.not.i.i129 = icmp eq ptr %316, null
-  br i1 %.not.i.i129, label %_ZNSt8functionIFvPKcEED2Ev.exit130, label %317
+  %.not.i.i153 = icmp eq ptr %316, null
+  br i1 %.not.i.i153, label %_ZNSt8functionIFvPKcEED2Ev.exit154, label %317
 
 317:                                              ; preds = %315
   %318 = invoke noundef zeroext i1 %316(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %54, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit130 unwind label %319
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit154 unwind label %319
 
 319:                                              ; preds = %317
   %320 = landingpad { ptr, i32 }
@@ -1292,26 +1292,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit127:               ; preds = %305, %307
   call void @__clang_call_terminate(ptr %321) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit130:               ; preds = %315, %317
-  %322 = getelementptr inbounds i8, ptr %55, i64 16
-  %323 = getelementptr inbounds i8, ptr %55, i64 24
-  %324 = getelementptr inbounds i8, ptr %55, i64 8
-  store i64 0, ptr %324, align 8
-  %325 = ptrtoint ptr %15 to i64
-  store i64 %325, ptr %55, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_22E9_M_invokeERKSt9_Any_dataOS1_", ptr %323, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_22E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %322, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit154:               ; preds = %315, %317
+  %322 = ptrtoint ptr %15 to i64
+  %323 = getelementptr inbounds i8, ptr %55, i64 16
+  %324 = getelementptr inbounds i8, ptr %55, i64 24
+  %325 = getelementptr inbounds i8, ptr %55, i64 8
+  store i64 0, ptr %325, align 8
+  store i64 %322, ptr %55, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_22E9_M_invokeERKSt9_Any_dataOS1_", ptr %324, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_22E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %323, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.15, i32 noundef 1, ptr noundef nonnull %55)
           to label %326 unwind label %788
 
-326:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit130
-  %327 = load ptr, ptr %322, align 8
-  %.not.i.i132 = icmp eq ptr %327, null
-  br i1 %.not.i.i132, label %_ZNSt8functionIFvPKcEED2Ev.exit133, label %328
+326:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit154
+  %327 = load ptr, ptr %323, align 8
+  %.not.i.i155 = icmp eq ptr %327, null
+  br i1 %.not.i.i155, label %_ZNSt8functionIFvPKcEED2Ev.exit156, label %328
 
 328:                                              ; preds = %326
   %329 = invoke noundef zeroext i1 %327(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %55, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit133 unwind label %330
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit156 unwind label %330
 
 330:                                              ; preds = %328
   %331 = landingpad { ptr, i32 }
@@ -1320,26 +1320,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit130:               ; preds = %315, %317
   call void @__clang_call_terminate(ptr %332) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit133:               ; preds = %326, %328
-  %333 = getelementptr inbounds i8, ptr %56, i64 16
-  %334 = getelementptr inbounds i8, ptr %56, i64 24
-  %335 = getelementptr inbounds i8, ptr %56, i64 8
-  store i64 0, ptr %335, align 8
-  %336 = ptrtoint ptr %22 to i64
-  store i64 %336, ptr %56, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_23E9_M_invokeERKSt9_Any_dataOS1_", ptr %334, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_23E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %333, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit156:               ; preds = %326, %328
+  %333 = ptrtoint ptr %22 to i64
+  %334 = getelementptr inbounds i8, ptr %56, i64 16
+  %335 = getelementptr inbounds i8, ptr %56, i64 24
+  %336 = getelementptr inbounds i8, ptr %56, i64 8
+  store i64 0, ptr %336, align 8
+  store i64 %333, ptr %56, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_23E9_M_invokeERKSt9_Any_dataOS1_", ptr %335, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_23E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %334, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.16, i32 noundef 1, ptr noundef nonnull %56)
           to label %337 unwind label %796
 
-337:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit133
-  %338 = load ptr, ptr %333, align 8
-  %.not.i.i135 = icmp eq ptr %338, null
-  br i1 %.not.i.i135, label %_ZNSt8functionIFvPKcEED2Ev.exit136, label %339
+337:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit156
+  %338 = load ptr, ptr %334, align 8
+  %.not.i.i157 = icmp eq ptr %338, null
+  br i1 %.not.i.i157, label %_ZNSt8functionIFvPKcEED2Ev.exit158, label %339
 
 339:                                              ; preds = %337
   %340 = invoke noundef zeroext i1 %338(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %56, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit136 unwind label %341
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit158 unwind label %341
 
 341:                                              ; preds = %339
   %342 = landingpad { ptr, i32 }
@@ -1348,26 +1348,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit133:               ; preds = %326, %328
   call void @__clang_call_terminate(ptr %343) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit136:               ; preds = %337, %339
-  %344 = getelementptr inbounds i8, ptr %57, i64 16
-  %345 = getelementptr inbounds i8, ptr %57, i64 24
-  %346 = getelementptr inbounds i8, ptr %57, i64 8
-  store i64 0, ptr %346, align 8
-  %347 = ptrtoint ptr %12 to i64
-  store i64 %347, ptr %57, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_24E9_M_invokeERKSt9_Any_dataOS1_", ptr %345, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_24E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %344, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit158:               ; preds = %337, %339
+  %344 = ptrtoint ptr %12 to i64
+  %345 = getelementptr inbounds i8, ptr %57, i64 16
+  %346 = getelementptr inbounds i8, ptr %57, i64 24
+  %347 = getelementptr inbounds i8, ptr %57, i64 8
+  store i64 0, ptr %347, align 8
+  store i64 %344, ptr %57, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_24E9_M_invokeERKSt9_Any_dataOS1_", ptr %346, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_24E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %345, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.17, i32 noundef 0, ptr noundef nonnull %57)
           to label %348 unwind label %804
 
-348:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit136
-  %349 = load ptr, ptr %344, align 8
-  %.not.i.i138 = icmp eq ptr %349, null
-  br i1 %.not.i.i138, label %_ZNSt8functionIFvPKcEED2Ev.exit139, label %350
+348:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit158
+  %349 = load ptr, ptr %345, align 8
+  %.not.i.i159 = icmp eq ptr %349, null
+  br i1 %.not.i.i159, label %_ZNSt8functionIFvPKcEED2Ev.exit160, label %350
 
 350:                                              ; preds = %348
   %351 = invoke noundef zeroext i1 %349(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit139 unwind label %352
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit160 unwind label %352
 
 352:                                              ; preds = %350
   %353 = landingpad { ptr, i32 }
@@ -1376,26 +1376,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit136:               ; preds = %337, %339
   call void @__clang_call_terminate(ptr %354) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit139:               ; preds = %348, %350
-  %355 = getelementptr inbounds i8, ptr %58, i64 16
-  %356 = getelementptr inbounds i8, ptr %58, i64 24
-  %357 = getelementptr inbounds i8, ptr %58, i64 8
-  store i64 0, ptr %357, align 8
-  %358 = ptrtoint ptr %13 to i64
-  store i64 %358, ptr %58, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_25E9_M_invokeERKSt9_Any_dataOS1_", ptr %356, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_25E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %355, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit160:               ; preds = %348, %350
+  %355 = ptrtoint ptr %13 to i64
+  %356 = getelementptr inbounds i8, ptr %58, i64 16
+  %357 = getelementptr inbounds i8, ptr %58, i64 24
+  %358 = getelementptr inbounds i8, ptr %58, i64 8
+  store i64 0, ptr %358, align 8
+  store i64 %355, ptr %58, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_25E9_M_invokeERKSt9_Any_dataOS1_", ptr %357, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_25E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %356, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.18, i32 noundef 0, ptr noundef nonnull %58)
           to label %359 unwind label %812
 
-359:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit139
-  %360 = load ptr, ptr %355, align 8
-  %.not.i.i141 = icmp eq ptr %360, null
-  br i1 %.not.i.i141, label %_ZNSt8functionIFvPKcEED2Ev.exit142, label %361
+359:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit160
+  %360 = load ptr, ptr %356, align 8
+  %.not.i.i161 = icmp eq ptr %360, null
+  br i1 %.not.i.i161, label %_ZNSt8functionIFvPKcEED2Ev.exit162, label %361
 
 361:                                              ; preds = %359
   %362 = invoke noundef zeroext i1 %360(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %58, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit142 unwind label %363
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit162 unwind label %363
 
 363:                                              ; preds = %361
   %364 = landingpad { ptr, i32 }
@@ -1404,26 +1404,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit139:               ; preds = %348, %350
   call void @__clang_call_terminate(ptr %365) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit142:               ; preds = %359, %361
-  %366 = getelementptr inbounds i8, ptr %59, i64 16
-  %367 = getelementptr inbounds i8, ptr %59, i64 24
-  %368 = getelementptr inbounds i8, ptr %59, i64 8
-  store i64 0, ptr %368, align 8
-  %369 = ptrtoint ptr %24 to i64
-  store i64 %369, ptr %59, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_26E9_M_invokeERKSt9_Any_dataOS1_", ptr %367, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_26E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %366, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit162:               ; preds = %359, %361
+  %366 = ptrtoint ptr %24 to i64
+  %367 = getelementptr inbounds i8, ptr %59, i64 16
+  %368 = getelementptr inbounds i8, ptr %59, i64 24
+  %369 = getelementptr inbounds i8, ptr %59, i64 8
+  store i64 0, ptr %369, align 8
+  store i64 %366, ptr %59, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_26E9_M_invokeERKSt9_Any_dataOS1_", ptr %368, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_26E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %367, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull %59)
           to label %370 unwind label %820
 
-370:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit142
-  %371 = load ptr, ptr %366, align 8
-  %.not.i.i144 = icmp eq ptr %371, null
-  br i1 %.not.i.i144, label %_ZNSt8functionIFvPKcEED2Ev.exit145, label %372
+370:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit162
+  %371 = load ptr, ptr %367, align 8
+  %.not.i.i163 = icmp eq ptr %371, null
+  br i1 %.not.i.i163, label %_ZNSt8functionIFvPKcEED2Ev.exit164, label %372
 
 372:                                              ; preds = %370
   %373 = invoke noundef zeroext i1 %371(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %59, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit145 unwind label %374
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit164 unwind label %374
 
 374:                                              ; preds = %372
   %375 = landingpad { ptr, i32 }
@@ -1432,26 +1432,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit142:               ; preds = %359, %361
   call void @__clang_call_terminate(ptr %376) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit145:               ; preds = %370, %372
-  %377 = getelementptr inbounds i8, ptr %60, i64 16
-  %378 = getelementptr inbounds i8, ptr %60, i64 24
-  %379 = getelementptr inbounds i8, ptr %60, i64 8
-  store i64 0, ptr %379, align 8
-  %380 = ptrtoint ptr %14 to i64
-  store i64 %380, ptr %60, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_27E9_M_invokeERKSt9_Any_dataOS1_", ptr %378, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_27E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %377, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit164:               ; preds = %370, %372
+  %377 = ptrtoint ptr %14 to i64
+  %378 = getelementptr inbounds i8, ptr %60, i64 16
+  %379 = getelementptr inbounds i8, ptr %60, i64 24
+  %380 = getelementptr inbounds i8, ptr %60, i64 8
+  store i64 0, ptr %380, align 8
+  store i64 %377, ptr %60, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_27E9_M_invokeERKSt9_Any_dataOS1_", ptr %379, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_27E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %378, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.20, i32 noundef 1, ptr noundef nonnull %60)
           to label %381 unwind label %828
 
-381:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit145
-  %382 = load ptr, ptr %377, align 8
-  %.not.i.i147 = icmp eq ptr %382, null
-  br i1 %.not.i.i147, label %_ZNSt8functionIFvPKcEED2Ev.exit148, label %383
+381:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit164
+  %382 = load ptr, ptr %378, align 8
+  %.not.i.i165 = icmp eq ptr %382, null
+  br i1 %.not.i.i165, label %_ZNSt8functionIFvPKcEED2Ev.exit166, label %383
 
 383:                                              ; preds = %381
   %384 = invoke noundef zeroext i1 %382(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %60, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit148 unwind label %385
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit166 unwind label %385
 
 385:                                              ; preds = %383
   %386 = landingpad { ptr, i32 }
@@ -1460,26 +1460,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit145:               ; preds = %370, %372
   call void @__clang_call_terminate(ptr %387) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit148:               ; preds = %381, %383
-  %388 = getelementptr inbounds i8, ptr %61, i64 16
-  %389 = getelementptr inbounds i8, ptr %61, i64 24
-  %390 = getelementptr inbounds i8, ptr %61, i64 8
-  store i64 0, ptr %390, align 8
-  %391 = ptrtoint ptr %23 to i64
-  store i64 %391, ptr %61, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_28E9_M_invokeERKSt9_Any_dataOS1_", ptr %389, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_28E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %388, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit166:               ; preds = %381, %383
+  %388 = ptrtoint ptr %23 to i64
+  %389 = getelementptr inbounds i8, ptr %61, i64 16
+  %390 = getelementptr inbounds i8, ptr %61, i64 24
+  %391 = getelementptr inbounds i8, ptr %61, i64 8
+  store i64 0, ptr %391, align 8
+  store i64 %388, ptr %61, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_28E9_M_invokeERKSt9_Any_dataOS1_", ptr %390, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_28E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %389, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.21, i32 noundef 1, ptr noundef nonnull %61)
           to label %392 unwind label %836
 
-392:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit148
-  %393 = load ptr, ptr %388, align 8
-  %.not.i.i150 = icmp eq ptr %393, null
-  br i1 %.not.i.i150, label %_ZNSt8functionIFvPKcEED2Ev.exit151, label %394
+392:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit166
+  %393 = load ptr, ptr %389, align 8
+  %.not.i.i167 = icmp eq ptr %393, null
+  br i1 %.not.i.i167, label %_ZNSt8functionIFvPKcEED2Ev.exit168, label %394
 
 394:                                              ; preds = %392
   %395 = invoke noundef zeroext i1 %393(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit151 unwind label %396
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit168 unwind label %396
 
 396:                                              ; preds = %394
   %397 = landingpad { ptr, i32 }
@@ -1488,25 +1488,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit148:               ; preds = %381, %383
   call void @__clang_call_terminate(ptr %398) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit151:               ; preds = %392, %394
+_ZNSt8functionIFvPKcEED2Ev.exit168:               ; preds = %392, %394
   %399 = getelementptr inbounds i8, ptr %62, i64 16
   %400 = getelementptr inbounds i8, ptr %62, i64 24
   %401 = getelementptr inbounds i8, ptr %62, i64 8
   store i64 0, ptr %401, align 8
-  store i64 %160, ptr %62, align 8
+  store i64 %157, ptr %62, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_29E9_M_invokeERKSt9_Any_dataOS1_", ptr %400, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_29E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %399, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.22, i32 noundef 1, ptr noundef nonnull %62)
           to label %402 unwind label %844
 
-402:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit151
+402:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit168
   %403 = load ptr, ptr %399, align 8
-  %.not.i.i153 = icmp eq ptr %403, null
-  br i1 %.not.i.i153, label %_ZNSt8functionIFvPKcEED2Ev.exit154, label %404
+  %.not.i.i169 = icmp eq ptr %403, null
+  br i1 %.not.i.i169, label %_ZNSt8functionIFvPKcEED2Ev.exit170, label %404
 
 404:                                              ; preds = %402
   %405 = invoke noundef zeroext i1 %403(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %62, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit154 unwind label %406
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit170 unwind label %406
 
 406:                                              ; preds = %404
   %407 = landingpad { ptr, i32 }
@@ -1515,25 +1515,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit151:               ; preds = %392, %394
   call void @__clang_call_terminate(ptr %408) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit154:               ; preds = %402, %404
+_ZNSt8functionIFvPKcEED2Ev.exit170:               ; preds = %402, %404
   %409 = getelementptr inbounds i8, ptr %63, i64 16
   %410 = getelementptr inbounds i8, ptr %63, i64 24
   %411 = getelementptr inbounds i8, ptr %63, i64 8
   store i64 0, ptr %411, align 8
-  store i64 %160, ptr %63, align 8
+  store i64 %157, ptr %63, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_30E9_M_invokeERKSt9_Any_dataOS1_", ptr %410, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_30E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %409, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.23, i32 noundef 0, ptr noundef nonnull %63)
           to label %412 unwind label %852
 
-412:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit154
+412:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit170
   %413 = load ptr, ptr %409, align 8
-  %.not.i.i156 = icmp eq ptr %413, null
-  br i1 %.not.i.i156, label %_ZNSt8functionIFvPKcEED2Ev.exit157, label %414
+  %.not.i.i171 = icmp eq ptr %413, null
+  br i1 %.not.i.i171, label %_ZNSt8functionIFvPKcEED2Ev.exit172, label %414
 
 414:                                              ; preds = %412
   %415 = invoke noundef zeroext i1 %413(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %63, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit157 unwind label %416
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit172 unwind label %416
 
 416:                                              ; preds = %414
   %417 = landingpad { ptr, i32 }
@@ -1542,25 +1542,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit154:               ; preds = %402, %404
   call void @__clang_call_terminate(ptr %418) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit157:               ; preds = %412, %414
+_ZNSt8functionIFvPKcEED2Ev.exit172:               ; preds = %412, %414
   %419 = getelementptr inbounds i8, ptr %64, i64 16
   %420 = getelementptr inbounds i8, ptr %64, i64 24
   %421 = getelementptr inbounds i8, ptr %64, i64 8
   store i64 0, ptr %421, align 8
-  store i64 %160, ptr %64, align 8
+  store i64 %157, ptr %64, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_31E9_M_invokeERKSt9_Any_dataOS1_", ptr %420, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_31E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %419, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.24, i32 noundef 1, ptr noundef nonnull %64)
           to label %422 unwind label %860
 
-422:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit157
+422:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit172
   %423 = load ptr, ptr %419, align 8
-  %.not.i.i159 = icmp eq ptr %423, null
-  br i1 %.not.i.i159, label %_ZNSt8functionIFvPKcEED2Ev.exit160, label %424
+  %.not.i.i173 = icmp eq ptr %423, null
+  br i1 %.not.i.i173, label %_ZNSt8functionIFvPKcEED2Ev.exit174, label %424
 
 424:                                              ; preds = %422
   %425 = invoke noundef zeroext i1 %423(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %64, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit160 unwind label %426
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit174 unwind label %426
 
 426:                                              ; preds = %424
   %427 = landingpad { ptr, i32 }
@@ -1569,7 +1569,7 @@ _ZNSt8functionIFvPKcEED2Ev.exit157:               ; preds = %412, %414
   call void @__clang_call_terminate(ptr %428) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit160:               ; preds = %422, %424
+_ZNSt8functionIFvPKcEED2Ev.exit174:               ; preds = %422, %424
   %429 = getelementptr inbounds i8, ptr %65, i64 16
   %430 = getelementptr inbounds i8, ptr %65, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
@@ -1578,14 +1578,14 @@ _ZNSt8functionIFvPKcEED2Ev.exit160:               ; preds = %422, %424
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.25, i32 noundef 1, ptr noundef nonnull %65)
           to label %431 unwind label %868
 
-431:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit160
+431:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit174
   %432 = load ptr, ptr %429, align 8
-  %.not.i.i161 = icmp eq ptr %432, null
-  br i1 %.not.i.i161, label %_ZNSt8functionIFvPKcEED2Ev.exit162, label %433
+  %.not.i.i175 = icmp eq ptr %432, null
+  br i1 %.not.i.i175, label %_ZNSt8functionIFvPKcEED2Ev.exit176, label %433
 
 433:                                              ; preds = %431
   %434 = invoke noundef zeroext i1 %432(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %65, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit162 unwind label %435
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit176 unwind label %435
 
 435:                                              ; preds = %433
   %436 = landingpad { ptr, i32 }
@@ -1594,26 +1594,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit160:               ; preds = %422, %424
   call void @__clang_call_terminate(ptr %437) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit162:               ; preds = %431, %433
-  %438 = getelementptr inbounds i8, ptr %66, i64 16
-  %439 = getelementptr inbounds i8, ptr %66, i64 24
-  %440 = getelementptr inbounds i8, ptr %66, i64 8
-  store i64 0, ptr %440, align 8
-  %441 = ptrtoint ptr %29 to i64
-  store i64 %441, ptr %66, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_33E9_M_invokeERKSt9_Any_dataOS1_", ptr %439, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_33E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %438, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit176:               ; preds = %431, %433
+  %438 = ptrtoint ptr %29 to i64
+  %439 = getelementptr inbounds i8, ptr %66, i64 16
+  %440 = getelementptr inbounds i8, ptr %66, i64 24
+  %441 = getelementptr inbounds i8, ptr %66, i64 8
+  store i64 0, ptr %441, align 8
+  store i64 %438, ptr %66, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_33E9_M_invokeERKSt9_Any_dataOS1_", ptr %440, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_33E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %439, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.26, i32 noundef 1, ptr noundef nonnull %66)
           to label %442 unwind label %876
 
-442:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit162
-  %443 = load ptr, ptr %438, align 8
-  %.not.i.i164 = icmp eq ptr %443, null
-  br i1 %.not.i.i164, label %_ZNSt8functionIFvPKcEED2Ev.exit165, label %444
+442:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit176
+  %443 = load ptr, ptr %439, align 8
+  %.not.i.i177 = icmp eq ptr %443, null
+  br i1 %.not.i.i177, label %_ZNSt8functionIFvPKcEED2Ev.exit178, label %444
 
 444:                                              ; preds = %442
   %445 = invoke noundef zeroext i1 %443(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %66, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit165 unwind label %446
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit178 unwind label %446
 
 446:                                              ; preds = %444
   %447 = landingpad { ptr, i32 }
@@ -1622,25 +1622,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit162:               ; preds = %431, %433
   call void @__clang_call_terminate(ptr %448) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit165:               ; preds = %442, %444
+_ZNSt8functionIFvPKcEED2Ev.exit178:               ; preds = %442, %444
   %449 = getelementptr inbounds i8, ptr %67, i64 16
   %450 = getelementptr inbounds i8, ptr %67, i64 24
   %451 = getelementptr inbounds i8, ptr %67, i64 8
   store i64 0, ptr %451, align 8
-  store i64 %441, ptr %67, align 8
+  store i64 %438, ptr %67, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_34E9_M_invokeERKSt9_Any_dataOS1_", ptr %450, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_34E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %449, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.27, i32 noundef 0, ptr noundef nonnull %67)
           to label %452 unwind label %884
 
-452:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit165
+452:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit178
   %453 = load ptr, ptr %449, align 8
-  %.not.i.i167 = icmp eq ptr %453, null
-  br i1 %.not.i.i167, label %_ZNSt8functionIFvPKcEED2Ev.exit168, label %454
+  %.not.i.i179 = icmp eq ptr %453, null
+  br i1 %.not.i.i179, label %_ZNSt8functionIFvPKcEED2Ev.exit180, label %454
 
 454:                                              ; preds = %452
   %455 = invoke noundef zeroext i1 %453(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %67, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit168 unwind label %456
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit180 unwind label %456
 
 456:                                              ; preds = %454
   %457 = landingpad { ptr, i32 }
@@ -1649,25 +1649,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit165:               ; preds = %442, %444
   call void @__clang_call_terminate(ptr %458) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit168:               ; preds = %452, %454
+_ZNSt8functionIFvPKcEED2Ev.exit180:               ; preds = %452, %454
   %459 = getelementptr inbounds i8, ptr %68, i64 16
   %460 = getelementptr inbounds i8, ptr %68, i64 24
   %461 = getelementptr inbounds i8, ptr %68, i64 8
   store i64 0, ptr %461, align 8
-  store i64 %441, ptr %68, align 8
+  store i64 %438, ptr %68, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_35E9_M_invokeERKSt9_Any_dataOS1_", ptr %460, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_35E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %459, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.28, i32 noundef 1, ptr noundef nonnull %68)
           to label %462 unwind label %892
 
-462:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit168
+462:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit180
   %463 = load ptr, ptr %459, align 8
-  %.not.i.i170 = icmp eq ptr %463, null
-  br i1 %.not.i.i170, label %_ZNSt8functionIFvPKcEED2Ev.exit171, label %464
+  %.not.i.i181 = icmp eq ptr %463, null
+  br i1 %.not.i.i181, label %_ZNSt8functionIFvPKcEED2Ev.exit182, label %464
 
 464:                                              ; preds = %462
   %465 = invoke noundef zeroext i1 %463(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %68, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit171 unwind label %466
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit182 unwind label %466
 
 466:                                              ; preds = %464
   %467 = landingpad { ptr, i32 }
@@ -1676,25 +1676,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit168:               ; preds = %452, %454
   call void @__clang_call_terminate(ptr %468) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit171:               ; preds = %462, %464
+_ZNSt8functionIFvPKcEED2Ev.exit182:               ; preds = %462, %464
   %469 = getelementptr inbounds i8, ptr %69, i64 16
   %470 = getelementptr inbounds i8, ptr %69, i64 24
   %471 = getelementptr inbounds i8, ptr %69, i64 8
   store i64 0, ptr %471, align 8
-  store i64 %441, ptr %69, align 8
+  store i64 %438, ptr %69, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_36E9_M_invokeERKSt9_Any_dataOS1_", ptr %470, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_36E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %469, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef nonnull %69)
           to label %472 unwind label %900
 
-472:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit171
+472:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit182
   %473 = load ptr, ptr %469, align 8
-  %.not.i.i173 = icmp eq ptr %473, null
-  br i1 %.not.i.i173, label %_ZNSt8functionIFvPKcEED2Ev.exit174, label %474
+  %.not.i.i183 = icmp eq ptr %473, null
+  br i1 %.not.i.i183, label %_ZNSt8functionIFvPKcEED2Ev.exit184, label %474
 
 474:                                              ; preds = %472
   %475 = invoke noundef zeroext i1 %473(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %69, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit174 unwind label %476
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit184 unwind label %476
 
 476:                                              ; preds = %474
   %477 = landingpad { ptr, i32 }
@@ -1703,26 +1703,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit171:               ; preds = %462, %464
   call void @__clang_call_terminate(ptr %478) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit174:               ; preds = %472, %474
-  %479 = getelementptr inbounds i8, ptr %70, i64 16
-  %480 = getelementptr inbounds i8, ptr %70, i64 24
-  %481 = getelementptr inbounds i8, ptr %70, i64 8
-  store i64 0, ptr %481, align 8
-  %482 = ptrtoint ptr %27 to i64
-  store i64 %482, ptr %70, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_37E9_M_invokeERKSt9_Any_dataOS1_", ptr %480, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_37E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %479, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit184:               ; preds = %472, %474
+  %479 = ptrtoint ptr %27 to i64
+  %480 = getelementptr inbounds i8, ptr %70, i64 16
+  %481 = getelementptr inbounds i8, ptr %70, i64 24
+  %482 = getelementptr inbounds i8, ptr %70, i64 8
+  store i64 0, ptr %482, align 8
+  store i64 %479, ptr %70, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_37E9_M_invokeERKSt9_Any_dataOS1_", ptr %481, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_37E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %480, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.30, i32 noundef 1, ptr noundef nonnull %70)
           to label %483 unwind label %908
 
-483:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit174
-  %484 = load ptr, ptr %479, align 8
-  %.not.i.i176 = icmp eq ptr %484, null
-  br i1 %.not.i.i176, label %_ZNSt8functionIFvPKcEED2Ev.exit177, label %485
+483:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit184
+  %484 = load ptr, ptr %480, align 8
+  %.not.i.i185 = icmp eq ptr %484, null
+  br i1 %.not.i.i185, label %_ZNSt8functionIFvPKcEED2Ev.exit186, label %485
 
 485:                                              ; preds = %483
   %486 = invoke noundef zeroext i1 %484(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %70, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit177 unwind label %487
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit186 unwind label %487
 
 487:                                              ; preds = %485
   %488 = landingpad { ptr, i32 }
@@ -1731,25 +1731,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit174:               ; preds = %472, %474
   call void @__clang_call_terminate(ptr %489) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit177:               ; preds = %483, %485
+_ZNSt8functionIFvPKcEED2Ev.exit186:               ; preds = %483, %485
   %490 = getelementptr inbounds i8, ptr %71, i64 16
   %491 = getelementptr inbounds i8, ptr %71, i64 24
   %492 = getelementptr inbounds i8, ptr %71, i64 8
   store i64 0, ptr %492, align 8
-  store i64 %441, ptr %71, align 8
+  store i64 %438, ptr %71, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_38E9_M_invokeERKSt9_Any_dataOS1_", ptr %491, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_38E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %490, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.31, i32 noundef 1, ptr noundef nonnull %71)
           to label %493 unwind label %916
 
-493:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit177
+493:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit186
   %494 = load ptr, ptr %490, align 8
-  %.not.i.i179 = icmp eq ptr %494, null
-  br i1 %.not.i.i179, label %_ZNSt8functionIFvPKcEED2Ev.exit180, label %495
+  %.not.i.i187 = icmp eq ptr %494, null
+  br i1 %.not.i.i187, label %_ZNSt8functionIFvPKcEED2Ev.exit188, label %495
 
 495:                                              ; preds = %493
   %496 = invoke noundef zeroext i1 %494(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %71, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit180 unwind label %497
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit188 unwind label %497
 
 497:                                              ; preds = %495
   %498 = landingpad { ptr, i32 }
@@ -1758,25 +1758,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit177:               ; preds = %483, %485
   call void @__clang_call_terminate(ptr %499) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit180:               ; preds = %493, %495
+_ZNSt8functionIFvPKcEED2Ev.exit188:               ; preds = %493, %495
   %500 = getelementptr inbounds i8, ptr %72, i64 16
   %501 = getelementptr inbounds i8, ptr %72, i64 24
   %502 = getelementptr inbounds i8, ptr %72, i64 8
   store i64 0, ptr %502, align 8
-  store i64 %441, ptr %72, align 8
+  store i64 %438, ptr %72, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_39E9_M_invokeERKSt9_Any_dataOS1_", ptr %501, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_39E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %500, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.32, i32 noundef 0, ptr noundef nonnull %72)
           to label %503 unwind label %924
 
-503:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit180
+503:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit188
   %504 = load ptr, ptr %500, align 8
-  %.not.i.i182 = icmp eq ptr %504, null
-  br i1 %.not.i.i182, label %_ZNSt8functionIFvPKcEED2Ev.exit183, label %505
+  %.not.i.i189 = icmp eq ptr %504, null
+  br i1 %.not.i.i189, label %_ZNSt8functionIFvPKcEED2Ev.exit190, label %505
 
 505:                                              ; preds = %503
   %506 = invoke noundef zeroext i1 %504(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %72, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit183 unwind label %507
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit190 unwind label %507
 
 507:                                              ; preds = %505
   %508 = landingpad { ptr, i32 }
@@ -1785,25 +1785,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit180:               ; preds = %493, %495
   call void @__clang_call_terminate(ptr %509) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit183:               ; preds = %503, %505
+_ZNSt8functionIFvPKcEED2Ev.exit190:               ; preds = %503, %505
   %510 = getelementptr inbounds i8, ptr %73, i64 16
   %511 = getelementptr inbounds i8, ptr %73, i64 24
   %512 = getelementptr inbounds i8, ptr %73, i64 8
   store i64 0, ptr %512, align 8
-  store i64 %441, ptr %73, align 8
+  store i64 %438, ptr %73, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_40E9_M_invokeERKSt9_Any_dataOS1_", ptr %511, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_40E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %510, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.33, i32 noundef 0, ptr noundef nonnull %73)
           to label %513 unwind label %932
 
-513:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit183
+513:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit190
   %514 = load ptr, ptr %510, align 8
-  %.not.i.i185 = icmp eq ptr %514, null
-  br i1 %.not.i.i185, label %_ZNSt8functionIFvPKcEED2Ev.exit186, label %515
+  %.not.i.i191 = icmp eq ptr %514, null
+  br i1 %.not.i.i191, label %_ZNSt8functionIFvPKcEED2Ev.exit192, label %515
 
 515:                                              ; preds = %513
   %516 = invoke noundef zeroext i1 %514(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %73, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit186 unwind label %517
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit192 unwind label %517
 
 517:                                              ; preds = %515
   %518 = landingpad { ptr, i32 }
@@ -1812,25 +1812,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit183:               ; preds = %503, %505
   call void @__clang_call_terminate(ptr %519) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit186:               ; preds = %513, %515
+_ZNSt8functionIFvPKcEED2Ev.exit192:               ; preds = %513, %515
   %520 = getelementptr inbounds i8, ptr %74, i64 16
   %521 = getelementptr inbounds i8, ptr %74, i64 24
   %522 = getelementptr inbounds i8, ptr %74, i64 8
   store i64 0, ptr %522, align 8
-  store i64 %441, ptr %74, align 8
+  store i64 %438, ptr %74, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_41E9_M_invokeERKSt9_Any_dataOS1_", ptr %521, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_41E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %520, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.34, i32 noundef 0, ptr noundef nonnull %74)
           to label %523 unwind label %940
 
-523:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit186
+523:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit192
   %524 = load ptr, ptr %520, align 8
-  %.not.i.i188 = icmp eq ptr %524, null
-  br i1 %.not.i.i188, label %_ZNSt8functionIFvPKcEED2Ev.exit189, label %525
+  %.not.i.i193 = icmp eq ptr %524, null
+  br i1 %.not.i.i193, label %_ZNSt8functionIFvPKcEED2Ev.exit194, label %525
 
 525:                                              ; preds = %523
   %526 = invoke noundef zeroext i1 %524(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %74, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit189 unwind label %527
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit194 unwind label %527
 
 527:                                              ; preds = %525
   %528 = landingpad { ptr, i32 }
@@ -1839,25 +1839,25 @@ _ZNSt8functionIFvPKcEED2Ev.exit186:               ; preds = %513, %515
   call void @__clang_call_terminate(ptr %529) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit189:               ; preds = %523, %525
+_ZNSt8functionIFvPKcEED2Ev.exit194:               ; preds = %523, %525
   %530 = getelementptr inbounds i8, ptr %75, i64 16
   %531 = getelementptr inbounds i8, ptr %75, i64 24
   %532 = getelementptr inbounds i8, ptr %75, i64 8
   store i64 0, ptr %532, align 8
-  store i64 %441, ptr %75, align 8
+  store i64 %438, ptr %75, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_42E9_M_invokeERKSt9_Any_dataOS1_", ptr %531, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_42E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %530, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.35, i32 noundef 0, ptr noundef nonnull %75)
           to label %533 unwind label %948
 
-533:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit189
+533:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit194
   %534 = load ptr, ptr %530, align 8
-  %.not.i.i191 = icmp eq ptr %534, null
-  br i1 %.not.i.i191, label %_ZNSt8functionIFvPKcEED2Ev.exit192, label %535
+  %.not.i.i195 = icmp eq ptr %534, null
+  br i1 %.not.i.i195, label %_ZNSt8functionIFvPKcEED2Ev.exit196, label %535
 
 535:                                              ; preds = %533
   %536 = invoke noundef zeroext i1 %534(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %75, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit192 unwind label %537
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit196 unwind label %537
 
 537:                                              ; preds = %535
   %538 = landingpad { ptr, i32 }
@@ -1866,26 +1866,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit189:               ; preds = %523, %525
   call void @__clang_call_terminate(ptr %539) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit192:               ; preds = %533, %535
-  %540 = getelementptr inbounds i8, ptr %76, i64 16
-  %541 = getelementptr inbounds i8, ptr %76, i64 24
-  %542 = getelementptr inbounds i8, ptr %76, i64 8
-  store i64 0, ptr %542, align 8
-  %543 = ptrtoint ptr %20 to i64
-  store i64 %543, ptr %76, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_43E9_M_invokeERKSt9_Any_dataOS1_", ptr %541, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_43E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %540, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit196:               ; preds = %533, %535
+  %540 = ptrtoint ptr %20 to i64
+  %541 = getelementptr inbounds i8, ptr %76, i64 16
+  %542 = getelementptr inbounds i8, ptr %76, i64 24
+  %543 = getelementptr inbounds i8, ptr %76, i64 8
+  store i64 0, ptr %543, align 8
+  store i64 %540, ptr %76, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_43E9_M_invokeERKSt9_Any_dataOS1_", ptr %542, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_43E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %541, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.36, i32 noundef 0, ptr noundef nonnull %76)
           to label %544 unwind label %956
 
-544:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit192
-  %545 = load ptr, ptr %540, align 8
-  %.not.i.i194 = icmp eq ptr %545, null
-  br i1 %.not.i.i194, label %_ZNSt8functionIFvPKcEED2Ev.exit195, label %546
+544:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit196
+  %545 = load ptr, ptr %541, align 8
+  %.not.i.i197 = icmp eq ptr %545, null
+  br i1 %.not.i.i197, label %_ZNSt8functionIFvPKcEED2Ev.exit198, label %546
 
 546:                                              ; preds = %544
   %547 = invoke noundef zeroext i1 %545(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %76, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit195 unwind label %548
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit198 unwind label %548
 
 548:                                              ; preds = %546
   %549 = landingpad { ptr, i32 }
@@ -1894,26 +1894,26 @@ _ZNSt8functionIFvPKcEED2Ev.exit192:               ; preds = %533, %535
   call void @__clang_call_terminate(ptr %550) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit195:               ; preds = %544, %546
-  %551 = getelementptr inbounds i8, ptr %77, i64 16
-  %552 = getelementptr inbounds i8, ptr %77, i64 24
-  %553 = getelementptr inbounds i8, ptr %77, i64 8
-  store i64 0, ptr %553, align 8
-  %554 = ptrtoint ptr %21 to i64
-  store i64 %554, ptr %77, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_44E9_M_invokeERKSt9_Any_dataOS1_", ptr %552, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_44E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %551, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit198:               ; preds = %544, %546
+  %551 = ptrtoint ptr %21 to i64
+  %552 = getelementptr inbounds i8, ptr %77, i64 16
+  %553 = getelementptr inbounds i8, ptr %77, i64 24
+  %554 = getelementptr inbounds i8, ptr %77, i64 8
+  store i64 0, ptr %554, align 8
+  store i64 %551, ptr %77, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_44E9_M_invokeERKSt9_Any_dataOS1_", ptr %553, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_44E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %552, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.37, i32 noundef 1, ptr noundef nonnull %77)
           to label %555 unwind label %964
 
-555:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit195
-  %556 = load ptr, ptr %551, align 8
-  %.not.i.i197 = icmp eq ptr %556, null
-  br i1 %.not.i.i197, label %_ZNSt8functionIFvPKcEED2Ev.exit198, label %557
+555:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit198
+  %556 = load ptr, ptr %552, align 8
+  %.not.i.i199 = icmp eq ptr %556, null
+  br i1 %.not.i.i199, label %_ZNSt8functionIFvPKcEED2Ev.exit200, label %557
 
 557:                                              ; preds = %555
   %558 = invoke noundef zeroext i1 %556(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %77, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit198 unwind label %559
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit200 unwind label %559
 
 559:                                              ; preds = %557
   %560 = landingpad { ptr, i32 }
@@ -1922,27 +1922,27 @@ _ZNSt8functionIFvPKcEED2Ev.exit195:               ; preds = %544, %546
   call void @__clang_call_terminate(ptr %561) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit198:               ; preds = %555, %557
+_ZNSt8functionIFvPKcEED2Ev.exit200:               ; preds = %555, %557
   store ptr null, ptr %78, align 8
-  %562 = getelementptr inbounds i8, ptr %79, i64 16
-  %563 = getelementptr inbounds i8, ptr %79, i64 24
-  %564 = getelementptr inbounds i8, ptr %79, i64 8
-  store i64 0, ptr %564, align 8
-  %565 = ptrtoint ptr %78 to i64
-  store i64 %565, ptr %79, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_45E9_M_invokeERKSt9_Any_dataOS1_", ptr %563, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_45E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %562, align 8
+  %562 = ptrtoint ptr %78 to i64
+  %563 = getelementptr inbounds i8, ptr %79, i64 16
+  %564 = getelementptr inbounds i8, ptr %79, i64 24
+  %565 = getelementptr inbounds i8, ptr %79, i64 8
+  store i64 0, ptr %565, align 8
+  store i64 %562, ptr %79, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_45E9_M_invokeERKSt9_Any_dataOS1_", ptr %564, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_45E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %563, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.38, i32 noundef 1, ptr noundef nonnull %79)
           to label %566 unwind label %972
 
-566:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit198
-  %567 = load ptr, ptr %562, align 8
-  %.not.i.i200 = icmp eq ptr %567, null
-  br i1 %.not.i.i200, label %_ZNSt8functionIFvPKcEED2Ev.exit201, label %568
+566:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit200
+  %567 = load ptr, ptr %563, align 8
+  %.not.i.i201 = icmp eq ptr %567, null
+  br i1 %.not.i.i201, label %_ZNSt8functionIFvPKcEED2Ev.exit202, label %568
 
 568:                                              ; preds = %566
   %569 = invoke noundef zeroext i1 %567(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %79, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEED2Ev.exit201 unwind label %570
+          to label %_ZNSt8functionIFvPKcEED2Ev.exit202 unwind label %570
 
 570:                                              ; preds = %568
   %571 = landingpad { ptr, i32 }
@@ -1951,20 +1951,20 @@ _ZNSt8functionIFvPKcEED2Ev.exit198:               ; preds = %555, %557
   call void @__clang_call_terminate(ptr %572) #33
   unreachable
 
-_ZNSt8functionIFvPKcEED2Ev.exit201:               ; preds = %566, %568
-  %573 = getelementptr inbounds i8, ptr %80, i64 16
-  %574 = getelementptr inbounds i8, ptr %80, i64 24
-  %575 = getelementptr inbounds i8, ptr %80, i64 8
-  store i64 0, ptr %575, align 8
-  %576 = ptrtoint ptr %28 to i64
-  store i64 %576, ptr %80, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_46E9_M_invokeERKSt9_Any_dataOS1_", ptr %574, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_46E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %573, align 8
+_ZNSt8functionIFvPKcEED2Ev.exit202:               ; preds = %566, %568
+  %573 = ptrtoint ptr %28 to i64
+  %574 = getelementptr inbounds i8, ptr %80, i64 16
+  %575 = getelementptr inbounds i8, ptr %80, i64 24
+  %576 = getelementptr inbounds i8, ptr %80, i64 8
+  store i64 0, ptr %576, align 8
+  store i64 %573, ptr %80, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_46E9_M_invokeERKSt9_Any_dataOS1_", ptr %575, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_46E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %574, align 8
   invoke void @_ZN15option_parser_t6optionEcPKciSt8functionIFvS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 noundef signext 0, ptr noundef nonnull @.str.39, i32 noundef 1, ptr noundef nonnull %80)
           to label %577 unwind label %980
 
-577:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit201
-  %578 = load ptr, ptr %573, align 8
+577:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit202
+  %578 = load ptr, ptr %574, align 8
   %.not.i.i203 = icmp eq ptr %578, null
   br i1 %.not.i.i203, label %_ZNSt8functionIFvPKcEED2Ev.exit204, label %579
 
@@ -2072,7 +2072,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 620:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit
   %621 = landingpad { ptr, i32 }
           cleanup
-  %622 = load ptr, ptr %102, align 8
+  %622 = load ptr, ptr %103, align 8
   %.not.i.i207 = icmp eq ptr %622, null
   br i1 %.not.i.i207, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %623
 
@@ -2087,10 +2087,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %627) #33
   unreachable
 
-628:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit71
+628:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit114
   %629 = landingpad { ptr, i32 }
           cleanup
-  %630 = load ptr, ptr %113, align 8
+  %630 = load ptr, ptr %114, align 8
   %.not.i.i209 = icmp eq ptr %630, null
   br i1 %.not.i.i209, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %631
 
@@ -2105,10 +2105,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %635) #33
   unreachable
 
-636:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit74
+636:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit116
   %637 = landingpad { ptr, i32 }
           cleanup
-  %638 = load ptr, ptr %124, align 8
+  %638 = load ptr, ptr %125, align 8
   %.not.i.i211 = icmp eq ptr %638, null
   br i1 %.not.i.i211, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %639
 
@@ -2123,10 +2123,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %643) #33
   unreachable
 
-644:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit77
+644:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit118
   %645 = landingpad { ptr, i32 }
           cleanup
-  %646 = load ptr, ptr %135, align 8
+  %646 = load ptr, ptr %136, align 8
   %.not.i.i213 = icmp eq ptr %646, null
   br i1 %.not.i.i213, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %647
 
@@ -2141,10 +2141,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %651) #33
   unreachable
 
-652:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit80
+652:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit120
   %653 = landingpad { ptr, i32 }
           cleanup
-  %654 = load ptr, ptr %146, align 8
+  %654 = load ptr, ptr %147, align 8
   %.not.i.i215 = icmp eq ptr %654, null
   br i1 %.not.i.i215, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %655
 
@@ -2159,10 +2159,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %659) #33
   unreachable
 
-660:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit83
+660:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit122
   %661 = landingpad { ptr, i32 }
           cleanup
-  %662 = load ptr, ptr %157, align 8
+  %662 = load ptr, ptr %158, align 8
   %.not.i.i217 = icmp eq ptr %662, null
   br i1 %.not.i.i217, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %663
 
@@ -2177,10 +2177,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %667) #33
   unreachable
 
-668:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit86
+668:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit124
   %669 = landingpad { ptr, i32 }
           cleanup
-  %670 = load ptr, ptr %168, align 8
+  %670 = load ptr, ptr %169, align 8
   %.not.i.i219 = icmp eq ptr %670, null
   br i1 %.not.i.i219, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %671
 
@@ -2195,7 +2195,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %675) #33
   unreachable
 
-676:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit89
+676:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit126
   %677 = landingpad { ptr, i32 }
           cleanup
   %678 = load ptr, ptr %179, align 8
@@ -2213,7 +2213,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %683) #33
   unreachable
 
-684:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit91
+684:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit128
   %685 = landingpad { ptr, i32 }
           cleanup
   %686 = load ptr, ptr %188, align 8
@@ -2231,7 +2231,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %691) #33
   unreachable
 
-692:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit94
+692:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit130
   %693 = landingpad { ptr, i32 }
           cleanup
   %694 = load ptr, ptr %198, align 8
@@ -2249,10 +2249,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %699) #33
   unreachable
 
-700:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit97
+700:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit132
   %701 = landingpad { ptr, i32 }
           cleanup
-  %702 = load ptr, ptr %208, align 8
+  %702 = load ptr, ptr %209, align 8
   %.not.i.i227 = icmp eq ptr %702, null
   br i1 %.not.i.i227, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %703
 
@@ -2267,10 +2267,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %707) #33
   unreachable
 
-708:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit100
+708:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit134
   %709 = landingpad { ptr, i32 }
           cleanup
-  %710 = load ptr, ptr %219, align 8
+  %710 = load ptr, ptr %220, align 8
   %.not.i.i229 = icmp eq ptr %710, null
   br i1 %.not.i.i229, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %711
 
@@ -2285,10 +2285,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %715) #33
   unreachable
 
-716:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit103
+716:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit136
   %717 = landingpad { ptr, i32 }
           cleanup
-  %718 = load ptr, ptr %230, align 8
+  %718 = load ptr, ptr %231, align 8
   %.not.i.i231 = icmp eq ptr %718, null
   br i1 %.not.i.i231, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %719
 
@@ -2303,7 +2303,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %723) #33
   unreachable
 
-724:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit106
+724:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit138
   %725 = landingpad { ptr, i32 }
           cleanup
   %726 = load ptr, ptr %241, align 8
@@ -2321,7 +2321,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %731) #33
   unreachable
 
-732:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit109
+732:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit140
   %733 = landingpad { ptr, i32 }
           cleanup
   %734 = load ptr, ptr %251, align 8
@@ -2339,10 +2339,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %739) #33
   unreachable
 
-740:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit112
+740:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit142
   %741 = landingpad { ptr, i32 }
           cleanup
-  %742 = load ptr, ptr %261, align 8
+  %742 = load ptr, ptr %262, align 8
   %.not.i.i237 = icmp eq ptr %742, null
   br i1 %.not.i.i237, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %743
 
@@ -2357,7 +2357,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %747) #33
   unreachable
 
-748:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit115
+748:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit144
   %749 = landingpad { ptr, i32 }
           cleanup
   %750 = load ptr, ptr %272, align 8
@@ -2375,7 +2375,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %755) #33
   unreachable
 
-756:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit118
+756:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit146
   %757 = landingpad { ptr, i32 }
           cleanup
   %758 = load ptr, ptr %282, align 8
@@ -2393,7 +2393,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %763) #33
   unreachable
 
-764:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit121
+764:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit148
   %765 = landingpad { ptr, i32 }
           cleanup
   %766 = load ptr, ptr %292, align 8
@@ -2411,7 +2411,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %771) #33
   unreachable
 
-772:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit124
+772:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit150
   %773 = landingpad { ptr, i32 }
           cleanup
   %774 = load ptr, ptr %302, align 8
@@ -2429,7 +2429,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %779) #33
   unreachable
 
-780:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit127
+780:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit152
   %781 = landingpad { ptr, i32 }
           cleanup
   %782 = load ptr, ptr %312, align 8
@@ -2447,10 +2447,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %787) #33
   unreachable
 
-788:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit130
+788:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit154
   %789 = landingpad { ptr, i32 }
           cleanup
-  %790 = load ptr, ptr %322, align 8
+  %790 = load ptr, ptr %323, align 8
   %.not.i.i249 = icmp eq ptr %790, null
   br i1 %.not.i.i249, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %791
 
@@ -2465,10 +2465,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %795) #33
   unreachable
 
-796:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit133
+796:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit156
   %797 = landingpad { ptr, i32 }
           cleanup
-  %798 = load ptr, ptr %333, align 8
+  %798 = load ptr, ptr %334, align 8
   %.not.i.i251 = icmp eq ptr %798, null
   br i1 %.not.i.i251, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %799
 
@@ -2483,10 +2483,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %803) #33
   unreachable
 
-804:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit136
+804:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit158
   %805 = landingpad { ptr, i32 }
           cleanup
-  %806 = load ptr, ptr %344, align 8
+  %806 = load ptr, ptr %345, align 8
   %.not.i.i253 = icmp eq ptr %806, null
   br i1 %.not.i.i253, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %807
 
@@ -2501,10 +2501,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %811) #33
   unreachable
 
-812:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit139
+812:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit160
   %813 = landingpad { ptr, i32 }
           cleanup
-  %814 = load ptr, ptr %355, align 8
+  %814 = load ptr, ptr %356, align 8
   %.not.i.i255 = icmp eq ptr %814, null
   br i1 %.not.i.i255, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %815
 
@@ -2519,10 +2519,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %819) #33
   unreachable
 
-820:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit142
+820:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit162
   %821 = landingpad { ptr, i32 }
           cleanup
-  %822 = load ptr, ptr %366, align 8
+  %822 = load ptr, ptr %367, align 8
   %.not.i.i257 = icmp eq ptr %822, null
   br i1 %.not.i.i257, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %823
 
@@ -2537,10 +2537,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %827) #33
   unreachable
 
-828:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit145
+828:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit164
   %829 = landingpad { ptr, i32 }
           cleanup
-  %830 = load ptr, ptr %377, align 8
+  %830 = load ptr, ptr %378, align 8
   %.not.i.i259 = icmp eq ptr %830, null
   br i1 %.not.i.i259, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %831
 
@@ -2555,10 +2555,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %835) #33
   unreachable
 
-836:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit148
+836:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit166
   %837 = landingpad { ptr, i32 }
           cleanup
-  %838 = load ptr, ptr %388, align 8
+  %838 = load ptr, ptr %389, align 8
   %.not.i.i261 = icmp eq ptr %838, null
   br i1 %.not.i.i261, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %839
 
@@ -2573,7 +2573,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %843) #33
   unreachable
 
-844:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit151
+844:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit168
   %845 = landingpad { ptr, i32 }
           cleanup
   %846 = load ptr, ptr %399, align 8
@@ -2591,7 +2591,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %851) #33
   unreachable
 
-852:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit154
+852:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit170
   %853 = landingpad { ptr, i32 }
           cleanup
   %854 = load ptr, ptr %409, align 8
@@ -2609,7 +2609,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %859) #33
   unreachable
 
-860:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit157
+860:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit172
   %861 = landingpad { ptr, i32 }
           cleanup
   %862 = load ptr, ptr %419, align 8
@@ -2627,7 +2627,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %867) #33
   unreachable
 
-868:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit160
+868:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit174
   %869 = landingpad { ptr, i32 }
           cleanup
   %870 = load ptr, ptr %429, align 8
@@ -2645,10 +2645,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %875) #33
   unreachable
 
-876:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit162
+876:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit176
   %877 = landingpad { ptr, i32 }
           cleanup
-  %878 = load ptr, ptr %438, align 8
+  %878 = load ptr, ptr %439, align 8
   %.not.i.i271 = icmp eq ptr %878, null
   br i1 %.not.i.i271, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %879
 
@@ -2663,7 +2663,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %883) #33
   unreachable
 
-884:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit165
+884:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit178
   %885 = landingpad { ptr, i32 }
           cleanup
   %886 = load ptr, ptr %449, align 8
@@ -2681,7 +2681,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %891) #33
   unreachable
 
-892:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit168
+892:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit180
   %893 = landingpad { ptr, i32 }
           cleanup
   %894 = load ptr, ptr %459, align 8
@@ -2699,7 +2699,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %899) #33
   unreachable
 
-900:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit171
+900:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit182
   %901 = landingpad { ptr, i32 }
           cleanup
   %902 = load ptr, ptr %469, align 8
@@ -2717,10 +2717,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %907) #33
   unreachable
 
-908:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit174
+908:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit184
   %909 = landingpad { ptr, i32 }
           cleanup
-  %910 = load ptr, ptr %479, align 8
+  %910 = load ptr, ptr %480, align 8
   %.not.i.i279 = icmp eq ptr %910, null
   br i1 %.not.i.i279, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %911
 
@@ -2735,7 +2735,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %915) #33
   unreachable
 
-916:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit177
+916:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit186
   %917 = landingpad { ptr, i32 }
           cleanup
   %918 = load ptr, ptr %490, align 8
@@ -2753,7 +2753,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %923) #33
   unreachable
 
-924:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit180
+924:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit188
   %925 = landingpad { ptr, i32 }
           cleanup
   %926 = load ptr, ptr %500, align 8
@@ -2771,7 +2771,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %931) #33
   unreachable
 
-932:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit183
+932:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit190
   %933 = landingpad { ptr, i32 }
           cleanup
   %934 = load ptr, ptr %510, align 8
@@ -2789,7 +2789,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %939) #33
   unreachable
 
-940:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit186
+940:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit192
   %941 = landingpad { ptr, i32 }
           cleanup
   %942 = load ptr, ptr %520, align 8
@@ -2807,7 +2807,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %947) #33
   unreachable
 
-948:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit189
+948:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit194
   %949 = landingpad { ptr, i32 }
           cleanup
   %950 = load ptr, ptr %530, align 8
@@ -2825,10 +2825,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %955) #33
   unreachable
 
-956:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit192
+956:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit196
   %957 = landingpad { ptr, i32 }
           cleanup
-  %958 = load ptr, ptr %540, align 8
+  %958 = load ptr, ptr %541, align 8
   %.not.i.i291 = icmp eq ptr %958, null
   br i1 %.not.i.i291, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %959
 
@@ -2843,10 +2843,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %963) #33
   unreachable
 
-964:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit195
+964:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit198
   %965 = landingpad { ptr, i32 }
           cleanup
-  %966 = load ptr, ptr %551, align 8
+  %966 = load ptr, ptr %552, align 8
   %.not.i.i293 = icmp eq ptr %966, null
   br i1 %.not.i.i293, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %967
 
@@ -2861,10 +2861,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %971) #33
   unreachable
 
-972:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit198
+972:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit200
   %973 = landingpad { ptr, i32 }
           cleanup
-  %974 = load ptr, ptr %562, align 8
+  %974 = load ptr, ptr %563, align 8
   %.not.i.i295 = icmp eq ptr %974, null
   br i1 %.not.i.i295, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %975
 
@@ -2879,10 +2879,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @__clang_call_terminate(ptr %979) #33
   unreachable
 
-980:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit201
+980:                                              ; preds = %_ZNSt8functionIFvPKcEED2Ev.exit202
   %981 = landingpad { ptr, i32 }
           cleanup
-  %982 = load ptr, ptr %573, align 8
+  %982 = load ptr, ptr %574, align 8
   %.not.i.i297 = icmp eq ptr %982, null
   br i1 %.not.i.i297, label %_ZNSt8functionIFvPKcEED2Ev.exit206, label %983
 

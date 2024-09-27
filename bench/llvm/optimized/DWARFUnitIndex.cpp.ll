@@ -90,7 +90,7 @@ $_ZTVN4llvm13format_objectIJjjEEE = comdat any
 @switch.table._ZN4llvm20serializeSectionKindENS_16DWARFSectionKindEj = private unnamed_addr constant [10 x i32] [i32 1, i32 2, i32 3, i32 4, i32 1, i32 6, i32 8, i32 1, i32 5, i32 7], align 4
 @switch.table._ZN4llvm14DWARFUnitIndex9parseImplENS_13DataExtractorE = private unnamed_addr constant [8 x i32] [i32 1, i32 2, i32 3, i32 4, i32 9, i32 6, i32 10, i32 7], align 4
 @switch.table._ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE = private unnamed_addr constant [11 x ptr] [ptr null, ptr @.str.1, ptr @.str.8, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.9, ptr @.str.10], align 8
-@switch.table._ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE.15 = private unnamed_addr constant [11 x i64] [i64 0, i64 4, i64 5, i64 6, i64 4, i64 8, i64 11, i64 5, i64 8, i64 3, i64 7], align 8
+@switch.table._ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE.17 = private unnamed_addr constant [11 x i64] [i64 0, i64 4, i64 5, i64 6, i64 4, i64 8, i64 11, i64 5, i64 8, i64 3, i64 7], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_ZN4llvm20serializeSectionKindENS_16DWARFSectionKindEj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -666,7 +666,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table._ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds [11 x i64], ptr @switch.table._ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE.15, i64 0, i64 %2
+  %switch.gep3 = getelementptr inbounds [11 x i64], ptr @switch.table._ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE.17, i64 0, i64 %2
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load4, 1
@@ -1662,8 +1662,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %27, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %25, %.lr.ph.i.i.i.i
-  %.036.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %25 ]
-  %28 = shl i64 %.036.i.i.i.i, 1
+  %.037.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %25 ]
+  %28 = shl i64 %.037.i.i.i.i, 1
   %29 = add i64 %28, 2
   %30 = getelementptr inbounds ptr, ptr %.fr26, i64 %29
   %31 = or disjoint i64 %28, 1
@@ -1684,7 +1684,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %spec.select.i.i.i.i = select i1 %42, i64 %31, i64 %29
   %43 = getelementptr inbounds ptr, ptr %.fr26, i64 %spec.select.i.i.i.i
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds ptr, ptr %.fr26, i64 %.036.i.i.i.i
+  %45 = getelementptr inbounds ptr, ptr %.fr26, i64 %.037.i.i.i.i
   store ptr %44, ptr %45, align 8
   %46 = icmp slt i64 %spec.select.i.i.i.i, %19
   br i1 %46, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !61
@@ -1710,10 +1710,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %53
 
 53:                                               ; preds = %63, %.lr.ph.i.i.i.i.i
-  %.019.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0920.i.i.i.i.i, %63 ]
-  %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
-  %.0920.i.i.i.i.i = sdiv i64 %.0920.in.i.i.i.i.i, 2
-  %54 = getelementptr inbounds ptr, ptr %.fr26, i64 %.0920.i.i.i.i.i
+  %.010.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %63 ]
+  %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
+  %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
+  %54 = getelementptr inbounds ptr, ptr %.fr26, i64 %.0911.i.i.i.i.i
   %.val.val.i.i.i.i.i = load i32, ptr %11, align 4
   %.val10.val.i.i.i.i.i = load ptr, ptr %52, align 8
   %55 = load ptr, ptr %54, align 8
@@ -1728,13 +1728,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %62, label %63, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm14DWARFUnitIndex5EntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS3_13getFromOffsetEmE3$_1EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
 63:                                               ; preds = %53
-  %64 = getelementptr inbounds ptr, ptr %.fr26, i64 %.019.i.i.i.i.i
+  %64 = getelementptr inbounds ptr, ptr %.fr26, i64 %.010.i.i.i.i.i
   store ptr %55, ptr %64, align 8
-  %65 = icmp sgt i64 %.0920.i.i.i.i.i, %.0.i.i.i
+  %65 = icmp sgt i64 %.0911.i.i.i.i.i, %.0.i.i.i
   br i1 %65, label %53, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm14DWARFUnitIndex5EntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS3_13getFromOffsetEmE3$_1EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !62
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm14DWARFUnitIndex5EntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS3_13getFromOffsetEmE3$_1EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %63, %53, %50
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %50 ], [ %.019.i.i.i.i.i, %53 ], [ %.0920.i.i.i.i.i, %63 ]
+  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %50 ], [ %.010.i.i.i.i.i, %53 ], [ %.0911.i.i.i.i.i, %63 ]
   %66 = getelementptr inbounds ptr, ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
   store ptr %26, ptr %66, align 8
   %67 = icmp eq i64 %.0.i.i.i, 0
@@ -1746,8 +1746,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %69, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvm14DWARFUnitIndex5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_13getFromOffsetEmE3$_1EEEvT_SF_SF_T0_.exit"
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm14DWARFUnitIndex5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_13getFromOffsetEmE3$_1EEEvT_SF_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm14DWARFUnitIndex5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_13getFromOffsetEmE3$_1EEEvT_SF_SF_RT0_.exit.i.i"
-  %.sroa.0.05.i.i = phi ptr [ %70, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm14DWARFUnitIndex5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_13getFromOffsetEmE3$_1EEEvT_SF_SF_RT0_.exit.i.i" ], [ %storemerge23.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm14DWARFUnitIndex5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_13getFromOffsetEmE3$_1EEEvT_SF_RT0_.exit.i.i" ]
-  %70 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
+  %.sroa.0.03.i.i = phi ptr [ %70, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm14DWARFUnitIndex5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_13getFromOffsetEmE3$_1EEEvT_SF_SF_RT0_.exit.i.i" ], [ %storemerge23.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm14DWARFUnitIndex5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_13getFromOffsetEmE3$_1EEEvT_SF_RT0_.exit.i.i" ]
+  %70 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %.fr26, align 8
   store ptr %72, ptr %70, align 8
@@ -1760,8 +1760,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %78, label %.lr.ph.i.i.i20.i, label %._crit_edge.i.i.i10.i
 
 .lr.ph.i.i.i20.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i20.i
-  %.036.i.i.i21.i = phi i64 [ %spec.select.i.i.i25.i, %.lr.ph.i.i.i20.i ], [ 0, %.lr.ph.i9.i ]
-  %79 = shl i64 %.036.i.i.i21.i, 1
+  %.037.i.i.i21.i = phi i64 [ %spec.select.i.i.i25.i, %.lr.ph.i.i.i20.i ], [ 0, %.lr.ph.i9.i ]
+  %79 = shl i64 %.037.i.i.i21.i, 1
   %80 = add i64 %79, 2
   %81 = getelementptr inbounds ptr, ptr %.fr26, i64 %80
   %82 = or disjoint i64 %79, 1
@@ -1782,7 +1782,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %spec.select.i.i.i25.i = select i1 %93, i64 %82, i64 %80
   %94 = getelementptr inbounds ptr, ptr %.fr26, i64 %spec.select.i.i.i25.i
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds ptr, ptr %.fr26, i64 %.036.i.i.i21.i
+  %96 = getelementptr inbounds ptr, ptr %.fr26, i64 %.037.i.i.i21.i
   store ptr %95, ptr %96, align 8
   %97 = icmp slt i64 %spec.select.i.i.i25.i, %77
   br i1 %97, label %.lr.ph.i.i.i20.i, label %._crit_edge.i.i.i10.i, !llvm.loop !61
@@ -1818,10 +1818,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %113
 
 113:                                              ; preds = %123, %.lr.ph.i.i.i.i14.i
-  %.019.i.i.i.i15.i = phi i64 [ %.1.i.i.i12.i, %.lr.ph.i.i.i.i14.i ], [ %.0920.i.i78.i.i.i, %123 ]
-  %.0920.in.i.i.i.i16.i = add nsw i64 %.019.i.i.i.i15.i, -1
-  %.0920.i.i78.i.i.i = lshr i64 %.0920.in.i.i.i.i16.i, 1
-  %114 = getelementptr inbounds ptr, ptr %.fr26, i64 %.0920.i.i78.i.i.i
+  %.010.i.i.i.i15.i = phi i64 [ %.1.i.i.i12.i, %.lr.ph.i.i.i.i14.i ], [ %.0911.i.i78.i.i.i, %123 ]
+  %.0911.in.i.i.i.i16.i = add nsw i64 %.010.i.i.i.i15.i, -1
+  %.0911.i.i78.i.i.i = lshr i64 %.0911.in.i.i.i.i16.i, 1
+  %114 = getelementptr inbounds ptr, ptr %.fr26, i64 %.0911.i.i78.i.i.i
   %.val.val.i.i.i.i17.i = load i32, ptr %11, align 4
   %.val10.val.i.i.i.i18.i = load ptr, ptr %112, align 8
   %115 = load ptr, ptr %114, align 8
@@ -1836,13 +1836,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %122, label %123, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm14DWARFUnitIndex5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_13getFromOffsetEmE3$_1EEEvT_SF_SF_RT0_.exit.i.i"
 
 123:                                              ; preds = %113
-  %124 = getelementptr inbounds ptr, ptr %.fr26, i64 %.019.i.i.i.i15.i
+  %124 = getelementptr inbounds ptr, ptr %.fr26, i64 %.010.i.i.i.i15.i
   store ptr %115, ptr %124, align 8
-  %.not.i.i.i = icmp ult i64 %.0920.in.i.i.i.i16.i, 2
+  %.not.i.i.i = icmp ult i64 %.0911.in.i.i.i.i16.i, 2
   br i1 %.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm14DWARFUnitIndex5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_13getFromOffsetEmE3$_1EEEvT_SF_SF_RT0_.exit.i.i", label %113, !llvm.loop !62
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm14DWARFUnitIndex5EntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_13getFromOffsetEmE3$_1EEEvT_SF_SF_RT0_.exit.i.i": ; preds = %123, %113, %110
-  %.0.lcssa.i.i.i.i13.i = phi i64 [ %.1.i.i.i12.i, %110 ], [ %.019.i.i.i.i15.i, %113 ], [ 0, %123 ]
+  %.0.lcssa.i.i.i.i13.i = phi i64 [ %.1.i.i.i12.i, %110 ], [ %.010.i.i.i.i15.i, %113 ], [ 0, %123 ]
   %125 = getelementptr inbounds ptr, ptr %.fr26, i64 %.0.lcssa.i.i.i.i13.i
   store ptr %71, ptr %125, align 8
   %126 = icmp sgt i64 %74, 8

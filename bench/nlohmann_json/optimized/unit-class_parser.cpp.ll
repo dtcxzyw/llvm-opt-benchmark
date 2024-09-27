@@ -58858,10 +58858,10 @@ entry:
   %ref.tmp113 = alloca %"struct.doctest::detail::Result", align 8
   %ref.tmp114 = alloca %"struct.doctest::detail::Expression_lhs.308", align 8
   %ref.tmp115 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
+  %0 = ptrtoint ptr %s to i64
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_4)
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_113accept_helperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1EE", i64 16), ptr %DOCTEST_CAPTURE_4, align 8, !alias.scope !596
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_4, i64 16
-  %0 = ptrtoint ptr %s to i64
   store i64 %0, ptr %lambda_.i.i, align 8, !alias.scope !596
   store i8 0, ptr %j, align 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %j, i64 8

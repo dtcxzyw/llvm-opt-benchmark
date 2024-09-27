@@ -5838,7 +5838,7 @@ _ZNO9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array
   %52 = icmp eq i32 %50, 0
   %53 = icmp eq i32 %51, 0
   %.not910.i = select i1 %52, i1 true, i1 %53
-  br i1 %.not910.i, label %.loopexit48, label %_ZN9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EE9hb_pair_tIRS3_S9_EEdeEv.exit.i
+  br i1 %.not910.i, label %.loopexit49, label %_ZN9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EE9hb_pair_tIRS3_S9_EEdeEv.exit.i
 
 _ZN9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EE9hb_pair_tIRS3_S9_EEdeEv.exit.i: ; preds = %_ZNO9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EE9hb_pair_tIRS3_S9_EEppEv.exit, %_ZNR9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EE9hb_pair_tIRS3_S9_EEppEv.exit.i
   %.sroa.13.014.i = phi i32 [ %65, %_ZNR9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EE9hb_pair_tIRS3_S9_EEppEv.exit.i ], [ %51, %_ZNO9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EE9hb_pair_tIRS3_S9_EEppEv.exit ]
@@ -5872,19 +5872,19 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array
   %66 = icmp eq i32 %64, 0
   %67 = icmp eq i32 %65, 0
   %.not9.i = select i1 %66, i1 true, i1 %67
-  br i1 %.not9.i, label %.loopexit48, label %_ZN9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EE9hb_pair_tIRS3_S9_EEdeEv.exit.i, !llvm.loop !99
+  br i1 %.not9.i, label %.loopexit49, label %_ZN9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EE9hb_pair_tIRS3_S9_EEdeEv.exit.i, !llvm.loop !99
 
-.loopexit48:                                      ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EE9hb_pair_tIRS3_S9_EEppEv.exit.i, %_ZNO9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EE9hb_pair_tIRS3_S9_EEppEv.exit
+.loopexit49:                                      ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EE9hb_pair_tIRS3_S9_EEppEv.exit.i, %_ZNO9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EE9hb_pair_tIRS3_S9_EEppEv.exit
   store i16 256, ptr %0, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
   store ptr @_ZL8hb_first, ptr %.sroa.2.0..sroa_idx, align 8
   %68 = load i32, ptr %5, align 4
-  %.not.i.i11 = icmp eq i32 %68, 0
-  br i1 %.not.i.i11, label %69, label %"_ZN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS0_10SmallTypesEE9serializeI13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tINS_11HBGlyphID16EE10hb_array_tIS9_EERK3$_5L24hb_function_sortedness_t1ELPv0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSL_18is_sorted_iteratorEvE4typeELSI_0EEEbP22hb_serialize_context_tSL_j.exit"
+  %.not.i.i12 = icmp eq i32 %68, 0
+  br i1 %.not.i.i12, label %69, label %"_ZN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS0_10SmallTypesEE9serializeI13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tINS_11HBGlyphID16EE10hb_array_tIS9_EERK3$_5L24hb_function_sortedness_t1ELPv0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSL_18is_sorted_iteratorEvE4typeELSI_0EEEbP22hb_serialize_context_tSL_j.exit"
 
-69:                                               ; preds = %.loopexit48
+69:                                               ; preds = %.loopexit49
   %70 = getelementptr inbounds i8, ptr %0, i64 6
   %71 = load ptr, ptr %9, align 8
   %72 = ptrtoint ptr %70 to i64
@@ -5901,22 +5901,22 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array
   br i1 %80, label %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.sink.split.i, label %81
 
 81:                                               ; preds = %76
-  %.not.i.i.i.not.i.i12 = icmp eq ptr %70, %71
-  br i1 %.not.i.i.i.not.i.i12, label %_ZL9hb_memsetPvij.exit.i.i.i.i14, label %82
+  %.not.i.i.i.not.i.i13 = icmp eq ptr %70, %71
+  br i1 %.not.i.i.i.not.i.i13, label %_ZL9hb_memsetPvij.exit.i.i.i.i15, label %82
 
 82:                                               ; preds = %81
   tail call void @llvm.memset.p0.i64(ptr align 1 %71, i8 0, i64 %74, i1 false)
-  %.pre.i.i.i.i13 = load ptr, ptr %9, align 8
-  br label %_ZL9hb_memsetPvij.exit.i.i.i.i14
+  %.pre.i.i.i.i14 = load ptr, ptr %9, align 8
+  br label %_ZL9hb_memsetPvij.exit.i.i.i.i15
 
-_ZL9hb_memsetPvij.exit.i.i.i.i14:                 ; preds = %82, %81
-  %83 = phi ptr [ %.pre.i.i.i.i13, %82 ], [ %71, %81 ]
+_ZL9hb_memsetPvij.exit.i.i.i.i15:                 ; preds = %82, %81
+  %83 = phi ptr [ %.pre.i.i.i.i14, %82 ], [ %71, %81 ]
   %84 = getelementptr inbounds i8, ptr %83, i64 %74
   store ptr %84, ptr %9, align 8
   %85 = icmp eq ptr %83, null
   br i1 %85, label %"_ZN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS0_10SmallTypesEE9serializeI13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tINS_11HBGlyphID16EE10hb_array_tIS9_EERK3$_5L24hb_function_sortedness_t1ELPv0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSL_18is_sorted_iteratorEvE4typeELSI_0EEEbP22hb_serialize_context_tSL_j.exit", label %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEEEEEPT_S8_.exit.i
 
-_ZN22hb_serialize_context_t10extend_minIN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEEEEEPT_S8_.exit.i: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i.i14
+_ZN22hb_serialize_context_t10extend_minIN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEEEEEPT_S8_.exit.i: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i.i15
   %86 = call fastcc noundef zeroext i1 @"_ZN2OT8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EE19serialize_serializeIJR13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tINS_11HBGlyphID16EE10hb_array_tISB_EERK3$_5L24hb_function_sortedness_t1ELPv0EEEEEbP22hb_serialize_context_tDpOT_"(ptr noundef nonnull align 1 dereferenceable(2) %8, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 dereferenceable(40) %4)
   br i1 %86, label %87, label %"_ZN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS0_10SmallTypesEE9serializeI13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tINS_11HBGlyphID16EE10hb_array_tIS9_EERK3$_5L24hb_function_sortedness_t1ELPv0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSL_18is_sorted_iteratorEvE4typeELSI_0EEEbP22hb_serialize_context_tSL_j.exit"
 
@@ -5931,8 +5931,8 @@ _ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_s
   store i32 4, ptr %5, align 4
   br label %"_ZN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS0_10SmallTypesEE9serializeI13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tINS_11HBGlyphID16EE10hb_array_tIS9_EERK3$_5L24hb_function_sortedness_t1ELPv0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSL_18is_sorted_iteratorEvE4typeELSI_0EEEbP22hb_serialize_context_tSL_j.exit"
 
-"_ZN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS0_10SmallTypesEE9serializeI13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tINS_11HBGlyphID16EE10hb_array_tIS9_EERK3$_5L24hb_function_sortedness_t1ELPv0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSL_18is_sorted_iteratorEvE4typeELSI_0EEEbP22hb_serialize_context_tSL_j.exit": ; preds = %87, %.loopexit48, %_ZL9hb_memsetPvij.exit.i.i.i.i14, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEEEEEPT_S8_.exit.i, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.sink.split.i
-  %.0.i = phi i1 [ false, %.loopexit48 ], [ false, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEEEEEPT_S8_.exit.i ], [ true, %87 ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i.i14 ], [ false, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.sink.split.i ]
+"_ZN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS0_10SmallTypesEE9serializeI13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tINS_11HBGlyphID16EE10hb_array_tIS9_EERK3$_5L24hb_function_sortedness_t1ELPv0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSL_18is_sorted_iteratorEvE4typeELSI_0EEEbP22hb_serialize_context_tSL_j.exit": ; preds = %87, %.loopexit49, %_ZL9hb_memsetPvij.exit.i.i.i.i15, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEEEEEPT_S8_.exit.i, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.sink.split.i
+  %.0.i = phi i1 [ false, %.loopexit49 ], [ false, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEEEEEPT_S8_.exit.i ], [ true, %87 ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i.i15 ], [ false, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %select.unfold
 

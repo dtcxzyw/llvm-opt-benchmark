@@ -15171,10 +15171,10 @@ _ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_pt
   br i1 %cmp.i.i.i, label %invoke.cont102, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i, %if.end.i
-  %it.sroa.5.018.i = phi ptr [ %__x.sroa.6.0.i.i, %if.end.i ], [ %retval.sroa.5.0.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i ]
-  %it.sroa.0.017.i = phi ptr [ %__x.sroa.0.0.i.i, %if.end.i ], [ %retval.sroa.0.0.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i ]
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
-  %incdec.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.5.018.i, i64 8
+  %it.sroa.5.017.i = phi ptr [ %__x.sroa.6.0.i.i, %if.end.i ], [ %retval.sroa.5.0.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i ]
+  %it.sroa.0.016.i = phi ptr [ %__x.sroa.0.0.i.i, %if.end.i ], [ %retval.sroa.0.0.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i ]
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 1
+  %incdec.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.5.017.i, i64 8
   %43 = load i8, ptr %incdec.ptr.i.i.i.i.i, align 1
   %cmp.i3.i.i.i.i.i.i = icmp slt i8 %43, -1
   br i1 %cmp.i3.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZSt4nextIN4absl18container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS1_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EE8iteratorEET_SG_NSt15iterator_traitsISG_E15difference_typeE.exit.i
@@ -15199,8 +15199,8 @@ _ZSt4nextIN4absl18container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10u
   %__x.sroa.6.0.i.i = phi ptr [ %incdec.ptr4.i.i.i.i.i, %for.body.i ], [ %add.ptr6.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %__x.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i ], [ %add.ptr.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %.lcssa.i.i.i.i.i.i = phi i8 [ %43, %for.body.i ], [ %49, %while.body.i.i.i.i.i.i ]
-  %cmp.i.i.i.i.i9.i = icmp eq i8 %.lcssa.i.i.i.i.i.i, -1
-  %call.i.i.i.i.i186 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set1, ptr noundef nonnull readonly align 8 dereferenceable(8) %it.sroa.5.018.i)
+  %cmp.i.i.i.i.i10.i = icmp eq i8 %.lcssa.i.i.i.i.i.i, -1
+  %call.i.i.i.i.i186 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %set1, ptr noundef nonnull readonly align 8 dereferenceable(8) %it.sroa.5.017.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad3.loopexit
 
 call.i.i.i.i.i.noexc:                             ; preds = %_ZSt4nextIN4absl18container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS1_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EE8iteratorEET_SG_NSt15iterator_traitsISG_E15difference_typeE.exit.i
@@ -15212,14 +15212,14 @@ if.then.i:                                        ; preds = %call.i.i.i.i.i.noex
   %51 = extractvalue { i64, i8 } %call.i.i.i.i.i186, 0
   %.val.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !215
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.135", ptr %.val.i.i.i.i.i, i64 %51
-  %52 = load i64, ptr %it.sroa.5.018.i, align 8, !noalias !215
+  %52 = load i64, ptr %it.sroa.5.017.i, align 8, !noalias !215
   store i64 %52, ptr %add.ptr.i.i.i.i.i, align 8, !noalias !215
-  store ptr null, ptr %it.sroa.5.018.i, align 8, !noalias !215
-  invoke void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEPNS0_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull %it.sroa.0.017.i, i64 noundef 8)
+  store ptr null, ptr %it.sroa.5.017.i, align 8, !noalias !215
+  invoke void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEPNS0_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull %it.sroa.0.016.i, i64 noundef 8)
           to label %if.end.i unwind label %lpad3.loopexit
 
 if.end.i:                                         ; preds = %if.then.i, %call.i.i.i.i.i.noexc
-  br i1 %cmp.i.i.i.i.i9.i, label %invoke.cont102, label %for.body.i, !llvm.loop !224
+  br i1 %cmp.i.i.i.i.i10.i, label %invoke.cont102, label %for.body.i, !llvm.loop !224
 
 invoke.cont102:                                   ; preds = %if.end.i, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE5beginEv.exit.i
   store i32 19, ptr %ref.tmp84, align 4
@@ -16157,8 +16157,8 @@ if.end.i312:                                      ; preds = %_ZN7testing15Assert
 call.i.i.i.i.i.noexc318:                          ; preds = %if.end.i312
   %143 = extractvalue { i64, i8 } %call.i.i.i.i.i319, 0
   %144 = extractvalue { i64, i8 } %call.i.i.i.i.i319, 1
-  %tobool.i.i.i.i6.i = trunc i8 %144 to i1
-  br i1 %tobool.i.i.i.i6.i, label %if.then7.i, label %if.else.i
+  %tobool.i.i.i.i7.i = trunc i8 %144 to i1
+  br i1 %tobool.i.i.i.i7.i, label %if.then7.i, label %if.else.i
 
 if.then7.i:                                       ; preds = %call.i.i.i.i.i.noexc318
   %.val.i.i.i.i.i314 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i81, align 8, !noalias !256
@@ -16166,10 +16166,10 @@ if.then7.i:                                       ; preds = %call.i.i.i.i.i.noex
   %145 = load i64, ptr %slot_space_.i.i, align 8, !noalias !256
   store i64 %145, ptr %add.ptr.i.i.i.i.i315, align 8, !noalias !256
   store ptr null, ptr %slot_space_.i.i, align 8, !noalias !256
-  %.val1.i.i.i.i16.i = load ptr, ptr %set2, align 8, !noalias !256, !nonnull !73, !noundef !73
-  %.val2.i.i.i.i17.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i81, align 8, !noalias !256
-  %add.ptr.i.i.i.i.i18.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i16.i, i64 %143
-  %add.ptr3.i.i.i.i.i19.i = getelementptr inbounds %"class.std::unique_ptr.135", ptr %.val2.i.i.i.i17.i, i64 %143
+  %.val1.i.i.i.i15.i = load ptr, ptr %set2, align 8, !noalias !256, !nonnull !73, !noundef !73
+  %.val2.i.i.i.i16.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i81, align 8, !noalias !256
+  %add.ptr.i.i.i.i.i17.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i15.i, i64 %143
+  %add.ptr3.i.i.i.i.i18.i = getelementptr inbounds %"class.std::unique_ptr.135", ptr %.val2.i.i.i.i16.i, i64 %143
   %146 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i.i316 = trunc i8 %146 to i1
   br i1 %tobool.i.i.i.i.i.i316, label %if.then.i.i.i.i.i.i317, label %_ZN4absl18container_internal12CommonAccess5ResetINS0_11node_handleINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEENS0_18hash_policy_traitsIS9_vEESaIS8_EvEEEEvPT_.exit.i
@@ -16180,9 +16180,9 @@ if.then.i.i.i.i.i.i317:                           ; preds = %if.then7.i
 
 _ZN4absl18container_internal12CommonAccess5ResetINS0_11node_handleINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEENS0_18hash_policy_traitsIS9_vEESaIS8_EvEEEEvPT_.exit.i: ; preds = %if.then.i.i.i.i.i.i317, %if.then7.i
   %147 = phi i8 [ 0, %if.then.i.i.i.i.i.i317 ], [ %146, %if.then7.i ]
-  store ptr %add.ptr.i.i.i.i.i18.i, ptr %insert_result, align 8, !alias.scope !253
+  store ptr %add.ptr.i.i.i.i.i17.i, ptr %insert_result, align 8, !alias.scope !253
   %res.sroa.3.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %insert_result, i64 8
-  store ptr %add.ptr3.i.i.i.i.i19.i, ptr %res.sroa.3.0.agg.result.sroa_idx.i, align 8, !alias.scope !253
+  store ptr %add.ptr3.i.i.i.i.i18.i, ptr %res.sroa.3.0.agg.result.sroa_idx.i, align 8, !alias.scope !253
   br label %invoke.cont242.sink.split
 
 if.else.i:                                        ; preds = %call.i.i.i.i.i.noexc318
@@ -16191,22 +16191,22 @@ if.else.i:                                        ; preds = %call.i.i.i.i.i.noex
   %add.ptr.i.i.i.i.i.i313 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i, i64 %143
   %add.ptr3.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.135", ptr %.val2.i.i.i.i.i, i64 %143
   store ptr %add.ptr.i.i.i.i.i.i313, ptr %insert_result, align 8, !alias.scope !253
-  %res.sroa.3.0.agg.result.sroa_idx14.i = getelementptr inbounds i8, ptr %insert_result, i64 8
-  store ptr %add.ptr3.i.i.i.i.i.i, ptr %res.sroa.3.0.agg.result.sroa_idx14.i, align 8, !alias.scope !253
+  %res.sroa.3.0.agg.result.sroa_idx13.i = getelementptr inbounds i8, ptr %insert_result, i64 8
+  store ptr %add.ptr3.i.i.i.i.i.i, ptr %res.sroa.3.0.agg.result.sroa_idx13.i, align 8, !alias.scope !253
   %inserted13.i = getelementptr inbounds i8, ptr %insert_result, i64 16
   store i8 0, ptr %inserted13.i, align 8, !alias.scope !253
-  %_M_engaged.i.i.i.i.i.i.i9.i = getelementptr inbounds i8, ptr %insert_result, i64 25
-  store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i9.i, align 1, !alias.scope !253
-  %scevgep.i.i10.i = getelementptr inbounds i8, ptr %insert_result, i64 32
-  store i64 0, ptr %scevgep.i.i10.i, align 8, !alias.scope !253
+  %_M_engaged.i.i.i.i.i.i.i10.i = getelementptr inbounds i8, ptr %insert_result, i64 25
+  store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i10.i, align 1, !alias.scope !253
+  %scevgep.i.i11.i = getelementptr inbounds i8, ptr %insert_result, i64 32
+  store i64 0, ptr %scevgep.i.i11.i, align 8, !alias.scope !253
   %.pre.i.i.i = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i.i.i = trunc i8 %.pre.i.i.i to i1
   br i1 %tobool.i.i.i.i.i.i.i, label %invoke.cont242.thread, label %invoke.cont242
 
 invoke.cont242.thread:                            ; preds = %if.else.i
-  store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i9.i, align 1, !alias.scope !253
+  store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i10.i, align 1, !alias.scope !253
   %148 = load i64, ptr %slot_space_.i.i, align 8, !noalias !253
-  store i64 %148, ptr %scevgep.i.i10.i, align 8, !alias.scope !253
+  store i64 %148, ptr %scevgep.i.i11.i, align 8, !alias.scope !253
   store ptr null, ptr %slot_space_.i.i, align 8, !noalias !253
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 1, !noalias !253
   store i8 1, ptr %gtest_ar_243, align 8
@@ -16219,10 +16219,10 @@ invoke.cont242.sink.split:                        ; preds = %if.then.i311, %_ZN4
   %.ph = phi i8 [ %147, %_ZN4absl18container_internal12CommonAccess5ResetINS0_11node_handleINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEENS0_18hash_policy_traitsIS9_vEESaIS8_EvEEEEvPT_.exit.i ], [ %142, %if.then.i311 ]
   %inserted9.i = getelementptr inbounds i8, ptr %insert_result, i64 16
   store i8 %.sink, ptr %inserted9.i, align 8, !alias.scope !253
-  %_M_engaged.i.i.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %insert_result, i64 25
-  store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i7.i, align 1, !alias.scope !253
-  %scevgep.i.i8.i = getelementptr inbounds i8, ptr %insert_result, i64 32
-  store i64 0, ptr %scevgep.i.i8.i, align 8, !alias.scope !253
+  %_M_engaged.i.i.i.i.i.i.i8.i = getelementptr inbounds i8, ptr %insert_result, i64 25
+  store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i8.i, align 1, !alias.scope !253
+  %scevgep.i.i9.i = getelementptr inbounds i8, ptr %insert_result, i64 32
+  store i64 0, ptr %scevgep.i.i9.i, align 8, !alias.scope !253
   br label %invoke.cont242
 
 invoke.cont242:                                   ; preds = %invoke.cont242.sink.split, %if.else.i
@@ -17364,8 +17364,8 @@ if.end.i569:                                      ; preds = %_ZNSt10unique_ptrIi
 call.i.i.i.i.i.noexc598:                          ; preds = %if.end.i569
   %261 = extractvalue { i64, i8 } %call.i.i.i.i.i599, 0
   %262 = extractvalue { i64, i8 } %call.i.i.i.i.i599, 1
-  %tobool.i.i.i.i6.i571 = trunc i8 %262 to i1
-  br i1 %tobool.i.i.i.i6.i571, label %if.then7.i584, label %if.else.i572
+  %tobool.i.i.i.i7.i571 = trunc i8 %262 to i1
+  br i1 %tobool.i.i.i.i7.i571, label %if.then7.i584, label %if.else.i572
 
 if.then7.i584:                                    ; preds = %call.i.i.i.i.i.noexc598
   %.val.i.i.i.i.i585 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i81, align 8, !noalias !282
@@ -17373,10 +17373,10 @@ if.then7.i584:                                    ; preds = %call.i.i.i.i.i.noex
   %263 = load i64, ptr %slot_space_.i.i, align 8, !noalias !282
   store i64 %263, ptr %add.ptr.i.i.i.i.i586, align 8, !noalias !282
   store ptr null, ptr %slot_space_.i.i, align 8, !noalias !282
-  %.val1.i.i.i.i16.i587 = load ptr, ptr %set2, align 8, !noalias !282, !nonnull !73, !noundef !73
-  %.val2.i.i.i.i17.i588 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i81, align 8, !noalias !282
-  %add.ptr.i.i.i.i.i18.i589 = getelementptr inbounds i8, ptr %.val1.i.i.i.i16.i587, i64 %261
-  %add.ptr3.i.i.i.i.i19.i590 = getelementptr inbounds %"class.std::unique_ptr.135", ptr %.val2.i.i.i.i17.i588, i64 %261
+  %.val1.i.i.i.i15.i587 = load ptr, ptr %set2, align 8, !noalias !282, !nonnull !73, !noundef !73
+  %.val2.i.i.i.i16.i588 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i81, align 8, !noalias !282
+  %add.ptr.i.i.i.i.i17.i589 = getelementptr inbounds i8, ptr %.val1.i.i.i.i15.i587, i64 %261
+  %add.ptr3.i.i.i.i.i18.i590 = getelementptr inbounds %"class.std::unique_ptr.135", ptr %.val2.i.i.i.i16.i588, i64 %261
   %264 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1, !noalias !279
   %tobool.i.i.i.i.i.i591 = trunc i8 %264 to i1
   br i1 %tobool.i.i.i.i.i.i591, label %invoke.cont528.sink.split, label %invoke.cont528
@@ -17396,17 +17396,17 @@ if.then.i.i.i.i.i.i.i.i583:                       ; preds = %if.else.i572
   br label %invoke.cont528.sink.split
 
 invoke.cont528.sink.split:                        ; preds = %if.then7.i584, %if.then.i.i.i.i.i.i.i.i583
-  %ref.tmp527.sroa.0.0.ph = phi ptr [ %add.ptr.i.i.i.i.i.i575, %if.then.i.i.i.i.i.i.i.i583 ], [ %add.ptr.i.i.i.i.i18.i589, %if.then7.i584 ]
-  %ref.tmp527.sroa.4.0.ph = phi ptr [ %add.ptr3.i.i.i.i.i.i576, %if.then.i.i.i.i.i.i.i.i583 ], [ %add.ptr3.i.i.i.i.i19.i590, %if.then7.i584 ]
+  %ref.tmp527.sroa.0.0.ph = phi ptr [ %add.ptr.i.i.i.i.i.i575, %if.then.i.i.i.i.i.i.i.i583 ], [ %add.ptr.i.i.i.i.i17.i589, %if.then7.i584 ]
+  %ref.tmp527.sroa.4.0.ph = phi ptr [ %add.ptr3.i.i.i.i.i.i576, %if.then.i.i.i.i.i.i.i.i583 ], [ %add.ptr3.i.i.i.i.i18.i590, %if.then7.i584 ]
   %ref.tmp527.sroa.6.0.ph = phi i8 [ 0, %if.then.i.i.i.i.i.i.i.i583 ], [ 1, %if.then7.i584 ]
   %ref.tmp527.sroa.19.0.ph = phi i64 [ %265, %if.then.i.i.i.i.i.i.i.i583 ], [ 0, %if.then7.i584 ]
-  %ref.tmp527.sroa.9.0.ph = xor i1 %tobool.i.i.i.i6.i571, true
+  %ref.tmp527.sroa.9.0.ph = xor i1 %tobool.i.i.i.i7.i571, true
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 1, !noalias !279
   br label %invoke.cont528
 
 invoke.cont528:                                   ; preds = %invoke.cont528.sink.split, %if.else.i572, %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit562, %if.then7.i584
-  %ref.tmp527.sroa.0.0 = phi ptr [ %add.ptr.i.i.i.i.i.i575, %if.else.i572 ], [ null, %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit562 ], [ %add.ptr.i.i.i.i.i18.i589, %if.then7.i584 ], [ %ref.tmp527.sroa.0.0.ph, %invoke.cont528.sink.split ]
-  %ref.tmp527.sroa.4.0 = phi ptr [ %add.ptr3.i.i.i.i.i.i576, %if.else.i572 ], [ undef, %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit562 ], [ %add.ptr3.i.i.i.i.i19.i590, %if.then7.i584 ], [ %ref.tmp527.sroa.4.0.ph, %invoke.cont528.sink.split ]
+  %ref.tmp527.sroa.0.0 = phi ptr [ %add.ptr.i.i.i.i.i.i575, %if.else.i572 ], [ null, %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit562 ], [ %add.ptr.i.i.i.i.i17.i589, %if.then7.i584 ], [ %ref.tmp527.sroa.0.0.ph, %invoke.cont528.sink.split ]
+  %ref.tmp527.sroa.4.0 = phi ptr [ %add.ptr3.i.i.i.i.i.i576, %if.else.i572 ], [ undef, %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit562 ], [ %add.ptr3.i.i.i.i.i18.i590, %if.then7.i584 ], [ %ref.tmp527.sroa.4.0.ph, %invoke.cont528.sink.split ]
   %ref.tmp527.sroa.6.0 = phi i8 [ 0, %if.else.i572 ], [ 0, %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit562 ], [ 1, %if.then7.i584 ], [ %ref.tmp527.sroa.6.0.ph, %invoke.cont528.sink.split ]
   %ref.tmp527.sroa.9.0 = phi i1 [ false, %if.else.i572 ], [ false, %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit562 ], [ false, %if.then7.i584 ], [ %ref.tmp527.sroa.9.0.ph, %invoke.cont528.sink.split ]
   %ref.tmp527.sroa.19.0 = phi i64 [ 0, %if.else.i572 ], [ 0, %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit562 ], [ 0, %if.then7.i584 ], [ %ref.tmp527.sroa.19.0.ph, %invoke.cont528.sink.split ]
@@ -31726,8 +31726,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i.i.
   store i8 %conv.i.i.i.i.i.i.i, ptr %arrayidx7.i.i.i.i.i.i.i.i.i, align 1, !noalias !842
   %.val.i.i.i.i.i = load ptr, ptr %3, align 8, !noalias !842
   %args.val.i.i.i.i.i = load i64, ptr %value, align 8, !noalias !842
-  %add.ptr.i3.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::(anonymous namespace)::PoisonInline", ptr %.val.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i
-  store i64 %args.val.i.i.i.i.i, ptr %add.ptr.i3.i.i.i.i.i, align 8, !noalias !842
+  %add.ptr.i4.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::(anonymous namespace)::PoisonInline", ptr %.val.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i
+  store i64 %args.val.i.i.i.i.i, ptr %add.ptr.i4.i.i.i.i.i, align 8, !noalias !842
   %.val1.pre.i.i.i.i.i = load ptr, ptr %this, align 8, !noalias !842
   %.val2.pre.i.i.i.i.i = load ptr, ptr %3, align 8, !noalias !842
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE7emplaceIJRKS4_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbEDpOSH_.exit
@@ -31737,9 +31737,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL
   %.val1.i.i.i.i.i = phi ptr [ %.val1.pre.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %this.val6.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %retval.sroa.3.0.i9.i.i.i.i.i = phi i8 [ 1, %if.then.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.i ]
   %retval.sroa.0.0.i8.i.i.i.i.i = phi i64 [ %target.sroa.0.0.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %and.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %add.ptr.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i.i
+  %add.ptr.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i.i
   %add.ptr3.i.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::(anonymous namespace)::PoisonInline", ptr %.val2.i.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i.i
-  store ptr %add.ptr.i4.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !842
+  store ptr %add.ptr.i5.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !842
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr3.i.i.i.i.i.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i.i, align 8, !alias.scope !842
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16

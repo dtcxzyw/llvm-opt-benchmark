@@ -155,8 +155,8 @@ _ZN21ZVirtualMemoryManager18reserve_contiguousE7zoffsetm.exit.i.i: ; preds = %16
   %.str.9..str.10 = select i1 %46, ptr @.str.9, ptr @.str.10
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %42, ptr noundef nonnull %45, ptr noundef nonnull %.str.9..str.10)
   store i32 3, ptr %4, align 8
-  %.sroa.21.0..sroa_idx.i11 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i11, align 8
+  %.sroa.21.0..sroa_idx.i12 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i12, align 8
   %47 = lshr i64 %.0.i, 20
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.11, i64 noundef %47)
   %48 = getelementptr inbounds i8, ptr %0, i64 112

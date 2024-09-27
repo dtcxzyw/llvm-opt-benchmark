@@ -2258,7 +2258,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit._crit_edge.i.i.i.i.
   br label %"_ZNO5vcpkg9ExpectedTIjNS_15LocalizedStringEE4thenIZN12_GLOBAL__N_122try_read_ntbs_from_rvaB5cxx11ERKNS_11DllMetadataERNS_15ReadFilePointerEjE3$_0JEEENSt13invoke_resultIT_JjDpT0_EE4typeESC_DpOSD_.exit.i.i.i.i.i.i"
 
 123:                                              ; preds = %.noexc29.i.i.i.i.i
-  %.val.i.i.i.i.i.i.i = load i32, ptr %6, align 8, !noalias !123
+  %.val1.i.i.i.i.i.i.i = load i32, ptr %6, align 8, !noalias !123
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
@@ -2266,7 +2266,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit._crit_edge.i.i.i.i.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !137
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !137
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25, !noalias !138
-  %124 = zext i32 %.val.i.i.i.i.i.i.i to i64
+  %124 = zext i32 %.val1.i.i.i.i.i.i.i to i64
   br label %125
 
 125:                                              ; preds = %_ZN5vcpkg9ExpectedTIcNS_15LocalizedStringEED2Ev.exit11.i.i.i.i.i.i.i.i.i.i.i, %123

@@ -16287,14 +16287,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115MachineVerifier25visitMachineFun
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %29 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %30 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %31 = getelementptr inbounds i8, ptr %19, i64 8
-  store i64 0, ptr %31, align 8
-  %32 = ptrtoint ptr %0 to i64
-  store i64 %32, ptr %19, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm5TwineEEZN12_GLOBAL__N_115MachineVerifier25visitMachineFunctionAfterEvE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %30, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm5TwineEEZN12_GLOBAL__N_115MachineVerifier25visitMachineFunctionAfterEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %29, align 8
+  %29 = ptrtoint ptr %0 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %32 = getelementptr inbounds i8, ptr %19, i64 8
+  store i64 0, ptr %32, align 8
+  store i64 %29, ptr %19, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm5TwineEEZN12_GLOBAL__N_115MachineVerifier25visitMachineFunctionAfterEvE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %31, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm5TwineEEZN12_GLOBAL__N_115MachineVerifier25visitMachineFunctionAfterEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %18)
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false)
@@ -16410,7 +16410,7 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunction
 
 _ZL24verifyConvergenceControlRKN4llvm15MachineFunctionERNS_20MachineDominatorTreeESt8functionIFvRKNS_5TwineEEE.exit: ; preds = %61, %78
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %18)
-  %80 = load ptr, ptr %29, align 8
+  %80 = load ptr, ptr %30, align 8
   %.not.i.i = icmp eq ptr %80, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRKN4llvm5TwineEEED2Ev.exit, label %81
 
@@ -16579,9 +16579,9 @@ _ZN12_GLOBAL__N_116FilteringVRegSet11addToFilterIN4llvm8DenseSetINS2_8RegisterEN
   %160 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %158) #18
   %161 = getelementptr inbounds ptr, ptr %159, i64 %160
   %.not86.i = icmp eq i64 %160, 0
-  br i1 %.not86.i, label %._crit_edge.i60, label %.lr.ph.i58
+  br i1 %.not86.i, label %._crit_edge.i61, label %.lr.ph.i59
 
-.lr.ph.i58:                                       ; preds = %_ZN12_GLOBAL__N_116FilteringVRegSet11addToFilterIN4llvm8DenseSetINS2_8RegisterENS2_12DenseMapInfoIS4_vEEEEEEvRKT_.exit16.i, %270
+.lr.ph.i59:                                       ; preds = %_ZN12_GLOBAL__N_116FilteringVRegSet11addToFilterIN4llvm8DenseSetINS2_8RegisterENS2_12DenseMapInfoIS4_vEEEEEEvRKT_.exit16.i, %270
   %.087.i = phi ptr [ %271, %270 ], [ %159, %_ZN12_GLOBAL__N_116FilteringVRegSet11addToFilterIN4llvm8DenseSetINS2_8RegisterENS2_12DenseMapInfoIS4_vEEEEEEvRKT_.exit16.i ]
   %162 = load ptr, ptr %.087.i, align 8
   %.val.i.i17.i = load ptr, ptr %98, align 8
@@ -16589,7 +16589,7 @@ _ZN12_GLOBAL__N_116FilteringVRegSet11addToFilterIN4llvm8DenseSetINS2_8RegisterEN
   %163 = icmp eq i32 %.val4.i.i18.i, 0
   br i1 %163, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115MachineVerifier6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i.i30.i, label %164
 
-164:                                              ; preds = %.lr.ph.i58
+164:                                              ; preds = %.lr.ph.i59
   %165 = ptrtoint ptr %162 to i64
   %166 = trunc i64 %165 to i32
   %167 = lshr i32 %166, 4
@@ -16631,8 +16631,8 @@ _ZN12_GLOBAL__N_116FilteringVRegSet11addToFilterIN4llvm8DenseSetINS2_8RegisterEN
   %188 = icmp eq ptr %162, %187
   br i1 %188, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115MachineVerifier6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit32.i, label %.lr.ph.i.i.i.i21.i, !llvm.loop !10
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115MachineVerifier6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i.i30.i: ; preds = %178, %.lr.ph.i58
-  %.sink.i.i.i.i31.i = phi ptr [ %179, %178 ], [ null, %.lr.ph.i58 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115MachineVerifier6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i.i30.i: ; preds = %178, %.lr.ph.i59
+  %.sink.i.i.i.i31.i = phi ptr [ %179, %178 ], [ null, %.lr.ph.i59 ]
   %.val18.i.i = load i32, ptr %102, align 8
   %189 = shl i32 %.val18.i.i, 2
   %190 = add i32 %189, 4
@@ -16799,17 +16799,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
 
 270:                                              ; preds = %267, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115MachineVerifier6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit32.i
   %271 = getelementptr inbounds i8, ptr %.087.i, i64 8
-  %.not.i59 = icmp eq ptr %271, %161
-  br i1 %.not.i59, label %._crit_edge.i60, label %.lr.ph.i58
+  %.not.i60 = icmp eq ptr %271, %161
+  br i1 %.not.i60, label %._crit_edge.i61, label %.lr.ph.i59
 
-._crit_edge.i60:                                  ; preds = %270, %_ZN12_GLOBAL__N_116FilteringVRegSet11addToFilterIN4llvm8DenseSetINS2_8RegisterENS2_12DenseMapInfoIS4_vEEEEEEvRKT_.exit16.i
+._crit_edge.i61:                                  ; preds = %270, %_ZN12_GLOBAL__N_116FilteringVRegSet11addToFilterIN4llvm8DenseSetINS2_8RegisterENS2_12DenseMapInfoIS4_vEEEEEEvRKT_.exit16.i
   %272 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
   %273 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %96) #18
   %274 = trunc i64 %273 to i32
   %275 = icmp eq i32 %274, 0
   br i1 %275, label %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E7reserveEm.exit.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E31getMinBucketToReserveForEntriesEj.exit.i.i.i
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E31getMinBucketToReserveForEntriesEj.exit.i.i.i: ; preds = %._crit_edge.i60
+_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E31getMinBucketToReserveForEntriesEj.exit.i.i.i: ; preds = %._crit_edge.i61
   %276 = shl i32 %274, 2
   %277 = udiv i32 %276, 3
   %278 = add nuw nsw i32 %277, 1
@@ -16835,10 +16835,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterENS_6detail13DenseSetEmptyENS_12
   call void @_ZN4llvm8DenseMapINS_8RegisterENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS1_vEENS2_12DenseSetPairIS1_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %272, i32 noundef %294)
   br label %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E7reserveEm.exit.i
 
-_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E7reserveEm.exit.i: ; preds = %293, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E31getMinBucketToReserveForEntriesEj.exit.i.i.i, %._crit_edge.i60
-  %.val.i61 = load ptr, ptr %96, align 8
+_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E7reserveEm.exit.i: ; preds = %293, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E31getMinBucketToReserveForEntriesEj.exit.i.i.i, %._crit_edge.i61
+  %.val.i = load ptr, ptr %96, align 8
   %295 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %96) #18
-  %296 = getelementptr inbounds %"class.llvm::Register", ptr %.val.i61, i64 %295
+  %296 = getelementptr inbounds %"class.llvm::Register", ptr %.val.i, i64 %295
   %.not7.i.i = icmp eq i64 %295, 0
   br i1 %.not7.i.i, label %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertIPKS2_EEvT_SE_.exit.i, label %.lr.ph.i.i
 
@@ -16849,7 +16849,7 @@ _ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyEN
   br label %300
 
 300:                                              ; preds = %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertERKS2_.exit.i.i, %.lr.ph.i.i
-  %.08.i.i = phi ptr [ %.val.i61, %.lr.ph.i.i ], [ %452, %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertERKS2_.exit.i.i ]
+  %.08.i.i = phi ptr [ %.val.i, %.lr.ph.i.i ], [ %452, %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertERKS2_.exit.i.i ]
   %301 = load ptr, ptr %272, align 8, !noalias !135
   %302 = load i32, ptr %297, align 8, !noalias !135
   %303 = icmp eq i32 %302, 0
@@ -30922,24 +30922,24 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeI
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.val, i64 %9
   br label %10
 
-10:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit54.thread92.i.i.i.i", %.lr.ph.i.i.i.i
-  %.0147.i.i.i.i = phi i64 [ %6, %.lr.ph.i.i.i.i ], [ %83, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit54.thread92.i.i.i.i" ]
-  %.029146.i.i.i.i = phi ptr [ %.0.val, %.lr.ph.i.i.i.i ], [ %82, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit54.thread92.i.i.i.i" ]
-  %.029.val.i.i.i.i = load i32, ptr %.029146.i.i.i.i, align 8
-  %11 = getelementptr i8, ptr %.029146.i.i.i.i, i64 4
-  %.029.val30.i.i.i.i = load i32, ptr %11, align 4
+10:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit68.thread94.i.i.i.i", %.lr.ph.i.i.i.i
+  %.0149.i.i.i.i = phi i64 [ %6, %.lr.ph.i.i.i.i ], [ %83, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit68.thread94.i.i.i.i" ]
+  %.029148.i.i.i.i = phi ptr [ %.0.val, %.lr.ph.i.i.i.i ], [ %82, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit68.thread94.i.i.i.i" ]
+  %.029.val.i.i.i.i = load i32, ptr %.029148.i.i.i.i, align 8
+  %11 = getelementptr i8, ptr %.029148.i.i.i.i, i64 4
+  %.029.val31.i.i.i.i = load i32, ptr %11, align 4
   %12 = and i32 %.029.val.i.i.i.i, 255
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.thread83.i.i.i.i"
+  br i1 %13, label %14, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.thread85.i.i.i.i"
 
 14:                                               ; preds = %10
-  %15 = icmp slt i32 %.029.val30.i.i.i.i, 0
+  %15 = icmp slt i32 %.029.val31.i.i.i.i, 0
   br i1 %15, label %16, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr %8, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 456
-  %19 = and i32 %.029.val30.i.i.i.i, 2147483647
+  %19 = and i32 %.029.val31.i.i.i.i, 2147483647
   %20 = zext nneg i32 %19 to i64
   %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #18
   %22 = icmp ugt i64 %21, %20
@@ -30956,302 +30956,302 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i.i.i.i.i: ; preds =
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.i.i.i.i": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i.i.i.i.i
   %27 = load i64, ptr %1, align 8
   %spec.select.i.i.not.i.i.not.i.i.i.i = icmp eq i64 %25, %27
-  br i1 %spec.select.i.i.not.i.i.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.thread83.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
+  br i1 %spec.select.i.i.not.i.i.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.thread85.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.thread83.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.i.i.i.i", %10
-  %28 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 32
-  %.val.i.i.i.i = load i32, ptr %28, align 8
-  %29 = getelementptr i8, ptr %.029146.i.i.i.i, i64 36
-  %.val31.i.i.i.i = load i32, ptr %29, align 4
-  %30 = and i32 %.val.i.i.i.i, 255
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.thread85.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.i.i.i.i", %10
+  %28 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 32
+  %.val34.i.i.i.i = load i32, ptr %28, align 8
+  %29 = getelementptr i8, ptr %.029148.i.i.i.i, i64 36
+  %.val35.i.i.i.i = load i32, ptr %29, align 4
+  %30 = and i32 %.val34.i.i.i.i, 255
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit44.thread86.i.i.i.i"
+  br i1 %31, label %32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit58.thread88.i.i.i.i"
 
-32:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.thread83.i.i.i.i"
-  %33 = icmp slt i32 %.val31.i.i.i.i, 0
+32:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.thread85.i.i.i.i"
+  %33 = icmp slt i32 %.val35.i.i.i.i, 0
   br i1 %33, label %34, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit63"
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %8, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 456
-  %37 = and i32 %.val31.i.i.i.i, 2147483647
+  %37 = and i32 %.val35.i.i.i.i, 2147483647
   %38 = zext nneg i32 %37 to i64
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #18
   %40 = icmp ugt i64 %39, %38
-  br i1 %40, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i41.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit61"
+  br i1 %40, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i55.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit61"
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i41.i.i.i.i: ; preds = %34
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i55.i.i.i.i: ; preds = %34
   %41 = load ptr, ptr %36, align 8
   %42 = getelementptr inbounds %"class.llvm::LLT", ptr %41, i64 %38
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, -7
-  %spec.select.i.not.i.i42.i.i.i.i = icmp eq i64 %44, 0
-  br i1 %spec.select.i.not.i.i42.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit59", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit44.i.i.i.i"
+  %spec.select.i.not.i.i56.i.i.i.i = icmp eq i64 %44, 0
+  br i1 %spec.select.i.not.i.i56.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit59", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit58.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit44.i.i.i.i": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i41.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit58.i.i.i.i": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i55.i.i.i.i
   %45 = load i64, ptr %1, align 8
-  %spec.select.i.i.not.i.i43.not.i.i.i.i = icmp eq i64 %43, %45
-  br i1 %spec.select.i.i.not.i.i43.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit44.thread86.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit"
+  %spec.select.i.i.not.i.i57.not.i.i.i.i = icmp eq i64 %43, %45
+  br i1 %spec.select.i.i.not.i.i57.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit58.thread88.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit44.thread86.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit44.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.thread83.i.i.i.i"
-  %46 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 64
-  %.val32.i.i.i.i = load i32, ptr %46, align 8
-  %47 = getelementptr i8, ptr %.029146.i.i.i.i, i64 68
-  %.val33.i.i.i.i = load i32, ptr %47, align 4
-  %48 = and i32 %.val32.i.i.i.i, 255
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit58.thread88.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit58.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.thread85.i.i.i.i"
+  %46 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 64
+  %.val38.i.i.i.i = load i32, ptr %46, align 8
+  %47 = getelementptr i8, ptr %.029148.i.i.i.i, i64 68
+  %.val39.i.i.i.i = load i32, ptr %47, align 4
+  %48 = and i32 %.val38.i.i.i.i, 255
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit49.thread89.i.i.i.i"
+  br i1 %49, label %50, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit63.thread91.i.i.i.i"
 
-50:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit44.thread86.i.i.i.i"
-  %51 = icmp slt i32 %.val33.i.i.i.i, 0
+50:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit58.thread88.i.i.i.i"
+  %51 = icmp slt i32 %.val39.i.i.i.i, 0
   br i1 %51, label %52, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit69"
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %8, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 456
-  %55 = and i32 %.val33.i.i.i.i, 2147483647
+  %55 = and i32 %.val39.i.i.i.i, 2147483647
   %56 = zext nneg i32 %55 to i64
   %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %54) #18
   %58 = icmp ugt i64 %57, %56
-  br i1 %58, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i46.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit67"
+  br i1 %58, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i60.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit67"
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i46.i.i.i.i: ; preds = %52
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i60.i.i.i.i: ; preds = %52
   %59 = load ptr, ptr %54, align 8
   %60 = getelementptr inbounds %"class.llvm::LLT", ptr %59, i64 %56
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, -7
-  %spec.select.i.not.i.i47.i.i.i.i = icmp eq i64 %62, 0
-  br i1 %spec.select.i.not.i.i47.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit65", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit49.i.i.i.i"
+  %spec.select.i.not.i.i61.i.i.i.i = icmp eq i64 %62, 0
+  br i1 %spec.select.i.not.i.i61.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit65", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit63.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit49.i.i.i.i": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i46.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit63.i.i.i.i": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i60.i.i.i.i
   %63 = load i64, ptr %1, align 8
-  %spec.select.i.i.not.i.i48.not.i.i.i.i = icmp eq i64 %61, %63
-  br i1 %spec.select.i.i.not.i.i48.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit49.thread89.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit55"
+  %spec.select.i.i.not.i.i62.not.i.i.i.i = icmp eq i64 %61, %63
+  br i1 %spec.select.i.i.not.i.i62.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit63.thread91.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit55"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit49.thread89.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit49.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit44.thread86.i.i.i.i"
-  %64 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 96
-  %.val34.i.i.i.i = load i32, ptr %64, align 8
-  %65 = getelementptr i8, ptr %.029146.i.i.i.i, i64 100
-  %.val35.i.i.i.i = load i32, ptr %65, align 4
-  %66 = and i32 %.val34.i.i.i.i, 255
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit63.thread91.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit63.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit58.thread88.i.i.i.i"
+  %64 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 96
+  %.val42.i.i.i.i = load i32, ptr %64, align 8
+  %65 = getelementptr i8, ptr %.029148.i.i.i.i, i64 100
+  %.val43.i.i.i.i = load i32, ptr %65, align 4
+  %66 = and i32 %.val42.i.i.i.i, 255
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit54.thread92.i.i.i.i"
+  br i1 %67, label %68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit68.thread94.i.i.i.i"
 
-68:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit49.thread89.i.i.i.i"
-  %69 = icmp slt i32 %.val35.i.i.i.i, 0
+68:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit63.thread91.i.i.i.i"
+  %69 = icmp slt i32 %.val43.i.i.i.i, 0
   br i1 %69, label %70, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit75"
 
 70:                                               ; preds = %68
   %71 = load ptr, ptr %8, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 456
-  %73 = and i32 %.val35.i.i.i.i, 2147483647
+  %73 = and i32 %.val43.i.i.i.i, 2147483647
   %74 = zext nneg i32 %73 to i64
   %75 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #18
   %76 = icmp ugt i64 %75, %74
-  br i1 %76, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i51.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit73"
+  br i1 %76, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i65.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit73"
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i51.i.i.i.i: ; preds = %70
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i65.i.i.i.i: ; preds = %70
   %77 = load ptr, ptr %72, align 8
   %78 = getelementptr inbounds %"class.llvm::LLT", ptr %77, i64 %74
   %79 = load i64, ptr %78, align 8
   %80 = and i64 %79, -7
-  %spec.select.i.not.i.i52.i.i.i.i = icmp eq i64 %80, 0
-  br i1 %spec.select.i.not.i.i52.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit71", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit54.i.i.i.i"
+  %spec.select.i.not.i.i66.i.i.i.i = icmp eq i64 %80, 0
+  br i1 %spec.select.i.not.i.i66.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit71", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit68.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit54.i.i.i.i": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i51.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit68.i.i.i.i": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i65.i.i.i.i
   %81 = load i64, ptr %1, align 8
-  %spec.select.i.i.not.i.i53.not.i.i.i.i = icmp eq i64 %79, %81
-  br i1 %spec.select.i.i.not.i.i53.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit54.thread92.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit57"
+  %spec.select.i.i.not.i.i67.not.i.i.i.i = icmp eq i64 %79, %81
+  br i1 %spec.select.i.i.not.i.i67.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit68.thread94.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit57"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit54.thread92.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit54.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit49.thread89.i.i.i.i"
-  %82 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 128
-  %83 = add nsw i64 %.0147.i.i.i.i, -1
-  %84 = icmp sgt i64 %.0147.i.i.i.i, 1
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit68.thread94.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit68.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit63.thread91.i.i.i.i"
+  %82 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 128
+  %83 = add nsw i64 %.0149.i.i.i.i, -1
+  %84 = icmp sgt i64 %.0149.i.i.i.i, 1
   br i1 %84, label %10, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !217
 
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit54.thread92.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit68.thread94.i.i.i.i"
   %.pre.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
-  %.pre161.i.i.i.i = sub i64 %3, %.pre.i.i.i.i
+  %.pre163.i.i.i.i = sub i64 %3, %.pre.i.i.i.i
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %2
-  %.pre-phi162.i.i.i.i = phi i64 [ %.pre161.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %5, %2 ]
+  %.pre-phi164.i.i.i.i = phi i64 [ %.pre163.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %5, %2 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %.0.val, %2 ]
-  %85 = ashr exact i64 %.pre-phi162.i.i.i.i, 5
-  switch i64 %85, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit69.thread101.i.i.i.i" [
+  %85 = ashr exact i64 %.pre-phi164.i.i.i.i, 5
+  switch i64 %85, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit83.thread103.i.i.i.i" [
     i64 3, label %86
     i64 2, label %106
     i64 1, label %126
   ]
 
 86:                                               ; preds = %._crit_edge.i.i.i.i
-  %.029.val36.i.i.i.i = load i32, ptr %.029.lcssa.i.i.i.i, align 8
+  %.029.val46.i.i.i.i = load i32, ptr %.029.lcssa.i.i.i.i, align 8
   %87 = getelementptr i8, ptr %.029.lcssa.i.i.i.i, i64 4
-  %.029.val37.i.i.i.i = load i32, ptr %87, align 4
-  %88 = and i32 %.029.val36.i.i.i.i, 255
+  %.029.val47.i.i.i.i = load i32, ptr %87, align 4
+  %88 = and i32 %.029.val46.i.i.i.i, 255
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit59.thread95.i.i.i.i"
+  br i1 %89, label %90, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit73.thread97.i.i.i.i"
 
 90:                                               ; preds = %86
-  %91 = icmp slt i32 %.029.val37.i.i.i.i, 0
+  %91 = icmp slt i32 %.029.val47.i.i.i.i, 0
   br i1 %91, label %92, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
 92:                                               ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 456
-  %96 = and i32 %.029.val37.i.i.i.i, 2147483647
+  %96 = and i32 %.029.val47.i.i.i.i, 2147483647
   %97 = zext nneg i32 %96 to i64
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %95) #18
   %99 = icmp ugt i64 %98, %97
-  br i1 %99, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i56.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
+  br i1 %99, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i70.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i56.i.i.i.i: ; preds = %92
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i70.i.i.i.i: ; preds = %92
   %100 = load ptr, ptr %95, align 8
   %101 = getelementptr inbounds %"class.llvm::LLT", ptr %100, i64 %97
   %102 = load i64, ptr %101, align 8
   %103 = and i64 %102, -7
-  %spec.select.i.not.i.i57.i.i.i.i = icmp eq i64 %103, 0
-  br i1 %spec.select.i.not.i.i57.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit59.i.i.i.i"
+  %spec.select.i.not.i.i71.i.i.i.i = icmp eq i64 %103, 0
+  br i1 %spec.select.i.not.i.i71.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit73.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit59.i.i.i.i": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i56.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit73.i.i.i.i": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i70.i.i.i.i
   %104 = load i64, ptr %1, align 8
-  %spec.select.i.i.not.i.i58.not.i.i.i.i = icmp eq i64 %102, %104
-  br i1 %spec.select.i.i.not.i.i58.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit59.thread95.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
+  %spec.select.i.i.not.i.i72.not.i.i.i.i = icmp eq i64 %102, %104
+  br i1 %spec.select.i.i.not.i.i72.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit73.thread97.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit59.thread95.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit59.i.i.i.i", %86
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit73.thread97.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit73.i.i.i.i", %86
   %105 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 32
   br label %106
 
-106:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit59.thread95.i.i.i.i", %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %105, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit59.thread95.i.i.i.i" ]
+106:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit73.thread97.i.i.i.i", %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %105, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit73.thread97.i.i.i.i" ]
   %.1.val.i.i.i.i = load i32, ptr %.1.i.i.i.i, align 8
   %107 = getelementptr i8, ptr %.1.i.i.i.i, i64 4
-  %.1.val38.i.i.i.i = load i32, ptr %107, align 4
+  %.1.val50.i.i.i.i = load i32, ptr %107, align 4
   %108 = and i32 %.1.val.i.i.i.i, 255
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit64.thread98.i.i.i.i"
+  br i1 %109, label %110, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit78.thread100.i.i.i.i"
 
 110:                                              ; preds = %106
-  %111 = icmp slt i32 %.1.val38.i.i.i.i, 0
+  %111 = icmp slt i32 %.1.val50.i.i.i.i, 0
   br i1 %111, label %112, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
 112:                                              ; preds = %110
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 456
-  %116 = and i32 %.1.val38.i.i.i.i, 2147483647
+  %116 = and i32 %.1.val50.i.i.i.i, 2147483647
   %117 = zext nneg i32 %116 to i64
   %118 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %115) #18
   %119 = icmp ugt i64 %118, %117
-  br i1 %119, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i61.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
+  br i1 %119, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i75.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i61.i.i.i.i: ; preds = %112
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i75.i.i.i.i: ; preds = %112
   %120 = load ptr, ptr %115, align 8
   %121 = getelementptr inbounds %"class.llvm::LLT", ptr %120, i64 %117
   %122 = load i64, ptr %121, align 8
   %123 = and i64 %122, -7
-  %spec.select.i.not.i.i62.i.i.i.i = icmp eq i64 %123, 0
-  br i1 %spec.select.i.not.i.i62.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit64.i.i.i.i"
+  %spec.select.i.not.i.i76.i.i.i.i = icmp eq i64 %123, 0
+  br i1 %spec.select.i.not.i.i76.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit78.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit64.i.i.i.i": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i61.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit78.i.i.i.i": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i75.i.i.i.i
   %124 = load i64, ptr %1, align 8
-  %spec.select.i.i.not.i.i63.not.i.i.i.i = icmp eq i64 %122, %124
-  br i1 %spec.select.i.i.not.i.i63.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit64.thread98.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
+  %spec.select.i.i.not.i.i77.not.i.i.i.i = icmp eq i64 %122, %124
+  br i1 %spec.select.i.i.not.i.i77.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit78.thread100.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit64.thread98.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit64.i.i.i.i", %106
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit78.thread100.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit78.i.i.i.i", %106
   %125 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   br label %126
 
-126:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit64.thread98.i.i.i.i", %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %125, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit64.thread98.i.i.i.i" ]
+126:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit78.thread100.i.i.i.i", %._crit_edge.i.i.i.i
+  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %125, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit78.thread100.i.i.i.i" ]
   %.2.val.i.i.i.i = load i32, ptr %.2.i.i.i.i, align 8
   %127 = getelementptr i8, ptr %.2.i.i.i.i, i64 4
-  %.2.val39.i.i.i.i = load i32, ptr %127, align 4
+  %.2.val53.i.i.i.i = load i32, ptr %127, align 4
   %128 = and i32 %.2.val.i.i.i.i, 255
   %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit69.thread101.i.i.i.i"
+  br i1 %129, label %130, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit83.thread103.i.i.i.i"
 
 130:                                              ; preds = %126
-  %131 = icmp slt i32 %.2.val39.i.i.i.i, 0
+  %131 = icmp slt i32 %.2.val53.i.i.i.i, 0
   br i1 %131, label %132, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 456
-  %136 = and i32 %.2.val39.i.i.i.i, 2147483647
+  %136 = and i32 %.2.val53.i.i.i.i, 2147483647
   %137 = zext nneg i32 %136 to i64
   %138 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %135) #18
   %139 = icmp ugt i64 %138, %137
-  br i1 %139, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i66.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
+  br i1 %139, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i80.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i66.i.i.i.i: ; preds = %132
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i80.i.i.i.i: ; preds = %132
   %140 = load ptr, ptr %135, align 8
   %141 = getelementptr inbounds %"class.llvm::LLT", ptr %140, i64 %137
   %142 = load i64, ptr %141, align 8
   %143 = and i64 %142, -7
-  %spec.select.i.not.i.i67.i.i.i.i = icmp eq i64 %143, 0
-  br i1 %spec.select.i.not.i.i67.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit69.i.i.i.i"
+  %spec.select.i.not.i.i81.i.i.i.i = icmp eq i64 %143, 0
+  br i1 %spec.select.i.not.i.i81.i.i.i.i, label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit83.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit69.i.i.i.i": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i66.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit83.i.i.i.i": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i80.i.i.i.i
   %144 = load i64, ptr %1, align 8
-  %spec.select.i.i.not.i.i68.not.i.i.i.i = icmp eq i64 %142, %144
-  br i1 %spec.select.i.i.not.i.i68.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit69.thread101.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
+  %spec.select.i.i.not.i.i82.not.i.i.i.i = icmp eq i64 %142, %144
+  br i1 %spec.select.i.i.not.i.i82.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit83.thread103.i.i.i.i", label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit69.thread101.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit69.i.i.i.i", %126, %._crit_edge.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit83.thread103.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit83.i.i.i.i", %126, %._crit_edge.i.i.i.i
   br label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit44.i.i.i.i"
-  %145 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 32
+"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit58.i.i.i.i"
+  %145 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 32
   br label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit55": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit49.i.i.i.i"
-  %146 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 64
+"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit55": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit63.i.i.i.i"
+  %146 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 64
   br label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit57": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit54.i.i.i.i"
-  %147 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 96
+"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit57": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit68.i.i.i.i"
+  %147 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 96
   br label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit59": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i41.i.i.i.i
-  %148 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 32
+"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit59": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i55.i.i.i.i
+  %148 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 32
   br label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
 "_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit61": ; preds = %34
-  %149 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 32
+  %149 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 32
   br label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
 "_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit63": ; preds = %32
-  %150 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 32
+  %150 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 32
   br label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit65": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i46.i.i.i.i
-  %151 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 64
+"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit65": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i60.i.i.i.i
+  %151 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 64
   br label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
 "_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit67": ; preds = %52
-  %152 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 64
+  %152 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 64
   br label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
 "_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit69": ; preds = %50
-  %153 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 64
+  %153 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 64
   br label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit71": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i51.i.i.i.i
-  %154 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 96
+"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit71": ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i65.i.i.i.i
+  %154 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 96
   br label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
 "_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit73": ; preds = %70
-  %155 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 96
+  %155 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 96
   br label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
 "_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit75": ; preds = %68
-  %156 = getelementptr inbounds i8, ptr %.029146.i.i.i.i, i64 96
+  %156 = getelementptr inbounds i8, ptr %.029148.i.i.i.i, i64 96
   br label %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit": ; preds = %14, %16, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.i.i.i.i", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit55", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit57", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit59", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit61", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit63", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit65", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit67", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit69", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit71", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit73", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit75", %90, %92, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i56.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit59.i.i.i.i", %110, %112, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i61.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit64.i.i.i.i", %130, %132, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i66.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit69.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit69.thread101.i.i.i.i"
-  %.028.i.i.i.i = phi ptr [ %.8.val, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit69.thread101.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit59.i.i.i.i" ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit64.i.i.i.i" ], [ %.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit69.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i56.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %92 ], [ %.029.lcssa.i.i.i.i, %90 ], [ %.1.i.i.i.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i61.i.i.i.i ], [ %.1.i.i.i.i, %112 ], [ %.1.i.i.i.i, %110 ], [ %.2.i.i.i.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i66.i.i.i.i ], [ %.2.i.i.i.i, %132 ], [ %.2.i.i.i.i, %130 ], [ %145, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit" ], [ %146, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit55" ], [ %147, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit57" ], [ %148, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit59" ], [ %149, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit61" ], [ %150, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit63" ], [ %151, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit65" ], [ %152, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit67" ], [ %153, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit69" ], [ %154, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit71" ], [ %155, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit73" ], [ %156, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit75" ], [ %.029146.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.i.i.i.i" ], [ %.029146.i.i.i.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i.i.i.i.i ], [ %.029146.i.i.i.i, %16 ], [ %.029146.i.i.i.i, %14 ]
+"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit": ; preds = %14, %16, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.i.i.i.i", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit55", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit57", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit59", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit61", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit63", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit65", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit67", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit69", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit71", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit73", %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit75", %90, %92, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i70.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit73.i.i.i.i", %110, %112, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i75.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit78.i.i.i.i", %130, %132, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i80.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit83.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit83.thread103.i.i.i.i"
+  %.028.i.i.i.i = phi ptr [ %.8.val, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit83.thread103.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit73.i.i.i.i" ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit78.i.i.i.i" ], [ %.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit83.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i70.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %92 ], [ %.029.lcssa.i.i.i.i, %90 ], [ %.1.i.i.i.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i75.i.i.i.i ], [ %.1.i.i.i.i, %112 ], [ %.1.i.i.i.i, %110 ], [ %.2.i.i.i.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i80.i.i.i.i ], [ %.2.i.i.i.i, %132 ], [ %.2.i.i.i.i, %130 ], [ %145, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit" ], [ %146, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit55" ], [ %147, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit57" ], [ %148, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit59" ], [ %149, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit61" ], [ %150, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit63" ], [ %151, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit65" ], [ %152, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit67" ], [ %153, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit69" ], [ %154, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit71" ], [ %155, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit73" ], [ %156, %"_ZSt6all_ofIPKN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS0_12MachineInstrEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit75" ], [ %.029148.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit.i.i.i.i" ], [ %.029148.i.i.i.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i.i.i.i.i ], [ %.029148.i.i.i.i, %16 ], [ %.029148.i.i.i.i, %14 ]
   %157 = icmp eq ptr %.8.val, %.028.i.i.i.i
   ret i1 %157
 }

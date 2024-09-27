@@ -7576,7 +7576,7 @@ define i32 @WasmEdge_ExecutorInvoke(ptr noundef %0, ptr noundef %1, ptr noundef 
   %30 = load i8, ptr %8, align 8
   %31 = trunc i8 %30 to i1
   %32 = getelementptr inbounds i8, ptr %8, i64 8
-  br i1 %31, label %33, label %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8"
+  br i1 %31, label %33, label %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9"
 
 33:                                               ; preds = %29
   %.val8.i = load ptr, ptr %32, align 8
@@ -7613,7 +7613,7 @@ define i32 @WasmEdge_ExecutorInvoke(ptr noundef %0, ptr noundef %1, ptr noundef 
   %exitcond17.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond17.not.i.i.i, label %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
 
-"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8": ; preds = %29
+"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9": ; preds = %29
   %.val5.i = load i32, ptr %32, align 8
   br label %"_ZN12_GLOBAL__N_14wrapIZ23WasmEdge_ExecutorInvokeE3$_0Z23WasmEdge_ExecutorInvokeE3$_1J24WasmEdge_ExecutorContextK32WasmEdge_FunctionInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
@@ -7636,8 +7636,8 @@ define i32 @WasmEdge_ExecutorInvoke(ptr noundef %0, ptr noundef %1, ptr noundef 
   call void @__clang_call_terminate(ptr %51) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ23WasmEdge_ExecutorInvokeE3$_0Z23WasmEdge_ExecutorInvokeE3$_1J24WasmEdge_ExecutorContextK32WasmEdge_FunctionInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8", %6, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
-  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %6 ], [ %.val5.i, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8" ]
+"_ZN12_GLOBAL__N_14wrapIZ23WasmEdge_ExecutorInvokeE3$_0Z23WasmEdge_ExecutorInvokeE3$_1J24WasmEdge_ExecutorContextK32WasmEdge_FunctionInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9", %6, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
+  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %6 ], [ %.val5.i, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %52 = getelementptr inbounds i8, ptr %9, i64 24
   %53 = load ptr, ptr %52, align 8
@@ -13380,9 +13380,9 @@ define i32 @WasmEdge_AsyncGet(ptr noundef %0, ptr noundef writeonly %1, i32 noun
 
 .noexc.i.i.i.i:                                   ; preds = %17
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #39
-          to label %.noexc.i3 unwind label %_ZN5cxx206detail24expected_operations_baseISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEED2Ev.exit.i
+          to label %.noexc.i5 unwind label %_ZN5cxx206detail24expected_operations_baseISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEED2Ev.exit.i
 
-.noexc.i3:                                        ; preds = %.noexc.i.i.i.i
+.noexc.i5:                                        ; preds = %.noexc.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEEEE8allocateERSI_m.exit.i.i.i.i.i.i: ; preds = %17
@@ -13395,8 +13395,8 @@ _ZNSt16allocator_traitsISaISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.09.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.04.08.i.i.i.i.i.i.i, i64 32, i1 false)
   %20 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 32
   %21 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i.i.i2 = icmp eq ptr %20, %12
-  br i1 %.not.i.i.i.i.i.i.i2, label %23, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !188
+  %.not.i.i.i.i.i.i.i4 = icmp eq ptr %20, %12
+  br i1 %.not.i.i.i.i.i.i.i4, label %23, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !188
 
 _ZN5cxx206detail24expected_operations_baseISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEED2Ev.exit.i: ; preds = %.noexc.i.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEEEE8allocateERSI_m.exit.i.i.i.i.i.i
   %22 = landingpad { ptr, i32 }
@@ -14395,7 +14395,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i: ; preds = %_ZNSt11unique_l
   %42 = load i8, ptr %12, align 8
   %43 = trunc i8 %42 to i1
   %44 = getelementptr inbounds i8, ptr %12, i64 8
-  br i1 %43, label %45, label %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8"
+  br i1 %43, label %45, label %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9"
 
 45:                                               ; preds = %40
   %.val7.i = load ptr, ptr %44, align 8
@@ -14432,7 +14432,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i: ; preds = %_ZNSt11unique_l
   %exitcond17.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond17.not.i.i.i, label %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
 
-"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8": ; preds = %40
+"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9": ; preds = %40
   %.val4.i = load i32, ptr %44, align 8
   br label %"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMRunWasmFromBytesE3$_0Z27WasmEdge_VMRunWasmFromBytesE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
@@ -14459,8 +14459,8 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i: ; preds = %_ZNSt11unique_l
   call void @__clang_call_terminate(ptr %63) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMRunWasmFromBytesE3$_0Z27WasmEdge_VMRunWasmFromBytesE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8", %9, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
-  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %9 ], [ %.val4.i, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8" ]
+"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMRunWasmFromBytesE3$_0Z27WasmEdge_VMRunWasmFromBytesE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9", %9, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
+  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %9 ], [ %.val4.i, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %64 = getelementptr inbounds i8, ptr %13, i64 24
   %65 = load ptr, ptr %64, align 8
@@ -14561,7 +14561,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit6.i.i.i: ; preds = %_ZNSt11unique_l
   %42 = load i8, ptr %11, align 8
   %43 = trunc i8 %42 to i1
   %44 = getelementptr inbounds i8, ptr %11, i64 8
-  br i1 %43, label %45, label %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8"
+  br i1 %43, label %45, label %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9"
 
 45:                                               ; preds = %40
   %.val8.i = load ptr, ptr %44, align 8
@@ -14598,7 +14598,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit6.i.i.i: ; preds = %_ZNSt11unique_l
   %exitcond17.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond17.not.i.i.i, label %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
 
-"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8": ; preds = %40
+"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9": ; preds = %40
   %.val5.i = load i32, ptr %44, align 8
   br label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_VMRunWasmFromASTModuleE3$_0Z31WasmEdge_VMRunWasmFromASTModuleE3$_1J18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
@@ -14625,8 +14625,8 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit6.i.i.i: ; preds = %_ZNSt11unique_l
   call void @__clang_call_terminate(ptr %63) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_VMRunWasmFromASTModuleE3$_0Z31WasmEdge_VMRunWasmFromASTModuleE3$_1J18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8", %8, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
-  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %8 ], [ %.val5.i, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8" ]
+"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_VMRunWasmFromASTModuleE3$_0Z31WasmEdge_VMRunWasmFromASTModuleE3$_1J18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9", %8, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
+  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %8 ], [ %.val5.i, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   %64 = getelementptr inbounds i8, ptr %12, i64 24
   %65 = load ptr, ptr %64, align 8
@@ -15615,7 +15615,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11shared_l
   %37 = load i8, ptr %9, align 8
   %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %9, i64 8
-  br i1 %38, label %40, label %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread6"
+  br i1 %38, label %40, label %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread7"
 
 40:                                               ; preds = %35
   %.val7.i = load ptr, ptr %39, align 8
@@ -15652,7 +15652,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11shared_l
   %exitcond17.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond17.not.i.i.i, label %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
 
-"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread6": ; preds = %35
+"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread7": ; preds = %35
   %.val4.i = load i32, ptr %39, align 8
   br label %"_ZN12_GLOBAL__N_14wrapIZ18WasmEdge_VMExecuteE3$_0Z18WasmEdge_VMExecuteE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
@@ -15679,8 +15679,8 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11shared_l
   call void @__clang_call_terminate(ptr %58) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ18WasmEdge_VMExecuteE3$_0Z18WasmEdge_VMExecuteE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread6", %7, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
-  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %7 ], [ %.val4.i, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread6" ]
+"_ZN12_GLOBAL__N_14wrapIZ18WasmEdge_VMExecuteE3$_0Z18WasmEdge_VMExecuteE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread7", %7, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
+  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %7 ], [ %.val4.i, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread7" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %59 = getelementptr inbounds i8, ptr %10, i64 24
   %60 = load ptr, ptr %59, align 8
@@ -15785,7 +15785,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit8.i.i.i: ; preds = %_ZNSt11shared_l
   %42 = load i8, ptr %12, align 8
   %43 = trunc i8 %42 to i1
   %44 = getelementptr inbounds i8, ptr %12, i64 8
-  br i1 %43, label %45, label %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8"
+  br i1 %43, label %45, label %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9"
 
 45:                                               ; preds = %40
   %.val7.i = load ptr, ptr %44, align 8
@@ -15822,7 +15822,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit8.i.i.i: ; preds = %_ZNSt11shared_l
   %exitcond17.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond17.not.i.i.i, label %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
 
-"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8": ; preds = %40
+"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9": ; preds = %40
   %.val4.i = load i32, ptr %44, align 8
   br label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMExecuteRegisteredE3$_0Z28WasmEdge_VMExecuteRegisteredE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
@@ -15849,8 +15849,8 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit8.i.i.i: ; preds = %_ZNSt11shared_l
   call void @__clang_call_terminate(ptr %63) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMExecuteRegisteredE3$_0Z28WasmEdge_VMExecuteRegisteredE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8", %9, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
-  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %9 ], [ %.val4.i, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8" ]
+"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMExecuteRegisteredE3$_0Z28WasmEdge_VMExecuteRegisteredE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9", %9, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
+  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %9 ], [ %.val4.i, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread9" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %64 = getelementptr inbounds i8, ptr %13, i64 24
   %65 = load ptr, ptr %64, align 8

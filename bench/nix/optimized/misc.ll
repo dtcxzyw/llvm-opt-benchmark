@@ -3158,19 +3158,19 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_S_mini
   br label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EEC2ERKS5_.exit
 
 _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EEC2ERKS5_.exit: ; preds = %3, %22
-  %25 = getelementptr inbounds i8, ptr %6, i64 16
-  %26 = getelementptr inbounds i8, ptr %6, i64 24
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %27, align 8
-  %28 = ptrtoint ptr %1 to i64
-  store i64 %28, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFSt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EERKS2_EZNS1_5Store13topoSortPathsERKS6_E3$_0E9_M_invokeERKSt9_Any_dataS8_", ptr %26, align 8
-  store ptr @"_ZNSt17_Function_handlerIFSt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EERKS2_EZNS1_5Store13topoSortPathsERKS6_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %25, align 8
+  %25 = ptrtoint ptr %1 to i64
+  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %27 = getelementptr inbounds i8, ptr %6, i64 24
+  %28 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %28, align 8
+  store i64 %25, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFSt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EERKS2_EZNS1_5Store13topoSortPathsERKS6_E3$_0E9_M_invokeERKSt9_Any_dataS8_", ptr %27, align 8
+  store ptr @"_ZNSt17_Function_handlerIFSt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EERKS2_EZNS1_5Store13topoSortPathsERKS6_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %7, i64 16
   %30 = getelementptr inbounds i8, ptr %7, i64 24
   %31 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 0, ptr %31, align 8
-  store i64 %28, ptr %7, align 8
+  store i64 %25, ptr %7, align 8
   store ptr @"_ZNSt17_Function_handlerIFN3nix5ErrorERKNS0_9StorePathES4_EZNS0_5Store13topoSortPathsERKSt3setIS2_St4lessIS2_ESaIS2_EEE3$_1E9_M_invokeERKSt9_Any_dataS4_S4_", ptr %30, align 8
   store ptr @"_ZNSt17_Function_handlerIFN3nix5ErrorERKNS0_9StorePathES4_EZNS0_5Store13topoSortPathsERKSt3setIS2_St4lessIS2_ESaIS2_EEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %29, align 8
   invoke void @_ZN3nix8topoSortINS_9StorePathEEESt6vectorIT_SaIS3_EESt3setIS3_St4lessIS3_ES4_ESt8functionIFS9_RKS3_EESA_IFNS_5ErrorESC_SC_EE(ptr dead_on_unwind writable sret(%"class.std::vector.152") align 8 %0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -3193,7 +3193,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EEC2ERKS5_.exit: ; preds = %3, %22
   unreachable
 
 _ZNSt8functionIFN3nix5ErrorERKNS0_9StorePathES4_EED2Ev.exit: ; preds = %32, %34
-  %39 = load ptr, ptr %25, align 8
+  %39 = load ptr, ptr %26, align 8
   %.not.i.i5 = icmp eq ptr %39, null
   br i1 %.not.i.i5, label %_ZNSt8functionIFSt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EERKS2_EED2Ev.exit, label %40
 
@@ -3242,7 +3242,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %_ZNSt8functi
   unreachable
 
 _ZNSt8functionIFN3nix5ErrorERKNS0_9StorePathES4_EED2Ev.exit7: ; preds = %49, %52
-  %57 = load ptr, ptr %25, align 8
+  %57 = load ptr, ptr %26, align 8
   %.not.i.i8 = icmp eq ptr %57, null
   br i1 %.not.i.i8, label %_ZNSt8functionIFSt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EERKS2_EED2Ev.exit9, label %58
 

@@ -785,10 +785,10 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin1.0.idx44 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.inc ]
-  %FDC.sroa.2.043 = phi i1 [ false, %entry ], [ %FDC.sroa.2.1, %for.inc ]
-  %NullFD.042 = phi i32 [ -1, %entry ], [ %NullFD.2, %for.inc ]
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @__const._ZN4llvh3sys7Process28FixupStandardFileDescriptorsEv.StandardFDs, i64 %__begin1.0.idx44
+  %__begin1.0.idx45 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.inc ]
+  %FDC.sroa.2.044 = phi i1 [ false, %entry ], [ %FDC.sroa.2.1, %for.inc ]
+  %NullFD.043 = phi i32 [ -1, %entry ], [ %NullFD.2, %for.inc ]
+  %__begin1.0.ptr = getelementptr inbounds i8, ptr @__const._ZN4llvh3sys7Process28FixupStandardFileDescriptorsEv.StandardFDs, i64 %__begin1.0.idx45
   %0 = load i32, ptr %__begin1.0.ptr, align 4
   br label %do.body.i
 
@@ -822,7 +822,7 @@ if.end10:                                         ; preds = %_ZN4llvh3sys16Retry
   br i1 %tobool.not, label %for.inc, label %if.end13
 
 if.end13:                                         ; preds = %if.then, %if.end10
-  %cmp14 = icmp slt i32 %NullFD.042, 0
+  %cmp14 = icmp slt i32 %NullFD.043, 0
   br i1 %cmp14, label %do.body.i8, label %if.end23
 
 do.body.i8:                                       ; preds = %if.end13, %land.rhs.i10
@@ -838,19 +838,19 @@ land.rhs.i10:                                     ; preds = %do.body.i8
 
 "_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.exit": ; preds = %do.body.i8
   %cmp18 = icmp slt i32 %call.i.i, 0
-  br i1 %cmp18, label %if.then19.loopexit45, label %if.end23
+  br i1 %cmp18, label %if.then19.loopexit46, label %if.end23
 
-if.then19.loopexit45:                             ; preds = %"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.exit"
+if.then19.loopexit46:                             ; preds = %"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.exit"
   %.pre59 = load i32, ptr %call, align 4
   br label %cleanup.thread
 
-cleanup.thread:                                   ; preds = %land.rhs.i10, %if.then19.loopexit45
-  %4 = phi i32 [ %.pre59, %if.then19.loopexit45 ], [ %3, %land.rhs.i10 ]
+cleanup.thread:                                   ; preds = %land.rhs.i10, %if.then19.loopexit46
+  %4 = phi i32 [ %.pre59, %if.then19.loopexit46 ], [ %3, %land.rhs.i10 ]
   %call21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #20
   br label %_ZN12_GLOBAL__N_18FDCloserD2Ev.exit
 
 if.end23:                                         ; preds = %"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.exit", %if.end13
-  %NullFD.3 = phi i32 [ %call.i.i, %"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.exit" ], [ %NullFD.042, %if.end13 ]
+  %NullFD.3 = phi i32 [ %call.i.i, %"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.exit" ], [ %NullFD.043, %if.end13 ]
   %cmp24 = icmp eq i32 %NullFD.3, %0
   br i1 %cmp24, label %for.inc, label %if.else
 
@@ -865,9 +865,9 @@ if.then28:                                        ; preds = %if.else
   br label %cleanup
 
 for.inc:                                          ; preds = %if.end23, %if.else, %if.end10
-  %NullFD.2 = phi i32 [ %NullFD.042, %if.end10 ], [ %NullFD.3, %if.else ], [ %0, %if.end23 ]
-  %FDC.sroa.2.1 = phi i1 [ %FDC.sroa.2.043, %if.end10 ], [ %FDC.sroa.2.043, %if.else ], [ true, %if.end23 ]
-  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx44, 4
+  %NullFD.2 = phi i32 [ %NullFD.043, %if.end10 ], [ %NullFD.3, %if.else ], [ %0, %if.end23 ]
+  %FDC.sroa.2.1 = phi i1 [ %FDC.sroa.2.044, %if.end10 ], [ %FDC.sroa.2.044, %if.else ], [ true, %if.end23 ]
+  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx45, 4
   %cmp.not = icmp eq i64 %__begin1.0.add, 12
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -876,12 +876,12 @@ for.end:                                          ; preds = %for.inc
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end, %if.then28, %if.then7
-  %FDC.sroa.2.032 = phi i1 [ %FDC.sroa.2.1, %for.end ], [ %FDC.sroa.2.043, %if.then28 ], [ %FDC.sroa.2.043, %if.then7 ]
-  %NullFD.1 = phi i32 [ %NullFD.2, %for.end ], [ %NullFD.3, %if.then28 ], [ %NullFD.042, %if.then7 ]
+  %FDC.sroa.2.033 = phi i1 [ %FDC.sroa.2.1, %for.end ], [ %FDC.sroa.2.044, %if.then28 ], [ %FDC.sroa.2.044, %if.then7 ]
+  %NullFD.1 = phi i32 [ %NullFD.2, %for.end ], [ %NullFD.3, %if.then28 ], [ %NullFD.043, %if.then7 ]
   %retval.sroa.0.0 = phi i32 [ 0, %for.end ], [ %5, %if.then28 ], [ %2, %if.then7 ]
   %retval.sroa.5.0 = phi ptr [ %call.i15, %for.end ], [ %call30, %if.then28 ], [ %call9, %if.then7 ]
   %cmp.i16 = icmp slt i32 %NullFD.1, 0
-  %or.cond.not = select i1 %FDC.sroa.2.032, i1 true, i1 %cmp.i16
+  %or.cond.not = select i1 %FDC.sroa.2.033, i1 true, i1 %cmp.i16
   br i1 %or.cond.not, label %_ZN12_GLOBAL__N_18FDCloserD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup

@@ -1209,8 +1209,8 @@ entry:
   %m_collector.i.i = getelementptr inbounds i8, ptr %sreport.i, i64 8
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %sreport.i, i64 24
   store i64 %2, ptr %m_collector.i.i, align 8
-  %ref.tmp.sroa.3.0.m_collector.i.sroa_idx.i = getelementptr inbounds i8, ptr %sreport.i, i64 16
-  store i64 0, ptr %ref.tmp.sroa.3.0.m_collector.i.sroa_idx.i, align 8
+  %ref.tmp.sroa.2.0.m_collector.i.sroa_idx.i = getelementptr inbounds i8, ptr %sreport.i, i64 16
+  store i64 0, ptr %ref.tmp.sroa.2.0.m_collector.i.sroa_idx.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvR10statisticsEZN12_GLOBAL__N_119elim_uncnstr_tactic3runERK3refI4goalER11sref_bufferIS6_Lj16EEEUlS1_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i.i.i, align 8
   invoke void @_ZN13tactic_reportC1EPKcRK4goal(ptr noundef nonnull align 8 dereferenceable(8) %report.i, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(124) %0)
           to label %invoke.cont7.i unwind label %lpad4.i

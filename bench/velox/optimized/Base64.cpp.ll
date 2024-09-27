@@ -8,7 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.facebook::velox::encoding::(anonymous namespace)::IOBufWrapper" = type { ptr }
 %"class.std::out_of_range" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -463,22 +462,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox8encoding6Base646encodeB5cxx11EPKN5folly5IOBufE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %data) local_unnamed_addr #2 align 2 {
 entry:
-  %ref.tmp = alloca %"class.facebook::velox::encoding::(anonymous namespace)::IOBufWrapper", align 8
-  store ptr %data, ptr %ref.tmp, align 8
-  call fastcc void @_ZN8facebook5velox8encoding6Base6410encodeImplINS1_12_GLOBAL__N_112IOBufWrapperEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKSt5arrayIcLm64EEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(64) @_ZN8facebook5velox8encodingL14kBase64CharsetE, i1 noundef zeroext true)
+  tail call fastcc void @_ZN8facebook5velox8encoding6Base6410encodeImplINS1_12_GLOBAL__N_112IOBufWrapperEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKSt5arrayIcLm64EEb(ptr noalias align 8 %agg.result, ptr %data, ptr noundef nonnull align 1 dereferenceable(64) @_ZN8facebook5velox8encodingL14kBase64CharsetE, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox8encoding6Base6410encodeImplINS1_12_GLOBAL__N_112IOBufWrapperEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKSt5arrayIcLm64EEb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %data, ptr nocapture noundef nonnull readonly align 1 dereferenceable(64) %charset, i1 noundef zeroext %include_pad) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox8encoding6Base6410encodeImplINS1_12_GLOBAL__N_112IOBufWrapperEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKSt5arrayIcLm64EEb(ptr noalias align 8 %agg.result, ptr nonnull %data.0.val, ptr nocapture noundef nonnull readonly align 1 dereferenceable(64) %charset, i1 noundef zeroext %include_pad) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i.i81.i = alloca i8, align 1
   %val.i.i.i66.i = alloca i8, align 1
   %val.i.i.i49.i = alloca i8, align 1
   %val.i.i.i35.i = alloca i8, align 1
   %val.i.i.i.i = alloca i8, align 1
-  %data.val = load ptr, ptr %data, align 8
-  %call.i = tail call noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %data.val)
+  %call.i = tail call noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %data.0.val)
   %cmp.i = icmp eq i64 %call.i, 0
   br i1 %cmp.i, label %_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit, label %if.end.i
 
@@ -504,39 +500,28 @@ _ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit: ; preds = %ent
 
 invoke.cont:                                      ; preds = %_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit
   %call3 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
-  %data.val.i = load ptr, ptr %data, align 8
-  %call.i.i6 = invoke noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %data.val.i)
+  %call.i.i6 = invoke noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %data.0.val)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %invoke.cont
   %cmp.i3 = icmp eq i64 %call.i.i6, 0
-  br i1 %cmp.i3, label %nrvo.skipdtor, label %if.end.i4
+  br i1 %cmp.i3, label %nrvo.skipdtor, label %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i
 
-if.end.i4:                                        ; preds = %call.i.i.noexc
-  %data.val33.i = load ptr, ptr %data, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %data.val33.i, null
-  br i1 %tobool.not.i.i.i.i.i, label %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %if.end.i4
-  %data_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %data.val33.i, i64 16
+_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i: ; preds = %call.i.i.noexc
+  %data_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %data.0.val, i64 16
   %0 = load ptr, ptr %data_.i.i.i.i.i.i, align 8, !noalias !6
-  %length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %data.val33.i, i64 32
+  %length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %data.0.val, i64 32
   %1 = load i64, ptr %length_.i.i.i.i.i.i, align 8, !noalias !6
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %1
-  br label %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i
-
-_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i: ; preds = %if.then.i.i.i.i.i, %if.end.i4
-  %it.sroa.54.1.i = phi ptr [ null, %if.end.i4 ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  %it.sroa.100.1.i = phi ptr [ null, %if.end.i4 ], [ %0, %if.then.i.i.i.i.i ]
   %cmp1739.i = icmp ugt i64 %call.i.i6, 2
   br i1 %cmp1739.i, label %for.body.i, label %if.then29.i
 
 for.body.i:                                       ; preds = %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i
   %len.0747.i = phi i64 [ %sub.i5, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %call.i.i6, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
   %wp.0746.i = phi ptr [ %incdec.ptr27.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %call3, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.0.0745.i = phi ptr [ %it.sroa.0.3.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %data.val33.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.100.0741.i = phi ptr [ %it.sroa.100.4.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %it.sroa.100.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.54.0740.i = phi ptr [ %it.sroa.54.4.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %it.sroa.54.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+  %it.sroa.0.0745.i = phi ptr [ %it.sroa.0.3.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %data.0.val, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+  %it.sroa.100.0741.i = phi ptr [ %it.sroa.100.4.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %0, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+  %it.sroa.54.0740.i = phi ptr [ %it.sroa.54.4.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
   %2 = ptrtoint ptr %it.sroa.100.0741.i to i64
   %add.i.i.i = add i64 %2, 1
   %3 = ptrtoint ptr %it.sroa.54.0740.i to i64
@@ -572,7 +557,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 if.end.i.i:                                       ; preds = %if.then.i.i, %for.body.i.i
   %copied.1.i.i = phi i64 [ %add.i.i, %if.then.i.i ], [ %copied.040.i.i, %for.body.i.i ]
   %6 = load ptr, ptr %it.sroa.0.7.i, align 8
-  %cmp.i.i.i = icmp eq ptr %6, %data.val33.i
+  %cmp.i.i.i = icmp eq ptr %6, %data.0.val
   br i1 %cmp.i.i.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
@@ -612,7 +597,7 @@ if.end11.i.i:                                     ; preds = %if.then8.i.i, %for.
 
 if.then.i25.i.i:                                  ; preds = %if.end11.i.i
   %9 = load ptr, ptr %it.sroa.0.5571.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %9, %data.val33.i
+  %cmp.i.i.i.i = icmp eq ptr %9, %data.0.val
   br i1 %cmp.i.i.i.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i25.i.i
@@ -686,7 +671,7 @@ if.then.i160.i:                                   ; preds = %for.body.i154.i
 if.end.i162.i:                                    ; preds = %if.then.i160.i, %for.body.i154.i
   %copied.1.i163.i = phi i64 [ %add.i161.i, %if.then.i160.i ], [ %copied.040.i156.i, %for.body.i154.i ]
   %16 = load ptr, ptr %it.sroa.0.11.i, align 8
-  %cmp.i.i164.i = icmp eq ptr %16, %data.val33.i
+  %cmp.i.i164.i = icmp eq ptr %16, %data.0.val
   br i1 %cmp.i.i164.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit196.i, label %if.end6.i184.i
 
 if.end6.i184.i:                                   ; preds = %if.end.i162.i
@@ -726,7 +711,7 @@ if.end11.i117.i:                                  ; preds = %if.then8.i114.i, %f
 
 if.then.i25.i122.i:                               ; preds = %if.end11.i117.i
   %19 = load ptr, ptr %it.sroa.0.9599.i, align 8
-  %cmp.i.i.i124.i = icmp eq ptr %19, %data.val33.i
+  %cmp.i.i.i124.i = icmp eq ptr %19, %data.0.val
   br i1 %cmp.i.i.i124.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i, label %if.end.i.i.i128.i
 
 if.end.i.i.i128.i:                                ; preds = %if.then.i25.i122.i
@@ -800,7 +785,7 @@ if.then.i255.i:                                   ; preds = %for.body.i249.i
 if.end.i257.i:                                    ; preds = %if.then.i255.i, %for.body.i249.i
   %copied.1.i258.i = phi i64 [ %add.i256.i, %if.then.i255.i ], [ %copied.040.i251.i, %for.body.i249.i ]
   %26 = load ptr, ptr %it.sroa.0.15.i, align 8
-  %cmp.i.i259.i = icmp eq ptr %26, %data.val33.i
+  %cmp.i.i259.i = icmp eq ptr %26, %data.0.val
   br i1 %cmp.i.i259.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit291.i, label %if.end6.i279.i
 
 if.end6.i279.i:                                   ; preds = %if.end.i257.i
@@ -840,7 +825,7 @@ if.end11.i212.i:                                  ; preds = %if.then8.i209.i, %f
 
 if.then.i25.i217.i:                               ; preds = %if.end11.i212.i
   %29 = load ptr, ptr %it.sroa.0.13627.i, align 8
-  %cmp.i.i.i219.i = icmp eq ptr %29, %data.val33.i
+  %cmp.i.i.i219.i = icmp eq ptr %29, %data.0.val
   br i1 %cmp.i.i.i219.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i214.i, label %if.end.i.i.i223.i
 
 if.end.i.i.i223.i:                                ; preds = %if.then.i25.i217.i
@@ -916,9 +901,9 @@ for.end.i:                                        ; preds = %_ZN8facebook5velox8
 if.then29.i:                                      ; preds = %for.end.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i
   %len.0.lcssa796.i = phi i64 [ %sub.i5, %for.end.i ], [ %call.i.i6, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
   %wp.0.lcssa795.i = phi ptr [ %incdec.ptr27.i, %for.end.i ], [ %call3, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.0.0.lcssa794.i = phi ptr [ %it.sroa.0.3.i, %for.end.i ], [ %data.val33.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.100.0.lcssa793.i = phi ptr [ %it.sroa.100.4.i, %for.end.i ], [ %it.sroa.100.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.54.0.lcssa792.i = phi ptr [ %it.sroa.54.4.i, %for.end.i ], [ %it.sroa.54.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+  %it.sroa.0.0.lcssa794.i = phi ptr [ %it.sroa.0.3.i, %for.end.i ], [ %data.0.val, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+  %it.sroa.100.0.lcssa793.i = phi ptr [ %it.sroa.100.4.i, %for.end.i ], [ %0, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+  %it.sroa.54.0.lcssa792.i = phi ptr [ %it.sroa.54.4.i, %for.end.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
   %38 = ptrtoint ptr %it.sroa.100.0.lcssa793.i to i64
   %add.i.i68.i = add i64 %38, 1
   %39 = ptrtoint ptr %it.sroa.54.0.lcssa792.i to i64
@@ -954,7 +939,7 @@ if.then.i350.i:                                   ; preds = %for.body.i344.i
 if.end.i352.i:                                    ; preds = %if.then.i350.i, %for.body.i344.i
   %copied.1.i353.i = phi i64 [ %add.i351.i, %if.then.i350.i ], [ %copied.040.i346.i, %for.body.i344.i ]
   %42 = load ptr, ptr %it.sroa.0.19.i, align 8
-  %cmp.i.i354.i = icmp eq ptr %42, %data.val33.i
+  %cmp.i.i354.i = icmp eq ptr %42, %data.0.val
   br i1 %cmp.i.i354.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit386.i, label %if.end6.i374.i
 
 if.end6.i374.i:                                   ; preds = %if.end.i352.i
@@ -994,7 +979,7 @@ if.end11.i307.i:                                  ; preds = %if.then8.i304.i, %f
 
 if.then.i25.i312.i:                               ; preds = %if.end11.i307.i
   %45 = load ptr, ptr %it.sroa.0.17655.i, align 8
-  %cmp.i.i.i314.i = icmp eq ptr %45, %data.val33.i
+  %cmp.i.i.i314.i = icmp eq ptr %45, %data.0.val
   br i1 %cmp.i.i.i314.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i309.i, label %if.end.i.i.i318.i
 
 if.end.i.i.i318.i:                                ; preds = %if.then.i25.i312.i
@@ -1076,7 +1061,7 @@ if.then.i445.i:                                   ; preds = %for.body.i439.i
 if.end.i447.i:                                    ; preds = %if.then.i445.i, %for.body.i439.i
   %copied.1.i448.i = phi i64 [ %add.i446.i, %if.then.i445.i ], [ %copied.040.i441.i, %for.body.i439.i ]
   %55 = load ptr, ptr %it.sroa.0.22.i, align 8
-  %cmp.i.i449.i = icmp eq ptr %55, %data.val33.i
+  %cmp.i.i449.i = icmp eq ptr %55, %data.0.val
   br i1 %cmp.i.i449.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit481.i, label %if.end6.i469.i
 
 if.end6.i469.i:                                   ; preds = %if.end.i447.i
@@ -1908,9 +1893,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox8encoding6Base649encodeUrlB5cxx11EPKN5folly5IOBufE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %data) local_unnamed_addr #2 align 2 {
 entry:
-  %ref.tmp = alloca %"class.facebook::velox::encoding::(anonymous namespace)::IOBufWrapper", align 8
-  store ptr %data, ptr %ref.tmp, align 8
-  call fastcc void @_ZN8facebook5velox8encoding6Base6410encodeImplINS1_12_GLOBAL__N_112IOBufWrapperEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKSt5arrayIcLm64EEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(64) @_ZN8facebook5velox8encodingL17kBase64UrlCharsetE, i1 noundef zeroext false)
+  tail call fastcc void @_ZN8facebook5velox8encoding6Base6410encodeImplINS1_12_GLOBAL__N_112IOBufWrapperEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKSt5arrayIcLm64EEb(ptr noalias align 8 %agg.result, ptr %data, ptr noundef nonnull align 1 dereferenceable(64) @_ZN8facebook5velox8encodingL17kBase64UrlCharsetE, i1 noundef zeroext false)
   ret void
 }
 

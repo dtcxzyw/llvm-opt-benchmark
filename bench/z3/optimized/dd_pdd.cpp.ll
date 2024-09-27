@@ -5737,12 +5737,12 @@ entry:
   br i1 %tobool.not.i, label %_ZN6vectorISt4pairIj8rationalELb1EjEC2ERKS3_.exit.thread, label %_ZNK6vectorISt4pairIj8rationalELb1EjE8capacityEv.exit.i.i
 
 _ZN6vectorISt4pairIj8rationalELb1EjEC2ERKS3_.exit.thread: ; preds = %entry
+  %1 = ptrtoint ptr %this to i64
   %_M_manager.i.i176 = getelementptr inbounds i8, ptr %compare_level, i64 16
   %_M_invoker.i177 = getelementptr inbounds i8, ptr %compare_level, i64 24
-  %1 = getelementptr inbounds i8, ptr %compare_level, i64 8
-  store i64 0, ptr %1, align 8
-  %2 = ptrtoint ptr %this to i64
-  store i64 %2, ptr %compare_level, align 8
+  %2 = getelementptr inbounds i8, ptr %compare_level, i64 8
+  store i64 0, ptr %2, align 8
+  store i64 %1, ptr %compare_level, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKSt4pairIj8rationalES4_EZN2dd11pdd_manager10subst_val0ERKNS6_3pddERK6vectorIS2_Lb1EjEE3$_0E9_M_invokeERKSt9_Any_dataS4_S4_", ptr %_M_invoker.i177, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKSt4pairIj8rationalES4_EZN2dd11pdd_manager10subst_val0ERKNS6_3pddERK6vectorIS2_Lb1EjEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i176, align 8
   br label %if.then.i
@@ -5775,12 +5775,12 @@ if.end.i.i:                                       ; preds = %if.end.i.i.i.i, %_Z
   %retval.0.i.i.i.i = phi i64 [ %7, %if.end.i.i.i.i ], [ 0, %_ZNK6vectorISt4pairIj8rationalELb1EjE8capacityEv.exit.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %5, i64 %retval.0.i.i.i.i
   %call.i.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIPKSt4pairIj8rationalEPS2_ET0_T_S7_S6_(ptr noundef %5, ptr noundef %add.ptr.i.i.i, ptr noundef nonnull %incdec.ptr4.i.i)
+  %8 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %compare_level, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %compare_level, i64 24
-  %8 = getelementptr inbounds i8, ptr %compare_level, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %this to i64
-  store i64 %9, ptr %compare_level, align 8
+  %9 = getelementptr inbounds i8, ptr %compare_level, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %8, ptr %compare_level, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKSt4pairIj8rationalES4_EZN2dd11pdd_manager10subst_val0ERKNS6_3pddERK6vectorIS2_Lb1EjEE3$_0E9_M_invokeERKSt9_Any_dataS4_S4_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKSt4pairIj8rationalES4_EZN2dd11pdd_manager10subst_val0ERKNS6_3pddERK6vectorIS2_Lb1EjEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %10 = load i32, ptr %incdec.ptr.i.i, align 4
@@ -5788,7 +5788,7 @@ if.end.i.i:                                       ; preds = %if.end.i.i.i.i, %_Z
   br label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6vectorISt4pairIj8rationalELb1EjEC2ERKS3_.exit.thread, %if.end.i.i
-  %call5.val.i.i = phi i64 [ %9, %if.end.i.i ], [ %2, %_ZN6vectorISt4pairIj8rationalELb1EjEC2ERKS3_.exit.thread ]
+  %call5.val.i.i = phi i64 [ %8, %if.end.i.i ], [ %1, %_ZN6vectorISt4pairIj8rationalELb1EjEC2ERKS3_.exit.thread ]
   %_M_manager.i.i179 = phi ptr [ %_M_manager.i.i, %if.end.i.i ], [ %_M_manager.i.i176, %_ZN6vectorISt4pairIj8rationalELb1EjEC2ERKS3_.exit.thread ]
   %12 = phi ptr [ %incdec.ptr4.i.i, %if.end.i.i ], [ null, %_ZN6vectorISt4pairIj8rationalELb1EjEC2ERKS3_.exit.thread ]
   %retval.0.i.i = phi i64 [ %11, %if.end.i.i ], [ 0, %_ZN6vectorISt4pairIj8rationalELb1EjEC2ERKS3_.exit.thread ]
@@ -14205,12 +14205,12 @@ invoke.cont43:                                    ; preds = %_ZNK6vectorISt4pair
 for.cond.cleanup45:                               ; preds = %invoke.cont43, %for.cond.i.i.i189
   call void @_ZN2dd12pdd_iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %__end138) #26
   call void @_ZN2dd12pdd_iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %__begin136) #26
+  %84 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %degree_lex_gt, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %degree_lex_gt, i64 24
-  %84 = getelementptr inbounds i8, ptr %degree_lex_gt, i64 8
-  store i64 0, ptr %84, align 8
-  %85 = ptrtoint ptr %this to i64
-  store i64 %85, ptr %degree_lex_gt, align 8
+  %85 = getelementptr inbounds i8, ptr %degree_lex_gt, i64 8
+  store i64 0, ptr %85, align 8
+  store i64 %84, ptr %degree_lex_gt, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK7svectorIjjES3_EZN2dd11pdd_manager5lm_ltERKNS5_3pddES9_E3$_0E9_M_invokeERKSt9_Any_dataS3_S3_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK7svectorIjjES3_EZN2dd11pdd_manager5lm_ltERKNS5_3pddES9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %86 = load ptr, ptr %ma, align 8
@@ -14230,7 +14230,7 @@ if.then.i208:                                     ; preds = %if.end.i.i, %for.co
   %_M_invoker.i207 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %89 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %89, align 8
-  store i64 %85, ptr %agg.tmp, align 8
+  store i64 %84, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK7svectorIjjES3_EZN2dd11pdd_manager5lm_ltERKNS5_3pddES9_E3$_0E9_M_invokeERKSt9_Any_dataS3_S3_", ptr %_M_invoker.i207, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK7svectorIjjES3_EZN2dd11pdd_manager5lm_ltERKNS5_3pddES9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i206, align 8
   invoke void @_ZSt4sortIP7svectorIjjESt8functionIFbRKS1_S5_EEEvT_S8_T0_(ptr noundef %86, ptr noundef %add.ptr.i205, ptr noundef nonnull %agg.tmp)

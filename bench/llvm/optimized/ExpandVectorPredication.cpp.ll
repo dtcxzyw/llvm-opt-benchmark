@@ -377,8 +377,8 @@ _ZL17maySpeculateLanesRN4llvm11VPIntrinsicE.exit.i.i: ; preds = %79
   br label %_ZN12_GLOBAL__N_116sanitizeStrategyERN4llvm11VPIntrinsicERNS0_19TargetTransformInfo14VPLegalizationE.exit.i
 
 _ZN12_GLOBAL__N_116sanitizeStrategyERN4llvm11VPIntrinsicERNS0_19TargetTransformInfo14VPLegalizationE.exit.i: ; preds = %.sink.split.i.i, %94, %92
-  %.sroa.019.0.i = phi i32 [ %.sink.i.i, %.sink.split.i.i ], [ %.sroa.0.0.i.i, %94 ], [ %.sroa.0.0.i.i, %92 ]
-  switch i32 %.sroa.019.0.i, label %193 [
+  %.sroa.01.0.i = phi i32 [ %.sink.i.i, %.sink.split.i.i ], [ %.sroa.0.0.i.i, %94 ], [ %.sroa.0.0.i.i, %92 ]
+  switch i32 %.sroa.01.0.i, label %193 [
     i32 2, label %99
     i32 1, label %97
   ]
@@ -1585,11 +1585,11 @@ _ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.ex
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
   %.not.i = icmp eq ptr %.0.i.i, %0
-  %spec.select24.i = select i1 %.not.i, i32 %.0.i, i32 2
+  %spec.select6.i = select i1 %.not.i, i32 %.0.i, i32 2
   br label %_ZN12_GLOBAL__N_117CachingVPExpander23expandVectorPredicationERN4llvm11VPIntrinsicE.exit
 
 _ZN12_GLOBAL__N_117CachingVPExpander23expandVectorPredicationERN4llvm11VPIntrinsicE.exit: ; preds = %193, %_ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.exit.i
-  %.1.i = phi i32 [ %.0.i, %193 ], [ %spec.select24.i, %_ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.exit.i ]
+  %.1.i = phi i32 [ %.0.i, %193 ], [ %spec.select6.i, %_ZN12_GLOBAL__N_117CachingVPExpander17expandPredicationERN4llvm11VPIntrinsicE.exit.i ]
   ret i32 %.1.i
 }
 

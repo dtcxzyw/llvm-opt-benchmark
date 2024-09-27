@@ -3518,18 +3518,18 @@ if.then22:                                        ; preds = %land.lhs.true
 
 if.end35:                                         ; preds = %if.then22, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub26, %if.then22 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp16.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp16.i, label %land.rhs.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_SK_T1_RT2_.exit"
+  %cmp7.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp7.i, label %land.rhs.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_SK_T1_RT2_.exit"
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end35
   %conv5.i.i.i = zext i32 %__value to i64
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
-  %__holeIndex.addr.017.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ], [ %__parent.018.i, %while.body.i ]
-  %__parent.018.in.i = add nsw i64 %__holeIndex.addr.017.i, -1
-  %__parent.018.i = sdiv i64 %__parent.018.in.i, 2
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.018.i
+  %__holeIndex.addr.08.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ], [ %__parent.09.i, %while.body.i ]
+  %__parent.09.in.i = add nsw i64 %__holeIndex.addr.08.i, -1
+  %__parent.09.i = sdiv i64 %__parent.09.in.i, 2
+  %add.ptr.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.09.i
   %__comp.val.val.i = load ptr, ptr %__comp.coerce, align 8
   %16 = load i32, ptr %add.ptr.i.i, align 4
   %conv.i.i.i = zext i32 %16 to i64
@@ -3611,13 +3611,13 @@ if.end63.i.i.i:                                   ; preds = %if.end59.i.i.i
   br i1 %20, label %while.body.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_SK_T1_RT2_.exit"
 
 while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.exit.i", %if.end63.i.i.i, %if.then61.i.i.i, %if.then57.i.i.i
-  %add.ptr.i8.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.017.i
+  %add.ptr.i8.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   store i32 %16, ptr %add.ptr.i8.i, align 4
-  %cmp.i = icmp sgt i64 %__parent.018.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.09.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_SK_T1_RT2_.exit", !llvm.loop !85
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_SK_T1_RT2_.exit": ; preds = %if.then57.i.i.i, %if.then61.i.i.i, %if.end63.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.exit.i", %while.body.i, %if.end35
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.017.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.exit.i" ], [ %__parent.018.i, %while.body.i ], [ %__holeIndex.addr.017.i, %if.then61.i.i.i ], [ %__holeIndex.addr.017.i, %if.then57.i.i.i ], [ %__holeIndex.addr.017.i, %if.end63.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.08.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.exit.i" ], [ %__parent.09.i, %while.body.i ], [ %__holeIndex.addr.08.i, %if.then61.i.i.i ], [ %__holeIndex.addr.08.i, %if.then57.i.i.i ], [ %__holeIndex.addr.08.i, %if.end63.i.i.i ]
   %add.ptr.i9.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   store i32 %__value, ptr %add.ptr.i9.i, align 4
   ret void

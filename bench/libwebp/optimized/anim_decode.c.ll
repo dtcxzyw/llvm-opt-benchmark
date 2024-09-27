@@ -64,10 +64,10 @@ define ptr @WebPAnimDecoderNewInternal(ptr noundef %0, ptr noundef readonly %1, 
   ]
 
 .thread:                                          ; preds = %14, %15, %15, %15, %15
-  %.sroa.0.044 = phi i32 [ %.sroa.0.0.copyload, %15 ], [ %.sroa.0.0.copyload, %15 ], [ %.sroa.0.0.copyload, %15 ], [ %.sroa.0.0.copyload, %15 ], [ 1, %14 ]
-  %.sroa.3.043 = phi i32 [ %.sroa.3.0.copyload, %15 ], [ %.sroa.3.0.copyload, %15 ], [ %.sroa.3.0.copyload, %15 ], [ %.sroa.3.0.copyload, %15 ], [ 0, %14 ]
+  %.sroa.0.045 = phi i32 [ %.sroa.0.0.copyload, %15 ], [ %.sroa.0.0.copyload, %15 ], [ %.sroa.0.0.copyload, %15 ], [ %.sroa.0.0.copyload, %15 ], [ 1, %14 ]
+  %.sroa.3.044 = phi i32 [ %.sroa.3.0.copyload, %15 ], [ %.sroa.3.0.copyload, %15 ], [ %.sroa.3.0.copyload, %15 ], [ %.sroa.3.0.copyload, %15 ], [ 0, %14 ]
   %16 = getelementptr inbounds i8, ptr %12, i64 8
-  %17 = and i32 %.sroa.0.044, 13
+  %17 = and i32 %.sroa.0.045, 13
   %18 = icmp eq i32 %17, 1
   %19 = select i1 %18, ptr @BlendPixelRowNonPremult, ptr @BlendPixelRowPremult
   %20 = getelementptr inbounds i8, ptr %12, i64 248
@@ -78,11 +78,11 @@ define ptr @WebPAnimDecoderNewInternal(ptr noundef %0, ptr noundef readonly %1, 
 
 22:                                               ; preds = %.thread
   %23 = getelementptr inbounds i8, ptr %12, i64 48
-  store i32 %.sroa.0.044, ptr %23, align 8
+  store i32 %.sroa.0.045, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %12, i64 60
   store i32 1, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %12, i64 208
-  store i32 %.sroa.3.043, ptr %25, align 8
+  store i32 %.sroa.3.044, ptr %25, align 8
   %26 = call ptr @WebPDemuxInternal(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, i32 noundef 263) #8
   store ptr %26, ptr %12, align 8
   %27 = icmp eq ptr %26, null

@@ -5839,10 +5839,10 @@ land.lhs.true.i.i.i.i:                            ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp3.i.i.i.i, label %_ZNK9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE6EncodeIN12_GLOBAL__N_112_GLOBAL__N_18CopySinkEEEvPT_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %land.lhs.true.i.i.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i
-  %__begin3.sroa.5.013.i = phi i64 [ %__begin3.sroa.5.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ], [ 0, %land.lhs.true.i.i.i.i ]
-  %__begin3.sroa.0.012.i = phi ptr [ %__begin3.sroa.0.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ], [ %129, %land.lhs.true.i.i.i.i ]
-  %data.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.012.i, i64 16
-  %arrayidx.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor.238"], ptr %data.i.i, i64 0, i64 %__begin3.sroa.5.013.i
+  %__begin3.sroa.5.06.i = phi i64 [ %__begin3.sroa.5.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ], [ 0, %land.lhs.true.i.i.i.i ]
+  %__begin3.sroa.0.05.i = phi ptr [ %__begin3.sroa.0.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ], [ %129, %land.lhs.true.i.i.i.i ]
+  %data.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.05.i, i64 16
+  %arrayidx.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor.238"], ptr %data.i.i, i64 0, i64 %__begin3.sroa.5.06.i
   %second.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
@@ -5915,11 +5915,11 @@ lpad.i.i:                                         ; preds = %invoke.cont.i.i
 _ZN12_GLOBAL__N_112_GLOBAL__N_18CopySink6EncodeERKN9grpc_core5SliceES5_.exit.i: ; preds = %if.then.i.i.i2.i.i, %if.then.i.i.i6.i, %invoke.cont4.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %inc.i.i = add i64 %__begin3.sroa.5.013.i, 1
+  %inc.i.i = add i64 %__begin3.sroa.5.06.i, 1
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %_ZN12_GLOBAL__N_112_GLOBAL__N_18CopySink6EncodeERKN9grpc_core5SliceES5_.exit.i
-  %__begin3.sroa.0.1.i = phi ptr [ %__begin3.sroa.0.012.i, %_ZN12_GLOBAL__N_112_GLOBAL__N_18CopySink6EncodeERKN9grpc_core5SliceES5_.exit.i ], [ %143, %while.body.i.i ]
+  %__begin3.sroa.0.1.i = phi ptr [ %__begin3.sroa.0.05.i, %_ZN12_GLOBAL__N_112_GLOBAL__N_18CopySink6EncodeERKN9grpc_core5SliceES5_.exit.i ], [ %143, %while.body.i.i ]
   %__begin3.sroa.5.1.i = phi i64 [ %inc.i.i, %_ZN12_GLOBAL__N_112_GLOBAL__N_18CopySink6EncodeERKN9grpc_core5SliceES5_.exit.i ], [ 0, %while.body.i.i ]
   %count.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.1.i, i64 8
   %142 = load i64, ptr %count.i.i, align 8

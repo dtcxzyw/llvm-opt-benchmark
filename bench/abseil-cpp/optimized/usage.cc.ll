@@ -523,28 +523,28 @@ if.then.i:
   store i64 %filter.coerce0, ptr %filter, align 8
   %0 = getelementptr inbounds i8, ptr %filter, i64 8
   store ptr %filter.coerce1, ptr %0, align 8
+  %1 = ptrtoint ptr %filter to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %filter_cb, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %filter_cb, i64 24
-  %1 = getelementptr inbounds i8, ptr %filter_cb, i64 8
-  store i64 0, ptr %1, align 8
-  %2 = ptrtoint ptr %filter to i64
-  store i64 %2, ptr %filter_cb, align 8
+  %2 = getelementptr inbounds i8, ptr %filter_cb, i64 8
+  store i64 0, ptr %2, align 8
+  store i64 %1, ptr %filter_cb, align 8
   store ptr @"_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEZN4absl14flags_internal9FlagsHelpERSoS3_NS6_10HelpFormatES3_E3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEZN4absl14flags_internal9FlagsHelpERSoS3_NS6_10HelpFormatES3_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %_M_manager.i.i2 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i3 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %3, align 8
-  store i64 %2, ptr %agg.tmp, align 8
+  store i64 %1, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEZN4absl14flags_internal9FlagsHelpERSoS3_NS6_10HelpFormatES3_E3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %_M_invoker.i3, align 8
   store ptr @"_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEZN4absl14flags_internal9FlagsHelpERSoS3_NS6_10HelpFormatES3_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i2, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
+  %4 = ptrtoint ptr %agg.tmp to i64
   %_M_manager.i.i.i4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  store i64 0, ptr %4, align 8
-  %5 = ptrtoint ptr %agg.tmp to i64
-  store i64 %5, ptr %agg.tmp.i, align 8
+  %5 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  store i64 0, ptr %5, align 8
+  store i64 %4, ptr %agg.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i4, align 8
   invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %agg.tmp.i, i32 noundef %format, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
@@ -738,12 +738,12 @@ terminate.lpad.i.i16:                             ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
+  %8 = ptrtoint ptr %agg.tmp to i64
   %_M_manager.i.i.i17 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %8 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %agg.tmp to i64
-  store i64 %9, ptr %agg.tmp.i, align 8
+  %9 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %8, ptr %agg.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i17, align 8
   invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %agg.tmp.i, i32 noundef %5, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
@@ -869,12 +869,12 @@ terminate.lpad.i.i33:                             ; preds = %.noexc34
 
 invoke.cont9:                                     ; preds = %.noexc34
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i36)
+  %29 = ptrtoint ptr %agg.tmp6 to i64
   %_M_manager.i.i.i37 = getelementptr inbounds i8, ptr %agg.tmp.i36, i64 16
   %_M_invoker.i.i38 = getelementptr inbounds i8, ptr %agg.tmp.i36, i64 24
-  %29 = getelementptr inbounds i8, ptr %agg.tmp.i36, i64 8
-  store i64 0, ptr %29, align 8
-  %30 = ptrtoint ptr %agg.tmp6 to i64
-  store i64 %30, ptr %agg.tmp.i36, align 8
+  %30 = getelementptr inbounds i8, ptr %agg.tmp.i36, i64 8
+  store i64 0, ptr %30, align 8
+  store i64 %29, ptr %agg.tmp.i36, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %_M_invoker.i.i38, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i37, align 8
   invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %agg.tmp.i36, i32 noundef %26, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
@@ -1018,12 +1018,12 @@ terminate.lpad.i.i74:                             ; preds = %.noexc75
 
 invoke.cont21:                                    ; preds = %.noexc75
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i77)
+  %53 = ptrtoint ptr %agg.tmp18 to i64
   %_M_manager.i.i.i78 = getelementptr inbounds i8, ptr %agg.tmp.i77, i64 16
   %_M_invoker.i.i79 = getelementptr inbounds i8, ptr %agg.tmp.i77, i64 24
-  %53 = getelementptr inbounds i8, ptr %agg.tmp.i77, i64 8
-  store i64 0, ptr %53, align 8
-  %54 = ptrtoint ptr %agg.tmp18 to i64
-  store i64 %54, ptr %agg.tmp.i77, align 8
+  %54 = getelementptr inbounds i8, ptr %agg.tmp.i77, i64 8
+  store i64 0, ptr %54, align 8
+  store i64 %53, ptr %agg.tmp.i77, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %_M_invoker.i.i79, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i78, align 8
   invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %agg.tmp.i77, i32 noundef %50, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
@@ -1146,12 +1146,12 @@ lpad29:                                           ; preds = %if.then, %invoke.co
   br label %ehcleanup
 
 if.else:                                          ; preds = %sw.bb25
+  %75 = ptrtoint ptr %substr to i64
   %_M_manager.i.i108 = getelementptr inbounds i8, ptr %agg.tmp34, i64 16
   %_M_invoker.i109 = getelementptr inbounds i8, ptr %agg.tmp34, i64 24
-  %75 = getelementptr inbounds i8, ptr %agg.tmp34, i64 8
-  store i64 0, ptr %75, align 8
-  %76 = ptrtoint ptr %substr to i64
-  store i64 %76, ptr %agg.tmp34, align 8
+  %76 = getelementptr inbounds i8, ptr %agg.tmp34, i64 8
+  store i64 0, ptr %76, align 8
+  store i64 %75, ptr %agg.tmp34, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal16HandleUsageFlagsERSoSt17basic_string_viewIcSt11char_traitsIcEEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %_M_invoker.i109, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal16HandleUsageFlagsERSoSt17basic_string_viewIcSt11char_traitsIcEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %_M_manager.i.i108, align 8
   invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %agg.tmp34, i32 noundef 0, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)

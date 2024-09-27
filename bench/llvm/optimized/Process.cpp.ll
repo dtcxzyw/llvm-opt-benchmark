@@ -797,10 +797,10 @@ define dso_local { i32, ptr } @_ZN4llvm3sys7Process28FixupStandardFileDescriptor
   br label %3
 
 3:                                                ; preds = %0, %33
-  %.0.idx45 = phi i64 [ 0, %0 ], [ %.0.add, %33 ]
-  %.sroa.2.044 = phi i1 [ false, %0 ], [ %.sroa.2.1, %33 ]
-  %.043 = phi i32 [ -1, %0 ], [ %.2, %33 ]
-  %.0.ptr = getelementptr inbounds i8, ptr @__const._ZN4llvm3sys7Process28FixupStandardFileDescriptorsEv.StandardFDs, i64 %.0.idx45
+  %.0.idx48 = phi i64 [ 0, %0 ], [ %.0.add, %33 ]
+  %.sroa.2.047 = phi i1 [ false, %0 ], [ %.sroa.2.1, %33 ]
+  %.046 = phi i32 [ -1, %0 ], [ %.2, %33 ]
+  %.0.ptr = getelementptr inbounds i8, ptr @__const._ZN4llvm3sys7Process28FixupStandardFileDescriptorsEv.StandardFDs, i64 %.0.idx48
   %4 = load i32, ptr %.0.ptr, align 4
   br label %5
 
@@ -834,7 +834,7 @@ _ZN4llvm3sys16RetryAfterSignalIiDoFiiP4statEJiS3_EEEDcRKT_RKT0_DpRKT1_.exit.thre
   br i1 %.not9, label %33, label %.thread
 
 .thread:                                          ; preds = %_ZN4llvm3sys16RetryAfterSignalIiDoFiiP4statEJiS3_EEEDcRKT_RKT0_DpRKT1_.exit.thread, %15
-  %16 = icmp slt i32 %.043, 0
+  %16 = icmp slt i32 %.046, 0
   br i1 %16, label %.preheader, label %25
 
 .preheader:                                       ; preds = %.thread, %19
@@ -846,23 +846,23 @@ _ZN4llvm3sys16RetryAfterSignalIiDoFiiP4statEJiS3_EEEDcRKT_RKT0_DpRKT1_.exit.thre
 19:                                               ; preds = %.preheader
   %20 = load i32, ptr %2, align 4
   %21 = icmp eq i32 %20, 4
-  br i1 %21, label %.preheader, label %.thread63, !llvm.loop !17
+  br i1 %21, label %.preheader, label %.thread66, !llvm.loop !17
 
 "_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit": ; preds = %.preheader
   %22 = icmp slt i32 %17, 0
-  br i1 %22, label %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread.loopexit46", label %25
+  br i1 %22, label %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread.loopexit49", label %25
 
-"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread.loopexit46": ; preds = %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit"
-  %.pre61 = load i32, ptr %2, align 4
-  br label %.thread63
+"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread.loopexit49": ; preds = %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit"
+  %.pre64 = load i32, ptr %2, align 4
+  br label %.thread66
 
-.thread63:                                        ; preds = %19, %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread.loopexit46"
-  %23 = phi i32 [ %.pre61, %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread.loopexit46" ], [ %20, %19 ]
+.thread66:                                        ; preds = %19, %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread.loopexit49"
+  %23 = phi i32 [ %.pre64, %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread.loopexit49" ], [ %20, %19 ]
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #25
   br label %_ZN12_GLOBAL__N_18FDCloserD2Ev.exit
 
 25:                                               ; preds = %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit", %.thread
-  %.3 = phi i32 [ %17, %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit" ], [ %.043, %.thread ]
+  %.3 = phi i32 [ %17, %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit" ], [ %.046, %.thread ]
   %26 = icmp eq i32 %.3, %4
   br i1 %26, label %33, label %27
 
@@ -877,9 +877,9 @@ _ZN4llvm3sys16RetryAfterSignalIiDoFiiP4statEJiS3_EEEDcRKT_RKT0_DpRKT1_.exit.thre
   br label %36
 
 33:                                               ; preds = %25, %27, %15
-  %.2 = phi i32 [ %.043, %15 ], [ %.3, %27 ], [ %4, %25 ]
-  %.sroa.2.1 = phi i1 [ %.sroa.2.044, %15 ], [ %.sroa.2.044, %27 ], [ true, %25 ]
-  %.0.add = add nuw nsw i64 %.0.idx45, 4
+  %.2 = phi i32 [ %.046, %15 ], [ %.3, %27 ], [ %4, %25 ]
+  %.sroa.2.1 = phi i1 [ %.sroa.2.047, %15 ], [ %.sroa.2.047, %27 ], [ true, %25 ]
+  %.0.add = add nuw nsw i64 %.0.idx48, 4
   %.not = icmp eq i64 %.0.add, 12
   br i1 %.not, label %34, label %3
 
@@ -888,23 +888,23 @@ _ZN4llvm3sys16RetryAfterSignalIiDoFiiP4statEJiS3_EEEDcRKT_RKT0_DpRKT1_.exit.thre
   br label %36
 
 36:                                               ; preds = %34, %30, %13
-  %.sroa.2.033 = phi i1 [ %.sroa.2.1, %34 ], [ %.sroa.2.044, %30 ], [ %.sroa.2.044, %13 ]
-  %.1 = phi i32 [ %.2, %34 ], [ %.3, %30 ], [ %.043, %13 ]
-  %.sroa.018.0 = phi i32 [ 0, %34 ], [ %31, %30 ], [ %12, %13 ]
+  %.sroa.2.036 = phi i1 [ %.sroa.2.1, %34 ], [ %.sroa.2.047, %30 ], [ %.sroa.2.047, %13 ]
+  %.1 = phi i32 [ %.2, %34 ], [ %.3, %30 ], [ %.046, %13 ]
+  %.sroa.019.0 = phi i32 [ 0, %34 ], [ %31, %30 ], [ %12, %13 ]
   %.sroa.5.0 = phi ptr [ %35, %34 ], [ %32, %30 ], [ %14, %13 ]
   %37 = icmp slt i32 %.1, 0
-  %or.cond.not = select i1 %.sroa.2.033, i1 true, i1 %37
+  %or.cond.not = select i1 %.sroa.2.036, i1 true, i1 %37
   br i1 %or.cond.not, label %_ZN12_GLOBAL__N_18FDCloserD2Ev.exit, label %38
 
 38:                                               ; preds = %36
   %39 = tail call i32 @close(i32 noundef %.1) #22
   br label %_ZN12_GLOBAL__N_18FDCloserD2Ev.exit
 
-_ZN12_GLOBAL__N_18FDCloserD2Ev.exit:              ; preds = %.thread63, %36, %38
-  %.sroa.5.070 = phi ptr [ %24, %.thread63 ], [ %.sroa.5.0, %36 ], [ %.sroa.5.0, %38 ]
-  %.sroa.018.069 = phi i32 [ %23, %.thread63 ], [ %.sroa.018.0, %36 ], [ %.sroa.018.0, %38 ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.018.069, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.5.070, 1
+_ZN12_GLOBAL__N_18FDCloserD2Ev.exit:              ; preds = %.thread66, %36, %38
+  %.sroa.5.073 = phi ptr [ %24, %.thread66 ], [ %.sroa.5.0, %36 ], [ %.sroa.5.0, %38 ]
+  %.sroa.019.072 = phi i32 [ %23, %.thread66 ], [ %.sroa.019.0, %36 ], [ %.sroa.019.0, %38 ]
+  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.019.072, 0
+  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.5.073, 1
   ret { i32, ptr } %.fca.1.insert
 }
 

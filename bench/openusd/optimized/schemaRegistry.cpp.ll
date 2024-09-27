@@ -7896,12 +7896,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_13UsdTokensTypeENS_27Tf_
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit:                      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit24.i.i.i.i", %197, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit21.i.i.i.i", %184, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit18.i.i.i.i", %171, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit.i.i.i.i", %158
+.loopexit.split-lp.loopexit:                      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit30.i.i.i.i", %197, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit27.i.i.i.i", %184, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit24.i.i.i.i", %171, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit.i.i.i.i", %158
   %lpad.loopexit74 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit33.i.i.i.i", %242, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit30.i.i.i.i", %228, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit27.i.i.i.i", %214, %129, %108, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_13UsdTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, %23, %15, %276, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit39.i.i.i.i", %242, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit36.i.i.i.i", %228, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit33.i.i.i.i", %214, %129, %108, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_13UsdTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, %23, %15, %276, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
   %lpad.loopexit.split-lp75 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -8084,9 +8084,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrINS_9TfHashMapINS_6TfTypeES
   br i1 %152, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %144, %203
-  %.063.i.i.i.i = phi i64 [ %205, %203 ], [ %151, %144 ]
-  %.sroa.043.062.i.i.i.i = phi ptr [ %204, %203 ], [ %140, %144 ]
-  %.val.i.i.i.i.i = load ptr, ptr %.sroa.043.062.i.i.i.i, align 8
+  %.069.i.i.i.i = phi i64 [ %205, %203 ], [ %151, %144 ]
+  %.sroa.049.068.i.i.i.i = phi ptr [ %204, %203 ], [ %140, %144 ]
+  %.val.i.i.i.i.i = load ptr, ptr %.sroa.049.068.i.i.i.i, align 8
   %153 = ptrtoint ptr %.val.i.i.i.i.i to i64
   %154 = and i64 %153, -8
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %154, 0
@@ -8112,101 +8112,101 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrINS_9TfHashMapINS_6TfTypeES
   br i1 %163, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i", label %164
 
 164:                                              ; preds = %.noexc43
-  %165 = getelementptr inbounds i8, ptr %.sroa.043.062.i.i.i.i, i64 8
-  %.val.i16.i.i.i.i = load ptr, ptr %165, align 8
-  %166 = ptrtoint ptr %.val.i16.i.i.i.i to i64
+  %165 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i, i64 8
+  %.val.i22.i.i.i.i = load ptr, ptr %165, align 8
+  %166 = ptrtoint ptr %.val.i22.i.i.i.i to i64
   %167 = and i64 %166, -8
-  %.not.i.i.i.i17.i.i.i.i = icmp eq i64 %167, 0
-  br i1 %.not.i.i.i.i17.i.i.i.i, label %171, label %168
+  %.not.i.i.i.i23.i.i.i.i = icmp eq i64 %167, 0
+  br i1 %.not.i.i.i.i23.i.i.i.i, label %171, label %168
 
 168:                                              ; preds = %164
   %169 = inttoptr i64 %167 to ptr
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit18.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit24.i.i.i.i"
 
 171:                                              ; preds = %164
   %172 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev()
-          to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit18.i.i.i.i" unwind label %.loopexit.split-lp.loopexit
+          to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit24.i.i.i.i" unwind label %.loopexit.split-lp.loopexit
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit18.i.i.i.i": ; preds = %171, %168
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit24.i.i.i.i": ; preds = %171, %168
   %173 = phi ptr [ %170, %168 ], [ %172, %171 ]
   %174 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L28_FindInstanceNamePlaceholderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %173)
           to label %.noexc45 unwind label %.loopexit.split-lp.loopexit
 
-.noexc45:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit18.i.i.i.i"
+.noexc45:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit24.i.i.i.i"
   %175 = icmp ne i64 %174, -1
   %176 = xor i1 %147, %175
   br i1 %176, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit", label %177
 
 177:                                              ; preds = %.noexc45
-  %178 = getelementptr inbounds i8, ptr %.sroa.043.062.i.i.i.i, i64 16
-  %.val.i19.i.i.i.i = load ptr, ptr %178, align 8
-  %179 = ptrtoint ptr %.val.i19.i.i.i.i to i64
+  %178 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i, i64 16
+  %.val.i25.i.i.i.i = load ptr, ptr %178, align 8
+  %179 = ptrtoint ptr %.val.i25.i.i.i.i to i64
   %180 = and i64 %179, -8
-  %.not.i.i.i.i20.i.i.i.i = icmp eq i64 %180, 0
-  br i1 %.not.i.i.i.i20.i.i.i.i, label %184, label %181
+  %.not.i.i.i.i26.i.i.i.i = icmp eq i64 %180, 0
+  br i1 %.not.i.i.i.i26.i.i.i.i, label %184, label %181
 
 181:                                              ; preds = %177
   %182 = inttoptr i64 %180 to ptr
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit21.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit27.i.i.i.i"
 
 184:                                              ; preds = %177
   %185 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev()
-          to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit21.i.i.i.i" unwind label %.loopexit.split-lp.loopexit
+          to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit27.i.i.i.i" unwind label %.loopexit.split-lp.loopexit
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit21.i.i.i.i": ; preds = %184, %181
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit27.i.i.i.i": ; preds = %184, %181
   %186 = phi ptr [ %183, %181 ], [ %185, %184 ]
   %187 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L28_FindInstanceNamePlaceholderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %186)
           to label %.noexc47 unwind label %.loopexit.split-lp.loopexit
 
-.noexc47:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit21.i.i.i.i"
+.noexc47:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit27.i.i.i.i"
   %188 = icmp ne i64 %187, -1
   %189 = xor i1 %147, %188
   br i1 %189, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit111", label %190
 
 190:                                              ; preds = %.noexc47
-  %191 = getelementptr inbounds i8, ptr %.sroa.043.062.i.i.i.i, i64 24
-  %.val.i22.i.i.i.i = load ptr, ptr %191, align 8
-  %192 = ptrtoint ptr %.val.i22.i.i.i.i to i64
+  %191 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i, i64 24
+  %.val.i28.i.i.i.i = load ptr, ptr %191, align 8
+  %192 = ptrtoint ptr %.val.i28.i.i.i.i to i64
   %193 = and i64 %192, -8
-  %.not.i.i.i.i23.i.i.i.i = icmp eq i64 %193, 0
-  br i1 %.not.i.i.i.i23.i.i.i.i, label %197, label %194
+  %.not.i.i.i.i29.i.i.i.i = icmp eq i64 %193, 0
+  br i1 %.not.i.i.i.i29.i.i.i.i, label %197, label %194
 
 194:                                              ; preds = %190
   %195 = inttoptr i64 %193 to ptr
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit24.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit30.i.i.i.i"
 
 197:                                              ; preds = %190
   %198 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev()
-          to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit24.i.i.i.i" unwind label %.loopexit.split-lp.loopexit
+          to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit30.i.i.i.i" unwind label %.loopexit.split-lp.loopexit
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit24.i.i.i.i": ; preds = %197, %194
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit30.i.i.i.i": ; preds = %197, %194
   %199 = phi ptr [ %196, %194 ], [ %198, %197 ]
   %200 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L28_FindInstanceNamePlaceholderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %199)
           to label %.noexc49 unwind label %.loopexit.split-lp.loopexit
 
-.noexc49:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit24.i.i.i.i"
+.noexc49:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit30.i.i.i.i"
   %201 = icmp ne i64 %200, -1
   %202 = xor i1 %147, %201
   br i1 %202, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit113", label %203
 
 203:                                              ; preds = %.noexc49
-  %204 = getelementptr inbounds i8, ptr %.sroa.043.062.i.i.i.i, i64 32
-  %205 = add nsw i64 %.063.i.i.i.i, -1
-  %206 = icmp sgt i64 %.063.i.i.i.i, 1
+  %204 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i, i64 32
+  %205 = add nsw i64 %.069.i.i.i.i, -1
+  %206 = icmp sgt i64 %.069.i.i.i.i, 1
   br i1 %206, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !69
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %203
   %.pre.i.i.i.i = ptrtoint ptr %204 to i64
-  %.pre68.i.i.i.i = sub i64 %148, %.pre.i.i.i.i
+  %.pre74.i.i.i.i = sub i64 %148, %.pre.i.i.i.i
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %144
-  %.pre-phi69.i.i.i.i = phi i64 [ %.pre68.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %150, %144 ]
-  %.sroa.043.0.lcssa.i.i.i.i = phi ptr [ %204, %._crit_edge.loopexit.i.i.i.i ], [ %140, %144 ]
-  %207 = ashr exact i64 %.pre-phi69.i.i.i.i, 3
+  %.pre-phi75.i.i.i.i = phi i64 [ %.pre74.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %150, %144 ]
+  %.sroa.049.0.lcssa.i.i.i.i = phi ptr [ %204, %._crit_edge.loopexit.i.i.i.i ], [ %140, %144 ]
+  %207 = ashr exact i64 %.pre-phi75.i.i.i.i, 3
   switch i64 %207, label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS9_10SchemaInfoEE3$_0ET_SN_SN_T0_.exit" [
     i64 3, label %208
     i64 2, label %222
@@ -8214,108 +8214,108 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrINS_9TfHashMapINS_6TfTypeES
   ]
 
 208:                                              ; preds = %._crit_edge.i.i.i.i
-  %.val.i25.i.i.i.i = load ptr, ptr %.sroa.043.0.lcssa.i.i.i.i, align 8
-  %209 = ptrtoint ptr %.val.i25.i.i.i.i to i64
+  %.val.i31.i.i.i.i = load ptr, ptr %.sroa.049.0.lcssa.i.i.i.i, align 8
+  %209 = ptrtoint ptr %.val.i31.i.i.i.i to i64
   %210 = and i64 %209, -8
-  %.not.i.i.i.i26.i.i.i.i = icmp eq i64 %210, 0
-  br i1 %.not.i.i.i.i26.i.i.i.i, label %214, label %211
+  %.not.i.i.i.i32.i.i.i.i = icmp eq i64 %210, 0
+  br i1 %.not.i.i.i.i32.i.i.i.i, label %214, label %211
 
 211:                                              ; preds = %208
   %212 = inttoptr i64 %210 to ptr
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit27.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit33.i.i.i.i"
 
 214:                                              ; preds = %208
   %215 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev()
-          to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit27.i.i.i.i" unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit33.i.i.i.i" unwind label %.loopexit.split-lp.loopexit.split-lp
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit27.i.i.i.i": ; preds = %214, %211
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit33.i.i.i.i": ; preds = %214, %211
   %216 = phi ptr [ %213, %211 ], [ %215, %214 ]
   %217 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L28_FindInstanceNamePlaceholderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %216)
           to label %.noexc51 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc51:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit27.i.i.i.i"
+.noexc51:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit33.i.i.i.i"
   %218 = icmp ne i64 %217, -1
   %219 = xor i1 %147, %218
   br i1 %219, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i", label %220
 
 220:                                              ; preds = %.noexc51
-  %221 = getelementptr inbounds i8, ptr %.sroa.043.0.lcssa.i.i.i.i, i64 8
+  %221 = getelementptr inbounds i8, ptr %.sroa.049.0.lcssa.i.i.i.i, i64 8
   br label %222
 
 222:                                              ; preds = %220, %._crit_edge.i.i.i.i
-  %.sroa.043.1.i.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %221, %220 ]
-  %.val.i28.i.i.i.i = load ptr, ptr %.sroa.043.1.i.i.i.i, align 8
-  %223 = ptrtoint ptr %.val.i28.i.i.i.i to i64
+  %.sroa.049.1.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %221, %220 ]
+  %.val.i34.i.i.i.i = load ptr, ptr %.sroa.049.1.i.i.i.i, align 8
+  %223 = ptrtoint ptr %.val.i34.i.i.i.i to i64
   %224 = and i64 %223, -8
-  %.not.i.i.i.i29.i.i.i.i = icmp eq i64 %224, 0
-  br i1 %.not.i.i.i.i29.i.i.i.i, label %228, label %225
+  %.not.i.i.i.i35.i.i.i.i = icmp eq i64 %224, 0
+  br i1 %.not.i.i.i.i35.i.i.i.i, label %228, label %225
 
 225:                                              ; preds = %222
   %226 = inttoptr i64 %224 to ptr
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 16
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit30.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit36.i.i.i.i"
 
 228:                                              ; preds = %222
   %229 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev()
-          to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit30.i.i.i.i" unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit36.i.i.i.i" unwind label %.loopexit.split-lp.loopexit.split-lp
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit30.i.i.i.i": ; preds = %228, %225
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit36.i.i.i.i": ; preds = %228, %225
   %230 = phi ptr [ %227, %225 ], [ %229, %228 ]
   %231 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L28_FindInstanceNamePlaceholderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %230)
           to label %.noexc53 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc53:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit30.i.i.i.i"
+.noexc53:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit36.i.i.i.i"
   %232 = icmp ne i64 %231, -1
   %233 = xor i1 %147, %232
   br i1 %233, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i", label %234
 
 234:                                              ; preds = %.noexc53
-  %235 = getelementptr inbounds i8, ptr %.sroa.043.1.i.i.i.i, i64 8
+  %235 = getelementptr inbounds i8, ptr %.sroa.049.1.i.i.i.i, i64 8
   br label %236
 
 236:                                              ; preds = %234, %._crit_edge.i.i.i.i
-  %.sroa.043.2.i.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %235, %234 ]
-  %.val.i31.i.i.i.i = load ptr, ptr %.sroa.043.2.i.i.i.i, align 8
-  %237 = ptrtoint ptr %.val.i31.i.i.i.i to i64
+  %.sroa.049.2.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %235, %234 ]
+  %.val.i37.i.i.i.i = load ptr, ptr %.sroa.049.2.i.i.i.i, align 8
+  %237 = ptrtoint ptr %.val.i37.i.i.i.i to i64
   %238 = and i64 %237, -8
-  %.not.i.i.i.i32.i.i.i.i = icmp eq i64 %238, 0
-  br i1 %.not.i.i.i.i32.i.i.i.i, label %242, label %239
+  %.not.i.i.i.i38.i.i.i.i = icmp eq i64 %238, 0
+  br i1 %.not.i.i.i.i38.i.i.i.i, label %242, label %239
 
 239:                                              ; preds = %236
   %240 = inttoptr i64 %238 to ptr
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit33.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit39.i.i.i.i"
 
 242:                                              ; preds = %236
   %243 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev()
-          to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit33.i.i.i.i" unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit39.i.i.i.i" unwind label %.loopexit.split-lp.loopexit.split-lp
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit33.i.i.i.i": ; preds = %242, %239
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit39.i.i.i.i": ; preds = %242, %239
   %244 = phi ptr [ %241, %239 ], [ %243, %242 ]
   %245 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L28_FindInstanceNamePlaceholderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %244)
           to label %.noexc55 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc55:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit33.i.i.i.i"
+.noexc55:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNS3_10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISK_SaISK_EEEEEEbT_.exit39.i.i.i.i"
   %246 = icmp ne i64 %245, -1
   %247 = xor i1 %147, %246
-  %spec.select.i.i.i.i = select i1 %247, ptr %.sroa.043.2.i.i.i.i, ptr %142
+  %spec.select.i.i.i.i = select i1 %247, ptr %.sroa.049.2.i.i.i.i, ptr %142
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i"
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit": ; preds = %.noexc45
-  %248 = getelementptr inbounds i8, ptr %.sroa.043.062.i.i.i.i, i64 8
+  %248 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i, i64 8
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i"
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit111": ; preds = %.noexc47
-  %249 = getelementptr inbounds i8, ptr %.sroa.043.062.i.i.i.i, i64 16
+  %249 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i, i64 16
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i"
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit113": ; preds = %.noexc49
-  %250 = getelementptr inbounds i8, ptr %.sroa.043.062.i.i.i.i, i64 24
+  %250 = getelementptr inbounds i8, ptr %.sroa.049.068.i.i.i.i, i64 24
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i"
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i": ; preds = %.noexc43, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit111", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit113", %.noexc55, %.noexc53, %.noexc51
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i.i, %.noexc51 ], [ %.sroa.043.1.i.i.i.i, %.noexc53 ], [ %spec.select.i.i.i.i, %.noexc55 ], [ %248, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %249, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit111" ], [ %250, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit113" ], [ %.sroa.043.062.i.i.i.i, %.noexc43 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i, %.noexc51 ], [ %.sroa.049.1.i.i.i.i, %.noexc53 ], [ %spec.select.i.i.i.i, %.noexc55 ], [ %248, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %249, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit111" ], [ %250, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_17UsdSchemaRegistry20_SchemaDefInitHelper27_GetDirectBuiltinAPISchemasERKNS2_8TfRefPtrINS2_8SdfLayerEEERKNS2_7SdfPathERKNSB_10SchemaInfoEE3$_0EEET_SQ_SQ_T0_.exit.i.i.loopexit.split.loop.exit113" ], [ %.sroa.049.068.i.i.i.i, %.noexc43 ]
   %251 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %142
   %.sroa.07.026.i.i = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 8
   %.not27.i.i = icmp eq ptr %.sroa.07.026.i.i, %142

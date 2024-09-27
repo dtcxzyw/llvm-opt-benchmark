@@ -6685,11 +6685,11 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %859, %870, %stbtt_F
 
 2248:                                             ; preds = %.thread.i.us.i.us.us.i, %.lr.ph.i.us.i.us.us.i
   %indvars.iv.i.us.i.us.us.i = phi i64 [ 0, %.lr.ph.i.us.i.us.us.i ], [ %indvars.iv.next.i.us.i.us.us.i, %.thread.i.us.i.us.us.i ]
-  %.0150199.i.us.i.us.us.i = phi i32 [ 0, %.lr.ph.i.us.i.us.us.i ], [ %.3.i.us.fr.i.us.us.i, %.thread.i.us.i.us.us.i ]
-  %.sroa.0.0198.i.us.i.us.us.i = phi float [ undef, %.lr.ph.i.us.i.us.us.i ], [ %.sroa.0.1.i.us.i.us.us.i, %.thread.i.us.i.us.us.i ]
-  %.sroa.2.0197.i.us.i.us.us.i = phi float [ undef, %.lr.ph.i.us.i.us.us.i ], [ %.sroa.2.1.i.us.i.us.us.i, %.thread.i.us.i.us.us.i ]
-  %.sroa.4.0196.i.us.i.us.us.i = phi float [ undef, %.lr.ph.i.us.i.us.us.i ], [ %.sroa.4.1.i.us.i.us.us.i, %.thread.i.us.i.us.us.i ]
-  %.sroa.6.0195.i.us.i.us.us.i = phi float [ undef, %.lr.ph.i.us.i.us.us.i ], [ %.sroa.6.1.i.us.i.us.us.i, %.thread.i.us.i.us.us.i ]
+  %.0150200.i.us.i.us.us.i = phi i32 [ 0, %.lr.ph.i.us.i.us.us.i ], [ %.3.i.us.fr.i.us.us.i, %.thread.i.us.i.us.us.i ]
+  %.sroa.0.0199.i.us.i.us.us.i = phi float [ undef, %.lr.ph.i.us.i.us.us.i ], [ %.sroa.0.1.i.us.i.us.us.i, %.thread.i.us.i.us.us.i ]
+  %.sroa.2.0198.i.us.i.us.us.i = phi float [ undef, %.lr.ph.i.us.i.us.us.i ], [ %.sroa.2.1.i.us.i.us.us.i, %.thread.i.us.i.us.us.i ]
+  %.sroa.4.0197.i.us.i.us.us.i = phi float [ undef, %.lr.ph.i.us.i.us.us.i ], [ %.sroa.4.1.i.us.i.us.us.i, %.thread.i.us.i.us.us.i ]
+  %.sroa.6.0196.i.us.i.us.us.i = phi float [ undef, %.lr.ph.i.us.i.us.us.i ], [ %.sroa.6.1.i.us.i.us.us.i, %.thread.i.us.i.us.us.i ]
   %2249 = getelementptr inbounds %struct.stbtt_vertex, ptr %.pre.pre.i.i, i64 %indvars.iv.i.us.i.us.us.i
   %2250 = getelementptr inbounds i8, ptr %2249, i64 12
   %2251 = load i8, ptr %2250, align 2
@@ -6742,8 +6742,8 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %859, %870, %stbtt_F
 2285:                                             ; preds = %2276
   %2286 = fcmp une float %2279, %2281
   %2287 = fcmp une float %2280, %2282
-  %narrow.i172.not.i.us.i.us.us.i = or i1 %2286, %2287
-  br i1 %narrow.i172.not.i.us.i.us.us.i, label %2316, label %2288
+  %narrow.i182.not.i.us.i.us.us.i = or i1 %2286, %2287
+  br i1 %narrow.i182.not.i.us.i.us.us.i, label %2316, label %2288
 
 2288:                                             ; preds = %2285, %2276
   %2289 = sext i16 %2254 to i32
@@ -6780,7 +6780,7 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %859, %870, %stbtt_F
 
 2313:                                             ; preds = %2304
   %2314 = select i1 %2292, i32 1, i32 -1
-  %2315 = add nsw i32 %2314, %.0150199.i.us.i.us.us.i
+  %2315 = add nsw i32 %2314, %.0150200.i.us.i.us.us.i
   br label %.thread.i.us.i.us.us.i
 
 2316:                                             ; preds = %2285
@@ -6806,7 +6806,7 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %859, %870, %stbtt_F
   %2334 = fcmp ult float %2333, 0.000000e+00
   %2335 = fcmp ugt float %2333, 1.000000e+00
   %or.cond115.i.i.us.i.us.us.i = or i1 %2334, %2335
-  br i1 %or.cond115.i.i.us.i.us.us.i, label %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i, label %.thread122.i.i.us.i.us.us.i
+  br i1 %or.cond115.i.i.us.i.us.us.i, label %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i, label %.thread21.i.i.us.i.us.us.i
 
 2336:                                             ; preds = %2316
   %2337 = fneg float %2329
@@ -6834,15 +6834,15 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %859, %870, %stbtt_F
 
 2353:                                             ; preds = %2341
   %.0105.i.i.us.i.us.us.i = select i1 %or.cond.not.not.not.i.i.us.i.us.us.i, float %2344, float %2346
-  br label %.thread122.i.i.us.i.us.us.i
+  br label %.thread21.i.i.us.i.us.us.i
 
 2354:                                             ; preds = %2341
-  br i1 %or.cond.not.not.not.i.i.us.i.us.us.i, label %.thread122.i.i.us.i.us.us.i, label %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i
+  br i1 %or.cond.not.not.not.i.i.us.i.us.us.i, label %.thread21.i.i.us.i.us.us.i, label %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i
 
-.thread122.i.i.us.i.us.us.i:                      ; preds = %2354, %2353, %2331
-  %.1128.i.i.us.i.us.us.i = phi float [ %2344, %2354 ], [ %2333, %2331 ], [ %.0105.i.i.us.i.us.us.i, %2353 ]
-  %.0106127.i.i.us.i.us.us.i = phi float [ %2346, %2354 ], [ 0.000000e+00, %2331 ], [ %2346, %2353 ]
-  %.1108126.i.i.us.i.us.us.i = phi i1 [ false, %2354 ], [ false, %2331 ], [ %or.cond.not.not.not.i.i.us.i.us.us.i, %2353 ]
+.thread21.i.i.us.i.us.us.i:                       ; preds = %2354, %2353, %2331
+  %.127.i.i.us.i.us.us.i = phi float [ %2344, %2354 ], [ %2333, %2331 ], [ %.0105.i.i.us.i.us.us.i, %2353 ]
+  %.010626.i.i.us.i.us.us.i = phi float [ %2346, %2354 ], [ 0.000000e+00, %2331 ], [ %2346, %2353 ]
+  %.110825.i.i.us.i.us.us.i = phi i1 [ false, %2354 ], [ false, %2331 ], [ %or.cond.not.not.not.i.i.us.i.us.us.i, %2353 ]
   %2355 = call float @llvm.copysign.f32(float 0.000000e+00, float %2278)
   %2356 = fadd float %2355, %2277
   %2357 = call float @llvm.copysign.f32(float 0.000000e+00, float %2280)
@@ -6852,36 +6852,36 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %859, %870, %stbtt_F
   %2361 = fsub float %2358, %2356
   %2362 = fsub float %2360, %2356
   %2363 = fsub float %2356, %2246
-  %2364 = call float @llvm.fmuladd.f32(float %.1128.i.i.us.i.us.us.i, float -2.000000e+00, float 2.000000e+00)
-  %2365 = fmul float %.1128.i.i.us.i.us.us.i, %2364
+  %2364 = call float @llvm.fmuladd.f32(float %.127.i.i.us.i.us.us.i, float -2.000000e+00, float 2.000000e+00)
+  %2365 = fmul float %.127.i.i.us.i.us.us.i, %2364
   %2366 = call float @llvm.fmuladd.f32(float %2365, float %2361, float %2363)
-  %2367 = fmul float %.1128.i.i.us.i.us.us.i, %.1128.i.i.us.i.us.us.i
+  %2367 = fmul float %.127.i.i.us.i.us.us.i, %.127.i.i.us.i.us.us.i
   %2368 = call float @llvm.fmuladd.f32(float %2367, float %2362, float %2366)
-  %2369 = call float @llvm.fmuladd.f32(float %2327, float %.1128.i.i.us.i.us.us.i, float %2328)
-  br i1 %.1108126.i.i.us.i.us.us.i, label %2370, label %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i
+  %2369 = call float @llvm.fmuladd.f32(float %2327, float %.127.i.i.us.i.us.us.i, float %2328)
+  br i1 %.110825.i.i.us.i.us.us.i, label %2370, label %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i
 
-2370:                                             ; preds = %.thread122.i.i.us.i.us.us.i
-  %2371 = call float @llvm.fmuladd.f32(float %.0106127.i.i.us.i.us.us.i, float -2.000000e+00, float 2.000000e+00)
-  %2372 = fmul float %.0106127.i.i.us.i.us.us.i, %2371
+2370:                                             ; preds = %.thread21.i.i.us.i.us.us.i
+  %2371 = call float @llvm.fmuladd.f32(float %.010626.i.i.us.i.us.us.i, float -2.000000e+00, float 2.000000e+00)
+  %2372 = fmul float %.010626.i.i.us.i.us.us.i, %2371
   %2373 = call float @llvm.fmuladd.f32(float %2372, float %2361, float %2363)
-  %2374 = fmul float %.0106127.i.i.us.i.us.us.i, %.0106127.i.i.us.i.us.us.i
+  %2374 = fmul float %.010626.i.i.us.i.us.us.i, %.010626.i.i.us.i.us.us.i
   %2375 = call float @llvm.fmuladd.f32(float %2374, float %2362, float %2373)
-  %2376 = call float @llvm.fmuladd.f32(float %2327, float %.0106127.i.i.us.i.us.us.i, float %2328)
+  %2376 = call float @llvm.fmuladd.f32(float %2327, float %.010626.i.i.us.i.us.us.i, float %2328)
   br label %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i
 
-stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i:  ; preds = %2370, %.thread122.i.i.us.i.us.us.i, %2354, %2336, %2331
-  %.sroa.6.2.i.us.i.us.us.i = phi float [ %2376, %2370 ], [ %.sroa.6.0195.i.us.i.us.us.i, %.thread122.i.i.us.i.us.us.i ], [ %.sroa.6.0195.i.us.i.us.us.i, %2354 ], [ %.sroa.6.0195.i.us.i.us.us.i, %2336 ], [ %.sroa.6.0195.i.us.i.us.us.i, %2331 ]
-  %.sroa.4.2.i.us.i.us.us.i = phi float [ %2375, %2370 ], [ %.sroa.4.0196.i.us.i.us.us.i, %.thread122.i.i.us.i.us.us.i ], [ %.sroa.4.0196.i.us.i.us.us.i, %2354 ], [ %.sroa.4.0196.i.us.i.us.us.i, %2336 ], [ %.sroa.4.0196.i.us.i.us.us.i, %2331 ]
-  %.sroa.2.2.i.us.i.us.us.i = phi float [ %2369, %2370 ], [ %2369, %.thread122.i.i.us.i.us.us.i ], [ %.sroa.2.0197.i.us.i.us.us.i, %2354 ], [ %.sroa.2.0197.i.us.i.us.us.i, %2336 ], [ %.sroa.2.0197.i.us.i.us.us.i, %2331 ]
-  %.sroa.0.2.i.us.i.us.us.i = phi float [ %2368, %2370 ], [ %2368, %.thread122.i.i.us.i.us.us.i ], [ %.sroa.0.0198.i.us.i.us.us.i, %2354 ], [ %.sroa.0.0198.i.us.i.us.us.i, %2336 ], [ %.sroa.0.0198.i.us.i.us.us.i, %2331 ]
-  %2377 = phi i1 [ true, %2370 ], [ true, %.thread122.i.i.us.i.us.us.i ], [ false, %2354 ], [ false, %2336 ], [ false, %2331 ]
-  %2378 = phi i1 [ true, %2370 ], [ false, %.thread122.i.i.us.i.us.us.i ], [ false, %2354 ], [ false, %2336 ], [ false, %2331 ]
+stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i:  ; preds = %2370, %.thread21.i.i.us.i.us.us.i, %2354, %2336, %2331
+  %.sroa.6.2.i.us.i.us.us.i = phi float [ %2376, %2370 ], [ %.sroa.6.0196.i.us.i.us.us.i, %.thread21.i.i.us.i.us.us.i ], [ %.sroa.6.0196.i.us.i.us.us.i, %2354 ], [ %.sroa.6.0196.i.us.i.us.us.i, %2336 ], [ %.sroa.6.0196.i.us.i.us.us.i, %2331 ]
+  %.sroa.4.2.i.us.i.us.us.i = phi float [ %2375, %2370 ], [ %.sroa.4.0197.i.us.i.us.us.i, %.thread21.i.i.us.i.us.us.i ], [ %.sroa.4.0197.i.us.i.us.us.i, %2354 ], [ %.sroa.4.0197.i.us.i.us.us.i, %2336 ], [ %.sroa.4.0197.i.us.i.us.us.i, %2331 ]
+  %.sroa.2.2.i.us.i.us.us.i = phi float [ %2369, %2370 ], [ %2369, %.thread21.i.i.us.i.us.us.i ], [ %.sroa.2.0198.i.us.i.us.us.i, %2354 ], [ %.sroa.2.0198.i.us.i.us.us.i, %2336 ], [ %.sroa.2.0198.i.us.i.us.us.i, %2331 ]
+  %.sroa.0.2.i.us.i.us.us.i = phi float [ %2368, %2370 ], [ %2368, %.thread21.i.i.us.i.us.us.i ], [ %.sroa.0.0199.i.us.i.us.us.i, %2354 ], [ %.sroa.0.0199.i.us.i.us.us.i, %2336 ], [ %.sroa.0.0199.i.us.i.us.us.i, %2331 ]
+  %2377 = phi i1 [ true, %2370 ], [ true, %.thread21.i.i.us.i.us.us.i ], [ false, %2354 ], [ false, %2336 ], [ false, %2331 ]
+  %2378 = phi i1 [ true, %2370 ], [ false, %.thread21.i.i.us.i.us.us.i ], [ false, %2354 ], [ false, %2336 ], [ false, %2331 ]
   %2379 = fcmp olt float %.sroa.0.2.i.us.i.us.us.i, 0.000000e+00
   %or.cond.i.us.i.us.us.i = select i1 %2377, i1 %2379, i1 false
   %2380 = fcmp olt float %.sroa.2.2.i.us.i.us.us.i, 0.000000e+00
   %2381 = select i1 %2380, i32 -1, i32 1
   %2382 = select i1 %or.cond.i.us.i.us.us.i, i32 %2381, i32 0
-  %.2.i.us.i.us.us.i = add nsw i32 %2382, %.0150199.i.us.i.us.us.i
+  %.2.i.us.i.us.us.i = add nsw i32 %2382, %.0150200.i.us.i.us.us.i
   %2383 = fcmp olt float %.sroa.4.2.i.us.i.us.us.i, 0.000000e+00
   %or.cond7.i.us.i.us.us.i = select i1 %2378, i1 %2383, i1 false
   br i1 %or.cond7.i.us.i.us.us.i, label %2384, label %.thread.i.us.i.us.us.i
@@ -6937,15 +6937,15 @@ stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i:  ; preds = %2370, %.thread122.i
 
 2423:                                             ; preds = %2412
   %2424 = select i1 %2400, i32 1, i32 -1
-  %2425 = add nsw i32 %2424, %.0150199.i.us.i.us.us.i
+  %2425 = add nsw i32 %2424, %.0150200.i.us.i.us.us.i
   br label %.thread.i.us.i.us.us.i
 
 .thread.i.us.i.us.us.i:                           ; preds = %2423, %2412, %2408, %2404, %2388, %2384, %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i, %2313, %2304, %2300, %2296, %2288, %2252, %2248
-  %.sroa.6.1.i.us.i.us.us.i = phi float [ %.sroa.6.2.i.us.i.us.us.i, %2384 ], [ %.sroa.6.2.i.us.i.us.us.i, %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i ], [ %.sroa.6.0195.i.us.i.us.us.i, %2313 ], [ %.sroa.6.0195.i.us.i.us.us.i, %2304 ], [ %.sroa.6.0195.i.us.i.us.us.i, %2300 ], [ %.sroa.6.0195.i.us.i.us.us.i, %2296 ], [ %.sroa.6.0195.i.us.i.us.us.i, %2288 ], [ %.sroa.6.0195.i.us.i.us.us.i, %2252 ], [ %.sroa.6.0195.i.us.i.us.us.i, %2388 ], [ %.sroa.6.0195.i.us.i.us.us.i, %2404 ], [ %.sroa.6.0195.i.us.i.us.us.i, %2408 ], [ %.sroa.6.0195.i.us.i.us.us.i, %2423 ], [ %.sroa.6.0195.i.us.i.us.us.i, %2412 ], [ %.sroa.6.0195.i.us.i.us.us.i, %2248 ]
-  %.sroa.4.1.i.us.i.us.us.i = phi float [ %.sroa.4.2.i.us.i.us.us.i, %2384 ], [ %.sroa.4.2.i.us.i.us.us.i, %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i ], [ %.sroa.4.0196.i.us.i.us.us.i, %2313 ], [ %.sroa.4.0196.i.us.i.us.us.i, %2304 ], [ %.sroa.4.0196.i.us.i.us.us.i, %2300 ], [ %.sroa.4.0196.i.us.i.us.us.i, %2296 ], [ %.sroa.4.0196.i.us.i.us.us.i, %2288 ], [ %.sroa.4.0196.i.us.i.us.us.i, %2252 ], [ %.sroa.4.0196.i.us.i.us.us.i, %2388 ], [ %.sroa.4.0196.i.us.i.us.us.i, %2404 ], [ %.sroa.4.0196.i.us.i.us.us.i, %2408 ], [ %.sroa.4.0196.i.us.i.us.us.i, %2423 ], [ %.sroa.4.0196.i.us.i.us.us.i, %2412 ], [ %.sroa.4.0196.i.us.i.us.us.i, %2248 ]
-  %.sroa.2.1.i.us.i.us.us.i = phi float [ %.sroa.2.2.i.us.i.us.us.i, %2384 ], [ %.sroa.2.2.i.us.i.us.us.i, %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i ], [ %.sroa.2.0197.i.us.i.us.us.i, %2313 ], [ %.sroa.2.0197.i.us.i.us.us.i, %2304 ], [ %.sroa.2.0197.i.us.i.us.us.i, %2300 ], [ %.sroa.2.0197.i.us.i.us.us.i, %2296 ], [ %.sroa.2.0197.i.us.i.us.us.i, %2288 ], [ %.sroa.2.0197.i.us.i.us.us.i, %2252 ], [ %.sroa.2.0197.i.us.i.us.us.i, %2388 ], [ %.sroa.2.0197.i.us.i.us.us.i, %2404 ], [ %.sroa.2.0197.i.us.i.us.us.i, %2408 ], [ %.sroa.2.0197.i.us.i.us.us.i, %2423 ], [ %.sroa.2.0197.i.us.i.us.us.i, %2412 ], [ %.sroa.2.0197.i.us.i.us.us.i, %2248 ]
-  %.sroa.0.1.i.us.i.us.us.i = phi float [ %.sroa.0.2.i.us.i.us.us.i, %2384 ], [ %.sroa.0.2.i.us.i.us.us.i, %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i ], [ %.sroa.0.0198.i.us.i.us.us.i, %2313 ], [ %.sroa.0.0198.i.us.i.us.us.i, %2304 ], [ %.sroa.0.0198.i.us.i.us.us.i, %2300 ], [ %.sroa.0.0198.i.us.i.us.us.i, %2296 ], [ %.sroa.0.0198.i.us.i.us.us.i, %2288 ], [ %.sroa.0.0198.i.us.i.us.us.i, %2252 ], [ %.sroa.0.0198.i.us.i.us.us.i, %2388 ], [ %.sroa.0.0198.i.us.i.us.us.i, %2404 ], [ %.sroa.0.0198.i.us.i.us.us.i, %2408 ], [ %.sroa.0.0198.i.us.i.us.us.i, %2423 ], [ %.sroa.0.0198.i.us.i.us.us.i, %2412 ], [ %.sroa.0.0198.i.us.i.us.us.i, %2248 ]
-  %.3.i.us.i.us.us.i = phi i32 [ %2387, %2384 ], [ %.2.i.us.i.us.us.i, %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i ], [ %2315, %2313 ], [ %.0150199.i.us.i.us.us.i, %2304 ], [ %.0150199.i.us.i.us.us.i, %2300 ], [ %.0150199.i.us.i.us.us.i, %2296 ], [ %.0150199.i.us.i.us.us.i, %2288 ], [ %.0150199.i.us.i.us.us.i, %2252 ], [ %.0150199.i.us.i.us.us.i, %2388 ], [ %.0150199.i.us.i.us.us.i, %2404 ], [ %.0150199.i.us.i.us.us.i, %2408 ], [ %2425, %2423 ], [ %.0150199.i.us.i.us.us.i, %2412 ], [ %.0150199.i.us.i.us.us.i, %2248 ]
+  %.sroa.6.1.i.us.i.us.us.i = phi float [ %.sroa.6.2.i.us.i.us.us.i, %2384 ], [ %.sroa.6.2.i.us.i.us.us.i, %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i ], [ %.sroa.6.0196.i.us.i.us.us.i, %2313 ], [ %.sroa.6.0196.i.us.i.us.us.i, %2304 ], [ %.sroa.6.0196.i.us.i.us.us.i, %2300 ], [ %.sroa.6.0196.i.us.i.us.us.i, %2296 ], [ %.sroa.6.0196.i.us.i.us.us.i, %2288 ], [ %.sroa.6.0196.i.us.i.us.us.i, %2252 ], [ %.sroa.6.0196.i.us.i.us.us.i, %2388 ], [ %.sroa.6.0196.i.us.i.us.us.i, %2404 ], [ %.sroa.6.0196.i.us.i.us.us.i, %2408 ], [ %.sroa.6.0196.i.us.i.us.us.i, %2423 ], [ %.sroa.6.0196.i.us.i.us.us.i, %2412 ], [ %.sroa.6.0196.i.us.i.us.us.i, %2248 ]
+  %.sroa.4.1.i.us.i.us.us.i = phi float [ %.sroa.4.2.i.us.i.us.us.i, %2384 ], [ %.sroa.4.2.i.us.i.us.us.i, %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i ], [ %.sroa.4.0197.i.us.i.us.us.i, %2313 ], [ %.sroa.4.0197.i.us.i.us.us.i, %2304 ], [ %.sroa.4.0197.i.us.i.us.us.i, %2300 ], [ %.sroa.4.0197.i.us.i.us.us.i, %2296 ], [ %.sroa.4.0197.i.us.i.us.us.i, %2288 ], [ %.sroa.4.0197.i.us.i.us.us.i, %2252 ], [ %.sroa.4.0197.i.us.i.us.us.i, %2388 ], [ %.sroa.4.0197.i.us.i.us.us.i, %2404 ], [ %.sroa.4.0197.i.us.i.us.us.i, %2408 ], [ %.sroa.4.0197.i.us.i.us.us.i, %2423 ], [ %.sroa.4.0197.i.us.i.us.us.i, %2412 ], [ %.sroa.4.0197.i.us.i.us.us.i, %2248 ]
+  %.sroa.2.1.i.us.i.us.us.i = phi float [ %.sroa.2.2.i.us.i.us.us.i, %2384 ], [ %.sroa.2.2.i.us.i.us.us.i, %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i ], [ %.sroa.2.0198.i.us.i.us.us.i, %2313 ], [ %.sroa.2.0198.i.us.i.us.us.i, %2304 ], [ %.sroa.2.0198.i.us.i.us.us.i, %2300 ], [ %.sroa.2.0198.i.us.i.us.us.i, %2296 ], [ %.sroa.2.0198.i.us.i.us.us.i, %2288 ], [ %.sroa.2.0198.i.us.i.us.us.i, %2252 ], [ %.sroa.2.0198.i.us.i.us.us.i, %2388 ], [ %.sroa.2.0198.i.us.i.us.us.i, %2404 ], [ %.sroa.2.0198.i.us.i.us.us.i, %2408 ], [ %.sroa.2.0198.i.us.i.us.us.i, %2423 ], [ %.sroa.2.0198.i.us.i.us.us.i, %2412 ], [ %.sroa.2.0198.i.us.i.us.us.i, %2248 ]
+  %.sroa.0.1.i.us.i.us.us.i = phi float [ %.sroa.0.2.i.us.i.us.us.i, %2384 ], [ %.sroa.0.2.i.us.i.us.us.i, %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i ], [ %.sroa.0.0199.i.us.i.us.us.i, %2313 ], [ %.sroa.0.0199.i.us.i.us.us.i, %2304 ], [ %.sroa.0.0199.i.us.i.us.us.i, %2300 ], [ %.sroa.0.0199.i.us.i.us.us.i, %2296 ], [ %.sroa.0.0199.i.us.i.us.us.i, %2288 ], [ %.sroa.0.0199.i.us.i.us.us.i, %2252 ], [ %.sroa.0.0199.i.us.i.us.us.i, %2388 ], [ %.sroa.0.0199.i.us.i.us.us.i, %2404 ], [ %.sroa.0.0199.i.us.i.us.us.i, %2408 ], [ %.sroa.0.0199.i.us.i.us.us.i, %2423 ], [ %.sroa.0.0199.i.us.i.us.us.i, %2412 ], [ %.sroa.0.0199.i.us.i.us.us.i, %2248 ]
+  %.3.i.us.i.us.us.i = phi i32 [ %2387, %2384 ], [ %.2.i.us.i.us.us.i, %stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i ], [ %2315, %2313 ], [ %.0150200.i.us.i.us.us.i, %2304 ], [ %.0150200.i.us.i.us.us.i, %2300 ], [ %.0150200.i.us.i.us.us.i, %2296 ], [ %.0150200.i.us.i.us.us.i, %2288 ], [ %.0150200.i.us.i.us.us.i, %2252 ], [ %.0150200.i.us.i.us.us.i, %2388 ], [ %.0150200.i.us.i.us.us.i, %2404 ], [ %.0150200.i.us.i.us.us.i, %2408 ], [ %2425, %2423 ], [ %.0150200.i.us.i.us.us.i, %2412 ], [ %.0150200.i.us.i.us.us.i, %2248 ]
   %.3.i.us.fr.i.us.us.i = freeze i32 %.3.i.us.i.us.us.i
   %indvars.iv.next.i.us.i.us.us.i = add nuw nsw i64 %indvars.iv.i.us.i.us.us.i, 1
   %exitcond.not.i.us.i.us.us.i = icmp eq i64 %indvars.iv.next.i.us.i.us.us.i, %wide.trip.count.i.i.i121

@@ -87,11 +87,11 @@ _ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionConte
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeEEEEvDpOT_.exit.i.i, %"_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeENS_5SMLocEZZNS2_11ESTreeIRGen15genTryStatementESA_ENK3$_0clEvEUlPNS8_4NodeENS2_17ControlFlowChangeEPNS1_10BasicBlockEE_EEEvDpOT_.exit.i.i"
-  %.sink27.i.i = phi ptr [ %6, %_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeEEEEvDpOT_.exit.i.i ], [ %5, %"_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeENS_5SMLocEZZNS2_11ESTreeIRGen15genTryStatementESA_ENK3$_0clEvEUlPNS8_4NodeENS2_17ControlFlowChangeEPNS1_10BasicBlockEE_EEEvDpOT_.exit.i.i" ]
+  %.sink.i.i = phi ptr [ %6, %_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeEEEEvDpOT_.exit.i.i ], [ %5, %"_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeENS_5SMLocEZZNS2_11ESTreeIRGen15genTryStatementESA_ENK3$_0clEvEUlPNS8_4NodeENS2_17ControlFlowChangeEPNS1_10BasicBlockEE_EEEvDpOT_.exit.i.i" ]
   store i8 1, ptr %hasVal.i.i.i.i, align 8
   store ptr %3, ptr %thisTry.i.i, align 8
   %7 = getelementptr inbounds i8, ptr %thisTry.i.i, i64 8
-  store ptr %.sink27.i.i, ptr %7, align 8
+  store ptr %.sink.i.i, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %thisTry.i.i, i64 16
   store ptr %tryStmt, ptr %8, align 8
   %_block.i.i = getelementptr inbounds i8, ptr %tryStmt, i64 48
@@ -131,17 +131,17 @@ if.then.i.i.i.i.i.i24.i.i:                        ; preds = %if.then.i.i.i19.i.i
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call12.i) #11
   %call17.i = call noundef ptr @_ZN6hermes9IRBuilder16createTryEndInstEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i) #11
   %15 = load ptr, ptr %_finalizer.i.i, align 8
-  %tobool.not.i11.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i11.i, label %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_1clEv.exit.i", label %if.then.i.i
+  %tobool.not.i14.i = icmp eq ptr %15, null
+  br i1 %tobool.not.i14.i, label %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_1clEv.exit.i", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_0clEv.exit.i"
   call void @_ZN6hermes5irgen11ESTreeIRGen12genStatementEPNS_6ESTree4NodeENS1_10IsLoopBodyE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %15, i32 noundef 0) #11
   %16 = load ptr, ptr %_finalizer.i.i, align 8
-  %sourceRange_.i.i12.i = getelementptr inbounds i8, ptr %16, i64 24
-  %retval.sroa.0.0.copyload.i.i13.i = load ptr, ptr %sourceRange_.i.i12.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i14.i = getelementptr inbounds i8, ptr %16, i64 32
-  %retval.sroa.2.0.copyload.i.i15.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i14.i, align 8
-  %call5.i.i = call ptr @_ZN6hermes18SourceErrorManager20convertEndToLocationEN4llvh7SMRangeE(ptr %retval.sroa.0.0.copyload.i.i13.i, ptr %retval.sroa.2.0.copyload.i.i15.i) #11
+  %sourceRange_.i.i15.i = getelementptr inbounds i8, ptr %16, i64 24
+  %retval.sroa.0.0.copyload.i.i16.i = load ptr, ptr %sourceRange_.i.i15.i, align 8
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i17.i = getelementptr inbounds i8, ptr %16, i64 32
+  %retval.sroa.2.0.copyload.i.i18.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i17.i, align 8
+  %call5.i.i = call ptr @_ZN6hermes18SourceErrorManager20convertEndToLocationEN4llvh7SMRangeE(ptr %retval.sroa.0.0.copyload.i.i16.i, ptr %retval.sroa.2.0.copyload.i.i18.i) #11
   store ptr %call5.i.i, ptr %Location.i.i.i, align 8
   br label %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_1clEv.exit.i"
 
@@ -151,10 +151,10 @@ if.then.i.i:                                      ; preds = %"_ZZN6hermes5irgen1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %newScope.i.i)
   %_handler.i.i = getelementptr inbounds i8, ptr %tryStmt, i64 56
   %17 = load ptr, ptr %_handler.i.i, align 8
-  %tobool.not.i18.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i18.i, label %if.else24.i.i, label %if.then.i19.i
+  %tobool.not.i21.i = icmp eq ptr %17, null
+  br i1 %tobool.not.i21.i, label %if.else24.i.i, label %if.then.i22.i
 
-if.then.i19.i:                                    ; preds = %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_1clEv.exit.i"
+if.then.i22.i:                                    ; preds = %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_1clEv.exit.i"
   %kind_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %18, 67
@@ -168,7 +168,7 @@ if.then.i19.i:                                    ; preds = %"_ZZN6hermes5irgen1
   %tobool5.i.i = trunc i8 %21 to i1
   br i1 %tobool5.i.i, label %_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS8_JPNS7_15FunctionContextEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISE_EERSE_E4typeEDpOSF_.exit.i.i, label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS3_10IdentifierEPNS3_5ValueEEENS3_5irgen15EnterBlockScopeEEE8_M_resetEv.exit.i.i.i.i.i
 
-_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS3_10IdentifierEPNS3_5ValueEEENS3_5irgen15EnterBlockScopeEEE8_M_resetEv.exit.i.i.i.i.i: ; preds = %if.then.i19.i
+_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS3_10IdentifierEPNS3_5ValueEEENS3_5irgen15EnterBlockScopeEEE8_M_resetEv.exit.i.i.i.i.i: ; preds = %if.then.i22.i
   %nameTable_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %head_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %newScope.i.i, i64 8
@@ -191,31 +191,31 @@ _ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_
   %cond.i.i.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i.i ], [ 0, %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS3_10IdentifierEPNS3_5ValueEEENS3_5irgen15EnterBlockScopeEEE8_M_resetEv.exit.i.i.i.i.i ]
   store i32 %cond.i.i.i.i.i.i.i, ptr %newScope.i.i, align 8
   store ptr %newScope.i.i, ptr %scope_.i.i.i.i.i.i.i, align 8
-  br label %if.end.i20.i
+  br label %if.end.i23.i
 
-_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS8_JPNS7_15FunctionContextEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISE_EERSE_E4typeEDpOSF_.exit.i.i: ; preds = %if.then.i19.i
+_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS8_JPNS7_15FunctionContextEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISE_EERSE_E4typeEDpOSF_.exit.i.i: ; preds = %if.then.i22.i
   %24 = load ptr, ptr %functionContext_.i1.i.i, align 8
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   call void @_ZN6hermes5irgen15EnterBlockScopeC1EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(64) %newScope.i.i, ptr noundef %24) #11
-  br label %if.end.i20.i
+  br label %if.end.i23.i
 
-if.end.i20.i:                                     ; preds = %_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS8_JPNS7_15FunctionContextEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISE_EERSE_E4typeEDpOSF_.exit.i.i, %_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS6_JRNS1_15ScopedHashTableIS3_S5_EEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISF_EERSF_E4typeEDpOSG_.exit.i.i
+if.end.i23.i:                                     ; preds = %_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS8_JPNS7_15FunctionContextEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISE_EERSE_E4typeEDpOSF_.exit.i.i, %_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS6_JRNS1_15ScopedHashTableIS3_S5_EEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISF_EERSF_E4typeEDpOSG_.exit.i.i
   %storemerge.i.i = phi i8 [ 1, %_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS6_JRNS1_15ScopedHashTableIS3_S5_EEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISF_EERSF_E4typeEDpOSG_.exit.i.i ], [ 2, %_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS8_JPNS7_15FunctionContextEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISE_EERSE_E4typeEDpOSF_.exit.i.i ]
   store i8 %storemerge.i.i, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %25 = load ptr, ptr %_handler.i.i, align 8
-  %debugLoc_.i.i21.i = getelementptr inbounds i8, ptr %25, i64 40
-  %retval.sroa.0.0.copyload.i.i22.i = load ptr, ptr %debugLoc_.i.i21.i, align 8
-  store ptr %retval.sroa.0.0.copyload.i.i22.i, ptr %Location.i.i.i, align 8
+  %debugLoc_.i.i24.i = getelementptr inbounds i8, ptr %25, i64 40
+  %retval.sroa.0.0.copyload.i.i25.i = load ptr, ptr %debugLoc_.i.i24.i, align 8
+  store ptr %retval.sroa.0.0.copyload.i.i25.i, ptr %Location.i.i.i, align 8
   %call13.i.i = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen12prepareCatchEPNS_6ESTree15CatchClauseNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %spec.select.i.i.i)
   %_body.i.i = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 56
   %26 = load ptr, ptr %_body.i.i, align 8
   call void @_ZN6hermes5irgen11ESTreeIRGen15genCatchHandlerEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %26) #11
   %27 = load ptr, ptr %_handler.i.i, align 8
-  %sourceRange_.i.i24.i = getelementptr inbounds i8, ptr %27, i64 24
-  %retval.sroa.0.0.copyload.i25.i.i = load ptr, ptr %sourceRange_.i.i24.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i25.i = getelementptr inbounds i8, ptr %27, i64 32
-  %retval.sroa.2.0.copyload.i.i26.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i25.i, align 8
-  %call19.i.i = call ptr @_ZN6hermes18SourceErrorManager20convertEndToLocationEN4llvh7SMRangeE(ptr %retval.sroa.0.0.copyload.i25.i.i, ptr %retval.sroa.2.0.copyload.i.i26.i) #11
+  %sourceRange_.i.i27.i = getelementptr inbounds i8, ptr %27, i64 24
+  %retval.sroa.0.0.copyload.i25.i.i = load ptr, ptr %sourceRange_.i.i27.i, align 8
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i28.i = getelementptr inbounds i8, ptr %27, i64 32
+  %retval.sroa.2.0.copyload.i.i29.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i28.i, align 8
+  %call19.i.i = call ptr @_ZN6hermes18SourceErrorManager20convertEndToLocationEN4llvh7SMRangeE(ptr %retval.sroa.0.0.copyload.i25.i.i, ptr %retval.sroa.2.0.copyload.i.i29.i) #11
   store ptr %call19.i.i, ptr %Location.i.i.i, align 8
   %call23.i.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call5.i) #11
   %28 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
@@ -226,7 +226,7 @@ if.end.i20.i:                                     ; preds = %_ZNSt7variantIJSt9m
     i8 2, label %sw.bb3.i.i.i.i.i.i.i.i.i.i.i
   ]
 
-sw.bb2.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i20.i
+sw.bb2.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i23.i
   %base_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %newScope.i.i, i64 24
   %29 = load ptr, ptr %base_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %scope_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 24
@@ -267,11 +267,11 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Varia
   store ptr %34, ptr %scope_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_15genTryStatementEPNS_6ESTree16TryStatementNodeEE3$_0ZNS1_15genTryStatementES5_E3$_1ZNS1_15genTryStatementES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit"
 
-sw.bb3.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i20.i
+sw.bb3.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i23.i
   call void @_ZN6hermes5irgen15EnterBlockScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %newScope.i.i) #11
   br label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_15genTryStatementEPNS_6ESTree16TryStatementNodeEE3$_0ZNS1_15genTryStatementES5_E3$_1ZNS1_15genTryStatementES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit"
 
-sw.default.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.end.i20.i
+sw.default.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.end.i23.i
   unreachable
 
 if.else24.i.i:                                    ; preds = %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_1clEv.exit.i"
@@ -295,7 +295,7 @@ if.else24.i.i:                                    ; preds = %"_ZZN6hermes5irgen1
   %call42.i.i = call noundef ptr @_ZN6hermes9IRBuilder15createThrowInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %spec.select.i.i) #11
   br label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_15genTryStatementEPNS_6ESTree16TryStatementNodeEE3$_0ZNS1_15genTryStatementES5_E3$_1ZNS1_15genTryStatementES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit"
 
-"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_15genTryStatementEPNS_6ESTree16TryStatementNodeEE3$_0ZNS1_15genTryStatementES5_E3$_1ZNS1_15genTryStatementES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit": ; preds = %if.end.i20.i, %if.end.i20.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS5_10IdentifierEPNS5_5ValueEEENS5_5irgen15EnterBlockScopeEEE8_M_resetEvEUlOT_E_RSt7variantIJS4_SA_SC_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_SK_.exit.i.i.i.i.i.i.i.i.i.i.i, %sw.bb3.i.i.i.i.i.i.i.i.i.i.i, %if.else24.i.i
+"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_15genTryStatementEPNS_6ESTree16TryStatementNodeEE3$_0ZNS1_15genTryStatementES5_E3$_1ZNS1_15genTryStatementES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit": ; preds = %if.end.i23.i, %if.end.i23.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS5_10IdentifierEPNS5_5ValueEEENS5_5irgen15EnterBlockScopeEEE8_M_resetEvEUlOT_E_RSt7variantIJS4_SA_SC_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_SK_.exit.i.i.i.i.i.i.i.i.i.i.i, %sw.bb3.i.i.i.i.i.i.i.i.i.i.i, %if.else24.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %newScope.i.i)
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call5.i) #11
   ret void

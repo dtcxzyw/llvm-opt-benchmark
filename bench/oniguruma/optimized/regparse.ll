@@ -7239,13 +7239,13 @@ define internal fastcc i32 @prs_exp(ptr nocapture noundef nonnull %0, ptr nounde
   %24 = alloca ptr, align 8
   %25 = alloca [7 x i8], align 1
   %26 = alloca %struct.IApplyCaseFoldArg, align 8
-  %indvars.iv.i.sroa.gep450 = getelementptr inbounds i8, ptr %8, i64 8
+  %indvars.iv.i.sroa.gep452 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr null, ptr %0, align 8
   %27 = load i32, ptr %1, align 8
   %28 = icmp eq i32 %27, %2
-  br i1 %28, label %._crit_edge, label %.lr.ph575
+  br i1 %28, label %._crit_edge, label %.lr.ph577
 
-.lr.ph575:                                        ; preds = %7
+.lr.ph577:                                        ; preds = %7
   %29 = getelementptr inbounds i8, ptr %5, i64 264
   %30 = getelementptr inbounds i8, ptr %5, i64 8
   %31 = getelementptr inbounds i8, ptr %5, i64 16
@@ -7259,16 +7259,16 @@ define internal fastcc i32 @prs_exp(ptr nocapture noundef nonnull %0, ptr nounde
   %39 = getelementptr inbounds i8, ptr %5, i64 92
   br label %40
 
-40:                                               ; preds = %.lr.ph575, %onig_node_free.exit
-  %41 = phi i32 [ %27, %.lr.ph575 ], [ %793, %onig_node_free.exit ]
+40:                                               ; preds = %.lr.ph577, %onig_node_free.exit
+  %41 = phi i32 [ %27, %.lr.ph577 ], [ %793, %onig_node_free.exit ]
   %42 = load i32, ptr %29, align 8
-  switch i32 %41, label %node_new_quantifier.exit409 [
+  switch i32 %41, label %node_new_quantifier.exit411 [
     i32 13, label %._crit_edge
     i32 0, label %._crit_edge
     i32 14, label %49
     i32 15, label %811
-    i32 3, label %.loopexit501
-    i32 1, label %.loopexit502
+    i32 3, label %.loopexit503
+    i32 1, label %.loopexit504
     i32 4, label %899
     i32 17, label %927
     i32 6, label %965
@@ -7295,7 +7295,7 @@ define internal fastcc i32 @prs_exp(ptr nocapture noundef nonnull %0, ptr nounde
 
 node_new_empty.exit.thread:                       ; preds = %._crit_edge
   store ptr null, ptr %0, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 44:                                               ; preds = %._crit_edge
   %45 = getelementptr inbounds i8, ptr %calloc.i.i.i, i64 36
@@ -7305,7 +7305,7 @@ node_new_empty.exit.thread:                       ; preds = %._crit_edge
   store ptr %45, ptr %47, align 8
   store ptr %calloc.i.i.i, ptr %0, align 8
   %48 = load i32, ptr %1, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 49:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
@@ -7400,57 +7400,57 @@ node_new_empty.exit.thread:                       ; preds = %._crit_edge
 
 82:                                               ; preds = %79
   %83 = load ptr, ptr %14, align 8
-  br label %prs_bag.exit.thread473
+  br label %prs_bag.exit.thread475
 
 84:                                               ; preds = %69
-  %calloc.i.i448 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %85 = icmp eq ptr %calloc.i.i448, null
-  br i1 %85, label %node_new_anchor.exit449, label %86
+  %calloc.i.i450 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %85 = icmp eq ptr %calloc.i.i450, null
+  br i1 %85, label %node_new_anchor.exit451, label %86
 
 86:                                               ; preds = %84
-  store i32 6, ptr %calloc.i.i448, align 8
-  %87 = getelementptr inbounds i8, ptr %calloc.i.i448, i64 24
+  store i32 6, ptr %calloc.i.i450, align 8
+  %87 = getelementptr inbounds i8, ptr %calloc.i.i450, i64 24
   store i32 1, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %calloc.i.i448, i64 32
+  %88 = getelementptr inbounds i8, ptr %calloc.i.i450, i64 32
   store i32 -1, ptr %88, align 8
-  br label %node_new_anchor.exit449
+  br label %node_new_anchor.exit451
 
-node_new_anchor.exit449:                          ; preds = %84, %86
-  store ptr %calloc.i.i448, ptr %0, align 8
+node_new_anchor.exit451:                          ; preds = %84, %86
+  store ptr %calloc.i.i450, ptr %0, align 8
   br label %738
 
 89:                                               ; preds = %69
-  %calloc.i.i446 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %90 = icmp eq ptr %calloc.i.i446, null
-  br i1 %90, label %node_new_anchor.exit447, label %91
+  %calloc.i.i448 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %90 = icmp eq ptr %calloc.i.i448, null
+  br i1 %90, label %node_new_anchor.exit449, label %91
 
 91:                                               ; preds = %89
-  store i32 6, ptr %calloc.i.i446, align 8
-  %92 = getelementptr inbounds i8, ptr %calloc.i.i446, i64 24
+  store i32 6, ptr %calloc.i.i448, align 8
+  %92 = getelementptr inbounds i8, ptr %calloc.i.i448, i64 24
   store i32 2, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %calloc.i.i446, i64 32
+  %93 = getelementptr inbounds i8, ptr %calloc.i.i448, i64 32
   store i32 -1, ptr %93, align 8
-  br label %node_new_anchor.exit447
+  br label %node_new_anchor.exit449
 
-node_new_anchor.exit447:                          ; preds = %89, %91
-  store ptr %calloc.i.i446, ptr %0, align 8
+node_new_anchor.exit449:                          ; preds = %89, %91
+  store ptr %calloc.i.i448, ptr %0, align 8
   br label %738
 
 94:                                               ; preds = %69
-  %calloc.i.i444 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %95 = icmp eq ptr %calloc.i.i444, null
-  br i1 %95, label %node_new_bag.exit445, label %96
+  %calloc.i.i446 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %95 = icmp eq ptr %calloc.i.i446, null
+  br i1 %95, label %node_new_bag.exit447, label %96
 
 96:                                               ; preds = %94
-  store i32 5, ptr %calloc.i.i444, align 8
-  %97 = getelementptr inbounds i8, ptr %calloc.i.i444, i64 24
+  store i32 5, ptr %calloc.i.i446, align 8
+  %97 = getelementptr inbounds i8, ptr %calloc.i.i446, i64 24
   store i32 2, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %calloc.i.i444, i64 64
+  %98 = getelementptr inbounds i8, ptr %calloc.i.i446, i64 64
   store i32 0, ptr %98, align 8
-  br label %node_new_bag.exit445
+  br label %node_new_bag.exit447
 
-node_new_bag.exit445:                             ; preds = %94, %96
-  store ptr %calloc.i.i444, ptr %0, align 8
+node_new_bag.exit447:                             ; preds = %94, %96
+  store ptr %calloc.i.i446, ptr %0, align 8
   br label %738
 
 99:                                               ; preds = %69
@@ -7479,37 +7479,37 @@ node_new_bag.exit445:                             ; preds = %94, %96
   ]
 
 113:                                              ; preds = %106
-  %calloc.i.i442 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %114 = icmp eq ptr %calloc.i.i442, null
-  br i1 %114, label %node_new_anchor.exit443, label %115
+  %calloc.i.i444 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %114 = icmp eq ptr %calloc.i.i444, null
+  br i1 %114, label %node_new_anchor.exit445, label %115
 
 115:                                              ; preds = %113
-  store i32 6, ptr %calloc.i.i442, align 8
-  %116 = getelementptr inbounds i8, ptr %calloc.i.i442, i64 24
+  store i32 6, ptr %calloc.i.i444, align 8
+  %116 = getelementptr inbounds i8, ptr %calloc.i.i444, i64 24
   store i32 4, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %calloc.i.i442, i64 32
+  %117 = getelementptr inbounds i8, ptr %calloc.i.i444, i64 32
   store i32 -1, ptr %117, align 8
-  br label %node_new_anchor.exit443
+  br label %node_new_anchor.exit445
 
-node_new_anchor.exit443:                          ; preds = %113, %115
-  store ptr %calloc.i.i442, ptr %0, align 8
+node_new_anchor.exit445:                          ; preds = %113, %115
+  store ptr %calloc.i.i444, ptr %0, align 8
   br label %738
 
 118:                                              ; preds = %106
-  %calloc.i.i441 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %119 = icmp eq ptr %calloc.i.i441, null
+  %calloc.i.i443 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %119 = icmp eq ptr %calloc.i.i443, null
   br i1 %119, label %node_new_anchor.exit, label %120
 
 120:                                              ; preds = %118
-  store i32 6, ptr %calloc.i.i441, align 8
-  %121 = getelementptr inbounds i8, ptr %calloc.i.i441, i64 24
+  store i32 6, ptr %calloc.i.i443, align 8
+  %121 = getelementptr inbounds i8, ptr %calloc.i.i443, i64 24
   store i32 8, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %calloc.i.i441, i64 32
+  %122 = getelementptr inbounds i8, ptr %calloc.i.i443, i64 32
   store i32 -1, ptr %122, align 8
   br label %node_new_anchor.exit
 
 node_new_anchor.exit:                             ; preds = %118, %120
-  store ptr %calloc.i.i441, ptr %0, align 8
+  store ptr %calloc.i.i443, ptr %0, align 8
   br label %738
 
 123:                                              ; preds = %106
@@ -7551,24 +7551,24 @@ node_new_anchor.exit:                             ; preds = %118, %120
   br i1 %.not566.i, label %143, label %prs_bag.exit.thread
 
 143:                                              ; preds = %139
-  %calloc.i.i.i439 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %144 = icmp eq ptr %calloc.i.i.i439, null
-  br i1 %144, label %node_new_memory.exit440.thread, label %145
+  %calloc.i.i.i441 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %144 = icmp eq ptr %calloc.i.i.i441, null
+  br i1 %144, label %node_new_memory.exit442.thread, label %145
 
-node_new_memory.exit440.thread:                   ; preds = %143
+node_new_memory.exit442.thread:                   ; preds = %143
   store ptr null, ptr %0, align 8
   br label %prs_bag.exit.thread
 
 145:                                              ; preds = %143
-  store i32 5, ptr %calloc.i.i.i439, align 8
-  %146 = getelementptr inbounds i8, ptr %calloc.i.i.i439, i64 36
+  store i32 5, ptr %calloc.i.i.i441, align 8
+  %146 = getelementptr inbounds i8, ptr %calloc.i.i.i441, i64 36
   store i32 -1, ptr %146, align 4
-  %147 = getelementptr inbounds i8, ptr %calloc.i.i.i439, i64 40
+  %147 = getelementptr inbounds i8, ptr %calloc.i.i.i441, i64 40
   store i32 1, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %calloc.i.i.i439, i64 4
+  %148 = getelementptr inbounds i8, ptr %calloc.i.i.i441, i64 4
   store i32 512, ptr %148, align 4
-  store ptr %calloc.i.i.i439, ptr %0, align 8
-  %149 = getelementptr inbounds i8, ptr %calloc.i.i.i439, i64 32
+  store ptr %calloc.i.i.i441, ptr %0, align 8
+  %149 = getelementptr inbounds i8, ptr %calloc.i.i.i441, i64 32
   store i32 %135, ptr %149, align 8
   %150 = icmp ult i32 %135, 32
   %or.cond15.i = and i1 %131, %150
@@ -7585,7 +7585,7 @@ node_new_memory.exit440.thread:                   ; preds = %143
   %156 = load i32, ptr %38, align 8
   %157 = add nsw i32 %156, 1
   store i32 %157, ptr %38, align 8
-  br label %thread-pre-split466
+  br label %thread-pre-split468
 
 158:                                              ; preds = %69
   %159 = load ptr, ptr %31, align 8
@@ -7663,7 +7663,7 @@ node_new_memory.exit440.thread:                   ; preds = %143
   %199 = getelementptr inbounds i8, ptr %193, i64 24
   %200 = load ptr, ptr %199, align 8
   %201 = icmp eq ptr %200, null
-  br i1 %201, label %202, label %onig_node_free.exit438
+  br i1 %201, label %202, label %onig_node_free.exit440
 
 202:                                              ; preds = %198, %196
   %203 = load i32, ptr %36, align 4
@@ -7671,7 +7671,7 @@ node_new_memory.exit440.thread:                   ; preds = %143
   store i32 %204, ptr %36, align 4
   br label %212
 
-onig_node_free.exit438:                           ; preds = %198
+onig_node_free.exit440:                           ; preds = %198
   %205 = getelementptr inbounds i8, ptr %193, i64 16
   %206 = load ptr, ptr %205, align 8
   store ptr %206, ptr %17, align 8
@@ -7681,9 +7681,9 @@ onig_node_free.exit438:                           ; preds = %198
   %207 = getelementptr inbounds i8, ptr %200, i64 24
   %208 = load ptr, ptr %207, align 8
   %209 = icmp eq ptr %208, null
-  br i1 %209, label %onig_node_free.exit736, label %212
+  br i1 %209, label %onig_node_free.exit738, label %212
 
-onig_node_free.exit736:                           ; preds = %onig_node_free.exit438
+onig_node_free.exit738:                           ; preds = %onig_node_free.exit440
   %210 = getelementptr inbounds i8, ptr %200, i64 16
   %211 = load ptr, ptr %210, align 8
   store ptr null, ptr %210, align 8
@@ -7691,10 +7691,10 @@ onig_node_free.exit736:                           ; preds = %onig_node_free.exit
   tail call void @free(ptr noundef nonnull %200) #25
   br label %212
 
-212:                                              ; preds = %onig_node_free.exit736, %onig_node_free.exit438, %202, %195
-  %213 = phi ptr [ %193, %202 ], [ %206, %onig_node_free.exit736 ], [ %206, %onig_node_free.exit438 ], [ %193, %195 ]
-  %.0444.i = phi ptr [ null, %202 ], [ %211, %onig_node_free.exit736 ], [ %200, %onig_node_free.exit438 ], [ null, %195 ]
-  %.0442.i = phi i32 [ 1, %202 ], [ 0, %onig_node_free.exit736 ], [ 0, %onig_node_free.exit438 ], [ 0, %195 ]
+212:                                              ; preds = %onig_node_free.exit738, %onig_node_free.exit440, %202, %195
+  %213 = phi ptr [ %193, %202 ], [ %206, %onig_node_free.exit738 ], [ %206, %onig_node_free.exit440 ], [ %193, %195 ]
+  %.0444.i = phi ptr [ null, %202 ], [ %211, %onig_node_free.exit738 ], [ %200, %onig_node_free.exit440 ], [ null, %195 ]
+  %.0442.i = phi i32 [ 1, %202 ], [ 0, %onig_node_free.exit738 ], [ 0, %onig_node_free.exit440 ], [ 0, %195 ]
   %214 = tail call fastcc i32 @make_absent_tree(ptr noundef %0, ptr noundef %213, ptr noundef %.0444.i, i32 noundef %.0442.i, ptr noundef nonnull %5)
   %.not562.i = icmp eq i32 %214, 0
   br i1 %.not562.i, label %767, label %prs_bag.exit.thread
@@ -7800,7 +7800,7 @@ onig_node_free.exit736:                           ; preds = %onig_node_free.exit
   %262 = sub nsw i32 2147483647, %260
   %263 = icmp ugt i32 %258, %262
   %264 = add nsw i32 %260, %258
-  %spec.select.i437 = select i1 %263, i32 -208, i32 %264
+  %spec.select.i439 = select i1 %263, i32 -208, i32 %264
   br label %backref_rel_to_abs.exit
 
 265:                                              ; preds = %257
@@ -7809,8 +7809,8 @@ onig_node_free.exit736:                           ; preds = %onig_node_free.exit
   br label %backref_rel_to_abs.exit
 
 backref_rel_to_abs.exit:                          ; preds = %261, %265
-  %.0.i436 = phi i32 [ %267, %265 ], [ %spec.select.i437, %261 ]
-  store i32 %.0.i436, ptr %21, align 4
+  %.0.i438 = phi i32 [ %267, %265 ], [ %spec.select.i439, %261 ]
+  store i32 %.0.i438, ptr %21, align 4
   br label %268
 
 thread-pre-split:                                 ; preds = %255
@@ -7818,7 +7818,7 @@ thread-pre-split:                                 ; preds = %255
   br label %268
 
 268:                                              ; preds = %thread-pre-split, %backref_rel_to_abs.exit
-  %269 = phi i32 [ %.pr, %thread-pre-split ], [ %.0.i436, %backref_rel_to_abs.exit ]
+  %269 = phi i32 [ %.pr, %thread-pre-split ], [ %.0.i438, %backref_rel_to_abs.exit ]
   %270 = icmp slt i32 %269, 1
   br i1 %270, label %prs_bag.exit.thread, label %271
 
@@ -7849,7 +7849,7 @@ thread-pre-split:                                 ; preds = %255
   %287 = load i32, ptr %19, align 4
   %288 = call fastcc ptr @node_new_backref(i32 noundef 1, ptr noundef nonnull readonly %21, i32 noundef 0, i32 noundef %spec.select.i, i32 noundef %287, ptr noundef nonnull %5)
   %289 = icmp eq ptr %288, null
-  br i1 %289, label %node_new_backref_checker.exit435, label %node_new_backref_checker.exit435.sink.split
+  br i1 %289, label %node_new_backref_checker.exit437, label %node_new_backref_checker.exit437.sink.split
 
 290:                                              ; preds = %255
   %291 = load ptr, ptr %20, align 8
@@ -7864,7 +7864,7 @@ thread-pre-split:                                 ; preds = %255
   %298 = and i32 %297, 32
   %.not547.i.not = icmp eq i32 %298, 0
   %.pre = load ptr, ptr %23, align 8
-  br i1 %.not547.i.not, label %.loopexit497, label %.lr.ph
+  br i1 %.not547.i.not, label %.loopexit499, label %.lr.ph
 
 .lr.ph:                                           ; preds = %294
   %299 = load i32, ptr %33, align 4
@@ -7874,7 +7874,7 @@ thread-pre-split:                                 ; preds = %255
 300:                                              ; preds = %305
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit497, label %301, !llvm.loop !46
+  br i1 %exitcond.not, label %.loopexit499, label %301, !llvm.loop !46
 
 301:                                              ; preds = %.lr.ph, %300
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %300 ]
@@ -7893,29 +7893,29 @@ thread-pre-split:                                 ; preds = %255
   %311 = icmp eq ptr %310, null
   br i1 %311, label %prs_bag.exit.thread, label %300
 
-.loopexit497:                                     ; preds = %300, %294
+.loopexit499:                                     ; preds = %300, %294
   %312 = load i32, ptr %19, align 4
   %313 = tail call fastcc ptr @node_new_backref(i32 noundef %292, ptr noundef readonly %.pre, i32 noundef 1, i32 noundef %spec.select.i, i32 noundef %312, ptr noundef nonnull %5)
   %314 = icmp eq ptr %313, null
-  br i1 %314, label %node_new_backref_checker.exit435, label %node_new_backref_checker.exit435.sink.split
+  br i1 %314, label %node_new_backref_checker.exit437, label %node_new_backref_checker.exit437.sink.split
 
-node_new_backref_checker.exit435.sink.split:      ; preds = %.loopexit497, %286
-  %.sink734 = phi ptr [ %288, %286 ], [ %313, %.loopexit497 ]
-  %315 = getelementptr inbounds i8, ptr %.sink734, i64 4
+node_new_backref_checker.exit437.sink.split:      ; preds = %.loopexit499, %286
+  %.sink736 = phi ptr [ %288, %286 ], [ %313, %.loopexit499 ]
+  %315 = getelementptr inbounds i8, ptr %.sink736, i64 4
   %316 = load i32, ptr %315, align 4
   %317 = or i32 %316, 131072
   store i32 %317, ptr %315, align 4
-  br label %node_new_backref_checker.exit435
+  br label %node_new_backref_checker.exit437
 
-node_new_backref_checker.exit435:                 ; preds = %node_new_backref_checker.exit435.sink.split, %.loopexit497, %286
-  %storemerge.i = phi ptr [ null, %286 ], [ null, %.loopexit497 ], [ %.sink734, %node_new_backref_checker.exit435.sink.split ]
+node_new_backref_checker.exit437:                 ; preds = %node_new_backref_checker.exit437.sink.split, %.loopexit499, %286
+  %storemerge.i = phi ptr [ null, %286 ], [ null, %.loopexit499 ], [ %.sink736, %node_new_backref_checker.exit437.sink.split ]
   store ptr %storemerge.i, ptr %18, align 8
   switch i32 %231, label %360 [
     i32 60, label %318
     i32 39, label %318
   ]
 
-318:                                              ; preds = %node_new_backref_checker.exit435, %node_new_backref_checker.exit435
+318:                                              ; preds = %node_new_backref_checker.exit437, %node_new_backref_checker.exit437
   %319 = load ptr, ptr %14, align 8
   %320 = icmp ult ptr %319, %4
   br i1 %320, label %321, label %367
@@ -7929,7 +7929,7 @@ node_new_backref_checker.exit435:                 ; preds = %node_new_backref_ch
   %327 = getelementptr inbounds i8, ptr %319, i64 %326
   store ptr %327, ptr %14, align 8
   %.not551.i = icmp eq i32 %323, 41
-  br i1 %.not551.i, label %thread-pre-split453, label %367
+  br i1 %.not551.i, label %thread-pre-split455, label %367
 
 328:                                              ; preds = %245
   %329 = load ptr, ptr %31, align 8
@@ -7955,7 +7955,7 @@ node_new_backref_checker.exit435:                 ; preds = %node_new_backref_ch
   store ptr %343, ptr %14, align 8
   %344 = call fastcc i32 @prs_callout_of_contents(ptr noundef %18, ptr noundef %14, ptr noundef %4, ptr noundef nonnull %5)
   %.not545.i = icmp eq i32 %344, 0
-  br i1 %.not545.i, label %thread-pre-split453, label %prs_bag.exit
+  br i1 %.not545.i, label %thread-pre-split455, label %prs_bag.exit
 
 345:                                              ; preds = %245
   %346 = load ptr, ptr %31, align 8
@@ -7968,7 +7968,7 @@ node_new_backref_checker.exit435:                 ; preds = %node_new_backref_ch
 350:                                              ; preds = %345
   %351 = call fastcc i32 @prs_callout_of_name(ptr noundef %18, ptr noundef %14, ptr noundef %4, ptr noundef nonnull %5)
   %.not543.i = icmp eq i32 %351, 0
-  br i1 %.not543.i, label %thread-pre-split453, label %prs_bag.exit
+  br i1 %.not543.i, label %thread-pre-split455, label %prs_bag.exit
 
 352:                                              ; preds = %345, %333, %328, %254, %245
   store ptr %75, ptr %14, align 8
@@ -7979,21 +7979,21 @@ node_new_backref_checker.exit435:                 ; preds = %node_new_backref_ch
 355:                                              ; preds = %352
   %356 = call fastcc i32 @prs_alts(ptr noundef nonnull %18, ptr noundef %1, i32 noundef 15, ptr noundef %14, ptr noundef %4, ptr noundef nonnull %5, i32 noundef 0)
   %357 = icmp slt i32 %356, 0
-  br i1 %357, label %358, label %thread-pre-split453
+  br i1 %357, label %358, label %thread-pre-split455
 
 358:                                              ; preds = %355
   %359 = load ptr, ptr %18, align 8
   tail call void @onig_node_free(ptr noundef %359)
   br label %prs_bag.exit.thread
 
-thread-pre-split453:                              ; preds = %321, %337, %350, %355
+thread-pre-split455:                              ; preds = %321, %337, %350, %355
   %.ph = phi i1 [ true, %350 ], [ true, %337 ], [ false, %321 ], [ true, %355 ]
-  %.pr454 = load ptr, ptr %18, align 8
+  %.pr456 = load ptr, ptr %18, align 8
   br label %360
 
-360:                                              ; preds = %thread-pre-split453, %node_new_backref_checker.exit435
-  %361 = phi ptr [ %.pr454, %thread-pre-split453 ], [ %storemerge.i, %node_new_backref_checker.exit435 ]
-  %362 = phi i1 [ %.ph, %thread-pre-split453 ], [ false, %node_new_backref_checker.exit435 ]
+360:                                              ; preds = %thread-pre-split455, %node_new_backref_checker.exit437
+  %361 = phi ptr [ %.pr456, %thread-pre-split455 ], [ %storemerge.i, %node_new_backref_checker.exit437 ]
+  %362 = phi i1 [ %.ph, %thread-pre-split455 ], [ false, %node_new_backref_checker.exit437 ]
   %363 = icmp eq ptr %361, null
   br i1 %363, label %prs_bag.exit.thread, label %364
 
@@ -8014,9 +8014,9 @@ thread-pre-split453:                              ; preds = %321, %337, %350, %3
   br i1 %372, label %373, label %381
 
 373:                                              ; preds = %369
-  br i1 %362, label %onig_node_free.exit737, label %374
+  br i1 %362, label %onig_node_free.exit739, label %374
 
-onig_node_free.exit737:                           ; preds = %373
+onig_node_free.exit739:                           ; preds = %373
   tail call fastcc void @node_free_body(ptr noundef nonnull %361)
   tail call void @free(ptr noundef nonnull %361) #25
   br label %prs_bag.exit.thread
@@ -8051,9 +8051,9 @@ onig_node_free.exit737:                           ; preds = %373
 392:                                              ; preds = %385, %381
   %393 = call fastcc i32 @fetch_token(ptr noundef %1, ptr noundef %14, ptr noundef %4, ptr noundef nonnull %5)
   %394 = icmp slt i32 %393, 0
-  br i1 %394, label %onig_node_free.exit738, label %395
+  br i1 %394, label %onig_node_free.exit740, label %395
 
-onig_node_free.exit738:                           ; preds = %392
+onig_node_free.exit740:                           ; preds = %392
   tail call fastcc void @node_free_body(ptr noundef nonnull %361)
   tail call void @free(ptr noundef nonnull %361) #25
   br label %prs_bag.exit.thread
@@ -8061,9 +8061,9 @@ onig_node_free.exit738:                           ; preds = %392
 395:                                              ; preds = %392
   %396 = call fastcc i32 @prs_alts(ptr noundef nonnull %13, ptr noundef %1, i32 noundef 15, ptr noundef %14, ptr noundef %4, ptr noundef nonnull %5, i32 noundef 1)
   %397 = icmp slt i32 %396, 0
-  br i1 %397, label %onig_node_free.exit739, label %399
+  br i1 %397, label %onig_node_free.exit741, label %399
 
-onig_node_free.exit739:                           ; preds = %395
+onig_node_free.exit741:                           ; preds = %395
   tail call fastcc void @node_free_body(ptr noundef nonnull %361)
   tail call void @free(ptr noundef nonnull %361) #25
   %398 = load ptr, ptr %13, align 8
@@ -8107,24 +8107,24 @@ onig_node_free.exit739:                           ; preds = %395
 416:                                              ; preds = %399, %415, %401
   %.0431.i = phi ptr [ %406, %415 ], [ %400, %401 ], [ null, %399 ]
   %.0429.i = phi ptr [ %.1430.i, %415 ], [ null, %401 ], [ %400, %399 ]
-  %calloc.i.i.i432 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %417 = icmp eq ptr %calloc.i.i.i432, null
-  br i1 %417, label %onig_node_free.exit740, label %node_new_bag_if_else.exit
+  %calloc.i.i.i434 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %417 = icmp eq ptr %calloc.i.i.i434, null
+  br i1 %417, label %onig_node_free.exit742, label %node_new_bag_if_else.exit
 
 node_new_bag_if_else.exit:                        ; preds = %416
-  store i32 5, ptr %calloc.i.i.i432, align 8
-  %418 = getelementptr inbounds i8, ptr %calloc.i.i.i432, i64 24
+  store i32 5, ptr %calloc.i.i.i434, align 8
+  %418 = getelementptr inbounds i8, ptr %calloc.i.i.i434, i64 24
   store i32 3, ptr %418, align 8
-  %419 = getelementptr inbounds i8, ptr %calloc.i.i.i432, i64 16
+  %419 = getelementptr inbounds i8, ptr %calloc.i.i.i434, i64 16
   store ptr %361, ptr %419, align 8
-  %420 = getelementptr inbounds i8, ptr %calloc.i.i.i432, i64 32
+  %420 = getelementptr inbounds i8, ptr %calloc.i.i.i434, i64 32
   store ptr %.0431.i, ptr %420, align 8
-  %421 = getelementptr inbounds i8, ptr %calloc.i.i.i432, i64 40
+  %421 = getelementptr inbounds i8, ptr %calloc.i.i.i434, i64 40
   store ptr %.0429.i, ptr %421, align 8
-  store ptr %calloc.i.i.i432, ptr %0, align 8
+  store ptr %calloc.i.i.i434, ptr %0, align 8
   br label %767
 
-onig_node_free.exit740:                           ; preds = %416
+onig_node_free.exit742:                           ; preds = %416
   store ptr null, ptr %0, align 8
   tail call fastcc void @node_free_body(ptr noundef nonnull %361)
   tail call void @free(ptr noundef nonnull %361) #25
@@ -8163,21 +8163,21 @@ onig_node_free.exit740:                           ; preds = %416
   br label %437
 
 437:                                              ; preds = %436, %427
-  %calloc.i.i.i430 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %438 = icmp eq ptr %calloc.i.i.i430, null
-  br i1 %438, label %node_new_memory.exit431.thread, label %439
+  %calloc.i.i.i432 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %438 = icmp eq ptr %calloc.i.i.i432, null
+  br i1 %438, label %node_new_memory.exit433.thread, label %439
 
-node_new_memory.exit431.thread:                   ; preds = %437
+node_new_memory.exit433.thread:                   ; preds = %437
   store ptr null, ptr %0, align 8
   br label %prs_bag.exit.thread
 
 439:                                              ; preds = %437
-  store i32 5, ptr %calloc.i.i.i430, align 8
-  %440 = getelementptr inbounds i8, ptr %calloc.i.i.i430, i64 36
+  store i32 5, ptr %calloc.i.i.i432, align 8
+  %440 = getelementptr inbounds i8, ptr %calloc.i.i.i432, i64 36
   store i32 -1, ptr %440, align 4
-  %441 = getelementptr inbounds i8, ptr %calloc.i.i.i430, i64 40
+  %441 = getelementptr inbounds i8, ptr %calloc.i.i.i432, i64 40
   store i32 1, ptr %441, align 8
-  store ptr %calloc.i.i.i430, ptr %0, align 8
+  store ptr %calloc.i.i.i432, ptr %0, align 8
   %442 = tail call fastcc i32 @scan_env_add_mem_entry(ptr noundef nonnull %5)
   store i32 %442, ptr %12, align 4
   %443 = icmp slt i32 %442, 0
@@ -8195,7 +8195,7 @@ node_new_memory.exit431.thread:                   ; preds = %437
   %450 = load i32, ptr %32, align 8
   %451 = or i32 %450, %449
   store i32 %451, ptr %32, align 8
-  br label %thread-pre-split466
+  br label %thread-pre-split468
 
 452:                                              ; preds = %69, %69, %69
   %453 = load ptr, ptr %31, align 8
@@ -8242,9 +8242,9 @@ node_new_memory.exit431.thread:                   ; preds = %437
 478:                                              ; preds = %676, %476
   %479 = phi ptr [ %75, %476 ], [ %682, %676 ]
   %.2440.i = phi i32 [ %71, %476 ], [ %678, %676 ]
-  %.0434.i = phi i32 [ %54, %476 ], [ %.1435.i459, %676 ]
-  %.0427.i = phi i32 [ 0, %476 ], [ %.1428.i460, %676 ]
-  %.0426.i = phi i32 [ 0, %476 ], [ %.1.i461, %676 ]
+  %.0434.i = phi i32 [ %54, %476 ], [ %.1435.i461, %676 ]
+  %.0427.i = phi i32 [ 0, %476 ], [ %.1428.i462, %676 ]
+  %.0426.i = phi i32 [ 0, %476 ], [ %.1.i463, %676 ]
   switch i32 %.2440.i, label %prs_bag.exit.thread [
     i32 76, label %630
     i32 73, label %621
@@ -8480,13 +8480,13 @@ node_new_memory.exit431.thread:                   ; preds = %437
   br i1 %.not519.i, label %prs_bag.exit.thread, label %591
 
 591:                                              ; preds = %588, %585
-  %.sink735 = phi i32 [ 1048576, %585 ], [ 2097152, %588 ]
+  %.sink737 = phi i32 [ 1048576, %585 ], [ 2097152, %588 ]
   %592 = icmp ult ptr %584, %4
   br i1 %592, label %593, label %prs_bag.exit.thread
 
 593:                                              ; preds = %591
   %594 = and i32 %.0434.i, -3145729
-  %595 = or disjoint i32 %.sink735, %594
+  %595 = or disjoint i32 %.sink737, %594
   %596 = load ptr, ptr %55, align 8
   %597 = tail call i32 %596(ptr noundef %584, ptr noundef nonnull %4) #25
   %598 = load ptr, ptr %51, align 8
@@ -8565,23 +8565,23 @@ node_new_memory.exit431.thread:                   ; preds = %437
   br label %.thread
 
 639:                                              ; preds = %478
-  %calloc.i.i.i428 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %640 = icmp eq ptr %calloc.i.i.i428, null
-  br i1 %640, label %node_new_option.exit429.thread, label %641
+  %calloc.i.i.i430 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %640 = icmp eq ptr %calloc.i.i.i430, null
+  br i1 %640, label %node_new_option.exit431.thread, label %641
 
-node_new_option.exit429.thread:                   ; preds = %639
+node_new_option.exit431.thread:                   ; preds = %639
   store ptr null, ptr %0, align 8
   br label %prs_bag.exit.thread
 
 641:                                              ; preds = %639
-  store i32 5, ptr %calloc.i.i.i428, align 8
-  %642 = getelementptr inbounds i8, ptr %calloc.i.i.i428, i64 24
+  store i32 5, ptr %calloc.i.i.i430, align 8
+  %642 = getelementptr inbounds i8, ptr %calloc.i.i.i430, i64 24
   store i32 1, ptr %642, align 8
-  %643 = getelementptr inbounds i8, ptr %calloc.i.i.i428, i64 32
+  %643 = getelementptr inbounds i8, ptr %calloc.i.i.i430, i64 32
   store i32 %.0434.i, ptr %643, align 8
-  store ptr %calloc.i.i.i428, ptr %0, align 8
+  store ptr %calloc.i.i.i430, ptr %0, align 8
   %644 = icmp eq i32 %.0426.i, 1
-  br i1 %644, label %645, label %prs_bag.exit.thread473
+  br i1 %644, label %645, label %prs_bag.exit.thread475
 
 645:                                              ; preds = %641
   %646 = tail call fastcc i32 @set_whole_options(i32 noundef %.0434.i, ptr noundef nonnull %5)
@@ -8594,7 +8594,7 @@ node_new_option.exit429.thread:                   ; preds = %639
   %650 = load i32, ptr %649, align 4
   %651 = or i32 %650, 268435456
   store i32 %651, ptr %649, align 4
-  br label %prs_bag.exit.thread473
+  br label %prs_bag.exit.thread475
 
 652:                                              ; preds = %478
   store ptr %479, ptr %14, align 8
@@ -8625,8 +8625,8 @@ node_new_option.exit429.thread:                   ; preds = %639
   br label %prs_bag.exit.thread
 
 665:                                              ; preds = %660
-  %calloc.i.i.i427 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %666 = icmp eq ptr %calloc.i.i.i427, null
+  %calloc.i.i.i429 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %666 = icmp eq ptr %calloc.i.i.i429, null
   br i1 %666, label %node_new_option.exit.thread, label %667
 
 node_new_option.exit.thread:                      ; preds = %665
@@ -8634,25 +8634,25 @@ node_new_option.exit.thread:                      ; preds = %665
   br label %prs_bag.exit.thread
 
 667:                                              ; preds = %665
-  store i32 5, ptr %calloc.i.i.i427, align 8
-  %668 = getelementptr inbounds i8, ptr %calloc.i.i.i427, i64 24
+  store i32 5, ptr %calloc.i.i.i429, align 8
+  %668 = getelementptr inbounds i8, ptr %calloc.i.i.i429, i64 24
   store i32 1, ptr %668, align 8
-  %669 = getelementptr inbounds i8, ptr %calloc.i.i.i427, i64 32
+  %669 = getelementptr inbounds i8, ptr %calloc.i.i.i429, i64 32
   store i32 %.0434.i, ptr %669, align 8
-  store ptr %calloc.i.i.i427, ptr %0, align 8
+  store ptr %calloc.i.i.i429, ptr %0, align 8
   %670 = load ptr, ptr %13, align 8
-  %671 = getelementptr inbounds i8, ptr %calloc.i.i.i427, i64 16
+  %671 = getelementptr inbounds i8, ptr %calloc.i.i.i429, i64 16
   store ptr %670, ptr %671, align 8
-  %672 = getelementptr inbounds i8, ptr %calloc.i.i.i427, i64 4
+  %672 = getelementptr inbounds i8, ptr %calloc.i.i.i429, i64 4
   store i32 268435456, ptr %672, align 4
   %673 = load ptr, ptr %14, align 8
-  br label %prs_bag.exit.thread473
+  br label %prs_bag.exit.thread475
 
 .thread:                                          ; preds = %478, %483, %481, %488, %486, %498, %496, %516, %514, %509, %507, %526, %524, %536, %534, %546, %544, %556, %554, %593, %610, %608, %619, %628, %637
   %674 = phi ptr [ %479, %483 ], [ %479, %481 ], [ %479, %488 ], [ %479, %486 ], [ %479, %498 ], [ %479, %496 ], [ %479, %516 ], [ %479, %514 ], [ %479, %509 ], [ %479, %507 ], [ %479, %526 ], [ %479, %524 ], [ %479, %536 ], [ %479, %534 ], [ %479, %546 ], [ %479, %544 ], [ %479, %556 ], [ %479, %554 ], [ %601, %593 ], [ %479, %610 ], [ %479, %608 ], [ %479, %619 ], [ %479, %628 ], [ %479, %637 ], [ %479, %478 ]
-  %.1.i461 = phi i32 [ %.0426.i, %483 ], [ %.0426.i, %481 ], [ %.0426.i, %488 ], [ %.0426.i, %486 ], [ %.0426.i, %498 ], [ %.0426.i, %496 ], [ %.0426.i, %516 ], [ %.0426.i, %514 ], [ %.0426.i, %509 ], [ %.0426.i, %507 ], [ %.0426.i, %526 ], [ %.0426.i, %524 ], [ %.0426.i, %536 ], [ %.0426.i, %534 ], [ %.0426.i, %546 ], [ %.0426.i, %544 ], [ %.0426.i, %556 ], [ %.0426.i, %554 ], [ %.0426.i, %593 ], [ %.0426.i, %610 ], [ %.0426.i, %608 ], [ 1, %619 ], [ 1, %628 ], [ 1, %637 ], [ %.0426.i, %478 ]
-  %.1428.i460 = phi i32 [ 0, %483 ], [ 1, %481 ], [ 0, %488 ], [ 1, %486 ], [ 0, %498 ], [ 1, %496 ], [ 0, %516 ], [ 1, %514 ], [ 1, %509 ], [ 0, %507 ], [ 0, %526 ], [ 1, %524 ], [ 0, %536 ], [ 1, %534 ], [ 0, %546 ], [ 1, %544 ], [ 0, %556 ], [ 1, %554 ], [ 0, %593 ], [ 0, %610 ], [ 1, %608 ], [ 0, %619 ], [ 0, %628 ], [ 0, %637 ], [ 1, %478 ]
-  %.1435.i459 = phi i32 [ %484, %483 ], [ %482, %481 ], [ %489, %488 ], [ %487, %486 ], [ %499, %498 ], [ %497, %496 ], [ %517, %516 ], [ %515, %514 ], [ %510, %509 ], [ %508, %507 ], [ %527, %526 ], [ %525, %524 ], [ %537, %536 ], [ %535, %534 ], [ %547, %546 ], [ %545, %544 ], [ %557, %556 ], [ %555, %554 ], [ %595, %593 ], [ %611, %610 ], [ %609, %608 ], [ %620, %619 ], [ %629, %628 ], [ %638, %637 ], [ %.0434.i, %478 ]
+  %.1.i463 = phi i32 [ %.0426.i, %483 ], [ %.0426.i, %481 ], [ %.0426.i, %488 ], [ %.0426.i, %486 ], [ %.0426.i, %498 ], [ %.0426.i, %496 ], [ %.0426.i, %516 ], [ %.0426.i, %514 ], [ %.0426.i, %509 ], [ %.0426.i, %507 ], [ %.0426.i, %526 ], [ %.0426.i, %524 ], [ %.0426.i, %536 ], [ %.0426.i, %534 ], [ %.0426.i, %546 ], [ %.0426.i, %544 ], [ %.0426.i, %556 ], [ %.0426.i, %554 ], [ %.0426.i, %593 ], [ %.0426.i, %610 ], [ %.0426.i, %608 ], [ 1, %619 ], [ 1, %628 ], [ 1, %637 ], [ %.0426.i, %478 ]
+  %.1428.i462 = phi i32 [ 0, %483 ], [ 1, %481 ], [ 0, %488 ], [ 1, %486 ], [ 0, %498 ], [ 1, %496 ], [ 0, %516 ], [ 1, %514 ], [ 1, %509 ], [ 0, %507 ], [ 0, %526 ], [ 1, %524 ], [ 0, %536 ], [ 1, %534 ], [ 0, %546 ], [ 1, %544 ], [ 0, %556 ], [ 1, %554 ], [ 0, %593 ], [ 0, %610 ], [ 1, %608 ], [ 0, %619 ], [ 0, %628 ], [ 0, %637 ], [ 1, %478 ]
+  %.1435.i461 = phi i32 [ %484, %483 ], [ %482, %481 ], [ %489, %488 ], [ %487, %486 ], [ %499, %498 ], [ %497, %496 ], [ %517, %516 ], [ %515, %514 ], [ %510, %509 ], [ %508, %507 ], [ %527, %526 ], [ %525, %524 ], [ %537, %536 ], [ %535, %534 ], [ %547, %546 ], [ %545, %544 ], [ %557, %556 ], [ %555, %554 ], [ %595, %593 ], [ %611, %610 ], [ %609, %608 ], [ %620, %619 ], [ %629, %628 ], [ %638, %637 ], [ %.0434.i, %478 ]
   %675 = icmp ult ptr %674, %4
   br i1 %675, label %676, label %prs_bag.exit.thread
 
@@ -8690,8 +8690,8 @@ node_new_option.exit.thread:                      ; preds = %665
   br i1 %.not508.i, label %697, label %76
 
 697:                                              ; preds = %694
-  %calloc.i.i.i426 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %698 = icmp eq ptr %calloc.i.i.i426, null
+  %calloc.i.i.i428 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %698 = icmp eq ptr %calloc.i.i.i428, null
   br i1 %698, label %node_new_memory.exit.thread, label %699
 
 node_new_memory.exit.thread:                      ; preds = %697
@@ -8699,19 +8699,19 @@ node_new_memory.exit.thread:                      ; preds = %697
   br label %prs_bag.exit.thread
 
 699:                                              ; preds = %697
-  store i32 5, ptr %calloc.i.i.i426, align 8
-  %700 = getelementptr inbounds i8, ptr %calloc.i.i.i426, i64 36
+  store i32 5, ptr %calloc.i.i.i428, align 8
+  %700 = getelementptr inbounds i8, ptr %calloc.i.i.i428, i64 36
   store i32 -1, ptr %700, align 4
-  %701 = getelementptr inbounds i8, ptr %calloc.i.i.i426, i64 40
+  %701 = getelementptr inbounds i8, ptr %calloc.i.i.i428, i64 40
   store i32 1, ptr %701, align 8
-  store ptr %calloc.i.i.i426, ptr %0, align 8
+  store ptr %calloc.i.i.i428, ptr %0, align 8
   %702 = load i32, ptr %33, align 4
   %703 = add nsw i32 %702, 1
   %704 = load i32, ptr @MaxCaptureNum, align 4
   %705 = icmp sge i32 %702, %704
   %706 = icmp ne i32 %704, 0
-  %or.cond.i422 = and i1 %705, %706
-  br i1 %or.cond.i422, label %prs_bag.exit.thread, label %707
+  %or.cond.i424 = and i1 %705, %706
+  br i1 %or.cond.i424, label %prs_bag.exit.thread, label %707
 
 707:                                              ; preds = %699
   %708 = icmp sgt i32 %702, 6
@@ -8719,10 +8719,10 @@ node_new_memory.exit.thread:                      ; preds = %697
 
 709:                                              ; preds = %707
   %710 = load i32, ptr %39, align 4
-  %.not.i423 = icmp sgt i32 %710, %703
-  br i1 %.not.i423, label %scan_env_add_mem_entry.exit.thread463, label %711
+  %.not.i425 = icmp sgt i32 %710, %703
+  br i1 %.not.i425, label %scan_env_add_mem_entry.exit.thread465, label %711
 
-scan_env_add_mem_entry.exit.thread463:            ; preds = %709
+scan_env_add_mem_entry.exit.thread465:            ; preds = %709
   store i32 %703, ptr %33, align 4
   store i32 %703, ptr %12, align 4
   br label %735
@@ -8758,7 +8758,7 @@ scan_env_add_mem_entry.exit.thread463:            ; preds = %709
   %.03137.pre-phi.i = phi i32 [ %.pre41.i, %._crit_edge40.i ], [ %703, %717 ]
   %725 = phi i32 [ %.pre.i, %._crit_edge40.i ], [ %702, %717 ]
   %.029.i = phi i32 [ %719, %._crit_edge40.i ], [ 16, %717 ]
-  %.0.i424 = phi ptr [ %722, %._crit_edge40.i ], [ %715, %717 ]
+  %.0.i426 = phi ptr [ %722, %._crit_edge40.i ], [ %715, %717 ]
   %726 = icmp slt i32 %.03137.pre-phi.i, %.029.i
   br i1 %726, label %.lr.ph.preheader.i, label %._crit_edge.i
 
@@ -8766,17 +8766,17 @@ scan_env_add_mem_entry.exit.thread463:            ; preds = %709
   %727 = sext i32 %725 to i64
   %728 = shl nsw i64 %727, 4
   %729 = add nsw i64 %728, 16
-  %scevgep.i425 = getelementptr i8, ptr %.0.i424, i64 %729
-  %reass.sub817 = sub i32 %.029.i, %725
-  %730 = add i32 %reass.sub817, -2
+  %scevgep.i427 = getelementptr i8, ptr %.0.i426, i64 %729
+  %reass.sub819 = sub i32 %.029.i, %725
+  %730 = add i32 %reass.sub819, -2
   %731 = zext i32 %730 to i64
   %732 = shl nuw nsw i64 %731, 4
   %733 = add nuw nsw i64 %732, 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i425, i8 0, i64 %733, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i427, i8 0, i64 %733, i1 false)
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %724
-  store ptr %.0.i424, ptr %34, align 8
+  store ptr %.0.i426, ptr %34, align 8
   store i32 %.029.i, ptr %39, align 4
   br label %scan_env_add_mem_entry.exit
 
@@ -8787,19 +8787,19 @@ scan_env_add_mem_entry.exit:                      ; preds = %707, %._crit_edge.i
   %734 = icmp slt i32 %.pre-phi.i, 0
   br i1 %734, label %prs_bag.exit.thread, label %735
 
-735:                                              ; preds = %scan_env_add_mem_entry.exit.thread463, %scan_env_add_mem_entry.exit
-  %.pre-phi.i465 = phi i32 [ %703, %scan_env_add_mem_entry.exit.thread463 ], [ %.pre-phi.i, %scan_env_add_mem_entry.exit ]
+735:                                              ; preds = %scan_env_add_mem_entry.exit.thread465, %scan_env_add_mem_entry.exit
+  %.pre-phi.i467 = phi i32 [ %703, %scan_env_add_mem_entry.exit.thread465 ], [ %.pre-phi.i, %scan_env_add_mem_entry.exit ]
   %736 = load ptr, ptr %0, align 8
   %737 = getelementptr inbounds i8, ptr %736, i64 32
-  store i32 %.pre-phi.i465, ptr %737, align 8
-  br label %thread-pre-split466
+  store i32 %.pre-phi.i467, ptr %737, align 8
+  br label %thread-pre-split468
 
-thread-pre-split466:                              ; preds = %155, %446, %735
-  %.pr467 = load ptr, ptr %0, align 8
+thread-pre-split468:                              ; preds = %155, %446, %735
+  %.pr469 = load ptr, ptr %0, align 8
   br label %738
 
-738:                                              ; preds = %thread-pre-split466, %node_new_anchor.exit, %node_new_anchor.exit443, %node_new_bag.exit445, %node_new_anchor.exit447, %node_new_anchor.exit449
-  %739 = phi ptr [ %.pr467, %thread-pre-split466 ], [ %calloc.i.i441, %node_new_anchor.exit ], [ %calloc.i.i442, %node_new_anchor.exit443 ], [ %calloc.i.i444, %node_new_bag.exit445 ], [ %calloc.i.i446, %node_new_anchor.exit447 ], [ %calloc.i.i448, %node_new_anchor.exit449 ]
+738:                                              ; preds = %thread-pre-split468, %node_new_anchor.exit, %node_new_anchor.exit445, %node_new_bag.exit447, %node_new_anchor.exit449, %node_new_anchor.exit451
+  %739 = phi ptr [ %.pr469, %thread-pre-split468 ], [ %calloc.i.i443, %node_new_anchor.exit ], [ %calloc.i.i444, %node_new_anchor.exit445 ], [ %calloc.i.i446, %node_new_bag.exit447 ], [ %calloc.i.i448, %node_new_anchor.exit449 ], [ %calloc.i.i450, %node_new_anchor.exit451 ]
   %740 = icmp eq ptr %739, null
   br i1 %740, label %prs_bag.exit.thread, label %741
 
@@ -8837,8 +8837,8 @@ thread-pre-split466:                              ; preds = %155, %446, %735
   %760 = getelementptr inbounds i8, ptr %752, i64 32
   %761 = load i32, ptr %760, align 8
   %762 = load i32, ptr %33, align 4
-  %.not.i420 = icmp slt i32 %762, %761
-  br i1 %.not.i420, label %prs_bag.exit.thread, label %scan_env_set_mem_node.exit.thread
+  %.not.i422 = icmp slt i32 %762, %761
+  br i1 %.not.i422, label %prs_bag.exit.thread, label %scan_env_set_mem_node.exit.thread
 
 scan_env_set_mem_node.exit.thread:                ; preds = %759
   %763 = load ptr, ptr %34, align 8
@@ -8851,10 +8851,10 @@ scan_env_set_mem_node.exit.thread:                ; preds = %759
 
 767:                                              ; preds = %scan_env_set_mem_node.exit.thread, %node_new_bag_if_else.exit, %755, %749, %688, %374, %220, %212, %184
   %768 = load ptr, ptr %14, align 8
-  br label %prs_bag.exit.thread473
+  br label %prs_bag.exit.thread475
 
-prs_bag.exit.thread:                              ; preds = %49, %63, %76, %79, %99, %104, %129, %134, %137, %139, %123, %163, %168, %178, %187, %212, %158, %215, %227, %229, %254, %254, %268, %279, %276, %290, %352, %360, %222, %439, %444, %422, %452, %461, %463, %471, %645, %655, %657, %69, %scan_env_add_mem_entry.exit, %738, %741, %759, %718, %714, %699, %478, %490, %511, %518, %528, %538, %548, %558, %564, %566, %570, %585, %588, %578, %591, %593, %602, %612, %617, %621, %626, %630, %635, %.thread, %305, %301, %663, %748, %358, %onig_node_free.exit737, %onig_node_free.exit738, %onig_node_free.exit739, %onig_node_free.exit740, %367, %194, %node_new_memory.exit440.thread, %node_new_memory.exit431.thread, %node_new_option.exit429.thread, %node_new_option.exit.thread, %node_new_memory.exit.thread
-  %.0.i.ph = phi i32 [ -5, %node_new_memory.exit.thread ], [ -5, %node_new_option.exit.thread ], [ -5, %node_new_option.exit429.thread ], [ -5, %node_new_memory.exit431.thread ], [ -5, %node_new_memory.exit440.thread ], [ %191, %194 ], [ -118, %367 ], [ -5, %onig_node_free.exit740 ], [ %396, %onig_node_free.exit739 ], [ %393, %onig_node_free.exit738 ], [ -224, %onig_node_free.exit737 ], [ %356, %358 ], [ %745, %748 ], [ %661, %663 ], [ -208, %301 ], [ -208, %305 ], [ -118, %.thread ], [ -119, %478 ], [ -120, %635 ], [ -119, %630 ], [ -120, %626 ], [ -119, %621 ], [ -120, %617 ], [ -119, %612 ], [ -119, %602 ], [ -119, %593 ], [ -118, %591 ], [ -119, %578 ], [ -119, %588 ], [ -119, %585 ], [ -118, %570 ], [ -119, %566 ], [ -118, %564 ], [ -119, %558 ], [ -119, %548 ], [ -119, %538 ], [ -119, %528 ], [ -119, %518 ], [ -119, %511 ], [ -119, %490 ], [ -11, %759 ], [ %742, %741 ], [ -5, %738 ], [ %.pre-phi.i, %scan_env_add_mem_entry.exit ], [ -119, %69 ], [ %658, %657 ], [ %656, %655 ], [ %646, %645 ], [ -119, %471 ], [ -119, %463 ], [ -118, %461 ], [ -119, %452 ], [ -119, %422 ], [ -222, %444 ], [ %442, %439 ], [ -119, %222 ], [ -5, %360 ], [ %353, %352 ], [ -217, %290 ], [ -208, %276 ], [ -208, %279 ], [ -208, %268 ], [ %251, %254 ], [ %251, %254 ], [ -118, %229 ], [ -118, %227 ], [ -119, %215 ], [ -119, %158 ], [ %214, %212 ], [ %188, %187 ], [ %183, %178 ], [ -118, %168 ], [ -118, %163 ], [ -119, %123 ], [ %142, %139 ], [ -222, %137 ], [ %135, %134 ], [ %132, %129 ], [ -117, %104 ], [ -119, %99 ], [ %80, %79 ], [ %77, %76 ], [ -118, %63 ], [ -117, %49 ], [ -210, %699 ], [ -5, %714 ], [ -5, %718 ]
+prs_bag.exit.thread:                              ; preds = %49, %63, %76, %79, %99, %104, %129, %134, %137, %139, %123, %163, %168, %178, %187, %212, %158, %215, %227, %229, %254, %254, %268, %279, %276, %290, %352, %360, %222, %439, %444, %422, %452, %461, %463, %471, %645, %655, %657, %69, %scan_env_add_mem_entry.exit, %738, %741, %759, %718, %714, %699, %478, %490, %511, %518, %528, %538, %548, %558, %564, %566, %570, %585, %588, %578, %591, %593, %602, %612, %617, %621, %626, %630, %635, %.thread, %305, %301, %663, %748, %358, %onig_node_free.exit739, %onig_node_free.exit740, %onig_node_free.exit741, %onig_node_free.exit742, %367, %194, %node_new_memory.exit442.thread, %node_new_memory.exit433.thread, %node_new_option.exit431.thread, %node_new_option.exit.thread, %node_new_memory.exit.thread
+  %.0.i.ph = phi i32 [ -5, %node_new_memory.exit.thread ], [ -5, %node_new_option.exit.thread ], [ -5, %node_new_option.exit431.thread ], [ -5, %node_new_memory.exit433.thread ], [ -5, %node_new_memory.exit442.thread ], [ %191, %194 ], [ -118, %367 ], [ -5, %onig_node_free.exit742 ], [ %396, %onig_node_free.exit741 ], [ %393, %onig_node_free.exit740 ], [ -224, %onig_node_free.exit739 ], [ %356, %358 ], [ %745, %748 ], [ %661, %663 ], [ -208, %301 ], [ -208, %305 ], [ -118, %.thread ], [ -119, %478 ], [ -120, %635 ], [ -119, %630 ], [ -120, %626 ], [ -119, %621 ], [ -120, %617 ], [ -119, %612 ], [ -119, %602 ], [ -119, %593 ], [ -118, %591 ], [ -119, %578 ], [ -119, %588 ], [ -119, %585 ], [ -118, %570 ], [ -119, %566 ], [ -118, %564 ], [ -119, %558 ], [ -119, %548 ], [ -119, %538 ], [ -119, %528 ], [ -119, %518 ], [ -119, %511 ], [ -119, %490 ], [ -11, %759 ], [ %742, %741 ], [ -5, %738 ], [ %.pre-phi.i, %scan_env_add_mem_entry.exit ], [ -119, %69 ], [ %658, %657 ], [ %656, %655 ], [ %646, %645 ], [ -119, %471 ], [ -119, %463 ], [ -118, %461 ], [ -119, %452 ], [ -119, %422 ], [ -222, %444 ], [ %442, %439 ], [ -119, %222 ], [ -5, %360 ], [ %353, %352 ], [ -217, %290 ], [ -208, %276 ], [ -208, %279 ], [ -208, %268 ], [ %251, %254 ], [ %251, %254 ], [ -118, %229 ], [ -118, %227 ], [ -119, %215 ], [ -119, %158 ], [ %214, %212 ], [ %188, %187 ], [ %183, %178 ], [ -118, %168 ], [ -118, %163 ], [ -119, %123 ], [ %142, %139 ], [ -222, %137 ], [ %135, %134 ], [ %132, %129 ], [ -117, %104 ], [ -119, %99 ], [ %80, %79 ], [ %77, %76 ], [ -118, %63 ], [ -117, %49 ], [ -210, %699 ], [ -5, %714 ], [ -5, %718 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -8867,12 +8867,12 @@ prs_bag.exit.thread:                              ; preds = %49, %63, %76, %79, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
-prs_bag.exit.thread473:                           ; preds = %641, %647, %667, %767, %82
-  %.lcssa674.sink = phi ptr [ %673, %667 ], [ %768, %767 ], [ %83, %82 ], [ %479, %647 ], [ %479, %641 ]
-  %.0.i.ph472 = phi i32 [ 0, %667 ], [ 0, %767 ], [ 1, %82 ], [ 2, %647 ], [ 2, %641 ]
-  store ptr %.lcssa674.sink, ptr %3, align 8
+prs_bag.exit.thread475:                           ; preds = %641, %647, %667, %767, %82
+  %.lcssa676.sink = phi ptr [ %673, %667 ], [ %768, %767 ], [ %83, %82 ], [ %479, %647 ], [ %479, %641 ]
+  %.0.i.ph474 = phi i32 [ 0, %667 ], [ 0, %767 ], [ 1, %82 ], [ 2, %647 ], [ 2, %641 ]
+  store ptr %.lcssa676.sink, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -8902,18 +8902,18 @@ prs_bag.exit:                                     ; preds = %220, %337, %350, %6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   %769 = icmp slt i32 %.0.i, 0
-  br i1 %769, label %node_new_quantifier.exit409, label %770
+  br i1 %769, label %node_new_quantifier.exit411, label %770
 
-770:                                              ; preds = %prs_bag.exit.thread473, %prs_bag.exit
-  %.0.i475 = phi i32 [ %.0.i.ph472, %prs_bag.exit.thread473 ], [ %.0.i, %prs_bag.exit ]
-  switch i32 %.0.i475, label %prs_char_property.exit.thread481 [
+770:                                              ; preds = %prs_bag.exit.thread475, %prs_bag.exit
+  %.0.i477 = phi i32 [ %.0.i.ph474, %prs_bag.exit.thread475 ], [ %.0.i, %prs_bag.exit ]
+  switch i32 %.0.i477, label %prs_char_property.exit.thread483 [
     i32 1, label %771
     i32 2, label %778
   ]
 
 771:                                              ; preds = %770
   %772 = icmp eq i32 %6, 0
-  br i1 %772, label %prs_char_property.exit.thread481, label %773
+  br i1 %772, label %prs_char_property.exit.thread483, label %773
 
 773:                                              ; preds = %771
   %774 = load ptr, ptr %0, align 8
@@ -8926,12 +8926,12 @@ node_new_group.exit:                              ; preds = %773
   %776 = getelementptr inbounds i8, ptr %calloc.i.i, i64 16
   store ptr %774, ptr %776, align 8
   store ptr %calloc.i.i, ptr %0, align 8
-  br label %prs_char_property.exit.thread481
+  br label %prs_char_property.exit.thread483
 
 777:                                              ; preds = %773
   store ptr null, ptr %0, align 8
   tail call void @onig_node_free(ptr noundef %774)
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 778:                                              ; preds = %770
   %779 = load ptr, ptr %31, align 8
@@ -8948,7 +8948,7 @@ node_new_group.exit:                              ; preds = %773
   store i32 %786, ptr %5, align 8
   %787 = tail call fastcc i32 @fetch_token(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5)
   %788 = icmp slt i32 %787, 0
-  br i1 %788, label %node_new_quantifier.exit409, label %789
+  br i1 %788, label %node_new_quantifier.exit411, label %789
 
 789:                                              ; preds = %783
   %790 = load ptr, ptr %0, align 8
@@ -8974,7 +8974,7 @@ onig_node_free.exit:                              ; preds = %789, %792
   store i32 %799, ptr %5, align 8
   %800 = tail call fastcc i32 @fetch_token(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5)
   %801 = icmp slt i32 %800, 0
-  br i1 %801, label %node_new_quantifier.exit409, label %802
+  br i1 %801, label %node_new_quantifier.exit411, label %802
 
 802:                                              ; preds = %795
   %803 = call fastcc i32 @prs_alts(ptr noundef nonnull %24, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef 0)
@@ -8985,14 +8985,14 @@ onig_node_free.exit:                              ; preds = %789, %792
 
 806:                                              ; preds = %802
   tail call void @onig_node_free(ptr noundef %805)
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 807:                                              ; preds = %802
   %808 = load ptr, ptr %0, align 8
   %809 = getelementptr inbounds i8, ptr %808, i64 16
   store ptr %805, ptr %809, align 8
   %810 = load i32, ptr %1, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 811:                                              ; preds = %40
   %812 = load ptr, ptr %31, align 8
@@ -9000,43 +9000,43 @@ onig_node_free.exit:                              ; preds = %789, %792
   %814 = load i32, ptr %813, align 4
   %815 = and i32 %814, 4
   %.not343 = icmp eq i32 %815, 0
-  br i1 %.not343, label %node_new_quantifier.exit409, label %816
+  br i1 %.not343, label %node_new_quantifier.exit411, label %816
 
 816:                                              ; preds = %811
   %817 = getelementptr inbounds i8, ptr %1, i64 8
   %818 = load i32, ptr %817, align 8
   %.not344 = icmp eq i32 %818, 0
-  br i1 %.not344, label %.loopexit501, label %.loopexit502
+  br i1 %.not344, label %.loopexit503, label %.loopexit504
 
-.loopexit501:                                     ; preds = %40, %1144, %816
+.loopexit503:                                     ; preds = %40, %1144, %816
   %819 = getelementptr inbounds i8, ptr %1, i64 16
   %820 = load ptr, ptr %819, align 8
   %821 = load ptr, ptr %3, align 8
   %822 = load i32, ptr %5, align 8
-  %calloc.i.i.i352 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %823 = icmp eq ptr %calloc.i.i.i352, null
+  %calloc.i.i.i354 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %823 = icmp eq ptr %calloc.i.i.i354, null
   br i1 %823, label %node_new_str.exit.i, label %824
 
-824:                                              ; preds = %.loopexit501
-  %825 = getelementptr inbounds i8, ptr %calloc.i.i.i352, i64 36
-  %826 = getelementptr inbounds i8, ptr %calloc.i.i.i352, i64 16
+824:                                              ; preds = %.loopexit503
+  %825 = getelementptr inbounds i8, ptr %calloc.i.i.i354, i64 36
+  %826 = getelementptr inbounds i8, ptr %calloc.i.i.i354, i64 16
   store ptr %825, ptr %826, align 8
-  %827 = getelementptr inbounds i8, ptr %calloc.i.i.i352, i64 24
+  %827 = getelementptr inbounds i8, ptr %calloc.i.i.i354, i64 24
   store ptr %825, ptr %827, align 8
-  %828 = tail call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i352, ptr noundef %820, ptr noundef %821)
+  %828 = tail call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i354, ptr noundef %820, ptr noundef %821)
   %.not.i.i = icmp eq i32 %828, 0
   br i1 %.not.i.i, label %node_new_str.exit.i, label %onig_node_free.exit.i.i
 
 onig_node_free.exit.i.i:                          ; preds = %824
-  tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i352)
-  tail call void @free(ptr noundef nonnull %calloc.i.i.i352) #25
+  tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i354)
+  tail call void @free(ptr noundef nonnull %calloc.i.i.i354) #25
   br label %node_new_str.exit.i
 
-node_new_str.exit.i:                              ; preds = %onig_node_free.exit.i.i, %824, %.loopexit501
-  %.0.i.i = phi ptr [ null, %onig_node_free.exit.i.i ], [ null, %.loopexit501 ], [ %calloc.i.i.i352, %824 ]
+node_new_str.exit.i:                              ; preds = %onig_node_free.exit.i.i, %824, %.loopexit503
+  %.0.i.i = phi ptr [ null, %onig_node_free.exit.i.i ], [ null, %.loopexit503 ], [ %calloc.i.i.i354, %824 ]
   %829 = and i32 %822, 1
-  %.not.i353 = icmp eq i32 %829, 0
-  br i1 %.not.i353, label %node_new_str_with_options.exit, label %node_new_str_with_options.exit.thread
+  %.not.i355 = icmp eq i32 %829, 0
+  br i1 %.not.i355, label %node_new_str_with_options.exit, label %node_new_str_with_options.exit.thread
 
 node_new_str_with_options.exit.thread:            ; preds = %node_new_str.exit.i
   %830 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
@@ -9049,7 +9049,7 @@ node_new_str_with_options.exit.thread:            ; preds = %node_new_str.exit.i
 node_new_str_with_options.exit:                   ; preds = %node_new_str.exit.i
   store ptr %.0.i.i, ptr %0, align 8
   %833 = icmp eq ptr %.0.i.i, null
-  br i1 %833, label %node_new_quantifier.exit409, label %.preheader.preheader
+  br i1 %833, label %node_new_quantifier.exit411, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %node_new_str_with_options.exit.thread, %node_new_str_with_options.exit
   br label %.preheader
@@ -9057,7 +9057,7 @@ node_new_str_with_options.exit:                   ; preds = %node_new_str.exit.i
 .preheader:                                       ; preds = %.preheader.preheader, %837
   %834 = tail call fastcc i32 @fetch_token(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5)
   %835 = icmp slt i32 %834, 0
-  br i1 %835, label %node_new_quantifier.exit409, label %836
+  br i1 %835, label %node_new_quantifier.exit411, label %836
 
 836:                                              ; preds = %.preheader
   %.not345 = icmp eq i32 %834, 3
@@ -9069,9 +9069,9 @@ node_new_str_with_options.exit:                   ; preds = %node_new_str.exit.i
   %840 = load ptr, ptr %3, align 8
   %841 = tail call i32 @onig_node_str_cat(ptr noundef %838, ptr noundef %839, ptr noundef %840)
   %842 = icmp slt i32 %841, 0
-  br i1 %842, label %node_new_quantifier.exit409, label %.preheader
+  br i1 %842, label %node_new_quantifier.exit411, label %.preheader
 
-.loopexit502:                                     ; preds = %40, %816
+.loopexit504:                                     ; preds = %40, %816
   %843 = getelementptr inbounds i8, ptr %1, i64 24
   %844 = load i8, ptr %843, align 8
   %845 = load i32, ptr %5, align 8
@@ -9081,7 +9081,7 @@ node_new_str_with_options.exit:                   ; preds = %node_new_str.exit.i
   %846 = icmp eq ptr %calloc.i.i.i.i.i, null
   br i1 %846, label %node_new_str.exit.i.i.i, label %847
 
-847:                                              ; preds = %.loopexit502
+847:                                              ; preds = %.loopexit504
   %848 = getelementptr inbounds i8, ptr %11, i64 1
   %849 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i, i64 36
   %850 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i, i64 16
@@ -9097,8 +9097,8 @@ onig_node_free.exit.i.i.i.i:                      ; preds = %847
   call void @free(ptr noundef nonnull %calloc.i.i.i.i.i) #25
   br label %node_new_str.exit.i.i.i
 
-node_new_str.exit.i.i.i:                          ; preds = %onig_node_free.exit.i.i.i.i, %847, %.loopexit502
-  %.0.i.i.i.i = phi ptr [ null, %onig_node_free.exit.i.i.i.i ], [ null, %.loopexit502 ], [ %calloc.i.i.i.i.i, %847 ]
+node_new_str.exit.i.i.i:                          ; preds = %onig_node_free.exit.i.i.i.i, %847, %.loopexit504
+  %.0.i.i.i.i = phi ptr [ null, %onig_node_free.exit.i.i.i.i ], [ null, %.loopexit504 ], [ %calloc.i.i.i.i.i, %847 ]
   %853 = and i32 %845, 1
   %.not.i.i.i = icmp eq i32 %853, 0
   br i1 %.not.i.i.i, label %node_new_str_with_options.exit.i.i, label %node_new_str_with_options.exit.thread.i.i
@@ -9117,7 +9117,7 @@ node_new_str_with_options.exit.i.i:               ; preds = %node_new_str.exit.i
 node_new_str_crude_char.exit.thread:              ; preds = %node_new_str_with_options.exit.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   store ptr null, ptr %0, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_options.exit.thread.i.i, %node_new_str_with_options.exit.i.i
   %858 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
@@ -9160,16 +9160,16 @@ node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_o
   %882 = load ptr, ptr %881, align 8
   %883 = call i32 %877(ptr noundef %880, ptr noundef %882) #25
   %.not348 = icmp eq i32 %883, 0
-  br i1 %.not348, label %node_new_quantifier.exit409, label %894
+  br i1 %.not348, label %node_new_quantifier.exit411, label %894
 
 884:                                              ; preds = %866, %862
   %885 = call fastcc i32 @fetch_token(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5)
   %886 = icmp slt i32 %885, 0
-  br i1 %886, label %node_new_quantifier.exit409, label %887
+  br i1 %886, label %node_new_quantifier.exit411, label %887
 
 887:                                              ; preds = %884
   %.not347 = icmp eq i32 %885, 1
-  br i1 %.not347, label %888, label %node_new_quantifier.exit409
+  br i1 %.not347, label %888, label %node_new_quantifier.exit411
 
 888:                                              ; preds = %887
   %889 = load ptr, ptr %0, align 8
@@ -9180,7 +9180,7 @@ node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_o
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   %892 = icmp slt i32 %891, 0
   %893 = add nuw nsw i32 %.0288, 1
-  br i1 %892, label %node_new_quantifier.exit409, label %862
+  br i1 %892, label %node_new_quantifier.exit411, label %862
 
 894:                                              ; preds = %873
   %895 = load ptr, ptr %0, align 8
@@ -9198,7 +9198,7 @@ node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_o
   %904 = load i32, ptr %903, align 8
   %905 = tail call i32 %902(i32 noundef %904) #25
   %906 = icmp slt i32 %905, 0
-  br i1 %906, label %node_new_quantifier.exit409, label %907
+  br i1 %906, label %node_new_quantifier.exit411, label %907
 
 907:                                              ; preds = %899
   %908 = load ptr, ptr %30, align 8
@@ -9207,45 +9207,45 @@ node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_o
   %911 = load i32, ptr %903, align 8
   %912 = call i32 %910(i32 noundef %911, ptr noundef nonnull %25) #25
   %913 = load i32, ptr %5, align 8
-  %calloc.i.i.i354 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %914 = icmp eq ptr %calloc.i.i.i354, null
-  br i1 %914, label %node_new_str.exit.i357, label %915
+  %calloc.i.i.i356 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %914 = icmp eq ptr %calloc.i.i.i356, null
+  br i1 %914, label %node_new_str.exit.i359, label %915
 
 915:                                              ; preds = %907
   %916 = sext i32 %912 to i64
   %917 = getelementptr inbounds i8, ptr %25, i64 %916
-  %918 = getelementptr inbounds i8, ptr %calloc.i.i.i354, i64 36
-  %919 = getelementptr inbounds i8, ptr %calloc.i.i.i354, i64 16
+  %918 = getelementptr inbounds i8, ptr %calloc.i.i.i356, i64 36
+  %919 = getelementptr inbounds i8, ptr %calloc.i.i.i356, i64 16
   store ptr %918, ptr %919, align 8
-  %920 = getelementptr inbounds i8, ptr %calloc.i.i.i354, i64 24
+  %920 = getelementptr inbounds i8, ptr %calloc.i.i.i356, i64 24
   store ptr %918, ptr %920, align 8
-  %921 = call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i354, ptr noundef nonnull %25, ptr noundef nonnull %917)
-  %.not.i.i355 = icmp eq i32 %921, 0
-  br i1 %.not.i.i355, label %node_new_str.exit.i357, label %onig_node_free.exit.i.i356
+  %921 = call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i356, ptr noundef nonnull %25, ptr noundef nonnull %917)
+  %.not.i.i357 = icmp eq i32 %921, 0
+  br i1 %.not.i.i357, label %node_new_str.exit.i359, label %onig_node_free.exit.i.i358
 
-onig_node_free.exit.i.i356:                       ; preds = %915
-  call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i354)
-  call void @free(ptr noundef nonnull %calloc.i.i.i354) #25
-  br label %node_new_str.exit.i357
+onig_node_free.exit.i.i358:                       ; preds = %915
+  call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i356)
+  call void @free(ptr noundef nonnull %calloc.i.i.i356) #25
+  br label %node_new_str.exit.i359
 
-node_new_str.exit.i357:                           ; preds = %onig_node_free.exit.i.i356, %915, %907
-  %.0.i.i358 = phi ptr [ null, %onig_node_free.exit.i.i356 ], [ null, %907 ], [ %calloc.i.i.i354, %915 ]
+node_new_str.exit.i359:                           ; preds = %onig_node_free.exit.i.i358, %915, %907
+  %.0.i.i360 = phi ptr [ null, %onig_node_free.exit.i.i358 ], [ null, %907 ], [ %calloc.i.i.i356, %915 ]
   %922 = and i32 %913, 1
-  %.not.i359 = icmp eq i32 %922, 0
-  br i1 %.not.i359, label %node_new_str_with_options.exit360, label %node_new_str_with_options.exit360.thread
+  %.not.i361 = icmp eq i32 %922, 0
+  br i1 %.not.i361, label %node_new_str_with_options.exit362, label %node_new_str_with_options.exit362.thread
 
-node_new_str_with_options.exit360.thread:         ; preds = %node_new_str.exit.i357
-  %923 = getelementptr inbounds i8, ptr %.0.i.i358, i64 4
+node_new_str_with_options.exit362.thread:         ; preds = %node_new_str.exit.i359
+  %923 = getelementptr inbounds i8, ptr %.0.i.i360, i64 4
   %924 = load i32, ptr %923, align 4
   %925 = or i32 %924, 2097152
   store i32 %925, ptr %923, align 4
-  store ptr %.0.i.i358, ptr %0, align 8
-  br label %prs_char_property.exit.thread481
+  store ptr %.0.i.i360, ptr %0, align 8
+  br label %prs_char_property.exit.thread483
 
-node_new_str_with_options.exit360:                ; preds = %node_new_str.exit.i357
-  store ptr %.0.i.i358, ptr %0, align 8
-  %926 = icmp eq ptr %.0.i.i358, null
-  br i1 %926, label %node_new_quantifier.exit409, label %prs_char_property.exit.thread481
+node_new_str_with_options.exit362:                ; preds = %node_new_str.exit.i359
+  store ptr %.0.i.i360, ptr %0, align 8
+  %926 = icmp eq ptr %.0.i.i360, null
+  br i1 %926, label %node_new_quantifier.exit411, label %prs_char_property.exit.thread483
 
 927:                                              ; preds = %40
   %928 = load ptr, ptr %31, align 8
@@ -9254,30 +9254,30 @@ node_new_str_with_options.exit360:                ; preds = %node_new_str.exit.i
   %931 = load ptr, ptr %3, align 8
   %932 = load ptr, ptr %30, align 8
   %933 = icmp ult ptr %931, %4
-  br i1 %933, label %.lr.ph45.i, label %find_str_position.exit.thread
+  br i1 %933, label %.lr.ph9.i, label %find_str_position.exit.thread
 
-.lr.ph45.i:                                       ; preds = %927
+.lr.ph9.i:                                        ; preds = %927
   %934 = getelementptr inbounds i8, ptr %932, i64 32
   br label %935
 
-935:                                              ; preds = %._crit_edge.thread.i, %.lr.ph45.i
-  %.043.i = phi ptr [ %931, %.lr.ph45.i ], [ %941, %._crit_edge.thread.i ]
+935:                                              ; preds = %._crit_edge.thread.i, %.lr.ph9.i
+  %.07.i = phi ptr [ %931, %.lr.ph9.i ], [ %941, %._crit_edge.thread.i ]
   %936 = load ptr, ptr %934, align 8
-  %937 = tail call i32 %936(ptr noundef %.043.i, ptr noundef nonnull %4) #25
+  %937 = tail call i32 %936(ptr noundef %.07.i, ptr noundef nonnull %4) #25
   %938 = load ptr, ptr %932, align 8
-  %939 = tail call i32 %938(ptr noundef %.043.i) #25
+  %939 = tail call i32 %938(ptr noundef %.07.i) #25
   %940 = sext i32 %939 to i64
-  %941 = getelementptr inbounds i8, ptr %.043.i, i64 %940
+  %941 = getelementptr inbounds i8, ptr %.07.i, i64 %940
   %942 = icmp eq i32 %937, %930
   %943 = icmp ult ptr %941, %4
-  %or.cond.i361 = select i1 %942, i1 %943, i1 false
-  br i1 %or.cond.i361, label %.lr.ph.i, label %._crit_edge.thread.i
+  %or.cond.i363 = select i1 %942, i1 %943, i1 false
+  br i1 %or.cond.i363, label %.lr.ph.i, label %._crit_edge.thread.i
 
 .lr.ph.i:                                         ; preds = %935
   %944 = load ptr, ptr %934, align 8
   %945 = tail call i32 %944(ptr noundef %941, ptr noundef nonnull %4) #25
-  %.not.i362 = icmp eq i32 %945, 69
-  br i1 %.not.i362, label %find_str_position.exit, label %._crit_edge.thread.i
+  %.not.i364 = icmp eq i32 %945, 69
+  br i1 %.not.i364, label %find_str_position.exit, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %.lr.ph.i, %935
   br i1 %943, label %935, label %find_str_position.exit.thread, !llvm.loop !47
@@ -9287,62 +9287,62 @@ find_str_position.exit:                           ; preds = %.lr.ph.i
   %947 = tail call i32 %946(ptr noundef %941) #25
   %948 = sext i32 %947 to i64
   %949 = getelementptr inbounds i8, ptr %941, i64 %948
-  %950 = icmp eq ptr %.043.i, null
+  %950 = icmp eq ptr %.07.i, null
   br i1 %950, label %find_str_position.exit.thread, label %951
 
 find_str_position.exit.thread:                    ; preds = %._crit_edge.thread.i, %927, %find_str_position.exit
   br label %951
 
 951:                                              ; preds = %find_str_position.exit.thread, %find_str_position.exit
-  %.0451 = phi ptr [ %4, %find_str_position.exit.thread ], [ %949, %find_str_position.exit ]
-  %.0295 = phi ptr [ %4, %find_str_position.exit.thread ], [ %.043.i, %find_str_position.exit ]
+  %.0453 = phi ptr [ %4, %find_str_position.exit.thread ], [ %949, %find_str_position.exit ]
+  %.0295 = phi ptr [ %4, %find_str_position.exit.thread ], [ %.07.i, %find_str_position.exit ]
   %952 = load i32, ptr %5, align 8
-  %calloc.i.i.i363 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %953 = icmp eq ptr %calloc.i.i.i363, null
-  br i1 %953, label %node_new_str.exit.i366, label %954
+  %calloc.i.i.i365 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %953 = icmp eq ptr %calloc.i.i.i365, null
+  br i1 %953, label %node_new_str.exit.i368, label %954
 
 954:                                              ; preds = %951
-  %955 = getelementptr inbounds i8, ptr %calloc.i.i.i363, i64 36
-  %956 = getelementptr inbounds i8, ptr %calloc.i.i.i363, i64 16
+  %955 = getelementptr inbounds i8, ptr %calloc.i.i.i365, i64 36
+  %956 = getelementptr inbounds i8, ptr %calloc.i.i.i365, i64 16
   store ptr %955, ptr %956, align 8
-  %957 = getelementptr inbounds i8, ptr %calloc.i.i.i363, i64 24
+  %957 = getelementptr inbounds i8, ptr %calloc.i.i.i365, i64 24
   store ptr %955, ptr %957, align 8
-  %958 = tail call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i363, ptr noundef %931, ptr noundef %.0295)
-  %.not.i.i364 = icmp eq i32 %958, 0
-  br i1 %.not.i.i364, label %node_new_str.exit.i366, label %onig_node_free.exit.i.i365
+  %958 = tail call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i365, ptr noundef %931, ptr noundef %.0295)
+  %.not.i.i366 = icmp eq i32 %958, 0
+  br i1 %.not.i.i366, label %node_new_str.exit.i368, label %onig_node_free.exit.i.i367
 
-onig_node_free.exit.i.i365:                       ; preds = %954
-  tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i363)
-  tail call void @free(ptr noundef nonnull %calloc.i.i.i363) #25
-  br label %node_new_str.exit.i366
+onig_node_free.exit.i.i367:                       ; preds = %954
+  tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i365)
+  tail call void @free(ptr noundef nonnull %calloc.i.i.i365) #25
+  br label %node_new_str.exit.i368
 
-node_new_str.exit.i366:                           ; preds = %onig_node_free.exit.i.i365, %954, %951
-  %.0.i.i367 = phi ptr [ null, %onig_node_free.exit.i.i365 ], [ null, %951 ], [ %calloc.i.i.i363, %954 ]
+node_new_str.exit.i368:                           ; preds = %onig_node_free.exit.i.i367, %954, %951
+  %.0.i.i369 = phi ptr [ null, %onig_node_free.exit.i.i367 ], [ null, %951 ], [ %calloc.i.i.i365, %954 ]
   %959 = and i32 %952, 1
-  %.not.i368 = icmp eq i32 %959, 0
-  br i1 %.not.i368, label %node_new_str_with_options.exit369, label %node_new_str_with_options.exit369.thread
+  %.not.i370 = icmp eq i32 %959, 0
+  br i1 %.not.i370, label %node_new_str_with_options.exit371, label %node_new_str_with_options.exit371.thread
 
-node_new_str_with_options.exit369.thread:         ; preds = %node_new_str.exit.i366
-  %960 = getelementptr inbounds i8, ptr %.0.i.i367, i64 4
+node_new_str_with_options.exit371.thread:         ; preds = %node_new_str.exit.i368
+  %960 = getelementptr inbounds i8, ptr %.0.i.i369, i64 4
   %961 = load i32, ptr %960, align 4
   %962 = or i32 %961, 2097152
   store i32 %962, ptr %960, align 4
-  store ptr %.0.i.i367, ptr %0, align 8
+  store ptr %.0.i.i369, ptr %0, align 8
   br label %964
 
-node_new_str_with_options.exit369:                ; preds = %node_new_str.exit.i366
-  store ptr %.0.i.i367, ptr %0, align 8
-  %963 = icmp eq ptr %.0.i.i367, null
-  br i1 %963, label %node_new_quantifier.exit409, label %964
+node_new_str_with_options.exit371:                ; preds = %node_new_str.exit.i368
+  store ptr %.0.i.i369, ptr %0, align 8
+  %963 = icmp eq ptr %.0.i.i369, null
+  br i1 %963, label %node_new_quantifier.exit411, label %964
 
-964:                                              ; preds = %node_new_str_with_options.exit369.thread, %node_new_str_with_options.exit369
-  store ptr %.0451, ptr %3, align 8
-  br label %prs_char_property.exit.thread481
+964:                                              ; preds = %node_new_str_with_options.exit371.thread, %node_new_str_with_options.exit371
+  store ptr %.0453, ptr %3, align 8
+  br label %prs_char_property.exit.thread483
 
 965:                                              ; preds = %40
   %966 = getelementptr inbounds i8, ptr %1, i64 24
   %967 = load i32, ptr %966, align 8
-  switch i32 %967, label %node_new_quantifier.exit409 [
+  switch i32 %967, label %node_new_quantifier.exit411 [
     i32 12, label %968
     i32 9, label %974
     i32 4, label %974
@@ -9356,22 +9356,22 @@ node_new_str_with_options.exit369:                ; preds = %node_new_str.exit.i
   %972 = tail call fastcc ptr @node_new_ctype(i32 noundef 12, i32 noundef %970, i32 noundef %971)
   store ptr %972, ptr %0, align 8
   %973 = icmp eq ptr %972, null
-  br i1 %973, label %node_new_quantifier.exit409, label %prs_char_property.exit.thread481
+  br i1 %973, label %node_new_quantifier.exit411, label %prs_char_property.exit.thread483
 
 974:                                              ; preds = %965, %965, %965
-  %calloc.i.i370 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %975 = icmp eq ptr %calloc.i.i370, null
+  %calloc.i.i372 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %975 = icmp eq ptr %calloc.i.i372, null
   br i1 %975, label %node_new_cclass.exit.thread, label %976
 
 node_new_cclass.exit.thread:                      ; preds = %974
   store ptr null, ptr %0, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 976:                                              ; preds = %974
-  store i32 1, ptr %calloc.i.i370, align 8
-  store ptr %calloc.i.i370, ptr %0, align 8
+  store i32 1, ptr %calloc.i.i372, align 8
+  store ptr %calloc.i.i372, ptr %0, align 8
   %977 = load i32, ptr %966, align 8
-  %978 = tail call fastcc i32 @add_ctype_to_cc(ptr noundef %calloc.i.i370, i32 noundef %977, i32 noundef 0, ptr noundef nonnull %5)
+  %978 = tail call fastcc i32 @add_ctype_to_cc(ptr noundef %calloc.i.i372, i32 noundef %977, i32 noundef 0, ptr noundef nonnull %5)
   %.not341 = icmp eq i32 %978, 0
   br i1 %.not341, label %981, label %979
 
@@ -9379,20 +9379,20 @@ node_new_cclass.exit.thread:                      ; preds = %974
   %980 = load ptr, ptr %0, align 8
   tail call void @onig_node_free(ptr noundef %980)
   store ptr null, ptr %0, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 981:                                              ; preds = %976
   %982 = getelementptr inbounds i8, ptr %1, i64 28
   %983 = load i32, ptr %982, align 4
   %.not342 = icmp eq i32 %983, 0
-  br i1 %.not342, label %prs_char_property.exit.thread481, label %984
+  br i1 %.not342, label %prs_char_property.exit.thread483, label %984
 
 984:                                              ; preds = %981
-  %985 = getelementptr inbounds i8, ptr %calloc.i.i370, i64 16
+  %985 = getelementptr inbounds i8, ptr %calloc.i.i372, i64 16
   %986 = load i32, ptr %985, align 8
   %987 = or i32 %986, 1
   store i32 %987, ptr %985, align 8
-  br label %prs_char_property.exit.thread481
+  br label %prs_char_property.exit.thread483
 
 988:                                              ; preds = %40
   %989 = load ptr, ptr %3, align 8
@@ -9401,29 +9401,29 @@ node_new_cclass.exit.thread:                      ; preds = %974
   br label %992
 
 992:                                              ; preds = %993, %988
-  %.0.i.i371 = phi ptr [ %989, %988 ], [ %999, %993 ]
-  %.not.i.i372 = icmp ult ptr %.0.i.i371, %4
-  br i1 %.not.i.i372, label %993, label %node_new_quantifier.exit409
+  %.0.i.i373 = phi ptr [ %989, %988 ], [ %999, %993 ]
+  %.not.i.i374 = icmp ult ptr %.0.i.i373, %4
+  br i1 %.not.i.i374, label %993, label %node_new_quantifier.exit411
 
 993:                                              ; preds = %992
   %994 = load ptr, ptr %991, align 8
-  %995 = tail call i32 %994(ptr noundef %.0.i.i371, ptr noundef nonnull %4) #25
+  %995 = tail call i32 %994(ptr noundef %.0.i.i373, ptr noundef nonnull %4) #25
   %996 = load ptr, ptr %990, align 8
-  %997 = tail call i32 %996(ptr noundef %.0.i.i371) #25
+  %997 = tail call i32 %996(ptr noundef %.0.i.i373) #25
   %998 = sext i32 %997 to i64
-  %999 = getelementptr inbounds i8, ptr %.0.i.i371, i64 %998
+  %999 = getelementptr inbounds i8, ptr %.0.i.i373, i64 %998
   switch i32 %995, label %992 [
     i32 125, label %1000
-    i32 124, label %node_new_quantifier.exit409
-    i32 123, label %node_new_quantifier.exit409
-    i32 41, label %node_new_quantifier.exit409
-    i32 40, label %node_new_quantifier.exit409
+    i32 124, label %node_new_quantifier.exit411
+    i32 123, label %node_new_quantifier.exit411
+    i32 41, label %node_new_quantifier.exit411
+    i32 40, label %node_new_quantifier.exit411
   ]
 
 1000:                                             ; preds = %993
   %1001 = getelementptr inbounds i8, ptr %990, i64 80
   %1002 = load ptr, ptr %1001, align 8
-  %1003 = tail call i32 %1002(ptr noundef nonnull %990, ptr noundef %989, ptr noundef %.0.i.i371) #25
+  %1003 = tail call i32 %1002(ptr noundef nonnull %990, ptr noundef %989, ptr noundef %.0.i.i373) #25
   %1004 = icmp sgt i32 %1003, -1
   br i1 %1004, label %1009, label %1005
 
@@ -9432,8 +9432,8 @@ node_new_cclass.exit.thread:                      ; preds = %974
   %1007 = getelementptr inbounds i8, ptr %5, i64 56
   store ptr %1006, ptr %1007, align 8
   %1008 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr %.0.i.i371, ptr %1008, align 8
-  br label %node_new_quantifier.exit409
+  store ptr %.0.i.i373, ptr %1008, align 8
+  br label %node_new_quantifier.exit411
 
 1009:                                             ; preds = %1000
   store ptr %999, ptr %3, align 8
@@ -9444,23 +9444,23 @@ node_new_cclass.exit.thread:                      ; preds = %974
   %1012 = getelementptr inbounds i8, ptr %1, i64 28
   %1013 = load i32, ptr %1012, align 4
   %1014 = load i32, ptr %5, align 8
-  %calloc.i.i.i375 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1015 = icmp eq ptr %calloc.i.i.i375, null
-  br i1 %1015, label %prs_char_property.exit, label %prs_char_property.exit.thread484
+  %calloc.i.i.i377 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1015 = icmp eq ptr %calloc.i.i.i377, null
+  br i1 %1015, label %prs_char_property.exit, label %prs_char_property.exit.thread486
 
-prs_char_property.exit.thread484:                 ; preds = %1011
-  store i32 2, ptr %calloc.i.i.i375, align 8
-  %1016 = getelementptr inbounds i8, ptr %calloc.i.i.i375, i64 16
+prs_char_property.exit.thread486:                 ; preds = %1011
+  store i32 2, ptr %calloc.i.i.i377, align 8
+  %1016 = getelementptr inbounds i8, ptr %calloc.i.i.i377, i64 16
   store i32 12, ptr %1016, align 8
-  %1017 = getelementptr inbounds i8, ptr %calloc.i.i.i375, i64 20
+  %1017 = getelementptr inbounds i8, ptr %calloc.i.i.i377, i64 20
   store i32 %1013, ptr %1017, align 4
   %1018 = and i32 %1014, 589824
-  %or.cond.i376 = icmp ne i32 %1018, 0
-  %spec.select.i377 = zext i1 %or.cond.i376 to i32
-  %1019 = getelementptr inbounds i8, ptr %calloc.i.i.i375, i64 24
-  store i32 %spec.select.i377, ptr %1019, align 8
-  store ptr %calloc.i.i.i375, ptr %0, align 8
-  br label %prs_char_property.exit.thread481
+  %or.cond.i378 = icmp ne i32 %1018, 0
+  %spec.select.i379 = zext i1 %or.cond.i378 to i32
+  %1019 = getelementptr inbounds i8, ptr %calloc.i.i.i377, i64 24
+  store i32 %spec.select.i379, ptr %1019, align 8
+  store ptr %calloc.i.i.i377, ptr %0, align 8
+  br label %prs_char_property.exit.thread483
 
 1020:                                             ; preds = %1009
   %calloc.i.i26.i = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
@@ -9469,42 +9469,42 @@ prs_char_property.exit.thread484:                 ; preds = %1011
 
 node_new_cclass.exit.thread.i:                    ; preds = %1020
   store ptr null, ptr %0, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 1022:                                             ; preds = %1020
   store i32 1, ptr %calloc.i.i26.i, align 8
   store ptr %calloc.i.i26.i, ptr %0, align 8
   %1023 = tail call fastcc i32 @add_ctype_to_cc(ptr noundef %calloc.i.i26.i, i32 noundef %1003, i32 noundef 0, ptr noundef %5)
-  %.not.i374 = icmp eq i32 %1023, 0
-  br i1 %.not.i374, label %1024, label %node_new_quantifier.exit409
+  %.not.i376 = icmp eq i32 %1023, 0
+  br i1 %.not.i376, label %1024, label %node_new_quantifier.exit411
 
 1024:                                             ; preds = %1022
   %1025 = getelementptr inbounds i8, ptr %1, i64 28
   %1026 = load i32, ptr %1025, align 4
   %.not24.i = icmp eq i32 %1026, 0
-  br i1 %.not24.i, label %prs_char_property.exit.thread481, label %1027
+  br i1 %.not24.i, label %prs_char_property.exit.thread483, label %1027
 
 1027:                                             ; preds = %1024
   %1028 = getelementptr inbounds i8, ptr %calloc.i.i26.i, i64 16
   %1029 = load i32, ptr %1028, align 8
   %1030 = or i32 %1029, 1
   store i32 %1030, ptr %1028, align 8
-  br label %prs_char_property.exit.thread481
+  br label %prs_char_property.exit.thread483
 
 prs_char_property.exit:                           ; preds = %1011
   store ptr null, ptr %0, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 1031:                                             ; preds = %40
   %1032 = tail call fastcc i32 @prs_cc(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5)
   %.not336 = icmp eq i32 %1032, 0
-  br i1 %.not336, label %1033, label %node_new_quantifier.exit409
+  br i1 %.not336, label %1033, label %node_new_quantifier.exit411
 
 1033:                                             ; preds = %1031
   %1034 = load i32, ptr %5, align 8
   %1035 = and i32 %1034, 1
   %.not337 = icmp eq i32 %1035, 0
-  br i1 %.not337, label %prs_char_property.exit.thread481, label %1036
+  br i1 %.not337, label %prs_char_property.exit.thread483, label %1036
 
 1036:                                             ; preds = %1033
   %1037 = load ptr, ptr %0, align 8
@@ -9528,100 +9528,100 @@ prs_char_property.exit:                           ; preds = %1011
 
 1049:                                             ; preds = %1036
   call void @onig_node_free(ptr noundef %1048)
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 1050:                                             ; preds = %1036
   %.not339 = icmp eq ptr %1048, null
-  br i1 %.not339, label %prs_char_property.exit.thread481, label %1051
+  br i1 %.not339, label %prs_char_property.exit.thread483, label %1051
 
 1051:                                             ; preds = %1050
   %1052 = load ptr, ptr %0, align 8
-  %calloc.i.i378 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1053 = icmp eq ptr %calloc.i.i378, null
-  br i1 %1053, label %onig_node_free.exit741, label %1054
+  %calloc.i.i380 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1053 = icmp eq ptr %calloc.i.i380, null
+  br i1 %1053, label %onig_node_free.exit743, label %1054
 
-onig_node_free.exit741:                           ; preds = %1051
+onig_node_free.exit743:                           ; preds = %1051
   call fastcc void @node_free_body(ptr noundef nonnull %1048)
   call void @free(ptr noundef nonnull %1048) #25
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 1054:                                             ; preds = %1051
-  store i32 8, ptr %calloc.i.i378, align 8
-  %1055 = getelementptr inbounds i8, ptr %calloc.i.i378, i64 16
+  store i32 8, ptr %calloc.i.i380, align 8
+  %1055 = getelementptr inbounds i8, ptr %calloc.i.i380, i64 16
   store ptr %1052, ptr %1055, align 8
-  %1056 = getelementptr inbounds i8, ptr %calloc.i.i378, i64 24
+  %1056 = getelementptr inbounds i8, ptr %calloc.i.i380, i64 24
   store ptr %1048, ptr %1056, align 8
-  store ptr %calloc.i.i378, ptr %0, align 8
-  br label %prs_char_property.exit.thread481
+  store ptr %calloc.i.i380, ptr %0, align 8
+  br label %prs_char_property.exit.thread483
 
 1057:                                             ; preds = %40
   %1058 = load i32, ptr %5, align 8
-  %calloc.i.i.i379 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1059 = icmp eq ptr %calloc.i.i.i379, null
+  %calloc.i.i.i381 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1059 = icmp eq ptr %calloc.i.i.i381, null
   br i1 %1059, label %node_new_anychar.exit, label %1060
 
 1060:                                             ; preds = %1057
-  store i32 2, ptr %calloc.i.i.i379, align 8
-  %1061 = getelementptr inbounds i8, ptr %calloc.i.i.i379, i64 16
+  store i32 2, ptr %calloc.i.i.i381, align 8
+  %1061 = getelementptr inbounds i8, ptr %calloc.i.i.i381, i64 16
   store i32 -1, ptr %1061, align 8
   %1062 = and i32 %1058, 4
-  %.not.i380 = icmp eq i32 %1062, 0
-  br i1 %.not.i380, label %node_new_anychar.exit.thread, label %1063
+  %.not.i382 = icmp eq i32 %1062, 0
+  br i1 %.not.i382, label %node_new_anychar.exit.thread, label %1063
 
 1063:                                             ; preds = %1060
-  %1064 = getelementptr inbounds i8, ptr %calloc.i.i.i379, i64 4
+  %1064 = getelementptr inbounds i8, ptr %calloc.i.i.i381, i64 4
   store i32 4194304, ptr %1064, align 4
   br label %node_new_anychar.exit.thread
 
 node_new_anychar.exit.thread:                     ; preds = %1060, %1063
-  store ptr %calloc.i.i.i379, ptr %0, align 8
-  br label %prs_char_property.exit.thread481
+  store ptr %calloc.i.i.i381, ptr %0, align 8
+  br label %prs_char_property.exit.thread483
 
 node_new_anychar.exit:                            ; preds = %1057
   store ptr null, ptr %0, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 1065:                                             ; preds = %40
   %1066 = load i32, ptr %5, align 8
-  %calloc.i.i.i381 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1067 = icmp eq ptr %calloc.i.i.i381, null
-  br i1 %1067, label %node_new_anychar.exit383, label %1068
+  %calloc.i.i.i383 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1067 = icmp eq ptr %calloc.i.i.i383, null
+  br i1 %1067, label %node_new_anychar.exit385, label %1068
 
 1068:                                             ; preds = %1065
-  store i32 2, ptr %calloc.i.i.i381, align 8
-  %1069 = getelementptr inbounds i8, ptr %calloc.i.i.i381, i64 16
+  store i32 2, ptr %calloc.i.i.i383, align 8
+  %1069 = getelementptr inbounds i8, ptr %calloc.i.i.i383, i64 16
   store i32 -1, ptr %1069, align 8
   %1070 = and i32 %1066, 4
-  %.not.i382 = icmp eq i32 %1070, 0
-  br i1 %.not.i382, label %1073, label %1071
+  %.not.i384 = icmp eq i32 %1070, 0
+  br i1 %.not.i384, label %1073, label %1071
 
 1071:                                             ; preds = %1068
-  %1072 = getelementptr inbounds i8, ptr %calloc.i.i.i381, i64 4
+  %1072 = getelementptr inbounds i8, ptr %calloc.i.i.i383, i64 4
   store i32 4194304, ptr %1072, align 4
   br label %1073
 
-node_new_anychar.exit383:                         ; preds = %1065
+node_new_anychar.exit385:                         ; preds = %1065
   store ptr null, ptr %0, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 1073:                                             ; preds = %1068, %1071
-  store ptr %calloc.i.i.i381, ptr %0, align 8
-  %calloc.i.i384 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1074 = icmp eq ptr %calloc.i.i384, null
-  br i1 %1074, label %node_new_quantifier.exit409, label %1075
+  store ptr %calloc.i.i.i383, ptr %0, align 8
+  %calloc.i.i386 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1074 = icmp eq ptr %calloc.i.i386, null
+  br i1 %1074, label %node_new_quantifier.exit411, label %1075
 
 1075:                                             ; preds = %1073
-  store i32 4, ptr %calloc.i.i384, align 8
-  %1076 = getelementptr inbounds i8, ptr %calloc.i.i384, i64 24
+  store i32 4, ptr %calloc.i.i386, align 8
+  %1076 = getelementptr inbounds i8, ptr %calloc.i.i386, i64 24
   store i32 0, ptr %1076, align 8
-  %1077 = getelementptr inbounds i8, ptr %calloc.i.i384, i64 28
+  %1077 = getelementptr inbounds i8, ptr %calloc.i.i386, i64 28
   store i32 -1, ptr %1077, align 4
-  %1078 = getelementptr inbounds i8, ptr %calloc.i.i384, i64 32
+  %1078 = getelementptr inbounds i8, ptr %calloc.i.i386, i64 32
   store i32 1, ptr %1078, align 8
-  %1079 = getelementptr inbounds i8, ptr %calloc.i.i384, i64 16
-  store ptr %calloc.i.i.i381, ptr %1079, align 8
-  store ptr %calloc.i.i384, ptr %0, align 8
-  br label %prs_char_property.exit.thread481
+  %1079 = getelementptr inbounds i8, ptr %calloc.i.i386, i64 16
+  store ptr %calloc.i.i.i383, ptr %1079, align 8
+  store ptr %calloc.i.i386, ptr %0, align 8
+  br label %prs_char_property.exit.thread483
 
 1080:                                             ; preds = %40
   %1081 = getelementptr inbounds i8, ptr %1, i64 24
@@ -9649,7 +9649,7 @@ node_new_anychar.exit383:                         ; preds = %1065
   %1097 = tail call fastcc ptr @node_new_backref(i32 noundef %1082, ptr noundef %1090, i32 noundef %1092, i32 noundef %1094, i32 noundef %1096, ptr noundef nonnull %5)
   store ptr %1097, ptr %0, align 8
   %1098 = icmp eq ptr %1097, null
-  br i1 %1098, label %node_new_quantifier.exit409, label %prs_char_property.exit.thread481
+  br i1 %1098, label %node_new_quantifier.exit411, label %prs_char_property.exit.thread483
 
 1099:                                             ; preds = %40
   %1100 = getelementptr inbounds i8, ptr %1, i64 24
@@ -9660,27 +9660,27 @@ node_new_anychar.exit383:                         ; preds = %1065
   %1105 = load ptr, ptr %1104, align 8
   %1106 = getelementptr inbounds i8, ptr %1, i64 44
   %1107 = load i32, ptr %1106, align 4
-  %calloc.i.i385 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1108 = icmp eq ptr %calloc.i.i385, null
+  %calloc.i.i387 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1108 = icmp eq ptr %calloc.i.i387, null
   br i1 %1108, label %node_new_call.exit.thread, label %1109
 
 node_new_call.exit.thread:                        ; preds = %1099
   store ptr null, ptr %0, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 1109:                                             ; preds = %1099
-  store i32 9, ptr %calloc.i.i385, align 8
-  %1110 = getelementptr inbounds i8, ptr %calloc.i.i385, i64 24
+  store i32 9, ptr %calloc.i.i387, align 8
+  %1110 = getelementptr inbounds i8, ptr %calloc.i.i387, i64 24
   store i32 %1107, ptr %1110, align 8
-  %1111 = getelementptr inbounds i8, ptr %calloc.i.i385, i64 32
+  %1111 = getelementptr inbounds i8, ptr %calloc.i.i387, i64 32
   store ptr %1103, ptr %1111, align 8
-  %1112 = getelementptr inbounds i8, ptr %calloc.i.i385, i64 40
+  %1112 = getelementptr inbounds i8, ptr %calloc.i.i387, i64 40
   store ptr %1105, ptr %1112, align 8
-  %1113 = getelementptr inbounds i8, ptr %calloc.i.i385, i64 28
+  %1113 = getelementptr inbounds i8, ptr %calloc.i.i387, i64 28
   store i32 %1102, ptr %1113, align 4
-  %1114 = getelementptr inbounds i8, ptr %calloc.i.i385, i64 48
+  %1114 = getelementptr inbounds i8, ptr %calloc.i.i387, i64 48
   store i32 1, ptr %1114, align 8
-  store ptr %calloc.i.i385, ptr %0, align 8
+  store ptr %calloc.i.i387, ptr %0, align 8
   %1115 = getelementptr inbounds i8, ptr %5, i64 80
   %1116 = load i32, ptr %1115, align 8
   %1117 = add nsw i32 %1116, 1
@@ -9689,31 +9689,31 @@ node_new_call.exit.thread:                        ; preds = %1099
   %1119 = icmp ne i32 %1118, 0
   %1120 = icmp eq i32 %1102, 0
   %or.cond = and i1 %1120, %1119
-  br i1 %or.cond, label %1121, label %prs_char_property.exit.thread481
+  br i1 %or.cond, label %1121, label %prs_char_property.exit.thread483
 
 1121:                                             ; preds = %1109
   %1122 = load i32, ptr %36, align 4
   %1123 = or i32 %1122, 1
   store i32 %1123, ptr %36, align 4
-  br label %prs_char_property.exit.thread481
+  br label %prs_char_property.exit.thread483
 
 1124:                                             ; preds = %40
   %1125 = getelementptr inbounds i8, ptr %1, i64 24
   %1126 = load i32, ptr %1125, align 8
   %1127 = load i32, ptr %5, align 8
-  %calloc.i.i.i386 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1128 = icmp eq ptr %calloc.i.i.i386, null
+  %calloc.i.i.i388 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1128 = icmp eq ptr %calloc.i.i.i388, null
   br i1 %1128, label %node_new_anchor_with_options.exit, label %1129
 
 1129:                                             ; preds = %1124
-  store i32 6, ptr %calloc.i.i.i386, align 8
-  %1130 = getelementptr inbounds i8, ptr %calloc.i.i.i386, i64 24
+  store i32 6, ptr %calloc.i.i.i388, align 8
+  %1130 = getelementptr inbounds i8, ptr %calloc.i.i.i388, i64 24
   store i32 %1126, ptr %1130, align 8
-  %1131 = getelementptr inbounds i8, ptr %calloc.i.i.i386, i64 32
+  %1131 = getelementptr inbounds i8, ptr %calloc.i.i.i388, i64 32
   store i32 -1, ptr %1131, align 8
   %1132 = and i32 %1127, 589824
-  %.not.i387 = icmp eq i32 %1132, 0
-  br i1 %.not.i387, label %1137, label %1133
+  %.not.i389 = icmp eq i32 %1132, 0
+  br i1 %.not.i389, label %1137, label %1133
 
 1133:                                             ; preds = %1129
   switch i32 %1126, label %1134 [
@@ -9729,7 +9729,7 @@ node_new_call.exit.thread:                        ; preds = %1099
 
 1137:                                             ; preds = %1134, %1133, %1133, %1133, %1129
   %1138 = phi i32 [ 0, %1129 ], [ 1, %1133 ], [ %1136, %1134 ], [ 1, %1133 ], [ 1, %1133 ]
-  %1139 = getelementptr inbounds i8, ptr %calloc.i.i.i386, i64 36
+  %1139 = getelementptr inbounds i8, ptr %calloc.i.i.i388, i64 36
   store i32 %1138, ptr %1139, align 4
   switch i32 %1126, label %node_new_anchor_with_options.exit.thread [
     i32 131072, label %1140
@@ -9742,17 +9742,17 @@ node_new_call.exit.thread:                        ; preds = %1099
   br i1 %.not21.i, label %node_new_anchor_with_options.exit.thread, label %1142
 
 1142:                                             ; preds = %1140
-  %1143 = getelementptr inbounds i8, ptr %calloc.i.i.i386, i64 4
+  %1143 = getelementptr inbounds i8, ptr %calloc.i.i.i388, i64 4
   store i32 8388608, ptr %1143, align 4
   br label %node_new_anchor_with_options.exit.thread
 
 node_new_anchor_with_options.exit.thread:         ; preds = %1137, %1140, %1142
-  store ptr %calloc.i.i.i386, ptr %0, align 8
-  br label %prs_char_property.exit.thread481
+  store ptr %calloc.i.i.i388, ptr %0, align 8
+  br label %prs_char_property.exit.thread483
 
 node_new_anchor_with_options.exit:                ; preds = %1124
   store ptr null, ptr %0, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 1144:                                             ; preds = %40, %40
   %1145 = load ptr, ptr %31, align 8
@@ -9760,52 +9760,52 @@ node_new_anchor_with_options.exit:                ; preds = %1124
   %1147 = load i32, ptr %1146, align 4
   %1148 = and i32 %1147, 1
   %.not = icmp eq i32 %1148, 0
-  br i1 %.not, label %.loopexit501, label %1149
+  br i1 %.not, label %.loopexit503, label %1149
 
 1149:                                             ; preds = %1144
   %1150 = and i32 %1147, 2
   %.not335 = icmp eq i32 %1150, 0
-  br i1 %.not335, label %1151, label %node_new_quantifier.exit409
+  br i1 %.not335, label %1151, label %node_new_quantifier.exit411
 
 1151:                                             ; preds = %1149
-  %calloc.i.i.i388 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1152 = icmp eq ptr %calloc.i.i.i388, null
-  br i1 %1152, label %node_new_empty.exit390.thread, label %node_new_empty.exit390
+  %calloc.i.i.i390 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1152 = icmp eq ptr %calloc.i.i.i390, null
+  br i1 %1152, label %node_new_empty.exit392.thread, label %node_new_empty.exit392
 
-node_new_empty.exit390.thread:                    ; preds = %1151
+node_new_empty.exit392.thread:                    ; preds = %1151
   store ptr null, ptr %0, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
-node_new_empty.exit390:                           ; preds = %1151
-  %1153 = getelementptr inbounds i8, ptr %calloc.i.i.i388, i64 36
-  %1154 = getelementptr inbounds i8, ptr %calloc.i.i.i388, i64 16
+node_new_empty.exit392:                           ; preds = %1151
+  %1153 = getelementptr inbounds i8, ptr %calloc.i.i.i390, i64 36
+  %1154 = getelementptr inbounds i8, ptr %calloc.i.i.i390, i64 16
   store ptr %1153, ptr %1154, align 8
-  %1155 = getelementptr inbounds i8, ptr %calloc.i.i.i388, i64 24
+  %1155 = getelementptr inbounds i8, ptr %calloc.i.i.i390, i64 24
   store ptr %1153, ptr %1155, align 8
-  store ptr %calloc.i.i.i388, ptr %0, align 8
-  br label %prs_char_property.exit.thread481
+  store ptr %calloc.i.i.i390, ptr %0, align 8
+  br label %prs_char_property.exit.thread483
 
 1156:                                             ; preds = %40
   %1157 = getelementptr inbounds i8, ptr %5, i64 240
   %1158 = load i32, ptr %1157, align 8
   %1159 = add nsw i32 %1158, 1
   store i32 %1159, ptr %1157, align 8
-  %calloc.i.i.i391 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  store ptr %calloc.i.i.i391, ptr %0, align 8
-  %1160 = icmp eq ptr %calloc.i.i.i391, null
-  br i1 %1160, label %node_new_quantifier.exit409, label %node_new_keep.exit
+  %calloc.i.i.i393 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  store ptr %calloc.i.i.i393, ptr %0, align 8
+  %1160 = icmp eq ptr %calloc.i.i.i393, null
+  br i1 %1160, label %node_new_quantifier.exit411, label %node_new_keep.exit
 
 node_new_keep.exit:                               ; preds = %1156
-  store i32 10, ptr %calloc.i.i.i391, align 8
-  %1161 = getelementptr inbounds i8, ptr %calloc.i.i.i391, i64 28
+  store i32 10, ptr %calloc.i.i.i393, align 8
+  %1161 = getelementptr inbounds i8, ptr %calloc.i.i.i393, i64 28
   store i32 %1158, ptr %1161, align 4
-  %1162 = getelementptr inbounds i8, ptr %calloc.i.i.i391, i64 16
+  %1162 = getelementptr inbounds i8, ptr %calloc.i.i.i393, i64 16
   store i32 1, ptr %1162, align 8
   %1163 = getelementptr inbounds i8, ptr %5, i64 236
   %1164 = load i32, ptr %1163, align 4
   %1165 = add nsw i32 %1164, 1
   store i32 %1165, ptr %1163, align 4
-  br label %prs_char_property.exit.thread481
+  br label %prs_char_property.exit.thread483
 
 1166:                                             ; preds = %40
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %9)
@@ -9827,38 +9827,38 @@ node_new_keep.exit:                               ; preds = %1156
   br i1 %1179, label %node_new_general_newline.exit.thread, label %1180
 
 1180:                                             ; preds = %1172
-  %calloc.i.i.i.i.i393 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1181 = icmp eq ptr %calloc.i.i.i.i.i393, null
+  %calloc.i.i.i.i.i395 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1181 = icmp eq ptr %calloc.i.i.i.i.i395, null
   br i1 %1181, label %node_new_general_newline.exit.thread, label %1182
 
 1182:                                             ; preds = %1180
   %1183 = zext nneg i32 %1178 to i64
   %1184 = getelementptr inbounds i8, ptr %1177, i64 %1183
-  %1185 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i393, i64 36
-  %1186 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i393, i64 16
+  %1185 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i395, i64 36
+  %1186 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i395, i64 16
   store ptr %1185, ptr %1186, align 8
-  %1187 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i393, i64 24
+  %1187 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i395, i64 24
   store ptr %1185, ptr %1187, align 8
-  %1188 = call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i.i.i393, ptr noundef nonnull %9, ptr noundef nonnull %1184)
-  %.not.i.i.i.i394 = icmp eq i32 %1188, 0
-  br i1 %.not.i.i.i.i394, label %1189, label %node_new_general_newline.exit.thread.sink.split
+  %1188 = call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i.i.i395, ptr noundef nonnull %9, ptr noundef nonnull %1184)
+  %.not.i.i.i.i396 = icmp eq i32 %1188, 0
+  br i1 %.not.i.i.i.i396, label %1189, label %node_new_general_newline.exit.thread.sink.split
 
 1189:                                             ; preds = %1182
-  %1190 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i393, i64 32
+  %1190 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i395, i64 32
   %1191 = load i32, ptr %1190, align 8
   %1192 = or i32 %1191, 1
   store i32 %1192, ptr %1190, align 8
-  %calloc.i.i.i397 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1193 = icmp eq ptr %calloc.i.i.i397, null
+  %calloc.i.i.i399 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1193 = icmp eq ptr %calloc.i.i.i399, null
   br i1 %1193, label %node_new_general_newline.exit.thread.sink.split, label %1194
 
 1194:                                             ; preds = %1189
-  store i32 1, ptr %calloc.i.i.i397, align 8
+  store i32 1, ptr %calloc.i.i.i399, align 8
   %1195 = icmp eq i32 %1170, 1
   br i1 %1195, label %1196, label %1205
 
 1196:                                             ; preds = %1194
-  %1197 = getelementptr inbounds i8, ptr %calloc.i.i.i397, i64 20
+  %1197 = getelementptr inbounds i8, ptr %calloc.i.i.i399, i64 20
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %1196
@@ -9875,14 +9875,14 @@ node_new_keep.exit:                               ; preds = %1156
   br i1 %exitcond.not.i, label %bitset_set_range.exit.i, label %.lr.ph.i.i, !llvm.loop !48
 
 1205:                                             ; preds = %1194
-  %1206 = getelementptr inbounds i8, ptr %calloc.i.i.i397, i64 56
+  %1206 = getelementptr inbounds i8, ptr %calloc.i.i.i399, i64 56
   %1207 = call fastcc i32 @add_code_range_to_buf(ptr noundef nonnull %1206, i32 noundef 10, i32 noundef 13)
-  %.not.i398 = icmp eq i32 %1207, 0
-  br i1 %.not.i398, label %bitset_set_range.exit.i, label %onig_node_free.exit.i
+  %.not.i400 = icmp eq i32 %1207, 0
+  br i1 %.not.i400, label %bitset_set_range.exit.i, label %onig_node_free.exit.i
 
 onig_node_free.exit.i:                            ; preds = %1217, %1215, %1212, %1205
-  call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i397)
-  call void @free(ptr noundef nonnull %calloc.i.i.i397) #25
+  call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i399)
+  call void @free(ptr noundef nonnull %calloc.i.i.i399) #25
   br label %node_new_general_newline.exit.thread.sink.split
 
 bitset_set_range.exit.i:                          ; preds = %.lr.ph.i.i, %1205
@@ -9894,7 +9894,7 @@ bitset_set_range.exit.i:                          ; preds = %.lr.ph.i.i, %1205
   br i1 %.not37.i, label %1217, label %1212
 
 1212:                                             ; preds = %bitset_set_range.exit.i
-  %1213 = getelementptr inbounds i8, ptr %calloc.i.i.i397, i64 56
+  %1213 = getelementptr inbounds i8, ptr %calloc.i.i.i399, i64 56
   %1214 = call fastcc i32 @add_code_range_to_buf(ptr noundef nonnull %1213, i32 noundef 133, i32 noundef 133)
   %.not38.i = icmp eq i32 %1214, 0
   br i1 %.not38.i, label %1215, label %onig_node_free.exit.i
@@ -9910,73 +9910,73 @@ bitset_set_range.exit.i:                          ; preds = %.lr.ph.i.i, %1205
   br i1 %1218, label %onig_node_free.exit.i, label %node_new_general_newline.exit
 
 node_new_general_newline.exit.thread.sink.split:  ; preds = %1189, %onig_node_free.exit.i, %1182
-  call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i.i.i393)
-  call void @free(ptr noundef nonnull %calloc.i.i.i.i.i393) #25
+  call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i.i.i395)
+  call void @free(ptr noundef nonnull %calloc.i.i.i.i.i395) #25
   br label %node_new_general_newline.exit.thread
 
 node_new_general_newline.exit.thread:             ; preds = %node_new_general_newline.exit.thread.sink.split, %1166, %1172, %1180
-  %.0.i396.ph = phi i32 [ -5, %1180 ], [ %1178, %1172 ], [ %1170, %1166 ], [ -5, %node_new_general_newline.exit.thread.sink.split ]
+  %.0.i398.ph = phi i32 [ -5, %1180 ], [ %1178, %1172 ], [ %1170, %1166 ], [ -5, %node_new_general_newline.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %9)
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 node_new_general_newline.exit:                    ; preds = %1217
   store i32 5, ptr %calloc.i.i.i.i, align 8
   %1219 = getelementptr inbounds i8, ptr %calloc.i.i.i.i, i64 24
   store i32 3, ptr %1219, align 8
   %1220 = getelementptr inbounds i8, ptr %calloc.i.i.i.i, i64 16
-  store ptr %calloc.i.i.i.i.i393, ptr %1220, align 8
+  store ptr %calloc.i.i.i.i.i395, ptr %1220, align 8
   %1221 = getelementptr inbounds i8, ptr %calloc.i.i.i.i, i64 40
-  store ptr %calloc.i.i.i397, ptr %1221, align 8
+  store ptr %calloc.i.i.i399, ptr %1221, align 8
   store ptr %calloc.i.i.i.i, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %9)
-  br label %prs_char_property.exit.thread481
+  br label %prs_char_property.exit.thread483
 
 1222:                                             ; preds = %40
-  %calloc.i.i.i.i399 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1223 = icmp eq ptr %calloc.i.i.i.i399, null
-  br i1 %1223, label %node_new_quantifier.exit409, label %node_new_no_newline.exit
+  %calloc.i.i.i.i401 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1223 = icmp eq ptr %calloc.i.i.i.i401, null
+  br i1 %1223, label %node_new_quantifier.exit411, label %node_new_no_newline.exit
 
 node_new_no_newline.exit:                         ; preds = %1222
-  store i32 2, ptr %calloc.i.i.i.i399, align 8
-  %1224 = getelementptr inbounds i8, ptr %calloc.i.i.i.i399, i64 16
+  store i32 2, ptr %calloc.i.i.i.i401, align 8
+  %1224 = getelementptr inbounds i8, ptr %calloc.i.i.i.i401, i64 16
   store i32 -1, ptr %1224, align 8
-  store ptr %calloc.i.i.i.i399, ptr %0, align 8
-  br label %prs_char_property.exit.thread481
+  store ptr %calloc.i.i.i.i401, ptr %0, align 8
+  br label %prs_char_property.exit.thread483
 
 1225:                                             ; preds = %40
-  %calloc.i.i.i.i401 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1226 = icmp eq ptr %calloc.i.i.i.i401, null
-  br i1 %1226, label %node_new_quantifier.exit409, label %node_new_true_anychar.exit
+  %calloc.i.i.i.i403 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1226 = icmp eq ptr %calloc.i.i.i.i403, null
+  br i1 %1226, label %node_new_quantifier.exit411, label %node_new_true_anychar.exit
 
 node_new_true_anychar.exit:                       ; preds = %1225
-  store i32 2, ptr %calloc.i.i.i.i401, align 8
-  %1227 = getelementptr inbounds i8, ptr %calloc.i.i.i.i401, i64 16
+  store i32 2, ptr %calloc.i.i.i.i403, align 8
+  %1227 = getelementptr inbounds i8, ptr %calloc.i.i.i.i403, i64 16
   store i32 -1, ptr %1227, align 8
-  %1228 = getelementptr inbounds i8, ptr %calloc.i.i.i.i401, i64 4
+  %1228 = getelementptr inbounds i8, ptr %calloc.i.i.i.i403, i64 4
   store i32 4194304, ptr %1228, align 4
-  store ptr %calloc.i.i.i.i401, ptr %0, align 8
-  br label %prs_char_property.exit.thread481
+  store ptr %calloc.i.i.i.i403, ptr %0, align 8
+  br label %prs_char_property.exit.thread483
 
 1229:                                             ; preds = %40
-  %.val = load i32, ptr %5, align 8
+  %.val353 = load i32, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store ptr null, ptr %indvars.iv.i.sroa.gep450, align 8
-  %calloc.i.i.i.i403 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1230 = icmp eq ptr %calloc.i.i.i.i403, null
+  store ptr null, ptr %indvars.iv.i.sroa.gep452, align 8
+  %calloc.i.i.i.i405 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1230 = icmp eq ptr %calloc.i.i.i.i405, null
   br i1 %1230, label %node_new_anchor_with_options.exit.i, label %1231
 
 1231:                                             ; preds = %1229
-  store i32 6, ptr %calloc.i.i.i.i403, align 8
-  %1232 = getelementptr inbounds i8, ptr %calloc.i.i.i.i403, i64 24
+  store i32 6, ptr %calloc.i.i.i.i405, align 8
+  %1232 = getelementptr inbounds i8, ptr %calloc.i.i.i.i405, i64 24
   store i32 131072, ptr %1232, align 8
-  %1233 = getelementptr inbounds i8, ptr %calloc.i.i.i.i403, i64 32
+  %1233 = getelementptr inbounds i8, ptr %calloc.i.i.i.i405, i64 32
   store i32 -1, ptr %1233, align 8
-  %1234 = and i32 %.val, 2097152
+  %1234 = and i32 %.val353, 2097152
   %.not21.i.i = icmp eq i32 %1234, 0
   br i1 %.not21.i.i, label %1237, label %1235
 
 1235:                                             ; preds = %1231
-  %1236 = getelementptr inbounds i8, ptr %calloc.i.i.i.i403, i64 4
+  %1236 = getelementptr inbounds i8, ptr %calloc.i.i.i.i405, i64 4
   store i32 8388608, ptr %1236, align 4
   br label %1237
 
@@ -9985,41 +9985,41 @@ node_new_anchor_with_options.exit.i:              ; preds = %1229
   br label %node_new_true_anychar.exit.i.preheader
 
 1237:                                             ; preds = %1235, %1231
-  store ptr %calloc.i.i.i.i403, ptr %8, align 16
-  %calloc.i.i.i.i.i404 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1238 = icmp eq ptr %calloc.i.i.i.i.i404, null
+  store ptr %calloc.i.i.i.i405, ptr %8, align 16
+  %calloc.i.i.i.i.i406 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1238 = icmp eq ptr %calloc.i.i.i.i.i406, null
   br i1 %1238, label %node_new_true_anychar.exit.i.preheader, label %1239
 
 1239:                                             ; preds = %1237
-  store i32 2, ptr %calloc.i.i.i.i.i404, align 8
-  %1240 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i404, i64 16
+  store i32 2, ptr %calloc.i.i.i.i.i406, align 8
+  %1240 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i406, i64 16
   store i32 -1, ptr %1240, align 8
-  %1241 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i404, i64 4
+  %1241 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i406, i64 4
   store i32 4194304, ptr %1241, align 4
-  store ptr %calloc.i.i.i.i.i404, ptr %indvars.iv.i.sroa.gep450, align 8
+  store ptr %calloc.i.i.i.i.i406, ptr %indvars.iv.i.sroa.gep452, align 8
   %1242 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef readonly %8)
   %1243 = icmp eq ptr %1242, null
   br i1 %1243, label %node_new_true_anychar.exit.i.preheader, label %1244
 
 1244:                                             ; preds = %1239
   store ptr %1242, ptr %8, align 16
-  store ptr null, ptr %indvars.iv.i.sroa.gep450, align 8
-  %calloc.i.i.i405 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1245 = icmp eq ptr %calloc.i.i.i405, null
+  store ptr null, ptr %indvars.iv.i.sroa.gep452, align 8
+  %calloc.i.i.i407 = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1245 = icmp eq ptr %calloc.i.i.i407, null
   br i1 %1245, label %node_new_true_anychar.exit.i.preheader, label %1246
 
 1246:                                             ; preds = %1244
-  store i32 4, ptr %calloc.i.i.i405, align 8
-  %1247 = getelementptr inbounds i8, ptr %calloc.i.i.i405, i64 28
+  store i32 4, ptr %calloc.i.i.i407, align 8
+  %1247 = getelementptr inbounds i8, ptr %calloc.i.i.i407, i64 28
   store i32 -1, ptr %1247, align 4
-  %1248 = getelementptr inbounds i8, ptr %calloc.i.i.i405, i64 32
+  %1248 = getelementptr inbounds i8, ptr %calloc.i.i.i407, i64 32
   store i32 1, ptr %1248, align 8
-  %1249 = getelementptr inbounds i8, ptr %calloc.i.i.i405, i64 4
+  %1249 = getelementptr inbounds i8, ptr %calloc.i.i.i407, i64 4
   store i32 16384, ptr %1249, align 4
-  %1250 = getelementptr inbounds i8, ptr %calloc.i.i.i405, i64 16
+  %1250 = getelementptr inbounds i8, ptr %calloc.i.i.i407, i64 16
   store ptr %1242, ptr %1250, align 8
   store ptr null, ptr %8, align 16
-  store ptr %calloc.i.i.i405, ptr %indvars.iv.i.sroa.gep450, align 8
+  store ptr %calloc.i.i.i407, ptr %indvars.iv.i.sroa.gep452, align 8
   %calloc.i.i.i.i27.i = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
   %1251 = icmp eq ptr %calloc.i.i.i.i27.i, null
   br i1 %1251, label %node_new_true_anychar.exit.i.preheader, label %1252
@@ -10037,7 +10037,7 @@ node_new_anchor_with_options.exit.i:              ; preds = %1229
 
 1257:                                             ; preds = %1252
   store ptr %1255, ptr %8, align 16
-  store ptr null, ptr %indvars.iv.i.sroa.gep450, align 8
+  store ptr null, ptr %indvars.iv.i.sroa.gep452, align 8
   %calloc.i.i30.i = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
   %1258 = icmp eq ptr %calloc.i.i30.i, null
   br i1 %1258, label %node_new_true_anychar.exit.i.preheader, label %make_text_segment.exit
@@ -10045,24 +10045,24 @@ node_new_anchor_with_options.exit.i:              ; preds = %1229
 node_new_true_anychar.exit.i.preheader:           ; preds = %1257, %1252, %1246, %1244, %1239, %1237, %node_new_anchor_with_options.exit.i
   br label %node_new_true_anychar.exit.i
 
-node_new_true_anychar.exit.i:                     ; preds = %node_new_true_anychar.exit.i.preheader, %onig_node_free.exit.i406
-  %1259 = phi i1 [ false, %onig_node_free.exit.i406 ], [ true, %node_new_true_anychar.exit.i.preheader ]
-  %indvars.iv.i.sroa.phi = phi ptr [ %indvars.iv.i.sroa.gep450, %onig_node_free.exit.i406 ], [ %8, %node_new_true_anychar.exit.i.preheader ]
+node_new_true_anychar.exit.i:                     ; preds = %node_new_true_anychar.exit.i.preheader, %onig_node_free.exit.i408
+  %1259 = phi i1 [ false, %onig_node_free.exit.i408 ], [ true, %node_new_true_anychar.exit.i.preheader ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %indvars.iv.i.sroa.gep452, %onig_node_free.exit.i408 ], [ %8, %node_new_true_anychar.exit.i.preheader ]
   %1260 = load ptr, ptr %indvars.iv.i.sroa.phi, align 8
   %1261 = icmp eq ptr %1260, null
-  br i1 %1261, label %onig_node_free.exit.i406, label %1262
+  br i1 %1261, label %onig_node_free.exit.i408, label %1262
 
 1262:                                             ; preds = %node_new_true_anychar.exit.i
   tail call fastcc void @node_free_body(ptr noundef nonnull %1260)
   tail call void @free(ptr noundef nonnull %1260) #25
-  br label %onig_node_free.exit.i406
+  br label %onig_node_free.exit.i408
 
-onig_node_free.exit.i406:                         ; preds = %1262, %node_new_true_anychar.exit.i
+onig_node_free.exit.i408:                         ; preds = %1262, %node_new_true_anychar.exit.i
   br i1 %1259, label %node_new_true_anychar.exit.i, label %make_text_segment.exit.thread, !llvm.loop !49
 
-make_text_segment.exit.thread:                    ; preds = %onig_node_free.exit.i406
+make_text_segment.exit.thread:                    ; preds = %onig_node_free.exit.i408
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 make_text_segment.exit:                           ; preds = %1257
   store i32 5, ptr %calloc.i.i30.i, align 8
@@ -10072,59 +10072,59 @@ make_text_segment.exit:                           ; preds = %1257
   store ptr %1255, ptr %1264, align 8
   store ptr %calloc.i.i30.i, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %prs_char_property.exit.thread481
+  br label %prs_char_property.exit.thread483
 
-prs_char_property.exit.thread481:                 ; preds = %770, %1308, %1316, %onig_node_free.exit414, %964, %1075, %node_new_str_with_options.exit360, %981, %984, %968, %1050, %1054, %1033, %1089, %1121, %1109, %771, %node_new_group.exit, %node_new_str_with_options.exit360.thread, %prs_char_property.exit.thread484, %node_new_anychar.exit.thread, %node_new_anchor_with_options.exit.thread, %node_new_empty.exit390, %node_new_keep.exit, %node_new_general_newline.exit, %node_new_no_newline.exit, %node_new_true_anychar.exit, %make_text_segment.exit, %1027, %1024
-  %.1297 = phi i32 [ %42, %1024 ], [ %42, %1027 ], [ %42, %make_text_segment.exit ], [ %42, %node_new_true_anychar.exit ], [ %42, %node_new_no_newline.exit ], [ %42, %node_new_general_newline.exit ], [ %42, %node_new_keep.exit ], [ %42, %node_new_empty.exit390 ], [ %42, %node_new_anchor_with_options.exit.thread ], [ %42, %node_new_anychar.exit.thread ], [ %42, %prs_char_property.exit.thread484 ], [ %42, %node_new_str_with_options.exit360.thread ], [ %42, %node_new_group.exit ], [ %42, %771 ], [ %42, %1109 ], [ %42, %1121 ], [ %42, %1089 ], [ %42, %1033 ], [ %42, %1054 ], [ %42, %1050 ], [ %42, %968 ], [ %42, %984 ], [ %42, %981 ], [ %42, %node_new_str_with_options.exit360 ], [ %42, %1075 ], [ %42, %964 ], [ %1272, %onig_node_free.exit414 ], [ %1272, %1316 ], [ %1272, %1308 ], [ %42, %770 ]
-  %.1293 = phi ptr [ %0, %1024 ], [ %0, %1027 ], [ %0, %make_text_segment.exit ], [ %0, %node_new_true_anychar.exit ], [ %0, %node_new_no_newline.exit ], [ %0, %node_new_general_newline.exit ], [ %0, %node_new_keep.exit ], [ %0, %node_new_empty.exit390 ], [ %0, %node_new_anchor_with_options.exit.thread ], [ %0, %node_new_anychar.exit.thread ], [ %0, %prs_char_property.exit.thread484 ], [ %0, %node_new_str_with_options.exit360.thread ], [ %0, %node_new_group.exit ], [ %0, %771 ], [ %0, %1109 ], [ %0, %1121 ], [ %0, %1089 ], [ %0, %1033 ], [ %0, %1054 ], [ %0, %1050 ], [ %0, %968 ], [ %0, %984 ], [ %0, %981 ], [ %0, %node_new_str_with_options.exit360 ], [ %0, %1075 ], [ %0, %964 ], [ %.0292, %onig_node_free.exit414 ], [ %1317, %1316 ], [ %.0292, %1308 ], [ %0, %770 ]
-  %.2 = phi i32 [ 0, %1024 ], [ 0, %1027 ], [ 0, %make_text_segment.exit ], [ 0, %node_new_true_anychar.exit ], [ 0, %node_new_no_newline.exit ], [ 0, %node_new_general_newline.exit ], [ 0, %node_new_keep.exit ], [ 0, %node_new_empty.exit390 ], [ 0, %node_new_anchor_with_options.exit.thread ], [ 0, %node_new_anychar.exit.thread ], [ 0, %prs_char_property.exit.thread484 ], [ 0, %node_new_str_with_options.exit360.thread ], [ 2, %node_new_group.exit ], [ 1, %771 ], [ 0, %1109 ], [ 0, %1121 ], [ 0, %1089 ], [ 0, %1033 ], [ 0, %1054 ], [ 0, %1050 ], [ 0, %968 ], [ 0, %984 ], [ 0, %981 ], [ 0, %node_new_str_with_options.exit360 ], [ 0, %1075 ], [ 0, %964 ], [ 0, %onig_node_free.exit414 ], [ 0, %1316 ], [ 0, %1308 ], [ 0, %770 ]
+prs_char_property.exit.thread483:                 ; preds = %770, %1308, %1316, %onig_node_free.exit416, %964, %1075, %node_new_str_with_options.exit362, %981, %984, %968, %1050, %1054, %1033, %1089, %1121, %1109, %771, %node_new_group.exit, %node_new_str_with_options.exit362.thread, %prs_char_property.exit.thread486, %node_new_anychar.exit.thread, %node_new_anchor_with_options.exit.thread, %node_new_empty.exit392, %node_new_keep.exit, %node_new_general_newline.exit, %node_new_no_newline.exit, %node_new_true_anychar.exit, %make_text_segment.exit, %1027, %1024
+  %.1297 = phi i32 [ %42, %1024 ], [ %42, %1027 ], [ %42, %make_text_segment.exit ], [ %42, %node_new_true_anychar.exit ], [ %42, %node_new_no_newline.exit ], [ %42, %node_new_general_newline.exit ], [ %42, %node_new_keep.exit ], [ %42, %node_new_empty.exit392 ], [ %42, %node_new_anchor_with_options.exit.thread ], [ %42, %node_new_anychar.exit.thread ], [ %42, %prs_char_property.exit.thread486 ], [ %42, %node_new_str_with_options.exit362.thread ], [ %42, %node_new_group.exit ], [ %42, %771 ], [ %42, %1109 ], [ %42, %1121 ], [ %42, %1089 ], [ %42, %1033 ], [ %42, %1054 ], [ %42, %1050 ], [ %42, %968 ], [ %42, %984 ], [ %42, %981 ], [ %42, %node_new_str_with_options.exit362 ], [ %42, %1075 ], [ %42, %964 ], [ %1272, %onig_node_free.exit416 ], [ %1272, %1316 ], [ %1272, %1308 ], [ %42, %770 ]
+  %.1293 = phi ptr [ %0, %1024 ], [ %0, %1027 ], [ %0, %make_text_segment.exit ], [ %0, %node_new_true_anychar.exit ], [ %0, %node_new_no_newline.exit ], [ %0, %node_new_general_newline.exit ], [ %0, %node_new_keep.exit ], [ %0, %node_new_empty.exit392 ], [ %0, %node_new_anchor_with_options.exit.thread ], [ %0, %node_new_anychar.exit.thread ], [ %0, %prs_char_property.exit.thread486 ], [ %0, %node_new_str_with_options.exit362.thread ], [ %0, %node_new_group.exit ], [ %0, %771 ], [ %0, %1109 ], [ %0, %1121 ], [ %0, %1089 ], [ %0, %1033 ], [ %0, %1054 ], [ %0, %1050 ], [ %0, %968 ], [ %0, %984 ], [ %0, %981 ], [ %0, %node_new_str_with_options.exit362 ], [ %0, %1075 ], [ %0, %964 ], [ %.0292, %onig_node_free.exit416 ], [ %1317, %1316 ], [ %.0292, %1308 ], [ %0, %770 ]
+  %.2 = phi i32 [ 0, %1024 ], [ 0, %1027 ], [ 0, %make_text_segment.exit ], [ 0, %node_new_true_anychar.exit ], [ 0, %node_new_no_newline.exit ], [ 0, %node_new_general_newline.exit ], [ 0, %node_new_keep.exit ], [ 0, %node_new_empty.exit392 ], [ 0, %node_new_anchor_with_options.exit.thread ], [ 0, %node_new_anychar.exit.thread ], [ 0, %prs_char_property.exit.thread486 ], [ 0, %node_new_str_with_options.exit362.thread ], [ 2, %node_new_group.exit ], [ 1, %771 ], [ 0, %1109 ], [ 0, %1121 ], [ 0, %1089 ], [ 0, %1033 ], [ 0, %1054 ], [ 0, %1050 ], [ 0, %968 ], [ 0, %984 ], [ 0, %981 ], [ 0, %node_new_str_with_options.exit362 ], [ 0, %1075 ], [ 0, %964 ], [ 0, %onig_node_free.exit416 ], [ 0, %1316 ], [ 0, %1308 ], [ 0, %770 ]
   %1265 = call fastcc i32 @fetch_token(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %1266 = icmp slt i32 %1265, 0
-  br i1 %1266, label %node_new_quantifier.exit409, label %.loopexit
+  br i1 %1266, label %node_new_quantifier.exit411, label %.loopexit
 
-.loopexit:                                        ; preds = %836, %894, %prs_char_property.exit.thread481
-  %.0296 = phi i32 [ %.1297, %prs_char_property.exit.thread481 ], [ %42, %894 ], [ %42, %836 ]
-  %.0292 = phi ptr [ %.1293, %prs_char_property.exit.thread481 ], [ %0, %894 ], [ %0, %836 ]
-  %.1290 = phi i32 [ %.2, %prs_char_property.exit.thread481 ], [ 0, %894 ], [ 0, %836 ]
-  %.1 = phi i32 [ %1265, %prs_char_property.exit.thread481 ], [ %874, %894 ], [ %834, %836 ]
-  %.not492 = icmp eq i32 %.1, 11
+.loopexit:                                        ; preds = %836, %894, %prs_char_property.exit.thread483
+  %.0296 = phi i32 [ %.1297, %prs_char_property.exit.thread483 ], [ %42, %894 ], [ %42, %836 ]
+  %.0292 = phi ptr [ %.1293, %prs_char_property.exit.thread483 ], [ %0, %894 ], [ %0, %836 ]
+  %.1290 = phi i32 [ %.2, %prs_char_property.exit.thread483 ], [ 0, %894 ], [ 0, %836 ]
+  %.1 = phi i32 [ %1265, %prs_char_property.exit.thread483 ], [ %874, %894 ], [ %834, %836 ]
+  %.not494 = icmp eq i32 %.1, 11
   %1267 = and i32 %.1, -2
   %or.cond3 = icmp eq i32 %1267, 10
-  br i1 %or.cond3, label %1268, label %node_new_quantifier.exit409
+  br i1 %or.cond3, label %1268, label %node_new_quantifier.exit411
 
 1268:                                             ; preds = %.loopexit
   %1269 = load ptr, ptr %.0292, align 8
   %1270 = call fastcc i32 @is_invalid_quantifier_target(ptr noundef %1269)
   %.not350 = icmp eq i32 %1270, 0
-  br i1 %.not350, label %1271, label %node_new_quantifier.exit409
+  br i1 %.not350, label %1271, label %node_new_quantifier.exit411
 
 1271:                                             ; preds = %1268
   %1272 = add i32 %.0296, 1
   %1273 = load i32, ptr @ParseDepthLimit, align 4
   %1274 = icmp ugt i32 %1272, %1273
-  br i1 %1274, label %node_new_quantifier.exit409, label %1275
+  br i1 %1274, label %node_new_quantifier.exit411, label %1275
 
 1275:                                             ; preds = %1271
   %1276 = getelementptr inbounds i8, ptr %1, i64 24
   %1277 = load i32, ptr %1276, align 8
   %1278 = getelementptr inbounds i8, ptr %1, i64 28
   %1279 = load i32, ptr %1278, align 4
-  %calloc.i.i407 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1280 = icmp eq ptr %calloc.i.i407, null
-  br i1 %1280, label %node_new_quantifier.exit409, label %1281
+  %calloc.i.i409 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1280 = icmp eq ptr %calloc.i.i409, null
+  br i1 %1280, label %node_new_quantifier.exit411, label %1281
 
 1281:                                             ; preds = %1275
-  store i32 4, ptr %calloc.i.i407, align 8
-  %1282 = getelementptr inbounds i8, ptr %calloc.i.i407, i64 24
+  store i32 4, ptr %calloc.i.i409, align 8
+  %1282 = getelementptr inbounds i8, ptr %calloc.i.i409, i64 24
   store i32 %1277, ptr %1282, align 8
-  %1283 = getelementptr inbounds i8, ptr %calloc.i.i407, i64 28
+  %1283 = getelementptr inbounds i8, ptr %calloc.i.i409, i64 28
   store i32 %1279, ptr %1283, align 4
-  %1284 = getelementptr inbounds i8, ptr %calloc.i.i407, i64 32
+  %1284 = getelementptr inbounds i8, ptr %calloc.i.i409, i64 32
   store i32 1, ptr %1284, align 8
-  br i1 %.not492, label %1285, label %1287
+  br i1 %.not494, label %1285, label %1287
 
 1285:                                             ; preds = %1281
-  %1286 = getelementptr inbounds i8, ptr %calloc.i.i407, i64 4
+  %1286 = getelementptr inbounds i8, ptr %calloc.i.i409, i64 4
   store i32 16384, ptr %1286, align 4
   br label %1287
 
@@ -10143,24 +10143,24 @@ prs_char_property.exit.thread481:                 ; preds = %770, %1308, %1316, 
   call fastcc void @node_free_body(ptr noundef nonnull %1291)
   call void @free(ptr noundef nonnull %1291) #25
   store ptr null, ptr %.0292, align 8
-  %1294 = call fastcc i32 @assign_quantifier_body(ptr noundef %calloc.i.i407, ptr noundef %1293, i32 noundef 2, ptr noundef %5)
+  %1294 = call fastcc i32 @assign_quantifier_body(ptr noundef %calloc.i.i409, ptr noundef %1293, i32 noundef 2, ptr noundef %5)
   br label %1296
 
 .split299:                                        ; preds = %1287
-  %1295 = call fastcc i32 @assign_quantifier_body(ptr noundef %calloc.i.i407, ptr noundef %1291, i32 noundef %.1290, ptr noundef %5)
+  %1295 = call fastcc i32 @assign_quantifier_body(ptr noundef %calloc.i.i409, ptr noundef %1291, i32 noundef %.1290, ptr noundef %5)
   br label %1296
 
 1296:                                             ; preds = %.split299, %.split
   %phi.call = phi i32 [ %1294, %.split ], [ %1295, %.split299 ]
   %.0287 = phi ptr [ %1293, %.split ], [ %1291, %.split299 ]
   %1297 = icmp slt i32 %phi.call, 0
-  br i1 %1297, label %onig_node_free.exit411, label %1298
+  br i1 %1297, label %onig_node_free.exit413, label %1298
 
-onig_node_free.exit411:                           ; preds = %1296
-  call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i407)
-  call void @free(ptr noundef nonnull %calloc.i.i407) #25
+onig_node_free.exit413:                           ; preds = %1296
+  call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i409)
+  call void @free(ptr noundef nonnull %calloc.i.i409) #25
   store ptr null, ptr %.0292, align 8
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 1298:                                             ; preds = %1296
   %1299 = getelementptr inbounds i8, ptr %1, i64 36
@@ -10169,88 +10169,88 @@ onig_node_free.exit411:                           ; preds = %1296
   br i1 %.not351, label %1307, label %1301
 
 1301:                                             ; preds = %1298
-  %calloc.i.i412 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1302 = icmp eq ptr %calloc.i.i412, null
-  br i1 %1302, label %onig_node_free.exit413, label %1303
+  %calloc.i.i414 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1302 = icmp eq ptr %calloc.i.i414, null
+  br i1 %1302, label %onig_node_free.exit415, label %1303
 
-onig_node_free.exit413:                           ; preds = %1301
-  call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i407)
-  call void @free(ptr noundef nonnull %calloc.i.i407) #25
-  br label %node_new_quantifier.exit409
+onig_node_free.exit415:                           ; preds = %1301
+  call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i409)
+  call void @free(ptr noundef nonnull %calloc.i.i409) #25
+  br label %node_new_quantifier.exit411
 
 1303:                                             ; preds = %1301
-  store i32 5, ptr %calloc.i.i412, align 8
-  %1304 = getelementptr inbounds i8, ptr %calloc.i.i412, i64 24
+  store i32 5, ptr %calloc.i.i414, align 8
+  %1304 = getelementptr inbounds i8, ptr %calloc.i.i414, i64 24
   store i32 2, ptr %1304, align 8
-  %1305 = getelementptr inbounds i8, ptr %calloc.i.i412, i64 64
+  %1305 = getelementptr inbounds i8, ptr %calloc.i.i414, i64 64
   store i32 0, ptr %1305, align 8
-  %1306 = getelementptr inbounds i8, ptr %calloc.i.i412, i64 16
-  store ptr %calloc.i.i407, ptr %1306, align 8
+  %1306 = getelementptr inbounds i8, ptr %calloc.i.i414, i64 16
+  store ptr %calloc.i.i409, ptr %1306, align 8
   br label %1307
 
 1307:                                             ; preds = %1303, %1298
-  %.0291 = phi ptr [ %calloc.i.i412, %1303 ], [ %calloc.i.i407, %1298 ]
+  %.0291 = phi ptr [ %calloc.i.i414, %1303 ], [ %calloc.i.i409, %1298 ]
   switch i32 %phi.call, label %default.unreachable [
     i32 0, label %1308
-    i32 1, label %onig_node_free.exit414
+    i32 1, label %onig_node_free.exit416
     i32 2, label %1309
   ]
 
 1308:                                             ; preds = %1307
   store ptr %.0291, ptr %.0292, align 8
-  br label %prs_char_property.exit.thread481
+  br label %prs_char_property.exit.thread483
 
-onig_node_free.exit414:                           ; preds = %1307
+onig_node_free.exit416:                           ; preds = %1307
   call fastcc void @node_free_body(ptr noundef nonnull %.0291)
   call void @free(ptr noundef nonnull %.0291) #25
   store ptr %.0287, ptr %.0292, align 8
-  br label %prs_char_property.exit.thread481
+  br label %prs_char_property.exit.thread483
 
 1309:                                             ; preds = %1307
   %1310 = load ptr, ptr %.0292, align 8
-  %calloc.i.i415 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1311 = icmp eq ptr %calloc.i.i415, null
-  br i1 %1311, label %onig_node_free.exit416, label %1312
+  %calloc.i.i417 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1311 = icmp eq ptr %calloc.i.i417, null
+  br i1 %1311, label %onig_node_free.exit418, label %1312
 
-onig_node_free.exit416:                           ; preds = %1309
+onig_node_free.exit418:                           ; preds = %1309
   store ptr null, ptr %.0292, align 8
   call fastcc void @node_free_body(ptr noundef nonnull %.0291)
   call void @free(ptr noundef nonnull %.0291) #25
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 1312:                                             ; preds = %1309
-  store i32 7, ptr %calloc.i.i415, align 8
-  %1313 = getelementptr inbounds i8, ptr %calloc.i.i415, i64 16
+  store i32 7, ptr %calloc.i.i417, align 8
+  %1313 = getelementptr inbounds i8, ptr %calloc.i.i417, i64 16
   store ptr %1310, ptr %1313, align 8
-  %1314 = getelementptr inbounds i8, ptr %calloc.i.i415, i64 24
+  %1314 = getelementptr inbounds i8, ptr %calloc.i.i417, i64 24
   store ptr null, ptr %1314, align 8
-  store ptr %calloc.i.i415, ptr %.0292, align 8
-  %calloc.i.i417 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  %1315 = icmp eq ptr %calloc.i.i417, null
-  br i1 %1315, label %onig_node_free.exit419, label %1316
+  store ptr %calloc.i.i417, ptr %.0292, align 8
+  %calloc.i.i419 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  %1315 = icmp eq ptr %calloc.i.i419, null
+  br i1 %1315, label %onig_node_free.exit421, label %1316
 
-onig_node_free.exit419:                           ; preds = %1312
+onig_node_free.exit421:                           ; preds = %1312
   store ptr null, ptr %1314, align 8
   call fastcc void @node_free_body(ptr noundef nonnull %.0291)
   call void @free(ptr noundef nonnull %.0291) #25
-  br label %node_new_quantifier.exit409
+  br label %node_new_quantifier.exit411
 
 1316:                                             ; preds = %1312
-  store i32 7, ptr %calloc.i.i417, align 8
-  %1317 = getelementptr inbounds i8, ptr %calloc.i.i417, i64 16
+  store i32 7, ptr %calloc.i.i419, align 8
+  %1317 = getelementptr inbounds i8, ptr %calloc.i.i419, i64 16
   store ptr %.0291, ptr %1317, align 8
-  %1318 = getelementptr inbounds i8, ptr %calloc.i.i417, i64 24
+  %1318 = getelementptr inbounds i8, ptr %calloc.i.i419, i64 24
   store ptr null, ptr %1318, align 8
   %1319 = load ptr, ptr %.0292, align 8
   %1320 = getelementptr inbounds i8, ptr %1319, i64 24
-  store ptr %calloc.i.i417, ptr %1320, align 8
-  br label %prs_char_property.exit.thread481
+  store ptr %calloc.i.i419, ptr %1320, align 8
+  br label %prs_char_property.exit.thread483
 
 default.unreachable:                              ; preds = %1307
   unreachable
 
-node_new_quantifier.exit409:                      ; preds = %40, %783, %prs_bag.exit, %993, %993, %993, %993, %992, %888, %887, %884, %837, %.preheader, %1225, %1222, %1156, %1073, %1005, %node_new_cclass.exit.thread.i, %1022, %1275, %make_text_segment.exit.thread, %node_new_general_newline.exit.thread, %node_new_empty.exit390.thread, %node_new_anchor_with_options.exit, %node_new_call.exit.thread, %node_new_anychar.exit383, %node_new_anychar.exit, %prs_char_property.exit, %node_new_cclass.exit.thread, %node_new_str_crude_char.exit.thread, %prs_bag.exit.thread, %node_new_empty.exit.thread, %.loopexit, %1271, %1268, %prs_char_property.exit.thread481, %1149, %1089, %1031, %965, %968, %node_new_str_with_options.exit369, %node_new_str_with_options.exit360, %899, %873, %node_new_str_with_options.exit, %811, %795, %onig_node_free.exit419, %onig_node_free.exit416, %onig_node_free.exit413, %onig_node_free.exit411, %onig_node_free.exit741, %1049, %979, %807, %806, %777, %44
-  %.0 = phi i32 [ %48, %44 ], [ %phi.call, %onig_node_free.exit411 ], [ -5, %onig_node_free.exit413 ], [ -5, %onig_node_free.exit416 ], [ -5, %onig_node_free.exit419 ], [ %1047, %1049 ], [ -5, %onig_node_free.exit741 ], [ %978, %979 ], [ -5, %777 ], [ %803, %806 ], [ %810, %807 ], [ %800, %795 ], [ -116, %811 ], [ -5, %node_new_str_with_options.exit ], [ -400, %873 ], [ %905, %899 ], [ -5, %node_new_str_with_options.exit360 ], [ -5, %node_new_str_with_options.exit369 ], [ -5, %968 ], [ -11, %965 ], [ -5, %prs_char_property.exit ], [ %1032, %1031 ], [ -5, %node_new_anychar.exit ], [ -5, %node_new_anychar.exit383 ], [ -5, %1089 ], [ -5, %node_new_anchor_with_options.exit ], [ -113, %1149 ], [ %1265, %prs_char_property.exit.thread481 ], [ -114, %1268 ], [ -16, %1271 ], [ %.1, %.loopexit ], [ -5, %node_new_empty.exit.thread ], [ %.0.i.ph, %prs_bag.exit.thread ], [ -5, %node_new_str_crude_char.exit.thread ], [ -5, %node_new_cclass.exit.thread ], [ -5, %node_new_call.exit.thread ], [ -5, %node_new_empty.exit390.thread ], [ %.0.i396.ph, %node_new_general_newline.exit.thread ], [ -5, %make_text_segment.exit.thread ], [ -5, %1275 ], [ %1003, %1005 ], [ -5, %node_new_cclass.exit.thread.i ], [ %1023, %1022 ], [ -5, %1073 ], [ -5, %1156 ], [ -5, %1222 ], [ -5, %1225 ], [ %834, %.preheader ], [ %841, %837 ], [ %885, %884 ], [ -206, %887 ], [ %891, %888 ], [ -117, %992 ], [ -117, %993 ], [ -117, %993 ], [ -117, %993 ], [ -117, %993 ], [ %.0.i, %prs_bag.exit ], [ %787, %783 ], [ -11, %40 ]
+node_new_quantifier.exit411:                      ; preds = %40, %783, %prs_bag.exit, %993, %993, %993, %993, %992, %888, %887, %884, %837, %.preheader, %1225, %1222, %1156, %1073, %1005, %node_new_cclass.exit.thread.i, %1022, %1275, %make_text_segment.exit.thread, %node_new_general_newline.exit.thread, %node_new_empty.exit392.thread, %node_new_anchor_with_options.exit, %node_new_call.exit.thread, %node_new_anychar.exit385, %node_new_anychar.exit, %prs_char_property.exit, %node_new_cclass.exit.thread, %node_new_str_crude_char.exit.thread, %prs_bag.exit.thread, %node_new_empty.exit.thread, %.loopexit, %1271, %1268, %prs_char_property.exit.thread483, %1149, %1089, %1031, %965, %968, %node_new_str_with_options.exit371, %node_new_str_with_options.exit362, %899, %873, %node_new_str_with_options.exit, %811, %795, %onig_node_free.exit421, %onig_node_free.exit418, %onig_node_free.exit415, %onig_node_free.exit413, %onig_node_free.exit743, %1049, %979, %807, %806, %777, %44
+  %.0 = phi i32 [ %48, %44 ], [ %phi.call, %onig_node_free.exit413 ], [ -5, %onig_node_free.exit415 ], [ -5, %onig_node_free.exit418 ], [ -5, %onig_node_free.exit421 ], [ %1047, %1049 ], [ -5, %onig_node_free.exit743 ], [ %978, %979 ], [ -5, %777 ], [ %803, %806 ], [ %810, %807 ], [ %800, %795 ], [ -116, %811 ], [ -5, %node_new_str_with_options.exit ], [ -400, %873 ], [ %905, %899 ], [ -5, %node_new_str_with_options.exit362 ], [ -5, %node_new_str_with_options.exit371 ], [ -5, %968 ], [ -11, %965 ], [ -5, %prs_char_property.exit ], [ %1032, %1031 ], [ -5, %node_new_anychar.exit ], [ -5, %node_new_anychar.exit385 ], [ -5, %1089 ], [ -5, %node_new_anchor_with_options.exit ], [ -113, %1149 ], [ %1265, %prs_char_property.exit.thread483 ], [ -114, %1268 ], [ -16, %1271 ], [ %.1, %.loopexit ], [ -5, %node_new_empty.exit.thread ], [ %.0.i.ph, %prs_bag.exit.thread ], [ -5, %node_new_str_crude_char.exit.thread ], [ -5, %node_new_cclass.exit.thread ], [ -5, %node_new_call.exit.thread ], [ -5, %node_new_empty.exit392.thread ], [ %.0.i398.ph, %node_new_general_newline.exit.thread ], [ -5, %make_text_segment.exit.thread ], [ -5, %1275 ], [ %1003, %1005 ], [ -5, %node_new_cclass.exit.thread.i ], [ %1023, %1022 ], [ -5, %1073 ], [ -5, %1156 ], [ -5, %1222 ], [ -5, %1225 ], [ %834, %.preheader ], [ %841, %837 ], [ %885, %884 ], [ -206, %887 ], [ %891, %888 ], [ -117, %992 ], [ -117, %993 ], [ -117, %993 ], [ -117, %993 ], [ -117, %993 ], [ %.0.i, %prs_bag.exit ], [ %787, %783 ], [ -11, %40 ]
   ret i32 %.0
 }
 

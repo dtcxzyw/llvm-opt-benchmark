@@ -189,10 +189,10 @@ _ZN12_GLOBAL__N_119ClangOpcodesEmitterC2ERN4llvm12RecordKeeperE.exit: ; preds = 
 .lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_119ClangOpcodesEmitterC2ERN4llvm12RecordKeeperE.exit
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %41 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %42 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %43 = getelementptr inbounds i8, ptr %17, i64 8
-  %44 = ptrtoint ptr %1 to i64
+  %41 = ptrtoint ptr %1 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %44 = getelementptr inbounds i8, ptr %17, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -286,12 +286,12 @@ _ZN12_GLOBAL__N_119ClangOpcodesEmitterC2ERN4llvm12RecordKeeperE.exit: ; preds = 
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %98, %96
-  store i64 0, ptr %43, align 8
-  store i64 %44, ptr %17, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN4llvm8ArrayRefIPKNS0_6RecordEEENS0_5TwineEEZN12_GLOBAL__N_119ClangOpcodesEmitter8EmitEnumERNS0_11raw_ostreamENS0_9StringRefES4_E3$_0E9_M_invokeERKSt9_Any_dataOS5_OS6_", ptr %42, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN4llvm8ArrayRefIPKNS0_6RecordEEENS0_5TwineEEZN12_GLOBAL__N_119ClangOpcodesEmitter8EmitEnumERNS0_11raw_ostreamENS0_9StringRefES4_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %41, align 8
+  store i64 0, ptr %44, align 8
+  store i64 %41, ptr %17, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN4llvm8ArrayRefIPKNS0_6RecordEEENS0_5TwineEEZN12_GLOBAL__N_119ClangOpcodesEmitter8EmitEnumERNS0_11raw_ostreamENS0_9StringRefES4_E3$_0E9_M_invokeERKSt9_Any_dataOS5_OS6_", ptr %43, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN4llvm8ArrayRefIPKNS0_6RecordEEENS0_5TwineEEZN12_GLOBAL__N_119ClangOpcodesEmitter8EmitEnumERNS0_11raw_ostreamENS0_9StringRefES4_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %42, align 8
   call fastcc void @_ZN12_GLOBAL__N_19EnumerateEPKN4llvm6RecordENS0_9StringRefEOSt8functionIFvNS0_8ArrayRefIS3_EENS0_5TwineEEE(ptr noundef %81, ptr %.sroa.068.0.i, i64 %.sroa.9.0.i, ptr noundef nonnull align 8 dereferenceable(32) %17)
-  %101 = load ptr, ptr %41, align 8
+  %101 = load ptr, ptr %42, align 8
   %.not.i.i.i33.i = icmp eq ptr %101, null
   br i1 %.not.i.i.i33.i, label %_ZNSt8functionIFvN4llvm8ArrayRefIPKNS0_6RecordEEENS0_5TwineEEED2Ev.exit.i.i, label %102
 

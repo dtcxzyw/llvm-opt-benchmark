@@ -8920,11 +8920,11 @@ if.then.i.i.i59._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.
   %.pre339.i.i = and i32 %17, 31
   %.pre340.i.i = shl nuw i32 1, %.pre339.i.i
   %arrayidx.i.i.i.i.i64.i.phi.trans.insert.i = getelementptr inbounds i32, ptr %.pre329.i.i, i64 %.pre338.i.i
-  %.pre54.i = load i32, ptr %arrayidx.i.i.i.i.i64.i.phi.trans.insert.i, align 4
+  %.pre53.i = load i32, ptr %arrayidx.i.i.i.i.i64.i.phi.trans.insert.i, align 4
   br label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit69.i.i
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit69.i.i: ; preds = %if.then.i.i.i59._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit69_crit_edge.i.i, %invoke.cont28.i.i
-  %21 = phi i32 [ %.pre54.i, %if.then.i.i.i59._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit69_crit_edge.i.i ], [ %20, %invoke.cont28.i.i ]
+  %21 = phi i32 [ %.pre53.i, %if.then.i.i.i59._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit69_crit_edge.i.i ], [ %20, %invoke.cont28.i.i ]
   %shl.i.i.i.i.i66.pre-phi.i.i = phi i32 [ %.pre340.i.i, %if.then.i.i.i59._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit69_crit_edge.i.i ], [ %shl.i.i.i.i53.i.i, %invoke.cont28.i.i ]
   %idxprom.i.i.i.i.i63.pre-phi.i.i = phi i64 [ %.pre338.i.i, %if.then.i.i.i59._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit69_crit_edge.i.i ], [ %idxprom.i.i.i.i50.i.i, %invoke.cont28.i.i ]
   %22 = phi ptr [ %.pre329.i.i, %if.then.i.i.i59._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit69_crit_edge.i.i ], [ %19, %invoke.cont28.i.i ]

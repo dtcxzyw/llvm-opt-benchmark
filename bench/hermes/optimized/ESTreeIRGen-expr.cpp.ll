@@ -5233,8 +5233,8 @@ for.end26:                                        ; preds = %_ZN4llvh23SmallVect
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %sourceRange_.i.i, align 8
   %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call28, i64 32
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i, align 8
-  %cmp203.i = icmp ult ptr %retval.sroa.0.0.copyload.i.i, %retval.sroa.2.0.copyload.i.i
-  br i1 %cmp203.i, label %for.cond.preheader.i.preheader.lr.ph.i, label %while.cond9.preheader.i
+  %cmp197.i = icmp ult ptr %retval.sroa.0.0.copyload.i.i, %retval.sroa.2.0.copyload.i.i
+  br i1 %cmp197.i, label %for.cond.preheader.i.preheader.lr.ph.i, label %while.cond9.preheader.i
 
 for.cond.preheader.i.preheader.lr.ph.i:           ; preds = %for.end26
   %OutBufEnd.i.i = getelementptr inbounds i8, ptr %OS.i, i64 16
@@ -5242,21 +5242,21 @@ for.cond.preheader.i.preheader.lr.ph.i:           ; preds = %for.end26
   br label %for.cond.preheader.i.preheader.i
 
 for.cond.preheader.i.preheader.i:                 ; preds = %if.end.i, %for.cond.preheader.i.preheader.lr.ph.i
-  %numUTF8Chars.0205.i = phi i32 [ 0, %for.cond.preheader.i.preheader.lr.ph.i ], [ %numUTF8Chars.1.i, %if.end.i ]
-  %pos.0204.i = phi ptr [ %retval.sroa.0.0.copyload.i.i, %for.cond.preheader.i.preheader.lr.ph.i ], [ %storemerge.i.i, %if.end.i ]
+  %numUTF8Chars.0199.i = phi i32 [ 0, %for.cond.preheader.i.preheader.lr.ph.i ], [ %numUTF8Chars.1.i, %if.end.i ]
+  %pos.0198.i = phi ptr [ %retval.sroa.0.0.copyload.i.i, %for.cond.preheader.i.preheader.lr.ph.i ], [ %storemerge.i.i, %if.end.i ]
   br label %for.cond.preheader.i.i
 
 while.cond9.preheader.i:                          ; preds = %if.end.i, %for.end26
   %pos.0.lcssa.i = phi ptr [ %retval.sroa.0.0.copyload.i.i, %for.end26 ], [ %storemerge.i.i, %if.end.i ]
   %numUTF8Chars.0.lcssa.i = phi i32 [ 0, %for.end26 ], [ %numUTF8Chars.1.i, %if.end.i ]
-  %cmp10207.i = icmp ult ptr %pos.0.lcssa.i, %retval.sroa.2.0.copyload.i.i
-  %cmp12208.i = icmp ult i32 %numUTF8Chars.0.lcssa.i, 64
-  %7 = select i1 %cmp10207.i, i1 %cmp12208.i, i1 false
-  br i1 %7, label %for.cond.preheader.i22.preheader.i, label %while.end20.i
+  %cmp10201.i = icmp ult ptr %pos.0.lcssa.i, %retval.sroa.2.0.copyload.i.i
+  %cmp12202.i = icmp ult i32 %numUTF8Chars.0.lcssa.i, 64
+  %7 = select i1 %cmp10201.i, i1 %cmp12202.i, i1 false
+  br i1 %7, label %for.cond.preheader.i27.preheader.i, label %while.end20.i
 
 for.cond.preheader.i.i:                           ; preds = %do.body.backedge.i.i, %for.cond.preheader.i.preheader.i
-  %8 = phi ptr [ %storemerge.i.i, %do.body.backedge.i.i ], [ %pos.0204.i, %for.cond.preheader.i.preheader.i ]
-  %skipSpace.0.shrunk17.i.i = phi i1 [ %skipSpace.0.shrunk.be.i.i, %do.body.backedge.i.i ], [ false, %for.cond.preheader.i.preheader.i ]
+  %skipSpace.0.shrunk4.i.i = phi i1 [ %skipSpace.0.shrunk.be.i.i, %do.body.backedge.i.i ], [ false, %for.cond.preheader.i.preheader.i ]
+  %8 = phi ptr [ %storemerge.i.i, %do.body.backedge.i.i ], [ %pos.0198.i, %for.cond.preheader.i.preheader.i ]
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %land.rhs.i.i, %for.cond.preheader.i.i
@@ -5274,13 +5274,13 @@ land.rhs.i.i:                                     ; preds = %for.cond.i.i
 for.end.i.i:                                      ; preds = %land.rhs.i.i, %for.cond.i.i
   %11 = load i8, ptr %8, align 1, !noalias !58
   %cmp4.i.i = icmp eq i8 %11, 10
-  %or14.i.i = or i1 %skipSpace.0.shrunk17.i.i, %cmp4.i.i
+  %or14.i.i = or i1 %skipSpace.0.shrunk4.i.i, %cmp4.i.i
   %cmp11.i.i = icmp ult i8 %11, 32
   br i1 %cmp11.i.i, label %do.body.backedge.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %for.end.i.i
   %cmp18.i.i = icmp eq i8 %11, 32
-  %or.cond.i.i = and i1 %skipSpace.0.shrunk17.i.i, %cmp18.i.i
+  %or.cond.i.i = and i1 %skipSpace.0.shrunk4.i.i, %cmp18.i.i
   br i1 %or.cond.i.i, label %do.body.backedge.i.i, label %if.then.i12
 
 do.body.backedge.i.i:                             ; preds = %lor.rhs.i.i, %for.end.i.i
@@ -5292,16 +5292,16 @@ if.then.i12:                                      ; preds = %lor.rhs.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %storemerge.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %inc.i = add nuw nsw i32 %numUTF8Chars.0205.i, 1
+  %inc.i = add nuw nsw i32 %numUTF8Chars.0199.i, 1
   %12 = load ptr, ptr %OutBufEnd.i.i, align 8
   %13 = load ptr, ptr %OutBufCur.i.i, align 8
-  %sub.ptr.lhs.cast.i16.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i17.i = ptrtoint ptr %13 to i64
-  %sub.ptr.sub.i18.i = sub i64 %sub.ptr.lhs.cast.i16.i, %sub.ptr.rhs.cast.i17.i
-  %cmp.i19.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i18.i
-  br i1 %cmp.i19.i, label %if.then.i20.i, label %if.then4.i.i
+  %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i21.i = ptrtoint ptr %13 to i64
+  %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i21.i
+  %cmp.i23.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i22.i
+  br i1 %cmp.i23.i, label %if.then.i24.i, label %if.then4.i.i
 
-if.then.i20.i:                                    ; preds = %if.then.i12
+if.then.i24.i:                                    ; preds = %if.then.i12
   %call3.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr noundef nonnull %8, i64 noundef %sub.ptr.sub.i.i) #16
   br label %if.end.i
 
@@ -5312,61 +5312,61 @@ if.then4.i.i:                                     ; preds = %if.then.i12
   store ptr %add.ptr.i.i13, ptr %OutBufCur.i.i, align 8
   br label %if.end.i
 
-if.end.i:                                         ; preds = %do.body.backedge.i.i, %if.then4.i.i, %if.then.i20.i
-  %numUTF8Chars.1.i = phi i32 [ %inc.i, %if.then.i20.i ], [ %inc.i, %if.then4.i.i ], [ %numUTF8Chars.0205.i, %do.body.backedge.i.i ]
+if.end.i:                                         ; preds = %do.body.backedge.i.i, %if.then4.i.i, %if.then.i24.i
+  %numUTF8Chars.1.i = phi i32 [ %inc.i, %if.then.i24.i ], [ %inc.i, %if.then4.i.i ], [ %numUTF8Chars.0199.i, %do.body.backedge.i.i ]
   %cmp5.i = icmp ult i32 %numUTF8Chars.1.i, 32
   %15 = select i1 %cmp2.i.i, i1 %cmp5.i, i1 false
   br i1 %15, label %for.cond.preheader.i.preheader.i, label %while.cond9.preheader.i, !llvm.loop !63
 
-for.cond.preheader.i22.preheader.i:               ; preds = %while.cond9.preheader.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit47.i"
-  %numUTF8Chars.2210.i = phi i32 [ %spec.select.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit47.i" ], [ %numUTF8Chars.0.lcssa.i, %while.cond9.preheader.i ]
-  %pos.1209.i = phi ptr [ %storemerge.i26.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit47.i" ], [ %pos.0.lcssa.i, %while.cond9.preheader.i ]
-  br label %for.cond.preheader.i22.i
+for.cond.preheader.i27.preheader.i:               ; preds = %while.cond9.preheader.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit52.i"
+  %numUTF8Chars.2204.i = phi i32 [ %spec.select.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit52.i" ], [ %numUTF8Chars.0.lcssa.i, %while.cond9.preheader.i ]
+  %pos.1203.i = phi ptr [ %storemerge.i31.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit52.i" ], [ %pos.0.lcssa.i, %while.cond9.preheader.i ]
+  br label %for.cond.preheader.i27.i
 
-for.cond.preheader.i22.i:                         ; preds = %do.body.backedge.i41.i, %for.cond.preheader.i22.preheader.i
-  %16 = phi ptr [ %storemerge.i26.i, %do.body.backedge.i41.i ], [ %pos.1209.i, %for.cond.preheader.i22.preheader.i ]
-  %skipSpace.0.shrunk17.i23.i = phi i1 [ %skipSpace.0.shrunk.be.i42.i, %do.body.backedge.i41.i ], [ false, %for.cond.preheader.i22.preheader.i ]
-  br label %for.cond.i24.i
+for.cond.preheader.i27.i:                         ; preds = %do.body.backedge.i46.i, %for.cond.preheader.i27.preheader.i
+  %skipSpace.0.shrunk4.i28.i = phi i1 [ %skipSpace.0.shrunk.be.i47.i, %do.body.backedge.i46.i ], [ false, %for.cond.preheader.i27.preheader.i ]
+  %16 = phi ptr [ %storemerge.i31.i, %do.body.backedge.i46.i ], [ %pos.1203.i, %for.cond.preheader.i27.preheader.i ]
+  br label %for.cond.i29.i
 
-for.cond.i24.i:                                   ; preds = %land.rhs.i45.i, %for.cond.preheader.i22.i
-  %.pn.i25.i = phi ptr [ %storemerge.i26.i, %land.rhs.i45.i ], [ %16, %for.cond.preheader.i22.i ]
-  %storemerge.i26.i = getelementptr inbounds i8, ptr %.pn.i25.i, i64 1
-  %cmp2.i27.i = icmp ult ptr %storemerge.i26.i, %retval.sroa.2.0.copyload.i.i
-  br i1 %cmp2.i27.i, label %land.rhs.i45.i, label %for.end.i28.i
+for.cond.i29.i:                                   ; preds = %land.rhs.i50.i, %for.cond.preheader.i27.i
+  %.pn.i30.i = phi ptr [ %storemerge.i31.i, %land.rhs.i50.i ], [ %16, %for.cond.preheader.i27.i ]
+  %storemerge.i31.i = getelementptr inbounds i8, ptr %.pn.i30.i, i64 1
+  %cmp2.i32.i = icmp ult ptr %storemerge.i31.i, %retval.sroa.2.0.copyload.i.i
+  br i1 %cmp2.i32.i, label %land.rhs.i50.i, label %for.end.i33.i
 
-land.rhs.i45.i:                                   ; preds = %for.cond.i24.i
-  %17 = load i8, ptr %storemerge.i26.i, align 1, !noalias !64
+land.rhs.i50.i:                                   ; preds = %for.cond.i29.i
+  %17 = load i8, ptr %storemerge.i31.i, align 1, !noalias !64
   %18 = and i8 %17, -64
-  %cmp.i.i46.i = icmp eq i8 %18, -128
-  br i1 %cmp.i.i46.i, label %for.cond.i24.i, label %for.end.i28.i, !llvm.loop !61
+  %cmp.i.i51.i = icmp eq i8 %18, -128
+  br i1 %cmp.i.i51.i, label %for.cond.i29.i, label %for.end.i33.i, !llvm.loop !61
 
-for.end.i28.i:                                    ; preds = %land.rhs.i45.i, %for.cond.i24.i
+for.end.i33.i:                                    ; preds = %land.rhs.i50.i, %for.cond.i29.i
   %19 = load i8, ptr %16, align 1, !noalias !64
-  %cmp4.i29.i = icmp eq i8 %19, 10
-  %or14.i30.i = or i1 %skipSpace.0.shrunk17.i23.i, %cmp4.i29.i
-  %cmp11.i31.i = icmp ult i8 %19, 32
-  br i1 %cmp11.i31.i, label %do.body.backedge.i41.i, label %lor.rhs.i32.i
+  %cmp4.i34.i = icmp eq i8 %19, 10
+  %or14.i35.i = or i1 %skipSpace.0.shrunk4.i28.i, %cmp4.i34.i
+  %cmp11.i36.i = icmp ult i8 %19, 32
+  br i1 %cmp11.i36.i, label %do.body.backedge.i46.i, label %lor.rhs.i37.i
 
-lor.rhs.i32.i:                                    ; preds = %for.end.i28.i
-  %cmp18.i33.i = icmp eq i8 %19, 32
-  %or.cond.i34.i = and i1 %skipSpace.0.shrunk17.i23.i, %cmp18.i33.i
-  br i1 %or.cond.i34.i, label %do.body.backedge.i41.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit47.i"
+lor.rhs.i37.i:                                    ; preds = %for.end.i33.i
+  %cmp18.i38.i = icmp eq i8 %19, 32
+  %or.cond.i39.i = and i1 %skipSpace.0.shrunk4.i28.i, %cmp18.i38.i
+  br i1 %or.cond.i39.i, label %do.body.backedge.i46.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit52.i"
 
-do.body.backedge.i41.i:                           ; preds = %lor.rhs.i32.i, %for.end.i28.i
-  %skipSpace.0.shrunk.be.i42.i = phi i1 [ true, %lor.rhs.i32.i ], [ %or14.i30.i, %for.end.i28.i ]
-  %cmp.i43.i = icmp eq ptr %storemerge.i26.i, %retval.sroa.2.0.copyload.i.i
-  br i1 %cmp.i43.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit47.i", label %for.cond.preheader.i22.i, !llvm.loop !62
+do.body.backedge.i46.i:                           ; preds = %lor.rhs.i37.i, %for.end.i33.i
+  %skipSpace.0.shrunk.be.i47.i = phi i1 [ true, %lor.rhs.i37.i ], [ %or14.i35.i, %for.end.i33.i ]
+  %cmp.i48.i = icmp eq ptr %storemerge.i31.i, %retval.sroa.2.0.copyload.i.i
+  br i1 %cmp.i48.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit52.i", label %for.cond.preheader.i27.i, !llvm.loop !62
 
-"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit47.i": ; preds = %do.body.backedge.i41.i, %lor.rhs.i32.i
-  %ref.tmp15.sroa.3.1.i = phi i32 [ 0, %do.body.backedge.i41.i ], [ 1, %lor.rhs.i32.i ]
-  %spec.select.i = add nuw nsw i32 %ref.tmp15.sroa.3.1.i, %numUTF8Chars.2210.i
+"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit52.i": ; preds = %do.body.backedge.i46.i, %lor.rhs.i37.i
+  %ref.tmp15.sroa.3.1.i = phi i32 [ 0, %do.body.backedge.i46.i ], [ 1, %lor.rhs.i37.i ]
+  %spec.select.i = add nuw nsw i32 %ref.tmp15.sroa.3.1.i, %numUTF8Chars.2204.i
   %cmp12.i = icmp ult i32 %spec.select.i, 64
-  %20 = select i1 %cmp2.i27.i, i1 %cmp12.i, i1 false
-  br i1 %20, label %for.cond.preheader.i22.preheader.i, label %while.end20.i, !llvm.loop !67
+  %20 = select i1 %cmp2.i32.i, i1 %cmp12.i, i1 false
+  br i1 %20, label %for.cond.preheader.i27.preheader.i, label %while.end20.i, !llvm.loop !67
 
-while.end20.i:                                    ; preds = %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit47.i", %while.cond9.preheader.i
-  %pos.1.lcssa.i = phi ptr [ %pos.0.lcssa.i, %while.cond9.preheader.i ], [ %storemerge.i26.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit47.i" ]
-  %cmp10.lcssa.i = phi i1 [ %cmp10207.i, %while.cond9.preheader.i ], [ %cmp2.i27.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit47.i" ]
+while.end20.i:                                    ; preds = %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit52.i", %while.cond9.preheader.i
+  %pos.1.lcssa.i = phi ptr [ %pos.0.lcssa.i, %while.cond9.preheader.i ], [ %storemerge.i31.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit52.i" ]
+  %cmp10.lcssa.i = phi i1 [ %cmp10201.i, %while.cond9.preheader.i ], [ %cmp2.i32.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit52.i" ]
   br i1 %cmp10.lcssa.i, label %if.then22.i, label %if.end29.i
 
 if.then22.i:                                      ; preds = %while.end20.i
@@ -5377,8 +5377,8 @@ if.then22.i:                                      ; preds = %while.end20.i
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i9.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i, %sub.ptr.rhs.cast.i8.i.i
-  %cmp.i.i50.i = icmp ult i64 %sub.ptr.sub.i9.i.i, 5
-  br i1 %cmp.i.i50.i, label %if.then.i.i.i, label %if.then4.i.i.i
+  %cmp.i.i55.i = icmp ult i64 %sub.ptr.sub.i9.i.i, 5
+  br i1 %cmp.i.i55.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then22.i
   %call3.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr noundef nonnull @.str.34, i64 noundef 5) #16
@@ -5392,166 +5392,166 @@ if.then4.i.i.i:                                   ; preds = %if.then22.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit.i:               ; preds = %if.then4.i.i.i, %if.then.i.i.i
-  %cmp25213.i = icmp ult ptr %pos.1.lcssa.i, %retval.sroa.2.0.copyload.i.i
-  br i1 %cmp25213.i, label %while.body26.i, label %if.end29.i
+  %cmp25207.i = icmp ult ptr %pos.1.lcssa.i, %retval.sroa.2.0.copyload.i.i
+  br i1 %cmp25207.i, label %while.body26.i, label %if.end29.i
 
-while.body26.i:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit104.loopexit.i"
-  %mark.1215.i = phi ptr [ %mark.4.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit104.loopexit.i" ], [ %pos.0.lcssa.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ]
-  %pos.2214.i = phi ptr [ %storemerge.i83.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit104.loopexit.i" ], [ %pos.1.lcssa.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ]
-  %cmp16.i51.i = icmp eq ptr %mark.1215.i, %retval.sroa.2.0.copyload.i.i
-  br i1 %cmp16.i51.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit77.i", label %for.cond.preheader.i52.i
+while.body26.i:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit111.loopexit.i"
+  %mark.1209.i = phi ptr [ %mark.4.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit111.loopexit.i" ], [ %pos.0.lcssa.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ]
+  %pos.2208.i = phi ptr [ %storemerge.i90.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit111.loopexit.i" ], [ %pos.1.lcssa.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ]
+  %cmp3.i57.i = icmp eq ptr %mark.1209.i, %retval.sroa.2.0.copyload.i.i
+  br i1 %cmp3.i57.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit83.i", label %for.cond.preheader.i58.i
 
-for.cond.preheader.i52.i:                         ; preds = %while.body26.i, %do.body.backedge.i71.i
-  %24 = phi ptr [ %storemerge.i56.i, %do.body.backedge.i71.i ], [ %mark.1215.i, %while.body26.i ]
-  %skipSpace.0.shrunk17.i53.i = phi i1 [ %skipSpace.0.shrunk.be.i72.i, %do.body.backedge.i71.i ], [ false, %while.body26.i ]
-  br label %for.cond.i54.i
+for.cond.preheader.i58.i:                         ; preds = %while.body26.i, %do.body.backedge.i77.i
+  %skipSpace.0.shrunk4.i59.i = phi i1 [ %skipSpace.0.shrunk.be.i78.i, %do.body.backedge.i77.i ], [ false, %while.body26.i ]
+  %24 = phi ptr [ %storemerge.i62.i, %do.body.backedge.i77.i ], [ %mark.1209.i, %while.body26.i ]
+  br label %for.cond.i60.i
 
-for.cond.i54.i:                                   ; preds = %land.rhs.i75.i, %for.cond.preheader.i52.i
-  %.pn.i55.i = phi ptr [ %storemerge.i56.i, %land.rhs.i75.i ], [ %24, %for.cond.preheader.i52.i ]
-  %storemerge.i56.i = getelementptr inbounds i8, ptr %.pn.i55.i, i64 1
-  %cmp2.i57.i = icmp ult ptr %storemerge.i56.i, %retval.sroa.2.0.copyload.i.i
-  br i1 %cmp2.i57.i, label %land.rhs.i75.i, label %for.end.i58.i
+for.cond.i60.i:                                   ; preds = %land.rhs.i81.i, %for.cond.preheader.i58.i
+  %.pn.i61.i = phi ptr [ %storemerge.i62.i, %land.rhs.i81.i ], [ %24, %for.cond.preheader.i58.i ]
+  %storemerge.i62.i = getelementptr inbounds i8, ptr %.pn.i61.i, i64 1
+  %cmp2.i63.i = icmp ult ptr %storemerge.i62.i, %retval.sroa.2.0.copyload.i.i
+  br i1 %cmp2.i63.i, label %land.rhs.i81.i, label %for.end.i64.i
 
-land.rhs.i75.i:                                   ; preds = %for.cond.i54.i
-  %25 = load i8, ptr %storemerge.i56.i, align 1, !noalias !68
+land.rhs.i81.i:                                   ; preds = %for.cond.i60.i
+  %25 = load i8, ptr %storemerge.i62.i, align 1, !noalias !68
   %26 = and i8 %25, -64
-  %cmp.i.i76.i = icmp eq i8 %26, -128
-  br i1 %cmp.i.i76.i, label %for.cond.i54.i, label %for.end.i58.i, !llvm.loop !61
+  %cmp.i.i82.i = icmp eq i8 %26, -128
+  br i1 %cmp.i.i82.i, label %for.cond.i60.i, label %for.end.i64.i, !llvm.loop !61
 
-for.end.i58.i:                                    ; preds = %land.rhs.i75.i, %for.cond.i54.i
+for.end.i64.i:                                    ; preds = %land.rhs.i81.i, %for.cond.i60.i
   %27 = load i8, ptr %24, align 1, !noalias !68
-  %cmp4.i59.i = icmp eq i8 %27, 10
-  %or14.i60.i = or i1 %skipSpace.0.shrunk17.i53.i, %cmp4.i59.i
-  %cmp11.i61.i = icmp ult i8 %27, 32
-  br i1 %cmp11.i61.i, label %do.body.backedge.i71.i, label %lor.rhs.i62.i
+  %cmp4.i65.i = icmp eq i8 %27, 10
+  %or14.i66.i = or i1 %skipSpace.0.shrunk4.i59.i, %cmp4.i65.i
+  %cmp11.i67.i = icmp ult i8 %27, 32
+  br i1 %cmp11.i67.i, label %do.body.backedge.i77.i, label %lor.rhs.i68.i
 
-lor.rhs.i62.i:                                    ; preds = %for.end.i58.i
-  %cmp18.i63.i = icmp eq i8 %27, 32
-  %or.cond.i64.i = and i1 %skipSpace.0.shrunk17.i53.i, %cmp18.i63.i
-  br i1 %or.cond.i64.i, label %do.body.backedge.i71.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit77.i"
+lor.rhs.i68.i:                                    ; preds = %for.end.i64.i
+  %cmp18.i69.i = icmp eq i8 %27, 32
+  %or.cond.i70.i = and i1 %skipSpace.0.shrunk4.i59.i, %cmp18.i69.i
+  br i1 %or.cond.i70.i, label %do.body.backedge.i77.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit83.i"
 
-do.body.backedge.i71.i:                           ; preds = %lor.rhs.i62.i, %for.end.i58.i
-  %skipSpace.0.shrunk.be.i72.i = phi i1 [ true, %lor.rhs.i62.i ], [ %or14.i60.i, %for.end.i58.i ]
-  %cmp.i73.i = icmp eq ptr %storemerge.i56.i, %retval.sroa.2.0.copyload.i.i
-  br i1 %cmp.i73.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit77.i", label %for.cond.preheader.i52.i, !llvm.loop !62
+do.body.backedge.i77.i:                           ; preds = %lor.rhs.i68.i, %for.end.i64.i
+  %skipSpace.0.shrunk.be.i78.i = phi i1 [ true, %lor.rhs.i68.i ], [ %or14.i66.i, %for.end.i64.i ]
+  %cmp.i79.i = icmp eq ptr %storemerge.i62.i, %retval.sroa.2.0.copyload.i.i
+  br i1 %cmp.i79.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit83.i", label %for.cond.preheader.i58.i, !llvm.loop !62
 
-"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit77.i": ; preds = %do.body.backedge.i71.i, %lor.rhs.i62.i, %while.body26.i
-  %mark.4.i = phi ptr [ %mark.1215.i, %while.body26.i ], [ %storemerge.i56.i, %lor.rhs.i62.i ], [ %storemerge.i56.i, %do.body.backedge.i71.i ]
-  br label %for.cond.preheader.i79.i
+"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit83.i": ; preds = %do.body.backedge.i77.i, %lor.rhs.i68.i, %while.body26.i
+  %mark.4.i = phi ptr [ %mark.1209.i, %while.body26.i ], [ %storemerge.i62.i, %lor.rhs.i68.i ], [ %storemerge.i62.i, %do.body.backedge.i77.i ]
+  br label %for.cond.preheader.i86.i
 
-for.cond.preheader.i79.i:                         ; preds = %do.body.backedge.i98.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit77.i"
-  %28 = phi ptr [ %storemerge.i83.i, %do.body.backedge.i98.i ], [ %pos.2214.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit77.i" ]
-  %skipSpace.0.shrunk17.i80.i = phi i1 [ %skipSpace.0.shrunk.be.i99.i, %do.body.backedge.i98.i ], [ false, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit77.i" ]
-  br label %for.cond.i81.i
+for.cond.preheader.i86.i:                         ; preds = %do.body.backedge.i105.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit83.i"
+  %skipSpace.0.shrunk4.i87.i = phi i1 [ %skipSpace.0.shrunk.be.i106.i, %do.body.backedge.i105.i ], [ false, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit83.i" ]
+  %28 = phi ptr [ %storemerge.i90.i, %do.body.backedge.i105.i ], [ %pos.2208.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit83.i" ]
+  br label %for.cond.i88.i
 
-for.cond.i81.i:                                   ; preds = %land.rhs.i102.i, %for.cond.preheader.i79.i
-  %.pn.i82.i = phi ptr [ %storemerge.i83.i, %land.rhs.i102.i ], [ %28, %for.cond.preheader.i79.i ]
-  %storemerge.i83.i = getelementptr inbounds i8, ptr %.pn.i82.i, i64 1
-  %cmp2.i84.i = icmp ult ptr %storemerge.i83.i, %retval.sroa.2.0.copyload.i.i
-  br i1 %cmp2.i84.i, label %land.rhs.i102.i, label %for.end.i85.i
+for.cond.i88.i:                                   ; preds = %land.rhs.i109.i, %for.cond.preheader.i86.i
+  %.pn.i89.i = phi ptr [ %storemerge.i90.i, %land.rhs.i109.i ], [ %28, %for.cond.preheader.i86.i ]
+  %storemerge.i90.i = getelementptr inbounds i8, ptr %.pn.i89.i, i64 1
+  %cmp2.i91.i = icmp ult ptr %storemerge.i90.i, %retval.sroa.2.0.copyload.i.i
+  br i1 %cmp2.i91.i, label %land.rhs.i109.i, label %for.end.i92.i
 
-land.rhs.i102.i:                                  ; preds = %for.cond.i81.i
-  %29 = load i8, ptr %storemerge.i83.i, align 1, !noalias !71
+land.rhs.i109.i:                                  ; preds = %for.cond.i88.i
+  %29 = load i8, ptr %storemerge.i90.i, align 1, !noalias !71
   %30 = and i8 %29, -64
-  %cmp.i.i103.i = icmp eq i8 %30, -128
-  br i1 %cmp.i.i103.i, label %for.cond.i81.i, label %for.end.i85.i, !llvm.loop !61
+  %cmp.i.i110.i = icmp eq i8 %30, -128
+  br i1 %cmp.i.i110.i, label %for.cond.i88.i, label %for.end.i92.i, !llvm.loop !61
 
-for.end.i85.i:                                    ; preds = %land.rhs.i102.i, %for.cond.i81.i
+for.end.i92.i:                                    ; preds = %land.rhs.i109.i, %for.cond.i88.i
   %31 = load i8, ptr %28, align 1, !noalias !71
-  %cmp4.i86.i = icmp eq i8 %31, 10
-  %or14.i87.i = or i1 %skipSpace.0.shrunk17.i80.i, %cmp4.i86.i
-  %cmp11.i88.i = icmp ult i8 %31, 32
-  br i1 %cmp11.i88.i, label %do.body.backedge.i98.i, label %lor.rhs.i89.i
+  %cmp4.i93.i = icmp eq i8 %31, 10
+  %or14.i94.i = or i1 %skipSpace.0.shrunk4.i87.i, %cmp4.i93.i
+  %cmp11.i95.i = icmp ult i8 %31, 32
+  br i1 %cmp11.i95.i, label %do.body.backedge.i105.i, label %lor.rhs.i96.i
 
-lor.rhs.i89.i:                                    ; preds = %for.end.i85.i
-  %cmp18.i90.i = icmp eq i8 %31, 32
-  %or.cond.i91.i = and i1 %skipSpace.0.shrunk17.i80.i, %cmp18.i90.i
-  br i1 %or.cond.i91.i, label %do.body.backedge.i98.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit104.loopexit.i"
+lor.rhs.i96.i:                                    ; preds = %for.end.i92.i
+  %cmp18.i97.i = icmp eq i8 %31, 32
+  %or.cond.i98.i = and i1 %skipSpace.0.shrunk4.i87.i, %cmp18.i97.i
+  br i1 %or.cond.i98.i, label %do.body.backedge.i105.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit111.loopexit.i"
 
-do.body.backedge.i98.i:                           ; preds = %lor.rhs.i89.i, %for.end.i85.i
-  %skipSpace.0.shrunk.be.i99.i = phi i1 [ true, %lor.rhs.i89.i ], [ %or14.i87.i, %for.end.i85.i ]
-  %cmp.i100.i = icmp eq ptr %storemerge.i83.i, %retval.sroa.2.0.copyload.i.i
-  br i1 %cmp.i100.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit104.loopexit.i", label %for.cond.preheader.i79.i, !llvm.loop !62
+do.body.backedge.i105.i:                          ; preds = %lor.rhs.i96.i, %for.end.i92.i
+  %skipSpace.0.shrunk.be.i106.i = phi i1 [ true, %lor.rhs.i96.i ], [ %or14.i94.i, %for.end.i92.i ]
+  %cmp.i107.i = icmp eq ptr %storemerge.i90.i, %retval.sroa.2.0.copyload.i.i
+  br i1 %cmp.i107.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit111.loopexit.i", label %for.cond.preheader.i86.i, !llvm.loop !62
 
-"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit104.loopexit.i": ; preds = %do.body.backedge.i98.i, %lor.rhs.i89.i
-  br i1 %cmp2.i84.i, label %while.body26.i, label %if.end29.i, !llvm.loop !74
+"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit111.loopexit.i": ; preds = %do.body.backedge.i105.i, %lor.rhs.i96.i
+  br i1 %cmp2.i91.i, label %while.body26.i, label %if.end29.i, !llvm.loop !74
 
-if.end29.i:                                       ; preds = %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit104.loopexit.i", %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %while.end20.i
-  %mark.0.i = phi ptr [ %pos.0.lcssa.i, %while.end20.i ], [ %pos.0.lcssa.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ], [ %mark.4.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit104.loopexit.i" ]
-  %cmp31217.i = icmp ult ptr %mark.0.i, %retval.sroa.2.0.copyload.i.i
-  br i1 %cmp31217.i, label %for.cond.preheader.i106.preheader.lr.ph.i, label %while.end37.i
+if.end29.i:                                       ; preds = %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit111.loopexit.i", %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %while.end20.i
+  %mark.0.i = phi ptr [ %pos.0.lcssa.i, %while.end20.i ], [ %pos.0.lcssa.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ], [ %mark.4.i, %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit111.loopexit.i" ]
+  %cmp31211.i = icmp ult ptr %mark.0.i, %retval.sroa.2.0.copyload.i.i
+  br i1 %cmp31211.i, label %for.cond.preheader.i114.preheader.lr.ph.i, label %while.end37.i
 
-for.cond.preheader.i106.preheader.lr.ph.i:        ; preds = %if.end29.i
-  %OutBufEnd.i132.i = getelementptr inbounds i8, ptr %OS.i, i64 16
-  %OutBufCur.i133.i = getelementptr inbounds i8, ptr %OS.i, i64 24
-  br label %for.cond.preheader.i106.i
+for.cond.preheader.i114.preheader.lr.ph.i:        ; preds = %if.end29.i
+  %OutBufEnd.i140.i = getelementptr inbounds i8, ptr %OS.i, i64 16
+  %OutBufCur.i141.i = getelementptr inbounds i8, ptr %OS.i, i64 24
+  br label %for.cond.preheader.i114.i
 
-for.cond.preheader.i106.i:                        ; preds = %for.cond.preheader.i106.i.backedge, %for.cond.preheader.i106.preheader.lr.ph.i
-  %32 = phi ptr [ %mark.0.i, %for.cond.preheader.i106.preheader.lr.ph.i ], [ %storemerge.i110.i, %for.cond.preheader.i106.i.backedge ]
-  %skipSpace.0.shrunk17.i107.i = phi i1 [ false, %for.cond.preheader.i106.preheader.lr.ph.i ], [ %skipSpace.0.shrunk17.i107.i.be, %for.cond.preheader.i106.i.backedge ]
-  br label %for.cond.i108.i
+for.cond.preheader.i114.i:                        ; preds = %for.cond.preheader.i114.i.backedge, %for.cond.preheader.i114.preheader.lr.ph.i
+  %skipSpace.0.shrunk4.i115.i = phi i1 [ false, %for.cond.preheader.i114.preheader.lr.ph.i ], [ %skipSpace.0.shrunk4.i115.i.be, %for.cond.preheader.i114.i.backedge ]
+  %32 = phi ptr [ %mark.0.i, %for.cond.preheader.i114.preheader.lr.ph.i ], [ %storemerge.i118.i, %for.cond.preheader.i114.i.backedge ]
+  br label %for.cond.i116.i
 
-for.cond.i108.i:                                  ; preds = %land.rhs.i129.i, %for.cond.preheader.i106.i
-  %.pn.i109.i = phi ptr [ %storemerge.i110.i, %land.rhs.i129.i ], [ %32, %for.cond.preheader.i106.i ]
-  %storemerge.i110.i = getelementptr inbounds i8, ptr %.pn.i109.i, i64 1
-  %cmp2.i111.i = icmp ult ptr %storemerge.i110.i, %retval.sroa.2.0.copyload.i.i
-  br i1 %cmp2.i111.i, label %land.rhs.i129.i, label %for.end.i112.i
+for.cond.i116.i:                                  ; preds = %land.rhs.i137.i, %for.cond.preheader.i114.i
+  %.pn.i117.i = phi ptr [ %storemerge.i118.i, %land.rhs.i137.i ], [ %32, %for.cond.preheader.i114.i ]
+  %storemerge.i118.i = getelementptr inbounds i8, ptr %.pn.i117.i, i64 1
+  %cmp2.i119.i = icmp ult ptr %storemerge.i118.i, %retval.sroa.2.0.copyload.i.i
+  br i1 %cmp2.i119.i, label %land.rhs.i137.i, label %for.end.i120.i
 
-land.rhs.i129.i:                                  ; preds = %for.cond.i108.i
-  %33 = load i8, ptr %storemerge.i110.i, align 1, !noalias !75
+land.rhs.i137.i:                                  ; preds = %for.cond.i116.i
+  %33 = load i8, ptr %storemerge.i118.i, align 1, !noalias !75
   %34 = and i8 %33, -64
-  %cmp.i.i130.i = icmp eq i8 %34, -128
-  br i1 %cmp.i.i130.i, label %for.cond.i108.i, label %for.end.i112.i, !llvm.loop !61
+  %cmp.i.i138.i = icmp eq i8 %34, -128
+  br i1 %cmp.i.i138.i, label %for.cond.i116.i, label %for.end.i120.i, !llvm.loop !61
 
-for.end.i112.i:                                   ; preds = %land.rhs.i129.i, %for.cond.i108.i
+for.end.i120.i:                                   ; preds = %land.rhs.i137.i, %for.cond.i116.i
   %35 = load i8, ptr %32, align 1, !noalias !75
-  %cmp4.i113.i = icmp eq i8 %35, 10
-  %or14.i114.i = or i1 %skipSpace.0.shrunk17.i107.i, %cmp4.i113.i
-  %cmp11.i115.i = icmp ult i8 %35, 32
-  br i1 %cmp11.i115.i, label %do.body.backedge.i125.i, label %lor.rhs.i116.i
+  %cmp4.i121.i = icmp eq i8 %35, 10
+  %or14.i122.i = or i1 %skipSpace.0.shrunk4.i115.i, %cmp4.i121.i
+  %cmp11.i123.i = icmp ult i8 %35, 32
+  br i1 %cmp11.i123.i, label %do.body.backedge.i133.i, label %lor.rhs.i124.i
 
-lor.rhs.i116.i:                                   ; preds = %for.end.i112.i
-  %cmp18.i117.i = icmp eq i8 %35, 32
-  %or.cond.i118.i = and i1 %skipSpace.0.shrunk17.i107.i, %cmp18.i117.i
-  br i1 %or.cond.i118.i, label %do.body.backedge.i125.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit131.i"
+lor.rhs.i124.i:                                   ; preds = %for.end.i120.i
+  %cmp18.i125.i = icmp eq i8 %35, 32
+  %or.cond.i126.i = and i1 %skipSpace.0.shrunk4.i115.i, %cmp18.i125.i
+  br i1 %or.cond.i126.i, label %do.body.backedge.i133.i, label %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit139.i"
 
-do.body.backedge.i125.i:                          ; preds = %lor.rhs.i116.i, %for.end.i112.i
-  %skipSpace.0.shrunk.be.i126.i = phi i1 [ true, %lor.rhs.i116.i ], [ %or14.i114.i, %for.end.i112.i ]
-  %cmp.i127.i = icmp ne ptr %storemerge.i110.i, %retval.sroa.2.0.copyload.i.i
-  %skipSpace.0.shrunk.be.i126.i.mux = select i1 %cmp.i127.i, i1 %skipSpace.0.shrunk.be.i126.i, i1 false
-  br i1 %cmp.i127.i, label %for.cond.preheader.i106.i.backedge, label %while.end37.i
+do.body.backedge.i133.i:                          ; preds = %lor.rhs.i124.i, %for.end.i120.i
+  %skipSpace.0.shrunk.be.i134.i = phi i1 [ true, %lor.rhs.i124.i ], [ %or14.i122.i, %for.end.i120.i ]
+  %cmp.i135.i = icmp ne ptr %storemerge.i118.i, %retval.sroa.2.0.copyload.i.i
+  %skipSpace.0.shrunk.be.i134.i.mux = select i1 %cmp.i135.i, i1 %skipSpace.0.shrunk.be.i134.i, i1 false
+  br i1 %cmp.i135.i, label %for.cond.preheader.i114.i.backedge, label %while.end37.i
 
-"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit131.i": ; preds = %lor.rhs.i116.i
-  %sub.ptr.lhs.cast.i120.i = ptrtoint ptr %storemerge.i110.i to i64
-  %sub.ptr.rhs.cast.i121.i = ptrtoint ptr %32 to i64
-  %sub.ptr.sub.i122.i = sub i64 %sub.ptr.lhs.cast.i120.i, %sub.ptr.rhs.cast.i121.i
-  %36 = load ptr, ptr %OutBufEnd.i132.i, align 8
-  %37 = load ptr, ptr %OutBufCur.i133.i, align 8
-  %sub.ptr.lhs.cast.i134.i = ptrtoint ptr %36 to i64
-  %sub.ptr.rhs.cast.i135.i = ptrtoint ptr %37 to i64
-  %sub.ptr.sub.i136.i = sub i64 %sub.ptr.lhs.cast.i134.i, %sub.ptr.rhs.cast.i135.i
-  %cmp.i137.i = icmp ugt i64 %sub.ptr.sub.i122.i, %sub.ptr.sub.i136.i
-  br i1 %cmp.i137.i, label %if.then.i143.i, label %if.then4.i140.i
+"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit139.i": ; preds = %lor.rhs.i124.i
+  %sub.ptr.lhs.cast.i128.i = ptrtoint ptr %storemerge.i118.i to i64
+  %sub.ptr.rhs.cast.i129.i = ptrtoint ptr %32 to i64
+  %sub.ptr.sub.i130.i = sub i64 %sub.ptr.lhs.cast.i128.i, %sub.ptr.rhs.cast.i129.i
+  %36 = load ptr, ptr %OutBufEnd.i140.i, align 8
+  %37 = load ptr, ptr %OutBufCur.i141.i, align 8
+  %sub.ptr.lhs.cast.i142.i = ptrtoint ptr %36 to i64
+  %sub.ptr.rhs.cast.i143.i = ptrtoint ptr %37 to i64
+  %sub.ptr.sub.i144.i = sub i64 %sub.ptr.lhs.cast.i142.i, %sub.ptr.rhs.cast.i143.i
+  %cmp.i145.i = icmp ugt i64 %sub.ptr.sub.i130.i, %sub.ptr.sub.i144.i
+  br i1 %cmp.i145.i, label %if.then.i151.i, label %if.then4.i148.i
 
-if.then.i143.i:                                   ; preds = %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit131.i"
-  %call3.i144.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i122.i) #16
-  br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit145.i
+if.then.i151.i:                                   ; preds = %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit139.i"
+  %call3.i152.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i130.i) #16
+  br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit153.i
 
-if.then4.i140.i:                                  ; preds = %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit131.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 1 dereferenceable(1) %32, i64 %sub.ptr.sub.i122.i, i1 false)
-  %38 = load ptr, ptr %OutBufCur.i133.i, align 8
-  %add.ptr.i141.i = getelementptr inbounds i8, ptr %38, i64 %sub.ptr.sub.i122.i
-  store ptr %add.ptr.i141.i, ptr %OutBufCur.i133.i, align 8
-  br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit145.i
+if.then4.i148.i:                                  ; preds = %"_ZZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeEENK3$_0clERPKc.exit139.i"
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 1 dereferenceable(1) %32, i64 %sub.ptr.sub.i130.i, i1 false)
+  %38 = load ptr, ptr %OutBufCur.i141.i, align 8
+  %add.ptr.i149.i = getelementptr inbounds i8, ptr %38, i64 %sub.ptr.sub.i130.i
+  store ptr %add.ptr.i149.i, ptr %OutBufCur.i141.i, align 8
+  br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit153.i
 
-_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit145.i: ; preds = %if.then4.i140.i, %if.then.i143.i
-  br i1 %cmp2.i111.i, label %for.cond.preheader.i106.i.backedge, label %while.end37.i
+_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit153.i: ; preds = %if.then4.i148.i, %if.then.i151.i
+  br i1 %cmp2.i119.i, label %for.cond.preheader.i114.i.backedge, label %while.end37.i
 
-for.cond.preheader.i106.i.backedge:               ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit145.i, %do.body.backedge.i125.i
-  %skipSpace.0.shrunk17.i107.i.be = phi i1 [ %skipSpace.0.shrunk.be.i126.i.mux, %do.body.backedge.i125.i ], [ false, %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit145.i ]
-  br label %for.cond.preheader.i106.i, !llvm.loop !62
+for.cond.preheader.i114.i.backedge:               ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit153.i, %do.body.backedge.i133.i
+  %skipSpace.0.shrunk4.i115.i.be = phi i1 [ %skipSpace.0.shrunk.be.i134.i.mux, %do.body.backedge.i133.i ], [ false, %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit153.i ]
+  br label %for.cond.preheader.i114.i, !llvm.loop !62
 
-while.end37.i:                                    ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit145.i, %do.body.backedge.i125.i, %if.end29.i
+while.end37.i:                                    ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit153.i, %do.body.backedge.i133.i, %if.end29.i
   %39 = load ptr, ptr %OS.i.i, align 8
   %40 = load ptr, ptr %39, align 8
   %Size.i.i.i = getelementptr inbounds i8, ptr %39, i64 8
@@ -5561,13 +5561,13 @@ while.end37.i:                                    ; preds = %_ZN4llvh11raw_ostre
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %OS.i) #16
   %42 = load ptr, ptr %textifiedCallee.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %42, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %_ZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeE.exit, label %if.then.i.i149.i
+  br i1 %cmp.i.i.i.i, label %_ZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeE.exit, label %if.then.i.i157.i
 
-if.then.i.i149.i:                                 ; preds = %while.end37.i
+if.then.i.i157.i:                                 ; preds = %while.end37.i
   call void @free(ptr noundef %42) #16
   br label %_ZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeE.exit
 
-_ZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeE.exit: ; preds = %while.end37.i, %if.then.i.i149.i
+_ZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeE.exit: ; preds = %while.end37.i, %if.then.i.i157.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %textifiedCallee.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %OS.i)
   %43 = load ptr, ptr %args, align 8

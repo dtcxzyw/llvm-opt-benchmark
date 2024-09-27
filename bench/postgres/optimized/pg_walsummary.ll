@@ -75,9 +75,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 15:                                               ; preds = %11
   %16 = load i32, ptr @optind, align 4
   %.not17 = icmp slt i32 %16, %0
-  br i1 %.not17, label %.lr.ph21, label %20
+  br i1 %.not17, label %.lr.ph23, label %20
 
-.lr.ph21:                                         ; preds = %15
+.lr.ph23:                                         ; preds = %15
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   %18 = getelementptr inbounds i8, ptr %5, i64 4
   %19 = getelementptr inbounds i8, ptr %5, i64 8
@@ -89,8 +89,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @exit(i32 noundef 1) #11
   unreachable
 
-21:                                               ; preds = %.lr.ph21, %._crit_edge
-  %22 = phi i32 [ %16, %.lr.ph21 ], [ %112, %._crit_edge ]
+21:                                               ; preds = %.lr.ph23, %._crit_edge
+  %22 = phi i32 [ %16, %.lr.ph23 ], [ %114, %._crit_edge ]
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr @optind, align 4
   %24 = sext i32 %22 to i64
@@ -147,12 +147,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %54 = load i32, ptr @block_buffer_size, align 4
   %55 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %32, ptr noundef %53, i32 noundef %54) #10
   %56 = load i32, ptr @block_buffer_size, align 4
-  %.not4651.i = icmp ult i32 %55, %56
-  br i1 %.not4651.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not465.i = icmp ult i32 %55, %56
+  br i1 %.not465.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %52, %.lr.ph.i
   %57 = phi i32 [ %spec.store.select.i, %.lr.ph.i ], [ %56, %52 ]
-  %.04052.i = phi i32 [ %68, %.lr.ph.i ], [ %55, %52 ]
+  %.0406.i = phi i32 [ %68, %.lr.ph.i ], [ %55, %52 ]
   %58 = shl i32 %57, 1
   %.inv.i = icmp sgt i32 %57, -1
   %spec.store.select.i = select i1 %.inv.i, i32 %58, i32 -1
@@ -166,7 +166,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %65 = getelementptr i32, ptr %62, i64 %64
   %66 = sub i32 %spec.store.select.i, %63
   %67 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %32, ptr noundef %65, i32 noundef %66) #10
-  %68 = add i32 %67, %.04052.i
+  %68 = add i32 %67, %.0406.i
   store i32 %spec.store.select.i, ptr @block_buffer_size, align 4
   %.not46.i = icmp ult i32 %68, %spec.store.select.i
   br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
@@ -179,111 +179,111 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %70 = load ptr, ptr @block_buffer, align 8
   %71 = zext i32 %.040.lcssa.i to i64
   call void @pg_qsort(ptr noundef %70, i64 noundef %71, i64 noundef 4, ptr noundef nonnull @compare_block_numbers) #10
-  %.not64.i = icmp eq i32 %.040.lcssa.i, 0
-  br i1 %.not64.i, label %dump_one_relation.exit, label %.lr.ph63.i
+  %.not18.i = icmp eq i32 %.040.lcssa.i, 0
+  br i1 %.not18.i, label %dump_one_relation.exit, label %.lr.ph17.i
 
-.lr.ph63.i:                                       ; preds = %69
+.lr.ph17.i:                                       ; preds = %69
   %72 = sext i32 %34 to i64
   %73 = getelementptr [0 x ptr], ptr @forkNames, i64 0, i64 %72
-  br i1 %.sroa.0.0, label %.lr.ph63.i.split.us, label %.lr.ph63.i.split
+  br i1 %.sroa.0.0, label %.lr.ph17.split.us.i, label %.preheader.i
 
-.lr.ph63.i.split.us:                              ; preds = %.lr.ph63.i
-  %.pre6569.i.us = load ptr, ptr %73, align 8
-  br label %.critedge.thread.sink.split.i.us
+.lr.ph17.split.us.i:                              ; preds = %.lr.ph17.i
+  %74 = load ptr, ptr %73, align 8
+  br label %.critedge.thread.us.i
 
-.critedge.thread.sink.split.i.us:                 ; preds = %.critedge.thread.sink.split.i.us, %.lr.ph63.i.split.us
-  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %.critedge.thread.sink.split.i.us ], [ 0, %.lr.ph63.i.split.us ]
-  %74 = load ptr, ptr @block_buffer, align 8
-  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %75 = getelementptr i32, ptr %74, i64 %indvars.iv27
-  %76 = load i32, ptr %75, align 4
-  %77 = load i32, ptr %5, align 4
-  %78 = load i32, ptr %18, align 4
-  %79 = load i32, ptr %19, align 4
-  %80 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.7, i32 noundef %77, i32 noundef %78, i32 noundef %79, ptr noundef %.pre6569.i.us, i32 noundef %76) #10
-  %exitcond.not = icmp eq i64 %indvars.iv.next28, %71
-  br i1 %exitcond.not, label %dump_one_relation.exit, label %.critedge.thread.sink.split.i.us, !llvm.loop !8
+.critedge.thread.us.i:                            ; preds = %.critedge.thread.us.i, %.lr.ph17.split.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.critedge.thread.us.i ], [ 0, %.lr.ph17.split.us.i ]
+  %75 = load ptr, ptr @block_buffer, align 8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %76 = getelementptr i32, ptr %75, i64 %indvars.iv.i
+  %77 = load i32, ptr %76, align 4
+  %78 = load i32, ptr %5, align 4
+  %79 = load i32, ptr %18, align 4
+  %80 = load i32, ptr %19, align 4
+  %81 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.7, i32 noundef %78, i32 noundef %79, i32 noundef %80, ptr noundef %74, i32 noundef %77) #10
+  %exitcond21.not.i = icmp eq i64 %indvars.iv.next.i, %71
+  br i1 %exitcond21.not.i, label %dump_one_relation.exit, label %.critedge.thread.us.i, !llvm.loop !8
 
-.lr.ph63.i.split:                                 ; preds = %.lr.ph63.i, %107
-  %.061.i = phi i32 [ %.149.i, %107 ], [ 0, %.lr.ph63.i ]
-  %81 = load ptr, ptr @block_buffer, align 8
-  %82 = add nuw i32 %.061.i, 1
-  %83 = zext i32 %.061.i to i64
-  %84 = getelementptr i32, ptr %81, i64 %83
-  %85 = load i32, ptr %84, align 4
-  %.not = icmp ult i32 %82, %.040.lcssa.i
-  br i1 %.not, label %.lr.ph55.preheader.i, label %.critedge.thread.sink.split.i
+.preheader.i:                                     ; preds = %.lr.ph17.i, %109
+  %.015.i = phi i32 [ %.2.lcssa25.i, %109 ], [ 0, %.lr.ph17.i ]
+  %82 = load ptr, ptr @block_buffer, align 8
+  %83 = add nuw i32 %.015.i, 1
+  %84 = zext i32 %.015.i to i64
+  %85 = getelementptr i32, ptr %82, i64 %84
+  %86 = load i32, ptr %85, align 4
+  %87 = icmp ult i32 %83, %.040.lcssa.i
+  br i1 %87, label %.lr.ph9.preheader.i, label %.preheader.i..critedge.thread.i_crit_edge
 
-.lr.ph55.preheader.i:                             ; preds = %.lr.ph63.i.split
-  %86 = xor i32 %.061.i, -1
-  %87 = add i32 %.040.lcssa.i, %86
-  %88 = add i32 %87, %85
-  %89 = add nuw nsw i64 %83, 1
-  br label %.lr.ph55.i
-
-.lr.ph55.i:                                       ; preds = %94, %.lr.ph55.preheader.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %94 ], [ %89, %.lr.ph55.preheader.i ]
-  %.13953.i = phi i32 [ %91, %94 ], [ %85, %.lr.ph55.preheader.i ]
-  %90 = getelementptr i32, ptr %81, i64 %indvars.iv
-  %91 = load i32, ptr %90, align 4
-  %92 = add i32 %.13953.i, 1
-  %93 = icmp eq i32 %91, %92
-  br i1 %93, label %94, label %.critedge.i.split.loop.exit33
-
-94:                                               ; preds = %.lr.ph55.i
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next, %71
-  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph55.i, !llvm.loop !9
-
-.critedge.i.split.loop.exit33:                    ; preds = %.lr.ph55.i
-  %95 = trunc nuw i64 %indvars.iv to i32
-  br label %.critedge.i
-
-.critedge.i:                                      ; preds = %94, %.critedge.i.split.loop.exit33
-  %.139.lcssa.i = phi i32 [ %.13953.i, %.critedge.i.split.loop.exit33 ], [ %88, %94 ]
-  %.2.lcssa.i = phi i32 [ %95, %.critedge.i.split.loop.exit33 ], [ %.040.lcssa.i, %94 ]
-  %96 = icmp eq i32 %85, %.139.lcssa.i
-  %.pre65.i = load ptr, ptr %73, align 8
-  br i1 %96, label %.critedge.thread.i, label %102
-
-.critedge.thread.sink.split.i:                    ; preds = %.lr.ph63.i.split
-  %.pre6569.i = load ptr, ptr %73, align 8
+.preheader.i..critedge.thread.i_crit_edge:        ; preds = %.preheader.i
+  %.pre = load ptr, ptr %73, align 8
   br label %.critedge.thread.i
 
-.critedge.thread.i:                               ; preds = %.critedge.thread.sink.split.i, %.critedge.i
-  %97 = phi ptr [ %.pre65.i, %.critedge.i ], [ %.pre6569.i, %.critedge.thread.sink.split.i ]
-  %.150.i = phi i32 [ %.2.lcssa.i, %.critedge.i ], [ %82, %.critedge.thread.sink.split.i ]
-  %98 = load i32, ptr %5, align 4
-  %99 = load i32, ptr %18, align 4
-  %100 = load i32, ptr %19, align 4
-  %101 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.7, i32 noundef %98, i32 noundef %99, i32 noundef %100, ptr noundef %97, i32 noundef %85) #10
-  br label %107
+.lr.ph9.preheader.i:                              ; preds = %.preheader.i
+  %88 = xor i32 %.015.i, -1
+  %89 = add i32 %.040.lcssa.i, %88
+  %90 = add i32 %89, %86
+  %91 = add nuw nsw i64 %84, 1
+  br label %.lr.ph9.i
 
-102:                                              ; preds = %.critedge.i
-  %103 = load i32, ptr %5, align 4
-  %104 = load i32, ptr %18, align 4
-  %105 = load i32, ptr %19, align 4
-  %106 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.8, i32 noundef %103, i32 noundef %104, i32 noundef %105, ptr noundef %.pre65.i, i32 noundef %85, i32 noundef %.139.lcssa.i) #10
-  br label %107
+.lr.ph9.i:                                        ; preds = %96, %.lr.ph9.preheader.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ %91, %.lr.ph9.preheader.i ]
+  %.1397.i = phi i32 [ %93, %96 ], [ %86, %.lr.ph9.preheader.i ]
+  %92 = getelementptr i32, ptr %82, i64 %indvars.iv
+  %93 = load i32, ptr %92, align 4
+  %94 = add i32 %.1397.i, 1
+  %95 = icmp eq i32 %93, %94
+  br i1 %95, label %96, label %.critedge.i.split.loop.exit33
 
-107:                                              ; preds = %102, %.critedge.thread.i
-  %.149.i = phi i32 [ %.2.lcssa.i, %102 ], [ %.150.i, %.critedge.thread.i ]
-  %108 = icmp ult i32 %.149.i, %.040.lcssa.i
-  br i1 %108, label %.lr.ph63.i.split, label %dump_one_relation.exit, !llvm.loop !8
+96:                                               ; preds = %.lr.ph9.i
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next, %71
+  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph9.i, !llvm.loop !9
 
-dump_one_relation.exit:                           ; preds = %107, %.critedge.thread.sink.split.i.us, %._crit_edge.i, %69
-  %109 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
-  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+.critedge.i.split.loop.exit33:                    ; preds = %.lr.ph9.i
+  %97 = trunc nuw i64 %indvars.iv to i32
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %96, %.critedge.i.split.loop.exit33
+  %.139.lcssa.i = phi i32 [ %.1397.i, %.critedge.i.split.loop.exit33 ], [ %90, %96 ]
+  %.2.lcssa.i = phi i32 [ %97, %.critedge.i.split.loop.exit33 ], [ %.040.lcssa.i, %96 ]
+  %98 = icmp eq i32 %86, %.139.lcssa.i
+  %.pre29 = load ptr, ptr %73, align 8
+  br i1 %98, label %.critedge.thread.i, label %104
+
+.critedge.thread.i:                               ; preds = %.preheader.i..critedge.thread.i_crit_edge, %.critedge.i
+  %99 = phi ptr [ %.pre29, %.critedge.i ], [ %.pre, %.preheader.i..critedge.thread.i_crit_edge ]
+  %.2.lcssa26.i = phi i32 [ %.2.lcssa.i, %.critedge.i ], [ %83, %.preheader.i..critedge.thread.i_crit_edge ]
+  %100 = load i32, ptr %5, align 4
+  %101 = load i32, ptr %18, align 4
+  %102 = load i32, ptr %19, align 4
+  %103 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.7, i32 noundef %100, i32 noundef %101, i32 noundef %102, ptr noundef %99, i32 noundef %86) #10
+  br label %109
+
+104:                                              ; preds = %.critedge.i
+  %105 = load i32, ptr %5, align 4
+  %106 = load i32, ptr %18, align 4
+  %107 = load i32, ptr %19, align 4
+  %108 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.8, i32 noundef %105, i32 noundef %106, i32 noundef %107, ptr noundef %.pre29, i32 noundef %86, i32 noundef %.139.lcssa.i) #10
+  br label %109
+
+109:                                              ; preds = %104, %.critedge.thread.i
+  %.2.lcssa25.i = phi i32 [ %.2.lcssa.i, %104 ], [ %.2.lcssa26.i, %.critedge.thread.i ]
+  %110 = icmp ult i32 %.2.lcssa25.i, %.040.lcssa.i
+  br i1 %110, label %.preheader.i, label %dump_one_relation.exit, !llvm.loop !8
+
+dump_one_relation.exit:                           ; preds = %109, %.critedge.thread.us.i, %._crit_edge.i, %69
+  %111 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
+  br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %dump_one_relation.exit, %31
   call void @DestroyBlockRefTableReader(ptr noundef %32) #10
-  %110 = load i32, ptr %4, align 8
-  %111 = call i32 @close(i32 noundef %110) #10
-  %112 = load i32, ptr @optind, align 4
-  %113 = icmp slt i32 %112, %0
-  br i1 %113, label %21, label %._crit_edge22, !llvm.loop !11
+  %112 = load i32, ptr %4, align 8
+  %113 = call i32 @close(i32 noundef %112) #10
+  %114 = load i32, ptr @optind, align 4
+  %115 = icmp slt i32 %114, %0
+  br i1 %115, label %21, label %._crit_edge24, !llvm.loop !11
 
-._crit_edge22:                                    ; preds = %._crit_edge
+._crit_edge24:                                    ; preds = %._crit_edge
   call void @exit(i32 noundef 0) #12
   unreachable
 }

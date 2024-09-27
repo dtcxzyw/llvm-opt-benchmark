@@ -617,7 +617,7 @@ $_ZTIPFSt10shared_ptrIKN10open_spiel4GameEERKSt3mapINSt7__cxx1112basic_stringIcS
 @llvm.global_ctors = appending global [4 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.1, ptr @_ZN10open_spiel5chess19kDefaultStandardFENB5cxx11E }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.2, ptr @_ZN10open_spiel5chess16kDefaultSmallFENB5cxx11E }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.4, ptr @_ZN10open_spiel5chess9kPassMoveE }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_chess.cc, ptr null }]
 @llvm.used = appending global [3 x ptr] [ptr @_ZN10open_spiel5chess16kDefaultSmallFENB5cxx11E, ptr @_ZN10open_spiel5chess19kDefaultStandardFENB5cxx11E, ptr @_ZN10open_spiel5chess9kPassMoveE], section "llvm.metadata"
 @switch.table._ZN10open_spiel5chess12MoveToActionERKNS0_4MoveEi = private unnamed_addr constant [3 x ptr] [ptr @_ZN10open_spiel5chess26kUnderPromotionIndexToTypeE, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5chess26kUnderPromotionIndexToTypeE, i64 1), ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5chess26kUnderPromotionIndexToTypeE, i64 2)], align 8
-@switch.table._ZN10open_spiel5chess12MoveToActionERKNS0_4MoveEi.13 = private unnamed_addr constant [3 x ptr] [ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5chess32kUnderPromotionDirectionToOffsetE, i64 4), ptr @_ZN10open_spiel5chess32kUnderPromotionDirectionToOffsetE, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5chess32kUnderPromotionDirectionToOffsetE, i64 2)], align 8
+@switch.table._ZN10open_spiel5chess12MoveToActionERKNS0_4MoveEi.14 = private unnamed_addr constant [3 x ptr] [ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5chess32kUnderPromotionDirectionToOffsetE, i64 4), ptr @_ZN10open_spiel5chess32kUnderPromotionDirectionToOffsetE, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5chess32kUnderPromotionDirectionToOffsetE, i64 2)], align 8
 
 @_ZN10open_spiel5chess10ChessStateC1ESt10shared_ptrIKNS_4GameEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN10open_spiel5chess10ChessStateC2ESt10shared_ptrIKNS_4GameEE
 @_ZN10open_spiel5chess10ChessStateC1ESt10shared_ptrIKNS_4GameEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN10open_spiel5chess10ChessStateC2ESt10shared_ptrIKNS_4GameEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
@@ -2759,7 +2759,7 @@ switch.lookup73:                                  ; preds = %switch.lookup
   %116 = ptrtoint ptr %switch.load to i64
   %117 = sub i64 %116, ptrtoint (ptr @_ZN10open_spiel5chess26kUnderPromotionIndexToTypeE to i64)
   %118 = zext nneg i8 %switch.tableidx74 to i64
-  %switch.gep75 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN10open_spiel5chess12MoveToActionERKNS0_4MoveEi.13, i64 0, i64 %118
+  %switch.gep75 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN10open_spiel5chess12MoveToActionERKNS0_4MoveEi.14, i64 0, i64 %118
   %switch.load76 = load ptr, ptr %switch.gep75, align 8
   %119 = ptrtoint ptr %switch.load76 to i64
   %120 = sub i64 %119, ptrtoint (ptr @_ZN10open_spiel5chess32kUnderPromotionDirectionToOffsetE to i64)
@@ -3776,21 +3776,21 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i8 1, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %11, align 8
-  %12 = ptrtoint ptr %0 to i64
-  store i64 %12, ptr %2, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS1_10ChessState25MaybeGenerateLegalActionsEvE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %10, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS1_10ChessState25MaybeGenerateLegalActionsEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %9, align 8
+  %9 = ptrtoint ptr %0 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %12, align 8
+  store i64 %9, ptr %2, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS1_10ChessState25MaybeGenerateLegalActionsEvE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %11, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS1_10ChessState25MaybeGenerateLegalActionsEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 390
   %14 = load i8, ptr %13, align 2
   invoke void @_ZNK10open_spiel5chess10ChessBoard18GenerateLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorE(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext %14)
           to label %_ZNK10open_spiel5chess10ChessBoard18GenerateLegalMovesERKSt8functionIFbRKNS0_4MoveEEE.exit unwind label %26
 
 _ZNK10open_spiel5chess10ChessBoard18GenerateLegalMovesERKSt8functionIFbRKNS0_4MoveEEE.exit: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
-  %15 = load ptr, ptr %9, align 8
+  %15 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit, label %16
 
@@ -3823,7 +3823,7 @@ _ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit: ; preds = %_ZNSt8functio
 26:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
   %27 = landingpad { ptr, i32 }
           cleanup
-  %28 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
   %.not.i.i6 = icmp eq ptr %28, null
   br i1 %.not.i.i6, label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit7, label %29
 

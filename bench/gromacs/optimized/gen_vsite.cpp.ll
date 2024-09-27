@@ -83,8 +83,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_string_view" = type { i64, ptr }
 %"struct.VirtualSiteTopology::VirtualSiteBond" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", float, [4 x i8] }>
 %"struct.VirtualSiteTopology::VirtualSiteAngle" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", float, [4 x i8] }>
-%"struct.__gnu_cxx::__ops::_Iter_pred.108" = type { %class.anon.106 }
-%class.anon.106 = type { ptr, ptr }
 %"struct.__gnu_cxx::__ops::_Iter_pred.113" = type { %class.anon.111 }
 %class.anon.111 = type { ptr, ptr, ptr }
 
@@ -6719,17 +6717,17 @@ _ZL18nitrogen_is_planarN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx11
   %2243 = icmp sgt i64 %2242, 0
   br i1 %2243, label %.lr.ph.i.i.i.i776, label %._crit_edge.i.i.i.i769
 
-.lr.ph.i.i.i.i776:                                ; preds = %2235, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit20.thread.i.i.i.i"
-  %.048.i.i.i.i = phi i64 [ %2260, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit20.thread.i.i.i.i" ], [ %2242, %2235 ]
-  %.sroa.039.047.i.i.i.i = phi ptr [ %2259, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit20.thread.i.i.i.i" ], [ %2236, %2235 ]
-  %2244 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.039.047.i.i.i.i)
+.lr.ph.i.i.i.i776:                                ; preds = %2235, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit33.thread.i.i.i.i"
+  %.049.i.i.i.i = phi i64 [ %2260, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit33.thread.i.i.i.i" ], [ %2242, %2235 ]
+  %.sroa.040.048.i.i.i.i = phi ptr [ %2259, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit33.thread.i.i.i.i" ], [ %2236, %2235 ]
+  %2244 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.040.048.i.i.i.i)
           to label %.noexc779 unwind label %.loopexit1530
 
 .noexc779:                                        ; preds = %.lr.ph.i.i.i.i776
   br i1 %2244, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit.i.i.i.i": ; preds = %.noexc779
-  %2245 = getelementptr inbounds i8, ptr %.sroa.039.047.i.i.i.i, i64 40
+  %2245 = getelementptr inbounds i8, ptr %.sroa.040.048.i.i.i.i, i64 40
   %2246 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(32) %2245)
           to label %.noexc780 unwind label %.loopexit1530
 
@@ -6737,68 +6735,68 @@ _ZL18nitrogen_is_planarN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx11
   br i1 %2246, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit.thread.i.i.i.i": ; preds = %.noexc780, %.noexc779
-  %2247 = getelementptr inbounds i8, ptr %.sroa.039.047.i.i.i.i, i64 104
+  %2247 = getelementptr inbounds i8, ptr %.sroa.040.048.i.i.i.i, i64 104
   %2248 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(32) %2247)
           to label %.noexc781 unwind label %.loopexit1530
 
 .noexc781:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit.thread.i.i.i.i"
-  br i1 %2248, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit18.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit18.thread.i.i.i.i"
+  br i1 %2248, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit31.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit31.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit18.i.i.i.i": ; preds = %.noexc781
-  %2249 = getelementptr inbounds i8, ptr %.sroa.039.047.i.i.i.i, i64 144
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit31.i.i.i.i": ; preds = %.noexc781
+  %2249 = getelementptr inbounds i8, ptr %.sroa.040.048.i.i.i.i, i64 144
   %2250 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(32) %2249)
           to label %.noexc782 unwind label %.loopexit1530
 
-.noexc782:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit18.i.i.i.i"
-  br i1 %2250, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit18.thread.i.i.i.i"
+.noexc782:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit31.i.i.i.i"
+  br i1 %2250, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit31.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit18.thread.i.i.i.i": ; preds = %.noexc782, %.noexc781
-  %2251 = getelementptr inbounds i8, ptr %.sroa.039.047.i.i.i.i, i64 208
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit31.thread.i.i.i.i": ; preds = %.noexc782, %.noexc781
+  %2251 = getelementptr inbounds i8, ptr %.sroa.040.048.i.i.i.i, i64 208
   %2252 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(32) %2251)
           to label %.noexc783 unwind label %.loopexit1530
 
-.noexc783:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit18.thread.i.i.i.i"
-  br i1 %2252, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit19.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit19.thread.i.i.i.i"
+.noexc783:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit31.thread.i.i.i.i"
+  br i1 %2252, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit32.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit32.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit19.i.i.i.i": ; preds = %.noexc783
-  %2253 = getelementptr inbounds i8, ptr %.sroa.039.047.i.i.i.i, i64 248
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit32.i.i.i.i": ; preds = %.noexc783
+  %2253 = getelementptr inbounds i8, ptr %.sroa.040.048.i.i.i.i, i64 248
   %2254 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(32) %2253)
           to label %.noexc784 unwind label %.loopexit1530
 
-.noexc784:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit19.i.i.i.i"
-  br i1 %2254, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit19.thread.i.i.i.i"
+.noexc784:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit32.i.i.i.i"
+  br i1 %2254, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit32.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit19.thread.i.i.i.i": ; preds = %.noexc784, %.noexc783
-  %2255 = getelementptr inbounds i8, ptr %.sroa.039.047.i.i.i.i, i64 312
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit32.thread.i.i.i.i": ; preds = %.noexc784, %.noexc783
+  %2255 = getelementptr inbounds i8, ptr %.sroa.040.048.i.i.i.i, i64 312
   %2256 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(32) %2255)
           to label %.noexc785 unwind label %.loopexit1530
 
-.noexc785:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit19.thread.i.i.i.i"
-  br i1 %2256, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit20.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit20.thread.i.i.i.i"
+.noexc785:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit32.thread.i.i.i.i"
+  br i1 %2256, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit33.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit33.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit20.i.i.i.i": ; preds = %.noexc785
-  %2257 = getelementptr inbounds i8, ptr %.sroa.039.047.i.i.i.i, i64 352
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit33.i.i.i.i": ; preds = %.noexc785
+  %2257 = getelementptr inbounds i8, ptr %.sroa.040.048.i.i.i.i, i64 352
   %2258 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(32) %2257)
           to label %.noexc786 unwind label %.loopexit1530
 
-.noexc786:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit20.i.i.i.i"
-  br i1 %2258, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit20.thread.i.i.i.i"
+.noexc786:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit33.i.i.i.i"
+  br i1 %2258, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit33.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit20.thread.i.i.i.i": ; preds = %.noexc786, %.noexc785
-  %2259 = getelementptr inbounds i8, ptr %.sroa.039.047.i.i.i.i, i64 416
-  %2260 = add nsw i64 %.048.i.i.i.i, -1
-  %2261 = icmp sgt i64 %.048.i.i.i.i, 1
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit33.thread.i.i.i.i": ; preds = %.noexc786, %.noexc785
+  %2259 = getelementptr inbounds i8, ptr %.sroa.040.048.i.i.i.i, i64 416
+  %2260 = add nsw i64 %.049.i.i.i.i, -1
+  %2261 = icmp sgt i64 %.049.i.i.i.i, 1
   br i1 %2261, label %.lr.ph.i.i.i.i776, label %._crit_edge.loopexit.i.i.i.i777, !llvm.loop !30
 
-._crit_edge.loopexit.i.i.i.i777:                  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit20.thread.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i777:                  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit33.thread.i.i.i.i"
   %.pre.i.i.i.i778 = ptrtoint ptr %2259 to i64
-  %.pre49.i.i.i.i = sub i64 %2238, %.pre.i.i.i.i778
+  %.pre50.i.i.i.i = sub i64 %2238, %.pre.i.i.i.i778
   br label %._crit_edge.i.i.i.i769
 
 ._crit_edge.i.i.i.i769:                           ; preds = %._crit_edge.loopexit.i.i.i.i777, %2235
-  %.pre-phi50.i.i.i.i = phi i64 [ %.pre49.i.i.i.i, %._crit_edge.loopexit.i.i.i.i777 ], [ %2240, %2235 ]
-  %.sroa.039.0.lcssa.i.i.i.i = phi ptr [ %2259, %._crit_edge.loopexit.i.i.i.i777 ], [ %2236, %2235 ]
-  %2262 = sdiv exact i64 %.pre-phi50.i.i.i.i, 104
+  %.pre-phi51.i.i.i.i = phi i64 [ %.pre50.i.i.i.i, %._crit_edge.loopexit.i.i.i.i777 ], [ %2240, %2235 ]
+  %.sroa.040.0.lcssa.i.i.i.i = phi ptr [ %2259, %._crit_edge.loopexit.i.i.i.i777 ], [ %2236, %2235 ]
+  %2262 = sdiv exact i64 %.pre-phi51.i.i.i.i, 104
   switch i64 %2262, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.thread.i" [
     i64 3, label %2263
     i64 2, label %2268
@@ -6806,62 +6804,62 @@ _ZL18nitrogen_is_planarN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx11
   ]
 
 2263:                                             ; preds = %._crit_edge.i.i.i.i769
-  %2264 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.039.0.lcssa.i.i.i.i)
+  %2264 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.040.0.lcssa.i.i.i.i)
           to label %.noexc787 unwind label %.loopexit.split-lp1531
 
 .noexc787:                                        ; preds = %2263
-  br i1 %2264, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit21.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit21.thread.i.i.i.i"
+  br i1 %2264, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit34.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit34.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit21.i.i.i.i": ; preds = %.noexc787
-  %2265 = getelementptr inbounds i8, ptr %.sroa.039.0.lcssa.i.i.i.i, i64 40
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit34.i.i.i.i": ; preds = %.noexc787
+  %2265 = getelementptr inbounds i8, ptr %.sroa.040.0.lcssa.i.i.i.i, i64 40
   %2266 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(32) %2265)
           to label %.noexc788 unwind label %.loopexit.split-lp1531
 
-.noexc788:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit21.i.i.i.i"
-  br i1 %2266, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit21.thread.i.i.i.i"
+.noexc788:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit34.i.i.i.i"
+  br i1 %2266, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit34.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit21.thread.i.i.i.i": ; preds = %.noexc788, %.noexc787
-  %2267 = getelementptr inbounds i8, ptr %.sroa.039.0.lcssa.i.i.i.i, i64 104
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit34.thread.i.i.i.i": ; preds = %.noexc788, %.noexc787
+  %2267 = getelementptr inbounds i8, ptr %.sroa.040.0.lcssa.i.i.i.i, i64 104
   br label %2268
 
-2268:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit21.thread.i.i.i.i", %._crit_edge.i.i.i.i769
-  %.sroa.039.1.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i769 ], [ %2267, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit21.thread.i.i.i.i" ]
-  %2269 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.039.1.i.i.i.i)
+2268:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit34.thread.i.i.i.i", %._crit_edge.i.i.i.i769
+  %.sroa.040.1.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i769 ], [ %2267, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit34.thread.i.i.i.i" ]
+  %2269 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.040.1.i.i.i.i)
           to label %.noexc789 unwind label %.loopexit.split-lp1531
 
 .noexc789:                                        ; preds = %2268
-  br i1 %2269, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit22.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit22.thread.i.i.i.i"
+  br i1 %2269, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit35.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit35.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit22.i.i.i.i": ; preds = %.noexc789
-  %2270 = getelementptr inbounds i8, ptr %.sroa.039.1.i.i.i.i, i64 40
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit35.i.i.i.i": ; preds = %.noexc789
+  %2270 = getelementptr inbounds i8, ptr %.sroa.040.1.i.i.i.i, i64 40
   %2271 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(32) %2270)
           to label %.noexc790 unwind label %.loopexit.split-lp1531
 
-.noexc790:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit22.i.i.i.i"
-  br i1 %2271, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit22.thread.i.i.i.i"
+.noexc790:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit35.i.i.i.i"
+  br i1 %2271, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit35.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit22.thread.i.i.i.i": ; preds = %.noexc790, %.noexc789
-  %2272 = getelementptr inbounds i8, ptr %.sroa.039.1.i.i.i.i, i64 104
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit35.thread.i.i.i.i": ; preds = %.noexc790, %.noexc789
+  %2272 = getelementptr inbounds i8, ptr %.sroa.040.1.i.i.i.i, i64 104
   br label %2273
 
-2273:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit22.thread.i.i.i.i", %._crit_edge.i.i.i.i769
-  %.sroa.039.2.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i769 ], [ %2272, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit22.thread.i.i.i.i" ]
-  %2274 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.039.2.i.i.i.i)
+2273:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit35.thread.i.i.i.i", %._crit_edge.i.i.i.i769
+  %.sroa.040.2.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i769 ], [ %2272, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit35.thread.i.i.i.i" ]
+  %2274 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.040.2.i.i.i.i)
           to label %.noexc791 unwind label %.loopexit.split-lp1531
 
 .noexc791:                                        ; preds = %2273
-  br i1 %2274, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit23.i.i.i.i", label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.thread.i"
+  br i1 %2274, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit36.i.i.i.i", label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit23.i.i.i.i": ; preds = %.noexc791
-  %2275 = getelementptr inbounds i8, ptr %.sroa.039.2.i.i.i.i, i64 40
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit36.i.i.i.i": ; preds = %.noexc791
+  %2275 = getelementptr inbounds i8, ptr %.sroa.040.2.i.i.i.i, i64 40
   %2276 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(32) %2275)
           to label %.noexc792 unwind label %.loopexit.split-lp1531
 
-.noexc792:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit23.i.i.i.i"
+.noexc792:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit36.i.i.i.i"
   br i1 %2276, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i", label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.thread.i"
 
 "_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i": ; preds = %.noexc786, %.noexc784, %.noexc782, %.noexc780, %.noexc792, %.noexc790, %.noexc788
-  %.sroa.010.0.in.sroa.speculated.i.i.i.i774 = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i, %.noexc788 ], [ %.sroa.039.1.i.i.i.i, %.noexc790 ], [ %.sroa.039.2.i.i.i.i, %.noexc792 ], [ %2255, %.noexc786 ], [ %2251, %.noexc784 ], [ %2247, %.noexc782 ], [ %.sroa.039.047.i.i.i.i, %.noexc780 ]
+  %.sroa.010.0.in.sroa.speculated.i.i.i.i774 = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i, %.noexc788 ], [ %.sroa.040.1.i.i.i.i, %.noexc790 ], [ %.sroa.040.2.i.i.i.i, %.noexc792 ], [ %2255, %.noexc786 ], [ %2251, %.noexc784 ], [ %2247, %.noexc782 ], [ %.sroa.040.048.i.i.i.i, %.noexc780 ]
   %.not.i775 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i.i774, %2237
   br i1 %.not.i775, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.thread.i", label %2277
 
@@ -6949,12 +6947,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i773:
 2300:                                             ; preds = %2297
   unreachable
 
-.loopexit1530:                                    ; preds = %.lr.ph.i.i.i.i776, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit18.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit18.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit19.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit19.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit20.i.i.i.i"
+.loopexit1530:                                    ; preds = %.lr.ph.i.i.i.i776, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit31.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit31.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit32.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit32.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit33.i.i.i.i"
   %lpad.loopexit1532 = landingpad { ptr, i32 }
           cleanup
   br label %.body794
 
-.loopexit.split-lp1531:                           ; preds = %2263, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit21.i.i.i.i", %2268, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit22.i.i.i.i", %2273, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit23.i.i.i.i", %2277
+.loopexit.split-lp1531:                           ; preds = %2263, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit34.i.i.i.i", %2268, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit35.i.i.i.i", %2273, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit36.i.i.i.i", %2277
   %lpad.loopexit.split-lp1533 = landingpad { ptr, i32 }
           cleanup
   br label %.body794
@@ -17905,214 +17903,208 @@ declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_Impl
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef float @_ZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_(ptr %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.108", align 8
+  %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %8 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %9 = ptrtoint ptr %1 to i64
-  %10 = ptrtoint ptr %0 to i64
-  %11 = sub i64 %9, %10
-  %12 = sdiv exact i64 %11, 80
-  %13 = ashr i64 %12, 2
-  %14 = icmp sgt i64 %13, 0
-  br i1 %14, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %8 = ptrtoint ptr %1 to i64
+  %9 = ptrtoint ptr %0 to i64
+  %10 = sub i64 %8, %9
+  %11 = sdiv exact i64 %10, 80
+  %12 = ashr i64 %11, 2
+  %13 = icmp sgt i64 %12, 0
+  br i1 %13, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %5, %25
-  %.043.i.i.i = phi i64 [ %27, %25 ], [ %13, %5 ]
-  %.sroa.034.042.i.i.i = phi ptr [ %26, %25 ], [ %0, %5 ]
-  %15 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.034.042.i.i.i)
-  br i1 %15, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit", label %16
+.lr.ph.i.i.i:                                     ; preds = %5, %24
+  %.043.i.i.i = phi i64 [ %26, %24 ], [ %12, %5 ]
+  %.sroa.034.042.i.i.i = phi ptr [ %25, %24 ], [ %0, %5 ]
+  %14 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.034.042.i.i.i)
+  br i1 %14, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit", label %15
 
-16:                                               ; preds = %.lr.ph.i.i.i
-  %17 = getelementptr inbounds i8, ptr %.sroa.034.042.i.i.i, i64 80
-  %18 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %17)
-  br i1 %18, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit", label %19
+15:                                               ; preds = %.lr.ph.i.i.i
+  %16 = getelementptr inbounds i8, ptr %.sroa.034.042.i.i.i, i64 80
+  %17 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  br i1 %17, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit", label %18
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %.sroa.034.042.i.i.i, i64 160
-  %21 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %20)
-  br i1 %21, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit", label %22
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds i8, ptr %.sroa.034.042.i.i.i, i64 160
+  %20 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  br i1 %20, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit", label %21
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %.sroa.034.042.i.i.i, i64 240
-  %24 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %23)
-  br i1 %24, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit", label %25
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds i8, ptr %.sroa.034.042.i.i.i, i64 240
+  %23 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  br i1 %23, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit", label %24
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %.sroa.034.042.i.i.i, i64 320
-  %27 = add nsw i64 %.043.i.i.i, -1
-  %28 = icmp sgt i64 %.043.i.i.i, 1
-  br i1 %28, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !122
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds i8, ptr %.sroa.034.042.i.i.i, i64 320
+  %26 = add nsw i64 %.043.i.i.i, -1
+  %27 = icmp sgt i64 %.043.i.i.i, 1
+  br i1 %27, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !122
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %25
-  %.pre.i.i.i = ptrtoint ptr %26 to i64
-  %.pre44.i.i.i = sub i64 %9, %.pre.i.i.i
+._crit_edge.loopexit.i.i.i:                       ; preds = %24
+  %.pre.i.i.i = ptrtoint ptr %25 to i64
+  %.pre44.i.i.i = sub i64 %8, %.pre.i.i.i
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %5
-  %.pre-phi45.i.i.i = phi i64 [ %.pre44.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %11, %5 ]
-  %.sroa.034.0.lcssa.i.i.i = phi ptr [ %26, %._crit_edge.loopexit.i.i.i ], [ %0, %5 ]
-  %29 = sdiv exact i64 %.pre-phi45.i.i.i, 80
-  switch i64 %29, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit.thread" [
-    i64 3, label %30
-    i64 2, label %34
-    i64 1, label %38
+  %.pre-phi45.i.i.i = phi i64 [ %.pre44.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %10, %5 ]
+  %.sroa.034.0.lcssa.i.i.i = phi ptr [ %25, %._crit_edge.loopexit.i.i.i ], [ %0, %5 ]
+  %28 = sdiv exact i64 %.pre-phi45.i.i.i, 80
+  switch i64 %28, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit.thread" [
+    i64 3, label %29
+    i64 2, label %33
+    i64 1, label %37
   ]
 
-30:                                               ; preds = %._crit_edge.i.i.i
-  %31 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.034.0.lcssa.i.i.i)
-  br i1 %31, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit", label %32
+29:                                               ; preds = %._crit_edge.i.i.i
+  %30 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.034.0.lcssa.i.i.i)
+  br i1 %30, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit", label %31
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa.i.i.i, i64 80
-  br label %34
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa.i.i.i, i64 80
+  br label %33
 
-34:                                               ; preds = %32, %._crit_edge.i.i.i
-  %.sroa.034.1.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %33, %32 ]
-  %35 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.034.1.i.i.i)
-  br i1 %35, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit", label %36
+33:                                               ; preds = %31, %._crit_edge.i.i.i
+  %.sroa.034.1.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %32, %31 ]
+  %34 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.034.1.i.i.i)
+  br i1 %34, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit", label %35
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.sroa.034.1.i.i.i, i64 80
-  br label %38
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds i8, ptr %.sroa.034.1.i.i.i, i64 80
+  br label %37
 
-38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.sroa.034.2.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
-  %39 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.034.2.i.i.i)
-  %spec.select.i.i.i = select i1 %39, ptr %.sroa.034.2.i.i.i, ptr %1
+37:                                               ; preds = %35, %._crit_edge.i.i.i
+  %.sroa.034.2.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %36, %35 ]
+  %38 = tail call noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.034.2.i.i.i)
+  %spec.select.i.i.i = select i1 %38, ptr %.sroa.034.2.i.i.i, ptr %1
   br label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit": ; preds = %.lr.ph.i.i.i, %16, %19, %22, %30, %34, %38
-  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %30 ], [ %.sroa.034.1.i.i.i, %34 ], [ %spec.select.i.i.i, %38 ], [ %.sroa.034.042.i.i.i, %.lr.ph.i.i.i ], [ %17, %16 ], [ %20, %19 ], [ %23, %22 ]
-  %40 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i, %1
-  br i1 %40, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit.thread", label %45
+"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit": ; preds = %.lr.ph.i.i.i, %15, %18, %21, %29, %33, %37
+  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %29 ], [ %.sroa.034.1.i.i.i, %33 ], [ %spec.select.i.i.i, %37 ], [ %.sroa.034.042.i.i.i, %.lr.ph.i.i.i ], [ %16, %15 ], [ %19, %18 ], [ %22, %21 ]
+  %39 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i, %1
+  br i1 %39, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit.thread", label %44
 
 "_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit.thread": ; preds = %._crit_edge.i.i.i, %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit"
-  call void @_ZNSt10filesystem7__cxx114pathC2IA133_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 1 dereferenceable(133) @.str.41, i8 noundef zeroext 2)
-  %41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 438, ptr noundef nonnull @.str.102, ptr noundef %41) #25
-          to label %42 unwind label %43
+  call void @_ZNSt10filesystem7__cxx114pathC2IA133_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(133) @.str.41, i8 noundef zeroext 2)
+  %40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 438, ptr noundef nonnull @.str.102, ptr noundef %40) #25
+          to label %41 unwind label %42
+
+41:                                               ; preds = %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit.thread"
+  unreachable
 
 42:                                               ; preds = %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit.thread"
-  unreachable
-
-43:                                               ; preds = %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit.thread"
-  %44 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %92
 
-45:                                               ; preds = %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit"
-  %46 = getelementptr inbounds i8, ptr %.sroa.010.0.in.sroa.speculated.i.i.i, i64 32
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %.sroa.010.0.in.sroa.speculated.i.i.i, i64 40
-  %49 = load ptr, ptr %48, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store ptr %3, ptr %6, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %4, ptr %50, align 8
-  %51 = ptrtoint ptr %49 to i64
-  %52 = ptrtoint ptr %47 to i64
-  %53 = sub i64 %51, %52
-  %54 = sdiv exact i64 %53, 72
-  %55 = ashr i64 %54, 2
-  %56 = icmp sgt i64 %55, 0
-  br i1 %56, label %.lr.ph.i.i.i21, label %._crit_edge.i.i.i19
+44:                                               ; preds = %"_ZSt7find_ifIN3gmx12ArrayRefIterIK19VirtualSiteTopologyEEZL12get_ddb_bondNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_0ET_SG_SG_T0_.exit"
+  %45 = getelementptr inbounds i8, ptr %.sroa.010.0.in.sroa.speculated.i.i.i, i64 32
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %.sroa.010.0.in.sroa.speculated.i.i.i, i64 40
+  %48 = load ptr, ptr %47, align 8
+  %49 = ptrtoint ptr %48 to i64
+  %50 = ptrtoint ptr %46 to i64
+  %51 = sub i64 %49, %50
+  %52 = sdiv exact i64 %51, 72
+  %53 = ashr i64 %52, 2
+  %54 = icmp sgt i64 %53, 0
+  br i1 %54, label %.lr.ph.i.i.i21, label %._crit_edge.i.i.i19
 
-.lr.ph.i.i.i21:                                   ; preds = %45, %67
-  %.036.i.i.i = phi i64 [ %69, %67 ], [ %55, %45 ]
-  %.sroa.025.035.i.i.i = phi ptr [ %68, %67 ], [ %47, %45 ]
-  %57 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %.sroa.025.035.i.i.i)
-  br i1 %57, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit", label %58
+.lr.ph.i.i.i21:                                   ; preds = %44, %65
+  %.050.i.i.i = phi i64 [ %67, %65 ], [ %53, %44 ]
+  %.sroa.039.049.i.i.i = phi ptr [ %66, %65 ], [ %46, %44 ]
+  %55 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr %3, ptr nonnull %4, ptr %.sroa.039.049.i.i.i)
+  br i1 %55, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit", label %56
 
-58:                                               ; preds = %.lr.ph.i.i.i21
-  %59 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 72
-  %60 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %59)
-  br i1 %60, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit", label %61
+56:                                               ; preds = %.lr.ph.i.i.i21
+  %57 = getelementptr inbounds i8, ptr %.sroa.039.049.i.i.i, i64 72
+  %58 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr %3, ptr nonnull %4, ptr nonnull %57)
+  br i1 %58, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit", label %59
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 144
-  %63 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %62)
-  br i1 %63, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit", label %64
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds i8, ptr %.sroa.039.049.i.i.i, i64 144
+  %61 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr %3, ptr nonnull %4, ptr nonnull %60)
+  br i1 %61, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit", label %62
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 216
-  %66 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %65)
-  br i1 %66, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit", label %67
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds i8, ptr %.sroa.039.049.i.i.i, i64 216
+  %64 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr %3, ptr nonnull %4, ptr nonnull %63)
+  br i1 %64, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit", label %65
 
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 288
-  %69 = add nsw i64 %.036.i.i.i, -1
-  %70 = icmp sgt i64 %.036.i.i.i, 1
-  br i1 %70, label %.lr.ph.i.i.i21, label %._crit_edge.loopexit.i.i.i22, !llvm.loop !123
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds i8, ptr %.sroa.039.049.i.i.i, i64 288
+  %67 = add nsw i64 %.050.i.i.i, -1
+  %68 = icmp sgt i64 %.050.i.i.i, 1
+  br i1 %68, label %.lr.ph.i.i.i21, label %._crit_edge.loopexit.i.i.i22, !llvm.loop !123
 
-._crit_edge.loopexit.i.i.i22:                     ; preds = %67
-  %.pre.i.i.i23 = ptrtoint ptr %68 to i64
-  %.pre37.i.i.i = sub i64 %51, %.pre.i.i.i23
+._crit_edge.loopexit.i.i.i22:                     ; preds = %65
+  %.pre.i.i.i23 = ptrtoint ptr %66 to i64
+  %.pre51.i.i.i = sub i64 %49, %.pre.i.i.i23
   br label %._crit_edge.i.i.i19
 
-._crit_edge.i.i.i19:                              ; preds = %._crit_edge.loopexit.i.i.i22, %45
-  %.pre-phi38.i.i.i = phi i64 [ %.pre37.i.i.i, %._crit_edge.loopexit.i.i.i22 ], [ %53, %45 ]
-  %.sroa.025.0.lcssa.i.i.i = phi ptr [ %68, %._crit_edge.loopexit.i.i.i22 ], [ %47, %45 ]
-  %71 = sdiv exact i64 %.pre-phi38.i.i.i, 72
-  switch i64 %71, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit" [
-    i64 3, label %72
-    i64 2, label %76
-    i64 1, label %80
+._crit_edge.i.i.i19:                              ; preds = %._crit_edge.loopexit.i.i.i22, %44
+  %.pre-phi52.i.i.i = phi i64 [ %.pre51.i.i.i, %._crit_edge.loopexit.i.i.i22 ], [ %51, %44 ]
+  %.sroa.039.0.lcssa.i.i.i = phi ptr [ %66, %._crit_edge.loopexit.i.i.i22 ], [ %46, %44 ]
+  %69 = sdiv exact i64 %.pre-phi52.i.i.i, 72
+  switch i64 %69, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit" [
+    i64 3, label %70
+    i64 2, label %74
+    i64 1, label %78
   ]
 
-72:                                               ; preds = %._crit_edge.i.i.i19
-  %73 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %.sroa.025.0.lcssa.i.i.i)
-  br i1 %73, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit", label %74
+70:                                               ; preds = %._crit_edge.i.i.i19
+  %71 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr %3, ptr nonnull %4, ptr %.sroa.039.0.lcssa.i.i.i)
+  br i1 %71, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit", label %72
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i, i64 72
-  br label %76
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds i8, ptr %.sroa.039.0.lcssa.i.i.i, i64 72
+  br label %74
 
-76:                                               ; preds = %74, %._crit_edge.i.i.i19
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i19 ], [ %75, %74 ]
-  %77 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %.sroa.025.1.i.i.i)
-  br i1 %77, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit", label %78
+74:                                               ; preds = %72, %._crit_edge.i.i.i19
+  %.sroa.039.1.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i19 ], [ %73, %72 ]
+  %75 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr %3, ptr nonnull %4, ptr %.sroa.039.1.i.i.i)
+  br i1 %75, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit", label %76
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i, i64 72
-  br label %80
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds i8, ptr %.sroa.039.1.i.i.i, i64 72
+  br label %78
 
-80:                                               ; preds = %78, %._crit_edge.i.i.i19
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i19 ], [ %79, %78 ]
-  %81 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %.sroa.025.2.i.i.i)
-  %spec.select.i.i.i20 = select i1 %81, ptr %.sroa.025.2.i.i.i, ptr %49
+78:                                               ; preds = %76, %._crit_edge.i.i.i19
+  %.sroa.039.2.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i19 ], [ %77, %76 ]
+  %79 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr %3, ptr nonnull %4, ptr %.sroa.039.2.i.i.i)
+  %spec.select.i.i.i20 = select i1 %79, ptr %.sroa.039.2.i.i.i, ptr %48
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit": ; preds = %.lr.ph.i.i.i21, %58, %61, %64, %._crit_edge.i.i.i19, %72, %76, %80
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %72 ], [ %.sroa.025.1.i.i.i, %76 ], [ %49, %._crit_edge.i.i.i19 ], [ %spec.select.i.i.i20, %80 ], [ %.sroa.025.035.i.i.i, %.lr.ph.i.i.i21 ], [ %59, %58 ], [ %62, %61 ], [ %65, %64 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %82 = load ptr, ptr %48, align 8
-  %83 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %82
-  br i1 %83, label %84, label %91
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit": ; preds = %.lr.ph.i.i.i21, %56, %59, %62, %._crit_edge.i.i.i19, %70, %74, %78
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %70 ], [ %.sroa.039.1.i.i.i, %74 ], [ %48, %._crit_edge.i.i.i19 ], [ %spec.select.i.i.i20, %78 ], [ %.sroa.039.049.i.i.i, %.lr.ph.i.i.i21 ], [ %57, %56 ], [ %60, %59 ], [ %63, %62 ]
+  %80 = load ptr, ptr %47, align 8
+  %81 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %80
+  br i1 %81, label %82, label %89
 
-84:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit"
-  call void @_ZNSt10filesystem7__cxx114pathC2IA133_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(133) @.str.41, i8 noundef zeroext 2)
-  %85 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %86 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  %87 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 447, ptr noundef nonnull @.str.103, ptr noundef %85, ptr noundef %86, ptr noundef %87) #25
-          to label %88 unwind label %89
+82:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit"
+  call void @_ZNSt10filesystem7__cxx114pathC2IA133_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 1 dereferenceable(133) @.str.41, i8 noundef zeroext 2)
+  %83 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
+  %84 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
+  %85 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 447, ptr noundef nonnull @.str.103, ptr noundef %83, ptr noundef %84, ptr noundef %85) #25
+          to label %86 unwind label %87
 
-88:                                               ; preds = %84
+86:                                               ; preds = %82
   unreachable
 
-89:                                               ; preds = %84
-  %90 = landingpad { ptr, i32 }
+87:                                               ; preds = %82
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %92
 
-91:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit"
-  %92 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, i64 64
-  %93 = load float, ptr %92, align 8
-  ret float %93
+89:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology15VirtualSiteBondESt6vectorIS3_SaIS3_EEEEZL12get_ddb_bondN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_E3$_1ET_SN_SN_T0_.exit"
+  %90 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, i64 64
+  %91 = load float, ptr %90, align 8
+  ret float %91
 
-94:                                               ; preds = %89, %43
-  %.sink = phi ptr [ %8, %89 ], [ %7, %43 ]
-  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %44, %43 ]
+92:                                               ; preds = %87, %42
+  %.sink = phi ptr [ %7, %87 ], [ %6, %42 ]
+  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %43, %42 ]
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #23
   resume { ptr, i32 } %.pn
 }
@@ -18363,89 +18355,83 @@ define internal fastcc noundef i32 @_ZL16gen_vsites_6ringP7t_atomsPPiN3gmx8Array
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %0, align 8
-  %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
-  %6 = icmp eq i64 %4, %5
-  br i1 %6, label %7, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_15VirtualSiteBondESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr nonnull %.0.val, ptr %.8.val, ptr %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
+  %4 = icmp eq i64 %2, %3
+  br i1 %4, label %5, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i
 
-7:                                                ; preds = %2
-  %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
-  %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
+5:                                                ; preds = %1
+  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
+  %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %7
-  %bcmp.i.i = tail call i32 @bcmp(ptr %8, ptr %9, i64 %10)
-  %12 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %12, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %5
+  %bcmp.i.i = tail call i32 @bcmp(ptr %6, ptr %7, i64 %8)
+  %10 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %10, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
-  %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #23
-  %18 = icmp eq i64 %16, %17
-  br i1 %18, label %19, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %5
+  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.8.val) #23
+  %13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
+  %14 = icmp eq i64 %12, %13
+  br i1 %14, label %15, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i
 
-19:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
-  %20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
-  %21 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #23
-  %22 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit", label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit6.i
+15:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
+  %16 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.8.val) #23
+  %17 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
+  %18 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.8.val) #23
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit", label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit6.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit6.i: ; preds = %19
-  %bcmp.i5.i = tail call i32 @bcmp(ptr %20, ptr %21, i64 %22)
-  %24 = icmp eq i32 %bcmp.i5.i, 0
-  br i1 %24, label %"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit", label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit6.i: ; preds = %15
+  %bcmp.i5.i = tail call i32 @bcmp(ptr %16, ptr %17, i64 %18)
+  %20 = icmp eq i32 %bcmp.i5.i, 0
+  br i1 %20, label %"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit", label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit6.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %2
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
-  %27 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #23
-  %28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #23
-  %29 = icmp eq i64 %27, %28
-  br i1 %29, label %30, label %"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit"
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit6.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %1
+  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #23
+  %24 = icmp eq i64 %22, %23
+  br i1 %24, label %25, label %"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit"
 
-30:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i
-  %31 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #23
-  %32 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #23
-  %33 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #23
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.thread.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.i
+25:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i
+  %26 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %27 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #23
+  %28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.thread.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.i: ; preds = %30
-  %bcmp.i7.i = tail call i32 @bcmp(ptr %31, ptr %32, i64 %33)
-  %35 = icmp eq i32 %bcmp.i7.i, 0
-  br i1 %35, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.thread.i, label %"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit"
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.i: ; preds = %25
+  %bcmp.i7.i = tail call i32 @bcmp(ptr %26, ptr %27, i64 %28)
+  %30 = icmp eq i32 %bcmp.i7.i, 0
+  br i1 %30, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.thread.i, label %"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit"
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.thread.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.i, %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #23
-  %39 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
-  %40 = icmp eq i64 %38, %39
-  br i1 %40, label %41, label %"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit"
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.thread.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.i, %25
+  %31 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.8.val) #23
+  %32 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
+  %33 = icmp eq i64 %31, %32
+  br i1 %33, label %34, label %"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit"
 
-41:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.thread.i
-  %42 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #23
-  %43 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
-  %44 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #23
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit", label %46
+34:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.thread.i
+  %35 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.8.val) #23
+  %36 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
+  %37 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.8.val) #23
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit", label %39
 
-46:                                               ; preds = %41
-  %bcmp.i9.i = tail call i32 @bcmp(ptr %42, ptr %43, i64 %44)
-  %47 = icmp eq i32 %bcmp.i9.i, 0
+39:                                               ; preds = %34
+  %bcmp.i9.i = tail call i32 @bcmp(ptr %35, ptr %36, i64 %37)
+  %40 = icmp eq i32 %bcmp.i9.i, 0
   br label %"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit"
 
-"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit": ; preds = %19, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit6.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.thread.i, %41, %46
-  %48 = phi i1 [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit6.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.thread.i ], [ %47, %46 ], [ true, %41 ], [ true, %19 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i ]
-  ret i1 %48
+"_ZZL12get_ddb_bondN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_ENK3$_1clINS1_15VirtualSiteBondEEEDaRKT_.exit": ; preds = %15, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit6.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.thread.i, %34, %39
+  %41 = phi i1 [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit6.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit8.thread.i ], [ %40, %39 ], [ true, %34 ], [ true, %15 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i ]
+  ret i1 %41
 }
 
 ; Function Attrs: nounwind

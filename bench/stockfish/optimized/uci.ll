@@ -467,41 +467,41 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit: ; preds = %_ZN9Stockfish6Opti
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %155, ptr noundef nonnull align 1 dereferenceable(1) %20) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 7))
   %156 = call noundef nonnull align 8 dereferenceable(144) ptr @_ZN9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %19) #21
-  %157 = getelementptr inbounds i8, ptr %22, i64 16
-  %158 = getelementptr inbounds i8, ptr %22, i64 24
-  %159 = getelementptr inbounds i8, ptr %22, i64 8
-  store i64 0, ptr %159, align 8
-  %160 = ptrtoint ptr %0 to i64
-  store i64 %160, ptr %22, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_1E9_M_invokeERKSt9_Any_dataS3_", ptr %158, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %157, align 8
+  %157 = ptrtoint ptr %0 to i64
+  %158 = getelementptr inbounds i8, ptr %22, i64 16
+  %159 = getelementptr inbounds i8, ptr %22, i64 24
+  %160 = getelementptr inbounds i8, ptr %22, i64 8
+  store i64 0, ptr %160, align 8
+  store i64 %157, ptr %22, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_1E9_M_invokeERKSt9_Any_dataS3_", ptr %159, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %158, align 8
   call void @_ZN9Stockfish6OptionC1EdiiSt8functionIFvRKS0_EE(ptr noundef nonnull align 8 dereferenceable(144) %21, double noundef 1.000000e+00, i32 noundef 1, i32 noundef 1024, ptr noundef nonnull %22) #21
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull align 8 dereferenceable(144) %21) #21
   %161 = getelementptr inbounds i8, ptr %21, i64 128
   %162 = load ptr, ptr %161, align 8
-  %.not.i.i.i2 = icmp eq ptr %162, null
-  br i1 %.not.i.i.i2, label %_ZN9Stockfish6OptionD2Ev.exit3, label %163
+  %.not.i.i.i6 = icmp eq ptr %162, null
+  br i1 %.not.i.i.i6, label %_ZN9Stockfish6OptionD2Ev.exit7, label %163
 
 163:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit
   %164 = getelementptr inbounds i8, ptr %21, i64 112
   %165 = call noundef zeroext i1 %162(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull align 8 dereferenceable(16) %164, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit3
+  br label %_ZN9Stockfish6OptionD2Ev.exit7
 
-_ZN9Stockfish6OptionD2Ev.exit3:                   ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit, %163
+_ZN9Stockfish6OptionD2Ev.exit7:                   ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit, %163
   %166 = getelementptr inbounds i8, ptr %21, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %166) #21
   %167 = getelementptr inbounds i8, ptr %21, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %167) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #21
-  %168 = load ptr, ptr %157, align 8
-  %.not.i.i4 = icmp eq ptr %168, null
-  br i1 %.not.i.i4, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit5, label %169
+  %168 = load ptr, ptr %158, align 8
+  %.not.i.i8 = icmp eq ptr %168, null
+  br i1 %.not.i.i8, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit9, label %169
 
-169:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit3
+169:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit7
   %170 = call noundef zeroext i1 %168(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit5
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit9
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit5: ; preds = %_ZN9Stockfish6OptionD2Ev.exit3, %169
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit9: ; preds = %_ZN9Stockfish6OptionD2Ev.exit7, %169
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #21
@@ -513,36 +513,36 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit5: ; preds = %_ZN9Stockfish6Opt
   %174 = getelementptr inbounds i8, ptr %26, i64 24
   %175 = getelementptr inbounds i8, ptr %26, i64 8
   store i64 0, ptr %175, align 8
-  store i64 %160, ptr %26, align 8
+  store i64 %157, ptr %26, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_2E9_M_invokeERKSt9_Any_dataS3_", ptr %174, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %173, align 8
   call void @_ZN9Stockfish6OptionC1EdiiSt8functionIFvRKS0_EE(ptr noundef nonnull align 8 dereferenceable(144) %25, double noundef 1.600000e+01, i32 noundef 1, i32 noundef 33554432, ptr noundef nonnull %26) #21
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %172, ptr noundef nonnull align 8 dereferenceable(144) %25) #21
   %176 = getelementptr inbounds i8, ptr %25, i64 128
   %177 = load ptr, ptr %176, align 8
-  %.not.i.i.i7 = icmp eq ptr %177, null
-  br i1 %.not.i.i.i7, label %_ZN9Stockfish6OptionD2Ev.exit8, label %178
+  %.not.i.i.i10 = icmp eq ptr %177, null
+  br i1 %.not.i.i.i10, label %_ZN9Stockfish6OptionD2Ev.exit11, label %178
 
-178:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit5
+178:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit9
   %179 = getelementptr inbounds i8, ptr %25, i64 112
   %180 = call noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef nonnull align 8 dereferenceable(16) %179, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit8
+  br label %_ZN9Stockfish6OptionD2Ev.exit11
 
-_ZN9Stockfish6OptionD2Ev.exit8:                   ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit5, %178
+_ZN9Stockfish6OptionD2Ev.exit11:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit9, %178
   %181 = getelementptr inbounds i8, ptr %25, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %181) #21
   %182 = getelementptr inbounds i8, ptr %25, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %182) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
   %183 = load ptr, ptr %173, align 8
-  %.not.i.i9 = icmp eq ptr %183, null
-  br i1 %.not.i.i9, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit10, label %184
+  %.not.i.i12 = icmp eq ptr %183, null
+  br i1 %.not.i.i12, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit13, label %184
 
-184:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit8
+184:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit11
   %185 = call noundef zeroext i1 %183(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %26, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit10
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit13
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit10: ; preds = %_ZN9Stockfish6OptionD2Ev.exit8, %184
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit13: ; preds = %_ZN9Stockfish6OptionD2Ev.exit11, %184
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #21
@@ -554,36 +554,36 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit10: ; preds = %_ZN9Stockfish6Op
   %189 = getelementptr inbounds i8, ptr %30, i64 24
   %190 = getelementptr inbounds i8, ptr %30, i64 8
   store i64 0, ptr %190, align 8
-  store i64 %160, ptr %30, align 8
+  store i64 %157, ptr %30, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_3E9_M_invokeERKSt9_Any_dataS3_", ptr %189, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %188, align 8
   call void @_ZN9Stockfish6OptionC1ESt8functionIFvRKS0_EE(ptr noundef nonnull align 8 dereferenceable(144) %29, ptr noundef nonnull %30) #21
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %187, ptr noundef nonnull align 8 dereferenceable(144) %29) #21
   %191 = getelementptr inbounds i8, ptr %29, i64 128
   %192 = load ptr, ptr %191, align 8
-  %.not.i.i.i12 = icmp eq ptr %192, null
-  br i1 %.not.i.i.i12, label %_ZN9Stockfish6OptionD2Ev.exit13, label %193
+  %.not.i.i.i14 = icmp eq ptr %192, null
+  br i1 %.not.i.i.i14, label %_ZN9Stockfish6OptionD2Ev.exit15, label %193
 
-193:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit10
+193:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit13
   %194 = getelementptr inbounds i8, ptr %29, i64 112
   %195 = call noundef zeroext i1 %192(ptr noundef nonnull align 8 dereferenceable(16) %194, ptr noundef nonnull align 8 dereferenceable(16) %194, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit13
+  br label %_ZN9Stockfish6OptionD2Ev.exit15
 
-_ZN9Stockfish6OptionD2Ev.exit13:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit10, %193
+_ZN9Stockfish6OptionD2Ev.exit15:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit13, %193
   %196 = getelementptr inbounds i8, ptr %29, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %196) #21
   %197 = getelementptr inbounds i8, ptr %29, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %197) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #21
   %198 = load ptr, ptr %188, align 8
-  %.not.i.i14 = icmp eq ptr %198, null
-  br i1 %.not.i.i14, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit15, label %199
+  %.not.i.i16 = icmp eq ptr %198, null
+  br i1 %.not.i.i16, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit17, label %199
 
-199:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit13
+199:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit15
   %200 = call noundef zeroext i1 %198(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit15
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit17
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit15: ; preds = %_ZN9Stockfish6OptionD2Ev.exit13, %199
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit17: ; preds = %_ZN9Stockfish6OptionD2Ev.exit15, %199
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #21
@@ -596,15 +596,15 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit15: ; preds = %_ZN9Stockfish6Op
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %202, ptr noundef nonnull align 8 dereferenceable(144) %33) #21
   %203 = getelementptr inbounds i8, ptr %33, i64 128
   %204 = load ptr, ptr %203, align 8
-  %.not.i.i.i16 = icmp eq ptr %204, null
-  br i1 %.not.i.i.i16, label %_ZN9Stockfish6OptionD2Ev.exit17, label %205
+  %.not.i.i.i18 = icmp eq ptr %204, null
+  br i1 %.not.i.i.i18, label %_ZN9Stockfish6OptionD2Ev.exit19, label %205
 
-205:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit15
+205:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit17
   %206 = getelementptr inbounds i8, ptr %33, i64 112
   %207 = call noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(16) %206, ptr noundef nonnull align 8 dereferenceable(16) %206, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit17
+  br label %_ZN9Stockfish6OptionD2Ev.exit19
 
-_ZN9Stockfish6OptionD2Ev.exit17:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit15, %205
+_ZN9Stockfish6OptionD2Ev.exit19:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit17, %205
   %208 = getelementptr inbounds i8, ptr %33, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %208) #21
   %209 = getelementptr inbounds i8, ptr %33, i64 32
@@ -612,14 +612,14 @@ _ZN9Stockfish6OptionD2Ev.exit17:                  ; preds = %_ZNSt8functionIFvRK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #21
   %210 = getelementptr inbounds i8, ptr %34, i64 16
   %211 = load ptr, ptr %210, align 8
-  %.not.i.i18 = icmp eq ptr %211, null
-  br i1 %.not.i.i18, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit19, label %212
+  %.not.i.i20 = icmp eq ptr %211, null
+  br i1 %.not.i.i20, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit21, label %212
 
-212:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit17
+212:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit19
   %213 = call noundef zeroext i1 %211(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %34, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit19
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit21
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit19: ; preds = %_ZN9Stockfish6OptionD2Ev.exit17, %212
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit21: ; preds = %_ZN9Stockfish6OptionD2Ev.exit19, %212
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #21
@@ -632,15 +632,15 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit19: ; preds = %_ZN9Stockfish6Op
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %215, ptr noundef nonnull align 8 dereferenceable(144) %37) #21
   %216 = getelementptr inbounds i8, ptr %37, i64 128
   %217 = load ptr, ptr %216, align 8
-  %.not.i.i.i20 = icmp eq ptr %217, null
-  br i1 %.not.i.i.i20, label %_ZN9Stockfish6OptionD2Ev.exit21, label %218
+  %.not.i.i.i22 = icmp eq ptr %217, null
+  br i1 %.not.i.i.i22, label %_ZN9Stockfish6OptionD2Ev.exit23, label %218
 
-218:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit19
+218:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit21
   %219 = getelementptr inbounds i8, ptr %37, i64 112
   %220 = call noundef zeroext i1 %217(ptr noundef nonnull align 8 dereferenceable(16) %219, ptr noundef nonnull align 8 dereferenceable(16) %219, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit21
+  br label %_ZN9Stockfish6OptionD2Ev.exit23
 
-_ZN9Stockfish6OptionD2Ev.exit21:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit19, %218
+_ZN9Stockfish6OptionD2Ev.exit23:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit21, %218
   %221 = getelementptr inbounds i8, ptr %37, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %221) #21
   %222 = getelementptr inbounds i8, ptr %37, i64 32
@@ -648,14 +648,14 @@ _ZN9Stockfish6OptionD2Ev.exit21:                  ; preds = %_ZNSt8functionIFvRK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #21
   %223 = getelementptr inbounds i8, ptr %38, i64 16
   %224 = load ptr, ptr %223, align 8
-  %.not.i.i22 = icmp eq ptr %224, null
-  br i1 %.not.i.i22, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit23, label %225
+  %.not.i.i24 = icmp eq ptr %224, null
+  br i1 %.not.i.i24, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit25, label %225
 
-225:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit21
+225:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit23
   %226 = call noundef zeroext i1 %224(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit23
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit25
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit23: ; preds = %_ZN9Stockfish6OptionD2Ev.exit21, %225
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit25: ; preds = %_ZN9Stockfish6OptionD2Ev.exit23, %225
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #21
@@ -668,15 +668,15 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit23: ; preds = %_ZN9Stockfish6Op
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %228, ptr noundef nonnull align 8 dereferenceable(144) %41) #21
   %229 = getelementptr inbounds i8, ptr %41, i64 128
   %230 = load ptr, ptr %229, align 8
-  %.not.i.i.i24 = icmp eq ptr %230, null
-  br i1 %.not.i.i.i24, label %_ZN9Stockfish6OptionD2Ev.exit25, label %231
+  %.not.i.i.i26 = icmp eq ptr %230, null
+  br i1 %.not.i.i.i26, label %_ZN9Stockfish6OptionD2Ev.exit27, label %231
 
-231:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit23
+231:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit25
   %232 = getelementptr inbounds i8, ptr %41, i64 112
   %233 = call noundef zeroext i1 %230(ptr noundef nonnull align 8 dereferenceable(16) %232, ptr noundef nonnull align 8 dereferenceable(16) %232, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit25
+  br label %_ZN9Stockfish6OptionD2Ev.exit27
 
-_ZN9Stockfish6OptionD2Ev.exit25:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit23, %231
+_ZN9Stockfish6OptionD2Ev.exit27:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit25, %231
   %234 = getelementptr inbounds i8, ptr %41, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %234) #21
   %235 = getelementptr inbounds i8, ptr %41, i64 32
@@ -684,14 +684,14 @@ _ZN9Stockfish6OptionD2Ev.exit25:                  ; preds = %_ZNSt8functionIFvRK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #21
   %236 = getelementptr inbounds i8, ptr %42, i64 16
   %237 = load ptr, ptr %236, align 8
-  %.not.i.i26 = icmp eq ptr %237, null
-  br i1 %.not.i.i26, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit27, label %238
+  %.not.i.i28 = icmp eq ptr %237, null
+  br i1 %.not.i.i28, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit29, label %238
 
-238:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit25
+238:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit27
   %239 = call noundef zeroext i1 %237(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %42, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit27
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit29
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit27: ; preds = %_ZN9Stockfish6OptionD2Ev.exit25, %238
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit29: ; preds = %_ZN9Stockfish6OptionD2Ev.exit27, %238
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #21
@@ -704,15 +704,15 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit27: ; preds = %_ZN9Stockfish6Op
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %241, ptr noundef nonnull align 8 dereferenceable(144) %45) #21
   %242 = getelementptr inbounds i8, ptr %45, i64 128
   %243 = load ptr, ptr %242, align 8
-  %.not.i.i.i28 = icmp eq ptr %243, null
-  br i1 %.not.i.i.i28, label %_ZN9Stockfish6OptionD2Ev.exit29, label %244
+  %.not.i.i.i30 = icmp eq ptr %243, null
+  br i1 %.not.i.i.i30, label %_ZN9Stockfish6OptionD2Ev.exit31, label %244
 
-244:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit27
+244:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit29
   %245 = getelementptr inbounds i8, ptr %45, i64 112
   %246 = call noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(16) %245, ptr noundef nonnull align 8 dereferenceable(16) %245, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit29
+  br label %_ZN9Stockfish6OptionD2Ev.exit31
 
-_ZN9Stockfish6OptionD2Ev.exit29:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit27, %244
+_ZN9Stockfish6OptionD2Ev.exit31:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit29, %244
   %247 = getelementptr inbounds i8, ptr %45, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %247) #21
   %248 = getelementptr inbounds i8, ptr %45, i64 32
@@ -720,14 +720,14 @@ _ZN9Stockfish6OptionD2Ev.exit29:                  ; preds = %_ZNSt8functionIFvRK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #21
   %249 = getelementptr inbounds i8, ptr %46, i64 16
   %250 = load ptr, ptr %249, align 8
-  %.not.i.i30 = icmp eq ptr %250, null
-  br i1 %.not.i.i30, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit31, label %251
+  %.not.i.i32 = icmp eq ptr %250, null
+  br i1 %.not.i.i32, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit33, label %251
 
-251:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit29
+251:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit31
   %252 = call noundef zeroext i1 %250(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %46, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit31
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit33
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit31: ; preds = %_ZN9Stockfish6OptionD2Ev.exit29, %251
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit33: ; preds = %_ZN9Stockfish6OptionD2Ev.exit31, %251
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #21
@@ -740,15 +740,15 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit31: ; preds = %_ZN9Stockfish6Op
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %254, ptr noundef nonnull align 8 dereferenceable(144) %49) #21
   %255 = getelementptr inbounds i8, ptr %49, i64 128
   %256 = load ptr, ptr %255, align 8
-  %.not.i.i.i32 = icmp eq ptr %256, null
-  br i1 %.not.i.i.i32, label %_ZN9Stockfish6OptionD2Ev.exit33, label %257
+  %.not.i.i.i34 = icmp eq ptr %256, null
+  br i1 %.not.i.i.i34, label %_ZN9Stockfish6OptionD2Ev.exit35, label %257
 
-257:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit31
+257:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit33
   %258 = getelementptr inbounds i8, ptr %49, i64 112
   %259 = call noundef zeroext i1 %256(ptr noundef nonnull align 8 dereferenceable(16) %258, ptr noundef nonnull align 8 dereferenceable(16) %258, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit33
+  br label %_ZN9Stockfish6OptionD2Ev.exit35
 
-_ZN9Stockfish6OptionD2Ev.exit33:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit31, %257
+_ZN9Stockfish6OptionD2Ev.exit35:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit33, %257
   %260 = getelementptr inbounds i8, ptr %49, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %260) #21
   %261 = getelementptr inbounds i8, ptr %49, i64 32
@@ -756,14 +756,14 @@ _ZN9Stockfish6OptionD2Ev.exit33:                  ; preds = %_ZNSt8functionIFvRK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #21
   %262 = getelementptr inbounds i8, ptr %50, i64 16
   %263 = load ptr, ptr %262, align 8
-  %.not.i.i34 = icmp eq ptr %263, null
-  br i1 %.not.i.i34, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit35, label %264
+  %.not.i.i36 = icmp eq ptr %263, null
+  br i1 %.not.i.i36, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit37, label %264
 
-264:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit33
+264:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit35
   %265 = call noundef zeroext i1 %263(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit35
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit37
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit35: ; preds = %_ZN9Stockfish6OptionD2Ev.exit33, %264
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit37: ; preds = %_ZN9Stockfish6OptionD2Ev.exit35, %264
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #21
@@ -776,15 +776,15 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit35: ; preds = %_ZN9Stockfish6Op
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %267, ptr noundef nonnull align 8 dereferenceable(144) %53) #21
   %268 = getelementptr inbounds i8, ptr %53, i64 128
   %269 = load ptr, ptr %268, align 8
-  %.not.i.i.i36 = icmp eq ptr %269, null
-  br i1 %.not.i.i.i36, label %_ZN9Stockfish6OptionD2Ev.exit37, label %270
+  %.not.i.i.i38 = icmp eq ptr %269, null
+  br i1 %.not.i.i.i38, label %_ZN9Stockfish6OptionD2Ev.exit39, label %270
 
-270:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit35
+270:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit37
   %271 = getelementptr inbounds i8, ptr %53, i64 112
   %272 = call noundef zeroext i1 %269(ptr noundef nonnull align 8 dereferenceable(16) %271, ptr noundef nonnull align 8 dereferenceable(16) %271, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit37
+  br label %_ZN9Stockfish6OptionD2Ev.exit39
 
-_ZN9Stockfish6OptionD2Ev.exit37:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit35, %270
+_ZN9Stockfish6OptionD2Ev.exit39:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit37, %270
   %273 = getelementptr inbounds i8, ptr %53, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %273) #21
   %274 = getelementptr inbounds i8, ptr %53, i64 32
@@ -792,14 +792,14 @@ _ZN9Stockfish6OptionD2Ev.exit37:                  ; preds = %_ZNSt8functionIFvRK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #21
   %275 = getelementptr inbounds i8, ptr %54, i64 16
   %276 = load ptr, ptr %275, align 8
-  %.not.i.i38 = icmp eq ptr %276, null
-  br i1 %.not.i.i38, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit39, label %277
+  %.not.i.i40 = icmp eq ptr %276, null
+  br i1 %.not.i.i40, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit41, label %277
 
-277:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit37
+277:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit39
   %278 = call noundef zeroext i1 %276(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %54, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit39
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit41
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit39: ; preds = %_ZN9Stockfish6OptionD2Ev.exit37, %277
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit41: ; preds = %_ZN9Stockfish6OptionD2Ev.exit39, %277
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #21
@@ -812,15 +812,15 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit39: ; preds = %_ZN9Stockfish6Op
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %280, ptr noundef nonnull align 8 dereferenceable(144) %57) #21
   %281 = getelementptr inbounds i8, ptr %57, i64 128
   %282 = load ptr, ptr %281, align 8
-  %.not.i.i.i40 = icmp eq ptr %282, null
-  br i1 %.not.i.i.i40, label %_ZN9Stockfish6OptionD2Ev.exit41, label %283
+  %.not.i.i.i42 = icmp eq ptr %282, null
+  br i1 %.not.i.i.i42, label %_ZN9Stockfish6OptionD2Ev.exit43, label %283
 
-283:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit39
+283:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit41
   %284 = getelementptr inbounds i8, ptr %57, i64 112
   %285 = call noundef zeroext i1 %282(ptr noundef nonnull align 8 dereferenceable(16) %284, ptr noundef nonnull align 8 dereferenceable(16) %284, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit41
+  br label %_ZN9Stockfish6OptionD2Ev.exit43
 
-_ZN9Stockfish6OptionD2Ev.exit41:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit39, %283
+_ZN9Stockfish6OptionD2Ev.exit43:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit41, %283
   %286 = getelementptr inbounds i8, ptr %57, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %286) #21
   %287 = getelementptr inbounds i8, ptr %57, i64 32
@@ -828,14 +828,14 @@ _ZN9Stockfish6OptionD2Ev.exit41:                  ; preds = %_ZNSt8functionIFvRK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #21
   %288 = getelementptr inbounds i8, ptr %58, i64 16
   %289 = load ptr, ptr %288, align 8
-  %.not.i.i42 = icmp eq ptr %289, null
-  br i1 %.not.i.i42, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit43, label %290
+  %.not.i.i44 = icmp eq ptr %289, null
+  br i1 %.not.i.i44, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit45, label %290
 
-290:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit41
+290:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit43
   %291 = call noundef zeroext i1 %289(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %58, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit43
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit45
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit43: ; preds = %_ZN9Stockfish6OptionD2Ev.exit41, %290
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit45: ; preds = %_ZN9Stockfish6OptionD2Ev.exit43, %290
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #21
@@ -848,15 +848,15 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit43: ; preds = %_ZN9Stockfish6Op
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %293, ptr noundef nonnull align 8 dereferenceable(144) %61) #21
   %294 = getelementptr inbounds i8, ptr %61, i64 128
   %295 = load ptr, ptr %294, align 8
-  %.not.i.i.i44 = icmp eq ptr %295, null
-  br i1 %.not.i.i.i44, label %_ZN9Stockfish6OptionD2Ev.exit45, label %296
+  %.not.i.i.i46 = icmp eq ptr %295, null
+  br i1 %.not.i.i.i46, label %_ZN9Stockfish6OptionD2Ev.exit47, label %296
 
-296:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit43
+296:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit45
   %297 = getelementptr inbounds i8, ptr %61, i64 112
   %298 = call noundef zeroext i1 %295(ptr noundef nonnull align 8 dereferenceable(16) %297, ptr noundef nonnull align 8 dereferenceable(16) %297, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit45
+  br label %_ZN9Stockfish6OptionD2Ev.exit47
 
-_ZN9Stockfish6OptionD2Ev.exit45:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit43, %296
+_ZN9Stockfish6OptionD2Ev.exit47:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit45, %296
   %299 = getelementptr inbounds i8, ptr %61, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %299) #21
   %300 = getelementptr inbounds i8, ptr %61, i64 32
@@ -864,14 +864,14 @@ _ZN9Stockfish6OptionD2Ev.exit45:                  ; preds = %_ZNSt8functionIFvRK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #21
   %301 = getelementptr inbounds i8, ptr %62, i64 16
   %302 = load ptr, ptr %301, align 8
-  %.not.i.i46 = icmp eq ptr %302, null
-  br i1 %.not.i.i46, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit47, label %303
+  %.not.i.i48 = icmp eq ptr %302, null
+  br i1 %.not.i.i48, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit49, label %303
 
-303:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit45
+303:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit47
   %304 = call noundef zeroext i1 %302(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %62, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit47
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit49
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit47: ; preds = %_ZN9Stockfish6OptionD2Ev.exit45, %303
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit49: ; preds = %_ZN9Stockfish6OptionD2Ev.exit47, %303
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %64) #21
@@ -884,15 +884,15 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit47: ; preds = %_ZN9Stockfish6Op
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %306, ptr noundef nonnull align 8 dereferenceable(144) %65) #21
   %307 = getelementptr inbounds i8, ptr %65, i64 128
   %308 = load ptr, ptr %307, align 8
-  %.not.i.i.i48 = icmp eq ptr %308, null
-  br i1 %.not.i.i.i48, label %_ZN9Stockfish6OptionD2Ev.exit49, label %309
+  %.not.i.i.i50 = icmp eq ptr %308, null
+  br i1 %.not.i.i.i50, label %_ZN9Stockfish6OptionD2Ev.exit51, label %309
 
-309:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit47
+309:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit49
   %310 = getelementptr inbounds i8, ptr %65, i64 112
   %311 = call noundef zeroext i1 %308(ptr noundef nonnull align 8 dereferenceable(16) %310, ptr noundef nonnull align 8 dereferenceable(16) %310, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit49
+  br label %_ZN9Stockfish6OptionD2Ev.exit51
 
-_ZN9Stockfish6OptionD2Ev.exit49:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit47, %309
+_ZN9Stockfish6OptionD2Ev.exit51:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit49, %309
   %312 = getelementptr inbounds i8, ptr %65, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %312) #21
   %313 = getelementptr inbounds i8, ptr %65, i64 32
@@ -900,14 +900,14 @@ _ZN9Stockfish6OptionD2Ev.exit49:                  ; preds = %_ZNSt8functionIFvRK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #21
   %314 = getelementptr inbounds i8, ptr %66, i64 16
   %315 = load ptr, ptr %314, align 8
-  %.not.i.i50 = icmp eq ptr %315, null
-  br i1 %.not.i.i50, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit51, label %316
+  %.not.i.i52 = icmp eq ptr %315, null
+  br i1 %.not.i.i52, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit53, label %316
 
-316:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit49
+316:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit51
   %317 = call noundef zeroext i1 %315(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %66, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit51
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit53
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit51: ; preds = %_ZN9Stockfish6OptionD2Ev.exit49, %316
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit53: ; preds = %_ZN9Stockfish6OptionD2Ev.exit51, %316
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %64) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #21
@@ -924,29 +924,29 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit51: ; preds = %_ZN9Stockfish6Op
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %319, ptr noundef nonnull align 8 dereferenceable(144) %69) #21
   %322 = getelementptr inbounds i8, ptr %69, i64 128
   %323 = load ptr, ptr %322, align 8
-  %.not.i.i.i52 = icmp eq ptr %323, null
-  br i1 %.not.i.i.i52, label %_ZN9Stockfish6OptionD2Ev.exit53, label %324
+  %.not.i.i.i54 = icmp eq ptr %323, null
+  br i1 %.not.i.i.i54, label %_ZN9Stockfish6OptionD2Ev.exit55, label %324
 
-324:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit51
+324:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit53
   %325 = getelementptr inbounds i8, ptr %69, i64 112
   %326 = call noundef zeroext i1 %323(ptr noundef nonnull align 8 dereferenceable(16) %325, ptr noundef nonnull align 8 dereferenceable(16) %325, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit53
+  br label %_ZN9Stockfish6OptionD2Ev.exit55
 
-_ZN9Stockfish6OptionD2Ev.exit53:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit51, %324
+_ZN9Stockfish6OptionD2Ev.exit55:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit53, %324
   %327 = getelementptr inbounds i8, ptr %69, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %327) #21
   %328 = getelementptr inbounds i8, ptr %69, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %328) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #21
   %329 = load ptr, ptr %320, align 8
-  %.not.i.i54 = icmp eq ptr %329, null
-  br i1 %.not.i.i54, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit55, label %330
+  %.not.i.i56 = icmp eq ptr %329, null
+  br i1 %.not.i.i56, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit57, label %330
 
-330:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit53
+330:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit55
   %331 = call noundef zeroext i1 %329(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %70, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit55
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit57
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit55: ; preds = %_ZN9Stockfish6OptionD2Ev.exit53, %330
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit57: ; preds = %_ZN9Stockfish6OptionD2Ev.exit55, %330
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %72) #21
@@ -959,15 +959,15 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit55: ; preds = %_ZN9Stockfish6Op
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %333, ptr noundef nonnull align 8 dereferenceable(144) %73) #21
   %334 = getelementptr inbounds i8, ptr %73, i64 128
   %335 = load ptr, ptr %334, align 8
-  %.not.i.i.i56 = icmp eq ptr %335, null
-  br i1 %.not.i.i.i56, label %_ZN9Stockfish6OptionD2Ev.exit57, label %336
+  %.not.i.i.i58 = icmp eq ptr %335, null
+  br i1 %.not.i.i.i58, label %_ZN9Stockfish6OptionD2Ev.exit59, label %336
 
-336:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit55
+336:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit57
   %337 = getelementptr inbounds i8, ptr %73, i64 112
   %338 = call noundef zeroext i1 %335(ptr noundef nonnull align 8 dereferenceable(16) %337, ptr noundef nonnull align 8 dereferenceable(16) %337, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit57
+  br label %_ZN9Stockfish6OptionD2Ev.exit59
 
-_ZN9Stockfish6OptionD2Ev.exit57:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit55, %336
+_ZN9Stockfish6OptionD2Ev.exit59:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit57, %336
   %339 = getelementptr inbounds i8, ptr %73, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %339) #21
   %340 = getelementptr inbounds i8, ptr %73, i64 32
@@ -975,14 +975,14 @@ _ZN9Stockfish6OptionD2Ev.exit57:                  ; preds = %_ZNSt8functionIFvRK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #21
   %341 = getelementptr inbounds i8, ptr %74, i64 16
   %342 = load ptr, ptr %341, align 8
-  %.not.i.i58 = icmp eq ptr %342, null
-  br i1 %.not.i.i58, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit59, label %343
+  %.not.i.i60 = icmp eq ptr %342, null
+  br i1 %.not.i.i60, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit61, label %343
 
-343:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit57
+343:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit59
   %344 = call noundef zeroext i1 %342(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %74, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit59
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit61
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit59: ; preds = %_ZN9Stockfish6OptionD2Ev.exit57, %343
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit61: ; preds = %_ZN9Stockfish6OptionD2Ev.exit59, %343
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %72) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #21
@@ -995,15 +995,15 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit59: ; preds = %_ZN9Stockfish6Op
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %346, ptr noundef nonnull align 8 dereferenceable(144) %77) #21
   %347 = getelementptr inbounds i8, ptr %77, i64 128
   %348 = load ptr, ptr %347, align 8
-  %.not.i.i.i60 = icmp eq ptr %348, null
-  br i1 %.not.i.i.i60, label %_ZN9Stockfish6OptionD2Ev.exit61, label %349
+  %.not.i.i.i62 = icmp eq ptr %348, null
+  br i1 %.not.i.i.i62, label %_ZN9Stockfish6OptionD2Ev.exit63, label %349
 
-349:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit59
+349:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit61
   %350 = getelementptr inbounds i8, ptr %77, i64 112
   %351 = call noundef zeroext i1 %348(ptr noundef nonnull align 8 dereferenceable(16) %350, ptr noundef nonnull align 8 dereferenceable(16) %350, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit61
+  br label %_ZN9Stockfish6OptionD2Ev.exit63
 
-_ZN9Stockfish6OptionD2Ev.exit61:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit59, %349
+_ZN9Stockfish6OptionD2Ev.exit63:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit61, %349
   %352 = getelementptr inbounds i8, ptr %77, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %352) #21
   %353 = getelementptr inbounds i8, ptr %77, i64 32
@@ -1011,14 +1011,14 @@ _ZN9Stockfish6OptionD2Ev.exit61:                  ; preds = %_ZNSt8functionIFvRK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #21
   %354 = getelementptr inbounds i8, ptr %78, i64 16
   %355 = load ptr, ptr %354, align 8
-  %.not.i.i62 = icmp eq ptr %355, null
-  br i1 %.not.i.i62, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit63, label %356
+  %.not.i.i64 = icmp eq ptr %355, null
+  br i1 %.not.i.i64, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit65, label %356
 
-356:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit61
+356:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit63
   %357 = call noundef zeroext i1 %355(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %78, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit63
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit65
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit63: ; preds = %_ZN9Stockfish6OptionD2Ev.exit61, %356
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit65: ; preds = %_ZN9Stockfish6OptionD2Ev.exit63, %356
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #21
@@ -1031,15 +1031,15 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit63: ; preds = %_ZN9Stockfish6Op
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %359, ptr noundef nonnull align 8 dereferenceable(144) %81) #21
   %360 = getelementptr inbounds i8, ptr %81, i64 128
   %361 = load ptr, ptr %360, align 8
-  %.not.i.i.i64 = icmp eq ptr %361, null
-  br i1 %.not.i.i.i64, label %_ZN9Stockfish6OptionD2Ev.exit65, label %362
+  %.not.i.i.i66 = icmp eq ptr %361, null
+  br i1 %.not.i.i.i66, label %_ZN9Stockfish6OptionD2Ev.exit67, label %362
 
-362:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit63
+362:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit65
   %363 = getelementptr inbounds i8, ptr %81, i64 112
   %364 = call noundef zeroext i1 %361(ptr noundef nonnull align 8 dereferenceable(16) %363, ptr noundef nonnull align 8 dereferenceable(16) %363, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit65
+  br label %_ZN9Stockfish6OptionD2Ev.exit67
 
-_ZN9Stockfish6OptionD2Ev.exit65:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit63, %362
+_ZN9Stockfish6OptionD2Ev.exit67:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit65, %362
   %365 = getelementptr inbounds i8, ptr %81, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %365) #21
   %366 = getelementptr inbounds i8, ptr %81, i64 32
@@ -1047,14 +1047,14 @@ _ZN9Stockfish6OptionD2Ev.exit65:                  ; preds = %_ZNSt8functionIFvRK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #21
   %367 = getelementptr inbounds i8, ptr %82, i64 16
   %368 = load ptr, ptr %367, align 8
-  %.not.i.i66 = icmp eq ptr %368, null
-  br i1 %.not.i.i66, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit67, label %369
+  %.not.i.i68 = icmp eq ptr %368, null
+  br i1 %.not.i.i68, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit69, label %369
 
-369:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit65
+369:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit67
   %370 = call noundef zeroext i1 %368(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %82, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit67
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit69
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit67: ; preds = %_ZN9Stockfish6OptionD2Ev.exit65, %369
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit69: ; preds = %_ZN9Stockfish6OptionD2Ev.exit67, %369
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %79) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %84) #21
@@ -1066,36 +1066,36 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit67: ; preds = %_ZN9Stockfish6Op
   %374 = getelementptr inbounds i8, ptr %86, i64 24
   %375 = getelementptr inbounds i8, ptr %86, i64 8
   store i64 0, ptr %375, align 8
-  store i64 %160, ptr %86, align 8
+  store i64 %157, ptr %86, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_5E9_M_invokeERKSt9_Any_dataS3_", ptr %374, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_5E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %373, align 8
   call void @_ZN9Stockfish6OptionC1EPKcSt8functionIFvRKS0_EE(ptr noundef nonnull align 8 dereferenceable(144) %85, ptr noundef nonnull @.str.1, ptr noundef nonnull %86) #21
   call void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %372, ptr noundef nonnull align 8 dereferenceable(144) %85) #21
   %376 = getelementptr inbounds i8, ptr %85, i64 128
   %377 = load ptr, ptr %376, align 8
-  %.not.i.i.i69 = icmp eq ptr %377, null
-  br i1 %.not.i.i.i69, label %_ZN9Stockfish6OptionD2Ev.exit70, label %378
+  %.not.i.i.i70 = icmp eq ptr %377, null
+  br i1 %.not.i.i.i70, label %_ZN9Stockfish6OptionD2Ev.exit71, label %378
 
-378:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit67
+378:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit69
   %379 = getelementptr inbounds i8, ptr %85, i64 112
   %380 = call noundef zeroext i1 %377(ptr noundef nonnull align 8 dereferenceable(16) %379, ptr noundef nonnull align 8 dereferenceable(16) %379, i32 noundef 3) #21
-  br label %_ZN9Stockfish6OptionD2Ev.exit70
+  br label %_ZN9Stockfish6OptionD2Ev.exit71
 
-_ZN9Stockfish6OptionD2Ev.exit70:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit67, %378
+_ZN9Stockfish6OptionD2Ev.exit71:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit69, %378
   %381 = getelementptr inbounds i8, ptr %85, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %381) #21
   %382 = getelementptr inbounds i8, ptr %85, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %382) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %85) #21
   %383 = load ptr, ptr %373, align 8
-  %.not.i.i71 = icmp eq ptr %383, null
-  br i1 %.not.i.i71, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit72, label %384
+  %.not.i.i72 = icmp eq ptr %383, null
+  br i1 %.not.i.i72, label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit73, label %384
 
-384:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit70
+384:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit71
   %385 = call noundef zeroext i1 %383(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %86, i32 noundef 3) #21
-  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit72
+  br label %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit73
 
-_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit72: ; preds = %_ZN9Stockfish6OptionD2Ev.exit70, %384
+_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit73: ; preds = %_ZN9Stockfish6OptionD2Ev.exit71, %384
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %84) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %88) #21
@@ -1107,7 +1107,7 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit72: ; preds = %_ZN9Stockfish6Op
   %389 = getelementptr inbounds i8, ptr %90, i64 24
   %390 = getelementptr inbounds i8, ptr %90, i64 8
   store i64 0, ptr %390, align 8
-  store i64 %160, ptr %90, align 8
+  store i64 %157, ptr %90, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_6E9_M_invokeERKSt9_Any_dataS3_", ptr %389, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_6E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %388, align 8
   call void @_ZN9Stockfish6OptionC1EPKcSt8functionIFvRKS0_EE(ptr noundef nonnull align 8 dereferenceable(144) %89, ptr noundef nonnull @.str.5, ptr noundef nonnull %90) #21
@@ -1117,12 +1117,12 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit72: ; preds = %_ZN9Stockfish6Op
   %.not.i.i.i74 = icmp eq ptr %392, null
   br i1 %.not.i.i.i74, label %_ZN9Stockfish6OptionD2Ev.exit75, label %393
 
-393:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit72
+393:                                              ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit73
   %394 = getelementptr inbounds i8, ptr %89, i64 112
   %395 = call noundef zeroext i1 %392(ptr noundef nonnull align 8 dereferenceable(16) %394, ptr noundef nonnull align 8 dereferenceable(16) %394, i32 noundef 3) #21
   br label %_ZN9Stockfish6OptionD2Ev.exit75
 
-_ZN9Stockfish6OptionD2Ev.exit75:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit72, %393
+_ZN9Stockfish6OptionD2Ev.exit75:                  ; preds = %_ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit73, %393
   %396 = getelementptr inbounds i8, ptr %89, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %396) #21
   %397 = getelementptr inbounds i8, ptr %89, i64 32

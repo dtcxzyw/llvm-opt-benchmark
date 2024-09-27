@@ -2355,8 +2355,8 @@ _ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit.i:  ; preds = %land.rhs.i.i.i.i
 if.then:                                          ; preds = %_ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit.i
   %m_args.i.i = getelementptr inbounds i8, ptr %n, i64 176
   %15 = load ptr, ptr %m_args.i.i, align 8
-  %arrayidx.i.i14 = getelementptr inbounds i8, ptr %n, i64 184
-  %16 = load ptr, ptr %arrayidx.i.i14, align 8
+  %arrayidx.i.i15 = getelementptr inbounds i8, ptr %n, i64 184
+  %16 = load ptr, ptr %arrayidx.i.i15, align 8
   %lo = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   store ptr %15, ptr %lo, align 8
   %hi = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
@@ -2389,8 +2389,8 @@ _ZN3euf9bv_plugin5widthEPNS_5enodeE.exit:         ; preds = %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit
-  %arrayidx.i.i15 = getelementptr inbounds i8, ptr %22, i64 -4
-  %23 = load i32, ptr %arrayidx.i.i15, align 4
+  %arrayidx.i.i16 = getelementptr inbounds i8, ptr %22, i64 -4
+  %23 = load i32, ptr %arrayidx.i.i16, align 4
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %22, i64 -8
   %24 = load i32, ptr %arrayidx4.i.i, align 4
   %cmp5.i.i = icmp eq i32 %23, %24
@@ -2436,64 +2436,64 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   %m_args.i = getelementptr inbounds i8, ptr %n, i64 176
   %33 = load ptr, ptr %m_args.i, align 8
   %34 = load ptr, ptr %33, align 8
-  %call.i.i17 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %34)
-  %m_info.i.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i17, i64 24
-  %35 = load ptr, ptr %m_info.i.i.i.i18, align 8
-  %m_parameters.i.i.i.i.i19 = getelementptr inbounds i8, ptr %35, i64 8
-  %36 = load ptr, ptr %m_parameters.i.i.i.i.i19, align 8
-  %_M_index.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %36, i64 8
-  %37 = load i8, ptr %_M_index.i.i.i.i.i.i.i20, align 8
-  %cmp.not.i.i.i.i.i.i21 = icmp eq i8 %37, 0
-  br i1 %cmp.not.i.i.i.i.i.i21, label %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit25, label %if.then.i.i.i.i.i.i22
+  %call.i.i18 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %34)
+  %m_info.i.i.i.i19 = getelementptr inbounds i8, ptr %call.i.i18, i64 24
+  %35 = load ptr, ptr %m_info.i.i.i.i19, align 8
+  %m_parameters.i.i.i.i.i20 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = load ptr, ptr %m_parameters.i.i.i.i.i20, align 8
+  %_M_index.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = load i8, ptr %_M_index.i.i.i.i.i.i.i21, align 8
+  %cmp.not.i.i.i.i.i.i22 = icmp eq i8 %37, 0
+  br i1 %cmp.not.i.i.i.i.i.i22, label %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit26, label %if.then.i.i.i.i.i.i23
 
-if.then.i.i.i.i.i.i22:                            ; preds = %lor.lhs.false
-  %exception.i.i.i.i.i.i.i.i23 = call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i23, align 8
-  %_M_reason.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i23, i64 8
-  store ptr @.str.9, ptr %_M_reason.i.i.i.i.i.i.i.i.i24, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i23, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
+if.then.i.i.i.i.i.i23:                            ; preds = %lor.lhs.false
+  %exception.i.i.i.i.i.i.i.i24 = call ptr @__cxa_allocate_exception(i64 16) #18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i24, align 8
+  %_M_reason.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i24, i64 8
+  store ptr @.str.9, ptr %_M_reason.i.i.i.i.i.i.i.i.i25, align 8
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i24, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
   unreachable
 
-_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit25:       ; preds = %lor.lhs.false
+_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit26:       ; preds = %lor.lhs.false
   %add = add i32 %32, 1
   %38 = load i32, ptr %36, align 4
   %cmp9.not = icmp eq i32 %add, %38
   br i1 %cmp9.not, label %if.end18, label %if.then10
 
-if.then10:                                        ; preds = %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit25, %land.lhs.true
-  %m_args.i26 = getelementptr inbounds i8, ptr %n, i64 176
-  %39 = load ptr, ptr %m_args.i26, align 8
+if.then10:                                        ; preds = %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit26, %land.lhs.true
+  %m_args.i27 = getelementptr inbounds i8, ptr %n, i64 176
+  %39 = load ptr, ptr %m_args.i27, align 8
   %40 = load ptr, ptr %39, align 8
-  %call.i.i27 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %40)
-  %m_info.i.i.i.i28 = getelementptr inbounds i8, ptr %call.i.i27, i64 24
-  %41 = load ptr, ptr %m_info.i.i.i.i28, align 8
-  %m_parameters.i.i.i.i.i29 = getelementptr inbounds i8, ptr %41, i64 8
-  %42 = load ptr, ptr %m_parameters.i.i.i.i.i29, align 8
-  %_M_index.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %42, i64 8
-  %43 = load i8, ptr %_M_index.i.i.i.i.i.i.i30, align 8
-  %cmp.not.i.i.i.i.i.i31 = icmp eq i8 %43, 0
-  br i1 %cmp.not.i.i.i.i.i.i31, label %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit35, label %if.then.i.i.i.i.i.i32
+  %call.i.i28 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %40)
+  %m_info.i.i.i.i29 = getelementptr inbounds i8, ptr %call.i.i28, i64 24
+  %41 = load ptr, ptr %m_info.i.i.i.i29, align 8
+  %m_parameters.i.i.i.i.i30 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = load ptr, ptr %m_parameters.i.i.i.i.i30, align 8
+  %_M_index.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = load i8, ptr %_M_index.i.i.i.i.i.i.i31, align 8
+  %cmp.not.i.i.i.i.i.i32 = icmp eq i8 %43, 0
+  br i1 %cmp.not.i.i.i.i.i.i32, label %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit36, label %if.then.i.i.i.i.i.i33
 
-if.then.i.i.i.i.i.i32:                            ; preds = %if.then10
-  %exception.i.i.i.i.i.i.i.i33 = call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i33, align 8
-  %_M_reason.i.i.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i33, i64 8
-  store ptr @.str.9, ptr %_M_reason.i.i.i.i.i.i.i.i.i34, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i33, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
+if.then.i.i.i.i.i.i33:                            ; preds = %if.then10
+  %exception.i.i.i.i.i.i.i.i34 = call ptr @__cxa_allocate_exception(i64 16) #18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i34, align 8
+  %_M_reason.i.i.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i34, i64 8
+  store ptr @.str.9, ptr %_M_reason.i.i.i.i.i.i.i.i.i35, align 8
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i34, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
   unreachable
 
-_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit35:       ; preds = %if.then10
+_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit36:       ; preds = %if.then10
   %44 = load i32, ptr %42, align 4
   %45 = getelementptr i8, ptr %39, i64 48
   %ref.tmp.val.val = load ptr, ptr %45, align 8
-  %cmp.i.i.i.i36 = icmp eq ptr %ref.tmp.val.val, null
-  br i1 %cmp.i.i.i.i36, label %if.then15, label %_ZNK3euf13enode_parents3endEv.exit.i
+  %cmp.i.i.i.i37 = icmp eq ptr %ref.tmp.val.val, null
+  br i1 %cmp.i.i.i.i37, label %if.then15, label %_ZNK3euf13enode_parents3endEv.exit.i
 
-_ZNK3euf13enode_parents3endEv.exit.i:             ; preds = %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit35
+_ZNK3euf13enode_parents3endEv.exit.i:             ; preds = %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit36
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.val.val, i64 -4
   %46 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %47 = zext i32 %46 to i64
-  %add.ptr.i.i.i37 = getelementptr inbounds ptr, ptr %ref.tmp.val.val, i64 %47
+  %add.ptr.i.i.i38 = getelementptr inbounds ptr, ptr %ref.tmp.val.val, i64 %47
   %cmp.not1.i = icmp eq i32 %46, 0
   br i1 %cmp.not1.i, label %if.then15, label %for.body.i
 
@@ -2507,8 +2507,8 @@ for.body.i:                                       ; preds = %_ZNK3euf13enode_par
   %call2.i.i.i = call noundef zeroext i1 @_ZNK14bv_recognizers10is_extractEPK4exprRjS3_RPS0_(ptr noundef nonnull align 4 dereferenceable(4) %bv.i.i, ptr noundef %.val.i, ptr noundef nonnull align 4 dereferenceable(4) %_lo.i.i, ptr noundef nonnull align 4 dereferenceable(4) %_hi.i.i, ptr noundef nonnull align 8 dereferenceable(8) %body.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %body.i.i.i)
   %49 = load i32, ptr %_lo.i.i, align 4
-  %cmp.i.i38 = icmp eq i32 %49, 0
-  %or.cond.not.i.i = select i1 %call2.i.i.i, i1 %cmp.i.i38, i1 false
+  %cmp.i.i39 = icmp eq i32 %49, 0
+  %or.cond.not.i.i = select i1 %call2.i.i.i, i1 %cmp.i.i39, i1 false
   br i1 %or.cond.not.i.i, label %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.exit.i", label %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.exit.thread.i"
 
 "_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.exit.thread.i": ; preds = %for.body.i
@@ -2526,10 +2526,10 @@ for.body.i:                                       ; preds = %_ZNK3euf13enode_par
 
 for.inc.i:                                        ; preds = %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.exit.i", %"_ZZN3euf9bv_plugin13register_nodeEPNS_5enodeEENK3$_0clES2_.exit.thread.i"
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.02.i, i64 8
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i37
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i38
   br i1 %cmp.not.i, label %if.then15, label %for.body.i
 
-if.then15:                                        ; preds = %for.inc.i, %_ZNK3euf13enode_parents3endEv.exit.i, %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit35
+if.then15:                                        ; preds = %for.inc.i, %_ZNK3euf13enode_parents3endEv.exit.i, %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit36
   %sub = add i32 %44, -1
   %call16 = call noundef ptr @_ZN3euf9bv_plugin10mk_extractEPNS_5enodeEjj(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %39, i32 noundef 0, i32 noundef %sub)
   call void @_ZN3euf6plugin10push_mergeEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call16, ptr noundef nonnull %39)
@@ -2541,7 +2541,7 @@ if.end17:                                         ; preds = %"_ZZN3euf9bv_plugin
   call void @_ZN3euf9bv_plugin12ensure_sliceEPNS_5enodeEjj(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %39, i32 noundef %51, i32 noundef %52)
   br label %if.end18
 
-if.end18:                                         ; preds = %if.end17, %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit25, %if.end
+if.end18:                                         ; preds = %if.end17, %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit26, %if.end
   ret void
 }
 

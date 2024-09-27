@@ -899,14 +899,14 @@ _ZNK3ade13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpE
   br i1 %.not.not.not.i.not.i, label %"_ZN3ade4util6any_ofINS0_5Range8MapRangeINS2_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEERKZN2cv5gimpl12_GLOBAL__N_115fusionIsTrivialERKSH_E3$_0EEbOT_OT0_.exit.i", label %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.i.i.i.i.i.i.i
 
 _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.i.i.i.i.i.i.i: ; preds = %133
-  %.val.val.i.i.i.i.i.i.i = load ptr, ptr %.sroa.0.0.i.i.i.i.i.i, align 8, !noalias !16
+  %.val1.val.i.i.i.i.i.i.i = load ptr, ptr %.sroa.0.0.i.i.i.i.i.i, align 8, !noalias !16
   %134 = getelementptr i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 8
-  %.val.val1.i.i.i.i.i.i.i = load ptr, ptr %134, align 8, !noalias !16
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.val1.i.i.i.i.i.i.i, null
+  %.val1.val2.i.i.i.i.i.i.i = load ptr, ptr %134, align 8, !noalias !16
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val1.val2.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit.i.i.i.i.i.i.i.i, label %135
 
 135:                                              ; preds = %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.i.i.i.i.i.i.i
-  %136 = getelementptr inbounds i8, ptr %.val.val1.i.i.i.i.i.i.i, i64 12
+  %136 = getelementptr inbounds i8, ptr %.val1.val2.i.i.i.i.i.i.i, i64 12
   %137 = load i8, ptr @__libc_single_threaded, align 1, !noalias !29
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %137, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %142, label %.thread.i.i.i.i.i.i.i.i
@@ -917,14 +917,14 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__n
   store i32 %139, ptr %136, align 4, !noalias !30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !29
   %140 = load i64, ptr %53, align 8, !noalias !37
-  store ptr %.val.val.i.i.i.i.i.i.i, ptr %49, align 8, !noalias !37
-  store ptr %.val.val1.i.i.i.i.i.i.i, ptr %131, align 8, !noalias !37
+  store ptr %.val1.val.i.i.i.i.i.i.i, ptr %49, align 8, !noalias !37
+  store ptr %.val1.val2.i.i.i.i.i.i.i, ptr %131, align 8, !noalias !37
   br label %146
 
 _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !29
   %141 = load i64, ptr %53, align 8, !noalias !37
-  store ptr %.val.val.i.i.i.i.i.i.i, ptr %49, align 8, !noalias !37
+  store ptr %.val1.val.i.i.i.i.i.i.i, ptr %49, align 8, !noalias !37
   store ptr null, ptr %131, align 8, !noalias !37
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i.i
 
@@ -934,8 +934,8 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
   %144 = icmp eq i8 %.pre.i.i.i.i.i.i.i.i, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49), !noalias !29
   %145 = load i64, ptr %53, align 8, !noalias !37
-  store ptr %.val.val.i.i.i.i.i.i.i, ptr %49, align 8, !noalias !37
-  store ptr %.val.val1.i.i.i.i.i.i.i, ptr %131, align 8, !noalias !37
+  store ptr %.val1.val.i.i.i.i.i.i.i, ptr %49, align 8, !noalias !37
+  store ptr %.val1.val2.i.i.i.i.i.i.i, ptr %131, align 8, !noalias !37
   br i1 %144, label %150, label %146
 
 146:                                              ; preds = %142, %.thread.i.i.i.i.i.i.i.i
@@ -1036,7 +1036,7 @@ _ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN2cv5gimpl12_GLOBAL__N_115fusionIsTrivialERKN3ade5GraphEE3$_0EclINS5_4util5Range13IterableRangeINSD_8MapRangeINSD_9IterRangeINS_17__normal_iteratorIPKSt10shared_ptrINS5_4NodeEESt6vectorISK_SaISK_EEEESQ_EENS6_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i.i.i.i.i.i", label %189
 
 189:                                              ; preds = %188
-  %190 = getelementptr inbounds i8, ptr %.val.val1.i.i.i.i.i.i.i, i64 12
+  %190 = getelementptr inbounds i8, ptr %.val1.val2.i.i.i.i.i.i.i, i64 12
   %191 = load i8, ptr @__libc_single_threaded, align 1, !noalias !29
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %191, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %195, label %192
@@ -1057,10 +1057,10 @@ _ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS
   br i1 %198, label %199, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN2cv5gimpl12_GLOBAL__N_115fusionIsTrivialERKN3ade5GraphEE3$_0EclINS5_4util5Range13IterableRangeINSD_8MapRangeINSD_9IterRangeINS_17__normal_iteratorIPKSt10shared_ptrINS5_4NodeEESt6vectorISK_SaISK_EEEESQ_EENS6_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i.i.i.i.i.i"
 
 199:                                              ; preds = %197
-  %200 = load ptr, ptr %.val.val1.i.i.i.i.i.i.i, align 8, !noalias !29
+  %200 = load ptr, ptr %.val1.val2.i.i.i.i.i.i.i, align 8, !noalias !29
   %201 = getelementptr inbounds i8, ptr %200, i64 24
   %202 = load ptr, ptr %201, align 8, !noalias !29
-  call void %202(ptr noundef nonnull align 8 dereferenceable(16) %.val.val1.i.i.i.i.i.i.i) #22, !noalias !29
+  call void %202(ptr noundef nonnull align 8 dereferenceable(16) %.val1.val2.i.i.i.i.i.i.i) #22, !noalias !29
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN2cv5gimpl12_GLOBAL__N_115fusionIsTrivialERKN3ade5GraphEE3$_0EclINS5_4util5Range13IterableRangeINSD_8MapRangeINSD_9IterRangeINS_17__normal_iteratorIPKSt10shared_ptrINS5_4NodeEESt6vectorISK_SaISK_EEEESQ_EENS6_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i.i.i.i.i.i"
 
 203:                                              ; preds = %_ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE8metadataERKNS_6HandleINS_4NodeEEE.exit.i.i.i.i.i.i.i.i.i
@@ -1073,7 +1073,7 @@ _ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.body, label %205
 
 205:                                              ; preds = %.body.i.i.i.i.i.i.i.i
-  %206 = getelementptr inbounds i8, ptr %.val.val1.i.i.i.i.i.i.i, i64 12
+  %206 = getelementptr inbounds i8, ptr %.val1.val2.i.i.i.i.i.i.i, i64 12
   %207 = load i8, ptr @__libc_single_threaded, align 1, !noalias !29
   %.not.i.i.i.i.i6.i.i.i.i.i.i.i.i = icmp eq i8 %207, 0
   br i1 %.not.i.i.i.i.i6.i.i.i.i.i.i.i.i, label %211, label %208
@@ -1094,10 +1094,10 @@ _ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS
   br i1 %214, label %215, label %.body
 
 215:                                              ; preds = %213
-  %216 = load ptr, ptr %.val.val1.i.i.i.i.i.i.i, align 8, !noalias !29
+  %216 = load ptr, ptr %.val1.val2.i.i.i.i.i.i.i, align 8, !noalias !29
   %217 = getelementptr inbounds i8, ptr %216, i64 24
   %218 = load ptr, ptr %217, align 8, !noalias !29
-  call void %218(ptr noundef nonnull align 8 dereferenceable(16) %.val.val1.i.i.i.i.i.i.i) #22, !noalias !29
+  call void %218(ptr noundef nonnull align 8 dereferenceable(16) %.val1.val2.i.i.i.i.i.i.i) #22, !noalias !29
   br label %.body
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN2cv5gimpl12_GLOBAL__N_115fusionIsTrivialERKN3ade5GraphEE3$_0EclINS5_4util5Range13IterableRangeINSD_8MapRangeINSD_9IterRangeINS_17__normal_iteratorIPKSt10shared_ptrINS5_4NodeEESt6vectorISK_SaISK_EEEESQ_EENS6_12HandleMapperEEEE8iteratorEEEbT_.exit.i.i.i.i.i.i.i": ; preds = %199, %197, %188

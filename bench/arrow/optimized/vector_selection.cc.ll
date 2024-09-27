@@ -8083,7 +8083,7 @@ for.body.lr.ph.i.i:                               ; preds = %sw.bb2.i
 
 for.body.i.i:                                     ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_11BooleanTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlbE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, %for.body.lr.ph.i.i
   %__begin4.sroa.0.010.i.i = phi ptr [ %9, %for.body.lr.ph.i.i ], [ %incdec.ptr.i.i.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_11BooleanTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlbE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
-  %index.09.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %index.8.i.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_11BooleanTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlbE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
+  %index.09.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %index.7.i.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_11BooleanTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlbE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
   %offset1.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i.i, i64 24
   %15 = load i64, ptr %offset1.i.i.i.i.i, align 8, !noalias !58
   %buffers.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i.i, i64 32
@@ -8101,7 +8101,7 @@ for.body.i.i:                                     ; preds = %_ZN5arrow7compute8i
   br i1 %cmp64.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_11BooleanTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlbE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %.noexc51, %if.end32.i.i.i.i.i.i
-  %index.1.i.i = phi i64 [ %index.7.i.i, %if.end32.i.i.i.i.i.i ], [ %index.09.i.i, %.noexc51 ]
+  %index.1.i.i = phi i64 [ %index.6.i.i, %if.end32.i.i.i.i.i.i ], [ %index.09.i.i, %.noexc51 ]
   %position.065.i.i.i.i.i.i = phi i64 [ %position.2.i.i.i.i.i.i, %if.end32.i.i.i.i.i.i ], [ 0, %.noexc51 ]
   %19 = load i8, ptr %bit_counter.i.i.i.i.i.i, align 8, !noalias !58
   %tobool.i.i.i = trunc i8 %19 to i1
@@ -8248,15 +8248,15 @@ for.cond19.preheader.i.i.i.i.i.i:                 ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp1156.i.i.i.i.i.i, label %for.body23.i.i.i.i.i.i, label %if.end32.i.i.i.i.i.i
 
 for.cond8.preheader.i.i.i.i.i.i:                  ; preds = %if.else.i.i.i.i.i.i
-  br i1 %cmp1156.i.i.i.i.i.i, label %for.body12.i.i.i.i.preheader.i.i, label %if.end32.i.i.i.i.i.i
+  br i1 %cmp1156.i.i.i.i.i.i, label %for.body12.i.i.i.preheader.i.i.i, label %if.end32.i.i.i.i.i.i
 
-for.body12.i.i.i.i.preheader.i.i:                 ; preds = %for.cond8.preheader.i.i.i.i.i.i
+for.body12.i.i.i.preheader.i.i.i:                 ; preds = %for.cond8.preheader.i.i.i.i.i.i
   %42 = add i64 %index.1.i.i, %conv.i.i.i
   %43 = add i64 %position.065.i.i.i.i.i.i, %conv.i.i.i
   br label %if.end32.i.i.i.i.i.i
 
 for.body23.i.i.i.i.i.i:                           ; preds = %for.cond19.preheader.i.i.i.i.i.i, %for.inc27.i.i.i.i.i.i
-  %index.5.i.i = phi i64 [ %index.6.i.i, %for.inc27.i.i.i.i.i.i ], [ %index.1.i.i, %for.cond19.preheader.i.i.i.i.i.i ]
+  %index.4.i.i = phi i64 [ %index.5.i.i, %for.inc27.i.i.i.i.i.i ], [ %index.1.i.i, %for.cond19.preheader.i.i.i.i.i.i ]
   %i18.055.i.i.i.i.i.i = phi i64 [ %inc28.i.i.i.i.i.i, %for.inc27.i.i.i.i.i.i ], [ 0, %for.cond19.preheader.i.i.i.i.i.i ]
   %position.454.i.i.i.i.i.i = phi i64 [ %inc29.i.i.i.i.i.i, %for.inc27.i.i.i.i.i.i ], [ %position.065.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i.i ]
   %add.i.i.i.i.i.i = add nsw i64 %position.454.i.i.i.i.i.i, %15
@@ -8299,14 +8299,14 @@ if.then.i.i.i26.i.i.i.i.i.i:                      ; preds = %if.then25.i.i.i.i.i
   %56 = load ptr, ptr %data_.i.i.i, align 8, !noalias !58
   %57 = load i64, ptr %size_.i.i.i.i.i.i40.i.i.i.i.i.i, align 8, !noalias !58
   %add.ptr.i.i.i.i.i.i41.i.i.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 %57
-  store i64 %index.5.i.i, ptr %add.ptr.i.i.i.i.i.i41.i.i.i.i.i.i, align 1, !noalias !58
+  store i64 %index.4.i.i, ptr %add.ptr.i.i.i.i.i.i41.i.i.i.i.i.i, align 1, !noalias !58
   %58 = load i64, ptr %size_.i.i.i.i.i.i40.i.i.i.i.i.i, align 8, !noalias !58
   %add.i.i.i.i.i.i42.i.i.i.i.i.i = add nsw i64 %58, 8
   store i64 %add.i.i.i.i.i.i42.i.i.i.i.i.i, ptr %size_.i.i.i.i.i.i40.i.i.i.i.i.i, align 8, !noalias !58
   br label %for.inc27.i.i.i.i.i.i
 
 for.inc27.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i26.i.i.i.i.i.i, %if.then25.i.i.i.i.i.i, %for.body23.i.i.i.i.i.i
-  %index.6.i.i = add i64 %index.5.i.i, 1
+  %index.5.i.i = add i64 %index.4.i.i, 1
   %inc28.i.i.i.i.i.i = add nuw nsw i64 %i18.055.i.i.i.i.i.i, 1
   %inc29.i.i.i.i.i.i = add nsw i64 %position.454.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %inc28.i.i.i.i.i.i, %conv.i.i.i
@@ -8320,14 +8320,14 @@ if.end32.loopexit67.i.i.i.i.i.i:                  ; preds = %for.inc27.i.i.i.i.i
   %60 = add i64 %position.065.i.i.i.i.i.i, %conv.i.i.i
   br label %if.end32.i.i.i.i.i.i
 
-if.end32.i.i.i.i.i.i:                             ; preds = %if.end32.loopexit67.i.i.i.i.i.i, %if.end32.loopexit.i.i.i.i.i.i, %for.body12.i.i.i.i.preheader.i.i, %for.cond8.preheader.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i.i
-  %index.7.i.i = phi i64 [ %index.3.i.i, %if.end32.loopexit.i.i.i.i.i.i ], [ %index.1.i.i, %for.cond.preheader.i.i.i.i.i.i ], [ %42, %for.body12.i.i.i.i.preheader.i.i ], [ %index.1.i.i, %for.cond8.preheader.i.i.i.i.i.i ], [ %index.6.i.i, %if.end32.loopexit67.i.i.i.i.i.i ], [ %index.1.i.i, %for.cond19.preheader.i.i.i.i.i.i ]
-  %position.2.i.i.i.i.i.i = phi i64 [ %59, %if.end32.loopexit.i.i.i.i.i.i ], [ %position.065.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i.i ], [ %43, %for.body12.i.i.i.i.preheader.i.i ], [ %position.065.i.i.i.i.i.i, %for.cond8.preheader.i.i.i.i.i.i ], [ %60, %if.end32.loopexit67.i.i.i.i.i.i ], [ %position.065.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i.i ]
+if.end32.i.i.i.i.i.i:                             ; preds = %if.end32.loopexit67.i.i.i.i.i.i, %if.end32.loopexit.i.i.i.i.i.i, %for.body12.i.i.i.preheader.i.i.i, %for.cond8.preheader.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i.i
+  %index.6.i.i = phi i64 [ %index.3.i.i, %if.end32.loopexit.i.i.i.i.i.i ], [ %index.1.i.i, %for.cond.preheader.i.i.i.i.i.i ], [ %42, %for.body12.i.i.i.preheader.i.i.i ], [ %index.1.i.i, %for.cond8.preheader.i.i.i.i.i.i ], [ %index.5.i.i, %if.end32.loopexit67.i.i.i.i.i.i ], [ %index.1.i.i, %for.cond19.preheader.i.i.i.i.i.i ]
+  %position.2.i.i.i.i.i.i = phi i64 [ %59, %if.end32.loopexit.i.i.i.i.i.i ], [ %position.065.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i.i ], [ %43, %for.body12.i.i.i.preheader.i.i.i ], [ %position.065.i.i.i.i.i.i, %for.cond8.preheader.i.i.i.i.i.i ], [ %60, %if.end32.loopexit67.i.i.i.i.i.i ], [ %position.065.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp slt i64 %position.2.i.i.i.i.i.i, %18
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_11BooleanTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlbE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, !llvm.loop !63
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_11BooleanTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlbE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i.i, %.noexc51
-  %index.8.i.i = phi i64 [ %index.09.i.i, %.noexc51 ], [ %index.7.i.i, %if.end32.i.i.i.i.i.i ]
+  %index.7.i.i = phi i64 [ %index.09.i.i, %.noexc51 ], [ %index.6.i.i, %if.end32.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i.i), !noalias !58
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i.i, i64 128
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %14
@@ -8351,7 +8351,7 @@ for.body.lr.ph.i90.i:                             ; preds = %sw.bb4.i
 
 for.body.i96.i:                                   ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_8Int8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlaE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, %for.body.lr.ph.i90.i
   %__begin4.sroa.0.010.i97.i = phi ptr [ %9, %for.body.lr.ph.i90.i ], [ %incdec.ptr.i.i102.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_8Int8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlaE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
-  %index.09.i98.i = phi i64 [ 0, %for.body.lr.ph.i90.i ], [ %index.8.i101.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_8Int8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlaE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
+  %index.09.i98.i = phi i64 [ 0, %for.body.lr.ph.i90.i ], [ %index.7.i101.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_8Int8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlaE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
   %offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i97.i, i64 24
   %62 = load i64, ptr %offset.i.i.i.i.i.i, align 8, !noalias !64
   %buffers.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i97.i, i64 32
@@ -8366,12 +8366,12 @@ for.body.i96.i:                                   ; preds = %_ZN5arrow7compute8i
           to label %.noexc52 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc52:                                         ; preds = %for.body.i96.i
-  %cmp63.i.i.i.i.i.i = icmp sgt i64 %65, 0
-  br i1 %cmp63.i.i.i.i.i.i, label %while.body.i.i.i.i.i104.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_8Int8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlaE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
+  %cmp18.i.i.i.i.i.i = icmp sgt i64 %65, 0
+  br i1 %cmp18.i.i.i.i.i.i, label %while.body.i.i.i.i.i104.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_8Int8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlaE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
 
 while.body.i.i.i.i.i104.i:                        ; preds = %.noexc52, %if.end32.i.i.i.i.i117.i
-  %index.1.i105.i = phi i64 [ %index.7.i118.i, %if.end32.i.i.i.i.i117.i ], [ %index.09.i98.i, %.noexc52 ]
-  %position.064.i.i.i.i.i.i = phi i64 [ %position.2.i.i.i.i.i119.i, %if.end32.i.i.i.i.i117.i ], [ 0, %.noexc52 ]
+  %index.1.i105.i = phi i64 [ %index.6.i118.i, %if.end32.i.i.i.i.i117.i ], [ %index.09.i98.i, %.noexc52 ]
+  %position.019.i.i.i.i.i.i = phi i64 [ %position.2.i.i.i.i.i119.i, %if.end32.i.i.i.i.i117.i ], [ 0, %.noexc52 ]
   %66 = load i8, ptr %bit_counter.i.i.i.i.i86.i, align 8, !noalias !64
   %tobool.i.i106.i = trunc i8 %66 to i1
   br i1 %tobool.i.i106.i, label %if.then.i.i142.i, label %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i107.i
@@ -8456,15 +8456,15 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i159.i: ; preds = %
 for.cond.preheader.i.i.i.i.i114.i:                ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i159.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i107.i
   %conv.i.i.i.i.i116.pre-phi.i = phi i64 [ %conv.i.i164.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i159.i ], [ %conv5.i.i112.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i107.i ]
   %retval.sroa.0.0.i15.i115.i = phi i16 [ %retval.sroa.0.0.extract.trunc.i.i162.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i159.i ], [ %conv4.i.i110.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i107.i ]
-  %cmp359.i.i.i.i.i.i = icmp sgt i16 %retval.sroa.0.0.i15.i115.i, 0
-  br i1 %cmp359.i.i.i.i.i.i, label %for.body.i.i.i.i.i121.i, label %if.end32.i.i.i.i.i117.i
+  %cmp314.i.i.i.i.i.i = icmp sgt i16 %retval.sroa.0.0.i15.i115.i, 0
+  br i1 %cmp314.i.i.i.i.i.i, label %for.body.i.i.i.i.i121.i, label %if.end32.i.i.i.i.i117.i
 
 for.body.i.i.i.i.i121.i:                          ; preds = %for.cond.preheader.i.i.i.i.i114.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlaE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlaE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
   %index.2.i122.i = phi i64 [ %index.3.i138.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlaE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlaE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %index.1.i105.i, %for.cond.preheader.i.i.i.i.i114.i ]
-  %i.061.i.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i139.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlaE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlaE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i114.i ]
-  %position.160.i.i.i.i.i.i = phi i64 [ %inc4.i.i.i.i.i140.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlaE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlaE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.064.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i114.i ]
-  %arrayidx.i.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 %position.160.i.i.i.i.i.i
-  %76 = load i8, ptr %arrayidx.i.i4.i.i.i.i.i, align 1, !noalias !64
+  %i.016.i.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i139.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlaE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlaE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i114.i ]
+  %position.115.i.i.i.i.i.i = phi i64 [ %inc4.i.i.i.i.i140.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlaE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlaE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.019.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i114.i ]
+  %arrayidx.i.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 %position.115.i.i.i.i.i.i
+  %76 = load i8, ptr %arrayidx.i.i5.i.i.i.i.i, align 1, !noalias !64
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %76, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlaE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlaE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i123.i
 
@@ -8496,32 +8496,32 @@ if.then.i.i.i.i.i.i.i.i123.i:                     ; preds = %for.body.i.i.i.i.i1
 
 _ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlaE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlaE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i123.i, %for.body.i.i.i.i.i121.i
   %index.3.i138.i = add i64 %index.2.i122.i, 1
-  %inc.i.i.i.i.i139.i = add nuw nsw i64 %i.061.i.i.i.i.i.i, 1
-  %inc4.i.i.i.i.i140.i = add nsw i64 %position.160.i.i.i.i.i.i, 1
-  %exitcond68.not.i.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i139.i, %conv.i.i.i.i.i116.pre-phi.i
-  br i1 %exitcond68.not.i.i.i.i.i.i, label %if.end32.loopexit.i.i.i.i.i141.i, label %for.body.i.i.i.i.i121.i, !llvm.loop !67
+  %inc.i.i.i.i.i139.i = add nuw nsw i64 %i.016.i.i.i.i.i.i, 1
+  %inc4.i.i.i.i.i140.i = add nsw i64 %position.115.i.i.i.i.i.i, 1
+  %exitcond23.not.i.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i139.i, %conv.i.i.i.i.i116.pre-phi.i
+  br i1 %exitcond23.not.i.i.i.i.i.i, label %if.end32.loopexit.i.i.i.i.i141.i, label %for.body.i.i.i.i.i121.i, !llvm.loop !67
 
 if.else.i.i.i.i.i167.i:                           ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i159.i
   %cmp.i22.i.i.i.i.i.i = icmp eq i32 %retval.sroa.5.0.i.i.i161.i, 0
-  %cmp1155.i.i.i.i.i.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i162.i, 0
+  %cmp1110.i.i.i.i.i.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i162.i, 0
   br i1 %cmp.i22.i.i.i.i.i.i, label %for.cond8.preheader.i.i.i.i.i184.i, label %for.cond19.preheader.i.i.i.i.i169.i
 
 for.cond19.preheader.i.i.i.i.i169.i:              ; preds = %if.else.i.i.i.i.i167.i
-  br i1 %cmp1155.i.i.i.i.i.i, label %for.body23.i.i.i.i.i170.i, label %if.end32.i.i.i.i.i117.i
+  br i1 %cmp1110.i.i.i.i.i.i, label %for.body23.i.i.i.i.i170.i, label %if.end32.i.i.i.i.i117.i
 
 for.cond8.preheader.i.i.i.i.i184.i:               ; preds = %if.else.i.i.i.i.i167.i
-  br i1 %cmp1155.i.i.i.i.i.i, label %for.body12.i.i.i.i.preheader.i185.i, label %if.end32.i.i.i.i.i117.i
+  br i1 %cmp1110.i.i.i.i.i.i, label %for.body12.i.i.i.preheader.i.i185.i, label %if.end32.i.i.i.i.i117.i
 
-for.body12.i.i.i.i.preheader.i185.i:              ; preds = %for.cond8.preheader.i.i.i.i.i184.i
+for.body12.i.i.i.preheader.i.i185.i:              ; preds = %for.cond8.preheader.i.i.i.i.i184.i
   %86 = add i64 %index.1.i105.i, %conv.i.i164.i
-  %87 = add i64 %position.064.i.i.i.i.i.i, %conv.i.i164.i
+  %87 = add i64 %position.019.i.i.i.i.i.i, %conv.i.i164.i
   br label %if.end32.i.i.i.i.i117.i
 
 for.body23.i.i.i.i.i170.i:                        ; preds = %for.cond19.preheader.i.i.i.i.i169.i, %for.inc27.i.i.i.i.i179.i
-  %index.5.i171.i = phi i64 [ %index.6.i180.i, %for.inc27.i.i.i.i.i179.i ], [ %index.1.i105.i, %for.cond19.preheader.i.i.i.i.i169.i ]
-  %i18.054.i.i.i.i.i.i = phi i64 [ %inc28.i.i.i.i.i181.i, %for.inc27.i.i.i.i.i179.i ], [ 0, %for.cond19.preheader.i.i.i.i.i169.i ]
-  %position.453.i.i.i.i.i.i = phi i64 [ %inc29.i.i.i.i.i182.i, %for.inc27.i.i.i.i.i179.i ], [ %position.064.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i169.i ]
-  %add.i.i.i.i.i172.i = add nsw i64 %position.453.i.i.i.i.i.i, %62
+  %index.4.i171.i = phi i64 [ %index.5.i180.i, %for.inc27.i.i.i.i.i179.i ], [ %index.1.i105.i, %for.cond19.preheader.i.i.i.i.i169.i ]
+  %i18.09.i.i.i.i.i.i = phi i64 [ %inc28.i.i.i.i.i181.i, %for.inc27.i.i.i.i.i179.i ], [ 0, %for.cond19.preheader.i.i.i.i.i169.i ]
+  %position.48.i.i.i.i.i.i = phi i64 [ %inc29.i.i.i.i.i182.i, %for.inc27.i.i.i.i.i179.i ], [ %position.019.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i169.i ]
+  %add.i.i.i.i.i172.i = add nsw i64 %position.48.i.i.i.i.i.i, %62
   %shr.i.i.i.i.i.i173.i = lshr i64 %add.i.i.i.i.i172.i, 3
   %arrayidx.i23.i.i.i.i.i.i = getelementptr inbounds i8, ptr %64, i64 %shr.i.i.i.i.i.i173.i
   %88 = load i8, ptr %arrayidx.i23.i.i.i.i.i.i, align 1, !noalias !64
@@ -8534,7 +8534,7 @@ for.body23.i.i.i.i.i170.i:                        ; preds = %for.cond19.preheade
   br i1 %tobool.i.not.i.i.i.i.i176.i, label %for.inc27.i.i.i.i.i179.i, label %if.then25.i.i.i.i.i177.i
 
 if.then25.i.i.i.i.i177.i:                         ; preds = %for.body23.i.i.i.i.i170.i
-  %arrayidx.i24.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 %position.453.i.i.i.i.i.i
+  %arrayidx.i24.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 %position.48.i.i.i.i.i.i
   %92 = load i8, ptr %arrayidx.i24.i.i.i.i.i.i, align 1, !noalias !64
   %cmp.not.i.i.i25.i.i.i.i.i.i = icmp eq i8 %92, 0
   br i1 %cmp.not.i.i.i25.i.i.i.i.i.i, label %for.inc27.i.i.i.i.i179.i, label %if.then.i.i.i26.i.i.i.i.i178.i
@@ -8559,35 +8559,35 @@ if.then.i.i.i26.i.i.i.i.i178.i:                   ; preds = %if.then25.i.i.i.i.i
   %99 = load ptr, ptr %data_.i.i.i, align 8, !noalias !64
   %100 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i.i, align 8, !noalias !64
   %add.ptr.i.i.i.i.i.i40.i.i.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 %100
-  store i64 %index.5.i171.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i.i, align 1, !noalias !64
+  store i64 %index.4.i171.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i.i, align 1, !noalias !64
   %101 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i.i, align 8, !noalias !64
   %add.i.i.i.i.i.i41.i.i.i.i.i.i = add nsw i64 %101, 8
   store i64 %add.i.i.i.i.i.i41.i.i.i.i.i.i, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i.i, align 8, !noalias !64
   br label %for.inc27.i.i.i.i.i179.i
 
 for.inc27.i.i.i.i.i179.i:                         ; preds = %if.then.i.i.i26.i.i.i.i.i178.i, %if.then25.i.i.i.i.i177.i, %for.body23.i.i.i.i.i170.i
-  %index.6.i180.i = add i64 %index.5.i171.i, 1
-  %inc28.i.i.i.i.i181.i = add nuw nsw i64 %i18.054.i.i.i.i.i.i, 1
-  %inc29.i.i.i.i.i182.i = add nsw i64 %position.453.i.i.i.i.i.i, 1
+  %index.5.i180.i = add i64 %index.4.i171.i, 1
+  %inc28.i.i.i.i.i181.i = add nuw nsw i64 %i18.09.i.i.i.i.i.i, 1
+  %inc29.i.i.i.i.i182.i = add nsw i64 %position.48.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i183.i = icmp eq i64 %inc28.i.i.i.i.i181.i, %conv.i.i164.i
-  br i1 %exitcond.not.i.i.i.i.i183.i, label %if.end32.loopexit66.i.i.i.i.i.i, label %for.body23.i.i.i.i.i170.i, !llvm.loop !68
+  br i1 %exitcond.not.i.i.i.i.i183.i, label %if.end32.loopexit21.i.i.i.i.i.i, label %for.body23.i.i.i.i.i170.i, !llvm.loop !68
 
 if.end32.loopexit.i.i.i.i.i141.i:                 ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlaE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlaE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
-  %102 = add i64 %conv.i.i.i.i.i116.pre-phi.i, %position.064.i.i.i.i.i.i
+  %102 = add i64 %conv.i.i.i.i.i116.pre-phi.i, %position.019.i.i.i.i.i.i
   br label %if.end32.i.i.i.i.i117.i
 
-if.end32.loopexit66.i.i.i.i.i.i:                  ; preds = %for.inc27.i.i.i.i.i179.i
-  %103 = add i64 %position.064.i.i.i.i.i.i, %conv.i.i164.i
+if.end32.loopexit21.i.i.i.i.i.i:                  ; preds = %for.inc27.i.i.i.i.i179.i
+  %103 = add i64 %position.019.i.i.i.i.i.i, %conv.i.i164.i
   br label %if.end32.i.i.i.i.i117.i
 
-if.end32.i.i.i.i.i117.i:                          ; preds = %if.end32.loopexit66.i.i.i.i.i.i, %if.end32.loopexit.i.i.i.i.i141.i, %for.body12.i.i.i.i.preheader.i185.i, %for.cond8.preheader.i.i.i.i.i184.i, %for.cond19.preheader.i.i.i.i.i169.i, %for.cond.preheader.i.i.i.i.i114.i
-  %index.7.i118.i = phi i64 [ %index.3.i138.i, %if.end32.loopexit.i.i.i.i.i141.i ], [ %index.1.i105.i, %for.cond.preheader.i.i.i.i.i114.i ], [ %86, %for.body12.i.i.i.i.preheader.i185.i ], [ %index.1.i105.i, %for.cond8.preheader.i.i.i.i.i184.i ], [ %index.6.i180.i, %if.end32.loopexit66.i.i.i.i.i.i ], [ %index.1.i105.i, %for.cond19.preheader.i.i.i.i.i169.i ]
-  %position.2.i.i.i.i.i119.i = phi i64 [ %102, %if.end32.loopexit.i.i.i.i.i141.i ], [ %position.064.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i114.i ], [ %87, %for.body12.i.i.i.i.preheader.i185.i ], [ %position.064.i.i.i.i.i.i, %for.cond8.preheader.i.i.i.i.i184.i ], [ %103, %if.end32.loopexit66.i.i.i.i.i.i ], [ %position.064.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i169.i ]
+if.end32.i.i.i.i.i117.i:                          ; preds = %if.end32.loopexit21.i.i.i.i.i.i, %if.end32.loopexit.i.i.i.i.i141.i, %for.body12.i.i.i.preheader.i.i185.i, %for.cond8.preheader.i.i.i.i.i184.i, %for.cond19.preheader.i.i.i.i.i169.i, %for.cond.preheader.i.i.i.i.i114.i
+  %index.6.i118.i = phi i64 [ %index.3.i138.i, %if.end32.loopexit.i.i.i.i.i141.i ], [ %index.1.i105.i, %for.cond.preheader.i.i.i.i.i114.i ], [ %86, %for.body12.i.i.i.preheader.i.i185.i ], [ %index.1.i105.i, %for.cond8.preheader.i.i.i.i.i184.i ], [ %index.5.i180.i, %if.end32.loopexit21.i.i.i.i.i.i ], [ %index.1.i105.i, %for.cond19.preheader.i.i.i.i.i169.i ]
+  %position.2.i.i.i.i.i119.i = phi i64 [ %102, %if.end32.loopexit.i.i.i.i.i141.i ], [ %position.019.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i114.i ], [ %87, %for.body12.i.i.i.preheader.i.i185.i ], [ %position.019.i.i.i.i.i.i, %for.cond8.preheader.i.i.i.i.i184.i ], [ %103, %if.end32.loopexit21.i.i.i.i.i.i ], [ %position.019.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i169.i ]
   %cmp.i.i.i.i.i120.i = icmp slt i64 %position.2.i.i.i.i.i119.i, %65
   br i1 %cmp.i.i.i.i.i120.i, label %while.body.i.i.i.i.i104.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_8Int8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlaE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, !llvm.loop !69
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_8Int8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlaE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i117.i, %.noexc52
-  %index.8.i101.i = phi i64 [ %index.09.i98.i, %.noexc52 ], [ %index.7.i118.i, %if.end32.i.i.i.i.i117.i ]
+  %index.7.i101.i = phi i64 [ %index.09.i98.i, %.noexc52 ], [ %index.6.i118.i, %if.end32.i.i.i.i.i117.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i86.i), !noalias !64
   %incdec.ptr.i.i102.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i97.i, i64 128
   %cmp.i.not.i103.i = icmp eq ptr %incdec.ptr.i.i102.i, %61
@@ -8611,7 +8611,7 @@ for.body.lr.ph.i200.i:                            ; preds = %sw.bb6.i
 
 for.body.i206.i:                                  ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9UInt8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlhE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, %for.body.lr.ph.i200.i
   %__begin4.sroa.0.010.i207.i = phi ptr [ %9, %for.body.lr.ph.i200.i ], [ %incdec.ptr.i.i216.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9UInt8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlhE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
-  %index.09.i208.i = phi i64 [ 0, %for.body.lr.ph.i200.i ], [ %index.8.i215.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9UInt8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlhE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
+  %index.09.i208.i = phi i64 [ 0, %for.body.lr.ph.i200.i ], [ %index.7.i215.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9UInt8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlhE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
   %offset.i.i.i.i.i209.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i207.i, i64 24
   %105 = load i64, ptr %offset.i.i.i.i.i209.i, align 8, !noalias !70
   %buffers.i.i.i.i.i.i210.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i207.i, i64 32
@@ -8626,12 +8626,12 @@ for.body.i206.i:                                  ; preds = %_ZN5arrow7compute8i
           to label %.noexc53 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc53:                                         ; preds = %for.body.i206.i
-  %cmp63.i.i.i.i.i214.i = icmp sgt i64 %108, 0
-  br i1 %cmp63.i.i.i.i.i214.i, label %while.body.i.i.i.i.i218.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9UInt8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlhE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
+  %cmp18.i.i.i.i.i214.i = icmp sgt i64 %108, 0
+  br i1 %cmp18.i.i.i.i.i214.i, label %while.body.i.i.i.i.i218.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9UInt8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlhE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
 
 while.body.i.i.i.i.i218.i:                        ; preds = %.noexc53, %if.end32.i.i.i.i.i233.i
-  %index.1.i219.i = phi i64 [ %index.7.i234.i, %if.end32.i.i.i.i.i233.i ], [ %index.09.i208.i, %.noexc53 ]
-  %position.064.i.i.i.i.i220.i = phi i64 [ %position.2.i.i.i.i.i235.i, %if.end32.i.i.i.i.i233.i ], [ 0, %.noexc53 ]
+  %index.1.i219.i = phi i64 [ %index.6.i234.i, %if.end32.i.i.i.i.i233.i ], [ %index.09.i208.i, %.noexc53 ]
+  %position.019.i.i.i.i.i220.i = phi i64 [ %position.2.i.i.i.i.i235.i, %if.end32.i.i.i.i.i233.i ], [ 0, %.noexc53 ]
   %109 = load i8, ptr %bit_counter.i.i.i.i.i196.i, align 8, !noalias !70
   %tobool.i.i221.i = trunc i8 %109 to i1
   br i1 %tobool.i.i221.i, label %if.then.i.i263.i, label %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i222.i
@@ -8716,15 +8716,15 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i280.i: ; preds = %
 for.cond.preheader.i.i.i.i.i229.i:                ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i280.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i222.i
   %conv.i.i.i.i.i231.pre-phi.i = phi i64 [ %conv.i.i285.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i280.i ], [ %conv5.i.i227.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i222.i ]
   %retval.sroa.0.0.i15.i230.i = phi i16 [ %retval.sroa.0.0.extract.trunc.i.i283.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i280.i ], [ %conv4.i.i225.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i222.i ]
-  %cmp359.i.i.i.i.i232.i = icmp sgt i16 %retval.sroa.0.0.i15.i230.i, 0
-  br i1 %cmp359.i.i.i.i.i232.i, label %for.body.i.i.i.i.i237.i, label %if.end32.i.i.i.i.i233.i
+  %cmp314.i.i.i.i.i232.i = icmp sgt i16 %retval.sroa.0.0.i15.i230.i, 0
+  br i1 %cmp314.i.i.i.i.i232.i, label %for.body.i.i.i.i.i237.i, label %if.end32.i.i.i.i.i233.i
 
 for.body.i.i.i.i.i237.i:                          ; preds = %for.cond.preheader.i.i.i.i.i229.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlhE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlhE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
   %index.2.i238.i = phi i64 [ %index.3.i258.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlhE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlhE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %index.1.i219.i, %for.cond.preheader.i.i.i.i.i229.i ]
-  %i.061.i.i.i.i.i239.i = phi i64 [ %inc.i.i.i.i.i259.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlhE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlhE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i229.i ]
-  %position.160.i.i.i.i.i240.i = phi i64 [ %inc4.i.i.i.i.i260.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlhE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlhE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.064.i.i.i.i.i220.i, %for.cond.preheader.i.i.i.i.i229.i ]
-  %arrayidx.i.i4.i.i.i.i241.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i212.i, i64 %position.160.i.i.i.i.i240.i
-  %119 = load i8, ptr %arrayidx.i.i4.i.i.i.i241.i, align 1, !noalias !70
+  %i.016.i.i.i.i.i239.i = phi i64 [ %inc.i.i.i.i.i259.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlhE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlhE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i229.i ]
+  %position.115.i.i.i.i.i240.i = phi i64 [ %inc4.i.i.i.i.i260.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlhE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlhE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.019.i.i.i.i.i220.i, %for.cond.preheader.i.i.i.i.i229.i ]
+  %arrayidx.i.i5.i.i.i.i241.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i212.i, i64 %position.115.i.i.i.i.i240.i
+  %119 = load i8, ptr %arrayidx.i.i5.i.i.i.i241.i, align 1, !noalias !70
   %cmp.not.i.i.i.i.i.i.i.i242.i = icmp eq i8 %119, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i242.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlhE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlhE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i243.i
 
@@ -8756,32 +8756,32 @@ if.then.i.i.i.i.i.i.i.i243.i:                     ; preds = %for.body.i.i.i.i.i2
 
 _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlhE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlhE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i243.i, %for.body.i.i.i.i.i237.i
   %index.3.i258.i = add i64 %index.2.i238.i, 1
-  %inc.i.i.i.i.i259.i = add nuw nsw i64 %i.061.i.i.i.i.i239.i, 1
-  %inc4.i.i.i.i.i260.i = add nsw i64 %position.160.i.i.i.i.i240.i, 1
-  %exitcond68.not.i.i.i.i.i261.i = icmp eq i64 %inc.i.i.i.i.i259.i, %conv.i.i.i.i.i231.pre-phi.i
-  br i1 %exitcond68.not.i.i.i.i.i261.i, label %if.end32.loopexit.i.i.i.i.i262.i, label %for.body.i.i.i.i.i237.i, !llvm.loop !73
+  %inc.i.i.i.i.i259.i = add nuw nsw i64 %i.016.i.i.i.i.i239.i, 1
+  %inc4.i.i.i.i.i260.i = add nsw i64 %position.115.i.i.i.i.i240.i, 1
+  %exitcond23.not.i.i.i.i.i261.i = icmp eq i64 %inc.i.i.i.i.i259.i, %conv.i.i.i.i.i231.pre-phi.i
+  br i1 %exitcond23.not.i.i.i.i.i261.i, label %if.end32.loopexit.i.i.i.i.i262.i, label %for.body.i.i.i.i.i237.i, !llvm.loop !73
 
 if.else.i.i.i.i.i288.i:                           ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i280.i
   %cmp.i22.i.i.i.i.i289.i = icmp eq i32 %retval.sroa.5.0.i.i.i282.i, 0
-  %cmp1155.i.i.i.i.i291.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i283.i, 0
+  %cmp1110.i.i.i.i.i291.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i283.i, 0
   br i1 %cmp.i22.i.i.i.i.i289.i, label %for.cond8.preheader.i.i.i.i.i327.i, label %for.cond19.preheader.i.i.i.i.i292.i
 
 for.cond19.preheader.i.i.i.i.i292.i:              ; preds = %if.else.i.i.i.i.i288.i
-  br i1 %cmp1155.i.i.i.i.i291.i, label %for.body23.i.i.i.i.i293.i, label %if.end32.i.i.i.i.i233.i
+  br i1 %cmp1110.i.i.i.i.i291.i, label %for.body23.i.i.i.i.i293.i, label %if.end32.i.i.i.i.i233.i
 
 for.cond8.preheader.i.i.i.i.i327.i:               ; preds = %if.else.i.i.i.i.i288.i
-  br i1 %cmp1155.i.i.i.i.i291.i, label %for.body12.i.i.i.i.preheader.i328.i, label %if.end32.i.i.i.i.i233.i
+  br i1 %cmp1110.i.i.i.i.i291.i, label %for.body12.i.i.i.preheader.i.i328.i, label %if.end32.i.i.i.i.i233.i
 
-for.body12.i.i.i.i.preheader.i328.i:              ; preds = %for.cond8.preheader.i.i.i.i.i327.i
+for.body12.i.i.i.preheader.i.i328.i:              ; preds = %for.cond8.preheader.i.i.i.i.i327.i
   %129 = add i64 %index.1.i219.i, %conv.i.i285.i
-  %130 = add i64 %position.064.i.i.i.i.i220.i, %conv.i.i285.i
+  %130 = add i64 %position.019.i.i.i.i.i220.i, %conv.i.i285.i
   br label %if.end32.i.i.i.i.i233.i
 
 for.body23.i.i.i.i.i293.i:                        ; preds = %for.cond19.preheader.i.i.i.i.i292.i, %for.inc27.i.i.i.i.i321.i
-  %index.5.i294.i = phi i64 [ %index.6.i322.i, %for.inc27.i.i.i.i.i321.i ], [ %index.1.i219.i, %for.cond19.preheader.i.i.i.i.i292.i ]
-  %i18.054.i.i.i.i.i295.i = phi i64 [ %inc28.i.i.i.i.i323.i, %for.inc27.i.i.i.i.i321.i ], [ 0, %for.cond19.preheader.i.i.i.i.i292.i ]
-  %position.453.i.i.i.i.i296.i = phi i64 [ %inc29.i.i.i.i.i324.i, %for.inc27.i.i.i.i.i321.i ], [ %position.064.i.i.i.i.i220.i, %for.cond19.preheader.i.i.i.i.i292.i ]
-  %add.i.i.i.i.i297.i = add nsw i64 %position.453.i.i.i.i.i296.i, %105
+  %index.4.i294.i = phi i64 [ %index.5.i322.i, %for.inc27.i.i.i.i.i321.i ], [ %index.1.i219.i, %for.cond19.preheader.i.i.i.i.i292.i ]
+  %i18.09.i.i.i.i.i295.i = phi i64 [ %inc28.i.i.i.i.i323.i, %for.inc27.i.i.i.i.i321.i ], [ 0, %for.cond19.preheader.i.i.i.i.i292.i ]
+  %position.48.i.i.i.i.i296.i = phi i64 [ %inc29.i.i.i.i.i324.i, %for.inc27.i.i.i.i.i321.i ], [ %position.019.i.i.i.i.i220.i, %for.cond19.preheader.i.i.i.i.i292.i ]
+  %add.i.i.i.i.i297.i = add nsw i64 %position.48.i.i.i.i.i296.i, %105
   %shr.i.i.i.i.i.i298.i = lshr i64 %add.i.i.i.i.i297.i, 3
   %arrayidx.i23.i.i.i.i.i299.i = getelementptr inbounds i8, ptr %107, i64 %shr.i.i.i.i.i.i298.i
   %131 = load i8, ptr %arrayidx.i23.i.i.i.i.i299.i, align 1, !noalias !70
@@ -8794,7 +8794,7 @@ for.body23.i.i.i.i.i293.i:                        ; preds = %for.cond19.preheade
   br i1 %tobool.i.not.i.i.i.i.i302.i, label %for.inc27.i.i.i.i.i321.i, label %if.then25.i.i.i.i.i303.i
 
 if.then25.i.i.i.i.i303.i:                         ; preds = %for.body23.i.i.i.i.i293.i
-  %arrayidx.i24.i.i.i.i.i304.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i212.i, i64 %position.453.i.i.i.i.i296.i
+  %arrayidx.i24.i.i.i.i.i304.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i212.i, i64 %position.48.i.i.i.i.i296.i
   %135 = load i8, ptr %arrayidx.i24.i.i.i.i.i304.i, align 1, !noalias !70
   %cmp.not.i.i.i25.i.i.i.i.i305.i = icmp eq i8 %135, 0
   br i1 %cmp.not.i.i.i25.i.i.i.i.i305.i, label %for.inc27.i.i.i.i.i321.i, label %if.then.i.i.i26.i.i.i.i.i306.i
@@ -8819,35 +8819,35 @@ if.then.i.i.i26.i.i.i.i.i306.i:                   ; preds = %if.then25.i.i.i.i.i
   %142 = load ptr, ptr %data_.i.i.i, align 8, !noalias !70
   %143 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i318.i, align 8, !noalias !70
   %add.ptr.i.i.i.i.i.i40.i.i.i.i.i319.i = getelementptr inbounds i8, ptr %142, i64 %143
-  store i64 %index.5.i294.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i319.i, align 1, !noalias !70
+  store i64 %index.4.i294.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i319.i, align 1, !noalias !70
   %144 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i318.i, align 8, !noalias !70
   %add.i.i.i.i.i.i41.i.i.i.i.i320.i = add nsw i64 %144, 8
   store i64 %add.i.i.i.i.i.i41.i.i.i.i.i320.i, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i318.i, align 8, !noalias !70
   br label %for.inc27.i.i.i.i.i321.i
 
 for.inc27.i.i.i.i.i321.i:                         ; preds = %if.then.i.i.i26.i.i.i.i.i306.i, %if.then25.i.i.i.i.i303.i, %for.body23.i.i.i.i.i293.i
-  %index.6.i322.i = add i64 %index.5.i294.i, 1
-  %inc28.i.i.i.i.i323.i = add nuw nsw i64 %i18.054.i.i.i.i.i295.i, 1
-  %inc29.i.i.i.i.i324.i = add nsw i64 %position.453.i.i.i.i.i296.i, 1
+  %index.5.i322.i = add i64 %index.4.i294.i, 1
+  %inc28.i.i.i.i.i323.i = add nuw nsw i64 %i18.09.i.i.i.i.i295.i, 1
+  %inc29.i.i.i.i.i324.i = add nsw i64 %position.48.i.i.i.i.i296.i, 1
   %exitcond.not.i.i.i.i.i325.i = icmp eq i64 %inc28.i.i.i.i.i323.i, %conv.i.i285.i
-  br i1 %exitcond.not.i.i.i.i.i325.i, label %if.end32.loopexit66.i.i.i.i.i326.i, label %for.body23.i.i.i.i.i293.i, !llvm.loop !74
+  br i1 %exitcond.not.i.i.i.i.i325.i, label %if.end32.loopexit21.i.i.i.i.i326.i, label %for.body23.i.i.i.i.i293.i, !llvm.loop !74
 
 if.end32.loopexit.i.i.i.i.i262.i:                 ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlhE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlhE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
-  %145 = add i64 %conv.i.i.i.i.i231.pre-phi.i, %position.064.i.i.i.i.i220.i
+  %145 = add i64 %conv.i.i.i.i.i231.pre-phi.i, %position.019.i.i.i.i.i220.i
   br label %if.end32.i.i.i.i.i233.i
 
-if.end32.loopexit66.i.i.i.i.i326.i:               ; preds = %for.inc27.i.i.i.i.i321.i
-  %146 = add i64 %position.064.i.i.i.i.i220.i, %conv.i.i285.i
+if.end32.loopexit21.i.i.i.i.i326.i:               ; preds = %for.inc27.i.i.i.i.i321.i
+  %146 = add i64 %position.019.i.i.i.i.i220.i, %conv.i.i285.i
   br label %if.end32.i.i.i.i.i233.i
 
-if.end32.i.i.i.i.i233.i:                          ; preds = %if.end32.loopexit66.i.i.i.i.i326.i, %if.end32.loopexit.i.i.i.i.i262.i, %for.body12.i.i.i.i.preheader.i328.i, %for.cond8.preheader.i.i.i.i.i327.i, %for.cond19.preheader.i.i.i.i.i292.i, %for.cond.preheader.i.i.i.i.i229.i
-  %index.7.i234.i = phi i64 [ %index.3.i258.i, %if.end32.loopexit.i.i.i.i.i262.i ], [ %index.1.i219.i, %for.cond.preheader.i.i.i.i.i229.i ], [ %129, %for.body12.i.i.i.i.preheader.i328.i ], [ %index.1.i219.i, %for.cond8.preheader.i.i.i.i.i327.i ], [ %index.6.i322.i, %if.end32.loopexit66.i.i.i.i.i326.i ], [ %index.1.i219.i, %for.cond19.preheader.i.i.i.i.i292.i ]
-  %position.2.i.i.i.i.i235.i = phi i64 [ %145, %if.end32.loopexit.i.i.i.i.i262.i ], [ %position.064.i.i.i.i.i220.i, %for.cond.preheader.i.i.i.i.i229.i ], [ %130, %for.body12.i.i.i.i.preheader.i328.i ], [ %position.064.i.i.i.i.i220.i, %for.cond8.preheader.i.i.i.i.i327.i ], [ %146, %if.end32.loopexit66.i.i.i.i.i326.i ], [ %position.064.i.i.i.i.i220.i, %for.cond19.preheader.i.i.i.i.i292.i ]
+if.end32.i.i.i.i.i233.i:                          ; preds = %if.end32.loopexit21.i.i.i.i.i326.i, %if.end32.loopexit.i.i.i.i.i262.i, %for.body12.i.i.i.preheader.i.i328.i, %for.cond8.preheader.i.i.i.i.i327.i, %for.cond19.preheader.i.i.i.i.i292.i, %for.cond.preheader.i.i.i.i.i229.i
+  %index.6.i234.i = phi i64 [ %index.3.i258.i, %if.end32.loopexit.i.i.i.i.i262.i ], [ %index.1.i219.i, %for.cond.preheader.i.i.i.i.i229.i ], [ %129, %for.body12.i.i.i.preheader.i.i328.i ], [ %index.1.i219.i, %for.cond8.preheader.i.i.i.i.i327.i ], [ %index.5.i322.i, %if.end32.loopexit21.i.i.i.i.i326.i ], [ %index.1.i219.i, %for.cond19.preheader.i.i.i.i.i292.i ]
+  %position.2.i.i.i.i.i235.i = phi i64 [ %145, %if.end32.loopexit.i.i.i.i.i262.i ], [ %position.019.i.i.i.i.i220.i, %for.cond.preheader.i.i.i.i.i229.i ], [ %130, %for.body12.i.i.i.preheader.i.i328.i ], [ %position.019.i.i.i.i.i220.i, %for.cond8.preheader.i.i.i.i.i327.i ], [ %146, %if.end32.loopexit21.i.i.i.i.i326.i ], [ %position.019.i.i.i.i.i220.i, %for.cond19.preheader.i.i.i.i.i292.i ]
   %cmp.i.i.i.i.i236.i = icmp slt i64 %position.2.i.i.i.i.i235.i, %108
   br i1 %cmp.i.i.i.i.i236.i, label %while.body.i.i.i.i.i218.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9UInt8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlhE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, !llvm.loop !75
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9UInt8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlhE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i233.i, %.noexc53
-  %index.8.i215.i = phi i64 [ %index.09.i208.i, %.noexc53 ], [ %index.7.i234.i, %if.end32.i.i.i.i.i233.i ]
+  %index.7.i215.i = phi i64 [ %index.09.i208.i, %.noexc53 ], [ %index.6.i234.i, %if.end32.i.i.i.i.i233.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i196.i), !noalias !70
   %incdec.ptr.i.i216.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i207.i, i64 128
   %cmp.i.not.i217.i = icmp eq ptr %incdec.ptr.i.i216.i, %104
@@ -8871,7 +8871,7 @@ for.body.lr.ph.i343.i:                            ; preds = %sw.bb8.i
 
 for.body.i349.i:                                  ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlsE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, %for.body.lr.ph.i343.i
   %__begin4.sroa.0.010.i350.i = phi ptr [ %9, %for.body.lr.ph.i343.i ], [ %incdec.ptr.i.i359.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlsE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
-  %index.09.i351.i = phi i64 [ 0, %for.body.lr.ph.i343.i ], [ %index.8.i358.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlsE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
+  %index.09.i351.i = phi i64 [ 0, %for.body.lr.ph.i343.i ], [ %index.7.i358.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlsE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
   %offset.i.i.i.i.i352.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i350.i, i64 24
   %148 = load i64, ptr %offset.i.i.i.i.i352.i, align 8, !noalias !76
   %buffers.i.i.i.i.i.i353.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i350.i, i64 32
@@ -8886,12 +8886,12 @@ for.body.i349.i:                                  ; preds = %_ZN5arrow7compute8i
           to label %.noexc54 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc54:                                         ; preds = %for.body.i349.i
-  %cmp63.i.i.i.i.i357.i = icmp sgt i64 %151, 0
-  br i1 %cmp63.i.i.i.i.i357.i, label %while.body.i.i.i.i.i361.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlsE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
+  %cmp18.i.i.i.i.i357.i = icmp sgt i64 %151, 0
+  br i1 %cmp18.i.i.i.i.i357.i, label %while.body.i.i.i.i.i361.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlsE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
 
 while.body.i.i.i.i.i361.i:                        ; preds = %.noexc54, %if.end32.i.i.i.i.i376.i
-  %index.1.i362.i = phi i64 [ %index.7.i377.i, %if.end32.i.i.i.i.i376.i ], [ %index.09.i351.i, %.noexc54 ]
-  %position.064.i.i.i.i.i363.i = phi i64 [ %position.2.i.i.i.i.i378.i, %if.end32.i.i.i.i.i376.i ], [ 0, %.noexc54 ]
+  %index.1.i362.i = phi i64 [ %index.6.i377.i, %if.end32.i.i.i.i.i376.i ], [ %index.09.i351.i, %.noexc54 ]
+  %position.019.i.i.i.i.i363.i = phi i64 [ %position.2.i.i.i.i.i378.i, %if.end32.i.i.i.i.i376.i ], [ 0, %.noexc54 ]
   %152 = load i8, ptr %bit_counter.i.i.i.i.i339.i, align 8, !noalias !76
   %tobool.i.i364.i = trunc i8 %152 to i1
   br i1 %tobool.i.i364.i, label %if.then.i.i406.i, label %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i365.i
@@ -8976,15 +8976,15 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i423.i: ; preds = %
 for.cond.preheader.i.i.i.i.i372.i:                ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i423.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i365.i
   %conv.i.i.i.i.i374.pre-phi.i = phi i64 [ %conv.i.i428.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i423.i ], [ %conv5.i.i370.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i365.i ]
   %retval.sroa.0.0.i15.i373.i = phi i16 [ %retval.sroa.0.0.extract.trunc.i.i426.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i423.i ], [ %conv4.i.i368.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i365.i ]
-  %cmp359.i.i.i.i.i375.i = icmp sgt i16 %retval.sroa.0.0.i15.i373.i, 0
-  br i1 %cmp359.i.i.i.i.i375.i, label %for.body.i.i.i.i.i380.i, label %if.end32.i.i.i.i.i376.i
+  %cmp314.i.i.i.i.i375.i = icmp sgt i16 %retval.sroa.0.0.i15.i373.i, 0
+  br i1 %cmp314.i.i.i.i.i375.i, label %for.body.i.i.i.i.i380.i, label %if.end32.i.i.i.i.i376.i
 
 for.body.i.i.i.i.i380.i:                          ; preds = %for.cond.preheader.i.i.i.i.i372.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
   %index.2.i381.i = phi i64 [ %index.3.i401.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %index.1.i362.i, %for.cond.preheader.i.i.i.i.i372.i ]
-  %i.061.i.i.i.i.i382.i = phi i64 [ %inc.i.i.i.i.i402.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i372.i ]
-  %position.160.i.i.i.i.i383.i = phi i64 [ %inc4.i.i.i.i.i403.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.064.i.i.i.i.i363.i, %for.cond.preheader.i.i.i.i.i372.i ]
-  %arrayidx.i.i4.i.i.i.i384.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i.i355.i, i64 %position.160.i.i.i.i.i383.i
-  %162 = load i16, ptr %arrayidx.i.i4.i.i.i.i384.i, align 2, !noalias !76
+  %i.016.i.i.i.i.i382.i = phi i64 [ %inc.i.i.i.i.i402.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i372.i ]
+  %position.115.i.i.i.i.i383.i = phi i64 [ %inc4.i.i.i.i.i403.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.019.i.i.i.i.i363.i, %for.cond.preheader.i.i.i.i.i372.i ]
+  %arrayidx.i.i5.i.i.i.i384.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i.i355.i, i64 %position.115.i.i.i.i.i383.i
+  %162 = load i16, ptr %arrayidx.i.i5.i.i.i.i384.i, align 2, !noalias !76
   %cmp.not.i.i.i.i.i.i.i.i385.i = icmp eq i16 %162, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i385.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i386.i
 
@@ -9016,32 +9016,32 @@ if.then.i.i.i.i.i.i.i.i386.i:                     ; preds = %for.body.i.i.i.i.i3
 
 _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i386.i, %for.body.i.i.i.i.i380.i
   %index.3.i401.i = add i64 %index.2.i381.i, 1
-  %inc.i.i.i.i.i402.i = add nuw nsw i64 %i.061.i.i.i.i.i382.i, 1
-  %inc4.i.i.i.i.i403.i = add nsw i64 %position.160.i.i.i.i.i383.i, 1
-  %exitcond68.not.i.i.i.i.i404.i = icmp eq i64 %inc.i.i.i.i.i402.i, %conv.i.i.i.i.i374.pre-phi.i
-  br i1 %exitcond68.not.i.i.i.i.i404.i, label %if.end32.loopexit.i.i.i.i.i405.i, label %for.body.i.i.i.i.i380.i, !llvm.loop !79
+  %inc.i.i.i.i.i402.i = add nuw nsw i64 %i.016.i.i.i.i.i382.i, 1
+  %inc4.i.i.i.i.i403.i = add nsw i64 %position.115.i.i.i.i.i383.i, 1
+  %exitcond23.not.i.i.i.i.i404.i = icmp eq i64 %inc.i.i.i.i.i402.i, %conv.i.i.i.i.i374.pre-phi.i
+  br i1 %exitcond23.not.i.i.i.i.i404.i, label %if.end32.loopexit.i.i.i.i.i405.i, label %for.body.i.i.i.i.i380.i, !llvm.loop !79
 
 if.else.i.i.i.i.i431.i:                           ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i423.i
   %cmp.i22.i.i.i.i.i432.i = icmp eq i32 %retval.sroa.5.0.i.i.i425.i, 0
-  %cmp1155.i.i.i.i.i434.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i426.i, 0
+  %cmp1110.i.i.i.i.i434.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i426.i, 0
   br i1 %cmp.i22.i.i.i.i.i432.i, label %for.cond8.preheader.i.i.i.i.i470.i, label %for.cond19.preheader.i.i.i.i.i435.i
 
 for.cond19.preheader.i.i.i.i.i435.i:              ; preds = %if.else.i.i.i.i.i431.i
-  br i1 %cmp1155.i.i.i.i.i434.i, label %for.body23.i.i.i.i.i436.i, label %if.end32.i.i.i.i.i376.i
+  br i1 %cmp1110.i.i.i.i.i434.i, label %for.body23.i.i.i.i.i436.i, label %if.end32.i.i.i.i.i376.i
 
 for.cond8.preheader.i.i.i.i.i470.i:               ; preds = %if.else.i.i.i.i.i431.i
-  br i1 %cmp1155.i.i.i.i.i434.i, label %for.body12.i.i.i.i.preheader.i471.i, label %if.end32.i.i.i.i.i376.i
+  br i1 %cmp1110.i.i.i.i.i434.i, label %for.body12.i.i.i.preheader.i.i471.i, label %if.end32.i.i.i.i.i376.i
 
-for.body12.i.i.i.i.preheader.i471.i:              ; preds = %for.cond8.preheader.i.i.i.i.i470.i
+for.body12.i.i.i.preheader.i.i471.i:              ; preds = %for.cond8.preheader.i.i.i.i.i470.i
   %172 = add i64 %index.1.i362.i, %conv.i.i428.i
-  %173 = add i64 %position.064.i.i.i.i.i363.i, %conv.i.i428.i
+  %173 = add i64 %position.019.i.i.i.i.i363.i, %conv.i.i428.i
   br label %if.end32.i.i.i.i.i376.i
 
 for.body23.i.i.i.i.i436.i:                        ; preds = %for.cond19.preheader.i.i.i.i.i435.i, %for.inc27.i.i.i.i.i464.i
-  %index.5.i437.i = phi i64 [ %index.6.i465.i, %for.inc27.i.i.i.i.i464.i ], [ %index.1.i362.i, %for.cond19.preheader.i.i.i.i.i435.i ]
-  %i18.054.i.i.i.i.i438.i = phi i64 [ %inc28.i.i.i.i.i466.i, %for.inc27.i.i.i.i.i464.i ], [ 0, %for.cond19.preheader.i.i.i.i.i435.i ]
-  %position.453.i.i.i.i.i439.i = phi i64 [ %inc29.i.i.i.i.i467.i, %for.inc27.i.i.i.i.i464.i ], [ %position.064.i.i.i.i.i363.i, %for.cond19.preheader.i.i.i.i.i435.i ]
-  %add.i.i.i.i.i440.i = add nsw i64 %position.453.i.i.i.i.i439.i, %148
+  %index.4.i437.i = phi i64 [ %index.5.i465.i, %for.inc27.i.i.i.i.i464.i ], [ %index.1.i362.i, %for.cond19.preheader.i.i.i.i.i435.i ]
+  %i18.09.i.i.i.i.i438.i = phi i64 [ %inc28.i.i.i.i.i466.i, %for.inc27.i.i.i.i.i464.i ], [ 0, %for.cond19.preheader.i.i.i.i.i435.i ]
+  %position.48.i.i.i.i.i439.i = phi i64 [ %inc29.i.i.i.i.i467.i, %for.inc27.i.i.i.i.i464.i ], [ %position.019.i.i.i.i.i363.i, %for.cond19.preheader.i.i.i.i.i435.i ]
+  %add.i.i.i.i.i440.i = add nsw i64 %position.48.i.i.i.i.i439.i, %148
   %shr.i.i.i.i.i.i441.i = lshr i64 %add.i.i.i.i.i440.i, 3
   %arrayidx.i23.i.i.i.i.i442.i = getelementptr inbounds i8, ptr %150, i64 %shr.i.i.i.i.i.i441.i
   %174 = load i8, ptr %arrayidx.i23.i.i.i.i.i442.i, align 1, !noalias !76
@@ -9054,7 +9054,7 @@ for.body23.i.i.i.i.i436.i:                        ; preds = %for.cond19.preheade
   br i1 %tobool.i.not.i.i.i.i.i445.i, label %for.inc27.i.i.i.i.i464.i, label %if.then25.i.i.i.i.i446.i
 
 if.then25.i.i.i.i.i446.i:                         ; preds = %for.body23.i.i.i.i.i436.i
-  %arrayidx.i24.i.i.i.i.i447.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i.i355.i, i64 %position.453.i.i.i.i.i439.i
+  %arrayidx.i24.i.i.i.i.i447.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i.i355.i, i64 %position.48.i.i.i.i.i439.i
   %178 = load i16, ptr %arrayidx.i24.i.i.i.i.i447.i, align 2, !noalias !76
   %cmp.not.i.i.i25.i.i.i.i.i448.i = icmp eq i16 %178, 0
   br i1 %cmp.not.i.i.i25.i.i.i.i.i448.i, label %for.inc27.i.i.i.i.i464.i, label %if.then.i.i.i26.i.i.i.i.i449.i
@@ -9079,35 +9079,35 @@ if.then.i.i.i26.i.i.i.i.i449.i:                   ; preds = %if.then25.i.i.i.i.i
   %185 = load ptr, ptr %data_.i.i.i, align 8, !noalias !76
   %186 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i461.i, align 8, !noalias !76
   %add.ptr.i.i.i.i.i.i40.i.i.i.i.i462.i = getelementptr inbounds i8, ptr %185, i64 %186
-  store i64 %index.5.i437.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i462.i, align 1, !noalias !76
+  store i64 %index.4.i437.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i462.i, align 1, !noalias !76
   %187 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i461.i, align 8, !noalias !76
   %add.i.i.i.i.i.i41.i.i.i.i.i463.i = add nsw i64 %187, 8
   store i64 %add.i.i.i.i.i.i41.i.i.i.i.i463.i, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i461.i, align 8, !noalias !76
   br label %for.inc27.i.i.i.i.i464.i
 
 for.inc27.i.i.i.i.i464.i:                         ; preds = %if.then.i.i.i26.i.i.i.i.i449.i, %if.then25.i.i.i.i.i446.i, %for.body23.i.i.i.i.i436.i
-  %index.6.i465.i = add i64 %index.5.i437.i, 1
-  %inc28.i.i.i.i.i466.i = add nuw nsw i64 %i18.054.i.i.i.i.i438.i, 1
-  %inc29.i.i.i.i.i467.i = add nsw i64 %position.453.i.i.i.i.i439.i, 1
+  %index.5.i465.i = add i64 %index.4.i437.i, 1
+  %inc28.i.i.i.i.i466.i = add nuw nsw i64 %i18.09.i.i.i.i.i438.i, 1
+  %inc29.i.i.i.i.i467.i = add nsw i64 %position.48.i.i.i.i.i439.i, 1
   %exitcond.not.i.i.i.i.i468.i = icmp eq i64 %inc28.i.i.i.i.i466.i, %conv.i.i428.i
-  br i1 %exitcond.not.i.i.i.i.i468.i, label %if.end32.loopexit66.i.i.i.i.i469.i, label %for.body23.i.i.i.i.i436.i, !llvm.loop !80
+  br i1 %exitcond.not.i.i.i.i.i468.i, label %if.end32.loopexit21.i.i.i.i.i469.i, label %for.body23.i.i.i.i.i436.i, !llvm.loop !80
 
 if.end32.loopexit.i.i.i.i.i405.i:                 ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
-  %188 = add i64 %conv.i.i.i.i.i374.pre-phi.i, %position.064.i.i.i.i.i363.i
+  %188 = add i64 %conv.i.i.i.i.i374.pre-phi.i, %position.019.i.i.i.i.i363.i
   br label %if.end32.i.i.i.i.i376.i
 
-if.end32.loopexit66.i.i.i.i.i469.i:               ; preds = %for.inc27.i.i.i.i.i464.i
-  %189 = add i64 %position.064.i.i.i.i.i363.i, %conv.i.i428.i
+if.end32.loopexit21.i.i.i.i.i469.i:               ; preds = %for.inc27.i.i.i.i.i464.i
+  %189 = add i64 %position.019.i.i.i.i.i363.i, %conv.i.i428.i
   br label %if.end32.i.i.i.i.i376.i
 
-if.end32.i.i.i.i.i376.i:                          ; preds = %if.end32.loopexit66.i.i.i.i.i469.i, %if.end32.loopexit.i.i.i.i.i405.i, %for.body12.i.i.i.i.preheader.i471.i, %for.cond8.preheader.i.i.i.i.i470.i, %for.cond19.preheader.i.i.i.i.i435.i, %for.cond.preheader.i.i.i.i.i372.i
-  %index.7.i377.i = phi i64 [ %index.3.i401.i, %if.end32.loopexit.i.i.i.i.i405.i ], [ %index.1.i362.i, %for.cond.preheader.i.i.i.i.i372.i ], [ %172, %for.body12.i.i.i.i.preheader.i471.i ], [ %index.1.i362.i, %for.cond8.preheader.i.i.i.i.i470.i ], [ %index.6.i465.i, %if.end32.loopexit66.i.i.i.i.i469.i ], [ %index.1.i362.i, %for.cond19.preheader.i.i.i.i.i435.i ]
-  %position.2.i.i.i.i.i378.i = phi i64 [ %188, %if.end32.loopexit.i.i.i.i.i405.i ], [ %position.064.i.i.i.i.i363.i, %for.cond.preheader.i.i.i.i.i372.i ], [ %173, %for.body12.i.i.i.i.preheader.i471.i ], [ %position.064.i.i.i.i.i363.i, %for.cond8.preheader.i.i.i.i.i470.i ], [ %189, %if.end32.loopexit66.i.i.i.i.i469.i ], [ %position.064.i.i.i.i.i363.i, %for.cond19.preheader.i.i.i.i.i435.i ]
+if.end32.i.i.i.i.i376.i:                          ; preds = %if.end32.loopexit21.i.i.i.i.i469.i, %if.end32.loopexit.i.i.i.i.i405.i, %for.body12.i.i.i.preheader.i.i471.i, %for.cond8.preheader.i.i.i.i.i470.i, %for.cond19.preheader.i.i.i.i.i435.i, %for.cond.preheader.i.i.i.i.i372.i
+  %index.6.i377.i = phi i64 [ %index.3.i401.i, %if.end32.loopexit.i.i.i.i.i405.i ], [ %index.1.i362.i, %for.cond.preheader.i.i.i.i.i372.i ], [ %172, %for.body12.i.i.i.preheader.i.i471.i ], [ %index.1.i362.i, %for.cond8.preheader.i.i.i.i.i470.i ], [ %index.5.i465.i, %if.end32.loopexit21.i.i.i.i.i469.i ], [ %index.1.i362.i, %for.cond19.preheader.i.i.i.i.i435.i ]
+  %position.2.i.i.i.i.i378.i = phi i64 [ %188, %if.end32.loopexit.i.i.i.i.i405.i ], [ %position.019.i.i.i.i.i363.i, %for.cond.preheader.i.i.i.i.i372.i ], [ %173, %for.body12.i.i.i.preheader.i.i471.i ], [ %position.019.i.i.i.i.i363.i, %for.cond8.preheader.i.i.i.i.i470.i ], [ %189, %if.end32.loopexit21.i.i.i.i.i469.i ], [ %position.019.i.i.i.i.i363.i, %for.cond19.preheader.i.i.i.i.i435.i ]
   %cmp.i.i.i.i.i379.i = icmp slt i64 %position.2.i.i.i.i.i378.i, %151
   br i1 %cmp.i.i.i.i.i379.i, label %while.body.i.i.i.i.i361.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlsE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, !llvm.loop !81
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlsE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i376.i, %.noexc54
-  %index.8.i358.i = phi i64 [ %index.09.i351.i, %.noexc54 ], [ %index.7.i377.i, %if.end32.i.i.i.i.i376.i ]
+  %index.7.i358.i = phi i64 [ %index.09.i351.i, %.noexc54 ], [ %index.6.i377.i, %if.end32.i.i.i.i.i376.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i339.i), !noalias !76
   %incdec.ptr.i.i359.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i350.i, i64 128
   %cmp.i.not.i360.i = icmp eq ptr %incdec.ptr.i.i359.i, %147
@@ -9131,7 +9131,7 @@ for.body.lr.ph.i486.i:                            ; preds = %sw.bb10.i
 
 for.body.i492.i:                                  ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, %for.body.lr.ph.i486.i
   %__begin4.sroa.0.010.i493.i = phi ptr [ %9, %for.body.lr.ph.i486.i ], [ %incdec.ptr.i.i502.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
-  %index.09.i494.i = phi i64 [ 0, %for.body.lr.ph.i486.i ], [ %index.8.i501.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
+  %index.09.i494.i = phi i64 [ 0, %for.body.lr.ph.i486.i ], [ %index.7.i501.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
   %offset.i.i.i.i.i495.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i493.i, i64 24
   %191 = load i64, ptr %offset.i.i.i.i.i495.i, align 8, !noalias !82
   %buffers.i.i.i.i.i.i496.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i493.i, i64 32
@@ -9146,12 +9146,12 @@ for.body.i492.i:                                  ; preds = %_ZN5arrow7compute8i
           to label %.noexc55 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc55:                                         ; preds = %for.body.i492.i
-  %cmp63.i.i.i.i.i500.i = icmp sgt i64 %194, 0
-  br i1 %cmp63.i.i.i.i.i500.i, label %while.body.i.i.i.i.i504.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
+  %cmp18.i.i.i.i.i500.i = icmp sgt i64 %194, 0
+  br i1 %cmp18.i.i.i.i.i500.i, label %while.body.i.i.i.i.i504.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
 
 while.body.i.i.i.i.i504.i:                        ; preds = %.noexc55, %if.end32.i.i.i.i.i519.i
-  %index.1.i505.i = phi i64 [ %index.7.i520.i, %if.end32.i.i.i.i.i519.i ], [ %index.09.i494.i, %.noexc55 ]
-  %position.064.i.i.i.i.i506.i = phi i64 [ %position.2.i.i.i.i.i521.i, %if.end32.i.i.i.i.i519.i ], [ 0, %.noexc55 ]
+  %index.1.i505.i = phi i64 [ %index.6.i520.i, %if.end32.i.i.i.i.i519.i ], [ %index.09.i494.i, %.noexc55 ]
+  %position.019.i.i.i.i.i506.i = phi i64 [ %position.2.i.i.i.i.i521.i, %if.end32.i.i.i.i.i519.i ], [ 0, %.noexc55 ]
   %195 = load i8, ptr %bit_counter.i.i.i.i.i482.i, align 8, !noalias !82
   %tobool.i.i507.i = trunc i8 %195 to i1
   br i1 %tobool.i.i507.i, label %if.then.i.i549.i, label %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i508.i
@@ -9236,15 +9236,15 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i566.i: ; preds = %
 for.cond.preheader.i.i.i.i.i515.i:                ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i566.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i508.i
   %conv.i.i.i.i.i517.pre-phi.i = phi i64 [ %conv.i.i571.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i566.i ], [ %conv5.i.i513.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i508.i ]
   %retval.sroa.0.0.i15.i516.i = phi i16 [ %retval.sroa.0.0.extract.trunc.i.i569.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i566.i ], [ %conv4.i.i511.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i508.i ]
-  %cmp359.i.i.i.i.i518.i = icmp sgt i16 %retval.sroa.0.0.i15.i516.i, 0
-  br i1 %cmp359.i.i.i.i.i518.i, label %for.body.i.i.i.i.i523.i, label %if.end32.i.i.i.i.i519.i
+  %cmp314.i.i.i.i.i518.i = icmp sgt i16 %retval.sroa.0.0.i15.i516.i, 0
+  br i1 %cmp314.i.i.i.i.i518.i, label %for.body.i.i.i.i.i523.i, label %if.end32.i.i.i.i.i519.i
 
 for.body.i.i.i.i.i523.i:                          ; preds = %for.cond.preheader.i.i.i.i.i515.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
   %index.2.i524.i = phi i64 [ %index.3.i544.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %index.1.i505.i, %for.cond.preheader.i.i.i.i.i515.i ]
-  %i.061.i.i.i.i.i525.i = phi i64 [ %inc.i.i.i.i.i545.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i515.i ]
-  %position.160.i.i.i.i.i526.i = phi i64 [ %inc4.i.i.i.i.i546.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.064.i.i.i.i.i506.i, %for.cond.preheader.i.i.i.i.i515.i ]
-  %arrayidx.i.i4.i.i.i.i527.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i.i498.i, i64 %position.160.i.i.i.i.i526.i
-  %205 = load i16, ptr %arrayidx.i.i4.i.i.i.i527.i, align 2, !noalias !82
+  %i.016.i.i.i.i.i525.i = phi i64 [ %inc.i.i.i.i.i545.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i515.i ]
+  %position.115.i.i.i.i.i526.i = phi i64 [ %inc4.i.i.i.i.i546.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.019.i.i.i.i.i506.i, %for.cond.preheader.i.i.i.i.i515.i ]
+  %arrayidx.i.i5.i.i.i.i527.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i.i498.i, i64 %position.115.i.i.i.i.i526.i
+  %205 = load i16, ptr %arrayidx.i.i5.i.i.i.i527.i, align 2, !noalias !82
   %cmp.not.i.i.i.i.i.i.i.i528.i = icmp eq i16 %205, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i528.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i529.i
 
@@ -9276,32 +9276,32 @@ if.then.i.i.i.i.i.i.i.i529.i:                     ; preds = %for.body.i.i.i.i.i5
 
 _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i529.i, %for.body.i.i.i.i.i523.i
   %index.3.i544.i = add i64 %index.2.i524.i, 1
-  %inc.i.i.i.i.i545.i = add nuw nsw i64 %i.061.i.i.i.i.i525.i, 1
-  %inc4.i.i.i.i.i546.i = add nsw i64 %position.160.i.i.i.i.i526.i, 1
-  %exitcond68.not.i.i.i.i.i547.i = icmp eq i64 %inc.i.i.i.i.i545.i, %conv.i.i.i.i.i517.pre-phi.i
-  br i1 %exitcond68.not.i.i.i.i.i547.i, label %if.end32.loopexit.i.i.i.i.i548.i, label %for.body.i.i.i.i.i523.i, !llvm.loop !85
+  %inc.i.i.i.i.i545.i = add nuw nsw i64 %i.016.i.i.i.i.i525.i, 1
+  %inc4.i.i.i.i.i546.i = add nsw i64 %position.115.i.i.i.i.i526.i, 1
+  %exitcond23.not.i.i.i.i.i547.i = icmp eq i64 %inc.i.i.i.i.i545.i, %conv.i.i.i.i.i517.pre-phi.i
+  br i1 %exitcond23.not.i.i.i.i.i547.i, label %if.end32.loopexit.i.i.i.i.i548.i, label %for.body.i.i.i.i.i523.i, !llvm.loop !85
 
 if.else.i.i.i.i.i574.i:                           ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i566.i
   %cmp.i22.i.i.i.i.i575.i = icmp eq i32 %retval.sroa.5.0.i.i.i568.i, 0
-  %cmp1155.i.i.i.i.i577.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i569.i, 0
+  %cmp1110.i.i.i.i.i577.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i569.i, 0
   br i1 %cmp.i22.i.i.i.i.i575.i, label %for.cond8.preheader.i.i.i.i.i613.i, label %for.cond19.preheader.i.i.i.i.i578.i
 
 for.cond19.preheader.i.i.i.i.i578.i:              ; preds = %if.else.i.i.i.i.i574.i
-  br i1 %cmp1155.i.i.i.i.i577.i, label %for.body23.i.i.i.i.i579.i, label %if.end32.i.i.i.i.i519.i
+  br i1 %cmp1110.i.i.i.i.i577.i, label %for.body23.i.i.i.i.i579.i, label %if.end32.i.i.i.i.i519.i
 
 for.cond8.preheader.i.i.i.i.i613.i:               ; preds = %if.else.i.i.i.i.i574.i
-  br i1 %cmp1155.i.i.i.i.i577.i, label %for.body12.i.i.i.i.preheader.i614.i, label %if.end32.i.i.i.i.i519.i
+  br i1 %cmp1110.i.i.i.i.i577.i, label %for.body12.i.i.i.preheader.i.i614.i, label %if.end32.i.i.i.i.i519.i
 
-for.body12.i.i.i.i.preheader.i614.i:              ; preds = %for.cond8.preheader.i.i.i.i.i613.i
+for.body12.i.i.i.preheader.i.i614.i:              ; preds = %for.cond8.preheader.i.i.i.i.i613.i
   %215 = add i64 %index.1.i505.i, %conv.i.i571.i
-  %216 = add i64 %position.064.i.i.i.i.i506.i, %conv.i.i571.i
+  %216 = add i64 %position.019.i.i.i.i.i506.i, %conv.i.i571.i
   br label %if.end32.i.i.i.i.i519.i
 
 for.body23.i.i.i.i.i579.i:                        ; preds = %for.cond19.preheader.i.i.i.i.i578.i, %for.inc27.i.i.i.i.i607.i
-  %index.5.i580.i = phi i64 [ %index.6.i608.i, %for.inc27.i.i.i.i.i607.i ], [ %index.1.i505.i, %for.cond19.preheader.i.i.i.i.i578.i ]
-  %i18.054.i.i.i.i.i581.i = phi i64 [ %inc28.i.i.i.i.i609.i, %for.inc27.i.i.i.i.i607.i ], [ 0, %for.cond19.preheader.i.i.i.i.i578.i ]
-  %position.453.i.i.i.i.i582.i = phi i64 [ %inc29.i.i.i.i.i610.i, %for.inc27.i.i.i.i.i607.i ], [ %position.064.i.i.i.i.i506.i, %for.cond19.preheader.i.i.i.i.i578.i ]
-  %add.i.i.i.i.i583.i = add nsw i64 %position.453.i.i.i.i.i582.i, %191
+  %index.4.i580.i = phi i64 [ %index.5.i608.i, %for.inc27.i.i.i.i.i607.i ], [ %index.1.i505.i, %for.cond19.preheader.i.i.i.i.i578.i ]
+  %i18.09.i.i.i.i.i581.i = phi i64 [ %inc28.i.i.i.i.i609.i, %for.inc27.i.i.i.i.i607.i ], [ 0, %for.cond19.preheader.i.i.i.i.i578.i ]
+  %position.48.i.i.i.i.i582.i = phi i64 [ %inc29.i.i.i.i.i610.i, %for.inc27.i.i.i.i.i607.i ], [ %position.019.i.i.i.i.i506.i, %for.cond19.preheader.i.i.i.i.i578.i ]
+  %add.i.i.i.i.i583.i = add nsw i64 %position.48.i.i.i.i.i582.i, %191
   %shr.i.i.i.i.i.i584.i = lshr i64 %add.i.i.i.i.i583.i, 3
   %arrayidx.i23.i.i.i.i.i585.i = getelementptr inbounds i8, ptr %193, i64 %shr.i.i.i.i.i.i584.i
   %217 = load i8, ptr %arrayidx.i23.i.i.i.i.i585.i, align 1, !noalias !82
@@ -9314,7 +9314,7 @@ for.body23.i.i.i.i.i579.i:                        ; preds = %for.cond19.preheade
   br i1 %tobool.i.not.i.i.i.i.i588.i, label %for.inc27.i.i.i.i.i607.i, label %if.then25.i.i.i.i.i589.i
 
 if.then25.i.i.i.i.i589.i:                         ; preds = %for.body23.i.i.i.i.i579.i
-  %arrayidx.i24.i.i.i.i.i590.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i.i498.i, i64 %position.453.i.i.i.i.i582.i
+  %arrayidx.i24.i.i.i.i.i590.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i.i498.i, i64 %position.48.i.i.i.i.i582.i
   %221 = load i16, ptr %arrayidx.i24.i.i.i.i.i590.i, align 2, !noalias !82
   %cmp.not.i.i.i25.i.i.i.i.i591.i = icmp eq i16 %221, 0
   br i1 %cmp.not.i.i.i25.i.i.i.i.i591.i, label %for.inc27.i.i.i.i.i607.i, label %if.then.i.i.i26.i.i.i.i.i592.i
@@ -9339,35 +9339,35 @@ if.then.i.i.i26.i.i.i.i.i592.i:                   ; preds = %if.then25.i.i.i.i.i
   %228 = load ptr, ptr %data_.i.i.i, align 8, !noalias !82
   %229 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i604.i, align 8, !noalias !82
   %add.ptr.i.i.i.i.i.i40.i.i.i.i.i605.i = getelementptr inbounds i8, ptr %228, i64 %229
-  store i64 %index.5.i580.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i605.i, align 1, !noalias !82
+  store i64 %index.4.i580.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i605.i, align 1, !noalias !82
   %230 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i604.i, align 8, !noalias !82
   %add.i.i.i.i.i.i41.i.i.i.i.i606.i = add nsw i64 %230, 8
   store i64 %add.i.i.i.i.i.i41.i.i.i.i.i606.i, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i604.i, align 8, !noalias !82
   br label %for.inc27.i.i.i.i.i607.i
 
 for.inc27.i.i.i.i.i607.i:                         ; preds = %if.then.i.i.i26.i.i.i.i.i592.i, %if.then25.i.i.i.i.i589.i, %for.body23.i.i.i.i.i579.i
-  %index.6.i608.i = add i64 %index.5.i580.i, 1
-  %inc28.i.i.i.i.i609.i = add nuw nsw i64 %i18.054.i.i.i.i.i581.i, 1
-  %inc29.i.i.i.i.i610.i = add nsw i64 %position.453.i.i.i.i.i582.i, 1
+  %index.5.i608.i = add i64 %index.4.i580.i, 1
+  %inc28.i.i.i.i.i609.i = add nuw nsw i64 %i18.09.i.i.i.i.i581.i, 1
+  %inc29.i.i.i.i.i610.i = add nsw i64 %position.48.i.i.i.i.i582.i, 1
   %exitcond.not.i.i.i.i.i611.i = icmp eq i64 %inc28.i.i.i.i.i609.i, %conv.i.i571.i
-  br i1 %exitcond.not.i.i.i.i.i611.i, label %if.end32.loopexit66.i.i.i.i.i612.i, label %for.body23.i.i.i.i.i579.i, !llvm.loop !86
+  br i1 %exitcond.not.i.i.i.i.i611.i, label %if.end32.loopexit21.i.i.i.i.i612.i, label %for.body23.i.i.i.i.i579.i, !llvm.loop !86
 
 if.end32.loopexit.i.i.i.i.i548.i:                 ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
-  %231 = add i64 %conv.i.i.i.i.i517.pre-phi.i, %position.064.i.i.i.i.i506.i
+  %231 = add i64 %conv.i.i.i.i.i517.pre-phi.i, %position.019.i.i.i.i.i506.i
   br label %if.end32.i.i.i.i.i519.i
 
-if.end32.loopexit66.i.i.i.i.i612.i:               ; preds = %for.inc27.i.i.i.i.i607.i
-  %232 = add i64 %position.064.i.i.i.i.i506.i, %conv.i.i571.i
+if.end32.loopexit21.i.i.i.i.i612.i:               ; preds = %for.inc27.i.i.i.i.i607.i
+  %232 = add i64 %position.019.i.i.i.i.i506.i, %conv.i.i571.i
   br label %if.end32.i.i.i.i.i519.i
 
-if.end32.i.i.i.i.i519.i:                          ; preds = %if.end32.loopexit66.i.i.i.i.i612.i, %if.end32.loopexit.i.i.i.i.i548.i, %for.body12.i.i.i.i.preheader.i614.i, %for.cond8.preheader.i.i.i.i.i613.i, %for.cond19.preheader.i.i.i.i.i578.i, %for.cond.preheader.i.i.i.i.i515.i
-  %index.7.i520.i = phi i64 [ %index.3.i544.i, %if.end32.loopexit.i.i.i.i.i548.i ], [ %index.1.i505.i, %for.cond.preheader.i.i.i.i.i515.i ], [ %215, %for.body12.i.i.i.i.preheader.i614.i ], [ %index.1.i505.i, %for.cond8.preheader.i.i.i.i.i613.i ], [ %index.6.i608.i, %if.end32.loopexit66.i.i.i.i.i612.i ], [ %index.1.i505.i, %for.cond19.preheader.i.i.i.i.i578.i ]
-  %position.2.i.i.i.i.i521.i = phi i64 [ %231, %if.end32.loopexit.i.i.i.i.i548.i ], [ %position.064.i.i.i.i.i506.i, %for.cond.preheader.i.i.i.i.i515.i ], [ %216, %for.body12.i.i.i.i.preheader.i614.i ], [ %position.064.i.i.i.i.i506.i, %for.cond8.preheader.i.i.i.i.i613.i ], [ %232, %if.end32.loopexit66.i.i.i.i.i612.i ], [ %position.064.i.i.i.i.i506.i, %for.cond19.preheader.i.i.i.i.i578.i ]
+if.end32.i.i.i.i.i519.i:                          ; preds = %if.end32.loopexit21.i.i.i.i.i612.i, %if.end32.loopexit.i.i.i.i.i548.i, %for.body12.i.i.i.preheader.i.i614.i, %for.cond8.preheader.i.i.i.i.i613.i, %for.cond19.preheader.i.i.i.i.i578.i, %for.cond.preheader.i.i.i.i.i515.i
+  %index.6.i520.i = phi i64 [ %index.3.i544.i, %if.end32.loopexit.i.i.i.i.i548.i ], [ %index.1.i505.i, %for.cond.preheader.i.i.i.i.i515.i ], [ %215, %for.body12.i.i.i.preheader.i.i614.i ], [ %index.1.i505.i, %for.cond8.preheader.i.i.i.i.i613.i ], [ %index.5.i608.i, %if.end32.loopexit21.i.i.i.i.i612.i ], [ %index.1.i505.i, %for.cond19.preheader.i.i.i.i.i578.i ]
+  %position.2.i.i.i.i.i521.i = phi i64 [ %231, %if.end32.loopexit.i.i.i.i.i548.i ], [ %position.019.i.i.i.i.i506.i, %for.cond.preheader.i.i.i.i.i515.i ], [ %216, %for.body12.i.i.i.preheader.i.i614.i ], [ %position.019.i.i.i.i.i506.i, %for.cond8.preheader.i.i.i.i.i613.i ], [ %232, %if.end32.loopexit21.i.i.i.i.i612.i ], [ %position.019.i.i.i.i.i506.i, %for.cond19.preheader.i.i.i.i.i578.i ]
   %cmp.i.i.i.i.i522.i = icmp slt i64 %position.2.i.i.i.i.i521.i, %194
   br i1 %cmp.i.i.i.i.i522.i, label %while.body.i.i.i.i.i504.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, !llvm.loop !87
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i519.i, %.noexc55
-  %index.8.i501.i = phi i64 [ %index.09.i494.i, %.noexc55 ], [ %index.7.i520.i, %if.end32.i.i.i.i.i519.i ]
+  %index.7.i501.i = phi i64 [ %index.09.i494.i, %.noexc55 ], [ %index.6.i520.i, %if.end32.i.i.i.i.i519.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i482.i), !noalias !82
   %incdec.ptr.i.i502.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i493.i, i64 128
   %cmp.i.not.i503.i = icmp eq ptr %incdec.ptr.i.i502.i, %190
@@ -9391,7 +9391,7 @@ for.body.lr.ph.i629.i:                            ; preds = %sw.bb12.i
 
 for.body.i635.i:                                  ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUliE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, %for.body.lr.ph.i629.i
   %__begin4.sroa.0.010.i636.i = phi ptr [ %9, %for.body.lr.ph.i629.i ], [ %incdec.ptr.i.i645.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUliE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
-  %index.09.i637.i = phi i64 [ 0, %for.body.lr.ph.i629.i ], [ %index.8.i644.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUliE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
+  %index.09.i637.i = phi i64 [ 0, %for.body.lr.ph.i629.i ], [ %index.7.i644.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUliE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
   %offset.i.i.i.i.i638.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i636.i, i64 24
   %234 = load i64, ptr %offset.i.i.i.i.i638.i, align 8, !noalias !88
   %buffers.i.i.i.i.i.i639.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i636.i, i64 32
@@ -9406,12 +9406,12 @@ for.body.i635.i:                                  ; preds = %_ZN5arrow7compute8i
           to label %.noexc56 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc56:                                         ; preds = %for.body.i635.i
-  %cmp63.i.i.i.i.i643.i = icmp sgt i64 %237, 0
-  br i1 %cmp63.i.i.i.i.i643.i, label %while.body.i.i.i.i.i647.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUliE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
+  %cmp18.i.i.i.i.i643.i = icmp sgt i64 %237, 0
+  br i1 %cmp18.i.i.i.i.i643.i, label %while.body.i.i.i.i.i647.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUliE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
 
 while.body.i.i.i.i.i647.i:                        ; preds = %.noexc56, %if.end32.i.i.i.i.i662.i
-  %index.1.i648.i = phi i64 [ %index.7.i663.i, %if.end32.i.i.i.i.i662.i ], [ %index.09.i637.i, %.noexc56 ]
-  %position.064.i.i.i.i.i649.i = phi i64 [ %position.2.i.i.i.i.i664.i, %if.end32.i.i.i.i.i662.i ], [ 0, %.noexc56 ]
+  %index.1.i648.i = phi i64 [ %index.6.i663.i, %if.end32.i.i.i.i.i662.i ], [ %index.09.i637.i, %.noexc56 ]
+  %position.019.i.i.i.i.i649.i = phi i64 [ %position.2.i.i.i.i.i664.i, %if.end32.i.i.i.i.i662.i ], [ 0, %.noexc56 ]
   %238 = load i8, ptr %bit_counter.i.i.i.i.i625.i, align 8, !noalias !88
   %tobool.i.i650.i = trunc i8 %238 to i1
   br i1 %tobool.i.i650.i, label %if.then.i.i692.i, label %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i651.i
@@ -9496,15 +9496,15 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i709.i: ; preds = %
 for.cond.preheader.i.i.i.i.i658.i:                ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i709.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i651.i
   %conv.i.i.i.i.i660.pre-phi.i = phi i64 [ %conv.i.i714.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i709.i ], [ %conv5.i.i656.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i651.i ]
   %retval.sroa.0.0.i15.i659.i = phi i16 [ %retval.sroa.0.0.extract.trunc.i.i712.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i709.i ], [ %conv4.i.i654.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i651.i ]
-  %cmp359.i.i.i.i.i661.i = icmp sgt i16 %retval.sroa.0.0.i15.i659.i, 0
-  br i1 %cmp359.i.i.i.i.i661.i, label %for.body.i.i.i.i.i666.i, label %if.end32.i.i.i.i.i662.i
+  %cmp314.i.i.i.i.i661.i = icmp sgt i16 %retval.sroa.0.0.i15.i659.i, 0
+  br i1 %cmp314.i.i.i.i.i661.i, label %for.body.i.i.i.i.i666.i, label %if.end32.i.i.i.i.i662.i
 
 for.body.i.i.i.i.i666.i:                          ; preds = %for.cond.preheader.i.i.i.i.i658.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
   %index.2.i667.i = phi i64 [ %index.3.i687.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %index.1.i648.i, %for.cond.preheader.i.i.i.i.i658.i ]
-  %i.061.i.i.i.i.i668.i = phi i64 [ %inc.i.i.i.i.i688.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i658.i ]
-  %position.160.i.i.i.i.i669.i = phi i64 [ %inc4.i.i.i.i.i689.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.064.i.i.i.i.i649.i, %for.cond.preheader.i.i.i.i.i658.i ]
-  %arrayidx.i.i4.i.i.i.i670.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i.i641.i, i64 %position.160.i.i.i.i.i669.i
-  %248 = load i32, ptr %arrayidx.i.i4.i.i.i.i670.i, align 4, !noalias !88
+  %i.016.i.i.i.i.i668.i = phi i64 [ %inc.i.i.i.i.i688.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i658.i ]
+  %position.115.i.i.i.i.i669.i = phi i64 [ %inc4.i.i.i.i.i689.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.019.i.i.i.i.i649.i, %for.cond.preheader.i.i.i.i.i658.i ]
+  %arrayidx.i.i5.i.i.i.i670.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i.i641.i, i64 %position.115.i.i.i.i.i669.i
+  %248 = load i32, ptr %arrayidx.i.i5.i.i.i.i670.i, align 4, !noalias !88
   %cmp.not.i.i.i.i.i.i.i.i671.i = icmp eq i32 %248, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i671.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i672.i
 
@@ -9536,32 +9536,32 @@ if.then.i.i.i.i.i.i.i.i672.i:                     ; preds = %for.body.i.i.i.i.i6
 
 _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i672.i, %for.body.i.i.i.i.i666.i
   %index.3.i687.i = add i64 %index.2.i667.i, 1
-  %inc.i.i.i.i.i688.i = add nuw nsw i64 %i.061.i.i.i.i.i668.i, 1
-  %inc4.i.i.i.i.i689.i = add nsw i64 %position.160.i.i.i.i.i669.i, 1
-  %exitcond68.not.i.i.i.i.i690.i = icmp eq i64 %inc.i.i.i.i.i688.i, %conv.i.i.i.i.i660.pre-phi.i
-  br i1 %exitcond68.not.i.i.i.i.i690.i, label %if.end32.loopexit.i.i.i.i.i691.i, label %for.body.i.i.i.i.i666.i, !llvm.loop !91
+  %inc.i.i.i.i.i688.i = add nuw nsw i64 %i.016.i.i.i.i.i668.i, 1
+  %inc4.i.i.i.i.i689.i = add nsw i64 %position.115.i.i.i.i.i669.i, 1
+  %exitcond23.not.i.i.i.i.i690.i = icmp eq i64 %inc.i.i.i.i.i688.i, %conv.i.i.i.i.i660.pre-phi.i
+  br i1 %exitcond23.not.i.i.i.i.i690.i, label %if.end32.loopexit.i.i.i.i.i691.i, label %for.body.i.i.i.i.i666.i, !llvm.loop !91
 
 if.else.i.i.i.i.i717.i:                           ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i709.i
   %cmp.i22.i.i.i.i.i718.i = icmp eq i32 %retval.sroa.5.0.i.i.i711.i, 0
-  %cmp1155.i.i.i.i.i720.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i712.i, 0
+  %cmp1110.i.i.i.i.i720.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i712.i, 0
   br i1 %cmp.i22.i.i.i.i.i718.i, label %for.cond8.preheader.i.i.i.i.i756.i, label %for.cond19.preheader.i.i.i.i.i721.i
 
 for.cond19.preheader.i.i.i.i.i721.i:              ; preds = %if.else.i.i.i.i.i717.i
-  br i1 %cmp1155.i.i.i.i.i720.i, label %for.body23.i.i.i.i.i722.i, label %if.end32.i.i.i.i.i662.i
+  br i1 %cmp1110.i.i.i.i.i720.i, label %for.body23.i.i.i.i.i722.i, label %if.end32.i.i.i.i.i662.i
 
 for.cond8.preheader.i.i.i.i.i756.i:               ; preds = %if.else.i.i.i.i.i717.i
-  br i1 %cmp1155.i.i.i.i.i720.i, label %for.body12.i.i.i.i.preheader.i757.i, label %if.end32.i.i.i.i.i662.i
+  br i1 %cmp1110.i.i.i.i.i720.i, label %for.body12.i.i.i.preheader.i.i757.i, label %if.end32.i.i.i.i.i662.i
 
-for.body12.i.i.i.i.preheader.i757.i:              ; preds = %for.cond8.preheader.i.i.i.i.i756.i
+for.body12.i.i.i.preheader.i.i757.i:              ; preds = %for.cond8.preheader.i.i.i.i.i756.i
   %258 = add i64 %index.1.i648.i, %conv.i.i714.i
-  %259 = add i64 %position.064.i.i.i.i.i649.i, %conv.i.i714.i
+  %259 = add i64 %position.019.i.i.i.i.i649.i, %conv.i.i714.i
   br label %if.end32.i.i.i.i.i662.i
 
 for.body23.i.i.i.i.i722.i:                        ; preds = %for.cond19.preheader.i.i.i.i.i721.i, %for.inc27.i.i.i.i.i750.i
-  %index.5.i723.i = phi i64 [ %index.6.i751.i, %for.inc27.i.i.i.i.i750.i ], [ %index.1.i648.i, %for.cond19.preheader.i.i.i.i.i721.i ]
-  %i18.054.i.i.i.i.i724.i = phi i64 [ %inc28.i.i.i.i.i752.i, %for.inc27.i.i.i.i.i750.i ], [ 0, %for.cond19.preheader.i.i.i.i.i721.i ]
-  %position.453.i.i.i.i.i725.i = phi i64 [ %inc29.i.i.i.i.i753.i, %for.inc27.i.i.i.i.i750.i ], [ %position.064.i.i.i.i.i649.i, %for.cond19.preheader.i.i.i.i.i721.i ]
-  %add.i.i.i.i.i726.i = add nsw i64 %position.453.i.i.i.i.i725.i, %234
+  %index.4.i723.i = phi i64 [ %index.5.i751.i, %for.inc27.i.i.i.i.i750.i ], [ %index.1.i648.i, %for.cond19.preheader.i.i.i.i.i721.i ]
+  %i18.09.i.i.i.i.i724.i = phi i64 [ %inc28.i.i.i.i.i752.i, %for.inc27.i.i.i.i.i750.i ], [ 0, %for.cond19.preheader.i.i.i.i.i721.i ]
+  %position.48.i.i.i.i.i725.i = phi i64 [ %inc29.i.i.i.i.i753.i, %for.inc27.i.i.i.i.i750.i ], [ %position.019.i.i.i.i.i649.i, %for.cond19.preheader.i.i.i.i.i721.i ]
+  %add.i.i.i.i.i726.i = add nsw i64 %position.48.i.i.i.i.i725.i, %234
   %shr.i.i.i.i.i.i727.i = lshr i64 %add.i.i.i.i.i726.i, 3
   %arrayidx.i23.i.i.i.i.i728.i = getelementptr inbounds i8, ptr %236, i64 %shr.i.i.i.i.i.i727.i
   %260 = load i8, ptr %arrayidx.i23.i.i.i.i.i728.i, align 1, !noalias !88
@@ -9574,7 +9574,7 @@ for.body23.i.i.i.i.i722.i:                        ; preds = %for.cond19.preheade
   br i1 %tobool.i.not.i.i.i.i.i731.i, label %for.inc27.i.i.i.i.i750.i, label %if.then25.i.i.i.i.i732.i
 
 if.then25.i.i.i.i.i732.i:                         ; preds = %for.body23.i.i.i.i.i722.i
-  %arrayidx.i24.i.i.i.i.i733.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i.i641.i, i64 %position.453.i.i.i.i.i725.i
+  %arrayidx.i24.i.i.i.i.i733.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i.i641.i, i64 %position.48.i.i.i.i.i725.i
   %264 = load i32, ptr %arrayidx.i24.i.i.i.i.i733.i, align 4, !noalias !88
   %cmp.not.i.i.i25.i.i.i.i.i734.i = icmp eq i32 %264, 0
   br i1 %cmp.not.i.i.i25.i.i.i.i.i734.i, label %for.inc27.i.i.i.i.i750.i, label %if.then.i.i.i26.i.i.i.i.i735.i
@@ -9599,35 +9599,35 @@ if.then.i.i.i26.i.i.i.i.i735.i:                   ; preds = %if.then25.i.i.i.i.i
   %271 = load ptr, ptr %data_.i.i.i, align 8, !noalias !88
   %272 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i747.i, align 8, !noalias !88
   %add.ptr.i.i.i.i.i.i40.i.i.i.i.i748.i = getelementptr inbounds i8, ptr %271, i64 %272
-  store i64 %index.5.i723.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i748.i, align 1, !noalias !88
+  store i64 %index.4.i723.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i748.i, align 1, !noalias !88
   %273 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i747.i, align 8, !noalias !88
   %add.i.i.i.i.i.i41.i.i.i.i.i749.i = add nsw i64 %273, 8
   store i64 %add.i.i.i.i.i.i41.i.i.i.i.i749.i, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i747.i, align 8, !noalias !88
   br label %for.inc27.i.i.i.i.i750.i
 
 for.inc27.i.i.i.i.i750.i:                         ; preds = %if.then.i.i.i26.i.i.i.i.i735.i, %if.then25.i.i.i.i.i732.i, %for.body23.i.i.i.i.i722.i
-  %index.6.i751.i = add i64 %index.5.i723.i, 1
-  %inc28.i.i.i.i.i752.i = add nuw nsw i64 %i18.054.i.i.i.i.i724.i, 1
-  %inc29.i.i.i.i.i753.i = add nsw i64 %position.453.i.i.i.i.i725.i, 1
+  %index.5.i751.i = add i64 %index.4.i723.i, 1
+  %inc28.i.i.i.i.i752.i = add nuw nsw i64 %i18.09.i.i.i.i.i724.i, 1
+  %inc29.i.i.i.i.i753.i = add nsw i64 %position.48.i.i.i.i.i725.i, 1
   %exitcond.not.i.i.i.i.i754.i = icmp eq i64 %inc28.i.i.i.i.i752.i, %conv.i.i714.i
-  br i1 %exitcond.not.i.i.i.i.i754.i, label %if.end32.loopexit66.i.i.i.i.i755.i, label %for.body23.i.i.i.i.i722.i, !llvm.loop !92
+  br i1 %exitcond.not.i.i.i.i.i754.i, label %if.end32.loopexit21.i.i.i.i.i755.i, label %for.body23.i.i.i.i.i722.i, !llvm.loop !92
 
 if.end32.loopexit.i.i.i.i.i691.i:                 ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
-  %274 = add i64 %conv.i.i.i.i.i660.pre-phi.i, %position.064.i.i.i.i.i649.i
+  %274 = add i64 %conv.i.i.i.i.i660.pre-phi.i, %position.019.i.i.i.i.i649.i
   br label %if.end32.i.i.i.i.i662.i
 
-if.end32.loopexit66.i.i.i.i.i755.i:               ; preds = %for.inc27.i.i.i.i.i750.i
-  %275 = add i64 %position.064.i.i.i.i.i649.i, %conv.i.i714.i
+if.end32.loopexit21.i.i.i.i.i755.i:               ; preds = %for.inc27.i.i.i.i.i750.i
+  %275 = add i64 %position.019.i.i.i.i.i649.i, %conv.i.i714.i
   br label %if.end32.i.i.i.i.i662.i
 
-if.end32.i.i.i.i.i662.i:                          ; preds = %if.end32.loopexit66.i.i.i.i.i755.i, %if.end32.loopexit.i.i.i.i.i691.i, %for.body12.i.i.i.i.preheader.i757.i, %for.cond8.preheader.i.i.i.i.i756.i, %for.cond19.preheader.i.i.i.i.i721.i, %for.cond.preheader.i.i.i.i.i658.i
-  %index.7.i663.i = phi i64 [ %index.3.i687.i, %if.end32.loopexit.i.i.i.i.i691.i ], [ %index.1.i648.i, %for.cond.preheader.i.i.i.i.i658.i ], [ %258, %for.body12.i.i.i.i.preheader.i757.i ], [ %index.1.i648.i, %for.cond8.preheader.i.i.i.i.i756.i ], [ %index.6.i751.i, %if.end32.loopexit66.i.i.i.i.i755.i ], [ %index.1.i648.i, %for.cond19.preheader.i.i.i.i.i721.i ]
-  %position.2.i.i.i.i.i664.i = phi i64 [ %274, %if.end32.loopexit.i.i.i.i.i691.i ], [ %position.064.i.i.i.i.i649.i, %for.cond.preheader.i.i.i.i.i658.i ], [ %259, %for.body12.i.i.i.i.preheader.i757.i ], [ %position.064.i.i.i.i.i649.i, %for.cond8.preheader.i.i.i.i.i756.i ], [ %275, %if.end32.loopexit66.i.i.i.i.i755.i ], [ %position.064.i.i.i.i.i649.i, %for.cond19.preheader.i.i.i.i.i721.i ]
+if.end32.i.i.i.i.i662.i:                          ; preds = %if.end32.loopexit21.i.i.i.i.i755.i, %if.end32.loopexit.i.i.i.i.i691.i, %for.body12.i.i.i.preheader.i.i757.i, %for.cond8.preheader.i.i.i.i.i756.i, %for.cond19.preheader.i.i.i.i.i721.i, %for.cond.preheader.i.i.i.i.i658.i
+  %index.6.i663.i = phi i64 [ %index.3.i687.i, %if.end32.loopexit.i.i.i.i.i691.i ], [ %index.1.i648.i, %for.cond.preheader.i.i.i.i.i658.i ], [ %258, %for.body12.i.i.i.preheader.i.i757.i ], [ %index.1.i648.i, %for.cond8.preheader.i.i.i.i.i756.i ], [ %index.5.i751.i, %if.end32.loopexit21.i.i.i.i.i755.i ], [ %index.1.i648.i, %for.cond19.preheader.i.i.i.i.i721.i ]
+  %position.2.i.i.i.i.i664.i = phi i64 [ %274, %if.end32.loopexit.i.i.i.i.i691.i ], [ %position.019.i.i.i.i.i649.i, %for.cond.preheader.i.i.i.i.i658.i ], [ %259, %for.body12.i.i.i.preheader.i.i757.i ], [ %position.019.i.i.i.i.i649.i, %for.cond8.preheader.i.i.i.i.i756.i ], [ %275, %if.end32.loopexit21.i.i.i.i.i755.i ], [ %position.019.i.i.i.i.i649.i, %for.cond19.preheader.i.i.i.i.i721.i ]
   %cmp.i.i.i.i.i665.i = icmp slt i64 %position.2.i.i.i.i.i664.i, %237
   br i1 %cmp.i.i.i.i.i665.i, label %while.body.i.i.i.i.i647.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUliE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, !llvm.loop !93
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUliE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i662.i, %.noexc56
-  %index.8.i644.i = phi i64 [ %index.09.i637.i, %.noexc56 ], [ %index.7.i663.i, %if.end32.i.i.i.i.i662.i ]
+  %index.7.i644.i = phi i64 [ %index.09.i637.i, %.noexc56 ], [ %index.6.i663.i, %if.end32.i.i.i.i.i662.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i625.i), !noalias !88
   %incdec.ptr.i.i645.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i636.i, i64 128
   %cmp.i.not.i646.i = icmp eq ptr %incdec.ptr.i.i645.i, %233
@@ -9651,7 +9651,7 @@ for.body.lr.ph.i772.i:                            ; preds = %sw.bb14.i
 
 for.body.i778.i:                                  ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUljE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, %for.body.lr.ph.i772.i
   %__begin4.sroa.0.010.i779.i = phi ptr [ %9, %for.body.lr.ph.i772.i ], [ %incdec.ptr.i.i788.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUljE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
-  %index.09.i780.i = phi i64 [ 0, %for.body.lr.ph.i772.i ], [ %index.8.i787.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUljE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
+  %index.09.i780.i = phi i64 [ 0, %for.body.lr.ph.i772.i ], [ %index.7.i787.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUljE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
   %offset.i.i.i.i.i781.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i779.i, i64 24
   %277 = load i64, ptr %offset.i.i.i.i.i781.i, align 8, !noalias !94
   %buffers.i.i.i.i.i.i782.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i779.i, i64 32
@@ -9666,12 +9666,12 @@ for.body.i778.i:                                  ; preds = %_ZN5arrow7compute8i
           to label %.noexc57 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc57:                                         ; preds = %for.body.i778.i
-  %cmp63.i.i.i.i.i786.i = icmp sgt i64 %280, 0
-  br i1 %cmp63.i.i.i.i.i786.i, label %while.body.i.i.i.i.i790.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUljE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
+  %cmp18.i.i.i.i.i786.i = icmp sgt i64 %280, 0
+  br i1 %cmp18.i.i.i.i.i786.i, label %while.body.i.i.i.i.i790.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUljE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
 
 while.body.i.i.i.i.i790.i:                        ; preds = %.noexc57, %if.end32.i.i.i.i.i805.i
-  %index.1.i791.i = phi i64 [ %index.7.i806.i, %if.end32.i.i.i.i.i805.i ], [ %index.09.i780.i, %.noexc57 ]
-  %position.064.i.i.i.i.i792.i = phi i64 [ %position.2.i.i.i.i.i807.i, %if.end32.i.i.i.i.i805.i ], [ 0, %.noexc57 ]
+  %index.1.i791.i = phi i64 [ %index.6.i806.i, %if.end32.i.i.i.i.i805.i ], [ %index.09.i780.i, %.noexc57 ]
+  %position.019.i.i.i.i.i792.i = phi i64 [ %position.2.i.i.i.i.i807.i, %if.end32.i.i.i.i.i805.i ], [ 0, %.noexc57 ]
   %281 = load i8, ptr %bit_counter.i.i.i.i.i768.i, align 8, !noalias !94
   %tobool.i.i793.i = trunc i8 %281 to i1
   br i1 %tobool.i.i793.i, label %if.then.i.i835.i, label %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i794.i
@@ -9756,15 +9756,15 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i852.i: ; preds = %
 for.cond.preheader.i.i.i.i.i801.i:                ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i852.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i794.i
   %conv.i.i.i.i.i803.pre-phi.i = phi i64 [ %conv.i.i857.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i852.i ], [ %conv5.i.i799.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i794.i ]
   %retval.sroa.0.0.i15.i802.i = phi i16 [ %retval.sroa.0.0.extract.trunc.i.i855.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i852.i ], [ %conv4.i.i797.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i794.i ]
-  %cmp359.i.i.i.i.i804.i = icmp sgt i16 %retval.sroa.0.0.i15.i802.i, 0
-  br i1 %cmp359.i.i.i.i.i804.i, label %for.body.i.i.i.i.i809.i, label %if.end32.i.i.i.i.i805.i
+  %cmp314.i.i.i.i.i804.i = icmp sgt i16 %retval.sroa.0.0.i15.i802.i, 0
+  br i1 %cmp314.i.i.i.i.i804.i, label %for.body.i.i.i.i.i809.i, label %if.end32.i.i.i.i.i805.i
 
 for.body.i.i.i.i.i809.i:                          ; preds = %for.cond.preheader.i.i.i.i.i801.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
   %index.2.i810.i = phi i64 [ %index.3.i830.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %index.1.i791.i, %for.cond.preheader.i.i.i.i.i801.i ]
-  %i.061.i.i.i.i.i811.i = phi i64 [ %inc.i.i.i.i.i831.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i801.i ]
-  %position.160.i.i.i.i.i812.i = phi i64 [ %inc4.i.i.i.i.i832.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.064.i.i.i.i.i792.i, %for.cond.preheader.i.i.i.i.i801.i ]
-  %arrayidx.i.i4.i.i.i.i813.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i.i784.i, i64 %position.160.i.i.i.i.i812.i
-  %291 = load i32, ptr %arrayidx.i.i4.i.i.i.i813.i, align 4, !noalias !94
+  %i.016.i.i.i.i.i811.i = phi i64 [ %inc.i.i.i.i.i831.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i801.i ]
+  %position.115.i.i.i.i.i812.i = phi i64 [ %inc4.i.i.i.i.i832.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.019.i.i.i.i.i792.i, %for.cond.preheader.i.i.i.i.i801.i ]
+  %arrayidx.i.i5.i.i.i.i813.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i.i784.i, i64 %position.115.i.i.i.i.i812.i
+  %291 = load i32, ptr %arrayidx.i.i5.i.i.i.i813.i, align 4, !noalias !94
   %cmp.not.i.i.i.i.i.i.i.i814.i = icmp eq i32 %291, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i814.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i815.i
 
@@ -9796,32 +9796,32 @@ if.then.i.i.i.i.i.i.i.i815.i:                     ; preds = %for.body.i.i.i.i.i8
 
 _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i815.i, %for.body.i.i.i.i.i809.i
   %index.3.i830.i = add i64 %index.2.i810.i, 1
-  %inc.i.i.i.i.i831.i = add nuw nsw i64 %i.061.i.i.i.i.i811.i, 1
-  %inc4.i.i.i.i.i832.i = add nsw i64 %position.160.i.i.i.i.i812.i, 1
-  %exitcond68.not.i.i.i.i.i833.i = icmp eq i64 %inc.i.i.i.i.i831.i, %conv.i.i.i.i.i803.pre-phi.i
-  br i1 %exitcond68.not.i.i.i.i.i833.i, label %if.end32.loopexit.i.i.i.i.i834.i, label %for.body.i.i.i.i.i809.i, !llvm.loop !97
+  %inc.i.i.i.i.i831.i = add nuw nsw i64 %i.016.i.i.i.i.i811.i, 1
+  %inc4.i.i.i.i.i832.i = add nsw i64 %position.115.i.i.i.i.i812.i, 1
+  %exitcond23.not.i.i.i.i.i833.i = icmp eq i64 %inc.i.i.i.i.i831.i, %conv.i.i.i.i.i803.pre-phi.i
+  br i1 %exitcond23.not.i.i.i.i.i833.i, label %if.end32.loopexit.i.i.i.i.i834.i, label %for.body.i.i.i.i.i809.i, !llvm.loop !97
 
 if.else.i.i.i.i.i860.i:                           ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i852.i
   %cmp.i22.i.i.i.i.i861.i = icmp eq i32 %retval.sroa.5.0.i.i.i854.i, 0
-  %cmp1155.i.i.i.i.i863.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i855.i, 0
+  %cmp1110.i.i.i.i.i863.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i855.i, 0
   br i1 %cmp.i22.i.i.i.i.i861.i, label %for.cond8.preheader.i.i.i.i.i899.i, label %for.cond19.preheader.i.i.i.i.i864.i
 
 for.cond19.preheader.i.i.i.i.i864.i:              ; preds = %if.else.i.i.i.i.i860.i
-  br i1 %cmp1155.i.i.i.i.i863.i, label %for.body23.i.i.i.i.i865.i, label %if.end32.i.i.i.i.i805.i
+  br i1 %cmp1110.i.i.i.i.i863.i, label %for.body23.i.i.i.i.i865.i, label %if.end32.i.i.i.i.i805.i
 
 for.cond8.preheader.i.i.i.i.i899.i:               ; preds = %if.else.i.i.i.i.i860.i
-  br i1 %cmp1155.i.i.i.i.i863.i, label %for.body12.i.i.i.i.preheader.i900.i, label %if.end32.i.i.i.i.i805.i
+  br i1 %cmp1110.i.i.i.i.i863.i, label %for.body12.i.i.i.preheader.i.i900.i, label %if.end32.i.i.i.i.i805.i
 
-for.body12.i.i.i.i.preheader.i900.i:              ; preds = %for.cond8.preheader.i.i.i.i.i899.i
+for.body12.i.i.i.preheader.i.i900.i:              ; preds = %for.cond8.preheader.i.i.i.i.i899.i
   %301 = add i64 %index.1.i791.i, %conv.i.i857.i
-  %302 = add i64 %position.064.i.i.i.i.i792.i, %conv.i.i857.i
+  %302 = add i64 %position.019.i.i.i.i.i792.i, %conv.i.i857.i
   br label %if.end32.i.i.i.i.i805.i
 
 for.body23.i.i.i.i.i865.i:                        ; preds = %for.cond19.preheader.i.i.i.i.i864.i, %for.inc27.i.i.i.i.i893.i
-  %index.5.i866.i = phi i64 [ %index.6.i894.i, %for.inc27.i.i.i.i.i893.i ], [ %index.1.i791.i, %for.cond19.preheader.i.i.i.i.i864.i ]
-  %i18.054.i.i.i.i.i867.i = phi i64 [ %inc28.i.i.i.i.i895.i, %for.inc27.i.i.i.i.i893.i ], [ 0, %for.cond19.preheader.i.i.i.i.i864.i ]
-  %position.453.i.i.i.i.i868.i = phi i64 [ %inc29.i.i.i.i.i896.i, %for.inc27.i.i.i.i.i893.i ], [ %position.064.i.i.i.i.i792.i, %for.cond19.preheader.i.i.i.i.i864.i ]
-  %add.i.i.i.i.i869.i = add nsw i64 %position.453.i.i.i.i.i868.i, %277
+  %index.4.i866.i = phi i64 [ %index.5.i894.i, %for.inc27.i.i.i.i.i893.i ], [ %index.1.i791.i, %for.cond19.preheader.i.i.i.i.i864.i ]
+  %i18.09.i.i.i.i.i867.i = phi i64 [ %inc28.i.i.i.i.i895.i, %for.inc27.i.i.i.i.i893.i ], [ 0, %for.cond19.preheader.i.i.i.i.i864.i ]
+  %position.48.i.i.i.i.i868.i = phi i64 [ %inc29.i.i.i.i.i896.i, %for.inc27.i.i.i.i.i893.i ], [ %position.019.i.i.i.i.i792.i, %for.cond19.preheader.i.i.i.i.i864.i ]
+  %add.i.i.i.i.i869.i = add nsw i64 %position.48.i.i.i.i.i868.i, %277
   %shr.i.i.i.i.i.i870.i = lshr i64 %add.i.i.i.i.i869.i, 3
   %arrayidx.i23.i.i.i.i.i871.i = getelementptr inbounds i8, ptr %279, i64 %shr.i.i.i.i.i.i870.i
   %303 = load i8, ptr %arrayidx.i23.i.i.i.i.i871.i, align 1, !noalias !94
@@ -9834,7 +9834,7 @@ for.body23.i.i.i.i.i865.i:                        ; preds = %for.cond19.preheade
   br i1 %tobool.i.not.i.i.i.i.i874.i, label %for.inc27.i.i.i.i.i893.i, label %if.then25.i.i.i.i.i875.i
 
 if.then25.i.i.i.i.i875.i:                         ; preds = %for.body23.i.i.i.i.i865.i
-  %arrayidx.i24.i.i.i.i.i876.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i.i784.i, i64 %position.453.i.i.i.i.i868.i
+  %arrayidx.i24.i.i.i.i.i876.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i.i784.i, i64 %position.48.i.i.i.i.i868.i
   %307 = load i32, ptr %arrayidx.i24.i.i.i.i.i876.i, align 4, !noalias !94
   %cmp.not.i.i.i25.i.i.i.i.i877.i = icmp eq i32 %307, 0
   br i1 %cmp.not.i.i.i25.i.i.i.i.i877.i, label %for.inc27.i.i.i.i.i893.i, label %if.then.i.i.i26.i.i.i.i.i878.i
@@ -9859,35 +9859,35 @@ if.then.i.i.i26.i.i.i.i.i878.i:                   ; preds = %if.then25.i.i.i.i.i
   %314 = load ptr, ptr %data_.i.i.i, align 8, !noalias !94
   %315 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i890.i, align 8, !noalias !94
   %add.ptr.i.i.i.i.i.i40.i.i.i.i.i891.i = getelementptr inbounds i8, ptr %314, i64 %315
-  store i64 %index.5.i866.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i891.i, align 1, !noalias !94
+  store i64 %index.4.i866.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i891.i, align 1, !noalias !94
   %316 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i890.i, align 8, !noalias !94
   %add.i.i.i.i.i.i41.i.i.i.i.i892.i = add nsw i64 %316, 8
   store i64 %add.i.i.i.i.i.i41.i.i.i.i.i892.i, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i890.i, align 8, !noalias !94
   br label %for.inc27.i.i.i.i.i893.i
 
 for.inc27.i.i.i.i.i893.i:                         ; preds = %if.then.i.i.i26.i.i.i.i.i878.i, %if.then25.i.i.i.i.i875.i, %for.body23.i.i.i.i.i865.i
-  %index.6.i894.i = add i64 %index.5.i866.i, 1
-  %inc28.i.i.i.i.i895.i = add nuw nsw i64 %i18.054.i.i.i.i.i867.i, 1
-  %inc29.i.i.i.i.i896.i = add nsw i64 %position.453.i.i.i.i.i868.i, 1
+  %index.5.i894.i = add i64 %index.4.i866.i, 1
+  %inc28.i.i.i.i.i895.i = add nuw nsw i64 %i18.09.i.i.i.i.i867.i, 1
+  %inc29.i.i.i.i.i896.i = add nsw i64 %position.48.i.i.i.i.i868.i, 1
   %exitcond.not.i.i.i.i.i897.i = icmp eq i64 %inc28.i.i.i.i.i895.i, %conv.i.i857.i
-  br i1 %exitcond.not.i.i.i.i.i897.i, label %if.end32.loopexit66.i.i.i.i.i898.i, label %for.body23.i.i.i.i.i865.i, !llvm.loop !98
+  br i1 %exitcond.not.i.i.i.i.i897.i, label %if.end32.loopexit21.i.i.i.i.i898.i, label %for.body23.i.i.i.i.i865.i, !llvm.loop !98
 
 if.end32.loopexit.i.i.i.i.i834.i:                 ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
-  %317 = add i64 %conv.i.i.i.i.i803.pre-phi.i, %position.064.i.i.i.i.i792.i
+  %317 = add i64 %conv.i.i.i.i.i803.pre-phi.i, %position.019.i.i.i.i.i792.i
   br label %if.end32.i.i.i.i.i805.i
 
-if.end32.loopexit66.i.i.i.i.i898.i:               ; preds = %for.inc27.i.i.i.i.i893.i
-  %318 = add i64 %position.064.i.i.i.i.i792.i, %conv.i.i857.i
+if.end32.loopexit21.i.i.i.i.i898.i:               ; preds = %for.inc27.i.i.i.i.i893.i
+  %318 = add i64 %position.019.i.i.i.i.i792.i, %conv.i.i857.i
   br label %if.end32.i.i.i.i.i805.i
 
-if.end32.i.i.i.i.i805.i:                          ; preds = %if.end32.loopexit66.i.i.i.i.i898.i, %if.end32.loopexit.i.i.i.i.i834.i, %for.body12.i.i.i.i.preheader.i900.i, %for.cond8.preheader.i.i.i.i.i899.i, %for.cond19.preheader.i.i.i.i.i864.i, %for.cond.preheader.i.i.i.i.i801.i
-  %index.7.i806.i = phi i64 [ %index.3.i830.i, %if.end32.loopexit.i.i.i.i.i834.i ], [ %index.1.i791.i, %for.cond.preheader.i.i.i.i.i801.i ], [ %301, %for.body12.i.i.i.i.preheader.i900.i ], [ %index.1.i791.i, %for.cond8.preheader.i.i.i.i.i899.i ], [ %index.6.i894.i, %if.end32.loopexit66.i.i.i.i.i898.i ], [ %index.1.i791.i, %for.cond19.preheader.i.i.i.i.i864.i ]
-  %position.2.i.i.i.i.i807.i = phi i64 [ %317, %if.end32.loopexit.i.i.i.i.i834.i ], [ %position.064.i.i.i.i.i792.i, %for.cond.preheader.i.i.i.i.i801.i ], [ %302, %for.body12.i.i.i.i.preheader.i900.i ], [ %position.064.i.i.i.i.i792.i, %for.cond8.preheader.i.i.i.i.i899.i ], [ %318, %if.end32.loopexit66.i.i.i.i.i898.i ], [ %position.064.i.i.i.i.i792.i, %for.cond19.preheader.i.i.i.i.i864.i ]
+if.end32.i.i.i.i.i805.i:                          ; preds = %if.end32.loopexit21.i.i.i.i.i898.i, %if.end32.loopexit.i.i.i.i.i834.i, %for.body12.i.i.i.preheader.i.i900.i, %for.cond8.preheader.i.i.i.i.i899.i, %for.cond19.preheader.i.i.i.i.i864.i, %for.cond.preheader.i.i.i.i.i801.i
+  %index.6.i806.i = phi i64 [ %index.3.i830.i, %if.end32.loopexit.i.i.i.i.i834.i ], [ %index.1.i791.i, %for.cond.preheader.i.i.i.i.i801.i ], [ %301, %for.body12.i.i.i.preheader.i.i900.i ], [ %index.1.i791.i, %for.cond8.preheader.i.i.i.i.i899.i ], [ %index.5.i894.i, %if.end32.loopexit21.i.i.i.i.i898.i ], [ %index.1.i791.i, %for.cond19.preheader.i.i.i.i.i864.i ]
+  %position.2.i.i.i.i.i807.i = phi i64 [ %317, %if.end32.loopexit.i.i.i.i.i834.i ], [ %position.019.i.i.i.i.i792.i, %for.cond.preheader.i.i.i.i.i801.i ], [ %302, %for.body12.i.i.i.preheader.i.i900.i ], [ %position.019.i.i.i.i.i792.i, %for.cond8.preheader.i.i.i.i.i899.i ], [ %318, %if.end32.loopexit21.i.i.i.i.i898.i ], [ %position.019.i.i.i.i.i792.i, %for.cond19.preheader.i.i.i.i.i864.i ]
   %cmp.i.i.i.i.i808.i = icmp slt i64 %position.2.i.i.i.i.i807.i, %280
   br i1 %cmp.i.i.i.i.i808.i, label %while.body.i.i.i.i.i790.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUljE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, !llvm.loop !99
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUljE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i805.i, %.noexc57
-  %index.8.i787.i = phi i64 [ %index.09.i780.i, %.noexc57 ], [ %index.7.i806.i, %if.end32.i.i.i.i.i805.i ]
+  %index.7.i787.i = phi i64 [ %index.09.i780.i, %.noexc57 ], [ %index.6.i806.i, %if.end32.i.i.i.i.i805.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i768.i), !noalias !94
   %incdec.ptr.i.i788.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i779.i, i64 128
   %cmp.i.not.i789.i = icmp eq ptr %incdec.ptr.i.i788.i, %276
@@ -9911,7 +9911,7 @@ for.body.lr.ph.i915.i:                            ; preds = %sw.bb16.i
 
 for.body.i921.i:                                  ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUllE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, %for.body.lr.ph.i915.i
   %__begin4.sroa.0.010.i922.i = phi ptr [ %9, %for.body.lr.ph.i915.i ], [ %incdec.ptr.i.i931.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUllE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
-  %index.09.i923.i = phi i64 [ 0, %for.body.lr.ph.i915.i ], [ %index.8.i930.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUllE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
+  %index.09.i923.i = phi i64 [ 0, %for.body.lr.ph.i915.i ], [ %index.7.i930.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUllE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
   %offset.i.i.i.i.i924.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i922.i, i64 24
   %320 = load i64, ptr %offset.i.i.i.i.i924.i, align 8, !noalias !100
   %buffers.i.i.i.i.i.i925.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i922.i, i64 32
@@ -9926,12 +9926,12 @@ for.body.i921.i:                                  ; preds = %_ZN5arrow7compute8i
           to label %.noexc58 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc58:                                         ; preds = %for.body.i921.i
-  %cmp63.i.i.i.i.i929.i = icmp sgt i64 %323, 0
-  br i1 %cmp63.i.i.i.i.i929.i, label %while.body.i.i.i.i.i933.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUllE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
+  %cmp18.i.i.i.i.i929.i = icmp sgt i64 %323, 0
+  br i1 %cmp18.i.i.i.i.i929.i, label %while.body.i.i.i.i.i933.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUllE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
 
 while.body.i.i.i.i.i933.i:                        ; preds = %.noexc58, %if.end32.i.i.i.i.i948.i
-  %index.1.i934.i = phi i64 [ %index.7.i949.i, %if.end32.i.i.i.i.i948.i ], [ %index.09.i923.i, %.noexc58 ]
-  %position.064.i.i.i.i.i935.i = phi i64 [ %position.2.i.i.i.i.i950.i, %if.end32.i.i.i.i.i948.i ], [ 0, %.noexc58 ]
+  %index.1.i934.i = phi i64 [ %index.6.i949.i, %if.end32.i.i.i.i.i948.i ], [ %index.09.i923.i, %.noexc58 ]
+  %position.019.i.i.i.i.i935.i = phi i64 [ %position.2.i.i.i.i.i950.i, %if.end32.i.i.i.i.i948.i ], [ 0, %.noexc58 ]
   %324 = load i8, ptr %bit_counter.i.i.i.i.i911.i, align 8, !noalias !100
   %tobool.i.i936.i = trunc i8 %324 to i1
   br i1 %tobool.i.i936.i, label %if.then.i.i978.i, label %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i937.i
@@ -10016,15 +10016,15 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i995.i: ; preds = %
 for.cond.preheader.i.i.i.i.i944.i:                ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i995.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i937.i
   %conv.i.i.i.i.i946.pre-phi.i = phi i64 [ %conv.i.i1000.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i995.i ], [ %conv5.i.i942.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i937.i ]
   %retval.sroa.0.0.i15.i945.i = phi i16 [ %retval.sroa.0.0.extract.trunc.i.i998.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i995.i ], [ %conv4.i.i940.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i937.i ]
-  %cmp359.i.i.i.i.i947.i = icmp sgt i16 %retval.sroa.0.0.i15.i945.i, 0
-  br i1 %cmp359.i.i.i.i.i947.i, label %for.body.i.i.i.i.i952.i, label %if.end32.i.i.i.i.i948.i
+  %cmp314.i.i.i.i.i947.i = icmp sgt i16 %retval.sroa.0.0.i15.i945.i, 0
+  br i1 %cmp314.i.i.i.i.i947.i, label %for.body.i.i.i.i.i952.i, label %if.end32.i.i.i.i.i948.i
 
 for.body.i.i.i.i.i952.i:                          ; preds = %for.cond.preheader.i.i.i.i.i944.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
   %index.2.i953.i = phi i64 [ %index.3.i973.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %index.1.i934.i, %for.cond.preheader.i.i.i.i.i944.i ]
-  %i.061.i.i.i.i.i954.i = phi i64 [ %inc.i.i.i.i.i974.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i944.i ]
-  %position.160.i.i.i.i.i955.i = phi i64 [ %inc4.i.i.i.i.i975.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.064.i.i.i.i.i935.i, %for.cond.preheader.i.i.i.i.i944.i ]
-  %arrayidx.i.i4.i.i.i.i956.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i.i927.i, i64 %position.160.i.i.i.i.i955.i
-  %334 = load i64, ptr %arrayidx.i.i4.i.i.i.i956.i, align 8, !noalias !100
+  %i.016.i.i.i.i.i954.i = phi i64 [ %inc.i.i.i.i.i974.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i944.i ]
+  %position.115.i.i.i.i.i955.i = phi i64 [ %inc4.i.i.i.i.i975.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.019.i.i.i.i.i935.i, %for.cond.preheader.i.i.i.i.i944.i ]
+  %arrayidx.i.i5.i.i.i.i956.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i.i927.i, i64 %position.115.i.i.i.i.i955.i
+  %334 = load i64, ptr %arrayidx.i.i5.i.i.i.i956.i, align 8, !noalias !100
   %cmp.not.i.i.i.i.i.i.i.i957.i = icmp eq i64 %334, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i957.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i958.i
 
@@ -10056,32 +10056,32 @@ if.then.i.i.i.i.i.i.i.i958.i:                     ; preds = %for.body.i.i.i.i.i9
 
 _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i958.i, %for.body.i.i.i.i.i952.i
   %index.3.i973.i = add i64 %index.2.i953.i, 1
-  %inc.i.i.i.i.i974.i = add nuw nsw i64 %i.061.i.i.i.i.i954.i, 1
-  %inc4.i.i.i.i.i975.i = add nsw i64 %position.160.i.i.i.i.i955.i, 1
-  %exitcond68.not.i.i.i.i.i976.i = icmp eq i64 %inc.i.i.i.i.i974.i, %conv.i.i.i.i.i946.pre-phi.i
-  br i1 %exitcond68.not.i.i.i.i.i976.i, label %if.end32.loopexit.i.i.i.i.i977.i, label %for.body.i.i.i.i.i952.i, !llvm.loop !103
+  %inc.i.i.i.i.i974.i = add nuw nsw i64 %i.016.i.i.i.i.i954.i, 1
+  %inc4.i.i.i.i.i975.i = add nsw i64 %position.115.i.i.i.i.i955.i, 1
+  %exitcond23.not.i.i.i.i.i976.i = icmp eq i64 %inc.i.i.i.i.i974.i, %conv.i.i.i.i.i946.pre-phi.i
+  br i1 %exitcond23.not.i.i.i.i.i976.i, label %if.end32.loopexit.i.i.i.i.i977.i, label %for.body.i.i.i.i.i952.i, !llvm.loop !103
 
 if.else.i.i.i.i.i1003.i:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i995.i
   %cmp.i22.i.i.i.i.i1004.i = icmp eq i32 %retval.sroa.5.0.i.i.i997.i, 0
-  %cmp1155.i.i.i.i.i1006.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i998.i, 0
+  %cmp1110.i.i.i.i.i1006.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i998.i, 0
   br i1 %cmp.i22.i.i.i.i.i1004.i, label %for.cond8.preheader.i.i.i.i.i1042.i, label %for.cond19.preheader.i.i.i.i.i1007.i
 
 for.cond19.preheader.i.i.i.i.i1007.i:             ; preds = %if.else.i.i.i.i.i1003.i
-  br i1 %cmp1155.i.i.i.i.i1006.i, label %for.body23.i.i.i.i.i1008.i, label %if.end32.i.i.i.i.i948.i
+  br i1 %cmp1110.i.i.i.i.i1006.i, label %for.body23.i.i.i.i.i1008.i, label %if.end32.i.i.i.i.i948.i
 
 for.cond8.preheader.i.i.i.i.i1042.i:              ; preds = %if.else.i.i.i.i.i1003.i
-  br i1 %cmp1155.i.i.i.i.i1006.i, label %for.body12.i.i.i.i.preheader.i1043.i, label %if.end32.i.i.i.i.i948.i
+  br i1 %cmp1110.i.i.i.i.i1006.i, label %for.body12.i.i.i.preheader.i.i1043.i, label %if.end32.i.i.i.i.i948.i
 
-for.body12.i.i.i.i.preheader.i1043.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1042.i
+for.body12.i.i.i.preheader.i.i1043.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1042.i
   %344 = add i64 %index.1.i934.i, %conv.i.i1000.i
-  %345 = add i64 %position.064.i.i.i.i.i935.i, %conv.i.i1000.i
+  %345 = add i64 %position.019.i.i.i.i.i935.i, %conv.i.i1000.i
   br label %if.end32.i.i.i.i.i948.i
 
 for.body23.i.i.i.i.i1008.i:                       ; preds = %for.cond19.preheader.i.i.i.i.i1007.i, %for.inc27.i.i.i.i.i1036.i
-  %index.5.i1009.i = phi i64 [ %index.6.i1037.i, %for.inc27.i.i.i.i.i1036.i ], [ %index.1.i934.i, %for.cond19.preheader.i.i.i.i.i1007.i ]
-  %i18.054.i.i.i.i.i1010.i = phi i64 [ %inc28.i.i.i.i.i1038.i, %for.inc27.i.i.i.i.i1036.i ], [ 0, %for.cond19.preheader.i.i.i.i.i1007.i ]
-  %position.453.i.i.i.i.i1011.i = phi i64 [ %inc29.i.i.i.i.i1039.i, %for.inc27.i.i.i.i.i1036.i ], [ %position.064.i.i.i.i.i935.i, %for.cond19.preheader.i.i.i.i.i1007.i ]
-  %add.i.i.i.i.i1012.i = add nsw i64 %position.453.i.i.i.i.i1011.i, %320
+  %index.4.i1009.i = phi i64 [ %index.5.i1037.i, %for.inc27.i.i.i.i.i1036.i ], [ %index.1.i934.i, %for.cond19.preheader.i.i.i.i.i1007.i ]
+  %i18.09.i.i.i.i.i1010.i = phi i64 [ %inc28.i.i.i.i.i1038.i, %for.inc27.i.i.i.i.i1036.i ], [ 0, %for.cond19.preheader.i.i.i.i.i1007.i ]
+  %position.48.i.i.i.i.i1011.i = phi i64 [ %inc29.i.i.i.i.i1039.i, %for.inc27.i.i.i.i.i1036.i ], [ %position.019.i.i.i.i.i935.i, %for.cond19.preheader.i.i.i.i.i1007.i ]
+  %add.i.i.i.i.i1012.i = add nsw i64 %position.48.i.i.i.i.i1011.i, %320
   %shr.i.i.i.i.i.i1013.i = lshr i64 %add.i.i.i.i.i1012.i, 3
   %arrayidx.i23.i.i.i.i.i1014.i = getelementptr inbounds i8, ptr %322, i64 %shr.i.i.i.i.i.i1013.i
   %346 = load i8, ptr %arrayidx.i23.i.i.i.i.i1014.i, align 1, !noalias !100
@@ -10094,7 +10094,7 @@ for.body23.i.i.i.i.i1008.i:                       ; preds = %for.cond19.preheade
   br i1 %tobool.i.not.i.i.i.i.i1017.i, label %for.inc27.i.i.i.i.i1036.i, label %if.then25.i.i.i.i.i1018.i
 
 if.then25.i.i.i.i.i1018.i:                        ; preds = %for.body23.i.i.i.i.i1008.i
-  %arrayidx.i24.i.i.i.i.i1019.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i.i927.i, i64 %position.453.i.i.i.i.i1011.i
+  %arrayidx.i24.i.i.i.i.i1019.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i.i927.i, i64 %position.48.i.i.i.i.i1011.i
   %350 = load i64, ptr %arrayidx.i24.i.i.i.i.i1019.i, align 8, !noalias !100
   %cmp.not.i.i.i25.i.i.i.i.i1020.i = icmp eq i64 %350, 0
   br i1 %cmp.not.i.i.i25.i.i.i.i.i1020.i, label %for.inc27.i.i.i.i.i1036.i, label %if.then.i.i.i26.i.i.i.i.i1021.i
@@ -10119,35 +10119,35 @@ if.then.i.i.i26.i.i.i.i.i1021.i:                  ; preds = %if.then25.i.i.i.i.i
   %357 = load ptr, ptr %data_.i.i.i, align 8, !noalias !100
   %358 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i1033.i, align 8, !noalias !100
   %add.ptr.i.i.i.i.i.i40.i.i.i.i.i1034.i = getelementptr inbounds i8, ptr %357, i64 %358
-  store i64 %index.5.i1009.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i1034.i, align 1, !noalias !100
+  store i64 %index.4.i1009.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i1034.i, align 1, !noalias !100
   %359 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i1033.i, align 8, !noalias !100
   %add.i.i.i.i.i.i41.i.i.i.i.i1035.i = add nsw i64 %359, 8
   store i64 %add.i.i.i.i.i.i41.i.i.i.i.i1035.i, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i1033.i, align 8, !noalias !100
   br label %for.inc27.i.i.i.i.i1036.i
 
 for.inc27.i.i.i.i.i1036.i:                        ; preds = %if.then.i.i.i26.i.i.i.i.i1021.i, %if.then25.i.i.i.i.i1018.i, %for.body23.i.i.i.i.i1008.i
-  %index.6.i1037.i = add i64 %index.5.i1009.i, 1
-  %inc28.i.i.i.i.i1038.i = add nuw nsw i64 %i18.054.i.i.i.i.i1010.i, 1
-  %inc29.i.i.i.i.i1039.i = add nsw i64 %position.453.i.i.i.i.i1011.i, 1
+  %index.5.i1037.i = add i64 %index.4.i1009.i, 1
+  %inc28.i.i.i.i.i1038.i = add nuw nsw i64 %i18.09.i.i.i.i.i1010.i, 1
+  %inc29.i.i.i.i.i1039.i = add nsw i64 %position.48.i.i.i.i.i1011.i, 1
   %exitcond.not.i.i.i.i.i1040.i = icmp eq i64 %inc28.i.i.i.i.i1038.i, %conv.i.i1000.i
-  br i1 %exitcond.not.i.i.i.i.i1040.i, label %if.end32.loopexit66.i.i.i.i.i1041.i, label %for.body23.i.i.i.i.i1008.i, !llvm.loop !104
+  br i1 %exitcond.not.i.i.i.i.i1040.i, label %if.end32.loopexit21.i.i.i.i.i1041.i, label %for.body23.i.i.i.i.i1008.i, !llvm.loop !104
 
 if.end32.loopexit.i.i.i.i.i977.i:                 ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
-  %360 = add i64 %conv.i.i.i.i.i946.pre-phi.i, %position.064.i.i.i.i.i935.i
+  %360 = add i64 %conv.i.i.i.i.i946.pre-phi.i, %position.019.i.i.i.i.i935.i
   br label %if.end32.i.i.i.i.i948.i
 
-if.end32.loopexit66.i.i.i.i.i1041.i:              ; preds = %for.inc27.i.i.i.i.i1036.i
-  %361 = add i64 %position.064.i.i.i.i.i935.i, %conv.i.i1000.i
+if.end32.loopexit21.i.i.i.i.i1041.i:              ; preds = %for.inc27.i.i.i.i.i1036.i
+  %361 = add i64 %position.019.i.i.i.i.i935.i, %conv.i.i1000.i
   br label %if.end32.i.i.i.i.i948.i
 
-if.end32.i.i.i.i.i948.i:                          ; preds = %if.end32.loopexit66.i.i.i.i.i1041.i, %if.end32.loopexit.i.i.i.i.i977.i, %for.body12.i.i.i.i.preheader.i1043.i, %for.cond8.preheader.i.i.i.i.i1042.i, %for.cond19.preheader.i.i.i.i.i1007.i, %for.cond.preheader.i.i.i.i.i944.i
-  %index.7.i949.i = phi i64 [ %index.3.i973.i, %if.end32.loopexit.i.i.i.i.i977.i ], [ %index.1.i934.i, %for.cond.preheader.i.i.i.i.i944.i ], [ %344, %for.body12.i.i.i.i.preheader.i1043.i ], [ %index.1.i934.i, %for.cond8.preheader.i.i.i.i.i1042.i ], [ %index.6.i1037.i, %if.end32.loopexit66.i.i.i.i.i1041.i ], [ %index.1.i934.i, %for.cond19.preheader.i.i.i.i.i1007.i ]
-  %position.2.i.i.i.i.i950.i = phi i64 [ %360, %if.end32.loopexit.i.i.i.i.i977.i ], [ %position.064.i.i.i.i.i935.i, %for.cond.preheader.i.i.i.i.i944.i ], [ %345, %for.body12.i.i.i.i.preheader.i1043.i ], [ %position.064.i.i.i.i.i935.i, %for.cond8.preheader.i.i.i.i.i1042.i ], [ %361, %if.end32.loopexit66.i.i.i.i.i1041.i ], [ %position.064.i.i.i.i.i935.i, %for.cond19.preheader.i.i.i.i.i1007.i ]
+if.end32.i.i.i.i.i948.i:                          ; preds = %if.end32.loopexit21.i.i.i.i.i1041.i, %if.end32.loopexit.i.i.i.i.i977.i, %for.body12.i.i.i.preheader.i.i1043.i, %for.cond8.preheader.i.i.i.i.i1042.i, %for.cond19.preheader.i.i.i.i.i1007.i, %for.cond.preheader.i.i.i.i.i944.i
+  %index.6.i949.i = phi i64 [ %index.3.i973.i, %if.end32.loopexit.i.i.i.i.i977.i ], [ %index.1.i934.i, %for.cond.preheader.i.i.i.i.i944.i ], [ %344, %for.body12.i.i.i.preheader.i.i1043.i ], [ %index.1.i934.i, %for.cond8.preheader.i.i.i.i.i1042.i ], [ %index.5.i1037.i, %if.end32.loopexit21.i.i.i.i.i1041.i ], [ %index.1.i934.i, %for.cond19.preheader.i.i.i.i.i1007.i ]
+  %position.2.i.i.i.i.i950.i = phi i64 [ %360, %if.end32.loopexit.i.i.i.i.i977.i ], [ %position.019.i.i.i.i.i935.i, %for.cond.preheader.i.i.i.i.i944.i ], [ %345, %for.body12.i.i.i.preheader.i.i1043.i ], [ %position.019.i.i.i.i.i935.i, %for.cond8.preheader.i.i.i.i.i1042.i ], [ %361, %if.end32.loopexit21.i.i.i.i.i1041.i ], [ %position.019.i.i.i.i.i935.i, %for.cond19.preheader.i.i.i.i.i1007.i ]
   %cmp.i.i.i.i.i951.i = icmp slt i64 %position.2.i.i.i.i.i950.i, %323
   br i1 %cmp.i.i.i.i.i951.i, label %while.body.i.i.i.i.i933.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUllE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, !llvm.loop !105
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUllE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i948.i, %.noexc58
-  %index.8.i930.i = phi i64 [ %index.09.i923.i, %.noexc58 ], [ %index.7.i949.i, %if.end32.i.i.i.i.i948.i ]
+  %index.7.i930.i = phi i64 [ %index.09.i923.i, %.noexc58 ], [ %index.6.i949.i, %if.end32.i.i.i.i.i948.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i911.i), !noalias !100
   %incdec.ptr.i.i931.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i922.i, i64 128
   %cmp.i.not.i932.i = icmp eq ptr %incdec.ptr.i.i931.i, %319
@@ -10171,7 +10171,7 @@ for.body.lr.ph.i1058.i:                           ; preds = %sw.bb18.i
 
 for.body.i1064.i:                                 ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlmE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, %for.body.lr.ph.i1058.i
   %__begin4.sroa.0.010.i1065.i = phi ptr [ %9, %for.body.lr.ph.i1058.i ], [ %incdec.ptr.i.i1074.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlmE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
-  %index.09.i1066.i = phi i64 [ 0, %for.body.lr.ph.i1058.i ], [ %index.8.i1073.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlmE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
+  %index.09.i1066.i = phi i64 [ 0, %for.body.lr.ph.i1058.i ], [ %index.7.i1073.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlmE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
   %offset.i.i.i.i.i1067.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i1065.i, i64 24
   %363 = load i64, ptr %offset.i.i.i.i.i1067.i, align 8, !noalias !106
   %buffers.i.i.i.i.i.i1068.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i1065.i, i64 32
@@ -10186,12 +10186,12 @@ for.body.i1064.i:                                 ; preds = %_ZN5arrow7compute8i
           to label %.noexc59 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc59:                                         ; preds = %for.body.i1064.i
-  %cmp63.i.i.i.i.i1072.i = icmp sgt i64 %366, 0
-  br i1 %cmp63.i.i.i.i.i1072.i, label %while.body.i.i.i.i.i1076.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlmE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
+  %cmp18.i.i.i.i.i1072.i = icmp sgt i64 %366, 0
+  br i1 %cmp18.i.i.i.i.i1072.i, label %while.body.i.i.i.i.i1076.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlmE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
 
 while.body.i.i.i.i.i1076.i:                       ; preds = %.noexc59, %if.end32.i.i.i.i.i1091.i
-  %index.1.i1077.i = phi i64 [ %index.7.i1092.i, %if.end32.i.i.i.i.i1091.i ], [ %index.09.i1066.i, %.noexc59 ]
-  %position.064.i.i.i.i.i1078.i = phi i64 [ %position.2.i.i.i.i.i1093.i, %if.end32.i.i.i.i.i1091.i ], [ 0, %.noexc59 ]
+  %index.1.i1077.i = phi i64 [ %index.6.i1092.i, %if.end32.i.i.i.i.i1091.i ], [ %index.09.i1066.i, %.noexc59 ]
+  %position.019.i.i.i.i.i1078.i = phi i64 [ %position.2.i.i.i.i.i1093.i, %if.end32.i.i.i.i.i1091.i ], [ 0, %.noexc59 ]
   %367 = load i8, ptr %bit_counter.i.i.i.i.i1054.i, align 8, !noalias !106
   %tobool.i.i1079.i = trunc i8 %367 to i1
   br i1 %tobool.i.i1079.i, label %if.then.i.i1121.i, label %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1080.i
@@ -10276,15 +10276,15 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1138.i: ; preds = 
 for.cond.preheader.i.i.i.i.i1087.i:               ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1138.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1080.i
   %conv.i.i.i.i.i1089.pre-phi.i = phi i64 [ %conv.i.i1143.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1138.i ], [ %conv5.i.i1085.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1080.i ]
   %retval.sroa.0.0.i15.i1088.i = phi i16 [ %retval.sroa.0.0.extract.trunc.i.i1141.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1138.i ], [ %conv4.i.i1083.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1080.i ]
-  %cmp359.i.i.i.i.i1090.i = icmp sgt i16 %retval.sroa.0.0.i15.i1088.i, 0
-  br i1 %cmp359.i.i.i.i.i1090.i, label %for.body.i.i.i.i.i1095.i, label %if.end32.i.i.i.i.i1091.i
+  %cmp314.i.i.i.i.i1090.i = icmp sgt i16 %retval.sroa.0.0.i15.i1088.i, 0
+  br i1 %cmp314.i.i.i.i.i1090.i, label %for.body.i.i.i.i.i1095.i, label %if.end32.i.i.i.i.i1091.i
 
 for.body.i.i.i.i.i1095.i:                         ; preds = %for.cond.preheader.i.i.i.i.i1087.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
   %index.2.i1096.i = phi i64 [ %index.3.i1116.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %index.1.i1077.i, %for.cond.preheader.i.i.i.i.i1087.i ]
-  %i.061.i.i.i.i.i1097.i = phi i64 [ %inc.i.i.i.i.i1117.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i1087.i ]
-  %position.160.i.i.i.i.i1098.i = phi i64 [ %inc4.i.i.i.i.i1118.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.064.i.i.i.i.i1078.i, %for.cond.preheader.i.i.i.i.i1087.i ]
-  %arrayidx.i.i4.i.i.i.i1099.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i.i1070.i, i64 %position.160.i.i.i.i.i1098.i
-  %377 = load i64, ptr %arrayidx.i.i4.i.i.i.i1099.i, align 8, !noalias !106
+  %i.016.i.i.i.i.i1097.i = phi i64 [ %inc.i.i.i.i.i1117.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i1087.i ]
+  %position.115.i.i.i.i.i1098.i = phi i64 [ %inc4.i.i.i.i.i1118.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.019.i.i.i.i.i1078.i, %for.cond.preheader.i.i.i.i.i1087.i ]
+  %arrayidx.i.i5.i.i.i.i1099.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i.i1070.i, i64 %position.115.i.i.i.i.i1098.i
+  %377 = load i64, ptr %arrayidx.i.i5.i.i.i.i1099.i, align 8, !noalias !106
   %cmp.not.i.i.i.i.i.i.i.i1100.i = icmp eq i64 %377, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i1100.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i1101.i
 
@@ -10316,32 +10316,32 @@ if.then.i.i.i.i.i.i.i.i1101.i:                    ; preds = %for.body.i.i.i.i.i1
 
 _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i1101.i, %for.body.i.i.i.i.i1095.i
   %index.3.i1116.i = add i64 %index.2.i1096.i, 1
-  %inc.i.i.i.i.i1117.i = add nuw nsw i64 %i.061.i.i.i.i.i1097.i, 1
-  %inc4.i.i.i.i.i1118.i = add nsw i64 %position.160.i.i.i.i.i1098.i, 1
-  %exitcond68.not.i.i.i.i.i1119.i = icmp eq i64 %inc.i.i.i.i.i1117.i, %conv.i.i.i.i.i1089.pre-phi.i
-  br i1 %exitcond68.not.i.i.i.i.i1119.i, label %if.end32.loopexit.i.i.i.i.i1120.i, label %for.body.i.i.i.i.i1095.i, !llvm.loop !109
+  %inc.i.i.i.i.i1117.i = add nuw nsw i64 %i.016.i.i.i.i.i1097.i, 1
+  %inc4.i.i.i.i.i1118.i = add nsw i64 %position.115.i.i.i.i.i1098.i, 1
+  %exitcond23.not.i.i.i.i.i1119.i = icmp eq i64 %inc.i.i.i.i.i1117.i, %conv.i.i.i.i.i1089.pre-phi.i
+  br i1 %exitcond23.not.i.i.i.i.i1119.i, label %if.end32.loopexit.i.i.i.i.i1120.i, label %for.body.i.i.i.i.i1095.i, !llvm.loop !109
 
 if.else.i.i.i.i.i1146.i:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1138.i
   %cmp.i22.i.i.i.i.i1147.i = icmp eq i32 %retval.sroa.5.0.i.i.i1140.i, 0
-  %cmp1155.i.i.i.i.i1149.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1141.i, 0
+  %cmp1110.i.i.i.i.i1149.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1141.i, 0
   br i1 %cmp.i22.i.i.i.i.i1147.i, label %for.cond8.preheader.i.i.i.i.i1185.i, label %for.cond19.preheader.i.i.i.i.i1150.i
 
 for.cond19.preheader.i.i.i.i.i1150.i:             ; preds = %if.else.i.i.i.i.i1146.i
-  br i1 %cmp1155.i.i.i.i.i1149.i, label %for.body23.i.i.i.i.i1151.i, label %if.end32.i.i.i.i.i1091.i
+  br i1 %cmp1110.i.i.i.i.i1149.i, label %for.body23.i.i.i.i.i1151.i, label %if.end32.i.i.i.i.i1091.i
 
 for.cond8.preheader.i.i.i.i.i1185.i:              ; preds = %if.else.i.i.i.i.i1146.i
-  br i1 %cmp1155.i.i.i.i.i1149.i, label %for.body12.i.i.i.i.preheader.i1186.i, label %if.end32.i.i.i.i.i1091.i
+  br i1 %cmp1110.i.i.i.i.i1149.i, label %for.body12.i.i.i.preheader.i.i1186.i, label %if.end32.i.i.i.i.i1091.i
 
-for.body12.i.i.i.i.preheader.i1186.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1185.i
+for.body12.i.i.i.preheader.i.i1186.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1185.i
   %387 = add i64 %index.1.i1077.i, %conv.i.i1143.i
-  %388 = add i64 %position.064.i.i.i.i.i1078.i, %conv.i.i1143.i
+  %388 = add i64 %position.019.i.i.i.i.i1078.i, %conv.i.i1143.i
   br label %if.end32.i.i.i.i.i1091.i
 
 for.body23.i.i.i.i.i1151.i:                       ; preds = %for.cond19.preheader.i.i.i.i.i1150.i, %for.inc27.i.i.i.i.i1179.i
-  %index.5.i1152.i = phi i64 [ %index.6.i1180.i, %for.inc27.i.i.i.i.i1179.i ], [ %index.1.i1077.i, %for.cond19.preheader.i.i.i.i.i1150.i ]
-  %i18.054.i.i.i.i.i1153.i = phi i64 [ %inc28.i.i.i.i.i1181.i, %for.inc27.i.i.i.i.i1179.i ], [ 0, %for.cond19.preheader.i.i.i.i.i1150.i ]
-  %position.453.i.i.i.i.i1154.i = phi i64 [ %inc29.i.i.i.i.i1182.i, %for.inc27.i.i.i.i.i1179.i ], [ %position.064.i.i.i.i.i1078.i, %for.cond19.preheader.i.i.i.i.i1150.i ]
-  %add.i.i.i.i.i1155.i = add nsw i64 %position.453.i.i.i.i.i1154.i, %363
+  %index.4.i1152.i = phi i64 [ %index.5.i1180.i, %for.inc27.i.i.i.i.i1179.i ], [ %index.1.i1077.i, %for.cond19.preheader.i.i.i.i.i1150.i ]
+  %i18.09.i.i.i.i.i1153.i = phi i64 [ %inc28.i.i.i.i.i1181.i, %for.inc27.i.i.i.i.i1179.i ], [ 0, %for.cond19.preheader.i.i.i.i.i1150.i ]
+  %position.48.i.i.i.i.i1154.i = phi i64 [ %inc29.i.i.i.i.i1182.i, %for.inc27.i.i.i.i.i1179.i ], [ %position.019.i.i.i.i.i1078.i, %for.cond19.preheader.i.i.i.i.i1150.i ]
+  %add.i.i.i.i.i1155.i = add nsw i64 %position.48.i.i.i.i.i1154.i, %363
   %shr.i.i.i.i.i.i1156.i = lshr i64 %add.i.i.i.i.i1155.i, 3
   %arrayidx.i23.i.i.i.i.i1157.i = getelementptr inbounds i8, ptr %365, i64 %shr.i.i.i.i.i.i1156.i
   %389 = load i8, ptr %arrayidx.i23.i.i.i.i.i1157.i, align 1, !noalias !106
@@ -10354,7 +10354,7 @@ for.body23.i.i.i.i.i1151.i:                       ; preds = %for.cond19.preheade
   br i1 %tobool.i.not.i.i.i.i.i1160.i, label %for.inc27.i.i.i.i.i1179.i, label %if.then25.i.i.i.i.i1161.i
 
 if.then25.i.i.i.i.i1161.i:                        ; preds = %for.body23.i.i.i.i.i1151.i
-  %arrayidx.i24.i.i.i.i.i1162.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i.i1070.i, i64 %position.453.i.i.i.i.i1154.i
+  %arrayidx.i24.i.i.i.i.i1162.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i.i1070.i, i64 %position.48.i.i.i.i.i1154.i
   %393 = load i64, ptr %arrayidx.i24.i.i.i.i.i1162.i, align 8, !noalias !106
   %cmp.not.i.i.i25.i.i.i.i.i1163.i = icmp eq i64 %393, 0
   br i1 %cmp.not.i.i.i25.i.i.i.i.i1163.i, label %for.inc27.i.i.i.i.i1179.i, label %if.then.i.i.i26.i.i.i.i.i1164.i
@@ -10379,35 +10379,35 @@ if.then.i.i.i26.i.i.i.i.i1164.i:                  ; preds = %if.then25.i.i.i.i.i
   %400 = load ptr, ptr %data_.i.i.i, align 8, !noalias !106
   %401 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i1176.i, align 8, !noalias !106
   %add.ptr.i.i.i.i.i.i40.i.i.i.i.i1177.i = getelementptr inbounds i8, ptr %400, i64 %401
-  store i64 %index.5.i1152.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i1177.i, align 1, !noalias !106
+  store i64 %index.4.i1152.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i1177.i, align 1, !noalias !106
   %402 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i1176.i, align 8, !noalias !106
   %add.i.i.i.i.i.i41.i.i.i.i.i1178.i = add nsw i64 %402, 8
   store i64 %add.i.i.i.i.i.i41.i.i.i.i.i1178.i, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i1176.i, align 8, !noalias !106
   br label %for.inc27.i.i.i.i.i1179.i
 
 for.inc27.i.i.i.i.i1179.i:                        ; preds = %if.then.i.i.i26.i.i.i.i.i1164.i, %if.then25.i.i.i.i.i1161.i, %for.body23.i.i.i.i.i1151.i
-  %index.6.i1180.i = add i64 %index.5.i1152.i, 1
-  %inc28.i.i.i.i.i1181.i = add nuw nsw i64 %i18.054.i.i.i.i.i1153.i, 1
-  %inc29.i.i.i.i.i1182.i = add nsw i64 %position.453.i.i.i.i.i1154.i, 1
+  %index.5.i1180.i = add i64 %index.4.i1152.i, 1
+  %inc28.i.i.i.i.i1181.i = add nuw nsw i64 %i18.09.i.i.i.i.i1153.i, 1
+  %inc29.i.i.i.i.i1182.i = add nsw i64 %position.48.i.i.i.i.i1154.i, 1
   %exitcond.not.i.i.i.i.i1183.i = icmp eq i64 %inc28.i.i.i.i.i1181.i, %conv.i.i1143.i
-  br i1 %exitcond.not.i.i.i.i.i1183.i, label %if.end32.loopexit66.i.i.i.i.i1184.i, label %for.body23.i.i.i.i.i1151.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i.i.i1183.i, label %if.end32.loopexit21.i.i.i.i.i1184.i, label %for.body23.i.i.i.i.i1151.i, !llvm.loop !110
 
 if.end32.loopexit.i.i.i.i.i1120.i:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
-  %403 = add i64 %conv.i.i.i.i.i1089.pre-phi.i, %position.064.i.i.i.i.i1078.i
+  %403 = add i64 %conv.i.i.i.i.i1089.pre-phi.i, %position.019.i.i.i.i.i1078.i
   br label %if.end32.i.i.i.i.i1091.i
 
-if.end32.loopexit66.i.i.i.i.i1184.i:              ; preds = %for.inc27.i.i.i.i.i1179.i
-  %404 = add i64 %position.064.i.i.i.i.i1078.i, %conv.i.i1143.i
+if.end32.loopexit21.i.i.i.i.i1184.i:              ; preds = %for.inc27.i.i.i.i.i1179.i
+  %404 = add i64 %position.019.i.i.i.i.i1078.i, %conv.i.i1143.i
   br label %if.end32.i.i.i.i.i1091.i
 
-if.end32.i.i.i.i.i1091.i:                         ; preds = %if.end32.loopexit66.i.i.i.i.i1184.i, %if.end32.loopexit.i.i.i.i.i1120.i, %for.body12.i.i.i.i.preheader.i1186.i, %for.cond8.preheader.i.i.i.i.i1185.i, %for.cond19.preheader.i.i.i.i.i1150.i, %for.cond.preheader.i.i.i.i.i1087.i
-  %index.7.i1092.i = phi i64 [ %index.3.i1116.i, %if.end32.loopexit.i.i.i.i.i1120.i ], [ %index.1.i1077.i, %for.cond.preheader.i.i.i.i.i1087.i ], [ %387, %for.body12.i.i.i.i.preheader.i1186.i ], [ %index.1.i1077.i, %for.cond8.preheader.i.i.i.i.i1185.i ], [ %index.6.i1180.i, %if.end32.loopexit66.i.i.i.i.i1184.i ], [ %index.1.i1077.i, %for.cond19.preheader.i.i.i.i.i1150.i ]
-  %position.2.i.i.i.i.i1093.i = phi i64 [ %403, %if.end32.loopexit.i.i.i.i.i1120.i ], [ %position.064.i.i.i.i.i1078.i, %for.cond.preheader.i.i.i.i.i1087.i ], [ %388, %for.body12.i.i.i.i.preheader.i1186.i ], [ %position.064.i.i.i.i.i1078.i, %for.cond8.preheader.i.i.i.i.i1185.i ], [ %404, %if.end32.loopexit66.i.i.i.i.i1184.i ], [ %position.064.i.i.i.i.i1078.i, %for.cond19.preheader.i.i.i.i.i1150.i ]
+if.end32.i.i.i.i.i1091.i:                         ; preds = %if.end32.loopexit21.i.i.i.i.i1184.i, %if.end32.loopexit.i.i.i.i.i1120.i, %for.body12.i.i.i.preheader.i.i1186.i, %for.cond8.preheader.i.i.i.i.i1185.i, %for.cond19.preheader.i.i.i.i.i1150.i, %for.cond.preheader.i.i.i.i.i1087.i
+  %index.6.i1092.i = phi i64 [ %index.3.i1116.i, %if.end32.loopexit.i.i.i.i.i1120.i ], [ %index.1.i1077.i, %for.cond.preheader.i.i.i.i.i1087.i ], [ %387, %for.body12.i.i.i.preheader.i.i1186.i ], [ %index.1.i1077.i, %for.cond8.preheader.i.i.i.i.i1185.i ], [ %index.5.i1180.i, %if.end32.loopexit21.i.i.i.i.i1184.i ], [ %index.1.i1077.i, %for.cond19.preheader.i.i.i.i.i1150.i ]
+  %position.2.i.i.i.i.i1093.i = phi i64 [ %403, %if.end32.loopexit.i.i.i.i.i1120.i ], [ %position.019.i.i.i.i.i1078.i, %for.cond.preheader.i.i.i.i.i1087.i ], [ %388, %for.body12.i.i.i.preheader.i.i1186.i ], [ %position.019.i.i.i.i.i1078.i, %for.cond8.preheader.i.i.i.i.i1185.i ], [ %404, %if.end32.loopexit21.i.i.i.i.i1184.i ], [ %position.019.i.i.i.i.i1078.i, %for.cond19.preheader.i.i.i.i.i1150.i ]
   %cmp.i.i.i.i.i1094.i = icmp slt i64 %position.2.i.i.i.i.i1093.i, %366
   br i1 %cmp.i.i.i.i.i1094.i, label %while.body.i.i.i.i.i1076.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlmE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, !llvm.loop !111
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlmE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i1091.i, %.noexc59
-  %index.8.i1073.i = phi i64 [ %index.09.i1066.i, %.noexc59 ], [ %index.7.i1092.i, %if.end32.i.i.i.i.i1091.i ]
+  %index.7.i1073.i = phi i64 [ %index.09.i1066.i, %.noexc59 ], [ %index.6.i1092.i, %if.end32.i.i.i.i.i1091.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i1054.i), !noalias !106
   %incdec.ptr.i.i1074.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i1065.i, i64 128
   %cmp.i.not.i1075.i = icmp eq ptr %incdec.ptr.i.i1074.i, %362
@@ -10431,7 +10431,7 @@ for.body.lr.ph.i1201.i:                           ; preds = %sw.bb20.i
 
 for.body.i1207.i:                                 ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_13HalfFloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, %for.body.lr.ph.i1201.i
   %__begin4.sroa.0.010.i1208.i = phi ptr [ %9, %for.body.lr.ph.i1201.i ], [ %incdec.ptr.i.i1217.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_13HalfFloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
-  %index.09.i1209.i = phi i64 [ 0, %for.body.lr.ph.i1201.i ], [ %index.8.i1216.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_13HalfFloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
+  %index.09.i1209.i = phi i64 [ 0, %for.body.lr.ph.i1201.i ], [ %index.7.i1216.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_13HalfFloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
   %offset.i.i.i.i.i1210.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i1208.i, i64 24
   %406 = load i64, ptr %offset.i.i.i.i.i1210.i, align 8, !noalias !112
   %buffers.i.i.i.i.i.i1211.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i1208.i, i64 32
@@ -10446,12 +10446,12 @@ for.body.i1207.i:                                 ; preds = %_ZN5arrow7compute8i
           to label %.noexc60 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc60:                                         ; preds = %for.body.i1207.i
-  %cmp63.i.i.i.i.i1215.i = icmp sgt i64 %409, 0
-  br i1 %cmp63.i.i.i.i.i1215.i, label %while.body.i.i.i.i.i1219.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_13HalfFloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
+  %cmp18.i.i.i.i.i1215.i = icmp sgt i64 %409, 0
+  br i1 %cmp18.i.i.i.i.i1215.i, label %while.body.i.i.i.i.i1219.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_13HalfFloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
 
 while.body.i.i.i.i.i1219.i:                       ; preds = %.noexc60, %if.end32.i.i.i.i.i1234.i
-  %index.1.i1220.i = phi i64 [ %index.7.i1235.i, %if.end32.i.i.i.i.i1234.i ], [ %index.09.i1209.i, %.noexc60 ]
-  %position.064.i.i.i.i.i1221.i = phi i64 [ %position.2.i.i.i.i.i1236.i, %if.end32.i.i.i.i.i1234.i ], [ 0, %.noexc60 ]
+  %index.1.i1220.i = phi i64 [ %index.6.i1235.i, %if.end32.i.i.i.i.i1234.i ], [ %index.09.i1209.i, %.noexc60 ]
+  %position.019.i.i.i.i.i1221.i = phi i64 [ %position.2.i.i.i.i.i1236.i, %if.end32.i.i.i.i.i1234.i ], [ 0, %.noexc60 ]
   %410 = load i8, ptr %bit_counter.i.i.i.i.i1197.i, align 8, !noalias !112
   %tobool.i.i1222.i = trunc i8 %410 to i1
   br i1 %tobool.i.i1222.i, label %if.then.i.i1264.i, label %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1223.i
@@ -10536,15 +10536,15 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1281.i: ; preds = 
 for.cond.preheader.i.i.i.i.i1230.i:               ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1281.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1223.i
   %conv.i.i.i.i.i1232.pre-phi.i = phi i64 [ %conv.i.i1286.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1281.i ], [ %conv5.i.i1228.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1223.i ]
   %retval.sroa.0.0.i15.i1231.i = phi i16 [ %retval.sroa.0.0.extract.trunc.i.i1284.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1281.i ], [ %conv4.i.i1226.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1223.i ]
-  %cmp359.i.i.i.i.i1233.i = icmp sgt i16 %retval.sroa.0.0.i15.i1231.i, 0
-  br i1 %cmp359.i.i.i.i.i1233.i, label %for.body.i.i.i.i.i1238.i, label %if.end32.i.i.i.i.i1234.i
+  %cmp314.i.i.i.i.i1233.i = icmp sgt i16 %retval.sroa.0.0.i15.i1231.i, 0
+  br i1 %cmp314.i.i.i.i.i1233.i, label %for.body.i.i.i.i.i1238.i, label %if.end32.i.i.i.i.i1234.i
 
 for.body.i.i.i.i.i1238.i:                         ; preds = %for.cond.preheader.i.i.i.i.i1230.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
   %index.2.i1239.i = phi i64 [ %index.3.i1259.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %index.1.i1220.i, %for.cond.preheader.i.i.i.i.i1230.i ]
-  %i.061.i.i.i.i.i1240.i = phi i64 [ %inc.i.i.i.i.i1260.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i1230.i ]
-  %position.160.i.i.i.i.i1241.i = phi i64 [ %inc4.i.i.i.i.i1261.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.064.i.i.i.i.i1221.i, %for.cond.preheader.i.i.i.i.i1230.i ]
-  %arrayidx.i.i4.i.i.i.i1242.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i.i1213.i, i64 %position.160.i.i.i.i.i1241.i
-  %420 = load i16, ptr %arrayidx.i.i4.i.i.i.i1242.i, align 2, !noalias !112
+  %i.016.i.i.i.i.i1240.i = phi i64 [ %inc.i.i.i.i.i1260.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i1230.i ]
+  %position.115.i.i.i.i.i1241.i = phi i64 [ %inc4.i.i.i.i.i1261.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.019.i.i.i.i.i1221.i, %for.cond.preheader.i.i.i.i.i1230.i ]
+  %arrayidx.i.i5.i.i.i.i1242.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i.i1213.i, i64 %position.115.i.i.i.i.i1241.i
+  %420 = load i16, ptr %arrayidx.i.i5.i.i.i.i1242.i, align 2, !noalias !112
   %cmp.not.i.i.i.i.i.i.i.i1243.i = icmp eq i16 %420, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i1243.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i1244.i
 
@@ -10576,32 +10576,32 @@ if.then.i.i.i.i.i.i.i.i1244.i:                    ; preds = %for.body.i.i.i.i.i1
 
 _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i1244.i, %for.body.i.i.i.i.i1238.i
   %index.3.i1259.i = add i64 %index.2.i1239.i, 1
-  %inc.i.i.i.i.i1260.i = add nuw nsw i64 %i.061.i.i.i.i.i1240.i, 1
-  %inc4.i.i.i.i.i1261.i = add nsw i64 %position.160.i.i.i.i.i1241.i, 1
-  %exitcond68.not.i.i.i.i.i1262.i = icmp eq i64 %inc.i.i.i.i.i1260.i, %conv.i.i.i.i.i1232.pre-phi.i
-  br i1 %exitcond68.not.i.i.i.i.i1262.i, label %if.end32.loopexit.i.i.i.i.i1263.i, label %for.body.i.i.i.i.i1238.i, !llvm.loop !115
+  %inc.i.i.i.i.i1260.i = add nuw nsw i64 %i.016.i.i.i.i.i1240.i, 1
+  %inc4.i.i.i.i.i1261.i = add nsw i64 %position.115.i.i.i.i.i1241.i, 1
+  %exitcond23.not.i.i.i.i.i1262.i = icmp eq i64 %inc.i.i.i.i.i1260.i, %conv.i.i.i.i.i1232.pre-phi.i
+  br i1 %exitcond23.not.i.i.i.i.i1262.i, label %if.end32.loopexit.i.i.i.i.i1263.i, label %for.body.i.i.i.i.i1238.i, !llvm.loop !115
 
 if.else.i.i.i.i.i1289.i:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1281.i
   %cmp.i22.i.i.i.i.i1290.i = icmp eq i32 %retval.sroa.5.0.i.i.i1283.i, 0
-  %cmp1155.i.i.i.i.i1292.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1284.i, 0
+  %cmp1110.i.i.i.i.i1292.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1284.i, 0
   br i1 %cmp.i22.i.i.i.i.i1290.i, label %for.cond8.preheader.i.i.i.i.i1328.i, label %for.cond19.preheader.i.i.i.i.i1293.i
 
 for.cond19.preheader.i.i.i.i.i1293.i:             ; preds = %if.else.i.i.i.i.i1289.i
-  br i1 %cmp1155.i.i.i.i.i1292.i, label %for.body23.i.i.i.i.i1294.i, label %if.end32.i.i.i.i.i1234.i
+  br i1 %cmp1110.i.i.i.i.i1292.i, label %for.body23.i.i.i.i.i1294.i, label %if.end32.i.i.i.i.i1234.i
 
 for.cond8.preheader.i.i.i.i.i1328.i:              ; preds = %if.else.i.i.i.i.i1289.i
-  br i1 %cmp1155.i.i.i.i.i1292.i, label %for.body12.i.i.i.i.preheader.i1329.i, label %if.end32.i.i.i.i.i1234.i
+  br i1 %cmp1110.i.i.i.i.i1292.i, label %for.body12.i.i.i.preheader.i.i1329.i, label %if.end32.i.i.i.i.i1234.i
 
-for.body12.i.i.i.i.preheader.i1329.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1328.i
+for.body12.i.i.i.preheader.i.i1329.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1328.i
   %430 = add i64 %index.1.i1220.i, %conv.i.i1286.i
-  %431 = add i64 %position.064.i.i.i.i.i1221.i, %conv.i.i1286.i
+  %431 = add i64 %position.019.i.i.i.i.i1221.i, %conv.i.i1286.i
   br label %if.end32.i.i.i.i.i1234.i
 
 for.body23.i.i.i.i.i1294.i:                       ; preds = %for.cond19.preheader.i.i.i.i.i1293.i, %for.inc27.i.i.i.i.i1322.i
-  %index.5.i1295.i = phi i64 [ %index.6.i1323.i, %for.inc27.i.i.i.i.i1322.i ], [ %index.1.i1220.i, %for.cond19.preheader.i.i.i.i.i1293.i ]
-  %i18.054.i.i.i.i.i1296.i = phi i64 [ %inc28.i.i.i.i.i1324.i, %for.inc27.i.i.i.i.i1322.i ], [ 0, %for.cond19.preheader.i.i.i.i.i1293.i ]
-  %position.453.i.i.i.i.i1297.i = phi i64 [ %inc29.i.i.i.i.i1325.i, %for.inc27.i.i.i.i.i1322.i ], [ %position.064.i.i.i.i.i1221.i, %for.cond19.preheader.i.i.i.i.i1293.i ]
-  %add.i.i.i.i.i1298.i = add nsw i64 %position.453.i.i.i.i.i1297.i, %406
+  %index.4.i1295.i = phi i64 [ %index.5.i1323.i, %for.inc27.i.i.i.i.i1322.i ], [ %index.1.i1220.i, %for.cond19.preheader.i.i.i.i.i1293.i ]
+  %i18.09.i.i.i.i.i1296.i = phi i64 [ %inc28.i.i.i.i.i1324.i, %for.inc27.i.i.i.i.i1322.i ], [ 0, %for.cond19.preheader.i.i.i.i.i1293.i ]
+  %position.48.i.i.i.i.i1297.i = phi i64 [ %inc29.i.i.i.i.i1325.i, %for.inc27.i.i.i.i.i1322.i ], [ %position.019.i.i.i.i.i1221.i, %for.cond19.preheader.i.i.i.i.i1293.i ]
+  %add.i.i.i.i.i1298.i = add nsw i64 %position.48.i.i.i.i.i1297.i, %406
   %shr.i.i.i.i.i.i1299.i = lshr i64 %add.i.i.i.i.i1298.i, 3
   %arrayidx.i23.i.i.i.i.i1300.i = getelementptr inbounds i8, ptr %408, i64 %shr.i.i.i.i.i.i1299.i
   %432 = load i8, ptr %arrayidx.i23.i.i.i.i.i1300.i, align 1, !noalias !112
@@ -10614,7 +10614,7 @@ for.body23.i.i.i.i.i1294.i:                       ; preds = %for.cond19.preheade
   br i1 %tobool.i.not.i.i.i.i.i1303.i, label %for.inc27.i.i.i.i.i1322.i, label %if.then25.i.i.i.i.i1304.i
 
 if.then25.i.i.i.i.i1304.i:                        ; preds = %for.body23.i.i.i.i.i1294.i
-  %arrayidx.i24.i.i.i.i.i1305.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i.i1213.i, i64 %position.453.i.i.i.i.i1297.i
+  %arrayidx.i24.i.i.i.i.i1305.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i.i1213.i, i64 %position.48.i.i.i.i.i1297.i
   %436 = load i16, ptr %arrayidx.i24.i.i.i.i.i1305.i, align 2, !noalias !112
   %cmp.not.i.i.i25.i.i.i.i.i1306.i = icmp eq i16 %436, 0
   br i1 %cmp.not.i.i.i25.i.i.i.i.i1306.i, label %for.inc27.i.i.i.i.i1322.i, label %if.then.i.i.i26.i.i.i.i.i1307.i
@@ -10639,35 +10639,35 @@ if.then.i.i.i26.i.i.i.i.i1307.i:                  ; preds = %if.then25.i.i.i.i.i
   %443 = load ptr, ptr %data_.i.i.i, align 8, !noalias !112
   %444 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i1319.i, align 8, !noalias !112
   %add.ptr.i.i.i.i.i.i40.i.i.i.i.i1320.i = getelementptr inbounds i8, ptr %443, i64 %444
-  store i64 %index.5.i1295.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i1320.i, align 1, !noalias !112
+  store i64 %index.4.i1295.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i1320.i, align 1, !noalias !112
   %445 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i1319.i, align 8, !noalias !112
   %add.i.i.i.i.i.i41.i.i.i.i.i1321.i = add nsw i64 %445, 8
   store i64 %add.i.i.i.i.i.i41.i.i.i.i.i1321.i, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i1319.i, align 8, !noalias !112
   br label %for.inc27.i.i.i.i.i1322.i
 
 for.inc27.i.i.i.i.i1322.i:                        ; preds = %if.then.i.i.i26.i.i.i.i.i1307.i, %if.then25.i.i.i.i.i1304.i, %for.body23.i.i.i.i.i1294.i
-  %index.6.i1323.i = add i64 %index.5.i1295.i, 1
-  %inc28.i.i.i.i.i1324.i = add nuw nsw i64 %i18.054.i.i.i.i.i1296.i, 1
-  %inc29.i.i.i.i.i1325.i = add nsw i64 %position.453.i.i.i.i.i1297.i, 1
+  %index.5.i1323.i = add i64 %index.4.i1295.i, 1
+  %inc28.i.i.i.i.i1324.i = add nuw nsw i64 %i18.09.i.i.i.i.i1296.i, 1
+  %inc29.i.i.i.i.i1325.i = add nsw i64 %position.48.i.i.i.i.i1297.i, 1
   %exitcond.not.i.i.i.i.i1326.i = icmp eq i64 %inc28.i.i.i.i.i1324.i, %conv.i.i1286.i
-  br i1 %exitcond.not.i.i.i.i.i1326.i, label %if.end32.loopexit66.i.i.i.i.i1327.i, label %for.body23.i.i.i.i.i1294.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i1326.i, label %if.end32.loopexit21.i.i.i.i.i1327.i, label %for.body23.i.i.i.i.i1294.i, !llvm.loop !116
 
 if.end32.loopexit.i.i.i.i.i1263.i:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
-  %446 = add i64 %conv.i.i.i.i.i1232.pre-phi.i, %position.064.i.i.i.i.i1221.i
+  %446 = add i64 %conv.i.i.i.i.i1232.pre-phi.i, %position.019.i.i.i.i.i1221.i
   br label %if.end32.i.i.i.i.i1234.i
 
-if.end32.loopexit66.i.i.i.i.i1327.i:              ; preds = %for.inc27.i.i.i.i.i1322.i
-  %447 = add i64 %position.064.i.i.i.i.i1221.i, %conv.i.i1286.i
+if.end32.loopexit21.i.i.i.i.i1327.i:              ; preds = %for.inc27.i.i.i.i.i1322.i
+  %447 = add i64 %position.019.i.i.i.i.i1221.i, %conv.i.i1286.i
   br label %if.end32.i.i.i.i.i1234.i
 
-if.end32.i.i.i.i.i1234.i:                         ; preds = %if.end32.loopexit66.i.i.i.i.i1327.i, %if.end32.loopexit.i.i.i.i.i1263.i, %for.body12.i.i.i.i.preheader.i1329.i, %for.cond8.preheader.i.i.i.i.i1328.i, %for.cond19.preheader.i.i.i.i.i1293.i, %for.cond.preheader.i.i.i.i.i1230.i
-  %index.7.i1235.i = phi i64 [ %index.3.i1259.i, %if.end32.loopexit.i.i.i.i.i1263.i ], [ %index.1.i1220.i, %for.cond.preheader.i.i.i.i.i1230.i ], [ %430, %for.body12.i.i.i.i.preheader.i1329.i ], [ %index.1.i1220.i, %for.cond8.preheader.i.i.i.i.i1328.i ], [ %index.6.i1323.i, %if.end32.loopexit66.i.i.i.i.i1327.i ], [ %index.1.i1220.i, %for.cond19.preheader.i.i.i.i.i1293.i ]
-  %position.2.i.i.i.i.i1236.i = phi i64 [ %446, %if.end32.loopexit.i.i.i.i.i1263.i ], [ %position.064.i.i.i.i.i1221.i, %for.cond.preheader.i.i.i.i.i1230.i ], [ %431, %for.body12.i.i.i.i.preheader.i1329.i ], [ %position.064.i.i.i.i.i1221.i, %for.cond8.preheader.i.i.i.i.i1328.i ], [ %447, %if.end32.loopexit66.i.i.i.i.i1327.i ], [ %position.064.i.i.i.i.i1221.i, %for.cond19.preheader.i.i.i.i.i1293.i ]
+if.end32.i.i.i.i.i1234.i:                         ; preds = %if.end32.loopexit21.i.i.i.i.i1327.i, %if.end32.loopexit.i.i.i.i.i1263.i, %for.body12.i.i.i.preheader.i.i1329.i, %for.cond8.preheader.i.i.i.i.i1328.i, %for.cond19.preheader.i.i.i.i.i1293.i, %for.cond.preheader.i.i.i.i.i1230.i
+  %index.6.i1235.i = phi i64 [ %index.3.i1259.i, %if.end32.loopexit.i.i.i.i.i1263.i ], [ %index.1.i1220.i, %for.cond.preheader.i.i.i.i.i1230.i ], [ %430, %for.body12.i.i.i.preheader.i.i1329.i ], [ %index.1.i1220.i, %for.cond8.preheader.i.i.i.i.i1328.i ], [ %index.5.i1323.i, %if.end32.loopexit21.i.i.i.i.i1327.i ], [ %index.1.i1220.i, %for.cond19.preheader.i.i.i.i.i1293.i ]
+  %position.2.i.i.i.i.i1236.i = phi i64 [ %446, %if.end32.loopexit.i.i.i.i.i1263.i ], [ %position.019.i.i.i.i.i1221.i, %for.cond.preheader.i.i.i.i.i1230.i ], [ %431, %for.body12.i.i.i.preheader.i.i1329.i ], [ %position.019.i.i.i.i.i1221.i, %for.cond8.preheader.i.i.i.i.i1328.i ], [ %447, %if.end32.loopexit21.i.i.i.i.i1327.i ], [ %position.019.i.i.i.i.i1221.i, %for.cond19.preheader.i.i.i.i.i1293.i ]
   %cmp.i.i.i.i.i1237.i = icmp slt i64 %position.2.i.i.i.i.i1236.i, %409
   br i1 %cmp.i.i.i.i.i1237.i, label %while.body.i.i.i.i.i1219.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_13HalfFloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, !llvm.loop !117
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_13HalfFloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i1234.i, %.noexc60
-  %index.8.i1216.i = phi i64 [ %index.09.i1209.i, %.noexc60 ], [ %index.7.i1235.i, %if.end32.i.i.i.i.i1234.i ]
+  %index.7.i1216.i = phi i64 [ %index.09.i1209.i, %.noexc60 ], [ %index.6.i1235.i, %if.end32.i.i.i.i.i1234.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i1197.i), !noalias !112
   %incdec.ptr.i.i1217.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i1208.i, i64 128
   %cmp.i.not.i1218.i = icmp eq ptr %incdec.ptr.i.i1217.i, %405
@@ -10691,7 +10691,7 @@ for.body.lr.ph.i1344.i:                           ; preds = %sw.bb22.i
 
 for.body.i1350.i:                                 ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9FloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlfE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, %for.body.lr.ph.i1344.i
   %__begin4.sroa.0.010.i1351.i = phi ptr [ %9, %for.body.lr.ph.i1344.i ], [ %incdec.ptr.i.i1360.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9FloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlfE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
-  %index.09.i1352.i = phi i64 [ 0, %for.body.lr.ph.i1344.i ], [ %index.8.i1359.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9FloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlfE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
+  %index.09.i1352.i = phi i64 [ 0, %for.body.lr.ph.i1344.i ], [ %index.7.i1359.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9FloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlfE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
   %offset.i.i.i.i.i1353.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i1351.i, i64 24
   %449 = load i64, ptr %offset.i.i.i.i.i1353.i, align 8, !noalias !118
   %buffers.i.i.i.i.i.i1354.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i1351.i, i64 32
@@ -10706,12 +10706,12 @@ for.body.i1350.i:                                 ; preds = %_ZN5arrow7compute8i
           to label %.noexc61 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc61:                                         ; preds = %for.body.i1350.i
-  %cmp63.i.i.i.i.i1358.i = icmp sgt i64 %452, 0
-  br i1 %cmp63.i.i.i.i.i1358.i, label %while.body.i.i.i.i.i1362.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9FloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlfE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
+  %cmp18.i.i.i.i.i1358.i = icmp sgt i64 %452, 0
+  br i1 %cmp18.i.i.i.i.i1358.i, label %while.body.i.i.i.i.i1362.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9FloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlfE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
 
 while.body.i.i.i.i.i1362.i:                       ; preds = %.noexc61, %if.end32.i.i.i.i.i1377.i
-  %index.1.i1363.i = phi i64 [ %index.7.i1378.i, %if.end32.i.i.i.i.i1377.i ], [ %index.09.i1352.i, %.noexc61 ]
-  %position.064.i.i.i.i.i1364.i = phi i64 [ %position.2.i.i.i.i.i1379.i, %if.end32.i.i.i.i.i1377.i ], [ 0, %.noexc61 ]
+  %index.1.i1363.i = phi i64 [ %index.6.i1378.i, %if.end32.i.i.i.i.i1377.i ], [ %index.09.i1352.i, %.noexc61 ]
+  %position.019.i.i.i.i.i1364.i = phi i64 [ %position.2.i.i.i.i.i1379.i, %if.end32.i.i.i.i.i1377.i ], [ 0, %.noexc61 ]
   %453 = load i8, ptr %bit_counter.i.i.i.i.i1340.i, align 8, !noalias !118
   %tobool.i.i1365.i = trunc i8 %453 to i1
   br i1 %tobool.i.i1365.i, label %if.then.i.i1406.i, label %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1366.i
@@ -10796,15 +10796,15 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1423.i: ; preds = 
 for.cond.preheader.i.i.i.i.i1373.i:               ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1423.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1366.i
   %conv.i.i.i.i.i1375.pre-phi.i = phi i64 [ %conv.i.i1428.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1423.i ], [ %conv5.i.i1371.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1366.i ]
   %retval.sroa.0.0.i15.i1374.i = phi i16 [ %retval.sroa.0.0.extract.trunc.i.i1426.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1423.i ], [ %conv4.i.i1369.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1366.i ]
-  %cmp359.i.i.i.i.i1376.i = icmp sgt i16 %retval.sroa.0.0.i15.i1374.i, 0
-  br i1 %cmp359.i.i.i.i.i1376.i, label %for.body.i.i.i.i.i1381.i, label %if.end32.i.i.i.i.i1377.i
+  %cmp314.i.i.i.i.i1376.i = icmp sgt i16 %retval.sroa.0.0.i15.i1374.i, 0
+  br i1 %cmp314.i.i.i.i.i1376.i, label %for.body.i.i.i.i.i1381.i, label %if.end32.i.i.i.i.i1377.i
 
 for.body.i.i.i.i.i1381.i:                         ; preds = %for.cond.preheader.i.i.i.i.i1373.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
   %index.2.i1382.i = phi i64 [ %index.3.i1386.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %index.1.i1363.i, %for.cond.preheader.i.i.i.i.i1373.i ]
-  %i.061.i.i.i.i.i1383.i = phi i64 [ %inc.i.i.i.i.i1387.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i1373.i ]
-  %position.160.i.i.i.i.i1384.i = phi i64 [ %inc4.i.i.i.i.i1388.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.064.i.i.i.i.i1364.i, %for.cond.preheader.i.i.i.i.i1373.i ]
-  %arrayidx.i.i4.i.i.i.i1385.i = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i1356.i, i64 %position.160.i.i.i.i.i1384.i
-  %463 = load float, ptr %arrayidx.i.i4.i.i.i.i1385.i, align 4, !noalias !118
+  %i.016.i.i.i.i.i1383.i = phi i64 [ %inc.i.i.i.i.i1387.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i1373.i ]
+  %position.115.i.i.i.i.i1384.i = phi i64 [ %inc4.i.i.i.i.i1388.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.019.i.i.i.i.i1364.i, %for.cond.preheader.i.i.i.i.i1373.i ]
+  %arrayidx.i.i5.i.i.i.i1385.i = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i1356.i, i64 %position.115.i.i.i.i.i1384.i
+  %463 = load float, ptr %arrayidx.i.i5.i.i.i.i1385.i, align 4, !noalias !118
   %cmp.i.i.i.i.i.i.i.i.i46 = fcmp une float %463, 0.000000e+00
   br i1 %cmp.i.i.i.i.i.i.i.i.i46, label %if.then.i.i.i.i.i.i.i.i1391.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
 
@@ -10836,32 +10836,32 @@ if.then.i.i.i.i.i.i.i.i1391.i:                    ; preds = %for.body.i.i.i.i.i1
 
 _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i1391.i, %for.body.i.i.i.i.i1381.i
   %index.3.i1386.i = add i64 %index.2.i1382.i, 1
-  %inc.i.i.i.i.i1387.i = add nuw nsw i64 %i.061.i.i.i.i.i1383.i, 1
-  %inc4.i.i.i.i.i1388.i = add nsw i64 %position.160.i.i.i.i.i1384.i, 1
-  %exitcond68.not.i.i.i.i.i1389.i = icmp eq i64 %inc.i.i.i.i.i1387.i, %conv.i.i.i.i.i1375.pre-phi.i
-  br i1 %exitcond68.not.i.i.i.i.i1389.i, label %if.end32.loopexit.i.i.i.i.i1390.i, label %for.body.i.i.i.i.i1381.i, !llvm.loop !121
+  %inc.i.i.i.i.i1387.i = add nuw nsw i64 %i.016.i.i.i.i.i1383.i, 1
+  %inc4.i.i.i.i.i1388.i = add nsw i64 %position.115.i.i.i.i.i1384.i, 1
+  %exitcond23.not.i.i.i.i.i1389.i = icmp eq i64 %inc.i.i.i.i.i1387.i, %conv.i.i.i.i.i1375.pre-phi.i
+  br i1 %exitcond23.not.i.i.i.i.i1389.i, label %if.end32.loopexit.i.i.i.i.i1390.i, label %for.body.i.i.i.i.i1381.i, !llvm.loop !121
 
 if.else.i.i.i.i.i1431.i:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1423.i
   %cmp.i22.i.i.i.i.i1432.i = icmp eq i32 %retval.sroa.5.0.i.i.i1425.i, 0
-  %cmp1155.i.i.i.i.i1434.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1426.i, 0
+  %cmp1110.i.i.i.i.i1434.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1426.i, 0
   br i1 %cmp.i22.i.i.i.i.i1432.i, label %for.cond8.preheader.i.i.i.i.i1454.i, label %for.cond19.preheader.i.i.i.i.i1435.i
 
 for.cond19.preheader.i.i.i.i.i1435.i:             ; preds = %if.else.i.i.i.i.i1431.i
-  br i1 %cmp1155.i.i.i.i.i1434.i, label %for.body23.i.i.i.i.i1436.i, label %if.end32.i.i.i.i.i1377.i
+  br i1 %cmp1110.i.i.i.i.i1434.i, label %for.body23.i.i.i.i.i1436.i, label %if.end32.i.i.i.i.i1377.i
 
 for.cond8.preheader.i.i.i.i.i1454.i:              ; preds = %if.else.i.i.i.i.i1431.i
-  br i1 %cmp1155.i.i.i.i.i1434.i, label %for.body12.i.i.i.i.preheader.i1455.i, label %if.end32.i.i.i.i.i1377.i
+  br i1 %cmp1110.i.i.i.i.i1434.i, label %for.body12.i.i.i.preheader.i.i1455.i, label %if.end32.i.i.i.i.i1377.i
 
-for.body12.i.i.i.i.preheader.i1455.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1454.i
+for.body12.i.i.i.preheader.i.i1455.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1454.i
   %473 = add i64 %index.1.i1363.i, %conv.i.i1428.i
-  %474 = add i64 %position.064.i.i.i.i.i1364.i, %conv.i.i1428.i
+  %474 = add i64 %position.019.i.i.i.i.i1364.i, %conv.i.i1428.i
   br label %if.end32.i.i.i.i.i1377.i
 
 for.body23.i.i.i.i.i1436.i:                       ; preds = %for.cond19.preheader.i.i.i.i.i1435.i, %for.inc27.i.i.i.i.i1448.i
-  %index.5.i1437.i = phi i64 [ %index.6.i1449.i, %for.inc27.i.i.i.i.i1448.i ], [ %index.1.i1363.i, %for.cond19.preheader.i.i.i.i.i1435.i ]
-  %i18.054.i.i.i.i.i1438.i = phi i64 [ %inc28.i.i.i.i.i1450.i, %for.inc27.i.i.i.i.i1448.i ], [ 0, %for.cond19.preheader.i.i.i.i.i1435.i ]
-  %position.453.i.i.i.i.i1439.i = phi i64 [ %inc29.i.i.i.i.i1451.i, %for.inc27.i.i.i.i.i1448.i ], [ %position.064.i.i.i.i.i1364.i, %for.cond19.preheader.i.i.i.i.i1435.i ]
-  %add.i.i.i.i.i1440.i = add nsw i64 %position.453.i.i.i.i.i1439.i, %449
+  %index.4.i1437.i = phi i64 [ %index.5.i1449.i, %for.inc27.i.i.i.i.i1448.i ], [ %index.1.i1363.i, %for.cond19.preheader.i.i.i.i.i1435.i ]
+  %i18.09.i.i.i.i.i1438.i = phi i64 [ %inc28.i.i.i.i.i1450.i, %for.inc27.i.i.i.i.i1448.i ], [ 0, %for.cond19.preheader.i.i.i.i.i1435.i ]
+  %position.48.i.i.i.i.i1439.i = phi i64 [ %inc29.i.i.i.i.i1451.i, %for.inc27.i.i.i.i.i1448.i ], [ %position.019.i.i.i.i.i1364.i, %for.cond19.preheader.i.i.i.i.i1435.i ]
+  %add.i.i.i.i.i1440.i = add nsw i64 %position.48.i.i.i.i.i1439.i, %449
   %shr.i.i.i.i.i.i1441.i = lshr i64 %add.i.i.i.i.i1440.i, 3
   %arrayidx.i23.i.i.i.i.i1442.i = getelementptr inbounds i8, ptr %451, i64 %shr.i.i.i.i.i.i1441.i
   %475 = load i8, ptr %arrayidx.i23.i.i.i.i.i1442.i, align 1, !noalias !118
@@ -10874,7 +10874,7 @@ for.body23.i.i.i.i.i1436.i:                       ; preds = %for.cond19.preheade
   br i1 %tobool.i.not.i.i.i.i.i1445.i, label %for.inc27.i.i.i.i.i1448.i, label %if.then25.i.i.i.i.i1446.i
 
 if.then25.i.i.i.i.i1446.i:                        ; preds = %for.body23.i.i.i.i.i1436.i
-  %arrayidx.i24.i.i.i.i.i1447.i = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i1356.i, i64 %position.453.i.i.i.i.i1439.i
+  %arrayidx.i24.i.i.i.i.i1447.i = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i1356.i, i64 %position.48.i.i.i.i.i1439.i
   %479 = load float, ptr %arrayidx.i24.i.i.i.i.i1447.i, align 4, !noalias !118
   %cmp.i.i.i25.i.i.i.i.i.i = fcmp une float %479, 0.000000e+00
   br i1 %cmp.i.i.i25.i.i.i.i.i.i, label %if.then.i.i.i28.i.i.i.i.i.i, label %for.inc27.i.i.i.i.i1448.i
@@ -10899,35 +10899,35 @@ if.then.i.i.i28.i.i.i.i.i.i:                      ; preds = %if.then25.i.i.i.i.i
   %486 = load ptr, ptr %data_.i.i.i, align 8, !noalias !118
   %487 = load i64, ptr %size_.i.i.i.i.i.i41.i.i.i.i.i.i, align 8, !noalias !118
   %add.ptr.i.i.i.i.i.i42.i.i.i.i.i.i = getelementptr inbounds i8, ptr %486, i64 %487
-  store i64 %index.5.i1437.i, ptr %add.ptr.i.i.i.i.i.i42.i.i.i.i.i.i, align 1, !noalias !118
+  store i64 %index.4.i1437.i, ptr %add.ptr.i.i.i.i.i.i42.i.i.i.i.i.i, align 1, !noalias !118
   %488 = load i64, ptr %size_.i.i.i.i.i.i41.i.i.i.i.i.i, align 8, !noalias !118
   %add.i.i.i.i.i.i43.i.i.i.i.i.i = add nsw i64 %488, 8
   store i64 %add.i.i.i.i.i.i43.i.i.i.i.i.i, ptr %size_.i.i.i.i.i.i41.i.i.i.i.i.i, align 8, !noalias !118
   br label %for.inc27.i.i.i.i.i1448.i
 
 for.inc27.i.i.i.i.i1448.i:                        ; preds = %if.then.i.i.i28.i.i.i.i.i.i, %if.then25.i.i.i.i.i1446.i, %for.body23.i.i.i.i.i1436.i
-  %index.6.i1449.i = add i64 %index.5.i1437.i, 1
-  %inc28.i.i.i.i.i1450.i = add nuw nsw i64 %i18.054.i.i.i.i.i1438.i, 1
-  %inc29.i.i.i.i.i1451.i = add nsw i64 %position.453.i.i.i.i.i1439.i, 1
+  %index.5.i1449.i = add i64 %index.4.i1437.i, 1
+  %inc28.i.i.i.i.i1450.i = add nuw nsw i64 %i18.09.i.i.i.i.i1438.i, 1
+  %inc29.i.i.i.i.i1451.i = add nsw i64 %position.48.i.i.i.i.i1439.i, 1
   %exitcond.not.i.i.i.i.i1452.i = icmp eq i64 %inc28.i.i.i.i.i1450.i, %conv.i.i1428.i
-  br i1 %exitcond.not.i.i.i.i.i1452.i, label %if.end32.loopexit66.i.i.i.i.i1453.i, label %for.body23.i.i.i.i.i1436.i, !llvm.loop !122
+  br i1 %exitcond.not.i.i.i.i.i1452.i, label %if.end32.loopexit21.i.i.i.i.i1453.i, label %for.body23.i.i.i.i.i1436.i, !llvm.loop !122
 
 if.end32.loopexit.i.i.i.i.i1390.i:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
-  %489 = add i64 %conv.i.i.i.i.i1375.pre-phi.i, %position.064.i.i.i.i.i1364.i
+  %489 = add i64 %conv.i.i.i.i.i1375.pre-phi.i, %position.019.i.i.i.i.i1364.i
   br label %if.end32.i.i.i.i.i1377.i
 
-if.end32.loopexit66.i.i.i.i.i1453.i:              ; preds = %for.inc27.i.i.i.i.i1448.i
-  %490 = add i64 %position.064.i.i.i.i.i1364.i, %conv.i.i1428.i
+if.end32.loopexit21.i.i.i.i.i1453.i:              ; preds = %for.inc27.i.i.i.i.i1448.i
+  %490 = add i64 %position.019.i.i.i.i.i1364.i, %conv.i.i1428.i
   br label %if.end32.i.i.i.i.i1377.i
 
-if.end32.i.i.i.i.i1377.i:                         ; preds = %if.end32.loopexit66.i.i.i.i.i1453.i, %if.end32.loopexit.i.i.i.i.i1390.i, %for.body12.i.i.i.i.preheader.i1455.i, %for.cond8.preheader.i.i.i.i.i1454.i, %for.cond19.preheader.i.i.i.i.i1435.i, %for.cond.preheader.i.i.i.i.i1373.i
-  %index.7.i1378.i = phi i64 [ %index.3.i1386.i, %if.end32.loopexit.i.i.i.i.i1390.i ], [ %index.1.i1363.i, %for.cond.preheader.i.i.i.i.i1373.i ], [ %473, %for.body12.i.i.i.i.preheader.i1455.i ], [ %index.1.i1363.i, %for.cond8.preheader.i.i.i.i.i1454.i ], [ %index.6.i1449.i, %if.end32.loopexit66.i.i.i.i.i1453.i ], [ %index.1.i1363.i, %for.cond19.preheader.i.i.i.i.i1435.i ]
-  %position.2.i.i.i.i.i1379.i = phi i64 [ %489, %if.end32.loopexit.i.i.i.i.i1390.i ], [ %position.064.i.i.i.i.i1364.i, %for.cond.preheader.i.i.i.i.i1373.i ], [ %474, %for.body12.i.i.i.i.preheader.i1455.i ], [ %position.064.i.i.i.i.i1364.i, %for.cond8.preheader.i.i.i.i.i1454.i ], [ %490, %if.end32.loopexit66.i.i.i.i.i1453.i ], [ %position.064.i.i.i.i.i1364.i, %for.cond19.preheader.i.i.i.i.i1435.i ]
+if.end32.i.i.i.i.i1377.i:                         ; preds = %if.end32.loopexit21.i.i.i.i.i1453.i, %if.end32.loopexit.i.i.i.i.i1390.i, %for.body12.i.i.i.preheader.i.i1455.i, %for.cond8.preheader.i.i.i.i.i1454.i, %for.cond19.preheader.i.i.i.i.i1435.i, %for.cond.preheader.i.i.i.i.i1373.i
+  %index.6.i1378.i = phi i64 [ %index.3.i1386.i, %if.end32.loopexit.i.i.i.i.i1390.i ], [ %index.1.i1363.i, %for.cond.preheader.i.i.i.i.i1373.i ], [ %473, %for.body12.i.i.i.preheader.i.i1455.i ], [ %index.1.i1363.i, %for.cond8.preheader.i.i.i.i.i1454.i ], [ %index.5.i1449.i, %if.end32.loopexit21.i.i.i.i.i1453.i ], [ %index.1.i1363.i, %for.cond19.preheader.i.i.i.i.i1435.i ]
+  %position.2.i.i.i.i.i1379.i = phi i64 [ %489, %if.end32.loopexit.i.i.i.i.i1390.i ], [ %position.019.i.i.i.i.i1364.i, %for.cond.preheader.i.i.i.i.i1373.i ], [ %474, %for.body12.i.i.i.preheader.i.i1455.i ], [ %position.019.i.i.i.i.i1364.i, %for.cond8.preheader.i.i.i.i.i1454.i ], [ %490, %if.end32.loopexit21.i.i.i.i.i1453.i ], [ %position.019.i.i.i.i.i1364.i, %for.cond19.preheader.i.i.i.i.i1435.i ]
   %cmp.i.i.i.i.i1380.i = icmp slt i64 %position.2.i.i.i.i.i1379.i, %452
   br i1 %cmp.i.i.i.i.i1380.i, label %while.body.i.i.i.i.i1362.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9FloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlfE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, !llvm.loop !123
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9FloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlfE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i1377.i, %.noexc61
-  %index.8.i1359.i = phi i64 [ %index.09.i1352.i, %.noexc61 ], [ %index.7.i1378.i, %if.end32.i.i.i.i.i1377.i ]
+  %index.7.i1359.i = phi i64 [ %index.09.i1352.i, %.noexc61 ], [ %index.6.i1378.i, %if.end32.i.i.i.i.i1377.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i1340.i), !noalias !118
   %incdec.ptr.i.i1360.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i1351.i, i64 128
   %cmp.i.not.i1361.i = icmp eq ptr %incdec.ptr.i.i1360.i, %448
@@ -10951,7 +10951,7 @@ for.body.lr.ph.i1470.i:                           ; preds = %sw.bb24.i
 
 for.body.i1476.i:                                 ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10DoubleTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUldE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, %for.body.lr.ph.i1470.i
   %__begin4.sroa.0.010.i1477.i = phi ptr [ %9, %for.body.lr.ph.i1470.i ], [ %incdec.ptr.i.i1486.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10DoubleTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUldE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
-  %index.09.i1478.i = phi i64 [ 0, %for.body.lr.ph.i1470.i ], [ %index.8.i1485.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10DoubleTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUldE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
+  %index.09.i1478.i = phi i64 [ 0, %for.body.lr.ph.i1470.i ], [ %index.7.i1485.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10DoubleTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUldE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i ]
   %offset.i.i.i.i.i1479.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i1477.i, i64 24
   %492 = load i64, ptr %offset.i.i.i.i.i1479.i, align 8, !noalias !124
   %buffers.i.i.i.i.i.i1480.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i1477.i, i64 32
@@ -10966,12 +10966,12 @@ for.body.i1476.i:                                 ; preds = %_ZN5arrow7compute8i
           to label %.noexc62 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc62:                                         ; preds = %for.body.i1476.i
-  %cmp63.i.i.i.i.i1484.i = icmp sgt i64 %495, 0
-  br i1 %cmp63.i.i.i.i.i1484.i, label %while.body.i.i.i.i.i1488.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10DoubleTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUldE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
+  %cmp18.i.i.i.i.i1484.i = icmp sgt i64 %495, 0
+  br i1 %cmp18.i.i.i.i.i1484.i, label %while.body.i.i.i.i.i1488.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10DoubleTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUldE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i
 
 while.body.i.i.i.i.i1488.i:                       ; preds = %.noexc62, %if.end32.i.i.i.i.i1503.i
-  %index.1.i1489.i = phi i64 [ %index.7.i1504.i, %if.end32.i.i.i.i.i1503.i ], [ %index.09.i1478.i, %.noexc62 ]
-  %position.064.i.i.i.i.i1490.i = phi i64 [ %position.2.i.i.i.i.i1505.i, %if.end32.i.i.i.i.i1503.i ], [ 0, %.noexc62 ]
+  %index.1.i1489.i = phi i64 [ %index.6.i1504.i, %if.end32.i.i.i.i.i1503.i ], [ %index.09.i1478.i, %.noexc62 ]
+  %position.019.i.i.i.i.i1490.i = phi i64 [ %position.2.i.i.i.i.i1505.i, %if.end32.i.i.i.i.i1503.i ], [ 0, %.noexc62 ]
   %496 = load i8, ptr %bit_counter.i.i.i.i.i1466.i, align 8, !noalias !124
   %tobool.i.i1491.i = trunc i8 %496 to i1
   br i1 %tobool.i.i1491.i, label %if.then.i.i1533.i, label %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1492.i
@@ -11056,15 +11056,15 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1550.i: ; preds = 
 for.cond.preheader.i.i.i.i.i1499.i:               ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1550.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1492.i
   %conv.i.i.i.i.i1501.pre-phi.i = phi i64 [ %conv.i.i1555.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1550.i ], [ %conv5.i.i1497.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1492.i ]
   %retval.sroa.0.0.i15.i1500.i = phi i16 [ %retval.sroa.0.0.extract.trunc.i.i1553.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1550.i ], [ %conv4.i.i1495.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i1492.i ]
-  %cmp359.i.i.i.i.i1502.i = icmp sgt i16 %retval.sroa.0.0.i15.i1500.i, 0
-  br i1 %cmp359.i.i.i.i.i1502.i, label %for.body.i.i.i.i.i1507.i, label %if.end32.i.i.i.i.i1503.i
+  %cmp314.i.i.i.i.i1502.i = icmp sgt i16 %retval.sroa.0.0.i15.i1500.i, 0
+  br i1 %cmp314.i.i.i.i.i1502.i, label %for.body.i.i.i.i.i1507.i, label %if.end32.i.i.i.i.i1503.i
 
 for.body.i.i.i.i.i1507.i:                         ; preds = %for.cond.preheader.i.i.i.i.i1499.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
   %index.2.i1508.i = phi i64 [ %index.3.i1513.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %index.1.i1489.i, %for.cond.preheader.i.i.i.i.i1499.i ]
-  %i.061.i.i.i.i.i1509.i = phi i64 [ %inc.i.i.i.i.i1514.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i1499.i ]
-  %position.160.i.i.i.i.i1510.i = phi i64 [ %inc4.i.i.i.i.i1515.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.064.i.i.i.i.i1490.i, %for.cond.preheader.i.i.i.i.i1499.i ]
-  %arrayidx.i.i4.i.i.i.i1511.i = getelementptr inbounds double, ptr %add.ptr.i.i.i.i.i.i1482.i, i64 %position.160.i.i.i.i.i1510.i
-  %506 = load double, ptr %arrayidx.i.i4.i.i.i.i1511.i, align 8, !noalias !124
+  %i.016.i.i.i.i.i1509.i = phi i64 [ %inc.i.i.i.i.i1514.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i1499.i ]
+  %position.115.i.i.i.i.i1510.i = phi i64 [ %inc4.i.i.i.i.i1515.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i ], [ %position.019.i.i.i.i.i1490.i, %for.cond.preheader.i.i.i.i.i1499.i ]
+  %arrayidx.i.i5.i.i.i.i1511.i = getelementptr inbounds double, ptr %add.ptr.i.i.i.i.i.i1482.i, i64 %position.115.i.i.i.i.i1510.i
+  %506 = load double, ptr %arrayidx.i.i5.i.i.i.i1511.i, align 8, !noalias !124
   %cmp.i.i.i.i.i.i.i.i1512.i = fcmp une double %506, 0.000000e+00
   br i1 %cmp.i.i.i.i.i.i.i.i1512.i, label %if.then.i.i.i.i.i.i.i.i1518.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
 
@@ -11096,32 +11096,32 @@ if.then.i.i.i.i.i.i.i.i1518.i:                    ; preds = %for.body.i.i.i.i.i1
 
 _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i1518.i, %for.body.i.i.i.i.i1507.i
   %index.3.i1513.i = add i64 %index.2.i1508.i, 1
-  %inc.i.i.i.i.i1514.i = add nuw nsw i64 %i.061.i.i.i.i.i1509.i, 1
-  %inc4.i.i.i.i.i1515.i = add nsw i64 %position.160.i.i.i.i.i1510.i, 1
-  %exitcond68.not.i.i.i.i.i1516.i = icmp eq i64 %inc.i.i.i.i.i1514.i, %conv.i.i.i.i.i1501.pre-phi.i
-  br i1 %exitcond68.not.i.i.i.i.i1516.i, label %if.end32.loopexit.i.i.i.i.i1517.i, label %for.body.i.i.i.i.i1507.i, !llvm.loop !127
+  %inc.i.i.i.i.i1514.i = add nuw nsw i64 %i.016.i.i.i.i.i1509.i, 1
+  %inc4.i.i.i.i.i1515.i = add nsw i64 %position.115.i.i.i.i.i1510.i, 1
+  %exitcond23.not.i.i.i.i.i1516.i = icmp eq i64 %inc.i.i.i.i.i1514.i, %conv.i.i.i.i.i1501.pre-phi.i
+  br i1 %exitcond23.not.i.i.i.i.i1516.i, label %if.end32.loopexit.i.i.i.i.i1517.i, label %for.body.i.i.i.i.i1507.i, !llvm.loop !127
 
 if.else.i.i.i.i.i1558.i:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1550.i
   %cmp.i22.i.i.i.i.i1559.i = icmp eq i32 %retval.sroa.5.0.i.i.i1552.i, 0
-  %cmp1155.i.i.i.i.i1561.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1553.i, 0
+  %cmp1110.i.i.i.i.i1561.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1553.i, 0
   br i1 %cmp.i22.i.i.i.i.i1559.i, label %for.cond8.preheader.i.i.i.i.i1597.i, label %for.cond19.preheader.i.i.i.i.i1562.i
 
 for.cond19.preheader.i.i.i.i.i1562.i:             ; preds = %if.else.i.i.i.i.i1558.i
-  br i1 %cmp1155.i.i.i.i.i1561.i, label %for.body23.i.i.i.i.i1563.i, label %if.end32.i.i.i.i.i1503.i
+  br i1 %cmp1110.i.i.i.i.i1561.i, label %for.body23.i.i.i.i.i1563.i, label %if.end32.i.i.i.i.i1503.i
 
 for.cond8.preheader.i.i.i.i.i1597.i:              ; preds = %if.else.i.i.i.i.i1558.i
-  br i1 %cmp1155.i.i.i.i.i1561.i, label %for.body12.i.i.i.i.preheader.i1598.i, label %if.end32.i.i.i.i.i1503.i
+  br i1 %cmp1110.i.i.i.i.i1561.i, label %for.body12.i.i.i.preheader.i.i1598.i, label %if.end32.i.i.i.i.i1503.i
 
-for.body12.i.i.i.i.preheader.i1598.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1597.i
+for.body12.i.i.i.preheader.i.i1598.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1597.i
   %516 = add i64 %index.1.i1489.i, %conv.i.i1555.i
-  %517 = add i64 %position.064.i.i.i.i.i1490.i, %conv.i.i1555.i
+  %517 = add i64 %position.019.i.i.i.i.i1490.i, %conv.i.i1555.i
   br label %if.end32.i.i.i.i.i1503.i
 
 for.body23.i.i.i.i.i1563.i:                       ; preds = %for.cond19.preheader.i.i.i.i.i1562.i, %for.inc27.i.i.i.i.i1576.i
-  %index.5.i1564.i = phi i64 [ %index.6.i1577.i, %for.inc27.i.i.i.i.i1576.i ], [ %index.1.i1489.i, %for.cond19.preheader.i.i.i.i.i1562.i ]
-  %i18.054.i.i.i.i.i1565.i = phi i64 [ %inc28.i.i.i.i.i1578.i, %for.inc27.i.i.i.i.i1576.i ], [ 0, %for.cond19.preheader.i.i.i.i.i1562.i ]
-  %position.453.i.i.i.i.i1566.i = phi i64 [ %inc29.i.i.i.i.i1579.i, %for.inc27.i.i.i.i.i1576.i ], [ %position.064.i.i.i.i.i1490.i, %for.cond19.preheader.i.i.i.i.i1562.i ]
-  %add.i.i.i.i.i1567.i = add nsw i64 %position.453.i.i.i.i.i1566.i, %492
+  %index.4.i1564.i = phi i64 [ %index.5.i1577.i, %for.inc27.i.i.i.i.i1576.i ], [ %index.1.i1489.i, %for.cond19.preheader.i.i.i.i.i1562.i ]
+  %i18.09.i.i.i.i.i1565.i = phi i64 [ %inc28.i.i.i.i.i1578.i, %for.inc27.i.i.i.i.i1576.i ], [ 0, %for.cond19.preheader.i.i.i.i.i1562.i ]
+  %position.48.i.i.i.i.i1566.i = phi i64 [ %inc29.i.i.i.i.i1579.i, %for.inc27.i.i.i.i.i1576.i ], [ %position.019.i.i.i.i.i1490.i, %for.cond19.preheader.i.i.i.i.i1562.i ]
+  %add.i.i.i.i.i1567.i = add nsw i64 %position.48.i.i.i.i.i1566.i, %492
   %shr.i.i.i.i.i.i1568.i = lshr i64 %add.i.i.i.i.i1567.i, 3
   %arrayidx.i23.i.i.i.i.i1569.i = getelementptr inbounds i8, ptr %494, i64 %shr.i.i.i.i.i.i1568.i
   %518 = load i8, ptr %arrayidx.i23.i.i.i.i.i1569.i, align 1, !noalias !124
@@ -11134,7 +11134,7 @@ for.body23.i.i.i.i.i1563.i:                       ; preds = %for.cond19.preheade
   br i1 %tobool.i.not.i.i.i.i.i1572.i, label %for.inc27.i.i.i.i.i1576.i, label %if.then25.i.i.i.i.i1573.i
 
 if.then25.i.i.i.i.i1573.i:                        ; preds = %for.body23.i.i.i.i.i1563.i
-  %arrayidx.i24.i.i.i.i.i1574.i = getelementptr inbounds double, ptr %add.ptr.i.i.i.i.i.i1482.i, i64 %position.453.i.i.i.i.i1566.i
+  %arrayidx.i24.i.i.i.i.i1574.i = getelementptr inbounds double, ptr %add.ptr.i.i.i.i.i.i1482.i, i64 %position.48.i.i.i.i.i1566.i
   %522 = load double, ptr %arrayidx.i24.i.i.i.i.i1574.i, align 8, !noalias !124
   %cmp.i.i.i25.i.i.i.i.i1575.i = fcmp une double %522, 0.000000e+00
   br i1 %cmp.i.i.i25.i.i.i.i.i1575.i, label %if.then.i.i.i28.i.i.i.i.i1582.i, label %for.inc27.i.i.i.i.i1576.i
@@ -11159,35 +11159,35 @@ if.then.i.i.i28.i.i.i.i.i1582.i:                  ; preds = %if.then25.i.i.i.i.i
   %529 = load ptr, ptr %data_.i.i.i, align 8, !noalias !124
   %530 = load i64, ptr %size_.i.i.i.i.i.i41.i.i.i.i.i1594.i, align 8, !noalias !124
   %add.ptr.i.i.i.i.i.i42.i.i.i.i.i1595.i = getelementptr inbounds i8, ptr %529, i64 %530
-  store i64 %index.5.i1564.i, ptr %add.ptr.i.i.i.i.i.i42.i.i.i.i.i1595.i, align 1, !noalias !124
+  store i64 %index.4.i1564.i, ptr %add.ptr.i.i.i.i.i.i42.i.i.i.i.i1595.i, align 1, !noalias !124
   %531 = load i64, ptr %size_.i.i.i.i.i.i41.i.i.i.i.i1594.i, align 8, !noalias !124
   %add.i.i.i.i.i.i43.i.i.i.i.i1596.i = add nsw i64 %531, 8
   store i64 %add.i.i.i.i.i.i43.i.i.i.i.i1596.i, ptr %size_.i.i.i.i.i.i41.i.i.i.i.i1594.i, align 8, !noalias !124
   br label %for.inc27.i.i.i.i.i1576.i
 
 for.inc27.i.i.i.i.i1576.i:                        ; preds = %if.then.i.i.i28.i.i.i.i.i1582.i, %if.then25.i.i.i.i.i1573.i, %for.body23.i.i.i.i.i1563.i
-  %index.6.i1577.i = add i64 %index.5.i1564.i, 1
-  %inc28.i.i.i.i.i1578.i = add nuw nsw i64 %i18.054.i.i.i.i.i1565.i, 1
-  %inc29.i.i.i.i.i1579.i = add nsw i64 %position.453.i.i.i.i.i1566.i, 1
+  %index.5.i1577.i = add i64 %index.4.i1564.i, 1
+  %inc28.i.i.i.i.i1578.i = add nuw nsw i64 %i18.09.i.i.i.i.i1565.i, 1
+  %inc29.i.i.i.i.i1579.i = add nsw i64 %position.48.i.i.i.i.i1566.i, 1
   %exitcond.not.i.i.i.i.i1580.i = icmp eq i64 %inc28.i.i.i.i.i1578.i, %conv.i.i1555.i
-  br i1 %exitcond.not.i.i.i.i.i1580.i, label %if.end32.loopexit66.i.i.i.i.i1581.i, label %for.body23.i.i.i.i.i1563.i, !llvm.loop !128
+  br i1 %exitcond.not.i.i.i.i.i1580.i, label %if.end32.loopexit21.i.i.i.i.i1581.i, label %for.body23.i.i.i.i.i1563.i, !llvm.loop !128
 
 if.end32.loopexit.i.i.i.i.i1517.i:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i.i
-  %532 = add i64 %conv.i.i.i.i.i1501.pre-phi.i, %position.064.i.i.i.i.i1490.i
+  %532 = add i64 %conv.i.i.i.i.i1501.pre-phi.i, %position.019.i.i.i.i.i1490.i
   br label %if.end32.i.i.i.i.i1503.i
 
-if.end32.loopexit66.i.i.i.i.i1581.i:              ; preds = %for.inc27.i.i.i.i.i1576.i
-  %533 = add i64 %position.064.i.i.i.i.i1490.i, %conv.i.i1555.i
+if.end32.loopexit21.i.i.i.i.i1581.i:              ; preds = %for.inc27.i.i.i.i.i1576.i
+  %533 = add i64 %position.019.i.i.i.i.i1490.i, %conv.i.i1555.i
   br label %if.end32.i.i.i.i.i1503.i
 
-if.end32.i.i.i.i.i1503.i:                         ; preds = %if.end32.loopexit66.i.i.i.i.i1581.i, %if.end32.loopexit.i.i.i.i.i1517.i, %for.body12.i.i.i.i.preheader.i1598.i, %for.cond8.preheader.i.i.i.i.i1597.i, %for.cond19.preheader.i.i.i.i.i1562.i, %for.cond.preheader.i.i.i.i.i1499.i
-  %index.7.i1504.i = phi i64 [ %index.3.i1513.i, %if.end32.loopexit.i.i.i.i.i1517.i ], [ %index.1.i1489.i, %for.cond.preheader.i.i.i.i.i1499.i ], [ %516, %for.body12.i.i.i.i.preheader.i1598.i ], [ %index.1.i1489.i, %for.cond8.preheader.i.i.i.i.i1597.i ], [ %index.6.i1577.i, %if.end32.loopexit66.i.i.i.i.i1581.i ], [ %index.1.i1489.i, %for.cond19.preheader.i.i.i.i.i1562.i ]
-  %position.2.i.i.i.i.i1505.i = phi i64 [ %532, %if.end32.loopexit.i.i.i.i.i1517.i ], [ %position.064.i.i.i.i.i1490.i, %for.cond.preheader.i.i.i.i.i1499.i ], [ %517, %for.body12.i.i.i.i.preheader.i1598.i ], [ %position.064.i.i.i.i.i1490.i, %for.cond8.preheader.i.i.i.i.i1597.i ], [ %533, %if.end32.loopexit66.i.i.i.i.i1581.i ], [ %position.064.i.i.i.i.i1490.i, %for.cond19.preheader.i.i.i.i.i1562.i ]
+if.end32.i.i.i.i.i1503.i:                         ; preds = %if.end32.loopexit21.i.i.i.i.i1581.i, %if.end32.loopexit.i.i.i.i.i1517.i, %for.body12.i.i.i.preheader.i.i1598.i, %for.cond8.preheader.i.i.i.i.i1597.i, %for.cond19.preheader.i.i.i.i.i1562.i, %for.cond.preheader.i.i.i.i.i1499.i
+  %index.6.i1504.i = phi i64 [ %index.3.i1513.i, %if.end32.loopexit.i.i.i.i.i1517.i ], [ %index.1.i1489.i, %for.cond.preheader.i.i.i.i.i1499.i ], [ %516, %for.body12.i.i.i.preheader.i.i1598.i ], [ %index.1.i1489.i, %for.cond8.preheader.i.i.i.i.i1597.i ], [ %index.5.i1577.i, %if.end32.loopexit21.i.i.i.i.i1581.i ], [ %index.1.i1489.i, %for.cond19.preheader.i.i.i.i.i1562.i ]
+  %position.2.i.i.i.i.i1505.i = phi i64 [ %532, %if.end32.loopexit.i.i.i.i.i1517.i ], [ %position.019.i.i.i.i.i1490.i, %for.cond.preheader.i.i.i.i.i1499.i ], [ %517, %for.body12.i.i.i.preheader.i.i1598.i ], [ %position.019.i.i.i.i.i1490.i, %for.cond8.preheader.i.i.i.i.i1597.i ], [ %533, %if.end32.loopexit21.i.i.i.i.i1581.i ], [ %position.019.i.i.i.i.i1490.i, %for.cond19.preheader.i.i.i.i.i1562.i ]
   %cmp.i.i.i.i.i1506.i = icmp slt i64 %position.2.i.i.i.i.i1505.i, %495
   br i1 %cmp.i.i.i.i.i1506.i, label %while.body.i.i.i.i.i1488.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10DoubleTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUldE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i, !llvm.loop !129
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10DoubleTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUldE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i1503.i, %.noexc62
-  %index.8.i1485.i = phi i64 [ %index.09.i1478.i, %.noexc62 ], [ %index.7.i1504.i, %if.end32.i.i.i.i.i1503.i ]
+  %index.7.i1485.i = phi i64 [ %index.09.i1478.i, %.noexc62 ], [ %index.6.i1504.i, %if.end32.i.i.i.i.i1503.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i1466.i), !noalias !124
   %incdec.ptr.i.i1486.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.010.i1477.i, i64 128
   %cmp.i.not.i1487.i = icmp eq ptr %incdec.ptr.i.i1486.i, %491
@@ -11567,7 +11567,7 @@ for.body.lr.ph.i1692.i:                           ; preds = %sw.bb58.i
 
 for.body.i1698.i:                                 ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal128TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal128EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i.i, %for.body.lr.ph.i1692.i
   %__begin4.sroa.0.015.i.i = phi ptr [ %9, %for.body.lr.ph.i1692.i ], [ %incdec.ptr.i.i1700.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal128TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal128EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i.i ]
-  %index.014.i.i = phi i64 [ 0, %for.body.lr.ph.i1692.i ], [ %index.9.i.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal128TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal128EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i.i ]
+  %index.014.i.i = phi i64 [ 0, %for.body.lr.ph.i1692.i ], [ %index.8.i.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal128TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal128EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i.i ]
   %569 = load ptr, ptr %__begin4.sroa.0.015.i.i, align 8, !noalias !178
   %vtable.i.i.i.i.i = load ptr, ptr %569, align 8, !noalias !178
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 64
@@ -11599,7 +11599,7 @@ while.body.lr.ph.i.i.i.i.i.i:                     ; preds = %.noexc80
   br label %while.body.i.i.i.i.i1702.i
 
 while.body.i.i.i.i.i1702.i:                       ; preds = %if.end32.i.i.i.i.i1714.i, %while.body.lr.ph.i.i.i.i.i.i
-  %index.1.i1703.i = phi i64 [ %index.014.i.i, %while.body.lr.ph.i.i.i.i.i.i ], [ %index.8.i1715.i, %if.end32.i.i.i.i.i1714.i ]
+  %index.1.i1703.i = phi i64 [ %index.014.i.i, %while.body.lr.ph.i.i.i.i.i.i ], [ %index.7.i1715.i, %if.end32.i.i.i.i.i1714.i ]
   %data.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i ], [ %data.1.i.i.i.i.i, %if.end32.i.i.i.i.i1714.i ]
   %position.069.i.i.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i.i.i ], [ %position.2.i.i.i.i.i1716.i, %if.end32.i.i.i.i.i1714.i ]
   %575 = load i8, ptr %bit_counter.i.i.i.i.i1689.i, align 8, !noalias !178
@@ -11746,9 +11746,9 @@ for.cond19.preheader.i.i.i.i.i1766.i:             ; preds = %if.else.i.i.i.i.i17
   br i1 %cmp1160.i.i.i.i.i.i, label %for.body23.i.i.i.i.i1767.i, label %if.end32.i.i.i.i.i1714.i
 
 for.cond8.preheader.i.i.i.i.i1796.i:              ; preds = %if.else.i.i.i.i.i1764.i
-  br i1 %cmp1160.i.i.i.i.i.i, label %for.body12.i.i.i.i.preheader.i1797.i, label %if.end32.i.i.i.i.i1714.i
+  br i1 %cmp1160.i.i.i.i.i.i, label %for.body12.i.i.i.preheader.i.i1797.i, label %if.end32.i.i.i.i.i1714.i
 
-for.body12.i.i.i.i.preheader.i1797.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1796.i
+for.body12.i.i.i.preheader.i.i1797.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1796.i
   %595 = add i64 %index.1.i1703.i, %conv.i.i1761.i
   %596 = mul nsw i64 %conv.i.i1761.i, %conv.i.i.i.i.i
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %data.0.i.i.i.i.i, i64 %596
@@ -11756,7 +11756,7 @@ for.body12.i.i.i.i.preheader.i1797.i:             ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i.i1714.i
 
 for.body23.i.i.i.i.i1767.i:                       ; preds = %for.cond19.preheader.i.i.i.i.i1766.i, %for.inc27.i.i.i.i.i1791.i
-  %index.5.i1768.i = phi i64 [ %index.7.i1792.i, %for.inc27.i.i.i.i.i1791.i ], [ %index.1.i1703.i, %for.cond19.preheader.i.i.i.i.i1766.i ]
+  %index.4.i1768.i = phi i64 [ %index.6.i1792.i, %for.inc27.i.i.i.i.i1791.i ], [ %index.1.i1703.i, %for.cond19.preheader.i.i.i.i.i1766.i ]
   %data.2.i.i.i.i.i = phi ptr [ %data.3.i.i.i.i.i, %for.inc27.i.i.i.i.i1791.i ], [ %data.0.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i1766.i ]
   %i18.059.i.i.i.i.i.i = phi i64 [ %inc28.i.i.i.i.i1793.i, %for.inc27.i.i.i.i.i1791.i ], [ 0, %for.cond19.preheader.i.i.i.i.i1766.i ]
   %position.458.i.i.i.i.i.i = phi i64 [ %inc29.i.i.i.i.i1794.i, %for.inc27.i.i.i.i.i1791.i ], [ %position.069.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i1766.i ]
@@ -11803,7 +11803,7 @@ if.then.i.i.i26.i.i.i.i.i1776.i:                  ; preds = %if.then25.i.i.i.i.i
   %609 = load ptr, ptr %data_.i.i.i, align 8, !noalias !178
   %610 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i1788.i, align 8, !noalias !178
   %add.ptr.i.i.i.i.i.i40.i.i.i.i.i1789.i = getelementptr inbounds i8, ptr %609, i64 %610
-  store i64 %index.5.i1768.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i1789.i, align 1, !noalias !178
+  store i64 %index.4.i1768.i, ptr %add.ptr.i.i.i.i.i.i40.i.i.i.i.i1789.i, align 1, !noalias !178
   %611 = load i64, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i1788.i, align 8, !noalias !178
   %add.i.i.i.i.i.i41.i.i.i.i.i1790.i = add nsw i64 %611, 8
   store i64 %add.i.i.i.i.i.i41.i.i.i.i.i1790.i, ptr %size_.i.i.i.i.i.i39.i.i.i.i.i1788.i, align 8, !noalias !178
@@ -11814,7 +11814,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE9VisitVoidIZNS
   br label %for.inc27.i.i.i.i.i1791.i
 
 for.inc27.i.i.i.i.i1791.i:                        ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_10Decimal128EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit46.i.i.i.i.i.i, %for.body23.i.i.i.i.i1767.i
-  %index.7.i1792.i = add i64 %index.5.i1768.i, 1
+  %index.6.i1792.i = add i64 %index.4.i1768.i, 1
   %data.3.i.i.i.i.i = getelementptr inbounds i8, ptr %data.2.i.i.i.i.i, i64 %conv.i.i.i.i.i
   %inc28.i.i.i.i.i1793.i = add nuw nsw i64 %i18.059.i.i.i.i.i.i, 1
   %inc29.i.i.i.i.i1794.i = add nsw i64 %position.458.i.i.i.i.i.i, 1
@@ -11829,15 +11829,15 @@ if.end32.loopexit71.i.i.i.i.i.i:                  ; preds = %for.inc27.i.i.i.i.i
   %613 = add i64 %position.069.i.i.i.i.i.i, %conv.i.i1761.i
   br label %if.end32.i.i.i.i.i1714.i
 
-if.end32.i.i.i.i.i1714.i:                         ; preds = %if.end32.loopexit71.i.i.i.i.i.i, %if.end32.loopexit.i.i.i.i.i1738.i, %for.body12.i.i.i.i.preheader.i1797.i, %for.cond8.preheader.i.i.i.i.i1796.i, %for.cond19.preheader.i.i.i.i.i1766.i, %for.cond.preheader.i.i.i.i.i1712.i
-  %index.8.i1715.i = phi i64 [ %index.3.i1735.i, %if.end32.loopexit.i.i.i.i.i1738.i ], [ %index.1.i1703.i, %for.cond.preheader.i.i.i.i.i1712.i ], [ %595, %for.body12.i.i.i.i.preheader.i1797.i ], [ %index.1.i1703.i, %for.cond8.preheader.i.i.i.i.i1796.i ], [ %index.7.i1792.i, %if.end32.loopexit71.i.i.i.i.i.i ], [ %index.1.i1703.i, %for.cond19.preheader.i.i.i.i.i1766.i ]
-  %data.1.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i1736.i, %if.end32.loopexit.i.i.i.i.i1738.i ], [ %data.0.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i1712.i ], [ %scevgep.i.i.i.i.i, %for.body12.i.i.i.i.preheader.i1797.i ], [ %data.0.i.i.i.i.i, %for.cond8.preheader.i.i.i.i.i1796.i ], [ %data.3.i.i.i.i.i, %if.end32.loopexit71.i.i.i.i.i.i ], [ %data.0.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i1766.i ]
-  %position.2.i.i.i.i.i1716.i = phi i64 [ %612, %if.end32.loopexit.i.i.i.i.i1738.i ], [ %position.069.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i1712.i ], [ %597, %for.body12.i.i.i.i.preheader.i1797.i ], [ %position.069.i.i.i.i.i.i, %for.cond8.preheader.i.i.i.i.i1796.i ], [ %613, %if.end32.loopexit71.i.i.i.i.i.i ], [ %position.069.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i1766.i ]
+if.end32.i.i.i.i.i1714.i:                         ; preds = %if.end32.loopexit71.i.i.i.i.i.i, %if.end32.loopexit.i.i.i.i.i1738.i, %for.body12.i.i.i.preheader.i.i1797.i, %for.cond8.preheader.i.i.i.i.i1796.i, %for.cond19.preheader.i.i.i.i.i1766.i, %for.cond.preheader.i.i.i.i.i1712.i
+  %index.7.i1715.i = phi i64 [ %index.3.i1735.i, %if.end32.loopexit.i.i.i.i.i1738.i ], [ %index.1.i1703.i, %for.cond.preheader.i.i.i.i.i1712.i ], [ %595, %for.body12.i.i.i.preheader.i.i1797.i ], [ %index.1.i1703.i, %for.cond8.preheader.i.i.i.i.i1796.i ], [ %index.6.i1792.i, %if.end32.loopexit71.i.i.i.i.i.i ], [ %index.1.i1703.i, %for.cond19.preheader.i.i.i.i.i1766.i ]
+  %data.1.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i1736.i, %if.end32.loopexit.i.i.i.i.i1738.i ], [ %data.0.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i1712.i ], [ %scevgep.i.i.i.i.i, %for.body12.i.i.i.preheader.i.i1797.i ], [ %data.0.i.i.i.i.i, %for.cond8.preheader.i.i.i.i.i1796.i ], [ %data.3.i.i.i.i.i, %if.end32.loopexit71.i.i.i.i.i.i ], [ %data.0.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i1766.i ]
+  %position.2.i.i.i.i.i1716.i = phi i64 [ %612, %if.end32.loopexit.i.i.i.i.i1738.i ], [ %position.069.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i1712.i ], [ %597, %for.body12.i.i.i.preheader.i.i1797.i ], [ %position.069.i.i.i.i.i.i, %for.cond8.preheader.i.i.i.i.i1796.i ], [ %613, %if.end32.loopexit71.i.i.i.i.i.i ], [ %position.069.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i1766.i ]
   %cmp.i.i.i.i.i1717.i = icmp slt i64 %position.2.i.i.i.i.i1716.i, %574
   br i1 %cmp.i.i.i.i.i1717.i, label %while.body.i.i.i.i.i1702.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal128TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal128EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i.i, !llvm.loop !183
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal128TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal128EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i1714.i, %.noexc80
-  %index.9.i.i = phi i64 [ %index.014.i.i, %.noexc80 ], [ %index.8.i1715.i, %if.end32.i.i.i.i.i1714.i ]
+  %index.8.i.i = phi i64 [ %index.014.i.i, %.noexc80 ], [ %index.7.i1715.i, %if.end32.i.i.i.i.i1714.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i1689.i), !noalias !178
   %incdec.ptr.i.i1700.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.015.i.i, i64 128
   %cmp.i.not.i1701.i = icmp eq ptr %incdec.ptr.i.i1700.i, %566
@@ -11867,7 +11867,7 @@ for.body.lr.ph.i1813.i:                           ; preds = %sw.bb60.i
 
 for.body.i1819.i:                                 ; preds = %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal256TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal256EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i.i, %for.body.lr.ph.i1813.i
   %__begin4.sroa.0.015.i1820.i = phi ptr [ %9, %for.body.lr.ph.i1813.i ], [ %incdec.ptr.i.i1831.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal256TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal256EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i.i ]
-  %index.014.i1821.i = phi i64 [ 0, %for.body.lr.ph.i1813.i ], [ %index.9.i1830.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal256TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal256EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i.i ]
+  %index.014.i1821.i = phi i64 [ 0, %for.body.lr.ph.i1813.i ], [ %index.8.i1830.i, %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal256TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal256EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i.i ]
   %615 = load ptr, ptr %__begin4.sroa.0.015.i1820.i, align 8, !noalias !184
   %vtable.i.i.i.i1822.i = load ptr, ptr %615, align 8, !noalias !184
   %vfn.i.i.i.i1823.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i1822.i, i64 64
@@ -11899,7 +11899,7 @@ while.body.i.preheader.i.i.i.i.i:                 ; preds = %.noexc82
   br label %while.body.i.i.i.i.i1835.i
 
 while.body.i.i.i.i.i1835.i:                       ; preds = %if.end32.i.i.i.i.i1849.i, %while.body.i.preheader.i.i.i.i.i
-  %index.1.i1836.i = phi i64 [ %index.014.i1821.i, %while.body.i.preheader.i.i.i.i.i ], [ %index.8.i1850.i, %if.end32.i.i.i.i.i1849.i ]
+  %index.1.i1836.i = phi i64 [ %index.014.i1821.i, %while.body.i.preheader.i.i.i.i.i ], [ %index.7.i1850.i, %if.end32.i.i.i.i.i1849.i ]
   %data.0.i.i.i.i1837.i = phi ptr [ %add.ptr.i.i.i.i.i1834.i, %while.body.i.preheader.i.i.i.i.i ], [ %data.1.i.i.i.i1851.i, %if.end32.i.i.i.i.i1849.i ]
   %position.067.i.i.i.i.i.i = phi i64 [ 0, %while.body.i.preheader.i.i.i.i.i ], [ %position.2.i.i.i.i.i1852.i, %if.end32.i.i.i.i.i1849.i ]
   %621 = load i8, ptr %bit_counter.i.i.i.i.i1808.i, align 8, !noalias !184
@@ -12042,9 +12042,9 @@ for.cond19.preheader.i.i.i.i.i1906.i:             ; preds = %if.else.i.i.i.i.i19
   br i1 %cmp1158.i.i.i.i.i.i, label %for.body23.i.i.i.i.i1907.i, label %if.end32.i.i.i.i.i1849.i
 
 for.cond8.preheader.i.i.i.i.i1923.i:              ; preds = %if.else.i.i.i.i.i1903.i
-  br i1 %cmp1158.i.i.i.i.i.i, label %for.body12.i.i.i.i.preheader.i1924.i, label %if.end32.i.i.i.i.i1849.i
+  br i1 %cmp1158.i.i.i.i.i.i, label %for.body12.i.i.i.preheader.i.i1924.i, label %if.end32.i.i.i.i.i1849.i
 
-for.body12.i.i.i.i.preheader.i1924.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1923.i
+for.body12.i.i.i.preheader.i.i1924.i:             ; preds = %for.cond8.preheader.i.i.i.i.i1923.i
   %640 = add i64 %index.1.i1836.i, %conv.i.i1900.i
   %641 = mul nsw i64 %conv.i.i1900.i, %conv.i.i.i.i1826.i
   %scevgep.i.i.i.i1925.i = getelementptr i8, ptr %data.0.i.i.i.i1837.i, i64 %641
@@ -12052,7 +12052,7 @@ for.body12.i.i.i.i.preheader.i1924.i:             ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i.i1849.i
 
 for.body23.i.i.i.i.i1907.i:                       ; preds = %for.cond19.preheader.i.i.i.i.i1906.i, %for.inc27.i.i.i.i.i1917.i
-  %index.5.i1908.i = phi i64 [ %index.7.i1918.i, %for.inc27.i.i.i.i.i1917.i ], [ %index.1.i1836.i, %for.cond19.preheader.i.i.i.i.i1906.i ]
+  %index.4.i1908.i = phi i64 [ %index.6.i1918.i, %for.inc27.i.i.i.i.i1917.i ], [ %index.1.i1836.i, %for.cond19.preheader.i.i.i.i.i1906.i ]
   %data.2.i.i.i.i1909.i = phi ptr [ %data.3.i.i.i.i1919.i, %for.inc27.i.i.i.i.i1917.i ], [ %data.0.i.i.i.i1837.i, %for.cond19.preheader.i.i.i.i.i1906.i ]
   %i18.057.i.i.i.i.i.i = phi i64 [ %inc28.i.i.i.i.i1920.i, %for.inc27.i.i.i.i.i1917.i ], [ 0, %for.cond19.preheader.i.i.i.i.i1906.i ]
   %position.456.i.i.i.i.i.i = phi i64 [ %inc29.i.i.i.i.i1921.i, %for.inc27.i.i.i.i.i1917.i ], [ %position.067.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i1906.i ]
@@ -12095,7 +12095,7 @@ if.then.i.i.i24.i.i.i.i.i.i:                      ; preds = %if.then25.i.i.i.i.i
   %653 = load ptr, ptr %data_.i.i.i, align 8, !noalias !184
   %654 = load i64, ptr %size_.i.i.i.i.i.i37.i.i.i.i.i.i, align 8, !noalias !184
   %add.ptr.i.i.i.i.i.i38.i.i.i.i.i.i = getelementptr inbounds i8, ptr %653, i64 %654
-  store i64 %index.5.i1908.i, ptr %add.ptr.i.i.i.i.i.i38.i.i.i.i.i.i, align 1, !noalias !184
+  store i64 %index.4.i1908.i, ptr %add.ptr.i.i.i.i.i.i38.i.i.i.i.i.i, align 1, !noalias !184
   %655 = load i64, ptr %size_.i.i.i.i.i.i37.i.i.i.i.i.i, align 8, !noalias !184
   %add.i.i.i.i.i.i39.i.i.i.i.i.i = add nsw i64 %655, 8
   store i64 %add.i.i.i.i.i.i39.i.i.i.i.i.i, ptr %size_.i.i.i.i.i.i37.i.i.i.i.i.i, align 8, !noalias !184
@@ -12106,7 +12106,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %for.inc27.i.i.i.i.i1917.i
 
 for.inc27.i.i.i.i.i1917.i:                        ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_10Decimal256EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit44.i.i.i.i.i.i, %for.body23.i.i.i.i.i1907.i
-  %index.7.i1918.i = add i64 %index.5.i1908.i, 1
+  %index.6.i1918.i = add i64 %index.4.i1908.i, 1
   %data.3.i.i.i.i1919.i = getelementptr inbounds i8, ptr %data.2.i.i.i.i1909.i, i64 %conv.i.i.i.i1826.i
   %inc28.i.i.i.i.i1920.i = add nuw nsw i64 %i18.057.i.i.i.i.i.i, 1
   %inc29.i.i.i.i.i1921.i = add nsw i64 %position.456.i.i.i.i.i.i, 1
@@ -12121,15 +12121,15 @@ if.end32.loopexit69.i.i.i.i.i.i:                  ; preds = %for.inc27.i.i.i.i.i
   %657 = add i64 %position.067.i.i.i.i.i.i, %conv.i.i1900.i
   br label %if.end32.i.i.i.i.i1849.i
 
-if.end32.i.i.i.i.i1849.i:                         ; preds = %if.end32.loopexit69.i.i.i.i.i.i, %if.end32.loopexit.i.i.i.i.i1877.i, %for.body12.i.i.i.i.preheader.i1924.i, %for.cond8.preheader.i.i.i.i.i1923.i, %for.cond19.preheader.i.i.i.i.i1906.i, %for.cond.preheader.i.i.i.i.i1846.i
-  %index.8.i1850.i = phi i64 [ %index.3.i1874.i, %if.end32.loopexit.i.i.i.i.i1877.i ], [ %index.1.i1836.i, %for.cond.preheader.i.i.i.i.i1846.i ], [ %640, %for.body12.i.i.i.i.preheader.i1924.i ], [ %index.1.i1836.i, %for.cond8.preheader.i.i.i.i.i1923.i ], [ %index.7.i1918.i, %if.end32.loopexit69.i.i.i.i.i.i ], [ %index.1.i1836.i, %for.cond19.preheader.i.i.i.i.i1906.i ]
-  %data.1.i.i.i.i1851.i = phi ptr [ %add.ptr.i.i.i.i.i.i1875.i, %if.end32.loopexit.i.i.i.i.i1877.i ], [ %data.0.i.i.i.i1837.i, %for.cond.preheader.i.i.i.i.i1846.i ], [ %scevgep.i.i.i.i1925.i, %for.body12.i.i.i.i.preheader.i1924.i ], [ %data.0.i.i.i.i1837.i, %for.cond8.preheader.i.i.i.i.i1923.i ], [ %data.3.i.i.i.i1919.i, %if.end32.loopexit69.i.i.i.i.i.i ], [ %data.0.i.i.i.i1837.i, %for.cond19.preheader.i.i.i.i.i1906.i ]
-  %position.2.i.i.i.i.i1852.i = phi i64 [ %656, %if.end32.loopexit.i.i.i.i.i1877.i ], [ %position.067.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i1846.i ], [ %642, %for.body12.i.i.i.i.preheader.i1924.i ], [ %position.067.i.i.i.i.i.i, %for.cond8.preheader.i.i.i.i.i1923.i ], [ %657, %if.end32.loopexit69.i.i.i.i.i.i ], [ %position.067.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i1906.i ]
+if.end32.i.i.i.i.i1849.i:                         ; preds = %if.end32.loopexit69.i.i.i.i.i.i, %if.end32.loopexit.i.i.i.i.i1877.i, %for.body12.i.i.i.preheader.i.i1924.i, %for.cond8.preheader.i.i.i.i.i1923.i, %for.cond19.preheader.i.i.i.i.i1906.i, %for.cond.preheader.i.i.i.i.i1846.i
+  %index.7.i1850.i = phi i64 [ %index.3.i1874.i, %if.end32.loopexit.i.i.i.i.i1877.i ], [ %index.1.i1836.i, %for.cond.preheader.i.i.i.i.i1846.i ], [ %640, %for.body12.i.i.i.preheader.i.i1924.i ], [ %index.1.i1836.i, %for.cond8.preheader.i.i.i.i.i1923.i ], [ %index.6.i1918.i, %if.end32.loopexit69.i.i.i.i.i.i ], [ %index.1.i1836.i, %for.cond19.preheader.i.i.i.i.i1906.i ]
+  %data.1.i.i.i.i1851.i = phi ptr [ %add.ptr.i.i.i.i.i.i1875.i, %if.end32.loopexit.i.i.i.i.i1877.i ], [ %data.0.i.i.i.i1837.i, %for.cond.preheader.i.i.i.i.i1846.i ], [ %scevgep.i.i.i.i1925.i, %for.body12.i.i.i.preheader.i.i1924.i ], [ %data.0.i.i.i.i1837.i, %for.cond8.preheader.i.i.i.i.i1923.i ], [ %data.3.i.i.i.i1919.i, %if.end32.loopexit69.i.i.i.i.i.i ], [ %data.0.i.i.i.i1837.i, %for.cond19.preheader.i.i.i.i.i1906.i ]
+  %position.2.i.i.i.i.i1852.i = phi i64 [ %656, %if.end32.loopexit.i.i.i.i.i1877.i ], [ %position.067.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i1846.i ], [ %642, %for.body12.i.i.i.preheader.i.i1924.i ], [ %position.067.i.i.i.i.i.i, %for.cond8.preheader.i.i.i.i.i1923.i ], [ %657, %if.end32.loopexit69.i.i.i.i.i.i ], [ %position.067.i.i.i.i.i.i, %for.cond19.preheader.i.i.i.i.i1906.i ]
   %cmp.i.i.i.i.i1853.i = icmp slt i64 %position.2.i.i.i.i.i1852.i, %620
   br i1 %cmp.i.i.i.i.i1853.i, label %while.body.i.i.i.i.i1835.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal256TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal256EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i.i, !llvm.loop !189
 
 _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal256TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal256EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i.i: ; preds = %if.end32.i.i.i.i.i1849.i, %.noexc82
-  %index.9.i1830.i = phi i64 [ %index.014.i1821.i, %.noexc82 ], [ %index.8.i1850.i, %if.end32.i.i.i.i.i1849.i ]
+  %index.8.i1830.i = phi i64 [ %index.014.i1821.i, %.noexc82 ], [ %index.7.i1850.i, %if.end32.i.i.i.i.i1849.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i1808.i), !noalias !184
   %incdec.ptr.i.i1831.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.015.i1820.i, i64 128
   %cmp.i.not.i1832.i = icmp eq ptr %incdec.ptr.i.i1831.i, %614

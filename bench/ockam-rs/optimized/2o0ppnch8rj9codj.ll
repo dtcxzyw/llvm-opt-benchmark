@@ -304,24 +304,24 @@ common.resume:                                    ; preds = %12, %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %22 = load ptr, ptr %9, align 8, !alias.scope !31, !noalias !32, !nonnull !13, !noundef !13
-  %23 = atomicrmw sub ptr %22, i64 1 release, align 8, !noalias !35
+  %22 = load ptr, ptr %9, align 8, !alias.scope !31, !nonnull !13, !noundef !13
+  %23 = atomicrmw sub ptr %22, i64 1 release, align 8, !noalias !31
   %24 = icmp eq i64 %23, 1
   br i1 %24, label %25, label %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$ockam_multiaddr..registry..Registry$GT$$GT$17hf62a56e9d9a5f6b2E.exit"
 
 25:                                               ; preds = %21
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcf6041e5909f51f0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$ockam_multiaddr..registry..Registry$GT$$GT$17hf62a56e9d9a5f6b2E.exit" unwind label %26, !noalias !32
+          to label %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$ockam_multiaddr..registry..Registry$GT$$GT$17hf62a56e9d9a5f6b2E.exit" unwind label %26
 
 26:                                               ; preds = %25
   %27 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf4ea846732cb2fcE"(ptr nonnull %9) #18, !noalias !32
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf4ea846732cb2fcE"(ptr nonnull %9) #18
   br label %common.resume
 
 "_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$ockam_multiaddr..registry..Registry$GT$$GT$17hf62a56e9d9a5f6b2E.exit": ; preds = %21, %25
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef 8, i64 noundef 8) #17, !noalias !32
+  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef 8, i64 noundef 8) #17
   br label %28
 
 28:                                               ; preds = %"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hb482b6c1dc632b72E.exit", %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$ockam_multiaddr..registry..Registry$GT$$GT$17hf62a56e9d9a5f6b2E.exit", %1
@@ -447,7 +447,3 @@ attributes #19 = { noinline noreturn nounwind }
 !29 = distinct !{!29, !30, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1fd7b7507736416dE.llvm.11186069109554130561: argument 0"}
 !30 = distinct !{!30, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1fd7b7507736416dE.llvm.11186069109554130561"}
 !31 = !{!29, !26, !23}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$ockam_multiaddr..registry..Registry$GT$$GT$17hf62a56e9d9a5f6b2E: argument 0"}
-!34 = distinct !{!34, !"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$ockam_multiaddr..registry..Registry$GT$$GT$17hf62a56e9d9a5f6b2E"}
-!35 = !{!29, !26, !23, !33}

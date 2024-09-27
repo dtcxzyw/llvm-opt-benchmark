@@ -6765,12 +6765,12 @@ define void @_ZN7mitsuba3xml11load_stringERKNSt3__112basic_stringIcNS1_11char_tr
   %35 = getelementptr inbounds i8, ptr %10, i64 24
   store ptr %8, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %10, i64 32
-  %37 = getelementptr inbounds i8, ptr %10, i64 64
+  %37 = ptrtoint ptr %1 to i64
+  %38 = getelementptr inbounds i8, ptr %10, i64 64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN7mitsuba3xml11load_stringERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_NS_6vectorINS_5tupleIJS9_S9_bEEENS7_ISE_EEEEbE3$_0NS7_ISH_EEFS9_lEEE", i64 16), ptr %36, align 16
-  %38 = getelementptr inbounds i8, ptr %10, i64 40
-  %39 = ptrtoint ptr %1 to i64
-  store i64 %39, ptr %38, align 8
-  store ptr %36, ptr %37, align 16
+  %39 = getelementptr inbounds i8, ptr %10, i64 40
+  store i64 %37, ptr %39, align 8
+  store ptr %36, ptr %38, align 16
   %40 = getelementptr inbounds i8, ptr %10, i64 80
   store i64 0, ptr %40, align 16
   %41 = getelementptr inbounds i8, ptr %10, i64 88
@@ -6787,7 +6787,7 @@ define void @_ZN7mitsuba3xml11load_stringERKNSt3__112basic_stringIcNS1_11char_tr
   %47 = load i64, ptr %46, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %47, ptr %7, align 8, !noalias !92
-  %48 = load ptr, ptr %37, align 16, !noalias !95
+  %48 = load ptr, ptr %38, align 16, !noalias !95
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %_ZNKSt3__110__function12__value_funcIFNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEElEEclB8ne190000EOl.exit.i
 
@@ -7081,7 +7081,7 @@ _ZN7mitsuba3refINS_6ObjectEED2Ev.exit:            ; preds = %142, %144
 _ZN7mitsuba3refINS_12FileResolverEED2Ev.exit:     ; preds = %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit, %148
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #29
   call void @_ZNK7mitsuba6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %71, i1 noundef zeroext true) #29
-  %149 = load ptr, ptr %37, align 16
+  %149 = load ptr, ptr %38, align 16
   %150 = icmp eq ptr %149, %36
   br i1 %150, label %.sink.split.i.i.i, label %151
 

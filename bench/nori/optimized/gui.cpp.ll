@@ -311,21 +311,21 @@ _ZNSt8functionIFvfEEC2ERKS1_.exit.i.i:            ; preds = %96
   store float 5.000000e-01, ptr %97, align 4
   %98 = getelementptr inbounds i8, ptr %95, i64 56
   store i32 150, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %20, i64 16
-  %100 = getelementptr inbounds i8, ptr %20, i64 24
-  %101 = getelementptr inbounds i8, ptr %20, i64 8
-  store i64 0, ptr %101, align 8
-  %102 = ptrtoint ptr %0 to i64
-  store i64 %102, ptr %20, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvfEZN4nori10NoriScreenC1ERKNS1_10ImageBlockEE3$_0E9_M_invokeERKSt9_Any_dataOf", ptr %100, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvfEZN4nori10NoriScreenC1ERKNS1_10ImageBlockEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %99, align 8
+  %99 = ptrtoint ptr %0 to i64
+  %100 = getelementptr inbounds i8, ptr %20, i64 16
+  %101 = getelementptr inbounds i8, ptr %20, i64 24
+  %102 = getelementptr inbounds i8, ptr %20, i64 8
+  store i64 0, ptr %102, align 8
+  store i64 %99, ptr %20, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvfEZN4nori10NoriScreenC1ERKNS1_10ImageBlockEE3$_0E9_M_invokeERKSt9_Any_dataOf", ptr %101, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvfEZN4nori10NoriScreenC1ERKNS1_10ImageBlockEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %100, align 8
   %103 = getelementptr inbounds i8, ptr %95, i64 144
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %104 = getelementptr inbounds i8, ptr %12, i64 16
   %105 = getelementptr inbounds i8, ptr %12, i64 24
   %106 = getelementptr inbounds i8, ptr %12, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, i8 0, i64 24, i1 false)
-  store i64 %102, ptr %12, align 8
+  store i64 %99, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false)
@@ -358,7 +358,7 @@ _ZNSt8functionIFvfEEC2ERKS1_.exit.i.i:            ; preds = %96
   unreachable
 
 116:                                              ; preds = %111
-  %.pre = load ptr, ptr %99, align 8
+  %.pre = load ptr, ptr %100, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %.not.i.i75 = icmp eq ptr %.pre, null
   br i1 %.not.i.i75, label %123, label %117

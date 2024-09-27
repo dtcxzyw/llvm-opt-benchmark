@@ -423,8 +423,8 @@ define hidden void @_ZN5ceres8internal22CudaBlockSparseCRSView12UpdateValuesERKN
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
-  %indvars.iv.i.sroa.gep8 = getelementptr inbounds i8, ptr %11, i64 8
-  %indvars.iv.i.sroa.gep11 = getelementptr inbounds i8, ptr %10, i64 8
+  %indvars.iv.i.sroa.gep9 = getelementptr inbounds i8, ptr %11, i64 8
+  %indvars.iv.i.sroa.gep12 = getelementptr inbounds i8, ptr %10, i64 8
   br i1 %25, label %26, label %56
 
 26:                                               ; preds = %2
@@ -585,9 +585,9 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   store ptr %89, ptr %10, align 16
   store ptr %92, ptr %11, align 16
   %94 = getelementptr inbounds double, ptr %89, i64 %93
-  store ptr %94, ptr %indvars.iv.i.sroa.gep11, align 8
+  store ptr %94, ptr %indvars.iv.i.sroa.gep12, align 8
   %95 = getelementptr inbounds double, ptr %92, i64 %93
-  store ptr %95, ptr %indvars.iv.i.sroa.gep8, align 8
+  store ptr %95, ptr %indvars.iv.i.sroa.gep9, align 8
   %96 = getelementptr inbounds i8, ptr %87, i64 264
   %97 = icmp sgt i32 %62, 0
   br i1 %97, label %.lr.ph.i, label %.preheader.i.preheader
@@ -605,13 +605,13 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 
 106:                                              ; preds = %176, %.lr.ph.i
   %107 = phi i32 [ %90, %.lr.ph.i ], [ %184, %176 ]
-  %.043102.i = phi i32 [ 0, %.lr.ph.i ], [ %183, %176 ]
-  %.044101.i = phi i32 [ 0, %.lr.ph.i ], [ %185, %176 ]
-  %108 = sub nsw i32 %62, %.044101.i
+  %.04334.i = phi i32 [ 0, %.lr.ph.i ], [ %183, %176 ]
+  %.04433.i = phi i32 [ 0, %.lr.ph.i ], [ %185, %176 ]
+  %108 = sub nsw i32 %62, %.04433.i
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %107, i32 %108)
-  %109 = sext i32 %.044101.i to i64
+  %109 = sext i32 %.04433.i to i64
   %110 = getelementptr inbounds double, ptr %60, i64 %109
-  %111 = zext nneg i32 %.043102.i to i64
+  %111 = zext nneg i32 %.04334.i to i64
   %112 = getelementptr inbounds [2 x ptr], ptr %10, i64 0, i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds ptr, ptr %96, i64 %111
@@ -657,8 +657,8 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   store ptr %127, ptr %12, align 8
-  %.not96.i = icmp eq ptr %127, null
-  br i1 %.not96.i, label %135, label %130
+  %.not28.i = icmp eq ptr %127, null
+  br i1 %.not28.i, label %135, label %130
 
 130:                                              ; preds = %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit52.i
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull @.str.9, i32 noundef 271, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -727,8 +727,8 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store ptr %150, ptr %14, align 8
-  %.not97.i = icmp eq ptr %150, null
-  br i1 %.not97.i, label %158, label %153
+  %.not29.i = icmp eq ptr %150, null
+  br i1 %.not29.i, label %158, label %153
 
 153:                                              ; preds = %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit58.i
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull @.str.9, i32 noundef 280, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -785,8 +785,8 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store ptr %168, ptr %16, align 8
-  %.not98.i = icmp eq ptr %168, null
-  br i1 %.not98.i, label %176, label %171
+  %.not30.i = icmp eq ptr %168, null
+  br i1 %.not30.i, label %176, label %171
 
 171:                                              ; preds = %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit63.i
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull @.str.9, i32 noundef 289, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -811,11 +811,11 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   %179 = load ptr, ptr %103, align 8
   %180 = load ptr, ptr %104, align 8
   %181 = load ptr, ptr %105, align 8
-  call void @_ZN5ceres8internal12PermuteToCRSEiiiPKiPKNS0_4CellEPKNS0_5BlockES8_S2_PKdPdP11CUstream_st(i32 noundef %.044101.i, i32 noundef %.sroa.speculated.i, i32 noundef %177, ptr noundef %178, ptr noundef %179, ptr noundef %180, ptr noundef %181, ptr noundef %.val46.val.i, ptr noundef %113, ptr noundef %.val46.val47.i, ptr noundef %115)
-  %182 = and i32 %.043102.i, 1
+  call void @_ZN5ceres8internal12PermuteToCRSEiiiPKiPKNS0_4CellEPKNS0_5BlockES8_S2_PKdPdP11CUstream_st(i32 noundef %.04433.i, i32 noundef %.sroa.speculated.i, i32 noundef %177, ptr noundef %178, ptr noundef %179, ptr noundef %180, ptr noundef %181, ptr noundef %.val46.val.i, ptr noundef %113, ptr noundef %.val46.val47.i, ptr noundef %115)
+  %182 = and i32 %.04334.i, 1
   %183 = xor i32 %182, 1
   %184 = load i32, ptr %58, align 8
-  %185 = add nsw i32 %184, %.044101.i
+  %185 = add nsw i32 %184, %.04433.i
   %186 = icmp slt i32 %185, %62
   br i1 %186, label %106, label %.preheader.i.preheader, !llvm.loop !13
 
@@ -824,8 +824,8 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %206
   %187 = phi i1 [ false, %206 ], [ true, %.preheader.i.preheader ]
-  %indvars.iv105.i = phi i64 [ 1, %206 ], [ 0, %.preheader.i.preheader ]
-  %188 = getelementptr inbounds ptr, ptr %96, i64 %indvars.iv105.i
+  %indvars.iv37.i = phi i64 [ 1, %206 ], [ 0, %.preheader.i.preheader ]
+  %188 = getelementptr inbounds ptr, ptr %96, i64 %indvars.iv37.i
   %189 = load ptr, ptr %188, align 8
   %190 = call i32 @cudaStreamSynchronize(ptr noundef %189)
   %191 = icmp eq i32 %190, 0
@@ -863,8 +863,8 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr %198, ptr %18, align 8
-  %.not95.i = icmp eq ptr %198, null
-  br i1 %.not95.i, label %206, label %201
+  %.not27.i = icmp eq ptr %198, null
+  br i1 %.not27.i, label %206, label %201
 
 201:                                              ; preds = %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit68.i
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull @.str.9, i32 noundef 296, ptr noundef nonnull align 8 dereferenceable(8) %18)

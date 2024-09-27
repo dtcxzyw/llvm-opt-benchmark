@@ -344,7 +344,7 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 @_ZN4llvm9GlobalsAA3KeyE = external global %"struct.llvm::AnalysisKey", align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_SanitizerCoverage.cpp, ptr null }]
 @switch.table._ZN4llvm21SanitizerCoveragePass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE = private unnamed_addr constant [4 x i32] [i32 1, i32 2, i32 3, i32 3], align 4
-@switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.38 = private unnamed_addr constant [8 x i64] [i64 0, i64 1, i64 0, i64 2, i64 0, i64 0, i64 0, i64 3], align 8
+@switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.39 = private unnamed_addr constant [8 x i64] [i64 0, i64 1, i64 0, i64 2, i64 0, i64 0, i64 0, i64 3], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIiLb0ENS0_6parserIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
@@ -1484,7 +1484,7 @@ _ZL15isFullDominatorPKN4llvm10BasicBlockERKNS_13DominatorTreeE.exit.thread.i.i.i
   %572 = add nsw i32 %571, -41
   %573 = icmp ult i32 %572, -11
   %or.cond.i.i.i.not.i.i.i.i.i = select i1 %570, i1 true, i1 %573
-  br i1 %or.cond.i.i.i.not.i.i.i.i.i, label %574, label %.lr.ph.i.i.i.i3.i.i.i.i
+  br i1 %or.cond.i.i.i.not.i.i.i.i.i, label %574, label %.lr.ph.i.i.i.i4.i.i.i.i
 
 574:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %575 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 8
@@ -1492,9 +1492,9 @@ _ZL15isFullDominatorPKN4llvm10BasicBlockERKNS_13DominatorTreeE.exit.thread.i.i.i
   %577 = icmp eq ptr %576, null
   br i1 %577, label %_ZL21shouldInstrumentBlockRKN4llvm8FunctionEPKNS_10BasicBlockERKNS_13DominatorTreeERKNS_17PostDominatorTreeERKNS_24SanitizerCoverageOptionsE.exit.thread.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !17
 
-.lr.ph.i.i.i.i3.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %588
-  %.sroa.0.0.i.i4.i.i.i.i = phi ptr [ %590, %588 ], [ %565, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %578 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i4.i.i.i.i, i64 24
+.lr.ph.i.i.i.i4.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %588
+  %.sroa.0.0.i.i5.i.i.i.i = phi ptr [ %590, %588 ], [ %565, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %578 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i5.i.i.i.i, i64 24
   %579 = load ptr, ptr %578, align 8
   %580 = load i8, ptr %579, align 8
   %581 = icmp ugt i8 %580, 28
@@ -1504,17 +1504,17 @@ _ZL15isFullDominatorPKN4llvm10BasicBlockERKNS_13DominatorTreeE.exit.thread.i.i.i
   %or.cond.i.i.i.i.i.i.i.i = select i1 %581, i1 %584, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i.i.i, label %588
 
-.lr.ph.i.i.i.i.i.preheader.i.i.i.i:               ; preds = %.lr.ph.i.i.i.i3.i.i.i.i
+.lr.ph.i.i.i.i.i.preheader.i.i.i.i:               ; preds = %.lr.ph.i.i.i.i4.i.i.i.i
   %585 = getelementptr inbounds i8, ptr %579, i64 40
   %586 = load ptr, ptr %585, align 8
   %587 = call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb1EE9dominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(148) %495, ptr noundef nonnull %498, ptr noundef %586) #19
   br i1 %587, label %.lr.ph.i.i.i.i, label %_ZL21shouldInstrumentBlockRKN4llvm8FunctionEPKNS_10BasicBlockERKNS_13DominatorTreeERKNS_17PostDominatorTreeERKNS_24SanitizerCoverageOptionsE.exit.thread.i.i
 
-588:                                              ; preds = %.lr.ph.i.i.i.i3.i.i.i.i
-  %589 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i4.i.i.i.i, i64 8
+588:                                              ; preds = %.lr.ph.i.i.i.i4.i.i.i.i
+  %589 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i5.i.i.i.i, i64 8
   %590 = load ptr, ptr %589, align 8
   %591 = icmp eq ptr %590, null
-  br i1 %591, label %_ZL21shouldInstrumentBlockRKN4llvm8FunctionEPKNS_10BasicBlockERKNS_13DominatorTreeERKNS_17PostDominatorTreeERKNS_24SanitizerCoverageOptionsE.exit.i.i, label %.lr.ph.i.i.i.i3.i.i.i.i, !llvm.loop !17
+  br i1 %591, label %_ZL21shouldInstrumentBlockRKN4llvm8FunctionEPKNS_10BasicBlockERKNS_13DominatorTreeERKNS_17PostDominatorTreeERKNS_24SanitizerCoverageOptionsE.exit.i.i, label %.lr.ph.i.i.i.i4.i.i.i.i, !llvm.loop !17
 
 .lr.ph.i.i.i.i.i.loopexit.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
   %592 = getelementptr inbounds i8, ptr %599, i64 40
@@ -1523,8 +1523,8 @@ _ZL15isFullDominatorPKN4llvm10BasicBlockERKNS_13DominatorTreeE.exit.thread.i.i.i
   br i1 %594, label %.lr.ph.i.i.i.i, label %_ZL21shouldInstrumentBlockRKN4llvm8FunctionEPKNS_10BasicBlockERKNS_13DominatorTreeERKNS_17PostDominatorTreeERKNS_24SanitizerCoverageOptionsE.exit.thread.i.i, !llvm.loop !18
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.i.preheader.i.i.i.i, %.lr.ph.i.i.i.i.i.loopexit.i.i.i.i
-  %.sroa.04.07.i.i.i.i.i18.i.i.i.i = phi ptr [ %.sroa.04.1.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.loopexit.i.i.i.i ], [ %.sroa.0.0.i.i4.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i ]
-  %595 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i18.i.i.i.i, i64 8
+  %.sroa.04.07.i.i.i.i.i19.i.i.i.i = phi ptr [ %.sroa.04.1.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.loopexit.i.i.i.i ], [ %.sroa.0.0.i.i5.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i ]
+  %595 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i19.i.i.i.i, i64 8
   %596 = load ptr, ptr %595, align 8
   %597 = icmp eq ptr %596, null
   br i1 %597, label %_ZL21shouldInstrumentBlockRKN4llvm8FunctionEPKNS_10BasicBlockERKNS_13DominatorTreeERKNS_17PostDominatorTreeERKNS_24SanitizerCoverageOptionsE.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
@@ -4585,7 +4585,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %brmerge.demorgan, label %81, label %60
 
 60:                                               ; preds = %switch.lookup
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.38, i64 0, i64 %54
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.39, i64 0, i64 %54
   %switch.load = load i64, ptr %switch.gep, align 8
   %brmerge38 = or i1 %57, %59
   %.014 = select i1 %59, ptr %37, ptr %39
@@ -5370,7 +5370,7 @@ switch.hole_check:                                ; preds = %31
   br i1 %switch.lobit, label %switch.lookup, label %"_ZZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEEENK3$_0clEPNS1_4TypeE.exit"
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.38, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.39, i64 0, i64 %45
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %47
@@ -5482,7 +5482,7 @@ switch.hole_check21:                              ; preds = %74
   br i1 %switch.lobit25, label %switch.lookup22, label %"_ZZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEEENK3$_0clEPNS1_4TypeE.exit34"
 
 switch.lookup22:                                  ; preds = %switch.hole_check21
-  %switch.gep26 = getelementptr inbounds [8 x i64], ptr @switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.38, i64 0, i64 %90
+  %switch.gep26 = getelementptr inbounds [8 x i64], ptr @switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.39, i64 0, i64 %90
   %switch.load27 = load i64, ptr %switch.gep26, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %92

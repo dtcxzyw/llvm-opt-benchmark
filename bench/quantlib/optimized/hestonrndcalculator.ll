@@ -2007,12 +2007,12 @@ _ZN8QuantLib12_GLOBAL__N_115getHestonParamsERKN5boost10shared_ptrINS_13HestonPro
   %mul = fmul double %8, 1.000000e-01
   call void @_ZN8QuantLib20GaussLobattoIntegralC1Emddb(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp2, i64 noundef %7, double noundef %mul, double noundef 0x47EFFFFFE0000000, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5) #27
+  %9 = ptrtoint ptr %helper to i64
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 24
-  %9 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
-  store i64 0, ptr %9, align 8
-  %10 = ptrtoint ptr %helper to i64
-  store i64 %10, ptr %ref.tmp5, align 8, !tbaa !3
+  %10 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
+  store i64 0, ptr %10, align 8
+  store i64 %9, ptr %ref.tmp5, align 8, !tbaa !3
   store ptr @"_ZNSt17_Function_handlerIFddEZNK8QuantLib19HestonRNDCalculator3cdfEddE3$_0E9_M_invokeERKSt9_Any_dataOd", ptr %_M_invoker.i, align 8, !tbaa !94
   store ptr @"_ZNSt17_Function_handlerIFddEZNK8QuantLib19HestonRNDCalculator3cdfEddE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i, align 8, !tbaa !97
   %call7 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, double noundef 0.000000e+00, double noundef 1.000000e+00)

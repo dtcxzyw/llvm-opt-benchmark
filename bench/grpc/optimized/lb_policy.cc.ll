@@ -731,12 +731,12 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %entry
   %6 = phi ptr [ %1, %entry ], [ %1, %if.then.i.i.i.i.i.i.i ], [ %.pre.i, %if.else.i.i.i.i.i.i.i ]
+  %7 = ptrtoint ptr %arg to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %7 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  store i64 0, ptr %7, align 8
-  %8 = ptrtoint ptr %arg to i64
-  store i64 %8, ptr %agg.tmp.i, align 8
+  %8 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  store i64 0, ptr %8, align 8
+  store i64 %7, ptr %agg.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN9grpc_core19LoadBalancingPolicy11QueuePicker4PickENS2_8PickArgsEENK3$_0clEPvN4absl12lts_202308026StatusEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN9grpc_core19LoadBalancingPolicy11QueuePicker4PickENS2_8PickArgsEENK3$_0clEPvN4absl12lts_202308026StatusEEUlvE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   invoke void @_ZN9grpc_core14WorkSerializer3RunESt8functionIFvvEERKNS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)

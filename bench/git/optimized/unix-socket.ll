@@ -31,17 +31,17 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %fail.thread, label %if.end8
 
 fail.thread:                                      ; preds = %if.end4
-  %call912 = tail call ptr @__errno_location() #11
-  %0 = load i32, ptr %call912, align 4
+  %call913 = tail call ptr @__errno_location() #11
+  %0 = load i32, ptr %call913, align 4
   br label %if.then11
 
 if.end8:                                          ; preds = %if.end4
-  %1 = load ptr, ptr %ctx, align 8
-  %tobool.not.i = icmp eq ptr %1, null
+  %ctx.val = load ptr, ptr %ctx, align 8
+  %tobool.not.i = icmp eq ptr %ctx.val, null
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end8
-  %call.i = call i32 @chdir(ptr noundef nonnull %1) #10
+  %call.i = call i32 @chdir(ptr noundef nonnull %ctx.val) #10
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then2.i, label %if.end3.i
 
@@ -50,47 +50,47 @@ if.then2.i:                                       ; preds = %if.end.i
   unreachable
 
 if.end3.i:                                        ; preds = %if.end.i
-  call void @free(ptr noundef nonnull %1) #10
+  call void @free(ptr noundef nonnull %ctx.val) #10
   br label %return
 
 fail:                                             ; preds = %if.end
   %call9 = tail call ptr @__errno_location() #11
-  %2 = load i32, ptr %call9, align 4
+  %1 = load i32, ptr %call9, align 4
   %cmp10.not = icmp eq i32 %call1, -1
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %fail.thread, %fail
-  %3 = phi i32 [ %0, %fail.thread ], [ %2, %fail ]
-  %call914 = phi ptr [ %call912, %fail.thread ], [ %call9, %fail ]
+  %2 = phi i32 [ %0, %fail.thread ], [ %1, %fail ]
+  %call915 = phi ptr [ %call913, %fail.thread ], [ %call9, %fail ]
   %call12 = call i32 @close(i32 noundef %call1) #10
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %fail
-  %4 = phi i32 [ %3, %if.then11 ], [ %2, %fail ]
-  %call915 = phi ptr [ %call914, %if.then11 ], [ %call9, %fail ]
-  %5 = load ptr, ptr %ctx, align 8
-  %tobool.not.i5 = icmp eq ptr %5, null
-  br i1 %tobool.not.i5, label %unix_sockaddr_cleanup.exit11, label %if.end.i6
+  %3 = phi i32 [ %2, %if.then11 ], [ %1, %fail ]
+  %call916 = phi ptr [ %call915, %if.then11 ], [ %call9, %fail ]
+  %ctx.val5 = load ptr, ptr %ctx, align 8
+  %tobool.not.i6 = icmp eq ptr %ctx.val5, null
+  br i1 %tobool.not.i6, label %unix_sockaddr_cleanup.exit12, label %if.end.i7
 
-if.end.i6:                                        ; preds = %if.end13
-  %call.i7 = call i32 @chdir(ptr noundef nonnull %5) #10
-  %cmp.i8 = icmp slt i32 %call.i7, 0
-  br i1 %cmp.i8, label %if.then2.i10, label %if.end3.i9
+if.end.i7:                                        ; preds = %if.end13
+  %call.i8 = call i32 @chdir(ptr noundef nonnull %ctx.val5) #10
+  %cmp.i9 = icmp slt i32 %call.i8, 0
+  br i1 %cmp.i9, label %if.then2.i11, label %if.end3.i10
 
-if.then2.i10:                                     ; preds = %if.end.i6
+if.then2.i11:                                     ; preds = %if.end.i7
   call void (ptr, ...) @die(ptr noundef nonnull @.str) #12
   unreachable
 
-if.end3.i9:                                       ; preds = %if.end.i6
-  call void @free(ptr noundef nonnull %5) #10
-  br label %unix_sockaddr_cleanup.exit11
+if.end3.i10:                                      ; preds = %if.end.i7
+  call void @free(ptr noundef nonnull %ctx.val5) #10
+  br label %unix_sockaddr_cleanup.exit12
 
-unix_sockaddr_cleanup.exit11:                     ; preds = %if.end13, %if.end3.i9
-  store i32 %4, ptr %call915, align 4
+unix_sockaddr_cleanup.exit12:                     ; preds = %if.end13, %if.end3.i10
+  store i32 %3, ptr %call916, align 4
   br label %return
 
-return:                                           ; preds = %if.end3.i, %if.end8, %entry, %unix_sockaddr_cleanup.exit11
-  %retval.0 = phi i32 [ -1, %unix_sockaddr_cleanup.exit11 ], [ -1, %entry ], [ %call1, %if.end8 ], [ %call1, %if.end3.i ]
+return:                                           ; preds = %if.end3.i, %if.end8, %entry, %unix_sockaddr_cleanup.exit12
+  %retval.0 = phi i32 [ -1, %unix_sockaddr_cleanup.exit12 ], [ -1, %entry ], [ %call1, %if.end8 ], [ %call1, %if.end3.i ]
   ret i32 %retval.0
 }
 
@@ -216,12 +216,12 @@ if.end9:                                          ; preds = %if.end5
   br i1 %cmp14, label %fail.thread, label %if.end16
 
 if.end16:                                         ; preds = %if.end9
-  %1 = load ptr, ptr %ctx, align 8
-  %tobool.not.i = icmp eq ptr %1, null
+  %ctx.val9 = load ptr, ptr %ctx, align 8
+  %tobool.not.i = icmp eq ptr %ctx.val9, null
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end16
-  %call.i = call i32 @chdir(ptr noundef nonnull %1) #10
+  %call.i = call i32 @chdir(ptr noundef nonnull %ctx.val9) #10
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then2.i, label %if.end3.i
 
@@ -230,52 +230,52 @@ if.then2.i:                                       ; preds = %if.end.i
   unreachable
 
 if.end3.i:                                        ; preds = %if.end.i
-  call void @free(ptr noundef nonnull %1) #10
+  call void @free(ptr noundef nonnull %ctx.val9) #10
   br label %return
 
 fail.thread:                                      ; preds = %if.end9, %if.end5
-  %call1716 = tail call ptr @__errno_location() #11
-  %2 = load i32, ptr %call1716, align 4
+  %call1717 = tail call ptr @__errno_location() #11
+  %1 = load i32, ptr %call1717, align 4
   br label %if.then19
 
 fail:                                             ; preds = %if.end
   %call17 = tail call ptr @__errno_location() #11
-  %3 = load i32, ptr %call17, align 4
+  %2 = load i32, ptr %call17, align 4
   %cmp18.not = icmp eq i32 %call2, -1
   br i1 %cmp18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %fail.thread, %fail
-  %4 = phi i32 [ %2, %fail.thread ], [ %3, %fail ]
-  %call1718 = phi ptr [ %call1716, %fail.thread ], [ %call17, %fail ]
+  %3 = phi i32 [ %1, %fail.thread ], [ %2, %fail ]
+  %call1719 = phi ptr [ %call1717, %fail.thread ], [ %call17, %fail ]
   %call20 = call i32 @close(i32 noundef %call2) #10
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %fail
-  %5 = phi i32 [ %4, %if.then19 ], [ %3, %fail ]
-  %call1719 = phi ptr [ %call1718, %if.then19 ], [ %call17, %fail ]
-  %6 = load ptr, ptr %ctx, align 8
-  %tobool.not.i9 = icmp eq ptr %6, null
-  br i1 %tobool.not.i9, label %unix_sockaddr_cleanup.exit15, label %if.end.i10
+  %4 = phi i32 [ %3, %if.then19 ], [ %2, %fail ]
+  %call1720 = phi ptr [ %call1719, %if.then19 ], [ %call17, %fail ]
+  %ctx.val = load ptr, ptr %ctx, align 8
+  %tobool.not.i10 = icmp eq ptr %ctx.val, null
+  br i1 %tobool.not.i10, label %unix_sockaddr_cleanup.exit16, label %if.end.i11
 
-if.end.i10:                                       ; preds = %if.end21
-  %call.i11 = call i32 @chdir(ptr noundef nonnull %6) #10
-  %cmp.i12 = icmp slt i32 %call.i11, 0
-  br i1 %cmp.i12, label %if.then2.i14, label %if.end3.i13
+if.end.i11:                                       ; preds = %if.end21
+  %call.i12 = call i32 @chdir(ptr noundef nonnull %ctx.val) #10
+  %cmp.i13 = icmp slt i32 %call.i12, 0
+  br i1 %cmp.i13, label %if.then2.i15, label %if.end3.i14
 
-if.then2.i14:                                     ; preds = %if.end.i10
+if.then2.i15:                                     ; preds = %if.end.i11
   call void (ptr, ...) @die(ptr noundef nonnull @.str) #12
   unreachable
 
-if.end3.i13:                                      ; preds = %if.end.i10
-  call void @free(ptr noundef nonnull %6) #10
-  br label %unix_sockaddr_cleanup.exit15
+if.end3.i14:                                      ; preds = %if.end.i11
+  call void @free(ptr noundef nonnull %ctx.val) #10
+  br label %unix_sockaddr_cleanup.exit16
 
-unix_sockaddr_cleanup.exit15:                     ; preds = %if.end21, %if.end3.i13
-  store i32 %5, ptr %call1719, align 4
+unix_sockaddr_cleanup.exit16:                     ; preds = %if.end21, %if.end3.i14
+  store i32 %4, ptr %call1720, align 4
   br label %return
 
-return:                                           ; preds = %if.end3.i, %if.end16, %entry, %unix_sockaddr_cleanup.exit15
-  %retval.0 = phi i32 [ -1, %unix_sockaddr_cleanup.exit15 ], [ -1, %entry ], [ %call2, %if.end16 ], [ %call2, %if.end3.i ]
+return:                                           ; preds = %if.end3.i, %if.end16, %entry, %unix_sockaddr_cleanup.exit16
+  %retval.0 = phi i32 [ -1, %unix_sockaddr_cleanup.exit16 ], [ -1, %entry ], [ %call2, %if.end16 ], [ %call2, %if.end3.i ]
   ret i32 %retval.0
 }
 

@@ -14373,14 +14373,14 @@ if.then10.i.i.i.i:                                ; preds = %while.end.i.i.i.i
 
 if.end17.i.i.i.i:                                 ; preds = %if.then10.i.i.i.i, %while.end.i.i.i.i
   %__holeIndex.addr.1.i.i.i.i = phi i64 [ %sub13.i.i.i.i, %if.then10.i.i.i.i ], [ %__secondChild.0.lcssa.i.i.i.i, %while.end.i.i.i.i ]
-  %cmp14.i.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i.i, %div13.i.i.i
-  br i1 %cmp14.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit.i.i.i
+  %cmp4.i.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i.i, %div13.i.i.i
+  br i1 %cmp4.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %if.end17.i.i.i.i, %while.body.i.i.i.i.i
-  %__holeIndex.addr.015.i.i.i.i.i = phi i64 [ %__parent.016.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end17.i.i.i.i ]
-  %__parent.016.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.015.i.i.i.i.i, -1
-  %__parent.016.i.i.i.i.i = sdiv i64 %__parent.016.in.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__parent.016.i.i.i.i.i
+  %__holeIndex.addr.05.i.i.i.i.i = phi i64 [ %__parent.06.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end17.i.i.i.i ]
+  %__parent.06.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.05.i.i.i.i.i, -1
+  %__parent.06.i.i.i.i.i = sdiv i64 %__parent.06.in.i.i.i.i.i, 2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__parent.06.i.i.i.i.i
   %add.ptr.val.i.i.i.i.i = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %__comp.val.val.i.i.i.i.i = load ptr, ptr %__comp.coerce, align 8
   %__comp.val.val10.i.i.i.i.i = load i32, ptr %0, align 8
@@ -14388,13 +14388,13 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end17.i.i.i.i, %
   br i1 %call.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.015.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.05.i.i.i.i.i
   store i32 %add.ptr.val.i.i.i.i.i, ptr %add.ptr2.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp sgt i64 %__parent.016.i.i.i.i.i, %div13.i.i.i
+  %cmp.i.i.i.i.i = icmp sgt i64 %__parent.06.i.i.i.i.i, %div13.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit.i.i.i, !llvm.loop !54
 
 _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end17.i.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end17.i.i.i.i ], [ %__holeIndex.addr.015.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.016.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end17.i.i.i.i ], [ %__holeIndex.addr.05.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.06.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %add.ptr5.i.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store i32 %1, ptr %add.ptr5.i.i.i.i.i, align 4
   %cmp6180.i.i.i = icmp ult i64 %sub.i.i.i, 2
@@ -14626,14 +14626,14 @@ if.then10.i43.i.i.i:                              ; preds = %while.end.i17.i.i.i
 
 if.end17.i21.i.i.i:                               ; preds = %if.then10.i43.i.i.i, %while.end.i17.i.i.i
   %__holeIndex.addr.1.i22.i.i.i = phi i64 [ %sub13.i45.i.i.i, %if.then10.i43.i.i.i ], [ %__secondChild.0.lcssa.i18.i.i.i, %while.end.i17.i.i.i ]
-  %cmp14.i.i23.not.i.i.i = icmp slt i64 %__holeIndex.addr.1.i22.i.i.i, %__parent.0181.i.i.i
-  br i1 %cmp14.i.i23.not.i.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit65.i.i.i, label %land.rhs.i.i27.i.i.i
+  %cmp4.i.i23.not.i.i.i = icmp slt i64 %__holeIndex.addr.1.i22.i.i.i, %__parent.0181.i.i.i
+  br i1 %cmp4.i.i23.not.i.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit65.i.i.i, label %land.rhs.i.i27.i.i.i
 
 land.rhs.i.i27.i.i.i:                             ; preds = %if.end17.i21.i.i.i, %while.body.i.i36.i.i.i
-  %__holeIndex.addr.015.i.i28.i.i.i = phi i64 [ %__parent.016.i.i30.i.i.i, %while.body.i.i36.i.i.i ], [ %__holeIndex.addr.1.i22.i.i.i, %if.end17.i21.i.i.i ]
-  %__parent.016.in.i.i29.i.i.i = add nsw i64 %__holeIndex.addr.015.i.i28.i.i.i, -1
-  %__parent.016.i.i30.i.i.i = sdiv i64 %__parent.016.in.i.i29.i.i.i, 2
-  %add.ptr.i.i31.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__parent.016.i.i30.i.i.i
+  %__holeIndex.addr.05.i.i28.i.i.i = phi i64 [ %__parent.06.i.i30.i.i.i, %while.body.i.i36.i.i.i ], [ %__holeIndex.addr.1.i22.i.i.i, %if.end17.i21.i.i.i ]
+  %__parent.06.in.i.i29.i.i.i = add nsw i64 %__holeIndex.addr.05.i.i28.i.i.i, -1
+  %__parent.06.i.i30.i.i.i = sdiv i64 %__parent.06.in.i.i29.i.i.i, 2
+  %add.ptr.i.i31.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__parent.06.i.i30.i.i.i
   %add.ptr.val.i.i32.i.i.i = load i32, ptr %add.ptr.i.i31.i.i.i, align 4
   %__comp.val.val.i.i33.i.i.i = load ptr, ptr %__comp.coerce, align 8
   %__comp.val.val10.i.i34.i.i.i = load i32, ptr %0, align 8
@@ -14820,13 +14820,13 @@ _ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8ra
   br i1 %cmp.i66.i.i.i, label %while.body.i.i36.i.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit65.i.i.i
 
 while.body.i.i36.i.i.i:                           ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i
-  %add.ptr2.i.i37.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.015.i.i28.i.i.i
+  %add.ptr2.i.i37.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.05.i.i28.i.i.i
   store i32 %add.ptr.val.i.i32.i.i.i, ptr %add.ptr2.i.i37.i.i.i, align 4
-  %cmp.i.i38.not.i.i.i = icmp slt i64 %__parent.016.i.i30.i.i.i, %__parent.0181.i.i.i
+  %cmp.i.i38.not.i.i.i = icmp slt i64 %__parent.06.i.i30.i.i.i, %__parent.0181.i.i.i
   br i1 %cmp.i.i38.not.i.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit65.i.i.i, label %land.rhs.i.i27.i.i.i, !llvm.loop !54
 
 _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit65.i.i.i: ; preds = %while.body.i.i36.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i, %if.end17.i21.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i24.i.i.i = phi i64 [ %__holeIndex.addr.1.i22.i.i.i, %if.end17.i21.i.i.i ], [ %__holeIndex.addr.015.i.i28.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i ], [ %__parent.016.i.i30.i.i.i, %while.body.i.i36.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i24.i.i.i = phi i64 [ %__holeIndex.addr.1.i22.i.i.i, %if.end17.i21.i.i.i ], [ %__holeIndex.addr.05.i.i28.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i ], [ %__parent.06.i.i30.i.i.i, %while.body.i.i36.i.i.i ]
   %add.ptr5.i.i25.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i24.i.i.i
   store i32 %5, ptr %add.ptr5.i.i25.i.i.i, align 4
   %cmp6.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -15071,14 +15071,14 @@ if.then10.i.i18:                                  ; preds = %land.lhs.true.i.i
 
 if.end17.i.i:                                     ; preds = %if.then10.i.i18, %land.lhs.true.i.i, %while.end.i.i
   %__holeIndex.addr.1.i.i = phi i64 [ %sub13.i.i, %if.then10.i.i18 ], [ %__secondChild.0.lcssa.i.i, %land.lhs.true.i.i ], [ %__secondChild.0.lcssa.i.i, %while.end.i.i ]
-  %cmp14.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i, 0
-  br i1 %cmp14.i.i.i, label %land.rhs.i.i.i, label %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_SR_RT0_.exit
+  %cmp4.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i, 0
+  br i1 %cmp4.i.i.i, label %land.rhs.i.i.i, label %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_SR_RT0_.exit
 
 land.rhs.i.i.i:                                   ; preds = %if.end17.i.i, %while.body.i.i.i
-  %__holeIndex.addr.015.i.i.i = phi i64 [ %__parent.016.i.i45.i, %while.body.i.i.i ], [ %__holeIndex.addr.1.i.i, %if.end17.i.i ]
-  %__parent.016.in.i.i.i = add nsw i64 %__holeIndex.addr.015.i.i.i, -1
-  %__parent.016.i.i45.i = lshr i64 %__parent.016.in.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__parent.016.i.i45.i
+  %__holeIndex.addr.05.i.i.i = phi i64 [ %__parent.06.i.i45.i, %while.body.i.i.i ], [ %__holeIndex.addr.1.i.i, %if.end17.i.i ]
+  %__parent.06.in.i.i.i = add nsw i64 %__holeIndex.addr.05.i.i.i, -1
+  %__parent.06.i.i45.i = lshr i64 %__parent.06.in.i.i.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__parent.06.i.i45.i
   %add.ptr.val.i.i.i = load i32, ptr %add.ptr.i.i.i, align 4
   %__comp.val.val.i.i.i = load ptr, ptr %__comp.coerce, align 8
   %__comp.val.val10.i.i.i = load i32, ptr %0, align 8
@@ -15265,13 +15265,13 @@ _ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8ra
   br i1 %cmp.i, label %while.body.i.i.i, label %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_SR_RT0_.exit
 
 while.body.i.i.i:                                 ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit
-  %add.ptr2.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.015.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.05.i.i.i
   store i32 %add.ptr.val.i.i.i, ptr %add.ptr2.i.i.i, align 4
-  %cmp.i.i.not.i = icmp ult i64 %__parent.016.in.i.i.i, 2
+  %cmp.i.i.not.i = icmp ult i64 %__parent.06.in.i.i.i, 2
   br i1 %cmp.i.i.not.i, label %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_SR_RT0_.exit, label %land.rhs.i.i.i, !llvm.loop !54
 
 _ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_SR_RT0_.exit: ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit, %while.body.i.i.i, %if.end17.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i, %if.end17.i.i ], [ %__holeIndex.addr.015.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit ], [ 0, %while.body.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i, %if.end17.i.i ], [ %__holeIndex.addr.05.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit ], [ 0, %while.body.i.i.i ]
   %add.ptr5.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i
   store i32 %48, ptr %add.ptr5.i.i.i, align 4
   %cmp.i4.i = icmp sgt i64 %sub.ptr.sub.i16, 4

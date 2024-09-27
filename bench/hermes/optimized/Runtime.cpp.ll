@@ -2450,12 +2450,12 @@ arrayctor.loop.preheader:                         ; preds = %arrayctor.loop.i
   store i32 1, ptr %nextScriptId_, align 8
   %crashCallbackKey_ = getelementptr inbounds i8, ptr %this, i64 9748
   %67 = load ptr, ptr %crashMgr_, align 8
+  %68 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp45, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp45, i64 24
-  %68 = getelementptr inbounds i8, ptr %agg.tmp45, i64 8
-  store i64 0, ptr %68, align 8
-  %69 = ptrtoint ptr %this to i64
-  store i64 %69, ptr %agg.tmp45, align 8
+  %69 = getelementptr inbounds i8, ptr %agg.tmp45, i64 8
+  store i64 0, ptr %69, align 8
+  store i64 %68, ptr %agg.tmp45, align 8
   store ptr @"_ZNSt17_Function_handlerIFviEZN6hermes2vm7RuntimeC1ESt10shared_ptrINS2_15StorageProviderEERKNS2_13RuntimeConfigEE3$_0E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFviEZN6hermes2vm7RuntimeC1ESt10shared_ptrINS2_15StorageProviderEERKNS2_13RuntimeConfigEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %vtable = load ptr, ptr %67, align 8
@@ -3806,12 +3806,12 @@ if.then.i.i:                                      ; preds = %if.then5.i
   br label %_ZNSt6vectorIPN6hermes2vm8CallableESaIS3_EE6resizeEm.exit
 
 _ZNSt6vectorIPN6hermes2vm8CallableESaIS3_EE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %if.then5.i, %if.then.i.i
+  %5 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %5, align 8
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %ref.tmp, align 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %6, align 8
+  store i64 %5, ptr %ref.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime18initNativeBuiltinsEvE3$_0E9_M_invokeERKSt9_Any_dataOjOS4_S8_OS9_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime18initNativeBuiltinsEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %call = call noundef i32 @_ZN6hermes2vm7Runtime26forEachPublicNativeBuiltinERKSt8functionIFNS0_15ExecutionStatusEjNS0_10Predefined3StrERNS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -6350,12 +6350,12 @@ if.then:                                          ; preds = %land.rhs
   %curChunkIndex_.i.i = getelementptr inbounds i8, ptr %gcScope.i, i64 208
   store i32 0, ptr %curChunkIndex_.i.i, align 8
   store ptr %gcScope.i, ptr %topGCScope_.i.i, align 8
+  %4 = ptrtoint ptr %this to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %4, align 8
-  %5 = ptrtoint ptr %this to i64
-  store i64 %5, ptr %ref.tmp.i, align 8
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %5, align 8
+  store i64 %4, ptr %ref.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0E9_M_invokeERKSt9_Any_dataOjOS4_S8_OS9_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   %call.i = call noundef i32 @_ZN6hermes2vm7Runtime26forEachPublicNativeBuiltinERKSt8functionIFNS0_15ExecutionStatusEjNS0_10Predefined3StrERNS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
@@ -6843,12 +6843,12 @@ entry:
   %curChunkIndex_.i = getelementptr inbounds i8, ptr %gcScope, i64 208
   store i32 0, ptr %curChunkIndex_.i, align 8
   store ptr %gcScope, ptr %topGCScope_.i, align 8
+  %1 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %1, align 8
-  %2 = ptrtoint ptr %this to i64
-  store i64 %2, ptr %ref.tmp, align 8
+  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %2, align 8
+  store i64 %1, ptr %ref.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0E9_M_invokeERKSt9_Any_dataOjOS4_S8_OS9_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN6hermes2vm15ExecutionStatusEjNS1_10Predefined3StrERNS1_6HandleINS1_8JSObjectEEENS1_8SymbolIDEEZNS1_7Runtime24assertBuiltinsUnmodifiedEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %call = call noundef i32 @_ZN6hermes2vm7Runtime26forEachPublicNativeBuiltinERKSt8functionIFNS0_15ExecutionStatusEjNS0_10Predefined3StrERNS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)

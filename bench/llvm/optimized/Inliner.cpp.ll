@@ -2324,49 +2324,49 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit211.thread375: ; preds = %528, %530,
   br i1 %647, label %.lr.ph.i.i.i.i232, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i232:                                ; preds = %637, %662
-  %.050.i.i.i.i = phi i64 [ %664, %662 ], [ %646, %637 ]
-  %.02949.i.i.i.i = phi ptr [ %663, %662 ], [ %640, %637 ]
-  %.029.val32.i.i.i.i = load ptr, ptr %.02949.i.i.i.i, align 8
-  %648 = call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %.029.val32.i.i.i.i) #18
+  %.051.i.i.i.i = phi i64 [ %664, %662 ], [ %646, %637 ]
+  %.02950.i.i.i.i = phi ptr [ %663, %662 ], [ %640, %637 ]
+  %.029.val39.i.i.i.i = load ptr, ptr %.02950.i.i.i.i, align 8
+  %648 = call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %.029.val39.i.i.i.i) #18
   %649 = icmp eq ptr %648, %.0.i184
   br i1 %649, label %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i", label %650
 
 650:                                              ; preds = %.lr.ph.i.i.i.i232
-  %651 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 16
-  %.val31.i.i.i.i = load ptr, ptr %651, align 8
-  %652 = call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %.val31.i.i.i.i) #18
+  %651 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 16
+  %.val37.i.i.i.i = load ptr, ptr %651, align 8
+  %652 = call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %.val37.i.i.i.i) #18
   %653 = icmp eq ptr %652, %.0.i184
   br i1 %653, label %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit", label %654
 
 654:                                              ; preds = %650
-  %655 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 32
-  %.val30.i.i.i.i = load ptr, ptr %655, align 8
-  %656 = call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %.val30.i.i.i.i) #18
+  %655 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 32
+  %.val35.i.i.i.i = load ptr, ptr %655, align 8
+  %656 = call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %.val35.i.i.i.i) #18
   %657 = icmp eq ptr %656, %.0.i184
   br i1 %657, label %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit547", label %658
 
 658:                                              ; preds = %654
-  %659 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 48
-  %.val.i.i.i.i = load ptr, ptr %659, align 8
-  %660 = call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %.val.i.i.i.i) #18
+  %659 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 48
+  %.val33.i.i.i.i = load ptr, ptr %659, align 8
+  %660 = call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %.val33.i.i.i.i) #18
   %661 = icmp eq ptr %660, %.0.i184
   br i1 %661, label %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit549", label %662
 
 662:                                              ; preds = %658
-  %663 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 64
-  %664 = add nsw i64 %.050.i.i.i.i, -1
-  %665 = icmp sgt i64 %.050.i.i.i.i, 1
+  %663 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 64
+  %664 = add nsw i64 %.051.i.i.i.i, -1
+  %665 = icmp sgt i64 %.051.i.i.i.i, 1
   br i1 %665, label %.lr.ph.i.i.i.i232, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !49
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %662
   %.pre.i.i.i.i = ptrtoint ptr %663 to i64
-  %.pre55.i.i.i.i = sub i64 %643, %.pre.i.i.i.i
+  %.pre56.i.i.i.i = sub i64 %643, %.pre.i.i.i.i
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %637
-  %.pre-phi56.i.i.i.i = phi i64 [ %.pre55.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %645, %637 ]
+  %.pre-phi57.i.i.i.i = phi i64 [ %.pre56.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %645, %637 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %663, %._crit_edge.loopexit.i.i.i.i ], [ %640, %637 ]
-  %666 = ashr exact i64 %.pre-phi56.i.i.i.i, 4
+  %666 = ashr exact i64 %.pre-phi57.i.i.i.i, 4
   switch i64 %666, label %"_ZSt9remove_ifIPSt4pairIPN4llvm8CallBaseEiEZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerIS8_JRS7_EEESB_RNS1_17CGSCCUpdateResultEE3$_3ET_SH_SH_T0_.exit" [
     i64 3, label %667
     i64 2, label %672
@@ -2402,19 +2402,19 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit211.thread375: ; preds = %528, %530,
   br i1 %679, label %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i", label %"_ZSt9remove_ifIPSt4pairIPN4llvm8CallBaseEiEZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerIS8_JRS7_EEESB_RNS1_17CGSCCUpdateResultEE3$_3ET_SH_SH_T0_.exit"
 
 "_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit": ; preds = %650
-  %680 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 16
+  %680 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 16
   br label %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i"
 
 "_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit547": ; preds = %654
-  %681 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 32
+  %681 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 32
   br label %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i"
 
 "_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit549": ; preds = %658
-  %682 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 48
+  %682 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 48
   br label %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i"
 
 "_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i.i232, %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit547", %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit549", %677, %672, %667
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %667 ], [ %.1.i.i.i.i, %672 ], [ %.2.i.i.i.i, %677 ], [ %680, %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %681, %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit547" ], [ %682, %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit549" ], [ %.02949.i.i.i.i, %.lr.ph.i.i.i.i232 ]
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %667 ], [ %.1.i.i.i.i, %672 ], [ %.2.i.i.i.i, %677 ], [ %680, %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %681, %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit547" ], [ %682, %"_ZSt9__find_ifIPSt4pairIPN4llvm8CallBaseEiEN9__gnu_cxx5__ops10_Iter_predIZNS1_11InlinerPass3runERNS1_13LazyCallGraph3SCCERNS1_15AnalysisManagerISB_JRSA_EEESE_RNS1_17CGSCCUpdateResultEE3$_3EEET_SL_SL_T0_.exit.i.i.loopexit.split.loop.exit549" ], [ %.02950.i.i.i.i, %.lr.ph.i.i.i.i232 ]
   %683 = icmp eq ptr %.028.i.i.i.i, %642
   %.01730.i.i = getelementptr inbounds i8, ptr %.028.i.i.i.i, i64 16
   %.not31.i.i = icmp eq ptr %.01730.i.i, %642

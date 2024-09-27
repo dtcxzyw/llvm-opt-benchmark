@@ -6493,13 +6493,13 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %entry, %_ZNKSt14def
   store i64 %5, ptr %second.i, align 8
   %lhi.sroa.2.0.second.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp8, i64 40
   store i64 %call7, ptr %lhi.sroa.2.0.second.i.sroa_idx, align 8
-  %__x.011.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112locked_filesB5cxx11E, i64 16), align 8
-  %cmp.not12.i.i.i = icmp eq ptr %__x.011.i.i.i, null
-  br i1 %cmp.not12.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i
+  %__x.09.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112locked_filesB5cxx11E, i64 16), align 8
+  %cmp.not10.i.i.i = icmp eq ptr %__x.09.i.i.i, null
+  br i1 %cmp.not10.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
-  %__x.013.i.i.i = phi ptr [ %__x.0.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %__x.011.i.i.i, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.013.i.i.i, i64 32
+  %__x.011.i.i.i = phi ptr [ %__x.0.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %__x.09.i.i.i, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.011.i.i.i, i64 32
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -6513,7 +6513,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %while.body.i.i.i
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i.i, i64 16, i64 24
-  %cond.in.i.i.i = getelementptr i8, ptr %__x.013.i.i.i, i64 %cond.in.v.i.i.i
+  %cond.in.i.i.i = getelementptr i8, ptr %__x.011.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !105
@@ -6522,35 +6522,35 @@ while.end.i.i.i:                                  ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %if.end12.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i, %_ZN7rocksdb6StatusD2Ev.exit
-  %__y.0.lcssa18.i.i.i = phi ptr [ %__x.013.i.i.i, %while.end.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112locked_filesB5cxx11E, i64 8), %_ZN7rocksdb6StatusD2Ev.exit ]
+  %__y.0.lcssa16.i.i.i = phi ptr [ %__x.011.i.i.i, %while.end.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112locked_filesB5cxx11E, i64 8), %_ZN7rocksdb6StatusD2Ev.exit ]
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112locked_filesB5cxx11E, i64 24), align 8
-  %cmp.i.i.i.i = icmp eq ptr %__y.0.lcssa18.i.i.i, %9
+  %cmp.i.i.i.i = icmp eq ptr %__y.0.lcssa16.i.i.i, %9
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa18.i.i.i) #36
+  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa16.i.i.i) #36
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %while.end.i.i.i
-  %__y.0.lcssa19.i.i.i = phi ptr [ %__y.0.lcssa18.i.i.i, %if.else.i.i.i ], [ %__x.013.i.i.i, %while.end.i.i.i ]
-  %__j.sroa.0.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.else.i.i.i ], [ %__x.013.i.i.i, %while.end.i.i.i ]
+  %__y.0.lcssa17.i.i.i = phi ptr [ %__y.0.lcssa16.i.i.i, %if.else.i.i.i ], [ %__x.011.i.i.i, %while.end.i.i.i ]
+  %__j.sroa.0.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.else.i.i.i ], [ %__x.011.i.i.i, %while.end.i.i.i ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i, i64 32
-  %call.i.i5.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit8.i.i.i unwind label %terminate.lpad.i.i6.i.i.i
+  %call.i.i6.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8)
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i.i.i unwind label %terminate.lpad.i.i7.i.i.i
 
-terminate.lpad.i.i6.i.i.i:                        ; preds = %if.end12.i.i.i
+terminate.lpad.i.i7.i.i.i:                        ; preds = %if.end12.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
   call void @__clang_call_terminate(ptr %11) #31
   unreachable
 
-_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit8.i.i.i: ; preds = %if.end12.i.i.i
-  %cmp.i.i7.i.i.i = icmp slt i32 %call.i.i5.i.i.i, 0
-  br i1 %cmp.i.i7.i.i.i, label %if.then.i.i, label %if.then
+_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i.i.i: ; preds = %if.end12.i.i.i
+  %cmp.i.i8.i.i.i = icmp slt i32 %call.i.i6.i.i.i, 0
+  br i1 %cmp.i.i8.i.i.i, label %if.then.i.i, label %if.then
 
-if.then.i.i:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit8.i.i.i, %if.then.i.i.i
-  %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa18.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit8.i.i.i ]
+if.then.i.i:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i.i.i, %if.then.i.i.i
+  %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa16.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa17.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i.i.i ]
   %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112locked_filesB5cxx11E, i64 8)
   br i1 %cmp2.i.i.i, label %lor.end.i.i.i, label %lor.rhs.i.i.i
 
@@ -6605,7 +6605,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad3.i.i.i.i.i.i
 unreachable.i.i.i.i.i.i:                          ; preds = %lpad.i.i.i.i.i.i
   unreachable
 
-if.then:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit8.i.i.i
+if.then:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit9.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #30
   %second13 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i, i64 64
   %prev_info.sroa.0.0.copyload = load i64, ptr %second13, align 8

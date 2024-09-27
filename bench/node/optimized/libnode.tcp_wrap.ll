@@ -926,7 +926,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %call20 = tail call noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #17
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
   store i32 %call20, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFiPKcP11sockaddr_inEZN4node7TCPWrap7ConnectERKN2v820FunctionCallbackInfoINS7_5ValueEEEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OS3_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFiPKcP11sockaddr_inEZN4node7TCPWrap7ConnectERKN2v820FunctionCallbackInfoINS7_5ValueEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i, align 8
@@ -1072,7 +1072,7 @@ if.end28:                                         ; preds = %_ZNK2v820FunctionCa
   %ref.tmp10.sroa.311.0.extract.trunc = trunc nuw i64 %ref.tmp10.sroa.311.0.extract.shift to i32
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp29, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp29, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp29, i8 0, i64 16, i1 false)
   store i32 %ref.tmp10.sroa.311.0.extract.trunc, ptr %agg.tmp29, align 8
   store ptr @"_ZNSt17_Function_handlerIFiPKcP12sockaddr_in6EZN4node7TCPWrap8Connect6ERKN2v820FunctionCallbackInfoINS7_5ValueEEEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OS3_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFiPKcP12sockaddr_in6EZN4node7TCPWrap8Connect6ERKN2v820FunctionCallbackInfoINS7_5ValueEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i, align 8

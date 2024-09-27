@@ -54650,11 +54650,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_RT0_.exit.i.i": ; preds = %.split9.i.i.i
   %20 = icmp sgt i64 %.lcssa, 8
-  br i1 %20, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_SU_T0_.exit"
+  br i1 %20, label %.lr.ph.i10.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_SU_T0_.exit"
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_RT0_.exit.i.i", %.lr.ph.i9.i
-  %.sroa.0.05.i.i = phi ptr [ %21, %.lr.ph.i9.i ], [ %storemerge24.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_RT0_.exit.i.i" ]
-  %21 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
+.lr.ph.i10.i:                                     ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_RT0_.exit.i.i", %.lr.ph.i10.i
+  %.sroa.0.03.i.i = phi ptr [ %21, %.lr.ph.i10.i ], [ %storemerge24.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_RT0_.exit.i.i" ]
+  %21 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %22 = load i64, ptr %21, align 8
   %23 = load i64, ptr %0, align 8
   store i64 %23, ptr %21, align 8
@@ -54663,7 +54663,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %26 = ashr exact i64 %25, 3
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_T0_SV_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %26, i64 noundef %22, ptr readonly %3, ptr readonly %4)
   %27 = icmp sgt i64 %25, 8
-  br i1 %27, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_SU_T0_.exit", !llvm.loop !323
+  br i1 %27, label %.lr.ph.i10.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_SU_T0_.exit", !llvm.loop !323
 
 .lr.ph43:                                         ; preds = %.lr.ph, %13
   %storemerge2442 = phi ptr [ %.sroa.019.1.lcssa.i.i, %13 ], [ %1, %.lr.ph ]
@@ -55223,7 +55223,7 @@ thread-pre-split58.i.i:                           ; preds = %"_ZN9__gnu_cxx5__op
   %387 = icmp sgt i64 %386, 16
   br i1 %387, label %13, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_SU_T0_.exit", !llvm.loop !321
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_SU_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEET_SU_SU_T0_.exit", %.lr.ph.i9.i, %5, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_RT0_.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_SU_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEET_SU_SU_T0_.exit", %.lr.ph.i10.i, %5, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_RT0_.exit.i.i"
   ret void
 }
 
@@ -55235,8 +55235,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEST_EEbT_T0_.exit.thread"
-  %.047 = phi i64 [ %62, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEST_EEbT_T0_.exit.thread" ], [ %1, %6 ]
-  %10 = shl i64 %.047, 1
+  %.043 = phi i64 [ %62, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEST_EEbT_T0_.exit.thread" ], [ %1, %6 ]
+  %10 = shl i64 %.043, 1
   %11 = add i64 %10, 2
   %12 = getelementptr inbounds i64, ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
@@ -55310,7 +55310,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEST_EEbT_T0_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEST_EEbT_T0_.exit", %.lr.ph
   %61 = phi i64 [ %15, %.lr.ph ], [ %.pre, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEST_EEbT_T0_.exit" ]
   %62 = phi i64 [ %11, %.lr.ph ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEST_EEbT_T0_.exit" ]
-  %63 = getelementptr inbounds i64, ptr %0, i64 %.047
+  %63 = getelementptr inbounds i64, ptr %0, i64 %.043
   store i64 %61, ptr %63, align 8
   %64 = icmp slt i64 %62, %8
   br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !327
@@ -55342,16 +55342,16 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %78, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_T0_SV_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %77
-  %.09.in18.i = add nsw i64 %.1, -1
-  %.0919.i = sdiv i64 %.09.in18.i, 2
+  %.09.in9.i = add nsw i64 %.1, -1
+  %.0910.i = sdiv i64 %.09.in9.i, 2
   %79 = icmp slt i64 %3, 1
   %80 = sub nsw i64 0, %3
   br i1 %79, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %113
-  %.0921.us.i = phi i64 [ %.09.us.i, %113 ], [ %.0919.i, %.lr.ph.i ]
-  %.020.us.i = phi i64 [ %.0921.us.i, %113 ], [ %.1, %.lr.ph.i ]
-  %81 = getelementptr inbounds i64, ptr %0, i64 %.0921.us.i
+  %.0912.us.i = phi i64 [ %.09.us.i, %113 ], [ %.0910.i, %.lr.ph.i ]
+  %.011.us.i = phi i64 [ %.0912.us.i, %113 ], [ %.1, %.lr.ph.i ]
+  %81 = getelementptr inbounds i64, ptr %0, i64 %.0912.us.i
   %82 = load i64, ptr %81, align 8
   %83 = icmp eq i64 %82, %3
   br i1 %83, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_T0_SV_T1_RT2_.exit", label %84
@@ -55396,17 +55396,17 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 113:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEmEEbT_RT0_.exit.us.i"
   %114 = load i64, ptr %81, align 8
-  %115 = getelementptr inbounds i64, ptr %0, i64 %.020.us.i
+  %115 = getelementptr inbounds i64, ptr %0, i64 %.011.us.i
   store i64 %114, ptr %115, align 8
-  %.09.in.us.i = add nsw i64 %.0921.us.i, -1
+  %.09.in.us.i = add nsw i64 %.0912.us.i, -1
   %.09.us.i = sdiv i64 %.09.in.us.i, 2
-  %116 = icmp sgt i64 %.0921.us.i, %1
+  %116 = icmp sgt i64 %.0912.us.i, %1
   br i1 %116, label %.lr.ph.split.us.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_T0_SV_T1_RT2_.exit", !llvm.loop !328
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %150
-  %.0921.i = phi i64 [ %.09.i, %150 ], [ %.0919.i, %.lr.ph.i ]
-  %.020.i = phi i64 [ %.0921.i, %150 ], [ %.1, %.lr.ph.i ]
-  %117 = getelementptr inbounds i64, ptr %0, i64 %.0921.i
+  %.0912.i = phi i64 [ %.09.i, %150 ], [ %.0910.i, %.lr.ph.i ]
+  %.011.i = phi i64 [ %.0912.i, %150 ], [ %.1, %.lr.ph.i ]
+  %117 = getelementptr inbounds i64, ptr %0, i64 %.0912.i
   %118 = load i64, ptr %117, align 8
   %119 = icmp eq i64 %118, %3
   br i1 %119, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_T0_SV_T1_RT2_.exit", label %120
@@ -55452,15 +55452,15 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 150:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEmEEbT_RT0_.exit.i"
   %151 = load i64, ptr %117, align 8
-  %152 = getelementptr inbounds i64, ptr %0, i64 %.020.i
+  %152 = getelementptr inbounds i64, ptr %0, i64 %.011.i
   store i64 %151, ptr %152, align 8
-  %.09.in.i = add nsw i64 %.0921.i, -1
+  %.09.in.i = add nsw i64 %.0912.i, -1
   %.09.i = sdiv i64 %.09.in.i, 2
-  %153 = icmp sgt i64 %.0921.i, %1
+  %153 = icmp sgt i64 %.0912.i, %1
   br i1 %153, label %.lr.ph.split.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_T0_SV_T1_RT2_.exit", !llvm.loop !328
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_T0_SV_T1_RT2_.exit": ; preds = %.lr.ph.split.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEmEEbT_RT0_.exit.i", %150, %.lr.ph.split.us.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEmEEbT_RT0_.exit.us.i", %113, %77
-  %.0.lcssa.i = phi i64 [ %.1, %77 ], [ %.020.us.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEmEEbT_RT0_.exit.us.i" ], [ %.0921.us.i, %113 ], [ %.020.us.i, %.lr.ph.split.us.i ], [ %.020.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEmEEbT_RT0_.exit.i" ], [ %.0921.i, %150 ], [ %.020.i, %.lr.ph.split.i ]
+  %.0.lcssa.i = phi i64 [ %.1, %77 ], [ %.011.us.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEmEEbT_RT0_.exit.us.i" ], [ %.0912.us.i, %113 ], [ %.011.us.i, %.lr.ph.split.us.i ], [ %.011.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEmEEbT_RT0_.exit.i" ], [ %.0912.i, %150 ], [ %.011.i, %.lr.ph.split.i ]
   %154 = getelementptr inbounds i64, ptr %0, i64 %.0.lcssa.i
   store i64 %3, ptr %154, align 8
   ret void

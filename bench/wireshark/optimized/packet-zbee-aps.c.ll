@@ -1378,7 +1378,7 @@ zbee_aps_node_packet_info.exit:                   ; preds = %169, %zbee_aps_calc
   br label %dissect_zbee_aps_transport_key.exit.i
 
 dissect_zbee_aps_transport_key.exit.i:            ; preds = %353, %348, %339, %336
-  %.0.i.i289 = phi i32 [ 18, %336 ], [ 27, %353 ], [ 34, %348 ], [ 35, %339 ]
+  %.0.i.i290 = phi i32 [ 18, %336 ], [ 27, %353 ], [ 34, %348 ], [ 35, %339 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %dissect_zbee_aps_request_key.exit.i
 
@@ -1500,8 +1500,8 @@ dissect_zbee_aps_auth_challenge.exit.i:           ; preds = %393, %387
   br label %dissect_zbee_aps_request_key.exit.i
 
 dissect_zbee_aps_request_key.exit.i:              ; preds = %431, %424, %416, %407, %dissect_zbee_aps_auth_challenge.exit.i, %382, %379, %373, %370, %dissect_zbee_aps_update_device.exit.i, %dissect_zbee_aps_transport_key.exit.i, %319, %312, %301
-  %.0.i288 = phi i32 [ 1, %301 ], [ 11, %431 ], [ 26, %424 ], [ %423, %416 ], [ 22, %407 ], [ %406, %dissect_zbee_aps_auth_challenge.exit.i ], [ 2, %382 ], [ 9, %370 ], [ %369, %dissect_zbee_aps_update_device.exit.i ], [ %.0.i.i289, %dissect_zbee_aps_transport_key.exit.i ], [ 33, %319 ], [ 33, %312 ], [ 10, %379 ], [ 2, %373 ]
-  %443 = call i32 @dissect_zbee_tlvs(ptr noundef nonnull %.1263, ptr noundef %1, ptr noundef %17, i32 noundef %.0.i288, ptr noundef nonnull %3, i8 noundef zeroext 2, i32 noundef %305) #3
+  %.0.i289 = phi i32 [ 1, %301 ], [ 11, %431 ], [ 26, %424 ], [ %423, %416 ], [ 22, %407 ], [ %406, %dissect_zbee_aps_auth_challenge.exit.i ], [ 2, %382 ], [ 9, %370 ], [ %369, %dissect_zbee_aps_update_device.exit.i ], [ %.0.i.i290, %dissect_zbee_aps_transport_key.exit.i ], [ 33, %319 ], [ 33, %312 ], [ 10, %379 ], [ 2, %373 ]
+  %443 = call i32 @dissect_zbee_tlvs(ptr noundef nonnull %.1263, ptr noundef %1, ptr noundef %17, i32 noundef %.0.i289, ptr noundef nonnull %3, i8 noundef zeroext 2, i32 noundef %305) #3
   %444 = call i32 @tvb_captured_length(ptr noundef nonnull %.1263) #3
   %445 = icmp ult i32 %443, %444
   br i1 %445, label %446, label %dissect_zbee_aps_cmd.exit

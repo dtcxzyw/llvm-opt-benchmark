@@ -2020,19 +2020,19 @@ invoke.cont331:                                   ; preds = %call3.i.i.i.i.noexc
           to label %if.then.i775 unwind label %lpad332
 
 if.then.i775:                                     ; preds = %invoke.cont331
+  %99 = ptrtoint ptr %minUnifiedAssertions to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %predicate, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %predicate, i64 24
-  %99 = getelementptr inbounds i8, ptr %predicate, i64 8
-  store i64 0, ptr %99, align 8
-  %100 = ptrtoint ptr %minUnifiedAssertions to i64
-  store i64 %100, ptr %predicate, align 8
+  %100 = getelementptr inbounds i8, ptr %predicate, i64 8
+  store i64 0, ptr %100, align 8
+  store i64 %99, ptr %predicate, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN4cvc58internal12NodeTemplateILb1EEEEZNS1_3smt9PfManager24connectProofToAssertionsESt10shared_ptrINS1_9ProofNodeEERNS5_9SmtSolverENS5_14ProofScopeModeEE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN4cvc58internal12NodeTemplateILb1EEEEZNS1_3smt9PfManager24connectProofToAssertionsESt10shared_ptrINS1_9ProofNodeEERNS5_9SmtSolverENS5_14ProofScopeModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %_M_manager.i.i773 = getelementptr inbounds i8, ptr %agg.tmp335, i64 16
   %_M_invoker.i774 = getelementptr inbounds i8, ptr %agg.tmp335, i64 24
   %101 = getelementptr inbounds i8, ptr %agg.tmp335, i64 8
   store i64 0, ptr %101, align 8
-  store i64 %100, ptr %agg.tmp335, align 8
+  store i64 %99, ptr %agg.tmp335, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN4cvc58internal12NodeTemplateILb1EEEEZNS1_3smt9PfManager24connectProofToAssertionsESt10shared_ptrINS1_9ProofNodeEERNS5_9SmtSolverENS5_14ProofScopeModeEE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %_M_invoker.i774, align 8
   store ptr @"_ZNSt17_Function_handlerIFbN4cvc58internal12NodeTemplateILb1EEEEZNS1_3smt9PfManager24connectProofToAssertionsESt10shared_ptrINS1_9ProofNodeEERNS5_9SmtSolverENS5_14ProofScopeModeEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i773, align 8
   %call340 = invoke noundef i64 @_ZN4cvc58internal3smt8erase_ifINS0_12NodeTemplateILb1EEESaIS4_ESt8functionIFbS4_EEEENSt6vectorIT_T0_E9size_typeERSC_T1_(ptr noundef nonnull align 8 dereferenceable(24) %minDefinitions, ptr noundef nonnull %agg.tmp335)

@@ -395,15 +395,15 @@ _ZNSt6vectorIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit: ; preds
   br i1 %108, label %267, label %.preheader
 
 .preheader:                                       ; preds = %_ZNSt6vectorIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit
-  %109 = getelementptr inbounds i8, ptr %8, i64 16
-  %110 = getelementptr inbounds i8, ptr %8, i64 24
-  %111 = ptrtoint ptr %0 to i64
-  %112 = getelementptr inbounds i8, ptr %0, i64 512
-  %113 = getelementptr inbounds i8, ptr %0, i64 536
-  %114 = getelementptr inbounds i8, ptr %0, i64 648
-  %115 = getelementptr inbounds i8, ptr %5, i64 16
-  %116 = getelementptr inbounds i8, ptr %5, i64 24
-  %117 = getelementptr inbounds i8, ptr %8, i64 8
+  %109 = ptrtoint ptr %0 to i64
+  %110 = getelementptr inbounds i8, ptr %8, i64 16
+  %111 = getelementptr inbounds i8, ptr %8, i64 24
+  %112 = getelementptr inbounds i8, ptr %8, i64 8
+  %113 = getelementptr inbounds i8, ptr %0, i64 512
+  %114 = getelementptr inbounds i8, ptr %0, i64 536
+  %115 = getelementptr inbounds i8, ptr %0, i64 648
+  %116 = getelementptr inbounds i8, ptr %5, i64 16
+  %117 = getelementptr inbounds i8, ptr %5, i64 24
   %118 = getelementptr inbounds i8, ptr %5, i64 8
   br label %119
 
@@ -425,12 +425,12 @@ _ZNSt6vectorIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit: ; preds
 .loopexit:                                        ; preds = %119, %126, %135, %144, %153, %182, %188, %197, %206, %215, %224, %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit26
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit23
+  br label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit24
 
 .loopexit.split-lp:                               ; preds = %2
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit23
+  br label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit24
 
 126:                                              ; preds = %125
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) @__const.VideoCapture_obsensor.profile, i64 16, i1 false)
@@ -500,9 +500,9 @@ _ZNSt6vectorIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit: ; preds
 162:                                              ; preds = %143, %159, %161, %152, %134
   %163 = load ptr, ptr %.sroa.033.039, align 8
   store i64 0, ptr %118, align 8
-  store i64 %111, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN2cv8obsensor5FrameEEZNS0_21VideoCapture_obsensorC1EiE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %116, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN2cv8obsensor5FrameEEZNS0_21VideoCapture_obsensorC1EiE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %115, align 8
+  store i64 %109, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN2cv8obsensor5FrameEEZNS0_21VideoCapture_obsensorC1EiE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %117, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN2cv8obsensor5FrameEEZNS0_21VideoCapture_obsensorC1EiE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %116, align 8
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 16
   %166 = load ptr, ptr %165, align 8
@@ -510,7 +510,7 @@ _ZNSt6vectorIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit: ; preds
           to label %167 unwind label %174
 
 167:                                              ; preds = %162
-  %168 = load ptr, ptr %115, align 8
+  %168 = load ptr, ptr %116, align 8
   %.not.i.i = icmp eq ptr %168, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit, label %169
 
@@ -528,13 +528,13 @@ _ZNSt6vectorIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit: ; preds
 174:                                              ; preds = %162
   %175 = landingpad { ptr, i32 }
           cleanup
-  %176 = load ptr, ptr %115, align 8
-  %.not.i.i22 = icmp eq ptr %176, null
-  br i1 %.not.i.i22, label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit23, label %177
+  %176 = load ptr, ptr %116, align 8
+  %.not.i.i23 = icmp eq ptr %176, null
+  br i1 %.not.i.i23, label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit24, label %177
 
 177:                                              ; preds = %174
   %178 = invoke noundef zeroext i1 %176(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit23 unwind label %179
+          to label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit24 unwind label %179
 
 179:                                              ; preds = %177
   %180 = landingpad { ptr, i32 }
@@ -635,10 +635,10 @@ _ZNSt6vectorIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit: ; preds
 
 233:                                              ; preds = %205, %223, %232, %230, %214, %196
   %234 = load ptr, ptr %.sroa.033.039, align 8
-  store i64 0, ptr %117, align 8
-  store i64 %111, ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN2cv8obsensor5FrameEEZNS0_21VideoCapture_obsensorC1EiE3$_1E9_M_invokeERKSt9_Any_dataOS3_", ptr %110, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvPN2cv8obsensor5FrameEEZNS0_21VideoCapture_obsensorC1EiE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %109, align 8
+  store i64 0, ptr %112, align 8
+  store i64 %109, ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN2cv8obsensor5FrameEEZNS0_21VideoCapture_obsensorC1EiE3$_1E9_M_invokeERKSt9_Any_dataOS3_", ptr %111, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvPN2cv8obsensor5FrameEEZNS0_21VideoCapture_obsensorC1EiE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %110, align 8
   %235 = load ptr, ptr %234, align 8
   %236 = getelementptr inbounds i8, ptr %235, i64 16
   %237 = load ptr, ptr %236, align 8
@@ -646,7 +646,7 @@ _ZNSt6vectorIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit: ; preds
           to label %238 unwind label %257
 
 238:                                              ; preds = %233
-  %239 = load ptr, ptr %109, align 8
+  %239 = load ptr, ptr %110, align 8
   %.not.i.i25 = icmp eq ptr %239, null
   br i1 %.not.i.i25, label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit26, label %240
 
@@ -662,34 +662,34 @@ _ZNSt6vectorIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit: ; preds
   unreachable
 
 _ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit26: ; preds = %238, %240
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %112, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %113, i8 0, i64 136, i1 false)
   %245 = load ptr, ptr %.sroa.033.039, align 8
   %246 = load ptr, ptr %245, align 8
   %247 = getelementptr inbounds i8, ptr %246, i64 40
   %248 = load ptr, ptr %247, align 8
-  %249 = invoke noundef zeroext i1 %248(ptr noundef nonnull align 8 dereferenceable(8) %245, i32 noundef 1001, ptr noundef nonnull %112, ptr noundef nonnull %9)
+  %249 = invoke noundef zeroext i1 %248(ptr noundef nonnull align 8 dereferenceable(8) %245, i32 noundef 1001, ptr noundef nonnull %113, ptr noundef nonnull %9)
           to label %250 unwind label %.loopexit
 
 250:                                              ; preds = %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit26
-  %251 = load float, ptr %113, align 8
+  %251 = load float, ptr %114, align 8
   %252 = fmul float %251, 2.000000e+00
   %253 = fdiv float %252, 6.400000e+02
   %254 = fpext float %253 to double
   %255 = fadd double %254, 5.000000e-01
   %256 = fptosi double %255 to i32
-  store i32 %256, ptr %114, align 8
+  store i32 %256, ptr %115, align 8
   br label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit
 
 257:                                              ; preds = %233
   %258 = landingpad { ptr, i32 }
           cleanup
-  %259 = load ptr, ptr %109, align 8
+  %259 = load ptr, ptr %110, align 8
   %.not.i.i27 = icmp eq ptr %259, null
-  br i1 %.not.i.i27, label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit23, label %260
+  br i1 %.not.i.i27, label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit24, label %260
 
 260:                                              ; preds = %257
   %261 = invoke noundef zeroext i1 %259(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit23 unwind label %262
+          to label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit24 unwind label %262
 
 262:                                              ; preds = %260
   %263 = landingpad { ptr, i32 }
@@ -710,7 +710,7 @@ _ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit: ; preds = %169, %167, %250, %
 267:                                              ; preds = %266, %_ZNSt6vectorIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit
   ret void
 
-_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit23: ; preds = %.loopexit, %.loopexit.split-lp, %260, %257, %177, %174
+_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit24: ; preds = %.loopexit, %.loopexit.split-lp, %260, %257, %177, %174
   %.pn = phi { ptr, i32 } [ %175, %174 ], [ %175, %177 ], [ %258, %257 ], [ %258, %260 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #19
@@ -1122,10 +1122,10 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
   %8 = add nsw i64 %7, 33000000
   %9 = getelementptr inbounds i8, ptr %0, i64 128
   %10 = getelementptr inbounds i8, ptr %0, i64 224
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = sdiv i64 %8, 1000000000
-  %.neg.i.i.i.i.i.i = mul nsw i64 %12, -1000000000
-  %13 = add i64 %.neg.i.i.i.i.i.i, %8
+  %11 = sdiv i64 %8, 1000000000
+  %.neg.i.i.i.i.i.i = mul nsw i64 %11, -1000000000
+  %12 = add i64 %.neg.i.i.i.i.i.i, %8
+  %13 = getelementptr inbounds i8, ptr %2, i64 8
   br label %14
 
 14:                                               ; preds = %.noexc3, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
@@ -1144,8 +1144,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
 
 "_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.exit.thread.i.i": ; preds = %.noexc2, %.noexc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  store i64 %12, ptr %2, align 8
-  store i64 %13, ptr %11, align 8
+  store i64 %11, ptr %2, align 8
+  store i64 %12, ptr %13, align 8
   %17 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %2)
           to label %.noexc3 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit8.loopexit
 

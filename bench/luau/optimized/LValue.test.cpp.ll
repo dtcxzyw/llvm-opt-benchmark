@@ -2088,19 +2088,19 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit120.i: ; preds = %_ZN4Luau7Var
   %201 = getelementptr inbounds i8, ptr %33, i64 80
   store ptr null, ptr %201, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %202 = getelementptr inbounds i8, ptr %11, i64 16
-  %203 = getelementptr inbounds i8, ptr %11, i64 24
-  %204 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 0, ptr %204, align 8
-  %205 = ptrtoint ptr %33 to i64
-  store i64 %205, ptr %11, align 8
-  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZL5mergeRNS0_9TypeArenaERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISB_ESaISt4pairIKSB_S3_EEERKSJ_E3$_0E9_M_invokeERKSt9_Any_dataOS3_SS_", ptr %203, align 8
-  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZL5mergeRNS0_9TypeArenaERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISB_ESaISt4pairIKSB_S3_EEERKSJ_E3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %202, align 8
+  %202 = ptrtoint ptr %33 to i64
+  %203 = getelementptr inbounds i8, ptr %11, i64 16
+  %204 = getelementptr inbounds i8, ptr %11, i64 24
+  %205 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 0, ptr %205, align 8
+  store i64 %202, ptr %11, align 8
+  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZL5mergeRNS0_9TypeArenaERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISB_ESaISt4pairIKSB_S3_EEERKSJ_E3$_0E9_M_invokeERKSt9_Any_dataOS3_SS_", ptr %204, align 8
+  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZL5mergeRNS0_9TypeArenaERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISB_ESaISt4pairIKSB_S3_EEERKSJ_E3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %203, align 8
   invoke void @_ZN4Luau5mergeERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEERKSF_St8functionIFS7_S7_S7_EE(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull %11)
           to label %206 unwind label %213
 
 206:                                              ; preds = %195
-  %207 = load ptr, ptr %202, align 8
+  %207 = load ptr, ptr %203, align 8
   %.not.i.i.i.i = icmp eq ptr %207, null
   br i1 %.not.i.i.i.i, label %221, label %208
 
@@ -2118,7 +2118,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit120.i: ; preds = %_ZN4Luau7Var
 213:                                              ; preds = %195
   %214 = landingpad { ptr, i32 }
           cleanup
-  %215 = load ptr, ptr %202, align 8
+  %215 = load ptr, ptr %203, align 8
   %.not.i.i4.i.i = icmp eq ptr %215, null
   br i1 %.not.i.i4.i.i, label %.body122.i, label %216
 
@@ -4415,19 +4415,19 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit120.i: ; preds = %180
   %201 = getelementptr inbounds i8, ptr %33, i64 80
   store ptr null, ptr %201, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %202 = getelementptr inbounds i8, ptr %11, i64 16
-  %203 = getelementptr inbounds i8, ptr %11, i64 24
-  %204 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 0, ptr %204, align 8
-  %205 = ptrtoint ptr %33 to i64
-  store i64 %205, ptr %11, align 8
-  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZL5mergeRNS0_9TypeArenaERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISB_ESaISt4pairIKSB_S3_EEERKSJ_E3$_0E9_M_invokeERKSt9_Any_dataOS3_SS_", ptr %203, align 8
-  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZL5mergeRNS0_9TypeArenaERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISB_ESaISt4pairIKSB_S3_EEERKSJ_E3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %202, align 8
+  %202 = ptrtoint ptr %33 to i64
+  %203 = getelementptr inbounds i8, ptr %11, i64 16
+  %204 = getelementptr inbounds i8, ptr %11, i64 24
+  %205 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 0, ptr %205, align 8
+  store i64 %202, ptr %11, align 8
+  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZL5mergeRNS0_9TypeArenaERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISB_ESaISt4pairIKSB_S3_EEERKSJ_E3$_0E9_M_invokeERKSt9_Any_dataOS3_SS_", ptr %204, align 8
+  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZL5mergeRNS0_9TypeArenaERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISB_ESaISt4pairIKSB_S3_EEERKSJ_E3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %203, align 8
   invoke void @_ZN4Luau5mergeERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEERKSF_St8functionIFS7_S7_S7_EE(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull %11)
           to label %206 unwind label %213
 
 206:                                              ; preds = %195
-  %207 = load ptr, ptr %202, align 8
+  %207 = load ptr, ptr %203, align 8
   %.not.i.i.i.i = icmp eq ptr %207, null
   br i1 %.not.i.i.i.i, label %221, label %208
 
@@ -4445,7 +4445,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit120.i: ; preds = %180
 213:                                              ; preds = %195
   %214 = landingpad { ptr, i32 }
           cleanup
-  %215 = load ptr, ptr %202, align 8
+  %215 = load ptr, ptr %203, align 8
   %.not.i.i4.i.i = icmp eq ptr %215, null
   br i1 %.not.i.i4.i.i, label %.body122.i, label %216
 
@@ -14536,19 +14536,19 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit163: ; preds = %_ZN4Luau7Varia
   %264 = getelementptr inbounds i8, ptr %45, i64 80
   store ptr null, ptr %264, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
-  %265 = getelementptr inbounds i8, ptr %18, i64 16
-  %266 = getelementptr inbounds i8, ptr %18, i64 24
-  %267 = getelementptr inbounds i8, ptr %18, i64 8
-  store i64 0, ptr %267, align 8
-  %268 = ptrtoint ptr %45 to i64
-  store i64 %268, ptr %18, align 8
-  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZL5mergeRNS0_9TypeArenaERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISB_ESaISt4pairIKSB_S3_EEERKSJ_E3$_0E9_M_invokeERKSt9_Any_dataOS3_SS_", ptr %266, align 8
-  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZL5mergeRNS0_9TypeArenaERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISB_ESaISt4pairIKSB_S3_EEERKSJ_E3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %265, align 8
+  %265 = ptrtoint ptr %45 to i64
+  %266 = getelementptr inbounds i8, ptr %18, i64 16
+  %267 = getelementptr inbounds i8, ptr %18, i64 24
+  %268 = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 0, ptr %268, align 8
+  store i64 %265, ptr %18, align 8
+  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZL5mergeRNS0_9TypeArenaERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISB_ESaISt4pairIKSB_S3_EEERKSJ_E3$_0E9_M_invokeERKSt9_Any_dataOS3_SS_", ptr %267, align 8
+  store ptr @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZL5mergeRNS0_9TypeArenaERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISB_ESaISt4pairIKSB_S3_EEERKSJ_E3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %266, align 8
   invoke void @_ZN4Luau5mergeERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEERKSF_St8functionIFS7_S7_S7_EE(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %37, ptr noundef nonnull %18)
           to label %269 unwind label %276
 
 269:                                              ; preds = %258
-  %270 = load ptr, ptr %265, align 8
+  %270 = load ptr, ptr %266, align 8
   %.not.i.i.i = icmp eq ptr %270, null
   br i1 %.not.i.i.i, label %284, label %271
 
@@ -14566,7 +14566,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit163: ; preds = %_ZN4Luau7Varia
 276:                                              ; preds = %258
   %277 = landingpad { ptr, i32 }
           cleanup
-  %278 = load ptr, ptr %265, align 8
+  %278 = load ptr, ptr %266, align 8
   %.not.i.i4.i = icmp eq ptr %278, null
   br i1 %.not.i.i4.i, label %.body165, label %279
 

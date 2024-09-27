@@ -2102,12 +2102,12 @@ cleanup.done:                                     ; preds = %if.then.i.i8.i.i.i,
   %11 = load ptr, ptr %m_terms, align 8
   %arrayidx.i28 = getelementptr inbounds ptr, ptr %11, i64 %idxprom.i
   %12 = load ptr, ptr %arrayidx.i28, align 8
+  %13 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %13 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %13, align 8
-  %14 = ptrtoint ptr %this to i64
-  store i64 %14, ptr %agg.tmp, align 8
+  %14 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store i64 0, ptr %14, align 8
+  store i64 %13, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFjjEZN2lp10hnf_cutter14initialize_rowEjE3$_0E9_M_invokeERKSt9_Any_dataOj", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFjjEZN2lp10hnf_cutter14initialize_rowEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN2lp14general_matrix23init_row_from_containerINS_8lar_termEEEviRKT_St8functionIFjjEERK8rational(ptr noundef nonnull align 8 dereferenceable(40) %m_A, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %sign)

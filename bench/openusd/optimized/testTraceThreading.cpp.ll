@@ -812,19 +812,19 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnon
           to label %14 unwind label %111
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %17, align 8
-  %18 = ptrtoint ptr %3 to i64
-  store i64 %18, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_0E9_M_invokeERKSt9_Any_data", ptr %16, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation", ptr %15, align 8
+  %15 = ptrtoint ptr %3 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %18, align 8
+  store i64 %15, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_0E9_M_invokeERKSt9_Any_data", ptr %17, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation", ptr %16, align 8
   invoke void @_Z13TestThreadingSt8functionIFvvEEb(ptr noundef nonnull %5, i1 noundef zeroext false)
           to label %19 unwind label %113
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr %15, align 8
+  %20 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %21
 
@@ -860,7 +860,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %19, %21
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %36 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %36, align 8
-  store i64 %18, ptr %6, align 8
+  store i64 %15, ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_1E9_M_invokeERKSt9_Any_data", ptr %35, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation", ptr %34, align 8
   invoke void @_Z13TestThreadingSt8functionIFvvEEb(ptr noundef nonnull %6, i1 noundef zeroext true)
@@ -868,12 +868,12 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %19, %21
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %34, align 8
-  %.not.i.i5 = icmp eq ptr %38, null
-  br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %39
+  %.not.i.i7 = icmp eq ptr %38, null
+  br i1 %.not.i.i7, label %_ZNSt8functionIFvvEED2Ev.exit8, label %39
 
 39:                                               ; preds = %37
   %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %41
+          to label %_ZNSt8functionIFvvEED2Ev.exit8 unwind label %41
 
 41:                                               ; preds = %39
   %42 = landingpad { ptr, i32 }
@@ -882,11 +882,11 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %19, %21
   call void @__clang_call_terminate(ptr %43) #20
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %37, %39
+_ZNSt8functionIFvvEED2Ev.exit8:                   ; preds = %37, %39
   %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.6)
           to label %45 unwind label %111
 
-45:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit6
+45:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit8
   %46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %47 unwind label %111
 
@@ -903,7 +903,7 @@ _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %37, %39
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %54 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 0, ptr %54, align 8
-  store i64 %18, ptr %7, align 8
+  store i64 %15, ptr %7, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_2E9_M_invokeERKSt9_Any_data", ptr %53, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation", ptr %52, align 8
   invoke void @_Z13TestThreadingSt8functionIFvvEEb(ptr noundef nonnull %7, i1 noundef zeroext true)
@@ -911,12 +911,12 @@ _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %37, %39
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %52, align 8
-  %.not.i.i8 = icmp eq ptr %56, null
-  br i1 %.not.i.i8, label %_ZNSt8functionIFvvEED2Ev.exit9, label %57
+  %.not.i.i9 = icmp eq ptr %56, null
+  br i1 %.not.i.i9, label %_ZNSt8functionIFvvEED2Ev.exit10, label %57
 
 57:                                               ; preds = %55
   %58 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit9 unwind label %59
+          to label %_ZNSt8functionIFvvEED2Ev.exit10 unwind label %59
 
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
@@ -925,11 +925,11 @@ _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %37, %39
   call void @__clang_call_terminate(ptr %61) #20
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit9:                   ; preds = %55, %57
+_ZNSt8functionIFvvEED2Ev.exit10:                  ; preds = %55, %57
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.6)
           to label %63 unwind label %111
 
-63:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit9
+63:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit10
   %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %65 unwind label %111
 
@@ -942,19 +942,19 @@ _ZNSt8functionIFvvEED2Ev.exit9:                   ; preds = %55, %57
           to label %69 unwind label %111
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %72 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 0, ptr %72, align 8
-  %73 = ptrtoint ptr %4 to i64
-  store i64 %73, ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_3E9_M_invokeERKSt9_Any_data", ptr %71, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation", ptr %70, align 8
+  %70 = ptrtoint ptr %4 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %73 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 0, ptr %73, align 8
+  store i64 %70, ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_3E9_M_invokeERKSt9_Any_data", ptr %72, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation", ptr %71, align 8
   invoke void @_Z13TestThreadingSt8functionIFvvEEb(ptr noundef nonnull %8, i1 noundef zeroext true)
           to label %74 unwind label %137
 
 74:                                               ; preds = %69
-  %75 = load ptr, ptr %70, align 8
+  %75 = load ptr, ptr %71, align 8
   %.not.i.i11 = icmp eq ptr %75, null
   br i1 %.not.i.i11, label %_ZNSt8functionIFvvEED2Ev.exit12, label %76
 
@@ -1040,7 +1040,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13TraceReporterEED2Ev.exit: ; preds = %101, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %107
   ret i32 0
 
-111:                                              ; preds = %99, %_ZNSt8functionIFvvEED2Ev.exit14, %86, %84, %82, %_ZNSt8functionIFvvEED2Ev.exit12, %67, %65, %63, %_ZNSt8functionIFvvEED2Ev.exit9, %49, %47, %45, %_ZNSt8functionIFvvEED2Ev.exit6, %31, %29, %27, %_ZNSt8functionIFvvEED2Ev.exit, %12, %2
+111:                                              ; preds = %99, %_ZNSt8functionIFvvEED2Ev.exit14, %86, %84, %82, %_ZNSt8functionIFvvEED2Ev.exit12, %67, %65, %63, %_ZNSt8functionIFvvEED2Ev.exit10, %49, %47, %45, %_ZNSt8functionIFvvEED2Ev.exit8, %31, %29, %27, %_ZNSt8functionIFvvEED2Ev.exit, %12, %2
   %112 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8functionIFvvEED2Ev.exit16
@@ -1048,7 +1048,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13TraceReporterEED2Ev.exit: ;
 113:                                              ; preds = %14
   %114 = landingpad { ptr, i32 }
           cleanup
-  %115 = load ptr, ptr %15, align 8
+  %115 = load ptr, ptr %16, align 8
   %.not.i.i15 = icmp eq ptr %115, null
   br i1 %.not.i.i15, label %_ZNSt8functionIFvvEED2Ev.exit16, label %116
 
@@ -1102,7 +1102,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13TraceReporterEED2Ev.exit: ;
 137:                                              ; preds = %69
   %138 = landingpad { ptr, i32 }
           cleanup
-  %139 = load ptr, ptr %70, align 8
+  %139 = load ptr, ptr %71, align 8
   %.not.i.i21 = icmp eq ptr %139, null
   br i1 %.not.i.i21, label %_ZNSt8functionIFvvEED2Ev.exit16, label %140
 

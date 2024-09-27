@@ -1543,7 +1543,7 @@ define dso_local void @_ZN4llvm8codeview24LazyRandomTypeCollection17visitRangeFo
   %27 = alloca %"class.llvm::FixedStreamArrayIterator", align 8
   %.sroa.13.i.i = alloca { ptr, i64, %"class.std::optional" }, align 8
   %.sroa.5.i.i = alloca { ptr, i64, %"class.std::optional" }, align 8
-  %.sroa.521.i = alloca { ptr, i64, %"class.std::optional" }, align 8
+  %.sroa.55.i = alloca { ptr, i64, %"class.std::optional" }, align 8
   %.sroa.5.i = alloca { ptr, i64, %"class.std::optional" }, align 8
   %28 = alloca %"class.llvm::FixedStreamArrayIterator", align 8
   %29 = alloca %"class.llvm::FixedStreamArrayIterator", align 8
@@ -1587,7 +1587,7 @@ _ZNK4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEE5emptyEv.exit.thread:
 
 50:                                               ; preds = %_ZNK4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEE5emptyEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.521.i)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.55.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.5.i)
   %51 = load ptr, ptr %30, align 8, !noalias !19
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -1613,7 +1613,7 @@ _ZNK4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEE5emptyEv.exit.thread:
 
 _ZN4llvm9adl_beginIRNS_16FixedStreamArrayINS_8codeview15TypeIndexOffsetEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i: ; preds = %60, %57, %50
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.521.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %62, i64 32, i1 false), !noalias !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.55.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %62, i64 32, i1 false), !noalias !16
   %63 = load i8, ptr %31, align 8, !noalias !28
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %68
@@ -1687,7 +1687,7 @@ _ZN4llvm7adl_endIRNS_16FixedStreamArrayINS_8codeview15TypeIndexOffsetEEEEEDTclsr
   br label %_ZN4llvm24FixedStreamArrayIteratorINS_8codeview15TypeIndexOffsetEEC2ERKS3_.exit.i.i
 
 _ZN4llvm24FixedStreamArrayIteratorINS_8codeview15TypeIndexOffsetEEC2ERKS3_.exit.i.i: ; preds = %96, %93, %_ZN4llvm7adl_endIRNS_16FixedStreamArrayINS_8codeview15TypeIndexOffsetEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.521.i, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.55.i, i64 32, i1 false), !noalias !40
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i3.i, label %_ZN4llvm24FixedStreamArrayIteratorINS_8codeview15TypeIndexOffsetEEC2ERKS3_.exit3.i.i, label %98
 
 98:                                               ; preds = %_ZN4llvm24FixedStreamArrayIteratorINS_8codeview15TypeIndexOffsetEEC2ERKS3_.exit.i.i
@@ -2503,7 +2503,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %"_ZN4llvm11upper_boundIRNS_16FixedStreamArrayINS_8codeview15TypeIndexOffsetEEERNS2_9TypeIndexEZNS2_24LazyRandomTypeCollection17visitRangeForTypeES6_E3$_0EEDaOT_OT0_T1_.exit"
 
 "_ZN4llvm11upper_boundIRNS_16FixedStreamArrayINS_8codeview15TypeIndexOffsetEEERNS2_9TypeIndexEZNS2_24LazyRandomTypeCollection17visitRangeForTypeES6_E3$_0EEDaOT_OT0_T1_.exit": ; preds = %_ZN4llvm24FixedStreamArrayIteratorINS_8codeview15TypeIndexOffsetEED2Ev.exit.i, %438, %451, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i15.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.521.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.55.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.5.i)
   %456 = load ptr, ptr %28, align 8
   %457 = load ptr, ptr %309, align 8

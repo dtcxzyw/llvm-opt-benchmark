@@ -271,12 +271,12 @@ entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %agg.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
+  %0 = ptrtoint ptr %versions to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %versions to i64
-  store i64 %1, ptr %agg.tmp, align 8
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store i64 0, ptr %1, align 8
+  store i64 %0, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFmvEZN7rocksdb15BlobFileBuilderC1EPNS1_10VersionSetEPNS1_10FileSystemEPKNS1_16ImmutableOptionsEPKNS1_16MutableCFOptionsEPKNS1_11FileOptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_ijRKSL_NS1_3Env10IOPriorityENSO_17WriteLifeTimeHintERKSt10shared_ptrINS1_8IOTracerEEPNS1_26BlobFileCompletionCallbackENS1_22BlobFileCreationReasonEPSt6vectorISL_SaISL_EEPSZ_INS1_16BlobFileAdditionESaIS13_EEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFmvEZN7rocksdb15BlobFileBuilderC1EPNS1_10VersionSetEPNS1_10FileSystemEPKNS1_16ImmutableOptionsEPKNS1_16MutableCFOptionsEPKNS1_11FileOptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_ijRKSL_NS1_3Env10IOPriorityENSO_17WriteLifeTimeHintERKSt10shared_ptrINS1_8IOTracerEEPNS1_26BlobFileCompletionCallbackENS1_22BlobFileCreationReasonEPSt6vectorISL_SaISL_EEPSZ_INS1_16BlobFileAdditionESaIS13_EEE3$_0E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %db_id)

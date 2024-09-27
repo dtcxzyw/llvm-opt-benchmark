@@ -350,12 +350,12 @@ _ZN8facebook5velox6memory16MemoryArbitrator6ConfigD2Ev.exit: ; preds = %invoke.c
   %frombool19 = and i8 %28, 1
   store i8 %frombool19, ptr %coreOnAllocationFailureEnabled_, align 4
   %poolDestructionCb_ = getelementptr inbounds i8, ptr %this, i64 40
+  %29 = ptrtoint ptr %this to i64
   %_M_manager.i.i27 = getelementptr inbounds i8, ptr %this, i64 56
   %_M_invoker.i28 = getelementptr inbounds i8, ptr %this, i64 64
-  %29 = getelementptr inbounds i8, ptr %this, i64 48
-  store i64 0, ptr %29, align 8
-  %30 = ptrtoint ptr %this to i64
-  store i64 %30, ptr %poolDestructionCb_, align 8
+  %30 = getelementptr inbounds i8, ptr %this, i64 48
+  store i64 0, ptr %30, align 8
+  store i64 %29, ptr %poolDestructionCb_, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN8facebook5velox6memory10MemoryPoolEEZNS2_13MemoryManagerC1ERKNS2_20MemoryManagerOptionsEE3$_0E9_M_invokeERKSt9_Any_dataOS4_", ptr %_M_invoker.i28, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN8facebook5velox6memory10MemoryPoolEEZNS2_13MemoryManagerC1ERKNS2_20MemoryManagerOptionsEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i27, align 8
   %defaultRoot_ = getelementptr inbounds i8, ptr %this, i64 72

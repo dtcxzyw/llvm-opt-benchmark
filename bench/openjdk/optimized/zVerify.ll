@@ -510,9 +510,9 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @llvm.global_ctors = appending global [7 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.6, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.7, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.9, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.10, ptr @_ZN21OopOopIterateDispatchI20ZVerifyOldOopClosureE6_tableE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.11, ptr @_ZN21OopOopIterateDispatchI29ZVerifyRemsetBeforeOopClosureE6_tableE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.12, ptr @_ZN21OopOopIterateDispatchI28ZVerifyRemsetAfterOopClosureE6_tableE }]
 @llvm.used = appending global [7 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN21OopOopIterateDispatchI20ZVerifyOldOopClosureE6_tableE, ptr @_ZN21OopOopIterateDispatchI28ZVerifyRemsetAfterOopClosureE6_tableE, ptr @_ZN21OopOopIterateDispatchI29ZVerifyRemsetBeforeOopClosureE6_tableE], section "llvm.metadata"
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv], align 8
-@switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.16 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv], align 8
+@switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.20 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv], align 8
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv], align 8
-@switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.17 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv], align 8
+@switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.21 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7ZVerify12roots_strongEb(i1 noundef zeroext %0) local_unnamed_addr #0 align 2 {
@@ -1105,11 +1105,11 @@ define hidden void @_ZN7ZVerify17before_relocationEP11ZForwarding(ptr noundef %0
   br label %45
 
 45:                                               ; preds = %_ZNK8ZLiveMap17next_live_segmentEm.exit.i.i.i, %.lr.ph.i.i.i
-  %.010.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i5.i.i.i, %_ZNK8ZLiveMap17next_live_segmentEm.exit.i.i.i ]
+  %.011.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i6.i.i.i, %_ZNK8ZLiveMap17next_live_segmentEm.exit.i.i.i ]
   %46 = load i64, ptr %41, align 8
   %47 = lshr i64 %46, 6
-  %48 = mul nuw i64 %47, %.010.i.i.i
-  %49 = add nuw nsw i64 %.010.i.i.i, 1
+  %48 = mul nuw i64 %47, %.011.i.i.i
+  %49 = add nuw nsw i64 %.011.i.i.i, 1
   %50 = mul nuw i64 %47, %49
   %51 = icmp ult i64 %48, %50
   br i1 %51, label %.lr.ph.i.i.i.i.i, label %"_ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdS8_EUlmE_EEvmS8_.exit.i.i.i"
@@ -1239,15 +1239,15 @@ _ZNK5ZPage21object_from_bit_indexEm.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK5ZPage2
   br i1 %113, label %54, label %"_ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdS8_EUlmE_EEvmS8_.exit.i.i.i", !llvm.loop !14
 
 "_ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdS8_EUlmE_EEvmS8_.exit.i.i.i": ; preds = %"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.exit.i.i.i.i.i", %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i, %71, %.preheader.i.i.i.i.i, %45
-  %.not.i.i.i = icmp eq i64 %.010.i.i.i, 63
+  %.not.i.i.i = icmp eq i64 %.011.i.i.i, 63
   br i1 %.not.i.i.i, label %"_ZN11ZForwarding14object_iterateIZN7ZVerify17before_relocationEPS_E3$_0EEvT_.exit", label %114
 
 114:                                              ; preds = %"_ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdS8_EUlmE_EEvmS8_.exit.i.i.i"
   %115 = load i64, ptr %36, align 8
   %116 = lshr i64 %115, %49
   %117 = and i64 %116, 1
-  %.not.i.i.i6.i.i.i = icmp eq i64 %117, 0
-  br i1 %.not.i.i.i6.i.i.i, label %118, label %_ZNK8ZLiveMap17next_live_segmentEm.exit.i.i.i
+  %.not.i.i.i7.i.i.i = icmp eq i64 %117, 0
+  br i1 %.not.i.i.i7.i.i.i, label %118, label %_ZNK8ZLiveMap17next_live_segmentEm.exit.i.i.i
 
 118:                                              ; preds = %114
   %119 = icmp eq i64 %116, 0
@@ -1260,8 +1260,8 @@ _ZNK5ZPage21object_from_bit_indexEm.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK5ZPage2
   br i1 %123, label %_ZNK8ZLiveMap17next_live_segmentEm.exit.i.i.i, label %"_ZN11ZForwarding14object_iterateIZN7ZVerify17before_relocationEPS_E3$_0EEvT_.exit"
 
 _ZNK8ZLiveMap17next_live_segmentEm.exit.i.i.i:    ; preds = %120, %114
-  %.0.i.i.i5.i.i.i = phi i64 [ %49, %114 ], [ %122, %120 ]
-  %124 = icmp ult i64 %.0.i.i.i5.i.i.i, 64
+  %.0.i.i.i6.i.i.i = phi i64 [ %49, %114 ], [ %122, %120 ]
+  %124 = icmp ult i64 %.0.i.i.i6.i.i.i, 64
   br i1 %124, label %45, label %"_ZN11ZForwarding14object_iterateIZN7ZVerify17before_relocationEPS_E3$_0EEvT_.exit", !llvm.loop !15
 
 "_ZN11ZForwarding14object_iterateIZN7ZVerify17before_relocationEPS_E3$_0EEvT_.exit": ; preds = %_ZNK8ZLiveMap17next_live_segmentEm.exit.i.i.i, %120, %118, %"_ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdS8_EUlmE_EEvmS8_.exit.i.i.i", %35, %21, %5, %1
@@ -1286,8 +1286,8 @@ define hidden void @_ZN7ZVerify25after_relocation_internalEP11ZForwarding(ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
-  %.not8.i = icmp eq i64 %7, 0
-  br i1 %.not8.i, label %"_ZN11ZForwarding32address_unsafe_iterate_via_tableIZN7ZVerify25after_relocation_internalEPS_E3$_0EEvT_.exit", label %.lr.ph.i
+  %.not7.i = icmp eq i64 %7, 0
+  br i1 %.not7.i, label %"_ZN11ZForwarding32address_unsafe_iterate_via_tableIZN7ZVerify25after_relocation_internalEPS_E3$_0EEvT_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %8 = ptrtoint ptr %0 to i64
@@ -1295,17 +1295,17 @@ define hidden void @_ZN7ZVerify25after_relocation_internalEP11ZForwarding(ptr no
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = getelementptr inbounds i8, ptr %2, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr i8, ptr %0, i64 40
   br label %14
 
-14:                                               ; preds = %63, %.lr.ph.i
-  %storemerge7.i = phi i64 [ 0, %.lr.ph.i ], [ %64, %63 ]
-  %15 = getelementptr inbounds %class.ZForwardingEntry, ptr %10, i64 %storemerge7.i
+14:                                               ; preds = %62, %.lr.ph.i
+  %storemerge6.i = phi i64 [ 0, %.lr.ph.i ], [ %63, %62 ]
+  %15 = getelementptr inbounds %class.ZForwardingEntry, ptr %10, i64 %storemerge6.i
   %16 = load volatile i64, ptr %15, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   %17 = and i64 %16, 1
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %63, label %18
+  br i1 %.not.i, label %62, label %18
 
 18:                                               ; preds = %14
   %19 = load i64, ptr %0, align 8
@@ -1315,69 +1315,69 @@ define hidden void @_ZN7ZVerify25after_relocation_internalEP11ZForwarding(ptr no
   %23 = add i64 %22, %19
   %24 = load i64, ptr @ZAddressHeapBase, align 8
   %25 = or i64 %23, %24
-  %26 = load i8, ptr %13, align 8
-  %27 = icmp eq i8 %26, 15
-  %28 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  %29 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %30 = select i1 %27, ptr %28, ptr %29
-  %31 = load i64, ptr @ZAddressOffsetMask, align 8
-  %32 = and i64 %31, %25
-  %33 = lshr i64 %32, 21
-  %34 = getelementptr inbounds i8, ptr %30, i64 40
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %33
-  %37 = load volatile ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %_ZN11ZGeneration12remap_objectE15zaddress_unsafe.exit.i.i, label %39
+  %.val.val.val.i = load i8, ptr %13, align 8
+  %26 = icmp eq i8 %.val.val.val.i, 15
+  %27 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  %28 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %29 = select i1 %26, ptr %27, ptr %28
+  %30 = load i64, ptr @ZAddressOffsetMask, align 8
+  %31 = and i64 %30, %25
+  %32 = lshr i64 %31, 21
+  %33 = getelementptr inbounds i8, ptr %29, i64 40
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds ptr, ptr %34, i64 %32
+  %36 = load volatile ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %_ZN11ZGeneration12remap_objectE15zaddress_unsafe.exit.i.i, label %38
 
-39:                                               ; preds = %18
-  %40 = getelementptr inbounds i8, ptr %30, i64 2944
-  %41 = call noundef i64 @_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddress_unsafe(ptr noundef nonnull align 8 dereferenceable(128) %40, ptr noundef nonnull %37, i64 noundef %25) #10
+38:                                               ; preds = %18
+  %39 = getelementptr inbounds i8, ptr %29, i64 2944
+  %40 = call noundef i64 @_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddress_unsafe(ptr noundef nonnull align 8 dereferenceable(128) %39, ptr noundef nonnull %36, i64 noundef %25) #10
   br label %_ZN11ZGeneration12remap_objectE15zaddress_unsafe.exit.i.i
 
-_ZN11ZGeneration12remap_objectE15zaddress_unsafe.exit.i.i: ; preds = %39, %18
-  %.0.i.i.i = phi i64 [ %41, %39 ], [ %25, %18 ]
+_ZN11ZGeneration12remap_objectE15zaddress_unsafe.exit.i.i: ; preds = %38, %18
+  %.0.i.i.i = phi i64 [ %40, %38 ], [ %25, %18 ]
   store i64 %25, ptr %5, align 8
   store i64 %.0.i.i.i, ptr %12, align 8
-  %42 = inttoptr i64 %.0.i.i.i to ptr
-  %43 = load i8, ptr @UseCompressedClassPointers, align 1
-  %44 = trunc i8 %43 to i1
-  %45 = getelementptr inbounds i8, ptr %42, i64 8
-  br i1 %44, label %46, label %56
+  %41 = inttoptr i64 %.0.i.i.i to ptr
+  %42 = load i8, ptr @UseCompressedClassPointers, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  br i1 %43, label %45, label %55
 
-46:                                               ; preds = %_ZN11ZGeneration12remap_objectE15zaddress_unsafe.exit.i.i
-  %47 = load i32, ptr %45, align 8
-  %48 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %49 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %50 = ptrtoint ptr %48 to i64
-  %51 = zext i32 %47 to i64
-  %52 = zext nneg i32 %49 to i64
-  %53 = shl i64 %51, %52
-  %54 = add i64 %53, %50
-  %55 = inttoptr i64 %54 to ptr
+45:                                               ; preds = %_ZN11ZGeneration12remap_objectE15zaddress_unsafe.exit.i.i
+  %46 = load i32, ptr %44, align 8
+  %47 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %48 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %49 = ptrtoint ptr %47 to i64
+  %50 = zext i32 %46 to i64
+  %51 = zext nneg i32 %48 to i64
+  %52 = shl i64 %50, %51
+  %53 = add i64 %52, %49
+  %54 = inttoptr i64 %53 to ptr
   br label %"_ZZN7ZVerify25after_relocation_internalEP11ZForwardingENK3$_0clE15zaddress_unsafe.exit.i"
 
-56:                                               ; preds = %_ZN11ZGeneration12remap_objectE15zaddress_unsafe.exit.i.i
-  %57 = load ptr, ptr %45, align 8
+55:                                               ; preds = %_ZN11ZGeneration12remap_objectE15zaddress_unsafe.exit.i.i
+  %56 = load ptr, ptr %44, align 8
   br label %"_ZZN7ZVerify25after_relocation_internalEP11ZForwardingENK3$_0clE15zaddress_unsafe.exit.i"
 
-"_ZZN7ZVerify25after_relocation_internalEP11ZForwardingENK3$_0clE15zaddress_unsafe.exit.i": ; preds = %56, %46
-  %.0.i.i.i.i = phi ptr [ %55, %46 ], [ %57, %56 ]
-  %58 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 12
-  %59 = load i32, ptr %58, align 4
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ZVerifyRemsetAfterOopClosureE6_tableE, i64 0, i64 %60
-  %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull %2, ptr noundef nonnull %42, ptr noundef %.0.i.i.i.i) #10
-  br label %63
+"_ZZN7ZVerify25after_relocation_internalEP11ZForwardingENK3$_0clE15zaddress_unsafe.exit.i": ; preds = %55, %45
+  %.0.i.i.i.i = phi ptr [ %54, %45 ], [ %56, %55 ]
+  %57 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 12
+  %58 = load i32, ptr %57, align 4
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ZVerifyRemsetAfterOopClosureE6_tableE, i64 0, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  call void %61(ptr noundef nonnull %2, ptr noundef nonnull %41, ptr noundef %.0.i.i.i.i) #10
+  br label %62
 
-63:                                               ; preds = %"_ZZN7ZVerify25after_relocation_internalEP11ZForwardingENK3$_0clE15zaddress_unsafe.exit.i", %14
-  %64 = add nuw i64 %storemerge7.i, 1
-  %65 = load i64, ptr %6, align 8
-  %66 = icmp ult i64 %64, %65
-  br i1 %66, label %14, label %"_ZN11ZForwarding32address_unsafe_iterate_via_tableIZN7ZVerify25after_relocation_internalEPS_E3$_0EEvT_.exit", !llvm.loop !16
+62:                                               ; preds = %"_ZZN7ZVerify25after_relocation_internalEP11ZForwardingENK3$_0clE15zaddress_unsafe.exit.i", %14
+  %63 = add nuw i64 %storemerge6.i, 1
+  %64 = load i64, ptr %6, align 8
+  %65 = icmp ult i64 %63, %64
+  br i1 %65, label %14, label %"_ZN11ZForwarding32address_unsafe_iterate_via_tableIZN7ZVerify25after_relocation_internalEPS_E3$_0EEvT_.exit", !llvm.loop !16
 
-"_ZN11ZForwarding32address_unsafe_iterate_via_tableIZN7ZVerify25after_relocation_internalEPS_E3$_0EEvT_.exit": ; preds = %63, %1
+"_ZN11ZForwarding32address_unsafe_iterate_via_tableIZN7ZVerify25after_relocation_internalEPS_E3$_0EEvT_.exit": ; preds = %62, %1
   ret void
 }
 
@@ -3655,9 +3655,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm3
   unreachable
 
 _ZN14AccessInternal15BarrierResolverILm331846EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
-  %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.16.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.16, %11 ]
+  %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.20.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.20, %11 ]
   %14 = sext i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.16.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.20.sink, i64 0, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #10
@@ -4561,9 +4561,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
   unreachable
 
 _ZN14AccessInternal15BarrierResolverILm299078EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
-  %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.17.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.17, %11 ]
+  %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.21.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.21, %11 ]
   %14 = sext i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.17.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.21.sink, i64 0, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #10

@@ -2909,14 +2909,14 @@ _ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt
 
 _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit.i, %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  %32 = getelementptr inbounds i8, ptr %12, i64 16
-  %33 = getelementptr inbounds i8, ptr %12, i64 24
-  %34 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 0, ptr %34, align 8
-  %35 = ptrtoint ptr %10 to i64
-  store i64 %35, ptr %12, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNKS0_9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider16launch_and_splitERKNS0_4PathERSt6vectorIS9_ISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_ESaISH_EESaISJ_EEE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %33, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNKS0_9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider16launch_and_splitERKNS0_4PathERSt6vectorIS9_ISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_ESaISH_EESaISJ_EEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %32, align 8
+  %32 = ptrtoint ptr %10 to i64
+  %33 = getelementptr inbounds i8, ptr %12, i64 16
+  %34 = getelementptr inbounds i8, ptr %12, i64 24
+  %35 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 0, ptr %35, align 8
+  store i64 %32, ptr %12, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNKS0_9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider16launch_and_splitERKNS0_4PathERSt6vectorIS9_ISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_ESaISH_EESaISJ_EEE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %34, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNKS0_9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider16launch_and_splitERKNS0_4PathERSt6vectorIS9_ISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_ESaISH_EESaISJ_EEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %33, align 8
   invoke void @_ZN5vcpkg28cmd_execute_and_stream_linesERKNS_7CommandERKSt8functionIFvNS_10StringViewEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %36 unwind label %68
 
@@ -2946,7 +2946,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 
 _ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit: ; preds = %36
   %47 = load i32, ptr %11, align 8
-  %48 = load ptr, ptr %32, align 8
+  %48 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit, label %49
 
@@ -3011,7 +3011,7 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit: ; preds = %_ZN5vcpkg9ExpectedT
 68:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EED2Ev.exit
   %69 = landingpad { ptr, i32 }
           cleanup
-  %70 = load ptr, ptr %32, align 8
+  %70 = load ptr, ptr %33, align 8
   %.not.i.i51 = icmp eq ptr %70, null
   br i1 %.not.i.i51, label %_ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit52, label %71
 

@@ -52927,9 +52927,9 @@ if.then62.i:                                      ; preds = %if.then59.i
 if.then65.i:                                      ; preds = %if.then62.i
   %104 = tail call noundef float @llvm.fabs.f32(float %90)
   %cmp67.i = fcmp olt float %104, 0x3EE9000000000000
-  br i1 %cmp67.i, label %if.end85.thread382.i, label %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit
+  br i1 %cmp67.i, label %if.end85.thread71.i, label %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit
 
-if.end85.thread382.i:                             ; preds = %if.then65.i
+if.end85.thread71.i:                              ; preds = %if.then65.i
   store float 0.000000e+00, ptr %roots.i, align 4
   %arrayidx70.i = getelementptr inbounds i8, ptr %roots.i, i64 4
   store float %dt.val.i, ptr %arrayidx70.i, align 4
@@ -52962,13 +52962,13 @@ if.end85.i:                                       ; preds = %if.else79.i, %if.el
 if.end85.if.then87_crit_edge.i:                   ; preds = %if.end85.i
   %.pre.i = load float, ptr %roots.i, align 4
   %arrayidx89.phi.trans.insert.i = getelementptr inbounds i8, ptr %roots.i, i64 4
-  %.pre394.i = load float, ptr %arrayidx89.phi.trans.insert.i, align 4
+  %.pre83.i = load float, ptr %arrayidx89.phi.trans.insert.i, align 4
   br label %if.then87.i
 
-if.then87.i:                                      ; preds = %if.end85.if.then87_crit_edge.i, %if.end85.thread382.i
-  %105 = phi float [ %dt.val.i, %if.end85.thread382.i ], [ %.pre394.i, %if.end85.if.then87_crit_edge.i ]
-  %106 = phi float [ 0.000000e+00, %if.end85.thread382.i ], [ %.pre.i, %if.end85.if.then87_crit_edge.i ]
-  %num_roots.0385.i = phi i32 [ 2, %if.end85.thread382.i ], [ %num_roots.0.i, %if.end85.if.then87_crit_edge.i ]
+if.then87.i:                                      ; preds = %if.end85.if.then87_crit_edge.i, %if.end85.thread71.i
+  %105 = phi float [ %dt.val.i, %if.end85.thread71.i ], [ %.pre83.i, %if.end85.if.then87_crit_edge.i ]
+  %106 = phi float [ 0.000000e+00, %if.end85.thread71.i ], [ %.pre.i, %if.end85.if.then87_crit_edge.i ]
+  %num_roots.074.i = phi i32 [ 2, %if.end85.thread71.i ], [ %num_roots.0.i, %if.end85.if.then87_crit_edge.i ]
   %arrayidx89.i = getelementptr inbounds i8, ptr %roots.i, i64 4
   %cmp90.i = fcmp ogt float %106, %105
   br i1 %cmp90.i, label %if.then91.i, label %if.end95.i
@@ -52981,7 +52981,7 @@ if.then91.i:                                      ; preds = %if.then87.i
 if.end95.i:                                       ; preds = %if.then91.i, %if.then87.i
   %107 = phi float [ %105, %if.then87.i ], [ %106, %if.then91.i ]
   %108 = phi float [ %106, %if.then87.i ], [ %105, %if.then91.i ]
-  %cmp96.i = icmp ugt i32 %num_roots.0385.i, 2
+  %cmp96.i = icmp ugt i32 %num_roots.074.i, 2
   br i1 %cmp96.i, label %if.then97.i, label %for.body.lr.ph.i
 
 if.then97.i:                                      ; preds = %if.end95.i
@@ -53006,11 +53006,11 @@ if.then108.i:                                     ; preds = %if.end104.i
   br label %for.body.lr.ph.i
 
 if.end112.i:                                      ; preds = %if.end85.i
-  %cmp113389.i = icmp eq i32 %num_roots.0.i, 1
-  br i1 %cmp113389.i, label %for.body.lr.ph.i, label %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit
+  %cmp11378.i = icmp eq i32 %num_roots.0.i, 1
+  br i1 %cmp11378.i, label %for.body.lr.ph.i, label %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end112.i, %if.then108.i, %if.end104.i, %if.end95.i, %if.else.i
-  %num_roots.0381388401.i = phi i32 [ 1, %if.end112.i ], [ 1, %if.else.i ], [ 2, %if.end95.i ], [ %num_roots.0385.i, %if.then108.i ], [ %num_roots.0385.i, %if.end104.i ]
+  %num_roots.0707790.i = phi i32 [ 1, %if.end112.i ], [ 1, %if.else.i ], [ 2, %if.end95.i ], [ %num_roots.074.i, %if.then108.i ], [ %num_roots.074.i, %if.end104.i ]
   %111 = getelementptr inbounds i8, ptr %x1.i, i64 8
   %112 = getelementptr inbounds i8, ptr %x2.i, i64 8
   %113 = getelementptr inbounds i8, ptr %x3.i, i64 8
@@ -53018,7 +53018,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end112.i, %if.th
   %115 = getelementptr inbounds i8, ptr %normal.i, i64 8
   %arrayidx5.i.i.i306.i = getelementptr inbounds i8, ptr %normal.i, i64 4
   %arrayidx7.i.i311.i = getelementptr inbounds i8, ptr %normal.i, i64 12
-  %wide.trip.count.i = zext nneg i32 %num_roots.0381388401.i to i64
+  %wide.trip.count.i = zext nneg i32 %num_roots.0707790.i to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i

@@ -5328,10 +5328,10 @@ define dso_local ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10Stri
   br label %24
 
 24:                                               ; preds = %43, %.lr.ph.i.i.i
-  %.061.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i ], [ %45, %43 ]
-  %.sroa.050.060.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %44, %43 ]
+  %.056.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i ], [ %45, %43 ]
+  %.sroa.045.055.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %44, %43 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.060.i.i.i) #27
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.045.055.i.i.i) #27
   %25 = load ptr, ptr %10, align 8
   %26 = load i64, ptr %20, align 8
   %27 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr %25, i64 %26, ptr %1, i64 %2) #27
@@ -5339,7 +5339,7 @@ define dso_local ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10Stri
   br i1 %27, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEEZNKSA_6Object17internal_find_keyENS9_10StringViewEE3$_0ET_SM_SM_T0_.exit", label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i, i64 40
+  %29 = getelementptr inbounds i8, ptr %.sroa.045.055.i.i.i, i64 40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(32) %29) #27
   %30 = load ptr, ptr %9, align 8
@@ -5349,7 +5349,7 @@ define dso_local ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10Stri
   br i1 %32, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEEZNKSA_6Object17internal_find_keyENS9_10StringViewEE3$_0ET_SM_SM_T0_.exit", label %33
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i, i64 80
+  %34 = getelementptr inbounds i8, ptr %.sroa.045.055.i.i.i, i64 80
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %34) #27
   %35 = load ptr, ptr %8, align 8
@@ -5359,7 +5359,7 @@ define dso_local ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10Stri
   br i1 %37, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEEZNKSA_6Object17internal_find_keyENS9_10StringViewEE3$_0ET_SM_SM_T0_.exit", label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i, i64 120
+  %39 = getelementptr inbounds i8, ptr %.sroa.045.055.i.i.i, i64 120
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %39) #27
   %40 = load ptr, ptr %7, align 8
@@ -5369,20 +5369,20 @@ define dso_local ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10Stri
   br i1 %42, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEEZNKSA_6Object17internal_find_keyENS9_10StringViewEE3$_0ET_SM_SM_T0_.exit", label %43
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %.sroa.050.060.i.i.i, i64 160
-  %45 = add nsw i64 %.061.i.i.i, -1
-  %46 = icmp sgt i64 %.061.i.i.i, 1
+  %44 = getelementptr inbounds i8, ptr %.sroa.045.055.i.i.i, i64 160
+  %45 = add nsw i64 %.056.i.i.i, -1
+  %46 = icmp sgt i64 %.056.i.i.i, 1
   br i1 %46, label %24, label %._crit_edge.loopexit.i.i.i, !llvm.loop !162
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %43
   %.pre.i.i.i = ptrtoint ptr %44 to i64
-  %.pre62.i.i.i = sub i64 %14, %.pre.i.i.i
+  %.pre57.i.i.i = sub i64 %14, %.pre.i.i.i
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %3
-  %.pre-phi63.i.i.i = phi i64 [ %.pre62.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %16, %3 ]
-  %.sroa.050.0.lcssa.i.i.i = phi ptr [ %44, %._crit_edge.loopexit.i.i.i ], [ %11, %3 ]
-  %47 = sdiv exact i64 %.pre-phi63.i.i.i, 40
+  %.pre-phi58.i.i.i = phi i64 [ %.pre57.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %16, %3 ]
+  %.sroa.045.0.lcssa.i.i.i = phi ptr [ %44, %._crit_edge.loopexit.i.i.i ], [ %11, %3 ]
+  %47 = sdiv exact i64 %.pre-phi58.i.i.i, 40
   switch i64 %47, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEEZNKSA_6Object17internal_find_keyENS9_10StringViewEE3$_0ET_SM_SM_T0_.exit" [
     i64 3, label %48
     i64 2, label %55
@@ -5391,7 +5391,7 @@ define dso_local ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10Stri
 
 48:                                               ; preds = %._crit_edge.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.0.lcssa.i.i.i) #27
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.045.0.lcssa.i.i.i) #27
   %49 = load ptr, ptr %6, align 8
   %50 = getelementptr inbounds i8, ptr %6, i64 8
   %51 = load i64, ptr %50, align 8
@@ -5400,13 +5400,13 @@ define dso_local ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10Stri
   br i1 %52, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEEZNKSA_6Object17internal_find_keyENS9_10StringViewEE3$_0ET_SM_SM_T0_.exit", label %53
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %.sroa.050.0.lcssa.i.i.i, i64 40
+  %54 = getelementptr inbounds i8, ptr %.sroa.045.0.lcssa.i.i.i, i64 40
   br label %55
 
 55:                                               ; preds = %53, %._crit_edge.i.i.i
-  %.sroa.050.1.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %54, %53 ]
+  %.sroa.045.1.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %54, %53 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.1.i.i.i) #27
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.045.1.i.i.i) #27
   %56 = load ptr, ptr %5, align 8
   %57 = getelementptr inbounds i8, ptr %5, i64 8
   %58 = load i64, ptr %57, align 8
@@ -5415,23 +5415,23 @@ define dso_local ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10Stri
   br i1 %59, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEEZNKSA_6Object17internal_find_keyENS9_10StringViewEE3$_0ET_SM_SM_T0_.exit", label %60
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %.sroa.050.1.i.i.i, i64 40
+  %61 = getelementptr inbounds i8, ptr %.sroa.045.1.i.i.i, i64 40
   br label %62
 
 62:                                               ; preds = %60, %._crit_edge.i.i.i
-  %.sroa.050.2.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %61, %60 ]
+  %.sroa.045.2.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %61, %60 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.2.i.i.i) #27
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.045.2.i.i.i) #27
   %63 = load ptr, ptr %4, align 8
   %64 = getelementptr inbounds i8, ptr %4, i64 8
   %65 = load i64, ptr %64, align 8
   %66 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr %63, i64 %65, ptr %1, i64 %2) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %spec.select.i.i.i = select i1 %66, ptr %.sroa.050.2.i.i.i, ptr %13
+  %spec.select.i.i.i = select i1 %66, ptr %.sroa.045.2.i.i.i, ptr %13
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEEZNKSA_6Object17internal_find_keyENS9_10StringViewEE3$_0ET_SM_SM_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEEZNKSA_6Object17internal_find_keyENS9_10StringViewEE3$_0ET_SM_SM_T0_.exit": ; preds = %38, %33, %28, %24, %62, %55, %48, %._crit_edge.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i, %48 ], [ %.sroa.050.1.i.i.i, %55 ], [ %13, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %62 ], [ %.sroa.050.060.i.i.i, %24 ], [ %29, %28 ], [ %34, %33 ], [ %39, %38 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i, %48 ], [ %.sroa.045.1.i.i.i, %55 ], [ %13, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %62 ], [ %.sroa.045.055.i.i.i, %24 ], [ %29, %28 ], [ %34, %33 ], [ %39, %38 ]
   ret ptr %.sroa.08.0.in.sroa.speculated.i.i.i
 }
 

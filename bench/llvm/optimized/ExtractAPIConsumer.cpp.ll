@@ -3036,8 +3036,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_122getRelativeIncludeNameB5cxx11ERK
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %52 = load ptr, ptr %51, align 8
-  %.not7580 = icmp eq ptr %50, %52
-  br i1 %.not7580, label %._crit_edge, label %.lr.ph
+  %.not7479 = icmp eq ptr %50, %52
+  br i1 %.not7479, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -3051,15 +3051,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_122getRelativeIncludeNameB5cxx11ERK
   br label %59
 
 59:                                               ; preds = %.lr.ph, %230
-  %.sroa.054.081 = phi ptr [ %50, %.lr.ph ], [ %231, %230 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.054.081, i64 32
+  %.sroa.055.080 = phi ptr [ %50, %.lr.ph ], [ %231, %230 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.055.080, i64 32
   %61 = load i32, ptr %60, align 8
   %62 = icmp eq i32 %61, 0
   %63 = zext i1 %62 to i8
   store i8 %63, ptr %4, align 1
   %64 = load ptr, ptr %53, align 8
-  %65 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.054.081) #19
-  %66 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.054.081) #19
+  %65 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.080) #19
+  %66 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.080) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @_ZN5clang11FileManager10getFileRefEN4llvm9StringRefEbb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.1041") align 8 %16, ptr noundef nonnull align 8 dereferenceable(808) %64, ptr %65, i64 %66, i1 noundef zeroext false, i1 noundef zeroext true) #19
   %67 = load i8, ptr %54, align 8
@@ -3116,16 +3116,16 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %81
 
 _ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit: ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit.i, %81, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  %.not76 = icmp eq i64 %79, 0
-  br i1 %.not76, label %_ZNSt10unique_ptrIN5clang9HeaderMapESt14default_deleteIS1_EED2Ev.exit.thread, label %86
+  %.not75 = icmp eq i64 %79, 0
+  br i1 %.not75, label %_ZNSt10unique_ptrIN5clang9HeaderMapESt14default_deleteIS1_EED2Ev.exit.thread, label %86
 
 86:                                               ; preds = %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit
   %87 = inttoptr i64 %79 to ptr
   %88 = load ptr, ptr %53, align 8
   call void @_ZN5clang9HeaderMap6CreateENS_12FileEntryRefERNS_11FileManagerE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.1014") align 8 %19, ptr nonnull %87, ptr noundef nonnull align 8 dereferenceable(808) %88) #19
   %89 = load ptr, ptr %19, align 8
-  %.not77 = icmp eq ptr %89, null
-  br i1 %.not77, label %_ZNSt10unique_ptrIN5clang9HeaderMapESt14default_deleteIS1_EED2Ev.exit.thread, label %90
+  %.not76 = icmp eq ptr %89, null
+  br i1 %.not76, label %_ZNSt10unique_ptrIN5clang9HeaderMapESt14default_deleteIS1_EED2Ev.exit.thread, label %90
 
 90:                                               ; preds = %86
   %91 = call { ptr, i64 } @_ZNK5clang13HeaderMapImpl21reverseLookupFilenameEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %89, ptr %43, i64 %44) #19
@@ -3158,8 +3158,8 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %96, %97
 
 98:                                               ; preds = %90, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
   %.pr = load ptr, ptr %19, align 8
-  %.not.i32 = icmp eq ptr %.pr, null
-  br i1 %.not.i32, label %_ZNSt10unique_ptrIN5clang9HeaderMapESt14default_deleteIS1_EED2Ev.exit, label %99
+  %.not.i33 = icmp eq ptr %.pr, null
+  br i1 %.not.i33, label %_ZNSt10unique_ptrIN5clang9HeaderMapESt14default_deleteIS1_EED2Ev.exit, label %99
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
@@ -3197,8 +3197,8 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %96, %97
 
 114:                                              ; preds = %111, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %.not.i.i.i.i.i33 = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %107
-  br i1 %.not.i.i.i.i.i33, label %_ZN4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEED2Ev.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !50
+  %.not.i.i.i.i.i34 = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %107
+  br i1 %.not.i.i.i.i.i34, label %_ZN4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEED2Ev.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !50
 
 _ZN4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEED2Ev.exit.i.i.i.i: ; preds = %114, %104, %99
   %115 = load ptr, ptr %100, align 8
@@ -3223,8 +3223,8 @@ _ZNSt10unique_ptrIN5clang9HeaderMapESt14default_deleteIS1_EED2Ev.exit: ; preds =
   br i1 %94, label %230, label %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit
 
 _ZNSt10unique_ptrIN5clang9HeaderMapESt14default_deleteIS1_EED2Ev.exit.thread: ; preds = %86, %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit
-  %120 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.054.081) #19
-  %121 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.054.081) #19
+  %120 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.080) #19
+  %121 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.080) #19
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -3251,8 +3251,8 @@ _ZNSt10unique_ptrIN5clang9HeaderMapESt14default_deleteIS1_EED2Ev.exit.thread: ; 
   %131 = call noundef zeroext i1 @_ZNK4llvm3sys4path14const_iteratoreqERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull align 8 dereferenceable(44) %8) #19
   %.sroa.222.0.copyload.old.i = load i64, ptr %.sroa.222.0..sroa_idx.i, align 8
   %.not.i.old.i = icmp ne i64 %.sroa.222.0.copyload.old.i, 1
-  %or.cond90.not.i = select i1 %131, i1 true, i1 %.not.i.old.i
-  br i1 %or.cond90.not.i, label %.critedge.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
+  %or.cond46.not.i = select i1 %131, i1 true, i1 %.not.i.old.i
+  br i1 %or.cond46.not.i, label %.critedge.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %130, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
   %.sroa.021.0.copyload.i = load ptr, ptr %57, align 8
@@ -3265,8 +3265,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   %134 = call noundef zeroext i1 @_ZNK4llvm3sys4path14const_iteratoreqERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull align 8 dereferenceable(44) %8) #19
   %.sroa.222.0.copyload.i = load i64, ptr %.sroa.222.0..sroa_idx.i, align 8
   %.not.i.i = icmp ne i64 %.sroa.222.0.copyload.i, 1
-  %or.cond86.not.i = select i1 %134, i1 true, i1 %.not.i.i
-  br i1 %or.cond86.not.i, label %.critedge.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, !llvm.loop !51
+  %or.cond42.not.i = select i1 %134, i1 true, i1 %.not.i.i
+  br i1 %or.cond42.not.i, label %.critedge.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, !llvm.loop !51
 
 .critedge.i:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %130
   %135 = call noundef zeroext i1 @_ZNK4llvm3sys4path14const_iteratoreqERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull align 8 dereferenceable(44) %8) #19
@@ -3276,13 +3276,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   %136 = call noundef zeroext i1 @_ZNK4llvm3sys4path14const_iteratoreqERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %9, ptr noundef nonnull align 8 dereferenceable(44) %10) #19
   %.sroa.220.0.copyload.old.i = load i64, ptr %.sroa.220.0..sroa_idx.i, align 8
   %.not.i34.old.i = icmp ne i64 %.sroa.220.0.copyload.old.i, 1
-  %or.cond92.not.i = select i1 %136, i1 true, i1 %.not.i34.old.i
-  br i1 %or.cond92.not.i, label %.critedge2.i, label %_ZN4llvmeqENS_9StringRefES0_.exit37.i
+  %or.cond48.not.i = select i1 %136, i1 true, i1 %.not.i34.old.i
+  br i1 %or.cond48.not.i, label %.critedge2.i, label %_ZN4llvmeqENS_9StringRefES0_.exit37.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit37.i:            ; preds = %.preheader.i, %_ZN4llvmeqENS_9StringRefES0_.exit37.thread.i
   %.sroa.019.0.copyload.i = load ptr, ptr %58, align 8
-  %lhsc84.i = load i8, ptr %.sroa.019.0.copyload.i, align 1
-  %137 = icmp eq i8 %lhsc84.i, 46
+  %lhsc40.i = load i8, ptr %.sroa.019.0.copyload.i, align 1
+  %137 = icmp eq i8 %lhsc40.i, 46
   br i1 %137, label %_ZN4llvmeqENS_9StringRefES0_.exit37.thread.i, label %.critedge2.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit37.thread.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit37.i
@@ -3290,8 +3290,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit37.thread.i:     ; preds = %_ZN4llvmeqENS_9Stri
   %139 = call noundef zeroext i1 @_ZNK4llvm3sys4path14const_iteratoreqERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %9, ptr noundef nonnull align 8 dereferenceable(44) %10) #19
   %.sroa.220.0.copyload.i = load i64, ptr %.sroa.220.0..sroa_idx.i, align 8
   %.not.i34.i = icmp ne i64 %.sroa.220.0.copyload.i, 1
-  %or.cond88.not.i = select i1 %139, i1 true, i1 %.not.i34.i
-  br i1 %or.cond88.not.i, label %.critedge2.i, label %_ZN4llvmeqENS_9StringRefES0_.exit37.i, !llvm.loop !52
+  %or.cond44.not.i = select i1 %139, i1 true, i1 %.not.i34.i
+  br i1 %or.cond44.not.i, label %.critedge2.i, label %_ZN4llvmeqENS_9StringRefES0_.exit37.i, !llvm.loop !52
 
 .critedge2.i:                                     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit37.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit37.i, %.preheader.i
   %140 = call noundef zeroext i1 @_ZNK4llvm3sys4path14const_iteratoreqERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %9, ptr noundef nonnull align 8 dereferenceable(44) %10) #19
@@ -3330,11 +3330,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit37.thread.i:     ; preds = %_ZN4llvmeqENS_9Stri
 .critedge4.i:                                     ; preds = %.critedge4thread-pre-split.i, %144
   %157 = phi i64 [ %.pr.i, %.critedge4thread-pre-split.i ], [ %145, %144 ]
   %.not.i38.i = icmp ult i64 %157, 4
-  %.sroa.07.0.copyload.pre82.i = load ptr, ptr %57, align 8
+  %.sroa.07.0.copyload.pre38.i = load ptr, ptr %57, align 8
   br i1 %.not.i38.i, label %.critedge6.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.i:         ; preds = %.critedge4.i
-  %158 = getelementptr inbounds i8, ptr %.sroa.07.0.copyload.pre82.i, i64 %157
+  %158 = getelementptr inbounds i8, ptr %.sroa.07.0.copyload.pre38.i, i64 %157
   %159 = getelementptr inbounds i8, ptr %158, i64 -4
   %bcmp.i39.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %159, ptr noundef nonnull dereferenceable(4) @.str.15, i64 4)
   %160 = icmp eq i32 %bcmp.i39.i, 0
@@ -3354,7 +3354,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit42.i:       ; preds = %161
   br i1 %166, label %167, label %.critedge6thread-pre-split.i
 
 167:                                              ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit42.i
-  %168 = call { ptr, i64 } @_ZN4llvm3sys4path4stemENS_9StringRefENS1_5StyleE(ptr %.sroa.07.0.copyload.pre82.i, i64 %157, i32 noundef 0) #19
+  %168 = call { ptr, i64 } @_ZN4llvm3sys4path4stemENS_9StringRefENS1_5StyleE(ptr %.sroa.07.0.copyload.pre38.i, i64 %157, i32 noundef 0) #19
   %169 = extractvalue { ptr, i64 } %168, 0
   %170 = extractvalue { ptr, i64 } %168, 1
   %.sroa.011.0.copyload.i = load ptr, ptr %58, align 8
@@ -3380,12 +3380,12 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %174
   br label %.critedge6.i
 
 .critedge6.i:                                     ; preds = %.critedge6thread-pre-split.i, %.critedge4.i
-  %.sroa.07.0.copyload.i = phi ptr [ %.sroa.07.0.copyload.pre.i, %.critedge6thread-pre-split.i ], [ %.sroa.07.0.copyload.pre82.i, %.critedge4.i ]
+  %.sroa.07.0.copyload.i = phi ptr [ %.sroa.07.0.copyload.pre.i, %.critedge6thread-pre-split.i ], [ %.sroa.07.0.copyload.pre38.i, %.critedge4.i ]
   %.sroa.28.0.copyload.i = phi i64 [ %.sroa.28.0.copyload.pr.i, %.critedge6thread-pre-split.i ], [ %157, %.critedge4.i ]
   %.sroa.0.0.copyload.i = load ptr, ptr %58, align 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.220.0..sroa_idx.i, align 8
-  %.not.i.i.i34 = icmp eq i64 %.sroa.28.0.copyload.i, %.sroa.2.0.copyload.i
-  br i1 %.not.i.i.i34, label %177, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i
+  %.not.i.i.i35 = icmp eq i64 %.sroa.28.0.copyload.i, %.sroa.2.0.copyload.i
+  br i1 %.not.i.i.i35, label %177, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i
 
 177:                                              ; preds = %.critedge6.i
   %178 = icmp eq i64 %.sroa.28.0.copyload.i, 0
@@ -3393,8 +3393,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %174
 
 _ZN4llvmneENS_9StringRefES0_.exit.i:              ; preds = %177
   %bcmp.i.i.i = call i32 @bcmp(ptr %.sroa.07.0.copyload.i, ptr %.sroa.0.0.copyload.i, i64 %.sroa.28.0.copyload.i)
-  %.not.i35 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %.not.i35, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i
+  %.not.i36 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %.not.i36, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i, %177, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %174, %153
   %179 = call noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvm3sys4path14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(44) %7) #19
@@ -3423,7 +3423,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmneENS_9Stri
   br i1 %.not, label %230, label %185
 
 185:                                              ; preds = %"_ZZN12_GLOBAL__N_122getRelativeIncludeNameB5cxx11ERKN5clang16CompilerInstanceEN4llvm9StringRefEPbENK3$_0clES5_.exit"
-  %186 = getelementptr inbounds nuw i8, ptr %.sroa.054.081, i64 36
+  %186 = getelementptr inbounds nuw i8, ptr %.sroa.055.080, i64 36
   %187 = load i8, ptr %186, align 4
   %188 = and i8 %187, 1
   %.not28 = icmp eq i8 %188, 0
@@ -3452,19 +3452,19 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmneENS_9Stri
   br label %200
 
 200:                                              ; preds = %201, %194
-  %.0.i36 = phi i64 [ %198, %194 ], [ %202, %201 ]
-  %.not.i37 = icmp eq i64 %.0.i36, 0
-  br i1 %.not.i37, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %201
+  %.0.i37 = phi i64 [ %198, %194 ], [ %202, %201 ]
+  %.not.i38 = icmp eq i64 %.0.i37, 0
+  br i1 %.not.i38, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %201
 
 201:                                              ; preds = %200
-  %202 = add i64 %.0.i36, -1
+  %202 = add i64 %.0.i37, -1
   %203 = getelementptr inbounds i8, ptr %199, i64 %202
   %204 = load i8, ptr %203, align 1
   %205 = icmp eq i8 %204, 47
   br i1 %205, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %200, !llvm.loop !54
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %201, %200
-  %.sroa.speculated5.i.i = call i64 @llvm.umin.i64(i64 %198, i64 %.0.i36)
+  %.sroa.speculated5.i.i = call i64 @llvm.umin.i64(i64 %198, i64 %.0.i37)
   %206 = getelementptr inbounds i8, ptr %199, i64 %.sroa.speculated5.i.i
   %207 = sub i64 %198, %.sroa.speculated5.i.i
   %208 = getelementptr inbounds nuw i8, ptr %26, i64 32
@@ -3511,9 +3511,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %201, %200
 
 226:                                              ; preds = %185
   %227 = zext i32 %.0.i to i64
-  %.sroa.speculated5.i.i40 = call i64 @llvm.umin.i64(i64 %44, i64 %227)
-  %228 = getelementptr inbounds i8, ptr %43, i64 %.sroa.speculated5.i.i40
-  %229 = sub i64 %44, %.sroa.speculated5.i.i40
+  %.sroa.speculated5.i.i41 = call i64 @llvm.umin.i64(i64 %44, i64 %227)
+  %228 = getelementptr inbounds i8, ptr %43, i64 %.sroa.speculated5.i.i41
+  %229 = sub i64 %44, %.sroa.speculated5.i.i41
   call void @_ZN4llvm3sys4path16convert_to_slashB5cxx11ENS_9StringRefENS1_5StyleE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr %228, i64 %229, i32 noundef 0) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %27) #19
   store i8 1, ptr %55, align 8
@@ -3521,9 +3521,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %201, %200
   br label %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit
 
 230:                                              ; preds = %_ZNSt10unique_ptrIN5clang9HeaderMapESt14default_deleteIS1_EED2Ev.exit, %"_ZZN12_GLOBAL__N_122getRelativeIncludeNameB5cxx11ERKN5clang16CompilerInstanceEN4llvm9StringRefEPbENK3$_0clES5_.exit"
-  %231 = getelementptr inbounds i8, ptr %.sroa.054.081, i64 40
-  %.not75 = icmp eq ptr %231, %52
-  br i1 %.not75, label %._crit_edge, label %59
+  %231 = getelementptr inbounds i8, ptr %.sroa.055.080, i64 40
+  %.not74 = icmp eq ptr %231, %52
+  br i1 %.not74, label %._crit_edge, label %59
 
 ._crit_edge:                                      ; preds = %230, %5
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8670,7 +8670,8 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit20: ; preds = %.loopexit52
 120:                                              ; preds = %.loopexit
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %122 = load ptr, ptr %121, align 8
-  %123 = call fastcc noundef zeroext i1 @_ZN4llvm6any_ofIRNS_11SmallVectorISt4pairINS_11SmallStringILj32EEEbELj1EEEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EEbOSC_T0_(ptr noundef nonnull align 8 dereferenceable(80) %122, ptr %4, ptr %5)
+  %.val = load i8, ptr %4, align 1
+  %123 = call fastcc noundef zeroext i1 @_ZN4llvm6any_ofIRNS_11SmallVectorISt4pairINS_11SmallStringILj32EEEbELj1EEEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EEbOSC_T0_(ptr noundef nonnull align 8 dereferenceable(80) %122, i8 %.val, ptr %5)
   br i1 %123, label %.preheader51, label %128
 
 .preheader51:                                     ; preds = %120, %.preheader51
@@ -8727,240 +8728,233 @@ _ZNK4llvm6detail12DenseSetImplIPKN5clang9FileEntryENS_8DenseMapIS5_NS0_13DenseSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4llvm6any_ofIRNS_11SmallVectorISt4pairINS_11SmallStringILj32EEEbELj1EEEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EEbOSC_T0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture nonnull readonly %1, ptr nonnull %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8
-  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
-  %6 = getelementptr inbounds %"struct.std::pair.880", ptr %4, i64 %5
-  %7 = ptrtoint ptr %6 to i64
-  %8 = ashr i64 %5, 2
-  %9 = icmp sgt i64 %8, 0
-  br i1 %9, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
+define internal fastcc noundef zeroext i1 @_ZN4llvm6any_ofIRNS_11SmallVectorISt4pairINS_11SmallStringILj32EEEbELj1EEEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EEbOSC_T0_(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 %.0.val, ptr nonnull %1) unnamed_addr #0 {
+  %3 = load ptr, ptr %0, align 8
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  %5 = getelementptr inbounds %"struct.std::pair.880", ptr %3, i64 %4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = ashr i64 %4, 2
+  %8 = icmp sgt i64 %7, 0
+  br i1 %8, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i
-  %.074.i.i.i.i.i = phi i64 [ %66, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i ], [ %8, %3 ]
-  %.02973.i.i.i.i.i = phi ptr [ %65, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i ], [ %4, %3 ]
-  %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %12 = load ptr, ptr %.02973.i.i.i.i.i, align 8
-  %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %.02973.i.i.i.i.i) #19
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %13, %11
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %14, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.thread.i.i.i.i.i
+.lr.ph.i.i.i.i.i:                                 ; preds = %2, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i
+  %.074.i.i.i.i.i = phi i64 [ %61, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i ], [ %7, %2 ]
+  %.02973.i.i.i.i.i = phi ptr [ %60, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i ], [ %3, %2 ]
+  %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %11 = load ptr, ptr %.02973.i.i.i.i.i, align 8
+  %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %.02973.i.i.i.i.i) #19
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %12, %10
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %13, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.thread.i.i.i.i.i
 
-14:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %15 = icmp eq i64 %11, 0
-  br i1 %15, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i.i.i.i.i.i
+13:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %14 = icmp eq i64 %10, 0
+  br i1 %14, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i.i.i.i.i.i
 
-_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i.i.i.i.i.i: ; preds = %14
-  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %12, ptr %10, i64 %11)
-  %16 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
-  br i1 %16, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.thread.i.i.i.i.i
+_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i.i.i.i.i.i: ; preds = %13
+  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %11, ptr %9, i64 %10)
+  %15 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
+  br i1 %15, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.thread.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i.i.i.i.i.i, %14
-  %17 = getelementptr inbounds nuw i8, ptr %.02973.i.i.i.i.i, i64 56
-  %18 = load i8, ptr %17, align 8
-  %19 = load i8, ptr %1, align 1
-  %20 = xor i8 %19, %18
-  %21 = and i8 %20, 1
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.thread.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i.i.i.i.i.i, %13
+  %16 = getelementptr inbounds nuw i8, ptr %.02973.i.i.i.i.i, i64 56
+  %17 = load i8, ptr %16, align 8
+  %18 = xor i8 %17, %.0.val
+  %19 = and i8 %18, 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.thread.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.i.i.i.i.i, %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %23 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 64
-  %24 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %25 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %26 = load ptr, ptr %23, align 8
-  %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #19
-  %.not.i.i.i.i30.i.i.i.i.i = icmp eq i64 %27, %25
-  br i1 %.not.i.i.i.i30.i.i.i.i.i, label %28, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.thread.i.i.i.i.i
+  %21 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 64
+  %22 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %24 = load ptr, ptr %21, align 8
+  %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %21) #19
+  %.not.i.i.i.i30.i.i.i.i.i = icmp eq i64 %25, %23
+  br i1 %.not.i.i.i.i30.i.i.i.i.i, label %26, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.thread.i.i.i.i.i
 
-28:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.thread.i.i.i.i.i
-  %29 = icmp eq i64 %25, 0
-  br i1 %29, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i31.i.i.i.i.i
+26:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.thread.i.i.i.i.i
+  %27 = icmp eq i64 %23, 0
+  br i1 %27, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i31.i.i.i.i.i
 
-_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i31.i.i.i.i.i: ; preds = %28
-  %bcmp.i.i.i.i32.i.i.i.i.i = tail call i32 @bcmp(ptr %26, ptr %24, i64 %25)
-  %30 = icmp eq i32 %bcmp.i.i.i.i32.i.i.i.i.i, 0
-  br i1 %30, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.thread.i.i.i.i.i
+_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i31.i.i.i.i.i: ; preds = %26
+  %bcmp.i.i.i.i32.i.i.i.i.i = tail call i32 @bcmp(ptr %24, ptr %22, i64 %23)
+  %28 = icmp eq i32 %bcmp.i.i.i.i32.i.i.i.i.i, 0
+  br i1 %28, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.thread.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i31.i.i.i.i.i, %28
-  %31 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 120
-  %32 = load i8, ptr %31, align 8
-  %33 = load i8, ptr %1, align 1
-  %34 = xor i8 %33, %32
-  %35 = and i8 %34, 1
-  %36 = icmp eq i8 %35, 0
-  br i1 %36, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.thread.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i31.i.i.i.i.i, %26
+  %29 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 120
+  %30 = load i8, ptr %29, align 8
+  %31 = xor i8 %30, %.0.val
+  %32 = and i8 %31, 1
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.thread.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.i.i.i.i.i, %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i31.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.thread.i.i.i.i.i
-  %37 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 128
-  %38 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %39 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %40 = load ptr, ptr %37, align 8
-  %41 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %37) #19
-  %.not.i.i.i.i35.i.i.i.i.i = icmp eq i64 %41, %39
-  br i1 %.not.i.i.i.i35.i.i.i.i.i, label %42, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.thread.i.i.i.i.i
+  %34 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 128
+  %35 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %36 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %37 = load ptr, ptr %34, align 8
+  %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %34) #19
+  %.not.i.i.i.i35.i.i.i.i.i = icmp eq i64 %38, %36
+  br i1 %.not.i.i.i.i35.i.i.i.i.i, label %39, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.thread.i.i.i.i.i
 
-42:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.thread.i.i.i.i.i
-  %43 = icmp eq i64 %39, 0
-  br i1 %43, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i36.i.i.i.i.i
+39:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.thread.i.i.i.i.i
+  %40 = icmp eq i64 %36, 0
+  br i1 %40, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i36.i.i.i.i.i
 
-_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i36.i.i.i.i.i: ; preds = %42
-  %bcmp.i.i.i.i37.i.i.i.i.i = tail call i32 @bcmp(ptr %40, ptr %38, i64 %39)
-  %44 = icmp eq i32 %bcmp.i.i.i.i37.i.i.i.i.i, 0
-  br i1 %44, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.thread.i.i.i.i.i
+_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i36.i.i.i.i.i: ; preds = %39
+  %bcmp.i.i.i.i37.i.i.i.i.i = tail call i32 @bcmp(ptr %37, ptr %35, i64 %36)
+  %41 = icmp eq i32 %bcmp.i.i.i.i37.i.i.i.i.i, 0
+  br i1 %41, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.thread.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i36.i.i.i.i.i, %42
-  %45 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 184
-  %46 = load i8, ptr %45, align 8
-  %47 = load i8, ptr %1, align 1
-  %48 = xor i8 %47, %46
-  %49 = and i8 %48, 1
-  %50 = icmp eq i8 %49, 0
-  br i1 %50, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.thread.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i36.i.i.i.i.i, %39
+  %42 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 184
+  %43 = load i8, ptr %42, align 8
+  %44 = xor i8 %43, %.0.val
+  %45 = and i8 %44, 1
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.thread.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.i.i.i.i.i, %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i36.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.thread.i.i.i.i.i
-  %51 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 192
-  %52 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %53 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %54 = load ptr, ptr %51, align 8
-  %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %51) #19
-  %.not.i.i.i.i40.i.i.i.i.i = icmp eq i64 %55, %53
-  br i1 %.not.i.i.i.i40.i.i.i.i.i, label %56, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i
+  %47 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 192
+  %48 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %49 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %50 = load ptr, ptr %47, align 8
+  %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %47) #19
+  %.not.i.i.i.i40.i.i.i.i.i = icmp eq i64 %51, %49
+  br i1 %.not.i.i.i.i40.i.i.i.i.i, label %52, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i
 
-56:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.thread.i.i.i.i.i
-  %57 = icmp eq i64 %53, 0
-  br i1 %57, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i41.i.i.i.i.i
+52:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.thread.i.i.i.i.i
+  %53 = icmp eq i64 %49, 0
+  br i1 %53, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i41.i.i.i.i.i
 
-_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i41.i.i.i.i.i: ; preds = %56
-  %bcmp.i.i.i.i42.i.i.i.i.i = tail call i32 @bcmp(ptr %54, ptr %52, i64 %53)
-  %58 = icmp eq i32 %bcmp.i.i.i.i42.i.i.i.i.i, 0
-  br i1 %58, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i
+_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i41.i.i.i.i.i: ; preds = %52
+  %bcmp.i.i.i.i42.i.i.i.i.i = tail call i32 @bcmp(ptr %50, ptr %48, i64 %49)
+  %54 = icmp eq i32 %bcmp.i.i.i.i42.i.i.i.i.i, 0
+  br i1 %54, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i41.i.i.i.i.i, %56
-  %59 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 248
-  %60 = load i8, ptr %59, align 8
-  %61 = load i8, ptr %1, align 1
-  %62 = xor i8 %61, %60
-  %63 = and i8 %62, 1
-  %64 = icmp eq i8 %63, 0
-  br i1 %64, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i41.i.i.i.i.i, %52
+  %55 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 248
+  %56 = load i8, ptr %55, align 8
+  %57 = xor i8 %56, %.0.val
+  %58 = and i8 %57, 1
+  %59 = icmp eq i8 %58, 0
+  br i1 %59, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.i.i.i.i.i, %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i41.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.thread.i.i.i.i.i
-  %65 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 256
-  %66 = add nsw i64 %.074.i.i.i.i.i, -1
-  %67 = icmp sgt i64 %.074.i.i.i.i.i, 1
-  br i1 %67, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !172
+  %60 = getelementptr inbounds i8, ptr %.02973.i.i.i.i.i, i64 256
+  %61 = add nsw i64 %.074.i.i.i.i.i, -1
+  %62 = icmp sgt i64 %.074.i.i.i.i.i, 1
+  br i1 %62, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !172
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.thread.i.i.i.i.i
-  %.pre.i.i.i.i.i = ptrtoint ptr %65 to i64
-  %.pre75.i.i.i.i.i = sub i64 %7, %.pre.i.i.i.i.i
-  %68 = ashr exact i64 %.pre75.i.i.i.i.i, 6
+  %.pre.i.i.i.i.i = ptrtoint ptr %60 to i64
+  %.pre75.i.i.i.i.i = sub i64 %6, %.pre.i.i.i.i.i
+  %63 = ashr exact i64 %.pre75.i.i.i.i.i, 6
   br label %._crit_edge.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %3
-  %.pre-phi76.i.i.i.i.i = phi i64 [ %68, %._crit_edge.loopexit.i.i.i.i.i ], [ %5, %3 ]
-  %.029.lcssa.i.i.i.i.i = phi ptr [ %65, %._crit_edge.loopexit.i.i.i.i.i ], [ %4, %3 ]
+._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %2
+  %.pre-phi76.i.i.i.i.i = phi i64 [ %63, %._crit_edge.loopexit.i.i.i.i.i ], [ %4, %2 ]
+  %.029.lcssa.i.i.i.i.i = phi ptr [ %60, %._crit_edge.loopexit.i.i.i.i.i ], [ %3, %2 ]
   switch i64 %.pre-phi76.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.thread.i.i.i.i.i [
-    i64 3, label %69
-    i64 2, label %84
-    i64 1, label %99
+    i64 3, label %64
+    i64 2, label %78
+    i64 1, label %92
   ]
 
-69:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %70 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %71 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %72 = load ptr, ptr %.029.lcssa.i.i.i.i.i, align 8
-  %73 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %.029.lcssa.i.i.i.i.i) #19
-  %.not.i.i.i.i45.i.i.i.i.i = icmp eq i64 %73, %71
-  br i1 %.not.i.i.i.i45.i.i.i.i.i, label %74, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.thread.i.i.i.i.i
+64:                                               ; preds = %._crit_edge.i.i.i.i.i
+  %65 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %66 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %67 = load ptr, ptr %.029.lcssa.i.i.i.i.i, align 8
+  %68 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %.029.lcssa.i.i.i.i.i) #19
+  %.not.i.i.i.i45.i.i.i.i.i = icmp eq i64 %68, %66
+  br i1 %.not.i.i.i.i45.i.i.i.i.i, label %69, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.thread.i.i.i.i.i
 
-74:                                               ; preds = %69
-  %75 = icmp eq i64 %71, 0
-  br i1 %75, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i46.i.i.i.i.i
+69:                                               ; preds = %64
+  %70 = icmp eq i64 %66, 0
+  br i1 %70, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i46.i.i.i.i.i
 
-_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i46.i.i.i.i.i: ; preds = %74
-  %bcmp.i.i.i.i47.i.i.i.i.i = tail call i32 @bcmp(ptr %72, ptr %70, i64 %71)
-  %76 = icmp eq i32 %bcmp.i.i.i.i47.i.i.i.i.i, 0
-  br i1 %76, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.thread.i.i.i.i.i
+_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i46.i.i.i.i.i: ; preds = %69
+  %bcmp.i.i.i.i47.i.i.i.i.i = tail call i32 @bcmp(ptr %67, ptr %65, i64 %66)
+  %71 = icmp eq i32 %bcmp.i.i.i.i47.i.i.i.i.i, 0
+  br i1 %71, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.thread.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i46.i.i.i.i.i, %74
-  %77 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 56
-  %78 = load i8, ptr %77, align 8
-  %79 = load i8, ptr %1, align 1
-  %80 = xor i8 %79, %78
-  %81 = and i8 %80, 1
-  %82 = icmp eq i8 %81, 0
-  br i1 %82, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.thread.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i46.i.i.i.i.i, %69
+  %72 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 56
+  %73 = load i8, ptr %72, align 8
+  %74 = xor i8 %73, %.0.val
+  %75 = and i8 %74, 1
+  %76 = icmp eq i8 %75, 0
+  br i1 %76, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.thread.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.i.i.i.i.i, %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i46.i.i.i.i.i, %69
-  %83 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 64
-  br label %84
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.i.i.i.i.i, %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i46.i.i.i.i.i, %64
+  %77 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 64
+  br label %78
 
-84:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.thread.i.i.i.i.i, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %83, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.thread.i.i.i.i.i ]
-  %85 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %86 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %87 = load ptr, ptr %.1.i.i.i.i.i, align 8
-  %88 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %.1.i.i.i.i.i) #19
-  %.not.i.i.i.i50.i.i.i.i.i = icmp eq i64 %88, %86
-  br i1 %.not.i.i.i.i50.i.i.i.i.i, label %89, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.thread.i.i.i.i.i
+78:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.thread.i.i.i.i.i, %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %77, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.thread.i.i.i.i.i ]
+  %79 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %80 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %81 = load ptr, ptr %.1.i.i.i.i.i, align 8
+  %82 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %.1.i.i.i.i.i) #19
+  %.not.i.i.i.i50.i.i.i.i.i = icmp eq i64 %82, %80
+  br i1 %.not.i.i.i.i50.i.i.i.i.i, label %83, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.thread.i.i.i.i.i
 
-89:                                               ; preds = %84
-  %90 = icmp eq i64 %86, 0
-  br i1 %90, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i51.i.i.i.i.i
+83:                                               ; preds = %78
+  %84 = icmp eq i64 %80, 0
+  br i1 %84, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i51.i.i.i.i.i
 
-_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i51.i.i.i.i.i: ; preds = %89
-  %bcmp.i.i.i.i52.i.i.i.i.i = tail call i32 @bcmp(ptr %87, ptr %85, i64 %86)
-  %91 = icmp eq i32 %bcmp.i.i.i.i52.i.i.i.i.i, 0
-  br i1 %91, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.thread.i.i.i.i.i
+_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i51.i.i.i.i.i: ; preds = %83
+  %bcmp.i.i.i.i52.i.i.i.i.i = tail call i32 @bcmp(ptr %81, ptr %79, i64 %80)
+  %85 = icmp eq i32 %bcmp.i.i.i.i52.i.i.i.i.i, 0
+  br i1 %85, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.thread.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i51.i.i.i.i.i, %89
-  %92 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 56
-  %93 = load i8, ptr %92, align 8
-  %94 = load i8, ptr %1, align 1
-  %95 = xor i8 %94, %93
-  %96 = and i8 %95, 1
-  %97 = icmp eq i8 %96, 0
-  br i1 %97, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.thread.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i51.i.i.i.i.i, %83
+  %86 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 56
+  %87 = load i8, ptr %86, align 8
+  %88 = xor i8 %87, %.0.val
+  %89 = and i8 %88, 1
+  %90 = icmp eq i8 %89, 0
+  br i1 %90, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.thread.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.i.i.i.i.i, %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i51.i.i.i.i.i, %84
-  %98 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 64
-  br label %99
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.i.i.i.i.i, %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i51.i.i.i.i.i, %78
+  %91 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 64
+  br label %92
 
-99:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.thread.i.i.i.i.i, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %98, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.thread.i.i.i.i.i ]
-  %100 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %101 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %102 = load ptr, ptr %.2.i.i.i.i.i, align 8
-  %103 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %.2.i.i.i.i.i) #19
-  %.not.i.i.i.i55.i.i.i.i.i = icmp eq i64 %103, %101
-  br i1 %.not.i.i.i.i55.i.i.i.i.i, label %104, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.thread.i.i.i.i.i
+92:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.thread.i.i.i.i.i, %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %91, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.thread.i.i.i.i.i ]
+  %93 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %94 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %95 = load ptr, ptr %.2.i.i.i.i.i, align 8
+  %96 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %.2.i.i.i.i.i) #19
+  %.not.i.i.i.i55.i.i.i.i.i = icmp eq i64 %96, %94
+  br i1 %.not.i.i.i.i55.i.i.i.i.i, label %97, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.thread.i.i.i.i.i
 
-104:                                              ; preds = %99
-  %105 = icmp eq i64 %101, 0
-  br i1 %105, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i56.i.i.i.i.i
+97:                                               ; preds = %92
+  %98 = icmp eq i64 %94, 0
+  br i1 %98, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.i.i.i.i.i, label %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i56.i.i.i.i.i
 
-_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i56.i.i.i.i.i: ; preds = %104
-  %bcmp.i.i.i.i57.i.i.i.i.i = tail call i32 @bcmp(ptr %102, ptr %100, i64 %101)
-  %106 = icmp eq i32 %bcmp.i.i.i.i57.i.i.i.i.i, 0
-  br i1 %106, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.thread.i.i.i.i.i
+_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i56.i.i.i.i.i: ; preds = %97
+  %bcmp.i.i.i.i57.i.i.i.i.i = tail call i32 @bcmp(ptr %95, ptr %93, i64 %94)
+  %99 = icmp eq i32 %bcmp.i.i.i.i57.i.i.i.i.i, 0
+  br i1 %99, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.thread.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i56.i.i.i.i.i, %104
-  %107 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i, i64 56
-  %108 = load i8, ptr %107, align 8
-  %109 = load i8, ptr %1, align 1
-  %110 = xor i8 %109, %108
-  %111 = and i8 %110, 1
-  %112 = icmp eq i8 %111, 0
-  br i1 %112, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.thread.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.i.i.i.i.i: ; preds = %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i56.i.i.i.i.i, %97
+  %100 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i, i64 56
+  %101 = load i8, ptr %100, align 8
+  %102 = xor i8 %101, %.0.val
+  %103 = and i8 %102, 1
+  %104 = icmp eq i8 %103, 0
+  br i1 %104, label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.thread.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.i.i.i.i.i, %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i56.i.i.i.i.i, %99, %._crit_edge.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.i.i.i.i.i, %_ZNK4llvm11SmallStringILj32EE6equalsENS_9StringRefE.exit.i.i56.i.i.i.i.i, %92, %._crit_edge.i.i.i.i.i
   br label %_ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit
 
 _ZSt6any_ofIPSt4pairIN4llvm11SmallStringILj32EEEbEZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EbSA_SA_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.thread.i.i.i.i.i
-  %.028.i.i.i.i.i = phi ptr [ %6, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.thread.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.i.i.i.i.i ], [ %.1.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.i.i.i.i.i ], [ %.2.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.i.i.i.i.i ], [ %.02973.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.i.i.i.i.i ], [ %23, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.i.i.i.i.i ], [ %37, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.i.i.i.i.i ], [ %51, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.i.i.i.i.i ]
-  %113 = icmp ne ptr %6, %.028.i.i.i.i.i
-  ret i1 %113
+  %.028.i.i.i.i.i = phi ptr [ %5, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.thread.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit49.i.i.i.i.i ], [ %.1.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit54.i.i.i.i.i ], [ %.2.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit59.i.i.i.i.i ], [ %.02973.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit.i.i.i.i.i ], [ %21, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit34.i.i.i.i.i ], [ %34, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit39.i.i.i.i.i ], [ %47, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119LocationFileCheckerclEN5clang14SourceLocationEEUlRKT_E_EclIPSt4pairIN4llvm11SmallStringILj32EEEbEEEbS6_.exit44.i.i.i.i.i ]
+  %105 = icmp ne ptr %5, %.028.i.i.i.i.i
+  ret i1 %105
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

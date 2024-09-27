@@ -9476,51 +9476,51 @@ _ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridES
   br i1 %.not2.i.i.i.i, label %._crit_edge.thread.i.i.i.i, label %.lr.ph.i.i.i13.i
 
 .lr.ph.i.i.i13.i:                                 ; preds = %.noexc.i, %.lr.ph.i.i.i13.i
-  %.01317.i.i.i.i = phi ptr [ %.013.i.i.i.i, %.lr.ph.i.i.i13.i ], [ %.val.i.i.i323, %.noexc.i ]
-  %244 = getelementptr inbounds i8, ptr %.01317.i.i.i.i, i64 32
+  %.01115.i.i.i.i = phi ptr [ %.011.i.i.i.i, %.lr.ph.i.i.i13.i ], [ %.val.i.i.i323, %.noexc.i ]
+  %244 = getelementptr inbounds i8, ptr %.01115.i.i.i.i, i64 32
   %245 = load ptr, ptr %244, align 8
   %246 = icmp ult ptr %203, %245
   %.in.v.i.i.i.i = select i1 %246, i64 16, i64 24
-  %.in.i.i.i.i = getelementptr i8, ptr %.01317.i.i.i.i, i64 %.in.v.i.i.i.i
-  %.013.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8
-  %.not.i.i.i14.i = icmp eq ptr %.013.i.i.i.i, null
+  %.in.i.i.i.i = getelementptr i8, ptr %.01115.i.i.i.i, i64 %.in.v.i.i.i.i
+  %.011.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8
+  %.not.i.i.i14.i = icmp eq ptr %.011.i.i.i.i, null
   br i1 %.not.i.i.i14.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i13.i, !llvm.loop !104
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i13.i
   br i1 %246, label %._crit_edge.thread.i.i.i.i, label %251
 
 ._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %.noexc.i
-  %.012.lcssa21.i.i.i.i = phi ptr [ %.01317.i.i.i.i, %._crit_edge.i.i.i.i ], [ %206, %.noexc.i ]
+  %.010.lcssa19.i.i.i.i = phi ptr [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ], [ %206, %.noexc.i ]
   %247 = getelementptr inbounds i8, ptr %.val274, i64 40
   %.val9.i.i.i.i = load ptr, ptr %247, align 8
-  %248 = icmp eq ptr %.012.lcssa21.i.i.i.i, %.val9.i.i.i.i
+  %248 = icmp eq ptr %.010.lcssa19.i.i.i.i, %.val9.i.i.i.i
   br i1 %248, label %select.unfold.i.i.i, label %249
 
 249:                                              ; preds = %._crit_edge.thread.i.i.i.i
-  %250 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.012.lcssa21.i.i.i.i) #38
+  %250 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i.i.i.i) #38
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %250, i64 32
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %251
 
 251:                                              ; preds = %249, %._crit_edge.i.i.i.i
   %252 = phi ptr [ %.pre.i.i.i, %249 ], [ %245, %._crit_edge.i.i.i.i ]
-  %.012.lcssa22.i.i.i.i = phi ptr [ %.012.lcssa21.i.i.i.i, %249 ], [ %.01317.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %.sroa.01.0.i.i.i.i = phi ptr [ %250, %249 ], [ %.01317.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.010.lcssa20.i.i.i.i = phi ptr [ %.010.lcssa19.i.i.i.i, %249 ], [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.sroa.01.0.i.i.i.i = phi ptr [ %250, %249 ], [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ]
   %253 = icmp ult ptr %252, %203
   br i1 %253, label %select.unfold.i.i.i, label %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i.i.i.i
 
 select.unfold.i.i.i:                              ; preds = %251, %._crit_edge.thread.i.i.i.i
-  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.012.lcssa21.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.012.lcssa22.i.i.i.i, %251 ]
+  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.010.lcssa19.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.010.lcssa20.i.i.i.i, %251 ]
   %254 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %206
-  br i1 %254, label %.thread21.i.i.i, label %255
+  br i1 %254, label %.thread23.i.i.i, label %255
 
 255:                                              ; preds = %select.unfold.i.i.i
   %256 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
   %257 = load ptr, ptr %256, align 8
   %258 = icmp ult ptr %203, %257
-  br label %.thread21.i.i.i
+  br label %.thread23.i.i.i
 
-.thread21.i.i.i:                                  ; preds = %255, %select.unfold.i.i.i
+.thread23.i.i.i:                                  ; preds = %255, %select.unfold.i.i.i
   %259 = phi i1 [ true, %select.unfold.i.i.i ], [ %258, %255 ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %259, ptr noundef nonnull %240, ptr noundef nonnull %.sroa.4.0.i.ph.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %206) #32
   %260 = getelementptr inbounds i8, ptr %.val274, i64 56
@@ -9540,8 +9540,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS1_EED2Ev.exit20.i: ; 
   call void @_ZdlPv(ptr noundef nonnull %214) #37
   br label %common.resume
 
-_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.i, %.thread21.i.i.i, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i.i.i.i
-  %.sroa.025.0.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.i ], [ %240, %.thread21.i.i.i ], [ %.sroa.01.0.i.i.i.i, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i.i.i.i ]
+_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.i, %.thread23.i.i.i, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i.i.i.i
+  %.sroa.025.0.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.i ], [ %240, %.thread23.i.i.i ], [ %.sroa.01.0.i.i.i.i, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i.i.i.i ]
   %264 = getelementptr inbounds i8, ptr %.sroa.025.0.i, i64 40
   %.val12.i = load ptr, ptr %264, align 8
   %265 = icmp eq ptr %.val12.i, null
@@ -10500,56 +10500,56 @@ define internal fastcc ptr @_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %6, ptr noundef nonnull readonly align 8 dereferenceable(184) %7, i64 184, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %.01315.i.i = load ptr, ptr %8, align 8
-  %.not16.i.i = icmp eq ptr %.01315.i.i, null
-  br i1 %.not16.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.i.i
+  %.01113.i.i = load ptr, ptr %8, align 8
+  %.not14.i.i = icmp eq ptr %.01113.i.i, null
+  br i1 %.not14.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
-  %.01317.i.i = phi ptr [ %.013.i.i, %.lr.ph.i.i ], [ %.01315.i.i, %2 ]
-  %10 = getelementptr inbounds i8, ptr %.01317.i.i, i64 32
+  %.01115.i.i = phi ptr [ %.011.i.i, %.lr.ph.i.i ], [ %.01113.i.i, %2 ]
+  %10 = getelementptr inbounds i8, ptr %.01115.i.i, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ult ptr %5, %11
   %.in.v.i.i = select i1 %12, i64 16, i64 24
-  %.in.i.i = getelementptr i8, ptr %.01317.i.i, i64 %.in.v.i.i
-  %.013.i.i = load ptr, ptr %.in.i.i, align 8
-  %.not.i.i = icmp eq ptr %.013.i.i, null
+  %.in.i.i = getelementptr i8, ptr %.01115.i.i, i64 %.in.v.i.i
+  %.011.i.i = load ptr, ptr %.in.i.i, align 8
+  %.not.i.i = icmp eq ptr %.011.i.i, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !107
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   br i1 %12, label %._crit_edge.thread.i.i, label %17
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %2
-  %.012.lcssa21.i.i = phi ptr [ %.01317.i.i, %._crit_edge.i.i ], [ %9, %2 ]
+  %.010.lcssa19.i.i = phi ptr [ %.01115.i.i, %._crit_edge.i.i ], [ %9, %2 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %.val9.i.i = load ptr, ptr %13, align 8
-  %14 = icmp eq ptr %.012.lcssa21.i.i, %.val9.i.i
+  %14 = icmp eq ptr %.010.lcssa19.i.i, %.val9.i.i
   br i1 %14, label %select.unfold.i, label %15
 
 15:                                               ; preds = %._crit_edge.thread.i.i
-  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.012.lcssa21.i.i) #38
+  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i.i) #38
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %16, i64 32
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %17
 
 17:                                               ; preds = %15, %._crit_edge.i.i
   %18 = phi ptr [ %.pre.i, %15 ], [ %11, %._crit_edge.i.i ]
-  %.012.lcssa22.i.i = phi ptr [ %.012.lcssa21.i.i, %15 ], [ %.01317.i.i, %._crit_edge.i.i ]
-  %.sroa.01.0.i.i = phi ptr [ %16, %15 ], [ %.01317.i.i, %._crit_edge.i.i ]
+  %.010.lcssa20.i.i = phi ptr [ %.010.lcssa19.i.i, %15 ], [ %.01115.i.i, %._crit_edge.i.i ]
+  %.sroa.01.0.i.i = phi ptr [ %16, %15 ], [ %.01115.i.i, %._crit_edge.i.i ]
   %19 = icmp ult ptr %18, %5
   br i1 %19, label %select.unfold.i, label %29
 
 select.unfold.i:                                  ; preds = %17, %._crit_edge.thread.i.i
-  %.sroa.4.0.i.ph.i = phi ptr [ %.012.lcssa21.i.i, %._crit_edge.thread.i.i ], [ %.012.lcssa22.i.i, %17 ]
+  %.sroa.4.0.i.ph.i = phi ptr [ %.010.lcssa19.i.i, %._crit_edge.thread.i.i ], [ %.010.lcssa20.i.i, %17 ]
   %20 = icmp eq ptr %.sroa.4.0.i.ph.i, %9
-  br i1 %20, label %.thread23.i, label %21
+  br i1 %20, label %.thread25.i, label %21
 
 21:                                               ; preds = %select.unfold.i
   %22 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ult ptr %5, %23
-  br label %.thread23.i
+  br label %.thread25.i
 
-.thread23.i:                                      ; preds = %21, %select.unfold.i
+.thread25.i:                                      ; preds = %21, %select.unfold.i
   %25 = phi i1 [ true, %select.unfold.i ], [ %24, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %25, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %9) #32
   %26 = getelementptr inbounds i8, ptr %0, i64 40
@@ -10562,9 +10562,9 @@ select.unfold.i:                                  ; preds = %17, %._crit_edge.th
   tail call void @_ZdlPv(ptr noundef nonnull %3) #37
   br label %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE17_M_emplace_uniqueIJS4_IS3_S8_EEEES4_ISt17_Rb_tree_iteratorIS9_EbEDpOT_.exit
 
-_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE17_M_emplace_uniqueIJS4_IS3_S8_EEEES4_ISt17_Rb_tree_iteratorIS9_EbEDpOT_.exit: ; preds = %.thread23.i, %29
-  %.sroa.015.028.i = phi ptr [ %3, %.thread23.i ], [ %.sroa.01.0.i.i, %29 ]
-  ret ptr %.sroa.015.028.i
+_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE17_M_emplace_uniqueIJS4_IS3_S8_EEEES4_ISt17_Rb_tree_iteratorIS9_EbEDpOT_.exit: ; preds = %.thread25.i, %29
+  %.sroa.017.030.i = phi ptr [ %3, %.thread25.i ], [ %.sroa.01.0.i.i, %29 ]
+  ret ptr %.sroa.017.030.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable

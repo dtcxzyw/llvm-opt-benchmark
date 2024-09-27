@@ -9123,10 +9123,10 @@ entry:
   %ref.tmp28 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   store float %number, ptr %number.addr, align 4
   store i32 %expected_exponent, ptr %expected_exponent.addr, align 4
+  %0 = ptrtoint ptr %number.addr to i64
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_7)
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_EE", i64 16), ptr %DOCTEST_CAPTURE_7, align 8, !alias.scope !5
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_7, i64 16
-  %0 = ptrtoint ptr %number.addr to i64
   store i64 %0, ptr %lambda_.i.i, align 8, !alias.scope !5
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_10)
           to label %invoke.cont unwind label %lpad
@@ -9449,10 +9449,10 @@ entry:
   %ref.tmp28 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   store double %number, ptr %number.addr, align 8
   store i32 %expected_exponent, ptr %expected_exponent.addr, align 4
+  %0 = ptrtoint ptr %number.addr to i64
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_17)
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_EE", i64 16), ptr %DOCTEST_CAPTURE_17, align 8, !alias.scope !16
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_17, i64 16
-  %0 = ptrtoint ptr %number.addr to i64
   store i64 %0, ptr %lambda_.i.i, align 8, !alias.scope !16
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_20)
           to label %invoke.cont unwind label %lpad

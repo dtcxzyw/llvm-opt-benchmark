@@ -1382,15 +1382,15 @@ _ZN4llvmeqENS_9StringRefES0_.exit15.thread22:     ; preds = %_ZN4llvmeqENS_9Stri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK5clang7targets21WebAssemblyTargetInfo14initFeatureMapERN4llvm9StringMapIbNS2_15MallocAllocatorEEERNS_17DiagnosticsEngineENS2_9StringRefERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
-  switch i64 %4, label %_ZN4llvmeqENS_9StringRefES0_.exit16.thread273 [
+  switch i64 %4, label %_ZN4llvmeqENS_9StringRefES0_.exit17.thread266 [
     i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit
-    i64 13, label %_ZN4llvmeqENS_9StringRefES0_.exit16
+    i64 13, label %_ZN4llvmeqENS_9StringRefES0_.exit17
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %6
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %3, ptr noundef nonnull dereferenceable(7) @.str.36, i64 7)
   %7 = icmp eq i32 %bcmp.i, 0
-  br i1 %7, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit16.thread273
+  br i1 %7, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit17.thread266
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   %8 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.8, i64 10) #13
@@ -1399,25 +1399,25 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %11 = zext i32 %9 to i64
   %12 = getelementptr inbounds ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %magicptr.i51 = ptrtoint ptr %13 to i64
-  switch i64 %magicptr.i51, label %.preheader.i.i.i60 [
+  %magicptr.i52 = ptrtoint ptr %13 to i64
+  switch i64 %magicptr.i52, label %.preheader.i.i.i61 [
     i64 0, label %20
     i64 -8, label %16
   ]
 
-.preheader.i.i.i60:                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %.critedge.i.i.i.i63
-  %14 = phi ptr [ %.pre.i64, %.critedge.i.i.i.i63 ], [ %13, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
-  %.sroa.030.0.i61 = phi ptr [ %15, %.critedge.i.i.i.i63 ], [ %12, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
-  %magicptr.i.i.i.i62 = ptrtoint ptr %14 to i64
-  switch i64 %magicptr.i.i.i.i62, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit65 [
-    i64 0, label %.critedge.i.i.i.i63
-    i64 -8, label %.critedge.i.i.i.i63
+.preheader.i.i.i61:                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %.critedge.i.i.i.i64
+  %14 = phi ptr [ %.pre.i65, %.critedge.i.i.i.i64 ], [ %13, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
+  %.sroa.030.0.i62 = phi ptr [ %15, %.critedge.i.i.i.i64 ], [ %12, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
+  %magicptr.i.i.i.i63 = ptrtoint ptr %14 to i64
+  switch i64 %magicptr.i.i.i.i63, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit66 [
+    i64 0, label %.critedge.i.i.i.i64
+    i64 -8, label %.critedge.i.i.i.i64
   ]
 
-.critedge.i.i.i.i63:                              ; preds = %.preheader.i.i.i60, %.preheader.i.i.i60
-  %15 = getelementptr inbounds i8, ptr %.sroa.030.0.i61, i64 8
-  %.pre.i64 = load ptr, ptr %15, align 8
-  br label %.preheader.i.i.i60, !llvm.loop !4
+.critedge.i.i.i.i64:                              ; preds = %.preheader.i.i.i61, %.preheader.i.i.i61
+  %15 = getelementptr inbounds i8, ptr %.sroa.030.0.i62, i64 8
+  %.pre.i65 = load ptr, ptr %15, align 8
+  br label %.preheader.i.i.i61, !llvm.loop !4
 
 16:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1444,23 +1444,23 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %29 = load ptr, ptr %1, align 8
   %30 = zext i32 %28 to i64
   %31 = getelementptr inbounds ptr, ptr %29, i64 %30
-  br label %.preheader.i.i23.i52
+  br label %.preheader.i.i23.i53
 
-.preheader.i.i23.i52:                             ; preds = %.critedge.i.i.i25.i55, %20
-  %.sroa.0.0.i53 = phi ptr [ %31, %20 ], [ %33, %.critedge.i.i.i25.i55 ]
-  %32 = load ptr, ptr %.sroa.0.0.i53, align 8
-  %magicptr.i.i.i24.i54 = ptrtoint ptr %32 to i64
-  switch i64 %magicptr.i.i.i24.i54, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit65 [
-    i64 0, label %.critedge.i.i.i25.i55
-    i64 -8, label %.critedge.i.i.i25.i55
+.preheader.i.i23.i53:                             ; preds = %.critedge.i.i.i25.i56, %20
+  %.sroa.0.0.i54 = phi ptr [ %31, %20 ], [ %33, %.critedge.i.i.i25.i56 ]
+  %32 = load ptr, ptr %.sroa.0.0.i54, align 8
+  %magicptr.i.i.i24.i55 = ptrtoint ptr %32 to i64
+  switch i64 %magicptr.i.i.i24.i55, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit66 [
+    i64 0, label %.critedge.i.i.i25.i56
+    i64 -8, label %.critedge.i.i.i25.i56
   ]
 
-.critedge.i.i.i25.i55:                            ; preds = %.preheader.i.i23.i52, %.preheader.i.i23.i52
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.0.i53, i64 8
-  br label %.preheader.i.i23.i52, !llvm.loop !4
+.critedge.i.i.i25.i56:                            ; preds = %.preheader.i.i23.i53, %.preheader.i.i23.i53
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.0.i54, i64 8
+  br label %.preheader.i.i23.i53, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit65: ; preds = %.preheader.i.i23.i52, %.preheader.i.i.i60
-  %34 = phi ptr [ %14, %.preheader.i.i.i60 ], [ %32, %.preheader.i.i23.i52 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit66: ; preds = %.preheader.i.i23.i53, %.preheader.i.i.i61
+  %34 = phi ptr [ %14, %.preheader.i.i.i61 ], [ %32, %.preheader.i.i23.i53 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i8 1, ptr %35, align 1
   %36 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.9, i64 15) #13
@@ -1469,34 +1469,34 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %39 = zext i32 %37 to i64
   %40 = getelementptr inbounds ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %magicptr.i36 = ptrtoint ptr %41 to i64
-  switch i64 %magicptr.i36, label %.preheader.i.i.i45 [
+  %magicptr.i37 = ptrtoint ptr %41 to i64
+  switch i64 %magicptr.i37, label %.preheader.i.i.i46 [
     i64 0, label %48
     i64 -8, label %44
   ]
 
-.preheader.i.i.i45:                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit65, %.critedge.i.i.i.i48
-  %42 = phi ptr [ %.pre.i49, %.critedge.i.i.i.i48 ], [ %41, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit65 ]
-  %.sroa.030.0.i46 = phi ptr [ %43, %.critedge.i.i.i.i48 ], [ %40, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit65 ]
-  %magicptr.i.i.i.i47 = ptrtoint ptr %42 to i64
-  switch i64 %magicptr.i.i.i.i47, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit50 [
-    i64 0, label %.critedge.i.i.i.i48
-    i64 -8, label %.critedge.i.i.i.i48
+.preheader.i.i.i46:                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit66, %.critedge.i.i.i.i49
+  %42 = phi ptr [ %.pre.i50, %.critedge.i.i.i.i49 ], [ %41, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit66 ]
+  %.sroa.030.0.i47 = phi ptr [ %43, %.critedge.i.i.i.i49 ], [ %40, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit66 ]
+  %magicptr.i.i.i.i48 = ptrtoint ptr %42 to i64
+  switch i64 %magicptr.i.i.i.i48, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit51 [
+    i64 0, label %.critedge.i.i.i.i49
+    i64 -8, label %.critedge.i.i.i.i49
   ]
 
-.critedge.i.i.i.i48:                              ; preds = %.preheader.i.i.i45, %.preheader.i.i.i45
-  %43 = getelementptr inbounds i8, ptr %.sroa.030.0.i46, i64 8
-  %.pre.i49 = load ptr, ptr %43, align 8
-  br label %.preheader.i.i.i45, !llvm.loop !4
+.critedge.i.i.i.i49:                              ; preds = %.preheader.i.i.i46, %.preheader.i.i.i46
+  %43 = getelementptr inbounds i8, ptr %.sroa.030.0.i47, i64 8
+  %.pre.i50 = load ptr, ptr %43, align 8
+  br label %.preheader.i.i.i46, !llvm.loop !4
 
-44:                                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit65
+44:                                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit66
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load i32, ptr %45, align 8
   %47 = add i32 %46, -1
   store i32 %47, ptr %45, align 8
   br label %48
 
-48:                                               ; preds = %44, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit65
+48:                                               ; preds = %44, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit66
   %49 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 32, i64 noundef 8) #13
   %50 = getelementptr inbounds i8, ptr %49, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %50, ptr noundef nonnull align 1 dereferenceable(15) @.str.9, i64 15, i1 false)
@@ -1514,23 +1514,23 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %57 = load ptr, ptr %1, align 8
   %58 = zext i32 %56 to i64
   %59 = getelementptr inbounds ptr, ptr %57, i64 %58
-  br label %.preheader.i.i23.i37
+  br label %.preheader.i.i23.i38
 
-.preheader.i.i23.i37:                             ; preds = %.critedge.i.i.i25.i40, %48
-  %.sroa.0.0.i38 = phi ptr [ %59, %48 ], [ %61, %.critedge.i.i.i25.i40 ]
-  %60 = load ptr, ptr %.sroa.0.0.i38, align 8
-  %magicptr.i.i.i24.i39 = ptrtoint ptr %60 to i64
-  switch i64 %magicptr.i.i.i24.i39, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit50 [
-    i64 0, label %.critedge.i.i.i25.i40
-    i64 -8, label %.critedge.i.i.i25.i40
+.preheader.i.i23.i38:                             ; preds = %.critedge.i.i.i25.i41, %48
+  %.sroa.0.0.i39 = phi ptr [ %59, %48 ], [ %61, %.critedge.i.i.i25.i41 ]
+  %60 = load ptr, ptr %.sroa.0.0.i39, align 8
+  %magicptr.i.i.i24.i40 = ptrtoint ptr %60 to i64
+  switch i64 %magicptr.i.i.i24.i40, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit51 [
+    i64 0, label %.critedge.i.i.i25.i41
+    i64 -8, label %.critedge.i.i.i25.i41
   ]
 
-.critedge.i.i.i25.i40:                            ; preds = %.preheader.i.i23.i37, %.preheader.i.i23.i37
-  %61 = getelementptr inbounds i8, ptr %.sroa.0.0.i38, i64 8
-  br label %.preheader.i.i23.i37, !llvm.loop !4
+.critedge.i.i.i25.i41:                            ; preds = %.preheader.i.i23.i38, %.preheader.i.i23.i38
+  %61 = getelementptr inbounds i8, ptr %.sroa.0.0.i39, i64 8
+  br label %.preheader.i.i23.i38, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit50: ; preds = %.preheader.i.i23.i37, %.preheader.i.i.i45
-  %62 = phi ptr [ %42, %.preheader.i.i.i45 ], [ %60, %.preheader.i.i23.i37 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit51: ; preds = %.preheader.i.i23.i38, %.preheader.i.i.i46
+  %62 = phi ptr [ %42, %.preheader.i.i.i46 ], [ %60, %.preheader.i.i23.i38 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i8 1, ptr %63, align 1
   %64 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.11, i64 15) #13
@@ -1539,34 +1539,34 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %67 = zext i32 %65 to i64
   %68 = getelementptr inbounds ptr, ptr %66, i64 %67
   %69 = load ptr, ptr %68, align 8
-  %magicptr.i21 = ptrtoint ptr %69 to i64
-  switch i64 %magicptr.i21, label %.preheader.i.i.i30 [
+  %magicptr.i22 = ptrtoint ptr %69 to i64
+  switch i64 %magicptr.i22, label %.preheader.i.i.i31 [
     i64 0, label %76
     i64 -8, label %72
   ]
 
-.preheader.i.i.i30:                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit50, %.critedge.i.i.i.i33
-  %70 = phi ptr [ %.pre.i34, %.critedge.i.i.i.i33 ], [ %69, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit50 ]
-  %.sroa.030.0.i31 = phi ptr [ %71, %.critedge.i.i.i.i33 ], [ %68, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit50 ]
-  %magicptr.i.i.i.i32 = ptrtoint ptr %70 to i64
-  switch i64 %magicptr.i.i.i.i32, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit35 [
-    i64 0, label %.critedge.i.i.i.i33
-    i64 -8, label %.critedge.i.i.i.i33
+.preheader.i.i.i31:                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit51, %.critedge.i.i.i.i34
+  %70 = phi ptr [ %.pre.i35, %.critedge.i.i.i.i34 ], [ %69, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit51 ]
+  %.sroa.030.0.i32 = phi ptr [ %71, %.critedge.i.i.i.i34 ], [ %68, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit51 ]
+  %magicptr.i.i.i.i33 = ptrtoint ptr %70 to i64
+  switch i64 %magicptr.i.i.i.i33, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit36 [
+    i64 0, label %.critedge.i.i.i.i34
+    i64 -8, label %.critedge.i.i.i.i34
   ]
 
-.critedge.i.i.i.i33:                              ; preds = %.preheader.i.i.i30, %.preheader.i.i.i30
-  %71 = getelementptr inbounds i8, ptr %.sroa.030.0.i31, i64 8
-  %.pre.i34 = load ptr, ptr %71, align 8
-  br label %.preheader.i.i.i30, !llvm.loop !4
+.critedge.i.i.i.i34:                              ; preds = %.preheader.i.i.i31, %.preheader.i.i.i31
+  %71 = getelementptr inbounds i8, ptr %.sroa.030.0.i32, i64 8
+  %.pre.i35 = load ptr, ptr %71, align 8
+  br label %.preheader.i.i.i31, !llvm.loop !4
 
-72:                                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit50
+72:                                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit51
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %74 = load i32, ptr %73, align 8
   %75 = add i32 %74, -1
   store i32 %75, ptr %73, align 8
   br label %76
 
-76:                                               ; preds = %72, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit50
+76:                                               ; preds = %72, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit51
   %77 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 32, i64 noundef 8) #13
   %78 = getelementptr inbounds i8, ptr %77, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %78, ptr noundef nonnull align 1 dereferenceable(15) @.str.11, i64 15, i1 false)
@@ -1584,23 +1584,23 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %85 = load ptr, ptr %1, align 8
   %86 = zext i32 %84 to i64
   %87 = getelementptr inbounds ptr, ptr %85, i64 %86
-  br label %.preheader.i.i23.i22
+  br label %.preheader.i.i23.i23
 
-.preheader.i.i23.i22:                             ; preds = %.critedge.i.i.i25.i25, %76
-  %.sroa.0.0.i23 = phi ptr [ %87, %76 ], [ %89, %.critedge.i.i.i25.i25 ]
-  %88 = load ptr, ptr %.sroa.0.0.i23, align 8
-  %magicptr.i.i.i24.i24 = ptrtoint ptr %88 to i64
-  switch i64 %magicptr.i.i.i24.i24, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit35 [
-    i64 0, label %.critedge.i.i.i25.i25
-    i64 -8, label %.critedge.i.i.i25.i25
+.preheader.i.i23.i23:                             ; preds = %.critedge.i.i.i25.i26, %76
+  %.sroa.0.0.i24 = phi ptr [ %87, %76 ], [ %89, %.critedge.i.i.i25.i26 ]
+  %88 = load ptr, ptr %.sroa.0.0.i24, align 8
+  %magicptr.i.i.i24.i25 = ptrtoint ptr %88 to i64
+  switch i64 %magicptr.i.i.i24.i25, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit36 [
+    i64 0, label %.critedge.i.i.i25.i26
+    i64 -8, label %.critedge.i.i.i25.i26
   ]
 
-.critedge.i.i.i25.i25:                            ; preds = %.preheader.i.i23.i22, %.preheader.i.i23.i22
-  %89 = getelementptr inbounds i8, ptr %.sroa.0.0.i23, i64 8
-  br label %.preheader.i.i23.i22, !llvm.loop !4
+.critedge.i.i.i25.i26:                            ; preds = %.preheader.i.i23.i23, %.preheader.i.i23.i23
+  %89 = getelementptr inbounds i8, ptr %.sroa.0.0.i24, i64 8
+  br label %.preheader.i.i23.i23, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit35: ; preds = %.preheader.i.i23.i22, %.preheader.i.i.i30
-  %90 = phi ptr [ %70, %.preheader.i.i.i30 ], [ %88, %.preheader.i.i23.i22 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit36: ; preds = %.preheader.i.i23.i23, %.preheader.i.i.i31
+  %90 = phi ptr [ %70, %.preheader.i.i.i31 ], [ %88, %.preheader.i.i23.i23 ]
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i8 1, ptr %91, align 1
   %92 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.13, i64 8) #13
@@ -1615,11 +1615,11 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
     i64 -8, label %100
   ]
 
-.preheader.i.i.i:                                 ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit35, %.critedge.i.i.i.i
-  %98 = phi ptr [ %.pre.i, %.critedge.i.i.i.i ], [ %97, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit35 ]
-  %.sroa.030.0.i = phi ptr [ %99, %.critedge.i.i.i.i ], [ %96, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit35 ]
+.preheader.i.i.i:                                 ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit36, %.critedge.i.i.i.i
+  %98 = phi ptr [ %.pre.i, %.critedge.i.i.i.i ], [ %97, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit36 ]
+  %.sroa.030.0.i = phi ptr [ %99, %.critedge.i.i.i.i ], [ %96, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit36 ]
   %magicptr.i.i.i.i = ptrtoint ptr %98 to i64
-  switch i64 %magicptr.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit16.thread273.sink.split [
+  switch i64 %magicptr.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit17.thread266.sink.split [
     i64 0, label %.critedge.i.i.i.i
     i64 -8, label %.critedge.i.i.i.i
   ]
@@ -1629,14 +1629,14 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %.pre.i = load ptr, ptr %99, align 8
   br label %.preheader.i.i.i, !llvm.loop !4
 
-100:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit35
+100:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit36
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %102 = load i32, ptr %101, align 8
   %103 = add i32 %102, -1
   store i32 %103, ptr %101, align 8
   br label %104
 
-104:                                              ; preds = %100, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit35
+104:                                              ; preds = %100, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit36
   %105 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 25, i64 noundef 8) #13
   %106 = getelementptr inbounds i8, ptr %105, i64 16
   store i64 8392569151405123955, ptr %106, align 1
@@ -1660,7 +1660,7 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %.sroa.0.0.i = phi ptr [ %115, %104 ], [ %117, %.critedge.i.i.i25.i ]
   %116 = load ptr, ptr %.sroa.0.0.i, align 8
   %magicptr.i.i.i24.i = ptrtoint ptr %116 to i64
-  switch i64 %magicptr.i.i.i24.i, label %_ZN4llvmeqENS_9StringRefES0_.exit16.thread273.sink.split [
+  switch i64 %magicptr.i.i.i24.i, label %_ZN4llvmeqENS_9StringRefES0_.exit17.thread266.sink.split [
     i64 0, label %.critedge.i.i.i25.i
     i64 -8, label %.critedge.i.i.i25.i
   ]
@@ -1669,46 +1669,46 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %117 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
   br label %.preheader.i.i23.i, !llvm.loop !4
 
-_ZN4llvmeqENS_9StringRefES0_.exit16:              ; preds = %6
-  %bcmp.i15 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %3, ptr noundef nonnull dereferenceable(13) @.str.37, i64 13)
-  %118 = icmp eq i32 %bcmp.i15, 0
-  br i1 %118, label %_ZN4llvmeqENS_9StringRefES0_.exit16.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit16.thread273
+_ZN4llvmeqENS_9StringRefES0_.exit17:              ; preds = %6
+  %bcmp.i16 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %3, ptr noundef nonnull dereferenceable(13) @.str.37, i64 13)
+  %118 = icmp eq i32 %bcmp.i16, 0
+  br i1 %118, label %_ZN4llvmeqENS_9StringRefES0_.exit17.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit17.thread266
 
-_ZN4llvmeqENS_9StringRefES0_.exit16.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit16
+_ZN4llvmeqENS_9StringRefES0_.exit17.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit17
   %119 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.8, i64 10) #13
   %120 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.8, i64 10, i32 noundef %119) #13
   %121 = load ptr, ptr %1, align 8
   %122 = zext i32 %120 to i64
   %123 = getelementptr inbounds ptr, ptr %121, i64 %122
   %124 = load ptr, ptr %123, align 8
-  %magicptr.i235 = ptrtoint ptr %124 to i64
-  switch i64 %magicptr.i235, label %.preheader.i.i.i244 [
+  %magicptr.i236 = ptrtoint ptr %124 to i64
+  switch i64 %magicptr.i236, label %.preheader.i.i.i245 [
     i64 0, label %131
     i64 -8, label %127
   ]
 
-.preheader.i.i.i244:                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit16.thread, %.critedge.i.i.i.i247
-  %125 = phi ptr [ %.pre.i248, %.critedge.i.i.i.i247 ], [ %124, %_ZN4llvmeqENS_9StringRefES0_.exit16.thread ]
-  %.sroa.030.0.i245 = phi ptr [ %126, %.critedge.i.i.i.i247 ], [ %123, %_ZN4llvmeqENS_9StringRefES0_.exit16.thread ]
-  %magicptr.i.i.i.i246 = ptrtoint ptr %125 to i64
-  switch i64 %magicptr.i.i.i.i246, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit249 [
-    i64 0, label %.critedge.i.i.i.i247
-    i64 -8, label %.critedge.i.i.i.i247
+.preheader.i.i.i245:                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit17.thread, %.critedge.i.i.i.i248
+  %125 = phi ptr [ %.pre.i249, %.critedge.i.i.i.i248 ], [ %124, %_ZN4llvmeqENS_9StringRefES0_.exit17.thread ]
+  %.sroa.030.0.i246 = phi ptr [ %126, %.critedge.i.i.i.i248 ], [ %123, %_ZN4llvmeqENS_9StringRefES0_.exit17.thread ]
+  %magicptr.i.i.i.i247 = ptrtoint ptr %125 to i64
+  switch i64 %magicptr.i.i.i.i247, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit250 [
+    i64 0, label %.critedge.i.i.i.i248
+    i64 -8, label %.critedge.i.i.i.i248
   ]
 
-.critedge.i.i.i.i247:                             ; preds = %.preheader.i.i.i244, %.preheader.i.i.i244
-  %126 = getelementptr inbounds i8, ptr %.sroa.030.0.i245, i64 8
-  %.pre.i248 = load ptr, ptr %126, align 8
-  br label %.preheader.i.i.i244, !llvm.loop !4
+.critedge.i.i.i.i248:                             ; preds = %.preheader.i.i.i245, %.preheader.i.i.i245
+  %126 = getelementptr inbounds i8, ptr %.sroa.030.0.i246, i64 8
+  %.pre.i249 = load ptr, ptr %126, align 8
+  br label %.preheader.i.i.i245, !llvm.loop !4
 
-127:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit16.thread
+127:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit17.thread
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %129 = load i32, ptr %128, align 8
   %130 = add i32 %129, -1
   store i32 %130, ptr %128, align 8
   br label %131
 
-131:                                              ; preds = %127, %_ZN4llvmeqENS_9StringRefES0_.exit16.thread
+131:                                              ; preds = %127, %_ZN4llvmeqENS_9StringRefES0_.exit17.thread
   %132 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 27, i64 noundef 8) #13
   %133 = getelementptr inbounds i8, ptr %132, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %133, ptr noundef nonnull align 1 dereferenceable(10) @.str.8, i64 10, i1 false)
@@ -1726,23 +1726,23 @@ _ZN4llvmeqENS_9StringRefES0_.exit16.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %140 = load ptr, ptr %1, align 8
   %141 = zext i32 %139 to i64
   %142 = getelementptr inbounds ptr, ptr %140, i64 %141
-  br label %.preheader.i.i23.i236
+  br label %.preheader.i.i23.i237
 
-.preheader.i.i23.i236:                            ; preds = %.critedge.i.i.i25.i239, %131
-  %.sroa.0.0.i237 = phi ptr [ %142, %131 ], [ %144, %.critedge.i.i.i25.i239 ]
-  %143 = load ptr, ptr %.sroa.0.0.i237, align 8
-  %magicptr.i.i.i24.i238 = ptrtoint ptr %143 to i64
-  switch i64 %magicptr.i.i.i24.i238, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit249 [
-    i64 0, label %.critedge.i.i.i25.i239
-    i64 -8, label %.critedge.i.i.i25.i239
+.preheader.i.i23.i237:                            ; preds = %.critedge.i.i.i25.i240, %131
+  %.sroa.0.0.i238 = phi ptr [ %142, %131 ], [ %144, %.critedge.i.i.i25.i240 ]
+  %143 = load ptr, ptr %.sroa.0.0.i238, align 8
+  %magicptr.i.i.i24.i239 = ptrtoint ptr %143 to i64
+  switch i64 %magicptr.i.i.i24.i239, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit250 [
+    i64 0, label %.critedge.i.i.i25.i240
+    i64 -8, label %.critedge.i.i.i25.i240
   ]
 
-.critedge.i.i.i25.i239:                           ; preds = %.preheader.i.i23.i236, %.preheader.i.i23.i236
-  %144 = getelementptr inbounds i8, ptr %.sroa.0.0.i237, i64 8
-  br label %.preheader.i.i23.i236, !llvm.loop !4
+.critedge.i.i.i25.i240:                           ; preds = %.preheader.i.i23.i237, %.preheader.i.i23.i237
+  %144 = getelementptr inbounds i8, ptr %.sroa.0.0.i238, i64 8
+  br label %.preheader.i.i23.i237, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit249: ; preds = %.preheader.i.i23.i236, %.preheader.i.i.i244
-  %145 = phi ptr [ %125, %.preheader.i.i.i244 ], [ %143, %.preheader.i.i23.i236 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit250: ; preds = %.preheader.i.i23.i237, %.preheader.i.i.i245
+  %145 = phi ptr [ %125, %.preheader.i.i.i245 ], [ %143, %.preheader.i.i23.i237 ]
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store i8 1, ptr %146, align 1
   %147 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.9, i64 15) #13
@@ -1751,34 +1751,34 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %150 = zext i32 %148 to i64
   %151 = getelementptr inbounds ptr, ptr %149, i64 %150
   %152 = load ptr, ptr %151, align 8
-  %magicptr.i220 = ptrtoint ptr %152 to i64
-  switch i64 %magicptr.i220, label %.preheader.i.i.i229 [
+  %magicptr.i221 = ptrtoint ptr %152 to i64
+  switch i64 %magicptr.i221, label %.preheader.i.i.i230 [
     i64 0, label %159
     i64 -8, label %155
   ]
 
-.preheader.i.i.i229:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit249, %.critedge.i.i.i.i232
-  %153 = phi ptr [ %.pre.i233, %.critedge.i.i.i.i232 ], [ %152, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit249 ]
-  %.sroa.030.0.i230 = phi ptr [ %154, %.critedge.i.i.i.i232 ], [ %151, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit249 ]
-  %magicptr.i.i.i.i231 = ptrtoint ptr %153 to i64
-  switch i64 %magicptr.i.i.i.i231, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit234 [
-    i64 0, label %.critedge.i.i.i.i232
-    i64 -8, label %.critedge.i.i.i.i232
+.preheader.i.i.i230:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit250, %.critedge.i.i.i.i233
+  %153 = phi ptr [ %.pre.i234, %.critedge.i.i.i.i233 ], [ %152, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit250 ]
+  %.sroa.030.0.i231 = phi ptr [ %154, %.critedge.i.i.i.i233 ], [ %151, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit250 ]
+  %magicptr.i.i.i.i232 = ptrtoint ptr %153 to i64
+  switch i64 %magicptr.i.i.i.i232, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit235 [
+    i64 0, label %.critedge.i.i.i.i233
+    i64 -8, label %.critedge.i.i.i.i233
   ]
 
-.critedge.i.i.i.i232:                             ; preds = %.preheader.i.i.i229, %.preheader.i.i.i229
-  %154 = getelementptr inbounds i8, ptr %.sroa.030.0.i230, i64 8
-  %.pre.i233 = load ptr, ptr %154, align 8
-  br label %.preheader.i.i.i229, !llvm.loop !4
+.critedge.i.i.i.i233:                             ; preds = %.preheader.i.i.i230, %.preheader.i.i.i230
+  %154 = getelementptr inbounds i8, ptr %.sroa.030.0.i231, i64 8
+  %.pre.i234 = load ptr, ptr %154, align 8
+  br label %.preheader.i.i.i230, !llvm.loop !4
 
-155:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit249
+155:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit250
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %157 = load i32, ptr %156, align 8
   %158 = add i32 %157, -1
   store i32 %158, ptr %156, align 8
   br label %159
 
-159:                                              ; preds = %155, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit249
+159:                                              ; preds = %155, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit250
   %160 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 32, i64 noundef 8) #13
   %161 = getelementptr inbounds i8, ptr %160, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %161, ptr noundef nonnull align 1 dereferenceable(15) @.str.9, i64 15, i1 false)
@@ -1796,23 +1796,23 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %168 = load ptr, ptr %1, align 8
   %169 = zext i32 %167 to i64
   %170 = getelementptr inbounds ptr, ptr %168, i64 %169
-  br label %.preheader.i.i23.i221
+  br label %.preheader.i.i23.i222
 
-.preheader.i.i23.i221:                            ; preds = %.critedge.i.i.i25.i224, %159
-  %.sroa.0.0.i222 = phi ptr [ %170, %159 ], [ %172, %.critedge.i.i.i25.i224 ]
-  %171 = load ptr, ptr %.sroa.0.0.i222, align 8
-  %magicptr.i.i.i24.i223 = ptrtoint ptr %171 to i64
-  switch i64 %magicptr.i.i.i24.i223, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit234 [
-    i64 0, label %.critedge.i.i.i25.i224
-    i64 -8, label %.critedge.i.i.i25.i224
+.preheader.i.i23.i222:                            ; preds = %.critedge.i.i.i25.i225, %159
+  %.sroa.0.0.i223 = phi ptr [ %170, %159 ], [ %172, %.critedge.i.i.i25.i225 ]
+  %171 = load ptr, ptr %.sroa.0.0.i223, align 8
+  %magicptr.i.i.i24.i224 = ptrtoint ptr %171 to i64
+  switch i64 %magicptr.i.i.i24.i224, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit235 [
+    i64 0, label %.critedge.i.i.i25.i225
+    i64 -8, label %.critedge.i.i.i25.i225
   ]
 
-.critedge.i.i.i25.i224:                           ; preds = %.preheader.i.i23.i221, %.preheader.i.i23.i221
-  %172 = getelementptr inbounds i8, ptr %.sroa.0.0.i222, i64 8
-  br label %.preheader.i.i23.i221, !llvm.loop !4
+.critedge.i.i.i25.i225:                           ; preds = %.preheader.i.i23.i222, %.preheader.i.i23.i222
+  %172 = getelementptr inbounds i8, ptr %.sroa.0.0.i223, i64 8
+  br label %.preheader.i.i23.i222, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit234: ; preds = %.preheader.i.i23.i221, %.preheader.i.i.i229
-  %173 = phi ptr [ %153, %.preheader.i.i.i229 ], [ %171, %.preheader.i.i23.i221 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit235: ; preds = %.preheader.i.i23.i222, %.preheader.i.i.i230
+  %173 = phi ptr [ %153, %.preheader.i.i.i230 ], [ %171, %.preheader.i.i23.i222 ]
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   store i8 1, ptr %174, align 1
   %175 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.11, i64 15) #13
@@ -1821,34 +1821,34 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %178 = zext i32 %176 to i64
   %179 = getelementptr inbounds ptr, ptr %177, i64 %178
   %180 = load ptr, ptr %179, align 8
-  %magicptr.i205 = ptrtoint ptr %180 to i64
-  switch i64 %magicptr.i205, label %.preheader.i.i.i214 [
+  %magicptr.i206 = ptrtoint ptr %180 to i64
+  switch i64 %magicptr.i206, label %.preheader.i.i.i215 [
     i64 0, label %187
     i64 -8, label %183
   ]
 
-.preheader.i.i.i214:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit234, %.critedge.i.i.i.i217
-  %181 = phi ptr [ %.pre.i218, %.critedge.i.i.i.i217 ], [ %180, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit234 ]
-  %.sroa.030.0.i215 = phi ptr [ %182, %.critedge.i.i.i.i217 ], [ %179, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit234 ]
-  %magicptr.i.i.i.i216 = ptrtoint ptr %181 to i64
-  switch i64 %magicptr.i.i.i.i216, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit219 [
-    i64 0, label %.critedge.i.i.i.i217
-    i64 -8, label %.critedge.i.i.i.i217
+.preheader.i.i.i215:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit235, %.critedge.i.i.i.i218
+  %181 = phi ptr [ %.pre.i219, %.critedge.i.i.i.i218 ], [ %180, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit235 ]
+  %.sroa.030.0.i216 = phi ptr [ %182, %.critedge.i.i.i.i218 ], [ %179, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit235 ]
+  %magicptr.i.i.i.i217 = ptrtoint ptr %181 to i64
+  switch i64 %magicptr.i.i.i.i217, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit220 [
+    i64 0, label %.critedge.i.i.i.i218
+    i64 -8, label %.critedge.i.i.i.i218
   ]
 
-.critedge.i.i.i.i217:                             ; preds = %.preheader.i.i.i214, %.preheader.i.i.i214
-  %182 = getelementptr inbounds i8, ptr %.sroa.030.0.i215, i64 8
-  %.pre.i218 = load ptr, ptr %182, align 8
-  br label %.preheader.i.i.i214, !llvm.loop !4
+.critedge.i.i.i.i218:                             ; preds = %.preheader.i.i.i215, %.preheader.i.i.i215
+  %182 = getelementptr inbounds i8, ptr %.sroa.030.0.i216, i64 8
+  %.pre.i219 = load ptr, ptr %182, align 8
+  br label %.preheader.i.i.i215, !llvm.loop !4
 
-183:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit234
+183:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit235
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %185 = load i32, ptr %184, align 8
   %186 = add i32 %185, -1
   store i32 %186, ptr %184, align 8
   br label %187
 
-187:                                              ; preds = %183, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit234
+187:                                              ; preds = %183, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit235
   %188 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 32, i64 noundef 8) #13
   %189 = getelementptr inbounds i8, ptr %188, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %189, ptr noundef nonnull align 1 dereferenceable(15) @.str.11, i64 15, i1 false)
@@ -1866,23 +1866,23 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %196 = load ptr, ptr %1, align 8
   %197 = zext i32 %195 to i64
   %198 = getelementptr inbounds ptr, ptr %196, i64 %197
-  br label %.preheader.i.i23.i206
+  br label %.preheader.i.i23.i207
 
-.preheader.i.i23.i206:                            ; preds = %.critedge.i.i.i25.i209, %187
-  %.sroa.0.0.i207 = phi ptr [ %198, %187 ], [ %200, %.critedge.i.i.i25.i209 ]
-  %199 = load ptr, ptr %.sroa.0.0.i207, align 8
-  %magicptr.i.i.i24.i208 = ptrtoint ptr %199 to i64
-  switch i64 %magicptr.i.i.i24.i208, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit219 [
-    i64 0, label %.critedge.i.i.i25.i209
-    i64 -8, label %.critedge.i.i.i25.i209
+.preheader.i.i23.i207:                            ; preds = %.critedge.i.i.i25.i210, %187
+  %.sroa.0.0.i208 = phi ptr [ %198, %187 ], [ %200, %.critedge.i.i.i25.i210 ]
+  %199 = load ptr, ptr %.sroa.0.0.i208, align 8
+  %magicptr.i.i.i24.i209 = ptrtoint ptr %199 to i64
+  switch i64 %magicptr.i.i.i24.i209, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit220 [
+    i64 0, label %.critedge.i.i.i25.i210
+    i64 -8, label %.critedge.i.i.i25.i210
   ]
 
-.critedge.i.i.i25.i209:                           ; preds = %.preheader.i.i23.i206, %.preheader.i.i23.i206
-  %200 = getelementptr inbounds i8, ptr %.sroa.0.0.i207, i64 8
-  br label %.preheader.i.i23.i206, !llvm.loop !4
+.critedge.i.i.i25.i210:                           ; preds = %.preheader.i.i23.i207, %.preheader.i.i23.i207
+  %200 = getelementptr inbounds i8, ptr %.sroa.0.0.i208, i64 8
+  br label %.preheader.i.i23.i207, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit219: ; preds = %.preheader.i.i23.i206, %.preheader.i.i.i214
-  %201 = phi ptr [ %181, %.preheader.i.i.i214 ], [ %199, %.preheader.i.i23.i206 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit220: ; preds = %.preheader.i.i23.i207, %.preheader.i.i.i215
+  %201 = phi ptr [ %181, %.preheader.i.i.i215 ], [ %199, %.preheader.i.i23.i207 ]
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
   store i8 1, ptr %202, align 1
   %203 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.13, i64 8) #13
@@ -1891,34 +1891,34 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %206 = zext i32 %204 to i64
   %207 = getelementptr inbounds ptr, ptr %205, i64 %206
   %208 = load ptr, ptr %207, align 8
-  %magicptr.i190 = ptrtoint ptr %208 to i64
-  switch i64 %magicptr.i190, label %.preheader.i.i.i199 [
+  %magicptr.i191 = ptrtoint ptr %208 to i64
+  switch i64 %magicptr.i191, label %.preheader.i.i.i200 [
     i64 0, label %215
     i64 -8, label %211
   ]
 
-.preheader.i.i.i199:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit219, %.critedge.i.i.i.i202
-  %209 = phi ptr [ %.pre.i203, %.critedge.i.i.i.i202 ], [ %208, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit219 ]
-  %.sroa.030.0.i200 = phi ptr [ %210, %.critedge.i.i.i.i202 ], [ %207, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit219 ]
-  %magicptr.i.i.i.i201 = ptrtoint ptr %209 to i64
-  switch i64 %magicptr.i.i.i.i201, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit204 [
-    i64 0, label %.critedge.i.i.i.i202
-    i64 -8, label %.critedge.i.i.i.i202
+.preheader.i.i.i200:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit220, %.critedge.i.i.i.i203
+  %209 = phi ptr [ %.pre.i204, %.critedge.i.i.i.i203 ], [ %208, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit220 ]
+  %.sroa.030.0.i201 = phi ptr [ %210, %.critedge.i.i.i.i203 ], [ %207, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit220 ]
+  %magicptr.i.i.i.i202 = ptrtoint ptr %209 to i64
+  switch i64 %magicptr.i.i.i.i202, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit205 [
+    i64 0, label %.critedge.i.i.i.i203
+    i64 -8, label %.critedge.i.i.i.i203
   ]
 
-.critedge.i.i.i.i202:                             ; preds = %.preheader.i.i.i199, %.preheader.i.i.i199
-  %210 = getelementptr inbounds i8, ptr %.sroa.030.0.i200, i64 8
-  %.pre.i203 = load ptr, ptr %210, align 8
-  br label %.preheader.i.i.i199, !llvm.loop !4
+.critedge.i.i.i.i203:                             ; preds = %.preheader.i.i.i200, %.preheader.i.i.i200
+  %210 = getelementptr inbounds i8, ptr %.sroa.030.0.i201, i64 8
+  %.pre.i204 = load ptr, ptr %210, align 8
+  br label %.preheader.i.i.i200, !llvm.loop !4
 
-211:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit219
+211:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit220
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %213 = load i32, ptr %212, align 8
   %214 = add i32 %213, -1
   store i32 %214, ptr %212, align 8
   br label %215
 
-215:                                              ; preds = %211, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit219
+215:                                              ; preds = %211, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit220
   %216 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 25, i64 noundef 8) #13
   %217 = getelementptr inbounds i8, ptr %216, i64 16
   store i64 8392569151405123955, ptr %217, align 1
@@ -1936,23 +1936,23 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %224 = load ptr, ptr %1, align 8
   %225 = zext i32 %223 to i64
   %226 = getelementptr inbounds ptr, ptr %224, i64 %225
-  br label %.preheader.i.i23.i191
+  br label %.preheader.i.i23.i192
 
-.preheader.i.i23.i191:                            ; preds = %.critedge.i.i.i25.i194, %215
-  %.sroa.0.0.i192 = phi ptr [ %226, %215 ], [ %228, %.critedge.i.i.i25.i194 ]
-  %227 = load ptr, ptr %.sroa.0.0.i192, align 8
-  %magicptr.i.i.i24.i193 = ptrtoint ptr %227 to i64
-  switch i64 %magicptr.i.i.i24.i193, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit204 [
-    i64 0, label %.critedge.i.i.i25.i194
-    i64 -8, label %.critedge.i.i.i25.i194
+.preheader.i.i23.i192:                            ; preds = %.critedge.i.i.i25.i195, %215
+  %.sroa.0.0.i193 = phi ptr [ %226, %215 ], [ %228, %.critedge.i.i.i25.i195 ]
+  %227 = load ptr, ptr %.sroa.0.0.i193, align 8
+  %magicptr.i.i.i24.i194 = ptrtoint ptr %227 to i64
+  switch i64 %magicptr.i.i.i24.i194, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit205 [
+    i64 0, label %.critedge.i.i.i25.i195
+    i64 -8, label %.critedge.i.i.i25.i195
   ]
 
-.critedge.i.i.i25.i194:                           ; preds = %.preheader.i.i23.i191, %.preheader.i.i23.i191
-  %228 = getelementptr inbounds i8, ptr %.sroa.0.0.i192, i64 8
-  br label %.preheader.i.i23.i191, !llvm.loop !4
+.critedge.i.i.i25.i195:                           ; preds = %.preheader.i.i23.i192, %.preheader.i.i23.i192
+  %228 = getelementptr inbounds i8, ptr %.sroa.0.0.i193, i64 8
+  br label %.preheader.i.i23.i192, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit204: ; preds = %.preheader.i.i23.i191, %.preheader.i.i.i199
-  %229 = phi ptr [ %209, %.preheader.i.i.i199 ], [ %227, %.preheader.i.i23.i191 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit205: ; preds = %.preheader.i.i23.i192, %.preheader.i.i.i200
+  %229 = phi ptr [ %209, %.preheader.i.i.i200 ], [ %227, %.preheader.i.i23.i192 ]
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i8 1, ptr %230, align 1
   %231 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.2, i64 7) #13
@@ -1961,34 +1961,34 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %234 = zext i32 %232 to i64
   %235 = getelementptr inbounds ptr, ptr %233, i64 %234
   %236 = load ptr, ptr %235, align 8
-  %magicptr.i171 = ptrtoint ptr %236 to i64
-  switch i64 %magicptr.i171, label %.preheader.i.i.i180 [
+  %magicptr.i172 = ptrtoint ptr %236 to i64
+  switch i64 %magicptr.i172, label %.preheader.i.i.i181 [
     i64 0, label %243
     i64 -8, label %239
   ]
 
-.preheader.i.i.i180:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit204, %.critedge.i.i.i.i183
-  %237 = phi ptr [ %.pre.i184, %.critedge.i.i.i.i183 ], [ %236, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit204 ]
-  %.sroa.030.0.i181 = phi ptr [ %238, %.critedge.i.i.i.i183 ], [ %235, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit204 ]
-  %magicptr.i.i.i.i182 = ptrtoint ptr %237 to i64
-  switch i64 %magicptr.i.i.i.i182, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit185 [
-    i64 0, label %.critedge.i.i.i.i183
-    i64 -8, label %.critedge.i.i.i.i183
+.preheader.i.i.i181:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit205, %.critedge.i.i.i.i184
+  %237 = phi ptr [ %.pre.i185, %.critedge.i.i.i.i184 ], [ %236, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit205 ]
+  %.sroa.030.0.i182 = phi ptr [ %238, %.critedge.i.i.i.i184 ], [ %235, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit205 ]
+  %magicptr.i.i.i.i183 = ptrtoint ptr %237 to i64
+  switch i64 %magicptr.i.i.i.i183, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit186 [
+    i64 0, label %.critedge.i.i.i.i184
+    i64 -8, label %.critedge.i.i.i.i184
   ]
 
-.critedge.i.i.i.i183:                             ; preds = %.preheader.i.i.i180, %.preheader.i.i.i180
-  %238 = getelementptr inbounds i8, ptr %.sroa.030.0.i181, i64 8
-  %.pre.i184 = load ptr, ptr %238, align 8
-  br label %.preheader.i.i.i180, !llvm.loop !4
+.critedge.i.i.i.i184:                             ; preds = %.preheader.i.i.i181, %.preheader.i.i.i181
+  %238 = getelementptr inbounds i8, ptr %.sroa.030.0.i182, i64 8
+  %.pre.i185 = load ptr, ptr %238, align 8
+  br label %.preheader.i.i.i181, !llvm.loop !4
 
-239:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit204
+239:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit205
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %241 = load i32, ptr %240, align 8
   %242 = add i32 %241, -1
   store i32 %242, ptr %240, align 8
   br label %243
 
-243:                                              ; preds = %239, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit204
+243:                                              ; preds = %239, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit205
   %244 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 24, i64 noundef 8) #13
   %245 = getelementptr inbounds i8, ptr %244, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %245, ptr noundef nonnull align 1 dereferenceable(7) @.str.2, i64 7, i1 false)
@@ -2006,23 +2006,23 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %252 = load ptr, ptr %1, align 8
   %253 = zext i32 %251 to i64
   %254 = getelementptr inbounds ptr, ptr %252, i64 %253
-  br label %.preheader.i.i23.i172
+  br label %.preheader.i.i23.i173
 
-.preheader.i.i23.i172:                            ; preds = %.critedge.i.i.i25.i175, %243
-  %.sroa.0.0.i173 = phi ptr [ %254, %243 ], [ %256, %.critedge.i.i.i25.i175 ]
-  %255 = load ptr, ptr %.sroa.0.0.i173, align 8
-  %magicptr.i.i.i24.i174 = ptrtoint ptr %255 to i64
-  switch i64 %magicptr.i.i.i24.i174, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit185 [
-    i64 0, label %.critedge.i.i.i25.i175
-    i64 -8, label %.critedge.i.i.i25.i175
+.preheader.i.i23.i173:                            ; preds = %.critedge.i.i.i25.i176, %243
+  %.sroa.0.0.i174 = phi ptr [ %254, %243 ], [ %256, %.critedge.i.i.i25.i176 ]
+  %255 = load ptr, ptr %.sroa.0.0.i174, align 8
+  %magicptr.i.i.i24.i175 = ptrtoint ptr %255 to i64
+  switch i64 %magicptr.i.i.i24.i175, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit186 [
+    i64 0, label %.critedge.i.i.i25.i176
+    i64 -8, label %.critedge.i.i.i25.i176
   ]
 
-.critedge.i.i.i25.i175:                           ; preds = %.preheader.i.i23.i172, %.preheader.i.i23.i172
-  %256 = getelementptr inbounds i8, ptr %.sroa.0.0.i173, i64 8
-  br label %.preheader.i.i23.i172, !llvm.loop !4
+.critedge.i.i.i25.i176:                           ; preds = %.preheader.i.i23.i173, %.preheader.i.i23.i173
+  %256 = getelementptr inbounds i8, ptr %.sroa.0.0.i174, i64 8
+  br label %.preheader.i.i23.i173, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit185: ; preds = %.preheader.i.i23.i172, %.preheader.i.i.i180
-  %257 = phi ptr [ %237, %.preheader.i.i.i180 ], [ %255, %.preheader.i.i23.i172 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit186: ; preds = %.preheader.i.i23.i173, %.preheader.i.i.i181
+  %257 = phi ptr [ %237, %.preheader.i.i.i181 ], [ %255, %.preheader.i.i23.i173 ]
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   store i8 1, ptr %258, align 1
   %259 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.3, i64 11) #13
@@ -2031,34 +2031,34 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %262 = zext i32 %260 to i64
   %263 = getelementptr inbounds ptr, ptr %261, i64 %262
   %264 = load ptr, ptr %263, align 8
-  %magicptr.i156 = ptrtoint ptr %264 to i64
-  switch i64 %magicptr.i156, label %.preheader.i.i.i165 [
+  %magicptr.i157 = ptrtoint ptr %264 to i64
+  switch i64 %magicptr.i157, label %.preheader.i.i.i166 [
     i64 0, label %271
     i64 -8, label %267
   ]
 
-.preheader.i.i.i165:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit185, %.critedge.i.i.i.i168
-  %265 = phi ptr [ %.pre.i169, %.critedge.i.i.i.i168 ], [ %264, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit185 ]
-  %.sroa.030.0.i166 = phi ptr [ %266, %.critedge.i.i.i.i168 ], [ %263, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit185 ]
-  %magicptr.i.i.i.i167 = ptrtoint ptr %265 to i64
-  switch i64 %magicptr.i.i.i.i167, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit170 [
-    i64 0, label %.critedge.i.i.i.i168
-    i64 -8, label %.critedge.i.i.i.i168
+.preheader.i.i.i166:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit186, %.critedge.i.i.i.i169
+  %265 = phi ptr [ %.pre.i170, %.critedge.i.i.i.i169 ], [ %264, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit186 ]
+  %.sroa.030.0.i167 = phi ptr [ %266, %.critedge.i.i.i.i169 ], [ %263, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit186 ]
+  %magicptr.i.i.i.i168 = ptrtoint ptr %265 to i64
+  switch i64 %magicptr.i.i.i.i168, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit171 [
+    i64 0, label %.critedge.i.i.i.i169
+    i64 -8, label %.critedge.i.i.i.i169
   ]
 
-.critedge.i.i.i.i168:                             ; preds = %.preheader.i.i.i165, %.preheader.i.i.i165
-  %266 = getelementptr inbounds i8, ptr %.sroa.030.0.i166, i64 8
-  %.pre.i169 = load ptr, ptr %266, align 8
-  br label %.preheader.i.i.i165, !llvm.loop !4
+.critedge.i.i.i.i169:                             ; preds = %.preheader.i.i.i166, %.preheader.i.i.i166
+  %266 = getelementptr inbounds i8, ptr %.sroa.030.0.i167, i64 8
+  %.pre.i170 = load ptr, ptr %266, align 8
+  br label %.preheader.i.i.i166, !llvm.loop !4
 
-267:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit185
+267:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit186
   %268 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %269 = load i32, ptr %268, align 8
   %270 = add i32 %269, -1
   store i32 %270, ptr %268, align 8
   br label %271
 
-271:                                              ; preds = %267, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit185
+271:                                              ; preds = %267, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit186
   %272 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 28, i64 noundef 8) #13
   %273 = getelementptr inbounds i8, ptr %272, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %273, ptr noundef nonnull align 1 dereferenceable(11) @.str.3, i64 11, i1 false)
@@ -2076,23 +2076,23 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %280 = load ptr, ptr %1, align 8
   %281 = zext i32 %279 to i64
   %282 = getelementptr inbounds ptr, ptr %280, i64 %281
-  br label %.preheader.i.i23.i157
+  br label %.preheader.i.i23.i158
 
-.preheader.i.i23.i157:                            ; preds = %.critedge.i.i.i25.i160, %271
-  %.sroa.0.0.i158 = phi ptr [ %282, %271 ], [ %284, %.critedge.i.i.i25.i160 ]
-  %283 = load ptr, ptr %.sroa.0.0.i158, align 8
-  %magicptr.i.i.i24.i159 = ptrtoint ptr %283 to i64
-  switch i64 %magicptr.i.i.i24.i159, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit170 [
-    i64 0, label %.critedge.i.i.i25.i160
-    i64 -8, label %.critedge.i.i.i25.i160
+.preheader.i.i23.i158:                            ; preds = %.critedge.i.i.i25.i161, %271
+  %.sroa.0.0.i159 = phi ptr [ %282, %271 ], [ %284, %.critedge.i.i.i25.i161 ]
+  %283 = load ptr, ptr %.sroa.0.0.i159, align 8
+  %magicptr.i.i.i24.i160 = ptrtoint ptr %283 to i64
+  switch i64 %magicptr.i.i.i24.i160, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit171 [
+    i64 0, label %.critedge.i.i.i25.i161
+    i64 -8, label %.critedge.i.i.i25.i161
   ]
 
-.critedge.i.i.i25.i160:                           ; preds = %.preheader.i.i23.i157, %.preheader.i.i23.i157
-  %284 = getelementptr inbounds i8, ptr %.sroa.0.0.i158, i64 8
-  br label %.preheader.i.i23.i157, !llvm.loop !4
+.critedge.i.i.i25.i161:                           ; preds = %.preheader.i.i23.i158, %.preheader.i.i23.i158
+  %284 = getelementptr inbounds i8, ptr %.sroa.0.0.i159, i64 8
+  br label %.preheader.i.i23.i158, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit170: ; preds = %.preheader.i.i23.i157, %.preheader.i.i.i165
-  %285 = phi ptr [ %265, %.preheader.i.i.i165 ], [ %283, %.preheader.i.i23.i157 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit171: ; preds = %.preheader.i.i23.i158, %.preheader.i.i.i166
+  %285 = phi ptr [ %265, %.preheader.i.i.i166 ], [ %283, %.preheader.i.i23.i158 ]
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i8 1, ptr %286, align 1
   %287 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.4, i64 18) #13
@@ -2101,34 +2101,34 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %290 = zext i32 %288 to i64
   %291 = getelementptr inbounds ptr, ptr %289, i64 %290
   %292 = load ptr, ptr %291, align 8
-  %magicptr.i141 = ptrtoint ptr %292 to i64
-  switch i64 %magicptr.i141, label %.preheader.i.i.i150 [
+  %magicptr.i142 = ptrtoint ptr %292 to i64
+  switch i64 %magicptr.i142, label %.preheader.i.i.i151 [
     i64 0, label %299
     i64 -8, label %295
   ]
 
-.preheader.i.i.i150:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit170, %.critedge.i.i.i.i153
-  %293 = phi ptr [ %.pre.i154, %.critedge.i.i.i.i153 ], [ %292, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit170 ]
-  %.sroa.030.0.i151 = phi ptr [ %294, %.critedge.i.i.i.i153 ], [ %291, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit170 ]
-  %magicptr.i.i.i.i152 = ptrtoint ptr %293 to i64
-  switch i64 %magicptr.i.i.i.i152, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit155 [
-    i64 0, label %.critedge.i.i.i.i153
-    i64 -8, label %.critedge.i.i.i.i153
+.preheader.i.i.i151:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit171, %.critedge.i.i.i.i154
+  %293 = phi ptr [ %.pre.i155, %.critedge.i.i.i.i154 ], [ %292, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit171 ]
+  %.sroa.030.0.i152 = phi ptr [ %294, %.critedge.i.i.i.i154 ], [ %291, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit171 ]
+  %magicptr.i.i.i.i153 = ptrtoint ptr %293 to i64
+  switch i64 %magicptr.i.i.i.i153, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit156 [
+    i64 0, label %.critedge.i.i.i.i154
+    i64 -8, label %.critedge.i.i.i.i154
   ]
 
-.critedge.i.i.i.i153:                             ; preds = %.preheader.i.i.i150, %.preheader.i.i.i150
-  %294 = getelementptr inbounds i8, ptr %.sroa.030.0.i151, i64 8
-  %.pre.i154 = load ptr, ptr %294, align 8
-  br label %.preheader.i.i.i150, !llvm.loop !4
+.critedge.i.i.i.i154:                             ; preds = %.preheader.i.i.i151, %.preheader.i.i.i151
+  %294 = getelementptr inbounds i8, ptr %.sroa.030.0.i152, i64 8
+  %.pre.i155 = load ptr, ptr %294, align 8
+  br label %.preheader.i.i.i151, !llvm.loop !4
 
-295:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit170
+295:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit171
   %296 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %297 = load i32, ptr %296, align 8
   %298 = add i32 %297, -1
   store i32 %298, ptr %296, align 8
   br label %299
 
-299:                                              ; preds = %295, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit170
+299:                                              ; preds = %295, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit171
   %300 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 35, i64 noundef 8) #13
   %301 = getelementptr inbounds i8, ptr %300, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %301, ptr noundef nonnull align 1 dereferenceable(18) @.str.4, i64 18, i1 false)
@@ -2146,23 +2146,23 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %308 = load ptr, ptr %1, align 8
   %309 = zext i32 %307 to i64
   %310 = getelementptr inbounds ptr, ptr %308, i64 %309
-  br label %.preheader.i.i23.i142
+  br label %.preheader.i.i23.i143
 
-.preheader.i.i23.i142:                            ; preds = %.critedge.i.i.i25.i145, %299
-  %.sroa.0.0.i143 = phi ptr [ %310, %299 ], [ %312, %.critedge.i.i.i25.i145 ]
-  %311 = load ptr, ptr %.sroa.0.0.i143, align 8
-  %magicptr.i.i.i24.i144 = ptrtoint ptr %311 to i64
-  switch i64 %magicptr.i.i.i24.i144, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit155 [
-    i64 0, label %.critedge.i.i.i25.i145
-    i64 -8, label %.critedge.i.i.i25.i145
+.preheader.i.i23.i143:                            ; preds = %.critedge.i.i.i25.i146, %299
+  %.sroa.0.0.i144 = phi ptr [ %310, %299 ], [ %312, %.critedge.i.i.i25.i146 ]
+  %311 = load ptr, ptr %.sroa.0.0.i144, align 8
+  %magicptr.i.i.i24.i145 = ptrtoint ptr %311 to i64
+  switch i64 %magicptr.i.i.i24.i145, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit156 [
+    i64 0, label %.critedge.i.i.i25.i146
+    i64 -8, label %.critedge.i.i.i25.i146
   ]
 
-.critedge.i.i.i25.i145:                           ; preds = %.preheader.i.i23.i142, %.preheader.i.i23.i142
-  %312 = getelementptr inbounds i8, ptr %.sroa.0.0.i143, i64 8
-  br label %.preheader.i.i23.i142, !llvm.loop !4
+.critedge.i.i.i25.i146:                           ; preds = %.preheader.i.i23.i143, %.preheader.i.i23.i143
+  %312 = getelementptr inbounds i8, ptr %.sroa.0.0.i144, i64 8
+  br label %.preheader.i.i23.i143, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit155: ; preds = %.preheader.i.i23.i142, %.preheader.i.i.i150
-  %313 = phi ptr [ %293, %.preheader.i.i.i150 ], [ %311, %.preheader.i.i23.i142 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit156: ; preds = %.preheader.i.i23.i143, %.preheader.i.i.i151
+  %313 = phi ptr [ %293, %.preheader.i.i.i151 ], [ %311, %.preheader.i.i23.i143 ]
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   store i8 1, ptr %314, align 1
   %315 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.5, i64 14) #13
@@ -2171,34 +2171,34 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %318 = zext i32 %316 to i64
   %319 = getelementptr inbounds ptr, ptr %317, i64 %318
   %320 = load ptr, ptr %319, align 8
-  %magicptr.i126 = ptrtoint ptr %320 to i64
-  switch i64 %magicptr.i126, label %.preheader.i.i.i135 [
+  %magicptr.i127 = ptrtoint ptr %320 to i64
+  switch i64 %magicptr.i127, label %.preheader.i.i.i136 [
     i64 0, label %327
     i64 -8, label %323
   ]
 
-.preheader.i.i.i135:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit155, %.critedge.i.i.i.i138
-  %321 = phi ptr [ %.pre.i139, %.critedge.i.i.i.i138 ], [ %320, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit155 ]
-  %.sroa.030.0.i136 = phi ptr [ %322, %.critedge.i.i.i.i138 ], [ %319, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit155 ]
-  %magicptr.i.i.i.i137 = ptrtoint ptr %321 to i64
-  switch i64 %magicptr.i.i.i.i137, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit140 [
-    i64 0, label %.critedge.i.i.i.i138
-    i64 -8, label %.critedge.i.i.i.i138
+.preheader.i.i.i136:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit156, %.critedge.i.i.i.i139
+  %321 = phi ptr [ %.pre.i140, %.critedge.i.i.i.i139 ], [ %320, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit156 ]
+  %.sroa.030.0.i137 = phi ptr [ %322, %.critedge.i.i.i.i139 ], [ %319, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit156 ]
+  %magicptr.i.i.i.i138 = ptrtoint ptr %321 to i64
+  switch i64 %magicptr.i.i.i.i138, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit141 [
+    i64 0, label %.critedge.i.i.i.i139
+    i64 -8, label %.critedge.i.i.i.i139
   ]
 
-.critedge.i.i.i.i138:                             ; preds = %.preheader.i.i.i135, %.preheader.i.i.i135
-  %322 = getelementptr inbounds i8, ptr %.sroa.030.0.i136, i64 8
-  %.pre.i139 = load ptr, ptr %322, align 8
-  br label %.preheader.i.i.i135, !llvm.loop !4
+.critedge.i.i.i.i139:                             ; preds = %.preheader.i.i.i136, %.preheader.i.i.i136
+  %322 = getelementptr inbounds i8, ptr %.sroa.030.0.i137, i64 8
+  %.pre.i140 = load ptr, ptr %322, align 8
+  br label %.preheader.i.i.i136, !llvm.loop !4
 
-323:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit155
+323:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit156
   %324 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %325 = load i32, ptr %324, align 8
   %326 = add i32 %325, -1
   store i32 %326, ptr %324, align 8
   br label %327
 
-327:                                              ; preds = %323, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit155
+327:                                              ; preds = %323, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit156
   %328 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 31, i64 noundef 8) #13
   %329 = getelementptr inbounds i8, ptr %328, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %329, ptr noundef nonnull align 1 dereferenceable(14) @.str.5, i64 14, i1 false)
@@ -2216,23 +2216,23 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %336 = load ptr, ptr %1, align 8
   %337 = zext i32 %335 to i64
   %338 = getelementptr inbounds ptr, ptr %336, i64 %337
-  br label %.preheader.i.i23.i127
+  br label %.preheader.i.i23.i128
 
-.preheader.i.i23.i127:                            ; preds = %.critedge.i.i.i25.i130, %327
-  %.sroa.0.0.i128 = phi ptr [ %338, %327 ], [ %340, %.critedge.i.i.i25.i130 ]
-  %339 = load ptr, ptr %.sroa.0.0.i128, align 8
-  %magicptr.i.i.i24.i129 = ptrtoint ptr %339 to i64
-  switch i64 %magicptr.i.i.i24.i129, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit140 [
-    i64 0, label %.critedge.i.i.i25.i130
-    i64 -8, label %.critedge.i.i.i25.i130
+.preheader.i.i23.i128:                            ; preds = %.critedge.i.i.i25.i131, %327
+  %.sroa.0.0.i129 = phi ptr [ %338, %327 ], [ %340, %.critedge.i.i.i25.i131 ]
+  %339 = load ptr, ptr %.sroa.0.0.i129, align 8
+  %magicptr.i.i.i24.i130 = ptrtoint ptr %339 to i64
+  switch i64 %magicptr.i.i.i24.i130, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit141 [
+    i64 0, label %.critedge.i.i.i25.i131
+    i64 -8, label %.critedge.i.i.i25.i131
   ]
 
-.critedge.i.i.i25.i130:                           ; preds = %.preheader.i.i23.i127, %.preheader.i.i23.i127
-  %340 = getelementptr inbounds i8, ptr %.sroa.0.0.i128, i64 8
-  br label %.preheader.i.i23.i127, !llvm.loop !4
+.critedge.i.i.i25.i131:                           ; preds = %.preheader.i.i23.i128, %.preheader.i.i23.i128
+  %340 = getelementptr inbounds i8, ptr %.sroa.0.0.i129, i64 8
+  br label %.preheader.i.i23.i128, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit140: ; preds = %.preheader.i.i23.i127, %.preheader.i.i.i135
-  %341 = phi ptr [ %321, %.preheader.i.i.i135 ], [ %339, %.preheader.i.i23.i127 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit141: ; preds = %.preheader.i.i23.i128, %.preheader.i.i.i136
+  %341 = phi ptr [ %321, %.preheader.i.i.i136 ], [ %339, %.preheader.i.i23.i128 ]
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
   store i8 1, ptr %342, align 1
   %343 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.6, i64 4) #13
@@ -2241,34 +2241,34 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %346 = zext i32 %344 to i64
   %347 = getelementptr inbounds ptr, ptr %345, i64 %346
   %348 = load ptr, ptr %347, align 8
-  %magicptr.i111 = ptrtoint ptr %348 to i64
-  switch i64 %magicptr.i111, label %.preheader.i.i.i120 [
+  %magicptr.i112 = ptrtoint ptr %348 to i64
+  switch i64 %magicptr.i112, label %.preheader.i.i.i121 [
     i64 0, label %355
     i64 -8, label %351
   ]
 
-.preheader.i.i.i120:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit140, %.critedge.i.i.i.i123
-  %349 = phi ptr [ %.pre.i124, %.critedge.i.i.i.i123 ], [ %348, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit140 ]
-  %.sroa.030.0.i121 = phi ptr [ %350, %.critedge.i.i.i.i123 ], [ %347, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit140 ]
-  %magicptr.i.i.i.i122 = ptrtoint ptr %349 to i64
-  switch i64 %magicptr.i.i.i.i122, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit125 [
-    i64 0, label %.critedge.i.i.i.i123
-    i64 -8, label %.critedge.i.i.i.i123
+.preheader.i.i.i121:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit141, %.critedge.i.i.i.i124
+  %349 = phi ptr [ %.pre.i125, %.critedge.i.i.i.i124 ], [ %348, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit141 ]
+  %.sroa.030.0.i122 = phi ptr [ %350, %.critedge.i.i.i.i124 ], [ %347, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit141 ]
+  %magicptr.i.i.i.i123 = ptrtoint ptr %349 to i64
+  switch i64 %magicptr.i.i.i.i123, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit126 [
+    i64 0, label %.critedge.i.i.i.i124
+    i64 -8, label %.critedge.i.i.i.i124
   ]
 
-.critedge.i.i.i.i123:                             ; preds = %.preheader.i.i.i120, %.preheader.i.i.i120
-  %350 = getelementptr inbounds i8, ptr %.sroa.030.0.i121, i64 8
-  %.pre.i124 = load ptr, ptr %350, align 8
-  br label %.preheader.i.i.i120, !llvm.loop !4
+.critedge.i.i.i.i124:                             ; preds = %.preheader.i.i.i121, %.preheader.i.i.i121
+  %350 = getelementptr inbounds i8, ptr %.sroa.030.0.i122, i64 8
+  %.pre.i125 = load ptr, ptr %350, align 8
+  br label %.preheader.i.i.i121, !llvm.loop !4
 
-351:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit140
+351:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit141
   %352 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %353 = load i32, ptr %352, align 8
   %354 = add i32 %353, -1
   store i32 %354, ptr %352, align 8
   br label %355
 
-355:                                              ; preds = %351, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit140
+355:                                              ; preds = %351, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit141
   %356 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 21, i64 noundef 8) #13
   %357 = getelementptr inbounds i8, ptr %356, i64 16
   store i32 909209702, ptr %357, align 1
@@ -2286,23 +2286,23 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %364 = load ptr, ptr %1, align 8
   %365 = zext i32 %363 to i64
   %366 = getelementptr inbounds ptr, ptr %364, i64 %365
-  br label %.preheader.i.i23.i112
+  br label %.preheader.i.i23.i113
 
-.preheader.i.i23.i112:                            ; preds = %.critedge.i.i.i25.i115, %355
-  %.sroa.0.0.i113 = phi ptr [ %366, %355 ], [ %368, %.critedge.i.i.i25.i115 ]
-  %367 = load ptr, ptr %.sroa.0.0.i113, align 8
-  %magicptr.i.i.i24.i114 = ptrtoint ptr %367 to i64
-  switch i64 %magicptr.i.i.i24.i114, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit125 [
-    i64 0, label %.critedge.i.i.i25.i115
-    i64 -8, label %.critedge.i.i.i25.i115
+.preheader.i.i23.i113:                            ; preds = %.critedge.i.i.i25.i116, %355
+  %.sroa.0.0.i114 = phi ptr [ %366, %355 ], [ %368, %.critedge.i.i.i25.i116 ]
+  %367 = load ptr, ptr %.sroa.0.0.i114, align 8
+  %magicptr.i.i.i24.i115 = ptrtoint ptr %367 to i64
+  switch i64 %magicptr.i.i.i24.i115, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit126 [
+    i64 0, label %.critedge.i.i.i25.i116
+    i64 -8, label %.critedge.i.i.i25.i116
   ]
 
-.critedge.i.i.i25.i115:                           ; preds = %.preheader.i.i23.i112, %.preheader.i.i23.i112
-  %368 = getelementptr inbounds i8, ptr %.sroa.0.0.i113, i64 8
-  br label %.preheader.i.i23.i112, !llvm.loop !4
+.critedge.i.i.i25.i116:                           ; preds = %.preheader.i.i23.i113, %.preheader.i.i23.i113
+  %368 = getelementptr inbounds i8, ptr %.sroa.0.0.i114, i64 8
+  br label %.preheader.i.i23.i113, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit125: ; preds = %.preheader.i.i23.i112, %.preheader.i.i.i120
-  %369 = phi ptr [ %349, %.preheader.i.i.i120 ], [ %367, %.preheader.i.i23.i112 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit126: ; preds = %.preheader.i.i23.i113, %.preheader.i.i.i121
+  %369 = phi ptr [ %349, %.preheader.i.i.i121 ], [ %367, %.preheader.i.i23.i113 ]
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
   store i8 1, ptr %370, align 1
   %371 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.7, i64 11) #13
@@ -2311,34 +2311,34 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %374 = zext i32 %372 to i64
   %375 = getelementptr inbounds ptr, ptr %373, i64 %374
   %376 = load ptr, ptr %375, align 8
-  %magicptr.i96 = ptrtoint ptr %376 to i64
-  switch i64 %magicptr.i96, label %.preheader.i.i.i105 [
+  %magicptr.i97 = ptrtoint ptr %376 to i64
+  switch i64 %magicptr.i97, label %.preheader.i.i.i106 [
     i64 0, label %383
     i64 -8, label %379
   ]
 
-.preheader.i.i.i105:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit125, %.critedge.i.i.i.i108
-  %377 = phi ptr [ %.pre.i109, %.critedge.i.i.i.i108 ], [ %376, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit125 ]
-  %.sroa.030.0.i106 = phi ptr [ %378, %.critedge.i.i.i.i108 ], [ %375, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit125 ]
-  %magicptr.i.i.i.i107 = ptrtoint ptr %377 to i64
-  switch i64 %magicptr.i.i.i.i107, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit110 [
-    i64 0, label %.critedge.i.i.i.i108
-    i64 -8, label %.critedge.i.i.i.i108
+.preheader.i.i.i106:                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit126, %.critedge.i.i.i.i109
+  %377 = phi ptr [ %.pre.i110, %.critedge.i.i.i.i109 ], [ %376, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit126 ]
+  %.sroa.030.0.i107 = phi ptr [ %378, %.critedge.i.i.i.i109 ], [ %375, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit126 ]
+  %magicptr.i.i.i.i108 = ptrtoint ptr %377 to i64
+  switch i64 %magicptr.i.i.i.i108, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit111 [
+    i64 0, label %.critedge.i.i.i.i109
+    i64 -8, label %.critedge.i.i.i.i109
   ]
 
-.critedge.i.i.i.i108:                             ; preds = %.preheader.i.i.i105, %.preheader.i.i.i105
-  %378 = getelementptr inbounds i8, ptr %.sroa.030.0.i106, i64 8
-  %.pre.i109 = load ptr, ptr %378, align 8
-  br label %.preheader.i.i.i105, !llvm.loop !4
+.critedge.i.i.i.i109:                             ; preds = %.preheader.i.i.i106, %.preheader.i.i.i106
+  %378 = getelementptr inbounds i8, ptr %.sroa.030.0.i107, i64 8
+  %.pre.i110 = load ptr, ptr %378, align 8
+  br label %.preheader.i.i.i106, !llvm.loop !4
 
-379:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit125
+379:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit126
   %380 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %381 = load i32, ptr %380, align 8
   %382 = add i32 %381, -1
   store i32 %382, ptr %380, align 8
   br label %383
 
-383:                                              ; preds = %379, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit125
+383:                                              ; preds = %379, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit126
   %384 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 28, i64 noundef 8) #13
   %385 = getelementptr inbounds i8, ptr %384, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %385, ptr noundef nonnull align 1 dereferenceable(11) @.str.7, i64 11, i1 false)
@@ -2356,23 +2356,23 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %392 = load ptr, ptr %1, align 8
   %393 = zext i32 %391 to i64
   %394 = getelementptr inbounds ptr, ptr %392, i64 %393
-  br label %.preheader.i.i23.i97
+  br label %.preheader.i.i23.i98
 
-.preheader.i.i23.i97:                             ; preds = %.critedge.i.i.i25.i100, %383
-  %.sroa.0.0.i98 = phi ptr [ %394, %383 ], [ %396, %.critedge.i.i.i25.i100 ]
-  %395 = load ptr, ptr %.sroa.0.0.i98, align 8
-  %magicptr.i.i.i24.i99 = ptrtoint ptr %395 to i64
-  switch i64 %magicptr.i.i.i24.i99, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit110 [
-    i64 0, label %.critedge.i.i.i25.i100
-    i64 -8, label %.critedge.i.i.i25.i100
+.preheader.i.i23.i98:                             ; preds = %.critedge.i.i.i25.i101, %383
+  %.sroa.0.0.i99 = phi ptr [ %394, %383 ], [ %396, %.critedge.i.i.i25.i101 ]
+  %395 = load ptr, ptr %.sroa.0.0.i99, align 8
+  %magicptr.i.i.i24.i100 = ptrtoint ptr %395 to i64
+  switch i64 %magicptr.i.i.i24.i100, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit111 [
+    i64 0, label %.critedge.i.i.i25.i101
+    i64 -8, label %.critedge.i.i.i25.i101
   ]
 
-.critedge.i.i.i25.i100:                           ; preds = %.preheader.i.i23.i97, %.preheader.i.i23.i97
-  %396 = getelementptr inbounds i8, ptr %.sroa.0.0.i98, i64 8
-  br label %.preheader.i.i23.i97, !llvm.loop !4
+.critedge.i.i.i25.i101:                           ; preds = %.preheader.i.i23.i98, %.preheader.i.i23.i98
+  %396 = getelementptr inbounds i8, ptr %.sroa.0.0.i99, i64 8
+  br label %.preheader.i.i23.i98, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit110: ; preds = %.preheader.i.i23.i97, %.preheader.i.i.i105
-  %397 = phi ptr [ %377, %.preheader.i.i.i105 ], [ %395, %.preheader.i.i23.i97 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit111: ; preds = %.preheader.i.i23.i98, %.preheader.i.i.i106
+  %397 = phi ptr [ %377, %.preheader.i.i.i106 ], [ %395, %.preheader.i.i23.i98 ]
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
   store i8 1, ptr %398, align 1
   %399 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.10, i64 19) #13
@@ -2381,34 +2381,34 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %402 = zext i32 %400 to i64
   %403 = getelementptr inbounds ptr, ptr %401, i64 %402
   %404 = load ptr, ptr %403, align 8
-  %magicptr.i81 = ptrtoint ptr %404 to i64
-  switch i64 %magicptr.i81, label %.preheader.i.i.i90 [
+  %magicptr.i82 = ptrtoint ptr %404 to i64
+  switch i64 %magicptr.i82, label %.preheader.i.i.i91 [
     i64 0, label %411
     i64 -8, label %407
   ]
 
-.preheader.i.i.i90:                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit110, %.critedge.i.i.i.i93
-  %405 = phi ptr [ %.pre.i94, %.critedge.i.i.i.i93 ], [ %404, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit110 ]
-  %.sroa.030.0.i91 = phi ptr [ %406, %.critedge.i.i.i.i93 ], [ %403, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit110 ]
-  %magicptr.i.i.i.i92 = ptrtoint ptr %405 to i64
-  switch i64 %magicptr.i.i.i.i92, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit95 [
-    i64 0, label %.critedge.i.i.i.i93
-    i64 -8, label %.critedge.i.i.i.i93
+.preheader.i.i.i91:                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit111, %.critedge.i.i.i.i94
+  %405 = phi ptr [ %.pre.i95, %.critedge.i.i.i.i94 ], [ %404, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit111 ]
+  %.sroa.030.0.i92 = phi ptr [ %406, %.critedge.i.i.i.i94 ], [ %403, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit111 ]
+  %magicptr.i.i.i.i93 = ptrtoint ptr %405 to i64
+  switch i64 %magicptr.i.i.i.i93, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit96 [
+    i64 0, label %.critedge.i.i.i.i94
+    i64 -8, label %.critedge.i.i.i.i94
   ]
 
-.critedge.i.i.i.i93:                              ; preds = %.preheader.i.i.i90, %.preheader.i.i.i90
-  %406 = getelementptr inbounds i8, ptr %.sroa.030.0.i91, i64 8
-  %.pre.i94 = load ptr, ptr %406, align 8
-  br label %.preheader.i.i.i90, !llvm.loop !4
+.critedge.i.i.i.i94:                              ; preds = %.preheader.i.i.i91, %.preheader.i.i.i91
+  %406 = getelementptr inbounds i8, ptr %.sroa.030.0.i92, i64 8
+  %.pre.i95 = load ptr, ptr %406, align 8
+  br label %.preheader.i.i.i91, !llvm.loop !4
 
-407:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit110
+407:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit111
   %408 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %409 = load i32, ptr %408, align 8
   %410 = add i32 %409, -1
   store i32 %410, ptr %408, align 8
   br label %411
 
-411:                                              ; preds = %407, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit110
+411:                                              ; preds = %407, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit111
   %412 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 36, i64 noundef 8) #13
   %413 = getelementptr inbounds i8, ptr %412, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %413, ptr noundef nonnull align 1 dereferenceable(19) @.str.10, i64 19, i1 false)
@@ -2426,23 +2426,23 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %420 = load ptr, ptr %1, align 8
   %421 = zext i32 %419 to i64
   %422 = getelementptr inbounds ptr, ptr %420, i64 %421
-  br label %.preheader.i.i23.i82
+  br label %.preheader.i.i23.i83
 
-.preheader.i.i23.i82:                             ; preds = %.critedge.i.i.i25.i85, %411
-  %.sroa.0.0.i83 = phi ptr [ %422, %411 ], [ %424, %.critedge.i.i.i25.i85 ]
-  %423 = load ptr, ptr %.sroa.0.0.i83, align 8
-  %magicptr.i.i.i24.i84 = ptrtoint ptr %423 to i64
-  switch i64 %magicptr.i.i.i24.i84, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit95 [
-    i64 0, label %.critedge.i.i.i25.i85
-    i64 -8, label %.critedge.i.i.i25.i85
+.preheader.i.i23.i83:                             ; preds = %.critedge.i.i.i25.i86, %411
+  %.sroa.0.0.i84 = phi ptr [ %422, %411 ], [ %424, %.critedge.i.i.i25.i86 ]
+  %423 = load ptr, ptr %.sroa.0.0.i84, align 8
+  %magicptr.i.i.i24.i85 = ptrtoint ptr %423 to i64
+  switch i64 %magicptr.i.i.i24.i85, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit96 [
+    i64 0, label %.critedge.i.i.i25.i86
+    i64 -8, label %.critedge.i.i.i25.i86
   ]
 
-.critedge.i.i.i25.i85:                            ; preds = %.preheader.i.i23.i82, %.preheader.i.i23.i82
-  %424 = getelementptr inbounds i8, ptr %.sroa.0.0.i83, i64 8
-  br label %.preheader.i.i23.i82, !llvm.loop !4
+.critedge.i.i.i25.i86:                            ; preds = %.preheader.i.i23.i83, %.preheader.i.i23.i83
+  %424 = getelementptr inbounds i8, ptr %.sroa.0.0.i84, i64 8
+  br label %.preheader.i.i23.i83, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit95: ; preds = %.preheader.i.i23.i82, %.preheader.i.i.i90
-  %425 = phi ptr [ %405, %.preheader.i.i.i90 ], [ %423, %.preheader.i.i23.i82 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit96: ; preds = %.preheader.i.i23.i83, %.preheader.i.i.i91
+  %425 = phi ptr [ %405, %.preheader.i.i.i91 ], [ %423, %.preheader.i.i23.i83 ]
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
   store i8 1, ptr %426, align 1
   %427 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.15, i64 9) #13
@@ -2451,34 +2451,34 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %430 = zext i32 %428 to i64
   %431 = getelementptr inbounds ptr, ptr %429, i64 %430
   %432 = load ptr, ptr %431, align 8
-  %magicptr.i66 = ptrtoint ptr %432 to i64
-  switch i64 %magicptr.i66, label %.preheader.i.i.i75 [
+  %magicptr.i67 = ptrtoint ptr %432 to i64
+  switch i64 %magicptr.i67, label %.preheader.i.i.i76 [
     i64 0, label %439
     i64 -8, label %435
   ]
 
-.preheader.i.i.i75:                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit95, %.critedge.i.i.i.i78
-  %433 = phi ptr [ %.pre.i79, %.critedge.i.i.i.i78 ], [ %432, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit95 ]
-  %.sroa.030.0.i76 = phi ptr [ %434, %.critedge.i.i.i.i78 ], [ %431, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit95 ]
-  %magicptr.i.i.i.i77 = ptrtoint ptr %433 to i64
-  switch i64 %magicptr.i.i.i.i77, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit80 [
-    i64 0, label %.critedge.i.i.i.i78
-    i64 -8, label %.critedge.i.i.i.i78
+.preheader.i.i.i76:                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit96, %.critedge.i.i.i.i79
+  %433 = phi ptr [ %.pre.i80, %.critedge.i.i.i.i79 ], [ %432, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit96 ]
+  %.sroa.030.0.i77 = phi ptr [ %434, %.critedge.i.i.i.i79 ], [ %431, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit96 ]
+  %magicptr.i.i.i.i78 = ptrtoint ptr %433 to i64
+  switch i64 %magicptr.i.i.i.i78, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit81 [
+    i64 0, label %.critedge.i.i.i.i79
+    i64 -8, label %.critedge.i.i.i.i79
   ]
 
-.critedge.i.i.i.i78:                              ; preds = %.preheader.i.i.i75, %.preheader.i.i.i75
-  %434 = getelementptr inbounds i8, ptr %.sroa.030.0.i76, i64 8
-  %.pre.i79 = load ptr, ptr %434, align 8
-  br label %.preheader.i.i.i75, !llvm.loop !4
+.critedge.i.i.i.i79:                              ; preds = %.preheader.i.i.i76, %.preheader.i.i.i76
+  %434 = getelementptr inbounds i8, ptr %.sroa.030.0.i77, i64 8
+  %.pre.i80 = load ptr, ptr %434, align 8
+  br label %.preheader.i.i.i76, !llvm.loop !4
 
-435:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit95
+435:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit96
   %436 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %437 = load i32, ptr %436, align 8
   %438 = add i32 %437, -1
   store i32 %438, ptr %436, align 8
   br label %439
 
-439:                                              ; preds = %435, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit95
+439:                                              ; preds = %435, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit96
   %440 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 26, i64 noundef 8) #13
   %441 = getelementptr inbounds i8, ptr %440, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %441, ptr noundef nonnull align 1 dereferenceable(9) @.str.15, i64 9, i1 false)
@@ -2496,23 +2496,23 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %448 = load ptr, ptr %1, align 8
   %449 = zext i32 %447 to i64
   %450 = getelementptr inbounds ptr, ptr %448, i64 %449
-  br label %.preheader.i.i23.i67
+  br label %.preheader.i.i23.i68
 
-.preheader.i.i23.i67:                             ; preds = %.critedge.i.i.i25.i70, %439
-  %.sroa.0.0.i68 = phi ptr [ %450, %439 ], [ %452, %.critedge.i.i.i25.i70 ]
-  %451 = load ptr, ptr %.sroa.0.0.i68, align 8
-  %magicptr.i.i.i24.i69 = ptrtoint ptr %451 to i64
-  switch i64 %magicptr.i.i.i24.i69, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit80 [
-    i64 0, label %.critedge.i.i.i25.i70
-    i64 -8, label %.critedge.i.i.i25.i70
+.preheader.i.i23.i68:                             ; preds = %.critedge.i.i.i25.i71, %439
+  %.sroa.0.0.i69 = phi ptr [ %450, %439 ], [ %452, %.critedge.i.i.i25.i71 ]
+  %451 = load ptr, ptr %.sroa.0.0.i69, align 8
+  %magicptr.i.i.i24.i70 = ptrtoint ptr %451 to i64
+  switch i64 %magicptr.i.i.i24.i70, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit81 [
+    i64 0, label %.critedge.i.i.i25.i71
+    i64 -8, label %.critedge.i.i.i25.i71
   ]
 
-.critedge.i.i.i25.i70:                            ; preds = %.preheader.i.i23.i67, %.preheader.i.i23.i67
-  %452 = getelementptr inbounds i8, ptr %.sroa.0.0.i68, i64 8
-  br label %.preheader.i.i23.i67, !llvm.loop !4
+.critedge.i.i.i25.i71:                            ; preds = %.preheader.i.i23.i68, %.preheader.i.i23.i68
+  %452 = getelementptr inbounds i8, ptr %.sroa.0.0.i69, i64 8
+  br label %.preheader.i.i23.i68, !llvm.loop !4
 
-_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit80: ; preds = %.preheader.i.i23.i67, %.preheader.i.i.i75
-  %453 = phi ptr [ %433, %.preheader.i.i.i75 ], [ %451, %.preheader.i.i23.i67 ]
+_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit81: ; preds = %.preheader.i.i23.i68, %.preheader.i.i.i76
+  %453 = phi ptr [ %433, %.preheader.i.i.i76 ], [ %451, %.preheader.i.i23.i68 ]
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
   store i8 1, ptr %454, align 1
   %455 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.12, i64 12) #13
@@ -2527,9 +2527,9 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
     i64 -8, label %463
   ]
 
-.preheader.i.i.i17.i:                             ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit80, %.critedge.i.i.i.i20.i
-  %461 = phi ptr [ %.pre.i21.i, %.critedge.i.i.i.i20.i ], [ %460, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit80 ]
-  %.sroa.030.0.i18.i = phi ptr [ %462, %.critedge.i.i.i.i20.i ], [ %459, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit80 ]
+.preheader.i.i.i17.i:                             ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit81, %.critedge.i.i.i.i20.i
+  %461 = phi ptr [ %.pre.i21.i, %.critedge.i.i.i.i20.i ], [ %460, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit81 ]
+  %.sroa.030.0.i18.i = phi ptr [ %462, %.critedge.i.i.i.i20.i ], [ %459, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit81 ]
   %magicptr.i.i.i.i19.i = ptrtoint ptr %461 to i64
   switch i64 %magicptr.i.i.i.i19.i, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit22.i [
     i64 0, label %.critedge.i.i.i.i20.i
@@ -2541,14 +2541,14 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %.pre.i21.i = load ptr, ptr %462, align 8
   br label %.preheader.i.i.i17.i, !llvm.loop !4
 
-463:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit80
+463:                                              ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit81
   %464 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %465 = load i32, ptr %464, align 8
   %466 = add i32 %465, -1
   store i32 %466, ptr %464, align 8
   br label %467
 
-467:                                              ; preds = %463, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit80
+467:                                              ; preds = %463, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit81
   %468 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 29, i64 noundef 8) #13
   %469 = getelementptr inbounds i8, ptr %468, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %469, ptr noundef nonnull align 1 dereferenceable(12) @.str.12, i64 12, i1 false)
@@ -2601,7 +2601,7 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %489 = phi ptr [ %.pre.i.i, %.critedge.i.i.i.i.i ], [ %488, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit22.i ]
   %.sroa.030.0.i.i = phi ptr [ %490, %.critedge.i.i.i.i.i ], [ %487, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_.exit22.i ]
   %magicptr.i.i.i.i.i = ptrtoint ptr %489 to i64
-  switch i64 %magicptr.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit16.thread273.sink.split [
+  switch i64 %magicptr.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit17.thread266.sink.split [
     i64 0, label %.critedge.i.i.i.i.i
     i64 -8, label %.critedge.i.i.i.i.i
   ]
@@ -2642,7 +2642,7 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %.sroa.0.0.i.i = phi ptr [ %506, %495 ], [ %508, %.critedge.i.i.i25.i.i ]
   %507 = load ptr, ptr %.sroa.0.0.i.i, align 8
   %magicptr.i.i.i24.i.i = ptrtoint ptr %507 to i64
-  switch i64 %magicptr.i.i.i24.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit16.thread273.sink.split [
+  switch i64 %magicptr.i.i.i24.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit17.thread266.sink.split [
     i64 0, label %.critedge.i.i.i25.i.i
     i64 -8, label %.critedge.i.i.i25.i.i
   ]
@@ -2651,13 +2651,13 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS
   %508 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
   br label %.preheader.i.i23.i.i, !llvm.loop !4
 
-_ZN4llvmeqENS_9StringRefES0_.exit16.thread273.sink.split: ; preds = %.preheader.i.i23.i.i, %.preheader.i.i.i.i, %.preheader.i.i23.i, %.preheader.i.i.i
-  %.sink370 = phi ptr [ %98, %.preheader.i.i.i ], [ %116, %.preheader.i.i23.i ], [ %489, %.preheader.i.i.i.i ], [ %507, %.preheader.i.i23.i.i ]
-  %509 = getelementptr inbounds nuw i8, ptr %.sink370, i64 8
+_ZN4llvmeqENS_9StringRefES0_.exit17.thread266.sink.split: ; preds = %.preheader.i.i23.i.i, %.preheader.i.i.i.i, %.preheader.i.i23.i, %.preheader.i.i.i
+  %.sink363 = phi ptr [ %98, %.preheader.i.i.i ], [ %116, %.preheader.i.i23.i ], [ %489, %.preheader.i.i.i.i ], [ %507, %.preheader.i.i23.i.i ]
+  %509 = getelementptr inbounds nuw i8, ptr %.sink363, i64 8
   store i8 1, ptr %509, align 1
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit16.thread273
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit17.thread266
 
-_ZN4llvmeqENS_9StringRefES0_.exit16.thread273:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit16.thread273.sink.split, %_ZN4llvmeqENS_9StringRefES0_.exit, %6, %_ZN4llvmeqENS_9StringRefES0_.exit16
+_ZN4llvmeqENS_9StringRefES0_.exit17.thread266:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit17.thread266.sink.split, %_ZN4llvmeqENS_9StringRefES0_.exit, %6, %_ZN4llvmeqENS_9StringRefES0_.exit17
   %510 = tail call noundef zeroext i1 @_ZNK5clang10TargetInfo14initFeatureMapERN4llvm9StringMapIbNS1_15MallocAllocatorEEERNS_17DiagnosticsEngineENS1_9StringRefERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   ret i1 %510
 }

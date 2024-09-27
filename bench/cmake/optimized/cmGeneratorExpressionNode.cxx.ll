@@ -14126,14 +14126,14 @@ common.resume.i.i:                                ; preds = %105, %102, %95, %23
   br i1 %.not.i.i.i.i.i, label %..loopexit_crit_edge.i.i.i.i.i, label %27
 
 ..loopexit_crit_edge.i.i.i.i.i:                   ; preds = %26
-  %.val26.pre.i.i.i.i.i = load i64, ptr %.012.i.i, align 8
+  %.val28.pre.i.i.i.i.i = load i64, ptr %.012.i.i, align 8
   br label %.loopexit.i.i.i.i.i
 
 27:                                               ; preds = %26
   %.sroa.06.018.i.i.i.i.i = load ptr, ptr %7, align 8
   %.not1119.i.i.i.i.i = icmp eq ptr %.sroa.06.018.i.i.i.i.i, null
-  %.val26.pre31.i.i.i.i.i = load i64, ptr %.012.i.i, align 8
-  %.val20.fr.i.i.i.i.i = freeze i64 %.val26.pre31.i.i.i.i.i
+  %.val28.pre31.i.i.i.i.i = load i64, ptr %.012.i.i, align 8
+  %.val20.fr.i.i.i.i.i = freeze i64 %.val28.pre31.i.i.i.i.i
   br i1 %.not1119.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %27
@@ -14174,10 +14174,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.
   br i1 %.not11.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i, !llvm.loop !62
 
 .loopexit.i.i.i.i.i:                              ; preds = %37, %32, %27, %..loopexit_crit_edge.i.i.i.i.i
-  %.val26.i.i.i.i.i = phi i64 [ %.val26.pre.i.i.i.i.i, %..loopexit_crit_edge.i.i.i.i.i ], [ %.val20.fr.i.i.i.i.i, %27 ], [ 0, %32 ], [ %.val20.fr.i.i.i.i.i, %37 ]
+  %.val28.i.i.i.i.i = phi i64 [ %.val28.pre.i.i.i.i.i, %..loopexit_crit_edge.i.i.i.i.i ], [ %.val20.fr.i.i.i.i.i, %27 ], [ 0, %32 ], [ %.val20.fr.i.i.i.i.i, %37 ]
   %38 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
-  %.val27.i.i.i.i.i = load ptr, ptr %38, align 8
-  %39 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %.val27.i.i.i.i.i, i64 noundef %.val26.i.i.i.i.i, i64 noundef 3339675911)
+  %.val29.i.i.i.i.i = load ptr, ptr %38, align 8
+  %39 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %.val29.i.i.i.i.i, i64 noundef %.val28.i.i.i.i.i, i64 noundef 3339675911)
           to label %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_St8functionIFNSt7__cxx1112basic_stringIcS3_SaIcEEEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentRN12_GLOBAL__N_15RangeISt6vectorISB_SaISB_EEEEEEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit.i.i.i.i.i unwind label %40
 
 40:                                               ; preds = %.loopexit.i.i.i.i.i
@@ -14188,18 +14188,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_St8functionIFNSt7__cxx1112basic_stringIcS3_SaIcEEEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentRN12_GLOBAL__N_15RangeISt6vectorISB_SaISB_EEEEEEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit.i.i.i.i.i: ; preds = %.loopexit.i.i.i.i.i
-  %.val28.i.i.i.i.i = load i64, ptr %6, align 8
-  %43 = urem i64 %39, %.val28.i.i.i.i.i
+  %.val30.i.i.i.i.i = load i64, ptr %6, align 8
+  %43 = urem i64 %39, %.val30.i.i.i.i.i
   %.val16.i.i.i.i.i = load i64, ptr %25, align 8
   %44 = icmp ugt i64 %.val16.i.i.i.i.i, 20
   br i1 %44, label %45, label %_ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFNSt7__cxx1112basic_stringIcS2_SaIcEEEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentRN12_GLOBAL__N_15RangeISt6vectorISA_SaISA_EEEEEEESaISP_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSR_18_Mod_range_hashingENSR_20_Default_ranged_hashENSR_20_Prime_rehash_policyENSR_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS3_EEPNSR_10_Hash_nodeISP_Lb1EEEmRKT_m.exit.thread.i.i.i.i.i
 
 45:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_St8functionIFNSt7__cxx1112basic_stringIcS3_SaIcEEEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentRN12_GLOBAL__N_15RangeISt6vectorISB_SaISB_EEEEEEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit.i.i.i.i.i
-  %.val29.i.i.i.i.i = load ptr, ptr %0, align 8
-  %.val31.i.i.i.i.i = load i64, ptr %.012.i.i, align 8
-  %.val32.i.i.i.i.i = load ptr, ptr %38, align 8
-  %.0.val2.fr.i.i.i.i.i.i.i = freeze i64 %.val31.i.i.i.i.i
-  %46 = getelementptr inbounds ptr, ptr %.val29.i.i.i.i.i, i64 %43
+  %.val31.i.i.i.i.i = load ptr, ptr %0, align 8
+  %.val33.i.i.i.i.i = load i64, ptr %.012.i.i, align 8
+  %.val34.i.i.i.i.i = load ptr, ptr %38, align 8
+  %.0.val2.fr.i.i.i.i.i.i.i = freeze i64 %.val33.i.i.i.i.i
+  %46 = getelementptr inbounds ptr, ptr %.val31.i.i.i.i.i, i64 %43
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFNSt7__cxx1112basic_stringIcS2_SaIcEEEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentRN12_GLOBAL__N_15RangeISt6vectorISA_SaISA_EEEEEEESaISP_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSR_18_Mod_range_hashingENSR_20_Default_ranged_hashENSR_20_Prime_rehash_policyENSR_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS3_EEPNSR_10_Hash_nodeISP_Lb1EEEmRKT_m.exit.thread.i.i.i.i.i, label %48
@@ -14231,7 +14231,7 @@ _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pa
 57:                                               ; preds = %55
   %58 = getelementptr i8, ptr %56, i64 56
   %.val21.us.i.i.i.i.i.i.i = load i64, ptr %58, align 8
-  %59 = urem i64 %.val21.us.i.i.i.i.i.i.i, %.val28.i.i.i.i.i
+  %59 = urem i64 %.val21.us.i.i.i.i.i.i.i, %.val30.i.i.i.i.i
   %.not17.us.i.i.i.i.i.i.i = icmp eq i64 %59, %43
   br i1 %.not17.us.i.i.i.i.i.i.i, label %.split.us.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFNSt7__cxx1112basic_stringIcS2_SaIcEEEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentRN12_GLOBAL__N_15RangeISt6vectorISA_SaISA_EEEEEEESaISP_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSR_18_Mod_range_hashingENSR_20_Default_ranged_hashENSR_20_Prime_rehash_policyENSR_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS3_EEPNSR_10_Hash_nodeISP_Lb1EEEmRKT_m.exit.thread.i.i.i.i.i, !llvm.loop !63
 
@@ -14250,7 +14250,7 @@ _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pa
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %61
   %64 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i, i64 16
   %.val6.i.i.i.i.i.i.i.i = load ptr, ptr %64, align 8
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val32.i.i.i.i.i, ptr readonly %.val6.i.i.i.i.i.i.i.i, i64 %.0.val2.fr.i.i.i.i.i.i.i)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val34.i.i.i.i.i, ptr readonly %.val6.i.i.i.i.i.i.i.i, i64 %.0.val2.fr.i.i.i.i.i.i.i)
   %65 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %65, label %.loopexit.i.i, label %66
 
@@ -14262,7 +14262,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %6
 68:                                               ; preds = %66
   %69 = getelementptr i8, ptr %67, i64 56
   %.val21.i.i.i.i.i.i.i = load i64, ptr %69, align 8
-  %70 = urem i64 %.val21.i.i.i.i.i.i.i, %.val28.i.i.i.i.i
+  %70 = urem i64 %.val21.i.i.i.i.i.i.i, %.val30.i.i.i.i.i
   %.not17.i.i.i.i.i.i.i = icmp eq i64 %70, %43
   br i1 %.not17.i.i.i.i.i.i.i, label %.split.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFNSt7__cxx1112basic_stringIcS2_SaIcEEEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentRN12_GLOBAL__N_15RangeISt6vectorISA_SaISA_EEEEEEESaISP_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSR_18_Mod_range_hashingENSR_20_Default_ranged_hashENSR_20_Prime_rehash_policyENSR_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS3_EEPNSR_10_Hash_nodeISP_Lb1EEEmRKT_m.exit.thread.i.i.i.i.i, !llvm.loop !63
 
@@ -20151,7 +20151,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %5
   %.val.i.i.i = load ptr, ptr %4, align 8, !noalias !372
   %22 = getelementptr inbounds i8, ptr %6, i64 16
   %23 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false), !noalias !372
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !noalias !372
   store i8 %14, ptr %6, align 8, !noalias !372
   store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE18_clESF_SI_SO_EUlS6_E_E9_M_invokeERKSt9_Any_dataS6_, ptr %23, align 8, !noalias !372
   store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE18_clESF_SI_SO_EUlS6_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %22, align 8, !noalias !372
@@ -20178,12 +20178,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %5
   %32 = landingpad { ptr, i32 }
           cleanup
   %33 = load ptr, ptr %22, align 8, !noalias !372
-  %.not.i.i19.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i19.i.i.i, label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit20.i.i.i, label %34
+  %.not.i.i20.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i20.i.i.i, label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit21.i.i.i, label %34
 
 34:                                               ; preds = %31
   %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit20.i.i.i unwind label %36
+          to label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit21.i.i.i unwind label %36
 
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
@@ -20192,7 +20192,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %5
   call void @__clang_call_terminate(ptr %38) #26
   unreachable
 
-_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit20.i.i.i: ; preds = %34, %31
+_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit21.i.i.i: ; preds = %34, %31
   resume { ptr, i32 } %32
 
 39:                                               ; preds = %.critedge.i.i.i
@@ -20389,19 +20389,19 @@ define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11c
   %.val.i.i.i = load ptr, ptr %4, align 8, !noalias !392
   %14 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 32
   store ptr %14, ptr %4, align 8, !noalias !392
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
-  %16 = getelementptr inbounds i8, ptr %6, i64 24
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %17, align 8, !noalias !392
-  %18 = ptrtoint ptr %4 to i64
-  store i64 %18, ptr %6, align 8, !noalias !392
-  store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE19_clESF_SI_SO_EUlS6_E_E9_M_invokeERKSt9_Any_dataS6_, ptr %16, align 8, !noalias !392
-  store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE19_clESF_SI_SO_EUlS6_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %15, align 8, !noalias !392
+  %15 = ptrtoint ptr %4 to i64
+  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %18, align 8, !noalias !392
+  store i64 %15, ptr %6, align 8, !noalias !392
+  store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE19_clESF_SI_SO_EUlS6_E_E9_M_invokeERKSt9_Any_dataS6_, ptr %17, align 8, !noalias !392
+  store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE19_clESF_SI_SO_EUlS6_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %16, align 8, !noalias !392
   invoke void @_ZZNK8PathNode8EvaluateERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlRKS6_St8functionIFvRS6_EEE_clB5cxx11ESJ_SN_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) @_ZZNK8PathNode8EvaluateERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerE11processList, ptr noundef nonnull align 8 dereferenceable(32) %.val.i.i.i, ptr noundef nonnull %6)
           to label %19 unwind label %26
 
 19:                                               ; preds = %13
-  %20 = load ptr, ptr %15, align 8, !noalias !392
+  %20 = load ptr, ptr %16, align 8, !noalias !392
   %.not.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i.i, label %_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerEUlSD_SG_RN12_GLOBAL__N_15RangeIS9_EEE19_JSD_SG_SM_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit, label %21
 
@@ -20419,13 +20419,13 @@ define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11c
 26:                                               ; preds = %13
   %27 = landingpad { ptr, i32 }
           cleanup
-  %28 = load ptr, ptr %15, align 8, !noalias !392
-  %.not.i.i10.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i10.i.i.i, label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit11.i.i.i, label %29
+  %28 = load ptr, ptr %16, align 8, !noalias !392
+  %.not.i.i11.i.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i11.i.i.i, label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit12.i.i.i, label %29
 
 29:                                               ; preds = %26
   %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit11.i.i.i unwind label %31
+          to label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit12.i.i.i unwind label %31
 
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
@@ -20434,7 +20434,7 @@ define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11c
   call void @__clang_call_terminate(ptr %33) #26
   unreachable
 
-_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit11.i.i.i: ; preds = %29, %26
+_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit12.i.i.i: ; preds = %29, %26
   resume { ptr, i32 } %27
 
 34:                                               ; preds = %5
@@ -21007,19 +21007,19 @@ define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11c
 
 13:                                               ; preds = %5
   %.val9.i.i.i = load ptr, ptr %4, align 8, !noalias !429
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %16, align 8, !noalias !429
-  %17 = ptrtoint ptr %4 to i64
-  store i64 %17, ptr %6, align 8, !noalias !429
-  store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE21_clESF_SI_SO_EUlS6_E_E9_M_invokeERKSt9_Any_dataS6_, ptr %15, align 8, !noalias !429
-  store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE21_clESF_SI_SO_EUlS6_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %14, align 8, !noalias !429
+  %14 = ptrtoint ptr %4 to i64
+  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds i8, ptr %6, i64 24
+  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %17, align 8, !noalias !429
+  store i64 %14, ptr %6, align 8, !noalias !429
+  store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE21_clESF_SI_SO_EUlS6_E_E9_M_invokeERKSt9_Any_dataS6_, ptr %16, align 8, !noalias !429
+  store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE21_clESF_SI_SO_EUlS6_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %15, align 8, !noalias !429
   invoke void @_ZZNK8PathNode8EvaluateERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlRKS6_St8functionIFvRS6_EEE_clB5cxx11ESJ_SN_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) @_ZZNK8PathNode8EvaluateERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerE11processList, ptr noundef nonnull align 8 dereferenceable(32) %.val9.i.i.i, ptr noundef nonnull %6)
           to label %18 unwind label %25
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %14, align 8, !noalias !429
+  %19 = load ptr, ptr %15, align 8, !noalias !429
   %.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i.i, label %_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerEUlSD_SG_RN12_GLOBAL__N_15RangeIS9_EEE21_JSD_SG_SM_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit, label %20
 
@@ -21037,13 +21037,13 @@ define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11c
 25:                                               ; preds = %13
   %26 = landingpad { ptr, i32 }
           cleanup
-  %27 = load ptr, ptr %14, align 8, !noalias !429
-  %.not.i.i10.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i10.i.i.i, label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit11.i.i.i, label %28
+  %27 = load ptr, ptr %15, align 8, !noalias !429
+  %.not.i.i11.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i11.i.i.i, label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit12.i.i.i, label %28
 
 28:                                               ; preds = %25
   %29 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit11.i.i.i unwind label %30
+          to label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit12.i.i.i unwind label %30
 
 30:                                               ; preds = %28
   %31 = landingpad { ptr, i32 }
@@ -21052,7 +21052,7 @@ define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11c
   call void @__clang_call_terminate(ptr %32) #26
   unreachable
 
-_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit11.i.i.i: ; preds = %28, %25
+_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit12.i.i.i: ; preds = %28, %25
   resume { ptr, i32 } %26
 
 33:                                               ; preds = %5
@@ -21810,12 +21810,12 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %35 = landingpad { ptr, i32 }
           cleanup
   %36 = load ptr, ptr %24, align 8, !noalias !472
-  %.not.i.i26.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i26.i.i.i, label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit27.i.i.i, label %37
+  %.not.i.i28.i.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i28.i.i.i, label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit29.i.i.i, label %37
 
 37:                                               ; preds = %34
   %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit27.i.i.i unwind label %39
+          to label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit29.i.i.i unwind label %39
 
 39:                                               ; preds = %37
   %40 = landingpad { ptr, i32 }
@@ -21837,8 +21837,8 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr %43, align 8, !noalias !472
-  %.not.i.i29.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i29.i.i.i, label %_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerEUlSD_SG_RN12_GLOBAL__N_15RangeIS9_EEE23_JSD_SG_SM_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit, label %48
+  %.not.i.i30.i.i.i = icmp eq ptr %47, null
+  br i1 %.not.i.i30.i.i.i, label %_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerEUlSD_SG_RN12_GLOBAL__N_15RangeIS9_EEE23_JSD_SG_SM_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit, label %48
 
 48:                                               ; preds = %46
   %49 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
@@ -21855,12 +21855,12 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %54 = landingpad { ptr, i32 }
           cleanup
   %55 = load ptr, ptr %43, align 8, !noalias !472
-  %.not.i.i31.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i31.i.i.i, label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit27.i.i.i, label %56
+  %.not.i.i32.i.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i32.i.i.i, label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit29.i.i.i, label %56
 
 56:                                               ; preds = %53
   %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit27.i.i.i unwind label %58
+          to label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit29.i.i.i unwind label %58
 
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
@@ -21873,7 +21873,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   br label %_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerEUlSD_SG_RN12_GLOBAL__N_15RangeIS9_EEE23_JSD_SG_SM_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit
 
-_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit27.i.i.i: ; preds = %56, %53, %37, %34
+_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit29.i.i.i: ; preds = %56, %53, %37, %34
   %.pn22.i.i.i = phi { ptr, i32 } [ %35, %34 ], [ %35, %37 ], [ %54, %53 ], [ %54, %56 ]
   resume { ptr, i32 } %.pn22.i.i.i
 
@@ -22467,19 +22467,19 @@ define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11c
 
 13:                                               ; preds = %5
   %.val9.i.i.i = load ptr, ptr %4, align 8, !noalias !521
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %16, align 8, !noalias !521
-  %17 = ptrtoint ptr %4 to i64
-  store i64 %17, ptr %6, align 8, !noalias !521
-  store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE25_clESF_SI_SO_EUlS6_E_E9_M_invokeERKSt9_Any_dataS6_, ptr %15, align 8, !noalias !521
-  store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE25_clESF_SI_SO_EUlS6_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %14, align 8, !noalias !521
+  %14 = ptrtoint ptr %4 to i64
+  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds i8, ptr %6, i64 24
+  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %17, align 8, !noalias !521
+  store i64 %14, ptr %6, align 8, !noalias !521
+  store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE25_clESF_SI_SO_EUlS6_E_E9_M_invokeERKSt9_Any_dataS6_, ptr %16, align 8, !noalias !521
+  store ptr @_ZNSt17_Function_handlerIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlSF_SI_RN12_GLOBAL__N_15RangeISB_EEE25_clESF_SI_SO_EUlS6_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %15, align 8, !noalias !521
   invoke void @_ZZNK8PathNode8EvaluateERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerENKUlRKS6_St8functionIFvRS6_EEE_clB5cxx11ESJ_SN_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) @_ZZNK8PathNode8EvaluateERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerE11processList, ptr noundef nonnull align 8 dereferenceable(32) %.val9.i.i.i, ptr noundef nonnull %6)
           to label %18 unwind label %25
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %14, align 8, !noalias !521
+  %19 = load ptr, ptr %15, align 8, !noalias !521
   %.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i.i, label %_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK8PathNode8EvaluateERKSt6vectorIS5_SaIS5_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerEUlSD_SG_RN12_GLOBAL__N_15RangeIS9_EEE25_JSD_SG_SM_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit, label %20
 
@@ -22497,13 +22497,13 @@ define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11c
 25:                                               ; preds = %13
   %26 = landingpad { ptr, i32 }
           cleanup
-  %27 = load ptr, ptr %14, align 8, !noalias !521
-  %.not.i.i10.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i10.i.i.i, label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit11.i.i.i, label %28
+  %27 = load ptr, ptr %15, align 8, !noalias !521
+  %.not.i.i11.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i11.i.i.i, label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit12.i.i.i, label %28
 
 28:                                               ; preds = %25
   %29 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit11.i.i.i unwind label %30
+          to label %_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit12.i.i.i unwind label %30
 
 30:                                               ; preds = %28
   %31 = landingpad { ptr, i32 }
@@ -22512,7 +22512,7 @@ define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11c
   call void @__clang_call_terminate(ptr %32) #26
   unreachable
 
-_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit11.i.i.i: ; preds = %28, %25
+_ZNSt8functionIFvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit12.i.i.i: ; preds = %28, %25
   resume { ptr, i32 } %26
 
 33:                                               ; preds = %5

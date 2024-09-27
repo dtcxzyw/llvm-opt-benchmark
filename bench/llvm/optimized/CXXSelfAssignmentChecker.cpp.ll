@@ -673,16 +673,16 @@ define internal void @_ZN5clang4ento5check13BeginFunction19_checkBeginFunctionIN
   %.fca.1.extract.i = extractvalue { ptr, i8 } %54, 1
   %55 = load ptr, ptr %35, align 8
   call void @_ZNK5clang4ento12ProgramState7bindLocENS0_3LocENS0_4SValEPKNS_15LocationContextEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %55, ptr nonnull %52, i8 4, ptr %.fca.0.extract26.i, i8 %.fca.1.extract27.i, ptr noundef nonnull %20, i1 noundef zeroext true) #18
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %58 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %58, align 8
-  %59 = ptrtoint ptr %24 to i64
-  store i64 %59, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_124CXXSelfAssignmentChecker18checkBeginFunctionERNS7_14CheckerContextEE3$_0E9_M_invokeERKSt9_Any_dataS9_", ptr %57, align 8
-  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_124CXXSelfAssignmentChecker18checkBeginFunctionERNS7_14CheckerContextEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %56, align 8
+  %56 = ptrtoint ptr %24 to i64
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %59 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %59, align 8
+  store i64 %56, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_124CXXSelfAssignmentChecker18checkBeginFunctionERNS7_14CheckerContextEE3$_0E9_M_invokeERKSt9_Any_dataS9_", ptr %58, align 8
+  store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_124CXXSelfAssignmentChecker18checkBeginFunctionERNS7_14CheckerContextEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %57, align 8
   %60 = call noundef ptr @_ZN5clang4ento14CheckerContext10getNoteTagEOSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_22PathSensitiveBugReportEEEb(ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext false)
-  %61 = load ptr, ptr %56, align 8
+  %61 = load ptr, ptr %57, align 8
   %.not.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEED2Ev.exit.i, label %62
 
@@ -692,8 +692,8 @@ define internal void @_ZN5clang4ento5check13BeginFunction19_checkBeginFunctionIN
 
 _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEED2Ev.exit.i: ; preds = %62, %33
   %64 = load ptr, ptr %5, align 8
-  %.not.i.i70.i = icmp eq ptr %64, null
-  br i1 %.not.i.i70.i, label %65, label %.thread.i.i
+  %.not.i.i71.i = icmp eq ptr %64, null
+  br i1 %.not.i.i71.i, label %65, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEED2Ev.exit.i
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %64) #18
@@ -727,7 +727,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i: ; p
 
 _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i: ; preds = %72, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br i1 %.not.i.i70.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, label %73
+  br i1 %.not.i.i71.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, label %73
 
 73:                                               ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %64) #18
@@ -740,7 +740,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %77 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 0, ptr %77, align 8
-  store i64 %59, ptr %8, align 8
+  store i64 %56, ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_124CXXSelfAssignmentChecker18checkBeginFunctionERNS7_14CheckerContextEE3$_1E9_M_invokeERKSt9_Any_dataS9_", ptr %76, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_124CXXSelfAssignmentChecker18checkBeginFunctionERNS7_14CheckerContextEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %75, align 8
   %78 = call noundef ptr @_ZN5clang4ento14CheckerContext10getNoteTagEOSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_22PathSensitiveBugReportEEEb(ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext false)

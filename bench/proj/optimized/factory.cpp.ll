@@ -13774,20 +13774,20 @@ define void @_ZN5osgeo4proj2io16AuthorityFactory6createERKN7dropbox6oxygen2nnISt
   br label %9
 
 8:                                                ; preds = %9
-  %.0.add.i = add nuw nsw i64 %.0.idx11.i, 8
+  %.0.add.i = add nuw nsw i64 %.0.idx3.i, 8
   %.not.i = icmp eq i64 %.0.add.i, 24
   br i1 %.not.i, label %13, label %9
 
 9:                                                ; preds = %8, %3
-  %.0.idx11.i = phi i64 [ 0, %3 ], [ %.0.add.i, %8 ]
-  %.0.ptr12.i = getelementptr inbounds i8, ptr %4, i64 %.0.idx11.i
-  %10 = load ptr, ptr %.0.ptr12.i, align 8, !noalias !58
+  %.0.idx3.i = phi i64 [ 0, %3 ], [ %.0.add.i, %8 ]
+  %.0.ptr4.i = getelementptr inbounds i8, ptr %4, i64 %.0.idx3.i
+  %10 = load ptr, ptr %.0.ptr4.i, align 8, !noalias !58
   %11 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %10) #30, !noalias !58
   br i1 %11, label %12, label %8
 
 12:                                               ; preds = %9
-  %.0.ptr12.i.le = getelementptr inbounds i8, ptr %4, i64 %.0.idx11.i
-  call void @_ZN5osgeo4proj2io16AuthorityFactory14nn_make_sharedIS2_JRKN7dropbox6oxygen2nnISt10shared_ptrINS1_15DatabaseContextEEEERKPKcEEENS6_IS7_IT_EEEDpOT0_(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.198") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %.0.ptr12.i.le)
+  %.0.ptr4.i.le = getelementptr inbounds i8, ptr %4, i64 %.0.idx3.i
+  call void @_ZN5osgeo4proj2io16AuthorityFactory14nn_make_sharedIS2_JRKN7dropbox6oxygen2nnISt10shared_ptrINS1_15DatabaseContextEEEERKPKcEEENS6_IS7_IT_EEEDpOT0_(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.198") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %.0.ptr4.i.le)
   br label %"_ZZN5osgeo4proj2io16AuthorityFactory6createERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15DatabaseContextEEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEv.exit"
 
 13:                                               ; preds = %8
@@ -13829,8 +13829,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEEC2ERKS8
   store ptr %14, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %17, i64 12
   %30 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i5 = icmp eq i8 %30, 0
-  br i1 %.not.i.i.i.i.i5, label %34, label %31
+  %.not.i.i.i.i.i6 = icmp eq i8 %30, 0
+  br i1 %.not.i.i.i.i.i6, label %34, label %31
 
 31:                                               ; preds = %27
   %32 = load i32, ptr %29, align 4
@@ -13899,8 +13899,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i
 
 63:                                               ; preds = %53
   %64 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i7 = icmp eq i8 %64, 0
-  br i1 %.not.i.i.i.i.i7, label %67, label %65
+  %.not.i.i.i.i.i8 = icmp eq i8 %64, 0
+  br i1 %.not.i.i.i.i.i8, label %67, label %65
 
 65:                                               ; preds = %63
   %66 = add nsw i32 %57, -1
@@ -13912,8 +13912,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i
   br label %69
 
 69:                                               ; preds = %67, %65
-  %.0.i.i.i.i.i8 = phi i32 [ %57, %65 ], [ %68, %67 ]
-  %70 = icmp eq i32 %.0.i.i.i.i.i8, 1
+  %.0.i.i.i.i.i9 = phi i32 [ %57, %65 ], [ %68, %67 ]
+  %70 = icmp eq i32 %.0.i.i.i.i.i9, 1
   br i1 %70, label %71, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.exit
 
 71:                                               ; preds = %69
@@ -28222,19 +28222,19 @@ define internal fastcc void @_ZN5osgeo4proj2ioL22identifyFromNameOrCodeERKN7drop
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEC2IS2_INS4_5datum13DatumEnsembleEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISE_EE.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEC2IS2_INS4_5datum13DatumEnsembleEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISE_EE.exit: ; preds = %.critedge, %33, %36
-  %38 = getelementptr inbounds i8, ptr %9, i64 16
-  %39 = getelementptr inbounds i8, ptr %9, i64 24
-  %40 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 0, ptr %40, align 8
-  %41 = ptrtoint ptr %7 to i64
-  store i64 %41, ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFSt10shared_ptrIN5osgeo4proj4util11IComparableEERKN7dropbox6oxygen2nnIS0_INS2_2io16AuthorityFactoryEEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNS9_L22identifyFromNameOrCodeERKNS8_IS0_INS9_15DatabaseContextEEEERKSt6vectorISK_SaISK_EESM_RKNS8_IS0_INS2_5datum13DatumEnsembleEEEERSK_S14_E3$_0E9_M_invokeERKSt9_Any_dataSE_SM_", ptr %39, align 8
-  store ptr @"_ZNSt17_Function_handlerIFSt10shared_ptrIN5osgeo4proj4util11IComparableEERKN7dropbox6oxygen2nnIS0_INS2_2io16AuthorityFactoryEEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNS9_L22identifyFromNameOrCodeERKNS8_IS0_INS9_15DatabaseContextEEEERKSt6vectorISK_SaISK_EESM_RKNS8_IS0_INS2_5datum13DatumEnsembleEEEERSK_S14_E3$_0E10_M_managerERSt9_Any_dataRKS17_St18_Manager_operation", ptr %38, align 8
+  %38 = ptrtoint ptr %7 to i64
+  %39 = getelementptr inbounds i8, ptr %9, i64 16
+  %40 = getelementptr inbounds i8, ptr %9, i64 24
+  %41 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 0, ptr %41, align 8
+  store i64 %38, ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFSt10shared_ptrIN5osgeo4proj4util11IComparableEERKN7dropbox6oxygen2nnIS0_INS2_2io16AuthorityFactoryEEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNS9_L22identifyFromNameOrCodeERKNS8_IS0_INS9_15DatabaseContextEEEERKSt6vectorISK_SaISK_EESM_RKNS8_IS0_INS2_5datum13DatumEnsembleEEEERSK_S14_E3$_0E9_M_invokeERKSt9_Any_dataSE_SM_", ptr %40, align 8
+  store ptr @"_ZNSt17_Function_handlerIFSt10shared_ptrIN5osgeo4proj4util11IComparableEERKN7dropbox6oxygen2nnIS0_INS2_2io16AuthorityFactoryEEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNS9_L22identifyFromNameOrCodeERKNS8_IS0_INS9_15DatabaseContextEEEERKSt6vectorISK_SaISK_EESM_RKNS8_IS0_INS2_5datum13DatumEnsembleEEEERSK_S14_E3$_0E10_M_managerERSt9_Any_dataRKS17_St18_Manager_operation", ptr %39, align 8
   invoke fastcc void @_ZN5osgeo4proj2ioL22identifyFromNameOrCodeERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15DatabaseContextEEEERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EERKSH_RKNS4_IS5_INS0_6common16IdentifiedObjectEEEESt8functionIFS5_INS0_4util11IComparableEERKNS4_IS5_INS1_16AuthorityFactoryEEEESN_EENSY_10ObjectTypeERSH_S16_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9, i32 noundef 20, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %42 unwind label %84
 
 42:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEC2IS2_INS4_5datum13DatumEnsembleEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISE_EE.exit
-  %43 = load ptr, ptr %38, align 8
+  %43 = load ptr, ptr %39, align 8
   %.not.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i, label %_ZNSt8functionIFSt10shared_ptrIN5osgeo4proj4util11IComparableEERKN7dropbox6oxygen2nnIS0_INS2_2io16AuthorityFactoryEEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %44
 
@@ -28328,7 +28328,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEED2E
 84:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEC2IS2_INS4_5datum13DatumEnsembleEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISE_EE.exit
   %85 = landingpad { ptr, i32 }
           cleanup
-  %86 = load ptr, ptr %38, align 8
+  %86 = load ptr, ptr %39, align 8
   %.not.i.i11 = icmp eq ptr %86, null
   br i1 %.not.i.i11, label %_ZNSt8functionIFSt10shared_ptrIN5osgeo4proj4util11IComparableEERKN7dropbox6oxygen2nnIS0_INS2_2io16AuthorityFactoryEEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit12, label %87
 

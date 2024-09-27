@@ -1627,10 +1627,10 @@ define dso_local void @_ZNK4llvm14RISCVInstrInfo17copyPhysRegVectorERNS_17Machin
   %84 = add i32 %.0151185, 2
   %85 = icmp ugt i32 %84, %39
   %86 = icmp ult i16 %69, 2
-  %or.cond8.not105.i = or i1 %85, %86
+  %or.cond8.not115.i = or i1 %85, %86
   %87 = and i32 %74, 1
   %88 = icmp eq i32 %87, 0
-  %or.cond38.i = or i1 %or.cond8.not105.i, %88
+  %or.cond38.i = or i1 %or.cond8.not115.i, %88
   br i1 %or.cond38.i, label %89, label %"_ZZNK4llvm14RISCVInstrInfo17copyPhysRegVectorERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_10MCRegisterES9_bPKNS_19TargetRegisterClassEENK3$_0clEtt.exit"
 
 89:                                               ; preds = %83

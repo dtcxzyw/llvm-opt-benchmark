@@ -478,14 +478,14 @@ _ZN3gmx17LastStepSignallerD2Ev.exit:              ; preds = %_ZSt8_DestroyIPSt8f
 define void @_ZN3gmx17LastStepSignaller18registerNSCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   store i8 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %6, align 8
-  %7 = ptrtoint ptr %1 to i64
-  store i64 %7, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %4, align 8
+  %4 = ptrtoint ptr %1 to i64
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %7, align 8
+  store i64 %4, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %8, align 8
   ret void
@@ -597,14 +597,14 @@ define void @_ZThn8_N3gmx17LastStepSignaller18registerNSCallbackEv(ptr dead_on_u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   store i8 1, ptr %4, align 8, !noalias !7
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %7, align 8, !alias.scope !7
-  %8 = ptrtoint ptr %3 to i64
-  store i64 %8, ptr %0, align 8, !alias.scope !7
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8, !alias.scope !7
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %5, align 8, !alias.scope !7
+  %5 = ptrtoint ptr %3 to i64
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %8, align 8, !alias.scope !7
+  store i64 %5, ptr %0, align 8, !alias.scope !7
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8, !alias.scope !7
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastStepSignaller18registerNSCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %6, align 8, !alias.scope !7
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %9, align 8, !alias.scope !7
   ret void
@@ -787,14 +787,14 @@ _ZN3gmx16LoggingSignallerD2Ev.exit:               ; preds = %_ZSt8_DestroyIPSt8f
 define void @_ZN3gmx16LoggingSignaller24registerLastStepCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   store i8 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %6, align 8
-  %7 = ptrtoint ptr %1 to i64
-  store i64 %7, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %4, align 8
+  %4 = ptrtoint ptr %1 to i64
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %7, align 8
+  store i64 %4, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %8, align 8
   ret void
@@ -906,14 +906,14 @@ define void @_ZThn8_N3gmx16LoggingSignaller24registerLastStepCallbackEv(ptr dead
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   store i8 1, ptr %4, align 8, !noalias !10
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %7, align 8, !alias.scope !10
-  %8 = ptrtoint ptr %3 to i64
-  store i64 %8, ptr %0, align 8, !alias.scope !10
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8, !alias.scope !10
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %5, align 8, !alias.scope !10
+  %5 = ptrtoint ptr %3 to i64
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %8, align 8, !alias.scope !10
+  store i64 %5, ptr %0, align 8, !alias.scope !10
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8, !alias.scope !10
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx16LoggingSignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %6, align 8, !alias.scope !10
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %9, align 8, !alias.scope !10
   ret void
@@ -1219,14 +1219,14 @@ define linkonce_odr void @_ZN3gmx19TrajectorySignallerD0Ev(ptr noundef nonnull a
 define void @_ZN3gmx19TrajectorySignaller24registerLastStepCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 112
   store i8 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %6, align 8
-  %7 = ptrtoint ptr %1 to i64
-  store i64 %7, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %4, align 8
+  %4 = ptrtoint ptr %1 to i64
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %7, align 8
+  store i64 %4, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %8, align 8
   ret void
@@ -1253,14 +1253,14 @@ define void @_ZThn8_N3gmx19TrajectorySignaller24registerLastStepCallbackEv(ptr d
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   store i8 1, ptr %4, align 8, !noalias !13
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %7, align 8, !alias.scope !13
-  %8 = ptrtoint ptr %3 to i64
-  store i64 %8, ptr %0, align 8, !alias.scope !13
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8, !alias.scope !13
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %5, align 8, !alias.scope !13
+  %5 = ptrtoint ptr %3 to i64
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %8, align 8, !alias.scope !13
+  store i64 %5, ptr %0, align 8, !alias.scope !13
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8, !alias.scope !13
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx19TrajectorySignaller24registerLastStepCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %6, align 8, !alias.scope !13
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %9, align 8, !alias.scope !13
   ret void
@@ -1610,14 +1610,14 @@ define void @_ZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 120
   store i8 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %9, align 8
-  %10 = ptrtoint ptr %1 to i64
-  store i64 %10, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %7, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %10, align 8
+  store i64 %7, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %8, align 8
   br label %11
 
 11:                                               ; preds = %3, %5
@@ -1631,14 +1631,14 @@ define void @_ZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15
 define void @_ZN3gmx15EnergySignaller23registerLoggingCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 136
   store i8 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %6, align 8
-  %7 = ptrtoint ptr %1 to i64
-  store i64 %7, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %4, align 8
+  %4 = ptrtoint ptr %1 to i64
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %7, align 8
+  store i64 %4, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %8, align 8
   ret void
@@ -1669,14 +1669,14 @@ define void @_ZThn8_N3gmx15EnergySignaller35registerTrajectorySignallerCallbackE
   %6 = getelementptr inbounds i8, ptr %1, i64 -8
   %7 = getelementptr inbounds i8, ptr %1, i64 112
   store i8 1, ptr %7, align 8, !noalias !16
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %10, align 8, !alias.scope !16
-  %11 = ptrtoint ptr %6 to i64
-  store i64 %11, ptr %0, align 8, !alias.scope !16
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %9, align 8, !alias.scope !16
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %8, align 8, !alias.scope !16
+  %8 = ptrtoint ptr %6 to i64
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %11, align 8, !alias.scope !16
+  store i64 %8, ptr %0, align 8, !alias.scope !16
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %10, align 8, !alias.scope !16
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %9, align 8, !alias.scope !16
   br label %_ZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit
 
 _ZN3gmx15EnergySignaller35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit: ; preds = %3, %5
@@ -1707,14 +1707,14 @@ define void @_ZThn16_N3gmx15EnergySignaller23registerLoggingCallbackEv(ptr dead_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %4 = getelementptr inbounds i8, ptr %1, i64 120
   store i8 1, ptr %4, align 8, !noalias !19
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %7, align 8, !alias.scope !19
-  %8 = ptrtoint ptr %3 to i64
-  store i64 %8, ptr %0, align 8, !alias.scope !19
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %6, align 8, !alias.scope !19
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %5, align 8, !alias.scope !19
+  %5 = ptrtoint ptr %3 to i64
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %8, align 8, !alias.scope !19
+  store i64 %5, ptr %0, align 8, !alias.scope !19
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %7, align 8, !alias.scope !19
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx15EnergySignaller23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %6, align 8, !alias.scope !19
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %9, align 8, !alias.scope !19
   ret void

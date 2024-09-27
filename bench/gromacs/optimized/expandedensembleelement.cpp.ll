@@ -602,14 +602,14 @@ define void @_ZN3gmx23ExpandedEnsembleElement23registerLoggingCallbackEv(ptr dea
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %9, align 8
-  %10 = ptrtoint ptr %1 to i64
-  store i64 %10, ptr %0, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx23ExpandedEnsembleElement23registerLoggingCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx23ExpandedEnsembleElement23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %7, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %10, align 8
+  store i64 %7, ptr %0, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx23ExpandedEnsembleElement23registerLoggingCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx23ExpandedEnsembleElement23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %8, align 8
   br label %11
 
 11:                                               ; preds = %2, %6
@@ -751,14 +751,14 @@ define void @_ZThn16_N3gmx23ExpandedEnsembleElement23registerLoggingCallbackEv(p
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 -16
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %10, align 8, !alias.scope !5
-  %11 = ptrtoint ptr %7 to i64
-  store i64 %11, ptr %0, align 8, !alias.scope !5
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx23ExpandedEnsembleElement23registerLoggingCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %9, align 8, !alias.scope !5
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx23ExpandedEnsembleElement23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %8, align 8, !alias.scope !5
+  %8 = ptrtoint ptr %7 to i64
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %11, align 8, !alias.scope !5
+  store i64 %8, ptr %0, align 8, !alias.scope !5
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx23ExpandedEnsembleElement23registerLoggingCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %10, align 8, !alias.scope !5
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx23ExpandedEnsembleElement23registerLoggingCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %9, align 8, !alias.scope !5
   br label %_ZN3gmx23ExpandedEnsembleElement23registerLoggingCallbackEv.exit
 
 _ZN3gmx23ExpandedEnsembleElement23registerLoggingCallbackEv.exit: ; preds = %2, %6

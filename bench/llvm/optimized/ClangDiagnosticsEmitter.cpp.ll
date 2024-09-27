@@ -12692,11 +12692,11 @@ define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcS
 
 25:                                               ; preds = %23, %._crit_edge.i
   %.023.lcssa33.i = phi ptr [ %.023.lcssa32.i, %23 ], [ %.02428.i, %._crit_edge.i ]
-  %.sroa.012.0.i = phi ptr [ %24, %23 ], [ %.02428.i, %._crit_edge.i ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.i, i64 32
+  %.sroa.014.0.i = phi ptr [ %24, %23 ], [ %.02428.i, %._crit_edge.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i, i64 32
   %27 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   %28 = icmp slt i32 %27, 0
-  %spec.select.i = select i1 %28, ptr null, ptr %.sroa.012.0.i
+  %spec.select.i = select i1 %28, ptr null, ptr %.sroa.014.0.i
   %spec.select25.i = select i1 %28, ptr %.023.lcssa33.i, ptr null
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit
 
@@ -12759,11 +12759,11 @@ define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcS
 
 53:                                               ; preds = %51, %._crit_edge.i21
   %.023.lcssa33.i22 = phi ptr [ %.023.lcssa32.i31, %51 ], [ %.02428.i16, %._crit_edge.i21 ]
-  %.sroa.012.0.i23 = phi ptr [ %52, %51 ], [ %.02428.i16, %._crit_edge.i21 ]
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.i23, i64 32
+  %.sroa.014.0.i23 = phi ptr [ %52, %51 ], [ %.02428.i16, %._crit_edge.i21 ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i23, i64 32
   %55 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   %56 = icmp slt i32 %55, 0
-  %spec.select.i24 = select i1 %56, ptr null, ptr %.sroa.012.0.i23
+  %spec.select.i24 = select i1 %56, ptr null, ptr %.sroa.014.0.i23
   %spec.select25.i25 = select i1 %56, ptr %.023.lcssa33.i22, ptr null
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit
 
@@ -12826,11 +12826,11 @@ define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcS
 
 81:                                               ; preds = %79, %._crit_edge.i42
   %.023.lcssa33.i43 = phi ptr [ %.023.lcssa32.i52, %79 ], [ %.02428.i37, %._crit_edge.i42 ]
-  %.sroa.012.0.i44 = phi ptr [ %80, %79 ], [ %.02428.i37, %._crit_edge.i42 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.i44, i64 32
+  %.sroa.014.0.i44 = phi ptr [ %80, %79 ], [ %.02428.i37, %._crit_edge.i42 ]
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i44, i64 32
   %83 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   %84 = icmp slt i32 %83, 0
-  %spec.select.i45 = select i1 %84, ptr null, ptr %.sroa.012.0.i44
+  %spec.select.i45 = select i1 %84, ptr null, ptr %.sroa.014.0.i44
   %spec.select25.i46 = select i1 %84, ptr %.023.lcssa33.i43, ptr null
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit
 

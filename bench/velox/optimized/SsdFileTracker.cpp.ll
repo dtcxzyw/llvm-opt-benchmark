@@ -577,10 +577,10 @@ while.end.i.us.i.i.i:                             ; preds = %while.body.i.us.i.i
   br label %land.rhs.i.i.us.i.i.i
 
 land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i.i.i, %while.end.i.us.i.i.i
-  %__holeIndex.addr.017.i.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %while.end.i.us.i.i.i ], [ %__parent.018.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
-  %__parent.018.in.i.i.us.i.i.i = add nsw i64 %__holeIndex.addr.017.i.i.us.i.i.i, -1
-  %__parent.018.i.i.us.i.i.i = sdiv i64 %__parent.018.in.i.i.us.i.i.i, 2
-  %add.ptr.i.i.i.us.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__parent.018.i.i.us.i.i.i
+  %__holeIndex.addr.08.i.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %while.end.i.us.i.i.i ], [ %__parent.09.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
+  %__parent.09.in.i.i.us.i.i.i = add nsw i64 %__holeIndex.addr.08.i.i.us.i.i.i, -1
+  %__parent.09.i.i.us.i.i.i = sdiv i64 %__parent.09.in.i.i.us.i.i.i, 2
+  %add.ptr.i.i.i.us.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__parent.09.i.i.us.i.i.i
   %__comp.val.val.i.i.us.i.i.i = load ptr, ptr %__comp.coerce, align 8
   %7 = load i32, ptr %add.ptr.i.i.i.us.i.i.i, align 4
   %conv.i.i.i.i.us.i.i.i = sext i32 %7 to i64
@@ -592,13 +592,13 @@ land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i
   br i1 %cmp.i.i.i.i.us.i.i.i, label %while.body.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i"
 
 while.body.i.i.us.i.i.i:                          ; preds = %land.rhs.i.i.us.i.i.i
-  %add.ptr.i8.i.i.us.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.017.i.i.us.i.i.i
+  %add.ptr.i8.i.i.us.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.08.i.i.us.i.i.i
   store i32 %7, ptr %add.ptr.i8.i.i.us.i.i.i, align 4
-  %cmp.i.i.us.i.i.i = icmp sgt i64 %__parent.018.i.i.us.i.i.i, %__parent.0.us.i.i.i
+  %cmp.i.i.us.i.i.i = icmp sgt i64 %__parent.09.i.i.us.i.i.i, %__parent.0.us.i.i.i
   br i1 %cmp.i.i.us.i.i.i, label %land.rhs.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i", !llvm.loop !13
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i": ; preds = %while.body.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i, %while.body.us.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i.us.i.i.i = phi i64 [ %__parent.0.us.i.i.i, %while.body.us.i.i.i ], [ %__holeIndex.addr.017.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ], [ %__parent.018.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.us.i.i.i = phi i64 [ %__parent.0.us.i.i.i, %while.body.us.i.i.i ], [ %__holeIndex.addr.08.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ], [ %__parent.09.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
   %add.ptr.i9.i.i.us.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.us.i.i.i
   store i32 %1, ptr %add.ptr.i9.i.i.us.i.i.i, align 4
   %cmp10.us.i.i.i = icmp eq i64 %__parent.0.us.i.i.i, 0
@@ -649,18 +649,18 @@ if.then22.i.i.i.i:                                ; preds = %while.end.i.i.i.i
 
 if.end35.i.i.i.i:                                 ; preds = %if.then22.i.i.i.i, %while.end.i.i.i.i
   %__holeIndex.addr.1.i.i.i.i = phi i64 [ %sub26.i.i.i.i, %if.then22.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i.i, %while.end.i.i.i.i ]
-  %cmp16.i.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i.i, %__parent.0.i.i.i
-  br i1 %cmp16.i.i.i.i.i, label %land.rhs.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i"
+  %cmp7.i.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i.i, %__parent.0.i.i.i
+  br i1 %cmp7.i.i.i.i.i, label %land.rhs.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i"
 
 land.rhs.lr.ph.i.i.i.i.i:                         ; preds = %if.end35.i.i.i.i
   %conv3.i.i.i.i.i.i.i = sext i32 %10 to i64
   br label %land.rhs.i.i.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i
-  %__holeIndex.addr.017.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ], [ %__parent.018.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %__parent.018.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.017.i.i.i.i.i, -1
-  %__parent.018.i.i.i.i.i = sdiv i64 %__parent.018.in.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__parent.018.i.i.i.i.i
+  %__holeIndex.addr.08.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ], [ %__parent.09.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %__parent.09.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.08.i.i.i.i.i, -1
+  %__parent.09.i.i.i.i.i = sdiv i64 %__parent.09.in.i.i.i.i.i, 2
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__parent.09.i.i.i.i.i
   %__comp.val.val.i.i.i.i.i = load ptr, ptr %__comp.coerce, align 8
   %17 = load i32, ptr %add.ptr.i.i.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i = sext i32 %17 to i64
@@ -672,13 +672,13 @@ land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i"
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.017.i.i.i.i.i
+  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.08.i.i.i.i.i
   store i32 %17, ptr %add.ptr.i8.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp sgt i64 %__parent.018.i.i.i.i.i, %__parent.0.i.i.i
+  %cmp.i.i.i.i.i = icmp sgt i64 %__parent.09.i.i.i.i.i, %__parent.0.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i", !llvm.loop !13
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i": ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end35.i.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end35.i.i.i.i ], [ %__holeIndex.addr.017.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.018.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end35.i.i.i.i ], [ %__holeIndex.addr.08.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.09.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %add.ptr.i9.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store i32 %10, ptr %add.ptr.i9.i.i.i.i.i, align 4
   %cmp10.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
@@ -751,18 +751,18 @@ if.then22.i.i.i34.i:                              ; preds = %land.lhs.true.i.i.i
 
 if.end35.i.i.i11.i:                               ; preds = %if.then22.i.i.i34.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i8.i
   %__holeIndex.addr.1.i.i.i12.i = phi i64 [ %sub26.i.i.i35.i, %if.then22.i.i.i34.i ], [ %__holeIndex.addr.0.lcssa.i.i.i9.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i9.i, %while.end.i.i.i8.i ]
-  %cmp16.i.i.i.i13.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i12.i, 0
-  br i1 %cmp16.i.i.i.i13.i, label %land.rhs.lr.ph.i.i.i.i17.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_SH_SH_RT0_.exit.i14.i"
+  %cmp7.i.i.i.i13.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i12.i, 0
+  br i1 %cmp7.i.i.i.i13.i, label %land.rhs.lr.ph.i.i.i.i17.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_SH_SH_RT0_.exit.i14.i"
 
 land.rhs.lr.ph.i.i.i.i17.i:                       ; preds = %if.end35.i.i.i11.i
   %conv3.i.i.i.i.i.i18.i = sext i32 %20 to i64
   br label %land.rhs.i.i.i.i19.i
 
 land.rhs.i.i.i.i19.i:                             ; preds = %while.body.i.i.i.i29.i, %land.rhs.lr.ph.i.i.i.i17.i
-  %__holeIndex.addr.017.i.i.i.i20.i = phi i64 [ %__holeIndex.addr.1.i.i.i12.i, %land.rhs.lr.ph.i.i.i.i17.i ], [ %__parent.018.i.i34.i.i22.i, %while.body.i.i.i.i29.i ]
-  %__parent.018.in.i.i.i.i21.i = add nsw i64 %__holeIndex.addr.017.i.i.i.i20.i, -1
-  %__parent.018.i.i34.i.i22.i = lshr i64 %__parent.018.in.i.i.i.i21.i, 1
-  %add.ptr.i.i.i.i.i23.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__parent.018.i.i34.i.i22.i
+  %__holeIndex.addr.08.i.i.i.i20.i = phi i64 [ %__holeIndex.addr.1.i.i.i12.i, %land.rhs.lr.ph.i.i.i.i17.i ], [ %__parent.09.i.i34.i.i22.i, %while.body.i.i.i.i29.i ]
+  %__parent.09.in.i.i.i.i21.i = add nsw i64 %__holeIndex.addr.08.i.i.i.i20.i, -1
+  %__parent.09.i.i34.i.i22.i = lshr i64 %__parent.09.in.i.i.i.i21.i, 1
+  %add.ptr.i.i.i.i.i23.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__parent.09.i.i34.i.i22.i
   %__comp.val.val.i.i.i.i24.i = load ptr, ptr %__comp.coerce, align 8
   %29 = load i32, ptr %add.ptr.i.i.i.i.i23.i, align 4
   %conv.i.i.i.i.i.i25.i = sext i32 %29 to i64
@@ -774,13 +774,13 @@ land.rhs.i.i.i.i19.i:                             ; preds = %while.body.i.i.i.i2
   br i1 %cmp.i.i.i.i.i.i28.i, label %while.body.i.i.i.i29.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_SH_SH_RT0_.exit.i14.i"
 
 while.body.i.i.i.i29.i:                           ; preds = %land.rhs.i.i.i.i19.i
-  %add.ptr.i8.i.i.i.i30.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.017.i.i.i.i20.i
+  %add.ptr.i8.i.i.i.i30.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.08.i.i.i.i20.i
   store i32 %29, ptr %add.ptr.i8.i.i.i.i30.i, align 4
-  %cmp.i.i.not.i.i31.i = icmp ult i64 %__parent.018.in.i.i.i.i21.i, 2
+  %cmp.i.i.not.i.i31.i = icmp ult i64 %__parent.09.in.i.i.i.i21.i, 2
   br i1 %cmp.i.i.not.i.i31.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_SH_SH_RT0_.exit.i14.i", label %land.rhs.i.i.i.i19.i, !llvm.loop !13
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_SH_SH_RT0_.exit.i14.i": ; preds = %while.body.i.i.i.i29.i, %land.rhs.i.i.i.i19.i, %if.end35.i.i.i11.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i15.i = phi i64 [ %__holeIndex.addr.1.i.i.i12.i, %if.end35.i.i.i11.i ], [ %__holeIndex.addr.017.i.i.i.i20.i, %land.rhs.i.i.i.i19.i ], [ 0, %while.body.i.i.i.i29.i ]
+  %__holeIndex.addr.0.lcssa.i.i.i.i15.i = phi i64 [ %__holeIndex.addr.1.i.i.i12.i, %if.end35.i.i.i11.i ], [ %__holeIndex.addr.08.i.i.i.i20.i, %land.rhs.i.i.i.i19.i ], [ 0, %while.body.i.i.i.i29.i ]
   %add.ptr.i9.i.i.i.i16.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i15.i
   store i32 %20, ptr %add.ptr.i9.i.i.i.i16.i, align 4
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 4

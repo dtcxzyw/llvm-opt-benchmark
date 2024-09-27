@@ -2995,12 +2995,12 @@ cond.true.i.i.i:                                  ; preds = %_ZNK11flatbuffers5T
 _ZNK10reflection6Schema5enumsEv.exit:             ; preds = %entry, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi ptr [ %add.ptr4.i.i.i, %cond.true.i.i.i ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ null, %entry ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
+  %4 = ptrtoint ptr %this to i64
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  store i64 0, ptr %4, align 8
-  %5 = ptrtoint ptr %this to i64
-  store i64 %5, ptr %agg.tmp.i, align 8
+  %5 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  store i64 0, ptr %5, align 8
+  store i64 %4, ptr %agg.tmp.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPKN10reflection4EnumEEZN11flatbuffers12_GLOBAL__N_116LuaBfbsGenerator13GenerateEnumsEPKNS5_6VectorINS5_6OffsetIS1_EEjEEEUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPKN10reflection4EnumEEZN11flatbuffers12_GLOBAL__N_116LuaBfbsGenerator13GenerateEnumsEPKNS5_6VectorINS5_6OffsetIS1_EEjEEEUlS3_E_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
   %add.ptr.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 4

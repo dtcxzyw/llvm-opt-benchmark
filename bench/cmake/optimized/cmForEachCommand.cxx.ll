@@ -1668,9 +1668,9 @@ define internal fastcc void @"_ZSt8generateIN9__gnu_cxx17__normal_iteratorIPNSt7
   %.sroa.03.07 = phi ptr [ %10, %.lr.ph ], [ %0, %4 ]
   %6 = load i32, ptr %2, align 4, !noalias !58
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, i32 noundef %6) #25
-  %7 = load i32, ptr %2, align 4
+  %7 = load i32, ptr %2, align 4, !noalias !58
   %8 = add nsw i32 %7, %3
-  store i32 %8, ptr %2, align 4
+  store i32 %8, ptr %2, align 4, !noalias !58
   %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.07, ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   %10 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 32

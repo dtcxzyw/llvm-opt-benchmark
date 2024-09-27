@@ -149,14 +149,14 @@ common.resume:                                    ; preds = %32, %_ZNKSt14defaul
 
 _ZN32pxrInternal_v0_24__pxrReserved__26Work_GetDetachedDispatcherEv.exit: ; preds = %9, %12, %17
   %23 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__26Work_GetDetachedDispatcherEvE13theDispatcher, align 8
+  %24 = ptrtoint ptr %23 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 0, ptr %2, align 8
-  %24 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN32pxrInternal_v0_24__pxrReserved__31Work_EnsureDetachedTaskProgressEvE3$_0EEEEEE", i64 16), ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = ptrtoint ptr %23 to i64
-  store i64 %26, ptr %25, align 8
-  store ptr %24, ptr %1, align 8
+  %25 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN32pxrInternal_v0_24__pxrReserved__31Work_EnsureDetachedTaskProgressEvE3$_0EEEEEE", i64 16), ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i64 %24, ptr %26, align 8
+  store ptr %25, ptr %1, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %1, ptr noundef null)
           to label %27 unwind label %32
 

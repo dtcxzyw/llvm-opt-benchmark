@@ -2562,21 +2562,21 @@ if.end188:                                        ; preds = %if.else, %if.then18
   %cmp190 = icmp eq i64 %ynz.0, %sub.ptr.div.i.i.i.i.i
   %dec192 = sext i1 %cmp190 to i64
   %spec.select44 = add nsw i64 %ynz.0, %dec192
+  %81 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp210, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp210, i64 24
-  %81 = ptrtoint ptr %this to i64
+  %82 = getelementptr inbounds i8, ptr %ref.tmp210, i64 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 24
-  %82 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
-  %83 = ptrtoint ptr %ref.tmp210 to i64
+  %83 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
+  %84 = ptrtoint ptr %ref.tmp210 to i64
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 16
   %_M_finish.i.i7.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 8
   %_M_end_of_storage.i.i.i176 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %alpha_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %84 = getelementptr i8, ptr %63, i64 %sub.ptr.sub.i.i.i.i.i
+  %85 = getelementptr i8, ptr %63, i64 %sub.ptr.sub.i.i.i.i.i
   %sext = shl i64 %sub.ptr.sub.i.i.i.i.i, 29
-  %85 = ashr i64 %sext, 32
-  %86 = getelementptr inbounds i8, ptr %ref.tmp210, i64 8
+  %86 = ashr i64 %sext, 32
   br label %for.body197
 
 for.body197:                                      ; preds = %if.end188, %for.cond.cleanup208
@@ -2600,7 +2600,7 @@ cond.true:                                        ; preds = %for.cond201
   br i1 %cmp203, label %for.body209, label %nrvo.skipdtor
 
 cond.end:                                         ; preds = %for.cond201
-  %cmp206 = icmp slt i64 %indvars.iv319, %85
+  %cmp206 = icmp slt i64 %indvars.iv319, %86
   br i1 %cmp206, label %for.body209, label %for.cond.cleanup208
 
 for.cond.cleanup208:                              ; preds = %cond.end
@@ -2610,7 +2610,7 @@ for.cond.cleanup208:                              ; preds = %cond.end
 
 for.body209:                                      ; preds = %cond.true, %cond.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp210) #28
-  store i64 0, ptr %86, align 8
+  store i64 0, ptr %82, align 8
   store i64 %81, ptr %ref.tmp210, align 8, !tbaa !34
   store ptr @"_ZNSt17_Function_handlerIFdddEZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEE3$_0E9_M_invokeERKSt9_Any_dataOdSD_", ptr %_M_invoker.i, align 8, !tbaa !84
   store ptr @"_ZNSt17_Function_handlerIFdddEZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %_M_manager.i.i, align 8, !tbaa !87
@@ -2618,8 +2618,8 @@ for.body209:                                      ; preds = %cond.true, %cond.en
   %88 = load double, ptr %add.ptr.i175, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i) #28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i) #28
-  store i64 0, ptr %82, align 8
-  store i64 %83, ptr %ref.tmp2.i, align 8, !tbaa !34
+  store i64 0, ptr %83, align 8
+  store i64 %84, ptr %ref.tmp2.i, align 8, !tbaa !34
   store ptr @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEEdRKS2_EN8QuantLib6detail13OdeFctWrapperIdEEE9_M_invokeERKSt9_Any_dataOdS4_, ptr %_M_invoker.i.i, align 8, !tbaa !88
   store ptr @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEEdRKS2_EN8QuantLib6detail13OdeFctWrapperIdEEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp4.i) #28
@@ -2746,7 +2746,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont215, %if
   %call222 = call double @pow(double noundef %108, double noundef %sub221) #28, !tbaa !24
   %mul223 = fmul double %90, %call222
   %110 = xor i64 %indvars.iv319, -1
-  %add.ptr.i185 = getelementptr double, ptr %84, i64 %110
+  %add.ptr.i185 = getelementptr double, ptr %85, i64 %110
   store double %mul223, ptr %add.ptr.i185, align 8, !tbaa !32
   %111 = load double, ptr %add.ptr.i175, align 8, !tbaa !32
   %indvars.iv.next320 = add nsw i64 %indvars.iv319, %indvars.iv

@@ -247,9 +247,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPat
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISC_NS3_5TfGetILm0EEEEES2_IT_SG_ESG_SG_RKS4_RKT0_E7CompareESG_SG_SG_SM_T1_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.thread.i.i.i, %2
   %.sroa.012.0.lcssa.i.i.i = phi ptr [ %4, %2 ], [ %.sroa.012.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.thread.i.i.i ]
-  %.not12.i.i = icmp eq ptr %6, %.sroa.012.0.lcssa.i.i.i
+  %.not4.i.i = icmp eq ptr %6, %.sroa.012.0.lcssa.i.i.i
   %.pre14 = ptrtoint ptr %.sroa.012.0.lcssa.i.i.i to i64
-  br i1 %.not12.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
+  br i1 %.not4.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISC_NS3_5TfGetILm0EEEEES2_IT_SG_ESG_SG_RKS4_RKT0_E7CompareESG_SG_SG_SM_T1_.exit.i
   %26 = sub i64 %7, %.pre14
@@ -257,21 +257,21 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrRe
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
-  %.014.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %27, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
-  %28 = lshr i64 %.014.i.i, 1
-  %29 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.011.013.i.i, i64 %28
+  %.06.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %27, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
+  %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
+  %28 = lshr i64 %.06.i.i, 1
+  %29 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.03.05.i.i, i64 %28
   %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(8) %1)
   %31 = getelementptr inbounds i8, ptr %29, i64 12
   %32 = xor i64 %28, -1
-  %33 = add i64 %.014.i.i, %32
-  %.sroa.011.1.i.i = select i1 %30, ptr %31, ptr %.sroa.011.013.i.i
+  %33 = add i64 %.06.i.i, %32
+  %.sroa.03.1.i.i = select i1 %30, ptr %31, ptr %.sroa.03.05.i.i
   %.1.i.i = select i1 %30, i64 %33, i64 %28
   %.not.i.i = icmp eq i64 %.1.i.i, 0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit.loopexit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit.loopexit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i
-  %.pre = ptrtoint ptr %.sroa.011.1.i.i to i64
+  %.pre = ptrtoint ptr %.sroa.03.1.i.i to i64
   br label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISC_NS3_5TfGetILm0EEEEES2_IT_SG_ESG_SG_RKS4_RKT0_E7CompareESG_SG_SG_SM_T1_.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit.loopexit
@@ -479,9 +479,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPat
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISC_NS3_5TfGetILm0EEEEES2_IT_SG_ESG_SG_RKS4_RKT0_E7CompareESG_SG_SG_SM_T1_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.thread.i.i.i, %2
   %.sroa.012.0.lcssa.i.i.i = phi ptr [ %4, %2 ], [ %.sroa.012.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.thread.i.i.i ]
-  %.not12.i.i = icmp eq ptr %6, %.sroa.012.0.lcssa.i.i.i
+  %.not4.i.i = icmp eq ptr %6, %.sroa.012.0.lcssa.i.i.i
   %.pre14 = ptrtoint ptr %.sroa.012.0.lcssa.i.i.i to i64
-  br i1 %.not12.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
+  br i1 %.not4.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISC_NS3_5TfGetILm0EEEEES2_IT_SG_ESG_SG_RKS4_RKT0_E7CompareESG_SG_SG_SM_T1_.exit.i
   %26 = sub i64 %7, %.pre14
@@ -489,21 +489,21 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrRe
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
-  %.014.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %27, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
-  %28 = lshr i64 %.014.i.i, 1
-  %29 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.011.013.i.i, i64 %28
+  %.06.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %27, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
+  %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
+  %28 = lshr i64 %.06.i.i, 1
+  %29 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.03.05.i.i, i64 %28
   %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(8) %1)
   %31 = getelementptr inbounds i8, ptr %29, i64 12
   %32 = xor i64 %28, -1
-  %33 = add i64 %.014.i.i, %32
-  %.sroa.011.1.i.i = select i1 %30, ptr %31, ptr %.sroa.011.013.i.i
+  %33 = add i64 %.06.i.i, %32
+  %.sroa.03.1.i.i = select i1 %30, ptr %31, ptr %.sroa.03.05.i.i
   %.1.i.i = select i1 %30, i64 %33, i64 %28
   %.not.i.i = icmp eq i64 %.1.i.i, 0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit.loopexit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit.loopexit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i
-  %.pre = ptrtoint ptr %.sroa.011.1.i.i to i64
+  %.pre = ptrtoint ptr %.sroa.03.1.i.i to i64
   br label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISC_NS3_5TfGetILm0EEEEES2_IT_SG_ESG_SG_RKS4_RKT0_E7CompareESG_SG_SG_SM_T1_.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit.loopexit
@@ -675,9 +675,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPat
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISC_NS3_5TfGetILm0EEEEES2_IT_SG_ESG_SG_RKS4_RKT0_E7CompareESG_SG_SG_SM_T1_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.thread.i.i.i, %2
   %.sroa.012.0.lcssa.i.i.i = phi ptr [ %4, %2 ], [ %.sroa.012.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.thread.i.i.i ]
-  %.not12.i.i = icmp eq ptr %6, %.sroa.012.0.lcssa.i.i.i
+  %.not4.i.i = icmp eq ptr %6, %.sroa.012.0.lcssa.i.i.i
   %.pre9 = ptrtoint ptr %.sroa.012.0.lcssa.i.i.i to i64
-  br i1 %.not12.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
+  br i1 %.not4.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISC_NS3_5TfGetILm0EEEEES2_IT_SG_ESG_SG_RKS4_RKT0_E7CompareESG_SG_SG_SM_T1_.exit.i
   %26 = sub i64 %7, %.pre9
@@ -685,21 +685,21 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrRe
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
-  %.014.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %27, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
-  %28 = lshr i64 %.014.i.i, 1
-  %29 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.011.013.i.i, i64 %28
+  %.06.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %27, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
+  %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
+  %28 = lshr i64 %.06.i.i, 1
+  %29 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.03.05.i.i, i64 %28
   %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(8) %1)
   %31 = getelementptr inbounds i8, ptr %29, i64 12
   %32 = xor i64 %28, -1
-  %33 = add i64 %.014.i.i, %32
-  %.sroa.011.1.i.i = select i1 %30, ptr %31, ptr %.sroa.011.013.i.i
+  %33 = add i64 %.06.i.i, %32
+  %.sroa.03.1.i.i = select i1 %30, ptr %31, ptr %.sroa.03.05.i.i
   %.1.i.i = select i1 %30, i64 %33, i64 %28
   %.not.i.i = icmp eq i64 %.1.i.i, 0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit.loopexit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit.loopexit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i
-  %.pre = ptrtoint ptr %.sroa.011.1.i.i to i64
+  %.pre = ptrtoint ptr %.sroa.03.1.i.i to i64
   br label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISC_NS3_5TfGetILm0EEEEES2_IT_SG_ESG_SG_RKS4_RKT0_E7CompareESG_SG_SG_SM_T1_.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SF_ESF_SF_RKS4_RKT0_.exit.loopexit
@@ -1753,8 +1753,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPat
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISD_NS3_5TfGetILm0EEEEES2_IT_SH_ESH_SH_RKS4_RKT0_E7CompareESH_SH_SH_SN_T1_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SI_ESI_SI_RKS6_RKT0_E7CompareEclISF_SK_EEbSI_RSM_.exit.thread.i.i.i, %19
   %.sroa.012.0.lcssa.i.i.i = phi ptr [ %20, %19 ], [ %.sroa.012.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SI_ESI_SI_RKS6_RKT0_E7CompareEclISF_SK_EEbSI_RSM_.exit.thread.i.i.i ]
-  %.not12.i.i = icmp eq ptr %10, %.sroa.012.0.lcssa.i.i.i
-  br i1 %.not12.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
+  %.not4.i.i = icmp eq ptr %10, %.sroa.012.0.lcssa.i.i.i
+  br i1 %.not4.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISD_NS3_5TfGetILm0EEEEES2_IT_SH_ESH_SH_RKS4_RKT0_E7CompareESH_SH_SH_SN_T1_.exit.i
   %40 = ptrtoint ptr %.sroa.012.0.lcssa.i.i.i to i64
@@ -1763,22 +1763,22 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrR
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
-  %.014.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %42, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
-  %43 = lshr i64 %.014.i.i, 1
-  %44 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.011.013.i.i, i64 %43
+  %.06.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %42, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
+  %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
+  %43 = lshr i64 %.06.i.i, 1
+  %44 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.03.05.i.i, i64 %43
   %45 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %44, ptr noundef nonnull align 4 dereferenceable(8) %1)
   %46 = getelementptr inbounds i8, ptr %44, i64 12
   %47 = xor i64 %43, -1
-  %48 = add i64 %.014.i.i, %47
-  %.sroa.011.1.i.i = select i1 %45, ptr %46, ptr %.sroa.011.013.i.i
+  %48 = add i64 %.06.i.i, %47
+  %.sroa.03.1.i.i = select i1 %45, ptr %46, ptr %.sroa.03.05.i.i
   %.1.i.i = select i1 %45, i64 %48, i64 %43
   %.not.i.i = icmp eq i64 %.1.i.i, 0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISD_NS3_5TfGetILm0EEEEES2_IT_SH_ESH_SH_RKS4_RKT0_E7CompareESH_SH_SH_SN_T1_.exit.i
-  %.sroa.011.0.lcssa.i.i = phi ptr [ %10, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISD_NS3_5TfGetILm0EEEEES2_IT_SH_ESH_SH_RKS4_RKT0_E7CompareESH_SH_SH_SN_T1_.exit.i ], [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ]
-  %49 = icmp eq ptr %.sroa.012.0.lcssa.i.i.i, %.sroa.011.0.lcssa.i.i
+  %.sroa.03.0.lcssa.i.i = phi ptr [ %10, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISD_NS3_5TfGetILm0EEEEES2_IT_SH_ESH_SH_RKS4_RKT0_E7CompareESH_SH_SH_SN_T1_.exit.i ], [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ]
+  %49 = icmp eq ptr %.sroa.012.0.lcssa.i.i.i, %.sroa.03.0.lcssa.i.i
   br i1 %49, label %.loopexit, label %.preheader24.preheader
 
 .preheader24.preheader:                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit
@@ -1800,7 +1800,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__n
 .preheader:                                       ; preds = %.preheader.preheader, %54
   %storemerge.in.sroa.speculated.in.pn = phi ptr [ %.sroa.0.0, %54 ], [ %storemerge.in.sroa.speculated.in2531, %.preheader.preheader ]
   %.sroa.0.0 = getelementptr inbounds i8, ptr %storemerge.in.sroa.speculated.in.pn, i64 12
-  %.not23 = icmp eq ptr %.sroa.0.0, %.sroa.011.0.lcssa.i.i
+  %.not23 = icmp eq ptr %.sroa.0.0, %.sroa.03.0.lcssa.i.i
   br i1 %.not23, label %.loopexit, label %54
 
 54:                                               ; preds = %.preheader
@@ -1886,8 +1886,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPat
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISD_NS3_5TfGetILm0EEEEES2_IT_SH_ESH_SH_RKS4_RKT0_E7CompareESH_SH_SH_SN_T1_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SI_ESI_SI_RKS6_RKT0_E7CompareEclISF_SK_EEbSI_RSM_.exit.thread.i.i.i, %.critedge
   %.sroa.012.0.lcssa.i.i.i = phi ptr [ %14, %.critedge ], [ %.sroa.012.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SI_ESI_SI_RKS6_RKT0_E7CompareEclISF_SK_EEbSI_RSM_.exit.thread.i.i.i ]
-  %.not12.i.i = icmp eq ptr %10, %.sroa.012.0.lcssa.i.i.i
-  br i1 %.not12.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
+  %.not4.i.i = icmp eq ptr %10, %.sroa.012.0.lcssa.i.i.i
+  br i1 %.not4.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISD_NS3_5TfGetILm0EEEEES2_IT_SH_ESH_SH_RKS4_RKT0_E7CompareESH_SH_SH_SN_T1_.exit.i
   %34 = ptrtoint ptr %.sroa.012.0.lcssa.i.i.i to i64
@@ -1896,22 +1896,22 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrR
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i
-  %.014.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
-  %37 = lshr i64 %.014.i.i, 1
-  %38 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.011.013.i.i, i64 %37
+  %.06.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
+  %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
+  %37 = lshr i64 %.06.i.i, 1
+  %38 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.03.05.i.i, i64 %37
   %39 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %38, ptr noundef nonnull align 4 dereferenceable(8) %1)
   %40 = getelementptr inbounds i8, ptr %38, i64 12
   %41 = xor i64 %37, -1
-  %42 = add i64 %.014.i.i, %41
-  %.sroa.011.1.i.i = select i1 %39, ptr %40, ptr %.sroa.011.013.i.i
+  %42 = add i64 %.06.i.i, %41
+  %.sroa.03.1.i.i = select i1 %39, ptr %40, ptr %.sroa.03.05.i.i
   %.1.i.i = select i1 %39, i64 %42, i64 %37
   %.not.i.i = icmp eq i64 %.1.i.i, 0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISD_NS3_5TfGetILm0EEEEES2_IT_SH_ESH_SH_RKS4_RKT0_E7CompareESH_SH_SH_SN_T1_.exit.i
-  %.sroa.011.0.lcssa.i.i = phi ptr [ %10, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISD_NS3_5TfGetILm0EEEEES2_IT_SH_ESH_SH_RKS4_RKT0_E7CompareESH_SH_SH_SN_T1_.exit.i ], [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ]
-  %.not1516 = icmp eq ptr %.sroa.012.0.lcssa.i.i.i, %.sroa.011.0.lcssa.i.i
+  %.sroa.03.0.lcssa.i.i = phi ptr [ %10, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNS3_24SdfPathFindPrefixedRangeISD_NS3_5TfGetILm0EEEEES2_IT_SH_ESH_SH_RKS4_RKT0_E7CompareESH_SH_SH_SN_T1_.exit.i ], [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ]
+  %.not1516 = icmp eq ptr %.sroa.012.0.lcssa.i.i.i, %.sroa.03.0.lcssa.i.i
   br i1 %.not1516, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit, %.lr.ph
@@ -1920,7 +1920,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__n
   %44 = load i32, ptr %43, align 4
   %.not7 = icmp eq i32 %44, 0
   %45 = getelementptr inbounds i8, ptr %.sroa.0.017, i64 12
-  %.not15 = icmp ne ptr %45, %.sroa.011.0.lcssa.i.i
+  %.not15 = icmp ne ptr %45, %.sroa.03.0.lcssa.i.i
   %or.cond.not = select i1 %.not7, i1 %.not15, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !19
 

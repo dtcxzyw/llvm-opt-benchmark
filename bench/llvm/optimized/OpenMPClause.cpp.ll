@@ -23506,14 +23506,14 @@ define dso_local void @_ZN5clang16TargetOMPContextC2ERNS_10ASTContextEOSt8functi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang16TargetOMPContextE, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %22 = getelementptr inbounds i8, ptr %0, i64 136
-  store i64 0, ptr %22, align 8
-  %23 = ptrtoint ptr %1 to i64
-  store i64 %23, ptr %19, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefEEZN5clang16TargetOMPContextC1ERNS3_10ASTContextEOSt8functionIFvS1_EEPKNS3_12FunctionDeclENS0_8ArrayRefINS0_3omp13TraitPropertyEEEE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %21, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefEEZN5clang16TargetOMPContextC1ERNS3_10ASTContextEOSt8functionIFvS1_EEPKNS3_12FunctionDeclENS0_8ArrayRefINS0_3omp13TraitPropertyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %20, align 8
+  %20 = ptrtoint ptr %1 to i64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  store i64 0, ptr %23, align 8
+  store i64 %20, ptr %19, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefEEZN5clang16TargetOMPContextC1ERNS3_10ASTContextEOSt8functionIFvS1_EEPKNS3_12FunctionDeclENS0_8ArrayRefINS0_3omp13TraitPropertyEEEE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %22, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefEEZN5clang16TargetOMPContextC1ERNS3_10ASTContextEOSt8functionIFvS1_EEPKNS3_12FunctionDeclENS0_8ArrayRefINS0_3omp13TraitPropertyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %21, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 24

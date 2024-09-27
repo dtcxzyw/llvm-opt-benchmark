@@ -567,8 +567,8 @@ define dso_local void @_ZN24cmInstallTargetGenerator23GenerateScriptForConfigERS
   %51 = extractvalue { i64, ptr } %50, 0
   %52 = extractvalue { i64, ptr } %50, 1
   store i64 %51, ptr %5, align 8, !alias.scope !17, !noalias !23
-  %.sroa.2.0..sroa_idx.i.i28 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %52, ptr %.sroa.2.0..sroa_idx.i.i28, align 8, !alias.scope !17, !noalias !23
+  %.sroa.2.0..sroa_idx.i.i29 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %52, ptr %.sroa.2.0..sroa_idx.i.i29, align 8, !alias.scope !17, !noalias !23
   %53 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %13, ptr %53, align 8, !alias.scope !17, !noalias !23
   %54 = getelementptr inbounds i8, ptr %5, i64 24
@@ -598,19 +598,19 @@ define dso_local void @_ZN24cmInstallTargetGenerator23GenerateScriptForConfigERS
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds i8, ptr %9, i64 24
-  %65 = getelementptr inbounds i8, ptr %14, i64 16
-  %66 = getelementptr inbounds i8, ptr %14, i64 24
-  %67 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 0, ptr %67, align 8
-  %68 = ptrtoint ptr %0 to i64
-  store i64 %68, ptr %14, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EZN24cmInstallTargetGenerator23GenerateScriptForConfigES0_S9_S1_E3$_0E9_M_invokeERKSt9_Any_dataS0_OS1_S9_S9_", ptr %66, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EZN24cmInstallTargetGenerator23GenerateScriptForConfigES0_S9_S1_E3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %65, align 8
+  %65 = ptrtoint ptr %0 to i64
+  %66 = getelementptr inbounds i8, ptr %14, i64 16
+  %67 = getelementptr inbounds i8, ptr %14, i64 24
+  %68 = getelementptr inbounds i8, ptr %14, i64 8
+  store i64 0, ptr %68, align 8
+  store i64 %65, ptr %14, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EZN24cmInstallTargetGenerator23GenerateScriptForConfigES0_S9_S1_E3$_0E9_M_invokeERKSt9_Any_dataS0_OS1_S9_S9_", ptr %67, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EZN24cmInstallTargetGenerator23GenerateScriptForConfigES0_S9_S1_E3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %66, align 8
   invoke void @_ZN18cmInstallGenerator8AddTweakERSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKSt6vectorIS7_SaIS7_EERKSt8functionIFvS0_S1_S9_S9_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %3, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %69 unwind label %78
 
 69:                                               ; preds = %63
-  %70 = load ptr, ptr %65, align 8
+  %70 = load ptr, ptr %66, align 8
   %.not.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit, label %71
 
@@ -634,13 +634,13 @@ define dso_local void @_ZN24cmInstallTargetGenerator23GenerateScriptForConfigERS
 78:                                               ; preds = %63
   %79 = landingpad { ptr, i32 }
           cleanup
-  %80 = load ptr, ptr %65, align 8
-  %.not.i.i29 = icmp eq ptr %80, null
-  br i1 %.not.i.i29, label %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit30, label %81
+  %80 = load ptr, ptr %66, align 8
+  %.not.i.i30 = icmp eq ptr %80, null
+  br i1 %.not.i.i30, label %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit31, label %81
 
 81:                                               ; preds = %78
   %82 = invoke noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
-          to label %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit30 unwind label %83
+          to label %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit31 unwind label %83
 
 83:                                               ; preds = %81
   %84 = landingpad { ptr, i32 }
@@ -727,19 +727,19 @@ _ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11ch
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds i8, ptr %9, i64 24
-  %125 = getelementptr inbounds i8, ptr %18, i64 16
-  %126 = getelementptr inbounds i8, ptr %18, i64 24
-  %127 = getelementptr inbounds i8, ptr %18, i64 8
-  store i64 0, ptr %127, align 8
-  %128 = ptrtoint ptr %0 to i64
-  store i64 %128, ptr %18, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EZN24cmInstallTargetGenerator23GenerateScriptForConfigES0_S9_S1_E3$_1E9_M_invokeERKSt9_Any_dataS0_OS1_S9_S9_", ptr %126, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EZN24cmInstallTargetGenerator23GenerateScriptForConfigES0_S9_S1_E3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %125, align 8
+  %125 = ptrtoint ptr %0 to i64
+  %126 = getelementptr inbounds i8, ptr %18, i64 16
+  %127 = getelementptr inbounds i8, ptr %18, i64 24
+  %128 = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 0, ptr %128, align 8
+  store i64 %125, ptr %18, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EZN24cmInstallTargetGenerator23GenerateScriptForConfigES0_S9_S1_E3$_1E9_M_invokeERKSt9_Any_dataS0_OS1_S9_S9_", ptr %127, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EZN24cmInstallTargetGenerator23GenerateScriptForConfigES0_S9_S1_E3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %126, align 8
   invoke void @_ZN18cmInstallGenerator8AddTweakERSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKSt6vectorIS7_SaIS7_EERKSt8functionIFvS0_S1_S9_S9_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %3, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %129 unwind label %136
 
 129:                                              ; preds = %123
-  %130 = load ptr, ptr %125, align 8
+  %130 = load ptr, ptr %126, align 8
   %.not.i.i32 = icmp eq ptr %130, null
   br i1 %.not.i.i32, label %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit33, label %131
 
@@ -757,7 +757,7 @@ _ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11ch
 136:                                              ; preds = %123
   %137 = landingpad { ptr, i32 }
           cleanup
-  %138 = load ptr, ptr %125, align 8
+  %138 = load ptr, ptr %126, align 8
   %.not.i.i34 = icmp eq ptr %138, null
   br i1 %.not.i.i34, label %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit35, label %139
 
@@ -785,15 +785,15 @@ _ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11ch
 _ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit35: ; preds = %139, %136, %107, %101
   %.pn23 = phi { ptr, i32 } [ %102, %101 ], [ %.pn, %107 ], [ %137, %136 ], [ %137, %139 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #20
-  br label %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit30
+  br label %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit31
 
-_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit30: ; preds = %81, %78, %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit35
+_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit31: ; preds = %81, %78, %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit35
   %.pn23.pn = phi { ptr, i32 } [ %.pn23, %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit35 ], [ %79, %78 ], [ %79, %81 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
   br label %145
 
-145:                                              ; preds = %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit30, %76, %46
-  %.pn23.pn.pn = phi { ptr, i32 } [ %.pn23.pn, %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit30 ], [ %77, %76 ], [ %47, %46 ]
+145:                                              ; preds = %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit31, %76, %46
+  %.pn23.pn.pn = phi { ptr, i32 } [ %.pn23.pn, %_ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EED2Ev.exit31 ], [ %77, %76 ], [ %47, %46 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #20
   br label %146
 

@@ -1423,7 +1423,7 @@ $_ZN4llvm15SmallVectorImplIPN5clang4ExprEEaSERKS4_ = comdat any
 @switch.table._ZN5clang22OMPDeclareSimdDeclAttr25ConvertBranchStateTyToStrENS0_13BranchStateTyE = private unnamed_addr constant [3 x ptr] [ptr @.str.12, ptr @.str.807, ptr @.str.808], align 8
 @switch.table._ZN5clang24OMPDeclareTargetDeclAttr21ConvertDevTypeTyToStrENS0_9DevTypeTyE = private unnamed_addr constant [3 x ptr] [ptr @.str.272, ptr @.str.814, ptr @.str.815], align 8
 @switch.table._ZN5clang24OMPDeclareTargetDeclAttr21ConvertMapTypeTyToStrENS0_9MapTypeTyE = private unnamed_addr constant [3 x ptr] [ptr @.str.811, ptr @.str.812, ptr @.str.813], align 8
-@switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1289 = private unnamed_addr constant [6 x ptr] [ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.12], align 8
+@switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1291 = private unnamed_addr constant [6 x ptr] [ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.12], align 8
 @switch.table._ZN5clang21AcquireCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [6 x i32] [i32 65935, i32 1180047, i32 2163087, i32 3277199, i32 4260239, i32 5308815], align 4
 @switch.table._ZNK5clang21AcquireCapabilityAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.75, ptr @.str.75, ptr @.str.76, ptr @.str.76, ptr @.str.77, ptr @.str.78], align 8
 @switch.table._ZN5clang11AlignedAttr6CreateERNS_10ASTContextEbPvNS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [6 x i32] [i32 65935, i32 1180047, i32 2294159, i32 3408271, i32 21365135, i32 5636495], align 4
@@ -1435,7 +1435,7 @@ $_ZN4llvm15SmallVectorImplIPN5clang4ExprEEaSERKS4_ = comdat any
 @switch.table._ZNK5clang9CDeclAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.218, ptr @.str.218, ptr @.str.218, ptr @.str.216, ptr @.str.217], align 8
 @switch.table._ZN5clang17CXX11NoReturnAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [3 x i32] [i32 131471, i32 1245583, i32 2294159], align 4
 @switch.table._ZNK5clang14CapabilityAttr11getSpellingEv = private unnamed_addr constant [4 x ptr] [ptr @.str.305, ptr @.str.305, ptr @.str.306, ptr @.str.306], align 8
-@switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1292 = private unnamed_addr constant [4 x ptr] [ptr @.str.323, ptr @.str.323, ptr @.str.324, ptr @.str.325], align 8
+@switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1294 = private unnamed_addr constant [4 x ptr] [ptr @.str.323, ptr @.str.323, ptr @.str.324, ptr @.str.325], align 8
 @switch.table._ZNK5clang9ConstAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.341, ptr @.str.341, ptr @.str.341, ptr @.str.342, ptr @.str.342, ptr @.str.342], align 8
 @switch.table._ZN5clang13ConstInitAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [3 x i32] [i32 393615, i32 1114511, i32 2228623], align 4
 @switch.table._ZNK5clang13ConstInitAttr11getSpellingEv = private unnamed_addr constant [3 x ptr] [ptr @.str.343, ptr @.str.346, ptr @.str.346], align 8
@@ -1450,14 +1450,14 @@ $_ZN4llvm15SmallVectorImplIPN5clang4ExprEEaSERKS4_ = comdat any
 @switch.table._ZN5clang12LoopHintAttr25ConvertLoopHintStateToStrENS0_13LoopHintStateE = private unnamed_addr constant [7 x ptr] [ptr @.str.5, ptr @.str.8, ptr @.str.605, ptr @.str.606, ptr @.str.607, ptr @.str.7, ptr @.str.6], align 8
 @switch.table._ZNK5clang12LoopHintAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.487, ptr @.str.486, ptr @.str.609, ptr @.str.599, ptr @.str.610], align 8
 @switch.table._ZNK5clang17MSInheritanceAttr11getSpellingEv = private unnamed_addr constant [4 x ptr] [ptr @.str.624, ptr @.str.625, ptr @.str.626, ptr @.str.627], align 8
-@switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1295 = private unnamed_addr constant [9 x ptr] [ptr @.str.651, ptr @.str.652, ptr @.str.653, ptr @.str.654, ptr @.str.655, ptr @.str.656, ptr @.str.657, ptr @.str.658, ptr @.str.659], align 8
+@switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1297 = private unnamed_addr constant [9 x ptr] [ptr @.str.651, ptr @.str.652, ptr @.str.653, ptr @.str.654, ptr @.str.655, ptr @.str.656, ptr @.str.657, ptr @.str.658, ptr @.str.659], align 8
 @switch.table._ZNK5clang16MipsLongCallAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.664, ptr @.str.664, ptr @.str.664, ptr @.str.665, ptr @.str.665, ptr @.str.665], align 8
 @switch.table._ZNK5clang17MipsShortCallAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.670, ptr @.str.670, ptr @.str.670, ptr @.str.671, ptr @.str.671, ptr @.str.671], align 8
 @switch.table._ZN5clang12NoInlineAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [9 x i32] [i32 393615, i32 1114511, i32 2228623, i32 3342735, i32 4325775, i32 5439887, i32 6422927, i32 7537039, i32 8651151], align 4
 @switch.table._ZNK5clang12NoInlineAttr11getSpellingEv = private unnamed_addr constant [9 x ptr] [ptr @.str.729, ptr @.str.735, ptr @.str.735, ptr @.str.735, ptr @.str.735, ptr @.str.735, ptr @.str.735, ptr @.str.735, ptr @.str.735], align 8
 @switch.table._ZN5clang20NoStackProtectorAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [6 x i32] [i32 65935, i32 1180047, i32 2294159, i32 3277199, i32 4391311, i32 5505423], align 4
 @switch.table._ZN5clang19OMPAllocateDeclAttr27ConvertAllocatorTypeTyToStrENS0_15AllocatorTypeTyE = private unnamed_addr constant [10 x ptr] [ptr @.str.797, ptr @.str.798, ptr @.str.799, ptr @.str.800, ptr @.str.801, ptr @.str.802, ptr @.str.803, ptr @.str.804, ptr @.str.805, ptr @.str.12], align 8
-@switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1297 = private unnamed_addr constant [6 x ptr] [ptr @.str.879, ptr @.str.880, ptr @.str.881, ptr @.str.882, ptr @.str.883, ptr @.str.884], align 8
+@switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1299 = private unnamed_addr constant [6 x ptr] [ptr @.str.879, ptr @.str.880, ptr @.str.881, ptr @.str.882, ptr @.str.883, ptr @.str.884], align 8
 @switch.table._ZN5clang16OpenCLAccessAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [5 x i32] [i32 393615, i32 393615, i32 2490767, i32 393615, i32 4587919], align 4
 @switch.table._ZNK5clang16OpenCLAccessAttr19getSemanticSpellingEv = private unnamed_addr constant [6 x i32] [i32 0, i32 0, i32 2, i32 2, i32 4, i32 4], align 4
 @switch.table._ZNK5clang16OpenCLAccessAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.924, ptr @.str.925, ptr @.str.926, ptr @.str.927, ptr @.str.928, ptr @.str.929], align 8
@@ -1479,28 +1479,28 @@ $_ZN4llvm15SmallVectorImplIPN5clang4ExprEEaSERKS4_ = comdat any
 @switch.table._ZNK5clang22RequiresCapabilityAttr11getSpellingEv = private unnamed_addr constant [8 x ptr] [ptr @.str.1081, ptr @.str.1081, ptr @.str.1082, ptr @.str.1082, ptr @.str.1083, ptr @.str.1083, ptr @.str.1084, ptr @.str.1084], align 8
 @switch.table._ZNK5clang12RestrictAttr11getSpellingEv = private unnamed_addr constant [4 x ptr] [ptr @.str.1088, ptr @.str.1089, ptr @.str.1089, ptr @.str.1089], align 8
 @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [4 x i32] [i32 262543, i32 1114511, i32 2228623, i32 3342735], align 4
-@switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300 = private unnamed_addr constant [3 x ptr] [ptr @.str.289, ptr @.str.290, ptr @.str.291], align 8
+@switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302 = private unnamed_addr constant [3 x ptr] [ptr @.str.289, ptr @.str.290, ptr @.str.291], align 8
 @switch.table._ZNK5clang11StdCallAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.1145, ptr @.str.1145, ptr @.str.1145, ptr @.str.1143, ptr @.str.1144], align 8
 @switch.table._ZN5clang12SuppressAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjNS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [4 x i32] [i32 131471, i32 1114511, i32 2228623, i32 3342735], align 4
-@switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302 = private unnamed_addr constant [3 x ptr] [ptr @.str.879, ptr @.str.1152, ptr @.str.1153], align 8
-@switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1304 = private unnamed_addr constant [4 x ptr] [ptr @.str.879, ptr @.str.1163, ptr @.str.1164, ptr @.str.1165], align 8
+@switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1304 = private unnamed_addr constant [3 x ptr] [ptr @.str.879, ptr @.str.1152, ptr @.str.1153], align 8
+@switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1306 = private unnamed_addr constant [4 x ptr] [ptr @.str.879, ptr @.str.1163, ptr @.str.1164, ptr @.str.1165], align 8
 @switch.table._ZNK5clang14SwiftErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE = private unnamed_addr constant [5 x ptr] [ptr @.str.879, ptr @.str.1163, ptr @.str.1183, ptr @.str.1184, ptr @.str.1185], align 8
 @switch.table._ZNK5clang12ThisCallAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.1227, ptr @.str.1227, ptr @.str.1227, ptr @.str.1225, ptr @.str.1226], align 8
 @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [4 x i32] [i32 65935, i32 1180047, i32 2163087, i32 3277199], align 4
 @switch.table._ZNK5clang24TryAcquireCapabilityAttr11getSpellingEv = private unnamed_addr constant [4 x ptr] [ptr @.str.1240, ptr @.str.1240, ptr @.str.1241, ptr @.str.1241], align 8
 @switch.table._ZN5clang10UnusedAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [5 x i32] [i32 131471, i32 1114511, i32 2228623, i32 3342735, i32 4391311], align 4
 @switch.table._ZNK5clang10UnusedAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.1272, ptr @.str.1273, ptr @.str.1273, ptr @.str.1273, ptr @.str.1272], align 8
-@switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1312 = private unnamed_addr constant [4 x ptr] [ptr @.str.1286, ptr @.str.1287, ptr @.str.1288, ptr @.str.1289], align 8
-@switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1313 = private unnamed_addr constant [3 x ptr] [ptr @.str.1290, ptr @.str.1291, ptr @.str.1292], align 8
-@switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1314 = private unnamed_addr constant [4 x ptr] [ptr @.str.1293, ptr @.str.1294, ptr @.str.1295, ptr @.str.1296], align 8
+@switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1314 = private unnamed_addr constant [4 x ptr] [ptr @.str.1286, ptr @.str.1287, ptr @.str.1288, ptr @.str.1289], align 8
+@switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1315 = private unnamed_addr constant [3 x ptr] [ptr @.str.1290, ptr @.str.1291, ptr @.str.1292], align 8
+@switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316 = private unnamed_addr constant [4 x ptr] [ptr @.str.1293, ptr @.str.1294, ptr @.str.1295, ptr @.str.1296], align 8
 @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [4 x i32] [i32 65935, i32 1180047, i32 2294159, i32 3539343], align 4
 @switch.table._ZNK5clang14VectorCallAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.1309, ptr @.str.1309, ptr @.str.1309, ptr @.str.1307, ptr @.str.1308], align 8
-@switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316 = private unnamed_addr constant [3 x ptr] [ptr @.str.1249, ptr @.str.1250, ptr @.str.1252], align 8
+@switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318 = private unnamed_addr constant [3 x ptr] [ptr @.str.1249, ptr @.str.1250, ptr @.str.1252], align 8
 @switch.table._ZN5clang20WarnUnusedResultAttr6CreateERNS_10ASTContextEN4llvm9StringRefENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [6 x i32] [i32 131471, i32 1245583, i32 2228623, i32 3211663, i32 4325775, i32 5439887], align 4
 @switch.table._ZNK5clang20WarnUnusedResultAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.1320, ptr @.str.1320, ptr @.str.1321, ptr @.str.1321, ptr @.str.1321, ptr @.str.1321], align 8
 @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [6 x i32] [i32 65935, i32 1180047, i32 2294159, i32 3211663, i32 4325775, i32 5439887], align 4
 @switch.table._ZNK5clang18XRayInstrumentAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.1350, ptr @.str.1350, ptr @.str.1350, ptr @.str.1351, ptr @.str.1351, ptr @.str.1351], align 8
-@switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318 = private unnamed_addr constant [9 x ptr] [ptr @.str.1355, ptr @.str.1356, ptr @.str.1357, ptr @.str.1358, ptr @.str.1279, ptr @.str.1359, ptr @.str.1360, ptr @.str.1361, ptr @.str.1362], align 8
+@switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1320 = private unnamed_addr constant [9 x ptr] [ptr @.str.1355, ptr @.str.1356, ptr @.str.1357, ptr @.str.1358, ptr @.str.1279, ptr @.str.1359, ptr @.str.1360, ptr @.str.1361, ptr @.str.1362], align 8
 
 @_ZN5clang17AArch64SVEPcsAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5clang17AArch64SVEPcsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE
 @_ZN5clang20AArch64VectorPcsAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5clang20AArch64VectorPcsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE
@@ -3430,7 +3430,7 @@ define dso_local void @_ZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4l
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %_ZN4llvm11raw_ostreamlsEPKc.exit22, label %9
+  br i1 %.not, label %_ZN4llvm11raw_ostreamlsEPKc.exit26, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3463,16 +3463,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %15, %17
 
 24:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %25 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.9, i64 noundef 1) #16
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit22
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit26
 
 26:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i8 41, ptr %22, align 1
   %27 = load ptr, ptr %12, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 1
   store ptr %28, ptr %12, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit22
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit26
 
-_ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %26, %24, %3
+_ZN4llvm11raw_ostreamlsEPKc.exit26:               ; preds = %26, %24, %3
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3483,22 +3483,22 @@ _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %26, %24, %3
   %36 = icmp ult i64 %35, 7
   br i1 %36, label %37, label %39
 
-37:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit22
+37:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit26
   %38 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.24, i64 noundef 7) #16
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit25
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit29
 
-39:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit22
+39:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %32, ptr noundef nonnull align 1 dereferenceable(7) @.str.24, i64 7, i1 false)
   %40 = load ptr, ptr %31, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 7
   store ptr %41, ptr %31, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit25
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit29
 
-_ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %37, %39
-  %.0.i.i24 = phi ptr [ %38, %37 ], [ %1, %39 ]
+_ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %37, %39
+  %.0.i.i28 = phi ptr [ %38, %37 ], [ %1, %39 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamEPKNS_12OMPTraitInfoE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i24, ptr noundef %43) #16
+  %44 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamEPKNS_12OMPTraitInfoE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i28, ptr noundef %43) #16
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -3506,24 +3506,24 @@ _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %37, %39
   %49 = icmp eq ptr %46, %48
   br i1 %49, label %50, label %52
 
-50:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit25
+50:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit29
   %51 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull @.str.9, i64 noundef 1) #16
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit28
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit32
 
-52:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit25
+52:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit29
   store i8 41, ptr %48, align 1
   %53 = load ptr, ptr %47, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 1
   store ptr %54, ptr %47, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit28
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit32
 
-_ZN4llvm11raw_ostreamlsEPKc.exit28:               ; preds = %50, %52
+_ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %50, %52
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load i32, ptr %55, align 8
   %.not17 = icmp eq i32 %56, 0
-  br i1 %.not17, label %_ZN4llvm11raw_ostreamlsEPKc.exit34, label %57
+  br i1 %.not17, label %_ZN4llvm11raw_ostreamlsEPKc.exit38, label %57
 
-57:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit28
+57:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit32
   %58 = load ptr, ptr %29, align 8
   %59 = load ptr, ptr %31, align 8
   %60 = ptrtoint ptr %58 to i64
@@ -3534,32 +3534,32 @@ _ZN4llvm11raw_ostreamlsEPKc.exit28:               ; preds = %50, %52
 
 64:                                               ; preds = %57
   %65 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.25, i64 noundef 21) #16
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit31
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit35
 
 66:                                               ; preds = %57
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %59, ptr noundef nonnull align 1 dereferenceable(21) @.str.25, i64 21, i1 false)
   %67 = load ptr, ptr %31, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 21
   store ptr %68, ptr %31, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit31
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit35
 
-_ZN4llvm11raw_ostreamlsEPKc.exit31:               ; preds = %64, %66
+_ZN4llvm11raw_ostreamlsEPKc.exit35:               ; preds = %64, %66
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %70 = load ptr, ptr %69, align 8
   %71 = load i32, ptr %55, align 8
   %72 = zext i32 %71 to i64
   %73 = getelementptr inbounds ptr, ptr %70, i64 %72
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %.not9.i = icmp eq i32 %71, 0
-  br i1 %.not9.i, label %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit", label %.lr.ph.i
+  %.not1.i = icmp eq i32 %71, 0
+  br i1 %.not1.i, label %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit31
+.lr.ph.i:                                         ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit35
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %75
 
 75:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i, %.lr.ph.i
-  %.010.i = phi ptr [ %70, %.lr.ph.i ], [ %86, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
-  %.not8.i = icmp eq ptr %.010.i, %70
+  %.02.i = phi ptr [ %70, %.lr.ph.i ], [ %86, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
+  %.not8.i = icmp eq ptr %.02.i, %70
   br i1 %.not8.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i, label %76
 
 76:                                               ; preds = %75
@@ -3580,15 +3580,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit31:               ; preds = %64, %66
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %82, %80, %75
-  %85 = load ptr, ptr %.010.i, align 8
+  %85 = load ptr, ptr %.02.i, align 8
   store ptr @.str.1, ptr %5, align 8
   store i64 1, ptr %74, align 8
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5, ptr noundef null) #16
-  %86 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %86 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %.not.i = icmp eq ptr %86, %73
   br i1 %.not.i, label %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit", label %75, !llvm.loop !17
 
-"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i, %_ZN4llvm11raw_ostreamlsEPKc.exit31
+"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i, %_ZN4llvm11raw_ostreamlsEPKc.exit35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %87 = load ptr, ptr %29, align 8
   %88 = load ptr, ptr %31, align 8
@@ -3597,22 +3597,22 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %82, %80, %75
 
 90:                                               ; preds = %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit"
   %91 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.9, i64 noundef 1) #16
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit34
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit38
 
 92:                                               ; preds = %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit"
   store i8 41, ptr %88, align 1
   %93 = load ptr, ptr %31, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 1
   store ptr %94, ptr %31, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit34
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit38
 
-_ZN4llvm11raw_ostreamlsEPKc.exit34:               ; preds = %92, %90, %_ZN4llvm11raw_ostreamlsEPKc.exit28
+_ZN4llvm11raw_ostreamlsEPKc.exit38:               ; preds = %92, %90, %_ZN4llvm11raw_ostreamlsEPKc.exit32
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %96 = load i32, ptr %95, align 8
   %.not18 = icmp eq i32 %96, 0
-  br i1 %.not18, label %_ZN4llvm11raw_ostreamlsEPKc.exit47, label %97
+  br i1 %.not18, label %_ZN4llvm11raw_ostreamlsEPKc.exit51, label %97
 
-97:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit34
+97:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit38
   %98 = load ptr, ptr %29, align 8
   %99 = load ptr, ptr %31, align 8
   %100 = ptrtoint ptr %98 to i64
@@ -3623,33 +3623,33 @@ _ZN4llvm11raw_ostreamlsEPKc.exit34:               ; preds = %92, %90, %_ZN4llvm1
 
 104:                                              ; preds = %97
   %105 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.26, i64 noundef 29) #16
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit37
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit41
 
 106:                                              ; preds = %97
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %99, ptr noundef nonnull align 1 dereferenceable(29) @.str.26, i64 29, i1 false)
   %107 = load ptr, ptr %31, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 29
   store ptr %108, ptr %31, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit37
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit41
 
-_ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %104, %106
+_ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %104, %106
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %110 = load ptr, ptr %109, align 8
   %111 = load i32, ptr %95, align 8
   %112 = zext i32 %111 to i64
   %113 = getelementptr inbounds ptr, ptr %110, i64 %112
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %.not9.i38 = icmp eq i32 %111, 0
-  br i1 %.not9.i38, label %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit44", label %.lr.ph.i39
+  %.not1.i42 = icmp eq i32 %111, 0
+  br i1 %.not1.i42, label %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit48", label %.lr.ph.i43
 
-.lr.ph.i39:                                       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit37
+.lr.ph.i43:                                       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit41
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %115
 
-115:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i42, %.lr.ph.i39
-  %.010.i40 = phi ptr [ %110, %.lr.ph.i39 ], [ %126, %_ZN4llvm11raw_ostreamlsEPKc.exit.i42 ]
-  %.not8.i41 = icmp eq ptr %.010.i40, %110
-  br i1 %.not8.i41, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i42, label %116
+115:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i46, %.lr.ph.i43
+  %.02.i44 = phi ptr [ %110, %.lr.ph.i43 ], [ %126, %_ZN4llvm11raw_ostreamlsEPKc.exit.i46 ]
+  %.not8.i45 = icmp eq ptr %.02.i44, %110
+  br i1 %.not8.i45, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i46, label %116
 
 116:                                              ; preds = %115
   %117 = load ptr, ptr %29, align 8
@@ -3659,49 +3659,49 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %104, %106
 
 120:                                              ; preds = %116
   %121 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.1366, i64 noundef 1) #16
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i42
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i46
 
 122:                                              ; preds = %116
   store i8 44, ptr %118, align 1
   %123 = load ptr, ptr %31, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 1
   store ptr %124, ptr %31, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i42
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i46
 
-_ZN4llvm11raw_ostreamlsEPKc.exit.i42:             ; preds = %122, %120, %115
-  %125 = load ptr, ptr %.010.i40, align 8
+_ZN4llvm11raw_ostreamlsEPKc.exit.i46:             ; preds = %122, %120, %115
+  %125 = load ptr, ptr %.02.i44, align 8
   store ptr @.str.1, ptr %4, align 8
   store i64 1, ptr %114, align 8
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null) #16
-  %126 = getelementptr inbounds i8, ptr %.010.i40, i64 8
-  %.not.i43 = icmp eq ptr %126, %113
-  br i1 %.not.i43, label %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit44", label %115, !llvm.loop !17
+  %126 = getelementptr inbounds i8, ptr %.02.i44, i64 8
+  %.not.i47 = icmp eq ptr %126, %113
+  br i1 %.not.i47, label %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit48", label %115, !llvm.loop !17
 
-"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit44": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i42, %_ZN4llvm11raw_ostreamlsEPKc.exit37
+"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit48": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i46, %_ZN4llvm11raw_ostreamlsEPKc.exit41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %127 = load ptr, ptr %29, align 8
   %128 = load ptr, ptr %31, align 8
   %129 = icmp eq ptr %127, %128
   br i1 %129, label %130, label %132
 
-130:                                              ; preds = %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit44"
+130:                                              ; preds = %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit48"
   %131 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.9, i64 noundef 1) #16
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit47
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit51
 
-132:                                              ; preds = %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit44"
+132:                                              ; preds = %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_0clEPPNS_4ExprESA_.exit48"
   store i8 41, ptr %128, align 1
   %133 = load ptr, ptr %31, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 1
   store ptr %134, ptr %31, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit47
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit51
 
-_ZN4llvm11raw_ostreamlsEPKc.exit47:               ; preds = %132, %130, %_ZN4llvm11raw_ostreamlsEPKc.exit34
+_ZN4llvm11raw_ostreamlsEPKc.exit51:               ; preds = %132, %130, %_ZN4llvm11raw_ostreamlsEPKc.exit38
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %136 = load i32, ptr %135, align 8
   %.not19 = icmp eq i32 %136, 0
-  br i1 %.not19, label %_ZN4llvm11raw_ostreamlsEPKc.exit58, label %137
+  br i1 %.not19, label %_ZN4llvm11raw_ostreamlsEPKc.exit64, label %137
 
-137:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit47
+137:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit51
   %138 = load ptr, ptr %29, align 8
   %139 = load ptr, ptr %31, align 8
   %140 = ptrtoint ptr %138 to i64
@@ -3712,52 +3712,52 @@ _ZN4llvm11raw_ostreamlsEPKc.exit47:               ; preds = %132, %130, %_ZN4llv
 
 144:                                              ; preds = %137
   %145 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.27, i64 noundef 13) #16
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit50
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit54
 
 146:                                              ; preds = %137
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %139, ptr noundef nonnull align 1 dereferenceable(13) @.str.27, i64 13, i1 false)
   %147 = load ptr, ptr %31, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 13
   store ptr %148, ptr %31, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit50
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit54
 
-_ZN4llvm11raw_ostreamlsEPKc.exit50:               ; preds = %144, %146
+_ZN4llvm11raw_ostreamlsEPKc.exit54:               ; preds = %144, %146
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %150 = load ptr, ptr %149, align 8
   %151 = load i32, ptr %135, align 8
   %152 = zext i32 %151 to i64
   %153 = getelementptr inbounds %"struct.clang::OMPInteropInfo", ptr %150, i64 %152
-  %.not15.i = icmp eq i32 %151, 0
-  br i1 %.not15.i, label %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_1clEPNS_14OMPInteropInfoES9_.exit", label %.lr.ph.i51
+  %.not1.i55 = icmp eq i32 %151, 0
+  br i1 %.not1.i55, label %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_1clEPNS_14OMPInteropInfoES9_.exit", label %.lr.ph.i56
 
-.lr.ph.i51:                                       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit50, %_ZN4llvm11raw_ostreamlsEPKc.exit14.i
-  %.016.i = phi ptr [ %201, %_ZN4llvm11raw_ostreamlsEPKc.exit14.i ], [ %150, %_ZN4llvm11raw_ostreamlsEPKc.exit50 ]
-  %.not8.i52 = icmp eq ptr %.016.i, %150
-  %.pre67 = load ptr, ptr %31, align 8
-  br i1 %.not8.i52, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i53, label %154
+.lr.ph.i56:                                       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit54, %_ZN4llvm11raw_ostreamlsEPKc.exit14.i
+  %.02.i57 = phi ptr [ %201, %_ZN4llvm11raw_ostreamlsEPKc.exit14.i ], [ %150, %_ZN4llvm11raw_ostreamlsEPKc.exit54 ]
+  %.not8.i58 = icmp eq ptr %.02.i57, %150
+  %.pre3.i = load ptr, ptr %31, align 8
+  br i1 %.not8.i58, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i59, label %154
 
-154:                                              ; preds = %.lr.ph.i51
+154:                                              ; preds = %.lr.ph.i56
   %155 = load ptr, ptr %29, align 8
   %156 = ptrtoint ptr %155 to i64
-  %157 = ptrtoint ptr %.pre67 to i64
+  %157 = ptrtoint ptr %.pre3.i to i64
   %158 = sub i64 %156, %157
   %159 = icmp ult i64 %158, 2
   br i1 %159, label %160, label %162
 
 160:                                              ; preds = %154
   %161 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.17, i64 noundef 2) #16
-  %.pre = load ptr, ptr %31, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i53
+  %.pre.i = load ptr, ptr %31, align 8
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i59
 
 162:                                              ; preds = %154
-  store i16 8236, ptr %.pre67, align 1
+  store i16 8236, ptr %.pre3.i, align 1
   %163 = load ptr, ptr %31, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 2
   store ptr %164, ptr %31, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i53
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i59
 
-_ZN4llvm11raw_ostreamlsEPKc.exit.i53:             ; preds = %162, %160, %.lr.ph.i51
-  %165 = phi ptr [ %164, %162 ], [ %.pre, %160 ], [ %.pre67, %.lr.ph.i51 ]
+_ZN4llvm11raw_ostreamlsEPKc.exit.i59:             ; preds = %162, %160, %.lr.ph.i56
+  %165 = phi ptr [ %164, %162 ], [ %.pre.i, %160 ], [ %.pre3.i, %.lr.ph.i56 ]
   %166 = load ptr, ptr %29, align 8
   %167 = ptrtoint ptr %166 to i64
   %168 = ptrtoint ptr %165 to i64
@@ -3765,11 +3765,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i53:             ; preds = %162, %160, %.lr.ph.
   %170 = icmp ult i64 %169, 8
   br i1 %170, label %171, label %173
 
-171:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i53
+171:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i59
   %172 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.1367, i64 noundef 8) #16
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit11.i
 
-173:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i53
+173:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i59
   store i64 2913951496027795049, ptr %165, align 1
   %174 = load ptr, ptr %31, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 8
@@ -3777,12 +3777,12 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i53:             ; preds = %162, %160, %.lr.ph.
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit11.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit11.i:             ; preds = %173, %171
-  %176 = load i8, ptr %.016.i, align 8
+  %176 = load i8, ptr %.02.i57, align 8
   %177 = trunc i8 %176 to i1
   br i1 %177, label %178, label %_ZN5clang21OMPDeclareVariantAttr20getInteropTypeStringEPKNS_14OMPInteropInfoE.exit.i
 
 178:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11.i
-  %179 = getelementptr inbounds nuw i8, ptr %.016.i, i64 1
+  %179 = getelementptr inbounds nuw i8, ptr %.02.i57, i64 1
   %180 = load i8, ptr %179, align 1
   %181 = trunc i8 %180 to i1
   %..i.i = select i1 %181, i64 17, i64 6
@@ -3802,7 +3802,7 @@ _ZN5clang21OMPDeclareVariantAttr20getInteropTypeStringEPKNS_14OMPInteropInfoE.ex
 
 188:                                              ; preds = %_ZN5clang21OMPDeclareVariantAttr20getInteropTypeStringEPKNS_14OMPInteropInfoE.exit.i
   %189 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i) #16
-  %.pre68 = load ptr, ptr %31, align 8
+  %.pre4.i = load ptr, ptr %31, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
 
 190:                                              ; preds = %_ZN5clang21OMPDeclareVariantAttr20getInteropTypeStringEPKNS_14OMPInteropInfoE.exit.i
@@ -3813,7 +3813,7 @@ _ZN5clang21OMPDeclareVariantAttr20getInteropTypeStringEPKNS_14OMPInteropInfoE.ex
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %190, %188
-  %193 = phi ptr [ %192, %190 ], [ %.pre68, %188 ]
+  %193 = phi ptr [ %.pre4.i, %188 ], [ %192, %190 ]
   %194 = load ptr, ptr %29, align 8
   %195 = icmp eq ptr %194, %193
   br i1 %195, label %196, label %198
@@ -3830,11 +3830,11 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %190, %188
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit14.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit14.i:             ; preds = %198, %196
-  %201 = getelementptr inbounds i8, ptr %.016.i, i64 56
-  %.not.i54 = icmp eq ptr %201, %153
-  br i1 %.not.i54, label %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_1clEPNS_14OMPInteropInfoES9_.exit", label %.lr.ph.i51, !llvm.loop !18
+  %201 = getelementptr inbounds i8, ptr %.02.i57, i64 56
+  %.not.i60 = icmp eq ptr %201, %153
+  br i1 %.not.i60, label %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_1clEPNS_14OMPInteropInfoES9_.exit", label %.lr.ph.i56, !llvm.loop !18
 
-"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_1clEPNS_14OMPInteropInfoES9_.exit": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit14.i, %_ZN4llvm11raw_ostreamlsEPKc.exit50
+"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_1clEPNS_14OMPInteropInfoES9_.exit": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit14.i, %_ZN4llvm11raw_ostreamlsEPKc.exit54
   %202 = load ptr, ptr %29, align 8
   %203 = load ptr, ptr %31, align 8
   %204 = icmp eq ptr %202, %203
@@ -3842,16 +3842,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14.i:             ; preds = %198, %196
 
 205:                                              ; preds = %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_1clEPNS_14OMPInteropInfoES9_.exit"
   %206 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.9, i64 noundef 1) #16
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit58
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit64
 
 207:                                              ; preds = %"_ZZNK5clang21OMPDeclareVariantAttr17printPrettyPragmaERN4llvm11raw_ostreamERKNS_14PrintingPolicyEENK3$_1clEPNS_14OMPInteropInfoES9_.exit"
   store i8 41, ptr %203, align 1
   %208 = load ptr, ptr %31, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 1
   store ptr %209, ptr %31, align 8
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit58
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit64
 
-_ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %207, %205, %_ZN4llvm11raw_ostreamlsEPKc.exit47
+_ZN4llvm11raw_ostreamlsEPKc.exit64:               ; preds = %207, %205, %_ZN4llvm11raw_ostreamlsEPKc.exit51
   ret void
 }
 
@@ -9039,7 +9039,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang16ARMInterruptAttr13InterruptTypeEES5_
 define dso_local noundef nonnull ptr @_ZN5clang16ARMInterruptAttr25ConvertInterruptTypeToStrENS0_13InterruptTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1289, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1291, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -9200,7 +9200,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1289, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1291, i64 0, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
@@ -9344,7 +9344,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4
   %116 = sext i32 %115 to i64
-  %switch.gep91 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1289, i64 0, i64 %116
+  %switch.gep91 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1291, i64 0, i64 %116
   %switch.load92 = load ptr, ptr %switch.gep91, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load92) #16
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 24
@@ -9488,7 +9488,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %179, %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %185 = load i32, ptr %184, align 4
   %186 = sext i32 %185 to i64
-  %switch.gep93 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1289, i64 0, i64 %186
+  %switch.gep93 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1291, i64 0, i64 %186
   %switch.load94 = load ptr, ptr %switch.gep93, align 8
   %187 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load94) #16
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 24
@@ -60145,7 +60145,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang16CallableWhenAttr13ConsumedStateEES5_
 define dso_local noundef nonnull ptr @_ZN5clang16CallableWhenAttr25ConvertConsumedStateToStrENS0_13ConsumedStateE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -60338,7 +60338,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %56, %58
   %.0.i.i35 = phi ptr [ %57, %56 ], [ %1, %58 ]
   %61 = load i32, ptr %.094, align 4
   %62 = sext i32 %61 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %62
   %switch.load = load ptr, ptr %switch.gep, align 8
   %63 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i35, i64 24
@@ -60527,7 +60527,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit63:               ; preds = %145, %147
   %.0.i.i62 = phi ptr [ %146, %145 ], [ %1, %147 ]
   %150 = load i32, ptr %.02991, align 4
   %151 = sext i32 %150 to i64
-  %switch.gep113 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %151
+  %switch.gep113 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %151
   %switch.load114 = load ptr, ptr %switch.gep113, align 8
   %152 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load114) #16
   %153 = getelementptr inbounds nuw i8, ptr %.0.i.i62, i64 24
@@ -66898,7 +66898,7 @@ define dso_local noundef nonnull ptr @_ZN5clang13CodeModelAttr17ConvertModelToSt
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1292, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1294, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -67060,7 +67060,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %45 = load i32, ptr %44, align 4
   %switch.tableidx = add nsw i32 %45, -1
   %46 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1292, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1294, i64 0, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
@@ -67205,7 +67205,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %109, %111
   %115 = load i32, ptr %114, align 4
   %switch.tableidx91 = add nsw i32 %115, -1
   %116 = sext i32 %switch.tableidx91 to i64
-  %switch.gep92 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1292, i64 0, i64 %116
+  %switch.gep92 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1294, i64 0, i64 %116
   %switch.load93 = load ptr, ptr %switch.gep92, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load93) #16
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 24
@@ -67350,7 +67350,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %179, %181
   %185 = load i32, ptr %184, align 4
   %switch.tableidx94 = add nsw i32 %185, -1
   %186 = sext i32 %switch.tableidx94 to i64
-  %switch.gep95 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1292, i64 0, i64 %186
+  %switch.gep95 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1294, i64 0, i64 %186
   %switch.load96 = load ptr, ptr %switch.gep95, align 8
   %187 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load96) #16
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 24
@@ -71184,7 +71184,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang14ConsumableAttr13ConsumedStateEES5_E4
 define dso_local noundef nonnull ptr @_ZN5clang14ConsumableAttr25ConvertConsumedStateToStrENS0_13ConsumedStateE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -71339,7 +71339,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %38, %40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %45
   %switch.load = load ptr, ptr %switch.gep, align 8
   %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 24
@@ -71483,7 +71483,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %108, %110
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %114 = load i32, ptr %113, align 4
   %115 = sext i32 %114 to i64
-  %switch.gep58 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %115
+  %switch.gep58 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %115
   %switch.load59 = load ptr, ptr %switch.gep58, align 8
   %116 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load59) #16
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i31, i64 24
@@ -125706,7 +125706,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang17MipsInterruptAttr13InterruptTypeEES5
 define dso_local noundef nonnull ptr @_ZN5clang17MipsInterruptAttr25ConvertInterruptTypeToStrENS0_13InterruptTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1295, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1297, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -125867,7 +125867,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1295, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1297, i64 0, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
@@ -126011,7 +126011,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4
   %116 = sext i32 %115 to i64
-  %switch.gep91 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1295, i64 0, i64 %116
+  %switch.gep91 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1297, i64 0, i64 %116
   %switch.load92 = load ptr, ptr %switch.gep91, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load92) #16
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 24
@@ -126155,7 +126155,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %179, %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %185 = load i32, ptr %184, align 4
   %186 = sext i32 %185 to i64
-  %switch.gep93 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1295, i64 0, i64 %186
+  %switch.gep93 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1297, i64 0, i64 %186
   %switch.load94 = load ptr, ptr %switch.gep93, align 8
   %187 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load94) #16
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 24
@@ -166670,7 +166670,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang20ObjCMethodFamilyAttr10FamilyKindEES5
 define dso_local noundef nonnull ptr @_ZN5clang20ObjCMethodFamilyAttr22ConvertFamilyKindToStrENS0_10FamilyKindE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1297, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1299, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -166831,7 +166831,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1297, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1299, i64 0, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
@@ -166975,7 +166975,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4
   %116 = sext i32 %115 to i64
-  %switch.gep91 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1297, i64 0, i64 %116
+  %switch.gep91 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1299, i64 0, i64 %116
   %switch.load92 = load ptr, ptr %switch.gep91, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load92) #16
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 24
@@ -167119,7 +167119,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %179, %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %185 = load i32, ptr %184, align 4
   %186 = sext i32 %185 to i64
-  %switch.gep93 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1297, i64 0, i64 %186
+  %switch.gep93 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1299, i64 0, i64 %186
   %switch.load94 = load ptr, ptr %switch.gep93, align 8
   %187 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load94) #16
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 24
@@ -184331,7 +184331,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang18ParamTypestateAttr13ConsumedStateEES
 define dso_local noundef nonnull ptr @_ZN5clang18ParamTypestateAttr25ConvertConsumedStateToStrENS0_13ConsumedStateE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -184486,7 +184486,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %38, %40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %45
   %switch.load = load ptr, ptr %switch.gep, align 8
   %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 24
@@ -184630,7 +184630,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %108, %110
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %114 = load i32, ptr %113, align 4
   %115 = sext i32 %114 to i64
-  %switch.gep58 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %115
+  %switch.gep58 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %115
   %switch.load59 = load ptr, ptr %switch.gep58, align 8
   %116 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load59) #16
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i31, i64 24
@@ -205014,7 +205014,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang19ReturnTypestateAttr13ConsumedStateEE
 define dso_local noundef nonnull ptr @_ZN5clang19ReturnTypestateAttr25ConvertConsumedStateToStrENS0_13ConsumedStateE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -205169,7 +205169,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %38, %40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %45
   %switch.load = load ptr, ptr %switch.gep, align 8
   %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 24
@@ -205313,7 +205313,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %108, %110
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %114 = load i32, ptr %113, align 4
   %115 = sext i32 %114 to i64
-  %switch.gep58 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %115
+  %switch.gep58 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %115
   %switch.load59 = load ptr, ptr %switch.gep58, align 8
   %116 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load59) #16
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i31, i64 24
@@ -211006,7 +211006,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang16SetTypestateAttr13ConsumedStateEES5_
 define dso_local noundef nonnull ptr @_ZN5clang16SetTypestateAttr25ConvertConsumedStateToStrENS0_13ConsumedStateE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -211161,7 +211161,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %38, %40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %45
   %switch.load = load ptr, ptr %switch.gep, align 8
   %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 24
@@ -211305,7 +211305,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %108, %110
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %114 = load i32, ptr %113, align 4
   %115 = sext i32 %114 to i64
-  %switch.gep58 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1300, i64 0, i64 %115
+  %switch.gep58 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %115
   %switch.load59 = load ptr, ptr %switch.gep58, align 8
   %116 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load59) #16
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i31, i64 24
@@ -217424,7 +217424,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang14SwiftAsyncAttr4KindEES5_E4CaseENS_13
 define dso_local noundef nonnull ptr @_ZN5clang14SwiftAsyncAttr16ConvertKindToStrENS0_4KindE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1304, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -217588,7 +217588,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit26:               ; preds = %41, %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1304, i64 0, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   %49 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i25, i64 24
@@ -217765,7 +217765,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit55:               ; preds = %129, %131
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %135 = load i32, ptr %134, align 4
   %136 = sext i32 %135 to i64
-  %switch.gep139 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %136
+  %switch.gep139 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1304, i64 0, i64 %136
   %switch.load140 = load ptr, ptr %switch.gep139, align 8
   %137 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load140) #16
   %138 = getelementptr inbounds nuw i8, ptr %.0.i.i54, i64 24
@@ -217942,7 +217942,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit86:               ; preds = %217, %219
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %223 = load i32, ptr %222, align 4
   %224 = sext i32 %223 to i64
-  %switch.gep141 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302, i64 0, i64 %224
+  %switch.gep141 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1304, i64 0, i64 %224
   %switch.load142 = load ptr, ptr %switch.gep141, align 8
   %225 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load142) #16
   %226 = getelementptr inbounds nuw i8, ptr %.0.i.i85, i64 24
@@ -219466,7 +219466,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang19SwiftAsyncErrorAttr14ConventionKindE
 define dso_local noundef nonnull ptr @_ZN5clang19SwiftAsyncErrorAttr26ConvertConventionKindToStrENS0_14ConventionKindE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1304, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1306, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -219629,7 +219629,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1304, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1306, i64 0, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i23, i64 24
@@ -219797,7 +219797,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit50:               ; preds = %124, %126
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %130 = load i32, ptr %129, align 4
   %131 = sext i32 %130 to i64
-  %switch.gep121 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1304, i64 0, i64 %131
+  %switch.gep121 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1306, i64 0, i64 %131
   %switch.load122 = load ptr, ptr %switch.gep121, align 8
   %132 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load122) #16
   %133 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 24
@@ -219965,7 +219965,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit78:               ; preds = %209, %211
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %215 = load i32, ptr %214, align 4
   %216 = sext i32 %215 to i64
-  %switch.gep123 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1304, i64 0, i64 %216
+  %switch.gep123 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1306, i64 0, i64 %216
   %switch.load124 = load ptr, ptr %switch.gep123, align 8
   %217 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load124) #16
   %218 = getelementptr inbounds nuw i8, ptr %.0.i.i77, i64 24
@@ -239386,7 +239386,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang18TypeVisibilityAttr14VisibilityTypeEE
 define dso_local noundef nonnull ptr @_ZN5clang18TypeVisibilityAttr26ConvertVisibilityTypeToStrENS0_14VisibilityTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -239547,7 +239547,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318, i64 0, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
@@ -239691,7 +239691,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4
   %116 = sext i32 %115 to i64
-  %switch.gep91 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316, i64 0, i64 %116
+  %switch.gep91 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318, i64 0, i64 %116
   %switch.load92 = load ptr, ptr %switch.gep91, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load92) #16
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 24
@@ -239835,7 +239835,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %179, %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %185 = load i32, ptr %184, align 4
   %186 = sext i32 %185 to i64
-  %switch.gep93 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316, i64 0, i64 %186
+  %switch.gep93 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318, i64 0, i64 %186
   %switch.load94 = load ptr, ptr %switch.gep93, align 8
   %187 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load94) #16
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 24
@@ -246955,7 +246955,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang31VTablePointerAuthenticationAttr15VPt
 define dso_local noundef nonnull ptr @_ZN5clang31VTablePointerAuthenticationAttr27ConvertVPtrAuthKeyTypeToStrENS0_15VPtrAuthKeyTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1312, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1314, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -246997,7 +246997,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang31VTablePointerAuthenticationAttr25Add
 define dso_local noundef nonnull ptr @_ZN5clang31VTablePointerAuthenticationAttr37ConvertAddressDiscriminationModeToStrENS0_25AddressDiscriminationModeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1313, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1315, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -247045,7 +247045,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang31VTablePointerAuthenticationAttr19Ext
 define dso_local noundef nonnull ptr @_ZN5clang31VTablePointerAuthenticationAttr31ConvertExtraDiscriminationToStrENS0_19ExtraDiscriminationE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1314, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -247212,7 +247212,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1312, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1314, i64 0, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i35, i64 24
@@ -247305,7 +247305,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit46:               ; preds = %86, %88
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %92 = load i32, ptr %91, align 8
   %93 = sext i32 %92 to i64
-  %switch.gep227 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1313, i64 0, i64 %93
+  %switch.gep227 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1315, i64 0, i64 %93
   %switch.load228 = load ptr, ptr %switch.gep227, align 8
   %94 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load228) #16
   %95 = getelementptr inbounds nuw i8, ptr %.0.i.i45, i64 24
@@ -247398,7 +247398,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit57:               ; preds = %133, %135
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %139 = load i32, ptr %138, align 4
   %140 = sext i32 %139 to i64
-  %switch.gep229 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1314, i64 0, i64 %140
+  %switch.gep229 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316, i64 0, i64 %140
   %switch.load230 = load ptr, ptr %switch.gep229, align 8
   %141 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load230) #16
   %142 = getelementptr inbounds nuw i8, ptr %.0.i.i56, i64 24
@@ -247566,7 +247566,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit84:               ; preds = %218, %220
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %224 = load i32, ptr %223, align 4
   %225 = sext i32 %224 to i64
-  %switch.gep231 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1312, i64 0, i64 %225
+  %switch.gep231 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1314, i64 0, i64 %225
   %switch.load232 = load ptr, ptr %switch.gep231, align 8
   %226 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load232) #16
   %227 = getelementptr inbounds nuw i8, ptr %.0.i.i83, i64 24
@@ -247659,7 +247659,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit96:               ; preds = %265, %267
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %271 = load i32, ptr %270, align 8
   %272 = sext i32 %271 to i64
-  %switch.gep233 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1313, i64 0, i64 %272
+  %switch.gep233 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1315, i64 0, i64 %272
   %switch.load234 = load ptr, ptr %switch.gep233, align 8
   %273 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load234) #16
   %274 = getelementptr inbounds nuw i8, ptr %.0.i.i95, i64 24
@@ -247752,7 +247752,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit108:              ; preds = %312, %314
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %318 = load i32, ptr %317, align 4
   %319 = sext i32 %318 to i64
-  %switch.gep235 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1314, i64 0, i64 %319
+  %switch.gep235 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316, i64 0, i64 %319
   %switch.load236 = load ptr, ptr %switch.gep235, align 8
   %320 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load236) #16
   %321 = getelementptr inbounds nuw i8, ptr %.0.i.i107, i64 24
@@ -247920,7 +247920,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit136:              ; preds = %397, %399
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %403 = load i32, ptr %402, align 4
   %404 = sext i32 %403 to i64
-  %switch.gep237 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1312, i64 0, i64 %404
+  %switch.gep237 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1314, i64 0, i64 %404
   %switch.load238 = load ptr, ptr %switch.gep237, align 8
   %405 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load238) #16
   %406 = getelementptr inbounds nuw i8, ptr %.0.i.i135, i64 24
@@ -248013,7 +248013,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit148:              ; preds = %444, %446
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %450 = load i32, ptr %449, align 8
   %451 = sext i32 %450 to i64
-  %switch.gep239 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1313, i64 0, i64 %451
+  %switch.gep239 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1315, i64 0, i64 %451
   %switch.load240 = load ptr, ptr %switch.gep239, align 8
   %452 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load240) #16
   %453 = getelementptr inbounds nuw i8, ptr %.0.i.i147, i64 24
@@ -248106,7 +248106,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit160:              ; preds = %491, %493
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %497 = load i32, ptr %496, align 4
   %498 = sext i32 %497 to i64
-  %switch.gep241 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1314, i64 0, i64 %498
+  %switch.gep241 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316, i64 0, i64 %498
   %switch.load242 = load ptr, ptr %switch.gep241, align 8
   %499 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load242) #16
   %500 = getelementptr inbounds nuw i8, ptr %.0.i.i159, i64 24
@@ -250076,7 +250076,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang14VisibilityAttr14VisibilityTypeEES5_E
 define dso_local noundef nonnull ptr @_ZN5clang14VisibilityAttr26ConvertVisibilityTypeToStrENS0_14VisibilityTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -250237,7 +250237,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318, i64 0, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
@@ -250381,7 +250381,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4
   %116 = sext i32 %115 to i64
-  %switch.gep91 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316, i64 0, i64 %116
+  %switch.gep91 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318, i64 0, i64 %116
   %switch.load92 = load ptr, ptr %switch.gep91, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load92) #16
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 24
@@ -250525,7 +250525,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %179, %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %185 = load i32, ptr %184, align 4
   %186 = sext i32 %185 to i64
-  %switch.gep93 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316, i64 0, i64 %186
+  %switch.gep93 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318, i64 0, i64 %186
   %switch.load94 = load ptr, ptr %switch.gep93, align 8
   %187 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load94) #16
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 24
@@ -260188,7 +260188,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang20ZeroCallUsedRegsAttr20ZeroCallUsedRe
 define dso_local noundef nonnull ptr @_ZN5clang20ZeroCallUsedRegsAttr32ConvertZeroCallUsedRegsKindToStrENS0_20ZeroCallUsedRegsKindE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1320, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -260349,7 +260349,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1320, i64 0, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
@@ -260493,7 +260493,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4
   %116 = sext i32 %115 to i64
-  %switch.gep91 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318, i64 0, i64 %116
+  %switch.gep91 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1320, i64 0, i64 %116
   %switch.load92 = load ptr, ptr %switch.gep91, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load92) #16
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 24
@@ -260637,7 +260637,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %179, %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %185 = load i32, ptr %184, align 4
   %186 = sext i32 %185 to i64
-  %switch.gep93 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318, i64 0, i64 %186
+  %switch.gep93 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1320, i64 0, i64 %186
   %switch.load94 = load ptr, ptr %switch.gep93, align 8
   %187 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load94) #16
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 24

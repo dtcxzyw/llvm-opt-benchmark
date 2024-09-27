@@ -560,12 +560,12 @@ define internal fastcc noundef zeroext i1 @_ZN3g2oL19writeTripletEntriesERKNSt7_
 50:                                               ; preds = %48
   %51 = load ptr, ptr %3, align 8
   %52 = load ptr, ptr %24, align 8
-  %.not19 = icmp eq ptr %51, %52
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq ptr %51, %52
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50, %71
-  %.sroa.014.020 = phi ptr [ %72, %71 ], [ %51, %50 ]
-  %53 = load i32, ptr %.sroa.014.020, align 8
+  %.sroa.014.019 = phi ptr [ %72, %71 ], [ %51, %50 ]
+  %53 = load i32, ptr %.sroa.014.019, align 8
   %54 = add nsw i32 %53, 1
   %55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %54)
           to label %56 unwind label %.loopexit
@@ -575,7 +575,7 @@ define internal fastcc noundef zeroext i1 @_ZN3g2oL19writeTripletEntriesERKNSt7_
           to label %58 unwind label %.loopexit
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.014.019, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = add nsw i32 %60, 1
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %57, i32 noundef %61)
@@ -586,7 +586,7 @@ define internal fastcc noundef zeroext i1 @_ZN3g2oL19writeTripletEntriesERKNSt7_
           to label %65 unwind label %.loopexit
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.014.019, i64 8
   %67 = load double, ptr %66, align 8
   %68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %64, double noundef %67)
           to label %69 unwind label %.loopexit
@@ -596,7 +596,7 @@ define internal fastcc noundef zeroext i1 @_ZN3g2oL19writeTripletEntriesERKNSt7_
           to label %71 unwind label %.loopexit
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %.sroa.014.020, i64 16
+  %72 = getelementptr inbounds i8, ptr %.sroa.014.019, i64 16
   %.not = icmp eq ptr %72, %52
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

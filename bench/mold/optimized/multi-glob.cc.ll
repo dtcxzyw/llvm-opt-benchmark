@@ -970,12 +970,12 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %"_ZSt9call_onceIZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEE3$_0JEEvRSt9once_flagOT_DpOT0_.exit"
-  %children7.i = getelementptr inbounds i8, ptr %2, i64 16
-  %3 = load ptr, ptr %children7.i, align 8
-  %cmp.i.not9.i = icmp eq ptr %3, null
-  br i1 %cmp.i.not9.i, label %if.end.i, label %if.then.i6
+  %children2.i = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = load ptr, ptr %children2.i, align 8
+  %cmp.i.not4.i = icmp eq ptr %3, null
+  br i1 %cmp.i.not4.i, label %if.end.i, label %if.then.i11
 
-if.then.i6:                                       ; preds = %if.end8.i, %if.then
+if.then.i11:                                      ; preds = %if.end8.i, %if.then
   %.lcssa.i = phi ptr [ %3, %if.then ], [ %7, %if.end8.i ]
   %4 = load i64, ptr %.lcssa.i, align 8
   %5 = call i64 @llvm.smax.i64(i64 %4, i64 -1)
@@ -985,114 +985,114 @@ if.end.i:                                         ; preds = %if.then, %if.end8.i
   %node.1 = phi ptr [ %6, %if.end8.i ], [ %2, %if.then ]
   %suffix_link.i = getelementptr inbounds i8, ptr %node.1, i64 8
   %6 = load ptr, ptr %suffix_link.i, align 8
-  %tobool.not.i7 = icmp eq ptr %6, null
-  br i1 %tobool.not.i7, label %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit", label %if.end8.i
+  %tobool.not.i12 = icmp eq ptr %6, null
+  br i1 %tobool.not.i12, label %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit", label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
   %children.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %children.i, align 8
   %cmp.i.not.i = icmp eq ptr %7, null
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i6, !llvm.loop !4
+  br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i11, !llvm.loop !4
 
-"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit": ; preds = %if.end.i, %if.then.i6
-  %node.2 = phi ptr [ %.lcssa.i, %if.then.i6 ], [ %node.1, %if.end.i ]
-  %val.4 = phi i64 [ %5, %if.then.i6 ], [ -1, %if.end.i ]
+"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit": ; preds = %if.end.i, %if.then.i11
+  %node.2 = phi ptr [ %.lcssa.i, %if.then.i11 ], [ %node.1, %if.end.i ]
+  %val.4 = phi i64 [ %5, %if.then.i11 ], [ -1, %if.end.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %str.coerce1, i64 %str.coerce0
-  %cmp.not75 = icmp eq i64 %str.coerce0, 0
-  br i1 %cmp.not75, label %for.end, label %for.body
+  %cmp.not62 = icmp eq i64 %str.coerce0, 0
+  br i1 %cmp.not62, label %for.end, label %for.body
 
-for.body:                                         ; preds = %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit", %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit20"
-  %__begin2.078 = phi ptr [ %incdec.ptr, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit20" ], [ %str.coerce1, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit" ]
-  %val.177 = phi i64 [ %val.5, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit20" ], [ %val.4, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit" ]
-  %node.076 = phi ptr [ %node.4, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit20" ], [ %node.2, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit" ]
-  %8 = load i8, ptr %__begin2.078, align 1
+for.body:                                         ; preds = %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit", %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit25"
+  %__begin2.065 = phi ptr [ %incdec.ptr, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit25" ], [ %str.coerce1, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit" ]
+  %val.164 = phi i64 [ %val.5, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit25" ], [ %val.4, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit" ]
+  %node.063 = phi ptr [ %node.4, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit25" ], [ %node.2, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit" ]
+  %8 = load i8, ptr %__begin2.065, align 1
   %idxprom.i = zext i8 %8 to i64
-  %children7.i9 = getelementptr inbounds i8, ptr %node.076, i64 16
-  %arrayidx8.i = getelementptr inbounds [256 x %"class.std::unique_ptr"], ptr %children7.i9, i64 0, i64 %idxprom.i
-  %9 = load ptr, ptr %arrayidx8.i, align 8
-  %cmp.i.not9.i10 = icmp eq ptr %9, null
-  br i1 %cmp.i.not9.i10, label %if.end.i14, label %if.then.i11
+  %children2.i15 = getelementptr inbounds i8, ptr %node.063, i64 16
+  %arrayidx3.i = getelementptr inbounds [256 x %"class.std::unique_ptr"], ptr %children2.i15, i64 0, i64 %idxprom.i
+  %9 = load ptr, ptr %arrayidx3.i, align 8
+  %cmp.i.not4.i16 = icmp eq ptr %9, null
+  br i1 %cmp.i.not4.i16, label %if.end.i19, label %if.then.i17
 
-if.then.i11:                                      ; preds = %if.end8.i17, %for.body
-  %.lcssa.i13 = phi ptr [ %9, %for.body ], [ %13, %if.end8.i17 ]
-  %10 = load i64, ptr %.lcssa.i13, align 8
-  %11 = call i64 @llvm.smax.i64(i64 %val.177, i64 %10)
-  br label %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit20"
+if.then.i17:                                      ; preds = %if.end8.i22, %for.body
+  %.lcssa.i18 = phi ptr [ %9, %for.body ], [ %13, %if.end8.i22 ]
+  %10 = load i64, ptr %.lcssa.i18, align 8
+  %11 = call i64 @llvm.smax.i64(i64 %val.164, i64 %10)
+  br label %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit25"
 
-if.end.i14:                                       ; preds = %for.body, %if.end8.i17
-  %node.3 = phi ptr [ %12, %if.end8.i17 ], [ %node.076, %for.body ]
-  %suffix_link.i15 = getelementptr inbounds i8, ptr %node.3, i64 8
-  %12 = load ptr, ptr %suffix_link.i15, align 8
-  %tobool.not.i16 = icmp eq ptr %12, null
-  br i1 %tobool.not.i16, label %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit20", label %if.end8.i17
+if.end.i19:                                       ; preds = %for.body, %if.end8.i22
+  %node.3 = phi ptr [ %12, %if.end8.i22 ], [ %node.063, %for.body ]
+  %suffix_link.i20 = getelementptr inbounds i8, ptr %node.3, i64 8
+  %12 = load ptr, ptr %suffix_link.i20, align 8
+  %tobool.not.i21 = icmp eq ptr %12, null
+  br i1 %tobool.not.i21, label %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit25", label %if.end8.i22
 
-if.end8.i17:                                      ; preds = %if.end.i14
-  %children.i18 = getelementptr inbounds i8, ptr %12, i64 16
-  %arrayidx.i = getelementptr inbounds [256 x %"class.std::unique_ptr"], ptr %children.i18, i64 0, i64 %idxprom.i
+if.end8.i22:                                      ; preds = %if.end.i19
+  %children.i23 = getelementptr inbounds i8, ptr %12, i64 16
+  %arrayidx.i = getelementptr inbounds [256 x %"class.std::unique_ptr"], ptr %children.i23, i64 0, i64 %idxprom.i
   %13 = load ptr, ptr %arrayidx.i, align 8
-  %cmp.i.not.i19 = icmp eq ptr %13, null
-  br i1 %cmp.i.not.i19, label %if.end.i14, label %if.then.i11, !llvm.loop !4
+  %cmp.i.not.i24 = icmp eq ptr %13, null
+  br i1 %cmp.i.not.i24, label %if.end.i19, label %if.then.i17, !llvm.loop !4
 
-"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit20": ; preds = %if.end.i14, %if.then.i11
-  %node.4 = phi ptr [ %.lcssa.i13, %if.then.i11 ], [ %node.3, %if.end.i14 ]
-  %val.5 = phi i64 [ %11, %if.then.i11 ], [ %val.177, %if.end.i14 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.078, i64 1
+"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit25": ; preds = %if.end.i19, %if.then.i17
+  %node.4 = phi ptr [ %.lcssa.i18, %if.then.i17 ], [ %node.3, %if.end.i19 ]
+  %val.5 = phi i64 [ %11, %if.then.i17 ], [ %val.164, %if.end.i19 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.065, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
-for.end:                                          ; preds = %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit20", %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit"
-  %node.0.lcssa = phi ptr [ %node.2, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit" ], [ %node.4, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit20" ]
-  %val.1.lcssa = phi i64 [ %val.4, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit" ], [ %val.5, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit20" ]
-  %children7.i21 = getelementptr inbounds i8, ptr %node.0.lcssa, i64 16
-  %14 = load ptr, ptr %children7.i21, align 8
-  %cmp.i.not9.i23 = icmp eq ptr %14, null
-  br i1 %cmp.i.not9.i23, label %if.end.i27, label %if.then.i24
+for.end:                                          ; preds = %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit25", %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit"
+  %node.0.lcssa = phi ptr [ %node.2, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit" ], [ %node.4, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit25" ]
+  %val.1.lcssa = phi i64 [ %val.4, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit" ], [ %val.5, %"_ZZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEh.exit25" ]
+  %children2.i27 = getelementptr inbounds i8, ptr %node.0.lcssa, i64 16
+  %14 = load ptr, ptr %children2.i27, align 8
+  %cmp.i.not4.i29 = icmp eq ptr %14, null
+  br i1 %cmp.i.not4.i29, label %if.end.i32, label %if.then.i30
 
-if.then.i24:                                      ; preds = %if.end8.i30, %for.end
-  %.lcssa.i26 = phi ptr [ %14, %for.end ], [ %19, %if.end8.i30 ]
-  %15 = load i64, ptr %.lcssa.i26, align 8
+if.then.i30:                                      ; preds = %if.end8.i35, %for.end
+  %.lcssa.i31 = phi ptr [ %14, %for.end ], [ %19, %if.end8.i35 ]
+  %15 = load i64, ptr %.lcssa.i31, align 8
   %16 = call i64 @llvm.smax.i64(i64 %val.1.lcssa, i64 %15)
   br label %if.end
 
-if.end.i27:                                       ; preds = %for.end, %if.end8.i30
-  %17 = phi ptr [ %18, %if.end8.i30 ], [ %node.0.lcssa, %for.end ]
-  %suffix_link.i28 = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load ptr, ptr %suffix_link.i28, align 8
-  %tobool.not.i29 = icmp eq ptr %18, null
-  br i1 %tobool.not.i29, label %if.end, label %if.end8.i30
+if.end.i32:                                       ; preds = %for.end, %if.end8.i35
+  %17 = phi ptr [ %18, %if.end8.i35 ], [ %node.0.lcssa, %for.end ]
+  %suffix_link.i33 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %suffix_link.i33, align 8
+  %tobool.not.i34 = icmp eq ptr %18, null
+  br i1 %tobool.not.i34, label %if.end, label %if.end8.i35
 
-if.end8.i30:                                      ; preds = %if.end.i27
-  %children.i31 = getelementptr inbounds i8, ptr %18, i64 16
-  %19 = load ptr, ptr %children.i31, align 8
-  %cmp.i.not.i33 = icmp eq ptr %19, null
-  br i1 %cmp.i.not.i33, label %if.end.i27, label %if.then.i24, !llvm.loop !4
+if.end8.i35:                                      ; preds = %if.end.i32
+  %children.i36 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = load ptr, ptr %children.i36, align 8
+  %cmp.i.not.i38 = icmp eq ptr %19, null
+  br i1 %cmp.i.not.i38, label %if.end.i32, label %if.then.i30, !llvm.loop !4
 
-if.end:                                           ; preds = %if.end.i27, %if.then.i24, %"_ZSt9call_onceIZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEE3$_0JEEvRSt9once_flagOT_DpOT0_.exit"
-  %val.0 = phi i64 [ -1, %"_ZSt9call_onceIZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEE3$_0JEEvRSt9once_flagOT_DpOT0_.exit" ], [ %16, %if.then.i24 ], [ %val.1.lcssa, %if.end.i27 ]
+if.end:                                           ; preds = %if.end.i32, %if.then.i30, %"_ZSt9call_onceIZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEE3$_0JEEvRSt9once_flagOT_DpOT0_.exit"
+  %val.0 = phi i64 [ -1, %"_ZSt9call_onceIZN4mold9MultiGlob4findESt17basic_string_viewIcSt11char_traitsIcEEE3$_0JEEvRSt9once_flagOT_DpOT0_.exit" ], [ %16, %if.then.i30 ], [ %val.1.lcssa, %if.end.i32 ]
   %globs = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load ptr, ptr %globs, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i3580 = icmp eq ptr %20, %21
-  br i1 %cmp.i3580, label %for.end19, label %for.body11
+  %cmp.i4067 = icmp eq ptr %20, %21
+  br i1 %cmp.i4067, label %for.end19, label %for.body11
 
 for.body11:                                       ; preds = %if.end, %for.inc17
-  %__begin1.sroa.0.082 = phi ptr [ %incdec.ptr.i, %for.inc17 ], [ %20, %if.end ]
-  %val.281 = phi i64 [ %val.3, %for.inc17 ], [ %val.0, %if.end ]
-  %call13 = call noundef zeroext i1 @_ZN4mold4Glob5matchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %__begin1.sroa.0.082, i64 %str.coerce0, ptr %str.coerce1) #22
+  %__begin1.sroa.0.069 = phi ptr [ %incdec.ptr.i, %for.inc17 ], [ %20, %if.end ]
+  %val.268 = phi i64 [ %val.3, %for.inc17 ], [ %val.0, %if.end ]
+  %call13 = call noundef zeroext i1 @_ZN4mold4Glob5matchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %__begin1.sroa.0.069, i64 %str.coerce0, ptr %str.coerce1) #22
   br i1 %call13, label %if.then14, label %for.inc17
 
 if.then14:                                        ; preds = %for.body11
-  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.082, i64 24
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.069, i64 24
   %22 = load i64, ptr %second, align 8
-  %.sroa.speculated = call i64 @llvm.smax.i64(i64 %val.281, i64 %22)
+  %.sroa.speculated = call i64 @llvm.smax.i64(i64 %val.268, i64 %22)
   br label %for.inc17
 
 for.inc17:                                        ; preds = %for.body11, %if.then14
-  %val.3 = phi i64 [ %.sroa.speculated, %if.then14 ], [ %val.281, %for.body11 ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.082, i64 32
-  %cmp.i35 = icmp eq ptr %incdec.ptr.i, %21
-  br i1 %cmp.i35, label %for.end19, label %for.body11
+  %val.3 = phi i64 [ %.sroa.speculated, %if.then14 ], [ %val.268, %for.body11 ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.069, i64 32
+  %cmp.i40 = icmp eq ptr %incdec.ptr.i, %21
+  br i1 %cmp.i40, label %for.end19, label %for.body11
 
 for.end19:                                        ; preds = %for.inc17, %if.end
   %val.2.lcssa = phi i64 [ %val.0, %if.end ], [ %val.3, %for.inc17 ]

@@ -7,15 +7,15 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_ZN32pxrInternal_v0_24__pxrReserved__11TfSpinMutex17_AcquireContendedEv(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = atomicrmw xchg ptr %0, i8 1 acquire, align 1
   %3 = trunc i8 %2 to i1
-  br i1 %3, label %.preheader6.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNS_11TfSpinMutex17_AcquireContendedEvE3$_0EEvOT_.exit"
+  br i1 %3, label %.preheader1.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNS_11TfSpinMutex17_AcquireContendedEvE3$_0EEvOT_.exit"
 
-4:                                                ; preds = %.preheader6.i
-  %5 = add nuw nsw i32 %.08.i, 1
+4:                                                ; preds = %.preheader1.i
+  %5 = add nuw nsw i32 %.03.i, 1
   %.not.i = icmp eq i32 %5, 32
-  br i1 %.not.i, label %.preheader.i, label %.preheader6.i, !llvm.loop !4
+  br i1 %.not.i, label %.preheader.i, label %.preheader1.i, !llvm.loop !4
 
-.preheader6.i:                                    ; preds = %1, %4
-  %.08.i = phi i32 [ %5, %4 ], [ 0, %1 ]
+.preheader1.i:                                    ; preds = %1, %4
+  %.03.i = phi i32 [ %5, %4 ], [ 0, %1 ]
   tail call void @llvm.x86.sse2.pause()
   %6 = atomicrmw xchg ptr %0, i8 1 acquire, align 1
   %7 = trunc i8 %6 to i1
@@ -27,7 +27,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11TfSpinMutex17_AcquireContend
   %10 = trunc i8 %9 to i1
   br i1 %10, label %.preheader.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNS_11TfSpinMutex17_AcquireContendedEvE3$_0EEvOT_.exit", !llvm.loop !6
 
-"_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNS_11TfSpinMutex17_AcquireContendedEvE3$_0EEvOT_.exit": ; preds = %.preheader6.i, %.preheader.i, %1
+"_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNS_11TfSpinMutex17_AcquireContendedEvE3$_0EEvOT_.exit": ; preds = %.preheader1.i, %.preheader.i, %1
   ret void
 }
 

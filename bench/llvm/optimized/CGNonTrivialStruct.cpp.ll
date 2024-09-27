@@ -552,9 +552,9 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit:
   store ptr %8, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.07.0.copyload = load i64, ptr %10, align 8
-  %.sroa.311.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.311.0.copyload = load i64, ptr %.sroa.311.0..sroa_idx, align 8
+  %.sroa.06.0.copyload = load i64, ptr %10, align 8
+  %.sroa.310.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.310.0.copyload = load i64, ptr %.sroa.310.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
@@ -564,8 +564,8 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit:
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %.sroa.6.0.copyload, null
-  %13 = and i64 %.sroa.07.0.copyload, -4
-  %spec.select = select i1 %.not.i, i64 %13, i64 %.sroa.07.0.copyload
+  %13 = and i64 %.sroa.06.0.copyload, -4
+  %spec.select = select i1 %.not.i, i64 %13, i64 %.sroa.06.0.copyload
   store ptr %0, ptr %9, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i3 = load i64, ptr %14, align 8
@@ -574,10 +574,10 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit:
   %17 = and i64 %16, 4
   %.sroa.01.0 = or i64 %17, %.sroa.0.0.copyload.i3
   store i64 %spec.select, ptr %4, align 8
-  %.sroa.321.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %12, ptr %.sroa.321.0..sroa_idx, align 8
-  %.sroa.522.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %.sroa.311.0.copyload, ptr %.sroa.522.0..sroa_idx, align 8
+  %.sroa.320.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %12, ptr %.sroa.320.0..sroa_idx, align 8
+  %.sroa.521.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %.sroa.310.0.copyload, ptr %.sroa.521.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %.sroa.4.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32

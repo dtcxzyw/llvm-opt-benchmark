@@ -772,14 +772,14 @@ define void @_ZN8WasmEdge6Loader6Loader10loadExportERNS_3AST9Component6ExportE(p
   br label %78
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds i8, ptr %17, i64 16
-  %37 = getelementptr inbounds i8, ptr %17, i64 24
-  %38 = getelementptr inbounds i8, ptr %17, i64 8
-  store i64 0, ptr %38, align 8
-  %39 = ptrtoint ptr %1 to i64
-  store i64 %39, ptr %17, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN5cxx208expectedIvN8WasmEdge7ErrCodeEEERSt7variantIJNS2_3AST9Component13DescTypeIndexESt8optionalIjES5_IJjNS7_11PrimValTypeEEEEEEZNS2_6Loader6Loader10loadExportERNS7_6ExportEE3$_0E9_M_invokeERKSt9_Any_dataSE_", ptr %37, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN5cxx208expectedIvN8WasmEdge7ErrCodeEEERSt7variantIJNS2_3AST9Component13DescTypeIndexESt8optionalIjES5_IJjNS7_11PrimValTypeEEEEEEZNS2_6Loader6Loader10loadExportERNS7_6ExportEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %36, align 8
+  %36 = ptrtoint ptr %1 to i64
+  %37 = getelementptr inbounds i8, ptr %17, i64 16
+  %38 = getelementptr inbounds i8, ptr %17, i64 24
+  %39 = getelementptr inbounds i8, ptr %17, i64 8
+  store i64 0, ptr %39, align 8
+  store i64 %36, ptr %17, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN5cxx208expectedIvN8WasmEdge7ErrCodeEEERSt7variantIJNS2_3AST9Component13DescTypeIndexESt8optionalIjES5_IJjNS7_11PrimValTypeEEEEEEZNS2_6Loader6Loader10loadExportERNS7_6ExportEE3$_0E9_M_invokeERKSt9_Any_dataSE_", ptr %38, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN5cxx208expectedIvN8WasmEdge7ErrCodeEEERSt7variantIJNS2_3AST9Component13DescTypeIndexESt8optionalIjES5_IJjNS7_11PrimValTypeEEEEEEZNS2_6Loader6Loader10loadExportERNS7_6ExportEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %37, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -851,7 +851,7 @@ _ZNKSt8functionIFN5cxx208expectedIvN8WasmEdge7ErrCodeEEERSt7variantIJNS2_3AST9Co
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %59 = load ptr, ptr %36, align 8
+  %59 = load ptr, ptr %37, align 8
   %.not.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i, label %_ZNSt8functionIFN5cxx208expectedIvN8WasmEdge7ErrCodeEEERSt7variantIJNS2_3AST9Component13DescTypeIndexESt8optionalIjES5_IJjNS7_11PrimValTypeEEEEEEED2Ev.exit, label %60
 
@@ -882,7 +882,7 @@ _ZNSt8functionIFN5cxx208expectedIvN8WasmEdge7ErrCodeEEERSt7variantIJNS2_3AST9Com
 67:                                               ; preds = %_ZNKSt8functionIFN5cxx208expectedIvN8WasmEdge7ErrCodeEEERSt7variantIJNS2_3AST9Component13DescTypeIndexESt8optionalIjES5_IJjNS7_11PrimValTypeEEEEEEEclESE_.exit.i, %35
   %68 = landingpad { ptr, i32 }
           cleanup
-  %69 = load ptr, ptr %36, align 8
+  %69 = load ptr, ptr %37, align 8
   %.not.i.i7 = icmp eq ptr %69, null
   br i1 %.not.i.i7, label %_ZNSt8functionIFN5cxx208expectedIvN8WasmEdge7ErrCodeEEERSt7variantIJNS2_3AST9Component13DescTypeIndexESt8optionalIjES5_IJjNS7_11PrimValTypeEEEEEEED2Ev.exit8, label %70
 

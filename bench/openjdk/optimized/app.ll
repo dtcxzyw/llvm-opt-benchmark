@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.(anonymous namespace)::SetLoggerAtEndOfScope" = type { ptr, ptr }
 %struct.SourceCodePos = type <{ ptr, ptr, i32, [4 x i8] }>
 %"class.tstrings::any" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -235,281 +234,275 @@ define hidden noundef range(i32 0, 2) i32 @_ZN3app6launchERKSt9nothrow_tPFvvEP11
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::unique_ptr", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  %9 = alloca %"class.(anonymous namespace)::SetLoggerAtEndOfScope", align 8
-  %10 = alloca %struct.SourceCodePos, align 8
-  %11 = alloca %"class.std::__cxx11::basic_string", align 8
-  %12 = alloca %struct.SourceCodePos, align 8
-  %13 = alloca %"class.std::__cxx11::basic_string", align 8
-  %14 = alloca %"class.tstrings::any", align 8
-  %15 = alloca %struct.SourceCodePos, align 8
-  %16 = tail call noundef zeroext i1 @_ZN3app13isWithLoggingEv()
-  %17 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  br i1 %16, label %19, label %20
+  %9 = alloca %struct.SourceCodePos, align 8
+  %10 = alloca %"class.std::__cxx11::basic_string", align 8
+  %11 = alloca %struct.SourceCodePos, align 8
+  %12 = alloca %"class.std::__cxx11::basic_string", align 8
+  %13 = alloca %"class.tstrings::any", align 8
+  %14 = alloca %struct.SourceCodePos, align 8
+  %15 = tail call noundef zeroext i1 @_ZN3app13isWithLoggingEv()
+  %16 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  br i1 %15, label %18, label %19
+
+18:                                               ; preds = %3
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_119StandardLogAppenderE, i64 16), ptr @_ZN12_GLOBAL__N_125standardLogAppenderMemoryE, align 8
+  br label %20
 
 19:                                               ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_119StandardLogAppenderE, i64 16), ptr @_ZN12_GLOBAL__N_125standardLogAppenderMemoryE, align 8
-  br label %21
-
-20:                                               ; preds = %3
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV14NopLogAppender, i64 16), ptr @_ZN12_GLOBAL__N_120nopLogAppenderMemoryE, align 8
-  br label %21
+  br label %20
 
-21:                                               ; preds = %20, %19
-  %_ZN12_GLOBAL__N_120nopLogAppenderMemoryE.sink = phi ptr [ @_ZN12_GLOBAL__N_120nopLogAppenderMemoryE, %20 ], [ @_ZN12_GLOBAL__N_125standardLogAppenderMemoryE, %19 ]
-  store ptr %_ZN12_GLOBAL__N_120nopLogAppenderMemoryE.sink, ptr %18, align 8
-  %22 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
+20:                                               ; preds = %19, %18
+  %_ZN12_GLOBAL__N_120nopLogAppenderMemoryE.sink = phi ptr [ @_ZN12_GLOBAL__N_120nopLogAppenderMemoryE, %19 ], [ @_ZN12_GLOBAL__N_125standardLogAppenderMemoryE, %18 ]
+  store ptr %_ZN12_GLOBAL__N_120nopLogAppenderMemoryE.sink, ptr %17, align 8
+  %21 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__FUNCTION__._ZN3app6launchERKSt9nothrow_tPFvvEP11LogAppender, ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %22 unwind label %24
+
+22:                                               ; preds = %20
+  invoke void @_ZN6Logger11ScopeTracerC1ERS_NS_8LogLevelEPKciS4_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(121) %4, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef 0, ptr noundef nonnull @.str.4, i32 noundef 128, ptr noundef nonnull @__FUNCTION__._ZN3app6launchERKSt9nothrow_tPFvvEP11LogAppender, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %23 unwind label %26
 
-23:                                               ; preds = %21
-  invoke void @_ZN6Logger11ScopeTracerC1ERS_NS_8LogLevelEPKciS4_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(121) %4, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 0, ptr noundef nonnull @.str.4, i32 noundef 128, ptr noundef nonnull @__FUNCTION__._ZN3app6launchERKSt9nothrow_tPFvvEP11LogAppender, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %24 unwind label %28
-
-24:                                               ; preds = %23
+23:                                               ; preds = %22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
   %.not = icmp eq ptr %2, null
   %spec.select = select i1 %.not, ptr @_ZN12_GLOBAL__N_120lastErrorLogAppenderE, ptr %2
   store ptr null, ptr %7, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
-  store ptr %7, ptr %9, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %spec.select, ptr %25, align 8
   invoke void %1()
-          to label %31 unwind label %32
+          to label %29 unwind label %30
 
-26:                                               ; preds = %21
+24:                                               ; preds = %20
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  br label %28
+
+26:                                               ; preds = %22
   %27 = landingpad { ptr, i32 }
           cleanup
-  br label %30
-
-28:                                               ; preds = %23
-  %29 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
-  br label %30
+  br label %28
 
-30:                                               ; preds = %28, %26
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ]
+28:                                               ; preds = %26, %24
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
   %.015 = extractvalue { ptr, i32 } %.pn, 0
   %.016 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
-  br label %106
+  br label %104
 
-31:                                               ; preds = %24
-  call fastcc void @_ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #13
-  br label %96
+29:                                               ; preds = %23
+  call fastcc void @_ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev(ptr nonnull %7, ptr nonnull %spec.select) #13
+  br label %94
 
-32:                                               ; preds = %24
-  %33 = landingpad { ptr, i32 }
+30:                                               ; preds = %23
+  %31 = landingpad { ptr, i32 }
           catch ptr @_ZTI11JpErrorBase
           catch ptr @_ZTISt13runtime_error
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  %35 = extractvalue { ptr, i32 } %33, 1
-  call fastcc void @_ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #13
-  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11JpErrorBase) #13
-  %37 = icmp eq i32 %35, %36
-  br i1 %37, label %38, label %46
+  %32 = extractvalue { ptr, i32 } %31, 0
+  %33 = extractvalue { ptr, i32 } %31, 1
+  call fastcc void @_ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev(ptr nonnull %7, ptr nonnull %spec.select) #13
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11JpErrorBase) #13
+  %35 = icmp eq i32 %33, %34
+  br i1 %35, label %36, label %44
 
-38:                                               ; preds = %32
-  %39 = call ptr @__cxa_begin_catch(ptr %34) #13
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %14)
-          to label %_ZN8tstrings3anyC2Ev.exit unwind label %72
+36:                                               ; preds = %30
+  %37 = call ptr @__cxa_begin_catch(ptr %32) #13
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13)
+          to label %_ZN8tstrings3anyC2Ev.exit unwind label %70
 
-_ZN8tstrings3anyC2Ev.exit:                        ; preds = %38
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %39) #13
-  %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %42)
-          to label %_ZN8tstrings3anylsIPKcEERS0_T_.exit unwind label %76
+_ZN8tstrings3anyC2Ev.exit:                        ; preds = %36
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(8) %37) #13
+  %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %40)
+          to label %_ZN8tstrings3anylsIPKcEERS0_T_.exit unwind label %74
 
 _ZN8tstrings3anylsIPKcEERS0_T_.exit:              ; preds = %_ZN8tstrings3anyC2Ev.exit
-  invoke void @_ZNK8tstrings3any3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(376) %14)
-          to label %44 unwind label %76
+  invoke void @_ZNK8tstrings3any3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(376) %13)
+          to label %42 unwind label %74
 
-44:                                               ; preds = %_ZN8tstrings3anylsIPKcEERS0_T_.exit
-  %45 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %13) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #13
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %14) #13
+42:                                               ; preds = %_ZN8tstrings3anylsIPKcEERS0_T_.exit
+  %43 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %12) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #13
   store ptr %8, ptr @_ZN12_GLOBAL__N_115theLastErrorMsgB5cxx11E, align 8
   invoke void @__cxa_rethrow() #14
-          to label %112 unwind label %80
+          to label %110 unwind label %78
 
-46:                                               ; preds = %32
-  %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #13
-  %48 = icmp eq i32 %35, %47
-  %49 = call ptr @__cxa_begin_catch(ptr %34) #13
-  br i1 %48, label %50, label %55
+44:                                               ; preds = %30
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #13
+  %46 = icmp eq i32 %33, %45
+  %47 = call ptr @__cxa_begin_catch(ptr %32) #13
+  br i1 %46, label %48, label %53
 
-50:                                               ; preds = %46
-  invoke void @_Z12lastCRTErrorB5cxx11v(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11)
-          to label %51 unwind label %68
+48:                                               ; preds = %44
+  invoke void @_Z12lastCRTErrorB5cxx11v(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10)
+          to label %49 unwind label %66
 
-51:                                               ; preds = %50
-  %52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %11) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #13
+49:                                               ; preds = %48
+  %50 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   store ptr %8, ptr @_ZN12_GLOBAL__N_115theLastErrorMsgB5cxx11E, align 8
-  store ptr @.str.4, ptr %12, align 8
-  %53 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr @__FUNCTION__._ZN3app6launchERKSt9nothrow_tPFvvEP11LogAppender, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %12, i64 16
-  store i32 184, ptr %54, align 8
-  invoke void @_Z11reportErrorRK13SourceCodePosRKSt13runtime_error(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(16) %49)
-          to label %.invoke unwind label %68
+  store ptr @.str.4, ptr %11, align 8
+  %51 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr @__FUNCTION__._ZN3app6launchERKSt9nothrow_tPFvvEP11LogAppender, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %11, i64 16
+  store i32 184, ptr %52, align 8
+  invoke void @_Z11reportErrorRK13SourceCodePosRKSt13runtime_error(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(16) %47)
+          to label %.invoke unwind label %66
 
-55:                                               ; preds = %46
-  %56 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.5)
-          to label %57 unwind label %60
+53:                                               ; preds = %44
+  %54 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.5)
+          to label %55 unwind label %58
 
-57:                                               ; preds = %55
+55:                                               ; preds = %53
   store ptr %8, ptr @_ZN12_GLOBAL__N_115theLastErrorMsgB5cxx11E, align 8
-  store ptr @.str.4, ptr %10, align 8
-  %58 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr @__FUNCTION__._ZN3app6launchERKSt9nothrow_tPFvvEP11LogAppender, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 16
-  store i32 184, ptr %59, align 8
-  invoke void @_Z18reportUnknownErrorRK13SourceCodePos(ptr noundef nonnull align 8 dereferenceable(20) %10)
-          to label %.invoke unwind label %60
+  store ptr @.str.4, ptr %9, align 8
+  %56 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr @__FUNCTION__._ZN3app6launchERKSt9nothrow_tPFvvEP11LogAppender, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 184, ptr %57, align 8
+  invoke void @_Z18reportUnknownErrorRK13SourceCodePos(ptr noundef nonnull align 8 dereferenceable(20) %9)
+          to label %.invoke unwind label %58
 
-60:                                               ; preds = %57, %55
-  %61 = landingpad { ptr, i32 }
+58:                                               ; preds = %55, %53
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  %63 = extractvalue { ptr, i32 } %61, 1
+  %60 = extractvalue { ptr, i32 } %59, 0
+  %61 = extractvalue { ptr, i32 } %59, 1
   invoke void @__cxa_end_catch()
-          to label %101 unwind label %109
+          to label %99 unwind label %107
 
-64:                                               ; preds = %.invoke
-  %65 = landingpad { ptr, i32 }
+62:                                               ; preds = %.invoke
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = extractvalue { ptr, i32 } %65, 1
-  br label %101
+  %64 = extractvalue { ptr, i32 } %63, 0
+  %65 = extractvalue { ptr, i32 } %63, 1
+  br label %99
 
-68:                                               ; preds = %51, %50
-  %69 = landingpad { ptr, i32 }
+66:                                               ; preds = %49, %48
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  %71 = extractvalue { ptr, i32 } %69, 1
+  %68 = extractvalue { ptr, i32 } %67, 0
+  %69 = extractvalue { ptr, i32 } %67, 1
   invoke void @__cxa_end_catch()
-          to label %101 unwind label %109
+          to label %99 unwind label %107
 
-72:                                               ; preds = %38, %90
-  %73 = landingpad { ptr, i32 }
+70:                                               ; preds = %36, %88
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  %75 = extractvalue { ptr, i32 } %73, 1
-  br label %95
+  %72 = extractvalue { ptr, i32 } %71, 0
+  %73 = extractvalue { ptr, i32 } %71, 1
+  br label %93
 
-76:                                               ; preds = %_ZN8tstrings3anyC2Ev.exit, %_ZN8tstrings3anylsIPKcEERS0_T_.exit
-  %77 = landingpad { ptr, i32 }
+74:                                               ; preds = %_ZN8tstrings3anyC2Ev.exit, %_ZN8tstrings3anylsIPKcEERS0_T_.exit
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  %79 = extractvalue { ptr, i32 } %77, 1
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %14) #13
-  br label %95
+  %76 = extractvalue { ptr, i32 } %75, 0
+  %77 = extractvalue { ptr, i32 } %75, 1
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #13
+  br label %93
 
-80:                                               ; preds = %44
-  %81 = landingpad { ptr, i32 }
+78:                                               ; preds = %42
+  %79 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt13runtime_error
-  %82 = extractvalue { ptr, i32 } %81, 0
-  %83 = extractvalue { ptr, i32 } %81, 1
-  %84 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #13
-  %85 = icmp eq i32 %83, %84
-  br i1 %85, label %86, label %95
+  %80 = extractvalue { ptr, i32 } %79, 0
+  %81 = extractvalue { ptr, i32 } %79, 1
+  %82 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #13
+  %83 = icmp eq i32 %81, %82
+  br i1 %83, label %84, label %93
 
-86:                                               ; preds = %80
-  %87 = call ptr @__cxa_begin_catch(ptr %82) #13
-  store ptr @.str.4, ptr %15, align 8
-  %88 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr @__FUNCTION__._ZN3app6launchERKSt9nothrow_tPFvvEP11LogAppender, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %15, i64 16
-  store i32 184, ptr %89, align 8
-  invoke void @_Z11reportErrorRK13SourceCodePosRKSt13runtime_error(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(16) %87)
-          to label %90 unwind label %91
+84:                                               ; preds = %78
+  %85 = call ptr @__cxa_begin_catch(ptr %80) #13
+  store ptr @.str.4, ptr %14, align 8
+  %86 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr @__FUNCTION__._ZN3app6launchERKSt9nothrow_tPFvvEP11LogAppender, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %14, i64 16
+  store i32 184, ptr %87, align 8
+  invoke void @_Z11reportErrorRK13SourceCodePosRKSt13runtime_error(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(16) %85)
+          to label %88 unwind label %89
 
-90:                                               ; preds = %86
+88:                                               ; preds = %84
   invoke void @__cxa_end_catch()
-          to label %.invoke unwind label %72
+          to label %.invoke unwind label %70
 
-.invoke:                                          ; preds = %57, %51, %90
+.invoke:                                          ; preds = %55, %49, %88
   invoke void @__cxa_end_catch()
-          to label %96 unwind label %64
+          to label %94 unwind label %62
 
-91:                                               ; preds = %86
-  %92 = landingpad { ptr, i32 }
+89:                                               ; preds = %84
+  %90 = landingpad { ptr, i32 }
           cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  %94 = extractvalue { ptr, i32 } %92, 1
+  %91 = extractvalue { ptr, i32 } %90, 0
+  %92 = extractvalue { ptr, i32 } %90, 1
   invoke void @__cxa_end_catch()
-          to label %95 unwind label %109
+          to label %93 unwind label %107
 
-95:                                               ; preds = %91, %80, %76, %72
-  %.319 = phi i32 [ %75, %72 ], [ %94, %91 ], [ %83, %80 ], [ %79, %76 ]
-  %.3 = phi ptr [ %74, %72 ], [ %93, %91 ], [ %82, %80 ], [ %78, %76 ]
+93:                                               ; preds = %89, %78, %74, %70
+  %.319 = phi i32 [ %73, %70 ], [ %92, %89 ], [ %81, %78 ], [ %77, %74 ]
+  %.3 = phi ptr [ %72, %70 ], [ %91, %89 ], [ %80, %78 ], [ %76, %74 ]
   invoke void @__cxa_end_catch()
-          to label %101 unwind label %109
+          to label %99 unwind label %107
 
-96:                                               ; preds = %.invoke, %31
-  %.0 = phi i32 [ 0, %31 ], [ 1, %.invoke ]
+94:                                               ; preds = %.invoke, %29
+  %.0 = phi i32 [ 0, %29 ], [ 1, %.invoke ]
   store ptr null, ptr @_ZN12_GLOBAL__N_115theLastErrorMsgB5cxx11E, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
-  %97 = load ptr, ptr %7, align 8
-  %.not.i = icmp eq ptr %97, null
+  %95 = load ptr, ptr %7, align 8
+  %.not.i = icmp eq ptr %95, null
   br i1 %.not.i, label %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i
 
-_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i: ; preds = %96
+_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i: ; preds = %94
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
-  %100 = load ptr, ptr %99, align 8
-  call void %100(ptr noundef nonnull align 8 dereferenceable(40) %97) #13
+  call void %98(ptr noundef nonnull align 8 dereferenceable(40) %95) #13
   br label %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit
 
-_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit: ; preds = %96, %_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i
-  store ptr null, ptr %7, align 8
+_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit: ; preds = %94, %_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i
   call void @_ZN6Logger11ScopeTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(121) %4) #13
   ret i32 %.0
 
-101:                                              ; preds = %95, %68, %60, %64
-  %.218 = phi i32 [ %67, %64 ], [ %.319, %95 ], [ %71, %68 ], [ %63, %60 ]
-  %.2 = phi ptr [ %66, %64 ], [ %.3, %95 ], [ %70, %68 ], [ %62, %60 ]
+99:                                               ; preds = %93, %66, %58, %62
+  %.218 = phi i32 [ %65, %62 ], [ %.319, %93 ], [ %69, %66 ], [ %61, %58 ]
+  %.2 = phi ptr [ %64, %62 ], [ %.3, %93 ], [ %68, %66 ], [ %60, %58 ]
   store ptr null, ptr @_ZN12_GLOBAL__N_115theLastErrorMsgB5cxx11E, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
-  %102 = load ptr, ptr %7, align 8
-  %.not.i24 = icmp eq ptr %102, null
-  br i1 %.not.i24, label %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26, label %_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i25
+  %100 = load ptr, ptr %7, align 8
+  %.not.i27 = icmp eq ptr %100, null
+  br i1 %.not.i27, label %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit29, label %_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i28
 
-_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i25: ; preds = %101
+_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i28: ; preds = %99
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
-  %105 = load ptr, ptr %104, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(40) %102) #13
-  br label %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26
+  call void %103(ptr noundef nonnull align 8 dereferenceable(40) %100) #13
+  br label %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit29
 
-_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26: ; preds = %101, %_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i25
-  store ptr null, ptr %7, align 8
+_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit29: ; preds = %99, %_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i28
   call void @_ZN6Logger11ScopeTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(121) %4) #13
-  br label %106
+  br label %104
 
-106:                                              ; preds = %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26, %30
-  %.117 = phi i32 [ %.218, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26 ], [ %.016, %30 ]
-  %.1 = phi ptr [ %.2, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26 ], [ %.015, %30 ]
-  %107 = insertvalue { ptr, i32 } poison, ptr %.1, 0
-  %108 = insertvalue { ptr, i32 } %107, i32 %.117, 1
-  resume { ptr, i32 } %108
+104:                                              ; preds = %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit29, %28
+  %.117 = phi i32 [ %.218, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit29 ], [ %.016, %28 ]
+  %.1 = phi ptr [ %.2, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit29 ], [ %.015, %28 ]
+  %105 = insertvalue { ptr, i32 } poison, ptr %.1, 0
+  %106 = insertvalue { ptr, i32 } %105, i32 %.117, 1
+  resume { ptr, i32 } %106
 
-109:                                              ; preds = %95, %91, %68, %60
-  %110 = landingpad { ptr, i32 }
+107:                                              ; preds = %93, %89, %66, %58
+  %108 = landingpad { ptr, i32 }
           catch ptr null
-  %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #15
+  %109 = extractvalue { ptr, i32 } %108, 0
+  call void @__clang_call_terminate(ptr %109) #15
   unreachable
 
-112:                                              ; preds = %44
+110:                                              ; preds = %42
   unreachable
 }
 
@@ -518,107 +511,104 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLogg
 declare void @_ZN6Logger11ScopeTracerC1ERS_NS_8LogLevelEPKciS4_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(121), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev(ptr nocapture %.0.val, ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %1 = alloca %struct.SourceCodePos, align 8
   %2 = alloca %struct.SourceCodePos, align 8
-  %3 = alloca %struct.SourceCodePos, align 8
-  %4 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
-          to label %5 unwind label %26
+  %3 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
+          to label %4 unwind label %22
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20WithExtraLogAppender, i64 16), ptr %4, align 8
-  %8 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
-          to label %.noexc unwind label %28
+4:                                                ; preds = %0
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20WithExtraLogAppender, i64 16), ptr %3, align 8
+  %5 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
+          to label %.noexc unwind label %24
 
-.noexc:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
-  %13 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
-          to label %.noexc6 unwind label %28
+.noexc:                                           ; preds = %4
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
+          to label %.noexc6 unwind label %24
 
 .noexc6:                                          ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV14TeeLogAppender, i64 16), ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %7, ptr %17, align 8
-  %18 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
-          to label %19 unwind label %28
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV14TeeLogAppender, i64 16), ptr %9, align 8
+  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %.8.val, ptr %14, align 8
+  %15 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
+          to label %16 unwind label %24
 
-19:                                               ; preds = %.noexc6
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
-  store ptr %12, ptr %20, align 8
-  %21 = load ptr, ptr %0, align 8
-  %22 = load ptr, ptr %21, align 8
-  store ptr %4, ptr %21, align 8
-  %.not.i = icmp eq ptr %22, null
+16:                                               ; preds = %.noexc6
+  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %9, ptr %17, align 8
+  %18 = load ptr, ptr %.0.val, align 8
+  store ptr %3, ptr %.0.val, align 8
+  %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i
 
-_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i: ; preds = %19
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(40) %22) #13
+_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i: ; preds = %16
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(40) %18) #13
   br label %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit
 
-26:                                               ; preds = %1
-  %27 = landingpad { ptr, i32 }
+22:                                               ; preds = %0
+  %23 = landingpad { ptr, i32 }
           catch ptr @_ZTISt13runtime_error
           catch ptr null
-  br label %30
+  br label %26
 
-28:                                               ; preds = %.noexc6, %.noexc, %5
-  %29 = landingpad { ptr, i32 }
+24:                                               ; preds = %.noexc6, %.noexc, %4
+  %25 = landingpad { ptr, i32 }
           catch ptr @_ZTISt13runtime_error
           catch ptr null
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 40) #17
-  br label %30
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 40) #17
+  br label %26
 
-30:                                               ; preds = %28, %26
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ]
+26:                                               ; preds = %24, %22
+  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.04 = extractvalue { ptr, i32 } %.pn, 1
-  %31 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #13
-  %32 = icmp eq i32 %.04, %31
-  %33 = tail call ptr @__cxa_begin_catch(ptr %.0) #13
-  br i1 %32, label %34, label %37
+  %27 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #13
+  %28 = icmp eq i32 %.04, %27
+  %29 = tail call ptr @__cxa_begin_catch(ptr %.0) #13
+  br i1 %28, label %30, label %33
 
-34:                                               ; preds = %30
-  store ptr @.str.4, ptr %3, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @__FUNCTION__._ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 84, ptr %36, align 8
-  invoke void @_Z11reportErrorRK13SourceCodePosRKSt13runtime_error(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(16) %33)
-          to label %.invoke unwind label %40
+30:                                               ; preds = %26
+  store ptr @.str.4, ptr %2, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @__FUNCTION__._ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 84, ptr %32, align 8
+  invoke void @_Z11reportErrorRK13SourceCodePosRKSt13runtime_error(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(16) %29)
+          to label %.invoke unwind label %36
 
-_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit: ; preds = %.invoke, %_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i, %19
+_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit: ; preds = %.invoke, %_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i, %16
   ret void
 
-37:                                               ; preds = %30
-  store ptr @.str.4, ptr %2, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr @__FUNCTION__._ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 84, ptr %39, align 8
-  invoke void @_Z18reportUnknownErrorRK13SourceCodePos(ptr noundef nonnull align 8 dereferenceable(20) %2)
-          to label %.invoke unwind label %40
+33:                                               ; preds = %26
+  store ptr @.str.4, ptr %1, align 8
+  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr @__FUNCTION__._ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  store i32 84, ptr %35, align 8
+  invoke void @_Z18reportUnknownErrorRK13SourceCodePos(ptr noundef nonnull align 8 dereferenceable(20) %1)
+          to label %.invoke unwind label %36
 
-.invoke:                                          ; preds = %37, %34
+.invoke:                                          ; preds = %33, %30
   invoke void @__cxa_end_catch()
-          to label %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit unwind label %40
+          to label %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit unwind label %36
 
-40:                                               ; preds = %.invoke, %37, %34
-  %41 = landingpad { ptr, i32 }
+36:                                               ; preds = %.invoke, %33, %30
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #15
+  %38 = extractvalue { ptr, i32 } %37, 0
+  call void @__clang_call_terminate(ptr %38) #15
   unreachable
 }
 

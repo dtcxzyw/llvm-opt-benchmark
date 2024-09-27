@@ -2306,28 +2306,28 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree14searchQuadtreeEddii(p
   br i1 %30, label %93, label %.lr.ph
 
 31:                                               ; preds = %21
-  %.not2652 = icmp slt i32 %22, 1
-  br i1 %.not2652, label %._crit_edge, label %.lr.ph
+  %.not2651 = icmp slt i32 %22, 1
+  br i1 %.not2651, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %31
-  %.02168 = phi i32 [ %22, %31 ], [ 1, %28 ]
+  %.02167 = phi i32 [ %22, %31 ], [ 1, %28 ]
   %32 = load i8, ptr %0, align 8
   %33 = and i8 %32, 4
   %.not27 = icmp eq i8 %33, 0
   br i1 %.not27, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_125transformUVToQuadQuadrantIdEEiRKT_RS4_S7_.exit.us, label %.lr.ph.split
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_125transformUVToQuadQuadrantIdEEiRKT_RS4_S7_.exit.us: ; preds = %.lr.ph, %43
-  %.02058.us = phi i32 [ %51, %43 ], [ 1, %.lr.ph ]
-  %.02257.us = phi ptr [ %.1.us, %43 ], [ %9, %.lr.ph ]
-  %.04355.us = phi double [ %52, %43 ], [ 5.000000e-01, %.lr.ph ]
-  %.04454.us = phi double [ %.3.us, %43 ], [ %2, %.lr.ph ]
-  %.04753.us = phi double [ %.350.us, %43 ], [ %1, %.lr.ph ]
-  %34 = fcmp oge double %.04753.us, %.04355.us
-  %35 = fcmp ult double %.04454.us, %.04355.us
+  %.02057.us = phi i32 [ %51, %43 ], [ 1, %.lr.ph ]
+  %.02256.us = phi ptr [ %.1.us, %43 ], [ %9, %.lr.ph ]
+  %.04254.us = phi double [ %52, %43 ], [ 5.000000e-01, %.lr.ph ]
+  %.04353.us = phi double [ %.3.us, %43 ], [ %2, %.lr.ph ]
+  %.04652.us = phi double [ %.349.us, %43 ], [ %1, %.lr.ph ]
+  %34 = fcmp oge double %.04652.us, %.04254.us
+  %35 = fcmp ult double %.04353.us, %.04254.us
   %36 = select i1 %35, i64 0, i64 2
   %37 = zext i1 %34 to i64
   %38 = or disjoint i64 %36, %37
-  %39 = getelementptr inbounds nuw i8, ptr %.02257.us, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.02256.us, i64 4
   %40 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode::Child"], ptr %39, i64 0, i64 %38
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 2
@@ -2335,83 +2335,83 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_125transformUVToQuadQuadrantIdEEiRKT_RS4_
   br i1 %.not28.us, label %43, label %.split.us
 
 43:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_125transformUVToQuadQuadrantIdEEiRKT_RS4_S7_.exit.us
-  %44 = fsub double %.04454.us, %.04355.us
-  %.3.us = select i1 %35, double %.04454.us, double %44
-  %45 = fsub double %.04753.us, %.04355.us
-  %.350.us = select i1 %34, double %45, double %.04753.us
+  %44 = fsub double %.04353.us, %.04254.us
+  %.3.us = select i1 %35, double %.04353.us, double %44
+  %45 = fsub double %.04652.us, %.04254.us
+  %.349.us = select i1 %34, double %45, double %.04652.us
   %46 = and i32 %41, 1
   %.not29.us = icmp eq i32 %46, 0
   %47 = lshr i32 %41, 2
   %48 = and i32 %47, 268435455
   %49 = zext nneg i32 %48 to i64
   %50 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode", ptr %8, i64 %49
-  %.1.us = select i1 %.not29.us, ptr %.02257.us, ptr %50
-  %51 = add nuw i32 %.02058.us, 1
-  %52 = fmul double %.04355.us, 5.000000e-01
-  %exitcond65.not = icmp eq i32 %.02058.us, %.02168
-  br i1 %exitcond65.not, label %._crit_edge, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_125transformUVToQuadQuadrantIdEEiRKT_RS4_S7_.exit.us, !llvm.loop !35
+  %.1.us = select i1 %.not29.us, ptr %.02256.us, ptr %50
+  %51 = add nuw i32 %.02057.us, 1
+  %52 = fmul double %.04254.us, 5.000000e-01
+  %exitcond64.not = icmp eq i32 %.02057.us, %.02167
+  br i1 %exitcond64.not, label %._crit_edge, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_125transformUVToQuadQuadrantIdEEiRKT_RS4_S7_.exit.us, !llvm.loop !35
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %84
-  %.02058 = phi i32 [ %90, %84 ], [ 1, %.lr.ph ]
-  %.02257 = phi ptr [ %.1, %84 ], [ %9, %.lr.ph ]
-  %.04156 = phi i1 [ %.142, %84 ], [ false, %.lr.ph ]
-  %.04355 = phi double [ %91, %84 ], [ 5.000000e-01, %.lr.ph ]
-  %.04454 = phi double [ %.145, %84 ], [ %2, %.lr.ph ]
-  %.04753 = phi double [ %.148, %84 ], [ %1, %.lr.ph ]
-  br i1 %.04156, label %65, label %53
+  %.02057 = phi i32 [ %90, %84 ], [ 1, %.lr.ph ]
+  %.02256 = phi ptr [ %.1, %84 ], [ %9, %.lr.ph ]
+  %.04055 = phi i1 [ %.141, %84 ], [ false, %.lr.ph ]
+  %.04254 = phi double [ %91, %84 ], [ 5.000000e-01, %.lr.ph ]
+  %.04353 = phi double [ %.144, %84 ], [ %2, %.lr.ph ]
+  %.04652 = phi double [ %.147, %84 ], [ %1, %.lr.ph ]
+  br i1 %.04055, label %65, label %53
 
 53:                                               ; preds = %.lr.ph.split
-  %54 = fcmp ult double %.04753, %.04355
+  %54 = fcmp ult double %.04652, %.04254
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %53
-  %56 = fsub double %.04753, %.04355
+  %56 = fsub double %.04652, %.04254
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
 
 57:                                               ; preds = %53
-  %58 = fcmp ult double %.04454, %.04355
+  %58 = fcmp ult double %.04353, %.04254
   br i1 %58, label %61, label %59
 
 59:                                               ; preds = %57
-  %60 = fsub double %.04454, %.04355
+  %60 = fsub double %.04353, %.04254
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
 
 61:                                               ; preds = %57
-  %62 = fadd double %.04753, %.04454
-  %63 = fcmp ult double %62, %.04355
+  %62 = fadd double %.04652, %.04353
+  %63 = fcmp ult double %62, %.04254
   br i1 %63, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit, label %64
 
 64:                                               ; preds = %61
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
 
 65:                                               ; preds = %.lr.ph.split
-  %66 = fcmp olt double %.04753, %.04355
+  %66 = fcmp olt double %.04652, %.04254
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %65
-  %68 = fsub double %.04454, %.04355
+  %68 = fsub double %.04353, %.04254
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
 
 69:                                               ; preds = %65
-  %70 = fcmp olt double %.04454, %.04355
-  %71 = fsub double %.04753, %.04355
+  %70 = fcmp olt double %.04353, %.04254
+  %71 = fsub double %.04652, %.04254
   br i1 %70, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit, label %72
 
 72:                                               ; preds = %69
-  %73 = fsub double %.04454, %.04355
+  %73 = fsub double %.04353, %.04254
   %74 = fadd double %73, %71
-  %75 = fcmp olt double %74, %.04355
+  %75 = fcmp olt double %74, %.04254
   br i1 %75, label %76, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
 
 76:                                               ; preds = %72
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit: ; preds = %76, %72, %69, %67, %64, %61, %59, %55
-  %.148 = phi double [ %.04753, %67 ], [ %71, %69 ], [ %71, %76 ], [ %71, %72 ], [ %.04753, %61 ], [ %.04753, %64 ], [ %.04753, %59 ], [ %56, %55 ]
-  %.145 = phi double [ %68, %67 ], [ %.04454, %69 ], [ %73, %76 ], [ %73, %72 ], [ %.04454, %61 ], [ %.04454, %64 ], [ %60, %59 ], [ %.04454, %55 ]
-  %.142 = phi i1 [ true, %67 ], [ true, %69 ], [ true, %76 ], [ true, %72 ], [ false, %61 ], [ true, %64 ], [ false, %59 ], [ false, %55 ]
+  %.147 = phi double [ %.04652, %67 ], [ %71, %69 ], [ %71, %76 ], [ %71, %72 ], [ %.04652, %61 ], [ %.04652, %64 ], [ %.04652, %59 ], [ %56, %55 ]
+  %.144 = phi double [ %68, %67 ], [ %.04353, %69 ], [ %73, %76 ], [ %73, %72 ], [ %.04353, %61 ], [ %.04353, %64 ], [ %60, %59 ], [ %.04353, %55 ]
+  %.141 = phi i1 [ true, %67 ], [ true, %69 ], [ true, %76 ], [ true, %72 ], [ false, %61 ], [ true, %64 ], [ false, %59 ], [ false, %55 ]
   %77 = phi i64 [ 1, %67 ], [ 2, %69 ], [ 3, %76 ], [ 0, %72 ], [ 0, %61 ], [ 3, %64 ], [ 2, %59 ], [ 1, %55 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.02257, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.02256, i64 4
   %79 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode::Child"], ptr %78, i64 0, i64 %77
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, 2
@@ -2431,10 +2431,10 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S
   %87 = and i32 %86, 268435455
   %88 = zext nneg i32 %87 to i64
   %89 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode", ptr %8, i64 %88
-  %.1 = select i1 %.not29, ptr %.02257, ptr %89
-  %90 = add nuw i32 %.02058, 1
-  %91 = fmul double %.04355, 5.000000e-01
-  %exitcond.not = icmp eq i32 %.02058, %.02168
+  %.1 = select i1 %.not29, ptr %.02256, ptr %89
+  %90 = add nuw i32 %.02057, 1
+  %91 = fmul double %.04254, 5.000000e-01
+  %exitcond.not = icmp eq i32 %.02057, %.02167
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %84, %43, %31

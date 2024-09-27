@@ -16869,7 +16869,7 @@ define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibra
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false), !alias.scope !142
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !142
   store ptr @"_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNS0_19SdfPredicateLibraryIS9_E14_TryToBindCallIZL10TestSimplevE3$_1EESt8functionISA_ERKT_RKSt6vectorINS0_22SdfPredicateExpression5FnArgESaISM_EERKNS0_33SdfPredicateParamNamesAndDefaultsEEUlS9_E_E9_M_invokeERKSt9_Any_dataS9_", ptr %29, align 8, !alias.scope !142
   store ptr @"_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNS0_19SdfPredicateLibraryIS9_E14_TryToBindCallIZL10TestSimplevE3$_1EESt8functionISA_ERKT_RKSt6vectorINS0_22SdfPredicateExpression5FnArgESaISM_EERKNS0_33SdfPredicateParamNamesAndDefaultsEEUlS9_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation", ptr %28, align 8, !alias.scope !142
   br label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14_TryToBindCallIZL10TestSimplevE3$_1EESt8functionIFNS_26SdfPredicateFunctionResultES8_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISL_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit"
@@ -18815,7 +18815,7 @@ define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibra
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false), !alias.scope !163
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !163
   store ptr @"_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNS0_19SdfPredicateLibraryIS9_E14_TryToBindCallIZL10TestSimplevE3$_2EESt8functionISA_ERKT_RKSt6vectorINS0_22SdfPredicateExpression5FnArgESaISM_EERKNS0_33SdfPredicateParamNamesAndDefaultsEEUlS9_E_E9_M_invokeERKSt9_Any_dataS9_", ptr %29, align 8, !alias.scope !163
   store ptr @"_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNS0_19SdfPredicateLibraryIS9_E14_TryToBindCallIZL10TestSimplevE3$_2EESt8functionISA_ERKT_RKSt6vectorINS0_22SdfPredicateExpression5FnArgESaISM_EERKNS0_33SdfPredicateParamNamesAndDefaultsEEUlS9_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation", ptr %28, align 8, !alias.scope !163
   br label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14_TryToBindCallIZL10TestSimplevE3$_2EESt8functionIFNS_26SdfPredicateFunctionResultES8_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISL_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit"
@@ -25969,7 +25969,7 @@ define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibra
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false), !alias.scope !264
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !264
   store ptr @"_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKZL14TestLinkErrorsvE4NoneEZNS0_19SdfPredicateLibraryIS2_E14_TryToBindCallIZL14TestLinkErrorsvE3$_0EESt8functionIS5_ERKT_RKSt6vectorINS0_22SdfPredicateExpression5FnArgESaISH_EERKNS0_33SdfPredicateParamNamesAndDefaultsEEUlS4_E_E9_M_invokeERKSt9_Any_dataS4_", ptr %29, align 8, !alias.scope !264
   store ptr @"_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKZL14TestLinkErrorsvE4NoneEZNS0_19SdfPredicateLibraryIS2_E14_TryToBindCallIZL14TestLinkErrorsvE3$_0EESt8functionIS5_ERKT_RKSt6vectorINS0_22SdfPredicateExpression5FnArgESaISH_EERKNS0_33SdfPredicateParamNamesAndDefaultsEEUlS4_E_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation", ptr %28, align 8, !alias.scope !264
   br label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE14_TryToBindCallIZL14TestLinkErrorsvE3$_0EESt8functionIFNS_26SdfPredicateFunctionResultERKS1_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISG_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit"

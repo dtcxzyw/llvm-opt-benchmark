@@ -1465,9 +1465,9 @@ declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @_ZN12_GLOBAL__N_19Hierarchy3getEN4llvm9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.26.0.copyload.fr.i.i = freeze i64 %2
   %.sroa.05.0.copyload.fr.i.i = freeze ptr %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val7.i = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %.val8.i = load i32, ptr %5, align 8

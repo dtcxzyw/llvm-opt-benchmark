@@ -16823,29 +16823,29 @@ define hidden { double, double } @_ZN5osgeo4proj14pj_hgrid_applyEP6pj_ctxRKSt6ve
   %8 = fadd double %2, 0x401921FB54442D18
   %9 = fcmp oeq double %2, 0x7FF0000000000000
   %10 = icmp eq i32 %4, 1
-  %.val327 = load ptr, ptr %1, align 8
-  %.val17328 = load ptr, ptr %6, align 8
-  %.not46.i329 = icmp eq ptr %.val327, %.val17328
-  br i1 %.not46.i329, label %.loopexit51.sink.split, label %.lr.ph.i.preheader
+  %.val329 = load ptr, ptr %1, align 8
+  %.val17330 = load ptr, ptr %6, align 8
+  %.not810.i331 = icmp eq ptr %.val329, %.val17330
+  br i1 %.not810.i331, label %.loopexit53.sink.split, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %5, %.backedge
-  %.val17333 = phi ptr [ %.val17, %.backedge ], [ %.val17328, %5 ]
-  %.val332 = phi ptr [ %.val, %.backedge ], [ %.val327, %5 ]
-  %.sroa.5.0331 = phi double [ %.sroa.5.0.be, %.backedge ], [ 0x7FF0000000000000, %5 ]
-  %.sroa.07.0330 = phi double [ %.sroa.07.0.be, %.backedge ], [ 0x7FF0000000000000, %5 ]
+  %.val17335 = phi ptr [ %.val17, %.backedge ], [ %.val17330, %5 ]
+  %.val334 = phi ptr [ %.val, %.backedge ], [ %.val329, %5 ]
+  %.sroa.5.0333 = phi double [ %.sroa.5.0.be, %.backedge ], [ 0x7FF0000000000000, %5 ]
+  %.sroa.07.0332 = phi double [ %.sroa.07.0.be, %.backedge ], [ 0x7FF0000000000000, %5 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread
-  %.sroa.01.07.i = phi ptr [ %123, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread ], [ %.val332, %.lr.ph.i.preheader ]
-  %11 = load ptr, ptr %.sroa.01.07.i, align 8
+  %.sroa.05.011.i = phi ptr [ %123, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread ], [ %.val334, %.lr.ph.i.preheader ]
+  %11 = load ptr, ptr %.sroa.05.011.i, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 80
   %15 = load ptr, ptr %14, align 8
   %.not27.i = icmp eq ptr %13, %15
-  br i1 %.not27.i, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread, label %.lr.ph.i20
+  br i1 %.not27.i, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread, label %.lr.ph.i22
 
-.lr.ph.i20:                                       ; preds = %.lr.ph.i, %121
+.lr.ph.i22:                                       ; preds = %.lr.ph.i, %121
   %.sroa.016.028.i = phi ptr [ %122, %121 ], [ %13, %.lr.ph.i ]
   %16 = load ptr, ptr %.sroa.016.028.i, align 8
   %17 = load ptr, ptr %16, align 8
@@ -16855,7 +16855,7 @@ define hidden { double, double } @_ZN5osgeo4proj14pj_hgrid_applyEP6pj_ctxRKSt6ve
   %21 = load ptr, ptr %.sroa.016.028.i, align 8
   br i1 %20, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit, label %22
 
-22:                                               ; preds = %.lr.ph.i20
+22:                                               ; preds = %.lr.ph.i22
   %23 = getelementptr inbounds i8, ptr %21, i64 48
   %24 = getelementptr inbounds i8, ptr %21, i64 88
   %25 = load double, ptr %24, align 8
@@ -16929,16 +16929,16 @@ _ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i: ; preds = %60,
   %67 = getelementptr inbounds i8, ptr %21, i64 128
   %68 = load ptr, ptr %67, align 8
   %.not2023.i.i = icmp eq ptr %66, %68
-  br i1 %.not2023.i.i, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29, label %.lr.ph.i.i21
+  br i1 %.not2023.i.i, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread31, label %.lr.ph.i.i23
 
-.lr.ph.i.i21:                                     ; preds = %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i.i
+.lr.ph.i.i23:                                     ; preds = %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i.i
   %69 = phi ptr [ %118, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i.i ], [ %68, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i ]
   %70 = phi ptr [ %116, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i.i ], [ %66, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i ]
   %.tr24.i.i = phi ptr [ %72, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i.i ], [ %21, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i ]
   br label %71
 
-71:                                               ; preds = %119, %.lr.ph.i.i21
-  %.sroa.014.021.i.i = phi ptr [ %70, %.lr.ph.i.i21 ], [ %120, %119 ]
+71:                                               ; preds = %119, %.lr.ph.i.i23
+  %.sroa.014.021.i.i = phi ptr [ %70, %.lr.ph.i.i23 ], [ %120, %119 ]
   %72 = load ptr, ptr %.sroa.014.021.i.i, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 48
   %74 = getelementptr inbounds i8, ptr %72, i64 88
@@ -17013,49 +17013,49 @@ _ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i.i: ; preds = %1
   %117 = getelementptr inbounds i8, ptr %72, i64 128
   %118 = load ptr, ptr %117, align 8
   %.not20.i.i = icmp eq ptr %116, %118
-  br i1 %.not20.i.i, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29, label %.lr.ph.i.i21
+  br i1 %.not20.i.i, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread31, label %.lr.ph.i.i23
 
 119:                                              ; preds = %110, %106, %84, %71
   %120 = getelementptr inbounds i8, ptr %.sroa.014.021.i.i, i64 8
-  %.not.i.i23 = icmp eq ptr %120, %69
-  br i1 %.not.i.i23, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit, label %71
+  %.not.i.i25 = icmp eq ptr %120, %69
+  br i1 %.not.i.i25, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit, label %71
 
 121:                                              ; preds = %60, %56, %34, %22
   %122 = getelementptr inbounds i8, ptr %.sroa.016.028.i, i64 8
-  %.not.i24 = icmp eq ptr %122, %15
-  br i1 %.not.i24, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread, label %.lr.ph.i20
+  %.not.i26 = icmp eq ptr %122, %15
+  br i1 %.not.i26, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread, label %.lr.ph.i22
 
-_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit: ; preds = %.lr.ph.i20, %119
-  %.0.i22 = phi ptr [ %.tr24.i.i, %119 ], [ %21, %.lr.ph.i20 ]
-  %.not.i = icmp eq ptr %.0.i22, null
-  br i1 %.not.i, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29
+_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit: ; preds = %.lr.ph.i22, %119
+  %.0.i24 = phi ptr [ %.tr24.i.i, %119 ], [ %21, %.lr.ph.i22 ]
+  %.not.i = icmp eq ptr %.0.i24, null
+  br i1 %.not.i, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread, label %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread31
 
 _ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread: ; preds = %121, %.lr.ph.i, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit
-  %123 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 8
-  %.not4.i = icmp eq ptr %123, %.val17333
-  br i1 %.not4.i, label %.loopexit51.sink.split, label %.lr.ph.i
+  %123 = getelementptr inbounds i8, ptr %.sroa.05.011.i, i64 8
+  %.not8.i = icmp eq ptr %123, %.val17335
+  br i1 %.not8.i, label %.loopexit53.sink.split, label %.lr.ph.i
 
-_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29: ; preds = %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i.i
-  %.0.i2232 = phi ptr [ %72, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i.i ], [ %21, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i ], [ %.0.i22, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit ]
-  %124 = load ptr, ptr %.sroa.01.07.i, align 8
-  %125 = load ptr, ptr %.0.i2232, align 8
+_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread31: ; preds = %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i.i
+  %.0.i2434 = phi ptr [ %72, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i.i ], [ %21, %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i ], [ %.0.i24, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit ]
+  %124 = load ptr, ptr %.sroa.05.011.i, align 8
+  %125 = load ptr, ptr %.0.i2434, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 24
   %127 = load ptr, ptr %126, align 8
-  %128 = tail call noundef zeroext i1 %127(ptr noundef nonnull align 8 dereferenceable(120) %.0.i2232)
-  br i1 %128, label %.loopexit51, label %129
+  %128 = tail call noundef zeroext i1 %127(ptr noundef nonnull align 8 dereferenceable(120) %.0.i2434)
+  br i1 %128, label %.loopexit53, label %129
 
-129:                                              ; preds = %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29
-  br i1 %9, label %.loopexit51.sink.split, label %130
+129:                                              ; preds = %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread31
+  br i1 %9, label %.loopexit53.sink.split, label %130
 
 130:                                              ; preds = %129
-  %131 = getelementptr inbounds i8, ptr %.0.i2232, i64 48
-  %132 = getelementptr inbounds i8, ptr %.0.i2232, i64 88
+  %131 = getelementptr inbounds i8, ptr %.0.i2434, i64 48
+  %132 = getelementptr inbounds i8, ptr %.0.i2434, i64 88
   %133 = load double, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %.0.i2232, i64 96
+  %134 = getelementptr inbounds i8, ptr %.0.i2434, i64 96
   %135 = load double, ptr %134, align 8
   %136 = fadd double %133, %135
   %137 = fmul double %136, 1.000000e-05
-  %138 = getelementptr inbounds i8, ptr %.0.i2232, i64 56
+  %138 = getelementptr inbounds i8, ptr %.0.i2434, i64 56
   %139 = load double, ptr %138, align 8
   %140 = fsub double %2, %139
   %141 = fadd double %140, %137
@@ -17068,7 +17068,7 @@ _ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29: ; preds = %_ZN5
 
 145:                                              ; preds = %130
   %146 = fsub double %140, %137
-  %147 = getelementptr inbounds i8, ptr %.0.i2232, i64 72
+  %147 = getelementptr inbounds i8, ptr %.0.i2434, i64 72
   %148 = load double, ptr %147, align 8
   %149 = fsub double %148, %139
   %150 = fcmp ogt double %146, %149
@@ -17080,16 +17080,16 @@ _ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29: ; preds = %_ZN5
 
 153:                                              ; preds = %151, %145, %143
   %.sroa.040.0.i = phi double [ %144, %143 ], [ %152, %151 ], [ %140, %145 ]
-  %154 = getelementptr inbounds i8, ptr %.0.i2232, i64 64
+  %154 = getelementptr inbounds i8, ptr %.0.i2434, i64 64
   %155 = load double, ptr %154, align 8
   %156 = fsub double %3, %155
-  %157 = tail call fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %.sroa.040.0.i, double %156, ptr noundef %.0.i2232, i1 noundef zeroext true)
+  %157 = tail call fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %.sroa.040.0.i, double %156, ptr noundef %.0.i2434, i1 noundef zeroext true)
   %158 = extractvalue { double, double } %157, 0
   %159 = extractvalue { double, double } %157, 1
-  %160 = load ptr, ptr %.0.i2232, align 8
+  %160 = load ptr, ptr %.0.i2434, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 32
   %162 = load ptr, ptr %161, align 8
-  %163 = tail call noundef zeroext i1 %162(ptr noundef nonnull align 8 dereferenceable(120) %.0.i2232)
+  %163 = tail call noundef zeroext i1 %162(ptr noundef nonnull align 8 dereferenceable(120) %.0.i2434)
   br i1 %163, label %164, label %169
 
 164:                                              ; preds = %153
@@ -17101,7 +17101,7 @@ _ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29: ; preds = %_ZN5
 
 169:                                              ; preds = %153
   %170 = fcmp oeq double %158, 0x7FF0000000000000
-  br i1 %170, label %.loopexit51.sink.split, label %171
+  br i1 %170, label %.loopexit53.sink.split, label %171
 
 171:                                              ; preds = %169
   br i1 %10, label %172, label %175
@@ -17124,14 +17124,14 @@ _ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29: ; preds = %_ZN5
   %.sroa.21.0.i = phi double [ %156, %175 ], [ %.sroa.21.1.i, %242 ]
   %.sroa.058.0.i = phi double [ %176, %175 ], [ %.sroa.058.2.i, %242 ]
   %.sroa.17.0.i = phi double [ %177, %175 ], [ %.sroa.17.2.i, %242 ]
-  %.0.i18 = phi ptr [ %.0.i2232, %175 ], [ %.1.i, %242 ]
-  %179 = tail call fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %.sroa.058.0.i, double %.sroa.17.0.i, ptr noundef %.0.i18, i1 noundef zeroext true)
+  %.0.i20 = phi ptr [ %.0.i2434, %175 ], [ %.1.i, %242 ]
+  %179 = tail call fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %.sroa.058.0.i, double %.sroa.17.0.i, ptr noundef %.0.i20, i1 noundef zeroext true)
   %180 = extractvalue { double, double } %179, 0
   %181 = extractvalue { double, double } %179, 1
-  %182 = load ptr, ptr %.0.i18, align 8
+  %182 = load ptr, ptr %.0.i20, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 32
   %184 = load ptr, ptr %183, align 8
-  %185 = tail call noundef zeroext i1 %184(ptr noundef nonnull align 8 dereferenceable(120) %.0.i18)
+  %185 = tail call noundef zeroext i1 %184(ptr noundef nonnull align 8 dereferenceable(120) %.0.i20)
   br i1 %185, label %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit, label %186
 
 186:                                              ; preds = %178
@@ -17147,24 +17147,24 @@ _ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29: ; preds = %_ZN5
   %194 = fadd double %.sroa.17.0.i, %193
   %.val.i = load ptr, ptr %1, align 8
   %.val119.i = load ptr, ptr %6, align 8
-  %.not46.i.i = icmp eq ptr %.val.i, %.val119.i
-  br i1 %.not46.i.i, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i, label %.lr.ph.i.i
+  %.not810.i.i = icmp eq ptr %.val.i, %.val119.i
+  br i1 %.not810.i.i, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %188, %197
-  %.sroa.01.07.i.i = phi ptr [ %198, %197 ], [ %.val.i, %188 ]
-  %195 = load ptr, ptr %.sroa.01.07.i.i, align 8
+  %.sroa.05.011.i.i = phi ptr [ %198, %197 ], [ %.val.i, %188 ]
+  %195 = load ptr, ptr %.sroa.05.011.i.i, align 8
   %196 = tail call noundef ptr @_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd(ptr noundef nonnull align 8 dereferenceable(96) %195, double noundef %191, double noundef %194)
   %.not.i.i = icmp eq ptr %196, null
   br i1 %.not.i.i, label %197, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.i
 
 197:                                              ; preds = %.lr.ph.i.i
-  %198 = getelementptr inbounds i8, ptr %.sroa.01.07.i.i, i64 8
-  %.not4.i.i = icmp eq ptr %198, %.val119.i
-  br i1 %.not4.i.i, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i, label %.lr.ph.i.i
+  %198 = getelementptr inbounds i8, ptr %.sroa.05.011.i.i, i64 8
+  %.not8.i.i = icmp eq ptr %198, %.val119.i
+  br i1 %.not8.i.i, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i, label %.lr.ph.i.i
 
 _ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.i: ; preds = %.lr.ph.i.i
-  %199 = load ptr, ptr %.sroa.01.07.i.i, align 8
-  %200 = icmp eq ptr %196, %.0.i18
+  %199 = load ptr, ptr %.sroa.05.011.i.i, align 8
+  %200 = icmp eq ptr %196, %.0.i20
   br i1 %200, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i, label %201
 
 201:                                              ; preds = %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.i
@@ -17175,7 +17175,7 @@ _ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSet
   br i1 %205, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i, label %206
 
 206:                                              ; preds = %201
-  %207 = getelementptr inbounds i8, ptr %.0.i18, i64 8
+  %207 = getelementptr inbounds i8, ptr %.0.i20, i64 8
   %208 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %207) #30
   %209 = getelementptr inbounds i8, ptr %196, i64 8
   %210 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %209) #30
@@ -17231,10 +17231,10 @@ _ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSet
   %.sroa.21.1.i = phi double [ %232, %231 ], [ %.sroa.21.0.i, %233 ]
   %.sroa.058.2.i = phi double [ %214, %231 ], [ %238, %233 ]
   %.sroa.17.2.i = phi double [ %217, %231 ], [ %239, %233 ]
-  %.1.i = phi ptr [ %196, %231 ], [ %.0.i18, %233 ]
+  %.1.i = phi ptr [ %196, %231 ], [ %.0.i20, %233 ]
   %241 = add nsw i32 %.0109.i, -1
-  %.not.i19 = icmp eq i32 %241, 0
-  br i1 %.not.i19, label %.critedge.i, label %242
+  %.not.i21 = icmp eq i32 %241, 0
+  br i1 %.not.i21, label %.critedge.i, label %242
 
 242:                                              ; preds = %240
   %243 = fmul double %.sroa.5.0.i, %.sroa.5.0.i
@@ -17245,7 +17245,7 @@ _ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSet
 .critedge.i:                                      ; preds = %240
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.104)
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %0, i32 noundef 2052)
-  br label %.loopexit51.sink.split
+  br label %.loopexit53.sink.split
 
 _ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.i: ; preds = %242
   br i1 %187, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i, label %246
@@ -17282,26 +17282,26 @@ _ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19Hor
   %.sroa.5.0.be = phi double [ %.sroa.17.0.i, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit ], [ %159, %164 ]
   %.val = load ptr, ptr %1, align 8
   %.val17 = load ptr, ptr %6, align 8
-  %.not46.i = icmp eq ptr %.val, %.val17
-  br i1 %.not46.i, label %.loopexit51.sink.split, label %.lr.ph.i.preheader, !llvm.loop !130
+  %.not810.i = icmp eq ptr %.val, %.val17
+  br i1 %.not810.i, label %.loopexit53.sink.split, label %.lr.ph.i.preheader, !llvm.loop !130
 
 _ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread: ; preds = %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit, %164, %246, %172
-  %.sroa.8.0.i42 = phi double [ %253, %246 ], [ %174, %172 ], [ %.sroa.17.0.i, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit ], [ %159, %164 ]
-  %.sroa.0106.0.i41 = phi double [ %250, %246 ], [ %173, %172 ], [ %.sroa.058.0.i, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit ], [ %158, %164 ]
-  %258 = fcmp oeq double %.sroa.0106.0.i41, 0x7FF0000000000000
-  %259 = fcmp oeq double %.sroa.8.0.i42, 0x7FF0000000000000
+  %.sroa.8.0.i44 = phi double [ %253, %246 ], [ %174, %172 ], [ %.sroa.17.0.i, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit ], [ %159, %164 ]
+  %.sroa.0106.0.i43 = phi double [ %250, %246 ], [ %173, %172 ], [ %.sroa.058.0.i, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit ], [ %158, %164 ]
+  %258 = fcmp oeq double %.sroa.0106.0.i43, 0x7FF0000000000000
+  %259 = fcmp oeq double %.sroa.8.0.i44, 0x7FF0000000000000
   %or.cond = select i1 %258, i1 true, i1 %259
-  br i1 %or.cond, label %.loopexit51.sink.split, label %.loopexit51
+  br i1 %or.cond, label %.loopexit53.sink.split, label %.loopexit53
 
-.loopexit51.sink.split:                           ; preds = %.backedge, %129, %169, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread, %5, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread, %.critedge.i
-  %.sroa.016.0.ph = phi double [ %.sroa.0106.0.i41, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread ], [ 0x7FF0000000000000, %.critedge.i ], [ 0x7FF0000000000000, %5 ], [ %.sroa.07.0330, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread ], [ 0x7FF0000000000000, %169 ], [ 0x7FF0000000000000, %129 ], [ %.sroa.07.0.be, %.backedge ]
-  %.sroa.4.0.ph = phi double [ %.sroa.8.0.i42, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread ], [ 0x7FF0000000000000, %.critedge.i ], [ 0x7FF0000000000000, %5 ], [ %.sroa.5.0331, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread ], [ %159, %169 ], [ %3, %129 ], [ %.sroa.5.0.be, %.backedge ]
+.loopexit53.sink.split:                           ; preds = %.backedge, %129, %169, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread, %5, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread, %.critedge.i
+  %.sroa.016.0.ph = phi double [ %.sroa.0106.0.i43, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread ], [ 0x7FF0000000000000, %.critedge.i ], [ 0x7FF0000000000000, %5 ], [ %.sroa.07.0332, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread ], [ 0x7FF0000000000000, %169 ], [ 0x7FF0000000000000, %129 ], [ %.sroa.07.0.be, %.backedge ]
+  %.sroa.4.0.ph = phi double [ %.sroa.8.0.i44, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread ], [ 0x7FF0000000000000, %.critedge.i ], [ 0x7FF0000000000000, %5 ], [ %.sroa.5.0333, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread ], [ %159, %169 ], [ %3, %129 ], [ %.sroa.5.0.be, %.backedge ]
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %0, i32 noundef 2052)
-  br label %.loopexit51
+  br label %.loopexit53
 
-.loopexit51:                                      ; preds = %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29, %.loopexit51.sink.split, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread
-  %.sroa.016.0 = phi double [ %.sroa.0106.0.i41, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread ], [ %.sroa.016.0.ph, %.loopexit51.sink.split ], [ %2, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29 ]
-  %.sroa.4.0 = phi double [ %.sroa.8.0.i42, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread ], [ %.sroa.4.0.ph, %.loopexit51.sink.split ], [ %3, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29 ]
+.loopexit53:                                      ; preds = %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread31, %.loopexit53.sink.split, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread
+  %.sroa.016.0 = phi double [ %.sroa.0106.0.i43, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread ], [ %.sroa.016.0.ph, %.loopexit53.sink.split ], [ %2, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread31 ]
+  %.sroa.4.0 = phi double [ %.sroa.8.0.i44, %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread ], [ %.sroa.4.0.ph, %.loopexit53.sink.split ], [ %3, %_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread31 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.016.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -17317,20 +17317,20 @@ define hidden { double, double } @_ZN5osgeo4proj14pj_hgrid_valueEP8PJconstsRKSt6
   %.val = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %.val38 = load ptr, ptr %6, align 8
-  %.not46.i = icmp eq ptr %.val, %.val38
-  br i1 %.not46.i, label %.loopexit, label %.lr.ph.i
+  %.not810.i = icmp eq ptr %.val, %.val38
+  br i1 %.not810.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %9
-  %.sroa.01.07.i = phi ptr [ %10, %9 ], [ %.val, %4 ]
-  %7 = load ptr, ptr %.sroa.01.07.i, align 8
+  %.sroa.05.011.i = phi ptr [ %10, %9 ], [ %.val, %4 ]
+  %7 = load ptr, ptr %.sroa.05.011.i, align 8
   %8 = call noundef ptr @_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd(ptr noundef nonnull align 8 dereferenceable(96) %7, double noundef %2, double noundef %3)
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %12
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 8
-  %.not4.i = icmp eq ptr %10, %.val38
-  br i1 %.not4.i, label %.loopexit, label %.lr.ph.i
+  %10 = getelementptr inbounds i8, ptr %.sroa.05.011.i, i64 8
+  %.not8.i = icmp eq ptr %10, %.val38
+  br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %9, %4
   %11 = load ptr, ptr %0, align 8
@@ -17338,7 +17338,7 @@ define hidden { double, double } @_ZN5osgeo4proj14pj_hgrid_valueEP8PJconstsRKSt6
   br label %67
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = load ptr, ptr %.sroa.01.07.i, align 8
+  %13 = load ptr, ptr %.sroa.05.011.i, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 48
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1

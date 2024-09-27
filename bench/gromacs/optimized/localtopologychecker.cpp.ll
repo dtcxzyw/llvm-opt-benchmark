@@ -209,19 +209,19 @@ common.resume:                                    ; preds = %_ZNSt8functionIFvOS
 
 _ZSt11make_uniqueIN3gmx20LocalTopologyChecker4ImplEJRKNS0_8MDLoggerERPK9t_commrecRK10gmx_mtop_tRKNS0_16DDBondedCheckingERK14gmx_localtop_tRK7t_stateRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %9
   store ptr %12, ptr %0, align 8, !alias.scope !5
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 0, ptr %17, align 8
-  %18 = ptrtoint ptr %12 to i64
-  store i64 %18, ptr %10, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZNS1_20LocalTopologyCheckerC1ERKNS1_8MDLoggerEPK9t_commrecRK10gmx_mtop_tNS1_16DDBondedCheckingERK14gmx_localtop_tRK7t_statebPNS1_25ObservablesReducerBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_OS8_", ptr %16, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZNS1_20LocalTopologyCheckerC1ERKNS1_8MDLoggerEPK9t_commrecRK10gmx_mtop_tNS1_16DDBondedCheckingERK14gmx_localtop_tRK7t_statebPNS1_25ObservablesReducerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation", ptr %15, align 8
+  %15 = ptrtoint ptr %12 to i64
+  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %17 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 0, ptr %18, align 8
+  store i64 %15, ptr %10, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZNS1_20LocalTopologyCheckerC1ERKNS1_8MDLoggerEPK9t_commrecRK10gmx_mtop_tNS1_16DDBondedCheckingERK14gmx_localtop_tRK7t_statebPNS1_25ObservablesReducerBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_OS8_", ptr %17, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZNS1_20LocalTopologyCheckerC1ERKNS1_8MDLoggerEPK9t_commrecRK10gmx_mtop_tNS1_16DDBondedCheckingERK14gmx_localtop_tRK7t_statebPNS1_25ObservablesReducerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation", ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %11, i64 16
   %20 = getelementptr inbounds i8, ptr %11, i64 24
   %21 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 0, ptr %21, align 8
-  store i64 %18, ptr %11, align 8
+  store i64 %15, ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN3gmx20LocalTopologyCheckerC1ERKNS1_8MDLoggerEPK9t_commrecRK10gmx_mtop_tNS1_16DDBondedCheckingERK14gmx_localtop_tRK7t_statebPNS1_25ObservablesReducerBuilderEE3$_1E9_M_invokeERKSt9_Any_dataOl", ptr %20, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN3gmx20LocalTopologyCheckerC1ERKNS1_8MDLoggerEPK9t_commrecRK10gmx_mtop_tNS1_16DDBondedCheckingERK14gmx_localtop_tRK7t_statebPNS1_25ObservablesReducerBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %19, align 8
   invoke void @_ZN3gmx25ObservablesReducerBuilder13addSubscriberEiOSt8functionIFvOS1_IFNS_24ObservablesReducerStatusENS_20ReductionRequirementEEENS_8ArrayRefIdEEEEOS1_IFvlEE(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
@@ -244,7 +244,7 @@ _ZSt11make_uniqueIN3gmx20LocalTopologyChecker4ImplEJRKNS0_8MDLoggerERPK9t_commre
   unreachable
 
 _ZNSt8functionIFvlEED2Ev.exit:                    ; preds = %22, %24
-  %29 = load ptr, ptr %15, align 8
+  %29 = load ptr, ptr %16, align 8
   %.not.i.i10 = icmp eq ptr %29, null
   br i1 %.not.i.i10, label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit, label %30
 
@@ -281,7 +281,7 @@ _ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirement
   unreachable
 
 _ZNSt8functionIFvlEED2Ev.exit12:                  ; preds = %35, %38
-  %43 = load ptr, ptr %15, align 8
+  %43 = load ptr, ptr %16, align 8
   %.not.i.i13 = icmp eq ptr %43, null
   br i1 %.not.i.i13, label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit14, label %44
 

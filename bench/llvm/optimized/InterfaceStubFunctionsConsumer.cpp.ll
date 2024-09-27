@@ -43428,7 +43428,7 @@ _ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13M
 
 .critedge:                                        ; preds = %2, %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE11lower_boundERSA_.exit, %9
   %13 = phi i1 [ true, %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE11lower_boundERSA_.exit ], [ false, %9 ], [ true, %2 ]
-  %.08.lcssa.i.i.i18 = phi ptr [ %.19.i.i.i, %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE11lower_boundERSA_.exit ], [ %.19.i.i.i, %9 ], [ %4, %2 ]
+  %.08.lcssa.i.i.i20 = phi ptr [ %.19.i.i.i, %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE11lower_boundERSA_.exit ], [ %.19.i.i.i, %9 ], [ %4, %2 ]
   %14 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %.val6, ptr %15, align 8
@@ -43458,8 +43458,8 @@ _ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13M
 30:                                               ; preds = %.critedge
   %31 = getelementptr inbounds i8, ptr %0, i64 40
   %.val12.i.i.i = load i64, ptr %31, align 8
-  %.not.i.i.i11 = icmp eq i64 %.val12.i.i.i, 0
-  br i1 %.not.i.i.i11, label %38, label %32
+  %.not.i.i.i13 = icmp eq i64 %.val12.i.i.i, 0
+  br i1 %.not.i.i.i13, label %38, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %0, i64 32
@@ -43470,45 +43470,45 @@ _ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13M
   br i1 %37, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread.i.i, label %38
 
 38:                                               ; preds = %32, %30
-  %.01315.i.i.i.i = load ptr, ptr %3, align 8
-  %.not16.i.i.i.i = icmp eq ptr %.01315.i.i.i.i, null
-  br i1 %.not16.i.i.i.i, label %._crit_edge.thread.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.01113.i.i.i.i = load ptr, ptr %3, align 8
+  %.not14.i.i.i.i = icmp eq ptr %.01113.i.i.i.i, null
+  br i1 %.not14.i.i.i.i, label %._crit_edge.thread.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %38, %.lr.ph.i.i.i.i
-  %.01317.i.i.i.i = phi ptr [ %.013.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.01315.i.i.i.i, %38 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.01317.i.i.i.i, i64 32
+  %.01115.i.i.i.i = phi ptr [ %.011.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.01113.i.i.i.i, %38 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.01115.i.i.i.i, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = icmp ult ptr %.val5.i.i, %40
   %.in.v.i.i.i.i = select i1 %41, i64 16, i64 24
-  %.in.i.i.i.i = getelementptr i8, ptr %.01317.i.i.i.i, i64 %.in.v.i.i.i.i
-  %.013.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8
-  %.not.i.i.i.i = icmp eq ptr %.013.i.i.i.i, null
+  %.in.i.i.i.i = getelementptr i8, ptr %.01115.i.i.i.i, i64 %.in.v.i.i.i.i
+  %.011.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8
+  %.not.i.i.i.i = icmp eq ptr %.011.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !120
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i
   br i1 %41, label %._crit_edge.thread.i.i.i.i, label %46
 
 ._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %38
-  %.012.lcssa21.i.i.i.i = phi ptr [ %.01317.i.i.i.i, %._crit_edge.i.i.i.i ], [ %4, %38 ]
+  %.010.lcssa19.i.i.i.i = phi ptr [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ], [ %4, %38 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 24
   %.val9.i.i.i.i = load ptr, ptr %42, align 8
-  %43 = icmp eq ptr %.012.lcssa21.i.i.i.i, %.val9.i.i.i.i
+  %43 = icmp eq ptr %.010.lcssa19.i.i.i.i, %.val9.i.i.i.i
   br i1 %43, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread.i.i, label %44
 
 44:                                               ; preds = %._crit_edge.thread.i.i.i.i
-  %45 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.012.lcssa21.i.i.i.i) #19
+  %45 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i.i.i.i) #19
   %.phi.trans.insert31.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 32
   %.pre32.i.i.i = load ptr, ptr %.phi.trans.insert31.i.i.i, align 8
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i
   %47 = phi ptr [ %.pre32.i.i.i, %44 ], [ %40, %._crit_edge.i.i.i.i ]
-  %.012.lcssa22.i.i.i.i = phi ptr [ %.012.lcssa21.i.i.i.i, %44 ], [ %.01317.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.010.lcssa20.i.i.i.i = phi ptr [ %.010.lcssa19.i.i.i.i, %44 ], [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ]
   %48 = icmp ult ptr %47, %.val5.i.i
   br i1 %48, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread.i.i, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread21.i.i
 
 49:                                               ; preds = %.critedge
-  %50 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i.i.i18, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i.i.i20, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = icmp ult ptr %.val5.i.i, %51
   br i1 %52, label %53, label %75
@@ -43516,11 +43516,11 @@ _ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13M
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %0, i64 24
   %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, %.08.lcssa.i.i.i18
+  %56 = icmp eq ptr %55, %.08.lcssa.i.i.i20
   br i1 %56, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.i.i, label %57
 
 57:                                               ; preds = %53
-  %58 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i18) #19
+  %58 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i20) #19
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
   %61 = icmp ult ptr %60, %.val5.i.i
@@ -43530,43 +43530,43 @@ _ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13M
   %63 = getelementptr i8, ptr %58, i64 24
   %.val10.i.i.i = load ptr, ptr %63, align 8
   %64 = icmp eq ptr %.val10.i.i.i, null
-  %spec.select.i.i.i = select i1 %64, ptr null, ptr %.08.lcssa.i.i.i18
-  %spec.select22.i.i.i = select i1 %64, ptr %58, ptr %.08.lcssa.i.i.i18
+  %spec.select.i.i.i = select i1 %64, ptr null, ptr %.08.lcssa.i.i.i20
+  %spec.select22.i.i.i = select i1 %64, ptr %58, ptr %.08.lcssa.i.i.i20
   br label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread.i.i
 
 65:                                               ; preds = %57
-  %.01315.i16.i.i.i = load ptr, ptr %3, align 8
-  %.not16.i17.i.i.i = icmp eq ptr %.01315.i16.i.i.i, null
-  br i1 %.not16.i17.i.i.i, label %._crit_edge.thread.i33.i.i.i, label %.lr.ph.i18.i.i.i
+  %.01113.i16.i.i.i = load ptr, ptr %3, align 8
+  %.not14.i17.i.i.i = icmp eq ptr %.01113.i16.i.i.i, null
+  br i1 %.not14.i17.i.i.i, label %._crit_edge.thread.i33.i.i.i, label %.lr.ph.i18.i.i.i
 
 .lr.ph.i18.i.i.i:                                 ; preds = %65, %.lr.ph.i18.i.i.i
-  %.01317.i19.i.i.i = phi ptr [ %.013.i22.i.i.i, %.lr.ph.i18.i.i.i ], [ %.01315.i16.i.i.i, %65 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.01317.i19.i.i.i, i64 32
+  %.01115.i19.i.i.i = phi ptr [ %.011.i22.i.i.i, %.lr.ph.i18.i.i.i ], [ %.01113.i16.i.i.i, %65 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.01115.i19.i.i.i, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = icmp ult ptr %.val5.i.i, %67
   %.in.v.i20.i.i.i = select i1 %68, i64 16, i64 24
-  %.in.i21.i.i.i = getelementptr i8, ptr %.01317.i19.i.i.i, i64 %.in.v.i20.i.i.i
-  %.013.i22.i.i.i = load ptr, ptr %.in.i21.i.i.i, align 8
-  %.not.i23.i.i.i = icmp eq ptr %.013.i22.i.i.i, null
+  %.in.i21.i.i.i = getelementptr i8, ptr %.01115.i19.i.i.i, i64 %.in.v.i20.i.i.i
+  %.011.i22.i.i.i = load ptr, ptr %.in.i21.i.i.i, align 8
+  %.not.i23.i.i.i = icmp eq ptr %.011.i22.i.i.i, null
   br i1 %.not.i23.i.i.i, label %._crit_edge.i24.i.i.i, label %.lr.ph.i18.i.i.i, !llvm.loop !120
 
 ._crit_edge.i24.i.i.i:                            ; preds = %.lr.ph.i18.i.i.i
   br i1 %68, label %._crit_edge.thread.i33.i.i.i, label %72
 
 ._crit_edge.thread.i33.i.i.i:                     ; preds = %._crit_edge.i24.i.i.i, %65
-  %.012.lcssa21.i34.i.i.i = phi ptr [ %.01317.i19.i.i.i, %._crit_edge.i24.i.i.i ], [ %4, %65 ]
-  %69 = icmp eq ptr %.012.lcssa21.i34.i.i.i, %55
+  %.010.lcssa19.i34.i.i.i = phi ptr [ %.01115.i19.i.i.i, %._crit_edge.i24.i.i.i ], [ %4, %65 ]
+  %69 = icmp eq ptr %.010.lcssa19.i34.i.i.i, %55
   br i1 %69, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread.i.i, label %70
 
 70:                                               ; preds = %._crit_edge.thread.i33.i.i.i
-  %71 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.012.lcssa21.i34.i.i.i) #19
+  %71 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i34.i.i.i) #19
   %.phi.trans.insert29.i.i.i = getelementptr inbounds nuw i8, ptr %71, i64 32
   %.pre30.i.i.i = load ptr, ptr %.phi.trans.insert29.i.i.i, align 8
   br label %72
 
 72:                                               ; preds = %70, %._crit_edge.i24.i.i.i
   %73 = phi ptr [ %.pre30.i.i.i, %70 ], [ %67, %._crit_edge.i24.i.i.i ]
-  %.012.lcssa22.i25.i.i.i = phi ptr [ %.012.lcssa21.i34.i.i.i, %70 ], [ %.01317.i19.i.i.i, %._crit_edge.i24.i.i.i ]
+  %.010.lcssa20.i25.i.i.i = phi ptr [ %.010.lcssa19.i34.i.i.i, %70 ], [ %.01115.i19.i.i.i, %._crit_edge.i24.i.i.i ]
   %74 = icmp ult ptr %73, %.val5.i.i
   br i1 %74, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread.i.i, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread21.i.i
 
@@ -43577,59 +43577,59 @@ _ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13M
 77:                                               ; preds = %75
   %78 = getelementptr inbounds i8, ptr %0, i64 32
   %79 = load ptr, ptr %78, align 8
-  %80 = icmp eq ptr %79, %.08.lcssa.i.i.i18
+  %80 = icmp eq ptr %79, %.08.lcssa.i.i.i20
   br i1 %80, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.i.i, label %81
 
 81:                                               ; preds = %77
-  %82 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i18) #19
+  %82 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i20) #19
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %84 = load ptr, ptr %83, align 8
   %85 = icmp ult ptr %.val5.i.i, %84
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %81
-  %87 = getelementptr i8, ptr %.08.lcssa.i.i.i18, i64 24
+  %87 = getelementptr i8, ptr %.08.lcssa.i.i.i20, i64 24
   %.val.i.i.i = load ptr, ptr %87, align 8
   %88 = icmp eq ptr %.val.i.i.i, null
   %spec.select23.i.i.i = select i1 %88, ptr null, ptr %82
-  %spec.select24.i.i.i = select i1 %88, ptr %.08.lcssa.i.i.i18, ptr %82
+  %spec.select24.i.i.i = select i1 %88, ptr %.08.lcssa.i.i.i20, ptr %82
   br label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread.i.i
 
 89:                                               ; preds = %81
-  %.01315.i37.i.i.i = load ptr, ptr %3, align 8
-  %.not16.i38.i.i.i = icmp eq ptr %.01315.i37.i.i.i, null
-  br i1 %.not16.i38.i.i.i, label %._crit_edge.thread.i54.i.i.i, label %.lr.ph.i39.i.i.i
+  %.01113.i37.i.i.i = load ptr, ptr %3, align 8
+  %.not14.i38.i.i.i = icmp eq ptr %.01113.i37.i.i.i, null
+  br i1 %.not14.i38.i.i.i, label %._crit_edge.thread.i54.i.i.i, label %.lr.ph.i39.i.i.i
 
 .lr.ph.i39.i.i.i:                                 ; preds = %89, %.lr.ph.i39.i.i.i
-  %.01317.i40.i.i.i = phi ptr [ %.013.i43.i.i.i, %.lr.ph.i39.i.i.i ], [ %.01315.i37.i.i.i, %89 ]
-  %90 = getelementptr inbounds nuw i8, ptr %.01317.i40.i.i.i, i64 32
+  %.01115.i40.i.i.i = phi ptr [ %.011.i43.i.i.i, %.lr.ph.i39.i.i.i ], [ %.01113.i37.i.i.i, %89 ]
+  %90 = getelementptr inbounds nuw i8, ptr %.01115.i40.i.i.i, i64 32
   %91 = load ptr, ptr %90, align 8
   %92 = icmp ult ptr %.val5.i.i, %91
   %.in.v.i41.i.i.i = select i1 %92, i64 16, i64 24
-  %.in.i42.i.i.i = getelementptr i8, ptr %.01317.i40.i.i.i, i64 %.in.v.i41.i.i.i
-  %.013.i43.i.i.i = load ptr, ptr %.in.i42.i.i.i, align 8
-  %.not.i44.i.i.i = icmp eq ptr %.013.i43.i.i.i, null
+  %.in.i42.i.i.i = getelementptr i8, ptr %.01115.i40.i.i.i, i64 %.in.v.i41.i.i.i
+  %.011.i43.i.i.i = load ptr, ptr %.in.i42.i.i.i, align 8
+  %.not.i44.i.i.i = icmp eq ptr %.011.i43.i.i.i, null
   br i1 %.not.i44.i.i.i, label %._crit_edge.i45.i.i.i, label %.lr.ph.i39.i.i.i, !llvm.loop !120
 
 ._crit_edge.i45.i.i.i:                            ; preds = %.lr.ph.i39.i.i.i
   br i1 %92, label %._crit_edge.thread.i54.i.i.i, label %97
 
 ._crit_edge.thread.i54.i.i.i:                     ; preds = %._crit_edge.i45.i.i.i, %89
-  %.012.lcssa21.i55.i.i.i = phi ptr [ %.01317.i40.i.i.i, %._crit_edge.i45.i.i.i ], [ %4, %89 ]
+  %.010.lcssa19.i55.i.i.i = phi ptr [ %.01115.i40.i.i.i, %._crit_edge.i45.i.i.i ], [ %4, %89 ]
   %93 = getelementptr inbounds i8, ptr %0, i64 24
   %.val9.i56.i.i.i = load ptr, ptr %93, align 8
-  %94 = icmp eq ptr %.012.lcssa21.i55.i.i.i, %.val9.i56.i.i.i
+  %94 = icmp eq ptr %.010.lcssa19.i55.i.i.i, %.val9.i56.i.i.i
   br i1 %94, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread.i.i, label %95
 
 95:                                               ; preds = %._crit_edge.thread.i54.i.i.i
-  %96 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.012.lcssa21.i55.i.i.i) #19
+  %96 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i55.i.i.i) #19
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %96, i64 32
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %97
 
 97:                                               ; preds = %95, %._crit_edge.i45.i.i.i
   %98 = phi ptr [ %.pre.i.i.i, %95 ], [ %91, %._crit_edge.i45.i.i.i ]
-  %.012.lcssa22.i46.i.i.i = phi ptr [ %.012.lcssa21.i55.i.i.i, %95 ], [ %.01317.i40.i.i.i, %._crit_edge.i45.i.i.i ]
+  %.010.lcssa20.i46.i.i.i = phi ptr [ %.010.lcssa19.i55.i.i.i, %95 ], [ %.01115.i40.i.i.i, %._crit_edge.i45.i.i.i ]
   %99 = icmp ult ptr %98, %.val5.i.i
   br i1 %99, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread.i.i, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread21.i.i
 
@@ -43640,7 +43640,7 @@ _ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFun
   br i1 %.not.i.i, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread21.i.i, label %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread.i.i
 
 _ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.thread.i.i: ; preds = %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.i.i, %97, %._crit_edge.thread.i54.i.i.i, %86, %72, %._crit_edge.thread.i33.i.i.i, %62, %46, %._crit_edge.thread.i.i.i.i, %32
-  %.sroa.12.0.i18.i.i = phi ptr [ %.sroa.12.0.i.i.i, %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.i.i ], [ %.012.lcssa21.i55.i.i.i, %._crit_edge.thread.i54.i.i.i ], [ %.012.lcssa21.i34.i.i.i, %._crit_edge.thread.i33.i.i.i ], [ %.012.lcssa21.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %spec.select24.i.i.i, %86 ], [ %spec.select22.i.i.i, %62 ], [ %34, %32 ], [ %.012.lcssa22.i.i.i.i, %46 ], [ %.012.lcssa22.i25.i.i.i, %72 ], [ %.012.lcssa22.i46.i.i.i, %97 ]
+  %.sroa.12.0.i18.i.i = phi ptr [ %.sroa.12.0.i.i.i, %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.i.i ], [ %.010.lcssa19.i55.i.i.i, %._crit_edge.thread.i54.i.i.i ], [ %.010.lcssa19.i34.i.i.i, %._crit_edge.thread.i33.i.i.i ], [ %.010.lcssa19.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %spec.select24.i.i.i, %86 ], [ %spec.select22.i.i.i, %62 ], [ %34, %32 ], [ %.010.lcssa20.i.i.i.i, %46 ], [ %.010.lcssa20.i25.i.i.i, %72 ], [ %.010.lcssa20.i46.i.i.i, %97 ]
   %.sroa.021.0.i17.i.i = phi ptr [ %.sroa.021.0.i.i.i, %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_.exit.i.i ], [ null, %._crit_edge.thread.i54.i.i.i ], [ null, %._crit_edge.thread.i33.i.i.i ], [ null, %._crit_edge.thread.i.i.i.i ], [ %spec.select23.i.i.i, %86 ], [ %spec.select.i.i.i, %62 ], [ null, %32 ], [ null, %46 ], [ null, %72 ], [ null, %97 ]
   %.not.i.i7.i.i = icmp ne ptr %.sroa.021.0.i17.i.i, null
   %100 = icmp eq ptr %.sroa.12.0.i18.i.i, %4

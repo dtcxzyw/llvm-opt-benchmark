@@ -5748,12 +5748,12 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %cleanup, %_ZNKSt14d
 cleanup.cont:                                     ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sections, i8 0, i64 24, i1 false)
   %11 = load i32, ptr %fd, align 4
+  %12 = ptrtoint ptr %sections to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 24
-  %12 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
-  store i64 0, ptr %12, align 8
-  %13 = ptrtoint ptr %sections to i64
-  store i64 %13, ptr %ref.tmp17, align 8
+  %13 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
+  store i64 0, ptr %13, align 8
+  store i64 %12, ptr %ref.tmp17, align 8
   store ptr @"_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEZN29Symbolize_ForEachSection_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataOS3_S6_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEZN29Symbolize_ForEachSection_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %call21 = invoke noundef zeroext i1 @_ZN4absl18debugging_internal14ForEachSectionEiRKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEE(i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17)

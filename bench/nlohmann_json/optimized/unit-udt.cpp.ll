@@ -10009,29 +10009,29 @@ invoke.cont7.i.i.i.i.i.i:                         ; preds = %_ZNSt12_Vector_base
   %16 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8, !noalias !165
   %array_iterator.i.i.i16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i.i.i, i64 16
   store ptr %16, ptr %array_iterator.i.i.i16.i.i.i.i.i.i, align 8, !alias.scope !168, !noalias !147
-  %call.i5.i25.i.i.i.i.i.i = invoke noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEeqISH_TnNSt9enable_ifIXoosr3std7is_sameIT_SH_EE5valuesr3std7is_sameISK_NS2_ISF_EEEE5valueEDnE4typeELDn0EEEbRKSK_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i)
-          to label %call.i5.i.noexc.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.i.i.i.i.i.i, !noalias !147
+  %call.i3.i25.i.i.i.i.i.i = invoke noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEeqISH_TnNSt9enable_ifIXoosr3std7is_sameIT_SH_EE5valuesr3std7is_sameISK_NS2_ISF_EEEE5valueEDnE4typeELDn0EEEbRKSK_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i.i.i.i)
+          to label %call.i3.i.noexc.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.i.i.i.i.i.i, !noalias !147
 
-call.i5.i.noexc.i.i.i.i.i.i:                      ; preds = %invoke.cont7.i.i.i.i.i.i
-  br i1 %call.i5.i25.i.i.i.i.i.i, label %invoke.cont21, label %for.body.i.i.i.i.i.i.i
+call.i3.i.noexc.i.i.i.i.i.i:                      ; preds = %invoke.cont7.i.i.i.i.i.i
+  br i1 %call.i3.i25.i.i.i.i.i.i, label %invoke.cont21, label %for.body.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i:                           ; preds = %call.i5.i.noexc.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i
-  %ret.sroa.0.3.i.i.i.i.i.i = phi ptr [ %ret.sroa.0.4.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i ], [ %ret.sroa.0.0.i.i.i.i.i.i, %call.i5.i.noexc.i.i.i.i.i.i ]
-  %ret.sroa.10.2.i.i.i.i.i.i = phi ptr [ %ret.sroa.10.3.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i ], [ %ret.sroa.0.0.i.i.i.i.i.i, %call.i5.i.noexc.i.i.i.i.i.i ]
-  %ret.sroa.20.2.i.i.i.i.i.i = phi ptr [ %ret.sroa.20.3.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i ], [ %ret.sroa.20.0.i.i.i.i.i.i, %call.i5.i.noexc.i.i.i.i.i.i ]
-  %__result.sroa.3.06.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i ], [ %ret.sroa.0.0.i.i.i.i.i.i, %call.i5.i.noexc.i.i.i.i.i.i ]
+for.body.i.i.i.i.i.i.i:                           ; preds = %call.i3.i.noexc.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i
+  %ret.sroa.0.3.i.i.i.i.i.i = phi ptr [ %ret.sroa.0.4.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i ], [ %ret.sroa.0.0.i.i.i.i.i.i, %call.i3.i.noexc.i.i.i.i.i.i ]
+  %ret.sroa.10.2.i.i.i.i.i.i = phi ptr [ %ret.sroa.10.3.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i ], [ %ret.sroa.0.0.i.i.i.i.i.i, %call.i3.i.noexc.i.i.i.i.i.i ]
+  %ret.sroa.20.2.i.i.i.i.i.i = phi ptr [ %ret.sroa.20.3.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i ], [ %ret.sroa.20.0.i.i.i.i.i.i, %call.i3.i.noexc.i.i.i.i.i.i ]
+  %__result.sroa.3.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i ], [ %ret.sroa.0.0.i.i.i.i.i.i, %call.i3.i.noexc.i.i.i.i.i.i ]
   %call1.i26.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i.i)
           to label %call1.i.noexc.i.i.i.i.i.i unwind label %lpad.loopexit.i.i.i.i.i.i, !noalias !147
 
 call1.i.noexc.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %__result.sroa.3.06.i.i.i.i.i.i.i to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %__result.sroa.3.04.i.i.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %ret.sroa.0.3.i.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i.i
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %ret.sroa.10.2.i.i.i.i.i.i, %ret.sroa.20.2.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %if.else21.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call1.i.noexc.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %__result.sroa.3.06.i.i.i.i.i.i.i, %ret.sroa.10.2.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %__result.sroa.3.04.i.i.i.i.i.i.i, %ret.sroa.10.2.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.then9.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i
 
 if.then9.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
@@ -10045,7 +10045,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
   %add.ptr.val.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i10.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !147
   store i32 %add.ptr.val.i.i.i.i.i.i.i.i.i.i.i, ptr %ret.sroa.10.2.i.i.i.i.i.i, align 4, !noalias !147
   %incdec.ptr.i.i.i.i.i22.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ret.sroa.10.2.i.i.i.i.i.i, i64 4
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i10.i.i.i.i.i.i.i.i.i.i, %__result.sroa.3.06.i.i.i.i.i.i.i
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i10.i.i.i.i.i.i.i.i.i.i, %__result.sroa.3.04.i.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_14EvilESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEOT_.exit.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %if.else.i.i.i.i.i.i.i.i.i.i
@@ -10092,7 +10092,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_14EvilESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.
 call5.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i:          ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_14EvilESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i
   %add.ptr.i12.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i28.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i
   store i32 0, ptr %add.ptr.i12.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !147
-  %cmp.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %ret.sroa.0.3.i.i.i.i.i.i, %__result.sroa.3.06.i.i.i.i.i.i.i
+  %cmp.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %ret.sroa.0.3.i.i.i.i.i.i, %__result.sroa.3.04.i.i.i.i.i.i.i
   br i1 %cmp.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_14EvilESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %call5.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -10102,13 +10102,13 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %call5.i.i.i.i.i.i.i
   store i32 %__first.addr.0.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %__cur.03.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !alias.scope !169, !noalias !147
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %__result.sroa.3.06.i.i.i.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %__result.sroa.3.04.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_14EvilESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !172
 
 _ZNSt6vectorIN12_GLOBAL__N_14EvilESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i28.i.i.i.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i13.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
-  %cmp.not1.i.i.i.i13.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %__result.sroa.3.06.i.i.i.i.i.i.i, %ret.sroa.10.2.i.i.i.i.i.i
+  %cmp.not1.i.i.i.i13.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %__result.sroa.3.04.i.i.i.i.i.i.i, %ret.sroa.10.2.i.i.i.i.i.i
   br i1 %cmp.not1.i.i.i.i13.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_14EvilESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i14.i.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i14.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %_ZNSt6vectorIN12_GLOBAL__N_14EvilESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i14.i.i.i.i.i.i.i.i.i.i.i
@@ -10197,8 +10197,8 @@ if.then.i.i.i33.i.i.i.i.i.i:                      ; preds = %lpad.i.i.i.i.i.i7
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont6.i.i.i.i.i
   unreachable
 
-invoke.cont21:                                    ; preds = %call.i.i.noexc.i.i.i.i.i.i, %call.i5.i.noexc.i.i.i.i.i.i
-  %ret.sroa.0.4.i.i.i.i.i.lcssa.sink.i = phi ptr [ %ret.sroa.0.0.i.i.i.i.i.i, %call.i5.i.noexc.i.i.i.i.i.i ], [ %ret.sroa.0.4.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i ]
+invoke.cont21:                                    ; preds = %call.i.i.noexc.i.i.i.i.i.i, %call.i3.i.noexc.i.i.i.i.i.i
+  %ret.sroa.0.4.i.i.i.i.i.lcssa.sink.i = phi ptr [ %ret.sroa.0.0.i.i.i.i.i.i, %call.i3.i.noexc.i.i.i.i.i.i ], [ %ret.sroa.0.4.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i), !noalias !147
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i), !noalias !147
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !147

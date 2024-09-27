@@ -1077,12 +1077,12 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace
 
 _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2EOS7_.exit.i: ; preds = %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit.i.i
   %187 = getelementptr inbounds i8, ptr %21, i64 176
-  %188 = getelementptr inbounds i8, ptr %28, i64 16
-  %189 = getelementptr inbounds i8, ptr %28, i64 8
-  store i64 0, ptr %189, align 8
-  %190 = ptrtoint ptr %0 to i64
-  store i64 %190, ptr %28, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %188, i8 0, i64 16, i1 false)
+  %188 = ptrtoint ptr %0 to i64
+  %189 = getelementptr inbounds i8, ptr %28, i64 16
+  %190 = getelementptr inbounds i8, ptr %28, i64 8
+  store i64 0, ptr %190, align 8
+  store i64 %188, ptr %28, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %187, i8 0, i64 32, i1 false)
   %191 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
           to label %192 unwind label %410
@@ -1113,7 +1113,7 @@ _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2EOS7
 
 202:                                              ; preds = %192
   call void @_ZN3nix4Args4FlagD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %21) #29
-  %203 = load ptr, ptr %188, align 8
+  %203 = load ptr, ptr %189, align 8
   %.not.i.i267 = icmp eq ptr %203, null
   br i1 %.not.i.i267, label %_ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EED2Ev.exit.preheader, label %204
 
@@ -1732,7 +1732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit317: ; preds = %_Z
   %404 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3nix4Args4FlagD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %21) #29
-  %.pr360 = load ptr, ptr %188, align 8
+  %.pr360 = load ptr, ptr %189, align 8
   %.not.i.i324 = icmp eq ptr %.pr360, null
   br i1 %.not.i.i324, label %.body259, label %405
 
@@ -2881,12 +2881,12 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace
 
 _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2EOS7_.exit.i: ; preds = %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit.i.i
   %203 = getelementptr inbounds i8, ptr %20, i64 176
-  %204 = getelementptr inbounds i8, ptr %27, i64 16
-  %205 = getelementptr inbounds i8, ptr %27, i64 8
-  store i64 0, ptr %205, align 8
-  %206 = ptrtoint ptr %0 to i64
-  store i64 %206, ptr %27, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %204, i8 0, i64 16, i1 false)
+  %204 = ptrtoint ptr %0 to i64
+  %205 = getelementptr inbounds i8, ptr %27, i64 16
+  %206 = getelementptr inbounds i8, ptr %27, i64 8
+  store i64 0, ptr %206, align 8
+  store i64 %204, ptr %27, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %205, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %203, i8 0, i64 32, i1 false)
   %207 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
           to label %208 unwind label %428
@@ -2917,7 +2917,7 @@ _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2EOS7
 
 218:                                              ; preds = %208
   call void @_ZN3nix4Args4FlagD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %20) #29
-  %219 = load ptr, ptr %204, align 8
+  %219 = load ptr, ptr %205, align 8
   %.not.i.i267 = icmp eq ptr %219, null
   br i1 %.not.i.i267, label %_ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EED2Ev.exit.preheader, label %220
 
@@ -3541,7 +3541,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit317: ; preds = %_Z
   %422 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3nix4Args4FlagD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %20) #29
-  %.pr360 = load ptr, ptr %204, align 8
+  %.pr360 = load ptr, ptr %205, align 8
   %.not.i.i324 = icmp eq ptr %.pr360, null
   br i1 %.not.i.i324, label %.body259, label %423
 

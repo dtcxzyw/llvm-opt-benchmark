@@ -767,10 +767,10 @@ $_ZTVN7glslang17TSmallArrayVectorE = comdat any
 @.str.146 = private unnamed_addr constant [27 x i8] c"post-ignoreIntersectionKHR\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_GlslangToSpv.cpp, ptr null }]
 @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE = private unnamed_addr constant [8 x i32] [i32 2, i32 2, i32 0, i32 2, i32 0, i32 0, i32 0, i32 1], align 4
-@switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE.36 = private unnamed_addr constant [6 x i32] [i32 5378, i32 5378, i32 5363, i32 5363, i32 5372, i32 5372], align 4
-@switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE.37 = private unnamed_addr constant [6 x i32] [i32 19, i32 20, i32 21, i32 19, i32 22, i32 23], align 4
+@switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE.37 = private unnamed_addr constant [6 x i32] [i32 5378, i32 5378, i32 5363, i32 5363, i32 5372, i32 5372], align 4
+@switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE.38 = private unnamed_addr constant [6 x i32] [i32 19, i32 20, i32 21, i32 19, i32 22, i32 23], align 4
 @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeENS1_14TLayoutPackingERKNS1_10TQualifierEbb = private unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 4173], align 4
-@switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeENS1_14TLayoutPackingERKNS1_10TQualifierEbb.38 = private unnamed_addr constant [47 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 2147483647, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 2147483647, i32 21, i32 22, i32 23, i32 24, i32 2147483647, i32 25, i32 26, i32 27, i32 28, i32 29, i32 41, i32 2147483647, i32 30, i32 31, i32 32, i32 33, i32 2147483647, i32 35, i32 36, i32 34, i32 37, i32 38, i32 39, i32 40], align 4
+@switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeENS1_14TLayoutPackingERKNS1_10TQualifierEbb.39 = private unnamed_addr constant [47 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 2147483647, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 2147483647, i32 21, i32 22, i32 23, i32 24, i32 2147483647, i32 25, i32 26, i32 27, i32 28, i32 29, i32 41, i32 2147483647, i32 30, i32 31, i32 32, i32 33, i32 2147483647, i32 35, i32 36, i32 34, i32 37, i32 38, i32 39, i32 40], align 4
 @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser30collectRayTracingLinkerObjectsEv = private unnamed_addr constant [6 x i64] [i64 0, i64 0, i64 0, i64 1, i64 1, i64 2], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
@@ -3236,7 +3236,7 @@ switch.lookup1069:                                ; preds = %825
 switch.lookup1072:                                ; preds = %830
   %switch.offset1074 = add nuw nsw i32 %832, 5365
   %834 = zext nneg i32 %switch.tableidx1073 to i64
-  %switch.gep1075 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE.36, i64 0, i64 %834
+  %switch.gep1075 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE.37, i64 0, i64 %834
   %switch.load1076 = load i32, ptr %switch.gep1075, align 4
   %835 = load ptr, ptr %67, align 8
   call void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeEiii(ptr noundef nonnull align 8 dereferenceable(1416) %70, ptr noundef %835, i32 noundef %switch.offset1074, i32 noundef -1, i32 noundef -1, i32 noundef -1) #20
@@ -3773,7 +3773,7 @@ switch.hole_check:                                ; preds = %_ZN3spv7Builder13ad
 
 switch.lookup1079:                                ; preds = %switch.hole_check
   %1046 = zext nneg i32 %switch.tableidx1078 to i64
-  %switch.gep1080 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE.37, i64 0, i64 %1046
+  %switch.gep1080 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE.38, i64 0, i64 %1046
   %switch.load1081 = load i32, ptr %switch.gep1080, align 4
   %1047 = load ptr, ptr %67, align 8
   call void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeEiii(ptr noundef nonnull align 8 dereferenceable(1416) %70, ptr noundef %1047, i32 noundef %switch.load1081, i32 noundef -1, i32 noundef -1, i32 noundef -1) #20
@@ -13987,7 +13987,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14v
   %34 = getelementptr inbounds i8, ptr %2, i64 208
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread112"
+  br i1 %36, label %37, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread111"
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %2, align 8
@@ -14075,7 +14075,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14v
   %104 = load ptr, ptr %103, align 8
   %105 = tail call noundef ptr %104(ptr noundef nonnull align 8 dereferenceable(32) %101) #20
   %.not.i2.i = icmp eq ptr %105, null
-  br i1 %.not.i2.i, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit", label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread112"
+  br i1 %.not.i2.i, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit", label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread111"
 
 "_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit": ; preds = %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.exit.thread.i"
   %106 = load ptr, ptr %101, align 8
@@ -14093,9 +14093,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14v
   %118 = and i64 %115, 4294967296
   %119 = icmp ne i64 %118, 0
   %120 = or i1 %117, %119
-  br i1 %120, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread112", label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread"
+  br i1 %120, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread111", label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread"
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread112": ; preds = %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.exit.thread.i", %33, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit"
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread111": ; preds = %"_ZZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEvENKUlPNS1_12TIntermTypedEE_clES7_.exit.thread.i", %33, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit"
   %121 = getelementptr inbounds i8, ptr %0, i64 104
   %122 = getelementptr inbounds i8, ptr %0, i64 584
   %123 = load i8, ptr %122, align 8
@@ -14114,11 +14114,11 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14v
   %.not = icmp eq i64 %135, 0
   br i1 %.not, label %137, label %136
 
-136:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread112"
+136:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread111"
   store i8 1, ptr %122, align 8
   br label %137
 
-137:                                              ; preds = %136, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread112"
+137:                                              ; preds = %136, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread111"
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %138 = load ptr, ptr %2, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 240
@@ -14208,7 +14208,7 @@ _ZNK7glslang10TSourceLoc11getFilenameEv.exit.i:   ; preds = %193, %137
   %210 = getelementptr inbounds i8, ptr %209, i64 104
   %211 = load i32, ptr %210, align 4
   %212 = icmp ult i32 %211, 66560
-  br i1 %212, label %213, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i3"
+  br i1 %212, label %213, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i5"
 
 213:                                              ; preds = %207
   %214 = load ptr, ptr %2, align 8
@@ -14219,7 +14219,7 @@ _ZNK7glslang10TSourceLoc11getFilenameEv.exit.i:   ; preds = %193, %137
   %219 = getelementptr inbounds i8, ptr %218, i64 192
   %220 = load ptr, ptr %219, align 8
   %221 = tail call noundef zeroext i1 %220(ptr noundef nonnull align 8 dereferenceable(152) %217) #20
-  br i1 %221, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i3", label %222
+  br i1 %221, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i5", label %222
 
 222:                                              ; preds = %213
   %223 = load ptr, ptr %2, align 8
@@ -14230,20 +14230,20 @@ _ZNK7glslang10TSourceLoc11getFilenameEv.exit.i:   ; preds = %193, %137
   %228 = getelementptr inbounds i8, ptr %227, i64 216
   %229 = load ptr, ptr %228, align 8
   %230 = tail call noundef zeroext i1 %229(ptr noundef nonnull align 8 dereferenceable(152) %226) #20
-  br i1 %230, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i3", label %293
+  br i1 %230, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i5", label %293
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i3": ; preds = %222, %213, %207
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i5": ; preds = %222, %213, %207
   %231 = load ptr, ptr %208, align 8
   %232 = getelementptr inbounds i8, ptr %231, i64 104
   %233 = load i32, ptr %232, align 4
   %234 = icmp ult i32 %233, 66560
   br i1 %234, label %235, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit._crit_edge.i"
 
-"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit._crit_edge.i": ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i3"
+"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit._crit_edge.i": ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i5"
   %.pre25.i = zext i32 %162 to i64
   br label %265
 
-235:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i3"
+235:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit.i5"
   %236 = getelementptr inbounds i8, ptr %0, i64 536
   %237 = zext i32 %162 to i64
   %238 = load ptr, ptr %236, align 8
@@ -14288,7 +14288,7 @@ _ZNK3spv7Builder16getNumComponentsEj.exit.i:      ; preds = %258, %252
   br label %265
 
 265:                                              ; preds = %_ZNK3spv7Builder16getNumComponentsEj.exit.i, %_ZNK3spv7Builder8isVectorEj.exit.i, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit._crit_edge.i"
-  %.072 = phi i32 [ %264, %_ZNK3spv7Builder16getNumComponentsEj.exit.i ], [ %21, %_ZNK3spv7Builder8isVectorEj.exit.i ], [ %21, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit._crit_edge.i" ]
+  %.071 = phi i32 [ %264, %_ZNK3spv7Builder16getNumComponentsEj.exit.i ], [ %21, %_ZNK3spv7Builder8isVectorEj.exit.i ], [ %21, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit._crit_edge.i" ]
   %.pre-phi.i = phi i64 [ %237, %_ZNK3spv7Builder16getNumComponentsEj.exit.i ], [ %237, %_ZNK3spv7Builder8isVectorEj.exit.i ], [ %.pre25.i, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_3clEv.exit._crit_edge.i" ]
   %266 = getelementptr inbounds i8, ptr %0, i64 536
   %267 = load ptr, ptr %266, align 8
@@ -14314,7 +14314,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit.i:              ; preds = %271, %265
 
 277:                                              ; preds = %275, %_ZNK3spv7Builder9getTypeIdEj.exit.i
   %278 = phi ptr [ %.pre.i, %275 ], [ %267, %_ZNK3spv7Builder9getTypeIdEj.exit.i ]
-  %.0.i4 = phi i32 [ %276, %275 ], [ %162, %_ZNK3spv7Builder9getTypeIdEj.exit.i ]
+  %.0.i6 = phi i32 [ %276, %275 ], [ %162, %_ZNK3spv7Builder9getTypeIdEj.exit.i ]
   %279 = zext i32 %182 to i64
   %280 = getelementptr inbounds ptr, ptr %278, i64 %279
   %281 = load ptr, ptr %280, align 8
@@ -14337,7 +14337,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit22.i:            ; preds = %283, %277
 
 289:                                              ; preds = %287, %_ZNK3spv7Builder9getTypeIdEj.exit22.i
   %.017.i = phi i32 [ %288, %287 ], [ %182, %_ZNK3spv7Builder9getTypeIdEj.exit22.i ]
-  %290 = tail call noundef i32 @_ZN3spv7Builder11createTriOpENS_2OpEjjjj(ptr noundef nonnull align 8 dereferenceable(1416) %121, i32 noundef 169, i32 noundef %142, i32 noundef %.072, i32 noundef %.0.i4, i32 noundef %.017.i) #20
+  %290 = tail call noundef i32 @_ZN3spv7Builder11createTriOpENS_2OpEjjjj(ptr noundef nonnull align 8 dereferenceable(1416) %121, i32 noundef 169, i32 noundef %142, i32 noundef %.071, i32 noundef %.0.i6, i32 noundef %.017.i) #20
   tail call void @_ZN3spv7Builder16clearAccessChainEv(ptr noundef nonnull align 8 dereferenceable(1416) %121) #20
   %291 = getelementptr inbounds i8, ptr %0, i64 592
   %292 = getelementptr inbounds i8, ptr %0, i64 664
@@ -14404,8 +14404,8 @@ _ZNK3spv7Builder9getTypeIdEj.exit22.i:            ; preds = %283, %277
   %324 = getelementptr inbounds i8, ptr %323, i64 256
   %325 = load ptr, ptr %324, align 8
   %326 = tail call noundef i32 %325(ptr noundef nonnull align 8 dereferenceable(184) %2) #20
-  %.not.i5 = icmp eq i32 %326, 0
-  br i1 %.not.i5, label %350, label %327
+  %.not.i7 = icmp eq i32 %326, 0
+  br i1 %.not.i7, label %350, label %327
 
 327:                                              ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread"
   %328 = getelementptr inbounds i8, ptr %0, i64 104
@@ -14423,8 +14423,8 @@ _ZNK3spv7Builder9getTypeIdEj.exit22.i:            ; preds = %283, %277
   %340 = lshr i32 %339, 25
   %341 = and i32 %340, 7
   %342 = add nsw i32 %341, -1
-  %switch.selectcmp.i.i.i6 = icmp ult i32 %342, 2
-  %343 = select i1 %switch.selectcmp.i.i.i6, i32 0, i32 2147483647
+  %switch.selectcmp.i.i.i8 = icmp ult i32 %342, 2
+  %343 = select i1 %switch.selectcmp.i.i.i8, i32 0, i32 2147483647
   %344 = load ptr, ptr %2, align 8
   %345 = getelementptr inbounds i8, ptr %344, i64 240
   %346 = load ptr, ptr %345, align 8
@@ -14436,15 +14436,15 @@ _ZNK3spv7Builder9getTypeIdEj.exit22.i:            ; preds = %283, %277
 350:                                              ; preds = %327, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread"
   %.0 = phi i32 [ 0, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_0clEv.exit.thread" ], [ %349, %327 ]
   %351 = getelementptr i8, ptr %2, i64 209
-  %.val.i7 = load i8, ptr %351, align 1
+  %.val.i9 = load i8, ptr %351, align 1
   %352 = getelementptr i8, ptr %2, i64 210
   %.val8.i = load i8, ptr %352, align 2
-  %353 = trunc i8 %.val.i7 to i1
+  %353 = trunc i8 %.val.i9 to i1
   %354 = trunc i8 %.val8.i to i1
-  %..i.i8 = select i1 %354, i32 2, i32 0
-  %.0.i.i9 = select i1 %353, i32 1, i32 %..i.i8
+  %..i.i10 = select i1 %354, i32 2, i32 0
+  %.0.i.i11 = select i1 %353, i32 1, i32 %..i.i10
   %355 = getelementptr inbounds i8, ptr %0, i64 104
-  call void @_ZN3spv7Builder2IfC1EjjRS0_(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef %21, i32 noundef %.0.i.i9, ptr noundef nonnull align 8 dereferenceable(1416) %355) #20
+  call void @_ZN3spv7Builder2IfC1EjjRS0_(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef %21, i32 noundef %.0.i.i11, ptr noundef nonnull align 8 dereferenceable(1416) %355) #20
   %356 = load ptr, ptr %2, align 8
   %357 = getelementptr inbounds i8, ptr %356, i64 400
   %358 = load ptr, ptr %357, align 8
@@ -14507,13 +14507,13 @@ _ZNK3spv7Builder9getTypeIdEj.exit22.i:            ; preds = %283, %277
   %399 = load ptr, ptr %398, align 8
   call void %399(ptr noundef nonnull align 8 dereferenceable(32) %396, ptr noundef nonnull %0) #20
   %.not6.i = icmp eq i32 %.0, 0
-  br i1 %.not6.i, label %.thread, label %.thread115
+  br i1 %.not6.i, label %.thread, label %.thread114
 
 .thread:                                          ; preds = %392
   call void @_ZN3spv7Builder2If9makeEndIfEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #20
   br label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_2clEv.exit"
 
-.thread115:                                       ; preds = %392
+.thread114:                                       ; preds = %392
   %400 = load ptr, ptr %2, align 8
   %401 = getelementptr inbounds i8, ptr %400, i64 416
   %402 = load ptr, ptr %401, align 8
@@ -14543,7 +14543,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit22.i:            ; preds = %283, %277
   %.not7.i = icmp eq i32 %.0, 0
   br i1 %.not7.i, label %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser14visitSelectionEN7glslang6TVisitEPNS1_16TIntermSelectionEENK3$_2clEv.exit", label %419
 
-419:                                              ; preds = %.thread115, %418
+419:                                              ; preds = %.thread114, %418
   call void @_ZN3spv7Builder16clearAccessChainEv(ptr noundef nonnull align 8 dereferenceable(1416) %355) #20
   %420 = getelementptr inbounds i8, ptr %0, i64 592
   store i32 %.0, ptr %420, align 8
@@ -29781,7 +29781,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.i209: ; preds = %_ZN3spv7Bu
 
 switch.lookup1114:                                ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.i209
   %452 = zext nneg i8 %450 to i64
-  %switch.gep1115 = getelementptr inbounds [47 x i32], ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeENS1_14TLayoutPackingERKNS1_10TQualifierEbb.38, i64 0, i64 %452
+  %switch.gep1115 = getelementptr inbounds [47 x i32], ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeENS1_14TLayoutPackingERKNS1_10TQualifierEbb.39, i64 0, i64 %452
   %switch.load1116 = load i32, ptr %switch.gep1115, align 4
   br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateImageFormatERKN7glslang5TTypeE.exit
 

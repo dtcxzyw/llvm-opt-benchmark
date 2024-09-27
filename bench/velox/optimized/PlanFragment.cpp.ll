@@ -124,12 +124,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %this, align 8
+  %1 = ptrtoint ptr %queryConfig to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %1, align 8
-  %2 = ptrtoint ptr %queryConfig to i64
-  store i64 %2, ptr %ref.tmp, align 8
+  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %2, align 8
+  store i64 %1, ptr %ref.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFbPKN8facebook5velox4core8PlanNodeEEZNKS2_12PlanFragment8canSpillERKNS2_11QueryConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS5_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbPKN8facebook5velox4core8PlanNodeEEZNKS2_12PlanFragment8canSpillERKNS2_11QueryConfigEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %call4 = invoke noundef ptr @_ZN8facebook5velox4core8PlanNode13findFirstNodeEPKS2_RKSt8functionIFbS4_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)

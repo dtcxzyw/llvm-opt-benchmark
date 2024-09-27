@@ -54,14 +54,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.1132" = type { %"struct.std::_Tuple_impl.1133" }
 %"struct.std::_Tuple_impl.1133" = type { %"struct.std::_Head_base.1136" }
 %"struct.std::_Head_base.1136" = type { ptr }
-%"struct.__gnu_cxx::__ops::_Iter_pred.1138" = type { %class.anon.81 }
-%class.anon.81 = type { ptr }
-%"struct.__gnu_cxx::__ops::_Iter_pred.1139" = type { %class.anon.82 }
-%class.anon.82 = type { ptr, ptr }
-%"struct.__gnu_cxx::__ops::_Iter_pred.1140" = type { %class.anon.83 }
-%class.anon.83 = type { ptr }
-%"struct.__gnu_cxx::__ops::_Iter_pred.1141" = type { %class.anon.84 }
-%class.anon.84 = type { ptr, ptr }
 %"class.fmt::v9::format_arg_store.1128" = type { %"struct.fmt::v9::detail::arg_data.592" }
 %"struct.fmt::v9::detail::arg_data.592" = type { [1 x %"class.fmt::v9::detail::value"] }
 %"class.fmt::v9::format_arg_store.1120" = type { %"struct.fmt::v9::detail::arg_data.592" }
@@ -4121,31 +4113,31 @@ _ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i.i.i.i: ; preds = %37, %36, %24
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
   %52 = icmp eq i64 %46, %51
-  br i1 %52, label %53, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i16.i.i.i
+  br i1 %52, label %53, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i22.i.i.i
 
 53:                                               ; preds = %40
-  %.not.i.i.i.i.i.i.i18.i.i.i = icmp eq ptr %42, %43
-  br i1 %.not.i.i.i.i.i.i.i18.i.i.i, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i16.i.i.i, label %54
+  %.not.i.i.i.i.i.i.i24.i.i.i = icmp eq ptr %42, %43
+  br i1 %.not.i.i.i.i.i.i.i24.i.i.i, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i22.i.i.i, label %54
 
 54:                                               ; preds = %53
-  %bcmp.i.i.i.i.i.i.i19.i.i.i = call i32 @bcmp(ptr %43, ptr %48, i64 %46)
-  %.not7.i.i.i.i.i.i.i20.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i19.i.i.i, 0
-  br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i16.i.i.i
+  %bcmp.i.i.i.i.i.i.i25.i.i.i = call i32 @bcmp(ptr %43, ptr %48, i64 %46)
+  %.not7.i.i.i.i.i.i.i26.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i25.i.i.i, 0
+  br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i22.i.i.i
 
-_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i16.i.i.i: ; preds = %54, %53, %40
-  %55 = phi i1 [ false, %40 ], [ %.not7.i.i.i.i.i.i.i20.i.i.i, %54 ], [ true, %53 ]
-  %.not.i.i.i.i.i17.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i.i.i17.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit21.i.i.i", label %56
+_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i22.i.i.i: ; preds = %54, %53, %40
+  %55 = phi i1 [ false, %40 ], [ %.not7.i.i.i.i.i.i.i26.i.i.i, %54 ], [ true, %53 ]
+  %.not.i.i.i.i.i23.i.i.i = icmp eq ptr %43, null
+  br i1 %.not.i.i.i.i.i23.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit27.i.i.i", label %56
 
-56:                                               ; preds = %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i16.i.i.i
+56:                                               ; preds = %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i22.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %43) #24
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit21.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit27.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit21.i.i.i": ; preds = %56, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i16.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit27.i.i.i": ; preds = %56, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i22.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br i1 %55, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature8find_crtERKS7_IhSaIhEEE3$_0ET_SH_SH_T0_.exit", label %57
 
-57:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit21.i.i.i"
+57:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit27.i.i.i"
   %58 = getelementptr inbounds i8, ptr %.sroa.061.071.i.i.i, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @_ZNK4LIEF2PE4x50913serial_numberEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.57") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %58)
@@ -4160,31 +4152,31 @@ _ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i16.i.i.i: ; preds = %54, %53, %40
   %67 = ptrtoint ptr %65 to i64
   %68 = sub i64 %66, %67
   %69 = icmp eq i64 %63, %68
-  br i1 %69, label %70, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i22.i.i.i
+  br i1 %69, label %70, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i28.i.i.i
 
 70:                                               ; preds = %57
-  %.not.i.i.i.i.i.i.i24.i.i.i = icmp eq ptr %59, %60
-  br i1 %.not.i.i.i.i.i.i.i24.i.i.i, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i22.i.i.i, label %71
+  %.not.i.i.i.i.i.i.i30.i.i.i = icmp eq ptr %59, %60
+  br i1 %.not.i.i.i.i.i.i.i30.i.i.i, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i28.i.i.i, label %71
 
 71:                                               ; preds = %70
-  %bcmp.i.i.i.i.i.i.i25.i.i.i = call i32 @bcmp(ptr %60, ptr %65, i64 %63)
-  %.not7.i.i.i.i.i.i.i26.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i25.i.i.i, 0
-  br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i22.i.i.i
+  %bcmp.i.i.i.i.i.i.i31.i.i.i = call i32 @bcmp(ptr %60, ptr %65, i64 %63)
+  %.not7.i.i.i.i.i.i.i32.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i31.i.i.i, 0
+  br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i28.i.i.i
 
-_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i22.i.i.i: ; preds = %71, %70, %57
-  %72 = phi i1 [ false, %57 ], [ %.not7.i.i.i.i.i.i.i26.i.i.i, %71 ], [ true, %70 ]
-  %.not.i.i.i.i.i23.i.i.i = icmp eq ptr %60, null
-  br i1 %.not.i.i.i.i.i23.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit27.i.i.i", label %73
+_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i28.i.i.i: ; preds = %71, %70, %57
+  %72 = phi i1 [ false, %57 ], [ %.not7.i.i.i.i.i.i.i32.i.i.i, %71 ], [ true, %70 ]
+  %.not.i.i.i.i.i29.i.i.i = icmp eq ptr %60, null
+  br i1 %.not.i.i.i.i.i29.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit33.i.i.i", label %73
 
-73:                                               ; preds = %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i22.i.i.i
+73:                                               ; preds = %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i28.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %60) #24
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit27.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit33.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit27.i.i.i": ; preds = %73, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i22.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit33.i.i.i": ; preds = %73, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i28.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br i1 %72, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature8find_crtERKS7_IhSaIhEEE3$_0ET_SH_SH_T0_.exit", label %74
 
-74:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit27.i.i.i"
+74:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit33.i.i.i"
   %75 = getelementptr inbounds i8, ptr %.sroa.061.071.i.i.i, i64 48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @_ZNK4LIEF2PE4x50913serial_numberEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.57") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %75)
@@ -4199,31 +4191,31 @@ _ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i22.i.i.i: ; preds = %71, %70, %57
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
   %86 = icmp eq i64 %80, %85
-  br i1 %86, label %87, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i28.i.i.i
+  br i1 %86, label %87, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i34.i.i.i
 
 87:                                               ; preds = %74
-  %.not.i.i.i.i.i.i.i30.i.i.i = icmp eq ptr %76, %77
-  br i1 %.not.i.i.i.i.i.i.i30.i.i.i, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i28.i.i.i, label %88
+  %.not.i.i.i.i.i.i.i36.i.i.i = icmp eq ptr %76, %77
+  br i1 %.not.i.i.i.i.i.i.i36.i.i.i, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i34.i.i.i, label %88
 
 88:                                               ; preds = %87
-  %bcmp.i.i.i.i.i.i.i31.i.i.i = call i32 @bcmp(ptr %77, ptr %82, i64 %80)
-  %.not7.i.i.i.i.i.i.i32.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i31.i.i.i, 0
-  br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i28.i.i.i
+  %bcmp.i.i.i.i.i.i.i37.i.i.i = call i32 @bcmp(ptr %77, ptr %82, i64 %80)
+  %.not7.i.i.i.i.i.i.i38.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i37.i.i.i, 0
+  br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i34.i.i.i
 
-_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i28.i.i.i: ; preds = %88, %87, %74
-  %89 = phi i1 [ false, %74 ], [ %.not7.i.i.i.i.i.i.i32.i.i.i, %88 ], [ true, %87 ]
-  %.not.i.i.i.i.i29.i.i.i = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i.i29.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit33.i.i.i", label %90
+_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i34.i.i.i: ; preds = %88, %87, %74
+  %89 = phi i1 [ false, %74 ], [ %.not7.i.i.i.i.i.i.i38.i.i.i, %88 ], [ true, %87 ]
+  %.not.i.i.i.i.i35.i.i.i = icmp eq ptr %77, null
+  br i1 %.not.i.i.i.i.i35.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit39.i.i.i", label %90
 
-90:                                               ; preds = %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i28.i.i.i
+90:                                               ; preds = %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i34.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %77) #24
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit33.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit39.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit33.i.i.i": ; preds = %90, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i28.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit39.i.i.i": ; preds = %90, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i34.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br i1 %89, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature8find_crtERKS7_IhSaIhEEE3$_0ET_SH_SH_T0_.exit", label %91
 
-91:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit33.i.i.i"
+91:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit39.i.i.i"
   %92 = getelementptr inbounds i8, ptr %.sroa.061.071.i.i.i, i64 64
   %93 = add nsw i64 %.072.i.i.i, -1
   %94 = icmp sgt i64 %.072.i.i.i, 1
@@ -4260,31 +4252,31 @@ _ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i28.i.i.i: ; preds = %88, %87, %74
   %107 = ptrtoint ptr %105 to i64
   %108 = sub i64 %106, %107
   %109 = icmp eq i64 %102, %108
-  br i1 %109, label %110, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i34.i.i.i
+  br i1 %109, label %110, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i
 
 110:                                              ; preds = %96
-  %.not.i.i.i.i.i.i.i36.i.i.i = icmp eq ptr %98, %99
-  br i1 %.not.i.i.i.i.i.i.i36.i.i.i, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i34.i.i.i, label %111
+  %.not.i.i.i.i.i.i.i42.i.i.i = icmp eq ptr %98, %99
+  br i1 %.not.i.i.i.i.i.i.i42.i.i.i, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i, label %111
 
 111:                                              ; preds = %110
-  %bcmp.i.i.i.i.i.i.i37.i.i.i = call i32 @bcmp(ptr %99, ptr %105, i64 %102)
-  %.not7.i.i.i.i.i.i.i38.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i37.i.i.i, 0
-  br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i34.i.i.i
+  %bcmp.i.i.i.i.i.i.i43.i.i.i = call i32 @bcmp(ptr %99, ptr %105, i64 %102)
+  %.not7.i.i.i.i.i.i.i44.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i43.i.i.i, 0
+  br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i
 
-_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i34.i.i.i: ; preds = %111, %110, %96
-  %112 = phi i1 [ false, %96 ], [ %.not7.i.i.i.i.i.i.i38.i.i.i, %111 ], [ true, %110 ]
-  %.not.i.i.i.i.i35.i.i.i = icmp eq ptr %99, null
-  br i1 %.not.i.i.i.i.i35.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit39.i.i.i", label %113
+_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i: ; preds = %111, %110, %96
+  %112 = phi i1 [ false, %96 ], [ %.not7.i.i.i.i.i.i.i44.i.i.i, %111 ], [ true, %110 ]
+  %.not.i.i.i.i.i41.i.i.i = icmp eq ptr %99, null
+  br i1 %.not.i.i.i.i.i41.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit45.i.i.i", label %113
 
-113:                                              ; preds = %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i34.i.i.i
+113:                                              ; preds = %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %99) #24
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit39.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit45.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit39.i.i.i": ; preds = %113, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i34.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit45.i.i.i": ; preds = %113, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br i1 %112, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature8find_crtERKS7_IhSaIhEEE3$_0ET_SH_SH_T0_.exit", label %114
 
-114:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit39.i.i.i"
+114:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit45.i.i.i"
   %115 = getelementptr inbounds i8, ptr %.sroa.061.0.lcssa.i.i.i, i64 16
   br label %116
 
@@ -4305,31 +4297,31 @@ _ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i34.i.i.i: ; preds = %111, %110, %96
   %127 = ptrtoint ptr %125 to i64
   %128 = sub i64 %126, %127
   %129 = icmp eq i64 %122, %128
-  br i1 %129, label %130, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i
+  br i1 %129, label %130, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i
 
 130:                                              ; preds = %116
-  %.not.i.i.i.i.i.i.i42.i.i.i = icmp eq ptr %118, %119
-  br i1 %.not.i.i.i.i.i.i.i42.i.i.i, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i, label %131
+  %.not.i.i.i.i.i.i.i48.i.i.i = icmp eq ptr %118, %119
+  br i1 %.not.i.i.i.i.i.i.i48.i.i.i, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i, label %131
 
 131:                                              ; preds = %130
-  %bcmp.i.i.i.i.i.i.i43.i.i.i = call i32 @bcmp(ptr %119, ptr %125, i64 %122)
-  %.not7.i.i.i.i.i.i.i44.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i43.i.i.i, 0
-  br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i
+  %bcmp.i.i.i.i.i.i.i49.i.i.i = call i32 @bcmp(ptr %119, ptr %125, i64 %122)
+  %.not7.i.i.i.i.i.i.i50.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i49.i.i.i, 0
+  br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i
 
-_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i: ; preds = %131, %130, %116
-  %132 = phi i1 [ false, %116 ], [ %.not7.i.i.i.i.i.i.i44.i.i.i, %131 ], [ true, %130 ]
-  %.not.i.i.i.i.i41.i.i.i = icmp eq ptr %119, null
-  br i1 %.not.i.i.i.i.i41.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit45.i.i.i", label %133
+_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i: ; preds = %131, %130, %116
+  %132 = phi i1 [ false, %116 ], [ %.not7.i.i.i.i.i.i.i50.i.i.i, %131 ], [ true, %130 ]
+  %.not.i.i.i.i.i47.i.i.i = icmp eq ptr %119, null
+  br i1 %.not.i.i.i.i.i47.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i", label %133
 
-133:                                              ; preds = %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i
+133:                                              ; preds = %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %119) #24
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit45.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit45.i.i.i": ; preds = %133, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i": ; preds = %133, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br i1 %132, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature8find_crtERKS7_IhSaIhEEE3$_0ET_SH_SH_T0_.exit", label %134
 
-134:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit45.i.i.i"
+134:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i"
   %135 = getelementptr inbounds i8, ptr %.sroa.061.1.i.i.i, i64 16
   br label %136
 
@@ -4350,33 +4342,33 @@ _ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i: ; preds = %131, %130, %11
   %147 = ptrtoint ptr %145 to i64
   %148 = sub i64 %146, %147
   %149 = icmp eq i64 %142, %148
-  br i1 %149, label %150, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i
+  br i1 %149, label %150, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i52.i.i.i
 
 150:                                              ; preds = %136
-  %.not.i.i.i.i.i.i.i48.i.i.i = icmp eq ptr %138, %139
-  br i1 %.not.i.i.i.i.i.i.i48.i.i.i, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i, label %151
+  %.not.i.i.i.i.i.i.i54.i.i.i = icmp eq ptr %138, %139
+  br i1 %.not.i.i.i.i.i.i.i54.i.i.i, label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i52.i.i.i, label %151
 
 151:                                              ; preds = %150
-  %bcmp.i.i.i.i.i.i.i49.i.i.i = call i32 @bcmp(ptr %139, ptr %145, i64 %142)
-  %.not7.i.i.i.i.i.i.i50.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i49.i.i.i, 0
-  %152 = select i1 %.not7.i.i.i.i.i.i.i50.i.i.i, ptr %.sroa.061.2.i.i.i, ptr %13
-  br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i
+  %bcmp.i.i.i.i.i.i.i55.i.i.i = call i32 @bcmp(ptr %139, ptr %145, i64 %142)
+  %.not7.i.i.i.i.i.i.i56.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i55.i.i.i, 0
+  %152 = select i1 %.not7.i.i.i.i.i.i.i56.i.i.i, ptr %.sroa.061.2.i.i.i, ptr %13
+  br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i52.i.i.i
 
-_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i: ; preds = %151, %150, %136
+_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i52.i.i.i: ; preds = %151, %150, %136
   %spec.select.i.i.i = phi ptr [ %13, %136 ], [ %152, %151 ], [ %.sroa.061.2.i.i.i, %150 ]
-  %.not.i.i.i.i.i47.i.i.i = icmp eq ptr %139, null
-  br i1 %.not.i.i.i.i.i47.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i", label %153
+  %.not.i.i.i.i.i53.i.i.i = icmp eq ptr %139, null
+  br i1 %.not.i.i.i.i.i53.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit57.i.i.i", label %153
 
-153:                                              ; preds = %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i
+153:                                              ; preds = %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i52.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %139) #24
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit57.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i": ; preds = %153, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit57.i.i.i": ; preds = %153, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i52.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature8find_crtERKS7_IhSaIhEEE3$_0ET_SH_SH_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature8find_crtERKS7_IhSaIhEEE3$_0ET_SH_SH_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit21.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit27.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit33.i.i.i", %._crit_edge.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit39.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit45.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.061.0.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit39.i.i.i" ], [ %.sroa.061.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit45.i.i.i" ], [ %13, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i" ], [ %.sroa.061.071.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit.i.i.i" ], [ %41, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit21.i.i.i" ], [ %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit27.i.i.i" ], [ %75, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit33.i.i.i" ]
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature8find_crtERKS7_IhSaIhEEE3$_0ET_SH_SH_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit27.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit33.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit39.i.i.i", %._crit_edge.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit45.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit57.i.i.i"
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.061.0.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit45.i.i.i" ], [ %.sroa.061.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i" ], [ %13, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit57.i.i.i" ], [ %.sroa.061.071.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit.i.i.i" ], [ %41, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit27.i.i.i" ], [ %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit33.i.i.i" ], [ %75, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit39.i.i.i" ]
   %154 = load ptr, ptr %12, align 8
   %155 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %154
   %spec.select = select i1 %155, ptr null, ptr %.sroa.08.0.in.sroa.speculated.i.i.i
@@ -4385,13 +4377,96 @@ _ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i: ; preds = %151, %150, %13
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
-  %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.1138", align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %8 = ptrtoint ptr %4 to i64
+  %9 = sub i64 %7, %8
+  %10 = ashr i64 %9, 6
+  %11 = icmp sgt i64 %10, 0
+  br i1 %11, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %2, %22
+  %.043.i.i.i = phi i64 [ %24, %22 ], [ %10, %2 ]
+  %.sroa.032.042.i.i.i = phi ptr [ %23, %22 ], [ %4, %2 ]
+  %12 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %.sroa.032.042.i.i.i)
+  br i1 %12, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %13
+
+13:                                               ; preds = %.lr.ph.i.i.i
+  %14 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 16
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %14)
+  br i1 %15, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %16
+
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 32
+  %18 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %17)
+  br i1 %18, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %19
+
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 48
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %20)
+  br i1 %21, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %22
+
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 64
+  %24 = add nsw i64 %.043.i.i.i, -1
+  %25 = icmp sgt i64 %.043.i.i.i, 1
+  br i1 %25, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !53
+
+._crit_edge.loopexit.i.i.i:                       ; preds = %22
+  %.pre.i.i.i = ptrtoint ptr %23 to i64
+  %.pre44.i.i.i = sub i64 %7, %.pre.i.i.i
+  br label %._crit_edge.i.i.i
+
+._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %2
+  %.pre-phi45.i.i.i = phi i64 [ %.pre44.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %9, %2 ]
+  %.sroa.032.0.lcssa.i.i.i = phi ptr [ %23, %._crit_edge.loopexit.i.i.i ], [ %4, %2 ]
+  %26 = ashr exact i64 %.pre-phi45.i.i.i, 4
+  switch i64 %26, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit" [
+    i64 3, label %27
+    i64 2, label %31
+    i64 1, label %35
+  ]
+
+27:                                               ; preds = %._crit_edge.i.i.i
+  %28 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %.sroa.032.0.lcssa.i.i.i)
+  br i1 %28, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %29
+
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i, i64 16
+  br label %31
+
+31:                                               ; preds = %29, %._crit_edge.i.i.i
+  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %30, %29 ]
+  %32 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %.sroa.032.1.i.i.i)
+  br i1 %32, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i, i64 16
+  br label %35
+
+35:                                               ; preds = %33, %._crit_edge.i.i.i
+  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %34, %33 ]
+  %36 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %.sroa.032.2.i.i.i)
+  %spec.select.i.i.i = select i1 %36, ptr %.sroa.032.2.i.i.i, ptr %6
+  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit"
+
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit": ; preds = %.lr.ph.i.i.i, %13, %16, %19, %._crit_edge.i.i.i, %27, %31, %35
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %27 ], [ %.sroa.032.1.i.i.i, %31 ], [ %6, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %35 ], [ %.sroa.032.042.i.i.i, %.lr.ph.i.i.i ], [ %14, %13 ], [ %17, %16 ], [ %20, %19 ]
+  %37 = load ptr, ptr %5, align 8
+  %38 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %37
+  %spec.select = select i1 %38, ptr null, ptr %.sroa.08.0.in.sroa.speculated.i.i.i
+  ret ptr %spec.select
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef ptr @_ZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %1, ptr %3, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %5 to i64
   %10 = sub i64 %8, %9
@@ -4399,181 +4474,171 @@ define noundef ptr @_ZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basi
   %12 = icmp sgt i64 %11, 0
   br i1 %12, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %2, %23
-  %.036.i.i.i = phi i64 [ %25, %23 ], [ %11, %2 ]
-  %.sroa.025.035.i.i.i = phi ptr [ %24, %23 ], [ %5, %2 ]
-  %13 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.sroa.025.035.i.i.i)
-  br i1 %13, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %14
+.lr.ph.i.i.i:                                     ; preds = %3, %23
+  %.050.i.i.i = phi i64 [ %25, %23 ], [ %11, %3 ]
+  %.sroa.039.049.i.i.i = phi ptr [ %24, %23 ], [ %5, %3 ]
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %.sroa.039.049.i.i.i)
+  br i1 %13, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %14
 
 14:                                               ; preds = %.lr.ph.i.i.i
-  %15 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 16
-  %16 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %15)
-  br i1 %16, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %17
+  %15 = getelementptr inbounds i8, ptr %.sroa.039.049.i.i.i, i64 16
+  %16 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %15)
+  br i1 %16, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 32
-  %19 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %18)
-  br i1 %19, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %20
+  %18 = getelementptr inbounds i8, ptr %.sroa.039.049.i.i.i, i64 32
+  %19 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %18)
+  br i1 %19, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 48
-  %22 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %21)
-  br i1 %22, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %23
+  %21 = getelementptr inbounds i8, ptr %.sroa.039.049.i.i.i, i64 48
+  %22 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %21)
+  br i1 %22, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 64
-  %25 = add nsw i64 %.036.i.i.i, -1
-  %26 = icmp sgt i64 %.036.i.i.i, 1
-  br i1 %26, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !53
+  %24 = getelementptr inbounds i8, ptr %.sroa.039.049.i.i.i, i64 64
+  %25 = add nsw i64 %.050.i.i.i, -1
+  %26 = icmp sgt i64 %.050.i.i.i, 1
+  br i1 %26, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !54
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %23
   %.pre.i.i.i = ptrtoint ptr %24 to i64
-  %.pre37.i.i.i = sub i64 %8, %.pre.i.i.i
+  %.pre51.i.i.i = sub i64 %8, %.pre.i.i.i
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %2
-  %.pre-phi38.i.i.i = phi i64 [ %.pre37.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %10, %2 ]
-  %.sroa.025.0.lcssa.i.i.i = phi ptr [ %24, %._crit_edge.loopexit.i.i.i ], [ %5, %2 ]
-  %27 = ashr exact i64 %.pre-phi38.i.i.i, 4
-  switch i64 %27, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit" [
+._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %3
+  %.pre-phi52.i.i.i = phi i64 [ %.pre51.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %10, %3 ]
+  %.sroa.039.0.lcssa.i.i.i = phi ptr [ %24, %._crit_edge.loopexit.i.i.i ], [ %5, %3 ]
+  %27 = ashr exact i64 %.pre-phi52.i.i.i, 4
+  switch i64 %27, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit" [
     i64 3, label %28
     i64 2, label %32
     i64 1, label %36
   ]
 
 28:                                               ; preds = %._crit_edge.i.i.i
-  %29 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.sroa.025.0.lcssa.i.i.i)
-  br i1 %29, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %30
+  %29 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %.sroa.039.0.lcssa.i.i.i)
+  br i1 %29, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i, i64 16
+  %31 = getelementptr inbounds i8, ptr %.sroa.039.0.lcssa.i.i.i, i64 16
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %31, %30 ]
-  %33 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.sroa.025.1.i.i.i)
-  br i1 %33, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %34
+  %.sroa.039.1.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %31, %30 ]
+  %33 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %.sroa.039.1.i.i.i)
+  br i1 %33, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i, i64 16
+  %35 = getelementptr inbounds i8, ptr %.sroa.039.1.i.i.i, i64 16
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %35, %34 ]
-  %37 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.sroa.025.2.i.i.i)
-  %spec.select.i.i.i = select i1 %37, ptr %.sroa.025.2.i.i.i, ptr %7
-  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit"
+  %.sroa.039.2.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %35, %34 ]
+  %37 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %.sroa.039.2.i.i.i)
+  %spec.select.i.i.i = select i1 %37, ptr %.sroa.039.2.i.i.i, ptr %7
+  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit": ; preds = %.lr.ph.i.i.i, %14, %17, %20, %._crit_edge.i.i.i, %28, %32, %36
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %28 ], [ %.sroa.025.1.i.i.i, %32 ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %36 ], [ %.sroa.025.035.i.i.i, %.lr.ph.i.i.i ], [ %15, %14 ], [ %18, %17 ], [ %21, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit": ; preds = %.lr.ph.i.i.i, %14, %17, %20, %._crit_edge.i.i.i, %28, %32, %36
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %28 ], [ %.sroa.039.1.i.i.i, %32 ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %36 ], [ %.sroa.039.049.i.i.i, %.lr.ph.i.i.i ], [ %15, %14 ], [ %18, %17 ], [ %21, %20 ]
   %38 = load ptr, ptr %6, align 8
   %39 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %38
   %spec.select = select i1 %39, ptr null, ptr %.sroa.08.0.in.sroa.speculated.i.i.i
-  ret ptr %spec.select
-}
-
-; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
-  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.1139", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store ptr %1, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %2, ptr %9, align 8
-  %10 = ptrtoint ptr %8 to i64
-  %11 = ptrtoint ptr %6 to i64
-  %12 = sub i64 %10, %11
-  %13 = ashr i64 %12, 6
-  %14 = icmp sgt i64 %13, 0
-  br i1 %14, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %3, %25
-  %.036.i.i.i = phi i64 [ %27, %25 ], [ %13, %3 ]
-  %.sroa.025.035.i.i.i = phi ptr [ %26, %25 ], [ %6, %3 ]
-  %15 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.025.035.i.i.i)
-  br i1 %15, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %16
-
-16:                                               ; preds = %.lr.ph.i.i.i
-  %17 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 16
-  %18 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %17)
-  br i1 %18, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %19
-
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 32
-  %21 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %20)
-  br i1 %21, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %22
-
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 48
-  %24 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %23)
-  br i1 %24, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %25
-
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 64
-  %27 = add nsw i64 %.036.i.i.i, -1
-  %28 = icmp sgt i64 %.036.i.i.i, 1
-  br i1 %28, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !54
-
-._crit_edge.loopexit.i.i.i:                       ; preds = %25
-  %.pre.i.i.i = ptrtoint ptr %26 to i64
-  %.pre37.i.i.i = sub i64 %10, %.pre.i.i.i
-  br label %._crit_edge.i.i.i
-
-._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %3
-  %.pre-phi38.i.i.i = phi i64 [ %.pre37.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %12, %3 ]
-  %.sroa.025.0.lcssa.i.i.i = phi ptr [ %26, %._crit_edge.loopexit.i.i.i ], [ %6, %3 ]
-  %29 = ashr exact i64 %.pre-phi38.i.i.i, 4
-  switch i64 %29, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit" [
-    i64 3, label %30
-    i64 2, label %34
-    i64 1, label %38
-  ]
-
-30:                                               ; preds = %._crit_edge.i.i.i
-  %31 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.025.0.lcssa.i.i.i)
-  br i1 %31, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %32
-
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i, i64 16
-  br label %34
-
-34:                                               ; preds = %32, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %33, %32 ]
-  %35 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.025.1.i.i.i)
-  br i1 %35, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %36
-
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i, i64 16
-  br label %38
-
-38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
-  %39 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.025.2.i.i.i)
-  %spec.select.i.i.i = select i1 %39, ptr %.sroa.025.2.i.i.i, ptr %8
-  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit"
-
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit": ; preds = %.lr.ph.i.i.i, %16, %19, %22, %._crit_edge.i.i.i, %30, %34, %38
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %30 ], [ %.sroa.025.1.i.i.i, %34 ], [ %8, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %38 ], [ %.sroa.025.035.i.i.i, %.lr.ph.i.i.i ], [ %17, %16 ], [ %20, %19 ], [ %23, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %40 = load ptr, ptr %7, align 8
-  %41 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %40
-  %spec.select = select i1 %41, ptr null, ptr %.sroa.08.0.in.sroa.speculated.i.i.i
   ret ptr %spec.select
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
-  %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.1140", align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %8 = ptrtoint ptr %4 to i64
+  %9 = sub i64 %7, %8
+  %10 = ashr i64 %9, 6
+  %11 = icmp sgt i64 %10, 0
+  br i1 %11, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %2, %22
+  %.043.i.i.i = phi i64 [ %24, %22 ], [ %10, %2 ]
+  %.sroa.032.042.i.i.i = phi ptr [ %23, %22 ], [ %4, %2 ]
+  %12 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %.sroa.032.042.i.i.i)
+  br i1 %12, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %13
+
+13:                                               ; preds = %.lr.ph.i.i.i
+  %14 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 16
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %14)
+  br i1 %15, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %16
+
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 32
+  %18 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %17)
+  br i1 %18, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %19
+
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 48
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %20)
+  br i1 %21, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %22
+
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 64
+  %24 = add nsw i64 %.043.i.i.i, -1
+  %25 = icmp sgt i64 %.043.i.i.i, 1
+  br i1 %25, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !55
+
+._crit_edge.loopexit.i.i.i:                       ; preds = %22
+  %.pre.i.i.i = ptrtoint ptr %23 to i64
+  %.pre44.i.i.i = sub i64 %7, %.pre.i.i.i
+  br label %._crit_edge.i.i.i
+
+._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %2
+  %.pre-phi45.i.i.i = phi i64 [ %.pre44.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %9, %2 ]
+  %.sroa.032.0.lcssa.i.i.i = phi ptr [ %23, %._crit_edge.loopexit.i.i.i ], [ %4, %2 ]
+  %26 = ashr exact i64 %.pre-phi45.i.i.i, 4
+  switch i64 %26, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit" [
+    i64 3, label %27
+    i64 2, label %31
+    i64 1, label %35
+  ]
+
+27:                                               ; preds = %._crit_edge.i.i.i
+  %28 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %.sroa.032.0.lcssa.i.i.i)
+  br i1 %28, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %29
+
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i, i64 16
+  br label %31
+
+31:                                               ; preds = %29, %._crit_edge.i.i.i
+  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %30, %29 ]
+  %32 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %.sroa.032.1.i.i.i)
+  br i1 %32, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i, i64 16
+  br label %35
+
+35:                                               ; preds = %33, %._crit_edge.i.i.i
+  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %34, %33 ]
+  %36 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %1, ptr %.sroa.032.2.i.i.i)
+  %spec.select.i.i.i = select i1 %36, ptr %.sroa.032.2.i.i.i, ptr %6
+  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit"
+
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit": ; preds = %.lr.ph.i.i.i, %13, %16, %19, %._crit_edge.i.i.i, %27, %31, %35
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %27 ], [ %.sroa.032.1.i.i.i, %31 ], [ %6, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %35 ], [ %.sroa.032.042.i.i.i, %.lr.ph.i.i.i ], [ %14, %13 ], [ %17, %16 ], [ %20, %19 ]
+  %37 = load ptr, ptr %5, align 8
+  %38 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %37
+  %spec.select = select i1 %38, ptr null, ptr %.sroa.08.0.in.sroa.speculated.i.i.i
+  ret ptr %spec.select
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef ptr @_ZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %1, ptr %3, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %5 to i64
   %10 = sub i64 %8, %9
@@ -4581,169 +4646,76 @@ define noundef ptr @_ZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic
   %12 = icmp sgt i64 %11, 0
   br i1 %12, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %2, %23
-  %.036.i.i.i = phi i64 [ %25, %23 ], [ %11, %2 ]
-  %.sroa.025.035.i.i.i = phi ptr [ %24, %23 ], [ %5, %2 ]
-  %13 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.sroa.025.035.i.i.i)
-  br i1 %13, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %14
+.lr.ph.i.i.i:                                     ; preds = %3, %23
+  %.050.i.i.i = phi i64 [ %25, %23 ], [ %11, %3 ]
+  %.sroa.039.049.i.i.i = phi ptr [ %24, %23 ], [ %5, %3 ]
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %.sroa.039.049.i.i.i)
+  br i1 %13, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %14
 
 14:                                               ; preds = %.lr.ph.i.i.i
-  %15 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 16
-  %16 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %15)
-  br i1 %16, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %17
+  %15 = getelementptr inbounds i8, ptr %.sroa.039.049.i.i.i, i64 16
+  %16 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %15)
+  br i1 %16, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 32
-  %19 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %18)
-  br i1 %19, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %20
+  %18 = getelementptr inbounds i8, ptr %.sroa.039.049.i.i.i, i64 32
+  %19 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %18)
+  br i1 %19, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 48
-  %22 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %21)
-  br i1 %22, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %23
+  %21 = getelementptr inbounds i8, ptr %.sroa.039.049.i.i.i, i64 48
+  %22 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %21)
+  br i1 %22, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 64
-  %25 = add nsw i64 %.036.i.i.i, -1
-  %26 = icmp sgt i64 %.036.i.i.i, 1
-  br i1 %26, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !55
+  %24 = getelementptr inbounds i8, ptr %.sroa.039.049.i.i.i, i64 64
+  %25 = add nsw i64 %.050.i.i.i, -1
+  %26 = icmp sgt i64 %.050.i.i.i, 1
+  br i1 %26, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !56
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %23
   %.pre.i.i.i = ptrtoint ptr %24 to i64
-  %.pre37.i.i.i = sub i64 %8, %.pre.i.i.i
+  %.pre51.i.i.i = sub i64 %8, %.pre.i.i.i
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %2
-  %.pre-phi38.i.i.i = phi i64 [ %.pre37.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %10, %2 ]
-  %.sroa.025.0.lcssa.i.i.i = phi ptr [ %24, %._crit_edge.loopexit.i.i.i ], [ %5, %2 ]
-  %27 = ashr exact i64 %.pre-phi38.i.i.i, 4
-  switch i64 %27, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit" [
+._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %3
+  %.pre-phi52.i.i.i = phi i64 [ %.pre51.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %10, %3 ]
+  %.sroa.039.0.lcssa.i.i.i = phi ptr [ %24, %._crit_edge.loopexit.i.i.i ], [ %5, %3 ]
+  %27 = ashr exact i64 %.pre-phi52.i.i.i, 4
+  switch i64 %27, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit" [
     i64 3, label %28
     i64 2, label %32
     i64 1, label %36
   ]
 
 28:                                               ; preds = %._crit_edge.i.i.i
-  %29 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.sroa.025.0.lcssa.i.i.i)
-  br i1 %29, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %30
+  %29 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %.sroa.039.0.lcssa.i.i.i)
+  br i1 %29, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i, i64 16
+  %31 = getelementptr inbounds i8, ptr %.sroa.039.0.lcssa.i.i.i, i64 16
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %31, %30 ]
-  %33 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.sroa.025.1.i.i.i)
-  br i1 %33, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit", label %34
+  %.sroa.039.1.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %31, %30 ]
+  %33 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %.sroa.039.1.i.i.i)
+  br i1 %33, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i, i64 16
+  %35 = getelementptr inbounds i8, ptr %.sroa.039.1.i.i.i, i64 16
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %35, %34 ]
-  %37 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.sroa.025.2.i.i.i)
-  %spec.select.i.i.i = select i1 %37, ptr %.sroa.025.2.i.i.i, ptr %7
-  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit"
+  %.sroa.039.2.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %35, %34 ]
+  %37 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nonnull %1, ptr nonnull readonly %2, ptr %.sroa.039.2.i.i.i)
+  %spec.select.i.i.i = select i1 %37, ptr %.sroa.039.2.i.i.i, ptr %7
+  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SL_SL_T0_.exit": ; preds = %.lr.ph.i.i.i, %14, %17, %20, %._crit_edge.i.i.i, %28, %32, %36
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %28 ], [ %.sroa.025.1.i.i.i, %32 ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %36 ], [ %.sroa.025.035.i.i.i, %.lr.ph.i.i.i ], [ %15, %14 ], [ %18, %17 ], [ %21, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit": ; preds = %.lr.ph.i.i.i, %14, %17, %20, %._crit_edge.i.i.i, %28, %32, %36
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %28 ], [ %.sroa.039.1.i.i.i, %32 ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %36 ], [ %.sroa.039.049.i.i.i, %.lr.ph.i.i.i ], [ %15, %14 ], [ %18, %17 ], [ %21, %20 ]
   %38 = load ptr, ptr %6, align 8
   %39 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %38
   %spec.select = select i1 %39, ptr null, ptr %.sroa.08.0.in.sroa.speculated.i.i.i
-  ret ptr %spec.select
-}
-
-; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
-  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.1141", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store ptr %1, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %2, ptr %9, align 8
-  %10 = ptrtoint ptr %8 to i64
-  %11 = ptrtoint ptr %6 to i64
-  %12 = sub i64 %10, %11
-  %13 = ashr i64 %12, 6
-  %14 = icmp sgt i64 %13, 0
-  br i1 %14, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %3, %25
-  %.036.i.i.i = phi i64 [ %27, %25 ], [ %13, %3 ]
-  %.sroa.025.035.i.i.i = phi ptr [ %26, %25 ], [ %6, %3 ]
-  %15 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.025.035.i.i.i)
-  br i1 %15, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %16
-
-16:                                               ; preds = %.lr.ph.i.i.i
-  %17 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 16
-  %18 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %17)
-  br i1 %18, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %19
-
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 32
-  %21 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %20)
-  br i1 %21, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %22
-
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 48
-  %24 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %23)
-  br i1 %24, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %25
-
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 64
-  %27 = add nsw i64 %.036.i.i.i, -1
-  %28 = icmp sgt i64 %.036.i.i.i, 1
-  br i1 %28, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !56
-
-._crit_edge.loopexit.i.i.i:                       ; preds = %25
-  %.pre.i.i.i = ptrtoint ptr %26 to i64
-  %.pre37.i.i.i = sub i64 %10, %.pre.i.i.i
-  br label %._crit_edge.i.i.i
-
-._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %3
-  %.pre-phi38.i.i.i = phi i64 [ %.pre37.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %12, %3 ]
-  %.sroa.025.0.lcssa.i.i.i = phi ptr [ %26, %._crit_edge.loopexit.i.i.i ], [ %6, %3 ]
-  %29 = ashr exact i64 %.pre-phi38.i.i.i, 4
-  switch i64 %29, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit" [
-    i64 3, label %30
-    i64 2, label %34
-    i64 1, label %38
-  ]
-
-30:                                               ; preds = %._crit_edge.i.i.i
-  %31 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.025.0.lcssa.i.i.i)
-  br i1 %31, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %32
-
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i, i64 16
-  br label %34
-
-34:                                               ; preds = %32, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %33, %32 ]
-  %35 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.025.1.i.i.i)
-  br i1 %35, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit", label %36
-
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i, i64 16
-  br label %38
-
-38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
-  %39 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.025.2.i.i.i)
-  %spec.select.i.i.i = select i1 %39, ptr %.sroa.025.2.i.i.i, ptr %8
-  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit"
-
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_IhSaIhEEE3$_0ET_SP_SP_T0_.exit": ; preds = %.lr.ph.i.i.i, %16, %19, %22, %._crit_edge.i.i.i, %30, %34, %38
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %30 ], [ %.sroa.025.1.i.i.i, %34 ], [ %8, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %38 ], [ %.sroa.025.035.i.i.i, %.lr.ph.i.i.i ], [ %17, %16 ], [ %20, %19 ], [ %23, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %40 = load ptr, ptr %7, align 8
-  %41 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %40
-  %spec.select = select i1 %41, ptr null, ptr %.sroa.08.0.in.sroa.speculated.i.i.i
   ret ptr %spec.select
 }
 
@@ -39872,223 +39844,215 @@ _ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev.exit: ; preds = %_ZN6spdlog6lo
 declare void @_ZNK4LIEF2PE4x50913serial_numberEv(ptr dead_on_unwind writable sret(%"class.std::vector.57") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nonnull %1) unnamed_addr #3 align 2 {
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @_ZNK4LIEF2PE4x5097subjectB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %4 = load ptr, ptr %0, align 8
-  %5 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  %7 = icmp eq i64 %5, %6
-  br i1 %7, label %8, label %"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit"
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr %.0.val, ptr nonnull %0) unnamed_addr #3 align 2 {
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @_ZNK4LIEF2PE4x5097subjectB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %3 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  %4 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %5 = icmp eq i64 %3, %4
+  br i1 %5, label %6, label %"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit"
 
-8:                                                ; preds = %2
-  %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %12 = icmp eq i64 %11, 0
-  br i1 %12, label %"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit", label %13
+6:                                                ; preds = %1
+  %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit", label %11
 
-13:                                               ; preds = %8
-  %bcmp.i.i = call i32 @bcmp(ptr %9, ptr %10, i64 %11)
-  %14 = icmp eq i32 %bcmp.i.i, 0
+11:                                               ; preds = %6
+  %bcmp.i.i = call i32 @bcmp(ptr %7, ptr %8, i64 %9)
+  %12 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit"
 
-"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit": ; preds = %2, %8, %13
-  %15 = phi i1 [ false, %2 ], [ %14, %13 ], [ true, %8 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  ret i1 %15
+"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit": ; preds = %1, %6, %11
+  %13 = phi i1 [ false, %1 ], [ %12, %11 ], [ true, %6 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  ret i1 %13
 }
 
 declare void @_ZNK4LIEF2PE4x5097subjectB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = alloca %"class.std::vector.57", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @_ZNK4LIEF2PE4x5097subjectB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %5 = load ptr, ptr %0, align 8
-  %6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
-  %8 = icmp eq i64 %6, %7
-  br i1 %8, label %9, label %"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit"
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr %.0.val, ptr nocapture readonly %.8.val, ptr nonnull %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::vector.57", align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @_ZNK4LIEF2PE4x5097subjectB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %4 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  %5 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %6 = icmp eq i64 %4, %5
+  br i1 %6, label %7, label %"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit"
 
-9:                                                ; preds = %2
-  %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
-  %12 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
+7:                                                ; preds = %1
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %10 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %9
-  %bcmp.i.i = call i32 @bcmp(ptr %10, ptr %11, i64 %12)
-  %14 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %14, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit"
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %7
+  %bcmp.i.i = call i32 @bcmp(ptr %8, ptr %9, i64 %10)
+  %12 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %12, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit"
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %9
-  invoke void @_ZNK4LIEF2PE4x50913serial_numberEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.57") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1)
-          to label %15 unwind label %35
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %7
+  invoke void @_ZNK4LIEF2PE4x50913serial_numberEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.57") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0)
+          to label %13 unwind label %31
 
-15:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = ptrtoint ptr %19 to i64
-  %22 = ptrtoint ptr %20 to i64
-  %23 = sub i64 %21, %22
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %17, align 8
-  %27 = ptrtoint ptr %25 to i64
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  %30 = icmp eq i64 %23, %29
-  br i1 %30, label %31, label %33
+13:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %3, align 8
+  %17 = ptrtoint ptr %15 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %20 = getelementptr inbounds i8, ptr %.8.val, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %.8.val, align 8
+  %23 = ptrtoint ptr %21 to i64
+  %24 = ptrtoint ptr %22 to i64
+  %25 = sub i64 %23, %24
+  %26 = icmp eq i64 %19, %25
+  br i1 %26, label %27, label %29
 
-31:                                               ; preds = %15
-  %.not.i.i.i.i.i.i = icmp eq ptr %19, %20
-  br i1 %.not.i.i.i.i.i.i, label %33, label %32
+27:                                               ; preds = %13
+  %.not.i.i.i.i.i.i = icmp eq ptr %15, %16
+  br i1 %.not.i.i.i.i.i.i, label %29, label %28
 
-32:                                               ; preds = %31
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %20, ptr %26, i64 %23)
+28:                                               ; preds = %27
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %16, ptr %22, i64 %19)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
-  br label %33
+  br label %29
 
-33:                                               ; preds = %32, %31, %15
-  %.ph.i = phi i1 [ true, %31 ], [ %.not7.i.i.i.i.i.i, %32 ], [ false, %15 ]
-  %.not.i.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i, label %"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit", label %34
+29:                                               ; preds = %28, %27, %13
+  %.ph.i = phi i1 [ true, %27 ], [ %.not7.i.i.i.i.i.i, %28 ], [ false, %13 ]
+  %.not.i.i.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i.i, label %"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit", label %30
 
-34:                                               ; preds = %33
-  call void @_ZdlPv(ptr noundef nonnull %20) #24
+30:                                               ; preds = %29
+  call void @_ZdlPv(ptr noundef nonnull %16) #24
   br label %"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit"
 
-35:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
-  %36 = landingpad { ptr, i32 }
+31:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
+  %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  resume { ptr, i32 } %36
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  resume { ptr, i32 } %32
 
-"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit": ; preds = %2, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %33, %34
-  %37 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ %.ph.i, %33 ], [ %.ph.i, %34 ], [ false, %2 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  ret i1 %37
+"_ZZNK4LIEF2PE9Signature16find_crt_subjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit": ; preds = %1, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %29, %30
+  %33 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ %.ph.i, %29 ], [ %.ph.i, %30 ], [ false, %1 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  ret i1 %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nonnull %1) unnamed_addr #3 align 2 {
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @_ZNK4LIEF2PE4x5096issuerB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %4 = load ptr, ptr %0, align 8
-  %5 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  %7 = icmp eq i64 %5, %6
-  br i1 %7, label %8, label %"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit"
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESt6vectorISH_SaISH_EEEEEEbT_"(ptr %.0.val, ptr nonnull %0) unnamed_addr #3 align 2 {
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @_ZNK4LIEF2PE4x5096issuerB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %3 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  %4 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %5 = icmp eq i64 %3, %4
+  br i1 %5, label %6, label %"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit"
 
-8:                                                ; preds = %2
-  %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %12 = icmp eq i64 %11, 0
-  br i1 %12, label %"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit", label %13
+6:                                                ; preds = %1
+  %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit", label %11
 
-13:                                               ; preds = %8
-  %bcmp.i.i = call i32 @bcmp(ptr %9, ptr %10, i64 %11)
-  %14 = icmp eq i32 %bcmp.i.i, 0
+11:                                               ; preds = %6
+  %bcmp.i.i = call i32 @bcmp(ptr %7, ptr %8, i64 %9)
+  %12 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit"
 
-"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit": ; preds = %2, %8, %13
-  %15 = phi i1 [ false, %2 ], [ %14, %13 ], [ true, %8 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  ret i1 %15
+"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKNS0_4x509E.exit": ; preds = %1, %6, %11
+  %13 = phi i1 [ false, %1 ], [ %12, %11 ], [ true, %6 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = alloca %"class.std::vector.57", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @_ZNK4LIEF2PE4x5096issuerB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %5 = load ptr, ptr %0, align 8
-  %6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
-  %8 = icmp eq i64 %6, %7
-  br i1 %8, label %9, label %"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit"
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ESD_ISM_SaISM_EEEEEEbT_"(ptr %.0.val, ptr nocapture readonly %.8.val, ptr nonnull %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::vector.57", align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @_ZNK4LIEF2PE4x5096issuerB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %4 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  %5 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %6 = icmp eq i64 %4, %5
+  br i1 %6, label %7, label %"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit"
 
-9:                                                ; preds = %2
-  %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
-  %12 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
+7:                                                ; preds = %1
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #23
+  %10 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %9
-  %bcmp.i.i = call i32 @bcmp(ptr %10, ptr %11, i64 %12)
-  %14 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %14, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit"
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %7
+  %bcmp.i.i = call i32 @bcmp(ptr %8, ptr %9, i64 %10)
+  %12 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %12, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit"
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %9
-  invoke void @_ZNK4LIEF2PE4x50913serial_numberEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.57") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1)
-          to label %15 unwind label %35
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %7
+  invoke void @_ZNK4LIEF2PE4x50913serial_numberEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.57") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0)
+          to label %13 unwind label %31
 
-15:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = ptrtoint ptr %19 to i64
-  %22 = ptrtoint ptr %20 to i64
-  %23 = sub i64 %21, %22
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %17, align 8
-  %27 = ptrtoint ptr %25 to i64
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  %30 = icmp eq i64 %23, %29
-  br i1 %30, label %31, label %33
+13:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %3, align 8
+  %17 = ptrtoint ptr %15 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %20 = getelementptr inbounds i8, ptr %.8.val, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %.8.val, align 8
+  %23 = ptrtoint ptr %21 to i64
+  %24 = ptrtoint ptr %22 to i64
+  %25 = sub i64 %23, %24
+  %26 = icmp eq i64 %19, %25
+  br i1 %26, label %27, label %29
 
-31:                                               ; preds = %15
-  %.not.i.i.i.i.i.i = icmp eq ptr %19, %20
-  br i1 %.not.i.i.i.i.i.i, label %33, label %32
+27:                                               ; preds = %13
+  %.not.i.i.i.i.i.i = icmp eq ptr %15, %16
+  br i1 %.not.i.i.i.i.i.i, label %29, label %28
 
-32:                                               ; preds = %31
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %20, ptr %26, i64 %23)
+28:                                               ; preds = %27
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %16, ptr %22, i64 %19)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
-  br label %33
+  br label %29
 
-33:                                               ; preds = %32, %31, %15
-  %.ph.i = phi i1 [ true, %31 ], [ %.not7.i.i.i.i.i.i, %32 ], [ false, %15 ]
-  %.not.i.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i, label %"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit", label %34
+29:                                               ; preds = %28, %27, %13
+  %.ph.i = phi i1 [ true, %27 ], [ %.not7.i.i.i.i.i.i, %28 ], [ false, %13 ]
+  %.not.i.i.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i.i, label %"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit", label %30
 
-34:                                               ; preds = %33
-  call void @_ZdlPv(ptr noundef nonnull %20) #24
+30:                                               ; preds = %29
+  call void @_ZdlPv(ptr noundef nonnull %16) #24
   br label %"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit"
 
-35:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
-  %36 = landingpad { ptr, i32 }
+31:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
+  %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  resume { ptr, i32 } %36
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  resume { ptr, i32 } %32
 
-"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit": ; preds = %2, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %33, %34
-  %37 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ %.ph.i, %33 ], [ %.ph.i, %34 ], [ false, %2 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  ret i1 %37
+"_ZZNK4LIEF2PE9Signature15find_crt_issuerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEENK3$_0clERKNS0_4x509E.exit": ; preds = %1, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %29, %30
+  %33 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ %.ph.i, %29 ], [ %.ph.i, %30 ], [ false, %1 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  ret i1 %33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)

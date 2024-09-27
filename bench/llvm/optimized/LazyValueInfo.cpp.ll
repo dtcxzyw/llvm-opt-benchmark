@@ -4225,16 +4225,16 @@ _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_14BinaryOperatorEEEDcPT0_.ex
   br label %_ZNSt8functionIFN4llvm13ConstantRangeERKS1_S3_EED2Ev.exit
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %23, align 8
-  %24 = ptrtoint ptr %2 to i64
-  store i64 %24, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm13ConstantRangeERKS1_S3_EZNS0_17LazyValueInfoImpl23solveBlockValueBinaryOpEPNS0_14BinaryOperatorEPNS0_10BasicBlockEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_", ptr %22, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm13ConstantRangeERKS1_S3_EZNS0_17LazyValueInfoImpl23solveBlockValueBinaryOpEPNS0_14BinaryOperatorEPNS0_10BasicBlockEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %21, align 8
+  %21 = ptrtoint ptr %2 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %24, align 8
+  store i64 %21, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm13ConstantRangeERKS1_S3_EZNS0_17LazyValueInfoImpl23solveBlockValueBinaryOpEPNS0_14BinaryOperatorEPNS0_10BasicBlockEE3$_1E9_M_invokeERKSt9_Any_dataS3_S3_", ptr %23, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm13ConstantRangeERKS1_S3_EZNS0_17LazyValueInfoImpl23solveBlockValueBinaryOpEPNS0_14BinaryOperatorEPNS0_10BasicBlockEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %22, align 8
   call void @_ZN4llvm17LazyValueInfoImpl27solveBlockValueBinaryOpImplEPNS_11InstructionEPNS_10BasicBlockESt8functionIFNS_13ConstantRangeERKS6_S8_EE(ptr dead_on_unwind writable sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %6)
-  %25 = load ptr, ptr %21, align 8
+  %25 = load ptr, ptr %22, align 8
   %.not.i.i10 = icmp eq ptr %25, null
   br i1 %.not.i.i10, label %_ZNSt8functionIFN4llvm13ConstantRangeERKS1_S3_EED2Ev.exit, label %26
 
@@ -4505,16 +4505,16 @@ _ZN4llvm8dyn_castINS_16WithOverflowInstENS_5ValueEEEDcPT0_.exit: ; preds = %25, 
 
 36:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %39, align 8, !noalias !48
-  %40 = ptrtoint ptr %8 to i64
-  store i64 %40, ptr %5, align 8, !noalias !48
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm13ConstantRangeERKS1_S3_EZNS0_17LazyValueInfoImpl32solveBlockValueOverflowIntrinsicEPNS0_16WithOverflowInstEPNS0_10BasicBlockEE3$_0E9_M_invokeERKSt9_Any_dataS3_S3_", ptr %38, align 8, !noalias !48
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm13ConstantRangeERKS1_S3_EZNS0_17LazyValueInfoImpl32solveBlockValueOverflowIntrinsicEPNS0_16WithOverflowInstEPNS0_10BasicBlockEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %37, align 8, !noalias !48
+  %37 = ptrtoint ptr %8 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %40, align 8, !noalias !48
+  store i64 %37, ptr %5, align 8, !noalias !48
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm13ConstantRangeERKS1_S3_EZNS0_17LazyValueInfoImpl32solveBlockValueOverflowIntrinsicEPNS0_16WithOverflowInstEPNS0_10BasicBlockEE3$_0E9_M_invokeERKSt9_Any_dataS3_S3_", ptr %39, align 8, !noalias !48
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm13ConstantRangeERKS1_S3_EZNS0_17LazyValueInfoImpl32solveBlockValueOverflowIntrinsicEPNS0_16WithOverflowInstEPNS0_10BasicBlockEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %38, align 8, !noalias !48
   call void @_ZN4llvm17LazyValueInfoImpl27solveBlockValueBinaryOpImplEPNS_11InstructionEPNS_10BasicBlockESt8functionIFNS_13ConstantRangeERKS6_S8_EE(ptr dead_on_unwind writable sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull %8, ptr noundef %3, ptr noundef nonnull %5)
-  %41 = load ptr, ptr %37, align 8, !noalias !48
+  %41 = load ptr, ptr %38, align 8, !noalias !48
   %.not.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i, label %_ZN4llvm17LazyValueInfoImpl32solveBlockValueOverflowIntrinsicEPNS_16WithOverflowInstEPNS_10BasicBlockE.exit, label %42
 
@@ -7319,16 +7319,16 @@ _ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit13: ; preds = %_ZNSt8optionalIN4l
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm17LazyValueInfoImpl32solveBlockValueOverflowIntrinsicEPNS_16WithOverflowInstEPNS_10BasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::function", align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %2 to i64
-  store i64 %9, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm13ConstantRangeERKS1_S3_EZNS0_17LazyValueInfoImpl32solveBlockValueOverflowIntrinsicEPNS0_16WithOverflowInstEPNS0_10BasicBlockEE3$_0E9_M_invokeERKSt9_Any_dataS3_S3_", ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN4llvm13ConstantRangeERKS1_S3_EZNS0_17LazyValueInfoImpl32solveBlockValueOverflowIntrinsicEPNS0_16WithOverflowInstEPNS0_10BasicBlockEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %6, align 8
+  %6 = ptrtoint ptr %2 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %9, align 8
+  store i64 %6, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm13ConstantRangeERKS1_S3_EZNS0_17LazyValueInfoImpl32solveBlockValueOverflowIntrinsicEPNS0_16WithOverflowInstEPNS0_10BasicBlockEE3$_0E9_M_invokeERKSt9_Any_dataS3_S3_", ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN4llvm13ConstantRangeERKS1_S3_EZNS0_17LazyValueInfoImpl32solveBlockValueOverflowIntrinsicEPNS0_16WithOverflowInstEPNS0_10BasicBlockEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %7, align 8
   call void @_ZN4llvm17LazyValueInfoImpl27solveBlockValueBinaryOpImplEPNS_11InstructionEPNS_10BasicBlockESt8functionIFNS_13ConstantRangeERKS6_S8_EE(ptr dead_on_unwind writable sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
-  %10 = load ptr, ptr %6, align 8
+  %10 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZNSt8functionIFN4llvm13ConstantRangeERKS1_S3_EED2Ev.exit, label %11
 

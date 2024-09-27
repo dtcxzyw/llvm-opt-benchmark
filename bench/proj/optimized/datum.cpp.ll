@@ -8862,8 +8862,8 @@ define noundef zeroext i1 @_ZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEqu
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %2, align 8
-  %.not55 = icmp eq ptr %25, null
-  br i1 %.not55, label %110, label %26
+  %.not57 = icmp eq ptr %25, null
+  br i1 %.not57, label %110, label %26
 
 26:                                               ; preds = %24
   %27 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common16IdentifiedObject11identifiersEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #27
@@ -8912,41 +8912,41 @@ define noundef zeroext i1 @_ZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEqu
   %48 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %47) #28
   %49 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   %50 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %48, ptr noundef %49) #28
-  br i1 %50, label %.loopexit, label %.preheader57
+  br i1 %50, label %.loopexit, label %.preheader.i
 
-.preheader57:                                     ; preds = %46, %51
-  %.sroa.08.0.in.i = phi ptr [ %.sroa.08.0.i, %51 ], [ %7, %46 ]
-  %.sroa.08.0.i = load ptr, ptr %.sroa.08.0.in.i, align 8
-  %.not.not.i = icmp eq ptr %.sroa.08.0.i, %7
+.preheader.i:                                     ; preds = %46, %51
+  %.sroa.01.0.in.i = phi ptr [ %.sroa.01.0.i, %51 ], [ %7, %46 ]
+  %.sroa.01.0.i = load ptr, ptr %.sroa.01.0.in.i, align 8
+  %.not.not.i = icmp eq ptr %.sroa.01.0.i, %7
   br i1 %.not.not.i, label %"_ZZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEquivalentNameToUsingAliasEPKNS0_6common16IdentifiedObjectERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %51
 
-51:                                               ; preds = %.preheader57
-  %52 = getelementptr inbounds i8, ptr %.sroa.08.0.i, i64 16
+51:                                               ; preds = %.preheader.i
+  %52 = getelementptr inbounds i8, ptr %.sroa.01.0.i, i64 16
   %53 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #28
   %54 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %48, ptr noundef %53) #28
-  br i1 %54, label %.loopexit, label %.preheader57
+  br i1 %54, label %.loopexit, label %.preheader.i
 
 .loopexit:                                        ; preds = %51, %46
   %55 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %1) #27
   %56 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %55) #28
   %57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   %58 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %56, ptr noundef %57) #28
-  br i1 %58, label %"_ZZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEquivalentNameToUsingAliasEPKNS0_6common16IdentifiedObjectERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %.preheader
+  br i1 %58, label %"_ZZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEquivalentNameToUsingAliasEPKNS0_6common16IdentifiedObjectERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %.preheader.i41
 
-.preheader:                                       ; preds = %.loopexit, %59
-  %.sroa.08.0.in.i38 = phi ptr [ %.sroa.08.0.i39, %59 ], [ %7, %.loopexit ]
-  %.sroa.08.0.i39 = load ptr, ptr %.sroa.08.0.in.i38, align 8
-  %.not.not.i40.not.not = icmp ne ptr %.sroa.08.0.i39, %7
-  br i1 %.not.not.i40.not.not, label %59, label %"_ZZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEquivalentNameToUsingAliasEPKNS0_6common16IdentifiedObjectERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
+.preheader.i41:                                   ; preds = %.loopexit, %59
+  %.sroa.01.0.in.i42 = phi ptr [ %.sroa.01.0.i43, %59 ], [ %7, %.loopexit ]
+  %.sroa.01.0.i43 = load ptr, ptr %.sroa.01.0.in.i42, align 8
+  %.not.not.i44.not.not = icmp ne ptr %.sroa.01.0.i43, %7
+  br i1 %.not.not.i44.not.not, label %59, label %"_ZZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEquivalentNameToUsingAliasEPKNS0_6common16IdentifiedObjectERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
 
-59:                                               ; preds = %.preheader
-  %60 = getelementptr inbounds i8, ptr %.sroa.08.0.i39, i64 16
+59:                                               ; preds = %.preheader.i41
+  %60 = getelementptr inbounds i8, ptr %.sroa.01.0.i43, i64 16
   %61 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #28
   %62 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %56, ptr noundef %61) #28
-  br i1 %62, label %"_ZZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEquivalentNameToUsingAliasEPKNS0_6common16IdentifiedObjectERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %.preheader
+  br i1 %62, label %"_ZZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEquivalentNameToUsingAliasEPKNS0_6common16IdentifiedObjectERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %.preheader.i41
 
-"_ZZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEquivalentNameToUsingAliasEPKNS0_6common16IdentifiedObjectERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit": ; preds = %.preheader57, %59, %.preheader, %.loopexit
-  %63 = phi i1 [ true, %.loopexit ], [ %.not.not.i40.not.not, %.preheader ], [ %.not.not.i40.not.not, %59 ], [ false, %.preheader57 ]
+"_ZZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEquivalentNameToUsingAliasEPKNS0_6common16IdentifiedObjectERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit": ; preds = %.preheader.i, %59, %.preheader.i41, %.loopexit
+  %63 = phi i1 [ true, %.loopexit ], [ %.not.not.i44.not.not, %.preheader.i41 ], [ %.not.not.i44.not.not, %59 ], [ false, %.preheader.i ]
   %64 = load ptr, ptr %7, align 8
   %.not8.i.i.i = icmp eq ptr %64, %7
   br i1 %.not8.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %.lr.ph.i.i.i
@@ -9042,13 +9042,13 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   br label %96
 
 96:                                               ; preds = %97, %93
-  %.sroa.048.0.in = phi ptr [ %11, %93 ], [ %.sroa.048.0, %97 ]
-  %.sroa.048.0 = load ptr, ptr %.sroa.048.0.in, align 8
-  %.not56 = icmp eq ptr %.sroa.048.0, %11
-  br i1 %.not56, label %106, label %97
+  %.sroa.052.0.in = phi ptr [ %11, %93 ], [ %.sroa.052.0, %97 ]
+  %.sroa.052.0 = load ptr, ptr %.sroa.052.0.in, align 8
+  %.not58 = icmp eq ptr %.sroa.052.0, %11
+  br i1 %.not58, label %106, label %97
 
 97:                                               ; preds = %96
-  %98 = getelementptr inbounds i8, ptr %.sroa.048.0, i64 16
+  %98 = getelementptr inbounds i8, ptr %.sroa.052.0, i64 16
   %99 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %98) #28
   %100 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %95, ptr noundef %99) #28
   br i1 %100, label %106, label %96
@@ -9074,26 +9074,26 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 106:                                              ; preds = %96, %97
   %107 = load ptr, ptr %11, align 8
-  %.not8.i.i.i43 = icmp eq ptr %107, %11
-  br i1 %.not8.i.i.i43, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit47, label %.lr.ph.i.i.i44
+  %.not8.i.i.i47 = icmp eq ptr %107, %11
+  br i1 %.not8.i.i.i47, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit51, label %.lr.ph.i.i.i48
 
-.lr.ph.i.i.i44:                                   ; preds = %106, %.lr.ph.i.i.i44
-  %.09.i.i.i45 = phi ptr [ %108, %.lr.ph.i.i.i44 ], [ %107, %106 ]
-  %108 = load ptr, ptr %.09.i.i.i45, align 8
-  %109 = getelementptr inbounds i8, ptr %.09.i.i.i45, i64 16
+.lr.ph.i.i.i48:                                   ; preds = %106, %.lr.ph.i.i.i48
+  %.09.i.i.i49 = phi ptr [ %108, %.lr.ph.i.i.i48 ], [ %107, %106 ]
+  %108 = load ptr, ptr %.09.i.i.i49, align 8
+  %109 = getelementptr inbounds i8, ptr %.09.i.i.i49, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %109) #28
-  call void @_ZdlPv(ptr noundef %.09.i.i.i45) #30
-  %.not.i.i.i46 = icmp eq ptr %108, %11
-  br i1 %.not.i.i.i46, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit47, label %.lr.ph.i.i.i44, !llvm.loop !77
+  call void @_ZdlPv(ptr noundef %.09.i.i.i49) #30
+  %.not.i.i.i50 = icmp eq ptr %108, %11
+  br i1 %.not.i.i.i50, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit51, label %.lr.ph.i.i.i48, !llvm.loop !77
 
-_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit47: ; preds = %.lr.ph.i.i.i44, %106
-  br i1 %.not56, label %110, label %111
+_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit51: ; preds = %.lr.ph.i.i.i48, %106
+  br i1 %.not58, label %110, label %111
 
-110:                                              ; preds = %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit47, %24
+110:                                              ; preds = %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit51, %24
   br label %111
 
-111:                                              ; preds = %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit47, %83, %3, %20, %110, %85, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %.024 = phi i1 [ true, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit47 ], [ false, %110 ], [ %89, %85 ], [ %63, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ true, %20 ], [ true, %3 ], [ false, %83 ]
+111:                                              ; preds = %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit51, %83, %3, %20, %110, %85, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
+  %.024 = phi i1 [ true, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit51 ], [ false, %110 ], [ %89, %85 ], [ %63, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ true, %20 ], [ true, %3 ], [ false, %83 ]
   ret i1 %.024
 
 112:                                              ; preds = %105, %76, %71

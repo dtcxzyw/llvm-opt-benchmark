@@ -2650,7 +2650,7 @@ lor.lhs.false:                                    ; preds = %sw.bb5
   br i1 %tobool9, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %lor.lhs.false, %sw.bb5
-  call fastcc void @_ZZN4mold3elfL8scan_relINS0_4M68KEEEvRNS0_7ContextIT_EERNS0_12InputSectionIS4_EERNS0_6SymbolIS4_EERKNS0_6ElfRelIS4_EENS0_6ActionEENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(40) %check_textrel)
+  call fastcc void @_ZZN4mold3elfL8scan_relINS0_4M68KEEEvRNS0_7ContextIT_EERNS0_12InputSectionIS4_EERNS0_6SymbolIS4_EERKNS0_6ElfRelIS4_EENS0_6ActionEENKUlvE0_clEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %check_textrel)
   %18 = load ptr, ptr %isec, align 8
   %num_dynrel.i = getelementptr inbounds i8, ptr %18, i64 576
   %19 = load i64, ptr %num_dynrel.i, align 8
@@ -2677,12 +2677,12 @@ sw.bb17:                                          ; preds = %_ZNK4mold3elf12Inpu
   br i1 %tobool18, label %if.then19, label %if.else20
 
 if.then19:                                        ; preds = %sw.bb17
-  call fastcc void @_ZZN4mold3elfL8scan_relINS0_4M68KEEEvRNS0_7ContextIT_EERNS0_12InputSectionIS4_EERNS0_6SymbolIS4_EERKNS0_6ElfRelIS4_EENS0_6ActionEENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(40) %check_textrel)
+  call fastcc void @_ZZN4mold3elfL8scan_relINS0_4M68KEEEvRNS0_7ContextIT_EERNS0_12InputSectionIS4_EERNS0_6SymbolIS4_EERKNS0_6ElfRelIS4_EENS0_6ActionEENKUlvE0_clEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %check_textrel)
   %22 = load ptr, ptr %isec, align 8
-  %num_dynrel.i19 = getelementptr inbounds i8, ptr %22, i64 576
-  %23 = load i64, ptr %num_dynrel.i19, align 8
-  %inc.i20 = add i64 %23, 1
-  store i64 %inc.i20, ptr %num_dynrel.i19, align 8
+  %num_dynrel.i26 = getelementptr inbounds i8, ptr %22, i64 576
+  %23 = load i64, ptr %num_dynrel.i26, align 8
+  %inc.i27 = add i64 %23, 1
+  store i64 %inc.i27, ptr %num_dynrel.i26, align 8
   br label %sw.epilog
 
 if.else20:                                        ; preds = %sw.bb17
@@ -2691,12 +2691,12 @@ if.else20:                                        ; preds = %sw.bb17
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %_ZNK4mold3elf12InputSectionINS0_4M68KEE4shdrEv.exit
-  call fastcc void @_ZZN4mold3elfL8scan_relINS0_4M68KEEEvRNS0_7ContextIT_EERNS0_12InputSectionIS4_EERNS0_6SymbolIS4_EERKNS0_6ElfRelIS4_EENS0_6ActionEENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(40) %check_textrel)
+  call fastcc void @_ZZN4mold3elfL8scan_relINS0_4M68KEEEvRNS0_7ContextIT_EERNS0_12InputSectionIS4_EERNS0_6SymbolIS4_EERKNS0_6ElfRelIS4_EENS0_6ActionEENKUlvE0_clEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %check_textrel)
   %25 = load ptr, ptr %isec, align 8
-  %num_dynrel.i21 = getelementptr inbounds i8, ptr %25, i64 576
-  %26 = load i64, ptr %num_dynrel.i21, align 8
-  %inc.i22 = add i64 %26, 1
-  store i64 %inc.i22, ptr %num_dynrel.i21, align 8
+  %num_dynrel.i28 = getelementptr inbounds i8, ptr %25, i64 576
+  %26 = load i64, ptr %num_dynrel.i28, align 8
+  %inc.i29 = add i64 %26, 1
+  store i64 %inc.i29, ptr %num_dynrel.i28, align 8
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %_ZNK4mold3elf12InputSectionINS0_4M68KEE4shdrEv.exit
@@ -2747,8 +2747,8 @@ _ZNK4mold3elf12InputSectionINS0_4M68KEE4shdrEv.exit13.i: ; preds = %if.end.i5.i,
   %sh_addralign.i = getelementptr inbounds i8, ptr %retval.0.i9.i, i64 32
   %x.0.copyload.i14.i = load i32, ptr %sh_addralign.i, align 1
   %34 = and i32 %x.0.copyload.i14.i, 50331648
-  %cmp.i23 = icmp eq i32 %34, 0
-  br i1 %cmp.i23, label %_ZNK4mold3elf12InputSectionINS0_4M68KEE13is_relr_relocERNS0_7ContextIS2_EERKNS0_6ElfRelIS2_EE.exit, label %if.then27
+  %cmp.i30 = icmp eq i32 %34, 0
+  br i1 %cmp.i30, label %_ZNK4mold3elf12InputSectionINS0_4M68KEE13is_relr_relocERNS0_7ContextIS2_EERKNS0_6ElfRelIS2_EE.exit, label %if.then27
 
 _ZNK4mold3elf12InputSectionINS0_4M68KEE13is_relr_relocERNS0_7ContextIS2_EERKNS0_6ElfRelIS2_EE.exit: ; preds = %_ZNK4mold3elf12InputSectionINS0_4M68KEE4shdrEv.exit13.i
   %x.0.copyload.i15.i = load i32, ptr %rel, align 1
@@ -2764,12 +2764,12 @@ if.then27:                                        ; preds = %_ZNK4mold3elf12Inpu
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %_ZNK4mold3elf12InputSectionINS0_4M68KEE4shdrEv.exit
-  call fastcc void @_ZZN4mold3elfL8scan_relINS0_4M68KEEEvRNS0_7ContextIT_EERNS0_12InputSectionIS4_EERNS0_6SymbolIS4_EERKNS0_6ElfRelIS4_EENS0_6ActionEENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(40) %check_textrel)
+  call fastcc void @_ZZN4mold3elfL8scan_relINS0_4M68KEEEvRNS0_7ContextIT_EERNS0_12InputSectionIS4_EERNS0_6SymbolIS4_EERKNS0_6ElfRelIS4_EENS0_6ActionEENKUlvE0_clEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %check_textrel)
   %37 = load ptr, ptr %isec, align 8
-  %num_dynrel.i24 = getelementptr inbounds i8, ptr %37, i64 576
-  %38 = load i64, ptr %num_dynrel.i24, align 8
-  %inc.i25 = add i64 %38, 1
-  store i64 %inc.i25, ptr %num_dynrel.i24, align 8
+  %num_dynrel.i31 = getelementptr inbounds i8, ptr %37, i64 576
+  %38 = load i64, ptr %num_dynrel.i31, align 8
+  %inc.i32 = add i64 %38, 1
+  store i64 %inc.i32, ptr %num_dynrel.i31, align 8
   %num_ifunc_dynrels = getelementptr inbounds i8, ptr %ctx, i64 3412
   %39 = atomicrmw add ptr %num_ifunc_dynrels, i32 1 monotonic, align 4
   br label %sw.epilog

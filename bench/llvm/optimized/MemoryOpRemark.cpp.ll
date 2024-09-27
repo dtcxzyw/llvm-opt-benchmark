@@ -138,9 +138,9 @@ $_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_ = comdat any
 @.str.43 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.44 = private unnamed_addr constant [10 x i8] c"auto-init\00", align 1
 @switch.table._ZNK4llvm14MemoryOpRemark10remarkNameENS0_10RemarkKindE = private unnamed_addr constant [4 x i64] [i64 13, i64 15, i64 21, i64 12], align 8
-@switch.table._ZNK4llvm14MemoryOpRemark10remarkNameENS0_10RemarkKindE.5 = private unnamed_addr constant [4 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4], align 8
+@switch.table._ZNK4llvm14MemoryOpRemark10remarkNameENS0_10RemarkKindE.7 = private unnamed_addr constant [4 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4], align 8
 @switch.table._ZNK4llvm14AutoInitRemark10remarkNameENS_14MemoryOpRemark10RemarkKindE = private unnamed_addr constant [4 x i64] [i64 13, i64 26, i64 21, i64 12], align 8
-@switch.table._ZNK4llvm14AutoInitRemark10remarkNameENS_14MemoryOpRemark10RemarkKindE.6 = private unnamed_addr constant [4 x ptr] [ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28], align 8
+@switch.table._ZNK4llvm14AutoInitRemark10remarkNameENS_14MemoryOpRemark10RemarkKindE.8 = private unnamed_addr constant [4 x ptr] [ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28], align 8
 
 @_ZN4llvm14MemoryOpRemarkD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm14MemoryOpRemarkD2Ev
 
@@ -815,7 +815,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK4llvm14MemoryOpRemark10remarkNameENS0_10RemarkKindE, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = sext i32 %1 to i64
-  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm14MemoryOpRemark10remarkNameENS0_10RemarkKindE.5, i64 0, i64 %3
+  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm14MemoryOpRemark10remarkNameENS0_10RemarkKindE.7, i64 0, i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -1492,8 +1492,8 @@ _ZN4llvm13TinyPtrVectorIPNS_14DbgDeclareInstEE5beginEv.exit.i.i.i.i.i: ; preds =
 _ZN4llvm7adl_endIRNS_13TinyPtrVectorIPNS_14DbgDeclareInstEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i: ; preds = %27, %_ZN4llvm13TinyPtrVectorIPNS_14DbgDeclareInstEE5beginEv.exit.i.i.i.i.i
   %.0.i.i.i.i9.i = phi ptr [ %7, %_ZN4llvm13TinyPtrVectorIPNS_14DbgDeclareInstEE5beginEv.exit.i.i.i.i.i ], [ %30, %27 ]
   %.0.i.i.i.i7.i = phi ptr [ %26, %_ZN4llvm13TinyPtrVectorIPNS_14DbgDeclareInstEE5beginEv.exit.i.i.i.i.i ], [ %32, %27 ]
-  %.not4.i.i = icmp eq ptr %.0.i.i.i.i9.i, %.0.i.i.i.i7.i
-  br i1 %.not4.i.i, label %"_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_14DbgDeclareInstEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit", label %.lr.ph.i.i
+  %.not5.i.i = icmp eq ptr %.0.i.i.i.i9.i, %.0.i.i.i.i7.i
+  br i1 %.not5.i.i, label %"_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_14DbgDeclareInstEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm7adl_endIRNS_13TinyPtrVectorIPNS_14DbgDeclareInstEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -1504,8 +1504,8 @@ _ZN4llvm7adl_endIRNS_13TinyPtrVectorIPNS_14DbgDeclareInstEEEEEDTclsr10adl_detail
 
 35:                                               ; preds = %"_ZZN4llvm14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS0_12VariableInfoEEEENK3$_0clINS_14DbgDeclareInstEEEDaPKT_.exit.i.i", %.lr.ph.i.i
   %36 = phi i8 [ 0, %.lr.ph.i.i ], [ %74, %"_ZZN4llvm14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS0_12VariableInfoEEEENK3$_0clINS_14DbgDeclareInstEEEDaPKT_.exit.i.i" ]
-  %.05.i.i = phi ptr [ %.0.i.i.i.i9.i, %.lr.ph.i.i ], [ %75, %"_ZZN4llvm14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS0_12VariableInfoEEEENK3$_0clINS_14DbgDeclareInstEEEDaPKT_.exit.i.i" ]
-  %37 = load ptr, ptr %.05.i.i, align 8
+  %.06.i.i = phi ptr [ %.0.i.i.i.i9.i, %.lr.ph.i.i ], [ %75, %"_ZZN4llvm14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS0_12VariableInfoEEEENK3$_0clINS_14DbgDeclareInstEEEDaPKT_.exit.i.i" ]
+  %37 = load ptr, ptr %.06.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
@@ -1577,7 +1577,7 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i: ; preds = %62
 "_ZZN4llvm14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS0_12VariableInfoEEEENK3$_0clINS_14DbgDeclareInstEEEDaPKT_.exit.i.i": ; preds = %73, %35
   %74 = phi i8 [ 1, %73 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  %75 = getelementptr inbounds i8, ptr %.05.i.i, i64 8
+  %75 = getelementptr inbounds i8, ptr %.06.i.i, i64 8
   %.not.i.i = icmp eq ptr %75, %.0.i.i.i.i7.i
   br i1 %.not.i.i, label %"_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_14DbgDeclareInstEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit", label %35, !llvm.loop !49
 
@@ -1631,8 +1631,8 @@ _ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEE5beginEv.exit.i.i.i.i.i: ; pred
 _ZN4llvm7adl_endIRNS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i: ; preds = %89, %_ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEE5beginEv.exit.i.i.i.i.i
   %.0.i.i.i.i9.i28 = phi ptr [ %8, %_ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEE5beginEv.exit.i.i.i.i.i ], [ %92, %89 ]
   %.0.i.i.i.i7.i29 = phi ptr [ %88, %_ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEE5beginEv.exit.i.i.i.i.i ], [ %94, %89 ]
-  %.not4.i.i30 = icmp eq ptr %.0.i.i.i.i9.i28, %.0.i.i.i.i7.i29
-  br i1 %.not4.i.i30, label %"_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit", label %.lr.ph.i.i31
+  %.not5.i.i30 = icmp eq ptr %.0.i.i.i.i9.i28, %.0.i.i.i.i7.i29
+  br i1 %.not5.i.i30, label %"_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit", label %.lr.ph.i.i31
 
 .lr.ph.i.i31:                                     ; preds = %_ZN4llvm7adl_endIRNS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i
   %.sroa.2.0..sroa_idx.i.i.i32 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1643,8 +1643,8 @@ _ZN4llvm7adl_endIRNS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEEEDTclsr10adl_det
 
 97:                                               ; preds = %"_ZZN4llvm14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS0_12VariableInfoEEEENK3$_0clINS_17DbgVariableRecordEEEDaPKT_.exit.i.i", %.lr.ph.i.i31
   %98 = phi i8 [ %.0, %.lr.ph.i.i31 ], [ %128, %"_ZZN4llvm14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS0_12VariableInfoEEEENK3$_0clINS_17DbgVariableRecordEEEDaPKT_.exit.i.i" ]
-  %.05.i.i34 = phi ptr [ %.0.i.i.i.i9.i28, %.lr.ph.i.i31 ], [ %129, %"_ZZN4llvm14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS0_12VariableInfoEEEENK3$_0clINS_17DbgVariableRecordEEEDaPKT_.exit.i.i" ]
-  %99 = load ptr, ptr %.05.i.i34, align 8
+  %.06.i.i34 = phi ptr [ %.0.i.i.i.i9.i28, %.lr.ph.i.i31 ], [ %129, %"_ZZN4llvm14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS0_12VariableInfoEEEENK3$_0clINS_17DbgVariableRecordEEEDaPKT_.exit.i.i" ]
+  %99 = load ptr, ptr %.06.i.i34, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 72
   %101 = call noundef ptr @_ZNK4llvm17DbgRecordParamRefINS_15DILocalVariableEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %100) #14
@@ -1708,7 +1708,7 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i41: ; preds = %
 "_ZZN4llvm14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS0_12VariableInfoEEEENK3$_0clINS_17DbgVariableRecordEEEDaPKT_.exit.i.i": ; preds = %127, %97
   %128 = phi i8 [ 1, %127 ], [ %98, %97 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  %129 = getelementptr inbounds i8, ptr %.05.i.i34, i64 8
+  %129 = getelementptr inbounds i8, ptr %.06.i.i34, i64 8
   %.not.i.i46 = icmp eq ptr %129, %.0.i.i.i.i7.i29
   br i1 %.not.i.i46, label %"_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEZNS_14MemoryOpRemark13visitVariableEPKNS_5ValueERNS_15SmallVectorImplINS5_12VariableInfoEEEE3$_0EET0_OT_SE_.exit", label %97, !llvm.loop !50
 
@@ -2259,7 +2259,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK4llvm14AutoInitRemark10remarkNameENS_14MemoryOpRemark10RemarkKindE, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = sext i32 %1 to i64
-  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm14AutoInitRemark10remarkNameENS_14MemoryOpRemark10RemarkKindE.6, i64 0, i64 %3
+  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm14AutoInitRemark10remarkNameENS_14MemoryOpRemark10RemarkKindE.8, i64 0, i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1

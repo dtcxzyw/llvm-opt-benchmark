@@ -1513,8 +1513,8 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull readonly align 1 %incdec.ptr.i.i14.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %call30, i64 %sub.ptr.sub.i.i
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i)
-  %cmp34.not69 = icmp eq i64 %num_segments.0, 0
-  br i1 %cmp34.not69, label %while.end, label %while.body.lr.ph
+  %cmp34.not68 = icmp eq i64 %num_segments.0, 0
+  br i1 %cmp34.not68, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
   %add.ptr.i28 = getelementptr inbounds i8, ptr %buffer.i27, i64 11
@@ -1522,10 +1522,10 @@ while.body.lr.ph:                                 ; preds = %_ZN5arrow8internal2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
-  %segment.071 = phi ptr [ %arrayidx.i.i25.le.le, %while.body.lr.ph ], [ %incdec.ptr35, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
-  %output.070 = phi ptr [ %add.ptr.i2.i, %while.body.lr.ph ], [ %add.ptr, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %segment.071, i64 -4
-  %add.ptr = getelementptr inbounds i8, ptr %output.070, i64 9
+  %segment.070 = phi ptr [ %arrayidx.i.i25.le.le, %while.body.lr.ph ], [ %incdec.ptr35, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
+  %output.069 = phi ptr [ %add.ptr.i2.i, %while.body.lr.ph ], [ %add.ptr, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %segment.070, i64 -4
+  %add.ptr = getelementptr inbounds i8, ptr %output.069, i64 9
   %10 = load i32, ptr %incdec.ptr35, align 4
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %buffer.i27)
   %cmp15.i.i29 = icmp ugt i32 %10, 99
@@ -3044,8 +3044,8 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull readonly align 1 %incdec.ptr.i.i14.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %call30, i64 %sub.ptr.sub.i.i
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i)
-  %cmp34.not76 = icmp eq i64 %num_segments.0, 0
-  br i1 %cmp34.not76, label %while.end, label %while.body.lr.ph
+  %cmp34.not75 = icmp eq i64 %num_segments.0, 0
+  br i1 %cmp34.not75, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
   %add.ptr.i28 = getelementptr inbounds i8, ptr %buffer.i27, i64 11
@@ -3053,10 +3053,10 @@ while.body.lr.ph:                                 ; preds = %_ZN5arrow8internal2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
-  %segment.078 = phi ptr [ %arrayidx.i.i25.le.le, %while.body.lr.ph ], [ %incdec.ptr35, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
-  %output.077 = phi ptr [ %add.ptr.i2.i, %while.body.lr.ph ], [ %add.ptr, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %segment.078, i64 -4
-  %add.ptr = getelementptr inbounds i8, ptr %output.077, i64 9
+  %segment.077 = phi ptr [ %arrayidx.i.i25.le.le, %while.body.lr.ph ], [ %incdec.ptr35, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
+  %output.076 = phi ptr [ %add.ptr.i2.i, %while.body.lr.ph ], [ %add.ptr, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %segment.077, i64 -4
+  %add.ptr = getelementptr inbounds i8, ptr %output.076, i64 9
   %10 = load i32, ptr %incdec.ptr35, align 4
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %buffer.i27)
   %cmp15.i.i29 = icmp ugt i32 %10, 99

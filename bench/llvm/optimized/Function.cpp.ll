@@ -16480,64 +16480,64 @@ _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_if
 
 "_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit": ; preds = %55, %58
   %.0.i.i.i = phi i1 [ %57, %55 ], [ %60, %58 ]
-  %spec.select125 = select i1 %.0.i.i.i, ptr @.str.9, ptr @.str.4
-  %spec.select126 = select i1 %.0.i.i.i, i64 4, i64 8
+  %spec.select123 = select i1 %.0.i.i.i, ptr @.str.9, ptr @.str.4
+  %spec.select124 = select i1 %.0.i.i.i, i64 4, i64 8
   br label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.thread"
 
 "_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.thread": ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit", %46, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i
-  %.sroa.086.0 = phi ptr [ @.str.9, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i ], [ @.str.9, %46 ], [ %spec.select125, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit" ]
-  %.sroa.5.0 = phi i64 [ 4, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i ], [ 4, %46 ], [ %spec.select126, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit" ]
+  %.sroa.088.0 = phi ptr [ @.str.9, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i ], [ @.str.9, %46 ], [ %spec.select123, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit" ]
+  %.sroa.5.0 = phi i64 [ 4, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i ], [ 4, %46 ], [ %spec.select124, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit" ]
   %61 = call noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %4, ptr nonnull @.str.11, i64 23) #27
-  %.not.i.i25 = icmp eq ptr %61, null
-  br i1 %.not.i.i25, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30.thread", label %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i26
+  %.not.i.i31 = icmp eq ptr %61, null
+  br i1 %.not.i.i31, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36.thread", label %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i32
 
-_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i26: ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.thread"
+_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i32: ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.thread"
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 128
   %63 = load ptr, ptr %62, align 8
-  %.not.i27 = icmp eq ptr %63, null
-  br i1 %.not.i27, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30.thread", label %64
+  %.not.i33 = icmp eq ptr %63, null
+  br i1 %.not.i33, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36.thread", label %64
 
-64:                                               ; preds = %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i26
+64:                                               ; preds = %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i32
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %67 = load i32, ptr %66, align 8
   %68 = icmp ult i32 %67, 65
-  br i1 %68, label %69, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30"
+  br i1 %68, label %69, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36"
 
 69:                                               ; preds = %64
   %70 = load i64, ptr %65, align 8
   %71 = icmp eq i64 %70, 0
-  br i1 %71, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30.thread", label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+  br i1 %71, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36.thread", label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
-"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30": ; preds = %64
+"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36": ; preds = %64
   %72 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %65) #29
   %73 = icmp eq i32 %72, %67
-  br i1 %73, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30.thread", label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+  br i1 %73, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36.thread", label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
-"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30.thread": ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30", %69, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.thread", %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i26
-  %.not.i.i31 = icmp eq i64 %.sroa.5.0, 4
-  br i1 %.not.i.i31, label %_ZN4llvmneENS_9StringRefES0_.exit, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36.thread": ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36", %69, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.thread", %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i32
+  %.not.i.i37 = icmp eq i64 %.sroa.5.0, 4
+  br i1 %.not.i.i37, label %_ZN4llvmneENS_9StringRefES0_.exit, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
-_ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30.thread"
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.086.0, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
-  %.not124 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not124, label %_ZN4llvmneENS_9StringRefES0_.exit.thread121, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+_ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36.thread"
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.088.0, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
+  %.not122 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not122, label %_ZN4llvmneENS_9StringRefES0_.exit.thread119, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30", %69, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30.thread", %_ZN4llvmneENS_9StringRefES0_.exit
-  %.sroa.5.1133 = phi i64 [ %.sroa.5.0, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30.thread" ], [ 4, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 3, %69 ], [ 3, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30" ]
-  %.sroa.086.1132 = phi ptr [ %.sroa.086.0, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30.thread" ], [ %.sroa.086.0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ @.str.5, %69 ], [ @.str.5, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit30" ]
-  %74 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr nonnull @.str.10, i64 19, ptr nonnull %.sroa.086.1132, i64 %.sroa.5.1133) #27
+_ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36", %69, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36.thread", %_ZN4llvmneENS_9StringRefES0_.exit
+  %.sroa.5.1131 = phi i64 [ %.sroa.5.0, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36.thread" ], [ 4, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 3, %69 ], [ 3, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36" ]
+  %.sroa.088.1130 = phi ptr [ %.sroa.088.0, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36.thread" ], [ %.sroa.088.0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ @.str.5, %69 ], [ @.str.5, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit36" ]
+  %74 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr nonnull @.str.10, i64 19, ptr nonnull %.sroa.088.1130, i64 %.sroa.5.1131) #27
   %75 = call noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %4, ptr nonnull @.str.13, i64 29) #27
-  %.not.i.i32 = icmp eq ptr %75, null
-  br i1 %.not.i.i32, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit37.thread", label %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i33
+  %.not.i.i38 = icmp eq ptr %75, null
+  br i1 %.not.i.i38, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit43.thread", label %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i39
 
-_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i33: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread
+_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i39: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 128
   %77 = load ptr, ptr %76, align 8
-  %.not.i34 = icmp eq ptr %77, null
-  br i1 %.not.i34, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit37.thread", label %78
+  %.not.i40 = icmp eq ptr %77, null
+  br i1 %.not.i40, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit43.thread", label %78
 
-78:                                               ; preds = %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i33
+78:                                               ; preds = %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i39
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %81 = load i32, ptr %80, align 8
@@ -16547,34 +16547,34 @@ _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_if
 83:                                               ; preds = %78
   %84 = load i64, ptr %79, align 8
   %85 = icmp eq i64 %84, 0
-  br label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit37"
+  br label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit43"
 
 86:                                               ; preds = %78
   %87 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %79) #29
   %88 = icmp eq i32 %87, %81
-  br label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit37"
+  br label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit43"
 
-"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit37": ; preds = %83, %86
-  %.0.i.i.i36 = phi i1 [ %85, %83 ], [ %88, %86 ]
-  %.0.i.i.i36.fr = freeze i1 %.0.i.i.i36
-  %spec.select = select i1 %.0.i.i.i36.fr, ptr @.str.15, ptr @.str.14
-  br label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit37.thread"
+"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit43": ; preds = %83, %86
+  %.0.i.i.i42 = phi i1 [ %85, %83 ], [ %88, %86 ]
+  %.0.i.i.i42.fr = freeze i1 %.0.i.i.i42
+  %spec.select = select i1 %.0.i.i.i42.fr, ptr @.str.15, ptr @.str.14
+  br label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit43.thread"
 
-"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit37.thread": ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit37", %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i33
-  %89 = phi ptr [ @.str.15, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i33 ], [ @.str.15, %_ZN4llvmneENS_9StringRefES0_.exit.thread ], [ %spec.select, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit37" ]
+"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit43.thread": ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit43", %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i39
+  %89 = phi ptr [ @.str.15, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i39 ], [ @.str.15, %_ZN4llvmneENS_9StringRefES0_.exit.thread ], [ %spec.select, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit43" ]
   %90 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr nonnull @.str.12, i64 23, ptr nonnull %89, i64 5) #27
-  br label %_ZN4llvmneENS_9StringRefES0_.exit.thread121
+  br label %_ZN4llvmneENS_9StringRefES0_.exit.thread119
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread121:      ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit37.thread", %_ZN4llvmneENS_9StringRefES0_.exit
+_ZN4llvmneENS_9StringRefES0_.exit.thread119:      ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit43.thread", %_ZN4llvmneENS_9StringRefES0_.exit
   %91 = call noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %4, ptr nonnull @.str.16, i64 25) #27
   %.not.i.i.i = icmp eq ptr %91, null
   br i1 %.not.i.i.i, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit", label %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i
 
-_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread121
+_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread119
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 128
   %93 = load ptr, ptr %92, align 8
-  %.not.i.i39 = icmp eq ptr %93, null
-  br i1 %.not.i.i39, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit", label %94
+  %.not.i.i45 = icmp eq ptr %93, null
+  br i1 %.not.i.i45, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit", label %94
 
 94:                                               ; preds = %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 24
@@ -16597,71 +16597,71 @@ _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_if
   %105 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr nonnull @.str.16, i64 25, ptr null, i64 0) #27
   br label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit"
 
-"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit": ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread121, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i, %99, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i", %104
+"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit": ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread119, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i, %99, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i", %104
   %106 = call noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %4, ptr nonnull @.str.17, i64 26) #27
-  %.not.i.i.i44 = icmp eq ptr %106, null
-  br i1 %.not.i.i.i44, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit50", label %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i45
+  %.not.i.i.i48 = icmp eq ptr %106, null
+  br i1 %.not.i.i.i48, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit54", label %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i49
 
-_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i45: ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit"
+_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i49: ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit"
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 128
   %108 = load ptr, ptr %107, align 8
-  %.not.i.i46 = icmp eq ptr %108, null
-  br i1 %.not.i.i46, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit50", label %109
+  %.not.i.i50 = icmp eq ptr %108, null
+  br i1 %.not.i.i50, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit54", label %109
 
-109:                                              ; preds = %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i45
+109:                                              ; preds = %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i49
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %112 = load i32, ptr %111, align 8
   %113 = icmp ult i32 %112, 65
-  br i1 %113, label %114, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i47"
+  br i1 %113, label %114, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i51"
 
 114:                                              ; preds = %109
   %115 = load i64, ptr %110, align 8
   %116 = icmp eq i64 %115, 0
-  br i1 %116, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit50", label %119
+  br i1 %116, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit54", label %119
 
-"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i47": ; preds = %109
+"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i51": ; preds = %109
   %117 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %110) #29
   %118 = icmp eq i32 %117, %112
-  br i1 %118, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit50", label %119
+  br i1 %118, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit54", label %119
 
-119:                                              ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i47", %114
+119:                                              ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i51", %114
   %120 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr nonnull @.str.17, i64 26, ptr null, i64 0) #27
-  br label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit50"
+  br label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit54"
 
-"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit50": ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit", %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i45, %114, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i47", %119
+"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit54": ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit", %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i49, %114, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i51", %119
   %121 = call noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %4, ptr nonnull @.str.18, i64 21) #27
-  %.not.i.i.i55 = icmp eq ptr %121, null
-  br i1 %.not.i.i.i55, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit61", label %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i56
+  %.not.i.i.i57 = icmp eq ptr %121, null
+  br i1 %.not.i.i.i57, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit63", label %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i58
 
-_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i56: ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit50"
+_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i58: ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit54"
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 128
   %123 = load ptr, ptr %122, align 8
-  %.not.i.i57 = icmp eq ptr %123, null
-  br i1 %.not.i.i57, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit61", label %124
+  %.not.i.i59 = icmp eq ptr %123, null
+  br i1 %.not.i.i59, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit63", label %124
 
-124:                                              ; preds = %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i56
+124:                                              ; preds = %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i58
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %127 = load i32, ptr %126, align 8
   %128 = icmp ult i32 %127, 65
-  br i1 %128, label %129, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i58"
+  br i1 %128, label %129, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i60"
 
 129:                                              ; preds = %124
   %130 = load i64, ptr %125, align 8
   %131 = icmp eq i64 %130, 0
-  br i1 %131, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit61", label %134
+  br i1 %131, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit63", label %134
 
-"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i58": ; preds = %124
+"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i60": ; preds = %124
   %132 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %125) #29
   %133 = icmp eq i32 %132, %127
-  br i1 %133, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit61", label %134
+  br i1 %133, label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit63", label %134
 
-134:                                              ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i58", %129
+134:                                              ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i60", %129
   %135 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr nonnull @.str.18, i64 21, ptr null, i64 0) #27
-  br label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit61"
+  br label %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit63"
 
-"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit61": ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit50", %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i56, %129, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i58", %134
+"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit63": ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit54", %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i58, %129, %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_0clERKNS_9StringRefE.exit.i60", %134
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %137 = load ptr, ptr %8, align 8
   %138 = load ptr, ptr %137, align 8
@@ -16672,11 +16672,11 @@ _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_if
   %142 = icmp eq ptr %141, %12
   br i1 %142, label %_ZN4llvm11AttrBuilderD2Ev.exit, label %143
 
-143:                                              ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit61"
+143:                                              ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit63"
   call void @free(ptr noundef %141) #27
   br label %_ZN4llvm11AttrBuilderD2Ev.exit
 
-_ZN4llvm11AttrBuilderD2Ev.exit:                   ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit61", %143
+_ZN4llvm11AttrBuilderD2Ev.exit:                   ; preds = %"_ZZN4llvm8Function21createWithDefaultAttrEPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleEENK3$_1clERKNS_9StringRefE.exit63", %143
   ret ptr %7
 }
 

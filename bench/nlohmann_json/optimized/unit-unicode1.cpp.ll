@@ -46398,10 +46398,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_19roundtripEbRKNSt7__cxx1112basic_s
   %ref.tmp167 = alloca %"class.doctest::String", align 8
   %agg.tmp172 = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
   %agg.tmp173 = alloca %"class.std::function", align 8
+  %0 = ptrtoint ptr %s to i64
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_24)
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_19roundtripEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EE", i64 16), ptr %DOCTEST_CAPTURE_24, align 8, !alias.scope !322
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_24, i64 16
-  %0 = ptrtoint ptr %s to i64
   store i64 %0, ptr %lambda_.i.i, align 8, !alias.scope !322
   store i8 0, ptr %_, align 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %_, i64 8

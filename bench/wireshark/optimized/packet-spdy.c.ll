@@ -1532,7 +1532,7 @@ spdy_save_stream_info.exit.i:                     ; preds = %536, %spdy_parse_co
   br label %dissect_spdy_header_payload.exit
 
 554:                                              ; preds = %311
-  call fastcc void @dissect_spdy_window_update_payload(ptr noundef %0, ptr noundef %43, ptr noundef %7)
+  tail call fastcc void @dissect_spdy_window_update_payload(ptr noundef %0, ptr noundef %43)
   br label %dissect_spdy_header_payload.exit
 
 555:                                              ; preds = %311
@@ -1722,25 +1722,25 @@ dissect_spdy_stream_id_field.exit:                ; preds = %4, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spdy_window_update_payload(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
-  %4 = load i32, ptr @hf_spdy_streamid, align 4
-  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
-  %7 = load i32, ptr @hf_spdy_streamid, align 4
-  %8 = icmp eq i32 %4, %7
-  br i1 %8, label %9, label %dissect_spdy_stream_id_field.exit
+define internal fastcc void @dissect_spdy_window_update_payload(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = load i32, ptr @hf_spdy_streamid, align 4
+  %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
+  %6 = load i32, ptr @hf_spdy_streamid, align 4
+  %7 = icmp eq i32 %3, %6
+  br i1 %7, label %8, label %dissect_spdy_stream_id_field.exit
 
-9:                                                ; preds = %3
-  %10 = and i32 %5, 2147483647
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.168, i32 noundef %10) #7
+8:                                                ; preds = %2
+  %9 = and i32 %4, 2147483647
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.168, i32 noundef %9) #7
   br label %dissect_spdy_stream_id_field.exit
 
-dissect_spdy_stream_id_field.exit:                ; preds = %3, %9
-  %11 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #7
-  %12 = and i32 %11, 2147483647
-  %13 = load i32, ptr @hf_spdy_window_update_delta, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #7
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.177, i32 noundef %12) #7
+dissect_spdy_stream_id_field.exit:                ; preds = %2, %8
+  %10 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #7
+  %11 = and i32 %10, 2147483647
+  %12 = load i32, ptr @hf_spdy_window_update_delta, align 4
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #7
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.177, i32 noundef %11) #7
   ret void
 }
 

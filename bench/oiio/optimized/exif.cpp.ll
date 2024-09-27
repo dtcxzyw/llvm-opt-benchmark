@@ -7501,19 +7501,19 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_T0_SL_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, i64 %__value.coerce0, i32 %__value.coerce1, i32 %__comp.coerce) unnamed_addr #23 {
 entry:
-  %__comp.coerce.fr = freeze i32 %__comp.coerce
+  %__comp.0.val.fr.i = freeze i32 %__comp.coerce
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp29 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp29, label %while.body.lr.ph, label %while.end
+  %cmp31 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp31, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %cmp.not.i.i = icmp eq i32 %__comp.coerce.fr, 1234
+  %cmp.not.i.i = icmp eq i32 %__comp.0.val.fr.i, 1234
   br i1 %cmp.not.i.i, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.body.us
-  %__holeIndex.addr.030.us = phi i64 [ %spec.select.us, %while.body.us ], [ %__holeIndex, %while.body.lr.ph ]
-  %add.us = shl i64 %__holeIndex.addr.030.us, 1
+  %__holeIndex.addr.032.us = phi i64 [ %spec.select.us, %while.body.us ], [ %__holeIndex, %while.body.lr.ph ]
+  %add.us = shl i64 %__holeIndex.addr.032.us, 1
   %mul.us = add i64 %add.us, 2
   %add.ptr.i.us = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %mul.us
   %sub5.us = or disjoint i64 %add.us, 1
@@ -7523,14 +7523,14 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %cmp4.i.i.us = icmp ult i16 %call.val.i.us, %call3.val.i.us
   %spec.select.us = select i1 %cmp4.i.i.us, i64 %sub5.us, i64 %mul.us
   %add.ptr.i19.us = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %spec.select.us
-  %add.ptr.i20.us = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__holeIndex.addr.030.us
+  %add.ptr.i20.us = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__holeIndex.addr.032.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i20.us, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i19.us, i64 12, i1 false)
   %cmp.us = icmp slt i64 %spec.select.us, %div
   br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !259
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %__holeIndex.addr.030 = phi i64 [ %spec.select, %while.body ], [ %__holeIndex, %while.body.lr.ph ]
-  %add = shl i64 %__holeIndex.addr.030, 1
+  %__holeIndex.addr.032 = phi i64 [ %spec.select, %while.body ], [ %__holeIndex, %while.body.lr.ph ]
+  %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %add.ptr.i = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %mul
   %sub5 = or disjoint i64 %add, 1
@@ -7542,7 +7542,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmp4.i.i = icmp ult i16 %0, %1
   %spec.select = select i1 %cmp4.i.i, i64 %sub5, i64 %mul
   %add.ptr.i19 = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %spec.select
-  %add.ptr.i20 = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__holeIndex.addr.030
+  %add.ptr.i20 = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__holeIndex.addr.032
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i20, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i19, i64 12, i1 false)
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !259
@@ -7569,49 +7569,53 @@ if.then22:                                        ; preds = %land.lhs.true
 
 if.end35:                                         ; preds = %if.then22, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub26, %if.then22 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp15.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp15.i, label %land.rhs.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_T0_SL_T1_RT2_.exit"
+  %cmp6.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp6.i, label %land.rhs.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_T0_SL_T1_RT2_.exit"
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end35
+  %__parent.0.in4.i = add nsw i64 %__holeIndex.addr.1, -1
+  %__parent.05.i = sdiv i64 %__parent.0.in4.i, 2
   %__value.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %__value.coerce0 to i16
+  %cmp.not.i.i.i = icmp eq i32 %__comp.0.val.fr.i, 1234
   %2 = tail call i16 @llvm.bswap.i16(i16 %__value.sroa.0.sroa.0.0.extract.trunc.i)
-  %cmp.not.i.i.i = icmp eq i32 %__comp.coerce.fr, 1234
   %btag.0.i.i.i = select i1 %cmp.not.i.i.i, i16 %__value.sroa.0.sroa.0.0.extract.trunc.i, i16 %2
-  br i1 %cmp.not.i.i.i, label %land.rhs.i.us, label %land.rhs.i
+  br i1 %cmp.not.i.i.i, label %land.rhs.us.i, label %land.rhs.i
 
-land.rhs.i.us:                                    ; preds = %land.rhs.lr.ph.i, %while.body.i.us
-  %__holeIndex.addr.016.i.us = phi i64 [ %__parent.017.i.us, %while.body.i.us ], [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ]
-  %__parent.017.in.i.us = add nsw i64 %__holeIndex.addr.016.i.us, -1
-  %__parent.017.i.us = sdiv i64 %__parent.017.in.i.us, 2
-  %add.ptr.i.i.us = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__parent.017.i.us
-  %call.val.i.i.us = load i16, ptr %add.ptr.i.i.us, align 4
-  %cmp4.i.i.i.us = icmp ult i16 %call.val.i.i.us, %btag.0.i.i.i
-  br i1 %cmp4.i.i.i.us, label %while.body.i.us, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_T0_SL_T1_RT2_.exit"
+land.rhs.us.i:                                    ; preds = %land.rhs.lr.ph.i, %while.body.us.i
+  %__parent.08.us.i = phi i64 [ %__parent.0.us.i, %while.body.us.i ], [ %__parent.05.i, %land.rhs.lr.ph.i ]
+  %__holeIndex.addr.07.us.i = phi i64 [ %__parent.08.us.i, %while.body.us.i ], [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ]
+  %add.ptr.i.us.i = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__parent.08.us.i
+  %call.val.i.us.i = load i16, ptr %add.ptr.i.us.i, align 4
+  %cmp4.i.i.us.i = icmp ult i16 %call.val.i.us.i, %btag.0.i.i.i
+  br i1 %cmp4.i.i.us.i, label %while.body.us.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_T0_SL_T1_RT2_.exit"
 
-while.body.i.us:                                  ; preds = %land.rhs.i.us
-  %add.ptr.i8.i.us = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__holeIndex.addr.016.i.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i8.i.us, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i.us, i64 12, i1 false)
-  %cmp.i.us = icmp sgt i64 %__parent.017.i.us, %__holeIndex
-  br i1 %cmp.i.us, label %land.rhs.i.us, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_T0_SL_T1_RT2_.exit", !llvm.loop !260
+while.body.us.i:                                  ; preds = %land.rhs.us.i
+  %add.ptr.i8.us.i = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__holeIndex.addr.07.us.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i8.us.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.us.i, i64 12, i1 false)
+  %__parent.0.in.us.i = add nsw i64 %__parent.08.us.i, -1
+  %__parent.0.us.i = sdiv i64 %__parent.0.in.us.i, 2
+  %cmp.us.i = icmp sgt i64 %__parent.08.us.i, %__holeIndex
+  br i1 %cmp.us.i, label %land.rhs.us.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_T0_SL_T1_RT2_.exit", !llvm.loop !260
 
 land.rhs.i:                                       ; preds = %land.rhs.lr.ph.i, %while.body.i
-  %__holeIndex.addr.016.i = phi i64 [ %__parent.017.i, %while.body.i ], [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ]
-  %__parent.017.in.i = add nsw i64 %__holeIndex.addr.016.i, -1
-  %__parent.017.i = sdiv i64 %__parent.017.in.i, 2
-  %add.ptr.i.i = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__parent.017.i
+  %__parent.08.i = phi i64 [ %__parent.0.i, %while.body.i ], [ %__parent.05.i, %land.rhs.lr.ph.i ]
+  %__holeIndex.addr.07.i = phi i64 [ %__parent.08.i, %while.body.i ], [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ]
+  %add.ptr.i.i = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__parent.08.i
   %call.val.i.i = load i16, ptr %add.ptr.i.i, align 4
   %3 = tail call i16 @llvm.bswap.i16(i16 %call.val.i.i)
   %cmp4.i.i.i = icmp ult i16 %3, %btag.0.i.i.i
   br i1 %cmp4.i.i.i, label %while.body.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_T0_SL_T1_RT2_.exit"
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %add.ptr.i8.i = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__holeIndex.addr.016.i
+  %add.ptr.i8.i = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__holeIndex.addr.07.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i8.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i, i64 12, i1 false)
-  %cmp.i = icmp sgt i64 %__parent.017.i, %__holeIndex
+  %__parent.0.in.i = add nsw i64 %__parent.08.i, -1
+  %__parent.0.i = sdiv i64 %__parent.0.in.i, 2
+  %cmp.i = icmp sgt i64 %__parent.08.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_T0_SL_T1_RT2_.exit", !llvm.loop !260
 
-"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_T0_SL_T1_RT2_.exit": ; preds = %while.body.i, %land.rhs.i, %land.rhs.i.us, %while.body.i.us, %if.end35
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.016.i.us, %land.rhs.i.us ], [ %__parent.017.i.us, %while.body.i.us ], [ %__holeIndex.addr.016.i, %land.rhs.i ], [ %__parent.017.i, %while.body.i ]
+"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_T0_SL_T1_RT2_.exit": ; preds = %land.rhs.i, %while.body.i, %land.rhs.us.i, %while.body.us.i, %if.end35
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.07.us.i, %land.rhs.us.i ], [ %__parent.08.us.i, %while.body.us.i ], [ %__holeIndex.addr.07.i, %land.rhs.i ], [ %__parent.08.i, %while.body.i ]
   %add.ptr.i9.i = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   store i64 %__value.coerce0, ptr %add.ptr.i9.i, align 4
   %__value.sroa.3.0.ref.tmp13.sroa.0.0..sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i9.i, i64 8

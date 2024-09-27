@@ -414,13 +414,13 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124PreISelIntrinsicL
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.047.084 = load ptr, ptr %11, align 8
-  %.not85 = icmp eq ptr %.sroa.047.084, %12
-  br i1 %.not85, label %._crit_edge, label %.lr.ph
+  %.sroa.053.090 = load ptr, ptr %11, align 8
+  %.not91 = icmp eq ptr %.sroa.053.090, %12
+  br i1 %.not91, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 128
@@ -447,10 +447,10 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124PreISelIntrinsicL
   br label %37
 
 37:                                               ; preds = %.lr.ph, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
-  %.sroa.047.087 = phi ptr [ %.sroa.047.084, %.lr.ph ], [ %.sroa.047.0, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit" ]
-  %.086 = phi i1 [ false, %.lr.ph ], [ %.1, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit" ]
-  %38 = icmp eq ptr %.sroa.047.087, null
-  %39 = getelementptr inbounds i8, ptr %.sroa.047.087, i64 -56
+  %.sroa.053.093 = phi ptr [ %.sroa.053.090, %.lr.ph ], [ %.sroa.053.0, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit" ]
+  %.092 = phi i1 [ false, %.lr.ph ], [ %.1, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit" ]
+  %38 = icmp eq ptr %.sroa.053.093, null
+  %39 = getelementptr inbounds i8, ptr %.sroa.053.093, i64 -56
   %40 = select i1 %38, ptr null, ptr %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 36
   %42 = load i32, ptr %41, align 4
@@ -557,31 +557,31 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124PreISelIntrinsicL
     i32 160, label %307
     i32 158, label %307
     i32 159, label %307
-    i32 248, label %334
-    i32 249, label %337
-    i32 250, label %340
-    i32 251, label %343
-    i32 254, label %346
-    i32 255, label %349
-    i32 256, label %352
-    i32 257, label %355
-    i32 258, label %358
-    i32 259, label %361
-    i32 260, label %364
-    i32 261, label %367
-    i32 263, label %370
-    i32 264, label %373
-    i32 265, label %376
-    i32 266, label %379
-    i32 268, label %382
-    i32 269, label %385
-    i32 274, label %388
-    i32 267, label %391
-    i32 272, label %394
-    i32 273, label %397
-    i32 262, label %400
-    i32 270, label %403
-    i32 271, label %406
+    i32 248, label %332
+    i32 249, label %335
+    i32 250, label %338
+    i32 251, label %341
+    i32 254, label %344
+    i32 255, label %347
+    i32 256, label %350
+    i32 257, label %353
+    i32 258, label %356
+    i32 259, label %359
+    i32 260, label %362
+    i32 261, label %365
+    i32 263, label %368
+    i32 264, label %371
+    i32 265, label %374
+    i32 266, label %377
+    i32 268, label %380
+    i32 269, label %383
+    i32 274, label %386
+    i32 267, label %389
+    i32 272, label %392
+    i32 273, label %395
+    i32 262, label %398
+    i32 270, label %401
+    i32 271, label %404
   ]
 
 43:                                               ; preds = %37, %37, %37, %37, %37
@@ -921,7 +921,7 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
 
 _ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit: ; preds = %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us46.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us38.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us30.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us22.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i, %43
   %.0.lcssa.i = phi i1 [ false, %43 ], [ %.1.us.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i ], [ %.1.us23.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us22.i ], [ %.1.us31.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us30.i ], [ %.1.us39.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us38.i ], [ %.1.us47.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us46.i ]
-  %227 = or i1 %.086, %.0.lcssa.i
+  %227 = or i1 %.092, %.0.lcssa.i
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
 228:                                              ; preds = %37
@@ -1061,7 +1061,7 @@ _ZL17lowerLoadRelativeRN4llvm8FunctionE.exit:     ; preds = %_ZN4llvm9IRBuilderI
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  %284 = or i1 %.086, %.0.i
+  %284 = or i1 %.092, %.0.i
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
 285:                                              ; preds = %37, %37
@@ -1114,7 +1114,7 @@ _ZL17lowerLoadRelativeRN4llvm8FunctionE.exit:     ; preds = %_ZN4llvm9IRBuilderI
 
 "_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_0EbRNS2_8FunctionET_.exit": ; preds = %290, %.thread.i, %285
   %.015.lcssa.i = phi i1 [ false, %285 ], [ %.01529.i, %290 ], [ %.11626.i, %.thread.i ]
-  %306 = or i1 %.086, %.015.lcssa.i
+  %306 = or i1 %.092, %.015.lcssa.i
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
 307:                                              ; preds = %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37
@@ -1123,180 +1123,180 @@ _ZL17lowerLoadRelativeRN4llvm8FunctionE.exit:     ; preds = %_ZN4llvm9IRBuilderI
   %310 = icmp eq ptr %309, null
   br i1 %310, label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit", label %.lr.ph.i39
 
-.lr.ph.i39:                                       ; preds = %307, %.thread.i43
-  %.2 = phi i1 [ %.3, %.thread.i43 ], [ %.086, %307 ]
-  %311 = phi ptr [ %331, %.thread.i43 ], [ %309, %307 ]
-  %.028.i = phi ptr [ %332, %.thread.i43 ], [ null, %307 ]
-  %.not.i40 = icmp eq ptr %.028.i, null
-  br i1 %.not.i40, label %.critedge2.i42, label %312
+.lr.ph.i39:                                       ; preds = %307, %.thread.i46
+  %.2 = phi i1 [ %.3, %.thread.i46 ], [ %.092, %307 ]
+  %311 = phi ptr [ %329, %.thread.i46 ], [ %309, %307 ]
+  %.030.i40 = phi ptr [ %330, %.thread.i46 ], [ null, %307 ]
+  %.not.i42 = icmp eq ptr %.030.i40, null
+  br i1 %.not.i42, label %.critedge2.i44, label %312
 
 312:                                              ; preds = %.lr.ph.i39
-  %313 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
+  %313 = getelementptr inbounds nuw i8, ptr %.030.i40, i64 8
   %314 = load ptr, ptr %313, align 8
-  %.not18.i41 = icmp eq ptr %314, null
-  br i1 %.not18.i41, label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit", label %.critedge2.i42
+  %.not18.i43 = icmp eq ptr %314, null
+  br i1 %.not18.i43, label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit", label %.critedge2.i44
 
-.critedge2.i42:                                   ; preds = %312, %.lr.ph.i39
+.critedge2.i44:                                   ; preds = %312, %.lr.ph.i39
   %315 = phi ptr [ %314, %312 ], [ %311, %.lr.ph.i39 ]
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 24
   %317 = load ptr, ptr %316, align 8
   %318 = load i8, ptr %317, align 8
-  %.not26.i = icmp eq i8 %318, 85
-  br i1 %.not26.i, label %319, label %.thread.i43
+  %.not28.i45 = icmp eq i8 %318, 85
+  br i1 %.not28.i45, label %319, label %.thread.i46
 
-319:                                              ; preds = %.critedge2.i42
+319:                                              ; preds = %.critedge2.i44
+  %.val.val.i49 = load ptr, ptr %13, align 8
+  %.val.val22.i50 = load i64, ptr %14, align 8
   %320 = getelementptr inbounds i8, ptr %317, i64 40
   %321 = load ptr, ptr %320, align 8
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 72
   %323 = load ptr, ptr %322, align 8
-  %324 = load ptr, ptr %13, align 8
-  %325 = load i64, ptr %14, align 8
-  %326 = call noundef nonnull align 8 dereferenceable(8) ptr %324(i64 noundef %325, ptr noundef nonnull align 8 dereferenceable(136) %323) #16
-  %327 = call noundef i32 @_ZN4llvm32expandVectorPredicationIntrinsicERNS_11VPIntrinsicERKNS_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(88) %317, ptr noundef nonnull align 8 dereferenceable(8) %326) #16
-  %328 = icmp ne i32 %327, 0
-  %329 = or i1 %.2, %328
-  %330 = icmp eq i32 %327, 2
-  %spec.select.i45 = select i1 %330, ptr %.028.i, ptr %315
-  %.pre.i46 = load ptr, ptr %308, align 8
-  br label %.thread.i43
+  %324 = call noundef nonnull align 8 dereferenceable(8) ptr %.val.val.i49(i64 noundef %.val.val22.i50, ptr noundef nonnull align 8 dereferenceable(136) %323) #16
+  %325 = call noundef i32 @_ZN4llvm32expandVectorPredicationIntrinsicERNS_11VPIntrinsicERKNS_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(88) %317, ptr noundef nonnull align 8 dereferenceable(8) %324) #16
+  %326 = icmp ne i32 %325, 0
+  %327 = or i1 %.2, %326
+  %328 = icmp eq i32 %325, 2
+  %spec.select.i51 = select i1 %328, ptr %.030.i40, ptr %315
+  %.pre.i52 = load ptr, ptr %308, align 8
+  br label %.thread.i46
 
-.thread.i43:                                      ; preds = %319, %.critedge2.i42
-  %.3 = phi i1 [ %329, %319 ], [ %.2, %.critedge2.i42 ]
-  %331 = phi ptr [ %.pre.i46, %319 ], [ %311, %.critedge2.i42 ]
-  %332 = phi ptr [ %spec.select.i45, %319 ], [ %315, %.critedge2.i42 ]
-  %333 = icmp eq ptr %331, null
-  br i1 %333, label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit", label %.lr.ph.i39, !llvm.loop !15
+.thread.i46:                                      ; preds = %319, %.critedge2.i44
+  %.3 = phi i1 [ %327, %319 ], [ %.2, %.critedge2.i44 ]
+  %329 = phi ptr [ %.pre.i52, %319 ], [ %311, %.critedge2.i44 ]
+  %330 = phi ptr [ %spec.select.i51, %319 ], [ %315, %.critedge2.i44 ]
+  %331 = icmp eq ptr %329, null
+  br i1 %331, label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit", label %.lr.ph.i39, !llvm.loop !15
 
-334:                                              ; preds = %37
-  %335 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.4, i1 noundef zeroext false)
-  %336 = or i1 %.086, %335
+332:                                              ; preds = %37
+  %333 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.4, i1 noundef zeroext false)
+  %334 = or i1 %.092, %333
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-337:                                              ; preds = %37
-  %338 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.5, i1 noundef zeroext false)
-  %339 = or i1 %.086, %338
+335:                                              ; preds = %37
+  %336 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.5, i1 noundef zeroext false)
+  %337 = or i1 %.092, %336
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-340:                                              ; preds = %37
-  %341 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.6, i1 noundef zeroext false)
-  %342 = or i1 %.086, %341
+338:                                              ; preds = %37
+  %339 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.6, i1 noundef zeroext false)
+  %340 = or i1 %.092, %339
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-343:                                              ; preds = %37
-  %344 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.7, i1 noundef zeroext false)
-  %345 = or i1 %.086, %344
+341:                                              ; preds = %37
+  %342 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.7, i1 noundef zeroext false)
+  %343 = or i1 %.092, %342
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-346:                                              ; preds = %37
-  %347 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.8, i1 noundef zeroext false)
-  %348 = or i1 %.086, %347
+344:                                              ; preds = %37
+  %345 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.8, i1 noundef zeroext false)
+  %346 = or i1 %.092, %345
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-349:                                              ; preds = %37
-  %350 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.9, i1 noundef zeroext false)
-  %351 = or i1 %.086, %350
+347:                                              ; preds = %37
+  %348 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.9, i1 noundef zeroext false)
+  %349 = or i1 %.092, %348
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-352:                                              ; preds = %37
-  %353 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.10, i1 noundef zeroext false)
-  %354 = or i1 %.086, %353
+350:                                              ; preds = %37
+  %351 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.10, i1 noundef zeroext false)
+  %352 = or i1 %.092, %351
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-355:                                              ; preds = %37
-  %356 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.11, i1 noundef zeroext false)
-  %357 = or i1 %.086, %356
+353:                                              ; preds = %37
+  %354 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.11, i1 noundef zeroext false)
+  %355 = or i1 %.092, %354
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-358:                                              ; preds = %37
-  %359 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.12, i1 noundef zeroext false)
-  %360 = or i1 %.086, %359
+356:                                              ; preds = %37
+  %357 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.12, i1 noundef zeroext false)
+  %358 = or i1 %.092, %357
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-361:                                              ; preds = %37
-  %362 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.13, i1 noundef zeroext false)
-  %363 = or i1 %.086, %362
+359:                                              ; preds = %37
+  %360 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.13, i1 noundef zeroext false)
+  %361 = or i1 %.092, %360
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-364:                                              ; preds = %37
-  %365 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.14, i1 noundef zeroext true)
-  %366 = or i1 %.086, %365
+362:                                              ; preds = %37
+  %363 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.14, i1 noundef zeroext true)
+  %364 = or i1 %.092, %363
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-367:                                              ; preds = %37
-  %368 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.15, i1 noundef zeroext true)
-  %369 = or i1 %.086, %368
+365:                                              ; preds = %37
+  %366 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.15, i1 noundef zeroext true)
+  %367 = or i1 %.092, %366
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-370:                                              ; preds = %37
-  %371 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.16, i1 noundef zeroext false)
-  %372 = or i1 %.086, %371
+368:                                              ; preds = %37
+  %369 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.16, i1 noundef zeroext false)
+  %370 = or i1 %.092, %369
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-373:                                              ; preds = %37
-  %374 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.17, i1 noundef zeroext false)
-  %375 = or i1 %.086, %374
+371:                                              ; preds = %37
+  %372 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.17, i1 noundef zeroext false)
+  %373 = or i1 %.092, %372
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-376:                                              ; preds = %37
-  %377 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.18, i1 noundef zeroext false)
-  %378 = or i1 %.086, %377
+374:                                              ; preds = %37
+  %375 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.18, i1 noundef zeroext false)
+  %376 = or i1 %.092, %375
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-379:                                              ; preds = %37
-  %380 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.19, i1 noundef zeroext false)
-  %381 = or i1 %.086, %380
+377:                                              ; preds = %37
+  %378 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.19, i1 noundef zeroext false)
+  %379 = or i1 %.092, %378
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-382:                                              ; preds = %37
-  %383 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.20, i1 noundef zeroext false)
-  %384 = or i1 %.086, %383
+380:                                              ; preds = %37
+  %381 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.20, i1 noundef zeroext false)
+  %382 = or i1 %.092, %381
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-385:                                              ; preds = %37
-  %386 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.21, i1 noundef zeroext false)
-  %387 = or i1 %.086, %386
+383:                                              ; preds = %37
+  %384 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.21, i1 noundef zeroext false)
+  %385 = or i1 %.092, %384
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-388:                                              ; preds = %37
-  %389 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.22, i1 noundef zeroext false)
-  %390 = or i1 %.086, %389
+386:                                              ; preds = %37
+  %387 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.22, i1 noundef zeroext false)
+  %388 = or i1 %.092, %387
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-391:                                              ; preds = %37
-  %392 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.23, i1 noundef zeroext false)
-  %393 = or i1 %.086, %392
+389:                                              ; preds = %37
+  %390 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.23, i1 noundef zeroext false)
+  %391 = or i1 %.092, %390
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-394:                                              ; preds = %37
-  %395 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.24, i1 noundef zeroext false)
-  %396 = or i1 %.086, %395
+392:                                              ; preds = %37
+  %393 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.24, i1 noundef zeroext false)
+  %394 = or i1 %.092, %393
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-397:                                              ; preds = %37
-  %398 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.25, i1 noundef zeroext false)
-  %399 = or i1 %.086, %398
+395:                                              ; preds = %37
+  %396 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.25, i1 noundef zeroext false)
+  %397 = or i1 %.092, %396
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-400:                                              ; preds = %37
-  %401 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.26, i1 noundef zeroext false)
-  %402 = or i1 %.086, %401
+398:                                              ; preds = %37
+  %399 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.26, i1 noundef zeroext false)
+  %400 = or i1 %.092, %399
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-403:                                              ; preds = %37
-  %404 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.27, i1 noundef zeroext false)
-  %405 = or i1 %.086, %404
+401:                                              ; preds = %37
+  %402 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.27, i1 noundef zeroext false)
+  %403 = or i1 %.092, %402
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-406:                                              ; preds = %37
-  %407 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.28, i1 noundef zeroext false)
-  %408 = or i1 %.086, %407
+404:                                              ; preds = %37
+  %405 = call fastcc noundef zeroext i1 @_ZL13lowerObjCCallRN4llvm8FunctionEPKcb(ptr noundef nonnull align 8 dereferenceable(136) %40, ptr noundef nonnull @.str.28, i1 noundef zeroext false)
+  %406 = or i1 %.092, %405
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
-"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit": ; preds = %.thread.i43, %312, %307, %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_0EbRNS2_8FunctionET_.exit", %334, %337, %340, %343, %346, %349, %352, %355, %358, %361, %364, %367, %370, %373, %376, %379, %382, %385, %388, %391, %394, %397, %400, %403, %406, %37
-  %.1 = phi i1 [ %.086, %37 ], [ %408, %406 ], [ %405, %403 ], [ %402, %400 ], [ %399, %397 ], [ %396, %394 ], [ %393, %391 ], [ %390, %388 ], [ %387, %385 ], [ %384, %382 ], [ %381, %379 ], [ %378, %376 ], [ %375, %373 ], [ %372, %370 ], [ %369, %367 ], [ %366, %364 ], [ %363, %361 ], [ %360, %358 ], [ %357, %355 ], [ %354, %352 ], [ %351, %349 ], [ %348, %346 ], [ %345, %343 ], [ %342, %340 ], [ %339, %337 ], [ %336, %334 ], [ %306, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_0EbRNS2_8FunctionET_.exit" ], [ %284, %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit ], [ %227, %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit ], [ %.086, %307 ], [ %.2, %312 ], [ %.3, %.thread.i43 ]
-  %409 = getelementptr inbounds nuw i8, ptr %.sroa.047.087, i64 8
-  %.sroa.047.0 = load ptr, ptr %409, align 8
-  %.not = icmp eq ptr %.sroa.047.0, %12
+"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit": ; preds = %.thread.i46, %312, %307, %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_0EbRNS2_8FunctionET_.exit", %332, %335, %338, %341, %344, %347, %350, %353, %356, %359, %362, %365, %368, %371, %374, %377, %380, %383, %386, %389, %392, %395, %398, %401, %404, %37
+  %.1 = phi i1 [ %.092, %37 ], [ %406, %404 ], [ %403, %401 ], [ %400, %398 ], [ %397, %395 ], [ %394, %392 ], [ %391, %389 ], [ %388, %386 ], [ %385, %383 ], [ %382, %380 ], [ %379, %377 ], [ %376, %374 ], [ %373, %371 ], [ %370, %368 ], [ %367, %365 ], [ %364, %362 ], [ %361, %359 ], [ %358, %356 ], [ %355, %353 ], [ %352, %350 ], [ %349, %347 ], [ %346, %344 ], [ %343, %341 ], [ %340, %338 ], [ %337, %335 ], [ %334, %332 ], [ %306, %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_0EbRNS2_8FunctionET_.exit" ], [ %284, %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit ], [ %227, %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit ], [ %.092, %307 ], [ %.2, %312 ], [ %.3, %.thread.i46 ]
+  %407 = getelementptr inbounds nuw i8, ptr %.sroa.053.093, i64 8
+  %.sroa.053.0 = load ptr, ptr %407, align 8
+  %.not = icmp eq ptr %.sroa.053.0, %12
   br i1 %.not, label %._crit_edge, label %37
 
 ._crit_edge:                                      ; preds = %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit", %2

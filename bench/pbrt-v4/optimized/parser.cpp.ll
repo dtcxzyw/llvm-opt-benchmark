@@ -4023,17 +4023,18 @@ if.end.i.lr.ph:                                   ; preds = %invoke.cont20
   %agg.tmp.sroa.2.0.token.sroa_idx.i2474 = getelementptr inbounds i8, ptr %t1279, i64 8
   %_M_manager.i.i2501 = getelementptr inbounds i8, ptr %agg.tmp1291, i64 16
   %_M_invoker.i2502 = getelementptr inbounds i8, ptr %agg.tmp1291, i64 24
+  %15 = ptrtoint ptr %parseError to i64
   %_M_manager.i.i2514 = getelementptr inbounds i8, ptr %ref.tmp1296, i64 16
   %_M_invoker.i2515 = getelementptr inbounds i8, ptr %ref.tmp1296, i64 24
-  %15 = ptrtoint ptr %parseError to i64
+  %16 = getelementptr inbounds i8, ptr %ref.tmp1296, i64 8
   %ptr.i = getelementptr inbounds i8, ptr %agg.tmp1302, i64 8
   %nAlloc.i = getelementptr inbounds i8, ptr %agg.tmp1302, i64 80
   %nStored.i = getelementptr inbounds i8, ptr %agg.tmp1302, i64 88
   %nStored3.i = getelementptr inbounds i8, ptr %params, i64 88
   %nAlloc5.i = getelementptr inbounds i8, ptr %params, i64 80
   %ptr7.i = getelementptr inbounds i8, ptr %params, i64 8
-  %16 = getelementptr inbounds i8, ptr %agg.tmp1302, i64 16
-  %17 = getelementptr inbounds i8, ptr %params, i64 16
+  %17 = getelementptr inbounds i8, ptr %agg.tmp1302, i64 16
+  %18 = getelementptr inbounds i8, ptr %params, i64 16
   %set.i.i2317 = getelementptr inbounds i8, ptr %ref.tmp1224, i64 40
   %set.i.i2270 = getelementptr inbounds i8, ptr %ref.tmp1187, i64 40
   %arrayidx1203 = getelementptr inbounds i8, ptr %v1182, i64 8
@@ -4100,7 +4101,6 @@ if.end.i.lr.ph:                                   ; preds = %invoke.cont20
   %agg.tmp205.sroa.2.0.token211.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp206, i64 8
   %set.i.i161 = getelementptr inbounds i8, ptr %ref.tmp83, i64 40
   %a.sroa.4.0.call87.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp83, i64 8
-  %18 = getelementptr inbounds i8, ptr %ref.tmp1296, i64 8
   br label %if.end.i
 
 if.then.i:                                        ; preds = %sw.epilog
@@ -8355,7 +8355,7 @@ invoke.cont1293:                                  ; preds = %invoke.cont.i2511, 
   %agg.tmp1294.sroa.0.0.copyload = load ptr, ptr %unget, align 8
   %392 = load i8, ptr %formatting, align 1
   %tobool1295 = trunc i8 %392 to i1
-  store i64 0, ptr %18, align 8
+  store i64 0, ptr %16, align 8
   store i64 %15, ptr %ref.tmp1296, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEE3$_4E9_M_invokeERKSt9_Any_dataS3_OS5_", ptr %_M_invoker.i2515, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEE3$_4E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %_M_manager.i.i2514, align 8
@@ -8413,7 +8413,7 @@ for.cond.preheader.i:                             ; preds = %_ZNSt8functionIFN4p
 
 for.body.i.preheader:                             ; preds = %for.cond.preheader.i
   %404 = shl nuw nsw i64 %401, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %17, i64 %404, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 8 %18, i64 %404, i1 false)
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
 if.else.i2529:                                    ; preds = %_ZNSt8functionIFN4pstd8optionalIN4pbrt5TokenEEEiEED2Ev.exit
@@ -9069,12 +9069,12 @@ invoke.cont6:                                     ; preds = %invoke.cont.i14, %_
   %tobool = trunc i8 %20 to i1
   %21 = getelementptr inbounds i8, ptr %this, i64 24
   %22 = load ptr, ptr %21, align 8
+  %23 = ptrtoint ptr %22 to i64
   %_M_manager.i.i15 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
   %_M_invoker.i16 = getelementptr inbounds i8, ptr %ref.tmp8, i64 24
-  %23 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
-  store i64 0, ptr %23, align 8
-  %24 = ptrtoint ptr %22 to i64
-  store i64 %24, ptr %ref.tmp8, align 8
+  %24 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
+  store i64 0, ptr %24, align 8
+  store i64 %23, ptr %ref.tmp8, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEENK3$_1clEMS7_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13InlinedVectorIPNS0_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISP_EEEENS0_7FileLocEESV_EUlS3_S5_E_E9_M_invokeERKSt9_Any_dataS3_OS5_", ptr %_M_invoker.i16, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEENK3$_1clEMS7_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13InlinedVectorIPNS0_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISP_EEEENS0_7FileLocEESV_EUlS3_S5_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation", ptr %_M_manager.i.i15, align 8
   invoke fastcc void @"_ZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEE"(ptr noalias align 8 %parameterVector, ptr noundef %agg.tmp4, ptr %agg.tmp7.sroa.0.0.copyload, i1 noundef zeroext %tobool, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8)

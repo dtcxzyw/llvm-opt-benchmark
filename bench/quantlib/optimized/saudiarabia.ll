@@ -670,33 +670,33 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK8QuantLib11SaudiArabia11TadawulImpl13isBusinessDayERKNS_4DateE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(8) %date) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %retval.i1.i.i63.i.i.i.i.i.i17 = alloca %"class.QuantLib::Date", align 8
-  %retval.i.i.i64.i.i.i.i.i.i18 = alloca %"class.QuantLib::Date", align 8
-  %retval.i1.i.i53.i.i.i.i.i.i19 = alloca %"class.QuantLib::Date", align 8
-  %retval.i.i.i54.i.i.i.i.i.i20 = alloca %"class.QuantLib::Date", align 8
-  %retval.i1.i.i43.i.i.i.i.i.i21 = alloca %"class.QuantLib::Date", align 8
-  %retval.i.i.i44.i.i.i.i.i.i22 = alloca %"class.QuantLib::Date", align 8
-  %retval.i1.i.i29.i.i.i.i.i.i23 = alloca %"class.QuantLib::Date", align 8
-  %retval.i.i.i30.i.i.i.i.i.i24 = alloca %"class.QuantLib::Date", align 8
-  %retval.i1.i.i19.i.i.i.i.i.i25 = alloca %"class.QuantLib::Date", align 8
-  %retval.i.i.i20.i.i.i.i.i.i26 = alloca %"class.QuantLib::Date", align 8
-  %retval.i1.i.i9.i.i.i.i.i.i27 = alloca %"class.QuantLib::Date", align 8
-  %retval.i.i.i10.i.i.i.i.i.i28 = alloca %"class.QuantLib::Date", align 8
+  %retval.i1.i.i69.i.i.i.i.i.i17 = alloca %"class.QuantLib::Date", align 8
+  %retval.i.i.i70.i.i.i.i.i.i18 = alloca %"class.QuantLib::Date", align 8
+  %retval.i1.i.i59.i.i.i.i.i.i19 = alloca %"class.QuantLib::Date", align 8
+  %retval.i.i.i60.i.i.i.i.i.i20 = alloca %"class.QuantLib::Date", align 8
+  %retval.i1.i.i49.i.i.i.i.i.i21 = alloca %"class.QuantLib::Date", align 8
+  %retval.i.i.i50.i.i.i.i.i.i22 = alloca %"class.QuantLib::Date", align 8
+  %retval.i1.i.i35.i.i.i.i.i.i23 = alloca %"class.QuantLib::Date", align 8
+  %retval.i.i.i36.i.i.i.i.i.i24 = alloca %"class.QuantLib::Date", align 8
+  %retval.i1.i.i25.i.i.i.i.i.i25 = alloca %"class.QuantLib::Date", align 8
+  %retval.i.i.i26.i.i.i.i.i.i26 = alloca %"class.QuantLib::Date", align 8
+  %retval.i1.i.i15.i.i.i.i.i.i27 = alloca %"class.QuantLib::Date", align 8
+  %retval.i.i.i16.i.i.i.i.i.i28 = alloca %"class.QuantLib::Date", align 8
   %retval.i1.i.i.i.i.i.i.i.i29 = alloca %"class.QuantLib::Date", align 8
   %retval.i.i.i.i.i.i.i.i.i30 = alloca %"class.QuantLib::Date", align 8
   %ref.tmp.i31 = alloca [29 x %"class.QuantLib::Date"], align 8
-  %retval.i1.i.i63.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
-  %retval.i.i.i64.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
-  %retval.i1.i.i53.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
-  %retval.i.i.i54.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
-  %retval.i1.i.i43.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
-  %retval.i.i.i44.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
-  %retval.i1.i.i29.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
-  %retval.i.i.i30.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
-  %retval.i1.i.i19.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
-  %retval.i.i.i20.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
-  %retval.i1.i.i9.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
-  %retval.i.i.i10.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i1.i.i69.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i.i.i70.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i1.i.i59.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i.i.i60.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i1.i.i49.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i.i.i50.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i1.i.i35.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i.i.i36.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i1.i.i25.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i.i.i26.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i1.i.i15.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i.i.i16.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
   %retval.i1.i.i.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
   %retval.i.i.i.i.i.i.i.i.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp.i16 = alloca [26 x %"class.QuantLib::Date"], align 8
@@ -894,13 +894,13 @@ init.end.i:                                       ; preds = %invoke.cont52.i, %i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %shr.i.i.i.i.i.i = ashr i64 %sub.ptr.sub.i.i.i.i.i.i.i, 5
-  %cmp105.i.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i.i, 0
-  br i1 %cmp105.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i
+  %cmp104.i.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i.i, 0
+  br i1 %cmp104.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %init.end.i, %if.end24.i.i.i.i.i.i
-  %__trip_count.0107.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %if.end24.i.i.i.i.i.i ], [ %shr.i.i.i.i.i.i, %init.end.i ]
-  %__first.sroa.0.0106.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i38.i.i.i.i.i.i, %if.end24.i.i.i.i.i.i ], [ %9, %init.end.i ]
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %__first.sroa.0.0106.i.i.i.i.i.i, align 8, !tbaa !29
+  %__trip_count.0106.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %if.end24.i.i.i.i.i.i ], [ %shr.i.i.i.i.i.i, %init.end.i ]
+  %__first.sroa.0.0105.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i44.i.i.i.i.i.i, %if.end24.i.i.i.i.i.i ], [ %9, %init.end.i ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %__first.sroa.0.0105.i.i.i.i.i.i, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i.i.i.i.i.i.i)
   %sub.i.i.i.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i, -1
   call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i.i.i.i.i.i.i, i64 noundef %sub.i.i.i.i.i.i.i.i.i)
@@ -919,152 +919,152 @@ for.body.i.i.i.i.i.i:                             ; preds = %init.end.i, %if.end
   br i1 %cmp.i2.i.i.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i", %for.body.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i, i64 8
-  %agg.tmp.sroa.0.0.copyload.i11.i.i.i.i.i.i = load i64, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i10.i.i.i.i.i.i)
-  %sub.i.i.i12.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i11.i.i.i.i.i.i, -1
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i10.i.i.i.i.i.i, i64 noundef %sub.i.i.i12.i.i.i.i.i.i)
-  %13 = load i64, ptr %retval.i.i.i10.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i10.i.i.i.i.i.i)
-  %cmp.i.not.i.i13.i.i.i.i.i.i = icmp slt i64 %agg.tmp5.sroa.0.0.copyload, %13
-  br i1 %cmp.i.not.i.i13.i.i.i.i.i.i, label %if.end12.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit17.i.i.i.i.i.i"
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i, i64 8
+  %agg.tmp.sroa.0.0.copyload.i17.i.i.i.i.i.i = load i64, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i16.i.i.i.i.i.i)
+  %sub.i.i.i18.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i17.i.i.i.i.i.i, -1
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i16.i.i.i.i.i.i, i64 noundef %sub.i.i.i18.i.i.i.i.i.i)
+  %13 = load i64, ptr %retval.i.i.i16.i.i.i.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i16.i.i.i.i.i.i)
+  %cmp.i.not.i.i19.i.i.i.i.i.i = icmp slt i64 %agg.tmp5.sroa.0.0.copyload, %13
+  br i1 %cmp.i.not.i.i19.i.i.i.i.i.i, label %if.end12.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit17.i.i.i.i.i.i": ; preds = %if.end.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i9.i.i.i.i.i.i)
-  %add.i.i.i15.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i11.i.i.i.i.i.i, 4
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i9.i.i.i.i.i.i, i64 noundef %add.i.i.i15.i.i.i.i.i.i)
-  %14 = load i64, ptr %retval.i1.i.i9.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i9.i.i.i.i.i.i)
-  %cmp.i2.i.i16.not.i.i.i.i.i.i = icmp sgt i64 %agg.tmp5.sroa.0.0.copyload, %14
-  br i1 %cmp.i2.i.i16.not.i.i.i.i.i.i, label %if.end12.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.i.i.i.i.i.i": ; preds = %if.end.i.i.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i15.i.i.i.i.i.i)
+  %add.i.i.i21.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i17.i.i.i.i.i.i, 4
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i15.i.i.i.i.i.i, i64 noundef %add.i.i.i21.i.i.i.i.i.i)
+  %14 = load i64, ptr %retval.i1.i.i15.i.i.i.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i15.i.i.i.i.i.i)
+  %cmp.i2.i.i22.not.i.i.i.i.i.i = icmp sgt i64 %agg.tmp5.sroa.0.0.copyload, %14
+  br i1 %cmp.i2.i.i22.not.i.i.i.i.i.i, label %if.end12.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit
 
-if.end12.i.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit17.i.i.i.i.i.i", %if.end.i.i.i.i.i.i
-  %incdec.ptr.i18.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i, i64 16
-  %agg.tmp.sroa.0.0.copyload.i21.i.i.i.i.i.i = load i64, ptr %incdec.ptr.i18.i.i.i.i.i.i, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i20.i.i.i.i.i.i)
-  %sub.i.i.i22.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i21.i.i.i.i.i.i, -1
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i20.i.i.i.i.i.i, i64 noundef %sub.i.i.i22.i.i.i.i.i.i)
-  %15 = load i64, ptr %retval.i.i.i20.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i20.i.i.i.i.i.i)
-  %cmp.i.not.i.i23.i.i.i.i.i.i = icmp slt i64 %agg.tmp5.sroa.0.0.copyload, %15
-  br i1 %cmp.i.not.i.i23.i.i.i.i.i.i, label %if.end18.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit27.i.i.i.i.i.i"
+if.end12.i.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.i.i.i.i.i.i", %if.end.i.i.i.i.i.i
+  %incdec.ptr.i24.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i, i64 16
+  %agg.tmp.sroa.0.0.copyload.i27.i.i.i.i.i.i = load i64, ptr %incdec.ptr.i24.i.i.i.i.i.i, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i26.i.i.i.i.i.i)
+  %sub.i.i.i28.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i27.i.i.i.i.i.i, -1
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i26.i.i.i.i.i.i, i64 noundef %sub.i.i.i28.i.i.i.i.i.i)
+  %15 = load i64, ptr %retval.i.i.i26.i.i.i.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i26.i.i.i.i.i.i)
+  %cmp.i.not.i.i29.i.i.i.i.i.i = icmp slt i64 %agg.tmp5.sroa.0.0.copyload, %15
+  br i1 %cmp.i.not.i.i29.i.i.i.i.i.i, label %if.end18.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit33.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit27.i.i.i.i.i.i": ; preds = %if.end12.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i19.i.i.i.i.i.i)
-  %add.i.i.i25.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i21.i.i.i.i.i.i, 4
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i19.i.i.i.i.i.i, i64 noundef %add.i.i.i25.i.i.i.i.i.i)
-  %16 = load i64, ptr %retval.i1.i.i19.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i19.i.i.i.i.i.i)
-  %cmp.i2.i.i26.not.i.i.i.i.i.i = icmp sgt i64 %agg.tmp5.sroa.0.0.copyload, %16
-  br i1 %cmp.i2.i.i26.not.i.i.i.i.i.i, label %if.end18.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit196
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit33.i.i.i.i.i.i": ; preds = %if.end12.i.i.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i25.i.i.i.i.i.i)
+  %add.i.i.i31.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i27.i.i.i.i.i.i, 4
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i25.i.i.i.i.i.i, i64 noundef %add.i.i.i31.i.i.i.i.i.i)
+  %16 = load i64, ptr %retval.i1.i.i25.i.i.i.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i25.i.i.i.i.i.i)
+  %cmp.i2.i.i32.not.i.i.i.i.i.i = icmp sgt i64 %agg.tmp5.sroa.0.0.copyload, %16
+  br i1 %cmp.i2.i.i32.not.i.i.i.i.i.i, label %if.end18.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit196
 
-if.end18.i.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit27.i.i.i.i.i.i", %if.end12.i.i.i.i.i.i
-  %incdec.ptr.i28.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i, i64 24
-  %agg.tmp.sroa.0.0.copyload.i31.i.i.i.i.i.i = load i64, ptr %incdec.ptr.i28.i.i.i.i.i.i, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i30.i.i.i.i.i.i)
-  %sub.i.i.i32.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i31.i.i.i.i.i.i, -1
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i30.i.i.i.i.i.i, i64 noundef %sub.i.i.i32.i.i.i.i.i.i)
-  %17 = load i64, ptr %retval.i.i.i30.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i30.i.i.i.i.i.i)
-  %cmp.i.not.i.i33.i.i.i.i.i.i = icmp slt i64 %agg.tmp5.sroa.0.0.copyload, %17
-  br i1 %cmp.i.not.i.i33.i.i.i.i.i.i, label %if.end24.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit37.i.i.i.i.i.i"
+if.end18.i.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit33.i.i.i.i.i.i", %if.end12.i.i.i.i.i.i
+  %incdec.ptr.i34.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i, i64 24
+  %agg.tmp.sroa.0.0.copyload.i37.i.i.i.i.i.i = load i64, ptr %incdec.ptr.i34.i.i.i.i.i.i, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i36.i.i.i.i.i.i)
+  %sub.i.i.i38.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i37.i.i.i.i.i.i, -1
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i36.i.i.i.i.i.i, i64 noundef %sub.i.i.i38.i.i.i.i.i.i)
+  %17 = load i64, ptr %retval.i.i.i36.i.i.i.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i36.i.i.i.i.i.i)
+  %cmp.i.not.i.i39.i.i.i.i.i.i = icmp slt i64 %agg.tmp5.sroa.0.0.copyload, %17
+  br i1 %cmp.i.not.i.i39.i.i.i.i.i.i, label %if.end24.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit43.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit37.i.i.i.i.i.i": ; preds = %if.end18.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i29.i.i.i.i.i.i)
-  %add.i.i.i35.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i31.i.i.i.i.i.i, 4
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i29.i.i.i.i.i.i, i64 noundef %add.i.i.i35.i.i.i.i.i.i)
-  %18 = load i64, ptr %retval.i1.i.i29.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i29.i.i.i.i.i.i)
-  %cmp.i2.i.i36.not.i.i.i.i.i.i = icmp sgt i64 %agg.tmp5.sroa.0.0.copyload, %18
-  br i1 %cmp.i2.i.i36.not.i.i.i.i.i.i, label %if.end24.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit198
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit43.i.i.i.i.i.i": ; preds = %if.end18.i.i.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i35.i.i.i.i.i.i)
+  %add.i.i.i41.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i37.i.i.i.i.i.i, 4
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i35.i.i.i.i.i.i, i64 noundef %add.i.i.i41.i.i.i.i.i.i)
+  %18 = load i64, ptr %retval.i1.i.i35.i.i.i.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i35.i.i.i.i.i.i)
+  %cmp.i2.i.i42.not.i.i.i.i.i.i = icmp sgt i64 %agg.tmp5.sroa.0.0.copyload, %18
+  br i1 %cmp.i2.i.i42.not.i.i.i.i.i.i, label %if.end24.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit198
 
-if.end24.i.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit37.i.i.i.i.i.i", %if.end18.i.i.i.i.i.i
-  %incdec.ptr.i38.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i, i64 32
-  %dec.i.i.i.i.i.i = add nsw i64 %__trip_count.0107.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp sgt i64 %__trip_count.0107.i.i.i.i.i.i, 1
+if.end24.i.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit43.i.i.i.i.i.i", %if.end18.i.i.i.i.i.i
+  %incdec.ptr.i44.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i, i64 32
+  %dec.i.i.i.i.i.i = add nsw i64 %__trip_count.0106.i.i.i.i.i.i, -1
+  %cmp.i.i.i.i.i.i = icmp sgt i64 %__trip_count.0106.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i.i, !llvm.loop !36
 
 for.end.loopexit.i.i.i.i.i.i:                     ; preds = %if.end24.i.i.i.i.i.i
-  %.pre.i.i.i.i.i.i = ptrtoint ptr %incdec.ptr.i38.i.i.i.i.i.i to i64
-  %.pre112.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %.pre.i.i.i.i.i.i
+  %.pre.i.i.i.i.i.i = ptrtoint ptr %incdec.ptr.i44.i.i.i.i.i.i to i64
+  %.pre111.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %.pre.i.i.i.i.i.i
   br label %for.end.i.i.i.i.i.i
 
 for.end.i.i.i.i.i.i:                              ; preds = %for.end.loopexit.i.i.i.i.i.i, %init.end.i
-  %sub.ptr.sub.i41.pre-phi.i.i.i.i.i.i = phi i64 [ %.pre112.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ], [ %sub.ptr.sub.i.i.i.i.i.i.i, %init.end.i ]
-  %__first.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i38.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ], [ %9, %init.end.i ]
-  %sub.ptr.div.i42.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i41.pre-phi.i.i.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i42.i.i.i.i.i.i, label %lor.lhs.false8 [
+  %sub.ptr.sub.i47.pre-phi.i.i.i.i.i.i = phi i64 [ %.pre111.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ], [ %sub.ptr.sub.i.i.i.i.i.i.i, %init.end.i ]
+  %__first.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i44.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ], [ %9, %init.end.i ]
+  %sub.ptr.div.i48.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i47.pre-phi.i.i.i.i.i.i, 3
+  switch i64 %sub.ptr.div.i48.i.i.i.i.i.i, label %lor.lhs.false8 [
     i64 3, label %sw.bb.i.i.i.i.i.i
     i64 2, label %sw.bb33.i.i.i.i.i.i
     i64 1, label %sw.bb40.i.i.i.i.i.i
   ]
 
 sw.bb.i.i.i.i.i.i:                                ; preds = %for.end.i.i.i.i.i.i
-  %agg.tmp.sroa.0.0.copyload.i45.i.i.i.i.i.i = load i64, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i44.i.i.i.i.i.i)
-  %sub.i.i.i46.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i45.i.i.i.i.i.i, -1
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i44.i.i.i.i.i.i, i64 noundef %sub.i.i.i46.i.i.i.i.i.i)
-  %19 = load i64, ptr %retval.i.i.i44.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i44.i.i.i.i.i.i)
-  %cmp.i.not.i.i47.i.i.i.i.i.i = icmp slt i64 %agg.tmp5.sroa.0.0.copyload, %19
-  br i1 %cmp.i.not.i.i47.i.i.i.i.i.i, label %if.end31.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i.i.i"
+  %agg.tmp.sroa.0.0.copyload.i51.i.i.i.i.i.i = load i64, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i50.i.i.i.i.i.i)
+  %sub.i.i.i52.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i51.i.i.i.i.i.i, -1
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i50.i.i.i.i.i.i, i64 noundef %sub.i.i.i52.i.i.i.i.i.i)
+  %19 = load i64, ptr %retval.i.i.i50.i.i.i.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i50.i.i.i.i.i.i)
+  %cmp.i.not.i.i53.i.i.i.i.i.i = icmp slt i64 %agg.tmp5.sroa.0.0.copyload, %19
+  br i1 %cmp.i.not.i.i53.i.i.i.i.i.i, label %if.end31.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i.i.i": ; preds = %sw.bb.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i43.i.i.i.i.i.i)
-  %add.i.i.i49.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i45.i.i.i.i.i.i, 4
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i43.i.i.i.i.i.i, i64 noundef %add.i.i.i49.i.i.i.i.i.i)
-  %20 = load i64, ptr %retval.i1.i.i43.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i43.i.i.i.i.i.i)
-  %cmp.i2.i.i50.not.i.i.i.i.i.i = icmp sgt i64 %agg.tmp5.sroa.0.0.copyload, %20
-  br i1 %cmp.i2.i.i50.not.i.i.i.i.i.i, label %if.end31.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i": ; preds = %sw.bb.i.i.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i49.i.i.i.i.i.i)
+  %add.i.i.i55.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i51.i.i.i.i.i.i, 4
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i49.i.i.i.i.i.i, i64 noundef %add.i.i.i55.i.i.i.i.i.i)
+  %20 = load i64, ptr %retval.i1.i.i49.i.i.i.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i49.i.i.i.i.i.i)
+  %cmp.i2.i.i56.not.i.i.i.i.i.i = icmp sgt i64 %agg.tmp5.sroa.0.0.copyload, %20
+  br i1 %cmp.i2.i.i56.not.i.i.i.i.i.i, label %if.end31.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit
 
-if.end31.i.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i.i.i", %sw.bb.i.i.i.i.i.i
-  %incdec.ptr.i52.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i, i64 8
+if.end31.i.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i", %sw.bb.i.i.i.i.i.i
+  %incdec.ptr.i58.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i, i64 8
   br label %sw.bb33.i.i.i.i.i.i
 
 sw.bb33.i.i.i.i.i.i:                              ; preds = %if.end31.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i52.i.i.i.i.i.i, %if.end31.i.i.i.i.i.i ]
-  %agg.tmp.sroa.0.0.copyload.i55.i.i.i.i.i.i = load i64, ptr %__first.sroa.0.1.i.i.i.i.i.i, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i54.i.i.i.i.i.i)
-  %sub.i.i.i56.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i55.i.i.i.i.i.i, -1
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i54.i.i.i.i.i.i, i64 noundef %sub.i.i.i56.i.i.i.i.i.i)
-  %21 = load i64, ptr %retval.i.i.i54.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i54.i.i.i.i.i.i)
-  %cmp.i.not.i.i57.i.i.i.i.i.i = icmp slt i64 %agg.tmp5.sroa.0.0.copyload, %21
-  br i1 %cmp.i.not.i.i57.i.i.i.i.i.i, label %if.end38.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit61.i.i.i.i.i.i"
+  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i58.i.i.i.i.i.i, %if.end31.i.i.i.i.i.i ]
+  %agg.tmp.sroa.0.0.copyload.i61.i.i.i.i.i.i = load i64, ptr %__first.sroa.0.1.i.i.i.i.i.i, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i60.i.i.i.i.i.i)
+  %sub.i.i.i62.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i61.i.i.i.i.i.i, -1
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i60.i.i.i.i.i.i, i64 noundef %sub.i.i.i62.i.i.i.i.i.i)
+  %21 = load i64, ptr %retval.i.i.i60.i.i.i.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i60.i.i.i.i.i.i)
+  %cmp.i.not.i.i63.i.i.i.i.i.i = icmp slt i64 %agg.tmp5.sroa.0.0.copyload, %21
+  br i1 %cmp.i.not.i.i63.i.i.i.i.i.i, label %if.end38.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit61.i.i.i.i.i.i": ; preds = %sw.bb33.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i53.i.i.i.i.i.i)
-  %add.i.i.i59.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i55.i.i.i.i.i.i, 4
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i53.i.i.i.i.i.i, i64 noundef %add.i.i.i59.i.i.i.i.i.i)
-  %22 = load i64, ptr %retval.i1.i.i53.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i53.i.i.i.i.i.i)
-  %cmp.i2.i.i60.not.i.i.i.i.i.i = icmp sgt i64 %agg.tmp5.sroa.0.0.copyload, %22
-  br i1 %cmp.i2.i.i60.not.i.i.i.i.i.i, label %if.end38.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i": ; preds = %sw.bb33.i.i.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i59.i.i.i.i.i.i)
+  %add.i.i.i65.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i61.i.i.i.i.i.i, 4
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i59.i.i.i.i.i.i, i64 noundef %add.i.i.i65.i.i.i.i.i.i)
+  %22 = load i64, ptr %retval.i1.i.i59.i.i.i.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i59.i.i.i.i.i.i)
+  %cmp.i2.i.i66.not.i.i.i.i.i.i = icmp sgt i64 %agg.tmp5.sroa.0.0.copyload, %22
+  br i1 %cmp.i2.i.i66.not.i.i.i.i.i.i, label %if.end38.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit
 
-if.end38.i.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit61.i.i.i.i.i.i", %sw.bb33.i.i.i.i.i.i
-  %incdec.ptr.i62.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i.i.i.i.i, i64 8
+if.end38.i.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i", %sw.bb33.i.i.i.i.i.i
+  %incdec.ptr.i68.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i.i.i.i.i, i64 8
   br label %sw.bb40.i.i.i.i.i.i
 
 sw.bb40.i.i.i.i.i.i:                              ; preds = %if.end38.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i62.i.i.i.i.i.i, %if.end38.i.i.i.i.i.i ]
-  %agg.tmp.sroa.0.0.copyload.i65.i.i.i.i.i.i = load i64, ptr %__first.sroa.0.2.i.i.i.i.i.i, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i64.i.i.i.i.i.i)
-  %sub.i.i.i66.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i65.i.i.i.i.i.i, -1
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i64.i.i.i.i.i.i, i64 noundef %sub.i.i.i66.i.i.i.i.i.i)
-  %23 = load i64, ptr %retval.i.i.i64.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i64.i.i.i.i.i.i)
-  %cmp.i.not.i.i67.i.i.i.i.i.i = icmp slt i64 %agg.tmp5.sroa.0.0.copyload, %23
-  br i1 %cmp.i.not.i.i67.i.i.i.i.i.i, label %lor.lhs.false8, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit71.i.i.i.i.i.i"
+  %__first.sroa.0.2.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i68.i.i.i.i.i.i, %if.end38.i.i.i.i.i.i ]
+  %agg.tmp.sroa.0.0.copyload.i71.i.i.i.i.i.i = load i64, ptr %__first.sroa.0.2.i.i.i.i.i.i, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i70.i.i.i.i.i.i)
+  %sub.i.i.i72.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i71.i.i.i.i.i.i, -1
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i70.i.i.i.i.i.i, i64 noundef %sub.i.i.i72.i.i.i.i.i.i)
+  %23 = load i64, ptr %retval.i.i.i70.i.i.i.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i70.i.i.i.i.i.i)
+  %cmp.i.not.i.i73.i.i.i.i.i.i = icmp slt i64 %agg.tmp5.sroa.0.0.copyload, %23
+  br i1 %cmp.i.not.i.i73.i.i.i.i.i.i, label %lor.lhs.false8, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit71.i.i.i.i.i.i": ; preds = %sw.bb40.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i63.i.i.i.i.i.i)
-  %add.i.i.i69.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i65.i.i.i.i.i.i, 4
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i63.i.i.i.i.i.i, i64 noundef %add.i.i.i69.i.i.i.i.i.i)
-  %24 = load i64, ptr %retval.i1.i.i63.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i63.i.i.i.i.i.i)
-  %cmp.i2.i.i70.not.i.i.i.i.i.i = icmp sgt i64 %agg.tmp5.sroa.0.0.copyload, %24
-  br i1 %cmp.i2.i.i70.not.i.i.i.i.i.i, label %lor.lhs.false8, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i": ; preds = %sw.bb40.i.i.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i69.i.i.i.i.i.i)
+  %add.i.i.i75.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i71.i.i.i.i.i.i, 4
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i69.i.i.i.i.i.i, i64 noundef %add.i.i.i75.i.i.i.i.i.i)
+  %24 = load i64, ptr %retval.i1.i.i69.i.i.i.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i69.i.i.i.i.i.i)
+  %cmp.i2.i.i76.not.i.i.i.i.i.i = icmp sgt i64 %agg.tmp5.sroa.0.0.copyload, %24
+  br i1 %cmp.i2.i.i76.not.i.i.i.i.i.i, label %lor.lhs.false8, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit
 
 lpad.i:                                           ; preds = %invoke.cont47.i, %invoke.cont45.i, %invoke.cont43.i, %invoke.cont41.i, %invoke.cont39.i, %invoke.cont37.i, %invoke.cont35.i, %invoke.cont33.i, %invoke.cont31.i, %invoke.cont29.i, %invoke.cont27.i, %invoke.cont25.i, %invoke.cont23.i, %invoke.cont21.i, %invoke.cont19.i, %invoke.cont17.i, %invoke.cont15.i, %invoke.cont13.i, %invoke.cont11.i, %invoke.cont9.i, %invoke.cont7.i, %invoke.cont5.i, %invoke.cont3.i, %invoke.cont1.i, %invoke.cont.i, %init.i
   %25 = landingpad { ptr, i32 }
@@ -1087,24 +1087,24 @@ ehcleanup.i:                                      ; preds = %lpad51.i, %lpad.i
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %ref.tmp.i16) #20
   br label %common.resume
 
-_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit17.i.i.i.i.i.i"
-  %incdec.ptr.i.i.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i, i64 8
+_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.i.i.i.i.i.i"
+  %incdec.ptr.i.i.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i, i64 8
   br label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit
 
-_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit196: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit27.i.i.i.i.i.i"
-  %incdec.ptr.i18.i.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i, i64 16
+_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit196: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit33.i.i.i.i.i.i"
+  %incdec.ptr.i24.i.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i, i64 16
   br label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit
 
-_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit198: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit37.i.i.i.i.i.i"
-  %incdec.ptr.i28.i.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i, i64 24
+_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit198: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit43.i.i.i.i.i.i"
+  %incdec.ptr.i34.i.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i, i64 24
   br label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit
 
-_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i", %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit196, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit198, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit61.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit71.i.i.i.i.i.i"
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i.i.i" ], [ %__first.sroa.0.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit61.i.i.i.i.i.i" ], [ %__first.sroa.0.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit71.i.i.i.i.i.i" ], [ %incdec.ptr.i.i.i.i.i.i.i.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i18.i.i.i.i.i.i.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit196 ], [ %incdec.ptr.i28.i.i.i.i.i.i.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit198 ], [ %__first.sroa.0.0106.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i" ]
+_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i", %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit196, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit198, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i"
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i" ], [ %__first.sroa.0.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i" ], [ %__first.sroa.0.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i" ], [ %incdec.ptr.i.i.i.i.i.i.i.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i24.i.i.i.i.i.i.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit196 ], [ %incdec.ptr.i34.i.i.i.i.i.i.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit198 ], [ %__first.sroa.0.0105.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i" ]
   %cmp.i.i.i.i.not = icmp eq ptr %10, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not, label %lor.lhs.false8, label %cleanup
 
-lor.lhs.false8:                                   ; preds = %sw.bb40.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit71.i.i.i.i.i.i", %for.end.i.i.i.i.i.i, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit
+lor.lhs.false8:                                   ; preds = %sw.bb40.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i", %for.end.i.i.i.i.i.i, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit
   %agg.tmp9.sroa.0.0.copyload = load i64, ptr %date, align 8, !tbaa !29
   %27 = load atomic i8, ptr @_ZGVZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateEE9EidAlFitr acquire, align 8
   %guard.uninitialized.i32 = icmp eq i8 %27, 0
@@ -1283,13 +1283,13 @@ init.end.i33:                                     ; preds = %invoke.cont58.i, %i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i35 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i36 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i34, %sub.ptr.rhs.cast.i.i.i.i.i.i.i35
   %shr.i.i.i.i.i.i37 = ashr i64 %sub.ptr.sub.i.i.i.i.i.i.i36, 5
-  %cmp105.i.i.i.i.i.i38 = icmp sgt i64 %shr.i.i.i.i.i.i37, 0
-  br i1 %cmp105.i.i.i.i.i.i38, label %for.body.i.i.i.i.i.i70, label %for.end.i.i.i.i.i.i39
+  %cmp104.i.i.i.i.i.i38 = icmp sgt i64 %shr.i.i.i.i.i.i37, 0
+  br i1 %cmp104.i.i.i.i.i.i38, label %for.body.i.i.i.i.i.i70, label %for.end.i.i.i.i.i.i39
 
 for.body.i.i.i.i.i.i70:                           ; preds = %init.end.i33, %if.end24.i.i.i.i.i.i102
-  %__trip_count.0107.i.i.i.i.i.i71 = phi i64 [ %dec.i.i.i.i.i.i104, %if.end24.i.i.i.i.i.i102 ], [ %shr.i.i.i.i.i.i37, %init.end.i33 ]
-  %__first.sroa.0.0106.i.i.i.i.i.i72 = phi ptr [ %incdec.ptr.i38.i.i.i.i.i.i103, %if.end24.i.i.i.i.i.i102 ], [ %30, %init.end.i33 ]
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i73 = load i64, ptr %__first.sroa.0.0106.i.i.i.i.i.i72, align 8, !tbaa !29
+  %__trip_count.0106.i.i.i.i.i.i71 = phi i64 [ %dec.i.i.i.i.i.i104, %if.end24.i.i.i.i.i.i102 ], [ %shr.i.i.i.i.i.i37, %init.end.i33 ]
+  %__first.sroa.0.0105.i.i.i.i.i.i72 = phi ptr [ %incdec.ptr.i44.i.i.i.i.i.i103, %if.end24.i.i.i.i.i.i102 ], [ %30, %init.end.i33 ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i73 = load i64, ptr %__first.sroa.0.0105.i.i.i.i.i.i72, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i.i.i.i.i.i.i30)
   %sub.i.i.i.i.i.i.i.i.i74 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i73, -1
   call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i.i.i.i.i.i.i30, i64 noundef %sub.i.i.i.i.i.i.i.i.i74)
@@ -1308,152 +1308,152 @@ for.body.i.i.i.i.i.i70:                           ; preds = %init.end.i33, %if.e
   br i1 %cmp.i2.i.i.not.i.i.i.i.i.i77, label %if.end.i.i.i.i.i.i78, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit
 
 if.end.i.i.i.i.i.i78:                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i", %for.body.i.i.i.i.i.i70
-  %incdec.ptr.i.i.i.i.i.i.i79 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i72, i64 8
-  %agg.tmp.sroa.0.0.copyload.i11.i.i.i.i.i.i80 = load i64, ptr %incdec.ptr.i.i.i.i.i.i.i79, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i10.i.i.i.i.i.i28)
-  %sub.i.i.i12.i.i.i.i.i.i81 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i11.i.i.i.i.i.i80, -1
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i10.i.i.i.i.i.i28, i64 noundef %sub.i.i.i12.i.i.i.i.i.i81)
-  %34 = load i64, ptr %retval.i.i.i10.i.i.i.i.i.i28, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i10.i.i.i.i.i.i28)
-  %cmp.i.not.i.i13.i.i.i.i.i.i82 = icmp slt i64 %agg.tmp9.sroa.0.0.copyload, %34
-  br i1 %cmp.i.not.i.i13.i.i.i.i.i.i82, label %if.end12.i.i.i.i.i.i86, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit17.i.i.i.i.i.i"
+  %incdec.ptr.i.i.i.i.i.i.i79 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i72, i64 8
+  %agg.tmp.sroa.0.0.copyload.i17.i.i.i.i.i.i80 = load i64, ptr %incdec.ptr.i.i.i.i.i.i.i79, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i16.i.i.i.i.i.i28)
+  %sub.i.i.i18.i.i.i.i.i.i81 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i17.i.i.i.i.i.i80, -1
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i16.i.i.i.i.i.i28, i64 noundef %sub.i.i.i18.i.i.i.i.i.i81)
+  %34 = load i64, ptr %retval.i.i.i16.i.i.i.i.i.i28, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i16.i.i.i.i.i.i28)
+  %cmp.i.not.i.i19.i.i.i.i.i.i82 = icmp slt i64 %agg.tmp9.sroa.0.0.copyload, %34
+  br i1 %cmp.i.not.i.i19.i.i.i.i.i.i82, label %if.end12.i.i.i.i.i.i86, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit17.i.i.i.i.i.i": ; preds = %if.end.i.i.i.i.i.i78
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i9.i.i.i.i.i.i27)
-  %add.i.i.i15.i.i.i.i.i.i83 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i11.i.i.i.i.i.i80, 4
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i9.i.i.i.i.i.i27, i64 noundef %add.i.i.i15.i.i.i.i.i.i83)
-  %35 = load i64, ptr %retval.i1.i.i9.i.i.i.i.i.i27, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i9.i.i.i.i.i.i27)
-  %cmp.i2.i.i16.not.i.i.i.i.i.i84 = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload, %35
-  br i1 %cmp.i2.i.i16.not.i.i.i.i.i.i84, label %if.end12.i.i.i.i.i.i86, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.i.i.i.i.i.i": ; preds = %if.end.i.i.i.i.i.i78
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i15.i.i.i.i.i.i27)
+  %add.i.i.i21.i.i.i.i.i.i83 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i17.i.i.i.i.i.i80, 4
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i15.i.i.i.i.i.i27, i64 noundef %add.i.i.i21.i.i.i.i.i.i83)
+  %35 = load i64, ptr %retval.i1.i.i15.i.i.i.i.i.i27, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i15.i.i.i.i.i.i27)
+  %cmp.i2.i.i22.not.i.i.i.i.i.i84 = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload, %35
+  br i1 %cmp.i2.i.i22.not.i.i.i.i.i.i84, label %if.end12.i.i.i.i.i.i86, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit
 
-if.end12.i.i.i.i.i.i86:                           ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit17.i.i.i.i.i.i", %if.end.i.i.i.i.i.i78
-  %incdec.ptr.i18.i.i.i.i.i.i87 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i72, i64 16
-  %agg.tmp.sroa.0.0.copyload.i21.i.i.i.i.i.i88 = load i64, ptr %incdec.ptr.i18.i.i.i.i.i.i87, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i20.i.i.i.i.i.i26)
-  %sub.i.i.i22.i.i.i.i.i.i89 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i21.i.i.i.i.i.i88, -1
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i20.i.i.i.i.i.i26, i64 noundef %sub.i.i.i22.i.i.i.i.i.i89)
-  %36 = load i64, ptr %retval.i.i.i20.i.i.i.i.i.i26, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i20.i.i.i.i.i.i26)
-  %cmp.i.not.i.i23.i.i.i.i.i.i90 = icmp slt i64 %agg.tmp9.sroa.0.0.copyload, %36
-  br i1 %cmp.i.not.i.i23.i.i.i.i.i.i90, label %if.end18.i.i.i.i.i.i94, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit27.i.i.i.i.i.i"
+if.end12.i.i.i.i.i.i86:                           ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.i.i.i.i.i.i", %if.end.i.i.i.i.i.i78
+  %incdec.ptr.i24.i.i.i.i.i.i87 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i72, i64 16
+  %agg.tmp.sroa.0.0.copyload.i27.i.i.i.i.i.i88 = load i64, ptr %incdec.ptr.i24.i.i.i.i.i.i87, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i26.i.i.i.i.i.i26)
+  %sub.i.i.i28.i.i.i.i.i.i89 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i27.i.i.i.i.i.i88, -1
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i26.i.i.i.i.i.i26, i64 noundef %sub.i.i.i28.i.i.i.i.i.i89)
+  %36 = load i64, ptr %retval.i.i.i26.i.i.i.i.i.i26, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i26.i.i.i.i.i.i26)
+  %cmp.i.not.i.i29.i.i.i.i.i.i90 = icmp slt i64 %agg.tmp9.sroa.0.0.copyload, %36
+  br i1 %cmp.i.not.i.i29.i.i.i.i.i.i90, label %if.end18.i.i.i.i.i.i94, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit33.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit27.i.i.i.i.i.i": ; preds = %if.end12.i.i.i.i.i.i86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i19.i.i.i.i.i.i25)
-  %add.i.i.i25.i.i.i.i.i.i91 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i21.i.i.i.i.i.i88, 4
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i19.i.i.i.i.i.i25, i64 noundef %add.i.i.i25.i.i.i.i.i.i91)
-  %37 = load i64, ptr %retval.i1.i.i19.i.i.i.i.i.i25, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i19.i.i.i.i.i.i25)
-  %cmp.i2.i.i26.not.i.i.i.i.i.i92 = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload, %37
-  br i1 %cmp.i2.i.i26.not.i.i.i.i.i.i92, label %if.end18.i.i.i.i.i.i94, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit204
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit33.i.i.i.i.i.i": ; preds = %if.end12.i.i.i.i.i.i86
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i25.i.i.i.i.i.i25)
+  %add.i.i.i31.i.i.i.i.i.i91 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i27.i.i.i.i.i.i88, 4
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i25.i.i.i.i.i.i25, i64 noundef %add.i.i.i31.i.i.i.i.i.i91)
+  %37 = load i64, ptr %retval.i1.i.i25.i.i.i.i.i.i25, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i25.i.i.i.i.i.i25)
+  %cmp.i2.i.i32.not.i.i.i.i.i.i92 = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload, %37
+  br i1 %cmp.i2.i.i32.not.i.i.i.i.i.i92, label %if.end18.i.i.i.i.i.i94, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit204
 
-if.end18.i.i.i.i.i.i94:                           ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit27.i.i.i.i.i.i", %if.end12.i.i.i.i.i.i86
-  %incdec.ptr.i28.i.i.i.i.i.i95 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i72, i64 24
-  %agg.tmp.sroa.0.0.copyload.i31.i.i.i.i.i.i96 = load i64, ptr %incdec.ptr.i28.i.i.i.i.i.i95, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i30.i.i.i.i.i.i24)
-  %sub.i.i.i32.i.i.i.i.i.i97 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i31.i.i.i.i.i.i96, -1
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i30.i.i.i.i.i.i24, i64 noundef %sub.i.i.i32.i.i.i.i.i.i97)
-  %38 = load i64, ptr %retval.i.i.i30.i.i.i.i.i.i24, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i30.i.i.i.i.i.i24)
-  %cmp.i.not.i.i33.i.i.i.i.i.i98 = icmp slt i64 %agg.tmp9.sroa.0.0.copyload, %38
-  br i1 %cmp.i.not.i.i33.i.i.i.i.i.i98, label %if.end24.i.i.i.i.i.i102, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit37.i.i.i.i.i.i"
+if.end18.i.i.i.i.i.i94:                           ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit33.i.i.i.i.i.i", %if.end12.i.i.i.i.i.i86
+  %incdec.ptr.i34.i.i.i.i.i.i95 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i72, i64 24
+  %agg.tmp.sroa.0.0.copyload.i37.i.i.i.i.i.i96 = load i64, ptr %incdec.ptr.i34.i.i.i.i.i.i95, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i36.i.i.i.i.i.i24)
+  %sub.i.i.i38.i.i.i.i.i.i97 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i37.i.i.i.i.i.i96, -1
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i36.i.i.i.i.i.i24, i64 noundef %sub.i.i.i38.i.i.i.i.i.i97)
+  %38 = load i64, ptr %retval.i.i.i36.i.i.i.i.i.i24, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i36.i.i.i.i.i.i24)
+  %cmp.i.not.i.i39.i.i.i.i.i.i98 = icmp slt i64 %agg.tmp9.sroa.0.0.copyload, %38
+  br i1 %cmp.i.not.i.i39.i.i.i.i.i.i98, label %if.end24.i.i.i.i.i.i102, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit43.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit37.i.i.i.i.i.i": ; preds = %if.end18.i.i.i.i.i.i94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i29.i.i.i.i.i.i23)
-  %add.i.i.i35.i.i.i.i.i.i99 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i31.i.i.i.i.i.i96, 4
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i29.i.i.i.i.i.i23, i64 noundef %add.i.i.i35.i.i.i.i.i.i99)
-  %39 = load i64, ptr %retval.i1.i.i29.i.i.i.i.i.i23, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i29.i.i.i.i.i.i23)
-  %cmp.i2.i.i36.not.i.i.i.i.i.i100 = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload, %39
-  br i1 %cmp.i2.i.i36.not.i.i.i.i.i.i100, label %if.end24.i.i.i.i.i.i102, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit206
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit43.i.i.i.i.i.i": ; preds = %if.end18.i.i.i.i.i.i94
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i35.i.i.i.i.i.i23)
+  %add.i.i.i41.i.i.i.i.i.i99 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i37.i.i.i.i.i.i96, 4
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i35.i.i.i.i.i.i23, i64 noundef %add.i.i.i41.i.i.i.i.i.i99)
+  %39 = load i64, ptr %retval.i1.i.i35.i.i.i.i.i.i23, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i35.i.i.i.i.i.i23)
+  %cmp.i2.i.i42.not.i.i.i.i.i.i100 = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload, %39
+  br i1 %cmp.i2.i.i42.not.i.i.i.i.i.i100, label %if.end24.i.i.i.i.i.i102, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit206
 
-if.end24.i.i.i.i.i.i102:                          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit37.i.i.i.i.i.i", %if.end18.i.i.i.i.i.i94
-  %incdec.ptr.i38.i.i.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i72, i64 32
-  %dec.i.i.i.i.i.i104 = add nsw i64 %__trip_count.0107.i.i.i.i.i.i71, -1
-  %cmp.i.i.i.i.i.i105 = icmp sgt i64 %__trip_count.0107.i.i.i.i.i.i71, 1
+if.end24.i.i.i.i.i.i102:                          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit43.i.i.i.i.i.i", %if.end18.i.i.i.i.i.i94
+  %incdec.ptr.i44.i.i.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i72, i64 32
+  %dec.i.i.i.i.i.i104 = add nsw i64 %__trip_count.0106.i.i.i.i.i.i71, -1
+  %cmp.i.i.i.i.i.i105 = icmp sgt i64 %__trip_count.0106.i.i.i.i.i.i71, 1
   br i1 %cmp.i.i.i.i.i.i105, label %for.body.i.i.i.i.i.i70, label %for.end.loopexit.i.i.i.i.i.i106, !llvm.loop !38
 
 for.end.loopexit.i.i.i.i.i.i106:                  ; preds = %if.end24.i.i.i.i.i.i102
-  %.pre.i.i.i.i.i.i107 = ptrtoint ptr %incdec.ptr.i38.i.i.i.i.i.i103 to i64
-  %.pre112.i.i.i.i.i.i108 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i34, %.pre.i.i.i.i.i.i107
+  %.pre.i.i.i.i.i.i107 = ptrtoint ptr %incdec.ptr.i44.i.i.i.i.i.i103 to i64
+  %.pre111.i.i.i.i.i.i108 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i34, %.pre.i.i.i.i.i.i107
   br label %for.end.i.i.i.i.i.i39
 
 for.end.i.i.i.i.i.i39:                            ; preds = %for.end.loopexit.i.i.i.i.i.i106, %init.end.i33
-  %sub.ptr.sub.i41.pre-phi.i.i.i.i.i.i40 = phi i64 [ %.pre112.i.i.i.i.i.i108, %for.end.loopexit.i.i.i.i.i.i106 ], [ %sub.ptr.sub.i.i.i.i.i.i.i36, %init.end.i33 ]
-  %__first.sroa.0.0.lcssa.i.i.i.i.i.i41 = phi ptr [ %incdec.ptr.i38.i.i.i.i.i.i103, %for.end.loopexit.i.i.i.i.i.i106 ], [ %30, %init.end.i33 ]
-  %sub.ptr.div.i42.i.i.i.i.i.i42 = ashr exact i64 %sub.ptr.sub.i41.pre-phi.i.i.i.i.i.i40, 3
-  switch i64 %sub.ptr.div.i42.i.i.i.i.i.i42, label %lor.lhs.false12 [
+  %sub.ptr.sub.i47.pre-phi.i.i.i.i.i.i40 = phi i64 [ %.pre111.i.i.i.i.i.i108, %for.end.loopexit.i.i.i.i.i.i106 ], [ %sub.ptr.sub.i.i.i.i.i.i.i36, %init.end.i33 ]
+  %__first.sroa.0.0.lcssa.i.i.i.i.i.i41 = phi ptr [ %incdec.ptr.i44.i.i.i.i.i.i103, %for.end.loopexit.i.i.i.i.i.i106 ], [ %30, %init.end.i33 ]
+  %sub.ptr.div.i48.i.i.i.i.i.i42 = ashr exact i64 %sub.ptr.sub.i47.pre-phi.i.i.i.i.i.i40, 3
+  switch i64 %sub.ptr.div.i48.i.i.i.i.i.i42, label %lor.lhs.false12 [
     i64 3, label %sw.bb.i.i.i.i.i.i62
     i64 2, label %sw.bb33.i.i.i.i.i.i53
     i64 1, label %sw.bb40.i.i.i.i.i.i43
   ]
 
 sw.bb.i.i.i.i.i.i62:                              ; preds = %for.end.i.i.i.i.i.i39
-  %agg.tmp.sroa.0.0.copyload.i45.i.i.i.i.i.i63 = load i64, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i44.i.i.i.i.i.i22)
-  %sub.i.i.i46.i.i.i.i.i.i64 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i45.i.i.i.i.i.i63, -1
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i44.i.i.i.i.i.i22, i64 noundef %sub.i.i.i46.i.i.i.i.i.i64)
-  %40 = load i64, ptr %retval.i.i.i44.i.i.i.i.i.i22, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i44.i.i.i.i.i.i22)
-  %cmp.i.not.i.i47.i.i.i.i.i.i65 = icmp slt i64 %agg.tmp9.sroa.0.0.copyload, %40
-  br i1 %cmp.i.not.i.i47.i.i.i.i.i.i65, label %if.end31.i.i.i.i.i.i68, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i.i.i"
+  %agg.tmp.sroa.0.0.copyload.i51.i.i.i.i.i.i63 = load i64, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i50.i.i.i.i.i.i22)
+  %sub.i.i.i52.i.i.i.i.i.i64 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i51.i.i.i.i.i.i63, -1
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i50.i.i.i.i.i.i22, i64 noundef %sub.i.i.i52.i.i.i.i.i.i64)
+  %40 = load i64, ptr %retval.i.i.i50.i.i.i.i.i.i22, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i50.i.i.i.i.i.i22)
+  %cmp.i.not.i.i53.i.i.i.i.i.i65 = icmp slt i64 %agg.tmp9.sroa.0.0.copyload, %40
+  br i1 %cmp.i.not.i.i53.i.i.i.i.i.i65, label %if.end31.i.i.i.i.i.i68, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i.i.i": ; preds = %sw.bb.i.i.i.i.i.i62
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i43.i.i.i.i.i.i21)
-  %add.i.i.i49.i.i.i.i.i.i66 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i45.i.i.i.i.i.i63, 4
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i43.i.i.i.i.i.i21, i64 noundef %add.i.i.i49.i.i.i.i.i.i66)
-  %41 = load i64, ptr %retval.i1.i.i43.i.i.i.i.i.i21, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i43.i.i.i.i.i.i21)
-  %cmp.i2.i.i50.not.i.i.i.i.i.i67 = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload, %41
-  br i1 %cmp.i2.i.i50.not.i.i.i.i.i.i67, label %if.end31.i.i.i.i.i.i68, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i": ; preds = %sw.bb.i.i.i.i.i.i62
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i49.i.i.i.i.i.i21)
+  %add.i.i.i55.i.i.i.i.i.i66 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i51.i.i.i.i.i.i63, 4
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i49.i.i.i.i.i.i21, i64 noundef %add.i.i.i55.i.i.i.i.i.i66)
+  %41 = load i64, ptr %retval.i1.i.i49.i.i.i.i.i.i21, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i49.i.i.i.i.i.i21)
+  %cmp.i2.i.i56.not.i.i.i.i.i.i67 = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload, %41
+  br i1 %cmp.i2.i.i56.not.i.i.i.i.i.i67, label %if.end31.i.i.i.i.i.i68, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit
 
-if.end31.i.i.i.i.i.i68:                           ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i.i.i", %sw.bb.i.i.i.i.i.i62
-  %incdec.ptr.i52.i.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, i64 8
+if.end31.i.i.i.i.i.i68:                           ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i", %sw.bb.i.i.i.i.i.i62
+  %incdec.ptr.i58.i.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, i64 8
   br label %sw.bb33.i.i.i.i.i.i53
 
 sw.bb33.i.i.i.i.i.i53:                            ; preds = %if.end31.i.i.i.i.i.i68, %for.end.i.i.i.i.i.i39
-  %__first.sroa.0.1.i.i.i.i.i.i54 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, %for.end.i.i.i.i.i.i39 ], [ %incdec.ptr.i52.i.i.i.i.i.i69, %if.end31.i.i.i.i.i.i68 ]
-  %agg.tmp.sroa.0.0.copyload.i55.i.i.i.i.i.i55 = load i64, ptr %__first.sroa.0.1.i.i.i.i.i.i54, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i54.i.i.i.i.i.i20)
-  %sub.i.i.i56.i.i.i.i.i.i56 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i55.i.i.i.i.i.i55, -1
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i54.i.i.i.i.i.i20, i64 noundef %sub.i.i.i56.i.i.i.i.i.i56)
-  %42 = load i64, ptr %retval.i.i.i54.i.i.i.i.i.i20, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i54.i.i.i.i.i.i20)
-  %cmp.i.not.i.i57.i.i.i.i.i.i57 = icmp slt i64 %agg.tmp9.sroa.0.0.copyload, %42
-  br i1 %cmp.i.not.i.i57.i.i.i.i.i.i57, label %if.end38.i.i.i.i.i.i60, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit61.i.i.i.i.i.i"
+  %__first.sroa.0.1.i.i.i.i.i.i54 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, %for.end.i.i.i.i.i.i39 ], [ %incdec.ptr.i58.i.i.i.i.i.i69, %if.end31.i.i.i.i.i.i68 ]
+  %agg.tmp.sroa.0.0.copyload.i61.i.i.i.i.i.i55 = load i64, ptr %__first.sroa.0.1.i.i.i.i.i.i54, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i60.i.i.i.i.i.i20)
+  %sub.i.i.i62.i.i.i.i.i.i56 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i61.i.i.i.i.i.i55, -1
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i60.i.i.i.i.i.i20, i64 noundef %sub.i.i.i62.i.i.i.i.i.i56)
+  %42 = load i64, ptr %retval.i.i.i60.i.i.i.i.i.i20, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i60.i.i.i.i.i.i20)
+  %cmp.i.not.i.i63.i.i.i.i.i.i57 = icmp slt i64 %agg.tmp9.sroa.0.0.copyload, %42
+  br i1 %cmp.i.not.i.i63.i.i.i.i.i.i57, label %if.end38.i.i.i.i.i.i60, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit61.i.i.i.i.i.i": ; preds = %sw.bb33.i.i.i.i.i.i53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i53.i.i.i.i.i.i19)
-  %add.i.i.i59.i.i.i.i.i.i58 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i55.i.i.i.i.i.i55, 4
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i53.i.i.i.i.i.i19, i64 noundef %add.i.i.i59.i.i.i.i.i.i58)
-  %43 = load i64, ptr %retval.i1.i.i53.i.i.i.i.i.i19, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i53.i.i.i.i.i.i19)
-  %cmp.i2.i.i60.not.i.i.i.i.i.i59 = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload, %43
-  br i1 %cmp.i2.i.i60.not.i.i.i.i.i.i59, label %if.end38.i.i.i.i.i.i60, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i": ; preds = %sw.bb33.i.i.i.i.i.i53
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i59.i.i.i.i.i.i19)
+  %add.i.i.i65.i.i.i.i.i.i58 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i61.i.i.i.i.i.i55, 4
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i59.i.i.i.i.i.i19, i64 noundef %add.i.i.i65.i.i.i.i.i.i58)
+  %43 = load i64, ptr %retval.i1.i.i59.i.i.i.i.i.i19, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i59.i.i.i.i.i.i19)
+  %cmp.i2.i.i66.not.i.i.i.i.i.i59 = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload, %43
+  br i1 %cmp.i2.i.i66.not.i.i.i.i.i.i59, label %if.end38.i.i.i.i.i.i60, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit
 
-if.end38.i.i.i.i.i.i60:                           ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit61.i.i.i.i.i.i", %sw.bb33.i.i.i.i.i.i53
-  %incdec.ptr.i62.i.i.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i.i.i.i.i54, i64 8
+if.end38.i.i.i.i.i.i60:                           ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i", %sw.bb33.i.i.i.i.i.i53
+  %incdec.ptr.i68.i.i.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i.i.i.i.i54, i64 8
   br label %sw.bb40.i.i.i.i.i.i43
 
 sw.bb40.i.i.i.i.i.i43:                            ; preds = %if.end38.i.i.i.i.i.i60, %for.end.i.i.i.i.i.i39
-  %__first.sroa.0.2.i.i.i.i.i.i44 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, %for.end.i.i.i.i.i.i39 ], [ %incdec.ptr.i62.i.i.i.i.i.i61, %if.end38.i.i.i.i.i.i60 ]
-  %agg.tmp.sroa.0.0.copyload.i65.i.i.i.i.i.i45 = load i64, ptr %__first.sroa.0.2.i.i.i.i.i.i44, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i64.i.i.i.i.i.i18)
-  %sub.i.i.i66.i.i.i.i.i.i46 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i65.i.i.i.i.i.i45, -1
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i64.i.i.i.i.i.i18, i64 noundef %sub.i.i.i66.i.i.i.i.i.i46)
-  %44 = load i64, ptr %retval.i.i.i64.i.i.i.i.i.i18, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i64.i.i.i.i.i.i18)
-  %cmp.i.not.i.i67.i.i.i.i.i.i47 = icmp slt i64 %agg.tmp9.sroa.0.0.copyload, %44
-  br i1 %cmp.i.not.i.i67.i.i.i.i.i.i47, label %lor.lhs.false12, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit71.i.i.i.i.i.i"
+  %__first.sroa.0.2.i.i.i.i.i.i44 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, %for.end.i.i.i.i.i.i39 ], [ %incdec.ptr.i68.i.i.i.i.i.i61, %if.end38.i.i.i.i.i.i60 ]
+  %agg.tmp.sroa.0.0.copyload.i71.i.i.i.i.i.i45 = load i64, ptr %__first.sroa.0.2.i.i.i.i.i.i44, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i70.i.i.i.i.i.i18)
+  %sub.i.i.i72.i.i.i.i.i.i46 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i71.i.i.i.i.i.i45, -1
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i70.i.i.i.i.i.i18, i64 noundef %sub.i.i.i72.i.i.i.i.i.i46)
+  %44 = load i64, ptr %retval.i.i.i70.i.i.i.i.i.i18, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i70.i.i.i.i.i.i18)
+  %cmp.i.not.i.i73.i.i.i.i.i.i47 = icmp slt i64 %agg.tmp9.sroa.0.0.copyload, %44
+  br i1 %cmp.i.not.i.i73.i.i.i.i.i.i47, label %lor.lhs.false12, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit71.i.i.i.i.i.i": ; preds = %sw.bb40.i.i.i.i.i.i43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i63.i.i.i.i.i.i17)
-  %add.i.i.i69.i.i.i.i.i.i48 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i65.i.i.i.i.i.i45, 4
-  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i63.i.i.i.i.i.i17, i64 noundef %add.i.i.i69.i.i.i.i.i.i48)
-  %45 = load i64, ptr %retval.i1.i.i63.i.i.i.i.i.i17, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i63.i.i.i.i.i.i17)
-  %cmp.i2.i.i70.not.i.i.i.i.i.i49 = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload, %45
-  br i1 %cmp.i2.i.i70.not.i.i.i.i.i.i49, label %lor.lhs.false12, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i": ; preds = %sw.bb40.i.i.i.i.i.i43
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i1.i.i69.i.i.i.i.i.i17)
+  %add.i.i.i75.i.i.i.i.i.i48 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i71.i.i.i.i.i.i45, 4
+  call void @_ZN8QuantLib4DateC1El(ptr noundef nonnull align 8 dereferenceable(8) %retval.i1.i.i69.i.i.i.i.i.i17, i64 noundef %add.i.i.i75.i.i.i.i.i.i48)
+  %45 = load i64, ptr %retval.i1.i.i69.i.i.i.i.i.i17, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i1.i.i69.i.i.i.i.i.i17)
+  %cmp.i2.i.i76.not.i.i.i.i.i.i49 = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload, %45
+  br i1 %cmp.i2.i.i76.not.i.i.i.i.i.i49, label %lor.lhs.false12, label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit
 
 lpad.i112:                                        ; preds = %invoke.cont53.i, %invoke.cont51.i, %invoke.cont49.i165, %invoke.cont47.i163, %invoke.cont45.i161, %invoke.cont43.i159, %invoke.cont41.i157, %invoke.cont39.i155, %invoke.cont37.i153, %invoke.cont35.i151, %invoke.cont33.i149, %invoke.cont31.i147, %invoke.cont29.i145, %invoke.cont27.i143, %invoke.cont25.i141, %invoke.cont23.i139, %invoke.cont21.i137, %invoke.cont19.i135, %invoke.cont17.i133, %invoke.cont15.i131, %invoke.cont13.i129, %invoke.cont11.i127, %invoke.cont9.i125, %invoke.cont7.i123, %invoke.cont5.i121, %invoke.cont3.i119, %invoke.cont1.i117, %invoke.cont.i115, %init.i111
   %46 = landingpad { ptr, i32 }
@@ -1470,24 +1470,24 @@ ehcleanup.i113:                                   ; preds = %lpad57.i, %lpad.i11
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp.i31) #20
   br label %common.resume
 
-_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit17.i.i.i.i.i.i"
-  %incdec.ptr.i.i.i.i.i.i.i79.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i72, i64 8
+_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.i.i.i.i.i.i"
+  %incdec.ptr.i.i.i.i.i.i.i79.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i72, i64 8
   br label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit
 
-_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit204: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit27.i.i.i.i.i.i"
-  %incdec.ptr.i18.i.i.i.i.i.i87.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i72, i64 16
+_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit204: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit33.i.i.i.i.i.i"
+  %incdec.ptr.i24.i.i.i.i.i.i87.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i72, i64 16
   br label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit
 
-_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit206: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit37.i.i.i.i.i.i"
-  %incdec.ptr.i28.i.i.i.i.i.i95.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0106.i.i.i.i.i.i72, i64 24
+_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit206: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit43.i.i.i.i.i.i"
+  %incdec.ptr.i34.i.i.i.i.i.i95.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i72, i64 24
   br label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit
 
-_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i", %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit204, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit206, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit61.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit71.i.i.i.i.i.i"
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i50 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i.i.i" ], [ %__first.sroa.0.1.i.i.i.i.i.i54, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit61.i.i.i.i.i.i" ], [ %__first.sroa.0.2.i.i.i.i.i.i44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit71.i.i.i.i.i.i" ], [ %incdec.ptr.i.i.i.i.i.i.i79.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i18.i.i.i.i.i.i87.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit204 ], [ %incdec.ptr.i28.i.i.i.i.i.i95.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit206 ], [ %__first.sroa.0.0106.i.i.i.i.i.i72, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i" ]
+_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i", %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit204, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit206, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i"
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i50 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i" ], [ %__first.sroa.0.1.i.i.i.i.i.i54, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i" ], [ %__first.sroa.0.2.i.i.i.i.i.i44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i" ], [ %incdec.ptr.i.i.i.i.i.i.i79.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i24.i.i.i.i.i.i87.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit204 ], [ %incdec.ptr.i34.i.i.i.i.i.i95.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit206 ], [ %__first.sroa.0.0105.i.i.i.i.i.i72, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i" ]
   %cmp.i.i.i.i51.not = icmp eq ptr %31, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i50
   br i1 %cmp.i.i.i.i51.not, label %lor.lhs.false12, label %cleanup
 
-lor.lhs.false12:                                  ; preds = %sw.bb40.i.i.i.i.i.i43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit71.i.i.i.i.i.i", %for.end.i.i.i.i.i.i39, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit
+lor.lhs.false12:                                  ; preds = %sw.bb40.i.i.i.i.i.i43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i", %for.end.i.i.i.i.i.i39, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit
   %cmp = icmp eq i32 %sub.i, 23
   %cmp13 = icmp eq i32 %call2, 9
   %or.cond = and i1 %cmp, %cmp13

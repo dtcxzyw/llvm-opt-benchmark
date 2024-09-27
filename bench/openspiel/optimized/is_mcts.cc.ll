@@ -4365,8 +4365,8 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS_5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %13, ptr %4, align 4, !noalias !66
   %19 = load ptr, ptr %8, align 8, !noalias !66
-  %.not.i.i8 = icmp eq ptr %19, null
-  br i1 %.not.i.i8, label %20, label %21
+  %.not.i.i9 = icmp eq ptr %19, null
+  br i1 %.not.i.i9, label %20, label %21
 
 20:                                               ; preds = %15
   invoke void @_ZSt25__throw_bad_function_callv() #26
@@ -4384,8 +4384,8 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS_5
 24:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %25 = load ptr, ptr %16, align 8
-  %.not.i.i10 = icmp eq ptr %25, null
-  br i1 %.not.i.i10, label %_ZNSt8functionIFdvEED2Ev.exit, label %26
+  %.not.i.i11 = icmp eq ptr %25, null
+  br i1 %.not.i.i11, label %_ZNSt8functionIFdvEED2Ev.exit, label %26
 
 26:                                               ; preds = %24
   %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
@@ -4402,12 +4402,12 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS_5
   %32 = landingpad { ptr, i32 }
           cleanup
   %33 = load ptr, ptr %16, align 8
-  %.not.i.i11 = icmp eq ptr %33, null
-  br i1 %.not.i.i11, label %_ZNSt8functionIFdvEED2Ev.exit12, label %34
+  %.not.i.i12 = icmp eq ptr %33, null
+  br i1 %.not.i.i12, label %_ZNSt8functionIFdvEED2Ev.exit13, label %34
 
 34:                                               ; preds = %31
   %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %_ZNSt8functionIFdvEED2Ev.exit12 unwind label %36
+          to label %_ZNSt8functionIFdvEED2Ev.exit13 unwind label %36
 
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
@@ -4451,11 +4451,11 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS_5
           cleanup
   %55 = load ptr, ptr %40, align 8
   %.not.i.i16 = icmp eq ptr %55, null
-  br i1 %.not.i.i16, label %_ZNSt8functionIFdvEED2Ev.exit12, label %56
+  br i1 %.not.i.i16, label %_ZNSt8functionIFdvEED2Ev.exit13, label %56
 
 56:                                               ; preds = %53
   %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZNSt8functionIFdvEED2Ev.exit12 unwind label %58
+          to label %_ZNSt8functionIFdvEED2Ev.exit13 unwind label %58
 
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
@@ -4467,7 +4467,7 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS_5
 _ZNSt8functionIFdvEED2Ev.exit:                    ; preds = %48, %46, %26, %24
   ret void
 
-_ZNSt8functionIFdvEED2Ev.exit12:                  ; preds = %56, %53, %34, %31
+_ZNSt8functionIFdvEED2Ev.exit13:                  ; preds = %56, %53, %34, %31
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %32, %34 ], [ %54, %53 ], [ %54, %56 ]
   resume { ptr, i32 } %.pn
 }

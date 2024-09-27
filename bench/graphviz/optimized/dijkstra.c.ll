@@ -462,10 +462,10 @@ define void @dijkstra_f(i32 noundef %0, ptr nocapture noundef readonly %1, i32 n
   br i1 %or.cond3.i, label %14, label %gv_calloc.exit.preheader
 
 gv_calloc.exit.preheader:                         ; preds = %10
-  %.not54 = icmp eq i32 %2, 0
-  br i1 %.not54, label %gv_calloc.exit._crit_edge, label %gv_calloc.exit.preheader55
+  %.not55 = icmp eq i32 %2, 0
+  br i1 %.not55, label %gv_calloc.exit._crit_edge, label %gv_calloc.exit.preheader56
 
-gv_calloc.exit.preheader55:                       ; preds = %gv_calloc.exit.preheader
+gv_calloc.exit.preheader56:                       ; preds = %gv_calloc.exit.preheader
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %gv_calloc.exit
 
@@ -476,8 +476,8 @@ gv_calloc.exit.preheader55:                       ; preds = %gv_calloc.exit.preh
   tail call fastcc void @graphviz_exit() #10
   unreachable
 
-gv_calloc.exit:                                   ; preds = %gv_calloc.exit.preheader55, %gv_calloc.exit
-  %indvars.iv = phi i64 [ 0, %gv_calloc.exit.preheader55 ], [ %indvars.iv.next, %gv_calloc.exit ]
+gv_calloc.exit:                                   ; preds = %gv_calloc.exit.preheader56, %gv_calloc.exit
+  %indvars.iv = phi i64 [ 0, %gv_calloc.exit.preheader56 ], [ %indvars.iv.next, %gv_calloc.exit ]
   %18 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
   store float 0x47EFFFFFE0000000, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -491,25 +491,25 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
   %21 = getelementptr inbounds %struct.vtx_data, ptr %1, i64 %19
   %22 = load i64, ptr %21, align 8
   %23 = icmp ugt i64 %22, 1
-  br i1 %23, label %.lr.ph47, label %._crit_edge
+  br i1 %23, label %.lr.ph48, label %._crit_edge
 
-.lr.ph47:                                         ; preds = %gv_calloc.exit._crit_edge
+.lr.ph48:                                         ; preds = %gv_calloc.exit._crit_edge
   %24 = getelementptr inbounds i8, ptr %21, i64 16
   %25 = getelementptr inbounds i8, ptr %21, i64 8
   br label %26
 
-26:                                               ; preds = %.lr.ph47, %26
-  %.03846 = phi i64 [ 1, %.lr.ph47 ], [ %35, %26 ]
+26:                                               ; preds = %.lr.ph48, %26
+  %.03847 = phi i64 [ 1, %.lr.ph48 ], [ %35, %26 ]
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds float, ptr %27, i64 %.03846
+  %28 = getelementptr inbounds float, ptr %27, i64 %.03847
   %29 = load float, ptr %28, align 4
   %30 = load ptr, ptr %25, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %.03846
+  %31 = getelementptr inbounds i32, ptr %30, i64 %.03847
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds float, ptr %3, i64 %33
   store float %29, ptr %34, align 4
-  %35 = add nuw i64 %.03846, 1
+  %35 = add nuw i64 %.03847, 1
   %36 = load i64, ptr %21, align 8
   %37 = icmp ult i64 %35, %36
   br i1 %37, label %26, label %._crit_edge
@@ -518,29 +518,29 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
   call fastcc void @initHeap_f(ptr noundef %5, i32 noundef %0, ptr noundef %12, ptr noundef nonnull %3, i32 noundef %2)
   %38 = getelementptr inbounds i8, ptr %5, i64 8
   %.promoted = load i32, ptr %38, align 8
-  %.not50 = icmp eq i32 %.promoted, 0
+  %.not51 = icmp eq i32 %.promoted, 0
   %.val.pre = load ptr, ptr %5, align 8
-  br i1 %.not50, label %extractMax_f.exit.thread, label %.lr.ph52
+  br i1 %.not51, label %extractMax_f.exit.thread, label %.lr.ph53
 
-.lr.ph52:                                         ; preds = %._crit_edge
+.lr.ph53:                                         ; preds = %._crit_edge
   %invariant.gep = getelementptr i8, ptr %.val.pre, i64 -4
   %39 = sext i32 %.promoted to i64
   br label %40
 
 .loopexit:                                        ; preds = %increaseKey_f.exit, %.preheader
-  %.not = icmp eq i64 %indvars.iv.next58, 0
+  %.not = icmp eq i64 %indvars.iv.next59, 0
   br i1 %.not, label %extractMax_f.exit.thread, label %40
 
-40:                                               ; preds = %.lr.ph52, %.loopexit
-  %indvars.iv57 = phi i64 [ %39, %.lr.ph52 ], [ %indvars.iv.next58, %.loopexit ]
+40:                                               ; preds = %.lr.ph53, %.loopexit
+  %indvars.iv58 = phi i64 [ %39, %.lr.ph53 ], [ %indvars.iv.next59, %.loopexit ]
   %41 = load i32, ptr %.val.pre, align 4
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv57
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv58
   %42 = load i32, ptr %gep, align 4
   store i32 %42, ptr %.val.pre, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i32, ptr %12, i64 %43
   store i32 0, ptr %44, align 4
-  %indvars.iv.next58 = add nsw i64 %indvars.iv57, -1
+  %indvars.iv.next59 = add nsw i64 %indvars.iv58, -1
   br label %45
 
 45:                                               ; preds = %83, %40
@@ -549,7 +549,7 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
   %47 = shl nuw nsw i32 %.0.i.i, 1
   %48 = or disjoint i32 %47, 1
   %49 = zext nneg i32 %47 to i64
-  %50 = icmp sgt i64 %indvars.iv.next58, %49
+  %50 = icmp sgt i64 %indvars.iv.next59, %49
   br i1 %50, label %51, label %62
 
 51:                                               ; preds = %45
@@ -571,7 +571,7 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 63:                                               ; preds = %62, %51
   %.040.i.i = phi i32 [ %.0.i.i, %62 ], [ %47, %51 ]
   %64 = zext nneg i32 %48 to i64
-  %65 = icmp sgt i64 %indvars.iv.next58, %64
+  %65 = icmp sgt i64 %indvars.iv.next59, %64
   br i1 %65, label %66, label %81
 
 66:                                               ; preds = %63
@@ -626,21 +626,21 @@ extractMax_f.exit:                                ; preds = %81
   %98 = getelementptr inbounds %struct.vtx_data, ptr %1, i64 %94
   %99 = load i64, ptr %98, align 8
   %100 = icmp ugt i64 %99, 1
-  br i1 %100, label %.lr.ph49, label %.loopexit
+  br i1 %100, label %.lr.ph50, label %.loopexit
 
-.lr.ph49:                                         ; preds = %.preheader
+.lr.ph50:                                         ; preds = %.preheader
   %101 = getelementptr inbounds i8, ptr %98, i64 8
   %102 = getelementptr inbounds i8, ptr %98, i64 16
   br label %103
 
-103:                                              ; preds = %.lr.ph49, %increaseKey_f.exit
-  %104 = phi i64 [ %99, %.lr.ph49 ], [ %134, %increaseKey_f.exit ]
-  %.048 = phi i64 [ 1, %.lr.ph49 ], [ %135, %increaseKey_f.exit ]
+103:                                              ; preds = %.lr.ph50, %increaseKey_f.exit
+  %104 = phi i64 [ %99, %.lr.ph50 ], [ %134, %increaseKey_f.exit ]
+  %.049 = phi i64 [ 1, %.lr.ph50 ], [ %135, %increaseKey_f.exit ]
   %105 = load ptr, ptr %101, align 8
-  %106 = getelementptr inbounds i32, ptr %105, i64 %.048
+  %106 = getelementptr inbounds i32, ptr %105, i64 %.049
   %107 = load i32, ptr %106, align 4
   %108 = load ptr, ptr %102, align 8
-  %109 = getelementptr inbounds float, ptr %108, i64 %.048
+  %109 = getelementptr inbounds float, ptr %108, i64 %.049
   %110 = load float, ptr %109, align 4
   %111 = fadd float %96, %110
   %112 = sext i32 %107 to i64
@@ -657,8 +657,8 @@ extractMax_f.exit:                                ; preds = %81
   br i1 %119, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %116, %128
-  %.029.i = phi i32 [ %120, %128 ], [ %118, %116 ]
-  %120 = lshr i32 %.029.i, 1
+  %.01.i = phi i32 [ %120, %128 ], [ %118, %116 ]
+  %120 = lshr i32 %.01.i, 1
   %121 = zext nneg i32 %120 to i64
   %122 = getelementptr inbounds i32, ptr %.val.pre, i64 %121
   %123 = load i32, ptr %122, align 4
@@ -669,16 +669,16 @@ extractMax_f.exit:                                ; preds = %81
   br i1 %127, label %128, label %.critedge.i
 
 128:                                              ; preds = %.lr.ph.i
-  %129 = zext nneg i32 %.029.i to i64
+  %129 = zext nneg i32 %.01.i to i64
   %130 = getelementptr inbounds i32, ptr %.val.pre, i64 %129
   store i32 %123, ptr %130, align 4
   %131 = getelementptr inbounds i32, ptr %12, i64 %124
-  store i32 %.029.i, ptr %131, align 4
-  %.not.i = icmp ult i32 %.029.i, 2
+  store i32 %.01.i, ptr %131, align 4
+  %.not.i = icmp ult i32 %.01.i, 2
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %128, %.lr.ph.i, %116
-  %.0.lcssa.i = phi i32 [ %118, %116 ], [ %.029.i, %.lr.ph.i ], [ %120, %128 ]
+  %.0.lcssa.i = phi i32 [ %118, %116 ], [ %.01.i, %.lr.ph.i ], [ %120, %128 ]
   %132 = sext i32 %.0.lcssa.i to i64
   %133 = getelementptr inbounds i32, ptr %.val.pre, i64 %132
   store i32 %107, ptr %133, align 4
@@ -688,7 +688,7 @@ extractMax_f.exit:                                ; preds = %81
 
 increaseKey_f.exit:                               ; preds = %103, %.critedge.i
   %134 = phi i64 [ %104, %103 ], [ %.pre, %.critedge.i ]
-  %135 = add nuw i64 %.048, 1
+  %135 = add nuw i64 %.049, 1
   %136 = icmp ult i64 %135, %134
   br i1 %136, label %103, label %.loopexit
 
@@ -888,12 +888,12 @@ define i32 @dijkstra_sgd(ptr nocapture noundef readonly %0, i32 noundef %1, ptr 
 gv_calloc.exit:                                   ; preds = %10
   %18 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 4) #11
   %19 = icmp eq ptr %18, null
-  %or.cond3.i65 = and i1 %11, %19
-  br i1 %or.cond3.i65, label %20, label %gv_calloc.exit66.preheader
+  %or.cond3.i66 = and i1 %11, %19
+  br i1 %or.cond3.i66, label %20, label %gv_calloc.exit67.preheader
 
-gv_calloc.exit66.preheader:                       ; preds = %gv_calloc.exit
-  %.not87 = icmp eq i64 %6, 0
-  br i1 %.not87, label %gv_calloc.exit66._crit_edge, label %gv_calloc.exit66
+gv_calloc.exit67.preheader:                       ; preds = %gv_calloc.exit
+  %.not88 = icmp eq i64 %6, 0
+  br i1 %.not88, label %gv_calloc.exit67._crit_edge, label %gv_calloc.exit67
 
 20:                                               ; preds = %gv_calloc.exit
   %21 = load ptr, ptr @stderr, align 8
@@ -902,15 +902,15 @@ gv_calloc.exit66.preheader:                       ; preds = %gv_calloc.exit
   tail call fastcc void @graphviz_exit() #10
   unreachable
 
-gv_calloc.exit66:                                 ; preds = %gv_calloc.exit66.preheader, %gv_calloc.exit66
-  %.074 = phi i64 [ %25, %gv_calloc.exit66 ], [ 0, %gv_calloc.exit66.preheader ]
-  %24 = getelementptr inbounds float, ptr %18, i64 %.074
+gv_calloc.exit67:                                 ; preds = %gv_calloc.exit67.preheader, %gv_calloc.exit67
+  %.075 = phi i64 [ %25, %gv_calloc.exit67 ], [ 0, %gv_calloc.exit67.preheader ]
+  %24 = getelementptr inbounds float, ptr %18, i64 %.075
   store float 0x47EFFFFFE0000000, ptr %24, align 4
-  %25 = add nuw i64 %.074, 1
+  %25 = add nuw i64 %.075, 1
   %exitcond.not = icmp eq i64 %25, %6
-  br i1 %exitcond.not, label %gv_calloc.exit66._crit_edge, label %gv_calloc.exit66
+  br i1 %exitcond.not, label %gv_calloc.exit67._crit_edge, label %gv_calloc.exit67
 
-gv_calloc.exit66._crit_edge:                      ; preds = %gv_calloc.exit66, %gv_calloc.exit66.preheader
+gv_calloc.exit67._crit_edge:                      ; preds = %gv_calloc.exit67, %gv_calloc.exit67.preheader
   %26 = sext i32 %1 to i64
   %27 = getelementptr inbounds float, ptr %18, i64 %26
   store float 0.000000e+00, ptr %27, align 4
@@ -921,37 +921,37 @@ gv_calloc.exit66._crit_edge:                      ; preds = %gv_calloc.exit66, %
   %32 = getelementptr i8, ptr %30, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = icmp ult i64 %31, %33
-  br i1 %34, label %.lr.ph76, label %._crit_edge
+  br i1 %34, label %.lr.ph77, label %._crit_edge
 
-.lr.ph76:                                         ; preds = %gv_calloc.exit66._crit_edge
+.lr.ph77:                                         ; preds = %gv_calloc.exit67._crit_edge
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8
   br label %39
 
-39:                                               ; preds = %.lr.ph76, %39
-  %.05975 = phi i64 [ %31, %.lr.ph76 ], [ %45, %39 ]
-  %40 = getelementptr inbounds i64, ptr %36, i64 %.05975
+39:                                               ; preds = %.lr.ph77, %39
+  %.05976 = phi i64 [ %31, %.lr.ph77 ], [ %45, %39 ]
+  %40 = getelementptr inbounds i64, ptr %36, i64 %.05976
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds float, ptr %38, i64 %.05975
+  %42 = getelementptr inbounds float, ptr %38, i64 %.05976
   %43 = load float, ptr %42, align 4
   %44 = getelementptr inbounds float, ptr %18, i64 %41
   store float %43, ptr %44, align 4
-  %45 = add nuw i64 %.05975, 1
-  %exitcond89.not = icmp eq i64 %45, %33
-  br i1 %exitcond89.not, label %._crit_edge, label %39
+  %45 = add nuw i64 %.05976, 1
+  %exitcond90.not = icmp eq i64 %45, %33
+  br i1 %exitcond90.not, label %._crit_edge, label %39
 
-._crit_edge:                                      ; preds = %39, %gv_calloc.exit66._crit_edge
+._crit_edge:                                      ; preds = %39, %gv_calloc.exit67._crit_edge
   %46 = trunc i64 %6 to i32
   call fastcc void @initHeap_f(ptr noundef %5, i32 noundef %1, ptr noundef %12, ptr noundef nonnull %18, i32 noundef %46)
   %47 = getelementptr inbounds i8, ptr %5, i64 8
   %.promoted = load i32, ptr %47, align 8
-  %.not80 = icmp eq i32 %.promoted, 0
+  %.not81 = icmp eq i32 %.promoted, 0
   %.val.pre = load ptr, ptr %5, align 8
-  br i1 %.not80, label %extractMax_f.exit.thread, label %.lr.ph83
+  br i1 %.not81, label %extractMax_f.exit.thread, label %.lr.ph84
 
-.lr.ph83:                                         ; preds = %._crit_edge
+.lr.ph84:                                         ; preds = %._crit_edge
   %invariant.gep = getelementptr i8, ptr %.val.pre, i64 -4
   %48 = getelementptr inbounds i8, ptr %0, i64 16
   %49 = getelementptr inbounds i8, ptr %0, i64 24
@@ -965,9 +965,9 @@ gv_calloc.exit66._crit_edge:                      ; preds = %gv_calloc.exit66, %
   %.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not, label %extractMax_f.exit.thread, label %54
 
-54:                                               ; preds = %.lr.ph83, %.loopexit
-  %indvars.iv = phi i64 [ %53, %.lr.ph83 ], [ %indvars.iv.next, %.loopexit ]
-  %.06181 = phi i32 [ 0, %.lr.ph83 ], [ %.1, %.loopexit ]
+54:                                               ; preds = %.lr.ph84, %.loopexit
+  %indvars.iv = phi i64 [ %53, %.lr.ph84 ], [ %indvars.iv.next, %.loopexit ]
+  %.06182 = phi i32 [ 0, %.lr.ph84 ], [ %.1, %.loopexit ]
   %55 = load i32, ptr %.val.pre, align 4
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %56 = load i32, ptr %gep, align 4
@@ -1079,7 +1079,7 @@ extractMax_f.exit:                                ; preds = %95
   br i1 %or.cond, label %125, label %134
 
 125:                                              ; preds = %112
-  %126 = sext i32 %.06181 to i64
+  %126 = sext i32 %.06182 to i64
   %127 = getelementptr inbounds %struct.term_sgd, ptr %2, i64 %126
   store i32 %1, ptr %127, align 4
   %128 = getelementptr inbounds i8, ptr %127, i64 4
@@ -1090,27 +1090,27 @@ extractMax_f.exit:                                ; preds = %95
   %131 = fdiv float 1.000000e+00, %130
   %132 = getelementptr inbounds i8, ptr %127, i64 12
   store float %131, ptr %132, align 4
-  %133 = add nsw i32 %.06181, 1
+  %133 = add nsw i32 %.06182, 1
   br label %134
 
 134:                                              ; preds = %112, %125
-  %.1 = phi i32 [ %133, %125 ], [ %.06181, %112 ]
+  %.1 = phi i32 [ %133, %125 ], [ %.06182, %112 ]
   %135 = load ptr, ptr %28, align 8
   %136 = getelementptr i64, ptr %135, i64 %108
   %137 = load i64, ptr %136, align 8
   %138 = getelementptr i8, ptr %136, i64 8
   %139 = load i64, ptr %138, align 8
   %140 = icmp ult i64 %137, %139
-  br i1 %140, label %.lr.ph79, label %.loopexit
+  br i1 %140, label %.lr.ph80, label %.loopexit
 
-.lr.ph79:                                         ; preds = %134, %increaseKey_f.exit
+.lr.ph80:                                         ; preds = %134, %increaseKey_f.exit
   %141 = phi ptr [ %172, %increaseKey_f.exit ], [ %135, %134 ]
-  %.06077 = phi i64 [ %173, %increaseKey_f.exit ], [ %137, %134 ]
+  %.06078 = phi i64 [ %173, %increaseKey_f.exit ], [ %137, %134 ]
   %142 = load ptr, ptr %51, align 8
-  %143 = getelementptr inbounds i64, ptr %142, i64 %.06077
+  %143 = getelementptr inbounds i64, ptr %142, i64 %.06078
   %144 = load i64, ptr %143, align 8
   %145 = load ptr, ptr %52, align 8
-  %146 = getelementptr inbounds float, ptr %145, i64 %.06077
+  %146 = getelementptr inbounds float, ptr %145, i64 %.06078
   %147 = load float, ptr %146, align 4
   %148 = trunc i64 %144 to i32
   %149 = fadd float %110, %147
@@ -1121,7 +1121,7 @@ extractMax_f.exit:                                ; preds = %95
   %153 = fcmp ugt float %152, %149
   br i1 %153, label %154, label %increaseKey_f.exit
 
-154:                                              ; preds = %.lr.ph79
+154:                                              ; preds = %.lr.ph80
   %155 = getelementptr inbounds i32, ptr %12, i64 %150
   %156 = load i32, ptr %155, align 4
   store float %149, ptr %151, align 4
@@ -1129,8 +1129,8 @@ extractMax_f.exit:                                ; preds = %95
   br i1 %157, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %154, %166
-  %.029.i = phi i32 [ %158, %166 ], [ %156, %154 ]
-  %158 = lshr i32 %.029.i, 1
+  %.01.i = phi i32 [ %158, %166 ], [ %156, %154 ]
+  %158 = lshr i32 %.01.i, 1
   %159 = zext nneg i32 %158 to i64
   %160 = getelementptr inbounds i32, ptr %.val.pre, i64 %159
   %161 = load i32, ptr %160, align 4
@@ -1141,16 +1141,16 @@ extractMax_f.exit:                                ; preds = %95
   br i1 %165, label %166, label %.critedge.i
 
 166:                                              ; preds = %.lr.ph.i
-  %167 = zext nneg i32 %.029.i to i64
+  %167 = zext nneg i32 %.01.i to i64
   %168 = getelementptr inbounds i32, ptr %.val.pre, i64 %167
   store i32 %161, ptr %168, align 4
   %169 = getelementptr inbounds i32, ptr %12, i64 %162
-  store i32 %.029.i, ptr %169, align 4
-  %.not.i = icmp ult i32 %.029.i, 2
+  store i32 %.01.i, ptr %169, align 4
+  %.not.i = icmp ult i32 %.01.i, 2
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %166, %.lr.ph.i, %154
-  %.0.lcssa.i = phi i32 [ %156, %154 ], [ %.029.i, %.lr.ph.i ], [ %158, %166 ]
+  %.0.lcssa.i = phi i32 [ %156, %154 ], [ %.01.i, %.lr.ph.i ], [ %158, %166 ]
   %170 = sext i32 %.0.lcssa.i to i64
   %171 = getelementptr inbounds i32, ptr %.val.pre, i64 %170
   store i32 %148, ptr %171, align 4
@@ -1158,17 +1158,17 @@ extractMax_f.exit:                                ; preds = %95
   %.pre = load ptr, ptr %28, align 8
   br label %increaseKey_f.exit
 
-increaseKey_f.exit:                               ; preds = %.lr.ph79, %.critedge.i
-  %172 = phi ptr [ %141, %.lr.ph79 ], [ %.pre, %.critedge.i ]
-  %173 = add nuw i64 %.06077, 1
+increaseKey_f.exit:                               ; preds = %.lr.ph80, %.critedge.i
+  %172 = phi ptr [ %141, %.lr.ph80 ], [ %.pre, %.critedge.i ]
+  %173 = add nuw i64 %.06078, 1
   %174 = getelementptr i64, ptr %172, i64 %108
   %175 = getelementptr i8, ptr %174, i64 8
   %176 = load i64, ptr %175, align 8
   %177 = icmp ult i64 %173, %176
-  br i1 %177, label %.lr.ph79, label %.loopexit
+  br i1 %177, label %.lr.ph80, label %.loopexit
 
 extractMax_f.exit.thread:                         ; preds = %extractMax_f.exit, %.loopexit, %._crit_edge
-  %.061.lcssa = phi i32 [ 0, %._crit_edge ], [ %.06181, %extractMax_f.exit ], [ %.1, %.loopexit ]
+  %.061.lcssa = phi i32 [ 0, %._crit_edge ], [ %.06182, %extractMax_f.exit ], [ %.1, %.loopexit ]
   tail call void @free(ptr noundef %.val.pre) #12
   tail call void @free(ptr noundef %12) #12
   tail call void @free(ptr noundef nonnull %18) #12

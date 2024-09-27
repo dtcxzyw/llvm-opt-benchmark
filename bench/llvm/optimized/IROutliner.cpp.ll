@@ -18940,8 +18940,8 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i: ; preds = %_ZNK4ll
   %539 = load ptr, ptr %538, align 8, !noalias !316
   call void @_ZN4llvm24OptimizationRemarkMissedC1EPKcNS_9StringRefEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(432) %14, ptr noundef nonnull @.str.19, ptr nonnull @.str.20, i64 20, ptr noundef %539) #24
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %14, ptr nonnull @.str.21, i64 16) #24
-  %540 = load ptr, ptr %124, align 8
-  %541 = load ptr, ptr %123, align 8
+  %540 = load ptr, ptr %124, align 8, !noalias !316
+  %541 = load ptr, ptr %123, align 8, !noalias !316
   %542 = ptrtoint ptr %540 to i64
   %543 = ptrtoint ptr %541 to i64
   %544 = sub i64 %542, %543
@@ -18959,12 +18959,12 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i: ; preds = %_ZNK4ll
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #24
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10), !noalias !316
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %14, ptr nonnull @.str.22, i64 38) #24
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %495, align 8
-  %.sroa.4.0.copyload.i.i.i = load i32, ptr %497, align 8
-  %548 = load i32, ptr %499, align 8
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %495, align 8, !noalias !316
+  %.sroa.4.0.copyload.i.i.i = load i32, ptr %497, align 8, !noalias !316
+  %548 = load i32, ptr %499, align 8, !noalias !316
   %549 = icmp eq i32 %548, 1
   %spec.select.i.i.i = select i1 %549, i32 1, i32 %.sroa.4.0.copyload.i.i.i
-  %550 = load i64, ptr %496, align 8
+  %550 = load i64, ptr %496, align 8, !noalias !316
   %.0.i.i.i.i = call i64 @llvm.ssub.sat.i64(i64 %.sroa.0.0.copyload.i.i.i, i64 %550)
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefENS_15InstructionCostE(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr nonnull @.str.23, i64 19, i64 %.0.i.i.i.i, i32 %spec.select.i.i.i) #24
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9), !noalias !316
@@ -18981,8 +18981,8 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i: ; preds = %_ZNK4ll
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %111) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
-  %551 = load ptr, ptr %123, align 8
-  %552 = load ptr, ptr %124, align 8
+  %551 = load ptr, ptr %123, align 8, !noalias !316
+  %552 = load ptr, ptr %124, align 8, !noalias !316
   %553 = icmp eq ptr %551, %552
   br i1 %553, label %"_ZZN4llvm10IROutliner9doOutlineERNS_6ModuleEENK3$_1clEv.exit.i", label %554
 
@@ -20609,8 +20609,8 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i167: ; preds = %_ZNK
   %1265 = load ptr, ptr %1264, align 8, !noalias !333
   call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(432) %8, ptr noundef nonnull @.str.19, ptr nonnull @.str.28, i64 8, ptr noundef %1265) #24
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %8, ptr nonnull @.str.29, i64 9) #24
-  %1266 = load ptr, ptr %635, align 8
-  %1267 = load ptr, ptr %633, align 8
+  %1266 = load ptr, ptr %635, align 8, !noalias !333
+  %1267 = load ptr, ptr %633, align 8, !noalias !333
   %1268 = ptrtoint ptr %1266 to i64
   %1269 = ptrtoint ptr %1267 to i64
   %1270 = sub i64 %1268, %1269
@@ -20630,14 +20630,14 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i167: ; preds = %_ZNK
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %8, ptr nonnull @.str.30, i64 26) #24
   %1274 = getelementptr inbounds nuw i8, ptr %633, i64 232
   %1275 = getelementptr inbounds nuw i8, ptr %633, i64 248
-  %.sroa.0.0.copyload.i.i.i168 = load i64, ptr %1274, align 8
+  %.sroa.0.0.copyload.i.i.i168 = load i64, ptr %1274, align 8, !noalias !333
   %.sroa.4.0..sroa_idx.i.i.i169 = getelementptr inbounds i8, ptr %633, i64 240
-  %.sroa.4.0.copyload.i.i.i170 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i169, align 8
+  %.sroa.4.0.copyload.i.i.i170 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i169, align 8, !noalias !333
   %1276 = getelementptr inbounds nuw i8, ptr %633, i64 256
-  %1277 = load i32, ptr %1276, align 8
+  %1277 = load i32, ptr %1276, align 8, !noalias !333
   %1278 = icmp eq i32 %1277, 1
   %spec.select.i.i.i171 = select i1 %1278, i32 1, i32 %.sroa.4.0.copyload.i.i.i170
-  %1279 = load i64, ptr %1275, align 8
+  %1279 = load i64, ptr %1275, align 8, !noalias !333
   %.0.i.i.i.i172 = call i64 @llvm.ssub.sat.i64(i64 %.sroa.0.0.copyload.i.i.i168, i64 %1279)
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefENS_15InstructionCostE(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr nonnull @.str.31, i64 7, i64 %.0.i.i.i.i172, i32 %spec.select.i.i.i171) #24
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3), !noalias !333
@@ -20654,8 +20654,8 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i167: ; preds = %_ZNK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %624) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
-  %1280 = load ptr, ptr %633, align 8
-  %1281 = load ptr, ptr %635, align 8
+  %1280 = load ptr, ptr %633, align 8, !noalias !333
+  %1281 = load ptr, ptr %635, align 8, !noalias !333
   %1282 = icmp eq ptr %1280, %1281
   br i1 %1282, label %"_ZZN4llvm10IROutliner9doOutlineERNS_6ModuleEENK3$_3clEv.exit.i", label %1283
 
@@ -21160,31 +21160,31 @@ define dso_local void @_ZN4llvm14IROutlinerPass3runERNS_6ModuleERNS_15AnalysisMa
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_6ModuleEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_8FunctionEJEEENS_6ModuleEJEE3KeyE, ptr noundef nonnull align 8 dereferenceable(857) %2) #24
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_8FunctionEJEEENS_6ModuleEJEE6Result10getManagerEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #24
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %15, align 8
-  %16 = ptrtoint ptr %12 to i64
-  store i64 %16, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFRN4llvm19TargetTransformInfoERNS0_8FunctionEEZNS0_14IROutlinerPass3runERNS0_6ModuleERNS0_15AnalysisManagerIS7_JEEEE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %14, align 8
-  store ptr @"_ZNSt17_Function_handlerIFRN4llvm19TargetTransformInfoERNS0_8FunctionEEZNS0_14IROutlinerPass3runERNS0_6ModuleERNS0_15AnalysisManagerIS7_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %13, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %19, align 8
-  %20 = ptrtoint ptr %3 to i64
-  store i64 %20, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFRN4llvm12IRSimilarity22IRSimilarityIdentifierERNS0_6ModuleEEZNS0_14IROutlinerPass3runES5_RNS0_15AnalysisManagerIS4_JEEEE3$_1E9_M_invokeERKSt9_Any_dataS5_", ptr %18, align 8
-  store ptr @"_ZNSt17_Function_handlerIFRN4llvm12IRSimilarity22IRSimilarityIdentifierERNS0_6ModuleEEZNS0_14IROutlinerPass3runES5_RNS0_15AnalysisManagerIS4_JEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %17, align 8
+  %13 = ptrtoint ptr %12 to i64
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %16, align 8
+  store i64 %13, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFRN4llvm19TargetTransformInfoERNS0_8FunctionEEZNS0_14IROutlinerPass3runERNS0_6ModuleERNS0_15AnalysisManagerIS7_JEEEE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %15, align 8
+  store ptr @"_ZNSt17_Function_handlerIFRN4llvm19TargetTransformInfoERNS0_8FunctionEEZNS0_14IROutlinerPass3runERNS0_6ModuleERNS0_15AnalysisManagerIS7_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %14, align 8
+  %17 = ptrtoint ptr %3 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %20, align 8
+  store i64 %17, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFRN4llvm12IRSimilarity22IRSimilarityIdentifierERNS0_6ModuleEEZNS0_14IROutlinerPass3runES5_RNS0_15AnalysisManagerIS4_JEEEE3$_1E9_M_invokeERKSt9_Any_dataS5_", ptr %19, align 8
+  store ptr @"_ZNSt17_Function_handlerIFRN4llvm12IRSimilarity22IRSimilarityIdentifierERNS0_6ModuleEEZNS0_14IROutlinerPass3runES5_RNS0_15AnalysisManagerIS4_JEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %18, align 8
   store ptr null, ptr %7, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %23 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 0, ptr %23, align 8
-  %24 = ptrtoint ptr %7 to i64
-  store i64 %24, ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFRN4llvm25OptimizationRemarkEmitterERNS0_8FunctionEEZNS0_14IROutlinerPass3runERNS0_6ModuleERNS0_15AnalysisManagerIS7_JEEEE3$_2E9_M_invokeERKSt9_Any_dataS4_", ptr %22, align 8
-  store ptr @"_ZNSt17_Function_handlerIFRN4llvm25OptimizationRemarkEmitterERNS0_8FunctionEEZNS0_14IROutlinerPass3runERNS0_6ModuleERNS0_15AnalysisManagerIS7_JEEEE3$_2E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %21, align 8
+  %21 = ptrtoint ptr %7 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 0, ptr %24, align 8
+  store i64 %21, ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFRN4llvm25OptimizationRemarkEmitterERNS0_8FunctionEEZNS0_14IROutlinerPass3runERNS0_6ModuleERNS0_15AnalysisManagerIS7_JEEEE3$_2E9_M_invokeERKSt9_Any_dataS4_", ptr %23, align 8
+  store ptr @"_ZNSt17_Function_handlerIFRN4llvm25OptimizationRemarkEmitterERNS0_8FunctionEEZNS0_14IROutlinerPass3runERNS0_6ModuleERNS0_15AnalysisManagerIS7_JEEEE3$_2E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %22, align 8
   %25 = ptrtoint ptr %5 to i64
   %26 = ptrtoint ptr %6 to i64
   %27 = ptrtoint ptr %8 to i64
@@ -21306,7 +21306,7 @@ define dso_local void @_ZN4llvm14IROutlinerPass3runERNS_6ModuleERNS_15AnalysisMa
   store i32 0, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sink, ptr %85, align 4
-  %86 = load ptr, ptr %21, align 8
+  %86 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %86, null
   br i1 %.not.i.i, label %_ZNSt8functionIFRN4llvm25OptimizationRemarkEmitterERNS0_8FunctionEEED2Ev.exit, label %87
 
@@ -21336,7 +21336,7 @@ _ZNKSt14default_deleteIN4llvm25OptimizationRemarkEmitterEEclEPS1_.exit.i: ; pred
 
 _ZNSt10unique_ptrIN4llvm25OptimizationRemarkEmitterESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt8functionIFRN4llvm25OptimizationRemarkEmitterERNS0_8FunctionEEED2Ev.exit, %_ZNKSt14default_deleteIN4llvm25OptimizationRemarkEmitterEEclEPS1_.exit.i
   store ptr null, ptr %7, align 8
-  %93 = load ptr, ptr %17, align 8
+  %93 = load ptr, ptr %18, align 8
   %.not.i.i7 = icmp eq ptr %93, null
   br i1 %.not.i.i7, label %_ZNSt8functionIFRN4llvm12IRSimilarity22IRSimilarityIdentifierERNS0_6ModuleEEED2Ev.exit, label %94
 
@@ -21345,7 +21345,7 @@ _ZNSt10unique_ptrIN4llvm25OptimizationRemarkEmitterESt14default_deleteIS1_EED2Ev
   br label %_ZNSt8functionIFRN4llvm12IRSimilarity22IRSimilarityIdentifierERNS0_6ModuleEEED2Ev.exit
 
 _ZNSt8functionIFRN4llvm12IRSimilarity22IRSimilarityIdentifierERNS0_6ModuleEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm25OptimizationRemarkEmitterESt14default_deleteIS1_EED2Ev.exit, %94
-  %96 = load ptr, ptr %13, align 8
+  %96 = load ptr, ptr %14, align 8
   %.not.i.i8 = icmp eq ptr %96, null
   br i1 %.not.i.i8, label %_ZNSt8functionIFRN4llvm19TargetTransformInfoERNS0_8FunctionEEED2Ev.exit, label %97
 

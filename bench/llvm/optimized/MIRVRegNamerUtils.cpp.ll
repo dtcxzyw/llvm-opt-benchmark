@@ -235,20 +235,20 @@ define dso_local void @_ZN4llvm11VRegRenamer16getVRegRenameMapERKSt6vectorINS0_9
   %15 = load ptr, ptr %2, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
-  %.not15 = icmp eq ptr %15, %17
-  br i1 %.not15, label %_ZN4llvm9StringMapIjNS_15MallocAllocatorEED2Ev.exit, label %.lr.ph
+  %.not13 = icmp eq ptr %15, %17
+  br i1 %.not13, label %_ZN4llvm9StringMapIjNS_15MallocAllocatorEED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %19
 
 19:                                               ; preds = %.lr.ph, %"_ZZN4llvm11VRegRenamer16getVRegRenameMapERKSt6vectorINS0_9NamedVRegESaIS2_EEENK3$_0clB5cxx11ERKS2_.exit"
-  %.sroa.09.016 = phi ptr [ %15, %.lr.ph ], [ %63, %"_ZZN4llvm11VRegRenamer16getVRegRenameMapERKSt6vectorINS0_9NamedVRegESaIS2_EEENK3$_0clB5cxx11ERKS2_.exit" ]
-  %.sroa.0.0.copyload.i = load i32, ptr %.sroa.09.016, align 8
+  %.sroa.09.014 = phi ptr [ %15, %.lr.ph ], [ %63, %"_ZZN4llvm11VRegRenamer16getVRegRenameMapERKSt6vectorINS0_9NamedVRegESaIS2_EEENK3$_0clB5cxx11ERKS2_.exit" ]
+  %.sroa.0.0.copyload.i = load i32, ptr %.sroa.09.014, align 8
   store i32 %.sroa.0.0.copyload.i, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.09.016, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 8
   %21 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #16, !noalias !4
   %22 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #16, !noalias !4
   %23 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %21, i64 %22) #16, !noalias !4
@@ -319,7 +319,7 @@ define dso_local void @_ZN4llvm11VRegRenamer16getVRegRenameMapERKSt6vectorINS0_9
   %62 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %7)
   store i32 %61, ptr %62, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
-  %63 = getelementptr inbounds i8, ptr %.sroa.09.016, i64 40
+  %63 = getelementptr inbounds i8, ptr %.sroa.09.014, i64 40
   %.not = icmp eq ptr %63, %17
   br i1 %.not, label %._crit_edge, label %19
 

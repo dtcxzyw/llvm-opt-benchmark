@@ -1362,31 +1362,31 @@ do.body658.i:                                     ; preds = %if.end651.i
   br label %if.end662.i
 
 if.end662.i:                                      ; preds = %do.body658.i, %if.end651.i
-  %cmp664270.i = icmp sgt i32 %36, 0
-  br i1 %cmp664270.i, label %for.body.preheader.i, label %for.end.i
+  %cmp6641.i = icmp sgt i32 %36, 0
+  br i1 %cmp6641.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %if.end662.i
   %53 = load i64, ptr %arg_strings, align 8
   br label %for.body.i58
 
 for.body.i58:                                     ; preds = %if.end675.i, %for.body.preheader.i
-  %p.addr.0273.i = phi i64 [ %add680.i, %if.end675.i ], [ %53, %for.body.preheader.i ]
-  %u_argv.0272.i = phi i64 [ %add677.i, %if.end675.i ], [ %add53.i, %for.body.preheader.i ]
-  %i.0271.i = phi i32 [ %inc.i, %if.end675.i ], [ 0, %for.body.preheader.i ]
-  %call669.i = call ptr @lock_user(i32 noundef 3, i64 noundef %u_argv.0272.i, i64 noundef 8, i1 noundef zeroext false) #20
+  %p.addr.04.i = phi i64 [ %add680.i, %if.end675.i ], [ %53, %for.body.preheader.i ]
+  %u_argv.03.i = phi i64 [ %add677.i, %if.end675.i ], [ %add53.i, %for.body.preheader.i ]
+  %i.02.i = phi i32 [ %inc.i, %if.end675.i ], [ 0, %for.body.preheader.i ]
+  %call669.i = call ptr @lock_user(i32 noundef 3, i64 noundef %u_argv.03.i, i64 noundef 8, i1 noundef zeroext false) #20
   %tobool670.not.i = icmp eq ptr %call669.i, null
   br i1 %tobool670.not.i, label %if.end675.i, label %do.body672.i
 
 do.body672.i:                                     ; preds = %for.body.i58
-  store i64 %p.addr.0273.i, ptr %call669.i, align 1
+  store i64 %p.addr.04.i, ptr %call669.i, align 1
   br label %if.end675.i
 
 if.end675.i:                                      ; preds = %do.body672.i, %for.body.i58
-  %add677.i = add i64 %u_argv.0272.i, 8
-  %call678.i = call i64 @target_strlen(i64 noundef %p.addr.0273.i) #20
-  %add679.i = add i64 %p.addr.0273.i, 1
+  %add677.i = add i64 %u_argv.03.i, 8
+  %call678.i = call i64 @target_strlen(i64 noundef %p.addr.04.i) #20
+  %add679.i = add i64 %p.addr.04.i, 1
   %add680.i = add i64 %add679.i, %call678.i
-  %inc.i = add nuw nsw i32 %i.0271.i, 1
+  %inc.i = add nuw nsw i32 %i.02.i, 1
   %exitcond.not.i59 = icmp eq i32 %inc.i, %36
   br i1 %exitcond.not.i59, label %for.end.i, label %for.body.i58, !llvm.loop !10
 
@@ -1401,33 +1401,33 @@ do.body687.i:                                     ; preds = %for.end.i
   br label %if.end690.i
 
 if.end690.i:                                      ; preds = %do.body687.i, %for.end.i
-  %cmp693274.i = icmp sgt i32 %37, 0
-  br i1 %cmp693274.i, label %for.body695.preheader.i, label %for.end713.i
+  %cmp6935.i = icmp sgt i32 %37, 0
+  br i1 %cmp6935.i, label %for.body695.preheader.i, label %for.end713.i
 
 for.body695.preheader.i:                          ; preds = %if.end690.i
   %54 = load i64, ptr %env_strings, align 8
   br label %for.body695.i
 
 for.body695.i:                                    ; preds = %if.end705.i, %for.body695.preheader.i
-  %p.addr.1277.i = phi i64 [ %add710.i, %if.end705.i ], [ %54, %for.body695.preheader.i ]
-  %u_envp.0276.i = phi i64 [ %add707.i, %if.end705.i ], [ %add57.i, %for.body695.preheader.i ]
-  %i.1275.i = phi i32 [ %inc712.i, %if.end705.i ], [ 0, %for.body695.preheader.i ]
-  %call699.i = call ptr @lock_user(i32 noundef 3, i64 noundef %u_envp.0276.i, i64 noundef 8, i1 noundef zeroext false) #20
+  %p.addr.18.i = phi i64 [ %add710.i, %if.end705.i ], [ %54, %for.body695.preheader.i ]
+  %u_envp.07.i = phi i64 [ %add707.i, %if.end705.i ], [ %add57.i, %for.body695.preheader.i ]
+  %i.16.i = phi i32 [ %inc712.i, %if.end705.i ], [ 0, %for.body695.preheader.i ]
+  %call699.i = call ptr @lock_user(i32 noundef 3, i64 noundef %u_envp.07.i, i64 noundef 8, i1 noundef zeroext false) #20
   %tobool700.not.i = icmp eq ptr %call699.i, null
   br i1 %tobool700.not.i, label %if.end705.i, label %do.body702.i
 
 do.body702.i:                                     ; preds = %for.body695.i
-  store i64 %p.addr.1277.i, ptr %call699.i, align 1
+  store i64 %p.addr.18.i, ptr %call699.i, align 1
   br label %if.end705.i
 
 if.end705.i:                                      ; preds = %do.body702.i, %for.body695.i
-  %add707.i = add i64 %u_envp.0276.i, 8
-  %call708.i = call i64 @target_strlen(i64 noundef %p.addr.1277.i) #20
-  %add709.i = add i64 %p.addr.1277.i, 1
+  %add707.i = add i64 %u_envp.07.i, 8
+  %call708.i = call i64 @target_strlen(i64 noundef %p.addr.18.i) #20
+  %add709.i = add i64 %p.addr.18.i, 1
   %add710.i = add i64 %add709.i, %call708.i
-  %inc712.i = add nuw nsw i32 %i.1275.i, 1
-  %exitcond279.not.i = icmp eq i32 %inc712.i, %37
-  br i1 %exitcond279.not.i, label %for.end713.i, label %for.body695.i, !llvm.loop !11
+  %inc712.i = add nuw nsw i32 %i.16.i, 1
+  %exitcond10.not.i = icmp eq i32 %inc712.i, %37
+  br i1 %exitcond10.not.i, label %for.end713.i, label %for.body695.i, !llvm.loop !11
 
 for.end713.i:                                     ; preds = %if.end705.i, %if.end690.i
   %u_envp.0.lcssa.i = phi i64 [ %add57.i, %if.end690.i ], [ %add707.i, %if.end705.i ]

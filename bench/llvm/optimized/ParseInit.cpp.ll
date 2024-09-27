@@ -2364,11 +2364,11 @@ define dso_local i64 @_ZN5clang6Parser15createEmbedExprEv(ptr noundef nonnull al
 
 36:                                               ; preds = %1
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 18544
-  %.sroa.0.0.copyload.i14 = load i64, ptr %37, align 8
+  %.sroa.0.0.copyload.i15 = load i64, ptr %37, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %38 = tail call i64 @_ZNK5clang10ASTContext11getSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23096) %11) #10
   call void @_ZNK5clang10ASTContext12MakeIntValueEmNS_8QualTypeE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APSInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(23096) %11, i64 noundef %20, i64 %38)
-  %39 = call i64 @_ZNK5clang10ASTContext20getConstantArrayTypeENS_8QualTypeERKN4llvm5APIntEPKNS_4ExprENS_17ArraySizeModifierEj(ptr noundef nonnull align 8 dereferenceable(23096) %11, i64 %.sroa.0.0.copyload.i14, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef null, i32 noundef 0, i32 noundef 0) #10
+  %39 = call i64 @_ZNK5clang10ASTContext20getConstantArrayTypeENS_8QualTypeERKN4llvm5APIntEPKNS_4ExprENS_17ArraySizeModifierEj(ptr noundef nonnull align 8 dereferenceable(23096) %11, i64 %.sroa.0.0.copyload.i15, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef null, i32 noundef 0, i32 noundef 0) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   %40 = call noundef ptr @_ZN5clang13StringLiteral6CreateERKNS_10ASTContextEN4llvm9StringRefENS_17StringLiteralKindEbNS_8QualTypeEPKNS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(23096) %11, ptr %22, i64 %20, i32 noundef 0, i1 noundef zeroext false, i64 %39, ptr noundef nonnull %2, i32 noundef 1) #10
@@ -2394,8 +2394,8 @@ define dso_local i64 @_ZN5clang6Parser15createEmbedExprEv(ptr noundef nonnull al
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %35, %32, %23, %"_ZZN5clang6Parser15createEmbedExprEvENK3$_0clEN4llvm9StringRefENS_8QualTypeE.exit"
-  %.sroa.018.0 = phi i64 [ %49, %"_ZZN5clang6Parser15createEmbedExprEvENK3$_0clEN4llvm9StringRefENS_8QualTypeE.exit" ], [ %29, %23 ], [ %29, %32 ], [ %29, %35 ]
-  ret i64 %.sroa.018.0
+  %.sroa.017.0 = phi i64 [ %49, %"_ZZN5clang6Parser15createEmbedExprEvENK3$_0clEN4llvm9StringRefENS_8QualTypeE.exit" ], [ %29, %23 ], [ %29, %32 ], [ %29, %35 ]
+  ret i64 %.sroa.017.0
 }
 
 declare noundef ptr @_ZN5clang14IntegerLiteral6CreateERKNS_10ASTContextERKN4llvm5APIntENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef nonnull align 8 dereferenceable(12), i64, i32) local_unnamed_addr #1

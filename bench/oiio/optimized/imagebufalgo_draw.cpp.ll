@@ -4600,12 +4600,12 @@ if.then11:                                        ; preds = %invoke.cont9
   store ptr null, ptr %m_pool.i, align 8
   %m_recursive.i = getelementptr inbounds i8, ptr %agg.tmp13, i64 24
   store i8 0, ptr %m_recursive.i, align 8
+  %23 = ptrtoint ptr %dst to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp14, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp14, i64 24
-  %23 = getelementptr inbounds i8, ptr %agg.tmp14, i64 8
-  store i64 0, ptr %23, align 8
-  %24 = ptrtoint ptr %dst to i64
-  store i64 %24, ptr %agg.tmp14, align 8
+  %24 = getelementptr inbounds i8, ptr %agg.tmp14, i64 8
+  store i64 0, ptr %24, align 8
+  store i64 %23, ptr %agg.tmp14, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_12ImageBufAlgo4zeroERNS0_8ImageBufES1_iE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_12ImageBufAlgo4zeroERNS0_8ImageBufES1_iE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp13, ptr noundef nonnull %agg.tmp14)

@@ -1968,12 +1968,12 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit:      ; preds = %_ZN4node11Environment12set_env_varsESt10shared_ptrINS_7KVStoreEE.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %81 = load ptr, ptr %env_, align 8
+  %82 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp153, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp153, i64 24
-  %82 = getelementptr inbounds i8, ptr %ref.tmp153, i64 8
-  store i64 0, ptr %82, align 8
-  %83 = ptrtoint ptr %this to i64
-  store i64 %83, ptr %ref.tmp153, align 8
+  %83 = getelementptr inbounds i8, ptr %ref.tmp153, i64 8
+  store i64 0, ptr %83, align 8
+  store i64 %82, ptr %ref.tmp153, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4node11EnvironmentEiEZNS0_6worker6Worker3RunEvE3$_0E9_M_invokeERKSt9_Any_dataOS2_Oi", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4node11EnvironmentEiEZNS0_6worker6Worker3RunEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   call void @_ZN4node21SetProcessExitHandlerEPNS_11EnvironmentEOSt8functionIFvS1_iEE(ptr noundef %81, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp153) #22
@@ -4858,12 +4858,12 @@ if.else.i.i.i.i.i372:                             ; preds = %if.then.i.i.i368
   br label %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN4node18EnvironmentOptionsEEC2ERKS2_.exit: ; preds = %_ZNSt12__shared_ptrIN4node17PerIsolateOptionsELN9__gnu_cxx12_Lock_policyE2EE5resetIS1_EENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS7_.exit, %if.then.i.i.i.i.i370, %if.else.i.i.i.i.i372
+  %203 = ptrtoint ptr %env_vars to i64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp219, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp219, i64 24
-  %203 = getelementptr inbounds i8, ptr %agg.tmp219, i64 8
-  store i64 0, ptr %203, align 8
-  %204 = ptrtoint ptr %env_vars to i64
-  store i64 %204, ptr %agg.tmp219, align 8
+  %204 = getelementptr inbounds i8, ptr %agg.tmp219, i64 8
+  store i64 0, ptr %204, align 8
+  store i64 %203, ptr %agg.tmp219, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINSC_5ValueEEEE3$_0E9_M_invokeERKSt9_Any_dataOS7_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINSC_5ValueEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   call void @_ZN4node16HandleEnvOptionsESt10shared_ptrINS_18EnvironmentOptionsEESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEE(ptr noundef nonnull %agg.tmp217, ptr noundef nonnull %agg.tmp219) #22
