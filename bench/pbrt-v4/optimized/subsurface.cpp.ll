@@ -8439,7 +8439,7 @@ define linkonce_odr dso_local void @_ZZNK4pbrt5Light8SampleLiENS_18LightSampleCo
 entry:
   %ret.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %Li.i = alloca %"class.pbrt::SampledSpectrum", align 8
-  %agg.tmp3 = alloca %"class.pbrt::SampledWavelengths", align 8
+  %agg.tmp32 = alloca %"class.pbrt::SampledWavelengths", align 8
   %0 = load ptr, ptr %this, align 8
   %agg.tmp.sroa.0.0.copyload = load float, ptr %0, align 4
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
@@ -8454,7 +8454,8 @@ entry:
   %agg.tmp.sroa.6.0.copyload = load float, ptr %agg.tmp.sroa.6.0..sroa_idx, align 4
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3, ptr noundef nonnull align 4 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp32)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp32, ptr noundef nonnull align 4 dereferenceable(32) %2, i64 32, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %Li.i)
   %renderFromLight.i = getelementptr inbounds i8, ptr %ptr, i64 4
@@ -8503,7 +8504,7 @@ entry:
   %div3.i.i21.i = fdiv float %call20.fca.1.extract.i, %sqrt.i.i18.i
   %retval.sroa.0.0.vec.insert.i.i22.i = insertelement <2 x float> poison, float %div.i.i19.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i23.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i22.i, float %div2.i.i20.i, i64 1
-  %call28.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt9SpotLight1IENS_7Vector3IfEENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(172) %ptr, <2 x float> %retval.sroa.0.4.vec.insert.i.i23.i, float %div3.i.i21.i, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %agg.tmp3)
+  %call28.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt9SpotLight1IENS_7Vector3IfEENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(172) %ptr, <2 x float> %retval.sroa.0.4.vec.insert.i.i23.i, float %div3.i.i21.i, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %agg.tmp32), !noalias !157
   %4 = extractvalue { <2 x float>, <2 x float> } %call28.i, 0
   %5 = extractvalue { <2 x float>, <2 x float> } %call28.i, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i.i), !noalias !157
@@ -8581,6 +8582,7 @@ _ZNK4pbrt9SpotLight8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledW
   %.sink.i = phi i8 [ 1, %if.end.i ], [ 0, %if.then.i ]
   %9 = getelementptr inbounds i8, ptr %agg.result, i64 112
   store i8 %.sink.i, ptr %9, align 8, !alias.scope !157
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp32)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %Li.i)
   ret void
 }

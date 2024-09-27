@@ -640,9 +640,10 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4recv1
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   %20 = getelementptr inbounds i8, ptr %1, i64 128
   %.sroa.434.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.535.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.635.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
   %.sroa.59.0..sroa_idx10.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.5.0..sroa_idx4.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.635.8..sroa.5.0..sroa_idx4.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   br label %21
 
 21:                                               ; preds = %.backedge, %4
@@ -985,7 +986,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !72
   store ptr %11, ptr %10, align 8
   store ptr %1, ptr %.sroa.434.0..sroa_idx, align 8
-  store ptr %12, ptr %.sroa.535.0..sroa_idx, align 8
+  store ptr %12, ptr %.sroa.635.0..sroa_idx, align 8
   %150 = load i64, ptr @_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit5__KEY17h71370a93a4b96011E, align 8, !range !75, !noalias !76, !noundef !15
   %trunc.i.i.i.i = trunc nuw i64 %150 to i1
   br i1 %trunc.i.i.i.i, label %_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.thread.i.i, label %_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.exit.i.i
@@ -1018,7 +1019,8 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
 
 159:                                              ; preds = %155
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %7, align 8, !noalias !72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx4.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.434.0..sroa_idx, i64 16, i1 false), !noalias !72
+  store ptr %1, ptr %.sroa.5.0..sroa_idx4.i.i.i, align 8
+  store ptr %12, ptr %.sroa.635.8..sroa.5.0..sroa_idx4.i.i.i.sroa_idx, align 8
   invoke fastcc void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h743fd5d0c04e4ee9E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %7, ptr noalias noundef readonly align 8 dereferenceable(8) %9)
           to label %162 unwind label %.loopexit53, !noalias !72
 
@@ -1272,7 +1274,7 @@ common.resume:                                    ; preds = %130, %156, %26, %.b
   %50 = getelementptr inbounds i8, ptr %10, i64 272
   %51 = load ptr, ptr %50, align 16, !alias.scope !113, !noalias !116, !nonnull !15, !noundef !15
   %52 = getelementptr inbounds { ptr, i64, ptr }, ptr %51, i64 %49
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %53 = load i64, ptr %39, align 8, !alias.scope !113, !noalias !116, !noundef !15
   %54 = add i64 %53, 1
   store i64 %54, ptr %39, align 8, !alias.scope !113, !noalias !116

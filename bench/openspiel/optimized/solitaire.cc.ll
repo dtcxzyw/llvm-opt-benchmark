@@ -2703,9 +2703,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EEaSEOS4_.exit: ; preds = %2, %1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK10open_spiel9solitaire4Pile7TargetsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.031 = alloca %"class.open_spiel::solitaire::Card", align 8
   %3 = alloca [1 x %"class.open_spiel::solitaire::Card"], align 4
-  %.sroa.0 = alloca %"class.open_spiel::solitaire::Card", align 8
   %4 = alloca [1 x %"class.open_spiel::solitaire::Card"], align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -2728,14 +2726,13 @@ define void @_ZNK10open_spiel9solitaire4Pile7TargetsEv(ptr dead_on_unwind noalia
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %15, i64 -20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.031, ptr noundef nonnull align 4 dereferenceable(20) %18, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %19 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
   store ptr %19, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %21, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.031, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %19, ptr noundef nonnull align 4 dereferenceable(20) %18, i64 20, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %22, align 8
   br label %57
@@ -2771,14 +2768,13 @@ define void @_ZNK10open_spiel9solitaire4Pile7TargetsEv(ptr dead_on_unwind noalia
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %34, i64 -20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(20) %39, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %40 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
   store ptr %40, ptr %0, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 20
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %41, ptr %42, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %40, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %40, ptr noundef nonnull align 4 dereferenceable(20) %39, i64 20, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %41, ptr %43, align 8
   br label %57
@@ -2841,7 +2837,6 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK10open_spiel9solitaire4Pile7SourcesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i:
-  %.sroa.048 = alloca %"class.open_spiel::solitaire::Card", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.42)
@@ -2865,23 +2860,22 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i:
   br i1 %15, label %25, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %14, i64 -20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.048, ptr noundef nonnull align 4 dereferenceable(20) %17, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %18 = invoke noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
-          to label %21 unwind label %19
+  %17 = invoke noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
+          to label %20 unwind label %18
 
-19:                                               ; preds = %16
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %16
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-21:                                               ; preds = %16
-  store ptr %18, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 20
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %14, i64 -20
+  store ptr %17, ptr %0, align 8
+  %22 = getelementptr inbounds i8, ptr %17, i64 20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %23, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %18, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.048, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %17, ptr noundef nonnull align 4 dereferenceable(20) %21, i64 20, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %22, ptr %24, align 8
   br label %114
@@ -3140,7 +3134,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE9push_backERKS2_.exit35: ; pre
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #31
   br label %.body.thread
 
-114:                                              ; preds = %105, %63, %25, %21
+114:                                              ; preds = %105, %63, %25, %20
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 260) #34
   br label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit
 
@@ -3171,10 +3165,10 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit: ; preds = %60, %102
   %.not.i.i.i38 = icmp eq ptr %.sroa.049.0, null
   br i1 %.not.i.i.i38, label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit40, label %.body.thread
 
-.body.thread:                                     ; preds = %19, %113, %.body
-  %.pn.pn85 = phi { ptr, i32 } [ %lpad.phi, %.body ], [ %20, %19 ], [ %.pn, %113 ]
-  %.sroa.049.184 = phi ptr [ %.sroa.049.0, %.body ], [ %6, %19 ], [ %6, %113 ]
-  %.sroa.25.183 = phi ptr [ %.sroa.25.0, %.body ], [ %7, %19 ], [ %7, %113 ]
+.body.thread:                                     ; preds = %18, %113, %.body
+  %.pn.pn85 = phi { ptr, i32 } [ %lpad.phi, %.body ], [ %19, %18 ], [ %.pn, %113 ]
+  %.sroa.049.184 = phi ptr [ %.sroa.049.0, %.body ], [ %6, %18 ], [ %6, %113 ]
+  %.sroa.25.183 = phi ptr [ %.sroa.25.0, %.body ], [ %7, %18 ], [ %7, %113 ]
   %115 = ptrtoint ptr %.sroa.25.183 to i64
   %116 = ptrtoint ptr %.sroa.049.184 to i64
   %117 = sub i64 %115, %116
@@ -3188,7 +3182,6 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit40: ; preds = %.body,
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10open_spiel9solitaire4Pile5SplitENS0_4CardE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.open_spiel::solitaire::Card") align 8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0 = alloca %"class.open_spiel::solitaire::Card", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %110 [
@@ -3213,9 +3206,8 @@ define void @_ZN10open_spiel9solitaire4Pile5SplitENS0_4CardE(ptr dead_on_unwind 
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false)
   %20 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %20, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %20, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false)
   %21 = getelementptr inbounds i8, ptr %20, i64 20
   store ptr %9, ptr %7, align 8
   br label %.loopexit
@@ -3694,7 +3686,6 @@ define void @_ZN10open_spiel9solitaire7TableauC2ENS0_6PileIDE(ptr nocapture noun
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK10open_spiel9solitaire7Tableau7TargetsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0 = alloca %"class.open_spiel::solitaire::Card", align 8
   %3 = alloca [1 x %"class.open_spiel::solitaire::Card"], align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -3711,14 +3702,13 @@ define void @_ZNK10open_spiel9solitaire7Tableau7TargetsEv(ptr dead_on_unwind noa
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %7, i64 -20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(20) %12, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %13 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
   store ptr %13, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 20
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, ptr noundef nonnull align 4 dereferenceable(20) %12, i64 20, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %16, align 8
   br label %23
@@ -4099,51 +4089,42 @@ define void @_ZN10open_spiel9solitaire10FoundationC2ENS0_6PileIDENS0_8SuitTypeE(
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK10open_spiel9solitaire10Foundation7TargetsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0 = alloca %"class.open_spiel::solitaire::Card", align 8
   %3 = alloca [1 x %"class.open_spiel::solitaire::Card"], align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
-  br i1 %8, label %14, label %9
+  br i1 %8, label %11, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %7, i64 -20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(20) %10, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %11 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
-  store ptr %11, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 20
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %12, ptr %13, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, i64 20, i1 false)
-  br label %20
+  br label %14
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %16 = load i32, ptr %15, align 4
-  call void @_ZN10open_spiel9solitaire4CardC1EbNS0_8SuitTypeENS0_8RankTypeENS0_12LocationTypeE(ptr noundef nonnull align 4 dereferenceable(20) %3, i1 noundef zeroext false, i32 noundef %16, i32 noundef 0, i32 noundef 2)
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %13 = load i32, ptr %12, align 4
+  call void @_ZN10open_spiel9solitaire4CardC1EbNS0_8SuitTypeENS0_8RankTypeENS0_12LocationTypeE(ptr noundef nonnull align 4 dereferenceable(20) %3, i1 noundef zeroext false, i32 noundef %13, i32 noundef 0, i32 noundef 2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %17 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
-  store ptr %17, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %18, ptr %19, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %17, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
-  br label %20
+  br label %14
 
-20:                                               ; preds = %14, %9
-  %.sink = phi ptr [ %18, %14 ], [ %12, %9 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8
+14:                                               ; preds = %11, %9
+  %.sink14 = phi ptr [ %3, %11 ], [ %10, %9 ]
+  %15 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
+  store ptr %15, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %16, ptr %17, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, ptr noundef nonnull align 4 dereferenceable(20) %.sink14, i64 20, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %16, ptr %18, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK10open_spiel9solitaire10Foundation7SourcesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i:
-  %.sroa.0 = alloca %"class.open_spiel::solitaire::Card", align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4153,14 +4134,13 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i:
 
 7:                                                ; preds = %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i
   %8 = getelementptr inbounds i8, ptr %5, i64 -20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %9 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
   store ptr %9, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 20
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %12, align 8
   br label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit
@@ -4175,7 +4155,6 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit: ; preds = %13, %7
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10open_spiel9solitaire10Foundation5SplitENS0_4CardE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.open_spiel::solitaire::Card") align 8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0 = alloca %"class.open_spiel::solitaire::Card", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -4192,10 +4171,9 @@ define void @_ZN10open_spiel9solitaire10Foundation5SplitENS0_4CardE(ptr dead_on_
   br i1 %15, label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EEaSESt16initializer_listIS2_E.exit, label %20
 
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EEaSESt16initializer_listIS2_E.exit: ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(20) %6, i64 20, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %17, ptr noundef nonnull align 4 dereferenceable(20) %6, i64 20, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %17, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 20
@@ -9796,7 +9774,6 @@ define void @_ZN10open_spiel9solitaire14SolitaireState9MoveCardsERKNS0_4MoveE(pt
   %7 = alloca %"class.std::vector.58", align 8
   %8 = alloca i32, align 4
   %9 = alloca %"class.std::vector.58", align 8
-  %.sroa.065 = alloca %"class.open_spiel::solitaire::Card", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull readonly align 4 dereferenceable(20) %1, i64 20, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull readonly align 4 dereferenceable(20) %10, i64 20, i1 false)
@@ -9885,7 +9862,6 @@ _ZNSt3mapIN10open_spiel9solitaire4CardENS1_6PileIDESt4lessIS2_ESaISt4pairIKS2_S3
 49:                                               ; preds = %47, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.065, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.067.071, i64 20, i1 false)
   %50 = invoke noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
           to label %53 unwind label %51
 
@@ -9898,7 +9874,7 @@ _ZNSt3mapIN10open_spiel9solitaire4CardENS1_6PileIDESt4lessIS2_ESaISt4pairIKS2_S3
   store ptr %50, ptr %9, align 8
   %54 = getelementptr inbounds i8, ptr %50, i64 20
   store ptr %54, ptr %23, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %50, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.065, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %50, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.067.071, i64 20, i1 false)
   store ptr %54, ptr %24, align 8
   invoke void @_ZN10open_spiel9solitaire4Pile6ExtendESt6vectorINS0_4CardESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %9)
           to label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit unwind label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit33

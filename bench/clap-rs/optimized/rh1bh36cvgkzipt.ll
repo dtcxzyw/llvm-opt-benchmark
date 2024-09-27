@@ -9304,7 +9304,6 @@ define hidden void @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$co
   %11 = alloca { { { ptr, ptr }, { ptr, i64 } }, {} }, align 8
   %12 = alloca { { i64, ptr }, i64 }, align 8
   %13 = alloca { { { i64, ptr }, i64 } }, align 8
-  %.sroa.01.sroa.4.i.i = alloca [16 x i8], align 8
   %14 = alloca { { i64, ptr }, i64 }, align 8
   %15 = alloca { { { i64, ptr }, i64 } }, align 8
   %.sroa.8.i = alloca [2 x i64], align 8
@@ -9463,11 +9462,8 @@ _ZN12clap_builder6parser8features11suggestions12did_you_mean17h11b85f54c2ca62b5E
 
 71:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h6d15a7e2832b2897E.exit.i.i"
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %69, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.01.sroa.4.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.sroa.4.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, i64 16, i1 false), !noalias !4155
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, i64 16, i1 false), !noalias !4155
   store i64 %.sroa.017.0.copyload18.i.i, ptr %15, align 8, !noalias !4163
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.sroa.4.i.i, i64 16, i1 false), !noalias !4163
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.01.sroa.4.i.i)
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h828c615d2162ee7fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
           to label %72 unwind label %90, !noalias !4155
 

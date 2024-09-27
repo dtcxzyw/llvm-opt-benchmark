@@ -153985,7 +153985,6 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKN
   %8 = alloca %"struct.Eigen::internal::assign_op.732", align 1
   %9 = alloca %"class.Eigen::internal::redux_evaluator.2486", align 8
   %10 = alloca %"class.Eigen::CwiseBinaryOp.2473", align 8
-  %.sroa.013 = alloca { %"class.Eigen::Block.2393", %"class.Eigen::internal::variable_if_dynamic.786" }, align 8
   %11 = alloca %"class.Eigen::Matrix.2464", align 8
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
@@ -153995,15 +153994,14 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKN
 
 16:                                               ; preds = %4
   %17 = load float, ptr %3, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.013, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %18 = getelementptr inbounds i8, ptr %1, i64 40
   %19 = load i64, ptr %18, align 8, !noalias !1560
   %20 = load ptr, ptr %12, align 8, !noalias !1563
   %21 = getelementptr inbounds i8, ptr %12, i64 16
   %22 = load i64, ptr %21, align 8, !noalias !1563
   %23 = ptrtoint ptr %12 to i64
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.013, i64 56, i1 false)
   %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 56
   store i64 0, ptr %.sroa.214.0..sroa_idx, align 8
   %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 72
@@ -155671,6 +155669,8 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implINS_7ProductIN
 
 16:                                               ; preds = %4
   %17 = load float, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %9)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %18 = getelementptr inbounds i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8, !noalias !1584
   %20 = getelementptr inbounds i8, ptr %19, i64 8
@@ -155684,9 +155684,9 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implINS_7ProductIN
   %.sroa.3.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %.sroa.5.24..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.24..sroa_idx, i64 24, i1 false)
   %28 = load i64, ptr %25, align 8, !noalias !1587
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   %.sroa.419.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.216.0..sroa_idx, i8 0, i64 16, i1 false)
@@ -155699,8 +155699,6 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implINS_7ProductIN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3, i64 32, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 104
   store ptr %24, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.24..sroa_idx, i64 24, i1 false)
   %.sroa.513.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 136
   store i64 0, ptr %.sroa.513.0..sroa_idx, align 8
   %.sroa.614.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 152
@@ -185641,6 +185639,8 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implINS_7ProductIN
 
 16:                                               ; preds = %4
   %17 = load double, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %18 = getelementptr inbounds i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8, !noalias !2473
   %20 = getelementptr inbounds i8, ptr %19, i64 8
@@ -185648,8 +185648,6 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implINS_7ProductIN
   %22 = load ptr, ptr %2, align 8, !noalias !2476
   %23 = getelementptr inbounds i8, ptr %2, i64 8
   %24 = load i64, ptr %23, align 8, !noalias !2476
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   %.sroa.418.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.215.0..sroa_idx, i8 0, i64 16, i1 false)
@@ -187818,7 +187816,6 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKN
   %8 = alloca %"struct.Eigen::internal::assign_op", align 1
   %9 = alloca %"class.Eigen::internal::redux_evaluator.6458", align 8
   %10 = alloca %"class.Eigen::CwiseBinaryOp.6445", align 8
-  %.sroa.013 = alloca { %"class.Eigen::Block.6374", %"class.Eigen::internal::variable_if_dynamic.786" }, align 8
   %11 = alloca %"class.Eigen::Matrix.4277", align 8
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
@@ -187828,15 +187825,14 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKN
 
 16:                                               ; preds = %4
   %17 = load double, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.013, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %18 = getelementptr inbounds i8, ptr %1, i64 40
   %19 = load i64, ptr %18, align 8, !noalias !2536
   %20 = load ptr, ptr %12, align 8, !noalias !2539
   %21 = getelementptr inbounds i8, ptr %12, i64 16
   %22 = load i64, ptr %21, align 8, !noalias !2539
   %23 = ptrtoint ptr %12 to i64
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.013, i64 56, i1 false)
   %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 56
   store i64 0, ptr %.sroa.214.0..sroa_idx, align 8
   %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 72

@@ -12630,7 +12630,6 @@ declare void @_ZN10Colorframe12colorChangedE6QColor(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8Paintbox24on_switch_colors_clickedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(844) %0) local_unnamed_addr #0 align 2 {
-  %.sroa.2 = alloca %struct.anon, align 4
   %2 = alloca %class.QColor, align 4
   %3 = alloca %class.QColor, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 256
@@ -12641,26 +12640,25 @@ define void @_ZN8Paintbox24on_switch_colors_clickedEv(ptr nocapture noundef nonn
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 4, !noalias !8
   %11 = getelementptr inbounds i8, ptr %8, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %.sroa.2, ptr noundef nonnull align 4 dereferenceable(10) %11, i64 10, i1 false)
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 248
-  %14 = load ptr, ptr %13, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %12, ptr noundef nonnull align 4 dereferenceable(10) %11, i64 10, i1 false)
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 248
+  %15 = load ptr, ptr %14, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %15 = tail call noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(48) %14), !noalias !11
-  %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %15, i32 noundef 0, i32 noundef 10), !noalias !11
-  %17 = load ptr, ptr %16, align 8, !noalias !11
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load i32, ptr %18, align 4, !noalias !11
-  store i32 %19, ptr %2, align 4, !alias.scope !11
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
-  %21 = getelementptr inbounds i8, ptr %17, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %20, ptr noundef nonnull align 4 dereferenceable(10) %21, i64 10, i1 false)
-  call void @_ZN10Colorframe8setColorE6QColor(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %2)
-  %22 = load ptr, ptr %13, align 8
+  %16 = tail call noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(48) %15), !noalias !11
+  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %16, i32 noundef 0, i32 noundef 10), !noalias !11
+  %18 = load ptr, ptr %17, align 8, !noalias !11
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = load i32, ptr %19, align 4, !noalias !11
+  store i32 %20, ptr %2, align 4, !alias.scope !11
+  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %22 = getelementptr inbounds i8, ptr %18, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %21, ptr noundef nonnull align 4 dereferenceable(10) %22, i64 10, i1 false)
+  call void @_ZN10Colorframe8setColorE6QColor(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull %2)
+  %23 = load ptr, ptr %14, align 8
   store i32 %10, ptr %3, align 4
-  %23 = getelementptr inbounds i8, ptr %3, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %23, ptr noundef nonnull align 4 dereferenceable(10) %.sroa.2, i64 10, i1 false)
-  call void @_ZN10Colorframe8setColorE6QColor(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %3)
+  call void @_ZN10Colorframe8setColorE6QColor(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull %3)
   ret void
 }
 

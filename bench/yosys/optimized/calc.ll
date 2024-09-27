@@ -8913,8 +8913,8 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %21
   tail call void @_ZN5Yosys5RTLIL5ConstC1ENS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef zeroext 2, i32 noundef %47)
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %81
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %81 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %77
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %77 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %36
   br i1 %exitcond.not, label %48, label %_ZNK5Yosys5RTLIL5ConstixEi.exit
 
@@ -8926,7 +8926,7 @@ _ZNK5Yosys5RTLIL5ConstixEi.exit:                  ; preds = %.lr.ph
   %49 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 1
-  br i1 %51, label %52, label %81
+  br i1 %51, label %52, label %77
 
 52:                                               ; preds = %_ZNK5Yosys5RTLIL5ConstixEi.exit
   %53 = getelementptr inbounds i8, ptr %2, i64 8
@@ -8954,10 +8954,10 @@ _ZNK5Yosys5RTLIL5ConstixEi.exit:                  ; preds = %.lr.ph
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; preds = %52
   %.not.i.i.i20 = icmp eq i64 %67, %63
+  %69 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %.not.i.i.i20, label %.thread54, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i22
 
 .thread54:                                        ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %69 = getelementptr inbounds i8, ptr %0, i64 8
   %70 = getelementptr inbounds i8, ptr %0, i64 16
   %71 = getelementptr inbounds i8, ptr null, i64 %gepdiff
   %72 = getelementptr inbounds i8, ptr %0, i64 24
@@ -8968,41 +8968,28 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; 
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit
 
 _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i22: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
   %73 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %gepdiff) #17
+  store ptr %73, ptr %69, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds i8, ptr %73, i64 %gepdiff
+  %76 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %75, ptr %76, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 1 %64, i64 %gepdiff, i1 false)
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false)
-  %75 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %gepdiff) #17
-          to label %76 unwind label %.body
-
-76:                                               ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i22
   store ptr %75, ptr %74, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
-  %78 = getelementptr inbounds i8, ptr %75, i64 %gepdiff
-  %79 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %78, ptr %79, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 1 %73, i64 %gepdiff, i1 false)
-  store ptr %78, ptr %77, align 8
   store i32 0, ptr %0, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %73) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit
 
-.body:                                            ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i22
-  %80 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %73) #18
-  resume { ptr, i32 } %80
-
-81:                                               ; preds = %_ZNK5Yosys5RTLIL5ConstixEi.exit
+77:                                               ; preds = %_ZNK5Yosys5RTLIL5ConstixEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
 
-._crit_edge:                                      ; preds = %81, %.preheader
+._crit_edge:                                      ; preds = %77, %.preheader
   tail call void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 639) #16
   unreachable
 
-_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %.thread54, %76, %39, %_ZN5Yosys5RTLIL5ConstC2ERKS1_.exit
+_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %.thread54, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i22, %39, %_ZN5Yosys5RTLIL5ConstC2ERKS1_.exit
   ret void
 }
 

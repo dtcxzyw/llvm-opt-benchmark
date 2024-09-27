@@ -2997,7 +2997,6 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode8sockSendEN5cxx204
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEt23__wasi_address_family_tS6_tRj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr readonly %1, i64 %2, i16 zeroext %3, i8 noundef zeroext %4, ptr nocapture noundef readonly byval(%"struct.cxx20::span.29") align 8 %5, i16 noundef zeroext %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::variant", align 8
-  %.sroa.12 = alloca [100 x i8], align 4
   %10 = alloca [1024 x %struct.iovec], align 16
   %11 = alloca %struct.msghdr, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 128
@@ -3063,7 +3062,8 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx
   %.sroa.1128.2..val.sroa_idx = getelementptr inbounds i8, ptr %.val, i64 22
   %.sroa.1128.2.copyload = load i32, ptr %.sroa.1128.2..val.sroa_idx, align 1
   %.sroa.12.2..val.sroa_idx = getelementptr inbounds i8, ptr %.val, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(82) %.sroa.12, ptr noundef nonnull align 1 dereferenceable(82) %.sroa.12.2..val.sroa_idx, i64 82, i1 false)
+  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(82) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(82) %.sroa.12.2..val.sroa_idx, i64 82, i1 false)
   store i16 1, ptr %9, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 2
   store i16 %.sroa.4.2.copyload, ptr %.sroa.4.0..sroa_idx, align 2
@@ -3075,8 +3075,6 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx
   store i64 %.sroa.11.2.copyload, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.1128.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   store i32 %.sroa.1128.2.copyload, ptr %.sroa.1128.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(100) %.sroa.12, i64 100, i1 false)
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split
 
 _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split: ; preds = %16, %20, %23

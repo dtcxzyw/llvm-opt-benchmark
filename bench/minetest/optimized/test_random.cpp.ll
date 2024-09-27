@@ -962,10 +962,11 @@ _ZN13PrngExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   store i64 15, ptr %_M_string_length.i.i.i.i140, align 8, !tbaa !13
   %arrayidx.i.i.i141 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 31
   store i8 0, ptr %arrayidx.i.i.i141, align 1, !tbaa !25
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %exception10.i, align 8, !tbaa !4
   %m_s.i.i = getelementptr inbounds i8, ptr %exception10.i, i64 8
   %1 = getelementptr inbounds i8, ptr %exception10.i, i64 24
   store ptr %1, ptr %m_s.i.i, align 8, !tbaa !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %1, ptr noundef nonnull align 8 dereferenceable(15) %0, i64 15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %1, ptr noundef nonnull align 1 dereferenceable(15) @.str.29, i64 15, i1 false)
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception10.i, i64 16
   store i64 15, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !13
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %exception10.i, i64 39

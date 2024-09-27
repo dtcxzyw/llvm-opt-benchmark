@@ -628,7 +628,6 @@ entry:
   %agg.tmp2.i.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp4.i.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp5.i.i2656 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp1.sroa.3.i = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::internal_iterator", align 8
   %__i.i.i.i.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp.i.i.i.i2380 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp.i.i.i2381 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
@@ -11726,9 +11725,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %agg.tmp3357.sroa.6.0 = phi i64 [ -9223372036854775808, %sw.bb4.i.i2645 ], [ -9223372036854775808, %sw.bb.i.i2649 ], [ 1, %invoke.cont3356 ]
   %agg.tmp3357.sroa.5.0 = phi ptr [ %1012, %sw.bb4.i.i2645 ], [ null, %sw.bb.i.i2649 ], [ null, %invoke.cont3356 ]
   %agg.tmp3357.sroa.2.0 = phi ptr [ null, %sw.bb4.i.i2645 ], [ %add.ptr.i.i.i.i2651, %sw.bb.i.i2649 ], [ null, %invoke.cont3356 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.sroa.3.i)
+  %m_it.i5.i.i = getelementptr inbounds i8, ptr %agg.tmp4.i.i, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4.i.i)
+  store ptr %ref.tmp3354.sroa.2.0, ptr %m_it.i5.i.i, align 8
+  %agg.tmp3352.sroa.6.8.m_it.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4.i.i, i64 16
+  store ptr %ref.tmp3354.sroa.5.0, ptr %agg.tmp3352.sroa.6.8.m_it.i5.i.i.sroa_idx, align 8
+  %agg.tmp3352.sroa.7.8.m_it.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4.i.i, i64 24
+  store i64 %agg.tmp3352.sroa.7.05043, ptr %agg.tmp3352.sroa.7.8.m_it.i5.i.i.sroa_idx, align 8
   %1013 = load ptr, ptr %agg.tmp3353, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.sroa.3.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i2639, i64 24, i1 false)
+  %m_it.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp5.i.i2656, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp5.i.i2656)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i7.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i2639, i64 24, i1 false)
   %m_it.i3.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   store ptr %agg.tmp3357.sroa.2.0, ptr %m_it.i3.i.i, align 8
@@ -11739,8 +11746,6 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i2654)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i2655)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp5.i.i2656)
   store ptr %j3154, ptr %agg.tmp.i.i2654, align 8
   %m_it.i.i.i2660 = getelementptr inbounds i8, ptr %agg.tmp.i.i2654, i64 8
   store ptr %ref.tmp3354.sroa.2.0, ptr %m_it.i.i.i2660, align 8
@@ -11757,15 +11762,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 .noexc2662:                                       ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit2653
   store ptr %j3154, ptr %agg.tmp4.i.i, align 8
-  %m_it.i5.i.i = getelementptr inbounds i8, ptr %agg.tmp4.i.i, i64 8
-  store ptr %ref.tmp3354.sroa.2.0, ptr %m_it.i5.i.i, align 8
-  %agg.tmp.sroa.3.i.sroa.4.0.m_it.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4.i.i, i64 16
-  store ptr %ref.tmp3354.sroa.5.0, ptr %agg.tmp.sroa.3.i.sroa.4.0.m_it.i5.i.i.sroa_idx, align 8
-  %agg.tmp.sroa.3.i.sroa.5.0.m_it.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4.i.i, i64 24
-  store i64 %agg.tmp3352.sroa.7.05043, ptr %agg.tmp.sroa.3.i.sroa.5.0.m_it.i5.i.i.sroa_idx, align 8
   store ptr %1013, ptr %agg.tmp5.i.i2656, align 8
-  %m_it.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp5.i.i2656, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i7.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.sroa.3.i, i64 24, i1 false)
   invoke void @_ZSt11__sort_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SL_RT0_(ptr noundef nonnull %agg.tmp4.i.i, ptr noundef nonnull %agg.tmp5.i.i2656, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i.i)
           to label %invoke.cont3358 unwind label %lpad3355
 
@@ -11776,7 +11773,6 @@ invoke.cont3358:                                  ; preds = %.noexc2662
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp4.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp5.i.i2656)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.sroa.3.i)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3361, i32 noundef 10)
           to label %invoke.cont3363 unwind label %lpad3355
 
@@ -27759,8 +27755,6 @@ entry:
   %agg.tmp2.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp4.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp5.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp.sroa.3 = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::internal_iterator", align 8
-  %agg.tmp2.sroa.3 = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::internal_iterator", align 8
   %__cut = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp5 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp6 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
@@ -27787,17 +27781,19 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %0 = load ptr, ptr %__first, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.sroa.3, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i8, i64 24, i1 false)
+  %m_it.i5.i = getelementptr inbounds i8, ptr %agg.tmp4.i, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i5.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i8, i64 24, i1 false)
   %1 = load ptr, ptr %__last, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.sroa.3, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i10, i64 24, i1 false)
+  %m_it.i7.i = getelementptr inbounds i8, ptr %agg.tmp5.i, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp5.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i7.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i10, i64 24, i1 false)
   %m_it.i3.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i3.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i10, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp5.i)
   store ptr %0, ptr %agg.tmp.i, align 8
   %m_it.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i8, i64 24, i1 false)
@@ -27807,11 +27803,7 @@ if.then:                                          ; preds = %while.body
   store ptr %1, ptr %agg.tmp2.i, align 8
   call void @_ZSt13__heap_selectIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SL_SL_T0_(ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp1.i, ptr noundef nonnull %agg.tmp2.i)
   store ptr %0, ptr %agg.tmp4.i, align 8
-  %m_it.i5.i = getelementptr inbounds i8, ptr %agg.tmp4.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i5.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.sroa.3, i64 24, i1 false)
   store ptr %1, ptr %agg.tmp5.i, align 8
-  %m_it.i7.i = getelementptr inbounds i8, ptr %agg.tmp5.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i7.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.sroa.3, i64 24, i1 false)
   call void @_ZSt11__sort_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SL_RT0_(ptr noundef nonnull %agg.tmp4.i, ptr noundef nonnull %agg.tmp5.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
@@ -32402,8 +32394,6 @@ entry:
   %agg.tmp1.i.i.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp2 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp13.sroa.2 = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::internal_iterator", align 8
-  %agg.tmp14.sroa.2 = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::internal_iterator", align 8
   %call.i34 = tail call noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEeqISG_TnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISJ_NS2_IKSF_EEEE5valueEDnE4typeELDn0EEEbRKSJ_(ptr noundef nonnull align 8 dereferenceable(32) %__first1, ptr noundef nonnull align 8 dereferenceable(32) %__last1)
   br i1 %call.i34, label %while.end, label %land.rhs.lr.ph
 
@@ -32497,10 +32487,14 @@ if.end:                                           ; preds = %sw.default.i14, %sw
 while.end:                                        ; preds = %land.rhs, %if.end, %entry
   %10 = load ptr, ptr %__first2, align 8
   %m_it3.i19 = getelementptr inbounds i8, ptr %__first2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp13.sroa.2, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i19, i64 24, i1 false)
+  %m_it.i.i.i.i29 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i26, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i26)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i.i.i29, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i19, i64 24, i1 false)
   %11 = load ptr, ptr %__last2, align 8
   %m_it3.i21 = getelementptr inbounds i8, ptr %__last2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp14.sroa.2, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i21, i64 24, i1 false)
+  %m_it.i1.i.i.i31 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i27, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i27)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i1.i.i.i31, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i21, i64 24, i1 false)
   %12 = load ptr, ptr %__first1, align 8
   %m_it3.i23 = getelementptr inbounds i8, ptr %__first1, i64 8
   %m_it.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
@@ -32516,12 +32510,6 @@ while.end:                                        ; preds = %land.rhs, %if.end, 
   %call.i.i.i = call ptr @_ZSt14__copy_move_a2ILb0EN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEESt20back_insert_iteratorISG_EET1_T0_SL_SK_(ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr %__result.coerce)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i)
-  %m_it.i.i.i.i29 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i26, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i26)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i.i.i29, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp13.sroa.2, i64 24, i1 false)
-  %m_it.i1.i.i.i31 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i27, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i27)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i1.i.i.i31, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp14.sroa.2, i64 24, i1 false)
   store ptr %10, ptr %agg.tmp.i.i.i26, align 8
   store ptr %11, ptr %agg.tmp1.i.i.i27, align 8
   %call.i.i.i32 = call ptr @_ZSt14__copy_move_a2ILb0EN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEESt20back_insert_iteratorISG_EET1_T0_SL_SK_(ptr noundef nonnull %agg.tmp.i.i.i26, ptr noundef nonnull %agg.tmp1.i.i.i27, ptr %call.i.i.i)
@@ -33171,8 +33159,6 @@ entry:
   %agg.tmp2 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp8 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp9 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp24.sroa.2 = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::internal_iterator", align 8
-  %agg.tmp25.sroa.2 = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::internal_iterator", align 8
   %call.i64 = tail call noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEeqISG_TnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISJ_NS2_IKSF_EEEE5valueEDnE4typeELDn0EEEbRKSJ_(ptr noundef nonnull align 8 dereferenceable(32) %__first1, ptr noundef nonnull align 8 dereferenceable(32) %__last1)
   br i1 %call.i64, label %while.end, label %land.rhs.lr.ph
 
@@ -33334,10 +33320,14 @@ if.end22:                                         ; preds = %sw.default.i43, %sw
 while.end:                                        ; preds = %land.rhs, %if.end22, %entry
   %20 = load ptr, ptr %__first2, align 8
   %m_it3.i48 = getelementptr inbounds i8, ptr %__first2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp24.sroa.2, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i48, i64 24, i1 false)
+  %m_it.i.i.i.i58 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i55, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i55)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i.i.i58, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i48, i64 24, i1 false)
   %21 = load ptr, ptr %__last2, align 8
   %m_it3.i50 = getelementptr inbounds i8, ptr %__last2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp25.sroa.2, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i50, i64 24, i1 false)
+  %m_it.i1.i.i.i60 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i56, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i56)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i1.i.i.i60, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i50, i64 24, i1 false)
   %22 = load ptr, ptr %__first1, align 8
   %m_it3.i52 = getelementptr inbounds i8, ptr %__first1, i64 8
   %m_it.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
@@ -33353,12 +33343,6 @@ while.end:                                        ; preds = %land.rhs, %if.end22
   %call.i.i.i = call ptr @_ZSt14__copy_move_a2ILb0EN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEESt20back_insert_iteratorISG_EET1_T0_SL_SK_(ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr %__result.coerce)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i)
-  %m_it.i.i.i.i58 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i55, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i55)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i.i.i58, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp24.sroa.2, i64 24, i1 false)
-  %m_it.i1.i.i.i60 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i56, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i56)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i1.i.i.i60, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp25.sroa.2, i64 24, i1 false)
   store ptr %20, ptr %agg.tmp.i.i.i55, align 8
   store ptr %21, ptr %agg.tmp1.i.i.i56, align 8
   %call.i.i.i61 = call ptr @_ZSt14__copy_move_a2ILb0EN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEESt20back_insert_iteratorISG_EET1_T0_SL_SK_(ptr noundef nonnull %agg.tmp.i.i.i55, ptr noundef nonnull %agg.tmp1.i.i.i56, ptr %call.i.i.i)
@@ -33378,8 +33362,6 @@ entry:
   %agg.tmp2 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp9 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp10 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp22.sroa.2 = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::internal_iterator", align 8
-  %agg.tmp23.sroa.2 = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::internal_iterator", align 8
   %call.i63 = tail call noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEeqISG_TnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISJ_NS2_IKSF_EEEE5valueEDnE4typeELDn0EEEbRKSJ_(ptr noundef nonnull align 8 dereferenceable(32) %__first1, ptr noundef nonnull align 8 dereferenceable(32) %__last1)
   br i1 %call.i63, label %while.end, label %land.rhs.lr.ph
 
@@ -33539,10 +33521,14 @@ if.end21:                                         ; preds = %sw.default.i43, %sw
 while.end:                                        ; preds = %land.rhs, %if.end21, %entry
   %20 = load ptr, ptr %__first2, align 8
   %m_it3.i48 = getelementptr inbounds i8, ptr %__first2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp22.sroa.2, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i48, i64 24, i1 false)
+  %m_it.i.i.i.i58 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i55, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i55)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i.i.i58, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i48, i64 24, i1 false)
   %21 = load ptr, ptr %__last2, align 8
   %m_it3.i50 = getelementptr inbounds i8, ptr %__last2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp23.sroa.2, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i50, i64 24, i1 false)
+  %m_it.i1.i.i.i60 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i56, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i56)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i1.i.i.i60, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i50, i64 24, i1 false)
   %22 = load ptr, ptr %__first1, align 8
   %m_it3.i52 = getelementptr inbounds i8, ptr %__first1, i64 8
   %m_it.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
@@ -33558,12 +33544,6 @@ while.end:                                        ; preds = %land.rhs, %if.end21
   %call.i.i.i = call ptr @_ZSt14__copy_move_a2ILb0EN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEESt20back_insert_iteratorISG_EET1_T0_SL_SK_(ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr %__result.coerce)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i)
-  %m_it.i.i.i.i58 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i55, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i55)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i.i.i58, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp22.sroa.2, i64 24, i1 false)
-  %m_it.i1.i.i.i60 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i56, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i56)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i1.i.i.i60, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp23.sroa.2, i64 24, i1 false)
   store ptr %20, ptr %agg.tmp.i.i.i55, align 8
   store ptr %21, ptr %agg.tmp1.i.i.i56, align 8
   %call.i.i.i61 = call ptr @_ZSt14__copy_move_a2ILb0EN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEESt20back_insert_iteratorISG_EET1_T0_SL_SK_(ptr noundef nonnull %agg.tmp.i.i.i55, ptr noundef nonnull %agg.tmp1.i.i.i56, ptr %call.i.i.i)

@@ -15526,7 +15526,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:             ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp.not.i.i.i2, label %if.else.i.i.i, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
   %9 = load i32, ptr %agg.tmp, align 8
   %cmp.i.i.i.i.i.i4 = icmp eq i32 %9, 11
   br i1 %cmp.i.i.i.i.i.i4, label %if.then.i.i.i.i.i.i7, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -15544,8 +15544,8 @@ if.then.i.i.i.i.i.i7:                             ; preds = %if.then.i.i.i3
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i7
-  %13 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds i8, ptr %__tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   store ptr %12, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -15899,7 +15899,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
   %5 = load i32, ptr %agg.tmp, align 8
   %cmp.i.i.i.i.i.i = icmp eq i32 %5, 11
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -15917,8 +15917,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %9 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds i8, ptr %__tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   store ptr %8, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -18347,7 +18347,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
   %3 = load i32, ptr %agg.tmp, align 8
   %cmp.i.i.i.i.i.i = icmp eq i32 %3, 11
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -18365,8 +18365,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %7 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds i8, ptr %__tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   store ptr %6, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -20630,7 +20630,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
   %2 = load i32, ptr %agg.tmp, align 8
   %cmp.i.i.i.i.i.i = icmp eq i32 %2, 11
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -20648,8 +20648,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds i8, ptr %__tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   store ptr %5, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -20769,7 +20769,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
   %3 = load i32, ptr %agg.tmp, align 8
   %cmp.i.i.i.i.i.i = icmp eq i32 %3, 11
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -20787,8 +20787,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %7 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds i8, ptr %__tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   store ptr %6, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -22219,7 +22219,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:             ; preds = %for.cond, %if.end3
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
   %8 = load i32, ptr %agg.tmp, align 8
   %cmp.i.i.i.i.i.i = icmp eq i32 %8, 11
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -22237,8 +22237,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %12 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds i8, ptr %__tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   store ptr %11, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -34747,7 +34747,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %__tmp, i64 48, i1 false)
   %3 = load i32, ptr %agg.tmp, align 8
   %cmp.i.i.i.i.i.i = icmp eq i32 %3, 11
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -34765,8 +34765,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %7 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds i8, ptr %__tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   store ptr %6, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -36728,7 +36728,7 @@ for.body:                                         ; preds = %if.then36, %for.inc
 if.then43:                                        ; preds = %for.body
   %second = getelementptr inbounds i8, ptr %__begin0.sroa.0.083, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second, ptr noundef nonnull align 8 dereferenceable(24) %__e, i64 24, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__begin0.sroa.0.083, ptr noundef nonnull align 8 dereferenceable(24) %__e, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__begin0.sroa.0.083, ptr noundef nonnull align 8 dereferenceable(24) %__e, i64 24, i1 false)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then43
@@ -38403,8 +38403,6 @@ entry:
   %agg.tmp1332 = alloca %"class.gsl::details::span_iterator.138", align 8
   %agg.tmp31 = alloca %"class.gsl::details::span_iterator.138", align 8
   %ref.tmp = alloca %"struct.std::__detail::_Backref_matcher", align 8
-  %agg.tmp = alloca %"class.gsl::details::span_iterator.138", align 8
-  %agg.tmp13 = alloca %"class.gsl::details::span_iterator.138", align 8
   %__backup = alloca %"class.gsl::details::span_iterator.138", align 8
   %_M_nfa = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %_M_nfa, align 8
@@ -38585,12 +38583,12 @@ for.end:                                          ; preds = %land.rhs.us86, %_ZN
   store i8 %frombool.i, ptr %ref.tmp, align 8
   %_M_traits.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %_M_traits, ptr %_M_traits.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i8, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp13, ptr noundef nonnull align 8 dereferenceable(24) %second, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp31)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp31, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i8, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1332)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1332, ptr noundef nonnull align 8 dereferenceable(24) %second, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1533)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1533, ptr noundef nonnull align 8 dereferenceable(24) %_M_current, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp31)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1332)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1734)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store ptr %__last.sroa.0.0.copyload.fr, ptr %agg.tmp1734, align 8
@@ -38598,8 +38596,6 @@ for.end:                                          ; preds = %land.rhs.us86, %_ZN
   store ptr %__last.sroa.6.0.copyload.fr, ptr %agg.tmp17.sroa.2.0.agg.tmp1734.sroa_idx, align 8
   %agg.tmp17.sroa.3.0.agg.tmp1734.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1734, i64 16
   store ptr %.us-phi, ptr %agg.tmp17.sroa.3.0.agg.tmp1734.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1332, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp13, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp31, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i64 24, i1 false)
   br i1 %tobool9.not, label %_ZNSt8__detail16_Backref_matcherIN3gsl7details13span_iteratorIcEENSt7__cxx1112regex_traitsIcEEE8_M_applyES4_S4_S4_S4_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.end
@@ -38624,7 +38620,7 @@ lpad.i:                                           ; preds = %if.end.i
   resume { ptr, i32 } %27
 
 _ZNSt8__detail16_Backref_matcherIN3gsl7details13span_iteratorIcEENSt7__cxx1112regex_traitsIcEEE8_M_applyES4_S4_S4_S4_.exit: ; preds = %for.end
-  %call.i = tail call noundef zeroext i1 @_ZSt8__equal4IN3gsl7details13span_iteratorIcEES3_EbT_S4_T0_S5_(ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %agg.tmp, ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %agg.tmp13, ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %_M_current, ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %agg.tmp1734)
+  %call.i = tail call noundef zeroext i1 @_ZSt8__equal4IN3gsl7details13span_iteratorIcEES3_EbT_S4_T0_S5_(ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %add.ptr.i8, ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %second, ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %_M_current, ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %agg.tmp1734)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp31)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1332)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1533)
@@ -40476,8 +40472,6 @@ entry:
   %agg.tmp1332 = alloca %"class.gsl::details::span_iterator.138", align 8
   %agg.tmp31 = alloca %"class.gsl::details::span_iterator.138", align 8
   %ref.tmp = alloca %"struct.std::__detail::_Backref_matcher", align 8
-  %agg.tmp = alloca %"class.gsl::details::span_iterator.138", align 8
-  %agg.tmp13 = alloca %"class.gsl::details::span_iterator.138", align 8
   %__backup = alloca %"class.gsl::details::span_iterator.138", align 8
   %_M_nfa = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %_M_nfa, align 8
@@ -40658,12 +40652,12 @@ for.end:                                          ; preds = %land.rhs.us86, %_ZN
   store i8 %frombool.i, ptr %ref.tmp, align 8
   %_M_traits.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %_M_traits, ptr %_M_traits.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i8, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp13, ptr noundef nonnull align 8 dereferenceable(24) %second, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp31)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp31, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i8, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1332)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1332, ptr noundef nonnull align 8 dereferenceable(24) %second, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1533)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1533, ptr noundef nonnull align 8 dereferenceable(24) %_M_current, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp31)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1332)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1734)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store ptr %__last.sroa.0.0.copyload.fr, ptr %agg.tmp1734, align 8
@@ -40671,8 +40665,6 @@ for.end:                                          ; preds = %land.rhs.us86, %_ZN
   store ptr %__last.sroa.6.0.copyload.fr, ptr %agg.tmp17.sroa.2.0.agg.tmp1734.sroa_idx, align 8
   %agg.tmp17.sroa.3.0.agg.tmp1734.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1734, i64 16
   store ptr %.us-phi, ptr %agg.tmp17.sroa.3.0.agg.tmp1734.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1332, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp13, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp31, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i64 24, i1 false)
   br i1 %tobool9.not, label %_ZNSt8__detail16_Backref_matcherIN3gsl7details13span_iteratorIcEENSt7__cxx1112regex_traitsIcEEE8_M_applyES4_S4_S4_S4_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.end
@@ -40697,7 +40689,7 @@ lpad.i:                                           ; preds = %if.end.i
   resume { ptr, i32 } %27
 
 _ZNSt8__detail16_Backref_matcherIN3gsl7details13span_iteratorIcEENSt7__cxx1112regex_traitsIcEEE8_M_applyES4_S4_S4_S4_.exit: ; preds = %for.end
-  %call.i = tail call noundef zeroext i1 @_ZSt8__equal4IN3gsl7details13span_iteratorIcEES3_EbT_S4_T0_S5_(ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %agg.tmp, ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %agg.tmp13, ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %_M_current, ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %agg.tmp1734)
+  %call.i = tail call noundef zeroext i1 @_ZSt8__equal4IN3gsl7details13span_iteratorIcEES3_EbT_S4_T0_S5_(ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %add.ptr.i8, ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %second, ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %_M_current, ptr noundef nonnull byval(%"class.gsl::details::span_iterator.138") align 8 %agg.tmp1734)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp31)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1332)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1533)

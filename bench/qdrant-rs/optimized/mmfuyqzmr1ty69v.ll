@@ -1276,7 +1276,7 @@ define void @_ZN6sparse5index14inverted_index26inverted_index_ram_builder20Inver
   %38 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %29, %28 ]
   %39 = load ptr, ptr %15, align 8, !alias.scope !116, !noalias !119, !nonnull !5, !noundef !5
   %40 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %39, i64 %38
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %41 = load i64, ptr %16, align 8, !alias.scope !116, !noalias !119, !noundef !5
   %42 = add i64 %41, 1
   store i64 %42, ptr %16, align 8, !alias.scope !116, !noalias !119
@@ -1899,9 +1899,6 @@ declare void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() unnamed
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #14
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha1b128dd2a87185fE"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #0

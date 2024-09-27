@@ -7857,7 +7857,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode23symbolic_name_normalize1
 
 25:                                               ; preds = %23
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.1.i, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee024262027212e939cdd9996d089225.4540) #23
-          to label %.noexc unwind label %84
+          to label %.noexc unwind label %85
 
 .noexc:                                           ; preds = %25
   unreachable
@@ -7943,7 +7943,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode23symbolic_name_normalize1
   %58 = phi i64 [ 1, %29 ], [ 2, %30 ], [ %2, %47 ], [ %2, %45 ]
   %59 = phi ptr [ @anon.ee024262027212e939cdd9996d089225.4538, %29 ], [ @anon.ee024262027212e939cdd9996d089225.4539, %30 ], [ @anon.ee024262027212e939cdd9996d089225.4543, %45 ], [ @anon.ee024262027212e939cdd9996d089225.4542, %47 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %57, i64 noundef %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %59) #23
-          to label %.cont unwind label %84
+          to label %.cont unwind label %85
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -7984,10 +7984,10 @@ define internal fastcc void @_ZN12regex_syntax7unicode23symbolic_name_normalize1
   br i1 %trunc.i, label %73, label %.thread23
 
 .thread23:                                        ; preds = %69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !alias.scope !799
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !799
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %83
+  br label %84
 
 71:                                               ; preds = %67
   %72 = landingpad { ptr, i32 }
@@ -8001,42 +8001,43 @@ define internal fastcc void @_ZN12regex_syntax7unicode23symbolic_name_normalize1
   %.sroa.617.24..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.617.24.copyload = load i64, ptr %.sroa.617.24..sroa_idx, align 8, !noalias !799
   %.sroa.016.0.copyload = load i64, ptr %6, align 8, !noalias !794
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !noalias !5
+  %76 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !799
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !801)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !804)
-  %76 = icmp eq i64 %.sroa.016.0.copyload, -9223372036854775808
-  br i1 %76, label %83, label %77
+  %77 = icmp eq i64 %.sroa.016.0.copyload, -9223372036854775808
+  br i1 %77, label %84, label %78
 
-77:                                               ; preds = %73
+78:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !806
   store i64 %.sroa.016.0.copyload, ptr %4, align 8, !noalias !801
   %.sroa.6.0..sroa_idx13 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, i64 16, i1 false), !noalias !801
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx13, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false)
   %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx13.sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %75, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx13.sroa_idx, align 8, !noalias !801
   %.sroa.8.0..sroa_idx14 = getelementptr inbounds i8, ptr %4, i64 32
   store i64 %.sroa.617.24.copyload, ptr %.sroa.8.0..sroa_idx14, align 8, !noalias !801
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.ee024262027212e939cdd9996d089225.18, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee024262027212e939cdd9996d089225.19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee024262027212e939cdd9996d089225.4527) #23
-          to label %80 unwind label %78, !noalias !806
+          to label %81 unwind label %79, !noalias !806
 
-78:                                               ; preds = %77
-  %79 = landingpad { ptr, i32 }
+79:                                               ; preds = %78
+  %80 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..string..FromUtf8Error$GT$17hec304dd74d57dd23E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #24
-          to label %.body.thread unwind label %81, !noalias !806
-
-80:                                               ; preds = %77
-  unreachable
+          to label %.body.thread unwind label %82, !noalias !806
 
 81:                                               ; preds = %78
-  %82 = landingpad { ptr, i32 }
+  unreachable
+
+82:                                               ; preds = %79
+  %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #25, !noalias !806
   unreachable
 
-83:                                               ; preds = %73, %.thread23
+84:                                               ; preds = %73, %.thread23
   %.sroa.6.sroa.6.0 = phi i64 [ %75, %73 ], [ %66, %.thread23 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, i64 16, i1 false), !alias.scope !806
   %.sroa.6.sroa.6.0..sroa_idx41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -8045,18 +8046,18 @@ define internal fastcc void @_ZN12regex_syntax7unicode23symbolic_name_normalize1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   ret void
 
-.body.thread:                                     ; preds = %78, %67, %84
-  %eh.lpad-body20 = phi { ptr, i32 } [ %85, %84 ], [ %68, %67 ], [ %79, %78 ]
+.body.thread:                                     ; preds = %79, %67, %85
+  %eh.lpad-body20 = phi { ptr, i32 } [ %86, %85 ], [ %68, %67 ], [ %80, %79 ]
   resume { ptr, i32 } %eh.lpad-body20
 
-84:                                               ; preds = %.invoke, %25
-  %85 = landingpad { ptr, i32 }
+85:                                               ; preds = %.invoke, %25
+  %86 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8ec34e6d16a570e7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #24
-          to label %.body.thread unwind label %86
+          to label %.body.thread unwind label %87
 
-86:                                               ; preds = %84
-  %87 = landingpad { ptr, i32 }
+87:                                               ; preds = %85
+  %88 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #25
   unreachable

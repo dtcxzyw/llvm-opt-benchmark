@@ -656,7 +656,6 @@ declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
-  %.sroa.4.i.i = alloca [4 x i32], align 4
   %6 = alloca [16 x i8], align 16
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -837,7 +836,6 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
   %96 = getelementptr inbounds i8, ptr %87, i64 24
   store ptr %95, ptr %96, align 8
   %97 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull readonly dereferenceable(1) %1) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %98 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #13
   %99 = load ptr, ptr @Curl_ccalloc, align 8
@@ -852,12 +850,10 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
   br i1 %104, label %get_localhost6.exit.thread.i, label %105
 
 get_localhost6.exit.thread.i:                     ; preds = %102, %88
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %get_localhost.exit
 
 105:                                              ; preds = %102
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.i.i, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   store i32 0, ptr %101, align 8
   %106 = getelementptr inbounds i8, ptr %101, i64 4
   store i32 10, ptr %106, align 4
@@ -878,14 +874,13 @@ get_localhost6.exit.thread.i:                     ; preds = %102, %88
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %101, i64 52
   store i32 0, ptr %.sroa.3.0..sroa_idx.i.i, align 2
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %101, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %101, i64 72
   store i32 0, ptr %.sroa.5.0..sroa_idx.i.i, align 2
   %113 = getelementptr inbounds i8, ptr %101, i64 76
   %114 = getelementptr inbounds i8, ptr %101, i64 24
   store ptr %113, ptr %114, align 8
   %115 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull readonly dereferenceable(1) %1) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   store ptr %87, ptr %110, align 8
   br label %get_localhost.exit

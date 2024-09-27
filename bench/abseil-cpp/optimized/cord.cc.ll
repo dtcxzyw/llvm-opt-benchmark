@@ -7464,7 +7464,6 @@ entry:
   %agg.tmp14.i = alloca %"class.absl::Cord::CharIterator", align 8
   %agg.tmp3.i = alloca %"class.absl::Cord::CharIterator", align 8
   %agg.tmp1.i = alloca %"class.absl::Cord::CharIterator", align 8
-  %agg.tmp3688.sroa.0 = alloca %"class.absl::Cord::ChunkIterator", align 8
   %agg.tmp2261 = alloca %"class.absl::Cord::CharIterator", align 8
   %agg.tmp2160 = alloca %"class.absl::Cord::CharIterator", align 8
   %ref.tmp = alloca %"class.absl::Cord::CharIterator", align 8
@@ -7885,14 +7884,12 @@ if.end31:                                         ; preds = %_ZN4absl4Cord7Advan
   br i1 %cmp34, label %if.then35, label %while.body, !llvm.loop !58
 
 if.then35:                                        ; preds = %if.end31
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %agg.tmp3688.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp3688.sroa.0, ptr noundef nonnull align 8 dereferenceable(152) %haystack_it, i64 152, i1 false)
+  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %agg.tmp3.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp3.i, ptr noundef nonnull align 8 dereferenceable(152) %haystack_it, i64 152, i1 false)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %agg.tmp1.i)
   call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp1.i, ptr noundef nonnull %needle)
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %agg.tmp3.i)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %agg.tmp14.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp14.i, ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp1.i, i64 152, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp3.i, ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp3688.sroa.0, i64 152, i1 false)
   %bytes_remaining_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp14.i, i64 24
   %48 = load i64, ptr %bytes_remaining_.i.i.i.i.i, align 8
   %cmp.i.i.i.not9.i.i = icmp eq i64 %48, 0
@@ -8024,14 +8021,12 @@ _ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit36.i.i: ; preds = %_ZN4absl4Cord
 _ZN4absl12_GLOBAL__N_117IsSubcordInCordAtENS_4Cord12CharIteratorERKS1_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %agg.tmp3.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %agg.tmp14.i)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %agg.tmp3688.sroa.0)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %agg.tmp1.i)
   br label %while.end
 
 if.then38:                                        ; preds = %if.then3.i.i19.i.i, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i.i24.i.i, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit36.i.i, %if.then35
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %agg.tmp3.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %agg.tmp14.i)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %agg.tmp3688.sroa.0)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %agg.tmp1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %haystack_it, i64 152, i1 false)
   br label %return

@@ -40058,7 +40058,6 @@ if.end:                                           ; preds = %invoke.cont.i.i.i, 
 define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIKmN8proxygen15HTTPTransactionEEE9constructIS4_JRKSt21piecewise_construct_tSt5tupleIJRmEESA_IJONS2_18TransportDirectionESB_OmRNS2_11HTTPSessionERNS2_18HTTP2PriorityQueueEOPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEOSQ_RPNS2_16HTTPSessionStatsEObSB_SF_RKNS2_5http214PriorityUpdateERKNSK_8OptionalImEERKNS13_INS2_9HTTPCodec12ExAttributesEEERbEEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(120) %__args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::Optional.196", align 8
-  %agg.tmp.i = alloca %"struct.proxygen::http2::PriorityUpdate", align 8
   %agg.tmp17.i = alloca %"class.folly::Optional.40", align 8
   %agg.tmp19.i = alloca %"class.folly::Optional.166", align 8
   %0 = load i64, ptr %__args1, align 8
@@ -40072,68 +40071,65 @@ entry:
   %6 = inttoptr i64 %5 to ptr
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 24
   %7 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %8 = inttoptr i64 %7 to ptr
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 32
-  %9 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %10 = inttoptr i64 %9 to ptr
+  %8 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %9 = inttoptr i64 %8 to ptr
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 40
-  %11 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %12 = inttoptr i64 %11 to ptr
+  %10 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %11 = inttoptr i64 %10 to ptr
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 48
-  %13 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %14 = inttoptr i64 %13 to ptr
+  %12 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
+  %13 = inttoptr i64 %12 to ptr
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 56
-  %15 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
-  %16 = inttoptr i64 %15 to ptr
+  %14 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
+  %15 = inttoptr i64 %14 to ptr
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 64
-  %17 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %18 = inttoptr i64 %17 to ptr
+  %16 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
+  %17 = inttoptr i64 %16 to ptr
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 72
-  %19 = load i64, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %20 = inttoptr i64 %19 to ptr
+  %18 = load i64, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %19 = inttoptr i64 %18 to ptr
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 80
-  %21 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
+  %20 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 88
-  %22 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %21 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 96
-  %23 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %24 = inttoptr i64 %23 to ptr
+  %22 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %23 = inttoptr i64 %22 to ptr
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 104
-  %25 = load i64, ptr %add.ptr.i.i.i, align 8
-  %26 = inttoptr i64 %25 to ptr
+  %24 = load i64, ptr %add.ptr.i.i.i, align 8
+  %25 = inttoptr i64 %24 to ptr
   %add.ptr.i.i = getelementptr inbounds i8, ptr %__args3, i64 112
-  %27 = load i64, ptr %add.ptr.i.i, align 8
-  %28 = inttoptr i64 %27 to ptr
+  %26 = load i64, ptr %add.ptr.i.i, align 8
+  %27 = inttoptr i64 %26 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp17.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp19.i)
-  %29 = load i64, ptr %1, align 8
-  store i64 %29, ptr %__p, align 8
-  %30 = load i8, ptr %28, align 1
-  %31 = load i64, ptr %26, align 8
-  %32 = load i64, ptr %24, align 8
-  %33 = load ptr, ptr %20, align 8
+  %28 = load i64, ptr %1, align 8
+  store i64 %28, ptr %__p, align 8
+  %29 = load i8, ptr %27, align 1
+  %30 = load i64, ptr %25, align 8
+  %31 = load i64, ptr %23, align 8
+  %32 = load ptr, ptr %19, align 8
   %hasValue.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %34 = load i64, ptr %18, align 8
-  store i64 %34, ptr %ref.tmp.i, align 8
+  %33 = load i64, ptr %17, align 8
+  store i64 %33, ptr %ref.tmp.i, align 8
   store i8 1, ptr %hasValue.i.i.i, align 8
-  %35 = load ptr, ptr %16, align 8
-  %36 = load i8, ptr %14, align 1
-  %37 = load i64, ptr %12, align 8
-  %38 = load i64, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  %34 = load ptr, ptr %15, align 8
+  %35 = load i8, ptr %13, align 1
+  %36 = load i64, ptr %11, align 8
+  %37 = load i64, ptr %9, align 8
   store i8 0, ptr %agg.tmp17.i, align 8
   %hasValue.i.i27.i = getelementptr inbounds i8, ptr %agg.tmp17.i, i64 8
   store i8 0, ptr %hasValue.i.i27.i, align 8
   %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %39 = load i8, ptr %hasValue.i.i.i.i, align 8
-  %tobool.i.i.i.i = trunc i8 %39 to i1
+  %38 = load i8, ptr %hasValue.i.i.i.i, align 8
+  %tobool.i.i.i.i = trunc i8 %38 to i1
   br i1 %tobool.i.i.i.i, label %invoke.cont2.i.i, label %_ZN5folly8OptionalImEC2ERKS1_.exit.i
 
 invoke.cont2.i.i:                                 ; preds = %entry
-  %40 = load i64, ptr %6, align 8
-  store i64 %40, ptr %agg.tmp17.i, align 8
+  %39 = load i64, ptr %6, align 8
+  store i64 %39, ptr %agg.tmp17.i, align 8
   store i8 1, ptr %hasValue.i.i27.i, align 8
   br label %_ZN5folly8OptionalImEC2ERKS1_.exit.i
 
@@ -40142,8 +40138,8 @@ _ZN5folly8OptionalImEC2ERKS1_.exit.i:             ; preds = %invoke.cont2.i.i, %
   %hasValue.i.i29.i = getelementptr inbounds i8, ptr %agg.tmp19.i, i64 16
   store i8 0, ptr %hasValue.i.i29.i, align 8
   %hasValue.i.i.i30.i = getelementptr inbounds i8, ptr %4, i64 16
-  %41 = load i8, ptr %hasValue.i.i.i30.i, align 8
-  %tobool.i.i.i31.i = trunc i8 %41 to i1
+  %40 = load i8, ptr %hasValue.i.i.i30.i, align 8
+  %tobool.i.i.i31.i = trunc i8 %40 to i1
   br i1 %tobool.i.i.i31.i, label %invoke.cont2.i32.i, label %_ZNSt4pairIKmN8proxygen15HTTPTransactionEEC2IJRmEJLm0EEJONS1_18TransportDirectionES5_OmRNS1_11HTTPSessionERNS1_18HTTP2PriorityQueueEOPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEOSJ_RPNS1_16HTTPSessionStatsEObS5_S8_RKNS1_5http214PriorityUpdateERKNSD_8OptionalImEERKNSW_INS1_9HTTPCodec12ExAttributesEEERbEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7ELm8ELm9ELm10ELm11ELm12ELm13ELm14EEEERSt5tupleIJDpT_EERS16_IJDpT1_EESt12_Index_tupleIJXspT0_EEES1F_IJXspT2_EEE.exit
 
 invoke.cont2.i32.i:                               ; preds = %_ZN5folly8OptionalImEC2ERKS1_.exit.i
@@ -40152,20 +40148,20 @@ invoke.cont2.i32.i:                               ; preds = %_ZN5folly8OptionalI
   br label %_ZNSt4pairIKmN8proxygen15HTTPTransactionEEC2IJRmEJLm0EEJONS1_18TransportDirectionES5_OmRNS1_11HTTPSessionERNS1_18HTTP2PriorityQueueEOPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEOSJ_RPNS1_16HTTPSessionStatsEObS5_S8_RKNS1_5http214PriorityUpdateERKNSD_8OptionalImEERKNSW_INS1_9HTTPCodec12ExAttributesEEERbEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7ELm8ELm9ELm10ELm11ELm12ELm13ELm14EEEERSt5tupleIJDpT_EERS16_IJDpT1_EESt12_Index_tupleIJXspT0_EEES1F_IJXspT2_EEE.exit
 
 _ZNSt4pairIKmN8proxygen15HTTPTransactionEEC2IJRmEJLm0EEJONS1_18TransportDirectionES5_OmRNS1_11HTTPSessionERNS1_18HTTP2PriorityQueueEOPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEOSJ_RPNS1_16HTTPSessionStatsEObS5_S8_RKNS1_5http214PriorityUpdateERKNSD_8OptionalImEERKNSW_INS1_9HTTPCodec12ExAttributesEEERbEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7ELm8ELm9ELm10ELm11ELm12ELm13ELm14EEEERSt5tupleIJDpT_EERS16_IJDpT1_EESt12_Index_tupleIJXspT0_EEES1F_IJXspT2_EEE.exit: ; preds = %_ZN5folly8OptionalImEC2ERKS1_.exit.i, %invoke.cont2.i32.i
-  %42 = inttoptr i64 %22 to ptr
-  %43 = inttoptr i64 %21 to ptr
+  %41 = inttoptr i64 %21 to ptr
+  %42 = inttoptr i64 %20 to ptr
+  %43 = inttoptr i64 %7 to ptr
   %44 = inttoptr i64 %2 to ptr
-  %conv15.i = trunc i64 %38 to i32
-  %conv13.i = trunc i64 %37 to i32
-  %tobool.i = trunc i8 %36 to i1
-  %add.ptr.i = getelementptr inbounds i8, ptr %42, i64 1584
-  %conv.i = trunc i64 %32 to i32
+  %conv15.i = trunc i64 %37 to i32
+  %conv13.i = trunc i64 %36 to i32
+  %tobool.i = trunc i8 %35 to i1
+  %add.ptr.i = getelementptr inbounds i8, ptr %41, i64 1584
+  %conv.i = trunc i64 %31 to i32
   %second.i = getelementptr inbounds i8, ptr %__p, i64 8
   %45 = load i8, ptr %44, align 1
   %tobool22.i = trunc i8 %45 to i1
-  call void @_ZN8proxygen15HTTPTransactionC1ENS_18TransportDirectionEmjRNS0_9TransportERNS_22HTTP2PriorityQueueBaseEPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEERKNS6_8OptionalISC_EEPNS_16HTTPSessionStatsEbjjNS_5http214PriorityUpdateENSF_ImEENSF_INS_9HTTPCodec12ExAttributesEEEb(ptr noundef nonnull align 8 dereferenceable(912) %second.i, i8 noundef zeroext %30, i64 noundef %31, i32 noundef %conv.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef %35, i1 noundef zeroext %tobool.i, i32 noundef %conv13.i, i32 noundef %conv15.i, ptr noundef nonnull byval(%"struct.proxygen::http2::PriorityUpdate") align 8 %agg.tmp.i, ptr noundef nonnull %agg.tmp17.i, ptr noundef nonnull %agg.tmp19.i, i1 noundef zeroext %tobool22.i)
+  call void @_ZN8proxygen15HTTPTransactionC1ENS_18TransportDirectionEmjRNS0_9TransportERNS_22HTTP2PriorityQueueBaseEPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEERKNS6_8OptionalISC_EEPNS_16HTTPSessionStatsEbjjNS_5http214PriorityUpdateENSF_ImEENSF_INS_9HTTPCodec12ExAttributesEEEb(ptr noundef nonnull align 8 dereferenceable(912) %second.i, i8 noundef zeroext %29, i64 noundef %30, i32 noundef %conv.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef %34, i1 noundef zeroext %tobool.i, i32 noundef %conv13.i, i32 noundef %conv15.i, ptr noundef nonnull byval(%"struct.proxygen::http2::PriorityUpdate") align 8 %43, ptr noundef nonnull %agg.tmp17.i, ptr noundef nonnull %agg.tmp19.i, i1 noundef zeroext %tobool22.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp17.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp19.i)
   ret void

@@ -34,26 +34,24 @@ define align 8 ptr @"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10or_defau
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  %5 = alloca [24 x i8], align 8
-  %6 = load i64, ptr %0, align 8
-  %7 = icmp eq i64 %6, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %7, label %9, label %11
+  %5 = load i64, ptr %0, align 8
+  %6 = icmp eq i64 %5, 0
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %6, label %8, label %10
 
-9:                                                ; preds = %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %10 = call align 8 ptr @"_ZN9hashbrown11rustc_entry35RustcOccupiedEntry$LT$K$C$V$C$A$GT$8into_mut17hd9b32010cad3b3fcE"(ptr nonnull align 8 %3)
-  br label %13
+8:                                                ; preds = %1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  %9 = call align 8 ptr @"_ZN9hashbrown11rustc_entry35RustcOccupiedEntry$LT$K$C$V$C$A$GT$8into_mut17hd9b32010cad3b3fcE"(ptr nonnull align 8 %3)
+  br label %12
 
-11:                                               ; preds = %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+10:                                               ; preds = %1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h79e6680847136b6dE"(ptr nonnull sret([24 x i8]) align 8 %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %12 = call align 8 ptr @"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h9e8940decf78abd5E"(ptr nonnull align 8 %2, ptr nonnull align 8 %4)
-  br label %13
+  %11 = call align 8 ptr @"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h9e8940decf78abd5E"(ptr nonnull align 8 %2, ptr nonnull align 8 %4)
+  br label %12
 
-13:                                               ; preds = %11, %9
-  %.sroa.0.0 = phi ptr [ %10, %9 ], [ %12, %11 ]
+12:                                               ; preds = %10, %8
+  %.sroa.0.0 = phi ptr [ %9, %8 ], [ %11, %10 ]
   ret ptr %.sroa.0.0
 }
 
@@ -62,26 +60,24 @@ define align 8 ptr @"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_inser
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [24 x i8], align 8
-  %7 = alloca [48 x i8], align 8
-  %8 = load i64, ptr %0, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %9, label %11, label %13
+  %7 = load i64, ptr %0, align 8
+  %8 = icmp eq i64 %7, 0
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %8, label %10, label %12
 
-11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
-  %12 = call align 8 ptr @"_ZN9hashbrown11rustc_entry35RustcOccupiedEntry$LT$K$C$V$C$A$GT$8into_mut17hfe7e10aeb238f413E"(ptr nonnull align 8 %5)
-  br label %15
+10:                                               ; preds = %3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
+  %11 = call align 8 ptr @"_ZN9hashbrown11rustc_entry35RustcOccupiedEntry$LT$K$C$V$C$A$GT$8into_mut17hfe7e10aeb238f413E"(ptr nonnull align 8 %5)
+  br label %14
 
-13:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
+12:                                               ; preds = %3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   call void @"_ZN13logos_codegen9generator9Generator14generate_ident28_$u7b$$u7b$closure$u7d$$u7d$17hf2cd0b3aeab8527dE"(ptr nonnull sret([24 x i8]) align 8 %6, ptr align 4 %1, ptr align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
-  %14 = call align 8 ptr @"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17hfc71901c93d6f4cfE"(ptr nonnull align 8 %4, ptr nonnull align 8 %6)
-  br label %15
+  %13 = call align 8 ptr @"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17hfc71901c93d6f4cfE"(ptr nonnull align 8 %4, ptr nonnull align 8 %6)
+  br label %14
 
-15:                                               ; preds = %13, %11
-  %.sroa.0.0 = phi ptr [ %12, %11 ], [ %14, %13 ]
+14:                                               ; preds = %12, %10
+  %.sroa.0.0 = phi ptr [ %11, %10 ], [ %13, %12 ]
   ret ptr %.sroa.0.0
 }
 

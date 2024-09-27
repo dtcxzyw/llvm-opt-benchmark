@@ -86491,11 +86491,9 @@ return:                                           ; preds = %sw.epilog, %sw.bb84
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow14MakeScalarImplIONS_10Decimal256EE5VisitINS_14Decimal256TypeENS_16Decimal256ScalarES1_vEENS_6StatusERKT_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(84) %t) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 do.end6:
-  %ref.tmp8.sroa.0 = alloca [4 x i64], align 8
   %value_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %agg.result, align 8, !alias.scope !2734
   %0 = load ptr, ptr %value_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #17, !noalias !2737
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2737
@@ -86504,7 +86502,7 @@ do.end6:
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow16Decimal256ScalarESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !2737
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value2.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.sroa.0, i64 32, i1 false), !noalias !2737
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value2.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %1 = load ptr, ptr %this, align 8, !noalias !2737
   %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8, !noalias !2737

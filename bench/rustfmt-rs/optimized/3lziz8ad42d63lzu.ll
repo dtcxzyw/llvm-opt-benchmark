@@ -4160,7 +4160,7 @@ common.resume:                                    ; preds = %1854, %1875, %1889,
 
 302:                                              ; preds = %294
   call void @llvm.lifetime.start.p0(i64 632, ptr nonnull %124)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(632) %124, ptr noundef nonnull align 8 dereferenceable(632) %129, i64 632, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(632) %124, ptr noundef nonnull align 8 dereferenceable(632) %131, i64 632, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !919)
   call void @llvm.experimental.noalias.scope.decl(metadata !922)
   call void @llvm.experimental.noalias.scope.decl(metadata !924)
@@ -15485,7 +15485,6 @@ define void @_ZN15rustfmt_nightly6config6Config14override_value17hd2809f467f563e
   %73 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %74 = alloca { { { i64, ptr }, i64 } }, align 8
   %75 = alloca { ptr, [1 x i64] }, align 8
-  %.sroa.0167 = alloca { ptr, [5 x i64] }, align 8
   %76 = alloca [1 x { ptr, ptr }], align 8
   %77 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %78 = alloca { { { i64, ptr }, i64 } }, align 8
@@ -15521,7 +15520,6 @@ define void @_ZN15rustfmt_nightly6config6Config14override_value17hd2809f467f563e
   %108 = alloca [1 x { ptr, ptr }], align 8
   %109 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %110 = alloca { { { i64, ptr }, i64 } }, align 8
-  %.sroa.0146 = alloca { { i64, ptr }, i64 }, align 8
   %111 = alloca [1 x { ptr, ptr }], align 8
   %112 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %113 = alloca { { { i64, ptr }, i64 } }, align 8
@@ -15692,7 +15690,6 @@ define void @_ZN15rustfmt_nightly6config6Config14override_value17hd2809f467f563e
   %278 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %279 = alloca { { { i64, ptr }, i64 } }, align 8
   %280 = alloca { ptr, [1 x i64] }, align 8
-  %.sroa.049 = alloca { { i64, ptr }, i64 }, align 8
   %281 = alloca [1 x { ptr, ptr }], align 8
   %282 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %283 = alloca { { { i64, ptr }, i64 } }, align 8
@@ -19963,7 +19960,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
 1636:                                             ; preds = %1638
   %1637 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1639, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0167, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1639, ptr noundef nonnull align 8 dereferenceable(48) %81, i64 48, i1 false)
   br label %"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..options..IgnoreList$C$$RF$str$GT$$GT$17hd17f5a7018d9166eE.exit"
 
 1638:                                             ; preds = %1635
@@ -19971,14 +19968,11 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %1639 = getelementptr inbounds i8, ptr %0, i64 472
   %1640 = getelementptr inbounds i8, ptr %0, i64 520
   store i8 1, ptr %1640, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0167)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0167, ptr noundef nonnull align 8 dereferenceable(48) %81, i64 48, i1 false)
   invoke void @"_ZN4core3ptr67drop_in_place$LT$rustfmt_nightly..config..file_lines..FileLines$GT$17h34f470fff9bf5f93E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1639)
           to label %1641 unwind label %1636
 
 1641:                                             ; preds = %1638
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1639, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0167, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0167)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1639, ptr noundef nonnull align 8 dereferenceable(48) %81, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %81)
   br label %1602
 
@@ -20212,7 +20206,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
 1712:                                             ; preds = %1714
   %1713 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1715, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0146, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1715, ptr noundef nonnull align 8 dereferenceable(24) %116, i64 24, i1 false)
   br label %"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..options..IgnoreList$C$$RF$str$GT$$GT$17hd17f5a7018d9166eE.exit"
 
 1714:                                             ; preds = %1711
@@ -20220,14 +20214,11 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %1715 = getelementptr inbounds i8, ptr %0, i64 56
   %1716 = getelementptr inbounds i8, ptr %0, i64 80
   store i8 1, ptr %1716, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0146)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0146, ptr noundef nonnull align 8 dereferenceable(24) %116, i64 24, i1 false)
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1715)
           to label %1717 unwind label %1712
 
 1717:                                             ; preds = %1714
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1715, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0146, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0146)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1715, ptr noundef nonnull align 8 dereferenceable(24) %116, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %116)
   br label %1602
 
@@ -21093,7 +21084,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
 2019:                                             ; preds = %2021
   %2020 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2022, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.049, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2022, ptr noundef nonnull align 8 dereferenceable(24) %286, i64 24, i1 false)
   br label %"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..options..IgnoreList$C$$RF$str$GT$$GT$17hd17f5a7018d9166eE.exit"
 
 2021:                                             ; preds = %2018
@@ -21101,14 +21092,11 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %2022 = getelementptr inbounds i8, ptr %0, i64 24
   %2023 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 1, ptr %2023, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.049)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.049, ptr noundef nonnull align 8 dereferenceable(24) %286, i64 24, i1 false)
   invoke void @"_ZN4core3ptr73drop_in_place$LT$rustfmt_nightly..config..macro_names..MacroSelectors$GT$17he6f45c31eca33d48E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2022)
           to label %2024 unwind label %2019
 
 2024:                                             ; preds = %2021
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2022, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.049, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.049)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2022, ptr noundef nonnull align 8 dereferenceable(24) %286, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %286)
   br label %1602
 

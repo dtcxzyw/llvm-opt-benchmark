@@ -19479,7 +19479,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i16, [3 x i16] }, ptr %18, i64 %.sroa.0.0.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %20 = add i64 %12, 1
   store i64 %20, ptr %3, align 8
   ret void
@@ -35220,40 +35220,38 @@ define hidden void @"_ZN5milli9documents8enriched37EnrichedDocumentsBatchReader$
   invoke void @"_ZN4core3ptr58drop_in_place$LT$milli..documents..DocumentsBatchIndex$GT$17h83d61aa0f76bdb22E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %4) #41
           to label %.body unwind label %16, !noalias !5365
 
-.body:                                            ; preds = %28, %"_ZN4core3ptr135drop_in_place$LT$milli..documents..reader..DocumentsBatchCursor$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h4abcdd2fe0f95a43E.exit.i"
-  %.pn = phi { ptr, i32 } [ %15, %"_ZN4core3ptr135drop_in_place$LT$milli..documents..reader..DocumentsBatchCursor$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h4abcdd2fe0f95a43E.exit.i" ], [ %21, %28 ]
+.body:                                            ; preds = %27, %"_ZN4core3ptr135drop_in_place$LT$milli..documents..reader..DocumentsBatchCursor$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h4abcdd2fe0f95a43E.exit.i"
+  %.pn = phi { ptr, i32 } [ %15, %"_ZN4core3ptr135drop_in_place$LT$milli..documents..reader..DocumentsBatchCursor$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h4abcdd2fe0f95a43E.exit.i" ], [ %20, %27 ]
   invoke void @"_ZN4core3ptr132drop_in_place$LT$grenad..reader..reader_cursor..ReaderCursor$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17heab69e018fb01062E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %9) #41
-          to label %29 unwind label %26
+          to label %28 unwind label %25
 
 18:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr noundef nonnull align 8 dereferenceable(192) %3, i64 192, i1 false), !noalias !5370
-  %19 = getelementptr inbounds i8, ptr %6, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false), !noalias !5370
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3), !noalias !5365
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !5365
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %8, ptr noundef nonnull align 8 dereferenceable(192) %6, i64 192, i1 false)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %19, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %13, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6)
   invoke void @"_ZN6grenad6reader13reader_cursor21ReaderCursor$LT$R$GT$5reset17he3016bda6e2725a3E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %9)
-          to label %22 unwind label %20
+          to label %21 unwind label %19
 
-20:                                               ; preds = %18
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %18
+  %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$milli..documents..DocumentsBatchIndex$GT$17h83d61aa0f76bdb22E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %7) #41
-          to label %28 unwind label %26
+          to label %27 unwind label %25
 
-22:                                               ; preds = %18
+21:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %5, ptr noundef nonnull align 8 dereferenceable(192) %8, i64 192, i1 false)
-  %23 = getelementptr inbounds i8, ptr %5, i64 384
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  %24 = getelementptr inbounds i8, ptr %5, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %24, ptr noundef nonnull align 8 dereferenceable(192) %9, i64 192, i1 false)
-  %25 = getelementptr inbounds i8, ptr %0, i64 408
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %25, ptr noundef nonnull align 8 dereferenceable(96) %7, i64 96, i1 false)
+  %22 = getelementptr inbounds i8, ptr %5, i64 384
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  %23 = getelementptr inbounds i8, ptr %5, i64 192
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %23, ptr noundef nonnull align 8 dereferenceable(192) %9, i64 192, i1 false)
+  %24 = getelementptr inbounds i8, ptr %0, i64 408
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %13, i64 96, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(408) %5, i64 408, i1 false)
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
@@ -35262,21 +35260,21 @@ define hidden void @"_ZN5milli9documents8enriched37EnrichedDocumentsBatchReader$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   ret void
 
-26:                                               ; preds = %28, %29, %20, %.body
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %27, %28, %19, %.body
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #42
   unreachable
 
-28:                                               ; preds = %20
+27:                                               ; preds = %19
   invoke void @"_ZN4core3ptr132drop_in_place$LT$grenad..reader..reader_cursor..ReaderCursor$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17heab69e018fb01062E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %8)
-          to label %.body unwind label %26
+          to label %.body unwind label %25
 
-29:                                               ; preds = %.body
+28:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #41
-          to label %30 unwind label %26
+          to label %29 unwind label %25
 
-30:                                               ; preds = %29
+29:                                               ; preds = %28
   resume { ptr, i32 } %.pn
 }
 

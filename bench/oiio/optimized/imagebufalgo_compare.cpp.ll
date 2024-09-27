@@ -25635,47 +25635,38 @@ entry:
   %result.i291 = alloca %"struct.std::atomic", align 4
   %agg.tmp1.i292 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2.i293 = alloca %"class.std::function.196", align 8
-  %agg.tmp53289 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %threshold.addr.i254 = alloca float, align 4
   %result.i255 = alloca %"struct.std::atomic", align 4
   %agg.tmp1.i256 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2.i257 = alloca %"class.std::function.196", align 8
-  %agg.tmp48253 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %threshold.addr.i218 = alloca float, align 4
   %result.i219 = alloca %"struct.std::atomic", align 4
   %agg.tmp1.i220 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2.i221 = alloca %"class.std::function.196", align 8
-  %agg.tmp43217 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %threshold.addr.i182 = alloca float, align 4
   %result.i183 = alloca %"struct.std::atomic", align 4
   %agg.tmp1.i184 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2.i185 = alloca %"class.std::function.196", align 8
-  %agg.tmp38181 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %threshold.addr.i146 = alloca float, align 4
   %result.i147 = alloca %"struct.std::atomic", align 4
   %agg.tmp1.i148 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2.i149 = alloca %"class.std::function.196", align 8
-  %agg.tmp33145 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %threshold.addr.i110 = alloca float, align 4
   %result.i111 = alloca %"struct.std::atomic", align 4
   %agg.tmp1.i112 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2.i113 = alloca %"class.std::function.196", align 8
-  %agg.tmp28109 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %threshold.addr.i74 = alloca float, align 4
   %result.i75 = alloca %"struct.std::atomic", align 4
   %agg.tmp1.i76 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2.i77 = alloca %"class.std::function.196", align 8
-  %agg.tmp2373 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %threshold.addr.i38 = alloca float, align 4
   %result.i39 = alloca %"struct.std::atomic", align 4
   %agg.tmp1.i40 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2.i41 = alloca %"class.std::function.196", align 8
-  %agg.tmp1837 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %threshold.addr.i = alloca float, align 4
   %result.i = alloca %"struct.std::atomic", align 4
   %agg.tmp1.i = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2.i = alloca %"class.std::function.196", align 8
-  %agg.tmp1431 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %t.i.i.i.i = alloca %struct.timespec, align 8
   %logtimer = alloca %"class.OpenImageIO_v2_6_0::pvt::LoggedTimer", align 8
   %ref.tmp = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
@@ -25787,8 +25778,6 @@ invoke.cont12:                                    ; preds = %if.end11
   ]
 
 sw.bb:                                            ; preds = %invoke.cont12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1431)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1431, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %threshold.addr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i)
@@ -25830,7 +25819,7 @@ call.i.i2.i.i.noexc:                              ; preds = %if.end.i
   store ptr %call.i.i2.i.i36, ptr %agg.tmp2.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IfEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IfEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp1431, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i, ptr noundef nonnull %agg.tmp2.i)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i, ptr noundef nonnull %agg.tmp2.i)
           to label %invoke.cont.i unwind label %lpad.i33
 
 invoke.cont.i:                                    ; preds = %call.i.i2.i.i.noexc
@@ -25874,7 +25863,6 @@ terminate.lpad.i.i7.i:                            ; preds = %if.then.i.i5.i
 
 _ZN18OpenImageIO_v2_6_0L13isMonochrome_IfEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; preds = %call.i.noexc, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i
   %retval.0.i = phi i1 [ %tobool.i, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i ], [ true, %call.i.noexc ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1431)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i)
@@ -25882,8 +25870,6 @@ _ZN18OpenImageIO_v2_6_0L13isMonochrome_IfEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; pr
   br label %cleanup
 
 sw.bb17:                                          ; preds = %invoke.cont12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1837)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1837, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %threshold.addr.i38)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %result.i39)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i40)
@@ -25925,7 +25911,7 @@ call.i.i2.i.i.noexc69:                            ; preds = %if.end.i43
   store ptr %call.i.i2.i.i70, ptr %agg.tmp2.i41, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IhEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i50, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IhEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %_M_manager.i.i.i49, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp1837, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i40, ptr noundef nonnull %agg.tmp2.i41)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i40, ptr noundef nonnull %agg.tmp2.i41)
           to label %invoke.cont.i59 unwind label %lpad.i53
 
 invoke.cont.i59:                                  ; preds = %call.i.i2.i.i.noexc69
@@ -25969,7 +25955,6 @@ terminate.lpad.i.i7.i57:                          ; preds = %if.then.i.i5.i55
 
 _ZN18OpenImageIO_v2_6_0L13isMonochrome_IhEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; preds = %call.i.noexc67, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i64
   %retval.0.i66 = phi i1 [ %tobool.i65, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i64 ], [ true, %call.i.noexc67 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1837)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i38)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i39)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i40)
@@ -25977,8 +25962,6 @@ _ZN18OpenImageIO_v2_6_0L13isMonochrome_IhEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; pr
   br label %cleanup
 
 sw.bb22:                                          ; preds = %invoke.cont12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2373)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2373, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %threshold.addr.i74)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %result.i75)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i76)
@@ -26020,7 +26003,7 @@ call.i.i2.i.i.noexc105:                           ; preds = %if.end.i79
   store ptr %call.i.i2.i.i106, ptr %agg.tmp2.i77, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_I4halfEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i86, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_I4halfEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager.i.i.i85, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp2373, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i76, ptr noundef nonnull %agg.tmp2.i77)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i76, ptr noundef nonnull %agg.tmp2.i77)
           to label %invoke.cont.i95 unwind label %lpad.i89
 
 invoke.cont.i95:                                  ; preds = %call.i.i2.i.i.noexc105
@@ -26064,7 +26047,6 @@ terminate.lpad.i.i7.i93:                          ; preds = %if.then.i.i5.i91
 
 _ZN18OpenImageIO_v2_6_0L13isMonochrome_I4halfEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; preds = %call.i.noexc103, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i100
   %retval.0.i102 = phi i1 [ %tobool.i101, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i100 ], [ true, %call.i.noexc103 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2373)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i74)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i75)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i76)
@@ -26072,8 +26054,6 @@ _ZN18OpenImageIO_v2_6_0L13isMonochrome_I4halfEEbRKNS_8ImageBufEfNS_3ROIEi.exit: 
   br label %cleanup
 
 sw.bb27:                                          ; preds = %invoke.cont12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp28109)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp28109, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %threshold.addr.i110)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %result.i111)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i112)
@@ -26115,7 +26095,7 @@ call.i.i2.i.i.noexc141:                           ; preds = %if.end.i115
   store ptr %call.i.i2.i.i142, ptr %agg.tmp2.i113, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_ItEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i122, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_ItEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %_M_manager.i.i.i121, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp28109, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i112, ptr noundef nonnull %agg.tmp2.i113)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i112, ptr noundef nonnull %agg.tmp2.i113)
           to label %invoke.cont.i131 unwind label %lpad.i125
 
 invoke.cont.i131:                                 ; preds = %call.i.i2.i.i.noexc141
@@ -26159,7 +26139,6 @@ terminate.lpad.i.i7.i129:                         ; preds = %if.then.i.i5.i127
 
 _ZN18OpenImageIO_v2_6_0L13isMonochrome_ItEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; preds = %call.i.noexc139, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i136
   %retval.0.i138 = phi i1 [ %tobool.i137, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i136 ], [ true, %call.i.noexc139 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp28109)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i110)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i111)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i112)
@@ -26167,8 +26146,6 @@ _ZN18OpenImageIO_v2_6_0L13isMonochrome_ItEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; pr
   br label %cleanup
 
 sw.bb32:                                          ; preds = %invoke.cont12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp33145)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp33145, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %threshold.addr.i146)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %result.i147)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i148)
@@ -26210,7 +26187,7 @@ call.i.i2.i.i.noexc177:                           ; preds = %if.end.i151
   store ptr %call.i.i2.i.i178, ptr %agg.tmp2.i149, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IcEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i158, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IcEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %_M_manager.i.i.i157, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp33145, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i148, ptr noundef nonnull %agg.tmp2.i149)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i148, ptr noundef nonnull %agg.tmp2.i149)
           to label %invoke.cont.i167 unwind label %lpad.i161
 
 invoke.cont.i167:                                 ; preds = %call.i.i2.i.i.noexc177
@@ -26254,7 +26231,6 @@ terminate.lpad.i.i7.i165:                         ; preds = %if.then.i.i5.i163
 
 _ZN18OpenImageIO_v2_6_0L13isMonochrome_IcEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; preds = %call.i.noexc175, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i172
   %retval.0.i174 = phi i1 [ %tobool.i173, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i172 ], [ true, %call.i.noexc175 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp33145)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i146)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i147)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i148)
@@ -26262,8 +26238,6 @@ _ZN18OpenImageIO_v2_6_0L13isMonochrome_IcEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; pr
   br label %cleanup
 
 sw.bb37:                                          ; preds = %invoke.cont12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp38181)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp38181, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %threshold.addr.i182)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %result.i183)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i184)
@@ -26305,7 +26279,7 @@ call.i.i2.i.i.noexc213:                           ; preds = %if.end.i187
   store ptr %call.i.i2.i.i214, ptr %agg.tmp2.i185, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IsEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i194, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IsEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %_M_manager.i.i.i193, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp38181, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i184, ptr noundef nonnull %agg.tmp2.i185)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i184, ptr noundef nonnull %agg.tmp2.i185)
           to label %invoke.cont.i203 unwind label %lpad.i197
 
 invoke.cont.i203:                                 ; preds = %call.i.i2.i.i.noexc213
@@ -26349,7 +26323,6 @@ terminate.lpad.i.i7.i201:                         ; preds = %if.then.i.i5.i199
 
 _ZN18OpenImageIO_v2_6_0L13isMonochrome_IsEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; preds = %call.i.noexc211, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i208
   %retval.0.i210 = phi i1 [ %tobool.i209, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i208 ], [ true, %call.i.noexc211 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp38181)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i182)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i183)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i184)
@@ -26357,8 +26330,6 @@ _ZN18OpenImageIO_v2_6_0L13isMonochrome_IsEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; pr
   br label %cleanup
 
 sw.bb42:                                          ; preds = %invoke.cont12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp43217)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp43217, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %threshold.addr.i218)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %result.i219)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i220)
@@ -26400,7 +26371,7 @@ call.i.i2.i.i.noexc249:                           ; preds = %if.end.i223
   store ptr %call.i.i2.i.i250, ptr %agg.tmp2.i221, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IjEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i230, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IjEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %_M_manager.i.i.i229, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp43217, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i220, ptr noundef nonnull %agg.tmp2.i221)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i220, ptr noundef nonnull %agg.tmp2.i221)
           to label %invoke.cont.i239 unwind label %lpad.i233
 
 invoke.cont.i239:                                 ; preds = %call.i.i2.i.i.noexc249
@@ -26444,7 +26415,6 @@ terminate.lpad.i.i7.i237:                         ; preds = %if.then.i.i5.i235
 
 _ZN18OpenImageIO_v2_6_0L13isMonochrome_IjEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; preds = %call.i.noexc247, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i244
   %retval.0.i246 = phi i1 [ %tobool.i245, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i244 ], [ true, %call.i.noexc247 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp43217)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i218)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i219)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i220)
@@ -26452,8 +26422,6 @@ _ZN18OpenImageIO_v2_6_0L13isMonochrome_IjEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; pr
   br label %cleanup
 
 sw.bb47:                                          ; preds = %invoke.cont12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp48253)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp48253, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %threshold.addr.i254)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %result.i255)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i256)
@@ -26495,7 +26463,7 @@ call.i.i2.i.i.noexc285:                           ; preds = %if.end.i259
   store ptr %call.i.i2.i.i286, ptr %agg.tmp2.i257, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IiEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i266, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IiEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %_M_manager.i.i.i265, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp48253, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i256, ptr noundef nonnull %agg.tmp2.i257)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i256, ptr noundef nonnull %agg.tmp2.i257)
           to label %invoke.cont.i275 unwind label %lpad.i269
 
 invoke.cont.i275:                                 ; preds = %call.i.i2.i.i.noexc285
@@ -26539,7 +26507,6 @@ terminate.lpad.i.i7.i273:                         ; preds = %if.then.i.i5.i271
 
 _ZN18OpenImageIO_v2_6_0L13isMonochrome_IiEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; preds = %call.i.noexc283, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i280
   %retval.0.i282 = phi i1 [ %tobool.i281, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i280 ], [ true, %call.i.noexc283 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp48253)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i254)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i255)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i256)
@@ -26547,8 +26514,6 @@ _ZN18OpenImageIO_v2_6_0L13isMonochrome_IiEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; pr
   br label %cleanup
 
 sw.bb52:                                          ; preds = %invoke.cont12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp53289)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp53289, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %threshold.addr.i290)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %result.i291)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i292)
@@ -26590,7 +26555,7 @@ call.i.i2.i.i.noexc321:                           ; preds = %if.end.i295
   store ptr %call.i.i2.i.i322, ptr %agg.tmp2.i293, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IdEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i302, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IdEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %_M_manager.i.i.i301, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp53289, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i292, ptr noundef nonnull %agg.tmp2.i293)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i292, ptr noundef nonnull %agg.tmp2.i293)
           to label %invoke.cont.i311 unwind label %lpad.i305
 
 invoke.cont.i311:                                 ; preds = %call.i.i2.i.i.noexc321
@@ -26634,7 +26599,6 @@ terminate.lpad.i.i7.i309:                         ; preds = %if.then.i.i5.i307
 
 _ZN18OpenImageIO_v2_6_0L13isMonochrome_IdEEbRKNS_8ImageBufEfNS_3ROIEi.exit: ; preds = %call.i.noexc319, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i316
   %retval.0.i318 = phi i1 [ %tobool.i317, %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit.i316 ], [ true, %call.i.noexc319 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp53289)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i290)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i291)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i292)
