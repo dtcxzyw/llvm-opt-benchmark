@@ -6159,30 +6159,32 @@ if.else7.i.i:                                     ; preds = %if.else.i.i
 
 mi_bin.exit.i:                                    ; preds = %if.else7.i.i, %if.then2.i.i, %if.then.i
   %bin.0.i.i = phi i64 [ %conv.i.i, %if.then2.i.i ], [ %3, %if.else7.i.i ], [ 1, %if.then.i ]
-  %block_size.i.i = getelementptr [75 x %struct.mi_page_queue_s], ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 0, i64 %bin.0.i.i, i32 2
-  %4 = load i64, ptr %block_size.i.i, align 8
+  %block_size.idx.i.i = mul nuw nsw i64 %bin.0.i.i, 24
+  %4 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 %block_size.idx.i.i
+  %block_size.i.i = getelementptr i8, ptr %4, i64 16
+  %5 = load i64, ptr %block_size.i.i, align 8
   br label %mi_good_size.exit
 
 if.else.i:                                        ; preds = %entry
-  %5 = load i64, ptr @mi_os_mem_config.0, align 8
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
-  %cmp.i4.i = icmp ult i64 %6, 2
+  %6 = load i64, ptr @mi_os_mem_config.0, align 8
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
+  %cmp.i4.i = icmp ult i64 %7, 2
   %sub.i3.i = add i64 %size, -1
-  %add.i.i = add i64 %sub.i3.i, %5
+  %add.i.i = add i64 %sub.i3.i, %6
   br i1 %cmp.i4.i, label %if.then.i.i, label %if.else.i5.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %not.i.i = sub i64 0, %5
+  %not.i.i = sub i64 0, %6
   %and1.i.i = and i64 %add.i.i, %not.i.i
   br label %mi_good_size.exit
 
 if.else.i5.i:                                     ; preds = %if.else.i
-  %7 = urem i64 %add.i.i, %5
-  %mul.i.i = sub nuw i64 %add.i.i, %7
+  %8 = urem i64 %add.i.i, %6
+  %mul.i.i = sub nuw i64 %add.i.i, %8
   br label %mi_good_size.exit
 
 mi_good_size.exit:                                ; preds = %mi_bin.exit.i, %if.then.i.i, %if.else.i5.i
-  %retval.0.i = phi i64 [ %4, %mi_bin.exit.i ], [ %and1.i.i, %if.then.i.i ], [ %mul.i.i, %if.else.i5.i ]
+  %retval.0.i = phi i64 [ %5, %mi_bin.exit.i ], [ %and1.i.i, %if.then.i.i ], [ %mul.i.i, %if.else.i5.i ]
   ret i64 %retval.0.i
 }
 
@@ -6223,30 +6225,32 @@ if.else7.i:                                       ; preds = %if.else.i
 
 mi_bin.exit:                                      ; preds = %if.then, %if.then2.i, %if.else7.i
   %bin.0.i = phi i64 [ %conv.i, %if.then2.i ], [ %3, %if.else7.i ], [ 1, %if.then ]
-  %block_size.i = getelementptr [75 x %struct.mi_page_queue_s], ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 0, i64 %bin.0.i, i32 2
-  %4 = load i64, ptr %block_size.i, align 8
+  %block_size.idx.i = mul nuw nsw i64 %bin.0.i, 24
+  %4 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 %block_size.idx.i
+  %block_size.i = getelementptr i8, ptr %4, i64 16
+  %5 = load i64, ptr %block_size.i, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %5 = load i64, ptr @mi_os_mem_config.0, align 8
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
-  %cmp.i4 = icmp ult i64 %6, 2
+  %6 = load i64, ptr @mi_os_mem_config.0, align 8
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
+  %cmp.i4 = icmp ult i64 %7, 2
   %sub.i3 = add i64 %size, -1
-  %add.i = add i64 %sub.i3, %5
+  %add.i = add i64 %sub.i3, %6
   br i1 %cmp.i4, label %if.then.i, label %if.else.i5
 
 if.then.i:                                        ; preds = %if.else
-  %not.i = sub i64 0, %5
+  %not.i = sub i64 0, %6
   %and1.i = and i64 %add.i, %not.i
   br label %return
 
 if.else.i5:                                       ; preds = %if.else
-  %7 = urem i64 %add.i, %5
-  %mul.i = sub nuw i64 %add.i, %7
+  %8 = urem i64 %add.i, %6
+  %mul.i = sub nuw i64 %add.i, %8
   br label %return
 
 return:                                           ; preds = %if.else.i5, %if.then.i, %mi_bin.exit
-  %retval.0 = phi i64 [ %4, %mi_bin.exit ], [ %and1.i, %if.then.i ], [ %mul.i, %if.else.i5 ]
+  %retval.0 = phi i64 [ %5, %mi_bin.exit ], [ %and1.i, %if.then.i ], [ %mul.i, %if.else.i5 ]
   ret i64 %retval.0
 }
 
@@ -18120,9 +18124,11 @@ mi_bin.exit:                                      ; preds = %entry, %if.then2.i,
 define hidden i64 @_mi_bin_size(i8 noundef zeroext %bin) local_unnamed_addr #1 {
 entry:
   %idxprom = zext i8 %bin to i64
-  %block_size = getelementptr [75 x %struct.mi_page_queue_s], ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 0, i64 %idxprom, i32 2
-  %0 = load i64, ptr %block_size, align 8
-  ret i64 %0
+  %block_size.idx = mul nuw nsw i64 %idxprom, 24
+  %0 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1040), i64 %block_size.idx
+  %block_size = getelementptr i8, ptr %0, i64 16
+  %1 = load i64, ptr %block_size, align 8
+  ret i64 %1
 }
 
 ; Function Attrs: nounwind uwtable

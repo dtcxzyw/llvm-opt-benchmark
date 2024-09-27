@@ -4064,8 +4064,8 @@ if.then61:                                        ; preds = %if.then58
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then61
-  %incdec.ptr105189 = phi ptr [ %incdec.ptr105, %for.inc ], [ %p.promoted, %if.then61 ]
-  %2 = load i8, ptr %incdec.ptr105189, align 1
+  %incdec.ptr105203 = phi ptr [ %incdec.ptr105, %for.inc ], [ %p.promoted, %if.then61 ]
+  %2 = load i8, ptr %incdec.ptr105203, align 1
   switch i8 %2, label %if.else98 [
     i8 0, label %return
     i8 97, label %if.then67
@@ -4092,7 +4092,7 @@ if.then82:                                        ; preds = %for.cond
   br label %for.inc
 
 land.lhs.true:                                    ; preds = %for.cond
-  %arrayidx = getelementptr inbounds i8, ptr %incdec.ptr105189, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %incdec.ptr105203, i64 1
   %3 = load i8, ptr %arrayidx, align 1
   %4 = and i8 %3, -4
   %or.cond139 = icmp eq i8 %4, 48
@@ -4109,8 +4109,8 @@ if.else98:                                        ; preds = %for.cond, %land.lhs
   br label %return
 
 for.inc:                                          ; preds = %if.then67, %if.then77, %if.then95, %if.then82, %if.then72
-  %incdec.ptr105190 = phi ptr [ %incdec.ptr105189, %if.then67 ], [ %incdec.ptr105189, %if.then77 ], [ %arrayidx, %if.then95 ], [ %incdec.ptr105189, %if.then82 ], [ %incdec.ptr105189, %if.then72 ]
-  %incdec.ptr105 = getelementptr inbounds i8, ptr %incdec.ptr105190, i64 1
+  %incdec.ptr105204 = phi ptr [ %incdec.ptr105203, %if.then67 ], [ %incdec.ptr105203, %if.then77 ], [ %arrayidx, %if.then95 ], [ %incdec.ptr105203, %if.then82 ], [ %incdec.ptr105203, %if.then72 ]
+  %incdec.ptr105 = getelementptr inbounds i8, ptr %incdec.ptr105204, i64 1
   br label %for.cond, !llvm.loop !13
 
 if.else107:                                       ; preds = %if.else54
@@ -4846,7 +4846,9 @@ if.then.i142:                                     ; preds = %sw.bb563
 add_compression_setting_bool.exit:                ; preds = %sw.bb563
   %arrayidx.i = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %23
   store i32 9, ptr %arrayidx.i, align 8
-  %value3.i = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %23, i32 1
+  %value3.idx.i = shl nuw nsw i64 %23, 4
+  %value3.offs.i = or disjoint i64 %value3.idx.i, 8
+  %value3.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 %value3.offs.i
   store i32 1, ptr %value3.i, align 8
   %24 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   %inc.i = add i64 %24, 1
@@ -4856,20 +4858,22 @@ add_compression_setting_bool.exit:                ; preds = %sw.bb563
 sw.bb564:                                         ; preds = %entry
   %25 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   %cmp.i143 = icmp ugt i64 %25, 63
-  br i1 %cmp.i143, label %if.then.i147, label %add_compression_setting_bool.exit148
+  br i1 %cmp.i143, label %if.then.i149, label %add_compression_setting_bool.exit150
 
-if.then.i147:                                     ; preds = %sw.bb564
+if.then.i149:                                     ; preds = %sw.bb564
   tail call fastcc void @die(ptr noundef nonnull @.str.658)
   unreachable
 
-add_compression_setting_bool.exit148:             ; preds = %sw.bb564
+add_compression_setting_bool.exit150:             ; preds = %sw.bb564
   %arrayidx.i144 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %25
   store i32 8, ptr %arrayidx.i144, align 8
-  %value3.i145 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %25, i32 1
-  store i32 1, ptr %value3.i145, align 8
+  %value3.idx.i145 = shl nuw nsw i64 %25, 4
+  %value3.offs.i146 = or disjoint i64 %value3.idx.i145, 8
+  %value3.i147 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 %value3.offs.i146
+  store i32 1, ptr %value3.i147, align 8
   %26 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %inc.i146 = add i64 %26, 1
-  store i64 %inc.i146, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
+  %inc.i148 = add i64 %26, 1
+  store i64 %inc.i148, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   br label %return
 
 sw.bb565:                                         ; preds = %entry
@@ -4887,108 +4891,120 @@ if.end572:                                        ; preds = %sw.bb565
 
 sw.bb573:                                         ; preds = %entry
   %27 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %cmp.i149 = icmp ugt i64 %27, 63
-  br i1 %cmp.i149, label %if.then.i153, label %add_compression_setting_string.exit
+  %cmp.i151 = icmp ugt i64 %27, 63
+  br i1 %cmp.i151, label %if.then.i157, label %add_compression_setting_string.exit
 
-if.then.i153:                                     ; preds = %sw.bb573
+if.then.i157:                                     ; preds = %sw.bb573
   tail call fastcc void @die(ptr noundef nonnull @.str.658)
   unreachable
 
 add_compression_setting_string.exit:              ; preds = %sw.bb573
-  %arrayidx.i150 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %27
-  store i32 4, ptr %arrayidx.i150, align 8
-  %value3.i151 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %27, i32 1
-  store ptr %option_argument, ptr %value3.i151, align 8
+  %arrayidx.i152 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %27
+  store i32 4, ptr %arrayidx.i152, align 8
+  %value3.idx.i153 = shl nuw nsw i64 %27, 4
+  %value3.offs.i154 = or disjoint i64 %value3.idx.i153, 8
+  %value3.i155 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 %value3.offs.i154
+  store ptr %option_argument, ptr %value3.i155, align 8
   %28 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %inc.i152 = add i64 %28, 1
-  store i64 %inc.i152, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
+  %inc.i156 = add i64 %28, 1
+  store i64 %inc.i156, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   br label %return
 
 sw.bb574:                                         ; preds = %entry
   %29 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %cmp.i154 = icmp ugt i64 %29, 63
-  br i1 %cmp.i154, label %if.then.i158, label %add_compression_setting_bool.exit159
+  %cmp.i158 = icmp ugt i64 %29, 63
+  br i1 %cmp.i158, label %if.then.i164, label %add_compression_setting_bool.exit165
 
-if.then.i158:                                     ; preds = %sw.bb574
+if.then.i164:                                     ; preds = %sw.bb574
   tail call fastcc void @die(ptr noundef nonnull @.str.658)
   unreachable
 
-add_compression_setting_bool.exit159:             ; preds = %sw.bb574
-  %arrayidx.i155 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %29
-  store i32 2, ptr %arrayidx.i155, align 8
-  %value3.i156 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %29, i32 1
-  store i32 1, ptr %value3.i156, align 8
+add_compression_setting_bool.exit165:             ; preds = %sw.bb574
+  %arrayidx.i159 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %29
+  store i32 2, ptr %arrayidx.i159, align 8
+  %value3.idx.i160 = shl nuw nsw i64 %29, 4
+  %value3.offs.i161 = or disjoint i64 %value3.idx.i160, 8
+  %value3.i162 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 %value3.offs.i161
+  store i32 1, ptr %value3.i162, align 8
   %30 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %inc.i157 = add i64 %30, 1
-  store i64 %inc.i157, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %cmp.i160 = icmp ugt i64 %inc.i157, 63
-  br i1 %cmp.i160, label %if.then.i164, label %add_compression_setting_bool.exit165
+  %inc.i163 = add i64 %30, 1
+  store i64 %inc.i163, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
+  %cmp.i166 = icmp ugt i64 %inc.i163, 63
+  br i1 %cmp.i166, label %if.then.i172, label %add_compression_setting_bool.exit173
 
-if.then.i164:                                     ; preds = %add_compression_setting_bool.exit159
+if.then.i172:                                     ; preds = %add_compression_setting_bool.exit165
   tail call fastcc void @die(ptr noundef nonnull @.str.658)
   unreachable
 
-add_compression_setting_bool.exit165:             ; preds = %add_compression_setting_bool.exit159
-  %arrayidx.i161 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %inc.i157
-  store i32 3, ptr %arrayidx.i161, align 8
-  %value3.i162 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %inc.i157, i32 1
-  store i32 0, ptr %value3.i162, align 8
+add_compression_setting_bool.exit173:             ; preds = %add_compression_setting_bool.exit165
+  %arrayidx.i167 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %inc.i163
+  store i32 3, ptr %arrayidx.i167, align 8
+  %value3.idx.i168 = shl nuw nsw i64 %inc.i163, 4
+  %value3.offs.i169 = or disjoint i64 %value3.idx.i168, 8
+  %value3.i170 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 %value3.offs.i169
+  store i32 0, ptr %value3.i170, align 8
   %31 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %inc.i163 = add i64 %31, 1
-  store i64 %inc.i163, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
+  %inc.i171 = add i64 %31, 1
+  store i64 %inc.i171, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   br label %return
 
 sw.bb575:                                         ; preds = %entry
   %32 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %cmp.i166 = icmp ugt i64 %32, 63
-  br i1 %cmp.i166, label %if.then.i170, label %add_compression_setting_bool.exit171
+  %cmp.i174 = icmp ugt i64 %32, 63
+  br i1 %cmp.i174, label %if.then.i180, label %add_compression_setting_bool.exit181
 
-if.then.i170:                                     ; preds = %sw.bb575
+if.then.i180:                                     ; preds = %sw.bb575
   tail call fastcc void @die(ptr noundef nonnull @.str.658)
   unreachable
 
-add_compression_setting_bool.exit171:             ; preds = %sw.bb575
-  %arrayidx.i167 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %32
-  store i32 2, ptr %arrayidx.i167, align 8
-  %value3.i168 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %32, i32 1
-  store i32 1, ptr %value3.i168, align 8
+add_compression_setting_bool.exit181:             ; preds = %sw.bb575
+  %arrayidx.i175 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %32
+  store i32 2, ptr %arrayidx.i175, align 8
+  %value3.idx.i176 = shl nuw nsw i64 %32, 4
+  %value3.offs.i177 = or disjoint i64 %value3.idx.i176, 8
+  %value3.i178 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 %value3.offs.i177
+  store i32 1, ptr %value3.i178, align 8
   %33 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %inc.i169 = add i64 %33, 1
-  store i64 %inc.i169, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %cmp.i172 = icmp ugt i64 %inc.i169, 63
-  br i1 %cmp.i172, label %if.then.i176, label %add_compression_setting_bool.exit177
+  %inc.i179 = add i64 %33, 1
+  store i64 %inc.i179, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
+  %cmp.i182 = icmp ugt i64 %inc.i179, 63
+  br i1 %cmp.i182, label %if.then.i188, label %add_compression_setting_bool.exit189
 
-if.then.i176:                                     ; preds = %add_compression_setting_bool.exit171
+if.then.i188:                                     ; preds = %add_compression_setting_bool.exit181
   tail call fastcc void @die(ptr noundef nonnull @.str.658)
   unreachable
 
-add_compression_setting_bool.exit177:             ; preds = %add_compression_setting_bool.exit171
-  %arrayidx.i173 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %inc.i169
-  store i32 3, ptr %arrayidx.i173, align 8
-  %value3.i174 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %inc.i169, i32 1
-  store i32 1, ptr %value3.i174, align 8
+add_compression_setting_bool.exit189:             ; preds = %add_compression_setting_bool.exit181
+  %arrayidx.i183 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %inc.i179
+  store i32 3, ptr %arrayidx.i183, align 8
+  %value3.idx.i184 = shl nuw nsw i64 %inc.i179, 4
+  %value3.offs.i185 = or disjoint i64 %value3.idx.i184, 8
+  %value3.i186 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 %value3.offs.i185
+  store i32 1, ptr %value3.i186, align 8
   %34 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %inc.i175 = add i64 %34, 1
-  store i64 %inc.i175, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
+  %inc.i187 = add i64 %34, 1
+  store i64 %inc.i187, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   br label %return
 
 sw.bb576:                                         ; preds = %entry
   %35 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %cmp.i178 = icmp ugt i64 %35, 63
-  br i1 %cmp.i178, label %if.then.i182, label %add_compression_setting_bool.exit183
+  %cmp.i190 = icmp ugt i64 %35, 63
+  br i1 %cmp.i190, label %if.then.i196, label %add_compression_setting_bool.exit197
 
-if.then.i182:                                     ; preds = %sw.bb576
+if.then.i196:                                     ; preds = %sw.bb576
   tail call fastcc void @die(ptr noundef nonnull @.str.658)
   unreachable
 
-add_compression_setting_bool.exit183:             ; preds = %sw.bb576
-  %arrayidx.i179 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %35
-  store i32 7, ptr %arrayidx.i179, align 8
-  %value3.i180 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %35, i32 1
-  store i32 1, ptr %value3.i180, align 8
+add_compression_setting_bool.exit197:             ; preds = %sw.bb576
+  %arrayidx.i191 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %35
+  store i32 7, ptr %arrayidx.i191, align 8
+  %value3.idx.i192 = shl nuw nsw i64 %35, 4
+  %value3.offs.i193 = or disjoint i64 %value3.idx.i192, 8
+  %value3.i194 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 %value3.offs.i193
+  store i32 1, ptr %value3.i194, align 8
   %36 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %inc.i181 = add i64 %36, 1
-  store i64 %inc.i181, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
+  %inc.i195 = add i64 %36, 1
+  store i64 %inc.i195, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   br label %return
 
 sw.bb577:                                         ; preds = %entry
@@ -5052,22 +5068,24 @@ if.end617:                                        ; preds = %if.end610
 
 sw.bb619:                                         ; preds = %entry
   %38 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %cmp.i184 = icmp ugt i64 %38, 63
-  br i1 %cmp.i184, label %if.then.i187, label %add_compression_setting_uint32_t.exit188
+  %cmp.i198 = icmp ugt i64 %38, 63
+  br i1 %cmp.i198, label %if.then.i201, label %add_compression_setting_uint32_t.exit202
 
-if.then.i187:                                     ; preds = %sw.bb619
+if.then.i201:                                     ; preds = %sw.bb619
   tail call fastcc void @die(ptr noundef nonnull @.str.658)
   unreachable
 
-add_compression_setting_uint32_t.exit188:         ; preds = %sw.bb619
+add_compression_setting_uint32_t.exit202:         ; preds = %sw.bb619
   %call621 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
-  %arrayidx.i185 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %38
-  store i32 12, ptr %arrayidx.i185, align 8
-  %value5.i = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %38, i32 1
+  %arrayidx.i199 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %38
+  store i32 12, ptr %arrayidx.i199, align 8
+  %value5.idx.i = shl nuw nsw i64 %38, 4
+  %value5.offs.i = or disjoint i64 %value5.idx.i, 8
+  %value5.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 %value5.offs.i
   store i32 %call621, ptr %value5.i, align 8
   %39 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  %inc.i186 = add i64 %39, 1
-  store i64 %inc.i186, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
+  %inc.i200 = add i64 %39, 1
+  store i64 %inc.i200, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   br label %return
 
 sw.bb622:                                         ; preds = %entry
@@ -5075,8 +5093,8 @@ sw.bb622:                                         ; preds = %entry
   store i32 %call623, ptr getelementptr inbounds (i8, ptr @option_values, i64 1216), align 8
   br label %return
 
-return:                                           ; preds = %for.cond, %if.then5, %if.then13, %if.then21, %if.then29, %if.then53, %if.end119, %if.end141, %if.then157, %if.then167, %if.then177, %if.then187, %if.then197, %if.then207, %if.then217, %if.then239, %if.then233, %if.then254, %if.then277, %if.then271, %if.then291, %if.then301, %if.then311, %if.then321, %if.then331, %if.then341, %if.then351, %if.then361, %if.then371, %if.then381, %if.then391, %if.then401, %if.then411, %if.then421, %if.else427, %if.then431, %if.then426, %if.then416, %if.then406, %if.then396, %if.then386, %if.then376, %if.then366, %if.then356, %if.then346, %if.then336, %if.then326, %if.then316, %if.then306, %if.then296, %if.then286, %if.then260, %if.then248, %if.then222, %if.then212, %if.then202, %if.then192, %if.then182, %if.then172, %if.then162, %if.then146, %if.then124, %if.then58, %if.end, %if.then25, %if.then17, %if.then9, %if.then2, %if.end603, %if.end617, %sw.bb546, %if.then526, %if.else540, %sw.bb507, %sw.bb622, %add_compression_setting_uint32_t.exit188, %if.end590, %add_compression_setting_bool.exit183, %add_compression_setting_bool.exit177, %add_compression_setting_bool.exit165, %add_compression_setting_string.exit, %if.end572, %add_compression_setting_bool.exit148, %add_compression_setting_bool.exit, %if.end562, %sw.bb521, %sw.bb520, %add_compression_setting_uint32_t.exit, %sw.bb506, %sw.bb505, %sw.bb504, %sw.bb503, %sw.bb502, %sw.bb501, %sw.bb500, %sw.bb499, %sw.bb498, %sw.bb497, %sw.bb, %entry, %if.then615, %if.then608, %if.then601, %if.then588, %if.then570, %if.then560, %if.then550, %if.then538, %sw.bb518, %if.then513, %if.else278, %if.else240, %if.then150, %if.then139, %if.then132, %if.then117, %if.else98, %if.then46, %if.then37
-  %retval.0 = phi i32 [ 1, %if.then37 ], [ 1, %if.then46 ], [ 1, %if.else98 ], [ 1, %if.then117 ], [ 1, %if.then132 ], [ 1, %if.then139 ], [ 1, %if.then150 ], [ 1, %if.else240 ], [ 1, %if.else278 ], [ 1, %if.then601 ], [ 1, %if.then608 ], [ 1, %if.then615 ], [ 1, %if.then588 ], [ 1, %if.then570 ], [ 1, %if.then560 ], [ 1, %if.then550 ], [ 1, %if.then538 ], [ 1, %sw.bb518 ], [ 1, %if.then513 ], [ 0, %entry ], [ 0, %sw.bb ], [ 0, %sw.bb497 ], [ 0, %sw.bb498 ], [ 0, %sw.bb499 ], [ 0, %sw.bb500 ], [ 0, %sw.bb501 ], [ 0, %sw.bb502 ], [ 0, %sw.bb503 ], [ 0, %sw.bb504 ], [ 0, %sw.bb505 ], [ 0, %sw.bb506 ], [ 0, %add_compression_setting_uint32_t.exit ], [ 0, %sw.bb520 ], [ 0, %sw.bb521 ], [ 0, %if.end562 ], [ 0, %add_compression_setting_bool.exit ], [ 0, %add_compression_setting_bool.exit148 ], [ 0, %if.end572 ], [ 0, %add_compression_setting_string.exit ], [ 0, %add_compression_setting_bool.exit165 ], [ 0, %add_compression_setting_bool.exit177 ], [ 0, %add_compression_setting_bool.exit183 ], [ 0, %if.end590 ], [ 0, %add_compression_setting_uint32_t.exit188 ], [ 0, %sw.bb622 ], [ 0, %sw.bb507 ], [ 0, %if.else540 ], [ 0, %if.then526 ], [ 0, %sw.bb546 ], [ 0, %if.end617 ], [ 0, %if.end603 ], [ 0, %if.then2 ], [ 0, %if.then9 ], [ 0, %if.then17 ], [ 0, %if.then25 ], [ 0, %if.end ], [ 0, %if.then58 ], [ 0, %if.then124 ], [ 0, %if.then146 ], [ 0, %if.then162 ], [ 0, %if.then172 ], [ 0, %if.then182 ], [ 0, %if.then192 ], [ 0, %if.then202 ], [ 0, %if.then212 ], [ 0, %if.then222 ], [ 0, %if.then248 ], [ 0, %if.then260 ], [ 0, %if.then286 ], [ 0, %if.then296 ], [ 0, %if.then306 ], [ 0, %if.then316 ], [ 0, %if.then326 ], [ 0, %if.then336 ], [ 0, %if.then346 ], [ 0, %if.then356 ], [ 0, %if.then366 ], [ 0, %if.then376 ], [ 0, %if.then386 ], [ 0, %if.then396 ], [ 0, %if.then406 ], [ 0, %if.then416 ], [ 0, %if.then426 ], [ 0, %if.then431 ], [ 0, %if.else427 ], [ 0, %if.then421 ], [ 0, %if.then411 ], [ 0, %if.then401 ], [ 0, %if.then391 ], [ 0, %if.then381 ], [ 0, %if.then371 ], [ 0, %if.then361 ], [ 0, %if.then351 ], [ 0, %if.then341 ], [ 0, %if.then331 ], [ 0, %if.then321 ], [ 0, %if.then311 ], [ 0, %if.then301 ], [ 0, %if.then291 ], [ 0, %if.then271 ], [ 0, %if.then277 ], [ 0, %if.then254 ], [ 0, %if.then233 ], [ 0, %if.then239 ], [ 0, %if.then217 ], [ 0, %if.then207 ], [ 0, %if.then197 ], [ 0, %if.then187 ], [ 0, %if.then177 ], [ 0, %if.then167 ], [ 0, %if.then157 ], [ 0, %if.end141 ], [ 0, %if.end119 ], [ 0, %if.then53 ], [ 0, %if.then29 ], [ 0, %if.then21 ], [ 0, %if.then13 ], [ 0, %if.then5 ], [ 0, %for.cond ]
+return:                                           ; preds = %for.cond, %if.then5, %if.then13, %if.then21, %if.then29, %if.then53, %if.end119, %if.end141, %if.then157, %if.then167, %if.then177, %if.then187, %if.then197, %if.then207, %if.then217, %if.then239, %if.then233, %if.then254, %if.then277, %if.then271, %if.then291, %if.then301, %if.then311, %if.then321, %if.then331, %if.then341, %if.then351, %if.then361, %if.then371, %if.then381, %if.then391, %if.then401, %if.then411, %if.then421, %if.else427, %if.then431, %if.then426, %if.then416, %if.then406, %if.then396, %if.then386, %if.then376, %if.then366, %if.then356, %if.then346, %if.then336, %if.then326, %if.then316, %if.then306, %if.then296, %if.then286, %if.then260, %if.then248, %if.then222, %if.then212, %if.then202, %if.then192, %if.then182, %if.then172, %if.then162, %if.then146, %if.then124, %if.then58, %if.end, %if.then25, %if.then17, %if.then9, %if.then2, %if.end603, %if.end617, %sw.bb546, %if.then526, %if.else540, %sw.bb507, %sw.bb622, %add_compression_setting_uint32_t.exit202, %if.end590, %add_compression_setting_bool.exit197, %add_compression_setting_bool.exit189, %add_compression_setting_bool.exit173, %add_compression_setting_string.exit, %if.end572, %add_compression_setting_bool.exit150, %add_compression_setting_bool.exit, %if.end562, %sw.bb521, %sw.bb520, %add_compression_setting_uint32_t.exit, %sw.bb506, %sw.bb505, %sw.bb504, %sw.bb503, %sw.bb502, %sw.bb501, %sw.bb500, %sw.bb499, %sw.bb498, %sw.bb497, %sw.bb, %entry, %if.then615, %if.then608, %if.then601, %if.then588, %if.then570, %if.then560, %if.then550, %if.then538, %sw.bb518, %if.then513, %if.else278, %if.else240, %if.then150, %if.then139, %if.then132, %if.then117, %if.else98, %if.then46, %if.then37
+  %retval.0 = phi i32 [ 1, %if.then37 ], [ 1, %if.then46 ], [ 1, %if.else98 ], [ 1, %if.then117 ], [ 1, %if.then132 ], [ 1, %if.then139 ], [ 1, %if.then150 ], [ 1, %if.else240 ], [ 1, %if.else278 ], [ 1, %if.then601 ], [ 1, %if.then608 ], [ 1, %if.then615 ], [ 1, %if.then588 ], [ 1, %if.then570 ], [ 1, %if.then560 ], [ 1, %if.then550 ], [ 1, %if.then538 ], [ 1, %sw.bb518 ], [ 1, %if.then513 ], [ 0, %entry ], [ 0, %sw.bb ], [ 0, %sw.bb497 ], [ 0, %sw.bb498 ], [ 0, %sw.bb499 ], [ 0, %sw.bb500 ], [ 0, %sw.bb501 ], [ 0, %sw.bb502 ], [ 0, %sw.bb503 ], [ 0, %sw.bb504 ], [ 0, %sw.bb505 ], [ 0, %sw.bb506 ], [ 0, %add_compression_setting_uint32_t.exit ], [ 0, %sw.bb520 ], [ 0, %sw.bb521 ], [ 0, %if.end562 ], [ 0, %add_compression_setting_bool.exit ], [ 0, %add_compression_setting_bool.exit150 ], [ 0, %if.end572 ], [ 0, %add_compression_setting_string.exit ], [ 0, %add_compression_setting_bool.exit173 ], [ 0, %add_compression_setting_bool.exit189 ], [ 0, %add_compression_setting_bool.exit197 ], [ 0, %if.end590 ], [ 0, %add_compression_setting_uint32_t.exit202 ], [ 0, %sw.bb622 ], [ 0, %sw.bb507 ], [ 0, %if.else540 ], [ 0, %if.then526 ], [ 0, %sw.bb546 ], [ 0, %if.end617 ], [ 0, %if.end603 ], [ 0, %if.then2 ], [ 0, %if.then9 ], [ 0, %if.then17 ], [ 0, %if.then25 ], [ 0, %if.end ], [ 0, %if.then58 ], [ 0, %if.then124 ], [ 0, %if.then146 ], [ 0, %if.then162 ], [ 0, %if.then172 ], [ 0, %if.then182 ], [ 0, %if.then192 ], [ 0, %if.then202 ], [ 0, %if.then212 ], [ 0, %if.then222 ], [ 0, %if.then248 ], [ 0, %if.then260 ], [ 0, %if.then286 ], [ 0, %if.then296 ], [ 0, %if.then306 ], [ 0, %if.then316 ], [ 0, %if.then326 ], [ 0, %if.then336 ], [ 0, %if.then346 ], [ 0, %if.then356 ], [ 0, %if.then366 ], [ 0, %if.then376 ], [ 0, %if.then386 ], [ 0, %if.then396 ], [ 0, %if.then406 ], [ 0, %if.then416 ], [ 0, %if.then426 ], [ 0, %if.then431 ], [ 0, %if.else427 ], [ 0, %if.then421 ], [ 0, %if.then411 ], [ 0, %if.then401 ], [ 0, %if.then391 ], [ 0, %if.then381 ], [ 0, %if.then371 ], [ 0, %if.then361 ], [ 0, %if.then351 ], [ 0, %if.then341 ], [ 0, %if.then331 ], [ 0, %if.then321 ], [ 0, %if.then311 ], [ 0, %if.then301 ], [ 0, %if.then291 ], [ 0, %if.then271 ], [ 0, %if.then277 ], [ 0, %if.then254 ], [ 0, %if.then233 ], [ 0, %if.then239 ], [ 0, %if.then217 ], [ 0, %if.then207 ], [ 0, %if.then197 ], [ 0, %if.then187 ], [ 0, %if.then177 ], [ 0, %if.then167 ], [ 0, %if.then157 ], [ 0, %if.end141 ], [ 0, %if.end119 ], [ 0, %if.then53 ], [ 0, %if.then29 ], [ 0, %if.then21 ], [ 0, %if.then13 ], [ 0, %if.then5 ], [ 0, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -5122,7 +5140,9 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %0
   store i32 %type, ptr %arrayidx, align 8
-  %value3 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %0, i32 1
+  %value3.idx = shl nuw nsw i64 %0, 4
+  %value3.offs = or disjoint i64 %value3.idx, 8
+  %value3 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 %value3.offs
   store i32 %value, ptr %value3, align 8
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   %inc = add i64 %1, 1
@@ -5153,7 +5173,9 @@ if.then2:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %arrayidx = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %0
   store i32 %type, ptr %arrayidx, align 8
-  %value5 = getelementptr inbounds [64 x %struct.compression_setting_t], ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 0, i64 %0, i32 1
+  %value5.idx = shl nuw nsw i64 %0, 4
+  %value5.offs = or disjoint i64 %value5.idx, 8
+  %value5 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @option_values, i64 192), i64 %value5.offs
   store i32 %value, ptr %value5, align 8
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   %inc = add i64 %1, 1
