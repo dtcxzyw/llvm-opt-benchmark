@@ -20448,7 +20448,7 @@ nuttx/sched_removereadytorun.c.ll 47488967
 nuttx/sched_rrgetinterval.c.ll 39973568
 nuttx/sched_setparam.c.ll 44546700
 nuttx/sched_setpriority.c.ll 68214610
-nuttx/sched_setscheduler.c.ll 53803483
+nuttx/sched_setscheduler.c.ll 53749598
 nuttx/sched_suspend.c.ll 49669273
 nuttx/sched_sysinfo.c.ll 40573792
 nuttx/sched_waitid.c.ll 103914192
@@ -28559,7 +28559,7 @@ openssl/libssl-lib-ssl_conf.ll 362375983
 openssl/libssl-lib-ssl_err.ll 55272658
 openssl/libssl-lib-ssl_init.ll 50691784
 openssl/libssl-lib-ssl_lib.ll 2260915293
-openssl/libssl-lib-ssl_mcnf.ll 60955927
+openssl/libssl-lib-ssl_mcnf.ll 60894946
 openssl/libssl-lib-ssl_rsa.ll 360060610
 openssl/libssl-lib-ssl_sess.ll 360591202
 openssl/libssl-lib-ssl_txt.ll 110435815
@@ -28639,7 +28639,7 @@ openssl/libssl-shlib-ssl_conf.ll 362376442
 openssl/libssl-shlib-ssl_err.ll 55272963
 openssl/libssl-shlib-ssl_init.ll 50682044
 openssl/libssl-shlib-ssl_lib.ll 2260919419
-openssl/libssl-shlib-ssl_mcnf.ll 60956404
+openssl/libssl-shlib-ssl_mcnf.ll 60895419
 openssl/libssl-shlib-ssl_rsa.ll 360059425
 openssl/libssl-shlib-ssl_sess.ll 360592254
 openssl/libssl-shlib-ssl_txt.ll 110436223
