@@ -20660,7 +20660,7 @@ ocio/Op.cpp.ll 3059488195
 ocio/OpHelpers.cpp.ll 259375677
 ocio/OpOptimizers.cpp.ll 1769214376
 ocio/OpTools.cpp.ll 129373545
-ocio/PanasonicCameras.cpp.ll 201587137
+ocio/PanasonicCameras.cpp.ll 201788827
 ocio/ParseUtils.cpp.ll 938510275
 ocio/PathUtils.cpp.ll 737180020
 ocio/Platform.cpp.ll 165404699
