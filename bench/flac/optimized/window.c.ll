@@ -343,8 +343,9 @@ for.cond.i.preheader:                             ; preds = %entry
   br i1 %cmp4.not.not14, label %for.body.i.lr.ph, label %if.end
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
+  %0 = fdiv reassoc nsz arcp double 8.000000e+00, %conv
+  %invariant.op = fmul reassoc nsz arcp double %0, -5.000000e-01
   %wide.trip.count = zext nneg i32 %L to i64
-  %0 = fdiv reassoc nsz arcp double 1.000000e+00, %conv
   br label %for.body.i
 
 for.cond.preheader:                               ; preds = %entry
@@ -353,8 +354,9 @@ for.cond.preheader:                               ; preds = %entry
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %conv8 = fpext float %stddev to double
   %mul = fmul reassoc nsz arcp double %div, %conv8
-  %wide.trip.count21 = zext nneg i32 %L to i64
   %1 = fdiv reassoc nsz arcp double 1.000000e+00, %mul
+  %invariant.op16 = fmul reassoc nsz arcp double %1, -5.000000e-01
+  %wide.trip.count23 = zext nneg i32 %L to i64
   br label %for.body
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
@@ -362,10 +364,9 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %conv6.i = uitofp nneg i32 %2 to double
   %sub7.i = fsub reassoc nsz arcp double %conv6.i, %div
-  %3 = fmul reassoc nsz arcp double %sub7.i, 8.000000e+00
-  %4 = fmul reassoc nsz arcp double %3, %0
-  %5 = fmul reassoc nsz arcp double %4, %4
-  %mul11.i = fmul reassoc nsz arcp double %5, -5.000000e-01
+  %3 = fmul reassoc nsz arcp double %sub7.i, %0
+  %.reass = fmul reassoc nsz arcp double %sub7.i, %invariant.op
+  %mul11.i = fmul reassoc nsz arcp double %.reass, %3
   %call.i = tail call reassoc nsz arcp double @exp(double noundef %mul11.i) #6
   %conv12.i = fptrunc double %call.i to float
   %arrayidx.i = getelementptr inbounds float, ptr %window, i64 %indvars.iv
@@ -375,20 +376,20 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %exitcond.not, label %if.end, label %for.body.i, !llvm.loop !14
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv18 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next19, %for.body ]
-  %6 = trunc nuw nsw i64 %indvars.iv18 to i32
-  %conv6 = uitofp nneg i32 %6 to double
+  %indvars.iv20 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next21, %for.body ]
+  %4 = trunc nuw nsw i64 %indvars.iv20 to i32
+  %conv6 = uitofp nneg i32 %4 to double
   %sub7 = fsub reassoc nsz arcp double %conv6, %div
-  %7 = fmul reassoc nsz arcp double %sub7, %1
-  %8 = fmul reassoc nsz arcp double %7, %7
-  %mul11 = fmul reassoc nsz arcp double %8, -5.000000e-01
+  %5 = fmul reassoc nsz arcp double %sub7, %1
+  %.reass17 = fmul reassoc nsz arcp double %sub7, %invariant.op16
+  %mul11 = fmul reassoc nsz arcp double %.reass17, %5
   %call = tail call reassoc nsz arcp double @exp(double noundef %mul11) #6
   %conv12 = fptrunc double %call to float
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv18
+  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv20
   store float %conv12, ptr %arrayidx, align 4
-  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %exitcond22.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count21
-  br i1 %exitcond22.not, label %if.end, label %for.body, !llvm.loop !14
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
+  %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
+  br i1 %exitcond24.not, label %if.end, label %for.body, !llvm.loop !14
 
 if.end:                                           ; preds = %for.body.i, %for.body, %for.cond.i.preheader, %for.cond.preheader
   ret void

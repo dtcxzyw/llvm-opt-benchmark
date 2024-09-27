@@ -5656,7 +5656,7 @@ cvc5/quant_info.cpp.ll 947543277
 cvc5/quant_module.cpp.ll 89959307
 cvc5/quant_relevance.cpp.ll 771436960
 cvc5/quant_rep_bound_ext.cpp.ll 357688843
-cvc5/quant_split.cpp.ll 2225773965
+cvc5/quant_split.cpp.ll 2228003654
 cvc5/quant_util.cpp.ll 948438790
 cvc5/quantifiers_attributes.cpp.ll 2975757418
 cvc5/quantifiers_engine.cpp.ll 2427338813
@@ -6036,12 +6036,12 @@ darktable/introspection_cacorrect.c.ll 3959078710
 darktable/introspection_cacorrectrgb.c.ll 973893924
 darktable/introspection_censorize.c.ll 305488074
 darktable/introspection_channelmixer.c.ll 299571814
-darktable/introspection_channelmixerrgb.c.ll 2723065154
+darktable/introspection_channelmixerrgb.c.ll 2699801206
 darktable/introspection_clahe.c.ll 530620423
 darktable/introspection_clipping.c.ll 1197255102
 darktable/introspection_colisa.c.ll 159082579
 darktable/introspection_colorbalance.c.ll 690771068
-darktable/introspection_colorbalancergb.c.ll 936952333
+darktable/introspection_colorbalancergb.c.ll 938002485
 darktable/introspection_colorchecker.c.ll 1119716840
 darktable/introspection_colorcontrast.c.ll 128728167
 darktable/introspection_colorcorrection.c.ll 193378994
@@ -6086,7 +6086,7 @@ darktable/introspection_monochrome.c.ll 224198746
 darktable/introspection_negadoctor.c.ll 321956437
 darktable/introspection_nlmeans.c.ll 93213657
 darktable/introspection_overlay.c.ll 288294288
-darktable/introspection_primaries.c.ll 237058423
+darktable/introspection_primaries.c.ll 237943093
 darktable/introspection_profile_gamma.c.ll 240698337
 darktable/introspection_rawdenoise.c.ll 921645022
 darktable/introspection_rawoverexposed.c.ll 158245140
@@ -6100,7 +6100,7 @@ darktable/introspection_scalepixels.c.ll 137077264
 darktable/introspection_shadhi.c.ll 188581699
 darktable/introspection_sharpen.c.ll 253653034
 darktable/introspection_sigmoid.c.ll 305676933
-darktable/introspection_soften.c.ll 200155816
+darktable/introspection_soften.c.ll 200397421
 darktable/introspection_splittoning.c.ll 281708333
 darktable/introspection_spots.c.ll 621055379
 darktable/introspection_temperature.c.ll 727773728
@@ -19255,7 +19255,7 @@ ncnn/innerproduct.cpp.ll 462709310
 ncnn/innerproduct_x86.cpp.ll 2601467184
 ncnn/innerproduct_x86_avx.cpp.ll 5131301681
 ncnn/innerproduct_x86_avx512.cpp.ll 18328523029
-ncnn/innerproduct_x86_f16c.cpp.ll 3643727731
+ncnn/innerproduct_x86_f16c.cpp.ll 3647721557
 ncnn/innerproduct_x86_fma.cpp.ll 8492520811
 ncnn/input.cpp.ll 44146129
 ncnn/instancenorm.cpp.ll 141583415
@@ -19432,9 +19432,9 @@ ncnn/unfold.cpp.ll 169573563
 ncnn/yolodetectionoutput.cpp.ll 1229382446
 ncnn/yolov3detectionoutput.cpp.ll 793341486
 ncnn/yolov3detectionoutput_x86.cpp.ll 553438336
-ncnn/yolov3detectionoutput_x86_avx.cpp.ll 554226416
-ncnn/yolov3detectionoutput_x86_avx512.cpp.ll 579702954
-ncnn/yolov3detectionoutput_x86_fma.cpp.ll 554461879
+ncnn/yolov3detectionoutput_x86_avx.cpp.ll 553431127
+ncnn/yolov3detectionoutput_x86_avx512.cpp.ll 578919734
+ncnn/yolov3detectionoutput_x86_fma.cpp.ll 553838543
 nghttp2/api.c.ll 201008103
 nghttp2/client.c.ll 323357462
 nghttp2/deflate.c.ll 82102052
