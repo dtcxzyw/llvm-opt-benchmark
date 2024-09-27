@@ -46,6 +46,7 @@ else
   git commit -m "pre-commit: Update"
   git push -f
   echo "runner: $GH_RUNNER" > scripts/pr-comment.md
+  echo "baseline runner: cseadmin-PowerEdge-R830" >> scripts/pr-comment.md
   echo "baseline: https://github.com/llvm/llvm-project/commit/$LLVM_REVISION" >> scripts/pr-comment.md
   echo "patch: $COMMIT_URL" >> scripts/pr-comment.md
   echo "sha256: $PATCH_SHA256" >> scripts/pr-comment.md
