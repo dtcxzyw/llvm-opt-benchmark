@@ -2814,7 +2814,7 @@ clamav/hfsplus.c.ll 690561797
 clamav/hlpc.c.ll 35723802
 clamav/hlpd.c.ll 35724393
 clamav/hostid.c.ll 56334871
-clamav/hostid_internal.c.ll 57977928
+clamav/hostid_internal.c.ll 58035932
 clamav/htmlnorm.c.ll 2105460404
 clamav/hwp.c.ll 509849342
 clamav/idmef_logging.c.ll 35632149
@@ -23762,7 +23762,7 @@ openjdk/cSpaceCounters.ll 101581195
 openjdk/callGenerator.ll 1196027339
 openjdk/callnode.ll 1237841626
 openjdk/canonicalize_md.ll 59292890
-openjdk/cardTable.ll 157420196
+openjdk/cardTable.ll 157577734
 openjdk/cardTableBarrierSet.ll 172614713
 openjdk/cardTableBarrierSetAssembler_x86.ll 117041097
 openjdk/cardTableBarrierSetC1.ll 300392888
