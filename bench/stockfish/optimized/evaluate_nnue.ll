@@ -278,7 +278,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propag
   %77 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %75, <8 x i16> %76)
   %78 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %77, <16 x i8> <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>)
   %79 = bitcast <16 x i8> %78 to <2 x i64>
-  %80 = xor <2 x i64> %79, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %80 = and <2 x i64> %79, <i64 9187201950435737471, i64 9187201950435737471>
   store <2 x i64> %80, ptr %74, align 64
   %81 = getelementptr inbounds i8, ptr %23, i64 143
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %81, ptr noundef nonnull align 64 dereferenceable(15) %74, i64 15, i1 false)
@@ -361,7 +361,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exi
   %140 = getelementptr inbounds <2 x i64>, ptr %120, i64 %indvars.iv.i.i
   %141 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %139, <16 x i8> <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>)
   %142 = bitcast <16 x i8> %141 to <2 x i64>
-  %143 = xor <2 x i64> %142, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %143 = and <2 x i64> %142, <i64 9187201950435737471, i64 9187201950435737471>
   store <2 x i64> %143, ptr %140, align 16
   br i1 %122, label %121, label %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i, !llvm.loop !11
 
@@ -944,7 +944,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj128ELj16EE9propaga
   %77 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %75, <8 x i16> %76)
   %78 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %77, <16 x i8> <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>)
   %79 = bitcast <16 x i8> %78 to <2 x i64>
-  %80 = xor <2 x i64> %79, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %80 = and <2 x i64> %79, <i64 9187201950435737471, i64 9187201950435737471>
   store <2 x i64> %80, ptr %74, align 64
   %81 = getelementptr inbounds i8, ptr %23, i64 143
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %81, ptr noundef nonnull align 64 dereferenceable(15) %74, i64 15, i1 false)
@@ -1027,7 +1027,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exi
   %140 = getelementptr inbounds <2 x i64>, ptr %120, i64 %indvars.iv.i.i
   %141 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %139, <16 x i8> <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>)
   %142 = bitcast <16 x i8> %141 to <2 x i64>
-  %143 = xor <2 x i64> %142, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %143 = and <2 x i64> %142, <i64 9187201950435737471, i64 9187201950435737471>
   store <2 x i64> %143, ptr %140, align 16
   br i1 %122, label %121, label %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i, !llvm.loop !11
 
@@ -2569,7 +2569,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propag
   %129 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %127, <8 x i16> %128)
   %130 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %129, <16 x i8> <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>)
   %131 = bitcast <16 x i8> %130 to <2 x i64>
-  %132 = xor <2 x i64> %131, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %132 = and <2 x i64> %131, <i64 9187201950435737471, i64 9187201950435737471>
   store <2 x i64> %132, ptr %27, align 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %28, ptr noundef nonnull align 64 dereferenceable(15) %27, i64 15, i1 false)
   %133 = getelementptr inbounds i8, ptr %76, i64 41088
@@ -2646,7 +2646,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exi
   %188 = getelementptr inbounds <2 x i64>, ptr %30, i64 %indvars.iv.i.i.i
   %189 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %187, <16 x i8> <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>)
   %190 = bitcast <16 x i8> %189 to <2 x i64>
-  %191 = xor <2 x i64> %190, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %191 = and <2 x i64> %190, <i64 9187201950435737471, i64 9187201950435737471>
   store <2 x i64> %191, ptr %188, align 16
   br i1 %170, label %_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i, label %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i, !llvm.loop !11
 
@@ -2982,7 +2982,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propag
   %394 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %392, <8 x i16> %393)
   %395 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %394, <16 x i8> <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>)
   %396 = bitcast <16 x i8> %395 to <2 x i64>
-  %397 = xor <2 x i64> %396, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %397 = and <2 x i64> %396, <i64 9187201950435737471, i64 9187201950435737471>
   store <2 x i64> %397, ptr %27, align 64, !noalias !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %28, ptr noundef nonnull align 64 dereferenceable(15) %27, i64 15, i1 false), !noalias !35
   %398 = getelementptr inbounds i8, ptr %341, i64 41088
@@ -3059,7 +3059,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exi
   %453 = getelementptr inbounds <2 x i64>, ptr %30, i64 %indvars.iv.i.i.i66
   %454 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %452, <16 x i8> <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>)
   %455 = bitcast <16 x i8> %454 to <2 x i64>
-  %456 = xor <2 x i64> %455, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %456 = and <2 x i64> %455, <i64 9187201950435737471, i64 9187201950435737471>
   store <2 x i64> %456, ptr %453, align 16, !noalias !35
   br i1 %435, label %_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65, label %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i67, !llvm.loop !11
 
