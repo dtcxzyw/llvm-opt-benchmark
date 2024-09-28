@@ -9482,7 +9482,7 @@ grpc/grpc_tls_credentials_options.cc.ll 300013036
 grpc/grpc_tls_crl_provider.cc.ll 2094594116
 grpc/grpclb.cc.ll 5768052176
 grpc/handshaker.cc.ll 666846004
-grpc/handshaker_registry.cc.ll 256280017
+grpc/handshaker_registry.cc.ll 256536431
 grpc/health_check_client.cc.ll 1689824298
 grpc/histogram_view.cc.ll 71171927
 grpc/hpack_encoder.cc.ll 635629639
