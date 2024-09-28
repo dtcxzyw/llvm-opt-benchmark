@@ -1681,7 +1681,7 @@ define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly %0, i3
   %18 = tail call i32 @H5open() #16
   %19 = load i64, ptr @H5E_BADVALUE_g, align 8
   %20 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, i32 noundef 1089, i64 noundef %15, i64 noundef %17, i64 noundef %19, ptr noundef nonnull @.str.26) #16
-  br label %231
+  br label %228
 
 21:                                               ; preds = %11
   %22 = add i64 %3, 1
@@ -1696,7 +1696,7 @@ define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly %0, i3
   %28 = tail call i32 @H5open() #16
   %29 = load i64, ptr @H5E_BADRANGE_g, align 8
   %30 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, i32 noundef 1091, i64 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef nonnull @.str.27) #16
-  br label %231
+  br label %228
 
 31:                                               ; preds = %21
   %32 = tail call noalias dereferenceable_or_null(472) ptr @calloc(i64 noundef 1, i64 noundef 472) #18
@@ -1711,7 +1711,7 @@ define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly %0, i3
   %39 = tail call i32 @H5open() #16
   %40 = load i64, ptr @H5E_NOSPACE_g, align 8
   %41 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, i32 noundef 1100, i64 noundef %36, i64 noundef %38, i64 noundef %40, ptr noundef nonnull @.str.28) #16
-  br label %231
+  br label %228
 
 42:                                               ; preds = %31
   %43 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %7) #16
@@ -1787,7 +1787,7 @@ define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly %0, i3
   %83 = call i32 @H5open() #16
   %84 = load i64, ptr @H5E_CANTSET_g, align 8
   %85 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, i32 noundef 1112, i64 noundef %80, i64 noundef %82, i64 noundef %84, ptr noundef nonnull @.str.31) #16
-  br label %206
+  br label %203
 
 86:                                               ; preds = %73, %68
   %87 = call i32 @H5Pset_fapl_multi(i64 noundef %72, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
@@ -1802,7 +1802,7 @@ define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly %0, i3
   %94 = call i32 @H5open() #16
   %95 = load i64, ptr @H5E_CANTSET_g, align 8
   %96 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, i32 noundef 1116, i64 noundef %91, i64 noundef %93, i64 noundef %95, ptr noundef nonnull @.str.31) #16
-  br label %206
+  br label %203
 
 97:                                               ; preds = %86, %75
   %98 = call ptr @H5Pget_driver_info(i64 noundef %72) #16
@@ -1888,7 +1888,7 @@ define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly %0, i3
   %145 = call i32 @H5open() #16
   %146 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8
   %147 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, i32 noundef 1139, i64 noundef %142, i64 noundef %144, i64 noundef %146, ptr noundef nonnull @.str.24) #16
-  br label %206
+  br label %203
 
 148:                                              ; preds = %137, %128
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5)
@@ -1899,8 +1899,8 @@ define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly %0, i3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %5, i8 0, i64 28, i1 false)
   br label %151
 
-151:                                              ; preds = %187, %148
-  %indvars.iv50.i = phi i64 [ 1, %148 ], [ %indvars.iv.next51.i, %187 ]
+151:                                              ; preds = %184, %148
+  %indvars.iv50.i = phi i64 [ 1, %148 ], [ %indvars.iv.next51.i, %184 ]
   %152 = getelementptr inbounds [7 x i32], ptr %100, i64 0, i64 %indvars.iv50.i
   %153 = load i32, ptr %152, align 4
   %154 = icmp eq i32 %153, 0
@@ -1912,7 +1912,7 @@ define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly %0, i3
   %159 = add i32 %158, 1
   store i32 %159, ptr %157, align 4
   %.not.i = icmp eq i32 %158, 0
-  br i1 %.not.i, label %160, label %187
+  br i1 %.not.i, label %160, label %184
 
 160:                                              ; preds = %151
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %6, i8 0, i64 28, i1 false)
@@ -1920,8 +1920,8 @@ define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly %0, i3
   %162 = getelementptr inbounds [7 x i64], ptr %150, i64 0, i64 %156
   br label %163
 
-163:                                              ; preds = %182, %160
-  %indvars.iv.i = phi i64 [ 1, %160 ], [ %indvars.iv.next.i, %182 ]
+163:                                              ; preds = %181, %160
+  %indvars.iv.i = phi i64 [ 1, %160 ], [ %indvars.iv.next.i, %181 ]
   %164 = getelementptr inbounds [7 x i32], ptr %100, i64 0, i64 %indvars.iv.i
   %165 = load i32, ptr %164, align 4
   %166 = icmp eq i32 %165, 0
@@ -1933,131 +1933,125 @@ define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly %0, i3
   %171 = add i32 %170, 1
   store i32 %171, ptr %169, align 4
   %.not43.i = icmp eq i32 %170, 0
-  br i1 %.not43.i, label %172, label %182
+  br i1 %.not43.i, label %172, label %181
 
 172:                                              ; preds = %163
   %173 = load i64, ptr %161, align 8
   %174 = getelementptr inbounds [7 x i64], ptr %102, i64 0, i64 %168
   %175 = load i64, ptr %174, align 8
   %176 = icmp ult i64 %173, %175
-  br i1 %176, label %177, label %182
+  br i1 %176, label %177, label %181
 
 177:                                              ; preds = %172
   %178 = load i64, ptr %162, align 8
   %179 = icmp eq i64 %178, -1
-  %180 = icmp ugt i64 %178, %175
-  %or.cond.i = or i1 %179, %180
-  br i1 %or.cond.i, label %181, label %182
+  %180 = call i64 @llvm.umin.i64(i64 %178, i64 %175)
+  %spec.store.select98 = select i1 %179, i64 %175, i64 %180
+  store i64 %spec.store.select98, ptr %162, align 8
+  br label %181
 
-181:                                              ; preds = %177
-  store i64 %175, ptr %162, align 8
-  br label %182
-
-182:                                              ; preds = %181, %177, %172, %163
+181:                                              ; preds = %177, %172, %163
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %183, label %163
+  br i1 %exitcond.not.i, label %182, label %163
 
-183:                                              ; preds = %182
-  %184 = load i64, ptr %162, align 8
-  %185 = icmp eq i64 %184, -1
-  br i1 %185, label %186, label %187
+182:                                              ; preds = %181
+  %183 = load i64, ptr %162, align 8
+  %spec.store.select99 = call i64 @llvm.umin.i64(i64 %183, i64 -2)
+  store i64 %spec.store.select99, ptr %162, align 8
+  br label %184
 
-186:                                              ; preds = %183
-  store i64 -2, ptr %162, align 8
-  br label %187
-
-187:                                              ; preds = %186, %183, %151
+184:                                              ; preds = %182, %151
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next51.i, 7
   br i1 %exitcond53.not.i, label %compute_next.exit, label %151
 
-compute_next.exit:                                ; preds = %187
+compute_next.exit:                                ; preds = %184
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6)
-  %188 = call fastcc i32 @open_members(ptr noundef nonnull %32)
-  %189 = icmp slt i32 %188, 0
-  br i1 %189, label %190, label %198
+  %185 = call fastcc i32 @open_members(ptr noundef nonnull %32)
+  %186 = icmp slt i32 %185, 0
+  br i1 %186, label %187, label %195
 
-190:                                              ; preds = %compute_next.exit
-  %191 = call i32 @H5open() #16
-  %192 = load i64, ptr @H5E_ERR_CLS_g, align 8
-  %193 = call i32 @H5open() #16
-  %194 = load i64, ptr @H5E_INTERNAL_g, align 8
-  %195 = call i32 @H5open() #16
-  %196 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %197 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, i32 noundef 1145, i64 noundef %192, i64 noundef %194, i64 noundef %196, ptr noundef nonnull @.str.16) #16
-  br label %206
+187:                                              ; preds = %compute_next.exit
+  %188 = call i32 @H5open() #16
+  %189 = load i64, ptr @H5E_ERR_CLS_g, align 8
+  %190 = call i32 @H5open() #16
+  %191 = load i64, ptr @H5E_INTERNAL_g, align 8
+  %192 = call i32 @H5open() #16
+  %193 = load i64, ptr @H5E_BADVALUE_g, align 8
+  %194 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.25, i32 noundef 1145, i64 noundef %189, i64 noundef %191, i64 noundef %193, ptr noundef nonnull @.str.16) #16
+  br label %203
 
-198:                                              ; preds = %compute_next.exit
-  %199 = getelementptr inbounds i8, ptr %32, i64 84
-  %200 = load i32, ptr %199, align 4
-  %spec.store.select = call i32 @llvm.umax.i32(i32 %200, i32 1)
-  %201 = getelementptr inbounds i8, ptr %32, i64 344
-  %202 = sext i32 %spec.store.select to i64
-  %203 = getelementptr inbounds [7 x ptr], ptr %201, i64 0, i64 %202
-  %204 = load ptr, ptr %203, align 8
-  %205 = icmp eq ptr %204, null
-  br i1 %205, label %206, label %231
+195:                                              ; preds = %compute_next.exit
+  %196 = getelementptr inbounds i8, ptr %32, i64 84
+  %197 = load i32, ptr %196, align 4
+  %spec.store.select = call i32 @llvm.umax.i32(i32 %197, i32 1)
+  %198 = getelementptr inbounds i8, ptr %32, i64 344
+  %199 = sext i32 %spec.store.select to i64
+  %200 = getelementptr inbounds [7 x ptr], ptr %198, i64 0, i64 %199
+  %201 = load ptr, ptr %200, align 8
+  %202 = icmp eq ptr %201, null
+  br i1 %202, label %203, label %228
 
-206:                                              ; preds = %78, %89, %140, %190, %198
-  %207 = getelementptr inbounds i8, ptr %32, i64 344
-  %208 = getelementptr inbounds i8, ptr %32, i64 112
-  %209 = getelementptr inbounds i8, ptr %32, i64 168
-  br label %210
+203:                                              ; preds = %78, %89, %140, %187, %195
+  %204 = getelementptr inbounds i8, ptr %32, i64 344
+  %205 = getelementptr inbounds i8, ptr %32, i64 112
+  %206 = getelementptr inbounds i8, ptr %32, i64 168
+  br label %207
 
-210:                                              ; preds = %206, %225
-  %indvars.iv101 = phi i64 [ 0, %206 ], [ %indvars.iv.next102, %225 ]
-  %211 = getelementptr inbounds [7 x ptr], ptr %207, i64 0, i64 %indvars.iv101
-  %212 = load ptr, ptr %211, align 8
-  %.not96 = icmp eq ptr %212, null
-  br i1 %.not96, label %215, label %213
+207:                                              ; preds = %203, %222
+  %indvars.iv103 = phi i64 [ 0, %203 ], [ %indvars.iv.next104, %222 ]
+  %208 = getelementptr inbounds [7 x ptr], ptr %204, i64 0, i64 %indvars.iv103
+  %209 = load ptr, ptr %208, align 8
+  %.not96 = icmp eq ptr %209, null
+  br i1 %.not96, label %212, label %210
 
-213:                                              ; preds = %210
-  %214 = call i32 @H5FDclose(ptr noundef nonnull %212) #16
-  br label %215
+210:                                              ; preds = %207
+  %211 = call i32 @H5FDclose(ptr noundef nonnull %209) #16
+  br label %212
 
-215:                                              ; preds = %213, %210
-  %216 = getelementptr inbounds [7 x i64], ptr %208, i64 0, i64 %indvars.iv101
-  %217 = load i64, ptr %216, align 8
-  %218 = icmp sgt i64 %217, -1
-  br i1 %218, label %219, label %221
+212:                                              ; preds = %210, %207
+  %213 = getelementptr inbounds [7 x i64], ptr %205, i64 0, i64 %indvars.iv103
+  %214 = load i64, ptr %213, align 8
+  %215 = icmp sgt i64 %214, -1
+  br i1 %215, label %216, label %218
 
-219:                                              ; preds = %215
-  %220 = call i32 @H5Idec_ref(i64 noundef %217) #16
-  br label %221
+216:                                              ; preds = %212
+  %217 = call i32 @H5Idec_ref(i64 noundef %214) #16
+  br label %218
 
-221:                                              ; preds = %219, %215
-  %222 = getelementptr inbounds [7 x ptr], ptr %209, i64 0, i64 %indvars.iv101
-  %223 = load ptr, ptr %222, align 8
-  %.not97 = icmp eq ptr %223, null
-  br i1 %.not97, label %225, label %224
+218:                                              ; preds = %216, %212
+  %219 = getelementptr inbounds [7 x ptr], ptr %206, i64 0, i64 %indvars.iv103
+  %220 = load ptr, ptr %219, align 8
+  %.not97 = icmp eq ptr %220, null
+  br i1 %.not97, label %222, label %221
 
-224:                                              ; preds = %221
-  call void @free(ptr noundef nonnull %223) #16
-  br label %225
+221:                                              ; preds = %218
+  call void @free(ptr noundef nonnull %220) #16
+  br label %222
 
-225:                                              ; preds = %221, %224
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv.next102, 7
-  br i1 %exitcond104.not, label %226, label %210
+222:                                              ; preds = %218, %221
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next104, 7
+  br i1 %exitcond106.not, label %223, label %207
 
-226:                                              ; preds = %225
-  %227 = getelementptr inbounds i8, ptr %32, i64 464
-  %228 = load ptr, ptr %227, align 8
-  %.not95 = icmp eq ptr %228, null
-  br i1 %.not95, label %230, label %229
+223:                                              ; preds = %222
+  %224 = getelementptr inbounds i8, ptr %32, i64 464
+  %225 = load ptr, ptr %224, align 8
+  %.not95 = icmp eq ptr %225, null
+  br i1 %.not95, label %227, label %226
 
-229:                                              ; preds = %226
-  call void @free(ptr noundef nonnull %228) #16
-  br label %230
+226:                                              ; preds = %223
+  call void @free(ptr noundef nonnull %225) #16
+  br label %227
 
-230:                                              ; preds = %229, %226
+227:                                              ; preds = %226, %223
   call void @free(ptr noundef nonnull %32) #16
-  br label %231
+  br label %228
 
-231:                                              ; preds = %198, %230, %34, %23, %13
-  %.073 = phi ptr [ null, %23 ], [ null, %34 ], [ null, %230 ], [ null, %13 ], [ %32, %198 ]
+228:                                              ; preds = %195, %227, %34, %23, %13
+  %.073 = phi ptr [ null, %23 ], [ null, %34 ], [ null, %227 ], [ null, %13 ], [ %32, %195 ]
   ret ptr %.073
 }
 
@@ -3707,6 +3701,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

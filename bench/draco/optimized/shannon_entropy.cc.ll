@@ -257,12 +257,12 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %38, %36, %34, %32, 
 
 49:                                               ; preds = %47
   %50 = add nsw i32 %17, 1
-  %spec.select = call i32 @llvm.umax.i32(i32 %20, i32 %16)
+  %spec.store.select = call i32 @llvm.umax.i32(i32 %20, i32 %16)
   br label %51
 
 51:                                               ; preds = %49, %47, %43
   %52 = phi i32 [ %.pre48, %43 ], [ %41, %47 ], [ 0, %49 ]
-  %53 = phi i32 [ %16, %43 ], [ %16, %47 ], [ %spec.select, %49 ]
+  %53 = phi i32 [ %16, %43 ], [ %16, %47 ], [ %spec.store.select, %49 ]
   %54 = phi i32 [ %17, %43 ], [ %17, %47 ], [ %50, %49 ]
   %.028 = phi double [ %46, %43 ], [ 0.000000e+00, %47 ], [ 0.000000e+00, %49 ]
   %55 = add nsw i32 %52, 1

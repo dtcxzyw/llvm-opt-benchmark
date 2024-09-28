@@ -51,33 +51,33 @@ define void @Sec_MiterStatus(ptr dead_on_unwind noalias nocapture writable write
   %.val = load i32, ptr %4, align 4
   store i32 %.val, ptr %0, align 4
   %5 = getelementptr i8, ptr %1, i64 148
-  %.val21 = load i32, ptr %5, align 4
+  %.val23 = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 152
-  %.val22 = load i32, ptr %6, align 8
-  %7 = add nsw i32 %.val22, %.val21
+  %.val24 = load i32, ptr %6, align 8
+  %7 = add nsw i32 %.val24, %.val23
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4
   %9 = getelementptr i8, ptr %1, i64 112
-  %.val23 = load i32, ptr %9, align 8
+  %.val25 = load i32, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.val23, ptr %10, align 4
-  %11 = icmp sgt i32 %.val23, 0
+  store i32 %.val25, ptr %10, align 4
+  %11 = icmp sgt i32 %.val25, 0
   br i1 %11, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 8
-  %.val25 = load ptr, ptr %14, align 8
+  %.val27 = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %1, i64 48
-  %.val27 = load ptr, ptr %15, align 8
-  %16 = ptrtoint ptr %.val27 to i64
+  %.val29 = load ptr, ptr %15, align 8
+  %16 = ptrtoint ptr %.val29 to i64
   %17 = xor i64 %16, 1
   %18 = inttoptr i64 %17 to ptr
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = getelementptr inbounds i8, ptr %0, i64 20
   %21 = getelementptr inbounds i8, ptr %0, i64 12
-  %wide.trip.count = zext nneg i32 %.val23 to i64
+  %wide.trip.count = zext nneg i32 %.val25 to i64
   br label %22
 
 22:                                               ; preds = %.lr.ph, %60
@@ -86,11 +86,11 @@ define void @Sec_MiterStatus(ptr dead_on_unwind noalias nocapture writable write
   %24 = phi i32 [ 0, %.lr.ph ], [ %62, %60 ]
   %25 = phi i32 [ 0, %.lr.ph ], [ %63, %60 ]
   %26 = phi i32 [ -1, %.lr.ph ], [ %64, %60 ]
-  %27 = getelementptr inbounds ptr, ptr %.val25, i64 %indvars.iv
+  %27 = getelementptr inbounds ptr, ptr %.val27, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 8
-  %.val26 = load ptr, ptr %29, align 8
-  %30 = icmp eq ptr %.val26, %18
+  %.val28 = load ptr, ptr %29, align 8
+  %30 = icmp eq ptr %.val28, %18
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %22
@@ -98,18 +98,18 @@ define void @Sec_MiterStatus(ptr dead_on_unwind noalias nocapture writable write
   br label %60
 
 33:                                               ; preds = %22
-  %34 = icmp eq ptr %.val26, %.val27
+  %34 = icmp eq ptr %.val28, %.val29
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %33
   %36 = add nsw i32 %25, 1
   %37 = icmp eq i32 %26, -1
   %38 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %37, i32 %38, i32 %26
+  %spec.store.select = select i1 %37, i32 %38, i32 %26
   br label %60
 
 39:                                               ; preds = %33
-  %40 = ptrtoint ptr %.val26 to i64
+  %40 = ptrtoint ptr %.val28 to i64
   %41 = and i64 %40, -2
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr i8, ptr %42, i64 24
@@ -127,7 +127,7 @@ Saig_ObjIsPi.exit:                                ; preds = %39
   %46 = add nsw i32 %25, 1
   %47 = icmp eq i32 %26, -1
   %48 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select37 = select i1 %47, i32 %48, i32 %26
+  %spec.store.select21 = select i1 %47, i32 %48, i32 %26
   br label %60
 
 Saig_ObjIsPi.exit.thread:                         ; preds = %39, %Saig_ObjIsPi.exit
@@ -143,7 +143,7 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %39, %Saig_ObjIsPi.e
   %55 = add nsw i32 %25, 1
   %56 = icmp eq i32 %26, -1
   %57 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select38 = select i1 %56, i32 %57, i32 %26
+  %spec.store.select22 = select i1 %56, i32 %57, i32 %26
   br label %60
 
 58:                                               ; preds = %Saig_ObjIsPi.exit.thread
@@ -151,10 +151,10 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %39, %Saig_ObjIsPi.e
   br label %60
 
 60:                                               ; preds = %54, %45, %35, %31, %58
-  %61 = phi i32 [ %32, %31 ], [ %23, %58 ], [ %23, %35 ], [ %23, %45 ], [ %23, %54 ]
-  %62 = phi i32 [ %24, %31 ], [ %59, %58 ], [ %24, %35 ], [ %24, %45 ], [ %24, %54 ]
-  %63 = phi i32 [ %25, %31 ], [ %25, %58 ], [ %36, %35 ], [ %46, %45 ], [ %55, %54 ]
-  %64 = phi i32 [ %26, %31 ], [ %26, %58 ], [ %spec.select, %35 ], [ %spec.select37, %45 ], [ %spec.select38, %54 ]
+  %61 = phi i32 [ %23, %54 ], [ %23, %45 ], [ %23, %35 ], [ %32, %31 ], [ %23, %58 ]
+  %62 = phi i32 [ %24, %54 ], [ %24, %45 ], [ %24, %35 ], [ %24, %31 ], [ %59, %58 ]
+  %63 = phi i32 [ %55, %54 ], [ %46, %45 ], [ %36, %35 ], [ %25, %31 ], [ %25, %58 ]
+  %64 = phi i32 [ %spec.store.select22, %54 ], [ %spec.store.select21, %45 ], [ %spec.store.select, %35 ], [ %26, %31 ], [ %26, %58 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..critedge_crit_edge, label %22, !llvm.loop !4

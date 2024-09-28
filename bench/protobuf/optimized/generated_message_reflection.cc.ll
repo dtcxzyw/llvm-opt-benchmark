@@ -636,23 +636,18 @@ for.inc:                                          ; preds = %for.body, %if.then
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond12.preheader, label %for.body, !llvm.loop !4
 
-for.body16:                                       ; preds = %for.body16.preheader, %for.inc25
-  %indvars.iv26 = phi i64 [ 0, %for.body16.preheader ], [ %indvars.iv.next27, %for.inc25 ]
+for.body16:                                       ; preds = %for.body16.preheader, %for.body16
+  %indvars.iv26 = phi i64 [ 0, %for.body16.preheader ], [ %indvars.iv.next27, %for.body16 ]
   %arrayidx18 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv26
   %10 = load ptr, ptr %arrayidx18, align 8
   %cmp19 = icmp eq ptr %10, null
-  br i1 %cmp19, label %if.then20, label %for.inc25
-
-if.then20:                                        ; preds = %for.body16
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %arrayidx18, align 8
-  br label %for.inc25
-
-for.inc25:                                        ; preds = %for.body16, %if.then20
+  %spec.store.select = select i1 %cmp19, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %10
+  store ptr %spec.store.select, ptr %arrayidx18, align 8
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
   br i1 %exitcond30.not, label %for.end27, label %for.body16, !llvm.loop !6
 
-for.end27:                                        ; preds = %for.inc25, %for.cond12.preheader
+for.end27:                                        ; preds = %for.body16, %for.cond12.preheader
   ret ptr %call
 }
 
@@ -728,23 +723,18 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.cond12.preheader.i, label %for.body.i, !llvm.loop !4
 
-for.body16.i:                                     ; preds = %for.cond12.preheader.i, %for.inc25.i
-  %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %for.inc25.i ], [ 0, %for.cond12.preheader.i ]
+for.body16.i:                                     ; preds = %for.cond12.preheader.i, %for.body16.i
+  %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %for.body16.i ], [ 0, %for.cond12.preheader.i ]
   %arrayidx18.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv26.i
   %13 = load ptr, ptr %arrayidx18.i, align 8
   %cmp19.i = icmp eq ptr %13, null
-  br i1 %cmp19.i, label %if.then20.i, label %for.inc25.i
-
-if.then20.i:                                      ; preds = %for.body16.i
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %arrayidx18.i, align 8
-  br label %for.inc25.i
-
-for.inc25.i:                                      ; preds = %if.then20.i, %for.body16.i
+  %spec.store.select.i = select i1 %cmp19.i, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %13
+  store ptr %spec.store.select.i, ptr %arrayidx18.i, align 8
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i, %conv.i
   br i1 %exitcond30.not.i, label %_ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEii.exit, label %for.body16.i, !llvm.loop !6
 
-_ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEii.exit: ; preds = %for.inc25.i, %for.cond12.preheader.i
+_ZN6google8protobuf8internal18MakeDenseEnumCacheB5cxx11EPKNS0_14EnumDescriptorEii.exit: ; preds = %for.body16.i, %for.cond12.preheader.i
   %14 = ptrtoint ptr %call.i to i64
   %15 = cmpxchg ptr %deci, i64 0, i64 %14 release acquire, align 8
   %16 = extractvalue { i64, i1 } %15, 1

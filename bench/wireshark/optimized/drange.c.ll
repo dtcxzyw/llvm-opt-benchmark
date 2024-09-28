@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @drange_node_new() local_unnamed_addr #0 {
-  %1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
+  %1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   ret ptr %1
 }
@@ -37,9 +37,9 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %5, label %.lr.ph, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__errno_location() #10
+  %7 = tail call ptr @__errno_location() #11
   store i32 0, ptr %7, align 4
-  %8 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 0) #11
+  %8 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 0) #12
   %9 = load i32, ptr %7, align 4
   %10 = icmp eq i32 %9, 22
   %11 = load ptr, ptr %3, align 8
@@ -48,7 +48,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %or.cond76, label %13, label %15
 
 13:                                               ; preds = %6
-  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %0) #11
+  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %0) #12
   store ptr %14, ptr %1, align 8
   br label %drange_str_to_gint32.exit.thread
 
@@ -60,7 +60,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %or.cond3.i, label %19, label %21
 
 19:                                               ; preds = %15
-  %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull %0) #11
+  %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull %0) #12
   store ptr %20, ptr %1, align 8
   br label %drange_str_to_gint32.exit.thread
 
@@ -101,9 +101,9 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
 
 34:                                               ; preds = %.critedge
   %35 = getelementptr i8, ptr %.184, i64 1
-  %36 = tail call ptr @__errno_location() #10
+  %36 = tail call ptr @__errno_location() #11
   store i32 0, ptr %36, align 4
-  %37 = call i64 @strtol(ptr noundef %35, ptr noundef nonnull %3, i32 noundef 0) #11
+  %37 = call i64 @strtol(ptr noundef %35, ptr noundef nonnull %3, i32 noundef 0) #12
   %38 = load i32, ptr %36, align 4
   %39 = icmp eq i32 %38, 22
   %40 = load ptr, ptr %3, align 8
@@ -112,7 +112,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %or.cond78, label %42, label %44
 
 42:                                               ; preds = %34
-  %43 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef %35) #11
+  %43 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef %35) #12
   store ptr %43, ptr %1, align 8
   br label %.critedge.thread
 
@@ -124,7 +124,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %or.cond3.i58, label %48, label %50
 
 48:                                               ; preds = %44
-  %49 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %35) #11
+  %49 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %35) #12
   store ptr %49, ptr %1, align 8
   br label %.critedge.thread
 
@@ -139,16 +139,16 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %55, label %.critedge2.thread.thread122, label %58
 
 .critedge2.thread.thread122:                      ; preds = %52
-  %56 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
+  %56 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #10
   %57 = getelementptr inbounds i8, ptr %56, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %57, i8 0, i64 12, i1 false)
   store i32 %.07195, ptr %56, align 4
   br label %112
 
 58:                                               ; preds = %52
-  %59 = tail call ptr @__errno_location() #10
+  %59 = tail call ptr @__errno_location() #11
   store i32 0, ptr %59, align 4
-  %60 = call i64 @strtol(ptr noundef nonnull %53, ptr noundef nonnull %3, i32 noundef 0) #11
+  %60 = call i64 @strtol(ptr noundef nonnull %53, ptr noundef nonnull %3, i32 noundef 0) #12
   %61 = load i32, ptr %59, align 4
   %62 = icmp eq i32 %61, 22
   %63 = load ptr, ptr %3, align 8
@@ -157,7 +157,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %or.cond80, label %65, label %67
 
 65:                                               ; preds = %58
-  %66 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %53) #11
+  %66 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %53) #12
   store ptr %66, ptr %1, align 8
   br label %.critedge.thread
 
@@ -169,7 +169,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %or.cond3.i61, label %71, label %73
 
 71:                                               ; preds = %67
-  %72 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull %53) #11
+  %72 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull %53) #12
   store ptr %72, ptr %1, align 8
   br label %.critedge.thread
 
@@ -210,20 +210,20 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %.0.shrunk.ph, label %.critedge2.thread, label %.thread
 
 .thread:                                          ; preds = %79, %.critedge2
-  %85 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %0) #11
+  %85 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %0) #12
   store ptr %85, ptr %1, align 8
   br label %drange_str_to_gint32.exit.thread
 
 .thread126:                                       ; preds = %31, %21
   %.07196107117.ph = phi i32 [ %22, %21 ], [ %.07195, %31 ]
-  %86 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
+  %86 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #10
   %87 = getelementptr inbounds i8, ptr %86, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %87, i8 0, i64 12, i1 false)
   store i32 %.07196107117.ph, ptr %86, align 4
   br label %94
 
 .critedge2.thread:                                ; preds = %.critedge2
-  %88 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
+  %88 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #10
   %89 = getelementptr inbounds i8, ptr %88, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %89, i8 0, i64 12, i1 false)
   store i32 %.07195, ptr %88, align 4
@@ -239,9 +239,9 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %90
-  %93 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, i32 noundef %.0.ph) #11
+  %93 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, i32 noundef %.0.ph) #12
   store ptr %93, ptr %1, align 8
-  tail call void @g_free(ptr noundef nonnull %88) #11
+  tail call void @g_free(ptr noundef nonnull %88) #12
   br label %drange_str_to_gint32.exit.thread
 
 94:                                               ; preds = %.thread126, %90
@@ -266,9 +266,9 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %or.cond5, label %104, label %106
 
 104:                                              ; preds = %101, %98
-  %105 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, i32 noundef %.07195, i32 noundef %.0.ph) #11
+  %105 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, i32 noundef %.07195, i32 noundef %.0.ph) #12
   store ptr %105, ptr %1, align 8
-  tail call void @g_free(ptr noundef nonnull %88) #11
+  tail call void @g_free(ptr noundef nonnull %88) #12
   br label %drange_str_to_gint32.exit.thread
 
 106:                                              ; preds = %101
@@ -276,9 +276,9 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %.not57, label %109, label %107
 
 107:                                              ; preds = %106
-  %108 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %0, i32 noundef %.07195, i32 noundef %.0.ph) #11
+  %108 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %0, i32 noundef %.07195, i32 noundef %.0.ph) #12
   store ptr %108, ptr %1, align 8
-  tail call void @g_free(ptr noundef nonnull %88) #11
+  tail call void @g_free(ptr noundef nonnull %88) #12
   br label %drange_str_to_gint32.exit.thread
 
 109:                                              ; preds = %106
@@ -298,7 +298,7 @@ default.unreachable:                              ; preds = %.critedge2.thread
   unreachable
 
 115:                                              ; preds = %.critedge2.thread
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.4, i32 noundef 7, ptr noundef nonnull @.str.5, i64 noundef 157, ptr noundef nonnull @__func__.drange_node_from_str, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.4, i32 noundef 7, ptr noundef nonnull @.str.5, i64 noundef 157, ptr noundef nonnull @__func__.drange_node_from_str, ptr noundef nonnull @.str.6) #13
   unreachable
 
 drange_str_to_gint32.exit.thread:                 ; preds = %19, %13, %94, %109, %112, %107, %104, %92, %.thread
@@ -316,7 +316,7 @@ define hidden void @drange_node_set_start_offset(ptr nocapture noundef writeonly
 
 ; Function Attrs: nounwind uwtable
 define hidden void @drange_node_free(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @g_free(ptr noundef %0) #11
+  tail call void @g_free(ptr noundef %0) #12
   ret void
 }
 
@@ -379,7 +379,7 @@ define hidden i32 @drange_node_get_ending(ptr nocapture noundef readonly %0) loc
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @drange_new(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #9
+  %2 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #10
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i8 1, ptr %3, align 8
@@ -393,7 +393,7 @@ define hidden noalias noundef ptr @drange_new(ptr noundef %0) local_unnamed_addr
   br i1 %.not, label %drange_append_drange_node.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @g_slist_append(ptr noundef null, ptr noundef nonnull %0) #11
+  %8 = tail call ptr @g_slist_append(ptr noundef null, ptr noundef nonnull %0) #12
   store ptr %8, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
@@ -435,7 +435,7 @@ define hidden void @drange_append_drange_node(ptr nocapture noundef %0, ptr noun
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call ptr @g_slist_append(ptr noundef %4, ptr noundef nonnull %1) #11
+  %5 = tail call ptr @g_slist_append(ptr noundef %4, ptr noundef nonnull %1) #12
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
@@ -490,7 +490,7 @@ update_drange_with_node.exit:                     ; preds = %31, %26, %2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @drange_new_from_list(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #9
+  %2 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #10
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i8 1, ptr %3, align 8
@@ -500,7 +500,7 @@ define hidden noundef ptr @drange_new_from_list(ptr noundef %0) local_unnamed_ad
   store i32 2147483647, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 20
   store i32 -2147483648, ptr %6, align 4
-  tail call void @g_slist_foreach(ptr noundef %0, ptr noundef nonnull @drange_append_wrapper, ptr noundef nonnull %2) #11
+  tail call void @g_slist_foreach(ptr noundef %0, ptr noundef nonnull @drange_append_wrapper, ptr noundef nonnull %2) #12
   ret ptr %2
 }
 
@@ -513,7 +513,7 @@ define internal void @drange_append_wrapper(ptr noundef %0, ptr nocapture nounde
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr @g_slist_append(ptr noundef %4, ptr noundef nonnull %0) #11
+  %5 = tail call ptr @g_slist_append(ptr noundef %4, ptr noundef nonnull %0) #12
   store ptr %5, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
@@ -572,7 +572,7 @@ define hidden noalias noundef ptr @drange_dup(ptr noundef readonly %0) local_unn
   br i1 %.not, label %.loopexit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #9
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #10
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i8 1, ptr %4, align 8
@@ -582,19 +582,19 @@ define hidden noalias noundef ptr @drange_dup(ptr noundef readonly %0) local_unn
   store i32 2147483647, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 20
   store i32 -2147483648, ptr %7, align 4
-  %.0915 = load ptr, ptr %0, align 8
-  %.not1116 = icmp eq ptr %.0915, null
-  br i1 %.not1116, label %.loopexit, label %.lr.ph
+  %.0916 = load ptr, ptr %0, align 8
+  %.not1117 = icmp eq ptr %.0916, null
+  br i1 %.not1117, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %drange_append_drange_node.exit
-  %8 = phi ptr [ %42, %drange_append_drange_node.exit ], [ null, %2 ]
-  %.0917 = phi ptr [ %.09, %drange_append_drange_node.exit ], [ %.0915, %2 ]
-  %9 = load ptr, ptr %.0917, align 8
+  %8 = phi ptr [ %37, %drange_append_drange_node.exit ], [ null, %2 ]
+  %.0918 = phi ptr [ %.09, %drange_append_drange_node.exit ], [ %.0916, %2 ]
+  %9 = load ptr, ptr %.0918, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %drange_append_drange_node.exit, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
+  %11 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #10
   %12 = load i32, ptr %9, align 4
   store i32 %12, ptr %11, align 4
   %13 = getelementptr inbounds i8, ptr %9, i64 4
@@ -609,7 +609,7 @@ define hidden noalias noundef ptr @drange_dup(ptr noundef readonly %0) local_unn
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds i8, ptr %11, i64 12
   store i32 %20, ptr %21, align 4
-  %22 = tail call ptr @g_slist_append(ptr noundef %8, ptr noundef nonnull %11) #11
+  %22 = tail call ptr @g_slist_append(ptr noundef %8, ptr noundef nonnull %11) #12
   store ptr %22, ptr %3, align 8
   %23 = load i32, ptr %21, align 4
   %24 = icmp eq i32 %23, 3
@@ -634,26 +634,17 @@ define hidden noalias noundef ptr @drange_dup(ptr noundef readonly %0) local_unn
 33:                                               ; preds = %29, %26, %25
   %34 = load i32, ptr %11, align 4
   %35 = load i32, ptr %6, align 8
-  %36 = icmp slt i32 %34, %35
-  br i1 %36, label %37, label %38
-
-37:                                               ; preds = %33
-  store i32 %34, ptr %6, align 8
-  br label %38
-
-38:                                               ; preds = %37, %33
-  %39 = load i32, ptr %7, align 4
-  %40 = icmp sgt i32 %34, %39
-  br i1 %40, label %41, label %drange_append_drange_node.exit
-
-41:                                               ; preds = %38
-  store i32 %34, ptr %7, align 4
+  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %34, i32 %35)
+  store i32 %spec.store.select, ptr %6, align 8
+  %36 = load i32, ptr %7, align 4
+  %spec.store.select15 = tail call i32 @llvm.smax.i32(i32 %34, i32 %36)
+  store i32 %spec.store.select15, ptr %7, align 4
   br label %drange_append_drange_node.exit
 
-drange_append_drange_node.exit:                   ; preds = %.lr.ph, %38, %41
-  %42 = phi ptr [ %8, %.lr.ph ], [ %22, %38 ], [ %22, %41 ]
-  %43 = getelementptr inbounds i8, ptr %.0917, i64 8
-  %.09 = load ptr, ptr %43, align 8
+drange_append_drange_node.exit:                   ; preds = %33, %.lr.ph
+  %37 = phi ptr [ %22, %33 ], [ %8, %.lr.ph ]
+  %38 = getelementptr inbounds i8, ptr %.0918, i64 8
+  %.09 = load ptr, ptr %38, align 8
   %.not11 = icmp eq ptr %.09, null
   br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
@@ -665,14 +656,14 @@ drange_append_drange_node.exit:                   ; preds = %.lr.ph, %38, %41
 ; Function Attrs: nounwind uwtable
 define hidden void @drange_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @g_slist_free_full(ptr noundef %2, ptr noundef nonnull @g_free) #11
-  tail call void @g_free(ptr noundef nonnull %0) #11
+  tail call void @g_slist_free_full(ptr noundef %2, ptr noundef nonnull @g_free) #12
+  tail call void @g_free(ptr noundef nonnull %0) #12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @drange_node_free_list(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @g_slist_free_full(ptr noundef %0, ptr noundef nonnull @g_free) #11
+  tail call void @g_slist_free_full(ptr noundef %0, ptr noundef nonnull @g_free) #12
   ret void
 }
 
@@ -714,7 +705,7 @@ define hidden void @drange_prepend_drange_node(ptr nocapture noundef %0, ptr nou
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call ptr @g_slist_prepend(ptr noundef %4, ptr noundef nonnull %1) #11
+  %5 = tail call ptr @g_slist_prepend(ptr noundef %4, ptr noundef nonnull %1) #12
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
@@ -774,7 +765,7 @@ declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @drange_foreach_drange_node(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  tail call void @g_slist_foreach(ptr noundef %4, ptr noundef %1, ptr noundef %2) #11
+  tail call void @g_slist_foreach(ptr noundef %4, ptr noundef %1, ptr noundef %2) #12
   ret void
 }
 
@@ -790,19 +781,19 @@ define hidden noalias ptr @drange_node_tostr(ptr nocapture noundef readonly %0) 
   ]
 
 5:                                                ; preds = %1
-  %6 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef %4) #11
+  %6 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef %4) #12
   br label %21
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %4, i32 noundef %9) #11
+  %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %4, i32 noundef %9) #12
   br label %21
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %4, i32 noundef %13) #11
+  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %4, i32 noundef %13) #12
   br label %21
 
 15:                                               ; preds = %1
@@ -810,7 +801,7 @@ define hidden noalias ptr @drange_node_tostr(ptr nocapture noundef readonly %0) 
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 4
-  %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %4, i32 noundef %17, i32 noundef %19) #11
+  %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %4, i32 noundef %17, i32 noundef %19) #12
   br label %21
 
 21:                                               ; preds = %15, %11, %7, %5
@@ -820,7 +811,7 @@ define hidden noalias ptr @drange_node_tostr(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @drange_tostr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @g_string_new(ptr noundef nonnull @.str.4) #11
+  %2 = tail call ptr @g_string_new(ptr noundef nonnull @.str.4) #12
   %3 = load ptr, ptr %0, align 8
   %.not12 = icmp eq ptr %3, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -843,19 +834,19 @@ g_string_append_c_inline.exit:                    ; preds = %g_string_append_c_i
   ]
 
 10:                                               ; preds = %g_string_append_c_inline.exit
-  %11 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef %9) #11
+  %11 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef %9) #12
   br label %drange_node_tostr.exit
 
 12:                                               ; preds = %g_string_append_c_inline.exit
   %13 = getelementptr inbounds i8, ptr %6, i64 8
   %14 = load i32, ptr %13, align 4
-  %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %9, i32 noundef %14) #11
+  %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %9, i32 noundef %14) #12
   br label %drange_node_tostr.exit
 
 16:                                               ; preds = %g_string_append_c_inline.exit
   %17 = getelementptr inbounds i8, ptr %6, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %9, i32 noundef %18) #11
+  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %9, i32 noundef %18) #12
   br label %drange_node_tostr.exit
 
 20:                                               ; preds = %g_string_append_c_inline.exit
@@ -863,13 +854,13 @@ g_string_append_c_inline.exit:                    ; preds = %g_string_append_c_i
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds i8, ptr %6, i64 8
   %24 = load i32, ptr %23, align 4
-  %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %9, i32 noundef %22, i32 noundef %24) #11
+  %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %9, i32 noundef %22, i32 noundef %24) #12
   br label %drange_node_tostr.exit
 
 drange_node_tostr.exit:                           ; preds = %10, %12, %16, %20
   %.0.i = phi ptr [ %11, %10 ], [ %15, %12 ], [ %19, %16 ], [ %25, %20 ]
-  %26 = tail call ptr @g_string_append(ptr noundef %2, ptr noundef %.0.i) #11
-  tail call void @g_free(ptr noundef %.0.i) #11
+  %26 = tail call ptr @g_string_append(ptr noundef %2, ptr noundef %.0.i) #12
+  tail call void @g_free(ptr noundef %.0.i) #12
   %27 = getelementptr inbounds i8, ptr %.013, i64 8
   %28 = load ptr, ptr %27, align 8
   %cond = icmp eq ptr %28, null
@@ -894,14 +885,14 @@ drange_node_tostr.exit:                           ; preds = %10, %12, %16, %20
   br label %g_string_append_c_inline.exit.backedge
 
 40:                                               ; preds = %29
-  %41 = tail call ptr @g_string_insert_c(ptr noundef nonnull %2, i64 noundef -1, i8 noundef signext 44) #11
+  %41 = tail call ptr @g_string_insert_c(ptr noundef nonnull %2, i64 noundef -1, i8 noundef signext 44) #12
   br label %g_string_append_c_inline.exit.backedge
 
 g_string_append_c_inline.exit.backedge:           ; preds = %40, %34
   br label %g_string_append_c_inline.exit
 
 ._crit_edge:                                      ; preds = %drange_node_tostr.exit, %1
-  %42 = tail call ptr @g_string_free(ptr noundef %2, i32 noundef 0) #11
+  %42 = tail call ptr @g_string_free(ptr noundef %2, i32 noundef 0) #12
   ret ptr %42
 }
 
@@ -922,6 +913,12 @@ declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) loc
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #9
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -931,10 +928,11 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind allocsize(0,1) }
-attributes #10 = { nounwind willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind allocsize(0,1) }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

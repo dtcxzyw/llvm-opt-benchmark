@@ -1868,23 +1868,17 @@ if.end76:                                         ; preds = %for.body58
   %context = getelementptr inbounds i8, ptr %arrayidx60, i64 8
   %10 = load i64, ptr %params, align 8
   %cmp77 = icmp eq i64 %10, 0
-  br i1 %cmp77, label %if.then79, label %if.end81
-
-if.then79:                                        ; preds = %if.end76
-  store i64 16, ptr %params, align 8
-  br label %if.end81
-
-if.end81:                                         ; preds = %if.then79, %if.end76
-  %11 = phi i64 [ 16, %if.then79 ], [ %10, %if.end76 ]
+  %spec.store.select = select i1 %cmp77, i64 16, i64 %10
+  store i64 %spec.store.select, ptr %params, align 8
   %mem_buffer = getelementptr inbounds i8, ptr %params, i64 8
-  %12 = load ptr, ptr %mem_buffer, align 8
-  %tobool83.not = icmp eq ptr %12, null
-  %sub = add i64 %11, 15
+  %11 = load ptr, ptr %mem_buffer, align 8
+  %tobool83.not = icmp eq ptr %11, null
+  %sub = add i64 %spec.store.select, 15
   %and = and i64 %sub, -16
-  %cond = select i1 %tobool83.not, i64 %and, i64 %11
+  %cond = select i1 %tobool83.not, i64 %and, i64 %spec.store.select
   br i1 %tobool83.not, label %cond.false93, label %cond.end95
 
-cond.false93:                                     ; preds = %if.end81
+cond.false93:                                     ; preds = %if.end76
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %aligned_memory.i)
   %cmp.i53 = icmp eq i64 %and, 0
   br i1 %cmp.i53, label %if.then.i, label %if.end.i
@@ -1916,20 +1910,20 @@ sw.epilog.i:                                      ; preds = %sw.bb4.i, %sw.bb.i,
   br label %ggml_aligned_malloc.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %13 = load ptr, ptr %aligned_memory.i, align 8
+  %12 = load ptr, ptr %aligned_memory.i, align 8
   br label %ggml_aligned_malloc.exit
 
 ggml_aligned_malloc.exit:                         ; preds = %if.then.i, %sw.epilog.i, %if.end6.i
-  %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %sw.epilog.i ], [ %13, %if.end6.i ]
+  %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %sw.epilog.i ], [ %12, %if.end6.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %aligned_memory.i)
   br label %cond.end95
 
-cond.end95:                                       ; preds = %if.end81, %ggml_aligned_malloc.exit
-  %cond96 = phi ptr [ %retval.0.i, %ggml_aligned_malloc.exit ], [ %12, %if.end81 ]
+cond.end95:                                       ; preds = %if.end76, %ggml_aligned_malloc.exit
+  %cond96 = phi ptr [ %retval.0.i, %ggml_aligned_malloc.exit ], [ %11, %if.end76 ]
   %frombool = zext i1 %tobool83.not to i8
   %no_alloc101 = getelementptr inbounds i8, ptr %params, i64 16
-  %14 = load i8, ptr %no_alloc101, align 8
-  %frombool103 = and i8 %14, 1
+  %13 = load i8, ptr %no_alloc101, align 8
+  %frombool103 = and i8 %13, 1
   store i64 %cond, ptr %context, align 8
   %.compoundliteral86.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %arrayidx60, i64 16
   store ptr %cond96, ptr %.compoundliteral86.sroa.3.0..sroa_idx, align 8
@@ -1945,32 +1939,32 @@ cond.end95:                                       ; preds = %if.end81, %ggml_ali
   br i1 %cmp108.not, label %if.then110, label %do.body114
 
 if.then110:                                       ; preds = %cond.end95
-  %15 = load ptr, ptr @stdout, align 8
-  %call111 = call i32 @fflush(ptr noundef %15)
-  %16 = load ptr, ptr @stderr, align 8
-  %call112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 2315, ptr noundef nonnull @.str.24) #46
+  %14 = load ptr, ptr @stdout, align 8
+  %call111 = call i32 @fflush(ptr noundef %14)
+  %15 = load ptr, ptr @stderr, align 8
+  %call112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 2315, ptr noundef nonnull @.str.24) #46
   call void @ggml_print_backtrace()
   call void @abort() #47
   unreachable
 
 do.body114:                                       ; preds = %cond.end95
-  %17 = ptrtoint ptr %cond96 to i64
-  %rem = and i64 %17, 15
+  %16 = ptrtoint ptr %cond96 to i64
+  %rem = and i64 %16, 15
   %cmp116 = icmp eq i64 %rem, 0
   br i1 %cmp116, label %return, label %if.then118
 
 if.then118:                                       ; preds = %do.body114
-  %18 = load ptr, ptr @stdout, align 8
-  %call119 = call i32 @fflush(ptr noundef %18)
-  %19 = load ptr, ptr @stderr, align 8
-  %call120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 2317, ptr noundef nonnull @.str.25) #46
+  %17 = load ptr, ptr @stdout, align 8
+  %call119 = call i32 @fflush(ptr noundef %17)
+  %18 = load ptr, ptr @stderr, align 8
+  %call120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 2317, ptr noundef nonnull @.str.25) #46
   call void @ggml_print_backtrace()
   call void @abort() #47
   unreachable
 
 return:                                           ; preds = %for.cond55, %do.body114
   %retval.0 = phi ptr [ %context, %do.body114 ], [ null, %for.cond55 ]
-  %20 = atomicrmw sub ptr @g_state_barrier, i32 1 seq_cst, align 4
+  %19 = atomicrmw sub ptr @g_state_barrier, i32 1 seq_cst, align 4
   ret ptr %retval.0
 }
 
