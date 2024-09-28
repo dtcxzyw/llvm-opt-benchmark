@@ -1180,198 +1180,195 @@ VE4_SSE2.exit:                                    ; preds = %51
   %217 = and <16 x i8> %213, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
   %218 = and <16 x i8> %217, %216
   %219 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %212, <16 x i8> %218)
-  %220 = bitcast <16 x i8> %219 to <4 x i32>
-  %221 = extractelement <4 x i32> %220, i64 1
-  %222 = bitcast <16 x i8> %210 to <4 x i32>
-  %223 = extractelement <4 x i32> %222, i64 0
-  store i32 %223, ptr %205, align 1
-  %224 = getelementptr inbounds i8, ptr %0, i64 1596
-  %225 = bitcast <16 x i8> %219 to <4 x i32>
-  %226 = extractelement <4 x i32> %225, i64 0
-  store i32 %226, ptr %224, align 1
-  %227 = getelementptr inbounds i8, ptr %0, i64 1628
-  %228 = shufflevector <16 x i8> %210, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %229 = bitcast <16 x i8> %228 to <4 x i32>
-  %230 = extractelement <4 x i32> %229, i64 0
-  store i32 %230, ptr %227, align 1
-  %231 = getelementptr inbounds i8, ptr %0, i64 1660
-  %232 = shufflevector <16 x i8> %219, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %233 = bitcast <16 x i8> %232 to <4 x i32>
-  %234 = extractelement <4 x i32> %233, i64 0
-  store i32 %234, ptr %231, align 1
-  %235 = trunc i32 %221 to i8
-  %236 = getelementptr inbounds i8, ptr %0, i64 1631
+  %220 = bitcast <16 x i8> %210 to <4 x i32>
+  %221 = extractelement <4 x i32> %220, i64 0
+  store i32 %221, ptr %205, align 1
+  %222 = getelementptr inbounds i8, ptr %0, i64 1596
+  %223 = bitcast <16 x i8> %219 to <4 x i32>
+  %224 = extractelement <4 x i32> %223, i64 0
+  store i32 %224, ptr %222, align 1
+  %225 = getelementptr inbounds i8, ptr %0, i64 1628
+  %226 = shufflevector <16 x i8> %210, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %227 = bitcast <16 x i8> %226 to <4 x i32>
+  %228 = extractelement <4 x i32> %227, i64 0
+  store i32 %228, ptr %225, align 1
+  %229 = getelementptr inbounds i8, ptr %0, i64 1660
+  %230 = shufflevector <16 x i8> %219, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %231 = bitcast <16 x i8> %230 to <4 x i32>
+  %232 = extractelement <4 x i32> %231, i64 0
+  store i32 %232, ptr %229, align 1
+  %233 = extractelement <16 x i8> %219, i64 4
+  %234 = getelementptr inbounds i8, ptr %0, i64 1631
+  store i8 %233, ptr %234, align 1
+  %235 = extractelement <16 x i8> %219, i64 5
+  %236 = getelementptr inbounds i8, ptr %0, i64 1663
   store i8 %235, ptr %236, align 1
-  %237 = lshr i32 %221, 8
-  %238 = trunc i32 %237 to i8
-  %239 = getelementptr inbounds i8, ptr %0, i64 1663
-  store i8 %238, ptr %239, align 1
-  %240 = getelementptr inbounds i8, ptr %0, i64 1664
-  %241 = load i8, ptr %22, align 1
-  %242 = zext i8 %241 to i32
-  %243 = load i8, ptr %57, align 1
-  %244 = zext i8 %243 to i32
-  %245 = load i8, ptr %60, align 1
-  %246 = zext i8 %245 to i32
-  %247 = load i8, ptr %63, align 1
-  %248 = zext i8 %247 to i32
-  %249 = load i8, ptr %66, align 1
-  %250 = zext i8 %249 to i32
-  %251 = load i8, ptr %1, align 1
+  %237 = getelementptr inbounds i8, ptr %0, i64 1664
+  %238 = load i8, ptr %22, align 1
+  %239 = zext i8 %238 to i32
+  %240 = load i8, ptr %57, align 1
+  %241 = zext i8 %240 to i32
+  %242 = load i8, ptr %60, align 1
+  %243 = zext i8 %242 to i32
+  %244 = load i8, ptr %63, align 1
+  %245 = zext i8 %244 to i32
+  %246 = load i8, ptr %66, align 1
+  %247 = zext i8 %246 to i32
+  %248 = load i8, ptr %1, align 1
+  %249 = zext i8 %248 to i32
+  %250 = getelementptr inbounds i8, ptr %1, i64 1
+  %251 = load i8, ptr %250, align 1
   %252 = zext i8 %251 to i32
-  %253 = getelementptr inbounds i8, ptr %1, i64 1
+  %253 = getelementptr inbounds i8, ptr %1, i64 2
   %254 = load i8, ptr %253, align 1
   %255 = zext i8 %254 to i32
-  %256 = getelementptr inbounds i8, ptr %1, i64 2
-  %257 = load i8, ptr %256, align 1
-  %258 = zext i8 %257 to i32
-  %259 = add nuw nsw i32 %244, 1
-  %260 = add nuw nsw i32 %259, %242
-  %261 = lshr i32 %260, 1
-  %262 = trunc nuw i32 %261 to i8
-  %263 = getelementptr inbounds i8, ptr %0, i64 1698
-  store i8 %262, ptr %263, align 1
-  store i8 %262, ptr %240, align 1
-  %264 = add nuw nsw i32 %259, %246
-  %265 = lshr i32 %264, 1
-  %266 = trunc nuw i32 %265 to i8
-  %267 = getelementptr inbounds i8, ptr %0, i64 1730
-  store i8 %266, ptr %267, align 1
-  %268 = getelementptr inbounds i8, ptr %0, i64 1696
-  store i8 %266, ptr %268, align 1
-  %269 = add nuw nsw i32 %248, 1
-  %270 = add nuw nsw i32 %269, %246
-  %271 = lshr i32 %270, 1
-  %272 = trunc nuw i32 %271 to i8
-  %273 = getelementptr inbounds i8, ptr %0, i64 1762
-  store i8 %272, ptr %273, align 1
-  %274 = getelementptr inbounds i8, ptr %0, i64 1728
-  store i8 %272, ptr %274, align 1
-  %275 = add nuw nsw i32 %269, %250
-  %276 = lshr i32 %275, 1
-  %277 = trunc nuw i32 %276 to i8
-  %278 = getelementptr inbounds i8, ptr %0, i64 1760
-  store i8 %277, ptr %278, align 1
-  %279 = shl nuw nsw i32 %255, 1
-  %280 = add nuw nsw i32 %252, 2
-  %281 = add nuw nsw i32 %280, %279
-  %282 = add nuw nsw i32 %281, %258
-  %283 = lshr i32 %282, 2
-  %284 = trunc nuw i32 %283 to i8
-  %285 = getelementptr inbounds i8, ptr %0, i64 1667
-  store i8 %284, ptr %285, align 1
-  %286 = shl nuw nsw i32 %252, 1
-  %287 = add nuw nsw i32 %242, 2
-  %288 = add nuw nsw i32 %286, %287
-  %289 = add nuw nsw i32 %288, %255
-  %290 = lshr i32 %289, 2
-  %291 = trunc nuw i32 %290 to i8
-  %292 = getelementptr inbounds i8, ptr %0, i64 1666
-  store i8 %291, ptr %292, align 1
-  %293 = shl nuw nsw i32 %242, 1
-  %294 = add nuw nsw i32 %244, 2
-  %295 = add nuw nsw i32 %294, %293
-  %296 = add nuw nsw i32 %295, %252
-  %297 = lshr i32 %296, 2
-  %298 = trunc nuw i32 %297 to i8
-  %299 = getelementptr inbounds i8, ptr %0, i64 1699
-  store i8 %298, ptr %299, align 1
-  %300 = getelementptr inbounds i8, ptr %0, i64 1665
-  store i8 %298, ptr %300, align 1
-  %301 = shl nuw nsw i32 %244, 1
-  %302 = add nuw nsw i32 %287, %246
-  %303 = add nuw nsw i32 %302, %301
-  %304 = lshr i32 %303, 2
-  %305 = trunc nuw i32 %304 to i8
-  %306 = getelementptr inbounds i8, ptr %0, i64 1731
-  store i8 %305, ptr %306, align 1
-  %307 = getelementptr inbounds i8, ptr %0, i64 1697
-  store i8 %305, ptr %307, align 1
-  %308 = shl nuw nsw i32 %246, 1
-  %309 = add nuw nsw i32 %294, %248
-  %310 = add nuw nsw i32 %309, %308
-  %311 = lshr i32 %310, 2
-  %312 = trunc nuw i32 %311 to i8
-  %313 = getelementptr inbounds i8, ptr %0, i64 1763
-  store i8 %312, ptr %313, align 1
-  %314 = getelementptr inbounds i8, ptr %0, i64 1729
-  store i8 %312, ptr %314, align 1
-  %315 = shl nuw nsw i32 %248, 1
-  %316 = add nuw nsw i32 %246, 2
-  %317 = add nuw nsw i32 %316, %250
-  %318 = add nuw nsw i32 %317, %315
-  %319 = lshr i32 %318, 2
-  %320 = trunc nuw i32 %319 to i8
-  %321 = getelementptr inbounds i8, ptr %0, i64 1761
-  store i8 %320, ptr %321, align 1
-  %322 = getelementptr inbounds i8, ptr %0, i64 1668
-  %323 = load i8, ptr %57, align 1
-  %324 = zext i8 %323 to i32
-  %325 = load i8, ptr %60, align 1
-  %326 = zext i8 %325 to i32
-  %327 = load i8, ptr %63, align 1
-  %328 = zext i8 %327 to i32
-  %329 = load i8, ptr %66, align 1
-  %330 = zext i8 %329 to i32
-  %331 = add nuw nsw i32 %326, 1
-  %332 = add nuw nsw i32 %331, %324
+  %256 = add nuw nsw i32 %241, 1
+  %257 = add nuw nsw i32 %256, %239
+  %258 = lshr i32 %257, 1
+  %259 = trunc nuw i32 %258 to i8
+  %260 = getelementptr inbounds i8, ptr %0, i64 1698
+  store i8 %259, ptr %260, align 1
+  store i8 %259, ptr %237, align 1
+  %261 = add nuw nsw i32 %256, %243
+  %262 = lshr i32 %261, 1
+  %263 = trunc nuw i32 %262 to i8
+  %264 = getelementptr inbounds i8, ptr %0, i64 1730
+  store i8 %263, ptr %264, align 1
+  %265 = getelementptr inbounds i8, ptr %0, i64 1696
+  store i8 %263, ptr %265, align 1
+  %266 = add nuw nsw i32 %245, 1
+  %267 = add nuw nsw i32 %266, %243
+  %268 = lshr i32 %267, 1
+  %269 = trunc nuw i32 %268 to i8
+  %270 = getelementptr inbounds i8, ptr %0, i64 1762
+  store i8 %269, ptr %270, align 1
+  %271 = getelementptr inbounds i8, ptr %0, i64 1728
+  store i8 %269, ptr %271, align 1
+  %272 = add nuw nsw i32 %266, %247
+  %273 = lshr i32 %272, 1
+  %274 = trunc nuw i32 %273 to i8
+  %275 = getelementptr inbounds i8, ptr %0, i64 1760
+  store i8 %274, ptr %275, align 1
+  %276 = shl nuw nsw i32 %252, 1
+  %277 = add nuw nsw i32 %249, 2
+  %278 = add nuw nsw i32 %277, %276
+  %279 = add nuw nsw i32 %278, %255
+  %280 = lshr i32 %279, 2
+  %281 = trunc nuw i32 %280 to i8
+  %282 = getelementptr inbounds i8, ptr %0, i64 1667
+  store i8 %281, ptr %282, align 1
+  %283 = shl nuw nsw i32 %249, 1
+  %284 = add nuw nsw i32 %239, 2
+  %285 = add nuw nsw i32 %283, %284
+  %286 = add nuw nsw i32 %285, %252
+  %287 = lshr i32 %286, 2
+  %288 = trunc nuw i32 %287 to i8
+  %289 = getelementptr inbounds i8, ptr %0, i64 1666
+  store i8 %288, ptr %289, align 1
+  %290 = shl nuw nsw i32 %239, 1
+  %291 = add nuw nsw i32 %241, 2
+  %292 = add nuw nsw i32 %291, %290
+  %293 = add nuw nsw i32 %292, %249
+  %294 = lshr i32 %293, 2
+  %295 = trunc nuw i32 %294 to i8
+  %296 = getelementptr inbounds i8, ptr %0, i64 1699
+  store i8 %295, ptr %296, align 1
+  %297 = getelementptr inbounds i8, ptr %0, i64 1665
+  store i8 %295, ptr %297, align 1
+  %298 = shl nuw nsw i32 %241, 1
+  %299 = add nuw nsw i32 %284, %243
+  %300 = add nuw nsw i32 %299, %298
+  %301 = lshr i32 %300, 2
+  %302 = trunc nuw i32 %301 to i8
+  %303 = getelementptr inbounds i8, ptr %0, i64 1731
+  store i8 %302, ptr %303, align 1
+  %304 = getelementptr inbounds i8, ptr %0, i64 1697
+  store i8 %302, ptr %304, align 1
+  %305 = shl nuw nsw i32 %243, 1
+  %306 = add nuw nsw i32 %291, %245
+  %307 = add nuw nsw i32 %306, %305
+  %308 = lshr i32 %307, 2
+  %309 = trunc nuw i32 %308 to i8
+  %310 = getelementptr inbounds i8, ptr %0, i64 1763
+  store i8 %309, ptr %310, align 1
+  %311 = getelementptr inbounds i8, ptr %0, i64 1729
+  store i8 %309, ptr %311, align 1
+  %312 = shl nuw nsw i32 %245, 1
+  %313 = add nuw nsw i32 %243, 2
+  %314 = add nuw nsw i32 %313, %247
+  %315 = add nuw nsw i32 %314, %312
+  %316 = lshr i32 %315, 2
+  %317 = trunc nuw i32 %316 to i8
+  %318 = getelementptr inbounds i8, ptr %0, i64 1761
+  store i8 %317, ptr %318, align 1
+  %319 = getelementptr inbounds i8, ptr %0, i64 1668
+  %320 = load i8, ptr %57, align 1
+  %321 = zext i8 %320 to i32
+  %322 = load i8, ptr %60, align 1
+  %323 = zext i8 %322 to i32
+  %324 = load i8, ptr %63, align 1
+  %325 = zext i8 %324 to i32
+  %326 = load i8, ptr %66, align 1
+  %327 = zext i8 %326 to i32
+  %328 = add nuw nsw i32 %323, 1
+  %329 = add nuw nsw i32 %328, %321
+  %330 = lshr i32 %329, 1
+  %331 = trunc nuw i32 %330 to i8
+  store i8 %331, ptr %319, align 1
+  %332 = add nuw nsw i32 %328, %325
   %333 = lshr i32 %332, 1
   %334 = trunc nuw i32 %333 to i8
-  store i8 %334, ptr %322, align 1
-  %335 = add nuw nsw i32 %331, %328
-  %336 = lshr i32 %335, 1
-  %337 = trunc nuw i32 %336 to i8
-  %338 = getelementptr inbounds i8, ptr %0, i64 1700
-  store i8 %337, ptr %338, align 1
-  %339 = getelementptr inbounds i8, ptr %0, i64 1670
-  store i8 %337, ptr %339, align 1
-  %340 = add nuw nsw i32 %328, 1
-  %341 = add nuw nsw i32 %340, %330
-  %342 = lshr i32 %341, 1
-  %343 = trunc nuw i32 %342 to i8
-  %344 = getelementptr inbounds i8, ptr %0, i64 1732
-  store i8 %343, ptr %344, align 1
-  %345 = getelementptr inbounds i8, ptr %0, i64 1702
-  store i8 %343, ptr %345, align 1
-  %346 = shl nuw nsw i32 %326, 1
-  %347 = add nuw nsw i32 %328, 2
-  %348 = add nuw nsw i32 %346, %324
-  %349 = add nuw nsw i32 %348, %347
-  %350 = lshr i32 %349, 2
-  %351 = trunc nuw i32 %350 to i8
-  %352 = getelementptr inbounds i8, ptr %0, i64 1669
-  store i8 %351, ptr %352, align 1
-  %353 = shl nuw nsw i32 %328, 1
-  %354 = add nuw nsw i32 %326, 2
-  %355 = add nuw nsw i32 %354, %330
-  %356 = add nuw nsw i32 %355, %353
-  %357 = lshr i32 %356, 2
-  %358 = trunc nuw i32 %357 to i8
-  %359 = getelementptr inbounds i8, ptr %0, i64 1701
-  store i8 %358, ptr %359, align 1
-  %360 = getelementptr inbounds i8, ptr %0, i64 1671
-  store i8 %358, ptr %360, align 1
-  %361 = shl nuw nsw i32 %330, 1
-  %362 = add nuw nsw i32 %347, %330
-  %363 = add nuw nsw i32 %362, %361
-  %364 = lshr i32 %363, 2
-  %365 = trunc nuw i32 %364 to i8
-  %366 = getelementptr inbounds i8, ptr %0, i64 1733
-  store i8 %365, ptr %366, align 1
-  %367 = getelementptr inbounds i8, ptr %0, i64 1703
-  store i8 %365, ptr %367, align 1
-  %368 = getelementptr inbounds i8, ptr %0, i64 1767
-  store i8 %329, ptr %368, align 1
-  %369 = getelementptr inbounds i8, ptr %0, i64 1766
-  store i8 %329, ptr %369, align 1
-  %370 = getelementptr inbounds i8, ptr %0, i64 1765
-  store i8 %329, ptr %370, align 1
-  %371 = getelementptr inbounds i8, ptr %0, i64 1764
-  store i8 %329, ptr %371, align 1
-  %372 = getelementptr inbounds i8, ptr %0, i64 1734
-  store i8 %329, ptr %372, align 1
-  %373 = getelementptr inbounds i8, ptr %0, i64 1735
-  store i8 %329, ptr %373, align 1
+  %335 = getelementptr inbounds i8, ptr %0, i64 1700
+  store i8 %334, ptr %335, align 1
+  %336 = getelementptr inbounds i8, ptr %0, i64 1670
+  store i8 %334, ptr %336, align 1
+  %337 = add nuw nsw i32 %325, 1
+  %338 = add nuw nsw i32 %337, %327
+  %339 = lshr i32 %338, 1
+  %340 = trunc nuw i32 %339 to i8
+  %341 = getelementptr inbounds i8, ptr %0, i64 1732
+  store i8 %340, ptr %341, align 1
+  %342 = getelementptr inbounds i8, ptr %0, i64 1702
+  store i8 %340, ptr %342, align 1
+  %343 = shl nuw nsw i32 %323, 1
+  %344 = add nuw nsw i32 %325, 2
+  %345 = add nuw nsw i32 %343, %321
+  %346 = add nuw nsw i32 %345, %344
+  %347 = lshr i32 %346, 2
+  %348 = trunc nuw i32 %347 to i8
+  %349 = getelementptr inbounds i8, ptr %0, i64 1669
+  store i8 %348, ptr %349, align 1
+  %350 = shl nuw nsw i32 %325, 1
+  %351 = add nuw nsw i32 %323, 2
+  %352 = add nuw nsw i32 %351, %327
+  %353 = add nuw nsw i32 %352, %350
+  %354 = lshr i32 %353, 2
+  %355 = trunc nuw i32 %354 to i8
+  %356 = getelementptr inbounds i8, ptr %0, i64 1701
+  store i8 %355, ptr %356, align 1
+  %357 = getelementptr inbounds i8, ptr %0, i64 1671
+  store i8 %355, ptr %357, align 1
+  %358 = shl nuw nsw i32 %327, 1
+  %359 = add nuw nsw i32 %344, %327
+  %360 = add nuw nsw i32 %359, %358
+  %361 = lshr i32 %360, 2
+  %362 = trunc nuw i32 %361 to i8
+  %363 = getelementptr inbounds i8, ptr %0, i64 1733
+  store i8 %362, ptr %363, align 1
+  %364 = getelementptr inbounds i8, ptr %0, i64 1703
+  store i8 %362, ptr %364, align 1
+  %365 = getelementptr inbounds i8, ptr %0, i64 1767
+  store i8 %326, ptr %365, align 1
+  %366 = getelementptr inbounds i8, ptr %0, i64 1766
+  store i8 %326, ptr %366, align 1
+  %367 = getelementptr inbounds i8, ptr %0, i64 1765
+  store i8 %326, ptr %367, align 1
+  %368 = getelementptr inbounds i8, ptr %0, i64 1764
+  store i8 %326, ptr %368, align 1
+  %369 = getelementptr inbounds i8, ptr %0, i64 1734
+  store i8 %326, ptr %369, align 1
+  %370 = getelementptr inbounds i8, ptr %0, i64 1735
+  store i8 %326, ptr %370, align 1
   ret void
 }
 
