@@ -20521,7 +20521,7 @@ ocio/AllocationOp.cpp.ll 86858176
 ocio/AllocationTransform.cpp.ll 363450212
 ocio/ArriCameras.cpp.ll 265513703
 ocio/Baker.cpp.ll 534581209
-ocio/BitDepthUtils.cpp.ll 62304400
+ocio/BitDepthUtils.cpp.ll 62366927
 ocio/BuiltinConfigRegistry.cpp.ll 5549213701
 ocio/BuiltinTransform.cpp.ll 191581330
 ocio/BuiltinTransformRegistry.cpp.ll 536752277
@@ -31002,7 +31002,7 @@ postgres/getpeereid_srv.ll 38600180
 postgres/ginarrayproc.ll 98227107
 postgres/ginbtree.ll 287662990
 postgres/ginbulk.ll 108502651
-postgres/gindatapage.ll 775774061
+postgres/gindatapage.ll 776549893
 postgres/gindesc.ll 78527453
 postgres/ginentrypage.ll 285730944
 postgres/ginfast.ll 349317993
