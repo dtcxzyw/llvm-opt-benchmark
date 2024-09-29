@@ -4664,7 +4664,7 @@ coreutils-rs/6e3sfsb40eu5ybi.ll 123939642
 coreutils-rs/6h79q3cnlscd1jd.ll 764360572
 coreutils-rs/6ullyz7zhr5tnpn.ll 83919150
 coreutils-rs/6ww4r750j9xeu5p.ll 38637033
-coreutils-rs/735jxo5q1ovuyl9.ll 40722120
+coreutils-rs/735jxo5q1ovuyl9.ll 40763040
 coreutils-rs/7ck58957p7w3oe7.ll 163364031
 coreutils-rs/7j12npc9rup3rmy.ll 208671039
 coreutils-rs/8errj2vilzazrus.ll 388284791
@@ -9870,7 +9870,7 @@ hdf5/H5HL.c.ll 243146040
 hdf5/H5HLcache.c.ll 236627738
 hdf5/H5HLdbg.c.ll 65844573
 hdf5/H5HLdblk.c.ll 65060560
-hdf5/H5HLint.c.ll 53173154
+hdf5/H5HLint.c.ll 53226401
 hdf5/H5HLprfx.c.ll 44003298
 hdf5/H5I.c.ll 227616447
 hdf5/H5IM.c.ll 171167808
@@ -23793,7 +23793,7 @@ openjdk/ciBaseObject.ll 51298952
 openjdk/ciCallSite.ll 112903057
 openjdk/ciConstant.ll 60234807
 openjdk/ciConstantPoolCache.ll 200363614
-openjdk/ciEnv.ll 2288743712
+openjdk/ciEnv.ll 2291034495
 openjdk/ciExceptionHandler.ll 181043325
 openjdk/ciField.ll 412302051
 openjdk/ciFlags.ll 65952896
