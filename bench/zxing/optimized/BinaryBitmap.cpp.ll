@@ -88,7 +88,7 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   br label %36
 
 36:                                               ; preds = %.lr.ph, %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit"
-  %.045 = phi i32 [ 0, %.lr.ph ], [ %51, %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit" ]
+  %.045 = phi i32 [ 0, %.lr.ph ], [ %50, %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit" ]
   %37 = load ptr, ptr %8, align 8
   %38 = load i32, ptr %33, align 8
   %39 = mul nsw i32 %38, %.045
@@ -102,22 +102,22 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   %47 = load i32, ptr %9, align 4
   %48 = load ptr, ptr %35, align 8
   %49 = load i32, ptr %0, align 8
-  %50 = mul nsw i32 %49, %.045
-  %51 = add nuw nsw i32 %.045, 1
-  %52 = mul nsw i32 %49, %51
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %48, i64 %53
-  %.not13.i30 = icmp eq i32 %50, %52
-  switch i32 %47, label %71 [
-    i32 1, label %55
+  %50 = add nuw nsw i32 %.045, 1
+  %51 = mul nsw i32 %49, %50
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i8, ptr %48, i64 %52
+  %.not13.i30 = icmp eq i32 %49, 0
+  switch i32 %47, label %72 [
+    i32 1, label %54
     i32 4, label %63
   ]
 
-55:                                               ; preds = %36
+54:                                               ; preds = %36
   br i1 %.not13.i30, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %55
-  %56 = sext i32 %50 to i64
+.lr.ph.i:                                         ; preds = %54
+  %55 = mul nsw i32 %49, %.045
+  %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %48, i64 %56
   br label %58
 
@@ -130,54 +130,56 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   store i8 %60, ptr %.01114.i, align 1
   %61 = getelementptr inbounds i8, ptr %.015.i, i64 1
   %62 = getelementptr inbounds i8, ptr %.01114.i, i64 1
-  %.not.i = icmp eq ptr %62, %54
+  %.not.i = icmp eq ptr %62, %53
   br i1 %.not.i, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %58
 
 63:                                               ; preds = %36
   br i1 %.not13.i30, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %63
-  %64 = sext i32 %50 to i64
-  %65 = getelementptr inbounds i8, ptr %48, i64 %64
-  br label %66
+  %64 = mul nsw i32 %49, %.045
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %48, i64 %65
+  br label %67
 
-66:                                               ; preds = %66, %.lr.ph.i24
-  %.015.i25 = phi ptr [ %46, %.lr.ph.i24 ], [ %69, %66 ]
-  %.01114.i26 = phi ptr [ %65, %.lr.ph.i24 ], [ %70, %66 ]
-  %67 = load i8, ptr %.015.i25, align 1
-  %.not12.i27 = icmp ule i8 %67, %2
-  %68 = sext i1 %.not12.i27 to i8
-  store i8 %68, ptr %.01114.i26, align 1
-  %69 = getelementptr inbounds i8, ptr %.015.i25, i64 4
-  %70 = getelementptr inbounds i8, ptr %.01114.i26, i64 1
-  %.not.i28 = icmp eq ptr %70, %54
-  br i1 %.not.i28, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %66
+67:                                               ; preds = %67, %.lr.ph.i24
+  %.015.i25 = phi ptr [ %46, %.lr.ph.i24 ], [ %70, %67 ]
+  %.01114.i26 = phi ptr [ %66, %.lr.ph.i24 ], [ %71, %67 ]
+  %68 = load i8, ptr %.015.i25, align 1
+  %.not12.i27 = icmp ule i8 %68, %2
+  %69 = sext i1 %.not12.i27 to i8
+  store i8 %69, ptr %.01114.i26, align 1
+  %70 = getelementptr inbounds i8, ptr %.015.i25, i64 4
+  %71 = getelementptr inbounds i8, ptr %.01114.i26, i64 1
+  %.not.i28 = icmp eq ptr %71, %53
+  br i1 %.not.i28, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %67
 
-71:                                               ; preds = %36
+72:                                               ; preds = %36
   br i1 %.not13.i30, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %.lr.ph.i31
 
-.lr.ph.i31:                                       ; preds = %71
-  %72 = sext i32 %50 to i64
-  %73 = getelementptr inbounds i8, ptr %48, i64 %72
-  %74 = sext i32 %47 to i64
-  br label %75
+.lr.ph.i31:                                       ; preds = %72
+  %73 = mul nsw i32 %49, %.045
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds i8, ptr %48, i64 %74
+  %76 = sext i32 %47 to i64
+  br label %77
 
-75:                                               ; preds = %75, %.lr.ph.i31
-  %.015.i32 = phi ptr [ %46, %.lr.ph.i31 ], [ %78, %75 ]
-  %.01114.i33 = phi ptr [ %73, %.lr.ph.i31 ], [ %79, %75 ]
-  %76 = load i8, ptr %.015.i32, align 1
-  %.not12.i34 = icmp ule i8 %76, %2
-  %77 = sext i1 %.not12.i34 to i8
-  store i8 %77, ptr %.01114.i33, align 1
-  %78 = getelementptr inbounds i8, ptr %.015.i32, i64 %74
-  %79 = getelementptr inbounds i8, ptr %.01114.i33, i64 1
-  %.not.i35 = icmp eq ptr %79, %54
-  br i1 %.not.i35, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %75
+77:                                               ; preds = %77, %.lr.ph.i31
+  %.015.i32 = phi ptr [ %46, %.lr.ph.i31 ], [ %80, %77 ]
+  %.01114.i33 = phi ptr [ %75, %.lr.ph.i31 ], [ %81, %77 ]
+  %78 = load i8, ptr %.015.i32, align 1
+  %.not12.i34 = icmp ule i8 %78, %2
+  %79 = sext i1 %.not12.i34 to i8
+  store i8 %79, ptr %.01114.i33, align 1
+  %80 = getelementptr inbounds i8, ptr %.015.i32, i64 %76
+  %81 = getelementptr inbounds i8, ptr %.01114.i33, i64 1
+  %.not.i35 = icmp eq ptr %81, %53
+  br i1 %.not.i35, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %77
 
-"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit": ; preds = %66, %58, %75, %71, %63, %55
-  %80 = load i32, ptr %30, align 4
-  %81 = icmp slt i32 %51, %80
-  br i1 %81, label %36, label %.loopexit, !llvm.loop !6
+"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit": ; preds = %67, %58, %77, %72, %63, %54
+  %82 = load i32, ptr %30, align 4
+  %83 = icmp slt i32 %50, %82
+  br i1 %83, label %36, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", %.lr.ph49, %29, %17
   ret void
