@@ -5381,7 +5381,7 @@ cvc5/ceg_instantiator.cpp.ll 10543037452
 cvc5/ceg_utils.cpp.ll 379803974
 cvc5/cegis.cpp.ll 4500689543
 cvc5/cegis_core_connective.cpp.ll 5429286327
-cvc5/cegis_unif.cpp.ll 4307557380
+cvc5/cegis_unif.cpp.ll 4311865710
 cvc5/check.cpp.ll 125190074
 cvc5/check_models.cpp.ll 427313384
 cvc5/circuit_propagator.cpp.ll 6299100747
@@ -41410,7 +41410,7 @@ yosys/chtype.ll 1283590692
 yosys/clean_zerowidth.ll 13806946099
 yosys/clk2fflogic.ll 5451548982
 yosys/clkbufmap.ll 6975821754
-yosys/connect.ll 13320950537
+yosys/connect.ll 13334276828
 yosys/connwrappers.ll 3990997074
 yosys/const2ast.ll 617148146
 yosys/coolrunner2_fixup.ll 6825030210
