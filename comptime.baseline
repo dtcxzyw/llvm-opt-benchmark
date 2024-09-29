@@ -8521,7 +8521,7 @@ gromacs/dsterf.cpp.ll 172410745
 gromacs/dstevr.cpp.ll 37507576
 gromacs/dswap.cpp.ll 62859297
 gromacs/dsyevr.cpp.ll 118996763
-gromacs/dsymv.cpp.ll 163342414
+gromacs/dsymv.cpp.ll 163505957
 gromacs/dsyr2.cpp.ll 133562013
 gromacs/dsyr2k.cpp.ll 282893570
 gromacs/dsytd2.cpp.ll 81202288
