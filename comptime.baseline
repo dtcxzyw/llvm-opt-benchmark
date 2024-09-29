@@ -5452,7 +5452,7 @@ cvc5/evaluator.cpp.ll 3630901798
 cvc5/example_eval_cache.cpp.ll 1218727514
 cvc5/example_infer.cpp.ll 2384975408
 cvc5/example_min_eval.cpp.ll 779833173
-cvc5/exception.cpp.ll 124812930
+cvc5/exception.cpp.ll 124687949
 cvc5/expand_definitions.cpp.ll 1221719846
 cvc5/exponential_solver.cpp.ll 2017755789
 cvc5/expr_miner.cpp.ll 1049061856
@@ -21383,7 +21383,7 @@ openblas/dstebz.c.ll 213763928
 openblas/dstedc.c.ll 125816311
 openblas/dstein.c.ll 137730453
 openblas/dstemr.c.ll 189799754
-openblas/dsteqr.c.ll 199790586
+openblas/dsteqr.c.ll 199590629
 openblas/dsterf.c.ll 155685266
 openblas/dstevd.c.ll 60506403
 openblas/dsum_k.c.ll 55859741
@@ -22508,7 +22508,7 @@ opencv/lrn_layer.cpp.ll 575865250
 opencv/lsc.cpp.ll 4380099737
 opencv/lsd.cpp.ll 1827538263
 opencv/lsd_lines.cpp.ll 155607496
-opencv/lsd_lines_extraction.cpp.ll 162753175
+opencv/lsd_lines_extraction.cpp.ll 162590136
 opencv/lucid.cpp.ll 259641044
 opencv/luminance_source.cpp.ll 114951419
 opencv/lut.cpp.ll 300902394
@@ -22787,7 +22787,7 @@ opencv/perf_houghcircles.cpp.ll 326743731
 opencv/perf_houghlines.cpp.ll 55921988
 opencv/perf_imgproc.cpp.ll 9214269415
 opencv/perf_imgwarp.cpp.ll 56004758
-opencv/perf_inRange.cpp.ll 1277074971
+opencv/perf_inRange.cpp.ll 1275797500
 opencv/perf_inpaint.cpp.ll 1946882853
 opencv/perf_input.cpp.ll 1444526243
 opencv/perf_integral.cpp.ll 3854778540
@@ -32486,7 +32486,7 @@ qemu/block_qed.c.ll 556409199
 qemu/block_quorum.c.ll 518862630
 qemu/block_raw-format.c.ll 163351307
 qemu/block_replication.c.ll 172726277
-qemu/block_snapshot-access.c.ll 55826499
+qemu/block_snapshot-access.c.ll 55770461
 qemu/block_snapshot.c.ll 329641037
 qemu/block_stream.c.ll 154275810
 qemu/block_throttle-groups.c.ll 282151179
