@@ -8555,7 +8555,7 @@ gromacs/evaluate.cpp.ll 830529299
 gromacs/event.cpp.ll 40934849
 gromacs/ewald.cpp.ll 421457544
 gromacs/ewald_utils.cpp.ll 54935280
-gromacs/exceptions.cpp.ll 48012348
+gromacs/exceptions.cpp.ll 48060550
 gromacs/exclusionblocks.cpp.ll 733980170
 gromacs/exclusionchecker.cpp.ll 295541455
 gromacs/expanded.cpp.ll 1690545852
@@ -11038,7 +11038,7 @@ icu/udbgutil.ll 784169296
 icu/ufieldpositer.ll 51016798
 icu/ufile.ll 97915038
 icu/ufmt_cmn.ll 137191784
-icu/uhash.ll 448682686
+icu/uhash.ll 448233878
 icu/uidna.ll 288874016
 icu/uinit.ll 50094320
 icu/uinvchar.ll 217572954
