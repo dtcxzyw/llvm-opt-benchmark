@@ -5103,7 +5103,7 @@ cpython/test_lock.ll 206381124
 cpython/textio.ll 1870591480
 cpython/thread.ll 190617283
 cpython/timemodule.ll 304871225
-cpython/token.ll 61134187
+cpython/token.ll 61195357
 cpython/traceback.ll 568637776
 cpython/tracemalloc.ll 406824092
 cpython/transpose.ll 188280961
@@ -29241,7 +29241,7 @@ openusd/enums.cpp.ll 53048681
 openusd/env.cpp.ll 5331631396
 openusd/envSetting.cpp.ll 645890557
 openusd/errno.cpp.ll 57358786
-openusd/error.cpp.ll 39156534
+openusd/error.cpp.ll 39195874
 openusd/errorMark.cpp.ll 484327299
 openusd/errorTransport.cpp.ll 43663500
 openusd/errors.cpp.ll 1599088139
