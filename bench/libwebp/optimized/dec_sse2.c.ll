@@ -3414,32 +3414,29 @@ define internal void @VL4_SSE2(ptr nocapture noundef %0) #1 {
   %19 = and <2 x i64> %14, %18
   %20 = bitcast <2 x i64> %19 to <16 x i8>
   %21 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %11, <16 x i8> %20)
-  %22 = bitcast <16 x i8> %21 to <4 x i32>
-  %23 = extractelement <4 x i32> %22, i64 1
-  %24 = bitcast <16 x i8> %9 to <4 x i32>
-  %25 = extractelement <4 x i32> %24, i64 0
-  store i32 %25, ptr %0, align 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
-  %27 = bitcast <16 x i8> %21 to <4 x i32>
-  %28 = extractelement <4 x i32> %27, i64 0
-  store i32 %28, ptr %26, align 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
-  %30 = shufflevector <16 x i8> %9, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %31 = bitcast <16 x i8> %30 to <4 x i32>
-  %32 = extractelement <4 x i32> %31, i64 0
-  store i32 %32, ptr %29, align 1
-  %33 = getelementptr inbounds i8, ptr %0, i64 96
-  %34 = shufflevector <16 x i8> %21, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %35 = bitcast <16 x i8> %34 to <4 x i32>
-  %36 = extractelement <4 x i32> %35, i64 0
-  store i32 %36, ptr %33, align 1
-  %37 = trunc i32 %23 to i8
-  %38 = getelementptr inbounds i8, ptr %0, i64 67
+  %22 = bitcast <16 x i8> %9 to <4 x i32>
+  %23 = extractelement <4 x i32> %22, i64 0
+  store i32 %23, ptr %0, align 1
+  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = bitcast <16 x i8> %21 to <4 x i32>
+  %26 = extractelement <4 x i32> %25, i64 0
+  store i32 %26, ptr %24, align 1
+  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = shufflevector <16 x i8> %9, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %29 = bitcast <16 x i8> %28 to <4 x i32>
+  %30 = extractelement <4 x i32> %29, i64 0
+  store i32 %30, ptr %27, align 1
+  %31 = getelementptr inbounds i8, ptr %0, i64 96
+  %32 = shufflevector <16 x i8> %21, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %33 = bitcast <16 x i8> %32 to <4 x i32>
+  %34 = extractelement <4 x i32> %33, i64 0
+  store i32 %34, ptr %31, align 1
+  %35 = extractelement <16 x i8> %21, i64 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 67
+  store i8 %35, ptr %36, align 1
+  %37 = extractelement <16 x i8> %21, i64 5
+  %38 = getelementptr inbounds i8, ptr %0, i64 99
   store i8 %37, ptr %38, align 1
-  %39 = lshr i32 %23, 8
-  %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %0, i64 99
-  store i8 %40, ptr %41, align 1
   ret void
 }
 
