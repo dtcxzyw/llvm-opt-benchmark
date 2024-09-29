@@ -2071,12 +2071,12 @@ if.else.i.i:                                      ; preds = %_ZNSt10shared_ptrIN
           to label %invoke.cont79 unwind label %lpad60
 
 invoke.cont79:                                    ; preds = %if.then.i.i, %if.else.i.i
-  %. = select i1 %cmp54, i32 7, i32 0
+  %spec.select = select i1 %cmp54, i32 7, i32 0
   br label %cleanup82
 
 cleanup82:                                        ; preds = %invoke.cont79, %if.then66
   %avail_size.3 = phi i64 [ %avail_size.1, %if.then66 ], [ %add78, %invoke.cont79 ]
-  %cleanup.dest.slot.2 = phi i32 [ 1, %if.then66 ], [ %., %invoke.cont79 ]
+  %cleanup.dest.slot.2 = phi i32 [ 1, %if.then66 ], [ %spec.select, %invoke.cont79 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp55) #20
   %46 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i95 = icmp eq ptr %46, null

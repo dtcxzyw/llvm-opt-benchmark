@@ -1740,7 +1740,7 @@ invoke.cont54:                                    ; preds = %invoke.cont52
 
 invoke.cont56:                                    ; preds = %invoke.cont54
   %cmp58 = icmp eq ptr %call57, null
-  br i1 %cmp58, label %cleanup94, label %if.end60, !llvm.loop !16
+  br i1 %cmp58, label %cleanup94.jt7, label %if.end60, !llvm.loop !16
 
 lpad46:                                           ; preds = %if.then5.i.i, %if.end.i.i, %while.cond
   %14 = landingpad { ptr, i32 }
@@ -1768,7 +1768,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
 
 while.cond67.preheader:                           ; preds = %invoke.cont63
   %cmp68.not80 = icmp eq ptr %call.i5354, null
-  br i1 %cmp68.not80, label %cleanup92, label %while.body69
+  br i1 %cmp68.not80, label %cleanup94.jt0, label %while.body69
 
 while.body69:                                     ; preds = %while.cond67.preheader, %cleanup
   %ne.081 = phi ptr [ %call.i6566, %cleanup ], [ %call.i5354, %while.cond67.preheader ]
@@ -1780,16 +1780,11 @@ while.body69:                                     ; preds = %while.cond67.prehea
 invoke.cont70:                                    ; preds = %while.body69
   %call71 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #10
   %new.isnull72 = icmp eq ptr %call71, null
-  br i1 %new.isnull72, label %cleanup.thread, label %new.notnull73
+  br i1 %new.isnull72, label %cleanup94.jt1, label %new.notnull73
 
 new.notnull73:                                    ; preds = %invoke.cont70
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %call71, ptr noundef nonnull align 8 dereferenceable(64) %prefix)
           to label %if.end84 unwind label %lpad76
-
-cleanup.thread:                                   ; preds = %invoke.cont70
-  store i32 7, ptr %status, align 4
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %item) #10
-  br label %cleanup92
 
 lpad62.loopexit:                                  ; preds = %while.body69
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1845,7 +1840,7 @@ invoke.cont88:                                    ; preds = %new.cont.i61
 cleanup:                                          ; preds = %invoke.cont88
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %item) #10
   %cmp68.not = icmp eq ptr %call.i6566, null
-  br i1 %cmp68.not, label %cleanup92, label %while.body69, !llvm.loop !17
+  br i1 %cmp68.not, label %cleanup94.jt0, label %while.body69, !llvm.loop !17
 
 lpad85:                                           ; preds = %invoke.cont88, %new.cont.i61, %if.end84
   %25 = landingpad { ptr, i32 }
@@ -1857,36 +1852,52 @@ ehcleanup:                                        ; preds = %lpad85, %lpad.i60, 
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %item) #10
   br label %ehcleanup93
 
-cleanup92:                                        ; preds = %cleanup, %while.cond67.preheader, %cleanup.thread
-  %cleanup.dest.slot.2 = phi i32 [ 1, %cleanup.thread ], [ 0, %while.cond67.preheader ], [ 0, %cleanup ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %prefix) #10
-  br label %cleanup94
-
-cleanup94:                                        ; preds = %invoke.cont56, %cleanup92
-  %cleanup.dest.slot.0 = phi i32 [ %cleanup.dest.slot.2, %cleanup92 ], [ 7, %invoke.cont56 ]
+cleanup94.jt7:                                    ; preds = %invoke.cont56
   %26 = load ptr, ptr %remainder, align 8
-  %cmp.not.i = icmp eq ptr %26, null
-  br i1 %cmp.not.i, label %_ZN6icu_759HashtableD2Ev.exit, label %if.then.i
+  %cmp.not.i.jt7 = icmp eq ptr %26, null
+  br i1 %cmp.not.i.jt7, label %while.cond.backedge, label %if.then.i.jt0.invoke
 
-if.then.i:                                        ; preds = %cleanup94
-  invoke void @uhash_close_75(ptr noundef nonnull %26)
-          to label %_ZN6icu_759HashtableD2Ev.exit unwind label %terminate.lpad.i
+cleanup94.jt0:                                    ; preds = %cleanup, %while.cond67.preheader
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %prefix) #10
+  %27 = load ptr, ptr %remainder, align 8
+  %cmp.not.i.jt0 = icmp eq ptr %27, null
+  br i1 %cmp.not.i.jt0, label %while.cond.backedge, label %if.then.i.jt0.invoke
 
-terminate.lpad.i:                                 ; preds = %if.then.i
-  %27 = landingpad { ptr, i32 }
-          catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #12
-  unreachable
+cleanup94.jt1:                                    ; preds = %invoke.cont70
+  store i32 7, ptr %status, align 4
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %item) #10
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %prefix) #10
+  %28 = load ptr, ptr %remainder, align 8
+  %cmp.not.i.jt1 = icmp eq ptr %28, null
+  br i1 %cmp.not.i.jt1, label %cleanup99, label %if.then.i.jt1
 
-_ZN6icu_759HashtableD2Ev.exit:                    ; preds = %cleanup94, %if.then.i
-  switch i32 %cleanup.dest.slot.0, label %cleanup99 [
-    i32 0, label %while.cond.backedge
-    i32 7, label %while.cond.backedge
-  ]
+if.then.i.jt0.invoke:                             ; preds = %cleanup94.jt0, %cleanup94.jt7
+  %29 = phi ptr [ %26, %cleanup94.jt7 ], [ %27, %cleanup94.jt0 ]
+  invoke void @uhash_close_75(ptr noundef nonnull %29)
+          to label %while.cond.backedge unwind label %terminate.lpad.i.loopexit
 
-while.cond.backedge:                              ; preds = %_ZN6icu_759HashtableD2Ev.exit, %_ZN6icu_759HashtableD2Ev.exit
+while.cond.backedge:                              ; preds = %if.then.i.jt0.invoke, %cleanup94.jt0, %cleanup94.jt7
   br label %while.cond, !llvm.loop !16
+
+if.then.i.jt1:                                    ; preds = %cleanup94.jt1
+  invoke void @uhash_close_75(ptr noundef nonnull %28)
+          to label %cleanup99 unwind label %terminate.lpad.i.loopexit.split-lp
+
+terminate.lpad.i.loopexit:                        ; preds = %if.then.i.jt0.invoke
+  %lpad.loopexit89 = landingpad { ptr, i32 }
+          catch ptr null
+  br label %terminate.lpad.i
+
+terminate.lpad.i.loopexit.split-lp:               ; preds = %if.then.i.jt1
+  %lpad.loopexit.split-lp90 = landingpad { ptr, i32 }
+          catch ptr null
+  br label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %terminate.lpad.i.loopexit.split-lp, %terminate.lpad.i.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit89, %terminate.lpad.i.loopexit ], [ %lpad.loopexit.split-lp90, %terminate.lpad.i.loopexit.split-lp ]
+  %30 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %30) #12
+  unreachable
 
 ehcleanup93:                                      ; preds = %lpad62.loopexit, %lpad62.loopexit.split-lp, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit, %lpad62.loopexit ], [ %lpad.loopexit.split-lp, %lpad62.loopexit.split-lp ]
@@ -1898,7 +1909,7 @@ ehcleanup97:                                      ; preds = %ehcleanup93, %lpad5
   call void @_ZN6icu_759HashtableD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %remainder) #10
   br label %ehcleanup102
 
-cleanup99:                                        ; preds = %_ZN6icu_759HashtableD2Ev.exit
+cleanup99:                                        ; preds = %cleanup94.jt1, %if.then.i.jt1
   call void @_ZN6icu_7518UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %iter) #10
   br label %cleanup110
 
@@ -1915,8 +1926,8 @@ ehcleanup102:                                     ; preds = %ehcleanup97, %lpad4
   br label %ehcleanup111
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %29 = load i32, ptr %status, align 4
-  %cmp.i68 = icmp slt i32 %29, 1
+  %31 = load i32, ptr %status, align 4
+  %cmp.i68 = icmp slt i32 %31, 1
   %fillinResult. = select i1 %cmp.i68, ptr %fillinResult, ptr null
   br label %cleanup110
 

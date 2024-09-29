@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pm_regexp_options_t = type { [24 x i8] }
 %struct.pm_string_t = type { ptr, i64, i32 }
 
-@switch.table.pm_regexp_parse_quantifier = private unnamed_addr constant [14 x i32] [i32 3, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], align 4
-
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noundef zeroext i1 @pm_regexp_named_capture_group_names(ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.pm_regexp_parser_t, align 8
@@ -505,11 +503,11 @@ define internal fastcc void @pm_regexp_parse_quantifier(ptr nocapture noundef no
   %3 = getelementptr i8, ptr %0, i64 16
   %.val6 = load ptr, ptr %3, align 8
   %.not = icmp ult ptr %.val, %.val6
-  br i1 %.not, label %4, label %26
+  br i1 %.not, label %4, label %pm_regexp_parse_range_quantifier.exit
 
 4:                                                ; preds = %1
   %5 = load i8, ptr %.val, align 1
-  switch i8 %5, label %26 [
+  switch i8 %5, label %pm_regexp_parse_range_quantifier.exit [
     i8 42, label %6
     i8 43, label %6
     i8 63, label %6
@@ -518,102 +516,100 @@ define internal fastcc void @pm_regexp_parse_quantifier(ptr nocapture noundef no
 
 6:                                                ; preds = %4, %4, %4
   %7 = getelementptr i8, ptr %.val, i64 1
-  br label %.sink.split
+  br label %pm_regexp_parse_range_quantifier.exit.sink.split
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %.val, i64 1
-  br label %10
-
-10:                                               ; preds = %24, %8
-  %11 = phi ptr [ %9, %8 ], [ %25, %24 ]
-  %.0.i = phi i32 [ 0, %8 ], [ %.1.i, %24 ]
-  store ptr %11, ptr %2, align 8
-  %12 = load i8, ptr %11, align 1
-  switch i32 %.0.i, label %default.unreachable [
-    i32 0, label %13
-    i32 1, label %15
-    i32 3, label %19
-    i32 2, label %20
-  ]
-
-13:                                               ; preds = %10
-  %switch.tableidx = add i8 %12, -44
-  %14 = icmp ult i8 %switch.tableidx, 14
-  br i1 %14, label %switch.hole_check, label %.sink.split
-
-15:                                               ; preds = %10
-  switch i8 %12, label %.sink.split [
-    i8 48, label %24
-    i8 49, label %24
-    i8 50, label %24
-    i8 51, label %24
-    i8 52, label %24
-    i8 53, label %24
-    i8 54, label %24
-    i8 55, label %24
-    i8 56, label %24
-    i8 57, label %24
+  store ptr %9, ptr %2, align 8
+  %10 = load i8, ptr %9, align 1
+  switch i8 %10, label %pm_regexp_parse_range_quantifier.exit [
+    i8 48, label %.preheader
+    i8 49, label %.preheader
+    i8 50, label %.preheader
+    i8 51, label %.preheader
+    i8 52, label %.preheader
+    i8 53, label %.preheader
+    i8 54, label %.preheader
+    i8 55, label %.preheader
+    i8 56, label %.preheader
+    i8 57, label %.preheader
     i8 44, label %16
-    i8 125, label %17
   ]
 
-16:                                               ; preds = %15
-  br label %24
+.preheader:                                       ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
+  br label %11
 
-17:                                               ; preds = %15
-  %18 = getelementptr i8, ptr %11, i64 1
-  br label %.sink.split
+11:                                               ; preds = %.backedge, %.preheader
+  %.sink33.i = phi ptr [ %9, %.preheader ], [ %12, %.backedge ]
+  %12 = getelementptr i8, ptr %.sink33.i, i64 1
+  store ptr %12, ptr %2, align 8
+  %13 = load i8, ptr %12, align 1
+  switch i8 %13, label %pm_regexp_parse_range_quantifier.exit.sink.split [
+    i8 48, label %.backedge
+    i8 49, label %.backedge
+    i8 50, label %.backedge
+    i8 51, label %.backedge
+    i8 52, label %.backedge
+    i8 53, label %.backedge
+    i8 54, label %.backedge
+    i8 55, label %.backedge
+    i8 56, label %.backedge
+    i8 57, label %.backedge
+    i8 44, label %.preheader.i.preheader
+    i8 125, label %14
+  ]
 
-19:                                               ; preds = %10
-  %.off.i = add i8 %12, -48
+.backedge:                                        ; preds = %11, %11, %11, %11, %11, %11, %11, %11, %11, %11
+  br label %11
+
+14:                                               ; preds = %11
+  %15 = getelementptr i8, ptr %.sink33.i, i64 2
+  br label %pm_regexp_parse_range_quantifier.exit.sink.split
+
+16:                                               ; preds = %8
+  %17 = getelementptr i8, ptr %.val, i64 2
+  store ptr %17, ptr %2, align 8
+  %18 = load i8, ptr %17, align 1
+  %.off.i = add i8 %18, -48
   %switch.i = icmp ult i8 %.off.i, 10
-  br i1 %switch.i, label %24, label %.sink.split
+  br i1 %switch.i, label %.preheader.i.preheader, label %pm_regexp_parse_range_quantifier.exit.sink.split
 
-20:                                               ; preds = %10
-  switch i8 %12, label %.sink.split [
-    i8 48, label %24
-    i8 49, label %24
-    i8 50, label %24
-    i8 51, label %24
-    i8 52, label %24
-    i8 53, label %24
-    i8 54, label %24
-    i8 55, label %24
-    i8 56, label %24
-    i8 57, label %24
+.preheader.i.preheader:                           ; preds = %11, %16
+  %.sink34.sink.i.ph = phi ptr [ %17, %16 ], [ %12, %11 ]
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %.preheader.i.backedge, %.preheader.i.preheader
+  %.sink34.sink.i = phi ptr [ %.sink34.sink.i.ph, %.preheader.i.preheader ], [ %19, %.preheader.i.backedge ]
+  %19 = getelementptr i8, ptr %.sink34.sink.i, i64 1
+  store ptr %19, ptr %2, align 8
+  %20 = load i8, ptr %19, align 1
+  switch i8 %20, label %pm_regexp_parse_range_quantifier.exit.sink.split [
+    i8 48, label %.preheader.i.backedge
+    i8 49, label %.preheader.i.backedge
+    i8 50, label %.preheader.i.backedge
+    i8 51, label %.preheader.i.backedge
+    i8 52, label %.preheader.i.backedge
+    i8 53, label %.preheader.i.backedge
+    i8 54, label %.preheader.i.backedge
+    i8 55, label %.preheader.i.backedge
+    i8 56, label %.preheader.i.backedge
+    i8 57, label %.preheader.i.backedge
     i8 125, label %21
   ]
 
-21:                                               ; preds = %20
-  %22 = getelementptr i8, ptr %11, i64 1
-  br label %.sink.split
+.preheader.i.backedge:                            ; preds = %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i
+  br label %.preheader.i
 
-default.unreachable:                              ; preds = %10
-  unreachable
+21:                                               ; preds = %.preheader.i
+  %22 = getelementptr i8, ptr %.sink34.sink.i, i64 2
+  br label %pm_regexp_parse_range_quantifier.exit.sink.split
 
-switch.hole_check:                                ; preds = %13
-  %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 16369, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.sink.split
-
-switch.lookup:                                    ; preds = %switch.hole_check
-  %23 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table.pm_regexp_parse_quantifier, i64 0, i64 %23
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %24
-
-24:                                               ; preds = %switch.lookup, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %19, %16, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15
-  %.1.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 2, %19 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ %switch.load, %switch.lookup ]
-  %25 = getelementptr i8, ptr %11, i64 1
-  br label %10
-
-.sink.split:                                      ; preds = %20, %19, %15, %13, %switch.hole_check, %21, %17, %6
-  %.sink.i.sink = phi ptr [ %7, %6 ], [ %22, %21 ], [ %18, %17 ], [ %9, %switch.hole_check ], [ %9, %13 ], [ %9, %15 ], [ %9, %19 ], [ %9, %20 ]
+pm_regexp_parse_range_quantifier.exit.sink.split: ; preds = %11, %.preheader.i, %14, %16, %21, %6
+  %.sink.i.sink = phi ptr [ %7, %6 ], [ %22, %21 ], [ %15, %14 ], [ %9, %16 ], [ %9, %.preheader.i ], [ %9, %11 ]
   store ptr %.sink.i.sink, ptr %2, align 8
-  br label %26
+  br label %pm_regexp_parse_range_quantifier.exit
 
-26:                                               ; preds = %.sink.split, %4, %1
+pm_regexp_parse_range_quantifier.exit:            ; preds = %pm_regexp_parse_range_quantifier.exit.sink.split, %8, %4, %1
   ret void
 }
 

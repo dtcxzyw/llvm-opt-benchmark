@@ -2284,21 +2284,15 @@ for.body31:                                       ; preds = %for.cond29.preheade
   %13 = load float, ptr %m_hiLimit.i, align 4
   %cmp.i.i = fcmp ogt float %12, %13
   %m_currentLimitError.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 72
-  br i1 %cmp.i.i, label %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit, label %if.else.i.i
+  br i1 %cmp.i.i, label %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt0, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body31
   %cmp4.i.i = fcmp oeq float %12, %13
   %sub.i.i = fsub float %call7.i, %12
   store float %sub.i.i, ptr %m_currentLimitError.i.i, align 8
-  br i1 %cmp4.i.i, label %if.then45, label %if.then36
+  br i1 %cmp4.i.i, label %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt3, label %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt4
 
-_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit: ; preds = %for.body31
-  %m_currentLimit.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 84
-  store i32 0, ptr %m_currentLimit.i.i, align 4
-  store float 0.000000e+00, ptr %m_currentLimitError.i.i, align 8
-  br label %if.end49
-
-if.then36:                                        ; preds = %if.else.i.i
+_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt4: ; preds = %if.else.i.i
   %sub14.i.i = fsub float %call7.i, %13
   %m_currentLimitErrorHi.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 76
   store float %sub14.i.i, ptr %m_currentLimitErrorHi.i.i, align 4
@@ -2309,7 +2303,7 @@ if.then36:                                        ; preds = %if.else.i.i
   store i32 %add38, ptr %info, align 4
   br label %if.end49
 
-if.then45:                                        ; preds = %if.else.i.i
+_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt3: ; preds = %if.else.i.i
   %m_currentLimit8.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 84
   store i32 3, ptr %m_currentLimit8.i.i, align 4
   %15 = load i32, ptr %info, align 4
@@ -2317,7 +2311,13 @@ if.then45:                                        ; preds = %if.else.i.i
   store i32 %add47, ptr %info, align 4
   br label %if.end49
 
-if.end49:                                         ; preds = %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit, %if.then45, %if.then36
+_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt0: ; preds = %for.body31
+  %m_currentLimit.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 84
+  store i32 0, ptr %m_currentLimit.i.i, align 4
+  store float 0.000000e+00, ptr %m_currentLimitError.i.i, align 8
+  br label %if.end49
+
+if.end49:                                         ; preds = %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt0, %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt3, %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt4
   %m_enableMotor53 = getelementptr inbounds i8, ptr %arrayidx3.i, i64 28
   %16 = load i8, ptr %m_enableMotor53, align 4
   %tobool54 = trunc i8 %16 to i1

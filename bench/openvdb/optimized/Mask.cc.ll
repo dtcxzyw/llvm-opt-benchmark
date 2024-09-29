@@ -15307,8 +15307,8 @@ entry:
   %my_size = getelementptr inbounds i8, ptr %this, i64 16
   br label %restart
 
-restart:                                          ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorD2Ev.exit61, %entry
-  %mask.0 = phi i64 [ %2, %entry ], [ %mask.2, %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorD2Ev.exit61 ]
+restart:                                          ; preds = %restart.backedge, %entry
+  %mask.0 = phi i64 [ %2, %entry ], [ %mask.2.jt2, %restart.backedge ]
   %and = and i64 %mask.0, %1
   store ptr null, ptr %b, align 8
   store i8 0, ptr %m_is_writer.i.i, align 8
@@ -15351,8 +15351,8 @@ invoke.cont8.lr.ph:                               ; preds = %search
   %10 = load ptr, ptr %key, align 8
   %11 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 16
   %12 = load ptr, ptr %11, align 8
-  %cmp.i.i144 = icmp eq ptr %10, %12
-  br i1 %cmp.i.i144, label %if.else, label %while.body
+  %cmp.i.i141 = icmp eq ptr %10, %12
+  br i1 %cmp.i.i141, label %if.else, label %while.body
 
 invoke.cont8:                                     ; preds = %while.body
   %13 = getelementptr inbounds i8, ptr %15, i64 16
@@ -15361,27 +15361,27 @@ invoke.cont8:                                     ; preds = %while.body
   br i1 %cmp.i.i, label %if.else, label %while.body, !llvm.loop !172
 
 while.body:                                       ; preds = %invoke.cont8.lr.ph, %invoke.cont8
-  %erase_node.0107145 = phi ptr [ %15, %invoke.cont8 ], [ %atomic-temp.i.0.i, %invoke.cont8.lr.ph ]
-  %15 = load ptr, ptr %erase_node.0107145, align 8
+  %erase_node.0107142 = phi ptr [ %15, %invoke.cont8 ], [ %atomic-temp.i.0.i, %invoke.cont8.lr.ph ]
+  %15 = load ptr, ptr %erase_node.0107142, align 8
   %cmp.i = icmp ugt ptr %15, inttoptr (i64 63 to ptr)
   br i1 %cmp.i, label %invoke.cont8, label %while.end, !llvm.loop !172
 
 while.end:                                        ; preds = %while.body, %search
   %erase_node.0.lcssa = phi ptr [ %atomic-temp.i.0.i, %search ], [ %15, %while.body ]
-  %prev.0.lcssa = phi ptr [ null, %search ], [ %erase_node.0107145, %while.body ]
+  %prev.0.lcssa = phi ptr [ null, %search ], [ %erase_node.0107142, %while.body ]
   %cmp = icmp eq ptr %erase_node.0.lcssa, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.end
   %16 = load atomic i64, ptr %my_mask acquire, align 8
   %cmp.not.i = icmp eq i64 %mask.1.ph, %16
-  br i1 %cmp.not.i, label %cleanup, label %if.then.i
+  br i1 %cmp.not.i, label %cleanup.jt1, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %17 = xor i64 %16, %mask.1.ph
   %18 = and i64 %17, %1
   %cmp.not.i.i = icmp eq i64 %18, 0
-  br i1 %cmp.not.i.i, label %cleanup, label %if.then.i.i20
+  br i1 %cmp.not.i.i, label %cleanup.jt1, label %if.then.i.i20
 
 if.then.i.i20:                                    ; preds = %if.then.i
   %inc.i.i = add i64 %mask.1.ph, 1
@@ -15409,12 +15409,11 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i, i32 1
   %21 = load atomic i64, ptr %node_list.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %21, 3
-  %spec.select = select i1 %cmp.i.i.i, i32 1, i32 2
-  br label %cleanup
+  br i1 %cmp.i.i.i, label %cleanup.jt1, label %cleanup.jt2
 
 if.else:                                          ; preds = %invoke.cont8, %invoke.cont8.lr.ph, %while.end
   %erase_node.093 = phi ptr [ %erase_node.0.lcssa, %while.end ], [ %atomic-temp.i.0.i, %invoke.cont8.lr.ph ], [ %15, %invoke.cont8 ]
-  %prev.089 = phi ptr [ %prev.0.lcssa, %while.end ], [ null, %invoke.cont8.lr.ph ], [ %erase_node.0107145, %invoke.cont8 ]
+  %prev.089 = phi ptr [ %prev.0.lcssa, %while.end ], [ null, %invoke.cont8.lr.ph ], [ %erase_node.0107142, %invoke.cont8 ]
   %22 = load i8, ptr %m_is_writer.i.i, align 8
   %tobool.i = trunc i8 %22 to i1
   br i1 %tobool.i, label %if.end23, label %if.end.i
@@ -15582,7 +15581,7 @@ for.end.i.i37:                                    ; preds = %for.cond.i.i32
   %node_list.i.i48 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i47, i64 %sub.i.i.i44, i32 1
   %42 = load atomic i64, ptr %node_list.i.i48 acquire, align 8
   %cmp.i.i.i49 = icmp eq i64 %42, 3
-  br i1 %cmp.i.i.i49, label %search.outer.backedge, label %cleanup
+  br i1 %cmp.i.i.i49, label %search.outer.backedge, label %cleanup.jt2
 
 search.outer.backedge:                            ; preds = %for.end.i.i37, %if.then.i28
   br label %search.outer
@@ -15597,48 +15596,77 @@ if.then25:                                        ; preds = %if.end23
   %44 = load ptr, ptr %erase_node.093, align 8
   %45 = ptrtoint ptr %44 to i64
   store atomic i64 %45, ptr %node_list28 monotonic, align 8
-  br label %if.end33
+  br label %cleanup.jt0
 
 if.else30:                                        ; preds = %if.end23
   %46 = load ptr, ptr %erase_node.093, align 8
   store ptr %46, ptr %prev.089, align 8
-  br label %if.end33
+  br label %cleanup.jt0
 
-if.end33:                                         ; preds = %if.else30, %if.then25
-  %47 = atomicrmw sub ptr %my_size, i64 1 seq_cst, align 8
-  br label %cleanup
+cleanup.jt2:                                      ; preds = %for.end.i.i37, %for.end.i.i
+  %mask.2.jt2 = phi i64 [ %16, %for.end.i.i ], [ %37, %for.end.i.i37 ]
+  %47 = load ptr, ptr %b, align 8
+  %tobool.not.i.i54.jt2 = icmp eq ptr %47, null
+  br i1 %tobool.not.i.i54.jt2, label %restart.backedge, label %if.then.i.i55.jt2
 
-cleanup:                                          ; preds = %for.end.i.i37, %for.end.i.i, %if.then.i, %if.then, %if.end33
-  %erase_node.092 = phi ptr [ %erase_node.093, %if.end33 ], [ null, %if.then ], [ null, %if.then.i ], [ null, %for.end.i.i ], [ %erase_node.093, %for.end.i.i37 ]
-  %mask.2 = phi i64 [ %mask.1.ph, %if.end33 ], [ %mask.1.ph, %if.then ], [ %16, %if.then.i ], [ %16, %for.end.i.i ], [ %37, %for.end.i.i37 ]
-  %cleanup.dest.slot.0 = phi i32 [ 0, %if.end33 ], [ 1, %if.then ], [ 1, %if.then.i ], [ %spec.select, %for.end.i.i ], [ 2, %for.end.i.i37 ]
+cleanup.jt1:                                      ; preds = %for.end.i.i, %if.then.i, %if.then
   %48 = load ptr, ptr %b, align 8
-  %tobool.not.i.i54 = icmp eq ptr %48, null
-  br i1 %tobool.not.i.i54, label %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorD2Ev.exit61, label %if.then.i.i55
+  %tobool.not.i.i54.jt1 = icmp eq ptr %48, null
+  br i1 %tobool.not.i.i54.jt1, label %return, label %if.then.i.i55.jt1
 
-if.then.i.i55:                                    ; preds = %cleanup
+cleanup.jt0:                                      ; preds = %if.then25, %if.else30
+  %49 = atomicrmw sub ptr %my_size, i64 1 seq_cst, align 8
+  %50 = load ptr, ptr %b, align 8
+  %tobool.not.i.i54.jt0 = icmp eq ptr %50, null
+  br i1 %tobool.not.i.i54.jt0, label %cleanup.cont, label %if.then.i.i55.jt0
+
+if.then.i.i55.jt2:                                ; preds = %cleanup.jt2
   store ptr null, ptr %b, align 8
-  %49 = load i8, ptr %m_is_writer.i.i, align 8
-  %tobool.i.i.i57 = trunc i8 %49 to i1
-  br i1 %tobool.i.i.i57, label %if.then.i.i.i60, label %if.else.i.i.i58
+  %51 = load i8, ptr %m_is_writer.i.i, align 8
+  %tobool.i.i.i57.jt2 = trunc i8 %51 to i1
+  br i1 %tobool.i.i.i57.jt2, label %if.then.i.i.i60.jt2, label %if.else.i.i.i58.jt2
 
-if.then.i.i.i60:                                  ; preds = %if.then.i.i55
-  %50 = atomicrmw and ptr %48, i64 -4 seq_cst, align 8
-  br label %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorD2Ev.exit61
+if.then.i.i55.jt1:                                ; preds = %cleanup.jt1
+  store ptr null, ptr %b, align 8
+  %52 = load i8, ptr %m_is_writer.i.i, align 8
+  %tobool.i.i.i57.jt1 = trunc i8 %52 to i1
+  br i1 %tobool.i.i.i57.jt1, label %if.then.i.i.i60.jt1, label %if.else.i.i.i58.jt1
 
-if.else.i.i.i58:                                  ; preds = %if.then.i.i55
-  %51 = atomicrmw sub ptr %48, i64 4 seq_cst, align 8
-  br label %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorD2Ev.exit61
+if.then.i.i55.jt0:                                ; preds = %cleanup.jt0
+  store ptr null, ptr %b, align 8
+  %53 = load i8, ptr %m_is_writer.i.i, align 8
+  %tobool.i.i.i57.jt0 = trunc i8 %53 to i1
+  br i1 %tobool.i.i.i57.jt0, label %if.then.i.i.i60.jt0, label %if.else.i.i.i58.jt0
 
-_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorD2Ev.exit61: ; preds = %cleanup, %if.then.i.i.i60, %if.else.i.i.i58
-  switch i32 %cleanup.dest.slot.0, label %default.unreachable121 [
-    i32 0, label %cleanup.cont
-    i32 2, label %restart
-    i32 1, label %return
-  ]
+if.then.i.i.i60.jt2:                              ; preds = %if.then.i.i55.jt2
+  %54 = atomicrmw and ptr %47, i64 -4 seq_cst, align 8
+  br label %restart.backedge
 
-cleanup.cont:                                     ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorD2Ev.exit61
-  %mutex = getelementptr inbounds i8, ptr %erase_node.092, i64 8
+if.then.i.i.i60.jt1:                              ; preds = %if.then.i.i55.jt1
+  %55 = atomicrmw and ptr %48, i64 -4 seq_cst, align 8
+  br label %return
+
+if.then.i.i.i60.jt0:                              ; preds = %if.then.i.i55.jt0
+  %56 = atomicrmw and ptr %50, i64 -4 seq_cst, align 8
+  br label %cleanup.cont
+
+if.else.i.i.i58.jt2:                              ; preds = %if.then.i.i55.jt2
+  %57 = atomicrmw sub ptr %47, i64 4 seq_cst, align 8
+  br label %restart.backedge
+
+restart.backedge:                                 ; preds = %if.else.i.i.i58.jt2, %if.then.i.i.i60.jt2, %cleanup.jt2
+  br label %restart
+
+if.else.i.i.i58.jt1:                              ; preds = %if.then.i.i55.jt1
+  %58 = atomicrmw sub ptr %48, i64 4 seq_cst, align 8
+  br label %return
+
+if.else.i.i.i58.jt0:                              ; preds = %if.then.i.i55.jt0
+  %59 = atomicrmw sub ptr %50, i64 4 seq_cst, align 8
+  br label %cleanup.cont
+
+cleanup.cont:                                     ; preds = %cleanup.jt0, %if.then.i.i.i60.jt0, %if.else.i.i.i58.jt0
+  %mutex = getelementptr inbounds i8, ptr %erase_node.093, i64 8
   br label %for.cond.i.i.i.outer
 
 for.cond.i.i.i.outer:                             ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, %cleanup.cont
@@ -15647,23 +15675,23 @@ for.cond.i.i.i.outer:                             ; preds = %_ZN3tbb6detail2d0L1
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.outer, %if.else.i.i.i.i
-  %52 = load atomic i64, ptr %mutex monotonic, align 8
-  %and.i.i.i = and i64 %52, -3
+  %60 = load atomic i64, ptr %mutex monotonic, align 8
+  %and.i.i.i = and i64 %60, -3
   %tobool.not.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i, label %if.else.i.i.i63
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i: ; preds = %for.cond.i.i.i
-  %53 = cmpxchg ptr %mutex, i64 %52, i64 1 seq_cst seq_cst, align 8
-  %54 = extractvalue { i64, i1 } %53, 1
-  br i1 %54, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, label %while.body.i.i.preheader.i.i.i
+  %61 = cmpxchg ptr %mutex, i64 %60, i64 1 seq_cst seq_cst, align 8
+  %62 = extractvalue { i64, i1 } %61, 1
+  br i1 %62, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, label %while.body.i.i.preheader.i.i.i
 
 if.else.i.i.i63:                                  ; preds = %for.cond.i.i.i
-  %and5.i.i.i = and i64 %52, 2
+  %and5.i.i.i = and i64 %60, 2
   %tobool6.not.i.i.i = icmp eq i64 %and5.i.i.i, 0
   br i1 %tobool6.not.i.i.i, label %if.then7.i.i.i, label %for.inc.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.else.i.i.i63
-  %55 = atomicrmw or ptr %mutex, i64 2 seq_cst, align 8
+  %63 = atomicrmw or ptr %mutex, i64 2 seq_cst, align 8
   br label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.then7.i.i.i, %if.else.i.i.i63
@@ -15694,16 +15722,13 @@ if.else.i.i.i.i:                                  ; preds = %for.inc.i.i.i
   br label %for.cond.i.i.i, !llvm.loop !177
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i
-  %56 = atomicrmw and ptr %mutex, i64 -4 seq_cst, align 8
-  call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %erase_node.092)
+  %64 = atomicrmw and ptr %mutex, i64 -4 seq_cst, align 8
+  call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %erase_node.093)
   br label %return
 
-return:                                           ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorD2Ev.exit61, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit
-  %retval.2 = phi i1 [ true, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit ], [ false, %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorD2Ev.exit61 ]
+return:                                           ; preds = %if.else.i.i.i58.jt1, %if.then.i.i.i60.jt1, %cleanup.jt1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit
+  %retval.2 = phi i1 [ true, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit ], [ false, %cleanup.jt1 ], [ false, %if.then.i.i.i60.jt1 ], [ false, %if.else.i.i.i58.jt1 ]
   ret i1 %retval.2
-
-default.unreachable121:                           ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorD2Ev.exit61
-  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable

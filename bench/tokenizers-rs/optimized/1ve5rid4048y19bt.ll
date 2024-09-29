@@ -7386,26 +7386,26 @@ define hidden { i32, i64 } @"_ZN127_$LT$unicode_normalization_alignments..recomp
   %13 = getelementptr inbounds i8, ptr %0, i64 136
   %14 = getelementptr inbounds i8, ptr %0, i64 233
   %.pre = load i64, ptr %4, align 8, !range !2355
-  br label %.backedge100
-
-.backedge100:                                     ; preds = %.backedge100.backedge, %1
-  %15 = phi i64 [ %.pre, %1 ], [ %.be, %.backedge100.backedge ]
-  switch i64 %15, label %default.unreachable148 [
+  switch i64 %.pre, label %default.unreachable148 [
     i64 0, label %.preheader
     i64 1, label %19
     i64 2, label %24
   ]
 
-.preheader:                                       ; preds = %.backedge100
+15:                                               ; preds = %.lr.ph.preheader.i, %108
+  store i64 0, ptr %4, align 8
+  br label %.preheader
+
+.preheader:                                       ; preds = %15, %1
   %16 = tail call { i32, i64 } @"_ZN127_$LT$unicode_normalization_alignments..decompose..Decompositions$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a82221ba54b80a5E.llvm.12993343960315125427"(ptr noalias noundef nonnull align 8 dereferenceable(120) %0)
   %17 = extractvalue { i32, i64 } %16, 0
   %18 = icmp eq i32 %17, 1114112
   br i1 %18, label %._crit_edge, label %.lr.ph
 
-default.unreachable148:                           ; preds = %.backedge100
+default.unreachable148:                           ; preds = %1
   unreachable
 
-19:                                               ; preds = %.backedge100
+19:                                               ; preds = %1
   %20 = load i64, ptr %5, align 8, !noundef !14
   %21 = load i64, ptr %6, align 8, !alias.scope !2356, !noalias !2361, !noundef !14
   %22 = icmp ugt i64 %21, 4
@@ -7414,7 +7414,7 @@ default.unreachable148:                           ; preds = %.backedge100
   %.not98 = icmp ult i64 %20, %.sink6.i.i
   br i1 %.not98, label %110, label %108
 
-24:                                               ; preds = %.backedge100
+24:                                               ; preds = %._crit_edge, %1
   %25 = load i64, ptr %5, align 8, !noundef !14
   %26 = load i64, ptr %6, align 8, !alias.scope !2363, !noalias !2368, !noundef !14
   %27 = icmp ugt i64 %26, 4
@@ -7428,7 +7428,7 @@ default.unreachable148:                           ; preds = %.backedge100
   store i64 0, ptr %5, align 8
   %29 = load i32, ptr %10, align 8, !range !2370, !noundef !14
   %30 = icmp eq i32 %29, 1114112
-  br i1 %30, label %.backedge100.backedge, label %36
+  br i1 %30, label %24, label %36
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge
   %.pn = phi { i32, i64 } [ %46, %.backedge ], [ %16, %.preheader ]
@@ -7626,19 +7626,11 @@ default.unreachable148:                           ; preds = %.backedge100
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2395
   %.promoted.i = load i64, ptr %109, align 8
   %.not99 = icmp eq i64 %.promoted.i, 0
-  br i1 %.not99, label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h4cd6ce63bade8aa7E.exit", label %.lr.ph.preheader.i
+  br i1 %.not99, label %15, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %108
   store i64 0, ptr %109, align 8
-  br label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h4cd6ce63bade8aa7E.exit"
-
-"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h4cd6ce63bade8aa7E.exit": ; preds = %108, %.lr.ph.preheader.i
-  store i64 0, ptr %4, align 8
-  br label %.backedge100.backedge
-
-.backedge100.backedge:                            ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h4cd6ce63bade8aa7E.exit", %._crit_edge
-  %.be = phi i64 [ 0, %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h4cd6ce63bade8aa7E.exit" ], [ 2, %._crit_edge ]
-  br label %.backedge100
+  br label %15
 
 110:                                              ; preds = %19
   %111 = load ptr, ptr %13, align 8, !alias.scope !2356, !noalias !2361, !nonnull !14

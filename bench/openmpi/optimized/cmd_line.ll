@@ -2064,11 +2064,11 @@ define noalias ptr @opal_cmd_line_get_usage_msg(ptr noundef %0) local_unnamed_ad
 59:                                               ; preds = %56
   %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i, ptr noundef nonnull dereferenceable(9) @.str.38) #22
   %61 = icmp eq i32 %60, 0
-  %spec.select.i = select i1 %61, i32 12, i32 13
+  %spec.select = select i1 %61, i32 12, i32 13
   br label %get_help_otype.exit
 
-get_help_otype.exit:                              ; preds = %25, %29, %32, %35, %38, %41, %44, %47, %50, %53, %56, %59
-  %.016.i = phi i32 [ 1, %25 ], [ 2, %29 ], [ 3, %32 ], [ 4, %35 ], [ 5, %38 ], [ 6, %41 ], [ 7, %44 ], [ 8, %47 ], [ 9, %50 ], [ 10, %53 ], [ 0, %56 ], [ %spec.select.i, %59 ]
+get_help_otype.exit:                              ; preds = %59, %25, %29, %32, %35, %38, %41, %44, %47, %50, %53, %56
+  %.016.i = phi i32 [ 1, %25 ], [ 2, %29 ], [ 3, %32 ], [ 4, %35 ], [ 5, %38 ], [ 6, %41 ], [ 7, %44 ], [ 8, %47 ], [ 9, %50 ], [ 10, %53 ], [ 0, %56 ], [ %spec.select, %59 ]
   %62 = load volatile i64, ptr %8, align 8
   %.not153 = icmp eq i64 %62, 0
   br i1 %.not153, label %._crit_edge152.thread, label %.lr.ph151

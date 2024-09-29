@@ -3127,10 +3127,7 @@ sub_0916:                                         ; preds = %908
   %947 = call ptr @getenv(ptr noundef nonnull @.str.252) #26
   %948 = icmp eq ptr %947, null
   %or.cond27 = or i1 %946, %948
-  %not.or.cond27 = xor i1 %or.cond27, true
-  %output_console.output_x11 = select i1 %or.cond27, ptr @output_console, ptr @output_x11
-  %.794 = select i1 %or.cond27, i32 2, i32 1
-  br label %.thread854
+  br i1 %or.cond27, label %.thread854, label %.794.si.unfold.false
 
 949:                                              ; preds = %.thread841
   %950 = call ptr @getenv(ptr noundef nonnull @.str.252) #26
@@ -3180,14 +3177,17 @@ sub_0916:                                         ; preds = %908
   %967 = call i64 @fwrite(ptr nonnull @.str.254, i64 26, i64 1, ptr %966) #32
   br label %.loopexit959
 
-.thread854:                                       ; preds = %.thread841, %928, %.tail915, %.tail915.thread, %949, %945, %964, %963, %962, %961, %960, %959, %958, %957, %956, %955, %954
-  %.3848857 = phi ptr [ %.3, %964 ], [ %.3, %963 ], [ %.3, %962 ], [ %.3, %961 ], [ %.3, %960 ], [ %.3, %959 ], [ %.3, %958 ], [ %.3, %957 ], [ %.3, %956 ], [ %.3, %955 ], [ %.3, %954 ], [ %.3852, %945 ], [ %.3, %949 ], [ @.str, %.tail915.thread ], [ @.str, %.tail915 ], [ %.3852, %928 ], [ %.3, %.thread841 ]
-  %.not636 = phi i1 [ true, %964 ], [ true, %963 ], [ true, %962 ], [ true, %961 ], [ true, %960 ], [ true, %959 ], [ true, %958 ], [ true, %957 ], [ true, %956 ], [ true, %955 ], [ true, %954 ], [ %not.or.cond27, %945 ], [ true, %949 ], [ false, %.tail915.thread ], [ false, %.tail915 ], [ false, %928 ], [ false, %.thread841 ]
-  %.0574 = phi ptr [ @output_shmem, %964 ], [ @output_xml, %963 ], [ @output_nativesvg, %962 ], [ @output_cairosvg, %961 ], [ @output_ps, %960 ], [ @output_pdf, %959 ], [ @output_png, %958 ], [ @output_fig, %957 ], [ @output_tikz, %956 ], [ @output_ascii, %955 ], [ @output_synthetic, %954 ], [ %output_console.output_x11, %945 ], [ @output_x11, %949 ], [ @output_console, %.tail915.thread ], [ @output_console, %.tail915 ], [ @output_console, %928 ], [ @output_console, %.thread841 ]
-  %968 = phi i1 [ false, %964 ], [ true, %963 ], [ false, %962 ], [ false, %961 ], [ false, %960 ], [ false, %959 ], [ false, %958 ], [ false, %957 ], [ false, %956 ], [ false, %955 ], [ false, %954 ], [ false, %945 ], [ false, %949 ], [ false, %.tail915.thread ], [ false, %.tail915 ], [ false, %928 ], [ false, %.thread841 ]
-  %969 = phi i1 [ false, %964 ], [ false, %963 ], [ false, %962 ], [ false, %961 ], [ false, %960 ], [ false, %959 ], [ false, %958 ], [ false, %957 ], [ false, %956 ], [ false, %955 ], [ false, %954 ], [ %not.or.cond27, %945 ], [ true, %949 ], [ false, %.tail915.thread ], [ false, %.tail915 ], [ false, %928 ], [ false, %.thread841 ]
-  %970 = phi i1 [ true, %964 ], [ true, %963 ], [ true, %962 ], [ true, %961 ], [ true, %960 ], [ true, %959 ], [ true, %958 ], [ true, %957 ], [ true, %956 ], [ true, %955 ], [ true, %954 ], [ %or.cond27, %945 ], [ false, %949 ], [ true, %.tail915.thread ], [ true, %.tail915 ], [ true, %928 ], [ true, %.thread841 ]
-  %.4565 = phi i32 [ %.2563, %964 ], [ %.2563, %963 ], [ %.2563, %962 ], [ 11, %961 ], [ %.2563, %960 ], [ %.2563, %959 ], [ %.2563, %958 ], [ %.2563, %957 ], [ %.2563, %956 ], [ %.2563, %955 ], [ %.2563, %954 ], [ %.794, %945 ], [ 1, %949 ], [ 2, %.tail915.thread ], [ 2, %.tail915 ], [ 2, %928 ], [ %.2563, %.thread841 ]
+.794.si.unfold.false:                             ; preds = %945
+  br label %.thread854
+
+.thread854:                                       ; preds = %945, %.794.si.unfold.false, %.thread841, %928, %.tail915, %.tail915.thread, %949, %964, %963, %962, %961, %960, %959, %958, %957, %956, %955, %954
+  %.3848857 = phi ptr [ %.3, %964 ], [ %.3, %963 ], [ %.3, %962 ], [ %.3, %961 ], [ %.3, %960 ], [ %.3, %959 ], [ %.3, %958 ], [ %.3, %957 ], [ %.3, %956 ], [ %.3, %955 ], [ %.3, %954 ], [ %.3852, %945 ], [ %.3, %949 ], [ @.str, %.tail915.thread ], [ @.str, %.tail915 ], [ %.3852, %928 ], [ %.3, %.thread841 ], [ %.3852, %.794.si.unfold.false ]
+  %.not636 = phi i1 [ true, %964 ], [ true, %963 ], [ true, %962 ], [ true, %961 ], [ true, %960 ], [ true, %959 ], [ true, %958 ], [ true, %957 ], [ true, %956 ], [ true, %955 ], [ true, %954 ], [ false, %945 ], [ true, %949 ], [ false, %.tail915.thread ], [ false, %.tail915 ], [ false, %928 ], [ false, %.thread841 ], [ true, %.794.si.unfold.false ]
+  %.0574 = phi ptr [ @output_shmem, %964 ], [ @output_xml, %963 ], [ @output_nativesvg, %962 ], [ @output_cairosvg, %961 ], [ @output_ps, %960 ], [ @output_pdf, %959 ], [ @output_png, %958 ], [ @output_fig, %957 ], [ @output_tikz, %956 ], [ @output_ascii, %955 ], [ @output_synthetic, %954 ], [ @output_console, %945 ], [ @output_x11, %949 ], [ @output_console, %.tail915.thread ], [ @output_console, %.tail915 ], [ @output_console, %928 ], [ @output_console, %.thread841 ], [ @output_x11, %.794.si.unfold.false ]
+  %968 = phi i1 [ false, %964 ], [ true, %963 ], [ false, %962 ], [ false, %961 ], [ false, %960 ], [ false, %959 ], [ false, %958 ], [ false, %957 ], [ false, %956 ], [ false, %955 ], [ false, %954 ], [ false, %945 ], [ false, %949 ], [ false, %.tail915.thread ], [ false, %.tail915 ], [ false, %928 ], [ false, %.thread841 ], [ false, %.794.si.unfold.false ]
+  %969 = phi i1 [ false, %964 ], [ false, %963 ], [ false, %962 ], [ false, %961 ], [ false, %960 ], [ false, %959 ], [ false, %958 ], [ false, %957 ], [ false, %956 ], [ false, %955 ], [ false, %954 ], [ false, %945 ], [ true, %949 ], [ false, %.tail915.thread ], [ false, %.tail915 ], [ false, %928 ], [ false, %.thread841 ], [ true, %.794.si.unfold.false ]
+  %970 = phi i1 [ true, %964 ], [ true, %963 ], [ true, %962 ], [ true, %961 ], [ true, %960 ], [ true, %959 ], [ true, %958 ], [ true, %957 ], [ true, %956 ], [ true, %955 ], [ true, %954 ], [ true, %945 ], [ false, %949 ], [ true, %.tail915.thread ], [ true, %.tail915 ], [ true, %928 ], [ true, %.thread841 ], [ false, %.794.si.unfold.false ]
+  %.4565 = phi i32 [ %.2563, %964 ], [ %.2563, %963 ], [ %.2563, %962 ], [ 11, %961 ], [ %.2563, %960 ], [ %.2563, %959 ], [ %.2563, %958 ], [ %.2563, %957 ], [ %.2563, %956 ], [ %.2563, %955 ], [ %.2563, %954 ], [ 2, %945 ], [ 1, %949 ], [ 2, %.tail915.thread ], [ 2, %.tail915 ], [ 2, %928 ], [ %.2563, %.thread841 ], [ 1, %.794.si.unfold.false ]
   %971 = load i32, ptr %38, align 8
   %972 = icmp sgt i32 %971, 1
   br i1 %972, label %973, label %979

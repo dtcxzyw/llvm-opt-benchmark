@@ -9851,7 +9851,7 @@ while.body.lr.ph.i:                               ; preds = %while.body.lr.ph.i.
   br label %while.body.i
 
 while.body.i:                                     ; preds = %sw.bb1.i, %while.body.lr.ph.i
-  %21 = phi ptr [ %.pr13.i, %while.body.lr.ph.i ], [ %38, %sw.bb1.i ]
+  %21 = phi ptr [ %.pr13.i, %while.body.lr.ph.i ], [ %40, %sw.bb1.i ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %queue.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %queue.i, ptr noundef nonnull align 8 dereferenceable(40) @__const.rewrite_one.queue, i64 40, i1 false)
   %.pre.i.i = load ptr, ptr %21, align 8
@@ -9867,19 +9867,19 @@ for.cond.i.i:                                     ; preds = %if.end22.i.i, %whil
 if.then.i.i:                                      ; preds = %for.cond.i.i
   %call.i.i = call fastcc i32 @process_parents(ptr noundef nonnull %revs, ptr noundef %22, ptr noundef null, ptr noundef nonnull %queue.i)
   %cmp.i.i = icmp slt i32 %call.i.i, 0
-  br i1 %cmp.i.i, label %rewrite_one_1.exit.i, label %if.end2.i.i
+  br i1 %cmp.i.i, label %rewrite_one_1.exit.i.jt2, label %if.end2.i.i
 
 if.end2.i.i:                                      ; preds = %if.then.i.i, %for.cond.i.i
   %bf.load3.i.i = load i32, ptr %22, align 8
   %24 = and i32 %bf.load3.i.i, 96
   %or.cond.not.i.i = icmp eq i32 %24, 64
-  br i1 %or.cond.not.i.i, label %if.end14.i.i, label %rewrite_one_1.exit.i
+  br i1 %or.cond.not.i.i, label %if.end14.i.i, label %rewrite_one_1.exit.i.jt0
 
 if.end14.i.i:                                     ; preds = %if.end2.i.i
   %parents.i.i = getelementptr inbounds i8, ptr %22, i64 48
   %25 = load ptr, ptr %parents.i.i, align 8
   %tobool15.not.i.i = icmp eq ptr %25, null
-  br i1 %tobool15.not.i.i, label %rewrite_one_1.exit.i, label %if.end.i.i.i15
+  br i1 %tobool15.not.i.i, label %rewrite_one_1.exit.i.jt1, label %if.end.i.i.i15
 
 if.end.i.i.i15:                                   ; preds = %if.end14.i.i
   %bf.load.i.i.i = load i64, ptr %prune, align 8
@@ -9910,7 +9910,7 @@ while.body.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %while.body.i.i.i
   %tobool10.not.i.i.i = icmp eq ptr %relevant.010.i.i.i, null
-  br i1 %tobool10.not.i.i.i, label %if.end13.i.i.i, label %rewrite_one_1.exit.i
+  br i1 %tobool10.not.i.i.i, label %if.end13.i.i.i, label %rewrite_one_1.exit.i.jt0
 
 if.end13.i.i.i:                                   ; preds = %if.then9.i.i.i, %while.body.i.i.i
   %relevant.1.i.i.i = phi ptr [ %relevant.010.i.i.i, %while.body.i.i.i ], [ %29, %if.then9.i.i.i ]
@@ -9920,32 +9920,45 @@ if.end13.i.i.i:                                   ; preds = %if.then9.i.i.i, %wh
 one_relevant_parent.exit.i.i:                     ; preds = %if.end13.i.i.i, %if.then3.i.i.i
   %retval.0.i.i.i = phi ptr [ %28, %if.then3.i.i.i ], [ %relevant.1.i.i.i, %if.end13.i.i.i ]
   %tobool20.not.i.i = icmp eq ptr %retval.0.i.i.i, null
-  br i1 %tobool20.not.i.i, label %rewrite_one_1.exit.i, label %if.end22.i.i
+  br i1 %tobool20.not.i.i, label %rewrite_one_1.exit.i.jt0, label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %one_relevant_parent.exit.i.i
   store ptr %retval.0.i.i.i, ptr %21, align 8
   br label %for.cond.i.i
 
-rewrite_one_1.exit.i:                             ; preds = %one_relevant_parent.exit.i.i, %if.end14.i.i, %if.end2.i.i, %if.then.i.i, %if.then9.i.i.i
-  %retval.0.i.i = phi i32 [ 0, %if.then9.i.i.i ], [ 0, %one_relevant_parent.exit.i.i ], [ 1, %if.end14.i.i ], [ 0, %if.end2.i.i ], [ 2, %if.then.i.i ]
+rewrite_one_1.exit.i.jt1:                         ; preds = %if.end14.i.i
   %32 = load i32, ptr %nr.i.i, align 4
-  %tobool.not8.i.i = icmp eq i32 %32, 0
-  br i1 %tobool.not8.i.i, label %rewrite_one.exit, label %while.body.i.i
+  %tobool.not8.i.i.jt1 = icmp eq i32 %32, 0
+  br i1 %tobool.not8.i.i.jt1, label %rewrite_one.exit.jt1, label %while.body.i.i.preheader
 
-while.body.i.i:                                   ; preds = %rewrite_one_1.exit.i, %if.end.i.i
-  %list.addr.09.i.i = phi ptr [ %list.addr.1.i.i, %if.end.i.i ], [ %revs, %rewrite_one_1.exit.i ]
+rewrite_one_1.exit.i.jt2:                         ; preds = %if.then.i.i
+  %33 = load i32, ptr %nr.i.i, align 4
+  %tobool.not8.i.i.jt2 = icmp eq i32 %33, 0
+  br i1 %tobool.not8.i.i.jt2, label %rewrite_one.exit.jt2, label %while.body.i.i.preheader
+
+rewrite_one_1.exit.i.jt0:                         ; preds = %if.end2.i.i, %one_relevant_parent.exit.i.i, %if.then9.i.i.i
+  %34 = load i32, ptr %nr.i.i, align 4
+  %tobool.not8.i.i.jt0 = icmp eq i32 %34, 0
+  br i1 %tobool.not8.i.i.jt0, label %rewrite_one.exit.jt0, label %while.body.i.i.preheader
+
+while.body.i.i.preheader:                         ; preds = %rewrite_one_1.exit.i.jt1, %rewrite_one_1.exit.i.jt2, %rewrite_one_1.exit.i.jt0
+  %retval.0.i.i28 = phi i32 [ 1, %rewrite_one_1.exit.i.jt1 ], [ 2, %rewrite_one_1.exit.i.jt2 ], [ 0, %rewrite_one_1.exit.i.jt0 ]
+  br label %while.body.i.i
+
+while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end.i.i
+  %list.addr.09.i.i = phi ptr [ %list.addr.1.i.i, %if.end.i.i ], [ %revs, %while.body.i.i.preheader ]
   %call.i2.i = call ptr @prio_queue_peek(ptr noundef nonnull %queue.i) #25
-  %33 = load ptr, ptr %list.addr.09.i.i, align 8
-  %tobool1.not.i.i = icmp eq ptr %33, null
+  %35 = load ptr, ptr %list.addr.09.i.i, align 8
+  %tobool1.not.i.i = icmp eq ptr %35, null
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.body.i.i
-  %34 = load ptr, ptr %33, align 8
-  %date.i.i = getelementptr inbounds i8, ptr %34, i64 40
-  %35 = load i64, ptr %date.i.i, align 8
+  %36 = load ptr, ptr %35, align 8
+  %date.i.i = getelementptr inbounds i8, ptr %36, i64 40
+  %37 = load i64, ptr %date.i.i, align 8
   %date3.i.i = getelementptr inbounds i8, ptr %call.i2.i, i64 40
-  %36 = load i64, ptr %date3.i.i, align 8
-  %cmp.not.i.i = icmp ult i64 %35, %36
+  %38 = load i64, ptr %date3.i.i, align 8
+  %cmp.not.i.i = icmp ult i64 %37, %38
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %while.body.i.i
@@ -9954,28 +9967,43 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i.i, 
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %land.lhs.true.i.i
-  %.pn.i.i = phi ptr [ %call4.i.i, %if.else.i.i ], [ %33, %land.lhs.true.i.i ]
+  %.pn.i.i = phi ptr [ %call4.i.i, %if.else.i.i ], [ %35, %land.lhs.true.i.i ]
   %list.addr.1.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %37 = load i32, ptr %nr.i.i, align 4
-  %tobool.not.i3.i = icmp eq i32 %37, 0
+  %39 = load i32, ptr %nr.i.i, align 4
+  %tobool.not.i3.i = icmp eq i32 %39, 0
   br i1 %tobool.not.i3.i, label %rewrite_one.exit, label %while.body.i.i, !llvm.loop !81
 
-rewrite_one.exit:                                 ; preds = %if.end.i.i, %rewrite_one_1.exit.i
+rewrite_one.exit:                                 ; preds = %if.end.i.i
   call void @clear_prio_queue(ptr noundef nonnull %queue.i) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %queue.i)
-  switch i32 %retval.0.i.i, label %sw.epilog.i [
+  switch i32 %retval.0.i.i28, label %sw.epilog.i [
     i32 2, label %return
     i32 1, label %sw.bb1.i
   ]
 
-sw.bb1.i:                                         ; preds = %rewrite_one.exit
+rewrite_one.exit.jt1:                             ; preds = %rewrite_one_1.exit.i.jt1
+  call void @clear_prio_queue(ptr noundef nonnull %queue.i) #25
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %queue.i)
+  br label %sw.bb1.i
+
+rewrite_one.exit.jt2:                             ; preds = %rewrite_one_1.exit.i.jt2
+  call void @clear_prio_queue(ptr noundef nonnull %queue.i) #25
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %queue.i)
+  br label %return
+
+rewrite_one.exit.jt0:                             ; preds = %rewrite_one_1.exit.i.jt0
+  call void @clear_prio_queue(ptr noundef nonnull %queue.i) #25
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %queue.i)
+  br label %sw.epilog.i
+
+sw.bb1.i:                                         ; preds = %rewrite_one.exit.jt1, %rewrite_one.exit
   %next.i = getelementptr inbounds i8, ptr %21, i64 8
-  %38 = load ptr, ptr %next.i, align 8
-  store ptr %38, ptr %pp.0.ph12.i, align 8
-  %tobool.not.i14 = icmp eq ptr %38, null
+  %40 = load ptr, ptr %next.i, align 8
+  store ptr %40, ptr %pp.0.ph12.i, align 8
+  %tobool.not.i14 = icmp eq ptr %40, null
   br i1 %tobool.not.i14, label %rewrite_parents.exit, label %while.body.i, !llvm.loop !76
 
-sw.epilog.i:                                      ; preds = %rewrite_one.exit
+sw.epilog.i:                                      ; preds = %rewrite_one.exit, %rewrite_one.exit.jt0
   %next3.i = getelementptr inbounds i8, ptr %21, i64 8
   %.pr.i = load ptr, ptr %next3.i, align 8
   %tobool.not9.i = icmp eq ptr %.pr.i, null
@@ -9985,8 +10013,8 @@ rewrite_parents.exit:                             ; preds = %sw.epilog.i, %sw.bb
   %call4.i = call fastcc i32 @remove_duplicate_parents(ptr noundef %revs, ptr noundef %commit)
   br label %return
 
-return:                                           ; preds = %rewrite_one.exit, %entry, %land.lhs.true, %want_ancestry.exit, %rewrite_parents.exit
-  %retval.0 = phi i32 [ %call, %rewrite_parents.exit ], [ 1, %want_ancestry.exit ], [ 1, %land.lhs.true ], [ 0, %entry ], [ %retval.0.i.i, %rewrite_one.exit ]
+return:                                           ; preds = %rewrite_one.exit, %rewrite_one.exit.jt2, %entry, %land.lhs.true, %want_ancestry.exit, %rewrite_parents.exit
+  %retval.0 = phi i32 [ %call, %rewrite_parents.exit ], [ 1, %want_ancestry.exit ], [ 1, %land.lhs.true ], [ 0, %entry ], [ 2, %rewrite_one.exit.jt2 ], [ %retval.0.i.i28, %rewrite_one.exit ]
   ret i32 %retval.0
 }
 

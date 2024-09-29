@@ -2815,7 +2815,7 @@ invoke.cont983:                                   ; preds = %while.body977
   store ptr %call982, ptr %mapping978, align 8
   %243 = load i32, ptr %status, align 4
   %cmp.i712 = icmp slt i32 %243, 1
-  br i1 %cmp.i712, label %if.end989, label %cleanup1109
+  br i1 %cmp.i712, label %if.end989, label %cleanup1109.jt1
 
 lpad984:                                          ; preds = %if.end1000, %if.end989
   %244 = landingpad { ptr, i32 }
@@ -2829,12 +2829,12 @@ if.end989:                                        ; preds = %invoke.cont983
 invoke.cont992:                                   ; preds = %if.end989
   %call994 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call993, ptr noundef nonnull dereferenceable(19) @.str.14) #20
   %cmp995 = icmp eq i32 %call994, 0
-  br i1 %cmp995, label %cleanup1109, label %lor.lhs.false996, !llvm.loop !47
+  br i1 %cmp995, label %cleanup1109.jt35, label %lor.lhs.false996, !llvm.loop !47
 
 lor.lhs.false996:                                 ; preds = %invoke.cont992
   %call997 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call993, ptr noundef nonnull dereferenceable(11) @.str.15) #20
   %cmp998 = icmp eq i32 %call997, 0
-  br i1 %cmp998, label %cleanup1109, label %if.end1000, !llvm.loop !47
+  br i1 %cmp998, label %cleanup1109.jt35, label %if.end1000, !llvm.loop !47
 
 if.end1000:                                       ; preds = %lor.lhs.false996
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %parentStr, ptr noundef %call993, i32 noundef -1, i32 noundef 0)
@@ -2859,7 +2859,7 @@ for.cond1007.us:                                  ; preds = %for.cond1007.prehea
 
 invoke.cont1010.us:                               ; preds = %for.cond1007.us
   %cmp1012.us = icmp slt i32 %j.0.us, %call1011.us
-  br i1 %cmp1012.us, label %for.body1013.us, label %cleanup1107
+  br i1 %cmp1012.us, label %for.body1013.us, label %cleanup1109.jt0
 
 for.body1013.us:                                  ; preds = %invoke.cont1010.us
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
@@ -2930,7 +2930,7 @@ for.cond1007:                                     ; preds = %for.cond1007.prehea
 
 invoke.cont1010:                                  ; preds = %for.cond1007
   %cmp1012 = icmp slt i32 %j.0, %call1011
-  br i1 %cmp1012, label %for.body1013, label %cleanup1107
+  br i1 %cmp1012, label %for.body1013, label %cleanup1109.jt0
 
 for.body1013:                                     ; preds = %invoke.cont1010
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
@@ -3021,7 +3021,7 @@ _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit741: ; preds = %new.notnull1033, 
   store ptr %call1031, ptr %containedRegions1027, align 8
   %259 = load i32, ptr %status, align 4
   %cmp.i735 = icmp slt i32 %259, 1
-  br i1 %cmp.i735, label %if.end1057, label %cleanup1107.critedge
+  br i1 %cmp.i735, label %if.end1057, label %cleanup1109thread-pre-split.jt1
 
 lpad1002.loopexit.split:                          ; preds = %for.cond1007
   %lpad.loopexit1074 = landingpad { ptr, i32 }
@@ -3052,11 +3052,11 @@ if.end1057:                                       ; preds = %_ZN6icu_7512LocalPo
 new.cont1069:                                     ; preds = %if.end1057
   %262 = load i32, ptr %status, align 4
   %cmp.i.i744 = icmp sgt i32 %262, 0
-  br i1 %cmp.i.i744, label %cleanup1107.critedge, label %if.then.i746
+  br i1 %cmp.i.i744, label %cleanup1109thread-pre-split.jt1, label %if.then.i746
 
 if.then.i746:                                     ; preds = %new.cont1069
   store i32 7, ptr %status, align 4
-  br label %cleanup1107.critedge
+  br label %cleanup1109thread-pre-split.jt1
 
 invoke.cont1070:                                  ; preds = %if.end1057
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %call1058, align 8
@@ -3093,7 +3093,7 @@ lpad1071.thread:                                  ; preds = %invoke.cont1080
 invoke.cont1085:                                  ; preds = %invoke.cont1080
   %268 = load i32, ptr %status, align 4
   %cmp.i755 = icmp slt i32 %268, 1
-  br i1 %cmp.i755, label %if.end1090, label %cleanup1107.critedge
+  br i1 %cmp.i755, label %if.end1090, label %cleanup1109thread-pre-split.jt1
 
 if.end1090:                                       ; preds = %invoke.cont1085
   %269 = load i32, ptr %fType1091, align 4
@@ -3110,7 +3110,7 @@ delete.notnull.i763:                              ; preds = %invoke.cont1070
   %vfn.i765 = getelementptr inbounds i8, ptr %vtable.i764, i64 8
   %270 = load ptr, ptr %vfn.i765, align 8
   call void %270(ptr noundef nonnull align 8 dereferenceable(64) %call1058) #17
-  br label %cleanup1107.critedge
+  br label %cleanup1109thread-pre-split.jt1
 
 cleanup1100:                                      ; preds = %if.end1090, %if.then1093, %invoke.cont1021
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %child1014) #17
@@ -3122,41 +3122,54 @@ ehcleanup1103:                                    ; preds = %lpad1018.split, %lp
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %child1014) #17
   br label %ehcleanup1108
 
-cleanup1107.critedge:                             ; preds = %invoke.cont1085, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit741, %if.then.i746, %new.cont1069, %delete.notnull.i763
+cleanup1109thread-pre-split.jt1:                  ; preds = %invoke.cont1085, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit741, %if.then.i746, %new.cont1069, %delete.notnull.i763
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %child1014) #17
-  br label %cleanup1107
-
-cleanup1107:                                      ; preds = %invoke.cont1010, %invoke.cont1010.us, %cleanup1107.critedge
-  %cleanup.dest.slot.10 = phi i32 [ 1, %cleanup1107.critedge ], [ 0, %invoke.cont1010.us ], [ 0, %invoke.cont1010 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %parentStr) #17
-  %.pr.pre = load ptr, ptr %mapping978, align 8
-  br label %cleanup1109
+  %.pr.pre.jt1 = load ptr, ptr %mapping978, align 8
+  br label %cleanup1109.jt1
 
-cleanup1109:                                      ; preds = %invoke.cont992, %lor.lhs.false996, %cleanup1107, %invoke.cont983
-  %271 = phi ptr [ %call982, %invoke.cont983 ], [ %call982, %invoke.cont992 ], [ %call982, %lor.lhs.false996 ], [ %.pr.pre, %cleanup1107 ]
-  %cleanup.dest.slot.6 = phi i32 [ 1, %invoke.cont983 ], [ 35, %invoke.cont992 ], [ 35, %lor.lhs.false996 ], [ %cleanup.dest.slot.10, %cleanup1107 ]
-  %cmp.not.i767 = icmp eq ptr %271, null
-  br i1 %cmp.not.i767, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit770, label %if.then.i768
+cleanup1109.jt0:                                  ; preds = %invoke.cont1010, %invoke.cont1010.us
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %parentStr) #17
+  %.pr.pre.jt0 = load ptr, ptr %mapping978, align 8
+  %cmp.not.i767.jt0 = icmp eq ptr %.pr.pre.jt0, null
+  br i1 %cmp.not.i767.jt0, label %while.cond971.backedge, label %if.then.i768.jt35.invoke
 
-if.then.i768:                                     ; preds = %cleanup1109
+cleanup1109.jt1:                                  ; preds = %invoke.cont983, %cleanup1109thread-pre-split.jt1
+  %271 = phi ptr [ %.pr.pre.jt1, %cleanup1109thread-pre-split.jt1 ], [ %call982, %invoke.cont983 ]
+  %cmp.not.i767.jt1 = icmp eq ptr %271, null
+  br i1 %cmp.not.i767.jt1, label %cleanup1185, label %if.then.i768.jt1
+
+cleanup1109.jt35:                                 ; preds = %invoke.cont992, %lor.lhs.false996
+  %cmp.not.i767.jt35 = icmp eq ptr %call982, null
+  br i1 %cmp.not.i767.jt35, label %while.cond971.backedge, label %if.then.i768.jt35.invoke
+
+if.then.i768.jt1:                                 ; preds = %cleanup1109.jt1
   invoke void @ures_close_75(ptr noundef nonnull %271)
-          to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit770 unwind label %terminate.lpad.i769
+          to label %cleanup1185 unwind label %terminate.lpad.i769.loopexit.split-lp
 
-terminate.lpad.i769:                              ; preds = %if.then.i768
-  %272 = landingpad { ptr, i32 }
+if.then.i768.jt35.invoke:                         ; preds = %cleanup1109.jt35, %cleanup1109.jt0
+  %272 = phi ptr [ %.pr.pre.jt0, %cleanup1109.jt0 ], [ %call982, %cleanup1109.jt35 ]
+  invoke void @ures_close_75(ptr noundef nonnull %272)
+          to label %while.cond971.backedge unwind label %terminate.lpad.i769.loopexit
+
+while.cond971.backedge:                           ; preds = %if.then.i768.jt35.invoke, %cleanup1109.jt35, %cleanup1109.jt0
+  br label %while.cond971, !llvm.loop !47
+
+terminate.lpad.i769.loopexit:                     ; preds = %if.then.i768.jt35.invoke
+  %lpad.loopexit1273 = landingpad { ptr, i32 }
           catch ptr null
-  %273 = extractvalue { ptr, i32 } %272, 0
+  br label %terminate.lpad.i769
+
+terminate.lpad.i769.loopexit.split-lp:            ; preds = %if.then.i768.jt1
+  %lpad.loopexit.split-lp1274 = landingpad { ptr, i32 }
+          catch ptr null
+  br label %terminate.lpad.i769
+
+terminate.lpad.i769:                              ; preds = %terminate.lpad.i769.loopexit.split-lp, %terminate.lpad.i769.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit1273, %terminate.lpad.i769.loopexit ], [ %lpad.loopexit.split-lp1274, %terminate.lpad.i769.loopexit.split-lp ]
+  %273 = extractvalue { ptr, i32 } %lpad.phi, 0
   call void @__clang_call_terminate(ptr %273) #19
   unreachable
-
-_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit770: ; preds = %cleanup1109, %if.then.i768
-  switch i32 %cleanup.dest.slot.6, label %cleanup1185 [
-    i32 0, label %while.cond971.backedge
-    i32 35, label %while.cond971.backedge
-  ]
-
-while.cond971.backedge:                           ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit770, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit770
-  br label %while.cond971, !llvm.loop !47
 
 ehcleanup1108:                                    ; preds = %lpad1002.loopexit.split-lp, %lpad1002.loopexit.split.us, %lpad1002.loopexit.split, %ehcleanup.i719, %ehcleanup1103
   %.pn204.pn = phi { ptr, i32 } [ %.pn204, %ehcleanup1103 ], [ %.pn.i720, %ehcleanup.i719 ], [ %lpad.loopexit.split-lp1075, %lpad1002.loopexit.split-lp ], [ %lpad.loopexit1074, %lpad1002.loopexit.split ], [ %lpad.loopexit1074.us, %lpad1002.loopexit.split.us ]
@@ -3283,7 +3296,7 @@ delete.notnull.i799:                              ; preds = %invoke.cont1161
   call void %288(ptr noundef nonnull align 8 dereferenceable(64) %call1148) #17
   br label %cleanup1185
 
-cleanup1185:                                      ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit770, %if.then.i784, %new.cont1160, %delete.notnull.i799, %while.end1178
+cleanup1185:                                      ; preds = %if.then.i784, %new.cont1160, %if.then.i768.jt1, %cleanup1109.jt1, %delete.notnull.i799, %while.end1178
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %OUTLYING_OCEANIA_REGION_ID_STRING) #17
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %UNKNOWN_REGION_ID_STRING) #17
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %WORLD_ID_STRING) #17

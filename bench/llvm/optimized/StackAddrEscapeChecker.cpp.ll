@@ -3434,8 +3434,8 @@ _ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EED2Ev.exit.i: ; pr
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 40
   br label %116
 
-116:                                              ; preds = %297, %.lr.ph.i
-  %.02941.i = phi ptr [ %99, %.lr.ph.i ], [ %298, %297 ]
+116:                                              ; preds = %_ZN4llvm11SmallStringILj128EED2Ev.exit.jt3.i, %.lr.ph.i
+  %.02941.i = phi ptr [ %99, %.lr.ph.i ], [ %302, %_ZN4llvm11SmallStringILj128EED2Ev.exit.jt3.i ]
   %117 = load ptr, ptr %.02941.i, align 8
   %118 = call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %117) #17
   %119 = getelementptr inbounds nuw i8, ptr %.02941.i, i64 8
@@ -3524,7 +3524,7 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE8containsES5_.exit.i: ; pre
   %.v.i.i.i = zext i32 %.v.v.i.i.i to i64
   %158 = getelementptr inbounds ptr, ptr %155, i64 %.v.i.i.i
   %.not38.i = icmp eq ptr %.0.i.i.i, %158
-  br i1 %.not38.i, label %159, label %297
+  br i1 %.not38.i, label %159, label %_ZN4llvm11SmallStringILj128EED2Ev.exit.jt3.i
 
 159:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE8containsES5_.exit.i
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull %102, i64 noundef 128) #17
@@ -3649,24 +3649,20 @@ _ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i: ; preds = %209, %204
   call void %222(ptr noundef nonnull align 8 dereferenceable(120) %218, ptr noundef nonnull %6) #17
   %223 = load ptr, ptr %6, align 8
   %.not.i.i45.i = icmp eq ptr %223, null
-  br i1 %.not.i.i45.i, label %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i
+  br i1 %.not.i.i45.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt1.i, label %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i
 
 _ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i: ; preds = %216
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds i8, ptr %224, i64 8
   %226 = load ptr, ptr %225, align 8
   call void %226(ptr noundef nonnull align 8 dereferenceable(488) %223) #17
-  br label %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i
-
-_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i, %216
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt1.i
 
 227:                                              ; preds = %159
   call void @_Z13printReferrerB5cxx11PKN5clang4ento9MemRegionE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.0") align 8 %13, ptr noundef nonnull %118)
   %228 = load i8, ptr %108, align 8
   %229 = trunc i8 %228 to i1
-  br i1 %229, label %230, label %289
+  br i1 %229, label %230, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt3.i
 
 230:                                              ; preds = %227
   %231 = load ptr, ptr %109, align 8
@@ -3768,55 +3764,63 @@ _ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit60.i: ; preds = %271, %2
   call void %284(ptr noundef nonnull align 8 dereferenceable(120) %280, ptr noundef nonnull %4) #17
   %285 = load ptr, ptr %4, align 8
   %.not.i.i61.i = icmp eq ptr %285, null
-  br i1 %.not.i.i61.i, label %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit69.i, label %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i62.i
+  br i1 %.not.i.i61.i, label %289, label %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i62.i
 
 _ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i62.i: ; preds = %278
   %286 = load ptr, ptr %285, align 8
   %287 = getelementptr inbounds i8, ptr %286, i64 8
   %288 = load ptr, ptr %287, align 8
   call void %288(ptr noundef nonnull align 8 dereferenceable(488) %285) #17
-  br label %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit69.i
-
-_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit69.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i62.i, %278
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.pre.i = load i8, ptr %108, align 8
   br label %289
 
-289:                                              ; preds = %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit69.i, %227
-  %290 = phi i8 [ %.pre.i, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit69.i ], [ %228, %227 ]
-  %.1.i = phi i32 [ 0, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit69.i ], [ 3, %227 ]
-  %291 = trunc i8 %290 to i1
-  br i1 %291, label %292, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
+289:                                              ; preds = %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i62.i, %278
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  %.pre.i = load i8, ptr %108, align 8
+  %290 = trunc i8 %.pre.i to i1
+  br i1 %290, label %291, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt0.i
 
-292:                                              ; preds = %289
+291:                                              ; preds = %289
   store i8 0, ptr %108, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #17
-  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
+  br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt0.i
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %292, %289, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i
-  %.028.i = phi i32 [ 1, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i ], [ %.1.i, %289 ], [ %.1.i, %292 ]
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt3.i: ; preds = %227
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #17
-  %293 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  %294 = load ptr, ptr %11, align 8
-  %295 = icmp eq ptr %294, %102
-  br i1 %295, label %_ZN4llvm11SmallStringILj128EED2Ev.exit.i, label %296
+  %292 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
+  %293 = load ptr, ptr %11, align 8
+  %294 = icmp eq ptr %293, %102
+  br i1 %294, label %_ZN4llvm11SmallStringILj128EED2Ev.exit.jt3.i, label %_ZN4llvm11SmallStringILj128EED2Ev.exit.jt3.sink.split.i
 
-296:                                              ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
-  call void @free(ptr noundef %294) #17
-  br label %_ZN4llvm11SmallStringILj128EED2Ev.exit.i
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt0.i: ; preds = %291, %289
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #17
+  %295 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
+  %296 = load ptr, ptr %11, align 8
+  %297 = icmp eq ptr %296, %102
+  br i1 %297, label %_ZN4llvm11SmallStringILj128EED2Ev.exit.jt3.i, label %_ZN4llvm11SmallStringILj128EED2Ev.exit.jt3.sink.split.i
 
-_ZN4llvm11SmallStringILj128EED2Ev.exit.i:         ; preds = %296, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
-  switch i32 %.028.i, label %._crit_edge.i [
-    i32 0, label %297
-    i32 3, label %297
-  ]
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt1.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i, %216
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #17
+  %298 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
+  %299 = load ptr, ptr %11, align 8
+  %300 = icmp eq ptr %299, %102
+  br i1 %300, label %._crit_edge.i, label %301
 
-297:                                              ; preds = %_ZN4llvm11SmallStringILj128EED2Ev.exit.i, %_ZN4llvm11SmallStringILj128EED2Ev.exit.i, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE8containsES5_.exit.i
-  %298 = getelementptr inbounds i8, ptr %.02941.i, i64 16
-  %.not31.i = icmp eq ptr %298, %101
+301:                                              ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt1.i
+  call void @free(ptr noundef %299) #17
+  br label %._crit_edge.i
+
+_ZN4llvm11SmallStringILj128EED2Ev.exit.jt3.sink.split.i: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt0.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt3.i
+  %.sink.i = phi ptr [ %293, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt3.i ], [ %296, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt0.i ]
+  call void @free(ptr noundef %.sink.i) #17
+  br label %_ZN4llvm11SmallStringILj128EED2Ev.exit.jt3.i
+
+_ZN4llvm11SmallStringILj128EED2Ev.exit.jt3.i:     ; preds = %_ZN4llvm11SmallStringILj128EED2Ev.exit.jt3.sink.split.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt0.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt3.i, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE8containsES5_.exit.i
+  %302 = getelementptr inbounds i8, ptr %.02941.i, i64 16
+  %.not31.i = icmp eq ptr %302, %101
   br i1 %.not31.i, label %._crit_edge.i, label %116
 
-._crit_edge.i:                                    ; preds = %297, %_ZN4llvm11SmallStringILj128EED2Ev.exit.i
+._crit_edge.i:                                    ; preds = %_ZN4llvm11SmallStringILj128EED2Ev.exit.jt3.i, %301, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.jt1.i
   br i1 %.not.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit71.i, label %.thread.i
 
 .thread.i:                                        ; preds = %._crit_edge.i, %_ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EED2Ev.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
@@ -3825,26 +3829,26 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit.i:         ; preds = %296, %_ZNSt8optiona
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit71.i: ; preds = %.thread.i, %._crit_edge.i
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEE8CallBack, i64 16), ptr %10, align 8
-  %299 = load ptr, ptr %61, align 8
-  %300 = load ptr, ptr %59, align 8
-  %301 = icmp eq ptr %299, %300
-  br i1 %301, label %_ZN4llvm11SmallPtrSetIPKN5clang4ento9MemRegionELj4EED2Ev.exit.i.i, label %302
+  %303 = load ptr, ptr %61, align 8
+  %304 = load ptr, ptr %59, align 8
+  %305 = icmp eq ptr %303, %304
+  br i1 %305, label %_ZN4llvm11SmallPtrSetIPKN5clang4ento9MemRegionELj4EED2Ev.exit.i.i, label %306
 
-302:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit71.i
-  call void @free(ptr noundef %299) #17
+306:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit71.i
+  call void @free(ptr noundef %303) #17
   br label %_ZN4llvm11SmallPtrSetIPKN5clang4ento9MemRegionELj4EED2Ev.exit.i.i
 
-_ZN4llvm11SmallPtrSetIPKN5clang4ento9MemRegionELj4EED2Ev.exit.i.i: ; preds = %302, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit71.i
-  %303 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #17
-  %304 = load ptr, ptr %57, align 8
-  %305 = icmp eq ptr %304, %58
-  br i1 %305, label %_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBackD2Ev.exit.i, label %306
+_ZN4llvm11SmallPtrSetIPKN5clang4ento9MemRegionELj4EED2Ev.exit.i.i: ; preds = %306, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit71.i
+  %307 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #17
+  %308 = load ptr, ptr %57, align 8
+  %309 = icmp eq ptr %308, %58
+  br i1 %309, label %_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBackD2Ev.exit.i, label %310
 
-306:                                              ; preds = %_ZN4llvm11SmallPtrSetIPKN5clang4ento9MemRegionELj4EED2Ev.exit.i.i
-  call void @free(ptr noundef %304) #17
+310:                                              ; preds = %_ZN4llvm11SmallPtrSetIPKN5clang4ento9MemRegionELj4EED2Ev.exit.i.i
+  call void @free(ptr noundef %308) #17
   br label %_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBackD2Ev.exit.i
 
-_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBackD2Ev.exit.i: ; preds = %306, %_ZN4llvm11SmallPtrSetIPKN5clang4ento9MemRegionELj4EED2Ev.exit.i.i
+_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBackD2Ev.exit.i: ; preds = %310, %_ZN4llvm11SmallPtrSetIPKN5clang4ento9MemRegionELj4EED2Ev.exit.i.i
   call void @_ZN5clang4ento12StoreManager15BindingsHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
   br label %_ZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit
 

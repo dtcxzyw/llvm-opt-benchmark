@@ -247,7 +247,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.not = icmp eq i32 %4, 2
-  br i1 %cmp.not, label %if.end, label %if.then.i.i.i.i
+  br i1 %cmp.not, label %if.end, label %if.then.i.i.i.i.jt3.invoke
 
 lpad8:                                            ; preds = %if.end18, %if.else, %if.then13
   %5 = landingpad { ptr, i32 }
@@ -270,91 +270,102 @@ if.else:                                          ; preds = %if.end
 
 if.end18:                                         ; preds = %if.else, %if.then13
   %call20 = invoke noundef zeroext i1 @_ZNK3nla6common4doneEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
-          to label %cleanup unwind label %lpad8
+          to label %invoke.cont19 unwind label %lpad8
 
-cleanup:                                          ; preds = %if.end18
-  %. = select i1 %call20, i32 2, i32 0
+invoke.cont19:                                    ; preds = %if.end18
   %.pr.pre = load ptr, ptr %ac, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %.pr.pre, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN3nla13factorizationD2Ev.exit, label %if.then.i.i.i.i
+  %tobool.not.i.i.i.i.jt2 = icmp eq ptr %.pr.pre, null
+  br i1 %call20, label %cleanup.jt2, label %cleanup.jt0
 
-if.then.i.i.i.i:                                  ; preds = %invoke.cont9, %cleanup
-  %cleanup.dest.slot.0.ph32 = phi i32 [ %., %cleanup ], [ 3, %invoke.cont9 ]
-  %.pr31 = phi ptr [ %.pr.pre, %cleanup ], [ %3, %invoke.cont9 ]
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr31, i64 -8
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i)
-          to label %_ZN3nla13factorizationD2Ev.exit unwind label %terminate.lpad.i.i.i
+cleanup.jt0:                                      ; preds = %invoke.cont19
+  br i1 %tobool.not.i.i.i.i.jt2, label %for.inc, label %if.then.i.i.i.i.jt3.invoke
 
-terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
-  %7 = landingpad { ptr, i32 }
+cleanup.jt2:                                      ; preds = %invoke.cont19
+  br i1 %tobool.not.i.i.i.i.jt2, label %cleanup24, label %if.then.i.i.i.i.jt2
+
+if.then.i.i.i.i.jt3.invoke:                       ; preds = %invoke.cont9, %cleanup.jt0
+  %.pr.pre.sink = phi ptr [ %.pr.pre, %cleanup.jt0 ], [ %3, %invoke.cont9 ]
+  %add.ptr.i.i.i.i.i.jt0 = getelementptr inbounds i8, ptr %.pr.pre.sink, i64 -8
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.jt0)
+          to label %for.inc unwind label %terminate.lpad.i.i.i.loopexit
+
+if.then.i.i.i.i.jt2:                              ; preds = %cleanup.jt2
+  %add.ptr.i.i.i.i.i.jt2 = getelementptr inbounds i8, ptr %.pr.pre, i64 -8
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.jt2)
+          to label %cleanup24 unwind label %terminate.lpad.i.i.i.loopexit.split-lp
+
+terminate.lpad.i.i.i.loopexit:                    ; preds = %if.then.i.i.i.i.jt3.invoke
+  %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #16
+  br label %terminate.lpad.i.i.i
+
+terminate.lpad.i.i.i.loopexit.split-lp:           ; preds = %if.then.i.i.i.i.jt2
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          catch ptr null
+  br label %terminate.lpad.i.i.i
+
+terminate.lpad.i.i.i:                             ; preds = %terminate.lpad.i.i.i.loopexit.split-lp, %terminate.lpad.i.i.i.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.i.i.i.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.i.i.i.loopexit.split-lp ]
+  %7 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %7) #16
   unreachable
 
-_ZN3nla13factorizationD2Ev.exit:                  ; preds = %cleanup, %if.then.i.i.i.i
-  %cleanup.dest.slot.0.ph33 = phi i32 [ %., %cleanup ], [ %cleanup.dest.slot.0.ph32, %if.then.i.i.i.i ]
-  switch i32 %cleanup.dest.slot.0.ph33, label %cleanup24 [
-    i32 0, label %for.inc
-    i32 3, label %for.inc
-  ]
-
-for.inc:                                          ; preds = %invoke.cont7, %_ZN3nla13factorizationD2Ev.exit, %_ZN3nla13factorizationD2Ev.exit
+for.inc:                                          ; preds = %if.then.i.i.i.i.jt3.invoke, %cleanup.jt0, %invoke.cont7
   invoke void @_ZN3nla18const_iterator_monppEv(ptr nonnull sret(%"struct.nla::const_iterator_mon") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(24) %__begin1)
           to label %invoke.cont23 unwind label %lpad4
 
 invoke.cont23:                                    ; preds = %for.inc
-  %9 = load ptr, ptr %agg.tmp.ensured, align 8
-  %tobool.not.i.i.i.i7 = icmp eq ptr %9, null
+  %8 = load ptr, ptr %agg.tmp.ensured, align 8
+  %tobool.not.i.i.i.i7 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i7, label %for.cond.backedge, label %if.then.i.i.i.i8
 
 for.cond.backedge:                                ; preds = %invoke.cont23, %if.then.i.i.i.i8
   br label %for.cond
 
 if.then.i.i.i.i8:                                 ; preds = %invoke.cont23
-  %add.ptr.i.i.i.i.i9 = getelementptr inbounds i8, ptr %9, i64 -8
+  %add.ptr.i.i.i.i.i9 = getelementptr inbounds i8, ptr %8, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i9)
           to label %for.cond.backedge unwind label %terminate.lpad.i.i.i10
 
 terminate.lpad.i.i.i10:                           ; preds = %if.then.i.i.i.i8
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #16
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #16
   unreachable
 
-cleanup24:                                        ; preds = %invoke.cont5, %_ZN3nla13factorizationD2Ev.exit
-  %12 = load ptr, ptr %__end1, align 8
-  %tobool.not.i.i.i.i11 = icmp eq ptr %12, null
+cleanup24:                                        ; preds = %invoke.cont5, %cleanup.jt2, %if.then.i.i.i.i.jt2
+  %11 = load ptr, ptr %__end1, align 8
+  %tobool.not.i.i.i.i11 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i11, label %_ZN3nla18const_iterator_monD2Ev.exit15, label %if.then.i.i.i.i12
 
 if.then.i.i.i.i12:                                ; preds = %cleanup24
-  %add.ptr.i.i.i.i.i13 = getelementptr inbounds i8, ptr %12, i64 -8
+  %add.ptr.i.i.i.i.i13 = getelementptr inbounds i8, ptr %11, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i13)
           to label %_ZN3nla18const_iterator_monD2Ev.exit15 unwind label %terminate.lpad.i.i.i14
 
 terminate.lpad.i.i.i14:                           ; preds = %if.then.i.i.i.i12
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #16
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #16
   unreachable
 
 _ZN3nla18const_iterator_monD2Ev.exit15:           ; preds = %cleanup24, %if.then.i.i.i.i12
-  %15 = load ptr, ptr %__begin1, align 8
-  %tobool.not.i.i.i.i16 = icmp eq ptr %15, null
+  %14 = load ptr, ptr %__begin1, align 8
+  %tobool.not.i.i.i.i16 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i16, label %_ZN3nla18const_iterator_monD2Ev.exit20, label %if.then.i.i.i.i17
 
 if.then.i.i.i.i17:                                ; preds = %_ZN3nla18const_iterator_monD2Ev.exit15
-  %add.ptr.i.i.i.i.i18 = getelementptr inbounds i8, ptr %15, i64 -8
+  %add.ptr.i.i.i.i.i18 = getelementptr inbounds i8, ptr %14, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i18)
           to label %_ZN3nla18const_iterator_monD2Ev.exit20 unwind label %terminate.lpad.i.i.i19
 
 terminate.lpad.i.i.i19:                           ; preds = %if.then.i.i.i.i17
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #16
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #16
   unreachable
 
 _ZN3nla18const_iterator_monD2Ev.exit20:           ; preds = %_ZN3nla18const_iterator_monD2Ev.exit15, %if.then.i.i.i.i17

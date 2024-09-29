@@ -77623,7 +77623,7 @@ if.end49:                                         ; preds = %do.body28.i, %if.en
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @nk_textedit_key(ptr noundef %state, i32 noundef range(i32 -2147483648, 30) %key, i32 noundef %shift_mod, ptr noundef %font, float noundef %row_height) unnamed_addr #17 {
-entry:
+retry:
   %unicode.i583 = alloca i32, align 4
   %unicode.i446 = alloca i32, align 4
   %unicode.i = alloca i32, align 4
@@ -77636,11 +77636,7 @@ entry:
   %find358 = alloca %struct.nk_text_find, align 4
   %find384 = alloca %struct.nk_text_find, align 4
   %single_line = getelementptr inbounds i8, ptr %state, i64 184
-  br label %retry
-
-retry:                                            ; preds = %retry.backedge, %entry
-  %key.addr.0 = phi i32 [ %key, %entry ], [ %key.addr.0.be, %retry.backedge ]
-  switch i32 %key.addr.0, label %sw.epilog [
+  switch i32 %key, label %sw.epilog [
     i32 18, label %sw.bb355
     i32 17, label %sw.bb310
     i32 20, label %sw.bb294
@@ -77715,7 +77711,7 @@ if.then26:                                        ; preds = %sw.bb17
   store i8 0, ptr %mode18, align 4
   br label %sw.epilog
 
-sw.bb29:                                          ; preds = %retry
+sw.bb29:                                          ; preds = %sw.bb166, %retry
   %tobool.not = icmp eq i32 %shift_mod, 0
   br i1 %tobool.not, label %if.else, label %if.then30
 
@@ -77826,7 +77822,7 @@ if.end50:                                         ; preds = %if.else42, %if.then
   store i8 0, ptr %has_preferred_x51, align 1
   br label %sw.epilog
 
-sw.bb53:                                          ; preds = %retry
+sw.bb53:                                          ; preds = %sw.bb119, %retry
   %tobool54.not = icmp eq i32 %shift_mod, 0
   %select_start61 = getelementptr inbounds i8, ptr %state, i64 172
   %18 = load i32, ptr %select_start61, align 4
@@ -78116,11 +78112,7 @@ if.else114:                                       ; preds = %if.else108
 sw.bb119:                                         ; preds = %retry
   %45 = load i8, ptr %single_line, align 8
   %tobool120.not = icmp eq i8 %45, 0
-  br i1 %tobool120.not, label %if.end122, label %retry.backedge
-
-retry.backedge:                                   ; preds = %sw.bb119, %sw.bb166
-  %key.addr.0.be = phi i32 [ 13, %sw.bb119 ], [ 12, %sw.bb166 ]
-  br label %retry
+  br i1 %tobool120.not, label %if.end122, label %sw.bb53
 
 if.end122:                                        ; preds = %sw.bb119
   %tobool123.not = icmp eq i32 %shift_mod, 0
@@ -78155,10 +78147,10 @@ if.then130:                                       ; preds = %if.else125
   br label %if.end132
 
 if.end132.thread:                                 ; preds = %if.then.i367, %if.else125
-  %len.i369638 = getelementptr inbounds i8, ptr %state, i64 144
-  %49 = load i32, ptr %len.i369638, align 8
-  %select_start.i370639 = getelementptr inbounds i8, ptr %state, i64 172
-  %select_end.i371640 = getelementptr inbounds i8, ptr %state, i64 176
+  %len.i369639 = getelementptr inbounds i8, ptr %state, i64 144
+  %49 = load i32, ptr %len.i369639, align 8
+  %select_start.i370640 = getelementptr inbounds i8, ptr %state, i64 172
+  %select_end.i371641 = getelementptr inbounds i8, ptr %state, i64 176
   br label %if.end16.i379
 
 if.end132:                                        ; preds = %if.else.i365, %if.then130
@@ -78199,10 +78191,10 @@ if.then13.i383:                                   ; preds = %if.end9.i377
   br label %if.end16.i379
 
 if.end16.i379:                                    ; preds = %if.end132.thread, %if.then13.i383, %if.end9.i377, %if.end132
-  %select_end.i371644 = phi ptr [ %select_end.i371640, %if.end132.thread ], [ %select_end.i371, %if.then13.i383 ], [ %select_end.i371, %if.end9.i377 ], [ %select_end.i371, %if.end132 ]
-  %select_start.i370643 = phi ptr [ %select_start.i370639, %if.end132.thread ], [ %select_start.i370, %if.then13.i383 ], [ %select_start.i370, %if.end9.i377 ], [ %select_start.i370, %if.end132 ]
+  %select_end.i371645 = phi ptr [ %select_end.i371641, %if.end132.thread ], [ %select_end.i371, %if.then13.i383 ], [ %select_end.i371, %if.end9.i377 ], [ %select_end.i371, %if.end132 ]
+  %select_start.i370644 = phi ptr [ %select_start.i370640, %if.end132.thread ], [ %select_start.i370, %if.then13.i383 ], [ %select_start.i370, %if.end9.i377 ], [ %select_start.i370, %if.end132 ]
   %55 = phi i32 [ %49, %if.end132.thread ], [ %52, %if.then13.i383 ], [ %52, %if.end9.i377 ], [ %52, %if.end132 ]
-  %len.i369642 = phi ptr [ %len.i369638, %if.end132.thread ], [ %len.i369, %if.then13.i383 ], [ %len.i369, %if.end9.i377 ], [ %len.i369, %if.end132 ]
+  %len.i369643 = phi ptr [ %len.i369639, %if.end132.thread ], [ %len.i369, %if.then13.i383 ], [ %len.i369, %if.end9.i377 ], [ %len.i369, %if.end132 ]
   %cursor17.i380 = getelementptr inbounds i8, ptr %state, i64 168
   %56 = load i32, ptr %cursor17.i380, align 8
   %cmp18.i381 = icmp sgt i32 %56, %55
@@ -78321,9 +78313,9 @@ if.end154:                                        ; preds = %nk_textedit_get_wid
   br i1 %72, label %for.body, label %for.end, !llvm.loop !256
 
 for.end:                                          ; preds = %if.end154, %nk_textedit_get_width.exit, %if.then137
-  %73 = load i32, ptr %len.i369642, align 8
-  %74 = load i32, ptr %select_start.i370643, align 4
-  %75 = load i32, ptr %select_end.i371644, align 8
+  %73 = load i32, ptr %len.i369643, align 8
+  %74 = load i32, ptr %select_start.i370644, align 4
+  %75 = load i32, ptr %select_end.i371645, align 8
   %cmp.not.i392 = icmp eq i32 %74, %75
   br i1 %cmp.not.i392, label %if.end16.i399, label %if.then.i393
 
@@ -78332,7 +78324,7 @@ if.then.i393:                                     ; preds = %for.end
   br i1 %cmp2.i394, label %if.then3.i406, label %if.end.i395
 
 if.then3.i406:                                    ; preds = %if.then.i393
-  store i32 %73, ptr %select_start.i370643, align 4
+  store i32 %73, ptr %select_start.i370644, align 4
   br label %if.end.i395
 
 if.end.i395:                                      ; preds = %if.then3.i406, %if.then.i393
@@ -78341,7 +78333,7 @@ if.end.i395:                                      ; preds = %if.then3.i406, %if.
   br i1 %cmp6.i396, label %if.then7.i405, label %if.end9.i397
 
 if.then7.i405:                                    ; preds = %if.end.i395
-  store i32 %73, ptr %select_end.i371644, align 8
+  store i32 %73, ptr %select_end.i371645, align 8
   br label %if.end9.i397
 
 if.end9.i397:                                     ; preds = %if.then7.i405, %if.end.i395
@@ -78369,13 +78361,13 @@ nk_textedit_clamp.exit407:                        ; preds = %if.end16.i399, %if.
   br i1 %tobool123.not, label %sw.epilog, label %if.then161
 
 if.then161:                                       ; preds = %nk_textedit_clamp.exit407
-  store i32 %79, ptr %select_end.i371644, align 8
+  store i32 %79, ptr %select_end.i371645, align 8
   br label %sw.epilog
 
 sw.bb166:                                         ; preds = %retry
   %80 = load i8, ptr %single_line, align 8
   %tobool172.not = icmp eq i8 %80, 0
-  br i1 %tobool172.not, label %if.end174, label %retry.backedge
+  br i1 %tobool172.not, label %if.end174, label %sw.bb29
 
 if.end174:                                        ; preds = %sw.bb166
   %tobool175.not = icmp eq i32 %shift_mod, 0
@@ -78417,10 +78409,10 @@ nk_textedit_move_to_first.exit426:                ; preds = %if.then.i419, %if.t
   br label %if.end184.thread
 
 if.end184.thread:                                 ; preds = %if.then.i414, %if.else177, %nk_textedit_move_to_first.exit426
-  %len.i427647 = getelementptr inbounds i8, ptr %state, i64 144
-  %85 = load i32, ptr %len.i427647, align 8
-  %select_start.i428648 = getelementptr inbounds i8, ptr %state, i64 172
-  %select_end.i429649 = getelementptr inbounds i8, ptr %state, i64 176
+  %len.i427648 = getelementptr inbounds i8, ptr %state, i64 144
+  %85 = load i32, ptr %len.i427648, align 8
+  %select_start.i428649 = getelementptr inbounds i8, ptr %state, i64 172
+  %select_end.i429650 = getelementptr inbounds i8, ptr %state, i64 176
   br label %if.end16.i437
 
 if.then.i431:                                     ; preds = %if.then176
@@ -78456,10 +78448,10 @@ if.then13.i441:                                   ; preds = %if.end9.i435
   br label %if.end16.i437
 
 if.end16.i437:                                    ; preds = %if.end184.thread, %if.then13.i441, %if.end9.i435
-  %select_end.i429653 = phi ptr [ %select_end.i429649, %if.end184.thread ], [ %select_end.i429, %if.then13.i441 ], [ %select_end.i429, %if.end9.i435 ]
-  %select_start.i428652 = phi ptr [ %select_start.i428648, %if.end184.thread ], [ %select_start.i428, %if.then13.i441 ], [ %select_start.i428, %if.end9.i435 ]
+  %select_end.i429654 = phi ptr [ %select_end.i429650, %if.end184.thread ], [ %select_end.i429, %if.then13.i441 ], [ %select_end.i429, %if.end9.i435 ]
+  %select_start.i428653 = phi ptr [ %select_start.i428649, %if.end184.thread ], [ %select_start.i428, %if.then13.i441 ], [ %select_start.i428, %if.end9.i435 ]
   %89 = phi i32 [ %85, %if.end184.thread ], [ %86, %if.then13.i441 ], [ %86, %if.end9.i435 ]
-  %len.i427651 = phi ptr [ %len.i427647, %if.end184.thread ], [ %len.i427, %if.then13.i441 ], [ %len.i427, %if.end9.i435 ]
+  %len.i427652 = phi ptr [ %len.i427648, %if.end184.thread ], [ %len.i427, %if.then13.i441 ], [ %len.i427, %if.end9.i435 ]
   %cursor17.i438 = getelementptr inbounds i8, ptr %state, i64 168
   %90 = load i32, ptr %cursor17.i438, align 8
   %cmp18.i439 = icmp sgt i32 %90, %89
@@ -78575,9 +78567,9 @@ if.end224:                                        ; preds = %nk_textedit_get_wid
   br i1 %105, label %for.body216, label %for.end229, !llvm.loop !257
 
 for.end229:                                       ; preds = %if.end224, %nk_textedit_get_width.exit482, %if.then191
-  %106 = load i32, ptr %len.i427651, align 8
-  %107 = load i32, ptr %select_start.i428652, align 4
-  %108 = load i32, ptr %select_end.i429653, align 8
+  %106 = load i32, ptr %len.i427652, align 8
+  %107 = load i32, ptr %select_start.i428653, align 4
+  %108 = load i32, ptr %select_end.i429654, align 8
   %cmp.not.i486 = icmp eq i32 %107, %108
   br i1 %cmp.not.i486, label %if.end16.i493, label %if.then.i487
 
@@ -78586,7 +78578,7 @@ if.then.i487:                                     ; preds = %for.end229
   br i1 %cmp2.i488, label %if.then3.i500, label %if.end.i489
 
 if.then3.i500:                                    ; preds = %if.then.i487
-  store i32 %106, ptr %select_start.i428652, align 4
+  store i32 %106, ptr %select_start.i428653, align 4
   br label %if.end.i489
 
 if.end.i489:                                      ; preds = %if.then3.i500, %if.then.i487
@@ -78595,7 +78587,7 @@ if.end.i489:                                      ; preds = %if.then3.i500, %if.
   br i1 %cmp6.i490, label %if.then7.i499, label %if.end9.i491
 
 if.then7.i499:                                    ; preds = %if.end.i489
-  store i32 %106, ptr %select_end.i429653, align 8
+  store i32 %106, ptr %select_end.i429654, align 8
   br label %if.end9.i491
 
 if.end9.i491:                                     ; preds = %if.then7.i499, %if.end.i489
@@ -78623,7 +78615,7 @@ nk_textedit_clamp.exit501:                        ; preds = %if.end16.i493, %if.
   br i1 %tobool175.not, label %sw.epilog, label %if.then233
 
 if.then233:                                       ; preds = %nk_textedit_clamp.exit501
-  store i32 %112, ptr %select_end.i429653, align 8
+  store i32 %112, ptr %select_end.i429654, align 8
   br label %sw.epilog
 
 sw.bb238:                                         ; preds = %retry

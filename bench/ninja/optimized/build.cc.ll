@@ -2064,8 +2064,8 @@ define dso_local noundef zeroext i1 @_ZN4Plan23RefreshDyndepDependentsEP14Depend
   %21 = getelementptr inbounds i8, ptr %0, i64 112
   br label %22
 
-22:                                               ; preds = %.lr.ph49, %102
-  %.sroa.032.046 = phi ptr [ %13, %.lr.ph49 ], [ %103, %102 ]
+22:                                               ; preds = %.lr.ph49, %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23.jt0
+  %.sroa.032.046 = phi ptr [ %13, %.lr.ph49 ], [ %104, %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23.jt0 ]
   %23 = getelementptr inbounds i8, ptr %.sroa.032.046, i64 32
   %24 = load ptr, ptr %23, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -2073,7 +2073,7 @@ define dso_local noundef zeroext i1 @_ZN4Plan23RefreshDyndepDependentsEP14Depend
           to label %26 unwind label %.loopexit.split-lp.loopexit
 
 26:                                               ; preds = %22
-  br i1 %25, label %31, label %_ZN4Plan10EdgeWantedEPK4Edge.exit
+  br i1 %25, label %31, label %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt1
 
 27:                                               ; preds = %4
   %28 = landingpad { ptr, i32 }
@@ -2202,7 +2202,7 @@ _ZNSt6vectorIPK4NodeSaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6vectorIPK4
           to label %_ZN4Plan9AddTargetEPK4NodePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.loopexit
 
 _ZN4Plan9AddTargetEPK4NodePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNSt6vectorIPK4NodeSaIS2_EE9push_backERKS2_.exit.i
-  br i1 %71, label %_ZN4Plan9AddTargetEPK4NodePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit._crit_edge, label %_ZN4Plan10EdgeWantedEPK4Edge.exit
+  br i1 %71, label %_ZN4Plan9AddTargetEPK4NodePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit._crit_edge, label %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt1
 
 _ZN4Plan9AddTargetEPK4NodePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit._crit_edge: ; preds = %_ZN4Plan9AddTargetEPK4NodePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pre = load ptr, ptr %14, align 8
@@ -2218,7 +2218,7 @@ _ZN4Plan9AddTargetEPK4NodePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
   %75 = getelementptr inbounds i8, ptr %24, i64 52
   %76 = load i8, ptr %75, align 4
   %77 = trunc i8 %76 to i1
-  br i1 %77, label %78, label %_ZN4Plan10EdgeWantedEPK4Edge.exit
+  br i1 %77, label %78, label %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt4
 
 78:                                               ; preds = %._crit_edge
   %79 = getelementptr inbounds i8, ptr %24, i64 56
@@ -2256,7 +2256,7 @@ _ZNSt3mapIP4EdgeN4Plan4WantESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit: ; 
   %90 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 40
   %91 = load i32, ptr %90, align 8
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %_ZN4Plan10EdgeWantedEPK4Edge.exit
+  br i1 %92, label %93, label %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt0
 
 93:                                               ; preds = %_ZNSt3mapIP4EdgeN4Plan4WantESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit
   store i32 1, ptr %90, align 8
@@ -2267,46 +2267,54 @@ _ZNSt3mapIP4EdgeN4Plan4WantESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit: ; 
           to label %.noexc21 unwind label %.loopexit.split-lp.loopexit
 
 .noexc21:                                         ; preds = %93
-  br i1 %96, label %_ZN4Plan10EdgeWantedEPK4Edge.exit, label %97
+  br i1 %96, label %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt0, label %97
 
 97:                                               ; preds = %.noexc21
   %98 = load i32, ptr %21, align 8
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %21, align 8
-  br label %_ZN4Plan10EdgeWantedEPK4Edge.exit
+  br label %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt0
 
-_ZN4Plan10EdgeWantedEPK4Edge.exit:                ; preds = %_ZN4Plan9AddTargetEPK4NodePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %97, %.noexc21, %_ZNSt3mapIP4EdgeN4Plan4WantESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit, %._crit_edge, %26
-  %.013 = phi i32 [ 1, %26 ], [ 4, %._crit_edge ], [ 0, %_ZNSt3mapIP4EdgeN4Plan4WantESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit ], [ 0, %.noexc21 ], [ 0, %97 ], [ 1, %_ZN4Plan9AddTargetEPK4NodePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+_ZN4Plan10EdgeWantedEPK4Edge.exit.jt0:            ; preds = %97, %.noexc21, %_ZNSt3mapIP4EdgeN4Plan4WantESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit
   %100 = load ptr, ptr %6, align 8
-  %.not.i.i.i22 = icmp eq ptr %100, null
-  br i1 %.not.i.i.i22, label %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23, label %101
+  %.not.i.i.i22.jt0 = icmp eq ptr %100, null
+  br i1 %.not.i.i.i22.jt0, label %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23.jt0, label %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23.jt0.sink.split
 
-101:                                              ; preds = %_ZN4Plan10EdgeWantedEPK4Edge.exit
-  call void @_ZdlPv(ptr noundef nonnull %100) #25
-  br label %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23
+_ZN4Plan10EdgeWantedEPK4Edge.exit.jt4:            ; preds = %._crit_edge
+  %101 = load ptr, ptr %6, align 8
+  %.not.i.i.i22.jt4 = icmp eq ptr %101, null
+  br i1 %.not.i.i.i22.jt4, label %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23.jt0, label %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23.jt0.sink.split
 
-_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23:           ; preds = %_ZN4Plan10EdgeWantedEPK4Edge.exit, %101
-  switch i32 %.013, label %._crit_edge50 [
-    i32 0, label %102
-    i32 4, label %102
-  ]
+_ZN4Plan10EdgeWantedEPK4Edge.exit.jt1:            ; preds = %26, %_ZN4Plan9AddTargetEPK4NodePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %102 = load ptr, ptr %6, align 8
+  %.not.i.i.i22.jt1 = icmp eq ptr %102, null
+  br i1 %.not.i.i.i22.jt1, label %._crit_edge50, label %103
 
-102:                                              ; preds = %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23, %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23
-  %103 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.032.046) #27
-  %.not35 = icmp eq ptr %103, %7
+103:                                              ; preds = %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt1
+  call void @_ZdlPv(ptr noundef nonnull %102) #25
+  br label %._crit_edge50
+
+_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23.jt0.sink.split: ; preds = %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt4, %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt0
+  %.sink = phi ptr [ %100, %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt0 ], [ %101, %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt4 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink) #25
+  br label %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23.jt0
+
+_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23.jt0:       ; preds = %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23.jt0.sink.split, %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt4, %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt0
+  %104 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.032.046) #27
+  %.not35 = icmp eq ptr %104, %7
   br i1 %.not35, label %._crit_edge50, label %22, !llvm.loop !28
 
-._crit_edge50:                                    ; preds = %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23, %102, %12
-  %.not35.lcssa = phi i1 [ true, %12 ], [ true, %102 ], [ false, %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23 ]
-  %104 = load ptr, ptr %8, align 8
-  invoke void @_ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %104)
-          to label %_ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EED2Ev.exit unwind label %105
+._crit_edge50:                                    ; preds = %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23.jt0, %103, %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt1, %12
+  %.not35.lcssa = phi i1 [ true, %12 ], [ false, %103 ], [ false, %_ZN4Plan10EdgeWantedEPK4Edge.exit.jt1 ], [ true, %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit23.jt0 ]
+  %105 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %105)
+          to label %_ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EED2Ev.exit unwind label %106
 
-105:                                              ; preds = %._crit_edge50
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %._crit_edge50
+  %107 = landingpad { ptr, i32 }
           catch ptr null
-  %107 = extractvalue { ptr, i32 } %106, 0
-  call void @__clang_call_terminate(ptr %107) #22
+  %108 = extractvalue { ptr, i32 } %107, 0
+  call void @__clang_call_terminate(ptr %108) #22
   unreachable
 
 _ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EED2Ev.exit:    ; preds = %._crit_edge50

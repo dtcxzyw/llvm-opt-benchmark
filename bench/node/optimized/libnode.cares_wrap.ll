@@ -6199,11 +6199,10 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %retval.2204 = phi i32 [ undef, %for.body.lr.ph ], [ %retval.3, %for.inc ]
-  %ptr.0203 = phi ptr [ %add.ptr6, %for.body.lr.ph ], [ %ptr.1, %for.inc ]
+  %ptr.0203 = phi ptr [ %add.ptr6, %for.body.lr.ph ], [ %add.ptr376, %for.inc ]
   %i.0202 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   store ptr null, ptr %rr_name_temp, align 8
-  %call13 = call i32 @ares_expand_name(ptr noundef %ptr.0203, ptr noundef %buf, i32 noundef %len, ptr noundef nonnull %rr_name_temp, ptr noundef nonnull %rr_temp_len) #20
+  %call13 = call i32 @ares_expand_name(ptr noundef nonnull %ptr.0203, ptr noundef %buf, i32 noundef %len, ptr noundef nonnull %rr_name_temp, ptr noundef nonnull %rr_temp_len) #20
   %cmp14.not = icmp eq i32 %call13, 0
   br i1 %cmp14.not, label %if.end21, label %if.then15
 
@@ -6218,7 +6217,7 @@ if.end21:                                         ; preds = %for.body
   %add.ptr22 = getelementptr inbounds i8, ptr %ptr.0203, i64 %6
   %add.ptr23 = getelementptr inbounds i8, ptr %add.ptr22, i64 10
   %cmp26 = icmp ugt ptr %add.ptr23, %add.ptr7
-  br i1 %cmp26, label %cleanup377, label %if.end28
+  br i1 %cmp26, label %cleanup377.jt1, label %if.end28
 
 if.end28:                                         ; preds = %if.end21
   %add.ptr22.val = load i8, ptr %add.ptr22, align 1
@@ -6229,7 +6228,7 @@ if.end28:                                         ; preds = %if.end21
   %conv2.i80 = zext i8 %add.ptr22.val76 to i16
   %or.i81 = or disjoint i16 %shl.i79, %conv2.i80
   %cmp35 = icmp eq i16 %or.i81, 6
-  br i1 %cmp35, label %if.then36, label %if.end374
+  br i1 %cmp35, label %if.then36, label %cleanup377.jt0
 
 if.then36:                                        ; preds = %if.end28
   store ptr null, ptr %nsname_temp, align 8
@@ -6240,7 +6239,7 @@ if.then36:                                        ; preds = %if.end28
 if.then39:                                        ; preds = %if.then36
   %cmp40 = icmp eq i32 %call37, 8
   %cond44 = select i1 %cmp40, i32 10, i32 %call37
-  br label %cleanup377
+  br label %cleanup377.jt1
 
 if.end45:                                         ; preds = %if.then36
   %8 = load ptr, ptr %nsname_temp, align 8
@@ -6254,7 +6253,7 @@ if.end45:                                         ; preds = %if.then36
 if.then49:                                        ; preds = %if.end45
   %cmp50 = icmp eq i32 %call47, 8
   %cond54 = select i1 %cmp50, i32 10, i32 %call47
-  br label %cleanup373
+  br label %cleanup373.jt1
 
 if.end55:                                         ; preds = %if.end45
   %10 = load ptr, ptr %hostmaster_temp, align 8
@@ -6262,7 +6261,7 @@ if.end55:                                         ; preds = %if.end45
   %add.ptr56 = getelementptr inbounds i8, ptr %add.ptr46, i64 %11
   %add.ptr57 = getelementptr inbounds i8, ptr %add.ptr56, i64 20
   %cmp60 = icmp ugt ptr %add.ptr57, %add.ptr7
-  br i1 %cmp60, label %cleanup, label %if.end62
+  br i1 %cmp60, label %cleanup.jt1, label %if.end62
 
 if.end62:                                         ; preds = %if.end55
   %12 = load i8, ptr %add.ptr56, align 1
@@ -6517,39 +6516,52 @@ _ZNK2v85MaybeIbE5CheckEv.exit441:                 ; preds = %if.then.i440, %_ZNK
   %72 = load ptr, ptr %dns_soa_string_.i.i, align 8
   %call363 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call74, ptr %call2.i187, ptr %71, ptr %72) #20
   %tobool.i616 = trunc i16 %call363 to i1
-  br i1 %tobool.i616, label %_ZNK2v85MaybeIbE5CheckEv.exit, label %if.then.i
+  br i1 %tobool.i616, label %cleanup.jt2, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK2v85MaybeIbE5CheckEv.exit441
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #20
-  br label %_ZNK2v85MaybeIbE5CheckEv.exit
+  br label %cleanup.jt2
 
-_ZNK2v85MaybeIbE5CheckEv.exit:                    ; preds = %if.then.i, %_ZNK2v85MaybeIbE5CheckEv.exit441
+cleanup.jt1:                                      ; preds = %if.end55
+  %cmp.not.i.jt1 = icmp eq ptr %10, null
+  br i1 %cmp.not.i.jt1, label %cleanup373.jt1, label %if.then.i190.jt1
+
+cleanup.jt2:                                      ; preds = %_ZNK2v85MaybeIbE5CheckEv.exit441, %if.then.i
   %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %handle_scope, ptr noundef nonnull %call74) #20
   store ptr %call4.i, ptr %ret, align 8
-  br label %cleanup
+  %cmp.not.i.jt2 = icmp eq ptr %10, null
+  br i1 %cmp.not.i.jt2, label %cleanup373.jt2, label %if.then.i190.jt2
 
-cleanup:                                          ; preds = %if.end55, %_ZNK2v85MaybeIbE5CheckEv.exit
-  %cleanup.dest.slot.2 = phi i32 [ 2, %_ZNK2v85MaybeIbE5CheckEv.exit ], [ 1, %if.end55 ]
-  %retval.5 = phi i32 [ %retval.2204, %_ZNK2v85MaybeIbE5CheckEv.exit ], [ 10, %if.end55 ]
-  %cmp.not.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i, label %cleanup373, label %if.then.i190
-
-if.then.i190:                                     ; preds = %cleanup
+if.then.i190.jt1:                                 ; preds = %cleanup.jt1
   call void @ares_free_string(ptr noundef nonnull %10) #20
-  br label %cleanup373
+  br label %cleanup373.jt1
 
-cleanup373:                                       ; preds = %if.then.i190, %cleanup, %if.then49
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then49 ], [ %cleanup.dest.slot.2, %cleanup ], [ %cleanup.dest.slot.2, %if.then.i190 ]
-  %ptr.2 = phi ptr [ %add.ptr46, %if.then49 ], [ %add.ptr56, %cleanup ], [ %add.ptr56, %if.then.i190 ]
-  %retval.4 = phi i32 [ %cond54, %if.then49 ], [ %retval.5, %cleanup ], [ %retval.5, %if.then.i190 ]
-  %cmp.not.i191 = icmp eq ptr %8, null
-  br i1 %cmp.not.i191, label %cleanup377, label %if.then.i192
+if.then.i190.jt2:                                 ; preds = %cleanup.jt2
+  call void @ares_free_string(ptr noundef nonnull %10) #20
+  br label %cleanup373.jt2
 
-if.then.i192:                                     ; preds = %cleanup373
+cleanup373.jt2:                                   ; preds = %if.then.i190.jt2, %cleanup.jt2
+  %cmp.not.i191.jt2 = icmp eq ptr %8, null
+  br i1 %cmp.not.i191.jt2, label %cleanup377.jt2, label %if.then.i192.jt2
+
+cleanup373.jt1:                                   ; preds = %if.then.i190.jt1, %cleanup.jt1, %if.then49
+  %retval.4.jt1 = phi i32 [ %cond54, %if.then49 ], [ 10, %cleanup.jt1 ], [ 10, %if.then.i190.jt1 ]
+  %cmp.not.i191.jt1 = icmp eq ptr %8, null
+  br i1 %cmp.not.i191.jt1, label %cleanup377.jt1, label %if.then.i192.jt1
+
+if.then.i192.jt2:                                 ; preds = %cleanup373.jt2
   call void @ares_free_string(ptr noundef nonnull %8) #20
-  br label %cleanup377
+  br label %cleanup377.jt2
 
-if.end374:                                        ; preds = %if.end28
+if.then.i192.jt1:                                 ; preds = %cleanup373.jt1
+  call void @ares_free_string(ptr noundef nonnull %8) #20
+  br label %cleanup377.jt1
+
+cleanup377.jt2:                                   ; preds = %if.then.i192.jt2, %cleanup373.jt2
+  %cmp.not.i194.jt2 = icmp eq ptr %5, null
+  br i1 %cmp.not.i194.jt2, label %cleanup378, label %if.then.i195.jt2
+
+cleanup377.jt0:                                   ; preds = %if.end28
   %add.ptr31 = getelementptr inbounds i8, ptr %add.ptr22, i64 8
   %add.ptr31.val = load i8, ptr %add.ptr31, align 1
   %conv.i82 = zext i8 %add.ptr31.val to i64
@@ -6559,35 +6571,33 @@ if.end374:                                        ; preds = %if.end28
   %conv2.i84 = zext i8 %add.ptr31.val77 to i64
   %or.i85 = or disjoint i64 %shl.i83, %conv2.i84
   %add.ptr376 = getelementptr inbounds i8, ptr %add.ptr23, i64 %or.i85
-  br label %cleanup377
+  %cmp.not.i194.jt0 = icmp eq ptr %5, null
+  br i1 %cmp.not.i194.jt0, label %for.inc, label %if.then.i195.jt0
 
-cleanup377:                                       ; preds = %if.then.i192, %cleanup373, %if.end21, %if.end374, %if.then39
-  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then39 ], [ 0, %if.end374 ], [ 1, %if.end21 ], [ %cleanup.dest.slot.1, %cleanup373 ], [ %cleanup.dest.slot.1, %if.then.i192 ]
-  %ptr.1 = phi ptr [ %add.ptr23, %if.then39 ], [ %add.ptr376, %if.end374 ], [ %add.ptr22, %if.end21 ], [ %ptr.2, %cleanup373 ], [ %ptr.2, %if.then.i192 ]
-  %retval.3 = phi i32 [ %cond44, %if.then39 ], [ %retval.2204, %if.end374 ], [ 10, %if.end21 ], [ %retval.4, %cleanup373 ], [ %retval.4, %if.then.i192 ]
-  %cmp.not.i194 = icmp eq ptr %5, null
-  br i1 %cmp.not.i194, label %_ZNSt10unique_ptrIA_cZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS1_11EnvironmentEPhiPN2v85LocalINS7_6ObjectEEEE11AresDeleterED2Ev.exit196, label %if.then.i195
+cleanup377.jt1:                                   ; preds = %if.end21, %if.then.i192.jt1, %cleanup373.jt1, %if.then39
+  %retval.3.jt1 = phi i32 [ %cond44, %if.then39 ], [ %retval.4.jt1, %cleanup373.jt1 ], [ %retval.4.jt1, %if.then.i192.jt1 ], [ 10, %if.end21 ]
+  %cmp.not.i194.jt1 = icmp eq ptr %5, null
+  br i1 %cmp.not.i194.jt1, label %cleanup378, label %if.then.i195.jt1
 
-if.then.i195:                                     ; preds = %cleanup377
+if.then.i195.jt2:                                 ; preds = %cleanup377.jt2
   call void @ares_free_string(ptr noundef nonnull %5) #20
-  br label %_ZNSt10unique_ptrIA_cZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS1_11EnvironmentEPhiPN2v85LocalINS7_6ObjectEEEE11AresDeleterED2Ev.exit196
+  br label %cleanup378
 
-_ZNSt10unique_ptrIA_cZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS1_11EnvironmentEPhiPN2v85LocalINS7_6ObjectEEEE11AresDeleterED2Ev.exit196: ; preds = %cleanup377, %if.then.i195
-  switch i32 %cleanup.dest.slot.0, label %cleanup378.loopexit [
-    i32 0, label %for.inc
-    i32 2, label %cleanup378
-  ]
+if.then.i195.jt0:                                 ; preds = %cleanup377.jt0
+  call void @ares_free_string(ptr noundef nonnull %5) #20
+  br label %for.inc
 
-for.inc:                                          ; preds = %_ZNSt10unique_ptrIA_cZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS1_11EnvironmentEPhiPN2v85LocalINS7_6ObjectEEEE11AresDeleterED2Ev.exit196
+if.then.i195.jt1:                                 ; preds = %cleanup377.jt1
+  call void @ares_free_string(ptr noundef nonnull %5) #20
+  br label %cleanup378
+
+for.inc:                                          ; preds = %cleanup377.jt0, %if.then.i195.jt0
   %inc = add nuw nsw i32 %i.0202, 1
   %exitcond.not = icmp eq i32 %inc, %4
   br i1 %exitcond.not, label %cleanup378, label %for.body, !llvm.loop !35
 
-cleanup378.loopexit:                              ; preds = %_ZNSt10unique_ptrIA_cZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS1_11EnvironmentEPhiPN2v85LocalINS7_6ObjectEEEE11AresDeleterED2Ev.exit196
-  br label %cleanup378
-
-cleanup378:                                       ; preds = %_ZNSt10unique_ptrIA_cZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS1_11EnvironmentEPhiPN2v85LocalINS7_6ObjectEEEE11AresDeleterED2Ev.exit196, %for.inc, %cleanup378.loopexit, %for.cond.preheader, %if.end, %if.then15
-  %retval.1 = phi i32 [ %cond20, %if.then15 ], [ 10, %if.end ], [ 0, %for.cond.preheader ], [ %retval.3, %cleanup378.loopexit ], [ 0, %for.inc ], [ 0, %_ZNSt10unique_ptrIA_cZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS1_11EnvironmentEPhiPN2v85LocalINS7_6ObjectEEEE11AresDeleterED2Ev.exit196 ]
+cleanup378:                                       ; preds = %for.inc, %if.then.i195.jt2, %cleanup377.jt2, %if.then.i195.jt1, %cleanup377.jt1, %for.cond.preheader, %if.end, %if.then15
+  %retval.1 = phi i32 [ %cond20, %if.then15 ], [ 10, %if.end ], [ 0, %for.cond.preheader ], [ %retval.3.jt1, %cleanup377.jt1 ], [ %retval.3.jt1, %if.then.i195.jt1 ], [ 0, %cleanup377.jt2 ], [ 0, %if.then.i195.jt2 ], [ 0, %for.inc ]
   %cmp.not.i197 = icmp eq ptr %2, null
   br i1 %cmp.not.i197, label %cleanup379, label %if.then.i198
 

@@ -6634,7 +6634,7 @@ if.else83:                                        ; preds = %if.end.i243.us, %in
   %.us-phi555 = phi ptr [ %call73.val, %if.end.i243 ], [ %call73.val, %invoke.cont74 ], [ %call73.val.us, %invoke.cont74.us ], [ %call73.val.us, %if.end.i243.us ]
   %type_.i = getelementptr inbounds i8, ptr %.us-phi555, i64 4
   %45 = load i32, ptr %type_.i, align 4
-  switch i32 %45, label %sw.epilog [
+  switch i32 %45, label %if.end136 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb97
     i32 2, label %sw.bb108
@@ -6674,7 +6674,7 @@ sw.bb119:                                         ; preds = %if.else83
   %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #35
   %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %53) #35
   %cmp.i268 = icmp eq i64 %call.i, %call1.i
-  br i1 %cmp.i268, label %land.rhs.i, label %sw.epilog
+  br i1 %cmp.i268, label %land.rhs.i, label %if.end136
 
 land.rhs.i:                                       ; preds = %sw.bb119
   %call2.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #35
@@ -6689,20 +6689,17 @@ if.end.i.i:                                       ; preds = %land.rhs.i
   br label %sw.epilog
 
 sw.bb130:                                         ; preds = %if.else83
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %if.end.i.i, %land.rhs.i, %sw.bb119, %sw.bb130, %sw.bb108, %sw.bb97, %sw.bb, %if.else83
-  %cmp132 = phi i1 [ true, %if.else83 ], [ false, %sw.bb130 ], [ true, %sw.bb108 ], [ true, %sw.bb97 ], [ true, %sw.bb ], [ true, %sw.bb119 ], [ true, %land.rhs.i ], [ true, %if.end.i.i ]
-  %change_type.1 = phi i32 [ 2, %if.else83 ], [ 3, %sw.bb130 ], [ 2, %sw.bb108 ], [ 2, %sw.bb97 ], [ 2, %sw.bb ], [ 2, %sw.bb119 ], [ 2, %land.rhs.i ], [ 2, %if.end.i.i ]
-  %match.0.shrunk = phi i1 [ false, %if.else83 ], [ false, %sw.bb130 ], [ %cmp117, %sw.bb108 ], [ %cmp106, %sw.bb97 ], [ %cmp96, %sw.bb ], [ false, %sw.bb119 ], [ true, %land.rhs.i ], [ %54, %if.end.i.i ]
-  %or.cond = and i1 %cmp132, %match.0.shrunk
-  %spec.store.select = select i1 %or.cond, i32 4, i32 %change_type.1
   br label %if.end136
 
-if.end136:                                        ; preds = %if.else, %invoke.cont74, %lor.lhs.false71, %sw.epilog, %if.then67
-  %index2.0470 = phi i64 [ %.us-phi552, %if.then67 ], [ %.us-phi553, %sw.epilog ], [ %index2.0.ph460, %lor.lhs.false71 ], [ %index2.0.ph460, %invoke.cont74 ], [ %index2.0.ph460, %if.else ]
-  %change_type.0 = phi i32 [ 1, %if.then67 ], [ %spec.store.select, %sw.epilog ], [ 0, %lor.lhs.false71 ], [ 0, %invoke.cont74 ], [ 0, %if.else ]
-  %focus_field.0 = phi ptr [ %40, %if.then67 ], [ %.us-phi555, %sw.epilog ], [ %.pre612, %lor.lhs.false71 ], [ %.pre612, %invoke.cont74 ], [ %.pre612, %if.else ]
+sw.epilog:                                        ; preds = %if.end.i.i, %land.rhs.i, %sw.bb108, %sw.bb97, %sw.bb
+  %match.0.shrunk = phi i1 [ %cmp117, %sw.bb108 ], [ %cmp106, %sw.bb97 ], [ %cmp96, %sw.bb ], [ true, %land.rhs.i ], [ %54, %if.end.i.i ]
+  %spec.select = select i1 %match.0.shrunk, i32 4, i32 2
+  br label %if.end136
+
+if.end136:                                        ; preds = %sw.epilog, %if.else, %sw.bb119, %if.else83, %sw.bb130, %invoke.cont74, %lor.lhs.false71, %if.then67
+  %index2.0470 = phi i64 [ %.us-phi552, %if.then67 ], [ %index2.0.ph460, %lor.lhs.false71 ], [ %index2.0.ph460, %invoke.cont74 ], [ %.us-phi553, %sw.bb130 ], [ %.us-phi553, %if.else83 ], [ %.us-phi553, %sw.bb119 ], [ %index2.0.ph460, %if.else ], [ %.us-phi553, %sw.epilog ]
+  %change_type.0 = phi i32 [ 1, %if.then67 ], [ 0, %lor.lhs.false71 ], [ 0, %invoke.cont74 ], [ 3, %sw.bb130 ], [ 2, %if.else83 ], [ 2, %sw.bb119 ], [ 0, %if.else ], [ %spec.select, %sw.epilog ]
+  %focus_field.0 = phi ptr [ %40, %if.then67 ], [ %.pre612, %lor.lhs.false71 ], [ %.pre612, %invoke.cont74 ], [ %.us-phi555, %sw.bb130 ], [ %.us-phi555, %if.else83 ], [ %.us-phi555, %sw.bb119 ], [ %.pre612, %if.else ], [ %.us-phi555, %sw.epilog ]
   %cmp137 = icmp eq ptr %current_repeated.0.ph456, null
   br i1 %cmp137, label %if.then150, label %lor.lhs.false138
 

@@ -352,14 +352,15 @@ define noundef i32 @_Z11gmx_densmapiPPc(i32 noundef %0, ptr noundef %1) local_un
 91:                                               ; preds = %88
   %92 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(5) @.str.35) #19
   %93 = icmp eq i32 %92, 0
-  %.315 = select i1 %93, i32 -2, i32 0
-  %.str.73..str.36 = select i1 %93, ptr @.str.73, ptr @.str.36
+  br i1 %93, label %94, label %.315.si.unfold.false
+
+.315.si.unfold.false:                             ; preds = %91
   br label %94
 
-94:                                               ; preds = %91, %88
-  %95 = phi i1 [ false, %88 ], [ %93, %91 ]
-  %.0269 = phi i32 [ -3, %88 ], [ %.315, %91 ]
-  %.0268 = phi ptr [ @.str.72, %88 ], [ %.str.73..str.36, %91 ]
+94:                                               ; preds = %91, %.315.si.unfold.false, %88
+  %95 = phi i1 [ false, %88 ], [ true, %91 ], [ false, %.315.si.unfold.false ]
+  %.0269 = phi i32 [ -3, %88 ], [ -2, %91 ], [ 0, %.315.si.unfold.false ]
+  %.0268 = phi ptr [ @.str.72, %88 ], [ @.str.73, %91 ], [ @.str.36, %.315.si.unfold.false ]
   %96 = invoke noundef zeroext i1 @_Z8ftp2bSetiiPK8t_filenm(i32 noundef 25, i32 noundef 5, ptr noundef nonnull %21)
           to label %97 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

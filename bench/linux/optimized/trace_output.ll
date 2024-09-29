@@ -511,58 +511,69 @@ define dso_local ptr @trace_print_array_seq(ptr noundef %0, ptr noundef readonly
   %12 = icmp ugt ptr %11, %1
   br i1 %12, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %4, %29
-  %13 = phi ptr [ %31, %29 ], [ %1, %4 ]
-  %14 = phi ptr [ @.str.8, %29 ], [ @.str.4, %4 ]
-  %15 = phi i64 [ %30, %29 ], [ %3, %4 ]
-  switch i64 %15, label %26 [
-    i64 1, label %16
-    i64 2, label %19
-    i64 4, label %22
-    i64 8, label %24
+.preheader:                                       ; preds = %4
+  switch i64 %3, label %.preheader.thread [
+    i64 1, label %.preheader.jt1
+    i64 2, label %.preheader2
+    i64 4, label %.preheader3
+    i64 8, label %.preheader5
   ]
 
-16:                                               ; preds = %.preheader
-  %17 = load i8, ptr %13, align 1
+.preheader.jt1:                                   ; preds = %35, %.preheader
+  %13 = phi ptr [ @.str.4, %.preheader ], [ @.str.8, %35 ]
+  %14 = phi ptr [ %1, %.preheader ], [ %37, %35 ]
+  %15 = load i8, ptr %14, align 1
+  %16 = zext i8 %15 to i32
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %13, i32 noundef %16) #10
+  br label %35
+
+.preheader.thread:                                ; preds = %.preheader
+  %17 = load i8, ptr %1, align 1
   %18 = zext i8 %17 to i32
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %14, i32 noundef %18) #10
-  br label %29
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef %3, i32 noundef %18) #10
+  br label %35
 
-19:                                               ; preds = %.preheader
-  %20 = load i16, ptr %13, align 2
-  %21 = zext i16 %20 to i32
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %14, i32 noundef %21) #10
-  br label %29
+.preheader2:                                      ; preds = %.preheader, %.preheader2
+  %19 = phi ptr [ @.str.8, %.preheader2 ], [ @.str.4, %.preheader ]
+  %20 = phi ptr [ %23, %.preheader2 ], [ %1, %.preheader ]
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %19, i32 noundef %22) #10
+  %23 = getelementptr i8, ptr %20, i64 2
+  %24 = icmp ult ptr %23, %11
+  br i1 %24, label %.preheader2, label %.loopexit, !llvm.loop !20
 
-22:                                               ; preds = %.preheader
-  %23 = load i32, ptr %13, align 4
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %14, i32 noundef %23) #10
-  br label %29
+.preheader3:                                      ; preds = %.preheader, %.preheader3
+  %25 = phi ptr [ @.str.8, %.preheader3 ], [ @.str.4, %.preheader ]
+  %26 = phi ptr [ %28, %.preheader3 ], [ %1, %.preheader ]
+  %27 = load i32, ptr %26, align 4
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %25, i32 noundef %27) #10
+  %28 = getelementptr i8, ptr %26, i64 4
+  %29 = icmp ult ptr %28, %11
+  br i1 %29, label %.preheader3, label %.loopexit, !llvm.loop !20
 
-24:                                               ; preds = %.preheader
-  %25 = load i64, ptr %13, align 8
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %14, i64 noundef %25) #10
-  br label %29
+.preheader5:                                      ; preds = %.preheader, %.preheader5
+  %30 = phi ptr [ @.str.8, %.preheader5 ], [ @.str.4, %.preheader ]
+  %31 = phi ptr [ %33, %.preheader5 ], [ %1, %.preheader ]
+  %32 = load i64, ptr %31, align 8
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %30, i64 noundef %32) #10
+  %33 = getelementptr i8, ptr %31, i64 8
+  %34 = icmp ult ptr %33, %11
+  br i1 %34, label %.preheader5, label %.loopexit, !llvm.loop !20
 
-26:                                               ; preds = %.preheader
-  %27 = load i8, ptr %13, align 1
-  %28 = zext i8 %27 to i32
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef %15, i32 noundef %28) #10
-  br label %29
+35:                                               ; preds = %.preheader.jt1, %.preheader.thread
+  %36 = phi ptr [ %14, %.preheader.jt1 ], [ %1, %.preheader.thread ]
+  %37 = getelementptr i8, ptr %36, i64 1
+  %38 = icmp ult ptr %37, %11
+  br i1 %38, label %.preheader.jt1, label %.loopexit, !llvm.loop !20
 
-29:                                               ; preds = %26, %24, %22, %19, %16
-  %30 = phi i64 [ 1, %26 ], [ 8, %24 ], [ 4, %22 ], [ 2, %19 ], [ 1, %16 ]
-  %31 = getelementptr i8, ptr %13, i64 %30
-  %32 = icmp ult ptr %31, %11
-  br i1 %32, label %.preheader, label %.loopexit, !llvm.loop !20
-
-.loopexit:                                        ; preds = %29, %4
-  %33 = tail call i64 @llvm.umin.i64(i64 %6, i64 %8)
-  %34 = and i64 %33, 4294967295
-  %35 = getelementptr i8, ptr %0, i64 %34
+.loopexit:                                        ; preds = %.preheader5, %.preheader3, %.preheader2, %35, %4
+  %39 = tail call i64 @llvm.umin.i64(i64 %6, i64 %8)
+  %40 = and i64 %39, 4294967295
+  %41 = getelementptr i8, ptr %0, i64 %40
   tail call void @trace_seq_putc(ptr noundef %0, i8 noundef zeroext 125) #10
   tail call void @trace_seq_putc(ptr noundef %0, i8 noundef zeroext 0) #10
-  ret ptr %35
+  ret ptr %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

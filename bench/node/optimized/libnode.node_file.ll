@@ -44708,13 +44708,13 @@ entry:
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %path.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %path.i, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #30
   %cmp.i.i = icmp eq ptr %6, null
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %while.cond.i
 
 if.then.i.i:                                      ; preds = %entry
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.521) #32
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %entry
+while.cond.i:                                     ; preds = %entry
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #30
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %call.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %path.i, ptr noundef nonnull %6, ptr noundef nonnull %add.ptr.i.i)
@@ -44723,17 +44723,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %7 = load i64, ptr %result.i, align 8
   %conv.i = trunc i64 %7 to i32
   %continuation_data_.i52.i = getelementptr inbounds i8, ptr %1, i64 528
-  br label %while.cond.i
-
-while.cond.i:                                     ; preds = %cleanup.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
-  %err.0.i = phi i32 [ %conv.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i ], [ -17, %cleanup.i ]
-  switch i32 %err.0.i, label %sw.default.i [
+  switch i32 %conv.i, label %sw.default.i [
     i32 0, label %sw.bb.i
     i32 -13, label %sw.bb15.i
     i32 -20, label %sw.bb15.i
     i32 -1, label %sw.bb15.i
     i32 -2, label %sw.bb17.i
   ]
+
+while.cond.jt4294967279.i:                        ; preds = %if.else23.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dirname.i) #30
+  br label %sw.default.i
 
 sw.bb.i:                                          ; preds = %while.cond.i
   %8 = load ptr, ptr %continuation_data_.i52.i, align 8
@@ -44773,17 +44773,18 @@ if.then.i33.i:                                    ; preds = %if.else.i
   br label %_ZN4node2fs18FSContinuationData17MaybeSetFirstPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit35.i
 
 _ZN4node2fs18FSContinuationData17MaybeSetFirstPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit35.i: ; preds = %if.then.i33.i, %if.else.i
-  call void @uv_fs_req_cleanup(ptr noundef %req) #30
+  call void @uv_fs_req_cleanup(ptr noundef nonnull %req) #30
   %call11.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path.i) #30
   %15 = load ptr, ptr %continuation_data_.i52.i, align 8
   %mode_.i.i = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load i32, ptr %mode_.i.i, align 8
-  %call14.i = call noundef i32 @_ZN4node2fs11MKDirpAsyncEP9uv_loop_sP7uv_fs_sPKciPFvS4_E(ptr noundef %5, ptr noundef %req, ptr noundef %call11.i, i32 noundef %16, ptr noundef null)
+  %call14.i = call noundef i32 @_ZN4node2fs11MKDirpAsyncEP9uv_loop_sP7uv_fs_sPKciPFvS4_E(ptr noundef %5, ptr noundef nonnull %req, ptr noundef %call11.i, i32 noundef %16, ptr noundef null)
   br label %"_ZZN4node2fs11MKDirpAsyncEP9uv_loop_sP7uv_fs_sPKciPFvS4_EENK3$_0clES4_.exit"
 
 sw.bb15.i:                                        ; preds = %while.cond.i, %while.cond.i, %while.cond.i
   %17 = load ptr, ptr %continuation_data_.i52.i, align 8
-  %conv.i.i = sext i32 %err.0.i to i64
+  %sext.i = shl i64 %7, 32
+  %conv.i.i = ashr exact i64 %sext.i, 32
   %req_.i38.i = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load ptr, ptr %req_.i38.i, align 8
   %result2.i39.i = getelementptr inbounds i8, ptr %18, i64 88
@@ -44863,25 +44864,23 @@ if.else23.i:                                      ; preds = %_ZStneIcSt11char_tr
   %30 = load ptr, ptr %_M_finish.i54.i, align 8
   %31 = load ptr, ptr %paths_.i53.i, align 8
   %cmp27.i = icmp eq ptr %30, %31
-  br i1 %cmp27.i, label %cleanup.i, label %cleanup.thread.i, !llvm.loop !196
+  br i1 %cmp27.i, label %while.cond.jt4294967279.i, label %cleanup.thread.i, !llvm.loop !196
 
 cleanup.thread.i:                                 ; preds = %if.else23.i, %if.else.i.i50.i, %if.then.i.i48.i
-  call void @uv_fs_req_cleanup(ptr noundef %req) #30
+  call void @uv_fs_req_cleanup(ptr noundef nonnull %req) #30
   %call31.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path.i) #30
   %32 = load ptr, ptr %continuation_data_.i52.i, align 8
   %mode_.i60.i = getelementptr inbounds i8, ptr %32, i64 24
   %33 = load i32, ptr %mode_.i60.i, align 8
-  %call34.i = call noundef i32 @_ZN4node2fs11MKDirpAsyncEP9uv_loop_sP7uv_fs_sPKciPFvS4_E(ptr noundef %5, ptr noundef %req, ptr noundef %call31.i, i32 noundef %33, ptr noundef null)
+  %call34.i = call noundef i32 @_ZN4node2fs11MKDirpAsyncEP9uv_loop_sP7uv_fs_sPKciPFvS4_E(ptr noundef %5, ptr noundef nonnull %req, ptr noundef %call31.i, i32 noundef %33, ptr noundef null)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dirname.i) #30
   br label %"_ZZN4node2fs11MKDirpAsyncEP9uv_loop_sP7uv_fs_sPKciPFvS4_EENK3$_0clES4_.exit"
 
-cleanup.i:                                        ; preds = %if.else23.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dirname.i) #30
-  br label %while.cond.i
-
-sw.default.i:                                     ; preds = %while.cond.i
-  call void @uv_fs_req_cleanup(ptr noundef %req) #30
-  %conv35.i = sext i32 %err.0.i to i64
+sw.default.i:                                     ; preds = %while.cond.jt4294967279.i, %while.cond.i
+  %err.016.i = phi i64 [ -17, %while.cond.jt4294967279.i ], [ %7, %while.cond.i ]
+  call void @uv_fs_req_cleanup(ptr noundef nonnull %req) #30
+  %sext17.i = shl i64 %err.016.i, 32
+  %conv35.i = ashr exact i64 %sext17.i, 32
   %34 = inttoptr i64 %conv35.i to ptr
   store ptr %34, ptr %req, align 8
   %call37.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path.i) #30

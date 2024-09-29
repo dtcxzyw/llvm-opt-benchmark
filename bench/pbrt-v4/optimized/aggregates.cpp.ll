@@ -8442,9 +8442,9 @@ entry:
   %0 = load i32, ptr %nextFreeNode, align 4
   store i32 %0, ptr %vb, align 4
   %cmp = icmp eq i32 %nodeNum, %0
-  %.sink388.sroa.gep = getelementptr inbounds i8, ptr %bounds0, i64 12
-  %.sink388.sroa.gep395 = getelementptr inbounds i8, ptr %bounds0, i64 16
-  %.sink388.sroa.gep396 = getelementptr inbounds i8, ptr %bounds0, i64 20
+  %.sink390.sroa.gep = getelementptr inbounds i8, ptr %bounds0, i64 12
+  %.sink390.sroa.gep397 = getelementptr inbounds i8, ptr %bounds0, i64 16
+  %.sink390.sroa.gep398 = getelementptr inbounds i8, ptr %bounds0, i64 20
   br i1 %cmp, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -8538,8 +8538,6 @@ if.end26:                                         ; preds = %if.end18
   %cmp3.i = fcmp ogt float %sub.i.i.i, %sub6.i.i.i
   %or.cond.i = select i1 %cmp.i134, i1 %cmp3.i, i1 false
   %cmp6.i = fcmp ogt float %sub4.i.i.i, %sub6.i.i.i
-  %..i = select i1 %cmp6.i, i32 1, i32 2
-  %retval.0.i = select i1 %or.cond.i, i32 0, i32 %..i
   %mul61 = shl i64 %primNums.coerce1, 1
   %add.ptr.i148.idx342 = mul i64 %primNums.coerce1, 24
   %cmp.i.not.i.i = icmp eq i64 %add.ptr.i148.idx342, 0
@@ -8554,11 +8552,13 @@ if.end26:                                         ; preds = %if.end18
   %y.i155 = getelementptr inbounds i8, ptr %nodeBounds, i64 4
   %emptyBonus = getelementptr inbounds i8, ptr %this, i64 12
   %traversalCost = getelementptr inbounds i8, ptr %this, i64 4
+  %..i.si.unfold.phi = select i1 %cmp6.i, i32 1, i32 2
+  %axis.0.ph = select i1 %or.cond.i, i32 0, i32 %..i.si.unfold.phi
   br label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %if.end26, %if.then162
+for.body.lr.ph:                                   ; preds = %if.then162, %if.end26
   %retries.0 = phi i32 [ 0, %if.end26 ], [ %inc163, %if.then162 ]
-  %axis.0 = phi i32 [ %retval.0.i, %if.end26 ], [ %rem165, %if.then162 ]
+  %axis.0 = phi i32 [ %axis.0.ph, %if.end26 ], [ %spec.select389, %if.then162 ]
   %bestCost.0 = phi float [ 0x7FF0000000000000, %if.end26 ], [ %bestCost.1.lcssa, %if.then162 ]
   %bestOffset.0 = phi i32 [ -1, %if.end26 ], [ %bestOffset.1.lcssa, %if.then162 ]
   %idxprom40325 = zext nneg i32 %axis.0 to i64
@@ -8606,13 +8606,13 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit:          ; preds = %for.body
   br label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit144
 
 _ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit144:       ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread322, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit
-  %add.ptr.i137316.sink387 = phi ptr [ %add.ptr.i137316, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread ], [ %add.ptr.i137328, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread322 ], [ %add.ptr.i137, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit ]
+  %add.ptr.i137316.sink388 = phi ptr [ %add.ptr.i137316, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread ], [ %add.ptr.i137328, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread322 ], [ %add.ptr.i137, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit ]
   %.sink = phi i64 [ 12, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread ], [ 16, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread322 ], [ 20, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit ]
   %mul42321 = phi i64 [ %mul42315, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread ], [ %mul42327, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread322 ], [ %mul42, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit ]
   %arrayidx41320 = phi ptr [ %arrayidx41326, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread ], [ %arrayidx41326, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread322 ], [ %arrayidx41, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit ]
-  %ref.tmp38.sroa.2.0.add.ptr.i137.sroa_idx317 = getelementptr inbounds i8, ptr %add.ptr.i137316.sink387, i64 4
+  %ref.tmp38.sroa.2.0.add.ptr.i137.sroa_idx317 = getelementptr inbounds i8, ptr %add.ptr.i137316.sink388, i64 4
   store i32 %12, ptr %ref.tmp38.sroa.2.0.add.ptr.i137.sroa_idx317, align 4
-  %ref.tmp38.sroa.3.0.add.ptr.i137.sroa_idx318 = getelementptr inbounds i8, ptr %add.ptr.i137316.sink387, i64 8
+  %ref.tmp38.sroa.3.0.add.ptr.i137.sroa_idx318 = getelementptr inbounds i8, ptr %add.ptr.i137316.sink388, i64 8
   store i32 0, ptr %ref.tmp38.sroa.3.0.add.ptr.i137.sroa_idx318, align 4
   %pMax319 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %.sink
   %retval.0.i141 = load float, ptr %pMax319, align 4
@@ -9122,7 +9122,7 @@ if.then162:                                       ; preds = %land.end
   %inc163 = add nuw nsw i32 %retries.0, 1
   %add164 = add i32 %axis.0, 1
   %42 = icmp eq i32 %add164, 3
-  %rem165 = select i1 %42, i32 0, i32 %add164
+  %spec.select389 = select i1 %42, i32 0, i32 %add164
   br label %for.body.lr.ph
 
 if.end166:                                        ; preds = %land.end
@@ -9258,8 +9258,8 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit:           ; preds = %for.end233
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249:        ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread337, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit
-  %.sink388.sroa.phi = phi ptr [ %.sink388.sroa.gep, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread ], [ %.sink388.sroa.gep395, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread337 ], [ %.sink388.sroa.gep396, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit ]
-  store float %55, ptr %.sink388.sroa.phi, align 4
+  %.sink390.sroa.phi = phi ptr [ %.sink390.sroa.gep, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread ], [ %.sink390.sroa.gep397, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread337 ], [ %.sink390.sroa.gep398, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit ]
+  store float %55, ptr %.sink390.sroa.phi, align 4
   %add243 = add nsw i32 %nodeNum, 1
   %n.i.i = getelementptr inbounds i8, ptr %prims0, i64 8
   %56 = load i64, ptr %n.i.i, align 8

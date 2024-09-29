@@ -666,14 +666,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 land.lhs.true:                                    ; preds = %for.body
   %10 = load ptr, ptr %err, align 8
   %cmp11.not = icmp eq ptr %10, null
-  br i1 %cmp11.not, label %glib_autoptr_cleanup_GVariant.exit.thread, label %if.then12
+  br i1 %cmp11.not, label %glib_autoptr_cleanup_GVariant.exit.thread.jt4, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true
   %message = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %message, align 8
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.dbus_get_proxies, ptr noundef %11) #6
   call void @g_clear_error(ptr noundef nonnull %err) #6
-  br label %glib_autoptr_cleanup_GVariant.exit.thread
+  br label %glib_autoptr_cleanup_GVariant.exit.thread.jt4
 
 if.end14:                                         ; preds = %for.body
   %call15 = call ptr @g_dbus_proxy_get_cached_property(ptr noundef nonnull %call8, ptr noundef nonnull @.str.22) #6
@@ -683,7 +683,7 @@ if.end14:                                         ; preds = %for.body
 if.then19:                                        ; preds = %if.end14
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__.dbus_get_proxies) #6
   call void @g_object_unref(ptr noundef nonnull %call8) #6
-  br label %glib_autoptr_cleanup_GVariant.exit.thread
+  br label %glib_autoptr_cleanup_GVariant.exit.thread.jt4
 
 if.end21:                                         ; preds = %if.end14
   %call22 = call ptr @g_variant_dup_string(ptr noundef nonnull %call15, ptr noundef nonnull %size) #6
@@ -696,67 +696,48 @@ land.lhs.true24:                                  ; preds = %if.end21
 
 do.body28:                                        ; preds = %land.lhs.true24
   %tobool32.not = icmp eq ptr %call22, null
-  br i1 %tobool32.not, label %if.then42, label %if.then33
+  br i1 %tobool32.not, label %glib_autoptr_cleanup_GVariant.exit.jt4, label %if.then33
 
 if.then33:                                        ; preds = %do.body28
   call void @g_free(ptr noundef nonnull %call22) #6
-  br label %if.then42
-
-if.then42:                                        ; preds = %if.then33, %do.body28
-  call void @g_object_unref(ptr noundef nonnull %call8) #6
-  br label %glib_autoptr_cleanup_GVariant.exit
+  br label %glib_autoptr_cleanup_GVariant.exit.jt4
 
 if.end46:                                         ; preds = %land.lhs.true24, %if.end21
   %12 = load i64, ptr %size, align 8
   %13 = add i64 %12, -256
   %or.cond = icmp ult i64 %13, -255
-  br i1 %or.cond, label %if.then49, label %if.end51
-
-if.then49:                                        ; preds = %if.end46
-  %call50 = call i32 @g_io_error_quark() #6
-  call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %err, i32 noundef %call50, i32 noundef 0, ptr noundef nonnull @.str.24, ptr noundef %call22) #6
-  br label %glib_autoptr_cleanup_GVariant.exit
+  br i1 %or.cond, label %glib_autoptr_cleanup_GDBusProxy.exit.jt1, label %if.end51
 
 if.end51:                                         ; preds = %if.end46
   %call52 = call i32 @g_hash_table_insert(ptr noundef %call1, ptr noundef %call22, ptr noundef nonnull %call8) #6
   %tobool53.not = icmp eq i32 %call52, 0
-  br i1 %tobool53.not, label %if.then54, label %if.then62
+  br i1 %tobool53.not, label %glib_autoptr_cleanup_GDBusProxy.exit.jt1, label %glib_autoptr_cleanup_GDBusProxy.exit.jt0
 
-if.then54:                                        ; preds = %if.end51
-  %call55 = call i32 @g_io_error_quark() #6
-  call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %err, i32 noundef %call55, i32 noundef 0, ptr noundef nonnull @.str.25, ptr noundef %call22) #6
-  br label %glib_autoptr_cleanup_GVariant.exit
-
-if.then62:                                        ; preds = %if.end51
-  call void @g_variant_unref(ptr noundef nonnull %call15) #6
-  br label %glib_autoptr_cleanup_GVariant.exit.thread
-
-glib_autoptr_cleanup_GVariant.exit.thread:        ; preds = %if.then62, %if.then19, %if.then12, %land.lhs.true
-  %cleanup.dest.slot.0.ph = phi i32 [ 0, %if.then62 ], [ 4, %if.then19 ], [ 4, %land.lhs.true ], [ 4, %if.then12 ]
+glib_autoptr_cleanup_GVariant.exit.thread.jt4:    ; preds = %if.then12, %land.lhs.true, %if.then19
   call void @g_free(ptr noundef null) #6
-  br label %glib_autoptr_cleanup_GDBusProxy.exit
+  br label %for.inc
 
-glib_autoptr_cleanup_GVariant.exit:               ; preds = %if.then42, %if.then54, %if.then49
-  %proxy.0 = phi ptr [ %call8, %if.then49 ], [ %call8, %if.then54 ], [ null, %if.then42 ]
-  %id.0 = phi ptr [ %call22, %if.then49 ], [ %call22, %if.then54 ], [ null, %if.then42 ]
-  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then49 ], [ 1, %if.then54 ], [ 4, %if.then42 ]
-  call void @g_free(ptr noundef %id.0) #6
+glib_autoptr_cleanup_GVariant.exit.jt4:           ; preds = %do.body28, %if.then33
+  call void @g_object_unref(ptr noundef nonnull %call8) #6
+  call void @g_free(ptr noundef null) #6
   call void @g_variant_unref(ptr noundef nonnull %call15) #6
-  %tobool.not.i.i29 = icmp eq ptr %proxy.0, null
-  br i1 %tobool.not.i.i29, label %glib_autoptr_cleanup_GDBusProxy.exit, label %if.then.i.i30
+  br label %for.inc
 
-if.then.i.i30:                                    ; preds = %glib_autoptr_cleanup_GVariant.exit
-  call void @g_object_unref(ptr noundef nonnull %proxy.0) #6
-  br label %glib_autoptr_cleanup_GDBusProxy.exit
+glib_autoptr_cleanup_GDBusProxy.exit.jt1:         ; preds = %if.end51, %if.end46
+  %.str.25.sink = phi ptr [ @.str.24, %if.end46 ], [ @.str.25, %if.end51 ]
+  %call55 = call i32 @g_io_error_quark() #6
+  call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %err, i32 noundef %call55, i32 noundef 0, ptr noundef nonnull %.str.25.sink, ptr noundef %call22) #6
+  call void @g_free(ptr noundef %call22) #6
+  call void @g_variant_unref(ptr noundef nonnull %call15) #6
+  call void @g_object_unref(ptr noundef nonnull %call8) #6
+  br label %if.then.i
 
-glib_autoptr_cleanup_GDBusProxy.exit:             ; preds = %glib_autoptr_cleanup_GVariant.exit.thread, %glib_autoptr_cleanup_GVariant.exit, %if.then.i.i30
-  %cleanup.dest.slot.05256 = phi i32 [ %cleanup.dest.slot.0.ph, %glib_autoptr_cleanup_GVariant.exit.thread ], [ %cleanup.dest.slot.0, %glib_autoptr_cleanup_GVariant.exit ], [ %cleanup.dest.slot.0, %if.then.i.i30 ]
-  switch i32 %cleanup.dest.slot.05256, label %if.then.i [
-    i32 0, label %for.inc
-    i32 4, label %for.inc
-  ]
+glib_autoptr_cleanup_GDBusProxy.exit.jt0:         ; preds = %if.end51
+  call void @g_variant_unref(ptr noundef nonnull %call15) #6
+  call void @g_free(ptr noundef null) #6
+  br label %for.inc
 
-for.inc:                                          ; preds = %glib_autoptr_cleanup_GDBusProxy.exit, %glib_autoptr_cleanup_GDBusProxy.exit
+for.inc:                                          ; preds = %glib_autoptr_cleanup_GVariant.exit.thread.jt4, %glib_autoptr_cleanup_GVariant.exit.jt4, %glib_autoptr_cleanup_GDBusProxy.exit.jt0
   %inc = add i64 %i.067, 1
   %arrayidx = getelementptr ptr, ptr %call2, i64 %inc
   %14 = load ptr, ptr %arrayidx, align 8
@@ -771,24 +752,23 @@ if.then69:                                        ; preds = %for.end
   %call70 = call ptr @g_hash_table_get_keys_as_array(ptr noundef nonnull %retval.06.i, ptr noundef null) #6
   %15 = load ptr, ptr %call70, align 8
   %tobool71.not = icmp eq ptr %15, null
-  br i1 %tobool71.not, label %if.then.i.sink.split, label %if.then72
+  br i1 %tobool71.not, label %if.end80.critedge, label %if.then72
 
 if.then72:                                        ; preds = %if.then69
   %call73 = call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.26, ptr noundef nonnull %call70) #6
   %call74 = call i32 @g_io_error_quark() #6
   call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %err, i32 noundef %call74, i32 noundef 0, ptr noundef nonnull @.str.27, ptr noundef %call73) #6
   call void @g_free(ptr noundef %call73) #6
-  br label %if.then.i.sink.split
-
-if.then.i.sink.split:                             ; preds = %if.then69, %if.then72
-  %retval.061.ph = phi ptr [ null, %if.then72 ], [ %call1, %if.then69 ]
-  %proxies.059.ph = phi ptr [ %call1, %if.then72 ], [ null, %if.then69 ]
   call void @g_free(ptr noundef nonnull %call70) #6
   br label %if.then.i
 
-if.then.i:                                        ; preds = %glib_autoptr_cleanup_GDBusProxy.exit, %if.then.i.sink.split, %for.end
-  %retval.061 = phi ptr [ %call1, %for.end ], [ %retval.061.ph, %if.then.i.sink.split ], [ null, %glib_autoptr_cleanup_GDBusProxy.exit ]
-  %proxies.059 = phi ptr [ null, %for.end ], [ %proxies.059.ph, %if.then.i.sink.split ], [ %call1, %glib_autoptr_cleanup_GDBusProxy.exit ]
+if.end80.critedge:                                ; preds = %if.then69
+  call void @g_free(ptr noundef nonnull %call70) #6
+  br label %if.then.i
+
+if.then.i:                                        ; preds = %glib_autoptr_cleanup_GDBusProxy.exit.jt1, %if.then72, %if.end80.critedge, %for.end
+  %retval.061 = phi ptr [ %call1, %for.end ], [ %call1, %if.end80.critedge ], [ null, %if.then72 ], [ null, %glib_autoptr_cleanup_GDBusProxy.exit.jt1 ]
+  %proxies.059 = phi ptr [ null, %for.end ], [ null, %if.end80.critedge ], [ %call1, %if.then72 ], [ %call1, %glib_autoptr_cleanup_GDBusProxy.exit.jt1 ]
   call void @g_strfreev(ptr noundef nonnull %call2) #6
   br label %glib_auto_cleanup_GStrv.exit
 

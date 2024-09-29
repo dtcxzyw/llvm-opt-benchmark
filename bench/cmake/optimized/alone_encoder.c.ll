@@ -134,43 +134,39 @@ declare noalias ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 define internal i32 @alone_encode(ptr noundef %0, ptr noundef %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6, i64 noundef %7, i32 noundef %8) #0 {
   %10 = load i64, ptr %6, align 8
   %11 = icmp ult i64 %10, %7
-  br i1 %11, label %.lr.ph, label %.loopexit
+  br i1 %11, label %12, label %.loopexit
 
-.lr.ph:                                           ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
-  %.pre = load i32, ptr %12, align 8
-  br label %15
-
-15:                                               ; preds = %.lr.ph, %21
-  %16 = phi i32 [ %.pre, %.lr.ph ], [ 1, %21 ]
-  switch i32 %16, label %.loopexit [
-    i32 0, label %17
-    i32 1, label %24
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %.pre = load i32, ptr %13, align 8
+  switch i32 %.pre, label %.loopexit [
+    i32 0, label %14
+    i32 1, label %23
   ]
 
-17:                                               ; preds = %15
-  %18 = tail call i64 @lzma_bufcpy(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef 13, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7) #5
-  %19 = load i64, ptr %14, align 8
-  %20 = icmp ult i64 %19, 13
-  br i1 %20, label %.loopexit, label %21
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = tail call i64 @lzma_bufcpy(ptr noundef nonnull %16, ptr noundef nonnull %15, i64 noundef 13, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7) #5
+  %18 = load i64, ptr %15, align 8
+  %19 = icmp ult i64 %18, 13
+  br i1 %19, label %.loopexit, label %20
 
-21:                                               ; preds = %17
-  store i32 1, ptr %12, align 8
-  %22 = load i64, ptr %6, align 8
-  %23 = icmp ult i64 %22, %7
-  br i1 %23, label %15, label %.loopexit, !llvm.loop !5
+20:                                               ; preds = %14
+  store i32 1, ptr %13, align 8
+  %21 = load i64, ptr %6, align 8
+  %22 = icmp ult i64 %21, %7
+  br i1 %22, label %23, label %.loopexit, !llvm.loop !5
 
-24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %0, align 8
-  %28 = tail call i32 %26(ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7, i32 noundef %8) #5
+23:                                               ; preds = %20, %12
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %0, align 8
+  %27 = tail call i32 %25(ptr noundef %26, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7, i32 noundef %8) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %17, %15, %21, %9, %24
-  %.0 = phi i32 [ %28, %24 ], [ 0, %9 ], [ 0, %17 ], [ 11, %15 ], [ 0, %21 ]
+.loopexit:                                        ; preds = %14, %12, %20, %9, %23
+  %.0 = phi i32 [ %27, %23 ], [ 0, %9 ], [ 0, %20 ], [ 11, %12 ], [ 0, %14 ]
   ret i32 %.0
 }
 

@@ -2255,7 +2255,7 @@ lpad19.loopexit.split-lp.i:                       ; preds = %if.then.i.i.i.i
 common.resume.sink.split:                         ; preds = %lpad96, %lpad103, %lpad19.i
   %largest.sink = phi ptr [ %my_largest.i, %lpad19.i ], [ %largest, %lpad103 ], [ %largest, %lpad96 ]
   %smallest.sink = phi ptr [ %my_smallest.i, %lpad19.i ], [ %smallest, %lpad103 ], [ %smallest, %lpad96 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %lpad.phi.i, %lpad19.i ], [ %138, %lpad103 ], [ %137, %lpad96 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %lpad.phi.i, %lpad19.i ], [ %lpad.phi, %lpad103 ], [ %137, %lpad96 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %largest.sink) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %smallest.sink) #19
   br label %common.resume
@@ -2838,7 +2838,7 @@ for.body.lr.ph:                                   ; preds = %if.end7
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %90 = phi ptr [ %89, %for.body.lr.ph ], [ %149, %for.inc ]
+  %90 = phi ptr [ %89, %for.body.lr.ph ], [ %151, %for.inc ]
   %conv119 = phi i64 [ %conv111, %for.body.lr.ph ], [ %conv, %for.inc ]
   %cmp_idx.0117 = phi i32 [ %87, %for.body.lr.ph ], [ %inc, %for.inc ]
   %add.ptr.i = getelementptr inbounds i32, ptr %90, i64 %conv119
@@ -3110,7 +3110,7 @@ invoke.cont97:                                    ; preds = %if.end91
   store i32 %130, ptr %output_level_inputs, align 8
   %131 = load ptr, ptr %vstorage_.i, align 8
   invoke void @_ZNK7rocksdb18VersionStorageInfo20GetOverlappingInputsEiPKNS_11InternalKeyES3_PSt6vectorIPNS_12FileMetaDataESaIS6_EEiPibPPS1_(ptr noundef nonnull align 16 dereferenceable(4112) %131, i32 noundef %130, ptr noundef nonnull %smallest, ptr noundef nonnull %largest, ptr noundef nonnull %files.i45, i32 noundef -1, ptr noundef null, i1 noundef zeroext true, ptr noundef null)
-          to label %invoke.cont104 unwind label %lpad103
+          to label %invoke.cont104 unwind label %lpad103.loopexit
 
 invoke.cont104:                                   ; preds = %invoke.cont97
   %132 = load ptr, ptr %files.i45, align 8
@@ -3129,125 +3129,169 @@ land.lhs.true110:                                 ; preds = %if.then107
   %136 = load i8, ptr %compaction_pri113, align 1
   %cmp115 = icmp eq i8 %136, 4
   %call117 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder25TryExtendNonL0TrivialMoveEib(ptr noundef nonnull align 8 dereferenceable(256) %this, i32 noundef %91, i1 noundef zeroext %cmp115)
-          to label %invoke.cont116 unwind label %lpad103
+          to label %invoke.cont116 unwind label %lpad103.loopexit.split-lp
 
 invoke.cont116:                                   ; preds = %land.lhs.true110
-  br i1 %call117, label %cleanup, label %if.end136
+  br i1 %call117, label %cleanup.jt2, label %if.end136
 
 lpad96:                                           ; preds = %if.end91
   %137 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
-lpad103:                                          ; preds = %if.else, %land.lhs.true110, %invoke.cont97
-  %138 = landingpad { ptr, i32 }
+lpad103.loopexit:                                 ; preds = %invoke.cont97, %if.else
+  %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
+  br label %lpad103
+
+lpad103.loopexit.split-lp:                        ; preds = %land.lhs.true110
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %lpad103
+
+lpad103:                                          ; preds = %lpad103.loopexit.split-lp, %lpad103.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad103.loopexit ], [ %lpad.loopexit.split-lp, %lpad103.loopexit.split-lp ]
   call void @_ZN7rocksdb20CompactionInputFilesD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %output_level_inputs) #19
   br label %common.resume.sink.split
 
 if.else:                                          ; preds = %invoke.cont104
-  %139 = load ptr, ptr %compaction_picker_29, align 8
-  %140 = load ptr, ptr %this, align 8
-  %141 = load ptr, ptr %vstorage_.i, align 8
-  %call124 = invoke noundef zeroext i1 @_ZN7rocksdb16CompactionPicker22ExpandInputsToCleanCutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18VersionStorageInfoEPNS_20CompactionInputFilesEPPNS_11InternalKeyE(ptr noundef nonnull align 8 dereferenceable(128) %139, ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef %141, ptr noundef nonnull %output_level_inputs, ptr noundef null)
-          to label %invoke.cont123 unwind label %lpad103
+  %138 = load ptr, ptr %compaction_picker_29, align 8
+  %139 = load ptr, ptr %this, align 8
+  %140 = load ptr, ptr %vstorage_.i, align 8
+  %call124 = invoke noundef zeroext i1 @_ZN7rocksdb16CompactionPicker22ExpandInputsToCleanCutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18VersionStorageInfoEPNS_20CompactionInputFilesEPPNS_11InternalKeyE(ptr noundef nonnull align 8 dereferenceable(128) %138, ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef %140, ptr noundef nonnull %output_level_inputs, ptr noundef null)
+          to label %invoke.cont123 unwind label %lpad103.loopexit
 
 invoke.cont123:                                   ; preds = %if.else
   br i1 %call124, label %if.end136, label %if.then125
 
 if.then125:                                       ; preds = %invoke.cont123
-  %142 = load ptr, ptr %files.i, align 8
-  %143 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %tobool.not.i.i.i51 = icmp eq ptr %143, %142
+  %141 = load ptr, ptr %files.i, align 8
+  %142 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %tobool.not.i.i.i51 = icmp eq ptr %142, %141
   br i1 %tobool.not.i.i.i51, label %_ZN7rocksdb20CompactionInputFiles5clearEv.exit53, label %invoke.cont.i.i.i52
 
 invoke.cont.i.i.i52:                              ; preds = %if.then125
-  store ptr %142, ptr %_M_finish.i.i.i, align 8
+  store ptr %141, ptr %_M_finish.i.i.i, align 8
   br label %_ZN7rocksdb20CompactionInputFiles5clearEv.exit53
 
 _ZN7rocksdb20CompactionInputFiles5clearEv.exit53: ; preds = %if.then125, %invoke.cont.i.i.i52
-  %144 = load ptr, ptr %ioptions_44, align 8
-  %compaction_pri130 = getelementptr inbounds i8, ptr %144, i64 577
-  %145 = load i8, ptr %compaction_pri130, align 1
-  %cmp132 = icmp eq i8 %145, 4
-  %. = select i1 %cmp132, i32 1, i32 4
-  br label %cleanup
+  %143 = load ptr, ptr %ioptions_44, align 8
+  %compaction_pri130 = getelementptr inbounds i8, ptr %143, i64 577
+  %144 = load i8, ptr %compaction_pri130, align 1
+  %cmp132 = icmp eq i8 %144, 4
+  %145 = load ptr, ptr %atomic_compaction_unit_boundaries.i54, align 8
+  %tobool.not.i.i.i.i55.jt1 = icmp eq ptr %145, null
+  br i1 %cmp132, label %cleanup.jt1, label %cleanup.jt4
 
 if.end136:                                        ; preds = %invoke.cont123, %if.then107, %invoke.cont116
   store i32 %91, ptr %base_index_, align 4
-  br label %cleanup
+  br label %cleanup.jt2
 
-cleanup:                                          ; preds = %_ZN7rocksdb20CompactionInputFiles5clearEv.exit53, %invoke.cont116, %if.end136
-  %cleanup.dest.slot.0 = phi i32 [ 2, %if.end136 ], [ 2, %invoke.cont116 ], [ %., %_ZN7rocksdb20CompactionInputFiles5clearEv.exit53 ]
+cleanup.jt4:                                      ; preds = %_ZN7rocksdb20CompactionInputFiles5clearEv.exit53
+  br i1 %tobool.not.i.i.i.i55.jt1, label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt4, label %if.then.i.i.i.i56.jt4
+
+cleanup.jt1:                                      ; preds = %_ZN7rocksdb20CompactionInputFiles5clearEv.exit53
+  br i1 %tobool.not.i.i.i.i55.jt1, label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt1, label %if.then.i.i.i.i56.jt1
+
+cleanup.jt2:                                      ; preds = %invoke.cont116, %if.end136
   %146 = load ptr, ptr %atomic_compaction_unit_boundaries.i54, align 8
-  %tobool.not.i.i.i.i55 = icmp eq ptr %146, null
-  br i1 %tobool.not.i.i.i.i55, label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57, label %if.then.i.i.i.i56
+  %tobool.not.i.i.i.i55.jt2 = icmp eq ptr %146, null
+  br i1 %tobool.not.i.i.i.i55.jt2, label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt2, label %if.then.i.i.i.i56.jt2
 
-if.then.i.i.i.i56:                                ; preds = %cleanup
+if.then.i.i.i.i56.jt4:                            ; preds = %cleanup.jt4
+  call void @_ZdlPv(ptr noundef nonnull %145) #18
+  br label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt4
+
+if.then.i.i.i.i56.jt1:                            ; preds = %cleanup.jt1
+  call void @_ZdlPv(ptr noundef nonnull %145) #18
+  br label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt1
+
+if.then.i.i.i.i56.jt2:                            ; preds = %cleanup.jt2
   call void @_ZdlPv(ptr noundef nonnull %146) #18
-  br label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57
+  br label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt2
 
-_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57: ; preds = %if.then.i.i.i.i56, %cleanup
+_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt4: ; preds = %if.then.i.i.i.i56.jt4, %cleanup.jt4
   %147 = load ptr, ptr %files.i45, align 8
-  %tobool.not.i.i.i1.i59 = icmp eq ptr %147, null
-  br i1 %tobool.not.i.i.i1.i59, label %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61, label %if.then.i.i.i2.i60
+  %tobool.not.i.i.i1.i59.jt4 = icmp eq ptr %147, null
+  br i1 %tobool.not.i.i.i1.i59.jt4, label %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt4, label %if.then.i.i.i2.i60.jt4
 
-if.then.i.i.i2.i60:                               ; preds = %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57
+_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt1: ; preds = %if.then.i.i.i.i56.jt1, %cleanup.jt1
+  %148 = load ptr, ptr %files.i45, align 8
+  %tobool.not.i.i.i1.i59.jt1 = icmp eq ptr %148, null
+  br i1 %tobool.not.i.i.i1.i59.jt1, label %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt1, label %if.then.i.i.i2.i60.jt1
+
+_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt2: ; preds = %if.then.i.i.i.i56.jt2, %cleanup.jt2
+  %149 = load ptr, ptr %files.i45, align 8
+  %tobool.not.i.i.i1.i59.jt2 = icmp eq ptr %149, null
+  br i1 %tobool.not.i.i.i1.i59.jt2, label %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt2, label %if.then.i.i.i2.i60.jt2
+
+if.then.i.i.i2.i60.jt4:                           ; preds = %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt4
   call void @_ZdlPv(ptr noundef nonnull %147) #18
-  br label %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61
+  br label %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt4
 
-_ZN7rocksdb20CompactionInputFilesD2Ev.exit61:     ; preds = %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57, %if.then.i.i.i2.i60
+if.then.i.i.i2.i60.jt1:                           ; preds = %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt1
+  call void @_ZdlPv(ptr noundef nonnull %148) #18
+  br label %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt1
+
+if.then.i.i.i2.i60.jt2:                           ; preds = %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt2
+  call void @_ZdlPv(ptr noundef nonnull %149) #18
+  br label %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt2
+
+_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt4: ; preds = %if.then.i.i.i2.i60.jt4, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %largest) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %smallest) #19
-  switch i32 %cleanup.dest.slot.0, label %unreachable [
-    i32 2, label %for.end
-    i32 1, label %return
-    i32 4, label %for.inc
-  ]
+  br label %for.inc
 
-for.inc:                                          ; preds = %_ZN7rocksdb20CompactionInputFiles5clearEv.exit44, %if.then22, %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61
+_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt1: ; preds = %if.then.i.i.i2.i60.jt1, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %largest) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %smallest) #19
+  br label %return
+
+_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt2: ; preds = %if.then.i.i.i2.i60.jt2, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EED2Ev.exit.i57.jt2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %largest) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %smallest) #19
+  br label %for.end
+
+for.inc:                                          ; preds = %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt4, %_ZN7rocksdb20CompactionInputFiles5clearEv.exit44, %if.then22
   %inc = add i32 %cmp_idx.0117, 1
   %conv = zext i32 %inc to i64
-  %148 = load ptr, ptr %_M_finish.i, align 8
-  %149 = load ptr, ptr %add.ptr.i.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %148 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %149 to i64
+  %150 = load ptr, ptr %_M_finish.i, align 8
+  %151 = load ptr, ptr %add.ptr.i.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %150 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %151 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %cmp17 = icmp ugt i64 %sub.ptr.div.i, %conv
   br i1 %cmp17, label %for.body, label %for.end, !llvm.loop !23
 
-for.end:                                          ; preds = %for.inc, %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61, %if.end7
-  %cmp_idx.0.lcssa = phi i32 [ %87, %if.end7 ], [ %cmp_idx.0117, %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61 ], [ %inc, %for.inc ]
+for.end:                                          ; preds = %for.inc, %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt2, %if.end7
+  %cmp_idx.0.lcssa = phi i32 [ %87, %if.end7 ], [ %cmp_idx.0117, %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt2 ], [ %inc, %for.inc ]
   %ioptions_142 = getelementptr inbounds i8, ptr %this, i64 240
-  %150 = load ptr, ptr %ioptions_142, align 8
-  %compaction_pri144 = getelementptr inbounds i8, ptr %150, i64 577
-  %151 = load i8, ptr %compaction_pri144, align 1
-  %cmp146.not = icmp eq i8 %151, 4
+  %152 = load ptr, ptr %ioptions_142, align 8
+  %compaction_pri144 = getelementptr inbounds i8, ptr %152, i64 577
+  %153 = load i8, ptr %compaction_pri144, align 1
+  %cmp146.not = icmp eq i8 %153, 4
   br i1 %cmp146.not, label %if.end150, label %if.then147
 
 if.then147:                                       ; preds = %for.end
-  %152 = load ptr, ptr %vstorage_.i, align 8
-  %153 = load i32, ptr %start_level_, align 8
-  %next_file_to_compact_by_size_.i62 = getelementptr inbounds i8, ptr %152, i64 2848
-  %conv.i63 = sext i32 %153 to i64
-  %154 = load ptr, ptr %next_file_to_compact_by_size_.i62, align 8
-  %add.ptr.i.i64 = getelementptr inbounds i32, ptr %154, i64 %conv.i63
+  %154 = load ptr, ptr %vstorage_.i, align 8
+  %155 = load i32, ptr %start_level_, align 8
+  %next_file_to_compact_by_size_.i62 = getelementptr inbounds i8, ptr %154, i64 2848
+  %conv.i63 = sext i32 %155 to i64
+  %156 = load ptr, ptr %next_file_to_compact_by_size_.i62, align 8
+  %add.ptr.i.i64 = getelementptr inbounds i32, ptr %156, i64 %conv.i63
   store i32 %cmp_idx.0.lcssa, ptr %add.ptr.i.i64, align 4
   br label %if.end150
 
 if.end150:                                        ; preds = %if.then147, %for.end
-  %155 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %156 = load ptr, ptr %files.i, align 8
-  %cmp153 = icmp ne ptr %155, %156
+  %157 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %158 = load ptr, ptr %files.i, align 8
+  %cmp153 = icmp ne ptr %157, %158
   br label %return
 
-return:                                           ; preds = %_ZN7rocksdb20CompactionInputFiles5clearEv.exit44, %if.then22, %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61, %_ZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEv.exit, %land.lhs.true, %if.end150
-  %retval.0 = phi i1 [ %cmp153, %if.end150 ], [ false, %land.lhs.true ], [ true, %_ZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEv.exit ], [ false, %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61 ], [ false, %if.then22 ], [ false, %_ZN7rocksdb20CompactionInputFiles5clearEv.exit44 ]
+return:                                           ; preds = %_ZN7rocksdb20CompactionInputFiles5clearEv.exit44, %if.then22, %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt1, %_ZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEv.exit, %land.lhs.true, %if.end150
+  %retval.0 = phi i1 [ %cmp153, %if.end150 ], [ false, %land.lhs.true ], [ true, %_ZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEv.exit ], [ false, %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61.jt1 ], [ false, %if.then22 ], [ false, %_ZN7rocksdb20CompactionInputFiles5clearEv.exit44 ]
   ret i1 %retval.0
-
-unreachable:                                      ; preds = %_ZN7rocksdb20CompactionInputFilesD2Ev.exit61
-  unreachable
 }
 
 declare void @_ZN7rocksdb16CompactionPicker28PickFilesMarkedForCompactionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18VersionStorageInfoEPiSB_PNS_20CompactionInputFilesE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
