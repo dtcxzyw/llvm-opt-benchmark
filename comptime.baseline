@@ -2769,7 +2769,7 @@ clamav/cpio.c.ll 178812577
 clamav/crc.cpp.ll 116259800
 clamav/crtmgr.c.ll 246454768
 clamav/crypt.cpp.ll 453787198
-clamav/crypto.c.ll 242764468
+clamav/crypto.c.ll 243007280
 clamav/cvd.c.ll 383797455
 clamav/dconf.c.ll 259846746
 clamav/disasm.c.ll 773317035
@@ -4127,7 +4127,7 @@ coreutils-rs/2n0ajfh2ig89g5cx.ll 284795132
 coreutils-rs/2n8zhdgce0tixcm5.ll 237551414
 coreutils-rs/2ncbniy8tamzyihi.ll 273359541
 coreutils-rs/2nqetp4aeyokg7z8.ll 473140361
-coreutils-rs/2nrjngpouzjwlp20.ll 54805829
+coreutils-rs/2nrjngpouzjwlp20.ll 54860716
 coreutils-rs/2nyp1idf2v66v608.ll 43811998
 coreutils-rs/2ob896peucf7ir4q.ll 244850812
 coreutils-rs/2og37dxia3kcq00.ll 45679693
@@ -4643,7 +4643,7 @@ coreutils-rs/5d6q4sk3x25o82uj.ll 109235343
 coreutils-rs/5dkg43nox7s4d2qk.ll 99262594
 coreutils-rs/5dky785v0vqibnqi.ll 478040241
 coreutils-rs/5dmrxisq30bb0giv.ll 1342738771
-coreutils-rs/5duz89e24o9g6ghe.ll 77119832
+coreutils-rs/5duz89e24o9g6ghe.ll 77197112
 coreutils-rs/5dvkk2akux0dfxlk.ll 152471873
 coreutils-rs/5dvo81hn4cx7e334.ll 813530719
 coreutils-rs/5e48q1wpjedhlmp9.ll 1703893040
@@ -10820,7 +10820,7 @@ icu/messagepattern.ll 1019481811
 icu/mlbe.ll 278534929
 icu/msgfmt.ll 1122730810
 icu/n2builder.ll 594593416
-icu/name2uni.ll 186818770
+icu/name2uni.ll 187005593
 icu/nfrs.ll 497927934
 icu/nfrule.ll 700081907
 icu/nfsubs.ll 453560265
@@ -13427,7 +13427,7 @@ linux/hda_bind.ll 95512718
 linux/hda_bus_type.ll 60968679
 linux/hda_codec.ll 1212780735
 linux/hda_controller.ll 348865439
-linux/hda_hwdep.ll 60953903
+linux/hda_hwdep.ll 61014964
 linux/hda_intel.ll 426165583
 linux/hda_jack.ll 370573285
 linux/hda_sysfs.ll 69945034
@@ -38666,7 +38666,7 @@ wasmtime-rs/1bcfhxehf88v8ux3.ll 48881631
 wasmtime-rs/1bd5e5lp5qpf9wej.ll 36696513
 wasmtime-rs/1bjpfzbo8brf3ixm.ll 95025441
 wasmtime-rs/1bmc0pjvdnh09g73.ll 3548188573
-wasmtime-rs/1bqsn358t432cezc.ll 48659232
+wasmtime-rs/1bqsn358t432cezc.ll 48707963
 wasmtime-rs/1bz8ofzmdclmzhoz.ll 10225014859
 wasmtime-rs/1c3cg8um0sf9gqvu.ll 39560094
 wasmtime-rs/1c4ff84ffafijwgv.ll 77935644
@@ -38737,7 +38737,7 @@ wasmtime-rs/1shhbmfub89lpon6.ll 40739478
 wasmtime-rs/1snvv4k3ql5pu7kf.ll 422790429
 wasmtime-rs/1spnjfu340nob5zr.ll 1729491238
 wasmtime-rs/1swth1h1xb2uamky.ll 9005186108
-wasmtime-rs/1sye1frlad7yd5ys.ll 54804284
+wasmtime-rs/1sye1frlad7yd5ys.ll 54859272
 wasmtime-rs/1t1b122qfgz9q1cu.ll 36896951
 wasmtime-rs/1t63f9q2fobj4tb9.ll 36700670
 wasmtime-rs/1tgax70bn3x2nad4.ll 1228177129
