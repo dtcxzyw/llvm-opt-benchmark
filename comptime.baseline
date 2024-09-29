@@ -57,7 +57,7 @@ abc/abcIfif.c.ll 268909253
 abc/abcIvy.c.ll 777784175
 abc/abcLatch.c.ll 600548414
 abc/abcLib.c.ll 273316659
-abc/abcLog.c.ll 129922528
+abc/abcLog.c.ll 130052540
 abc/abcLut.c.ll 1393810254
 abc/abcLutmin.c.ll 431636314
 abc/abcMap.c.ll 654828905
@@ -6802,7 +6802,7 @@ eastl/EAMain.cpp.ll 173852558
 eastl/EAMainExit.cpp.ll 47105430
 eastl/EAMainPrintManager.cpp.ll 71950460
 eastl/EAMemory.cpp.ll 598149989
-eastl/EAProcess.cpp.ll 93311729
+eastl/EAProcess.cpp.ll 93405424
 eastl/EARandom.cpp.ll 220918272
 eastl/EASTLBenchmark.cpp.ll 538016508
 eastl/EAScanf.cpp.ll 77972583
@@ -8922,7 +8922,7 @@ gromacs/nbnxmsetuphelpers.cpp.ll 931127427
 gromacs/nbsearch.cpp.ll 1749611531
 gromacs/neldermead.cpp.ll 831636785
 gromacs/network.cpp.ll 185664279
-gromacs/niceheader.cpp.ll 44927757
+gromacs/niceheader.cpp.ll 44972880
 gromacs/nm2type.cpp.ll 378128758
 gromacs/nonbonded_bench.cpp.ll 861796154
 gromacs/nosehooverchains.cpp.ll 3029656151
