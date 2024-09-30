@@ -453,7 +453,7 @@ abc/fraCore.c.ll 281878064
 abc/fraHot.c.ll 426233167
 abc/fraImp.c.ll 556265114
 abc/fraInd.c.ll 523411796
-abc/fraIndVer.c.ll 108223649
+abc/fraIndVer.c.ll 108115164
 abc/fraLcr.c.ll 429583419
 abc/fraMan.c.ll 171683474
 abc/fraPart.c.ll 410071774
