@@ -94,7 +94,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEccbb(ptr dead_on_unwind n
   br label %19
 
 19:                                               ; preds = %55, %17
-  %20 = phi i32 [ %33, %55 ], [ 0, %17 ]
+  %20 = phi i32 [ %32, %55 ], [ 0, %17 ]
   %21 = load i32, ptr %10, align 4, !tbaa !19
   %22 = icmp slt i32 %20, %21
   br i1 %22, label %27, label %56
@@ -119,24 +119,24 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEccbb(ptr dead_on_unwind n
 29:                                               ; preds = %28, %27
   %30 = load ptr, ptr %18, align 8, !tbaa !20
   %31 = load i32, ptr %1, align 8, !tbaa !12
-  %32 = mul nsw i32 %31, %20
-  %33 = add nuw nsw i32 %20, 1
-  %34 = mul nsw i32 %31, %33
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %30, i64 %35
-  %37 = icmp eq i32 %32, %34
-  br i1 %37, label %.loopexit, label %38
+  %32 = add nuw nsw i32 %20, 1
+  %33 = mul nsw i32 %31, %32
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %30, i64 %34
+  %36 = icmp eq i32 %31, 0
+  br i1 %36, label %.loopexit, label %37
 
-38:                                               ; preds = %29
-  %39 = sext i32 %32 to i64
+37:                                               ; preds = %29
+  %38 = mul nsw i32 %31, %20
+  %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %30, i64 %39
   br label %41
 
 .loopexit:                                        ; preds = %50, %29
   br i1 %5, label %53, label %55
 
-41:                                               ; preds = %50, %38
-  %42 = phi ptr [ %51, %50 ], [ %40, %38 ]
+41:                                               ; preds = %50, %37
+  %42 = phi ptr [ %51, %50 ], [ %40, %37 ]
   %43 = load i8, ptr %42, align 1, !tbaa !11
   %44 = icmp eq i8 %43, 0
   %45 = select i1 %44, i8 %3, i8 %2
@@ -157,7 +157,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEccbb(ptr dead_on_unwind n
 
 50:                                               ; preds = %47, %46
   %51 = getelementptr inbounds i8, ptr %42, i64 1
-  %52 = icmp eq ptr %51, %36
+  %52 = icmp eq ptr %51, %35
   br i1 %52, label %.loopexit, label %41
 
 53:                                               ; preds = %.loopexit

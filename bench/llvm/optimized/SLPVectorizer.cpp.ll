@@ -60389,17 +60389,17 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELb1EE9p
   br i1 %680, label %_ZSt4nextIPiET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit, label %690
 
 _ZSt4nextIPiET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELb1EE9push_backES5_.exit
-  %681 = zext i32 %7 to i64
-  %682 = mul nuw i64 %678, %681
-  %683 = add i32 %7, 1
-  %684 = zext i32 %683 to i64
-  %685 = mul nuw i64 %678, %684
-  %686 = getelementptr inbounds i32, ptr %4, i64 %685
-  %.not6.i = icmp eq i64 %682, %685
+  %681 = add i32 %7, 1
+  %682 = zext i32 %681 to i64
+  %683 = mul nuw i64 %678, %682
+  %684 = getelementptr inbounds i32, ptr %4, i64 %683
+  %.not6.i = icmp eq i64 %678, 0
   br i1 %.not6.i, label %_ZSt4iotaIPiiEvT_S1_T0_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZSt4nextIPiET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit
-  %687 = getelementptr inbounds i32, ptr %4, i64 %682
+  %685 = zext i32 %7 to i64
+  %686 = mul nuw i64 %678, %685
+  %687 = getelementptr inbounds i32, ptr %4, i64 %686
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -60408,7 +60408,7 @@ _ZSt4nextIPiET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit: ; preds = %_
   store i32 %.08.i, ptr %.057.i, align 4
   %688 = add nuw nsw i32 %.08.i, 1
   %689 = getelementptr inbounds i8, ptr %.057.i, i64 4
-  %.not.i340 = icmp eq ptr %689, %686
+  %.not.i340 = icmp eq ptr %689, %684
   br i1 %.not.i340, label %_ZSt4iotaIPiiEvT_S1_T0_.exit, label %.lr.ph.i, !llvm.loop !19
 
 690:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELb1EE9push_backES5_.exit

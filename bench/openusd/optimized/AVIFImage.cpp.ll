@@ -792,58 +792,55 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9FlipImageEPS3_iii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 3, -2147483648) %3) unnamed_addr #5 align 2 {
-  %invariant.op = mul i32 %1, %3
-  %5 = icmp sgt i32 %2, 1
-  br i1 %5, label %.lr.ph, label %._crit_edge
+  %5 = sdiv i32 %2, 2
+  %6 = icmp sgt i32 %2, 1
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %6 = lshr i32 %2, 1
-  %wide.trip.count = zext nneg i32 %6 to i64
-  br label %7
+  %7 = mul i32 %3, %1
+  %.not8.i = icmp eq i32 %1, 0
+  br i1 %.not8.i, label %._crit_edge, label %.lr.ph.i.preheader.preheader
 
-7:                                                ; preds = %.lr.ph, %_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit ]
+.lr.ph.i.preheader.preheader:                     ; preds = %.lr.ph
+  %wide.trip.count = zext nneg i32 %5 to i64
+  br label %.lr.ph.i.preheader
+
+.lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.preheader, %_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit.loopexit
+  %indvars.iv = phi i64 [ 0, %.lr.ph.i.preheader.preheader ], [ %indvars.iv.next, %_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit.loopexit ]
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
+  %9 = mul i32 %7, %8
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %0, i64 %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %indvars = trunc i64 %indvars.iv.next to i32
-  %8 = mul nsw i32 %1, %indvars
-  %.reass16 = mul i32 %invariant.op, %indvars
-  %9 = sext i32 %.reass16 to i64
-  %10 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %0, i64 %9
-  %11 = trunc i64 %indvars.iv to i32
-  %12 = mul i32 %1, %11
-  %.not8.i = icmp eq i32 %12, %8
-  br i1 %.not8.i, label %_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %7
-  %13 = trunc i64 %indvars.iv to i32
-  %14 = xor i32 %13, -1
-  %15 = add i32 %2, %14
-  %16 = mul i32 %invariant.op, %15
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %0, i64 %17
-  %19 = trunc nuw nsw i64 %indvars.iv to i32
-  %.reass = mul i32 %invariant.op, %19
-  %20 = sext i32 %.reass to i64
+  %12 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %13 = mul i32 %7, %12
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %0, i64 %14
+  %16 = trunc i64 %indvars.iv to i32
+  %17 = xor i32 %16, -1
+  %18 = add i32 %2, %17
+  %19 = mul i32 %7, %18
+  %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %0, i64 %20
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.010.i = phi ptr [ %24, %.lr.ph.i ], [ %18, %.lr.ph.i.preheader ]
-  %.079.i = phi ptr [ %23, %.lr.ph.i ], [ %21, %.lr.ph.i.preheader ]
+  %.010.i = phi ptr [ %24, %.lr.ph.i ], [ %21, %.lr.ph.i.preheader ]
+  %.079.i = phi ptr [ %23, %.lr.ph.i ], [ %11, %.lr.ph.i.preheader ]
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %.079.i, align 2
   %22 = load i16, ptr %.010.i, align 2
   store i16 %22, ptr %.079.i, align 2
   store i16 %.sroa.0.0.copyload.i.i.i, ptr %.010.i, align 2
   %23 = getelementptr inbounds i8, ptr %.079.i, i64 2
   %24 = getelementptr inbounds i8, ptr %.010.i, i64 2
-  %.not.i = icmp eq ptr %23, %10
-  br i1 %.not.i, label %_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit, label %.lr.ph.i, !llvm.loop !10
+  %.not.i = icmp eq ptr %23, %15
+  br i1 %.not.i, label %_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit.loopexit, label %.lr.ph.i, !llvm.loop !10
 
-_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i, %7
+_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit, %4
+._crit_edge:                                      ; preds = %_ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit.loopexit, %.lr.ph, %4
   ret void
 }
 
