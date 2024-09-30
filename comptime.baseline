@@ -6649,7 +6649,7 @@ duckdb/no_operator_caching_verifier.cpp.ll 55974651
 duckdb/null_operations.cpp.ll 274567137
 duckdb/parsed_statement_verifier.cpp.ll 212744050
 duckdb/prepared_statement_verifier.cpp.ll 442998998
-duckdb/statement_verifier.cpp.ll 286645772
+duckdb/statement_verifier.cpp.ll 286936202
 duckdb/ub_duckdb_adbc.cpp.ll 2434457617
 duckdb/ub_duckdb_adbc_nanoarrow.cpp.ll 233816298
 duckdb/ub_duckdb_aggr_algebraic.cpp.ll 3575656741
@@ -6815,7 +6815,7 @@ eastl/EAString.cpp.ll 2569974089
 eastl/EATest.cpp.ll 861544951
 eastl/EATextUtil.cpp.ll 671847149
 eastl/Int128_t.cpp.ll 1144164323
-eastl/TestAlgorithm.cpp.ll 11179740579
+eastl/TestAlgorithm.cpp.ll 11190929767
 eastl/TestAllocator.cpp.ll 738404629
 eastl/TestAny.cpp.ll 3286633519
 eastl/TestArray.cpp.ll 271704606
@@ -11461,7 +11461,7 @@ jemalloc/util.pic.ll 45055811
 jemalloc/util.sym.ll 45055815
 jq/ascii.ll 50827182
 jq/big5.ll 69090355
-jq/builtin.ll 1062015219
+jq/builtin.ll 1060951738
 jq/bytecode.ll 124184935
 jq/compile.ll 1091786437
 jq/cp1251.ll 46707130
@@ -12337,7 +12337,7 @@ libwebp/extras.c.ll 269600318
 libwebp/filter_enc.c.ll 123326920
 libwebp/filters.c.ll 165193238
 libwebp/filters_mips_dsp_r2.c.ll 34776029
-libwebp/filters_msa.c.ll 34773292
+libwebp/filters_msa.c.ll 34808118
 libwebp/filters_neon.c.ll 34774035
 libwebp/filters_sse2.c.ll 373690139
 libwebp/filters_utils.c.ll 78643695
@@ -17799,7 +17799,7 @@ meilisearch-rs/3m3x2x3yg1gvj93u.ll 1416202720
 meilisearch-rs/448pbsgxvapmdmcd.ll 1003773628
 meilisearch-rs/48hhebymxr5ff2nk.ll 26419579775
 meilisearch-rs/4bitt7og17dqjles.ll 782015719
-meilisearch-rs/4llghrvh6vzci59o.ll 24077905656
+meilisearch-rs/4llghrvh6vzci59o.ll 24102194997
 meilisearch-rs/4nfen0oz6o4cyiq8.ll 1362928044
 meilisearch-rs/4p6euf9p6jz4j36m.ll 54107583322
 meilisearch-rs/4rtt9oltj0ubuf08.ll 27815596620
@@ -18488,7 +18488,7 @@ minetest/test_serialization.cpp.ll 1415091672
 minetest/test_server_shutdown_state.cpp.ll 454549479
 minetest/test_serveractiveobjectmgr.cpp.ll 688850533
 minetest/test_servermodmanager.cpp.ll 673435189
-minetest/test_settings.cpp.ll 906995138
+minetest/test_settings.cpp.ll 907904987
 minetest/test_socket.cpp.ll 175877781
 minetest/test_threading.cpp.ll 254594913
 minetest/test_utilities.cpp.ll 1715601038
@@ -20734,7 +20734,7 @@ ockam-rs/1vlwqipp8gcyyd4a.ll 2960948446
 ockam-rs/1vzarbnne6zpgdqm.ll 1145390143
 ockam-rs/1w1enrqpm17pnxjo.ll 1603894679
 ockam-rs/1webxc5tel1wnzl3.ll 1709133140
-ockam-rs/1wrronmd8fr7c13v.ll 810970031
+ockam-rs/1wrronmd8fr7c13v.ll 811786813
 ockam-rs/1xbvysxu5b6y4517.ll 53962682
 ockam-rs/1y67jc2e8hldxzxu.ll 1889554667
 ockam-rs/1ybc3zt4ylwuzsl9.ll 5666976952
@@ -23409,7 +23409,7 @@ openjdk/ClassTypeImpl.ll 135789656
 openjdk/ColorGlyphSurfaceData.ll 45426379
 openjdk/Console_md.ll 38565493
 openjdk/ConstantPool.ll 55357707
-openjdk/Continuation.ll 35616330
+openjdk/Continuation.ll 35651962
 openjdk/ContinuationSupport.ll 35604354
 openjdk/DataBufferNative.ll 65523961
 openjdk/DatagramChannelImpl.ll 54079584
@@ -28385,7 +28385,7 @@ openssl/libdefault-lib-blake2s_prov.ll 1072066568
 openssl/libdefault-lib-capabilities.ll 69916540
 openssl/libdefault-lib-cipher_aes_cbc_hmac_sha.ll 115827310
 openssl/libdefault-lib-cipher_aes_cbc_hmac_sha1_hw.ll 489916952
-openssl/libdefault-lib-cipher_aes_cbc_hmac_sha256_hw.ll 529640745
+openssl/libdefault-lib-cipher_aes_cbc_hmac_sha256_hw.ll 530170765
 openssl/libdefault-lib-cipher_aes_ccm_hw.ll 47430593
 openssl/libdefault-lib-cipher_aes_gcm_hw.ll 104152591
 openssl/libdefault-lib-cipher_aes_gcm_siv.ll 102156835
@@ -35494,7 +35494,7 @@ rust-analyzer-rs/4avxaakgkeg372gg.ll 272568349
 rust-analyzer-rs/4b25zrqtgpb12d85.ll 46458680
 rust-analyzer-rs/4baun3pe1avree5d.ll 3523340421
 rust-analyzer-rs/4bvw1e690behm5u2.ll 117277541
-rust-analyzer-rs/4bwxw2k86ri9mh4p.ll 721279217
+rust-analyzer-rs/4bwxw2k86ri9mh4p.ll 722001908
 rust-analyzer-rs/4c2n61l0gr2pm2ww.ll 237203040
 rust-analyzer-rs/4cr05weuwzevn2i6.ll 5698832978
 rust-analyzer-rs/4dgdxz5jrjr067x9.ll 186259817
@@ -39443,7 +39443,7 @@ wireshark/crc16-plain.c.ll 56778449
 wireshark/crc16.c.ll 111179406
 wireshark/crc32.c.ll 88492756
 wireshark/crc5.c.ll 52602912
-wireshark/crc6.c.ll 42189803
+wireshark/crc6.c.ll 42232057
 wireshark/crc7.c.ll 42627649
 wireshark/crc8-tvb.c.ll 49313292
 wireshark/crc8.c.ll 55281884
