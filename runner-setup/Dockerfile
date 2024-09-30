@@ -1,23 +1,39 @@
 # Dockerfile to setup a new runner for CI service.
 # This file has all dependencies for running the following service(s):
 #   - gen_optimized.py
+#
+# System expectation:
+#   No Address Randomization
+#       - echo 0 > /proc/sys/kernel/randomize_va_space
+#   Userland Perf
+#       - echo -1 > /proc/sys/kernel/perf_event_paranoid
+#
+# Build Command:
+# echo "${GITHUB_TOKEN}" | docker buildx build --secret id=github_token,src=/dev/stdin -t github-runner .
+#
+# Run Command:
+# docker run --cap-add PERFMON -d --network=host --name github-runner github-runner 
 
 # Use a lightweight base image
 FROM ubuntu:24.04
 
+# Version for runner to get from github
+ARG RUNNER_VERSION=2.319.1
+# Repo
+ARG REPO_URL=https://github.com/dtcxzyw/llvm-opt-benchmark
+
 # Set environment variables
-# Should probably use docker compose for this
 ENV RUNNER_USER=runner
 ENV RUNNER_HOME=/home/${RUNNER_USER}
-# Should probably use docker compose and to set these values:
-ENV RUNNER_VERSION=2.319.1
-ENV GITHUB_TOKEN=#<Github Token Here>
-ENV REPO_URL=https://github.com/dtcxzyw/llvm-opt-benchmark
 
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
     build-essential \
     ninja-build \
+    python3-tqdm \
+    linux-tools-common \
+    linux-tools-generic \
+    linux-tools-`uname -r` \
     cmake \
     sudo \
     ccache \
@@ -37,9 +53,9 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-
-# Create a user for the runner
-RUN useradd -m ${RUNNER_USER}
+# Create a user for the runner. Hard set uid so we can use it to
+# extract the github_token.
+RUN useradd -u 1001 -m ${RUNNER_USER}
 # Switch to the runner user
 USER ${RUNNER_USER}
 WORKDIR ${RUNNER_HOME}
@@ -51,13 +67,11 @@ RUN curl -o actions-runner-linux-x64.tar.gz -L https://github.com/actions/runner
 
 # Install the runner
 # We install dependencies manually above
-#RUN ./bin/installdependencies.sh
-
-# Install python3 packages
-RUN pip3 install tqdm --break-system-packages
+# RUN ./bin/installdependencies.sh
 
 # Configure the runner
-RUN ./config.sh --url ${REPO_URL} --token ${GITHUB_TOKEN} --unattended --replace
+RUN --mount=type=secret,id=github_token,uid=1001 \
+    ./config.sh --url ${REPO_URL} --token $(cat /run/secrets/github_token) --unattended --replace
 
 # Run the runner
 ENTRYPOINT ["./run.sh"]
