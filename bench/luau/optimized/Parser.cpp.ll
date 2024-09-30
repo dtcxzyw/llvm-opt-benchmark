@@ -18207,7 +18207,7 @@ define dso_local { ptr, ptr } @_ZN4Luau6Parser15parseSimpleTypeEbb(ptr noundef n
   %12 = alloca %"struct.Luau::AstArray.143", align 8
   %13 = alloca %"struct.Luau::AstArray.143", align 8
   %14 = alloca %"struct.Luau::AstArray.143", align 8
-  %.sroa.022 = alloca %"struct.Luau::Location", align 8
+  %.sroa.026 = alloca %"struct.Luau::Location", align 8
   %15 = alloca %"struct.Luau::Parser::Name", align 8
   %16 = alloca %"struct.Luau::Parser::MatchLexeme", align 4
   %17 = alloca %"struct.Luau::Location", align 8
@@ -18361,48 +18361,55 @@ _ZN4Luau6Parser9parseNameEPKc.exit:               ; preds = %_ZN4Luau6Parser25in
 _ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit: ; preds = %_ZN4Luau6Parser9parseNameEPKc.exit
   %81 = load i64, ptr %33, align 4
   tail call void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(840) %0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.022, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i64 16, i1 false)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
-  %82 = load i32, ptr %32, align 8, !noalias !274
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.026, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i64 16, i1 false)
+  %82 = load i32, ptr %32, align 8, !noalias !271
   %.not.i.i16 = icmp eq i32 %82, 281
   br i1 %.not.i.i16, label %83, label %86
 
 83:                                               ; preds = %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit
-  %84 = load ptr, ptr %77, align 8, !noalias !274
+  %84 = load ptr, ptr %77, align 8, !noalias !271
   %85 = ptrtoint ptr %84 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %33, i64 16, i1 false)
-  tail call void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(840) %0), !noalias !274
-  store i64 %85, ptr %15, align 8, !alias.scope !271
-  br label %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split
+  %.sroa.4.8.copyload22 = load i64, ptr %33, align 4
+  %.sroa.7.8..sroa_idx23 = getelementptr inbounds i8, ptr %0, i64 52
+  %.sroa.7.8.copyload24 = load i64, ptr %.sroa.7.8..sroa_idx23, align 4
+  tail call void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(840) %0), !noalias !271
+  br label %_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE.exit
 
 86:                                               ; preds = %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit
-  %.sroa.0.0.extract.trunc = trunc i64 %81 to i32
-  tail call void @_ZN4Luau6Parser15reportNameErrorEPKc(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull @.str.86), !noalias !274
-  %87 = load i32, ptr %32, align 8, !noalias !271
+  %.sroa.025.0.extract.trunc = trunc i64 %81 to i32
+  tail call void @_ZN4Luau6Parser15reportNameErrorEPKc(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull @.str.86), !noalias !271
+  %87 = load i32, ptr %32, align 8, !noalias !276
   %88 = add i32 %87, -290
   %or.cond.i = icmp ult i32 %88, 21
   %89 = load i32, ptr %33, align 4
-  %90 = icmp eq i32 %89, %.sroa.0.0.extract.trunc
+  %90 = icmp eq i32 %89, %.sroa.025.0.extract.trunc
   %or.cond = select i1 %or.cond.i, i1 %90, i1 false
   br i1 %or.cond, label %91, label %94
 
 91:                                               ; preds = %86
-  %92 = load ptr, ptr %77, align 8, !noalias !271
+  %92 = load ptr, ptr %77, align 8, !noalias !276
   %93 = ptrtoint ptr %92 to i64
-  store i64 %93, ptr %15, align 8, !alias.scope !271
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %33, i64 16, i1 false)
-  tail call void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(840) %0), !noalias !271
-  br label %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split
+  %.sroa.4.8.copyload = load i64, ptr %33, align 4
+  %.sroa.7.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 52
+  %.sroa.7.8.copyload = load i64, ptr %.sroa.7.8..sroa_idx, align 4
+  tail call void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(840) %0), !noalias !276
+  br label %_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE.exit
 
 94:                                               ; preds = %86
-  %.sroa.0.0.copyload.i17 = load i64, ptr %33, align 4, !noalias !271
+  %.sroa.0.0.copyload.i17 = load i64, ptr %33, align 4, !noalias !276
   %95 = getelementptr inbounds i8, ptr %0, i64 208
-  %96 = load i64, ptr %95, align 8, !noalias !271
-  store i64 %96, ptr %15, align 8, !alias.scope !271
-  store i64 %.sroa.0.0.copyload.i17, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !271
-  %.sroa.3.0..sroa_idx4.i = getelementptr inbounds i8, ptr %15, i64 16
-  store i64 %.sroa.0.0.copyload.i17, ptr %.sroa.3.0..sroa_idx4.i, align 8, !alias.scope !271
-  %97 = inttoptr i64 %96 to ptr
+  %96 = load i64, ptr %95, align 8, !noalias !276
+  br label %_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE.exit
+
+_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE.exit: ; preds = %83, %91, %94
+  %.sroa.7.0 = phi i64 [ %.sroa.7.8.copyload24, %83 ], [ %.sroa.7.8.copyload, %91 ], [ %.sroa.0.0.copyload.i17, %94 ]
+  %.sroa.4.0 = phi i64 [ %.sroa.4.8.copyload22, %83 ], [ %.sroa.4.8.copyload, %91 ], [ %.sroa.0.0.copyload.i17, %94 ]
+  %.sroa.0.0 = phi i64 [ %85, %83 ], [ %93, %91 ], [ %96, %94 ]
+  store i64 %.sroa.0.0, ptr %15, align 8
+  store i64 %.sroa.4.0, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
+  store i64 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8
+  %97 = inttoptr i64 %.sroa.0.0 to ptr
   br label %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split
 
 98:                                               ; preds = %_ZN4Luau6Parser9parseNameEPKc.exit
@@ -18439,15 +18446,15 @@ _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %99
   call void @_ZN4Luau13AstTypeTypeofC1ERKNS_8LocationEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(40) %111, ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef %104)
   br label %145
 
-_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split: ; preds = %94, %91, %83, %_ZNK4Luau7AstNameeqEPKc.exit, %98
-  %.sroa.0.0.copyload.i2028 = phi ptr [ %78, %_ZNK4Luau7AstNameeqEPKc.exit ], [ %78, %98 ], [ %84, %83 ], [ %92, %91 ], [ %97, %94 ]
-  %.sroa.223.1 = phi i8 [ 0, %_ZNK4Luau7AstNameeqEPKc.exit ], [ 0, %98 ], [ 1, %83 ], [ 1, %91 ], [ 1, %94 ]
+_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split: ; preds = %_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE.exit, %_ZNK4Luau7AstNameeqEPKc.exit, %98
+  %.sroa.0.0.copyload.i2033 = phi ptr [ %78, %_ZNK4Luau7AstNameeqEPKc.exit ], [ %78, %98 ], [ %97, %_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE.exit ]
+  %.sroa.227.1 = phi i8 [ 0, %_ZNK4Luau7AstNameeqEPKc.exit ], [ 0, %98 ], [ 1, %_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE.exit ]
   %.pr = load i32, ptr %32, align 8
   br label %_ZNK4Luau7AstNameeqEPKc.exit.thread
 
 _ZNK4Luau7AstNameeqEPKc.exit.thread:              ; preds = %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split, %99
-  %.sroa.0.0.copyload.i20 = phi ptr [ null, %99 ], [ %.sroa.0.0.copyload.i2028, %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split ]
-  %.sroa.223.0 = phi i8 [ 0, %99 ], [ %.sroa.223.1, %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split ]
+  %.sroa.0.0.copyload.i20 = phi ptr [ null, %99 ], [ %.sroa.0.0.copyload.i2033, %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split ]
+  %.sroa.227.0 = phi i8 [ 0, %99 ], [ %.sroa.227.1, %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split ]
   %112 = phi i32 [ %80, %99 ], [ %.pr, %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %113 = icmp eq i32 %112, 60
@@ -18473,10 +18480,10 @@ _ZNK4Luau7AstNameeqEPKc.exit.thread:              ; preds = %_ZNK4Luau7AstNameeq
   store i64 %.sroa.1.0.copyload, ptr %122, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   %123 = tail call noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %120, i64 noundef 112)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.022, i64 16, i1 false)
-  %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  store i8 %.sroa.223.0, ptr %.sroa.223.0..sroa_idx, align 8
-  call void @_ZN4Luau16AstTypeReferenceC1ERKNS_8LocationESt8optionalINS_7AstNameEES5_S4_IS1_ES3_bRKNS_8AstArrayINS_13AstTypeOrPackEEE(ptr noundef nonnull align 8 dereferenceable(112) %123, ptr noundef nonnull align 4 dereferenceable(16) %19, ptr %78, i8 %.sroa.223.0, ptr %.sroa.0.0.copyload.i20, ptr noundef nonnull byval(%"class.std::optional.116") align 8 %4, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i1 noundef zeroext %113, ptr noundef nonnull align 8 dereferenceable(16) %18)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.026, i64 16, i1 false)
+  %.sroa.227.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  store i8 %.sroa.227.0, ptr %.sroa.227.0..sroa_idx, align 8
+  call void @_ZN4Luau16AstTypeReferenceC1ERKNS_8LocationESt8optionalINS_7AstNameEES5_S4_IS1_ES3_bRKNS_8AstArrayINS_13AstTypeOrPackEEE(ptr noundef nonnull align 8 dereferenceable(112) %123, ptr noundef nonnull align 4 dereferenceable(16) %19, ptr %78, i8 %.sroa.227.0, ptr %.sroa.0.0.copyload.i20, ptr noundef nonnull byval(%"class.std::optional.116") align 8 %4, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i1 noundef zeroext %113, ptr noundef nonnull align 8 dereferenceable(16) %18)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   br label %145
 
@@ -23746,12 +23753,12 @@ attributes #33 = { allocsize(0) }
 !268 = !{!269, !266}
 !269 = distinct !{!269, !270, !"_ZN4Luau6Parser12parseNameOptEPKc: argument 0"}
 !270 = distinct !{!270, !"_ZN4Luau6Parser12parseNameOptEPKc"}
-!271 = !{!272}
-!272 = distinct !{!272, !273, !"_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE: argument 0"}
-!273 = distinct !{!273, !"_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE"}
-!274 = !{!275, !272}
-!275 = distinct !{!275, !276, !"_ZN4Luau6Parser12parseNameOptEPKc: argument 0"}
-!276 = distinct !{!276, !"_ZN4Luau6Parser12parseNameOptEPKc"}
+!271 = !{!272, !274}
+!272 = distinct !{!272, !273, !"_ZN4Luau6Parser12parseNameOptEPKc: argument 0"}
+!273 = distinct !{!273, !"_ZN4Luau6Parser12parseNameOptEPKc"}
+!274 = distinct !{!274, !275, !"_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE: argument 0"}
+!275 = distinct !{!275, !"_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE"}
+!276 = !{!274}
 !277 = distinct !{!277, !6}
 !278 = distinct !{!278, !6}
 !279 = !{!280}

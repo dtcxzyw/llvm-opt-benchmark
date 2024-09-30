@@ -729,12 +729,16 @@ define hidden void @"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN11arrow_array7builder32generic_bytes_dictionary_builder41GenericByteDictionaryBuilder$LT$K$C$T$GT$3new17h23dbbe29316376bbE"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, i64 }, ptr, i64 }, i64, {} }, { { i64, [4 x i64] }, i64, i64 }, { i8, [23 x i8] } }, { { { { i64, i64 }, ptr, i64 }, i64, {} }, { { { i64, i64 }, ptr, i64 }, i64, {} }, { { i64, [4 x i64] }, i64, i64 } }, { { { ptr, i64, i64, i64 }, {}, {} }, {} }, { i64, i64, i64, i64 } }) align 8 dereferenceable(320) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, [3 x i64] }, align 8
+  %.sroa.0.i = alloca { { i64, i64 }, ptr, i64 }, align 8
   %.sroa.0 = alloca { ptr, i64, i64, i64 }, align 8
   %3 = alloca { i64, i64, i64, i64 }, align 8
   %4 = alloca { { { { i64, i64 }, ptr, i64 }, i64, {} }, { { { i64, i64 }, ptr, i64 }, i64, {} }, { { i64, [4 x i64] }, i64, i64 } }, align 8
   %5 = alloca { { { { i64, i64 }, ptr, i64 }, i64, {} }, { { i64, [4 x i64] }, i64, i64 }, { i8, [23 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5)
-  call void @_ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h599cdfd446541586E.llvm.12936710431969675094(ptr noalias nocapture noundef nonnull sret({ { i64, i64 }, ptr, i64 }) align 8 dereferenceable(32) %5, i64 noundef 4096)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i), !noalias !50
+  call void @_ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h599cdfd446541586E.llvm.12936710431969675094(ptr noalias nocapture noundef nonnull sret({ { i64, i64 }, ptr, i64 }) align 8 dereferenceable(32) %.sroa.0.i, i64 noundef 4096), !noalias !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, i64 32, i1 false)
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !50
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 80
@@ -743,6 +747,7 @@ define hidden void @"_ZN11arrow_array7builder32generic_bytes_dictionary_builder4
   store i64 1024, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !50
   %6 = getelementptr inbounds i8, ptr %5, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 4, i64 24, i1 false), !alias.scope !50
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i), !noalias !50
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
   invoke void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$13with_capacity17h6b9c82774ffd6f06E"(ptr noalias nocapture noundef nonnull sret({ { { { i64, i64 }, ptr, i64 }, i64, {} }, { { { i64, i64 }, ptr, i64 }, i64, {} }, { { i64, [4 x i64] }, i64, i64 } }) align 8 dereferenceable(136) %4, i64 noundef 1024, i64 noundef 1024)
           to label %10 unwind label %8

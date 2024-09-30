@@ -943,40 +943,43 @@ adjust_child_relids.exit240:                      ; preds = %327, %adjust_child_
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.adjust_appendrel_attrs_context, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 344
-  %7 = load ptr, ptr %6, align 8
-  %.not = icmp eq ptr %7, %3
-  br i1 %.not, label %14, label %8
+  %6 = alloca i32, align 4
+  %7 = getelementptr inbounds i8, ptr %2, i64 344
+  %8 = load ptr, ptr %7, align 8
+  %.not = icmp eq ptr %8, %3
+  br i1 %.not, label %15, label %9
 
-8:                                                ; preds = %4
-  %.not16 = icmp eq ptr %7, null
-  br i1 %.not16, label %11, label %9
+9:                                                ; preds = %4
+  %.not16 = icmp eq ptr %8, null
+  br i1 %.not16, label %12, label %10
 
-9:                                                ; preds = %8
-  %10 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3)
-  br label %14
+10:                                               ; preds = %9
+  %11 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %3)
+  br label %15
 
-11:                                               ; preds = %8
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
+12:                                               ; preds = %9
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %13)
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 536, ptr noundef nonnull @__func__.adjust_appendrel_attrs_multilevel) #8
   unreachable
 
-14:                                               ; preds = %9, %4
-  %.0 = phi ptr [ %10, %9 ], [ %1, %4 ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+15:                                               ; preds = %10, %4
+  %.0 = phi ptr [ %11, %10 ], [ %1, %4 ]
+  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = call ptr @find_appinfos_by_relids(ptr noundef %0, ptr noundef %17, ptr noundef nonnull %6)
+  %19 = load i32, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %18 = call ptr @find_appinfos_by_relids(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %17)
   store ptr %0, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %18, ptr %19, align 8
-  %20 = call ptr @adjust_appendrel_attrs_mutator(ptr noundef %.0, ptr noundef nonnull %5)
+  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %19, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %18, ptr %21, align 8
+  %22 = call ptr @adjust_appendrel_attrs_mutator(ptr noundef %.0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @pfree(ptr noundef %18) #8
-  ret ptr %20
+  ret ptr %22
 }
 
 ; Function Attrs: cold

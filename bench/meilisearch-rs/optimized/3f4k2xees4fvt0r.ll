@@ -45882,62 +45882,66 @@ define hidden noundef align 8 ptr @"_ZN5milli9documents1_89_$LT$impl$u20$serde..
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5regex8regexset6string8RegexSet3new17hea7d4370e011747cE(ptr dead_on_unwind noalias nocapture noundef writable sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [168 x i8], align 8
+  %4 = alloca [168 x i8], align 8
+  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3)
   call void @_ZN5regex8builders7Builder3new17ha1700604c76f9b12E(ptr noalias nocapture noundef nonnull sret([168 x i8]) align 8 dereferenceable(168) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
-  invoke void @_ZN5regex8builders6string15RegexSetBuilder5build17hf9ebfa7150178a54E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %3)
-          to label %6 unwind label %4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) %3, i64 168, i1 false)
+  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3)
+  invoke void @_ZN5regex8builders6string15RegexSetBuilder5build17hf9ebfa7150178a54E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %4)
+          to label %7 unwind label %5
 
-4:                                                ; preds = %2
-  %5 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$regex..builders..string..RegexSetBuilder$GT$17hc10942839523bfc6E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %3) #49
-          to label %common.resume unwind label %21
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$regex..builders..string..RegexSetBuilder$GT$17hc10942839523bfc6E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4) #49
+          to label %common.resume unwind label %22
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 128
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9de31e24637f4632E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
-          to label %14 unwind label %8
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %4, i64 128
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9de31e24637f4632E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+          to label %15 unwind label %9
 
-8:                                                ; preds = %6
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %7
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = getelementptr inbounds i8, ptr %3, i64 104
-  %11 = load i8, ptr %10, align 8, !range !5172, !alias.scope !8520, !noundef !8
-  %switch.not.i.i.i.i = icmp ult i8 %11, 2
-  br i1 %switch.not.i.i.i.i, label %12, label %common.resume
+  %11 = getelementptr inbounds i8, ptr %4, i64 104
+  %12 = load i8, ptr %11, align 8, !range !5172, !alias.scope !8520, !noundef !8
+  %switch.not.i.i.i.i = icmp ult i8 %12, 2
+  br i1 %switch.not.i.i.i.i, label %13, label %common.resume
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %3, i64 80
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc3b9a7f1a2bb82f3E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
-          to label %common.resume unwind label %19
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %4, i64 80
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc3b9a7f1a2bb82f3E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
+          to label %common.resume unwind label %20
 
-14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %3, i64 104
-  %16 = load i8, ptr %15, align 8, !range !5172, !alias.scope !8529, !noundef !8
-  %switch.not.i.i1.i.i = icmp ult i8 %16, 2
-  br i1 %switch.not.i.i1.i.i, label %17, label %"_ZN4core3ptr61drop_in_place$LT$regex..builders..string..RegexSetBuilder$GT$17hc10942839523bfc6E.exit"
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %17 = load i8, ptr %16, align 8, !range !5172, !alias.scope !8529, !noundef !8
+  %switch.not.i.i1.i.i = icmp ult i8 %17, 2
+  br i1 %switch.not.i.i1.i.i, label %18, label %"_ZN4core3ptr61drop_in_place$LT$regex..builders..string..RegexSetBuilder$GT$17hc10942839523bfc6E.exit"
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %3, i64 80
-  call void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc3b9a7f1a2bb82f3E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18)
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds i8, ptr %4, i64 80
+  call void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc3b9a7f1a2bb82f3E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(16) %19)
   br label %"_ZN4core3ptr61drop_in_place$LT$regex..builders..string..RegexSetBuilder$GT$17hc10942839523bfc6E.exit"
 
-19:                                               ; preds = %12
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %13
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #50
   unreachable
 
-common.resume:                                    ; preds = %4, %8, %12
-  %common.resume.op = phi { ptr, i32 } [ %9, %12 ], [ %9, %8 ], [ %5, %4 ]
+common.resume:                                    ; preds = %5, %9, %13
+  %common.resume.op = phi { ptr, i32 } [ %10, %13 ], [ %10, %9 ], [ %6, %5 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr61drop_in_place$LT$regex..builders..string..RegexSetBuilder$GT$17hc10942839523bfc6E.exit": ; preds = %14, %17
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3)
+"_ZN4core3ptr61drop_in_place$LT$regex..builders..string..RegexSetBuilder$GT$17hc10942839523bfc6E.exit": ; preds = %15, %18
+  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4)
   ret void
 
-21:                                               ; preds = %4
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %5
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #50
   unreachable

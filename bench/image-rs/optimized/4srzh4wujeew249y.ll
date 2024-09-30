@@ -25145,23 +25145,21 @@ define void @"_ZN102_$LT$image..error..ImageFormatHint$u20$as$u20$core..convert.
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN96_$LT$image..error..ImageFormatHint$u20$as$u20$core..convert..From$LT$$RF$std..path..Path$GT$$GT$4from17h250df3d1239757cdE"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 {
-  %.sroa.02 = alloca { { i64, ptr }, i64 }, align 8
-  %4 = tail call { ptr, i64 } @_ZN3std4path4Path9extension17hf75b7b3f26fcd3e7E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %.fca.0.extract = extractvalue { ptr, i64 } %4, 0
-  %5 = icmp eq ptr %.fca.0.extract, null
-  br i1 %5, label %8, label %6
+  %4 = alloca { { { i64, ptr }, i64 } }, align 8
+  %5 = tail call { ptr, i64 } @_ZN3std4path4Path9extension17hf75b7b3f26fcd3e7E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  %.fca.0.extract = extractvalue { ptr, i64 } %5, 0
+  %6 = icmp eq ptr %.fca.0.extract, null
+  br i1 %6, label %9, label %7
 
-6:                                                ; preds = %3
-  %.fca.1.extract = extractvalue { ptr, i64 } %4, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.02)
-  call void @_ZN3std3sys4unix6os_str5Slice8to_owned17h81ac8c9c3fbf909aE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %.sroa.02, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.02, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.02)
-  br label %8
+7:                                                ; preds = %3
+  %.fca.1.extract = extractvalue { ptr, i64 } %5, 1
+  call void @_ZN3std3sys4unix6os_str5Slice8to_owned17h81ac8c9c3fbf909aE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract)
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  br label %9
 
-8:                                                ; preds = %3, %6
-  %.sink = phi i8 [ 2, %6 ], [ 3, %3 ]
+9:                                                ; preds = %3, %7
+  %.sink = phi i8 [ 2, %7 ], [ 3, %3 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }

@@ -29716,9 +29716,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFN4pbrt6CameraEvESt5_BindIFZNS0_10BasicScene10SetOptionsENS0_11SceneEntityES5_NS0_17CameraSceneEntityES5_S5_S5_E3$_1vEEE9_M_invokeERKSt9_Any_data"(ptr noalias sret(%"class.pbrt::Camera") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #4 align 2 {
 entry:
+  %cameraMedium.i.i.i.i.i.i.i = alloca %"class.pbrt::Medium", align 8
   %agg.tmp.i.i.i.i.i.i.i = alloca %"class.pbrt::Medium", align 8
   %agg.tmp3.i.i.i.i.i.i.i = alloca %"class.pbrt::Film", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cameraMedium.i.i.i.i.i.i.i), !noalias !219
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !219
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp3.i.i.i.i.i.i.i), !noalias !219
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 1000
@@ -29737,17 +29739,19 @@ land.end.i.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.
   %alloc.sroa.0.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %call.i.i.i.i.i.i.i, align 8, !noalias !232
   %medium.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 968
   %loc.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 8
-  call void @_ZN4pbrt10BasicScene9GetMediumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE(ptr nonnull sret(%"class.pbrt::Medium") align 8 %agg.tmp.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1520) %1, ptr noundef nonnull align 8 dereferenceable(32) %medium.i.i.i.i.i.i.i, ptr noundef nonnull %loc.i.i.i.i.i.i.i), !noalias !232
+  call void @_ZN4pbrt10BasicScene9GetMediumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE(ptr nonnull sret(%"class.pbrt::Medium") align 8 %cameraMedium.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1520) %1, ptr noundef nonnull align 8 dereferenceable(32) %medium.i.i.i.i.i.i.i, ptr noundef nonnull %loc.i.i.i.i.i.i.i), !noalias !232
   %3 = load ptr, ptr %__functor.val, align 8, !noalias !232
   %parameters.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 32
+  %4 = load i64, ptr %cameraMedium.i.i.i.i.i.i.i, align 8, !noalias !232
+  store i64 %4, ptr %agg.tmp.i.i.i.i.i.i.i, align 8, !noalias !232
   %cameraTransform.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 144
   %film.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 544
-  %4 = load i64, ptr %film.i.i.i.i.i.i.i, align 8, !noalias !232
-  store i64 %4, ptr %agg.tmp3.i.i.i.i.i.i.i, align 8, !noalias !232
+  %5 = load i64, ptr %film.i.i.i.i.i.i.i, align 8, !noalias !232
+  store i64 %5, ptr %agg.tmp3.i.i.i.i.i.i.i, align 8, !noalias !232
   %coerce.val.pi.i.i.i.i.i.i.i = ptrtoint ptr %alloc.sroa.0.0.copyload.i.i.i.i.i.i.i to i64
   call void @_ZN4pbrt6Camera6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryENS_6MediumERKNS_15CameraTransformENS_4FilmEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr sret(%"class.pbrt::Camera") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(108) %parameters.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(824) %cameraTransform.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp3.i.i.i.i.i.i.i, ptr noundef nonnull %loc.i.i.i.i.i.i.i, i64 %coerce.val.pi.i.i.i.i.i.i.i)
-  %5 = load i32, ptr @_ZN4pbrt7logging8logLevelE, align 4, !noalias !232
-  %cmp6.i.i.i.i.i.i.i = icmp slt i32 %5, 1
+  %6 = load i32, ptr @_ZN4pbrt7logging8logLevelE, align 4, !noalias !232
+  %cmp6.i.i.i.i.i.i.i = icmp slt i32 %6, 1
   br i1 %cmp6.i.i.i.i.i.i.i, label %land.rhs7.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIN4pbrt6CameraERSt5_BindIFZNS0_10BasicScene10SetOptionsENS0_11SceneEntityES4_NS0_17CameraSceneEntityES4_S4_S4_E3$_1vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 land.rhs7.i.i.i.i.i.i.i:                          ; preds = %land.end.i.i.i.i.i.i.i
@@ -29755,6 +29759,7 @@ land.rhs7.i.i.i.i.i.i.i:                          ; preds = %land.end.i.i.i.i.i.
   br label %"_ZSt10__invoke_rIN4pbrt6CameraERSt5_BindIFZNS0_10BasicScene10SetOptionsENS0_11SceneEntityES4_NS0_17CameraSceneEntityES4_S4_S4_E3$_1vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 "_ZSt10__invoke_rIN4pbrt6CameraERSt5_BindIFZNS0_10BasicScene10SetOptionsENS0_11SceneEntityES4_NS0_17CameraSceneEntityES4_S4_S4_E3$_1vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %land.end.i.i.i.i.i.i.i, %land.rhs7.i.i.i.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cameraMedium.i.i.i.i.i.i.i), !noalias !219
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !219
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp3.i.i.i.i.i.i.i), !noalias !219
   ret void

@@ -1007,62 +1007,67 @@ declare noundef i32 @_ZN8XSyscall9fallocateEiimm(i32 noundef, i32 noundef, i64 n
 define hidden i32 @_ZNK22XPhysicalMemoryBacking19fallocate_fill_holeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.XErrno, align 4
   %5 = alloca %class.XErrno, align 4
-  %6 = alloca %class.GCLogPreciousHandle, align 8
+  %6 = alloca %class.XErrno, align 4
+  %7 = alloca %class.GCLogPreciousHandle, align 8
   %.b = load i1, ptr @_ZL21z_fallocate_supported, align 1
-  %7 = load i32, ptr @_ZN11XLargePages6_stateE, align 4
-  %8 = icmp ne i32 %7, 0
-  %or.cond = select i1 %.b, i1 true, i1 %8
-  br i1 %or.cond, label %25, label %9
+  %8 = load i32, ptr @_ZN11XLargePages6_stateE, align 4
+  %9 = icmp ne i32 %8, 0
+  %or.cond = select i1 %.b, i1 true, i1 %9
+  br i1 %or.cond, label %27, label %10
 
-9:                                                ; preds = %3
-  %10 = load i32, ptr %0, align 8
-  %11 = tail call noundef i32 @_ZN8XSyscall9fallocateEiimm(i32 noundef %10, i32 noundef 0, i64 noundef %1, i64 noundef %2) #12
-  %12 = icmp eq i32 %11, -1
-  br i1 %12, label %13, label %_ZNK22XPhysicalMemoryBacking27fallocate_fill_hole_syscallEmm.exit
+10:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  %11 = load i32, ptr %0, align 8
+  %12 = tail call noundef i32 @_ZN8XSyscall9fallocateEiimm(i32 noundef %11, i32 noundef 0, i64 noundef %1, i64 noundef %2) #12
+  %13 = icmp eq i32 %12, -1
+  br i1 %13, label %14, label %_ZNK22XPhysicalMemoryBacking27fallocate_fill_hole_syscallEmm.exit
 
-13:                                               ; preds = %9
-  %14 = tail call ptr @__errno_location() #13
-  %15 = load i32, ptr %14, align 4
+14:                                               ; preds = %10
+  %15 = tail call ptr @__errno_location() #13
+  %16 = load i32, ptr %15, align 4
   br label %_ZNK22XPhysicalMemoryBacking27fallocate_fill_hole_syscallEmm.exit
 
-_ZNK22XPhysicalMemoryBacking27fallocate_fill_hole_syscallEmm.exit: ; preds = %9, %13
-  %.sink.i = phi i32 [ %15, %13 ], [ 0, %9 ]
-  call void @_ZN6XErrnoC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %.sink.i) #12
-  %16 = call noundef zeroext i1 @_ZNK6XErrnocvbEv(ptr noundef nonnull align 4 dereferenceable(4) %5) #12
-  br i1 %16, label %18, label %17
+_ZNK22XPhysicalMemoryBacking27fallocate_fill_hole_syscallEmm.exit: ; preds = %10, %14
+  %.sink.i = phi i32 [ %16, %14 ], [ 0, %10 ]
+  call void @_ZN6XErrnoC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.sink.i) #12
+  %17 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  store i32 %17, ptr %6, align 4
+  %18 = call noundef zeroext i1 @_ZNK6XErrnocvbEv(ptr noundef nonnull align 4 dereferenceable(4) %6) #12
+  br i1 %18, label %20, label %19
 
-17:                                               ; preds = %_ZNK22XPhysicalMemoryBacking27fallocate_fill_hole_syscallEmm.exit
-  call void @_ZN6XErrnoC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #12
-  %.pre = load i32, ptr %4, align 4
-  br label %27
+19:                                               ; preds = %_ZNK22XPhysicalMemoryBacking27fallocate_fill_hole_syscallEmm.exit
+  call void @_ZN6XErrnoC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0) #12
+  %.pre = load i32, ptr %5, align 4
+  br label %29
 
-18:                                               ; preds = %_ZNK22XPhysicalMemoryBacking27fallocate_fill_hole_syscallEmm.exit
-  %19 = call noundef zeroext i1 @_ZNK6XErrnoneEi(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 38) #12
-  br i1 %19, label %20, label %24
-
-20:                                               ; preds = %18
-  %21 = call noundef zeroext i1 @_ZNK6XErrnoneEi(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 95) #12
-  br i1 %21, label %22, label %24
+20:                                               ; preds = %_ZNK22XPhysicalMemoryBacking27fallocate_fill_hole_syscallEmm.exit
+  %21 = call noundef zeroext i1 @_ZNK6XErrnoneEi(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef 38) #12
+  br i1 %21, label %22, label %26
 
 22:                                               ; preds = %20
-  %23 = load i32, ptr %5, align 4
-  br label %27
+  %23 = call noundef zeroext i1 @_ZNK6XErrnoneEi(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef 95) #12
+  br i1 %23, label %24, label %26
 
-24:                                               ; preds = %20, %18
-  store i32 2, ptr %6, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+24:                                               ; preds = %22
+  %25 = load i32, ptr %6, align 4
+  br label %29
+
+26:                                               ; preds = %22, %20
+  store i32 2, ptr %7, align 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
-  call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.50)
+  call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.50)
   store i1 true, ptr @_ZL21z_fallocate_supported, align 1
-  br label %25
-
-25:                                               ; preds = %24, %3
-  %26 = call i32 @_ZNK22XPhysicalMemoryBacking26fallocate_fill_hole_compatEmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2)
   br label %27
 
-27:                                               ; preds = %25, %22, %17
-  %28 = phi i32 [ %26, %25 ], [ %23, %22 ], [ %.pre, %17 ]
-  ret i32 %28
+27:                                               ; preds = %26, %3
+  %28 = call i32 @_ZNK22XPhysicalMemoryBacking26fallocate_fill_hole_compatEmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2)
+  br label %29
+
+29:                                               ; preds = %27, %24, %19
+  %30 = phi i32 [ %28, %27 ], [ %25, %24 ], [ %.pre, %19 ]
+  ret i32 %30
 }
 
 declare noundef zeroext i1 @_ZNK6XErrnocvbEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
@@ -1072,55 +1077,60 @@ declare noundef zeroext i1 @_ZNK6XErrnoneEi(ptr noundef nonnull align 4 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden i32 @_ZNK22XPhysicalMemoryBacking20fallocate_punch_holeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.XErrno, align 4
-  %5 = load i32, ptr @_ZN11XLargePages6_stateE, align 4
-  %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %20
+  %5 = alloca %class.XErrno, align 4
+  %6 = load i32, ptr @_ZN11XLargePages6_stateE, align 4
+  %7 = icmp eq i32 %6, 1
+  br i1 %7, label %8, label %22
 
-7:                                                ; preds = %3
-  %8 = load i32, ptr %0, align 8
-  %9 = tail call ptr @mmap64(ptr noundef null, i64 noundef %2, i32 noundef 3, i32 noundef 1, i32 noundef %8, i64 noundef %1) #12
-  %10 = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
-  br i1 %10, label %.sink.split.i, label %11
+8:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  %9 = load i32, ptr %0, align 8
+  %10 = tail call ptr @mmap64(ptr noundef null, i64 noundef %2, i32 noundef 3, i32 noundef 1, i32 noundef %9, i64 noundef %1) #12
+  %11 = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
+  br i1 %11, label %.sink.split.i, label %12
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = load i64, ptr %13, align 8
-  tail call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %9, ptr noundef %12, i64 noundef %14) #12
-  %15 = tail call i32 @munmap(ptr noundef %9, i64 noundef %2) #12
-  %16 = icmp eq i32 %15, -1
-  br i1 %16, label %.sink.split.i, label %_ZNK22XPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsEmmb.exit
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %10, i64 %2
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load i64, ptr %14, align 8
+  tail call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %10, ptr noundef %13, i64 noundef %15) #12
+  %16 = tail call i32 @munmap(ptr noundef %10, i64 noundef %2) #12
+  %17 = icmp eq i32 %16, -1
+  br i1 %17, label %.sink.split.i, label %_ZNK22XPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsEmmb.exit
 
-.sink.split.i:                                    ; preds = %11, %7
-  %17 = tail call ptr @__errno_location() #13
-  %18 = load i32, ptr %17, align 4
+.sink.split.i:                                    ; preds = %12, %8
+  %18 = tail call ptr @__errno_location() #13
+  %19 = load i32, ptr %18, align 4
   br label %_ZNK22XPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsEmmb.exit
 
-_ZNK22XPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsEmmb.exit: ; preds = %11, %.sink.split.i
-  %.sink.i = phi i32 [ 0, %11 ], [ %18, %.sink.split.i ]
+_ZNK22XPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsEmmb.exit: ; preds = %12, %.sink.split.i
+  %.sink.i = phi i32 [ 0, %12 ], [ %19, %.sink.split.i ]
   call void @_ZN6XErrnoC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.sink.i) #12
-  %19 = call noundef zeroext i1 @_ZNK6XErrnocvbEv(ptr noundef nonnull align 4 dereferenceable(4) %4) #12
-  br i1 %19, label %27, label %20
+  %20 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  store i32 %20, ptr %5, align 4
+  %21 = call noundef zeroext i1 @_ZNK6XErrnocvbEv(ptr noundef nonnull align 4 dereferenceable(4) %5) #12
+  br i1 %21, label %29, label %22
 
-20:                                               ; preds = %_ZNK22XPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsEmmb.exit, %3
-  %21 = load i32, ptr %0, align 8
-  %22 = call noundef i32 @_ZN8XSyscall9fallocateEiimm(i32 noundef %21, i32 noundef 3, i64 noundef %1, i64 noundef %2) #12
-  %23 = icmp eq i32 %22, -1
-  br i1 %23, label %24, label %.sink.split
+22:                                               ; preds = %_ZNK22XPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsEmmb.exit, %3
+  %23 = load i32, ptr %0, align 8
+  %24 = call noundef i32 @_ZN8XSyscall9fallocateEiimm(i32 noundef %23, i32 noundef 3, i64 noundef %1, i64 noundef %2) #12
+  %25 = icmp eq i32 %24, -1
+  br i1 %25, label %26, label %.sink.split
 
-24:                                               ; preds = %20
-  %25 = tail call ptr @__errno_location() #13
-  %26 = load i32, ptr %25, align 4
+26:                                               ; preds = %22
+  %27 = tail call ptr @__errno_location() #13
+  %28 = load i32, ptr %27, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %20, %24
-  %.sink = phi i32 [ %26, %24 ], [ 0, %20 ]
-  call void @_ZN6XErrnoC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.sink) #12
-  br label %27
+.sink.split:                                      ; preds = %22, %26
+  %.sink = phi i32 [ %28, %26 ], [ 0, %22 ]
+  call void @_ZN6XErrnoC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %.sink) #12
+  br label %29
 
-27:                                               ; preds = %.sink.split, %_ZNK22XPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsEmmb.exit
-  %28 = load i32, ptr %4, align 4
-  ret i32 %28
+29:                                               ; preds = %.sink.split, %_ZNK22XPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsEmmb.exit
+  %30 = load i32, ptr %5, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

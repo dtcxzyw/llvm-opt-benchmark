@@ -10704,6 +10704,7 @@ define void @_ZN6duckdb14FunctionBinder21BindAggregateFunctionENS_17AggregateFun
 entry:
   %aggr_type.addr = alloca i8, align 1
   %bind_info = alloca %"class.duckdb::unique_ptr.198", align 8
+  %ref.tmp = alloca %"class.duckdb::unique_ptr.198", align 8
   store i8 %aggr_type, ptr %aggr_type.addr, align 1, !tbaa !207
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bind_info) #30
   store ptr null, ptr %bind_info, align 8, !tbaa !202
@@ -10713,8 +10714,11 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #30
   %1 = load ptr, ptr %this, align 8, !tbaa !172
-  call void %0(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.198") align 8 %bind_info, ptr noundef nonnull align 8 dereferenceable(592) %1, ptr noundef nonnull align 8 dereferenceable(281) %bound_function, ptr noundef nonnull align 8 dereferenceable(24) %children)
+  call void %0(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.198") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(592) %1, ptr noundef nonnull align 8 dereferenceable(281) %bound_function, ptr noundef nonnull align 8 dereferenceable(24) %children)
+  %2 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
+  store ptr %2, ptr %bind_info, align 8, !tbaa !4
   %.pre32 = load ptr, ptr %children, align 8, !tbaa !184
   %_M_finish.i14.phi.trans.insert = getelementptr inbounds i8, ptr %children, i64 8
   %.pre31 = load ptr, ptr %_M_finish.i14.phi.trans.insert, align 8, !tbaa !168
@@ -10722,6 +10726,7 @@ if.then:                                          ; preds = %entry
   %.pre30 = load ptr, ptr %arguments.phi.trans.insert, align 8, !tbaa !130
   %_M_finish.i.phi.trans.insert = getelementptr inbounds i8, ptr %bound_function, i64 80
   %.pre = load ptr, ptr %_M_finish.i.phi.trans.insert, align 8, !tbaa !131
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #30
   %sub.ptr.lhs.cast.i = ptrtoint ptr %.pre to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %.pre30 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -10743,15 +10748,15 @@ invoke.cont9:                                     ; preds = %if.end
           to label %invoke.cont10 unwind label %ehcleanup
 
 invoke.cont10:                                    ; preds = %invoke.cont9
-  %2 = load ptr, ptr %bind_info, align 8, !tbaa !4
-  %cmp.not.i19 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %bind_info, align 8, !tbaa !4
+  %cmp.not.i19 = icmp eq ptr %3, null
   br i1 %cmp.not.i19, label %_ZNSt10unique_ptrIN6duckdb12FunctionDataESt14default_deleteIS1_EED2Ev.exit23, label %_ZNKSt14default_deleteIN6duckdb12FunctionDataEEclEPS1_.exit.i20
 
 _ZNKSt14default_deleteIN6duckdb12FunctionDataEEclEPS1_.exit.i20: ; preds = %invoke.cont10
-  %vtable.i.i21 = load ptr, ptr %2, align 8, !tbaa !16
+  %vtable.i.i21 = load ptr, ptr %3, align 8, !tbaa !16
   %vfn.i.i22 = getelementptr inbounds i8, ptr %vtable.i.i21, i64 8
-  %3 = load ptr, ptr %vfn.i.i22, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #30
+  %4 = load ptr, ptr %vfn.i.i22, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #30
   br label %_ZNSt10unique_ptrIN6duckdb12FunctionDataESt14default_deleteIS1_EED2Ev.exit23
 
 _ZNSt10unique_ptrIN6duckdb12FunctionDataESt14default_deleteIS1_EED2Ev.exit23: ; preds = %_ZNKSt14default_deleteIN6duckdb12FunctionDataEEclEPS1_.exit.i20, %invoke.cont10
@@ -10759,7 +10764,7 @@ _ZNSt10unique_ptrIN6duckdb12FunctionDataESt14default_deleteIS1_EED2Ev.exit23: ; 
   ret void
 
 ehcleanup:                                        ; preds = %invoke.cont9, %if.end, %if.then
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   %.pre33 = load ptr, ptr %bind_info, align 8, !tbaa !4
   %cmp.not.i24 = icmp eq ptr %.pre33, null
@@ -10768,13 +10773,13 @@ ehcleanup:                                        ; preds = %invoke.cont9, %if.e
 _ZNKSt14default_deleteIN6duckdb12FunctionDataEEclEPS1_.exit.i25: ; preds = %ehcleanup
   %vtable.i.i26 = load ptr, ptr %.pre33, align 8, !tbaa !16
   %vfn.i.i27 = getelementptr inbounds i8, ptr %vtable.i.i26, i64 8
-  %5 = load ptr, ptr %vfn.i.i27, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %.pre33) #30
+  %6 = load ptr, ptr %vfn.i.i27, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %.pre33) #30
   br label %_ZNSt10unique_ptrIN6duckdb12FunctionDataESt14default_deleteIS1_EED2Ev.exit28
 
 _ZNSt10unique_ptrIN6duckdb12FunctionDataESt14default_deleteIS1_EED2Ev.exit28: ; preds = %_ZNKSt14default_deleteIN6duckdb12FunctionDataEEclEPS1_.exit.i25, %ehcleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bind_info) #30
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -14298,6 +14298,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_10UnitaryMapEvEEPT_.exit:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap9preRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %ref.tmp.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %matrix.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::AffineMap", align 8
   %first = alloca %"class.openvdb::v11_0::math::UnitaryMap", align 8
@@ -14306,7 +14307,10 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04math10UnitaryMapE, i64 16), ptr %first, align 8
   %mAffineMap.i = getelementptr inbounds i8, ptr %first, i64 8
   call void @_ZN7openvdb5v11_04math9AffineMapC2Ev(ptr noundef nonnull align 8 dereferenceable(376) %mAffineMap.i)
-  call void @_ZN7openvdb5v11_04math8rotationINS1_4Mat4IdEEEET_NS1_4AxisENS5_10value_typeE(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat4") align 8 %matrix.i, i32 noundef %axis, double noundef %radians)
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i)
+  call void @_ZN7openvdb5v11_04math8rotationINS1_4Mat4IdEEEET_NS1_4AxisENS5_10value_typeE(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat4") align 8 %ref.tmp.i.i, i32 noundef %axis, double noundef %radians)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %matrix.i, ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp.i.i, i64 128, i1 false)
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i.i)
   call void @_ZN7openvdb5v11_04math9AffineMapC2ERKNS1_4Mat4IdEE(ptr noundef nonnull align 8 dereferenceable(376) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(128) %matrix.i)
   %mMatrix.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %mMatrix2.i.i = getelementptr inbounds i8, ptr %first, i64 16
@@ -15202,6 +15206,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap10postRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %ref.tmp.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %matrix.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::AffineMap", align 8
   %second = alloca %"class.openvdb::v11_0::math::UnitaryMap", align 8
@@ -15210,7 +15215,10 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04math10UnitaryMapE, i64 16), ptr %second, align 8
   %mAffineMap.i = getelementptr inbounds i8, ptr %second, i64 8
   call void @_ZN7openvdb5v11_04math9AffineMapC2Ev(ptr noundef nonnull align 8 dereferenceable(376) %mAffineMap.i)
-  call void @_ZN7openvdb5v11_04math8rotationINS1_4Mat4IdEEEET_NS1_4AxisENS5_10value_typeE(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat4") align 8 %matrix.i, i32 noundef %axis, double noundef %radians)
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i)
+  call void @_ZN7openvdb5v11_04math8rotationINS1_4Mat4IdEEEET_NS1_4AxisENS5_10value_typeE(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat4") align 8 %ref.tmp.i.i, i32 noundef %axis, double noundef %radians)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %matrix.i, ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp.i.i, i64 128, i1 false)
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i.i)
   call void @_ZN7openvdb5v11_04math9AffineMapC2ERKNS1_4Mat4IdEE(ptr noundef nonnull align 8 dereferenceable(376) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(128) %matrix.i)
   %mMatrix.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %mMatrix2.i.i = getelementptr inbounds i8, ptr %second, i64 16

@@ -4706,85 +4706,90 @@ declare noundef ptr @_ZNK5clang12FunctionDecl38getTemplateSpecializationArgsAsWr
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleTemplateArgumentLocERKN5clang19TemplateArgumentLocEPKNS1_9NamedDeclEPKNS1_11DeclContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::TemplateName", align 8
-  %6 = alloca %"class.llvm::ArrayRef", align 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i = load i64, ptr %7, align 8
-  %8 = load i32, ptr %1, align 8
-  %9 = and i32 %8, 2147483647
-  switch i32 %9, label %42 [
-    i32 8, label %10
-    i32 1, label %14
-    i32 6, label %18
-    i32 7, label %18
+  %6 = alloca %"class.clang::TemplateName", align 8
+  %7 = alloca %"class.llvm::ArrayRef", align 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i = load i64, ptr %8, align 8
+  %9 = load i32, ptr %1, align 8
+  %10 = and i32 %9, 2147483647
+  switch i32 %10, label %44 [
+    i32 8, label %11
+    i32 1, label %15
+    i32 6, label %19
+    i32 7, label %19
   ]
 
-10:                                               ; preds = %4
-  %11 = load ptr, ptr %0, align 8
-  %12 = and i64 %.sroa.0.0.copyload.i, -4
-  %13 = inttoptr i64 %12 to ptr
-  tail call void @_ZN5clang5index15IndexingContext9indexBodyEPKNS_4StmtEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef %13, ptr noundef %2, ptr noundef %3) #9
-  br label %42
+11:                                               ; preds = %4
+  %12 = load ptr, ptr %0, align 8
+  %13 = and i64 %.sroa.0.0.copyload.i, -4
+  %14 = inttoptr i64 %13 to ptr
+  tail call void @_ZN5clang5index15IndexingContext9indexBodyEPKNS_4StmtEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef %14, ptr noundef %2, ptr noundef %3) #9
+  br label %44
 
-14:                                               ; preds = %4
-  %15 = load ptr, ptr %0, align 8
-  %16 = and i64 %.sroa.0.0.copyload.i, -4
-  %17 = inttoptr i64 %16 to ptr
-  tail call void @_ZN5clang5index15IndexingContext19indexTypeSourceInfoEPNS_14TypeSourceInfoEPKNS_9NamedDeclEPKNS_11DeclContextEbb(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %17, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext false) #9
-  br label %42
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %0, align 8
+  %17 = and i64 %.sroa.0.0.copyload.i, -4
+  %18 = inttoptr i64 %17 to ptr
+  tail call void @_ZN5clang5index15IndexingContext19indexTypeSourceInfoEPNS_14TypeSourceInfoEPKNS_9NamedDeclEPKNS_11DeclContextEbb(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef %18, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext false) #9
+  br label %44
 
-18:                                               ; preds = %4, %4
-  %19 = load ptr, ptr %0, align 8
-  %20 = and i32 %8, 2147483646
-  %switch.i = icmp eq i32 %20, 6
-  br i1 %switch.i, label %21, label %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit
+19:                                               ; preds = %4, %4
+  %20 = load ptr, ptr %0, align 8
+  %21 = and i32 %9, 2147483646
+  %switch.i = icmp eq i32 %21, 6
+  br i1 %switch.i, label %22, label %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit
 
-21:                                               ; preds = %18
-  %22 = and i64 %.sroa.0.0.copyload.i, -4
-  %23 = inttoptr i64 %22 to ptr
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = load ptr, ptr %25, align 8
+22:                                               ; preds = %19
+  %23 = and i64 %.sroa.0.0.copyload.i, -4
+  %24 = inttoptr i64 %23 to ptr
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %27 = load ptr, ptr %26, align 8
   br label %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit
 
-_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit: ; preds = %18, %21
-  %.sroa.0.0.i = phi ptr [ %24, %21 ], [ null, %18 ]
-  %.sroa.4.0.i = phi ptr [ %26, %21 ], [ null, %18 ]
-  tail call void @_ZN5clang5index15IndexingContext27indexNestedNameSpecifierLocENS_22NestedNameSpecifierLocEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr %.sroa.0.0.i, ptr %.sroa.4.0.i, ptr noundef %2, ptr noundef %3) #9
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load ptr, ptr %27, align 8
-  call void @_ZN5clang12TemplateNameC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %28) #9
-  %29 = call noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
-  %.not = icmp eq ptr %29, null
-  br i1 %.not, label %42, label %30
+_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit: ; preds = %19, %22
+  %.sroa.0.0.i = phi ptr [ %25, %22 ], [ null, %19 ]
+  %.sroa.4.0.i = phi ptr [ %27, %22 ], [ null, %19 ]
+  tail call void @_ZN5clang5index15IndexingContext27indexNestedNameSpecifierLocENS_22NestedNameSpecifierLocEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr %.sroa.0.0.i, ptr %.sroa.4.0.i, ptr noundef %2, ptr noundef %3) #9
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %29 = load ptr, ptr %28, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @_ZN5clang12TemplateNameC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %29) #9
+  %30 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  store i64 %30, ptr %6, align 8
+  %31 = call noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %44, label %32
 
-30:                                               ; preds = %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %32 = load ptr, ptr %31, align 8
-  %.not22 = icmp eq ptr %32, null
-  br i1 %.not22, label %42, label %33
+32:                                               ; preds = %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  %34 = load ptr, ptr %33, align 8
+  %.not22 = icmp eq ptr %34, null
+  br i1 %.not22, label %44, label %35
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %0, align 8
-  %35 = load i32, ptr %1, align 8
-  %36 = and i32 %35, 2147483646
-  %switch.i24 = icmp eq i32 %36, 6
-  br i1 %switch.i24, label %37, label %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %0, align 8
+  %37 = load i32, ptr %1, align 8
+  %38 = and i32 %37, 2147483646
+  %switch.i24 = icmp eq i32 %38, 6
+  br i1 %switch.i24, label %39, label %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit
 
-37:                                               ; preds = %33
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i26 = load i64, ptr %7, align 8
-  %38 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i26, -4
-  %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %.sroa.0.0.copyload.i.i = load i32, ptr %40, align 8
+39:                                               ; preds = %35
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i26 = load i64, ptr %8, align 8
+  %40 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i26, -4
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %.sroa.0.0.copyload.i.i = load i32, ptr %42, align 8
   br label %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit
 
-_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit: ; preds = %33, %37
-  %.sroa.0.0.i25 = phi i32 [ %.sroa.0.0.copyload.i.i, %37 ], [ 0, %33 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %41 = call noundef zeroext i1 @_ZN5clang5index15IndexingContext15handleReferenceEPKNS_9NamedDeclENS_14SourceLocationES4_PKNS_11DeclContextEjN4llvm8ArrayRefINS0_14SymbolRelationEEEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull %32, i32 %.sroa.0.0.i25, ptr noundef %2, ptr noundef %3, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %6, ptr noundef null) #9
-  br label %42
+_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit: ; preds = %35, %39
+  %.sroa.0.0.i25 = phi i32 [ %.sroa.0.0.copyload.i.i, %39 ], [ 0, %35 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  %43 = call noundef zeroext i1 @_ZN5clang5index15IndexingContext15handleReferenceEPKNS_9NamedDeclENS_14SourceLocationES4_PKNS_11DeclContextEjN4llvm8ArrayRefINS0_14SymbolRelationEEEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull %34, i32 %.sroa.0.0.i25, ptr noundef %2, ptr noundef %3, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %7, ptr noundef null) #9
+  br label %44
 
-42:                                               ; preds = %4, %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit, %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit, %30, %14, %10
+44:                                               ; preds = %4, %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit, %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit, %32, %15, %11
   ret void
 }
 

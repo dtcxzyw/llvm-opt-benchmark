@@ -350,9 +350,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN3ue29SlotCache4findERKNS_8NGHolderERKNS_9CharReachEjb(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %prefix, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %escapes, i32 noundef %parent_slot, i1 noundef zeroext %is_reset) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %ref.tmp.i = alloca %"class.std::unique_ptr.2", align 8
   %entry2 = alloca %"struct.ue2::SlotCacheEntry", align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %frombool.i = zext i1 %is_reset to i8
-  call void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr nonnull sret(%"class.std::unique_ptr.2") align 8 %entry2, ptr noundef nonnull align 8 dereferenceable(136) %prefix)
+  call void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr nonnull sret(%"class.std::unique_ptr.2") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %prefix)
+  %0 = load ptr, ptr %ref.tmp.i, align 8
+  store ptr %0, ptr %entry2, align 8
   %escapes.i = getelementptr inbounds i8, ptr %entry2, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %escapes.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %escapes, i64 32, i1 false)
   %parent_slot.i = getelementptr inbounds i8, ptr %entry2, i64 40
@@ -361,36 +365,37 @@ entry:
   store i8 %frombool.i, ptr %is_reset.i, align 4
   %slot.i = getelementptr inbounds i8, ptr %entry2, i64 48
   store i32 0, ptr %slot.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %call.i1 = invoke ptr @_ZNSt10_HashtableIN3ue214SlotCacheEntryES1_SaIS1_ENSt8__detail9_IdentityENS0_14SlotEntryEqualENS0_15SlotEntryHasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(52) %entry2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %entry2, align 8
-  %cmp.not.i.i2 = icmp eq ptr %0, null
+  %1 = load ptr, ptr %entry2, align 8
+  %cmp.not.i.i2 = icmp eq ptr %1, null
   br i1 %cmp.not.i.i2, label %_ZN3ue214SlotCacheEntryD2Ev.exit6, label %_ZNKSt14default_deleteIKN3ue28NGHolderEEclEPS2_.exit.i.i3
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = load ptr, ptr %entry2, align 8
-  %cmp.not.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %entry2, align 8
+  %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %_ZN3ue214SlotCacheEntryD2Ev.exit, label %_ZNKSt14default_deleteIKN3ue28NGHolderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIKN3ue28NGHolderEEclEPS2_.exit.i.i: ; preds = %lpad
-  %vtable.i.i.i = load ptr, ptr %2, align 8
+  %vtable.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %3 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(136) %2) #22
+  %4 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(136) %3) #22
   br label %_ZN3ue214SlotCacheEntryD2Ev.exit
 
 _ZN3ue214SlotCacheEntryD2Ev.exit:                 ; preds = %lpad, %_ZNKSt14default_deleteIKN3ue28NGHolderEEclEPS2_.exit.i.i
-  resume { ptr, i32 } %1
+  resume { ptr, i32 } %2
 
 _ZNKSt14default_deleteIKN3ue28NGHolderEEclEPS2_.exit.i.i3: ; preds = %invoke.cont
-  %vtable.i.i.i4 = load ptr, ptr %0, align 8
+  %vtable.i.i.i4 = load ptr, ptr %1, align 8
   %vfn.i.i.i5 = getelementptr inbounds i8, ptr %vtable.i.i.i4, i64 8
-  %4 = load ptr, ptr %vfn.i.i.i5, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(136) %0) #22
+  %5 = load ptr, ptr %vfn.i.i.i5, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(136) %1) #22
   br label %_ZN3ue214SlotCacheEntryD2Ev.exit6
 
 _ZN3ue214SlotCacheEntryD2Ev.exit6:                ; preds = %invoke.cont, %_ZNKSt14default_deleteIKN3ue28NGHolderEEclEPS2_.exit.i.i3
@@ -575,12 +580,16 @@ entry:
   %parent_slot.addr.i = alloca i32, align 4
   %is_reset.addr.i = alloca i8, align 1
   %slot.addr.i = alloca i32, align 4
+  %ref.tmp.i.i = alloca %"class.std::unique_ptr.2", align 8
   %entry2.i = alloca %"struct.ue2::SlotCacheEntry", align 8
   %cache = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %cache, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %entry2.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   %frombool.i.i = zext i1 %is_reset to i8
-  call void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr nonnull sret(%"class.std::unique_ptr.2") align 8 %entry2.i, ptr noundef nonnull align 8 dereferenceable(136) %prefix)
+  call void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr nonnull sret(%"class.std::unique_ptr.2") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(136) %prefix)
+  %1 = load ptr, ptr %ref.tmp.i.i, align 8
+  store ptr %1, ptr %entry2.i, align 8
   %escapes.i.i = getelementptr inbounds i8, ptr %entry2.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %escapes.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %escapes, i64 32, i1 false)
   %parent_slot.i.i = getelementptr inbounds i8, ptr %entry2.i, i64 40
@@ -589,36 +598,37 @@ entry:
   store i8 %frombool.i.i, ptr %is_reset.i.i, align 4
   %slot.i.i = getelementptr inbounds i8, ptr %entry2.i, i64 48
   store i32 0, ptr %slot.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   %call.i1.i = invoke ptr @_ZNSt10_HashtableIN3ue214SlotCacheEntryES1_SaIS1_ENSt8__detail9_IdentityENS0_14SlotEntryEqualENS0_15SlotEntryHasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(52) %entry2.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %1 = load ptr, ptr %entry2.i, align 8
-  %cmp.not.i.i2.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %entry2.i, align 8
+  %cmp.not.i.i2.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i2.i, label %_ZN3ue29SlotCache4findERKNS_8NGHolderERKNS_9CharReachEjb.exit, label %_ZNKSt14default_deleteIKN3ue28NGHolderEEclEPS2_.exit.i.i3.i
 
 lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = load ptr, ptr %entry2.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %entry2.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZN3ue214SlotCacheEntryD2Ev.exit.i, label %_ZNKSt14default_deleteIKN3ue28NGHolderEEclEPS2_.exit.i.i.i
 
 _ZNKSt14default_deleteIKN3ue28NGHolderEEclEPS2_.exit.i.i.i: ; preds = %lpad.i
-  %vtable.i.i.i.i = load ptr, ptr %3, align 8
+  %vtable.i.i.i.i = load ptr, ptr %4, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %4 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(136) %3) #22
+  %5 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(136) %4) #22
   br label %_ZN3ue214SlotCacheEntryD2Ev.exit.i
 
 _ZN3ue214SlotCacheEntryD2Ev.exit.i:               ; preds = %_ZNKSt14default_deleteIKN3ue28NGHolderEEclEPS2_.exit.i.i.i, %lpad.i
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %3
 
 _ZNKSt14default_deleteIKN3ue28NGHolderEEclEPS2_.exit.i.i3.i: ; preds = %invoke.cont.i
-  %vtable.i.i.i4.i = load ptr, ptr %1, align 8
+  %vtable.i.i.i4.i = load ptr, ptr %2, align 8
   %vfn.i.i.i5.i = getelementptr inbounds i8, ptr %vtable.i.i.i4.i, i64 8
-  %5 = load ptr, ptr %vfn.i.i.i5.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(136) %1) #22
+  %6 = load ptr, ptr %vfn.i.i.i5.i, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(136) %2) #22
   br label %_ZN3ue29SlotCache4findERKNS_8NGHolderERKNS_9CharReachEjb.exit
 
 _ZN3ue29SlotCache4findERKNS_8NGHolderERKNS_9CharReachEjb.exit: ; preds = %invoke.cont.i, %_ZNKSt14default_deleteIKN3ue28NGHolderEEclEPS2_.exit.i.i3.i
@@ -628,29 +638,29 @@ _ZN3ue29SlotCache4findERKNS_8NGHolderERKNS_9CharReachEjb.exit: ; preds = %invoke
 
 do.end8:                                          ; preds = %_ZN3ue29SlotCache4findERKNS_8NGHolderERKNS_9CharReachEjb.exit
   %slot = getelementptr inbounds i8, ptr %call.i1.i, i64 56
-  %6 = load i32, ptr %slot, align 8
+  %7 = load i32, ptr %slot, align 8
   br label %return
 
 do.end10:                                         ; preds = %_ZN3ue29SlotCache4findERKNS_8NGHolderERKNS_9CharReachEjb.exit
-  %7 = load ptr, ptr %cache, align 8
-  %8 = load i32, ptr %this, align 8
+  %8 = load ptr, ptr %cache, align 8
+  %9 = load i32, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %parent_slot.addr.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_reset.addr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %slot.addr.i)
   store i32 %parent_slot, ptr %parent_slot.addr.i, align 4
   store i8 %frombool.i.i, ptr %is_reset.addr.i, align 1
-  store i32 %8, ptr %slot.addr.i, align 4
-  %call.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIN3ue214SlotCacheEntryES1_SaIS1_ENSt8__detail9_IdentityENS0_14SlotEntryEqualENS0_15SlotEntryHasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE10_M_emplaceIJRKNS0_8NGHolderERKNS0_9CharReachERjRbSK_EEESt4pairINS3_14_Node_iteratorIS1_Lb1ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(136) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %escapes, ptr noundef nonnull align 4 dereferenceable(4) %parent_slot.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %is_reset.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %slot.addr.i)
+  store i32 %9, ptr %slot.addr.i, align 4
+  %call.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIN3ue214SlotCacheEntryES1_SaIS1_ENSt8__detail9_IdentityENS0_14SlotEntryEqualENS0_15SlotEntryHasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE10_M_emplaceIJRKNS0_8NGHolderERKNS0_9CharReachERjRbSK_EEESt4pairINS3_14_Node_iteratorIS1_Lb1ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(136) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %escapes, ptr noundef nonnull align 4 dereferenceable(4) %parent_slot.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %is_reset.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %slot.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %parent_slot.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_reset.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %slot.addr.i)
-  %9 = load i32, ptr %this, align 8
-  %inc = add i32 %9, 1
+  %10 = load i32, ptr %this, align 8
+  %inc = add i32 %10, 1
   store i32 %inc, ptr %this, align 8
   br label %return
 
 return:                                           ; preds = %do.end10, %do.end8
-  %retval.0 = phi i32 [ %6, %do.end8 ], [ %9, %do.end10 ]
+  %retval.0 = phi i32 [ %7, %do.end8 ], [ %10, %do.end10 ]
   ret i32 %retval.0
 }
 

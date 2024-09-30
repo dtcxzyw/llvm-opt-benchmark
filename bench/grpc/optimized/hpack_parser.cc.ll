@@ -17109,9 +17109,13 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_met
 entry:
   %ref.tmp.i = alloca %struct.grpc_slice, align 8
   %ref.tmp16.i = alloca %struct.grpc_slice, align 8
+  %ref.tmp.i.i = alloca %struct.grpc_slice, align 8
   %agg.tmp2 = alloca %"class.grpc_core::Slice", align 8
   %agg.tmp4 = alloca %"class.grpc_core::Slice", align 8
-  call void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp2, ptr noundef %key.coerce1, i64 noundef %key.coerce0)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !686
+  call void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i, ptr noundef %key.coerce1, i64 noundef %key.coerce0), !noalias !689
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !686
   %will_keep_past_request_lifetime_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_, align 8
   %tobool = trunc i8 %0 to i1
@@ -17120,7 +17124,7 @@ entry:
 cond.true:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp16.i)
-  %1 = load ptr, ptr %this, align 8, !noalias !686
+  %1 = load ptr, ptr %this, align 8, !noalias !692
   %magicptr.i = ptrtoint ptr %1 to i64
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %if.then.i
@@ -17140,13 +17144,13 @@ if.then7.i:                                       ; preds = %cond.true
   br label %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit
 
 if.end9.i:                                        ; preds = %cond.true
-  %2 = load atomic i64, ptr %1 monotonic, align 8, !noalias !686
+  %2 = load atomic i64, ptr %1 monotonic, align 8, !noalias !692
   %cmp.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i, label %if.then13.i, label %if.end15.i
 
 if.then13.i:                                      ; preds = %if.end9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !689
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !695
   br label %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit
 
 if.end15.i:                                       ; preds = %if.end9.i
@@ -17164,7 +17168,7 @@ _ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit:    ; preds = %if.then.i, %.noexc,
 
 cond.false:                                       ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !692
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !698
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit, %cond.false
@@ -17306,12 +17310,12 @@ entry:
   %conv.i.i.i = and i64 %3, 255
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, i64 %conv.i.i.i, i64 %3
   %second.i = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = load ptr, ptr %second.i, align 8, !noalias !695
+  %4 = load ptr, ptr %second.i, align 8, !noalias !701
   %cmp.i.i.i = icmp ugt ptr %4, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK9grpc_core5Slice3RefEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %5 = atomicrmw add ptr %4, i64 1 monotonic, align 8, !noalias !695
+  %5 = atomicrmw add ptr %4, i64 1 monotonic, align 8, !noalias !701
   br label %_ZNK9grpc_core5Slice3RefEv.exit.i
 
 _ZNK9grpc_core5Slice3RefEv.exit.i:                ; preds = %if.then.i.i.i, %entry
@@ -17370,37 +17374,37 @@ entry:
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
-  %0 = load ptr, ptr %value, align 8, !noalias !698
-  %1 = load ptr, ptr %0, align 8, !noalias !698
+  %0 = load ptr, ptr %value, align 8, !noalias !704
+  %1 = load ptr, ptr %0, align 8, !noalias !704
   %tobool.not.i.i.i = icmp eq ptr %1, null
   %bytes.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %2 = load ptr, ptr %bytes.i.i.i, align 8, !noalias !698
+  %2 = load ptr, ptr %bytes.i.i.i, align 8, !noalias !704
   %bytes5.i.i.i = getelementptr inbounds i8, ptr %0, i64 9
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %bytes5.i.i.i, ptr %2
   %data.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i64, ptr %data.i.i.i, align 8, !noalias !698
+  %3 = load i64, ptr %data.i.i.i, align 8, !noalias !704
   %conv.i.i.i = and i64 %3, 255
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, i64 %conv.i.i.i, i64 %3
-  store i64 %cond.i2.i.i, ptr %ref.tmp.i, align 8, !noalias !698
+  store i64 %cond.i2.i.i, ptr %ref.tmp.i, align 8, !noalias !704
   %pc.sroa.2.0.piece_.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store ptr %cond.i.i.i, ptr %pc.sroa.2.0.piece_.sroa_idx.i.i, align 8, !noalias !698
-  store i64 2, ptr %ref.tmp2.i, align 8, !noalias !698
+  store ptr %cond.i.i.i, ptr %pc.sroa.2.0.piece_.sroa_idx.i.i, align 8, !noalias !704
+  store i64 2, ptr %ref.tmp2.i, align 8, !noalias !704
   %4 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
-  store ptr @.str.64, ptr %4, align 8, !noalias !698
+  store ptr @.str.64, ptr %4, align 8, !noalias !704
   %second.i = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = load ptr, ptr %second.i, align 8, !noalias !698
+  %5 = load ptr, ptr %second.i, align 8, !noalias !704
   %tobool.not.i.i2.i = icmp eq ptr %5, null
   %bytes.i.i3.i = getelementptr inbounds i8, ptr %0, i64 48
-  %6 = load ptr, ptr %bytes.i.i3.i, align 8, !noalias !698
+  %6 = load ptr, ptr %bytes.i.i3.i, align 8, !noalias !704
   %bytes5.i.i4.i = getelementptr inbounds i8, ptr %0, i64 41
   %cond.i.i5.i = select i1 %tobool.not.i.i2.i, ptr %bytes5.i.i4.i, ptr %6
   %data.i.i6.i = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = load i64, ptr %data.i.i6.i, align 8, !noalias !698
+  %7 = load i64, ptr %data.i.i6.i, align 8, !noalias !704
   %conv.i.i7.i = and i64 %7, 255
   %cond.i2.i8.i = select i1 %tobool.not.i.i2.i, i64 %conv.i.i7.i, i64 %7
-  store i64 %cond.i2.i8.i, ptr %ref.tmp3.i, align 8, !noalias !698
+  store i64 %cond.i2.i8.i, ptr %ref.tmp3.i, align 8, !noalias !704
   %pc.sroa.2.0.piece_.sroa_idx.i11.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
-  store ptr %cond.i.i5.i, ptr %pc.sroa.2.0.piece_.sroa_idx.i11.i, align 8, !noalias !698
+  store ptr %cond.i.i5.i, ptr %pc.sroa.2.0.piece_.sroa_idx.i11.i, align 8, !noalias !704
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i)
@@ -17447,12 +17451,12 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
   %value_ = getelementptr inbounds i8, ptr %result, i64 8
   %0 = load ptr, ptr %value_, align 8
-  %1 = load ptr, ptr %0, align 8, !noalias !701
+  %1 = load ptr, ptr %0, align 8, !noalias !707
   %cmp.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont
 
 if.then.i.i:                                      ; preds = %entry
-  %2 = atomicrmw add ptr %1, i64 1 monotonic, align 8, !noalias !701
+  %2 = atomicrmw add ptr %1, i64 1 monotonic, align 8, !noalias !707
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry
@@ -17485,14 +17489,14 @@ if.then7.i:                                       ; preds = %cond.true
   br label %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit
 
 if.end9.i:                                        ; preds = %cond.true
-  %4 = load atomic i64, ptr %3 monotonic, align 8, !noalias !704
+  %4 = load atomic i64, ptr %3 monotonic, align 8, !noalias !710
   %cmp.i.i4 = icmp eq i64 %4, 1
   br i1 %cmp.i.i4, label %if.then13.i, label %if.end15.i
 
 if.then13.i:                                      ; preds = %if.end9.i
   %ref.tmp14.i.sroa.4.0.value.sroa_idx = getelementptr inbounds i8, ptr %value, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp14.i.sroa.4.0.value.sroa_idx, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value, i8 0, i64 32, i1 false), !noalias !707
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value, i8 0, i64 32, i1 false), !noalias !713
   br label %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit
 
 if.end15.i:                                       ; preds = %if.end9.i
@@ -17515,7 +17519,7 @@ cond.false:                                       ; preds = %invoke.cont
   %ref.tmp.i6.sroa.0.0.copyload = load ptr, ptr %value, align 8
   %ref.tmp.i6.sroa.4.0.value.sroa_idx = getelementptr inbounds i8, ptr %value, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i6.sroa.4.0.value.sroa_idx, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value, i8 0, i64 32, i1 false), !noalias !710
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value, i8 0, i64 32, i1 false), !noalias !716
   br label %_ZN9grpc_core5SliceD2Ev.exit15
 
 _ZN9grpc_core5SliceD2Ev.exit15:                   ; preds = %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit, %cond.false
@@ -17823,14 +17827,14 @@ _ZN9grpc_core16HpackParseResultC2ENS_16HpackParseStatusE.exit:
   store ptr null, ptr %agg.result, align 8
   %call.i1.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #29
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 8
-  store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !713
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %call.i1.i, align 8, !noalias !713
+  store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !719
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %call.i1.i, align 8, !noalias !719
   %status.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 16
-  store i8 8, ptr %status.i.i.i, align 1, !noalias !713
+  store i8 8, ptr %status.i.i.i, align 1, !noalias !719
   %key.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key.i.i.i) #30, !noalias !713
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key.i.i.i) #30, !noalias !719
   %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 80
-  store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8, !noalias !713
+  store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8, !noalias !719
   store ptr %call.i1.i, ptr %agg.result, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
@@ -17896,7 +17900,7 @@ entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp.i = alloca %"class.std::allocator.151", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #30, !noalias !716
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #30, !noalias !722
   %call.i1.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc.i unwind label %lpad.i
 
@@ -22842,7 +22846,7 @@ sw.bb11.i1004.i:                                  ; preds = %if.end.i993.i
 sw.epilog:                                        ; preds = %sw.bb11.i1004.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i1033.i, %if.then.i.i.i1011.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i76.i.i.i, %if.then.i.i53.i.i.i, %sw.bb40.i.i.i, %sw.bb33.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i41.i.i.i, %if.then.i.i18.i.i.i, %sw.bb24.i.i.i, %sw.bb17.i.i.i, %sw.bb14.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i985.i, %if.then.i.i.i.i962.i, %sw.bb7.i.i.i, %sw.bb.i5.i989.i, %if.then.i954.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i946.i, %if.then.i.i.i924.i, %sw.bb6.i.i906.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i902.i, %if.then.i.i.i.i879.i, %sw.bb.i5.i908.i, %if.then.i868.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i860.i, %if.then.i.i.i838.i, %sw.bb6.i.i820.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i816.i, %if.then.i.i.i.i793.i, %sw.bb.i5.i.i, %if.then.i784.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i775.i, %if.then.i.i.i752.i, %sw.bb.i4.i738.i, %if.then.i735.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i726.i, %if.then.i.i.i703.i, %sw.bb.i4.i686.i, %if.then.i684.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i676.i, %if.then.i.i.i654.i, %sw.bb6.i.i.i, %sw.bb5.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i, %if.then.i.i.i.i638.i, %if.then.i635.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i623.i, %if.then.i.i.i600.i, %if.then.i629.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i577.i, %if.then.i.i.i554.i, %if.then.i583.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i531.i, %if.then.i.i.i508.i, %if.then.i537.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i486.i, %if.then.i.i.i463.i, %if.then.i492.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i440.i, %if.then.i.i.i417.i, %if.then.i446.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i394.i, %if.then.i.i.i371.i, %if.then.i400.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i349.i, %if.then.i.i.i326.i, %if.then.i355.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i304.i, %if.then.i.i.i281.i, %if.then.i310.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i258.i, %if.then.i.i.i235.i, %if.then.i264.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i213.i, %if.then.i.i.i190.i, %if.then.i219.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i167.i, %if.then.i.i.i144.i, %if.then.i173.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i121.i, %if.then.i.i.i98.i, %if.then.i127.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i76.i, %if.then.i.i.i53.i, %if.then.i82.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i38.i, %if.then.i.i.i15.i, %if.then.i.i232, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i260, %if.then.i.i.i238, %if.end.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i76.i.i, %if.then.i.i53.i.i, %sw.bb39.i.i, %sw.bb32.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i41.i.i, %if.then.i.i18.i.i, %sw.bb23.i.i, %sw.bb16.i.i, %sw.bb14.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i, %if.then.i.i.i.i208, %sw.bb7.i.i205, %sw.bb.i5.i, %if.then.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i196, %if.then.i.i173, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i161, %if.then.i.i138, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i91, %if.then.i.i68
   %528 = load i8, ptr %done_, align 1
   %tobool = trunc i8 %528 to i1
-  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !719
+  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !725
 
 while.end:                                        ; preds = %sw.epilog, %entry, %sw.bb210.i, %sw.bb199.i, %sw.bb197.i, %sw.bb190.i, %sw.bb183.i, %sw.bb172.i, %sw.bb170.i, %sw.bb163.i, %sw.bb156.i, %sw.bb145.i, %sw.bb143.i, %sw.bb136.i, %sw.bb129.i, %sw.bb118.i, %sw.bb116.i, %sw.bb109.i, %sw.bb102.i, %sw.bb100.i, %sw.bb89.i, %sw.bb82.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i210.i, %if.then.i.i187.i, %sw.bb73.i, %sw.bb66.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i170.i, %if.then.i.i147.i, %sw.bb57.i, %sw.bb50.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i130.i, %if.then.i.i107.i, %sw.bb41.i, %sw.bb34.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i93.i, %if.then.i.i70.i, %sw.bb25.i, %sw.bb18.i, %sw.bb15.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i, %if.then.i.i.i, %sw.bb8.i, %sw.bb2.i19, %sw.epilog.i
   %ok_ = getelementptr inbounds i8, ptr %this, i64 36
@@ -28674,7 +28678,7 @@ sw.bb11.i1057.i:                                  ; preds = %if.end.i1046.i
 sw.epilog:                                        ; preds = %sw.bb11.i1057.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i1085.i, %if.then.i.i12.i.i, %if.then3.i.i1092.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i82.i.i.i, %if.then.i.i59.i.i.i, %if.then3.i89.i.i.i, %sw.bb40.i.i.i, %sw.bb33.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i41.i.i.i, %if.then.i.i18.i.i.i, %if.then3.i48.i.i.i, %sw.bb24.i.i.i, %sw.bb17.i.i.i, %sw.bb14.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i1034.i, %if.then.i.i.i.i1011.i, %if.then3.i.i.i1041.i, %sw.bb7.i.i.i, %sw.bb.i5.i1042.i, %if.then.i1002.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i990.i, %if.then.i.i8.i.i, %if.then3.i.i997.i, %sw.bb6.i.i951.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i945.i, %if.then.i.i.i.i922.i, %if.then3.i.i.i.i, %sw.bb.i5.i953.i, %if.then.i910.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i898.i, %if.then.i.i10.i.i, %if.then3.i.i905.i, %sw.bb6.i.i858.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i853.i, %if.then.i.i.i.i830.i, %sw.bb.i5.i.i, %if.then.i820.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i810.i, %if.then.i.i.i787.i, %sw.bb.i4.i773.i, %if.then.i770.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i760.i, %if.then.i.i.i737.i, %sw.bb.i4.i719.i, %if.then.i717.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i708.i, %if.then.i.i7.i.i, %sw.bb6.i.i.i, %sw.bb5.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i, %if.then.i.i.i.i670.i, %if.then.i667.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i654.i, %if.then.i.i.i631.i, %if.then.i661.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i606.i, %if.then.i.i.i583.i, %if.then.i613.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i558.i, %if.then.i.i.i535.i, %if.then.i565.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i511.i, %if.then.i.i.i488.i, %if.then.i518.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i463.i, %if.then.i.i.i440.i, %if.then.i470.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i415.i, %if.then.i.i.i392.i, %if.then.i422.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i368.i, %if.then.i.i.i345.i, %if.then.i375.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i321.i, %if.then.i.i.i298.i, %if.then.i328.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i273.i, %if.then.i.i.i250.i, %if.then.i280.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i226.i, %if.then.i.i.i203.i, %if.then.i233.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i178.i, %if.then.i.i.i155.i, %if.then.i185.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i130.i, %if.then.i.i.i107.i, %if.then.i137.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i83.i, %if.then.i.i.i60.i, %if.then.i90.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i42.i, %if.then.i.i.i19.i, %if.then.i47.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i289, %if.then.i.i9.i, %if.then3.i.i296, %if.end.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i80.i.i, %if.then.i.i57.i.i, %if.then3.i87.i.i, %sw.bb39.i.i, %sw.bb32.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i42.i.i, %if.then.i.i19.i.i, %if.then3.i.i.i, %sw.bb23.i.i, %sw.bb16.i.i, %sw.bb14.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i, %if.then.i.i.i.i237, %sw.bb7.i.i234, %sw.bb.i5.i, %if.then.i231, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i220, %if.then.i.i197, %if.then3.i227, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i179, %if.then.i.i156, %if.then3.i186, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i97, %if.then.i.i74, %if.then3.i104
   %652 = load i8, ptr %done_, align 1
   %tobool = trunc i8 %652 to i1
-  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !720
+  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !726
 
 while.end:                                        ; preds = %sw.epilog, %entry, %sw.bb210.i, %sw.bb199.i, %sw.bb197.i, %sw.bb190.i, %sw.bb183.i, %sw.bb172.i, %sw.bb170.i, %sw.bb163.i, %sw.bb156.i, %sw.bb145.i, %sw.bb143.i, %sw.bb136.i, %sw.bb129.i, %sw.bb118.i, %sw.bb116.i, %sw.bb109.i, %sw.bb102.i, %sw.bb100.i, %sw.bb89.i, %sw.bb82.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i211.i, %if.then.i.i188.i, %if.then3.i218.i, %sw.bb73.i, %sw.bb66.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i165.i, %if.then.i.i142.i, %if.then3.i172.i, %sw.bb57.i, %sw.bb50.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i119.i, %if.then.i.i96.i, %if.then3.i126.i, %sw.bb41.i, %sw.bb34.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i76.i, %if.then.i.i53.i, %if.then3.i83.i, %sw.bb25.i, %sw.bb18.i, %sw.bb15.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i, %if.then.i.i.i, %if.then3.i.i, %sw.bb8.i, %sw.bb2.i14, %sw.epilog.i
   %ok_ = getelementptr inbounds i8, ptr %this, i64 44
@@ -29998,37 +30002,43 @@ attributes #31 = { nounwind willreturn memory(read) }
 !684 = distinct !{!684, !685, !"_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE: %agg.result"}
 !685 = distinct !{!685, !"_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE"}
 !686 = !{!687}
-!687 = distinct !{!687, !688, !"_ZN9grpc_core5Slice17TakeUniquelyOwnedEv: %agg.result"}
-!688 = distinct !{!688, !"_ZN9grpc_core5Slice17TakeUniquelyOwnedEv"}
+!687 = distinct !{!687, !688, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringESt17basic_string_viewIcSt11char_traitsIcEE: %agg.result"}
+!688 = distinct !{!688, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedStringESt17basic_string_viewIcSt11char_traitsIcEE"}
 !689 = !{!690, !687}
-!690 = distinct !{!690, !691, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
-!691 = distinct !{!691, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
+!690 = distinct !{!690, !691, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm: %agg.result"}
+!691 = distinct !{!691, !"_ZN9grpc_core12slice_detail16CopyConstructorsINS_5SliceEE16FromCopiedBufferEPKcm"}
 !692 = !{!693}
-!693 = distinct !{!693, !694, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
-!694 = distinct !{!694, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
-!695 = !{!696}
-!696 = distinct !{!696, !697, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
-!697 = distinct !{!697, !"_ZNK9grpc_core5Slice3RefEv"}
+!693 = distinct !{!693, !694, !"_ZN9grpc_core5Slice17TakeUniquelyOwnedEv: %agg.result"}
+!694 = distinct !{!694, !"_ZN9grpc_core5Slice17TakeUniquelyOwnedEv"}
+!695 = !{!696, !693}
+!696 = distinct !{!696, !697, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
+!697 = distinct !{!697, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
 !698 = !{!699}
-!699 = distinct !{!699, !700, !"_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEEENKUlRKNS_15metadata_detail6BufferEE0_clB5cxx11ESA_: %agg.result"}
-!700 = distinct !{!700, !"_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEEENKUlRKNS_15metadata_detail6BufferEE0_clB5cxx11ESA_"}
+!699 = distinct !{!699, !700, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
+!700 = distinct !{!700, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
 !701 = !{!702}
 !702 = distinct !{!702, !703, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
 !703 = distinct !{!703, !"_ZNK9grpc_core5Slice3RefEv"}
 !704 = !{!705}
-!705 = distinct !{!705, !706, !"_ZN9grpc_core5Slice17TakeUniquelyOwnedEv: %agg.result"}
-!706 = distinct !{!706, !"_ZN9grpc_core5Slice17TakeUniquelyOwnedEv"}
-!707 = !{!708, !705}
-!708 = distinct !{!708, !709, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
-!709 = distinct !{!709, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
+!705 = distinct !{!705, !706, !"_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEEENKUlRKNS_15metadata_detail6BufferEE0_clB5cxx11ESA_: %agg.result"}
+!706 = distinct !{!706, !"_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEEENKUlRKNS_15metadata_detail6BufferEE0_clB5cxx11ESA_"}
+!707 = !{!708}
+!708 = distinct !{!708, !709, !"_ZNK9grpc_core5Slice3RefEv: %agg.result"}
+!709 = distinct !{!709, !"_ZNK9grpc_core5Slice3RefEv"}
 !710 = !{!711}
-!711 = distinct !{!711, !712, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
-!712 = distinct !{!712, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
-!713 = !{!714}
-!714 = distinct !{!714, !715, !"_ZN9grpc_core14MakeRefCountedINS_16HpackParseResult21HpackParseResultStateEJRNS_16HpackParseStatusEEEENS_13RefCountedPtrIT_EEDpOT0_: %agg.result"}
-!715 = distinct !{!715, !"_ZN9grpc_core14MakeRefCountedINS_16HpackParseResult21HpackParseResultStateEJRNS_16HpackParseStatusEEEENS_13RefCountedPtrIT_EEDpOT0_"}
+!711 = distinct !{!711, !712, !"_ZN9grpc_core5Slice17TakeUniquelyOwnedEv: %agg.result"}
+!712 = distinct !{!712, !"_ZN9grpc_core5Slice17TakeUniquelyOwnedEv"}
+!713 = !{!714, !711}
+!714 = distinct !{!714, !715, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
+!715 = distinct !{!715, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
 !716 = !{!717}
-!717 = distinct !{!717, !718, !"_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE11EmptyVTableEvENKUlRKNS_15metadata_detail6BufferEE_clB5cxx11ES6_: %agg.result"}
-!718 = distinct !{!718, !"_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE11EmptyVTableEvENKUlRKNS_15metadata_detail6BufferEE_clB5cxx11ES6_"}
-!719 = distinct !{!719, !8}
-!720 = distinct !{!720, !8}
+!717 = distinct !{!717, !718, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
+!718 = distinct !{!718, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
+!719 = !{!720}
+!720 = distinct !{!720, !721, !"_ZN9grpc_core14MakeRefCountedINS_16HpackParseResult21HpackParseResultStateEJRNS_16HpackParseStatusEEEENS_13RefCountedPtrIT_EEDpOT0_: %agg.result"}
+!721 = distinct !{!721, !"_ZN9grpc_core14MakeRefCountedINS_16HpackParseResult21HpackParseResultStateEJRNS_16HpackParseStatusEEEENS_13RefCountedPtrIT_EEDpOT0_"}
+!722 = !{!723}
+!723 = distinct !{!723, !724, !"_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE11EmptyVTableEvENKUlRKNS_15metadata_detail6BufferEE_clB5cxx11ES6_: %agg.result"}
+!724 = distinct !{!724, !"_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE11EmptyVTableEvENKUlRKNS_15metadata_detail6BufferEE_clB5cxx11ES6_"}
+!725 = distinct !{!725, !8}
+!726 = distinct !{!726, !8}

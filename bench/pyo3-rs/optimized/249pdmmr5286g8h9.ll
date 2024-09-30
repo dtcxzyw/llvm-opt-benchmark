@@ -1403,64 +1403,69 @@ define zeroext i1 @_ZN17pyo3_build_config5impl_7is_abi317h12e64a4b440b19c2E() un
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
+  %8 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @_ZN3std3env6var_os17h283fc6e61c60b10cE(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.76, i64 18)
-  %8 = load i64, ptr %5, align 8
-  %9 = icmp eq i64 %8, -9223372036854775808
-  br i1 %9, label %_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit.thread, label %_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @_ZN3std3env6var_os17h283fc6e61c60b10cE(ptr nonnull sret([24 x i8]) align 8 %6, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.76, i64 18)
+  %9 = load i64, ptr %6, align 8
+  %10 = icmp eq i64 %9, -9223372036854775808
+  br i1 %10, label %_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit.thread, label %_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit
 
 _ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit.thread: ; preds = %0
-  store i64 -9223372036854775808, ptr %7, align 8
+  store i64 -9223372036854775808, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  br label %12
 
 _ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit: ; preds = %0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @"_ZN17pyo3_build_config5impl_13cargo_env_var28_$u7b$$u7b$closure$u7d$$u7d$17hcd1b8b5d6440c278E"(ptr nonnull sret([24 x i8]) align 8 %7, ptr nonnull align 8 %4)
-  %.pr = load i64, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @"_ZN17pyo3_build_config5impl_13cargo_env_var28_$u7b$$u7b$closure$u7d$$u7d$17hcd1b8b5d6440c278E"(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 8 %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  %.pr = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %.not = icmp eq i64 %.pr, -9223372036854775808
-  br i1 %.not, label %11, label %10
+  br i1 %.not, label %12, label %11
 
-10:                                               ; preds = %_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit
-  call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %7)
-  br label %20
+11:                                               ; preds = %_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit
+  call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %8)
+  br label %21
 
-11:                                               ; preds = %_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit.thread, %_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit
-  call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %7)
+12:                                               ; preds = %_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit.thread, %_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit
+  call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.77, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 35, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 35, ptr %13, align 8
   store ptr %3, ptr %1, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hc457227902524b89E", ptr %.sroa.22.0..sroa_idx.i, align 8
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.5, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 1, ptr %16, align 8
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 2, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 1, ptr %17, align 8
   call void @_ZN3std2io5stdio6_print17h8f9e07feda690a3dE(ptr nonnull align 8 %2)
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i64, ptr %12, align 8
-  call void @_ZN3std3env6var_os17h283fc6e61c60b10cE(ptr nonnull sret([24 x i8]) align 8 %6, ptr align 1 %17, i64 %18)
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i64, ptr %13, align 8
+  call void @_ZN3std3env6var_os17h283fc6e61c60b10cE(ptr nonnull sret([24 x i8]) align 8 %7, ptr align 1 %18, i64 %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %19 = call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h666a0741ae2d298dE"(ptr nonnull align 8 %6, i1 zeroext false)
-  br label %20
+  %20 = call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h666a0741ae2d298dE"(ptr nonnull align 8 %7, i1 zeroext false)
+  br label %21
 
-20:                                               ; preds = %11, %10
-  %.sroa.0.0 = phi i1 [ true, %10 ], [ %19, %11 ]
+21:                                               ; preds = %12, %11
+  %.sroa.0.0 = phi i1 [ true, %11 ], [ %20, %12 ]
   ret i1 %.sroa.0.0
 }
 

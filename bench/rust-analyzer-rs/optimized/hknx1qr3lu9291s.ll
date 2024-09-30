@@ -29760,14 +29760,14 @@ define void @_ZN6ide_db13documentation18docs_with_rangemap17h6ad81e1f43ad6698E(p
   %20 = alloca { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } }, align 8
   %21 = alloca { i64, [2 x i64] }, align 8
   %22 = alloca { { { ptr, ptr, {} }, { { ptr, i64 } } }, {} }, align 8
+  %.sroa.0 = alloca { { ptr, ptr, {} }, { { ptr, i64 } } }, align 8
   %23 = alloca { { i64, ptr, {} }, i64 }, align 8
   %24 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %25 = alloca { ptr, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   %26 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN73_$LT$hir_def..attr..AttrsWithOwner$u20$as$u20$core..ops..deref..Deref$GT$5deref17hca5e7b2ba734592cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   call void @_ZN7hir_def4attr5Attrs6by_key17h22accb8a4caf9a1cE(ptr noalias nocapture noundef nonnull sret({ ptr, { ptr, i64 } }) align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 1 @anon.9255a45982e6bf6104fc6675f0826231.234, i64 noundef 3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
-  call void @_ZN7hir_def4attr9AttrQuery5attrs17hf03bc5d9de18ada3E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr, {} }, { { ptr, i64 } } }) align 8 dereferenceable(32) %22, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %25)
+  call void @_ZN7hir_def4attr9AttrQuery5attrs17hf03bc5d9de18ada3E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr, {} }, { { ptr, i64 } } }) align 8 dereferenceable(32) %.sroa.0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %25)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   %27 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN73_$LT$hir_def..attr..AttrsWithOwner$u20$as$u20$core..ops..deref..Deref$GT$5deref17hca5e7b2ba734592cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   %28 = tail call fastcc noundef i64 @_ZN6ide_db13documentation10doc_indent17h7b75d7e96fcdea67E(ptr noalias noundef readonly align 8 dereferenceable(8) %27)
@@ -29783,6 +29783,8 @@ define void @_ZN6ide_db13documentation18docs_with_rangemap17h6ad81e1f43ad6698E(p
   store ptr inttoptr (i64 4 to ptr), ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %23, i64 16
   store i64 0, ptr %30, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
   %31 = getelementptr inbounds i8, ptr %22, i64 16
   %32 = getelementptr inbounds i8, ptr %22, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !8880, !noalias !8889, !nonnull !4, !noundef !4
@@ -30685,13 +30687,13 @@ define void @_ZN6ide_db13documentation15docs_from_attrs17hacab2a0f501dc5b0E(ptr 
   %10 = alloca { { i8, [23 x i8] } }, align 8
   %11 = alloca { i64, [2 x i64] }, align 8
   %12 = alloca { { { ptr, ptr, {} }, { { ptr, i64 } } }, {} }, align 8
+  %.sroa.0 = alloca { { ptr, ptr, {} }, { { ptr, i64 } } }, align 8
   %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %14 = alloca i64, align 8
   %15 = alloca { ptr, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @_ZN7hir_def4attr5Attrs6by_key17h22accb8a4caf9a1cE(ptr noalias nocapture noundef nonnull sret({ ptr, { ptr, i64 } }) align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 @anon.9255a45982e6bf6104fc6675f0826231.234, i64 noundef 3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @_ZN7hir_def4attr9AttrQuery5attrs17hf03bc5d9de18ada3E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr, {} }, { { ptr, i64 } } }) align 8 dereferenceable(32) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %15)
+  call void @_ZN7hir_def4attr9AttrQuery5attrs17hf03bc5d9de18ada3E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr, {} }, { { ptr, i64 } } }) align 8 dereferenceable(32) %.sroa.0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   %16 = tail call fastcc noundef i64 @_ZN6ide_db13documentation10doc_indent17h7b75d7e96fcdea67E(ptr noalias noundef readonly align 8 dereferenceable(8) %1)
@@ -30702,6 +30704,8 @@ define void @_ZN6ide_db13documentation15docs_from_attrs17hacab2a0f501dc5b0E(ptr 
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
   %17 = getelementptr inbounds i8, ptr %12, i64 16
   %18 = getelementptr inbounds i8, ptr %12, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !9066, !noalias !9075, !nonnull !4, !noundef !4

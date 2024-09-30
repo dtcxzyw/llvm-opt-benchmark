@@ -26,6 +26,7 @@ $__clang_call_terminate = comdat any
 define void @_ZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeE(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr noundef %slice, i32 noundef %type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i48 = alloca %struct.grpc_slice, align 8
+  %ref.tmp.i23 = alloca %struct.grpc_slice, align 8
   %ref.tmp.i = alloca %struct.grpc_slice, align 8
   %out = alloca %"class.grpc_core::MutableSlice", align 8
   switch i32 %type, label %do.body.i [
@@ -88,7 +89,10 @@ if.then:                                          ; preds = %_ZN9grpc_core12_GLO
   br label %return
 
 invoke.cont15:                                    ; preds = %for.end
-  call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %out, i64 noundef %add)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i23)
+  call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i23, i64 noundef %add), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i23, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i23)
   %5 = load ptr, ptr %out, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
   %bytes.i.i = getelementptr inbounds i8, ptr %out, i64 16
@@ -264,7 +268,7 @@ for.body:                                         ; preds = %entry, %for.cond
 if.then3:                                         ; preds = %for.cond, %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %slice_in, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slice_in, i8 0, i64 32, i1 false), !noalias !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slice_in, i8 0, i64 32, i1 false), !noalias !10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %return
@@ -282,17 +286,17 @@ if.then.i:                                        ; preds = %if.end4
   br label %invoke.cont6
 
 land.lhs.true.i:                                  ; preds = %if.end4
-  %4 = load atomic i64, ptr %0 monotonic, align 8, !noalias !10
+  %4 = load atomic i64, ptr %0 monotonic, align 8, !noalias !13
   %cmp.i.i = icmp eq i64 %4, 1
   br i1 %cmp.i.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef nonnull align 8 dereferenceable(32) %slice_in, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slice_in, i8 0, i64 32, i1 false), !noalias !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slice_in, i8 0, i64 32, i1 false), !noalias !16
   br label %invoke.cont6
 
 if.end11.i:                                       ; preds = %land.lhs.true.i, %if.end4
-  call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp12.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %slice_in), !noalias !10
+  call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp12.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %slice_in), !noalias !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i, i64 32, i1 false)
   br label %invoke.cont6
 
@@ -455,7 +459,7 @@ if.end38:                                         ; preds = %if.then19, %invoke.
   %p.1 = phi ptr [ %add.ptr33, %invoke.cont28 ], [ %add.ptr, %if.then19 ], [ %add.ptr, %if.else35 ]
   %q.1 = getelementptr inbounds i8, ptr %q.089, i64 1
   %cmp10.not = icmp eq ptr %p.1, %add.ptr.i31
-  br i1 %cmp10.not, label %invoke.cont39.loopexit, label %while.body, !llvm.loop !16
+  br i1 %cmp10.not, label %invoke.cont39.loopexit, label %while.body, !llvm.loop !19
 
 invoke.cont39.loopexit:                           ; preds = %if.end38
   %.pre = load ptr, ptr %out, align 8
@@ -473,8 +477,8 @@ invoke.cont39:                                    ; preds = %invoke.cont39.loope
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i62)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %out, i64 32, i1 false), !noalias !18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false), !noalias !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %out, i64 32, i1 false), !noalias !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false), !noalias !24
   invoke void @grpc_slice_sub_no_ref(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i62, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp.i, i64 noundef 0, i64 noundef %sub.ptr.sub)
           to label %invoke.cont43 unwind label %lpad
 
@@ -484,7 +488,7 @@ invoke.cont43:                                    ; preds = %invoke.cont39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i65)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.0, i8 0, i64 32, i1 false), !noalias !24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.0, i8 0, i64 32, i1 false), !noalias !27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i65, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i65)
   %23 = load ptr, ptr %out, align 8
@@ -569,22 +573,25 @@ attributes #11 = { noreturn nounwind }
 !5 = distinct !{!5, !6, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
 !6 = distinct !{!6, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
-!9 = distinct !{!9, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
+!8 = distinct !{!8, !9, !"_ZN9grpc_core12MutableSlice19CreateUninitializedEm: %agg.result"}
+!9 = distinct !{!9, !"_ZN9grpc_core12MutableSlice19CreateUninitializedEm"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN9grpc_core5Slice11TakeMutableEv: %agg.result"}
-!12 = distinct !{!12, !"_ZN9grpc_core5Slice11TakeMutableEv"}
-!13 = !{!14, !11}
-!14 = distinct !{!14, !15, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
-!15 = distinct !{!15, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN9grpc_core12MutableSlice12TakeSubSliceEmm: %agg.result"}
-!20 = distinct !{!20, !"_ZN9grpc_core12MutableSlice12TakeSubSliceEmm"}
-!21 = !{!22, !19}
-!22 = distinct !{!22, !23, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
-!23 = distinct !{!23, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
-!24 = !{!25}
+!11 = distinct !{!11, !12, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
+!12 = distinct !{!12, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN9grpc_core5Slice11TakeMutableEv: %agg.result"}
+!15 = distinct !{!15, !"_ZN9grpc_core5Slice11TakeMutableEv"}
+!16 = !{!17, !14}
+!17 = distinct !{!17, !18, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
+!18 = distinct !{!18, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN9grpc_core12MutableSlice12TakeSubSliceEmm: %agg.result"}
+!23 = distinct !{!23, !"_ZN9grpc_core12MutableSlice12TakeSubSliceEmm"}
+!24 = !{!25, !22}
 !25 = distinct !{!25, !26, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
 !26 = distinct !{!26, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: %agg.result"}
+!29 = distinct !{!29, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}

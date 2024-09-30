@@ -22897,9 +22897,11 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17h9c0d05447e82d06cE(ptr
   %2 = alloca {}, align 1
   %3 = alloca { { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } }, align 8
   %4 = alloca { { { { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } } }, {} }, align 8
+  %.sroa.0.i.i6.i = alloca { { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } }, align 8
   %5 = alloca { { { { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } } }, {} }, align 8
   %6 = alloca { { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } }, align 8
   %7 = alloca { { { { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } } }, {} }, align 8
+  %.sroa.0.i.i5.i = alloca { { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } }, align 8
   %8 = alloca { { { { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } } }, {} }, align 8
   %.sroa.0.i40.i.i = alloca [18 x i64], align 8
   %.sroa.0.i.i.i = alloca [18 x i64], align 8
@@ -22917,7 +22919,7 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17h9c0d05447e82d06cE(ptr
   %.pn21 = phi { ptr, i32 } [ %72, %71 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn21
 
-.loopexit:                                        ; preds = %38, %"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h03d70990c34cc62fE.exit7.i", %.noexc9, %.noexc10, %53, %"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h03d70990c34cc62fE.exit.i", %.noexc15, %.noexc16
+.loopexit:                                        ; preds = %38, %"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h03d70990c34cc62fE.exit9.i", %.noexc9, %.noexc10, %53, %"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h03d70990c34cc62fE.exit.i", %.noexc15, %.noexc16
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -22933,7 +22935,7 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17h9c0d05447e82d06cE(ptr
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %41, %58
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i5.i, %41 ], [ %lpad.thr_comm.split-lp.i.i.i, %58 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp24, %.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i7.i, %41 ], [ %lpad.thr_comm.split-lp.i.i.i, %58 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp24, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr347drop_in_place$LT$alloc..vec..Vec$LT$itertools..kmerge_impl..HeadTail$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$u3b$$u20$1$u5d$$GT$$C$hir..semantics..SemanticsImpl..descend_node_at_offset..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hde74b5db32aed88cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #36
           to label %13 unwind label %69
 
@@ -22953,16 +22955,16 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17h9c0d05447e82d06cE(ptr
   %19 = load ptr, ptr %17, align 8, !nonnull !7, !noundef !7
   %20 = load i64, ptr %18, align 8, !noundef !7
   call void @llvm.experimental.noalias.scope.decl(metadata !6311)
-  %.not31.i = icmp ult i64 %20, 2
-  br i1 %.not31.i, label %_ZN9itertools11kmerge_impl7heapify17haea7ce9a1705b75bE.exit, label %.lr.ph.preheader.i
+  %.not33.i = icmp ult i64 %20, 2
+  br i1 %.not33.i, label %_ZN9itertools11kmerge_impl7heapify17haea7ce9a1705b75bE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hb172270a6bbfa9d1E.exit"
   %21 = lshr i64 %20, 1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN9itertools11kmerge_impl9sift_down17hfcc8b06ef78ef1ddE.exit.i, %.lr.ph.preheader.i
-  %.sroa.4.032.i = phi i64 [ %22, %_ZN9itertools11kmerge_impl9sift_down17hfcc8b06ef78ef1ddE.exit.i ], [ %21, %.lr.ph.preheader.i ]
-  %22 = add nsw i64 %.sroa.4.032.i, -1
+  %.sroa.4.034.i = phi i64 [ %22, %_ZN9itertools11kmerge_impl9sift_down17hfcc8b06ef78ef1ddE.exit.i ], [ %21, %.lr.ph.preheader.i ]
+  %22 = add nsw i64 %.sroa.4.034.i, -1
   %.031.in57.i.i = shl i64 %22, 1
   %.03158.i.i = or disjoint i64 %.031.in57.i.i, 1
   %23 = add i64 %.031.in57.i.i, 2
@@ -23013,18 +23015,21 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17h9c0d05447e82d06cE(ptr
 38:                                               ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds [0 x { { ptr, { { { [2 x i64] }, i64 }, i64, i64 } }, { { { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } } } }], ptr %19, i64 0, i64 %36, i32 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5), !noalias !6323
-  invoke void @"_ZN96_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf6053025496c5222E.llvm.11762030844908852975"(ptr noalias nocapture noundef nonnull sret({ { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } }) align 8 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %39)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %.sroa.0.i.i6.i), !noalias !6323
+  invoke void @"_ZN96_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf6053025496c5222E.llvm.11762030844908852975"(ptr noalias nocapture noundef nonnull sret({ { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } }) align 8 dereferenceable(96) %.sroa.0.i.i6.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %39)
           to label %.noexc8 unwind label %.loopexit
 
 .noexc8:                                          ; preds = %38
   %40 = getelementptr inbounds [0 x { { ptr, { { { [2 x i64] }, i64 }, i64, i64 } }, { { { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } } } }], ptr %19, i64 0, i64 %.03160.i.i, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.i.i6.i, i64 96, i1 false), !noalias !6323
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.0.i.i6.i), !noalias !6323
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !6323
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !6323
   invoke void @"_ZN96_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf6053025496c5222E.llvm.11762030844908852975"(ptr noalias nocapture noundef nonnull sret({ { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } }) align 8 dereferenceable(96) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %40)
-          to label %"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h03d70990c34cc62fE.exit7.i" unwind label %41, !noalias !6330
+          to label %"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h03d70990c34cc62fE.exit9.i" unwind label %41, !noalias !6330
 
 41:                                               ; preds = %.noexc8
-  %lpad.thr_comm.split-lp.i.i5.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp.i.i7.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr675drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h74ec5a8afe3c03f3E.llvm.15963164601899926706"(ptr noalias noundef nonnull align 8 dereferenceable(96) %5)
           to label %.body unwind label %42, !noalias !6330
@@ -23035,13 +23040,13 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17h9c0d05447e82d06cE(ptr
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35, !noalias !6330
   unreachable
 
-"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h03d70990c34cc62fE.exit7.i": ; preds = %.noexc8
+"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h03d70990c34cc62fE.exit9.i": ; preds = %.noexc8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false), !noalias !6323
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3), !noalias !6323
   %44 = invoke noundef i8 @_ZN4core4iter6traits8iterator8Iterator14partial_cmp_by17h8890053e56d0fe3fE.llvm.836043833466553463(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %4)
           to label %.noexc9 unwind label %.loopexit
 
-.noexc9:                                          ; preds = %"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h03d70990c34cc62fE.exit7.i"
+.noexc9:                                          ; preds = %"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h03d70990c34cc62fE.exit9.i"
   %45 = invoke noundef i8 @"_ZN4core6option15Option$LT$T$GT$6map_or17he8b5051196e40646E.llvm.836043833466553463"(i8 noundef %44, i8 noundef 2)
           to label %.noexc10 unwind label %.loopexit
 
@@ -23067,11 +23072,14 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17h9c0d05447e82d06cE(ptr
   %55 = getelementptr inbounds [0 x { { ptr, { { { [2 x i64] }, i64 }, i64, i64 } }, { { { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } } } }], ptr %19, i64 0, i64 %.059.i.i
   %56 = getelementptr inbounds i8, ptr %54, i64 48
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8), !noalias !6331
-  invoke void @"_ZN96_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf6053025496c5222E.llvm.11762030844908852975"(ptr noalias nocapture noundef nonnull sret({ { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } }) align 8 dereferenceable(96) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %56)
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %.sroa.0.i.i5.i), !noalias !6331
+  invoke void @"_ZN96_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf6053025496c5222E.llvm.11762030844908852975"(ptr noalias nocapture noundef nonnull sret({ { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } }) align 8 dereferenceable(96) %.sroa.0.i.i5.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %56)
           to label %.noexc14 unwind label %.loopexit
 
 .noexc14:                                         ; preds = %53
   %57 = getelementptr inbounds i8, ptr %55, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.i.i5.i, i64 96, i1 false), !noalias !6331
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.0.i.i5.i), !noalias !6331
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7), !noalias !6331
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6), !noalias !6331
   invoke void @"_ZN96_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf6053025496c5222E.llvm.11762030844908852975"(ptr noalias nocapture noundef nonnull sret({ { { ptr, [1 x i64] } }, { ptr, [4 x i64] }, { ptr, [4 x i64] } }) align 8 dereferenceable(96) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %57)

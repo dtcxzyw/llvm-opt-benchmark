@@ -6074,6 +6074,8 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:
   %5 = alloca { ptr, i64 }, align 8
   %6 = alloca { ptr, i64 }, align 8
   %7 = alloca [3 x { ptr, ptr }], align 8
+  %.sroa.0 = alloca { { ptr, i64 }, i64 }, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr @anon.d111e1a6102e671d34fb0a8a42694992.104, ptr %6, align 8
@@ -6117,14 +6119,15 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:
   store i64 3, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !1846
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !1846
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @_ZN5alloc3fmt6format12format_inner17h0da8c103517a5142E(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
+  call void @_ZN5alloc3fmt6format12format_inner17h0da8c103517a5142E(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %.sroa.0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1), !noalias !1835
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1847
   %18 = call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #28, !noalias !1847
   %19 = icmp eq ptr %18, null
@@ -6155,6 +6158,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h7213b6c7de0cff87E.llvm.4054924361102640483.exit": ; preds = %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   %26 = insertvalue { ptr, ptr } poison, ptr %18, 0
   %27 = insertvalue { ptr, ptr } %26, ptr @anon.d111e1a6102e671d34fb0a8a42694992.40.llvm.4054924361102640483, 1
   ret { ptr, ptr } %27
@@ -6170,6 +6174,8 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:
   %5 = alloca { ptr, i64 }, align 8
   %6 = alloca { ptr, i64 }, align 8
   %7 = alloca [3 x { ptr, ptr }], align 8
+  %.sroa.0 = alloca { { ptr, i64 }, i64 }, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr @anon.d111e1a6102e671d34fb0a8a42694992.0.llvm.4054924361102640483, ptr %6, align 8
@@ -6213,14 +6219,15 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:
   store i64 3, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !1861
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !1861
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @_ZN5alloc3fmt6format12format_inner17h0da8c103517a5142E(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
+  call void @_ZN5alloc3fmt6format12format_inner17h0da8c103517a5142E(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %.sroa.0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1), !noalias !1850
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1862
   %18 = call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #28, !noalias !1862
   %19 = icmp eq ptr %18, null
@@ -6251,6 +6258,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h7213b6c7de0cff87E.llvm.4054924361102640483.exit": ; preds = %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   %26 = insertvalue { ptr, ptr } poison, ptr %18, 0
   %27 = insertvalue { ptr, ptr } %26, ptr @anon.d111e1a6102e671d34fb0a8a42694992.40.llvm.4054924361102640483, 1
   ret { ptr, ptr } %27

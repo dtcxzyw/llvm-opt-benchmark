@@ -18922,6 +18922,7 @@ define noundef ptr @_ZN15tree_sitter_cli9highlight4html17h7047ec7caef3ae9fE(ptr 
   %37 = alloca i32, align 4
   %38 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %39 = alloca { { { ptr, ptr }, { ptr, ptr }, { { [16 x i8], i8, [7 x i8] } } } }, align 8
+  %.sroa.0.sroa.5.i.i = alloca { [16 x i8], i8, [7 x i8] }, align 8
   %40 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %41 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %42 = alloca { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, align 8
@@ -19272,8 +19273,8 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.10932140880789976298.e
   %198 = getelementptr inbounds i8, ptr %86, i64 16
   %199 = getelementptr inbounds i8, ptr %86, i64 32
   %200 = getelementptr inbounds i8, ptr %86, i64 24
-  %.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %39, i64 32
   %.sroa.0.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %39, i64 16
+  %.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %39, i64 32
   %201 = getelementptr inbounds i8, ptr %39, i64 8
   %202 = getelementptr inbounds i8, ptr %39, i64 48
   %203 = getelementptr inbounds i8, ptr %39, i64 24
@@ -21338,13 +21339,15 @@ default.unreachable.i:                            ; preds = %755
   %824 = load i64, ptr %157, align 8, !noalias !2411, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !2645)
   call void @llvm.experimental.noalias.scope.decl(metadata !2648)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %39), !noalias !2650
-  invoke void @_ZN11tree_sitter9LossyUtf83new17hac56428bbc277a9dE(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, i8, [7 x i8] }) align 8 dereferenceable(24) %.sroa.0.sroa.5.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 1 %822, i64 noundef %821)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.sroa.5.i.i), !noalias !2411
+  invoke void @_ZN11tree_sitter9LossyUtf83new17hac56428bbc277a9dE(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, i8, [7 x i8] }) align 8 dereferenceable(24) %.sroa.0.sroa.5.i.i, ptr noalias noundef nonnull readonly align 1 %822, i64 noundef %821)
           to label %.noexc116.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !2430
 
 .noexc116.i:                                      ; preds = %820
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %39), !noalias !2650
   store ptr null, ptr %39, align 8, !noalias !2650
   store ptr null, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i, align 8, !noalias !2650
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.5.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.5.i.i, i64 24, i1 false), !noalias !2650
   %825 = getelementptr inbounds i64, ptr %823, i64 %824
   %826 = icmp eq i64 %824, 0
   br label %827
@@ -21832,6 +21835,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer15start_highlight17h21bf379fd49501a5E.ex
 
 _ZN21tree_sitter_highlight12HtmlRenderer8add_text17hfaab44736c05ad85E.exit.i: ; preds = %.loopexit.i.i113.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %39), !noalias !2650
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.sroa.5.i.i), !noalias !2411
   br label %.backedge
 
 1001:                                             ; preds = %.noexc103.i, %808

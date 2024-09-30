@@ -2144,42 +2144,48 @@ _ZNSt12_Vector_baseIN6duckdb13BoundCastInfoESaIS1_EED2Ev.exit: ; preds = %if.the
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6duckdb17StructToUnionCast4BindERNS_13BindCastInputERKNS_11LogicalTypeES5_(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundCastInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %input, ptr noundef nonnull align 8 dereferenceable(24) %source, ptr noundef nonnull align 8 dereferenceable(24) %target) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %cast_data = alloca %"class.duckdb::unique_ptr.30", align 8
   %agg.tmp = alloca %"class.duckdb::unique_ptr.30", align 8
-  call void @_ZN6duckdb17StructToUnionCast8BindDataERNS_13BindCastInputERKNS_11LogicalTypeES5_(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.30") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %input, ptr noundef nonnull align 8 dereferenceable(24) %source, ptr noundef nonnull align 8 dereferenceable(24) %target)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cast_data) #18
+  call void @_ZN6duckdb17StructToUnionCast8BindDataERNS_13BindCastInputERKNS_11LogicalTypeES5_(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.30") align 8 %cast_data, ptr noundef nonnull align 8 dereferenceable(24) %input, ptr noundef nonnull align 8 dereferenceable(24) %source, ptr noundef nonnull align 8 dereferenceable(24) %target)
+  %0 = load i64, ptr %cast_data, align 8, !tbaa !18
+  store i64 %0, ptr %agg.tmp, align 8, !tbaa !18
   invoke void @_ZN6duckdb13BoundCastInfoC1EPFbRNS_6VectorES2_mRNS_14CastParametersEENS_10unique_ptrINS_13BoundCastDataESt14default_deleteIS8_ELb1EEEPFNS7_INS_18FunctionLocalStateES9_ISC_ELb1EEERNS_24CastLocalStateParametersEE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull @_ZN6duckdb17StructToUnionCast4CastERNS_6VectorES2_mRNS_14CastParametersE, ptr noundef nonnull %agg.tmp, ptr noundef nonnull @_ZN6duckdb19StructBoundCastData24InitStructCastLocalStateERNS_24CastLocalStateParametersE)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %agg.tmp, align 8, !tbaa !18
-  %cmp.not.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %agg.tmp, align 8, !tbaa !18
+  %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN6duckdb13BoundCastDataESt14default_deleteIS1_EED2Ev.exit6, label %_ZNKSt14default_deleteIN6duckdb13BoundCastDataEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN6duckdb13BoundCastDataEEclEPS1_.exit.i: ; preds = %invoke.cont
-  %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !70
+  %vtable.i.i = load ptr, ptr %1, align 8, !tbaa !70
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %1 = load ptr, ptr %vfn.i.i, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  %2 = load ptr, ptr %vfn.i.i, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #18
   br label %_ZNSt10unique_ptrIN6duckdb13BoundCastDataESt14default_deleteIS1_EED2Ev.exit6
 
 _ZNSt10unique_ptrIN6duckdb13BoundCastDataESt14default_deleteIS1_EED2Ev.exit6: ; preds = %_ZNKSt14default_deleteIN6duckdb13BoundCastDataEEclEPS1_.exit.i, %invoke.cont
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cast_data) #18
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = load ptr, ptr %agg.tmp, align 8, !tbaa !18
-  %cmp.not.i7 = icmp eq ptr %3, null
+  %4 = load ptr, ptr %agg.tmp, align 8, !tbaa !18
+  %cmp.not.i7 = icmp eq ptr %4, null
   br i1 %cmp.not.i7, label %_ZNSt10unique_ptrIN6duckdb13BoundCastDataESt14default_deleteIS1_EED2Ev.exit16, label %_ZNKSt14default_deleteIN6duckdb13BoundCastDataEEclEPS1_.exit.i8
 
 _ZNKSt14default_deleteIN6duckdb13BoundCastDataEEclEPS1_.exit.i8: ; preds = %lpad
-  %vtable.i.i9 = load ptr, ptr %3, align 8, !tbaa !70
+  %vtable.i.i9 = load ptr, ptr %4, align 8, !tbaa !70
   %vfn.i.i10 = getelementptr inbounds i8, ptr %vtable.i.i9, i64 8
-  %4 = load ptr, ptr %vfn.i.i10, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
+  %5 = load ptr, ptr %vfn.i.i10, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
   br label %_ZNSt10unique_ptrIN6duckdb13BoundCastDataESt14default_deleteIS1_EED2Ev.exit16
 
 _ZNSt10unique_ptrIN6duckdb13BoundCastDataESt14default_deleteIS1_EED2Ev.exit16: ; preds = %_ZNKSt14default_deleteIN6duckdb13BoundCastDataEEclEPS1_.exit.i8, %lpad
-  resume { ptr, i32 } %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cast_data) #18
+  resume { ptr, i32 } %3
 }
 
 declare void @_ZN6duckdb19StructBoundCastData24InitStructCastLocalStateERNS_24CastLocalStateParametersE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.39") align 8, ptr noundef nonnull align 8 dereferenceable(16)) #2

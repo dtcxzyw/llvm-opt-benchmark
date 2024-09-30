@@ -3324,18 +3324,21 @@ define noundef ptr @_ZN17meilisearch_types10versioning19create_version_file17h82
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
+  %7 = alloca [24 x i8], align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @_ZN3std4path4Path5_join17h28e226e2326aba56E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.77, i64 noundef 7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @_ZN3std4path4Path5_join17h28e226e2326aba56E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.77, i64 noundef 7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @_ZN17meilisearch_types10versioning13VERSION_MAJOR17h72ebb1f4da515421E, ptr %4, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E", ptr %.sroa.43.0..sroa_idx, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr @_ZN17meilisearch_types10versioning13VERSION_MINOR17h2da9d7fe88367c06E, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr @_ZN17meilisearch_types10versioning13VERSION_MINOR17h2da9d7fe88367c06E, ptr %8, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E", ptr %.sroa.47.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr @_ZN17meilisearch_types10versioning13VERSION_PATCH17hf979a51a810a9f17E, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr @_ZN17meilisearch_types10versioning13VERSION_PATCH17hf979a51a810a9f17E, ptr %9, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E", ptr %.sroa.411.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !546
@@ -3349,26 +3352,27 @@ define noundef ptr @_ZN17meilisearch_types10versioning19create_version_file17h82
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !557
   invoke void @_ZN5alloc3fmt6format12format_inner17h77a68f64fb1f586eE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
-          to label %_ZN5alloc3fmt6format17h7fed6a266585da9dE.exit unwind label %11
+          to label %_ZN5alloc3fmt6format17h7fed6a266585da9dE.exit unwind label %12
 
 _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit:    ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !546
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  %9 = call noundef ptr @_ZN3std2fs5write17h89200f59b7eb139dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
+  %10 = call noundef ptr @_ZN3std2fs5write17h89200f59b7eb139dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  ret ptr %9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  ret ptr %10
 
-10:                                               ; preds = %11
+11:                                               ; preds = %12
   resume { ptr, i32 } %lpad.thr_comm
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h8ad27ede4cfca0efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #29
-          to label %10 unwind label %12
+          to label %11 unwind label %13
 
-12:                                               ; preds = %11
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %12
+  %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30
   unreachable

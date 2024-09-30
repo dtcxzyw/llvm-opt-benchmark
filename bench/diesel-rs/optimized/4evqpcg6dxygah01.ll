@@ -2543,31 +2543,35 @@ define void @_ZN17all_about_updates15hide_everything17hfd47f7c16837509cE(ptr noa
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN17all_about_updates23update_from_post_fields17hb24d248db6561488E(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %1, ptr noalias noundef align 8 dereferenceable(128) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, ptr, ptr, ptr, ptr }, align 8
-  %5 = alloca { { ptr, ptr, ptr, ptr, ptr }, { {} }, {}, {} }, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !415
-  %6 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_119_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$alloc..string..String$GT$13as_expression17hb0ccee00cd9163d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !422
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
-  %8 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_119_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$alloc..string..String$GT$13as_expression17hb0ccee00cd9163d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7), !noalias !422
-  %9 = getelementptr inbounds i8, ptr %1, i64 76
-  %10 = tail call noundef align 1 dereferenceable(1) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_102_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Bool$GT$$u20$for$u20$$RF$bool$GT$13as_expression17hb6ff24b02c5022a4E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %9), !noalias !422
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
-  %12 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls13date_and_time1_124_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Timestamp$GT$$u20$for$u20$$RF$std..time..SystemTime$GT$13as_expression17h501471e81a73b24cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !422
-  %13 = getelementptr inbounds i8, ptr %1, i64 72
-  %14 = tail call noundef align 4 dereferenceable(4) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_104_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Integer$GT$$u20$for$u20$$RF$i32$GT$13as_expression17h5daa42a20fc07c02E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13), !noalias !422
-  store ptr %6, ptr %4, align 8, !noalias !415
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %8, ptr %15, align 8, !noalias !415
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %10, ptr %16, align 8, !noalias !415
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %12, ptr %17, align 8, !noalias !415
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %14, ptr %18, align 8, !noalias !415
-  call void @"_ZN6diesel10type_impls6tuples124_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$12as_changeset17h5f39969ad68203e2E"(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, ptr, ptr, ptr }) align 8 dereferenceable(40) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !415
-  call void @"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count17h83f9b30708857f88E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(128) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %5)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  %5 = alloca { ptr, ptr, ptr, ptr, ptr }, align 8
+  %6 = alloca { { ptr, ptr, ptr, ptr, ptr }, { {} }, {}, {} }, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !415
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !419
+  %7 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_119_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$alloc..string..String$GT$13as_expression17hb0ccee00cd9163d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !423
+  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_119_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$alloc..string..String$GT$13as_expression17hb0ccee00cd9163d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8), !noalias !423
+  %10 = getelementptr inbounds i8, ptr %1, i64 76
+  %11 = tail call noundef align 1 dereferenceable(1) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_102_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Bool$GT$$u20$for$u20$$RF$bool$GT$13as_expression17hb6ff24b02c5022a4E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %10), !noalias !423
+  %12 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls13date_and_time1_124_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Timestamp$GT$$u20$for$u20$$RF$std..time..SystemTime$GT$13as_expression17h501471e81a73b24cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !423
+  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %15 = tail call noundef align 4 dereferenceable(4) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_104_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Integer$GT$$u20$for$u20$$RF$i32$GT$13as_expression17h5daa42a20fc07c02E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14), !noalias !423
+  store ptr %7, ptr %4, align 8, !noalias !419
+  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %9, ptr %16, align 8, !noalias !419
+  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %11, ptr %17, align 8, !noalias !419
+  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %13, ptr %18, align 8, !noalias !419
+  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %15, ptr %19, align 8, !noalias !419
+  call void @"_ZN6diesel10type_impls6tuples124_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$12as_changeset17h5f39969ad68203e2E"(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, ptr, ptr, ptr }) align 8 dereferenceable(40) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !424
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !419
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !425
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !415
+  call void @"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count17h83f9b30708857f88E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(128) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %6)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   ret void
 }
 
@@ -2577,9 +2581,9 @@ define void @_ZN17all_about_updates18update_with_option17hd782219a8ebc4583E(ptr 
   %4 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_105_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$$RF$str$GT$13as_expression17h3e9485229295b47dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @anon.7677ef7fe63393c0d74a2170710465ed.3, i64 16))
   %5 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hd33b9bfd40b2147dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  store ptr null, ptr %3, align 8, !noalias !423
+  store ptr null, ptr %3, align 8, !noalias !426
   %6 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %5, ptr %6, align 8, !noalias !423
+  store ptr %5, ptr %6, align 8, !noalias !426
   call void @"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count17h435e3d9a6bc2bc86E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(128) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
@@ -2656,19 +2660,19 @@ define void @"_ZN17all_about_updates1_117_$LT$impl$u20$diesel..query_builder..up
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !429
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !432
   invoke void @"_ZN6diesel10type_impls10primitives13foreign_impls1_115_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$alloc..string..String$GT$13as_expression17hfdd612abb3cec54aE"(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr }, i64 } }, {} }) align 8 dereferenceable(24) %.sroa.0.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
           to label %8 unwind label %38
 
 8:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !433
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !429
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !436
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !432
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %9 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i4), !noalias !434
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i4), !noalias !437
   invoke void @"_ZN6diesel10type_impls10primitives13foreign_impls1_115_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$alloc..string..String$GT$13as_expression17hfdd612abb3cec54aE"(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr }, i64 } }, {} }) align 8 dereferenceable(24) %.sroa.0.i4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
           to label %13 unwind label %11
 
@@ -2683,8 +2687,8 @@ define void @"_ZN17all_about_updates1_117_$LT$impl$u20$diesel..query_builder..up
   br label %10
 
 13:                                               ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i4, i64 24, i1 false), !noalias !438
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i4), !noalias !434
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i4, i64 24, i1 false), !noalias !441
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i4), !noalias !437
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %14 = getelementptr inbounds i8, ptr %1, i64 76
   %15 = load i8, ptr %14, align 4, !range !10, !noundef !9
@@ -2702,7 +2706,7 @@ _ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq1
   %20 = getelementptr inbounds i8, ptr %1, i64 48
   %21 = load i64, ptr %20, align 8, !noundef !9
   %22 = getelementptr inbounds i8, ptr %1, i64 56
-  %23 = load i32, ptr %22, align 8, !range !439, !noundef !9
+  %23 = load i32, ptr %22, align 8, !range !442, !noundef !9
   %24 = invoke { i64, i32 } @"_ZN6diesel10type_impls13date_and_time1_120_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Timestamp$GT$$u20$for$u20$std..time..SystemTime$GT$13as_expression17hc6ddd1d2ceaf0218E"(i64 noundef %21, i32 noundef %23)
           to label %_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17h3d1ec8bf56239169E.exit unwind label %18
 
@@ -2815,12 +2819,12 @@ define void @"_ZN17all_about_updates18update_with_option1_141_$LT$impl$u20$diese
 23:                                               ; preds = %12, %16
   %.sroa.04.0 = phi ptr [ %20, %16 ], [ null, %12 ]
   %.sroa.55.0 = phi i64 [ %22, %16 ], [ undef, %12 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !440)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !443)
   %24 = icmp eq ptr %.sroa.0.0, null
   br i1 %24, label %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i", label %25
 
 25:                                               ; preds = %23
-  %26 = tail call { ptr, i64 } @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h7b04bb07f3008016E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.5.0), !noalias !443
+  %26 = tail call { ptr, i64 } @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h7b04bb07f3008016E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.5.0), !noalias !446
   %27 = extractvalue { ptr, i64 } %26, 0
   %28 = extractvalue { ptr, i64 } %26, 1
   br label %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i"
@@ -2832,7 +2836,7 @@ define void @"_ZN17all_about_updates18update_with_option1_141_$LT$impl$u20$diese
   br i1 %29, label %"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE.exit", label %30
 
 30:                                               ; preds = %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i"
-  %31 = tail call { ptr, i64 } @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h0275eab74fdbdf97E"(ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.55.0), !noalias !443
+  %31 = tail call { ptr, i64 } @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h0275eab74fdbdf97E"(ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.55.0), !noalias !446
   %32 = extractvalue { ptr, i64 } %31, 0
   %33 = extractvalue { ptr, i64 } %31, 1
   br label %"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE.exit"
@@ -2840,13 +2844,13 @@ define void @"_ZN17all_about_updates18update_with_option1_141_$LT$impl$u20$diese
 "_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE.exit": ; preds = %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i", %30
   %.sroa.02.0.i2.i = phi ptr [ %32, %30 ], [ null, %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i" ]
   %.sroa.33.0.i3.i = phi i64 [ %33, %30 ], [ undef, %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i" ]
-  store ptr %.sroa.02.0.i.i, ptr %0, align 8, !alias.scope !440, !noalias !445
+  store ptr %.sroa.02.0.i.i, ptr %0, align 8, !alias.scope !443, !noalias !448
   %34 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.33.0.i.i, ptr %34, align 8, !alias.scope !440, !noalias !445
+  store i64 %.sroa.33.0.i.i, ptr %34, align 8, !alias.scope !443, !noalias !448
   %35 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.02.0.i2.i, ptr %35, align 8, !alias.scope !440, !noalias !445
+  store ptr %.sroa.02.0.i2.i, ptr %35, align 8, !alias.scope !443, !noalias !448
   %36 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.33.0.i3.i, ptr %36, align 8, !alias.scope !440, !noalias !445
+  store i64 %.sroa.33.0.i3.i, ptr %36, align 8, !alias.scope !443, !noalias !448
   ret void
 }
 
@@ -2877,7 +2881,7 @@ define { ptr, ptr } @"_ZN17all_about_updates18update_with_option1_145_$LT$impl$u
   br i1 %13, label %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h296a56459d25f7deE.llvm.12703545329642850438.exit.i", label %14
 
 14:                                               ; preds = %12
-  %15 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hc6e54cd8c9d4dfeeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.07), !noalias !446
+  %15 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hc6e54cd8c9d4dfeeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.07), !noalias !449
   br label %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h296a56459d25f7deE.llvm.12703545329642850438.exit.i"
 
 "_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h296a56459d25f7deE.llvm.12703545329642850438.exit.i": ; preds = %14, %12
@@ -3503,37 +3507,40 @@ attributes #16 = { noreturn }
 !412 = distinct !{!412, !411, !"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h6732ec54ee3bf697E: argument 1"}
 !413 = distinct !{!413, !408, !"_ZN6diesel13query_builder16update_statement28UpdateStatement$LT$T$C$U$GT$3set17h268a6eaf89ba9588E: argument 1"}
 !414 = !{!413}
-!415 = !{!416, !418, !419, !421}
-!416 = distinct !{!416, !417, !"_ZN17all_about_updates1_121_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$RF$all_about_updates..Post$GT$12as_changeset17hf40c2d0feb4dc9f2E: argument 0"}
-!417 = distinct !{!417, !"_ZN17all_about_updates1_121_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$RF$all_about_updates..Post$GT$12as_changeset17hf40c2d0feb4dc9f2E"}
-!418 = distinct !{!418, !417, !"_ZN17all_about_updates1_121_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$RF$all_about_updates..Post$GT$12as_changeset17hf40c2d0feb4dc9f2E: argument 1"}
-!419 = distinct !{!419, !420, !"_ZN6diesel13query_builder16update_statement28UpdateStatement$LT$T$C$U$GT$3set17haffba55f53196c6dE: argument 0"}
-!420 = distinct !{!420, !"_ZN6diesel13query_builder16update_statement28UpdateStatement$LT$T$C$U$GT$3set17haffba55f53196c6dE"}
-!421 = distinct !{!421, !420, !"_ZN6diesel13query_builder16update_statement28UpdateStatement$LT$T$C$U$GT$3set17haffba55f53196c6dE: argument 1"}
-!422 = !{!416, !419}
-!423 = !{!424, !426, !427, !428}
-!424 = distinct !{!424, !425, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h39c2cbfbbfa8d9baE: argument 0"}
-!425 = distinct !{!425, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h39c2cbfbbfa8d9baE"}
-!426 = distinct !{!426, !425, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h39c2cbfbbfa8d9baE: argument 1"}
-!427 = distinct !{!427, !425, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h39c2cbfbbfa8d9baE: argument 2"}
-!428 = distinct !{!428, !425, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h39c2cbfbbfa8d9baE: argument 3"}
-!429 = !{!430, !432}
-!430 = distinct !{!430, !431, !"_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17h5f61fd8a977b5a18E: argument 0"}
-!431 = distinct !{!431, !"_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17h5f61fd8a977b5a18E"}
-!432 = distinct !{!432, !431, !"_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17h5f61fd8a977b5a18E: argument 1"}
-!433 = !{!432}
-!434 = !{!435, !437}
-!435 = distinct !{!435, !436, !"_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17hb9c7d197d0147faeE: argument 0"}
-!436 = distinct !{!436, !"_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17hb9c7d197d0147faeE"}
-!437 = distinct !{!437, !436, !"_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17hb9c7d197d0147faeE: argument 1"}
-!438 = !{!437}
-!439 = !{i32 0, i32 1000000000}
-!440 = !{!441}
-!441 = distinct !{!441, !442, !"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE: argument 0"}
-!442 = distinct !{!442, !"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE"}
-!443 = !{!441, !444}
-!444 = distinct !{!444, !442, !"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE: argument 1"}
-!445 = !{!444}
-!446 = !{!447}
-!447 = distinct !{!447, !448, !"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17hfc757bb5597d52f6E: argument 1"}
-!448 = distinct !{!448, !"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17hfc757bb5597d52f6E"}
+!415 = !{!416, !418}
+!416 = distinct !{!416, !417, !"_ZN6diesel13query_builder16update_statement28UpdateStatement$LT$T$C$U$GT$3set17haffba55f53196c6dE: argument 0"}
+!417 = distinct !{!417, !"_ZN6diesel13query_builder16update_statement28UpdateStatement$LT$T$C$U$GT$3set17haffba55f53196c6dE"}
+!418 = distinct !{!418, !417, !"_ZN6diesel13query_builder16update_statement28UpdateStatement$LT$T$C$U$GT$3set17haffba55f53196c6dE: argument 1"}
+!419 = !{!420, !422, !416, !418}
+!420 = distinct !{!420, !421, !"_ZN17all_about_updates1_121_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$RF$all_about_updates..Post$GT$12as_changeset17hf40c2d0feb4dc9f2E: argument 0"}
+!421 = distinct !{!421, !"_ZN17all_about_updates1_121_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$RF$all_about_updates..Post$GT$12as_changeset17hf40c2d0feb4dc9f2E"}
+!422 = distinct !{!422, !421, !"_ZN17all_about_updates1_121_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$RF$all_about_updates..Post$GT$12as_changeset17hf40c2d0feb4dc9f2E: argument 1"}
+!423 = !{!420, !416}
+!424 = !{!416}
+!425 = !{!418}
+!426 = !{!427, !429, !430, !431}
+!427 = distinct !{!427, !428, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h39c2cbfbbfa8d9baE: argument 0"}
+!428 = distinct !{!428, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h39c2cbfbbfa8d9baE"}
+!429 = distinct !{!429, !428, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h39c2cbfbbfa8d9baE: argument 1"}
+!430 = distinct !{!430, !428, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h39c2cbfbbfa8d9baE: argument 2"}
+!431 = distinct !{!431, !428, !"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h39c2cbfbbfa8d9baE: argument 3"}
+!432 = !{!433, !435}
+!433 = distinct !{!433, !434, !"_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17h5f61fd8a977b5a18E: argument 0"}
+!434 = distinct !{!434, !"_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17h5f61fd8a977b5a18E"}
+!435 = distinct !{!435, !434, !"_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17h5f61fd8a977b5a18E: argument 1"}
+!436 = !{!435}
+!437 = !{!438, !440}
+!438 = distinct !{!438, !439, !"_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17hb9c7d197d0147faeE: argument 0"}
+!439 = distinct !{!439, !"_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17hb9c7d197d0147faeE"}
+!440 = distinct !{!440, !439, !"_ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq17hb9c7d197d0147faeE: argument 1"}
+!441 = !{!440}
+!442 = !{i32 0, i32 1000000000}
+!443 = !{!444}
+!444 = distinct !{!444, !445, !"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE: argument 0"}
+!445 = distinct !{!445, !"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE"}
+!446 = !{!444, !447}
+!447 = distinct !{!447, !445, !"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE: argument 1"}
+!448 = !{!447}
+!449 = !{!450}
+!450 = distinct !{!450, !451, !"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17hfc757bb5597d52f6E: argument 1"}
+!451 = distinct !{!451, !"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17hfc757bb5597d52f6E"}

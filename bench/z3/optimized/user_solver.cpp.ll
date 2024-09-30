@@ -279,16 +279,26 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11user_solver6solverC2ERN3euf6solverE(ptr noundef nonnull align 8 dereferenceable(492) %this, ptr noundef nonnull align 8 dereferenceable(9136) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont17:
+  %retval.i2 = alloca %class.symbol, align 8
+  %retval.i = alloca %class.symbol, align 8
   %ref.tmp = alloca %class.symbol, align 8
   %ref.tmp3 = alloca %class.symbol, align 8
-  call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull @.str.12)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
+  call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %retval.i, ptr noundef nonnull @.str.12)
+  %0 = load ptr, ptr %retval.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i)
+  store ptr %0, ptr %ref.tmp, align 8
   %m.i = getelementptr inbounds i8, ptr %ctx, i64 136
-  %0 = load ptr, ptr %m.i, align 8
-  call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef nonnull @.str.12)
-  %m_family_manager.i = getelementptr inbounds i8, ptr %0, i64 560
+  %1 = load ptr, ptr %m.i, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i2)
+  call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %retval.i2, ptr noundef nonnull @.str.12)
+  %2 = load ptr, ptr %retval.i2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i2)
+  store ptr %2, ptr %ref.tmp3, align 8
+  %m_family_manager.i = getelementptr inbounds i8, ptr %1, i64 560
   %call.i = call noundef i32 @_ZN14family_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(56) %m_family_manager.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3)
   call void @_ZN3euf13th_euf_solverC2ERNS_6solverERK6symboli(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef nonnull align 8 dereferenceable(9136) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef %call.i)
-  %1 = getelementptr inbounds i8, ptr %this, i64 112
+  %3 = getelementptr inbounds i8, ptr %this, i64 112
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11user_solver6solverE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11user_solver6solverE, i64 616), ptr %add.ptr, align 8
@@ -296,7 +306,7 @@ invoke.cont17:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11user_solver6solverE, i64 696), ptr %add.ptr7, align 8
   %add.ptr8 = getelementptr inbounds i8, ptr %this, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11user_solver6solverE, i64 736), ptr %add.ptr8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN11user_solver6solverE, i64 824), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN11user_solver6solverE, i64 824), ptr %3, align 8
   %m_push_eh = getelementptr inbounds i8, ptr %this, i64 128
   %m_prop = getelementptr inbounds i8, ptr %this, i64 432
   %m_next_split_var = getelementptr inbounds i8, ptr %this, i64 484
@@ -3984,19 +3994,29 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN11user_solver6solver5cloneERN3euf6solverE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(492) %this, ptr noundef nonnull align 8 dereferenceable(9136) %dst_ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %retval.i2.i = alloca %class.symbol, align 8
+  %retval.i.i = alloca %class.symbol, align 8
   %ref.tmp.i = alloca %class.symbol, align 8
   %ref.tmp3.i = alloca %class.symbol, align 8
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 496)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp3.i)
-  call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull @.str.12)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i)
+  call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i, ptr noundef nonnull @.str.12)
+  %0 = load ptr, ptr %retval.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i)
+  store ptr %0, ptr %ref.tmp.i, align 8
   %m.i.i = getelementptr inbounds i8, ptr %dst_ctx, i64 136
-  %0 = load ptr, ptr %m.i.i, align 8
-  call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3.i, ptr noundef nonnull @.str.12)
-  %m_family_manager.i.i = getelementptr inbounds i8, ptr %0, i64 560
+  %1 = load ptr, ptr %m.i.i, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i2.i)
+  call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %retval.i2.i, ptr noundef nonnull @.str.12)
+  %2 = load ptr, ptr %retval.i2.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i2.i)
+  store ptr %2, ptr %ref.tmp3.i, align 8
+  %m_family_manager.i.i = getelementptr inbounds i8, ptr %1, i64 560
   %call.i.i = call noundef i32 @_ZN14family_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(56) %m_family_manager.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3.i)
   call void @_ZN3euf13th_euf_solverC2ERNS_6solverERK6symboli(ptr noundef nonnull align 8 dereferenceable(108) %call, ptr noundef nonnull align 8 dereferenceable(9136) %dst_ctx, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, i32 noundef %call.i.i)
-  %1 = getelementptr inbounds i8, ptr %call, i64 112
+  %3 = getelementptr inbounds i8, ptr %call, i64 112
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11user_solver6solverE, i64 16), ptr %call, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11user_solver6solverE, i64 616), ptr %add.ptr.i, align 8
@@ -4004,7 +4024,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11user_solver6solverE, i64 696), ptr %add.ptr7.i, align 8
   %add.ptr8.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11user_solver6solverE, i64 736), ptr %add.ptr8.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN11user_solver6solverE, i64 824), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN11user_solver6solverE, i64 824), ptr %3, align 8
   %m_push_eh.i = getelementptr inbounds i8, ptr %call, i64 128
   %m_prop.i = getelementptr inbounds i8, ptr %call, i64 432
   %m_next_split_var.i = getelementptr inbounds i8, ptr %call, i64 484
@@ -4021,28 +4041,28 @@ entry:
 
 for.cond:                                         ; preds = %for.body, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %2 = load ptr, ptr %m_var2enode.i, align 8
-  %cmp.i.i = icmp eq ptr %2, null
+  %4 = load ptr, ptr %m_var2enode.i, align 8
+  %cmp.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i, label %_ZNK3euf13th_euf_solver12get_num_varsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.cond
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 -4
-  %3 = load i32, ptr %arrayidx.i.i, align 4
-  %4 = zext i32 %3 to i64
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 -4
+  %5 = load i32, ptr %arrayidx.i.i, align 4
+  %6 = zext i32 %5 to i64
   br label %_ZNK3euf13th_euf_solver12get_num_varsEv.exit
 
 _ZNK3euf13th_euf_solver12get_num_varsEv.exit:     ; preds = %for.cond, %if.end.i.i
-  %retval.0.i.i = phi i64 [ %4, %if.end.i.i ], [ 0, %for.cond ]
+  %retval.0.i.i = phi i64 [ %6, %if.end.i.i ], [ 0, %for.cond ]
   %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit
-  %5 = load ptr, ptr %ctx, align 8
-  %arrayidx.i.i6 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %arrayidx.i.i6, align 8
-  %call4 = call noundef ptr @_ZN3euf6solver4copyERS0_PNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(9136) %5, ptr noundef nonnull align 8 dereferenceable(9136) %dst_ctx, ptr noundef %6)
-  %7 = load ptr, ptr %call4, align 8
-  call void @_ZN11user_solver6solver8add_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(492) %call, ptr noundef %7)
+  %7 = load ptr, ptr %ctx, align 8
+  %arrayidx.i.i6 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %8 = load ptr, ptr %arrayidx.i.i6, align 8
+  %call4 = call noundef ptr @_ZN3euf6solver4copyERS0_PNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(9136) %7, ptr noundef nonnull align 8 dereferenceable(9136) %dst_ctx, ptr noundef %8)
+  %9 = load ptr, ptr %call4, align 8
+  call void @_ZN11user_solver6solver8add_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(492) %call, ptr noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond, !llvm.loop !29
 

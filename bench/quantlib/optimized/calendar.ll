@@ -1331,8 +1331,11 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DatemmEv(pt
 ; Function Attrs: mustprogress uwtable
 define i64 @_ZNK8QuantLib8Calendar7advanceERKNS_4DateEiNS_8TimeUnitENS_21BusinessDayConventionEb(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %d, i32 noundef %n, i32 noundef %unit, i32 noundef %c, i1 noundef zeroext %endOfMonth) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %retval.i.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i.i.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp.i.i = alloca %"class.QuantLib::Date", align 8
+  %retval.i = alloca %"class.QuantLib::Date", align 8
   %retval = alloca %"class.QuantLib::Date", align 8
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1597,50 +1600,61 @@ land.lhs.true:                                    ; preds = %if.then67
   br i1 %cmp.i46, label %if.then70, label %if.else73
 
 if.then70:                                        ; preds = %land.lhs.true
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
   %call.i47 = call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d162)
   %call1.i48 = call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d162)
   %call2.i49 = call noundef zeroext i1 @_ZN8QuantLib4Date6isLeapEi(i32 noundef %call1.i48)
   %call3.i50 = call noundef i32 @_ZN8QuantLib4Date11monthLengthENS_5MonthEb(i32 noundef %call.i47, i1 noundef zeroext %call2.i49)
-  call void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %retval, i32 noundef %call3.i50, i32 noundef %call.i47, i32 noundef %call1.i48)
+  call void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %retval.i, i32 noundef %call3.i50, i32 noundef %call.i47, i32 noundef %call1.i48)
+  %24 = load i64, ptr %retval.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i)
   br label %cleanup
 
 if.else73:                                        ; preds = %land.lhs.true, %if.then67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i) #22
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i)
   %call.i.i.i51 = call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d)
   %call1.i.i.i = call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d)
   %call2.i.i.i52 = call noundef zeroext i1 @_ZN8QuantLib4Date6isLeapEi(i32 noundef %call1.i.i.i)
   %call3.i.i.i = call noundef i32 @_ZN8QuantLib4Date11monthLengthENS_5MonthEb(i32 noundef %call.i.i.i51, i1 noundef zeroext %call2.i.i.i52)
-  call void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, i32 noundef %call3.i.i.i, i32 noundef %call.i.i.i51, i32 noundef %call1.i.i.i)
+  call void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i.i, i32 noundef %call3.i.i.i, i32 noundef %call.i.i.i51, i32 noundef %call1.i.i.i)
+  %25 = load i64, ptr %retval.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i)
+  store i64 %25, ptr %ref.tmp.i.i, align 8
   %call2.i.i53 = call i64 @_ZNK8QuantLib8Calendar6adjustERKNS_4DateENS_21BusinessDayConventionE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i) #22
-  %24 = load i64, ptr %d, align 8, !tbaa !20
-  %cmp.i.i.not = icmp slt i64 %24, %call2.i.i53
+  %26 = load i64, ptr %d, align 8, !tbaa !20
+  %cmp.i.i.not = icmp slt i64 %26, %call2.i.i53
   br i1 %cmp.i.i.not, label %if.end80, label %if.then75
 
 if.then75:                                        ; preds = %if.else73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #22
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i)
   %call.i.i54 = call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d162)
   %call1.i.i = call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d162)
   %call2.i.i55 = call noundef zeroext i1 @_ZN8QuantLib4Date6isLeapEi(i32 noundef %call1.i.i)
   %call3.i.i56 = call noundef i32 @_ZN8QuantLib4Date11monthLengthENS_5MonthEb(i32 noundef %call.i.i54, i1 noundef zeroext %call2.i.i55)
-  call void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, i32 noundef %call3.i.i56, i32 noundef %call.i.i54, i32 noundef %call1.i.i)
+  call void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %retval.i.i, i32 noundef %call3.i.i56, i32 noundef %call.i.i54, i32 noundef %call1.i.i)
+  %27 = load i64, ptr %retval.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i)
+  store i64 %27, ptr %ref.tmp.i, align 8
   %call2.i57 = call i64 @_ZNK8QuantLib8Calendar6adjustERKNS_4DateENS_21BusinessDayConventionE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #22
-  store i64 %call2.i57, ptr %retval, align 8
   br label %cleanup
 
 if.end80:                                         ; preds = %if.else73, %if.else61
   %call81 = call i64 @_ZNK8QuantLib8Calendar6adjustERKNS_4DateENS_21BusinessDayConventionE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %d162, i32 noundef %c)
-  store i64 %call81, ptr %retval, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end80, %if.then75, %if.then70
+  %call81.sink = phi i64 [ %call81, %if.end80 ], [ %call2.i57, %if.then75 ], [ %24, %if.then70 ]
+  store i64 %call81.sink, ptr %retval, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d162) #22
   br label %return
 
 return:                                           ; preds = %while.end49, %while.end, %cleanup, %if.then54, %if.then27
-  %25 = load i64, ptr %retval, align 8
-  ret i64 %25
+  %28 = load i64, ptr %retval, align 8
+  ret i64 %28
 
 unreachable:                                      ; preds = %invoke.cont15
   unreachable

@@ -185,8 +185,7 @@ _ZN9toolchain6invoke17h765ea20265727ca8E.exit:    ; preds = %7, %12
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN9toolchain4Tool7path_in17hba3025b6addcf4e3E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, i8 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
 switch.lookup:
-  %4 = alloca { { { { { { i64, ptr, {} }, i64 } } } } }, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  %4 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %5 = sext i8 %1 to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -198,7 +197,6 @@ switch.lookup:
   %9 = extractvalue { ptr, i64 } %7, 1
   call void @_ZN3std4path4Path5_join17h9500bce508c32853E(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %9)
   call void @_ZN9toolchain16probe_for_binary17hc98d17f9f9714b64E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }
 

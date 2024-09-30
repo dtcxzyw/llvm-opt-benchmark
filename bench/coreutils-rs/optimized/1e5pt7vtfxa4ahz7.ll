@@ -2022,6 +2022,7 @@ define void @_ZN11uu_realpath24prepare_relative_options17h16f7a2a33f9e92ecE(ptr 
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %14 = alloca { i128, [4 x i64] }, align 16
   %15 = alloca { ptr, i64 }, align 8
+  %.sroa.099 = alloca { { i64, ptr, {} }, i64 }, align 8
   %16 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] } }, align 8
   %17 = alloca { i64, [2 x i64] }, align 8
   %18 = alloca { i64, [2 x i64] }, align 8
@@ -2112,11 +2113,14 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hba0a0c4fb0911f70E.exit.thr
   br label %59
 
 _ZN12clap_builder6parser5error12MatchesError6unwrap17hba0a0c4fb0911f70E.exit: ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.099)
   %57 = getelementptr i8, ptr %41, i64 24
   %.val62 = load ptr, ptr %57, align 8, !nonnull !5, !noundef !5
   %58 = getelementptr i8, ptr %41, i64 32
   %.val63 = load i64, ptr %58, align 8, !noundef !5
-  call void @_ZN3std3sys6os_str5bytes5Slice8to_owned17had945b6c4cd6e040E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 1 %.val62, i64 noundef %.val63)
+  call void @_ZN3std3sys6os_str5bytes5Slice8to_owned17had945b6c4cd6e040E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %.sroa.099, ptr noalias noundef nonnull readonly align 1 %.val62, i64 noundef %.val63)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.099, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.099)
   br label %59
 
 59:                                               ; preds = %_ZN12clap_builder6parser5error12MatchesError6unwrap17hba0a0c4fb0911f70E.exit, %_ZN12clap_builder6parser5error12MatchesError6unwrap17hba0a0c4fb0911f70E.exit.thread
